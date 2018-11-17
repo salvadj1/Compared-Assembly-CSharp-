@@ -1,0 +1,354 @@
+﻿using System;
+
+// Token: 0x020006DA RID: 1754
+public enum dfLanguageCode
+{
+	// Token: 0x040020C3 RID: 8387
+	None,
+	// Token: 0x040020C4 RID: 8388
+	AB,
+	// Token: 0x040020C5 RID: 8389
+	AA,
+	// Token: 0x040020C6 RID: 8390
+	AF,
+	// Token: 0x040020C7 RID: 8391
+	SQ,
+	// Token: 0x040020C8 RID: 8392
+	AM,
+	// Token: 0x040020C9 RID: 8393
+	AR,
+	// Token: 0x040020CA RID: 8394
+	AN,
+	// Token: 0x040020CB RID: 8395
+	HY,
+	// Token: 0x040020CC RID: 8396
+	AS,
+	// Token: 0x040020CD RID: 8397
+	AE,
+	// Token: 0x040020CE RID: 8398
+	AY,
+	// Token: 0x040020CF RID: 8399
+	AZ,
+	// Token: 0x040020D0 RID: 8400
+	BA,
+	// Token: 0x040020D1 RID: 8401
+	EU,
+	// Token: 0x040020D2 RID: 8402
+	BE,
+	// Token: 0x040020D3 RID: 8403
+	BN,
+	// Token: 0x040020D4 RID: 8404
+	BH,
+	// Token: 0x040020D5 RID: 8405
+	BI,
+	// Token: 0x040020D6 RID: 8406
+	BS,
+	// Token: 0x040020D7 RID: 8407
+	BR,
+	// Token: 0x040020D8 RID: 8408
+	BG,
+	// Token: 0x040020D9 RID: 8409
+	MY,
+	// Token: 0x040020DA RID: 8410
+	CA,
+	// Token: 0x040020DB RID: 8411
+	CH,
+	// Token: 0x040020DC RID: 8412
+	CE,
+	// Token: 0x040020DD RID: 8413
+	ZH,
+	// Token: 0x040020DE RID: 8414
+	CU,
+	// Token: 0x040020DF RID: 8415
+	CV,
+	// Token: 0x040020E0 RID: 8416
+	KW,
+	// Token: 0x040020E1 RID: 8417
+	CO,
+	// Token: 0x040020E2 RID: 8418
+	HR,
+	// Token: 0x040020E3 RID: 8419
+	CS,
+	// Token: 0x040020E4 RID: 8420
+	DA,
+	// Token: 0x040020E5 RID: 8421
+	DV,
+	// Token: 0x040020E6 RID: 8422
+	NL,
+	// Token: 0x040020E7 RID: 8423
+	DZ,
+	// Token: 0x040020E8 RID: 8424
+	EN,
+	// Token: 0x040020E9 RID: 8425
+	EO,
+	// Token: 0x040020EA RID: 8426
+	ET,
+	// Token: 0x040020EB RID: 8427
+	FO,
+	// Token: 0x040020EC RID: 8428
+	FJ,
+	// Token: 0x040020ED RID: 8429
+	FI,
+	// Token: 0x040020EE RID: 8430
+	FR,
+	// Token: 0x040020EF RID: 8431
+	GD,
+	// Token: 0x040020F0 RID: 8432
+	GL,
+	// Token: 0x040020F1 RID: 8433
+	KA,
+	// Token: 0x040020F2 RID: 8434
+	DE,
+	// Token: 0x040020F3 RID: 8435
+	EL,
+	// Token: 0x040020F4 RID: 8436
+	GN,
+	// Token: 0x040020F5 RID: 8437
+	GU,
+	// Token: 0x040020F6 RID: 8438
+	HT,
+	// Token: 0x040020F7 RID: 8439
+	HA,
+	// Token: 0x040020F8 RID: 8440
+	HE,
+	// Token: 0x040020F9 RID: 8441
+	HZ,
+	// Token: 0x040020FA RID: 8442
+	HI,
+	// Token: 0x040020FB RID: 8443
+	HO,
+	// Token: 0x040020FC RID: 8444
+	HU,
+	// Token: 0x040020FD RID: 8445
+	IS,
+	// Token: 0x040020FE RID: 8446
+	IO,
+	// Token: 0x040020FF RID: 8447
+	ID,
+	// Token: 0x04002100 RID: 8448
+	IA,
+	// Token: 0x04002101 RID: 8449
+	IE,
+	// Token: 0x04002102 RID: 8450
+	IU,
+	// Token: 0x04002103 RID: 8451
+	IK,
+	// Token: 0x04002104 RID: 8452
+	GA,
+	// Token: 0x04002105 RID: 8453
+	IT,
+	// Token: 0x04002106 RID: 8454
+	JA,
+	// Token: 0x04002107 RID: 8455
+	JV,
+	// Token: 0x04002108 RID: 8456
+	KL,
+	// Token: 0x04002109 RID: 8457
+	KN,
+	// Token: 0x0400210A RID: 8458
+	KS,
+	// Token: 0x0400210B RID: 8459
+	KK,
+	// Token: 0x0400210C RID: 8460
+	KM,
+	// Token: 0x0400210D RID: 8461
+	KI,
+	// Token: 0x0400210E RID: 8462
+	RW,
+	// Token: 0x0400210F RID: 8463
+	KY,
+	// Token: 0x04002110 RID: 8464
+	KV,
+	// Token: 0x04002111 RID: 8465
+	KO,
+	// Token: 0x04002112 RID: 8466
+	KJ,
+	// Token: 0x04002113 RID: 8467
+	KU,
+	// Token: 0x04002114 RID: 8468
+	LO,
+	// Token: 0x04002115 RID: 8469
+	LA,
+	// Token: 0x04002116 RID: 8470
+	LV,
+	// Token: 0x04002117 RID: 8471
+	LI,
+	// Token: 0x04002118 RID: 8472
+	LN,
+	// Token: 0x04002119 RID: 8473
+	LT,
+	// Token: 0x0400211A RID: 8474
+	LB,
+	// Token: 0x0400211B RID: 8475
+	MK,
+	// Token: 0x0400211C RID: 8476
+	MG,
+	// Token: 0x0400211D RID: 8477
+	MS,
+	// Token: 0x0400211E RID: 8478
+	ML,
+	// Token: 0x0400211F RID: 8479
+	MT,
+	// Token: 0x04002120 RID: 8480
+	GV,
+	// Token: 0x04002121 RID: 8481
+	MI,
+	// Token: 0x04002122 RID: 8482
+	MR,
+	// Token: 0x04002123 RID: 8483
+	MH,
+	// Token: 0x04002124 RID: 8484
+	MO,
+	// Token: 0x04002125 RID: 8485
+	MN,
+	// Token: 0x04002126 RID: 8486
+	NA,
+	// Token: 0x04002127 RID: 8487
+	NV,
+	// Token: 0x04002128 RID: 8488
+	ND,
+	// Token: 0x04002129 RID: 8489
+	NR,
+	// Token: 0x0400212A RID: 8490
+	NG,
+	// Token: 0x0400212B RID: 8491
+	NE,
+	// Token: 0x0400212C RID: 8492
+	SE,
+	// Token: 0x0400212D RID: 8493
+	NO,
+	// Token: 0x0400212E RID: 8494
+	NB,
+	// Token: 0x0400212F RID: 8495
+	NN,
+	// Token: 0x04002130 RID: 8496
+	NY,
+	// Token: 0x04002131 RID: 8497
+	OC,
+	// Token: 0x04002132 RID: 8498
+	OR,
+	// Token: 0x04002133 RID: 8499
+	OM,
+	// Token: 0x04002134 RID: 8500
+	OS,
+	// Token: 0x04002135 RID: 8501
+	PI,
+	// Token: 0x04002136 RID: 8502
+	PA,
+	// Token: 0x04002137 RID: 8503
+	FA,
+	// Token: 0x04002138 RID: 8504
+	PL,
+	// Token: 0x04002139 RID: 8505
+	PT,
+	// Token: 0x0400213A RID: 8506
+	PS,
+	// Token: 0x0400213B RID: 8507
+	QU,
+	// Token: 0x0400213C RID: 8508
+	RM,
+	// Token: 0x0400213D RID: 8509
+	RO,
+	// Token: 0x0400213E RID: 8510
+	RN,
+	// Token: 0x0400213F RID: 8511
+	RU,
+	// Token: 0x04002140 RID: 8512
+	SM,
+	// Token: 0x04002141 RID: 8513
+	SG,
+	// Token: 0x04002142 RID: 8514
+	SA,
+	// Token: 0x04002143 RID: 8515
+	SC,
+	// Token: 0x04002144 RID: 8516
+	SH,
+	// Token: 0x04002145 RID: 8517
+	SR,
+	// Token: 0x04002146 RID: 8518
+	SN,
+	// Token: 0x04002147 RID: 8519
+	II,
+	// Token: 0x04002148 RID: 8520
+	SD,
+	// Token: 0x04002149 RID: 8521
+	SI,
+	// Token: 0x0400214A RID: 8522
+	SK,
+	// Token: 0x0400214B RID: 8523
+	SL,
+	// Token: 0x0400214C RID: 8524
+	SO,
+	// Token: 0x0400214D RID: 8525
+	ST,
+	// Token: 0x0400214E RID: 8526
+	ES,
+	// Token: 0x0400214F RID: 8527
+	SU,
+	// Token: 0x04002150 RID: 8528
+	SW,
+	// Token: 0x04002151 RID: 8529
+	SS,
+	// Token: 0x04002152 RID: 8530
+	SV,
+	// Token: 0x04002153 RID: 8531
+	TL,
+	// Token: 0x04002154 RID: 8532
+	TY,
+	// Token: 0x04002155 RID: 8533
+	TG,
+	// Token: 0x04002156 RID: 8534
+	TA,
+	// Token: 0x04002157 RID: 8535
+	TT,
+	// Token: 0x04002158 RID: 8536
+	TE,
+	// Token: 0x04002159 RID: 8537
+	TH,
+	// Token: 0x0400215A RID: 8538
+	BO,
+	// Token: 0x0400215B RID: 8539
+	TI,
+	// Token: 0x0400215C RID: 8540
+	TO,
+	// Token: 0x0400215D RID: 8541
+	TS,
+	// Token: 0x0400215E RID: 8542
+	TN,
+	// Token: 0x0400215F RID: 8543
+	TR,
+	// Token: 0x04002160 RID: 8544
+	TK,
+	// Token: 0x04002161 RID: 8545
+	TW,
+	// Token: 0x04002162 RID: 8546
+	UG,
+	// Token: 0x04002163 RID: 8547
+	UK,
+	// Token: 0x04002164 RID: 8548
+	UR,
+	// Token: 0x04002165 RID: 8549
+	UZ,
+	// Token: 0x04002166 RID: 8550
+	VI,
+	// Token: 0x04002167 RID: 8551
+	VO,
+	// Token: 0x04002168 RID: 8552
+	WA,
+	// Token: 0x04002169 RID: 8553
+	CY,
+	// Token: 0x0400216A RID: 8554
+	FY,
+	// Token: 0x0400216B RID: 8555
+	WO,
+	// Token: 0x0400216C RID: 8556
+	XH,
+	// Token: 0x0400216D RID: 8557
+	YI,
+	// Token: 0x0400216E RID: 8558
+	YO,
+	// Token: 0x0400216F RID: 8559
+	ZA,
+	// Token: 0x04002170 RID: 8560
+	ZU
+}
