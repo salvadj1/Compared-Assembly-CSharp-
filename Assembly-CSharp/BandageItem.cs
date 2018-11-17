@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005B3 RID: 1459
-public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
+// Token: 0x02000671 RID: 1649
+public abstract class BandageItem<T> : global::HeldItem<T> where T : global::BandageDataBlock
 {
-	// Token: 0x060034E7 RID: 13543 RVA: 0x000C12CC File Offset: 0x000BF4CC
+	// Token: 0x060038AF RID: 14511 RVA: 0x000C9528 File Offset: 0x000C7728
 	protected BandageItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x17000A62 RID: 2658
-	// (get) Token: 0x060034E8 RID: 13544 RVA: 0x000C12E0 File Offset: 0x000BF4E0
-	// (set) Token: 0x060034E9 RID: 13545 RVA: 0x000C12E8 File Offset: 0x000BF4E8
+	// Token: 0x17000AD8 RID: 2776
+	// (get) Token: 0x060038B0 RID: 14512 RVA: 0x000C953C File Offset: 0x000C773C
+	// (set) Token: 0x060038B1 RID: 14513 RVA: 0x000C9544 File Offset: 0x000C7744
 	public float bandageStartTime
 	{
 		get
@@ -24,9 +24,9 @@ public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
 		}
 	}
 
-	// Token: 0x17000A63 RID: 2659
-	// (get) Token: 0x060034EA RID: 13546 RVA: 0x000C12F4 File Offset: 0x000BF4F4
-	// (set) Token: 0x060034EB RID: 13547 RVA: 0x000C12FC File Offset: 0x000BF4FC
+	// Token: 0x17000AD9 RID: 2777
+	// (get) Token: 0x060038B2 RID: 14514 RVA: 0x000C9550 File Offset: 0x000C7750
+	// (set) Token: 0x060038B3 RID: 14515 RVA: 0x000C9558 File Offset: 0x000C7758
 	public bool lastFramePrimary
 	{
 		get
@@ -39,9 +39,9 @@ public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
 		}
 	}
 
-	// Token: 0x17000A64 RID: 2660
-	// (get) Token: 0x060034EC RID: 13548 RVA: 0x000C1308 File Offset: 0x000BF508
-	// (set) Token: 0x060034ED RID: 13549 RVA: 0x000C1310 File Offset: 0x000BF510
+	// Token: 0x17000ADA RID: 2778
+	// (get) Token: 0x060038B4 RID: 14516 RVA: 0x000C9564 File Offset: 0x000C7764
+	// (set) Token: 0x060038B5 RID: 14517 RVA: 0x000C956C File Offset: 0x000C776C
 	public float lastBandageTime
 	{
 		get
@@ -54,8 +54,8 @@ public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
 		}
 	}
 
-	// Token: 0x060034EE RID: 13550 RVA: 0x000C131C File Offset: 0x000BF51C
-	public override void ItemPreFrame(ref HumanController.InputSample sample)
+	// Token: 0x060038B6 RID: 14518 RVA: 0x000C9578 File Offset: 0x000C7778
+	public override void ItemPreFrame(ref global::HumanController.InputSample sample)
 	{
 		base.ItemPreFrame(ref sample);
 		if (sample.attack && this.CanBandage())
@@ -72,10 +72,10 @@ public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
 		}
 	}
 
-	// Token: 0x060034EF RID: 13551 RVA: 0x000C136C File Offset: 0x000BF56C
+	// Token: 0x060038B7 RID: 14519 RVA: 0x000C95C8 File Offset: 0x000C77C8
 	public virtual bool CanBandage()
 	{
-		HumanBodyTakeDamage component = base.inventory.gameObject.GetComponent<HumanBodyTakeDamage>();
+		global::HumanBodyTakeDamage component = base.inventory.gameObject.GetComponent<global::HumanBodyTakeDamage>();
 		if (!component.IsBleeding())
 		{
 			if (component.healthLossFraction > 0f)
@@ -92,8 +92,8 @@ public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
 		return Time.time - this.lastBandageTime > 1.5f;
 	}
 
-	// Token: 0x060034F0 RID: 13552 RVA: 0x000C13D4 File Offset: 0x000BF5D4
-	public virtual void Primary(ref HumanController.InputSample sample)
+	// Token: 0x060038B8 RID: 14520 RVA: 0x000C9630 File Offset: 0x000C7830
+	public virtual void Primary(ref global::HumanController.InputSample sample)
 	{
 		this.lastFramePrimary = true;
 		sample.crouch = true;
@@ -124,24 +124,24 @@ public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
 		{
 			label = "Transfusing...";
 		}
-		RPOS.SetActionProgress(true, label, num2);
+		global::RPOS.SetActionProgress(true, label, num2);
 		if (num2 >= 1f)
 		{
 			this.FinishBandage();
 		}
 	}
 
-	// Token: 0x060034F1 RID: 13553 RVA: 0x000C14E8 File Offset: 0x000BF6E8
+	// Token: 0x060038B9 RID: 14521 RVA: 0x000C9744 File Offset: 0x000C7944
 	public void StartBandage()
 	{
 		this.bandageStartTime = Time.time;
 	}
 
-	// Token: 0x060034F2 RID: 13554 RVA: 0x000C14F8 File Offset: 0x000BF6F8
+	// Token: 0x060038BA RID: 14522 RVA: 0x000C9754 File Offset: 0x000C7954
 	public void FinishBandage()
 	{
 		this.bandageStartTime = -1f;
-		RPOS.SetActionProgress(false, null, 0f);
+		global::RPOS.SetActionProgress(false, null, 0f);
 		int num = 1;
 		if (base.Consume(ref num))
 		{
@@ -150,19 +150,19 @@ public abstract class BandageItem<T> : HeldItem<T> where T : BandageDataBlock
 		base.itemRepresentation.Action(3, 0);
 	}
 
-	// Token: 0x060034F3 RID: 13555 RVA: 0x000C154C File Offset: 0x000BF74C
+	// Token: 0x060038BB RID: 14523 RVA: 0x000C97A8 File Offset: 0x000C79A8
 	public void CancelBandage()
 	{
-		RPOS.SetActionProgress(false, null, 0f);
+		global::RPOS.SetActionProgress(false, null, 0f);
 		this.bandageStartTime = -1f;
 	}
 
-	// Token: 0x04001A5C RID: 6748
+	// Token: 0x04001C2D RID: 7213
 	private float _bandageStartTime = -1f;
 
-	// Token: 0x04001A5D RID: 6749
+	// Token: 0x04001C2E RID: 7214
 	private bool _lastFramePrimary;
 
-	// Token: 0x04001A5E RID: 6750
+	// Token: 0x04001C2F RID: 7215
 	private float _lastBandageTime;
 }

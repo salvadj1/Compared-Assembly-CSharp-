@@ -1,47 +1,47 @@
 ﻿using System;
 
-// Token: 0x0200072A RID: 1834
-[dfMarkupTagInfo("h3")]
-[dfMarkupTagInfo("h4")]
-[dfMarkupTagInfo("h5")]
-[dfMarkupTagInfo("h6")]
-[dfMarkupTagInfo("h2")]
-[dfMarkupTagInfo("h1")]
-public class dfMarkupTagHeading : dfMarkupTag
+// Token: 0x02000806 RID: 2054
+[global::dfMarkupTagInfo("h2")]
+[global::dfMarkupTagInfo("h1")]
+[global::dfMarkupTagInfo("h5")]
+[global::dfMarkupTagInfo("h4")]
+[global::dfMarkupTagInfo("h3")]
+[global::dfMarkupTagInfo("h6")]
+public class dfMarkupTagHeading : global::dfMarkupTag
 {
-	// Token: 0x060042F8 RID: 17144 RVA: 0x001044B4 File Offset: 0x001026B4
+	// Token: 0x0600473C RID: 18236 RVA: 0x0010D7C4 File Offset: 0x0010B9C4
 	public dfMarkupTagHeading() : base("h1")
 	{
 	}
 
-	// Token: 0x060042F9 RID: 17145 RVA: 0x001044C4 File Offset: 0x001026C4
-	public dfMarkupTagHeading(dfMarkupTag original) : base(original)
+	// Token: 0x0600473D RID: 18237 RVA: 0x0010D7D4 File Offset: 0x0010B9D4
+	public dfMarkupTagHeading(global::dfMarkupTag original) : base(original)
 	{
 	}
 
-	// Token: 0x060042FA RID: 17146 RVA: 0x001044D0 File Offset: 0x001026D0
-	protected override void _PerformLayoutImpl(dfMarkupBox container, dfMarkupStyle style)
+	// Token: 0x0600473E RID: 18238 RVA: 0x0010D7E0 File Offset: 0x0010B9E0
+	protected override void _PerformLayoutImpl(global::dfMarkupBox container, global::dfMarkupStyle style)
 	{
-		dfMarkupBorders margins = default(dfMarkupBorders);
-		dfMarkupStyle style2 = this.applyDefaultStyles(style, ref margins);
+		global::dfMarkupBorders margins = default(global::dfMarkupBorders);
+		global::dfMarkupStyle style2 = this.applyDefaultStyles(style, ref margins);
 		style2 = base.applyTextStyleAttributes(style2);
-		dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
+		global::dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
 		{
 			"margin"
 		});
 		if (dfMarkupAttribute != null)
 		{
-			margins = dfMarkupBorders.Parse(dfMarkupAttribute.Value);
+			margins = global::dfMarkupBorders.Parse(dfMarkupAttribute.Value);
 		}
-		dfMarkupBox dfMarkupBox = new dfMarkupBox(this, dfMarkupDisplayType.block, style2);
+		global::dfMarkupBox dfMarkupBox = new global::dfMarkupBox(this, global::dfMarkupDisplayType.block, style2);
 		dfMarkupBox.Margins = margins;
 		container.AddChild(dfMarkupBox);
 		base._PerformLayoutImpl(dfMarkupBox, style2);
 		dfMarkupBox.FitToContents(false);
 	}
 
-	// Token: 0x060042FB RID: 17147 RVA: 0x00104544 File Offset: 0x00102744
-	private dfMarkupStyle applyDefaultStyles(dfMarkupStyle style, ref dfMarkupBorders margins)
+	// Token: 0x0600473F RID: 18239 RVA: 0x0010D854 File Offset: 0x0010BA54
+	private global::dfMarkupStyle applyDefaultStyles(global::dfMarkupStyle style, ref global::dfMarkupBorders margins)
 	{
 		float num = 1f;
 		float num2 = 1f;
@@ -75,7 +75,7 @@ public class dfMarkupTagHeading : dfMarkupTag
 		}
 		style.FontSize = (int)((float)style.FontSize * num2);
 		style.FontStyle = 1;
-		style.Align = dfMarkupTextAlign.Left;
+		style.Align = global::dfMarkupTextAlign.Left;
 		num *= (float)style.FontSize;
 		int top = margins.bottom = (int)num;
 		margins.top = top;

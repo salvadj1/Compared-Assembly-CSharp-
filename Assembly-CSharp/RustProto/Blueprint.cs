@@ -9,50 +9,50 @@ using RustProto.Proto;
 
 namespace RustProto
 {
-	// Token: 0x02000205 RID: 517
+	// Token: 0x02000238 RID: 568
 	[DebuggerNonUserCode]
-	public sealed class Blueprint : GeneratedMessage<Blueprint, Blueprint.Builder>
+	public sealed class Blueprint : GeneratedMessage<RustProto.Blueprint, RustProto.Blueprint.Builder>
 	{
-		// Token: 0x06000F85 RID: 3973 RVA: 0x0003A25C File Offset: 0x0003845C
+		// Token: 0x060010D9 RID: 4313 RVA: 0x0003E604 File Offset: 0x0003C804
 		private Blueprint()
 		{
 		}
 
-		// Token: 0x06000F86 RID: 3974 RVA: 0x0003A26C File Offset: 0x0003846C
+		// Token: 0x060010DA RID: 4314 RVA: 0x0003E614 File Offset: 0x0003C814
 		static Blueprint()
 		{
-			object.ReferenceEquals(Blueprint.Descriptor, null);
+			object.ReferenceEquals(RustProto.Proto.Blueprint.Descriptor, null);
 		}
 
-		// Token: 0x06000F87 RID: 3975 RVA: 0x0003A2AC File Offset: 0x000384AC
-		public static Recycler<Blueprint, Blueprint.Builder> Recycler()
+		// Token: 0x060010DB RID: 4315 RVA: 0x0003E654 File Offset: 0x0003C854
+		public static RustProto.Helpers.Recycler<RustProto.Blueprint, RustProto.Blueprint.Builder> Recycler()
 		{
-			return Recycler<Blueprint, Blueprint.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<RustProto.Blueprint, RustProto.Blueprint.Builder>.Manufacture();
 		}
 
-		// Token: 0x17000402 RID: 1026
-		// (get) Token: 0x06000F88 RID: 3976 RVA: 0x0003A2B4 File Offset: 0x000384B4
-		public static Blueprint DefaultInstance
-		{
-			get
-			{
-				return Blueprint.defaultInstance;
-			}
-		}
-
-		// Token: 0x17000403 RID: 1027
-		// (get) Token: 0x06000F89 RID: 3977 RVA: 0x0003A2BC File Offset: 0x000384BC
-		public override Blueprint DefaultInstanceForType
+		// Token: 0x1700044A RID: 1098
+		// (get) Token: 0x060010DC RID: 4316 RVA: 0x0003E65C File Offset: 0x0003C85C
+		public static RustProto.Blueprint DefaultInstance
 		{
 			get
 			{
-				return Blueprint.DefaultInstance;
+				return RustProto.Blueprint.defaultInstance;
 			}
 		}
 
-		// Token: 0x17000404 RID: 1028
-		// (get) Token: 0x06000F8A RID: 3978 RVA: 0x0003A2C4 File Offset: 0x000384C4
-		protected override Blueprint ThisMessage
+		// Token: 0x1700044B RID: 1099
+		// (get) Token: 0x060010DD RID: 4317 RVA: 0x0003E664 File Offset: 0x0003C864
+		public override RustProto.Blueprint DefaultInstanceForType
+		{
+			get
+			{
+				return RustProto.Blueprint.DefaultInstance;
+			}
+		}
+
+		// Token: 0x1700044C RID: 1100
+		// (get) Token: 0x060010DE RID: 4318 RVA: 0x0003E66C File Offset: 0x0003C86C
+		protected override RustProto.Blueprint ThisMessage
 		{
 			get
 			{
@@ -60,28 +60,28 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000405 RID: 1029
-		// (get) Token: 0x06000F8B RID: 3979 RVA: 0x0003A2C8 File Offset: 0x000384C8
+		// Token: 0x1700044D RID: 1101
+		// (get) Token: 0x060010DF RID: 4319 RVA: 0x0003E670 File Offset: 0x0003C870
 		public static MessageDescriptor Descriptor
 		{
 			get
 			{
-				return Blueprint.internal__static_RustProto_Blueprint__Descriptor;
+				return RustProto.Proto.Blueprint.internal__static_RustProto_Blueprint__Descriptor;
 			}
 		}
 
-		// Token: 0x17000406 RID: 1030
-		// (get) Token: 0x06000F8C RID: 3980 RVA: 0x0003A2D0 File Offset: 0x000384D0
-		protected override FieldAccessorTable<Blueprint, Blueprint.Builder> InternalFieldAccessors
+		// Token: 0x1700044E RID: 1102
+		// (get) Token: 0x060010E0 RID: 4320 RVA: 0x0003E678 File Offset: 0x0003C878
+		protected override FieldAccessorTable<RustProto.Blueprint, RustProto.Blueprint.Builder> InternalFieldAccessors
 		{
 			get
 			{
-				return Blueprint.internal__static_RustProto_Blueprint__FieldAccessorTable;
+				return RustProto.Proto.Blueprint.internal__static_RustProto_Blueprint__FieldAccessorTable;
 			}
 		}
 
-		// Token: 0x17000407 RID: 1031
-		// (get) Token: 0x06000F8D RID: 3981 RVA: 0x0003A2D8 File Offset: 0x000384D8
+		// Token: 0x1700044F RID: 1103
+		// (get) Token: 0x060010E1 RID: 4321 RVA: 0x0003E680 File Offset: 0x0003C880
 		public bool HasId
 		{
 			get
@@ -90,8 +90,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000408 RID: 1032
-		// (get) Token: 0x06000F8E RID: 3982 RVA: 0x0003A2E0 File Offset: 0x000384E0
+		// Token: 0x17000450 RID: 1104
+		// (get) Token: 0x060010E2 RID: 4322 RVA: 0x0003E688 File Offset: 0x0003C888
 		public int Id
 		{
 			get
@@ -100,8 +100,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000409 RID: 1033
-		// (get) Token: 0x06000F8F RID: 3983 RVA: 0x0003A2E8 File Offset: 0x000384E8
+		// Token: 0x17000451 RID: 1105
+		// (get) Token: 0x060010E3 RID: 4323 RVA: 0x0003E690 File Offset: 0x0003C890
 		public override bool IsInitialized
 		{
 			get
@@ -110,11 +110,11 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06000F90 RID: 3984 RVA: 0x0003A2F8 File Offset: 0x000384F8
+		// Token: 0x060010E4 RID: 4324 RVA: 0x0003E6A0 File Offset: 0x0003C8A0
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
-			string[] blueprintFieldNames = Blueprint._blueprintFieldNames;
+			string[] blueprintFieldNames = RustProto.Blueprint._blueprintFieldNames;
 			if (this.hasId)
 			{
 				output.WriteInt32(1, blueprintFieldNames[0], this.Id);
@@ -122,8 +122,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x1700040A RID: 1034
-		// (get) Token: 0x06000F91 RID: 3985 RVA: 0x0003A33C File Offset: 0x0003853C
+		// Token: 0x17000452 RID: 1106
+		// (get) Token: 0x060010E5 RID: 4325 RVA: 0x0003E6E4 File Offset: 0x0003C8E4
 		public override int SerializedSize
 		{
 			get
@@ -144,144 +144,144 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06000F92 RID: 3986 RVA: 0x0003A38C File Offset: 0x0003858C
-		public static Blueprint ParseFrom(ByteString data)
+		// Token: 0x060010E6 RID: 4326 RVA: 0x0003E734 File Offset: 0x0003C934
+		public static RustProto.Blueprint ParseFrom(ByteString data)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(data).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06000F93 RID: 3987 RVA: 0x0003A3A0 File Offset: 0x000385A0
-		public static Blueprint ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
+		// Token: 0x060010E7 RID: 4327 RVA: 0x0003E748 File Offset: 0x0003C948
+		public static RustProto.Blueprint ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000F94 RID: 3988 RVA: 0x0003A3B4 File Offset: 0x000385B4
-		public static Blueprint ParseFrom(byte[] data)
+		// Token: 0x060010E8 RID: 4328 RVA: 0x0003E75C File Offset: 0x0003C95C
+		public static RustProto.Blueprint ParseFrom(byte[] data)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(data).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06000F95 RID: 3989 RVA: 0x0003A3C8 File Offset: 0x000385C8
-		public static Blueprint ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
+		// Token: 0x060010E9 RID: 4329 RVA: 0x0003E770 File Offset: 0x0003C970
+		public static RustProto.Blueprint ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000F96 RID: 3990 RVA: 0x0003A3DC File Offset: 0x000385DC
-		public static Blueprint ParseFrom(Stream input)
+		// Token: 0x060010EA RID: 4330 RVA: 0x0003E784 File Offset: 0x0003C984
+		public static RustProto.Blueprint ParseFrom(Stream input)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(input).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06000F97 RID: 3991 RVA: 0x0003A3F0 File Offset: 0x000385F0
-		public static Blueprint ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
+		// Token: 0x060010EB RID: 4331 RVA: 0x0003E798 File Offset: 0x0003C998
+		public static RustProto.Blueprint ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000F98 RID: 3992 RVA: 0x0003A404 File Offset: 0x00038604
-		public static Blueprint ParseDelimitedFrom(Stream input)
+		// Token: 0x060010EC RID: 4332 RVA: 0x0003E7AC File Offset: 0x0003C9AC
+		public static RustProto.Blueprint ParseDelimitedFrom(Stream input)
 		{
-			return Blueprint.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06000F99 RID: 3993 RVA: 0x0003A418 File Offset: 0x00038618
-		public static Blueprint ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
+		// Token: 0x060010ED RID: 4333 RVA: 0x0003E7C0 File Offset: 0x0003C9C0
+		public static RustProto.Blueprint ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
-			return Blueprint.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000F9A RID: 3994 RVA: 0x0003A42C File Offset: 0x0003862C
-		public static Blueprint ParseFrom(ICodedInputStream input)
+		// Token: 0x060010EE RID: 4334 RVA: 0x0003E7D4 File Offset: 0x0003C9D4
+		public static RustProto.Blueprint ParseFrom(ICodedInputStream input)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(input).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06000F9B RID: 3995 RVA: 0x0003A440 File Offset: 0x00038640
-		public static Blueprint ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
+		// Token: 0x060010EF RID: 4335 RVA: 0x0003E7E8 File Offset: 0x0003C9E8
+		public static RustProto.Blueprint ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
-			return Blueprint.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
+			return RustProto.Blueprint.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000F9C RID: 3996 RVA: 0x0003A454 File Offset: 0x00038654
-		private Blueprint MakeReadOnly()
+		// Token: 0x060010F0 RID: 4336 RVA: 0x0003E7FC File Offset: 0x0003C9FC
+		private RustProto.Blueprint MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x06000F9D RID: 3997 RVA: 0x0003A458 File Offset: 0x00038658
-		public static Blueprint.Builder CreateBuilder()
+		// Token: 0x060010F1 RID: 4337 RVA: 0x0003E800 File Offset: 0x0003CA00
+		public static RustProto.Blueprint.Builder CreateBuilder()
 		{
-			return new Blueprint.Builder();
+			return new RustProto.Blueprint.Builder();
 		}
 
-		// Token: 0x06000F9E RID: 3998 RVA: 0x0003A460 File Offset: 0x00038660
-		public override Blueprint.Builder ToBuilder()
+		// Token: 0x060010F2 RID: 4338 RVA: 0x0003E808 File Offset: 0x0003CA08
+		public override RustProto.Blueprint.Builder ToBuilder()
 		{
-			return Blueprint.CreateBuilder(this);
+			return RustProto.Blueprint.CreateBuilder(this);
 		}
 
-		// Token: 0x06000F9F RID: 3999 RVA: 0x0003A468 File Offset: 0x00038668
-		public override Blueprint.Builder CreateBuilderForType()
+		// Token: 0x060010F3 RID: 4339 RVA: 0x0003E810 File Offset: 0x0003CA10
+		public override RustProto.Blueprint.Builder CreateBuilderForType()
 		{
-			return new Blueprint.Builder();
+			return new RustProto.Blueprint.Builder();
 		}
 
-		// Token: 0x06000FA0 RID: 4000 RVA: 0x0003A470 File Offset: 0x00038670
-		public static Blueprint.Builder CreateBuilder(Blueprint prototype)
+		// Token: 0x060010F4 RID: 4340 RVA: 0x0003E818 File Offset: 0x0003CA18
+		public static RustProto.Blueprint.Builder CreateBuilder(RustProto.Blueprint prototype)
 		{
-			return new Blueprint.Builder(prototype);
+			return new RustProto.Blueprint.Builder(prototype);
 		}
 
-		// Token: 0x040008F2 RID: 2290
+		// Token: 0x04000A15 RID: 2581
 		public const int IdFieldNumber = 1;
 
-		// Token: 0x040008F3 RID: 2291
-		private static readonly Blueprint defaultInstance = new Blueprint().MakeReadOnly();
+		// Token: 0x04000A16 RID: 2582
+		private static readonly RustProto.Blueprint defaultInstance = new RustProto.Blueprint().MakeReadOnly();
 
-		// Token: 0x040008F4 RID: 2292
+		// Token: 0x04000A17 RID: 2583
 		private static readonly string[] _blueprintFieldNames = new string[]
 		{
 			"id"
 		};
 
-		// Token: 0x040008F5 RID: 2293
+		// Token: 0x04000A18 RID: 2584
 		private static readonly uint[] _blueprintFieldTags = new uint[]
 		{
 			8u
 		};
 
-		// Token: 0x040008F6 RID: 2294
+		// Token: 0x04000A19 RID: 2585
 		private bool hasId;
 
-		// Token: 0x040008F7 RID: 2295
+		// Token: 0x04000A1A RID: 2586
 		private int id_;
 
-		// Token: 0x040008F8 RID: 2296
+		// Token: 0x04000A1B RID: 2587
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000206 RID: 518
+		// Token: 0x02000239 RID: 569
 		[DebuggerNonUserCode]
-		public sealed class Builder : GeneratedBuilder<Blueprint, Blueprint.Builder>
+		public sealed class Builder : GeneratedBuilder<RustProto.Blueprint, RustProto.Blueprint.Builder>
 		{
-			// Token: 0x06000FA1 RID: 4001 RVA: 0x0003A478 File Offset: 0x00038678
+			// Token: 0x060010F5 RID: 4341 RVA: 0x0003E820 File Offset: 0x0003CA20
 			public Builder()
 			{
-				this.result = Blueprint.DefaultInstance;
+				this.result = RustProto.Blueprint.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x06000FA2 RID: 4002 RVA: 0x0003A494 File Offset: 0x00038694
-			internal Builder(Blueprint cloneFrom)
+			// Token: 0x060010F6 RID: 4342 RVA: 0x0003E83C File Offset: 0x0003CA3C
+			internal Builder(RustProto.Blueprint cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x1700040B RID: 1035
-			// (get) Token: 0x06000FA3 RID: 4003 RVA: 0x0003A4AC File Offset: 0x000386AC
-			protected override Blueprint.Builder ThisBuilder
+			// Token: 0x17000453 RID: 1107
+			// (get) Token: 0x060010F7 RID: 4343 RVA: 0x0003E854 File Offset: 0x0003CA54
+			protected override RustProto.Blueprint.Builder ThisBuilder
 			{
 				get
 				{
@@ -289,21 +289,21 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000FA4 RID: 4004 RVA: 0x0003A4B0 File Offset: 0x000386B0
-			private Blueprint PrepareBuilder()
+			// Token: 0x060010F8 RID: 4344 RVA: 0x0003E858 File Offset: 0x0003CA58
+			private RustProto.Blueprint PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
 				{
-					Blueprint other = this.result;
-					this.result = new Blueprint();
+					RustProto.Blueprint other = this.result;
+					this.result = new RustProto.Blueprint();
 					this.resultIsReadOnly = false;
 					this.MergeFrom(other);
 				}
 				return this.result;
 			}
 
-			// Token: 0x1700040C RID: 1036
-			// (get) Token: 0x06000FA5 RID: 4005 RVA: 0x0003A4F0 File Offset: 0x000386F0
+			// Token: 0x17000454 RID: 1108
+			// (get) Token: 0x060010F9 RID: 4345 RVA: 0x0003E898 File Offset: 0x0003CA98
 			public override bool IsInitialized
 			{
 				get
@@ -312,9 +312,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700040D RID: 1037
-			// (get) Token: 0x06000FA6 RID: 4006 RVA: 0x0003A500 File Offset: 0x00038700
-			protected override Blueprint MessageBeingBuilt
+			// Token: 0x17000455 RID: 1109
+			// (get) Token: 0x060010FA RID: 4346 RVA: 0x0003E8A8 File Offset: 0x0003CAA8
+			protected override RustProto.Blueprint MessageBeingBuilt
 			{
 				get
 				{
@@ -322,46 +322,46 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000FA7 RID: 4007 RVA: 0x0003A508 File Offset: 0x00038708
-			public override Blueprint.Builder Clear()
+			// Token: 0x060010FB RID: 4347 RVA: 0x0003E8B0 File Offset: 0x0003CAB0
+			public override RustProto.Blueprint.Builder Clear()
 			{
-				this.result = Blueprint.DefaultInstance;
+				this.result = RustProto.Blueprint.DefaultInstance;
 				this.resultIsReadOnly = true;
 				return this;
 			}
 
-			// Token: 0x06000FA8 RID: 4008 RVA: 0x0003A520 File Offset: 0x00038720
-			public override Blueprint.Builder Clone()
+			// Token: 0x060010FC RID: 4348 RVA: 0x0003E8C8 File Offset: 0x0003CAC8
+			public override RustProto.Blueprint.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
 				{
-					return new Blueprint.Builder(this.result);
+					return new RustProto.Blueprint.Builder(this.result);
 				}
-				return new Blueprint.Builder().MergeFrom(this.result);
+				return new RustProto.Blueprint.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x1700040E RID: 1038
-			// (get) Token: 0x06000FA9 RID: 4009 RVA: 0x0003A54C File Offset: 0x0003874C
+			// Token: 0x17000456 RID: 1110
+			// (get) Token: 0x060010FD RID: 4349 RVA: 0x0003E8F4 File Offset: 0x0003CAF4
 			public override MessageDescriptor DescriptorForType
 			{
 				get
 				{
-					return Blueprint.Descriptor;
+					return RustProto.Blueprint.Descriptor;
 				}
 			}
 
-			// Token: 0x1700040F RID: 1039
-			// (get) Token: 0x06000FAA RID: 4010 RVA: 0x0003A554 File Offset: 0x00038754
-			public override Blueprint DefaultInstanceForType
+			// Token: 0x17000457 RID: 1111
+			// (get) Token: 0x060010FE RID: 4350 RVA: 0x0003E8FC File Offset: 0x0003CAFC
+			public override RustProto.Blueprint DefaultInstanceForType
 			{
 				get
 				{
-					return Blueprint.DefaultInstance;
+					return RustProto.Blueprint.DefaultInstance;
 				}
 			}
 
-			// Token: 0x06000FAB RID: 4011 RVA: 0x0003A55C File Offset: 0x0003875C
-			public override Blueprint BuildPartial()
+			// Token: 0x060010FF RID: 4351 RVA: 0x0003E904 File Offset: 0x0003CB04
+			public override RustProto.Blueprint BuildPartial()
 			{
 				if (this.resultIsReadOnly)
 				{
@@ -371,21 +371,21 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x06000FAC RID: 4012 RVA: 0x0003A590 File Offset: 0x00038790
-			public override Blueprint.Builder MergeFrom(IMessage other)
+			// Token: 0x06001100 RID: 4352 RVA: 0x0003E938 File Offset: 0x0003CB38
+			public override RustProto.Blueprint.Builder MergeFrom(IMessage other)
 			{
-				if (other is Blueprint)
+				if (other is RustProto.Blueprint)
 				{
-					return this.MergeFrom((Blueprint)other);
+					return this.MergeFrom((RustProto.Blueprint)other);
 				}
 				base.MergeFrom(other);
 				return this;
 			}
 
-			// Token: 0x06000FAD RID: 4013 RVA: 0x0003A5B4 File Offset: 0x000387B4
-			public override Blueprint.Builder MergeFrom(Blueprint other)
+			// Token: 0x06001101 RID: 4353 RVA: 0x0003E95C File Offset: 0x0003CB5C
+			public override RustProto.Blueprint.Builder MergeFrom(RustProto.Blueprint other)
 			{
-				if (other == Blueprint.DefaultInstance)
+				if (other == RustProto.Blueprint.DefaultInstance)
 				{
 					return this;
 				}
@@ -398,14 +398,14 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000FAE RID: 4014 RVA: 0x0003A5FC File Offset: 0x000387FC
-			public override Blueprint.Builder MergeFrom(ICodedInputStream input)
+			// Token: 0x06001102 RID: 4354 RVA: 0x0003E9A4 File Offset: 0x0003CBA4
+			public override RustProto.Blueprint.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x06000FAF RID: 4015 RVA: 0x0003A60C File Offset: 0x0003880C
-			public override Blueprint.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
+			// Token: 0x06001103 RID: 4355 RVA: 0x0003E9B4 File Offset: 0x0003CBB4
+			public override RustProto.Blueprint.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
 				UnknownFieldSet.Builder builder = null;
@@ -415,7 +415,7 @@ namespace RustProto
 				{
 					if (num == 0u && text != null)
 					{
-						int num2 = Array.BinarySearch<string>(Blueprint._blueprintFieldNames, text, StringComparer.Ordinal);
+						int num2 = Array.BinarySearch<string>(RustProto.Blueprint._blueprintFieldNames, text, StringComparer.Ordinal);
 						if (num2 < 0)
 						{
 							if (builder == null)
@@ -425,7 +425,7 @@ namespace RustProto
 							this.ParseUnknownField(input, builder, extensionRegistry, num, text);
 							continue;
 						}
-						num = Blueprint._blueprintFieldTags[num2];
+						num = RustProto.Blueprint._blueprintFieldTags[num2];
 					}
 					uint num3 = num;
 					if (num3 == 0u)
@@ -460,8 +460,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000410 RID: 1040
-			// (get) Token: 0x06000FB0 RID: 4016 RVA: 0x0003A720 File Offset: 0x00038920
+			// Token: 0x17000458 RID: 1112
+			// (get) Token: 0x06001104 RID: 4356 RVA: 0x0003EAC8 File Offset: 0x0003CCC8
 			public bool HasId
 			{
 				get
@@ -470,9 +470,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000411 RID: 1041
-			// (get) Token: 0x06000FB1 RID: 4017 RVA: 0x0003A730 File Offset: 0x00038930
-			// (set) Token: 0x06000FB2 RID: 4018 RVA: 0x0003A740 File Offset: 0x00038940
+			// Token: 0x17000459 RID: 1113
+			// (get) Token: 0x06001105 RID: 4357 RVA: 0x0003EAD8 File Offset: 0x0003CCD8
+			// (set) Token: 0x06001106 RID: 4358 RVA: 0x0003EAE8 File Offset: 0x0003CCE8
 			public int Id
 			{
 				get
@@ -485,8 +485,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000FB3 RID: 4019 RVA: 0x0003A74C File Offset: 0x0003894C
-			public Blueprint.Builder SetId(int value)
+			// Token: 0x06001107 RID: 4359 RVA: 0x0003EAF4 File Offset: 0x0003CCF4
+			public RustProto.Blueprint.Builder SetId(int value)
 			{
 				this.PrepareBuilder();
 				this.result.hasId = true;
@@ -494,8 +494,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000FB4 RID: 4020 RVA: 0x0003A77C File Offset: 0x0003897C
-			public Blueprint.Builder ClearId()
+			// Token: 0x06001108 RID: 4360 RVA: 0x0003EB24 File Offset: 0x0003CD24
+			public RustProto.Blueprint.Builder ClearId()
 			{
 				this.PrepareBuilder();
 				this.result.hasId = false;
@@ -503,11 +503,11 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x040008F9 RID: 2297
+			// Token: 0x04000A1C RID: 2588
 			private bool resultIsReadOnly;
 
-			// Token: 0x040008FA RID: 2298
-			private Blueprint result;
+			// Token: 0x04000A1D RID: 2589
+			private RustProto.Blueprint result;
 		}
 	}
 }

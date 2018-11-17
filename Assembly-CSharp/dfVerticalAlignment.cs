@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x020006AC RID: 1708
+// Token: 0x02000777 RID: 1911
 public enum dfVerticalAlignment
 {
-	// Token: 0x04001FA8 RID: 8104
+	// Token: 0x040021A9 RID: 8617
 	Top,
-	// Token: 0x04001FA9 RID: 8105
+	// Token: 0x040021AA RID: 8618
 	Middle,
-	// Token: 0x04001FAA RID: 8106
+	// Token: 0x040021AB RID: 8619
 	Bottom
 }

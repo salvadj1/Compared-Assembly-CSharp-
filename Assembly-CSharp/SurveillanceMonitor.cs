@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200067B RID: 1659
+// Token: 0x0200073F RID: 1855
 [RequireComponent(typeof(Renderer))]
 public class SurveillanceMonitor : MonoBehaviour
 {
-	// Token: 0x060039C7 RID: 14791 RVA: 0x000D550C File Offset: 0x000D370C
+	// Token: 0x06003DBB RID: 15803 RVA: 0x000DDEEC File Offset: 0x000DC0EC
 	private void Awake()
 	{
 		this.renderer = base.renderer;
@@ -54,7 +54,7 @@ public class SurveillanceMonitor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039C8 RID: 14792 RVA: 0x000D5698 File Offset: 0x000D3898
+	// Token: 0x06003DBC RID: 15804 RVA: 0x000DE078 File Offset: 0x000DC278
 	public void DropReference(RenderTexture texture)
 	{
 		if (this.lastTexture == texture)
@@ -63,7 +63,7 @@ public class SurveillanceMonitor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039C9 RID: 14793 RVA: 0x000D56B4 File Offset: 0x000D38B4
+	// Token: 0x06003DBD RID: 15805 RVA: 0x000DE094 File Offset: 0x000DC294
 	private void BindTexture(Texture tex)
 	{
 		foreach (Material material in this.replacementMaterials)
@@ -72,7 +72,7 @@ public class SurveillanceMonitor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039CA RID: 14794 RVA: 0x000D56F0 File Offset: 0x000D38F0
+	// Token: 0x06003DBE RID: 15806 RVA: 0x000DE0D0 File Offset: 0x000DC2D0
 	private void OnWillRenderObject()
 	{
 		if (this.surveillanceCamera)
@@ -101,35 +101,35 @@ public class SurveillanceMonitor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001DAF RID: 7599
+	// Token: 0x04001FA7 RID: 8103
 	[NonSerialized]
 	public Renderer renderer;
 
-	// Token: 0x04001DB0 RID: 7600
+	// Token: 0x04001FA8 RID: 8104
 	[SerializeField]
 	private int[] materialIds;
 
-	// Token: 0x04001DB1 RID: 7601
+	// Token: 0x04001FA9 RID: 8105
 	public string textureName = "_MainTex";
 
-	// Token: 0x04001DB2 RID: 7602
+	// Token: 0x04001FAA RID: 8106
 	public float aspect = 1f;
 
-	// Token: 0x04001DB3 RID: 7603
+	// Token: 0x04001FAB RID: 8107
 	public float viewDistance = 30f;
 
-	// Token: 0x04001DB4 RID: 7604
+	// Token: 0x04001FAC RID: 8108
 	private Texture lastTexture;
 
-	// Token: 0x04001DB5 RID: 7605
-	public SurveillanceCamera surveillanceCamera;
+	// Token: 0x04001FAD RID: 8109
+	public global::SurveillanceCamera surveillanceCamera;
 
-	// Token: 0x04001DB6 RID: 7606
+	// Token: 0x04001FAE RID: 8110
 	private Material[] replacementMaterials;
 
-	// Token: 0x04001DB7 RID: 7607
+	// Token: 0x04001FAF RID: 8111
 	private Material[] originalSharedMaterials;
 
-	// Token: 0x04001DB8 RID: 7608
+	// Token: 0x04001FB0 RID: 8112
 	private Material[] activeSharedMaterials;
 }

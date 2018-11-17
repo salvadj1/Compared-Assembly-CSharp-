@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Facepunch.Progress
 {
-	// Token: 0x020001BF RID: 447
+	// Token: 0x020001EF RID: 495
 	public sealed class ProgressBar
 	{
-		// Token: 0x06000C6D RID: 3181 RVA: 0x000316A0 File Offset: 0x0002F8A0
+		// Token: 0x06000DAD RID: 3501 RVA: 0x0003558C File Offset: 0x0003378C
 		public void Add(IProgress IProgress)
 		{
 			if (object.ReferenceEquals(IProgress, null))
@@ -19,7 +19,7 @@ namespace Facepunch.Progress
 			this.denom += 1f;
 		}
 
-		// Token: 0x06000C6E RID: 3182 RVA: 0x000316DC File Offset: 0x0002F8DC
+		// Token: 0x06000DAE RID: 3502 RVA: 0x000355C8 File Offset: 0x000337C8
 		public void AddMultiple<T>(IEnumerable<T> collection) where T : IProgress
 		{
 			foreach (T t in collection)
@@ -28,7 +28,7 @@ namespace Facepunch.Progress
 			}
 		}
 
-		// Token: 0x06000C6F RID: 3183 RVA: 0x00031740 File Offset: 0x0002F940
+		// Token: 0x06000DAF RID: 3503 RVA: 0x0003562C File Offset: 0x0003382C
 		public void Clear()
 		{
 			this.bonus = (this.denom = 0f);
@@ -36,14 +36,14 @@ namespace Facepunch.Progress
 			this.count = 0;
 		}
 
-		// Token: 0x06000C70 RID: 3184 RVA: 0x00031774 File Offset: 0x0002F974
+		// Token: 0x06000DB0 RID: 3504 RVA: 0x00035660 File Offset: 0x00033860
 		public void Clean()
 		{
 			float num;
 			this.Update(out num);
 		}
 
-		// Token: 0x06000C71 RID: 3185 RVA: 0x0003178C File Offset: 0x0002F98C
+		// Token: 0x06000DB1 RID: 3505 RVA: 0x00035678 File Offset: 0x00033878
 		public bool Update(out float progress)
 		{
 			if (this.count == 0)
@@ -83,7 +83,7 @@ namespace Facepunch.Progress
 			return true;
 		}
 
-		// Token: 0x06000C72 RID: 3186 RVA: 0x00031878 File Offset: 0x0002FA78
+		// Token: 0x06000DB2 RID: 3506 RVA: 0x00035764 File Offset: 0x00033964
 		public void Add(AsyncOperation Progress)
 		{
 			if (!object.ReferenceEquals(Progress, null))
@@ -92,29 +92,29 @@ namespace Facepunch.Progress
 			}
 		}
 
-		// Token: 0x04000787 RID: 1927
+		// Token: 0x0400089B RID: 2203
 		private readonly List<IProgress> List = new List<IProgress>();
 
-		// Token: 0x04000788 RID: 1928
+		// Token: 0x0400089C RID: 2204
 		private float bonus;
 
-		// Token: 0x04000789 RID: 1929
+		// Token: 0x0400089D RID: 2205
 		private float denom;
 
-		// Token: 0x0400078A RID: 1930
+		// Token: 0x0400089E RID: 2206
 		private int count;
 
-		// Token: 0x020001C0 RID: 448
+		// Token: 0x020001F0 RID: 496
 		private struct AsyncOperationProgress : IProgress
 		{
-			// Token: 0x06000C73 RID: 3187 RVA: 0x00031898 File Offset: 0x0002FA98
+			// Token: 0x06000DB3 RID: 3507 RVA: 0x00035784 File Offset: 0x00033984
 			public AsyncOperationProgress(AsyncOperation aop)
 			{
 				this.aop = aop;
 			}
 
-			// Token: 0x17000320 RID: 800
-			// (get) Token: 0x06000C74 RID: 3188 RVA: 0x000318A4 File Offset: 0x0002FAA4
+			// Token: 0x17000364 RID: 868
+			// (get) Token: 0x06000DB4 RID: 3508 RVA: 0x00035790 File Offset: 0x00033990
 			public float progress
 			{
 				get
@@ -123,7 +123,7 @@ namespace Facepunch.Progress
 				}
 			}
 
-			// Token: 0x0400078B RID: 1931
+			// Token: 0x0400089F RID: 2207
 			public readonly AsyncOperation aop;
 		}
 	}

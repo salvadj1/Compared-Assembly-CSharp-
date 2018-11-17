@@ -1,31 +1,31 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200079C RID: 1948
+// Token: 0x02000887 RID: 2183
 [AddComponentMenu("")]
 public class UIGlobal : MonoBehaviour
 {
-	// Token: 0x06004671 RID: 18033 RVA: 0x00118480 File Offset: 0x00116680
+	// Token: 0x06004AF6 RID: 19190 RVA: 0x00121E00 File Offset: 0x00120000
 	public static void EnsureGlobal()
 	{
-		if (Application.isPlaying && !UIGlobal.g)
+		if (Application.isPlaying && !global::UIGlobal.g)
 		{
 			GameObject gameObject = new GameObject("__UIGlobal", new Type[]
 			{
-				typeof(UIGlobal)
+				typeof(global::UIGlobal)
 			});
 			Object.DontDestroyOnLoad(gameObject);
-			UIGlobal.g = gameObject.GetComponent<UIGlobal>();
+			global::UIGlobal.g = gameObject.GetComponent<global::UIGlobal>();
 		}
 	}
 
-	// Token: 0x06004672 RID: 18034 RVA: 0x001184D8 File Offset: 0x001166D8
+	// Token: 0x06004AF7 RID: 19191 RVA: 0x00121E58 File Offset: 0x00120058
 	private void LateUpdate()
 	{
-		UIWidget.GlobalUpdate();
-		UIPanel.GlobalUpdate();
+		global::UIWidget.GlobalUpdate();
+		global::UIPanel.GlobalUpdate();
 	}
 
-	// Token: 0x040026A4 RID: 9892
-	private static UIGlobal g;
+	// Token: 0x040028DB RID: 10459
+	private static global::UIGlobal g;
 }

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x020006DB RID: 1755
+// Token: 0x020007AD RID: 1965
 public class dfLanguageManager : MonoBehaviour
 {
-	// Token: 0x17000C34 RID: 3124
-	// (get) Token: 0x06003E3D RID: 15933 RVA: 0x000EBBA0 File Offset: 0x000E9DA0
-	public dfLanguageCode CurrentLanguage
+	// Token: 0x17000CB8 RID: 3256
+	// (get) Token: 0x06004259 RID: 16985 RVA: 0x000F47A4 File Offset: 0x000F29A4
+	public global::dfLanguageCode CurrentLanguage
 	{
 		get
 		{
@@ -16,9 +16,9 @@ public class dfLanguageManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C35 RID: 3125
-	// (get) Token: 0x06003E3E RID: 15934 RVA: 0x000EBBA8 File Offset: 0x000E9DA8
-	// (set) Token: 0x06003E3F RID: 15935 RVA: 0x000EBBB0 File Offset: 0x000E9DB0
+	// Token: 0x17000CB9 RID: 3257
+	// (get) Token: 0x0600425A RID: 16986 RVA: 0x000F47AC File Offset: 0x000F29AC
+	// (set) Token: 0x0600425B RID: 16987 RVA: 0x000F47B4 File Offset: 0x000F29B4
 	public TextAsset DataFile
 	{
 		get
@@ -35,19 +35,19 @@ public class dfLanguageManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003E40 RID: 15936 RVA: 0x000EBBE4 File Offset: 0x000E9DE4
+	// Token: 0x0600425C RID: 16988 RVA: 0x000F47E8 File Offset: 0x000F29E8
 	public void Start()
 	{
-		dfLanguageCode language = this.currentLanguage;
-		if (this.currentLanguage == dfLanguageCode.None)
+		global::dfLanguageCode language = this.currentLanguage;
+		if (this.currentLanguage == global::dfLanguageCode.None)
 		{
 			language = this.SystemLanguageToLanguageCode(Application.systemLanguage);
 		}
 		this.LoadLanguage(language);
 	}
 
-	// Token: 0x06003E41 RID: 15937 RVA: 0x000EBC18 File Offset: 0x000E9E18
-	public void LoadLanguage(dfLanguageCode language)
+	// Token: 0x0600425D RID: 16989 RVA: 0x000F481C File Offset: 0x000F2A1C
+	public void LoadLanguage(global::dfLanguageCode language)
 	{
 		this.currentLanguage = language;
 		this.strings.Clear();
@@ -55,14 +55,14 @@ public class dfLanguageManager : MonoBehaviour
 		{
 			this.parseDataFile();
 		}
-		dfControl[] componentsInChildren = base.GetComponentsInChildren<dfControl>();
+		global::dfControl[] componentsInChildren = base.GetComponentsInChildren<global::dfControl>();
 		for (int i = 0; i < componentsInChildren.Length; i++)
 		{
 			componentsInChildren[i].Localize();
 		}
 	}
 
-	// Token: 0x06003E42 RID: 15938 RVA: 0x000EBC74 File Offset: 0x000E9E74
+	// Token: 0x0600425E RID: 16990 RVA: 0x000F4878 File Offset: 0x000F2A78
 	public string GetValue(string key)
 	{
 		string empty = string.Empty;
@@ -73,7 +73,7 @@ public class dfLanguageManager : MonoBehaviour
 		return key;
 	}
 
-	// Token: 0x06003E43 RID: 15939 RVA: 0x000EBCA0 File Offset: 0x000E9EA0
+	// Token: 0x0600425F RID: 16991 RVA: 0x000F48A4 File Offset: 0x000F2AA4
 	private void parseDataFile()
 	{
 		string text = this.dataFile.text.Replace("\r\n", "\n").Trim();
@@ -97,7 +97,7 @@ public class dfLanguageManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003E44 RID: 15940 RVA: 0x000EBD6C File Offset: 0x000E9F6C
+	// Token: 0x06004260 RID: 16992 RVA: 0x000F4970 File Offset: 0x000F2B70
 	private int parseLine(string data, List<string> values, int index)
 	{
 		values.Clear();
@@ -156,106 +156,106 @@ public class dfLanguageManager : MonoBehaviour
 		return index;
 	}
 
-	// Token: 0x06003E45 RID: 15941 RVA: 0x000EBE74 File Offset: 0x000EA074
-	private dfLanguageCode SystemLanguageToLanguageCode(SystemLanguage language)
+	// Token: 0x06004261 RID: 16993 RVA: 0x000F4A78 File Offset: 0x000F2C78
+	private global::dfLanguageCode SystemLanguageToLanguageCode(SystemLanguage language)
 	{
 		switch (language)
 		{
 		case 0:
-			return dfLanguageCode.AF;
+			return global::dfLanguageCode.AF;
 		case 1:
-			return dfLanguageCode.AR;
+			return global::dfLanguageCode.AR;
 		case 2:
-			return dfLanguageCode.EU;
+			return global::dfLanguageCode.EU;
 		case 3:
-			return dfLanguageCode.BE;
+			return global::dfLanguageCode.BE;
 		case 4:
-			return dfLanguageCode.BG;
+			return global::dfLanguageCode.BG;
 		case 5:
-			return dfLanguageCode.CA;
+			return global::dfLanguageCode.CA;
 		case 6:
-			return dfLanguageCode.ZH;
+			return global::dfLanguageCode.ZH;
 		case 7:
-			return dfLanguageCode.CS;
+			return global::dfLanguageCode.CS;
 		case 8:
-			return dfLanguageCode.DA;
+			return global::dfLanguageCode.DA;
 		case 9:
-			return dfLanguageCode.NL;
+			return global::dfLanguageCode.NL;
 		case 10:
-			return dfLanguageCode.EN;
+			return global::dfLanguageCode.EN;
 		case 11:
-			return dfLanguageCode.ES;
+			return global::dfLanguageCode.ES;
 		case 12:
-			return dfLanguageCode.FO;
+			return global::dfLanguageCode.FO;
 		case 13:
-			return dfLanguageCode.FI;
+			return global::dfLanguageCode.FI;
 		case 14:
-			return dfLanguageCode.FR;
+			return global::dfLanguageCode.FR;
 		case 15:
-			return dfLanguageCode.DE;
+			return global::dfLanguageCode.DE;
 		case 16:
-			return dfLanguageCode.EL;
+			return global::dfLanguageCode.EL;
 		case 17:
-			return dfLanguageCode.HE;
+			return global::dfLanguageCode.HE;
 		case 18:
-			return dfLanguageCode.HU;
+			return global::dfLanguageCode.HU;
 		case 19:
-			return dfLanguageCode.IS;
+			return global::dfLanguageCode.IS;
 		case 20:
-			return dfLanguageCode.ID;
+			return global::dfLanguageCode.ID;
 		case 21:
-			return dfLanguageCode.IT;
+			return global::dfLanguageCode.IT;
 		case 22:
-			return dfLanguageCode.JA;
+			return global::dfLanguageCode.JA;
 		case 23:
-			return dfLanguageCode.KO;
+			return global::dfLanguageCode.KO;
 		case 24:
-			return dfLanguageCode.LV;
+			return global::dfLanguageCode.LV;
 		case 25:
-			return dfLanguageCode.LT;
+			return global::dfLanguageCode.LT;
 		case 26:
-			return dfLanguageCode.NO;
+			return global::dfLanguageCode.NO;
 		case 27:
-			return dfLanguageCode.PL;
+			return global::dfLanguageCode.PL;
 		case 28:
-			return dfLanguageCode.PT;
+			return global::dfLanguageCode.PT;
 		case 29:
-			return dfLanguageCode.RO;
+			return global::dfLanguageCode.RO;
 		case 30:
-			return dfLanguageCode.RU;
+			return global::dfLanguageCode.RU;
 		case 31:
-			return dfLanguageCode.SH;
+			return global::dfLanguageCode.SH;
 		case 32:
-			return dfLanguageCode.SK;
+			return global::dfLanguageCode.SK;
 		case 33:
-			return dfLanguageCode.SL;
+			return global::dfLanguageCode.SL;
 		case 34:
-			return dfLanguageCode.ES;
+			return global::dfLanguageCode.ES;
 		case 35:
-			return dfLanguageCode.SV;
+			return global::dfLanguageCode.SV;
 		case 36:
-			return dfLanguageCode.TH;
+			return global::dfLanguageCode.TH;
 		case 37:
-			return dfLanguageCode.TR;
+			return global::dfLanguageCode.TR;
 		case 38:
-			return dfLanguageCode.UK;
+			return global::dfLanguageCode.UK;
 		case 39:
-			return dfLanguageCode.VI;
+			return global::dfLanguageCode.VI;
 		case 40:
-			return dfLanguageCode.EN;
+			return global::dfLanguageCode.EN;
 		default:
 			throw new ArgumentException("Unknown system language: " + language);
 		}
 	}
 
-	// Token: 0x04002171 RID: 8561
+	// Token: 0x0400237A RID: 9082
 	[SerializeField]
-	private dfLanguageCode currentLanguage;
+	private global::dfLanguageCode currentLanguage;
 
-	// Token: 0x04002172 RID: 8562
+	// Token: 0x0400237B RID: 9083
 	[SerializeField]
 	private TextAsset dataFile;
 
-	// Token: 0x04002173 RID: 8563
+	// Token: 0x0400237C RID: 9084
 	private Dictionary<string, string> strings = new Dictionary<string, string>();
 }

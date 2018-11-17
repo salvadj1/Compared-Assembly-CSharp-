@@ -2,28 +2,28 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x020004A1 RID: 1185
-public sealed class FlareObj : RigidObj
+// Token: 0x0200055C RID: 1372
+public sealed class FlareObj : global::RigidObj
 {
-	// Token: 0x060029D8 RID: 10712 RVA: 0x000A3CF0 File Offset: 0x000A1EF0
-	public FlareObj() : base(RigidObj.FeatureFlags.StreamInitialVelocity)
+	// Token: 0x06002D8A RID: 11658 RVA: 0x000ABA88 File Offset: 0x000A9C88
+	public FlareObj() : base(global::RigidObj.FeatureFlags.StreamInitialVelocity)
 	{
 	}
 
-	// Token: 0x060029D9 RID: 10713 RVA: 0x000A3CFC File Offset: 0x000A1EFC
-	private new void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06002D8B RID: 11659 RVA: 0x000ABA94 File Offset: 0x000A9C94
+	private new void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		this.lightInstance = (Object.Instantiate(this.lightPrefab, base.transform.position + new Vector3(0f, 0.1f, 0f), Quaternion.identity) as GameObject);
 		this.lightInstance.transform.parent = base.transform;
 		base.uLink_OnNetworkInstantiate(info);
 	}
 
-	// Token: 0x060029DA RID: 10714 RVA: 0x000A3D68 File Offset: 0x000A1F68
+	// Token: 0x06002D8C RID: 11660 RVA: 0x000ABB00 File Offset: 0x000A9D00
 	protected override void OnDone()
 	{
 	}
 
-	// Token: 0x060029DB RID: 10715 RVA: 0x000A3D6C File Offset: 0x000A1F6C
+	// Token: 0x06002D8D RID: 11661 RVA: 0x000ABB04 File Offset: 0x000A9D04
 	protected override void OnHide()
 	{
 		if (this.lightInstance)
@@ -36,7 +36,7 @@ public sealed class FlareObj : RigidObj
 		}
 	}
 
-	// Token: 0x060029DC RID: 10716 RVA: 0x000A3DB4 File Offset: 0x000A1FB4
+	// Token: 0x06002D8E RID: 11662 RVA: 0x000ABB4C File Offset: 0x000A9D4C
 	protected override void OnShow()
 	{
 		if (this.lightInstance)
@@ -49,12 +49,12 @@ public sealed class FlareObj : RigidObj
 		}
 	}
 
-	// Token: 0x040015C6 RID: 5574
+	// Token: 0x04001783 RID: 6019
 	private GameObject lightInstance;
 
-	// Token: 0x040015C7 RID: 5575
+	// Token: 0x04001784 RID: 6020
 	public AudioClip StrikeSound;
 
-	// Token: 0x040015C8 RID: 5576
+	// Token: 0x04001785 RID: 6021
 	public GameObject lightPrefab;
 }

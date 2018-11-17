@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000442 RID: 1090
+// Token: 0x020004F8 RID: 1272
 public class AdaptiveNearPlane : MonoBehaviour
 {
-	// Token: 0x040013E2 RID: 5090
+	// Token: 0x04001565 RID: 5477
 	public float maxNear = 0.65f;
 
-	// Token: 0x040013E3 RID: 5091
+	// Token: 0x04001566 RID: 5478
 	public float minNear = 0.22f;
 
-	// Token: 0x040013E4 RID: 5092
+	// Token: 0x04001567 RID: 5479
 	public float threshold = 0.05f;
 
-	// Token: 0x040013E5 RID: 5093
+	// Token: 0x04001568 RID: 5480
 	public LayerMask ignoreLayers = 0;
 
-	// Token: 0x040013E6 RID: 5094
+	// Token: 0x04001569 RID: 5481
 	public LayerMask forceLayers = 0;
 }

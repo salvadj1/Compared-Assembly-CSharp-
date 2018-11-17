@@ -1,110 +1,110 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001F7 RID: 503
+// Token: 0x0200022A RID: 554
 public static class UseableUtility
 {
-	// Token: 0x06000DA7 RID: 3495 RVA: 0x0003591C File Offset: 0x00033B1C
+	// Token: 0x06000EFB RID: 3835 RVA: 0x00039CC4 File Offset: 0x00037EC4
 	public static void LogError<T>(T a, Object b)
 	{
-		if (UseableUtility.log_enabled)
+		if (global::UseableUtility.log_enabled)
 		{
 			Debug.LogError(a, b);
 		}
 	}
 
-	// Token: 0x06000DA8 RID: 3496 RVA: 0x00035934 File Offset: 0x00033B34
+	// Token: 0x06000EFC RID: 3836 RVA: 0x00039CDC File Offset: 0x00037EDC
 	public static void LogWarning<T>(T a, Object b)
 	{
-		if (UseableUtility.log_enabled)
+		if (global::UseableUtility.log_enabled)
 		{
 			Debug.LogWarning(a, b);
 		}
 	}
 
-	// Token: 0x06000DA9 RID: 3497 RVA: 0x0003594C File Offset: 0x00033B4C
+	// Token: 0x06000EFD RID: 3837 RVA: 0x00039CF4 File Offset: 0x00037EF4
 	public static void Log<T>(T a, Object b)
 	{
-		if (UseableUtility.log_enabled)
+		if (global::UseableUtility.log_enabled)
 		{
 			Debug.Log(a, b);
 		}
 	}
 
-	// Token: 0x06000DAA RID: 3498 RVA: 0x00035964 File Offset: 0x00033B64
+	// Token: 0x06000EFE RID: 3838 RVA: 0x00039D0C File Offset: 0x00037F0C
 	public static void LogError<T>(T a)
 	{
-		if (UseableUtility.log_enabled)
+		if (global::UseableUtility.log_enabled)
 		{
 			Debug.LogError(a);
 		}
 	}
 
-	// Token: 0x06000DAB RID: 3499 RVA: 0x0003597C File Offset: 0x00033B7C
+	// Token: 0x06000EFF RID: 3839 RVA: 0x00039D24 File Offset: 0x00037F24
 	public static void LogWarning<T>(T a)
 	{
-		if (UseableUtility.log_enabled)
+		if (global::UseableUtility.log_enabled)
 		{
 			Debug.LogWarning(a);
 		}
 	}
 
-	// Token: 0x06000DAC RID: 3500 RVA: 0x00035994 File Offset: 0x00033B94
+	// Token: 0x06000F00 RID: 3840 RVA: 0x00039D3C File Offset: 0x00037F3C
 	public static void Log<T>(T a)
 	{
-		if (UseableUtility.log_enabled)
+		if (global::UseableUtility.log_enabled)
 		{
 			Debug.Log(a);
 		}
 	}
 
-	// Token: 0x06000DAD RID: 3501 RVA: 0x000359AC File Offset: 0x00033BAC
-	public static bool Succeeded(this UseResponse response)
+	// Token: 0x06000F01 RID: 3841 RVA: 0x00039D54 File Offset: 0x00037F54
+	public static bool Succeeded(this global::UseResponse response)
 	{
 		bool flag = (int)response >= 0;
 		if (!flag)
 		{
-			UseableUtility.LogWarning<string>("Did not succeed " + response);
+			global::UseableUtility.LogWarning<string>("Did not succeed " + response);
 		}
 		return flag;
 	}
 
-	// Token: 0x06000DAE RID: 3502 RVA: 0x000359E0 File Offset: 0x00033BE0
-	public static bool ThrewException<E>(this UseResponse response, out E e, bool doNotClear) where E : Exception
+	// Token: 0x06000F02 RID: 3842 RVA: 0x00039D88 File Offset: 0x00037F88
+	public static bool ThrewException<E>(this global::UseResponse response, out E e, bool doNotClear) where E : Exception
 	{
 		if ((int)response < -16 || (int)response > -10)
 		{
 			e = (E)((object)null);
 			return false;
 		}
-		return Useable.GetLastException<E>(out e, doNotClear);
+		return global::Useable.GetLastException<E>(out e, doNotClear);
 	}
 
-	// Token: 0x06000DAF RID: 3503 RVA: 0x00035A0C File Offset: 0x00033C0C
-	public static bool ThrewException(this UseResponse response, out Exception e, bool doNotClear)
+	// Token: 0x06000F03 RID: 3843 RVA: 0x00039DB4 File Offset: 0x00037FB4
+	public static bool ThrewException(this global::UseResponse response, out Exception e, bool doNotClear)
 	{
 		if ((int)response < -16 || (int)response > -10)
 		{
 			e = null;
 			return false;
 		}
-		return Useable.GetLastException(out e, doNotClear);
+		return global::Useable.GetLastException(out e, doNotClear);
 	}
 
-	// Token: 0x06000DB0 RID: 3504 RVA: 0x00035A2C File Offset: 0x00033C2C
-	public static bool ThrewException(this UseResponse response, out Exception e)
+	// Token: 0x06000F04 RID: 3844 RVA: 0x00039DD4 File Offset: 0x00037FD4
+	public static bool ThrewException(this global::UseResponse response, out Exception e)
 	{
 		return response.ThrewException(out e, false);
 	}
 
-	// Token: 0x06000DB1 RID: 3505 RVA: 0x00035A38 File Offset: 0x00033C38
-	public static bool Checked(this UseResponse response)
+	// Token: 0x06000F05 RID: 3845 RVA: 0x00039DE0 File Offset: 0x00037FE0
+	public static bool Checked(this global::UseResponse response)
 	{
 		return (int)response < -16 || (int)response > 0;
 	}
 
-	// Token: 0x06000DB2 RID: 3506 RVA: 0x00035A4C File Offset: 0x00033C4C
-	public static void OnDestroy(IUseable self, Useable useable)
+	// Token: 0x06000F06 RID: 3846 RVA: 0x00039DF4 File Offset: 0x00037FF4
+	public static void OnDestroy(global::IUseable self, global::Useable useable)
 	{
 		if (useable && useable.occupied)
 		{
@@ -112,31 +112,31 @@ public static class UseableUtility
 		}
 	}
 
-	// Token: 0x06000DB3 RID: 3507 RVA: 0x00035A6C File Offset: 0x00033C6C
-	public static void OnDestroy(IUseable self)
+	// Token: 0x06000F07 RID: 3847 RVA: 0x00039E14 File Offset: 0x00038014
+	public static void OnDestroy(global::IUseable self)
 	{
 		MonoBehaviour monoBehaviour = self as MonoBehaviour;
 		if (monoBehaviour)
 		{
-			UseableUtility.OnDestroy(self, monoBehaviour.GetComponent<Useable>());
+			global::UseableUtility.OnDestroy(self, monoBehaviour.GetComponent<global::Useable>());
 		}
 	}
 
-	// Token: 0x04000872 RID: 2162
-	public const UseResponse kMinSuccess = UseResponse.Pass_Unchecked;
+	// Token: 0x04000995 RID: 2453
+	public const global::UseResponse kMinSuccess = global::UseResponse.Pass_Unchecked;
 
-	// Token: 0x04000873 RID: 2163
-	public const UseResponse kMinException = UseResponse.Fail_CheckException;
+	// Token: 0x04000996 RID: 2454
+	public const global::UseResponse kMinException = global::UseResponse.Fail_CheckException;
 
-	// Token: 0x04000874 RID: 2164
-	public const UseResponse kMaxException = UseResponse.Fail_Vacancy;
+	// Token: 0x04000997 RID: 2455
+	public const global::UseResponse kMaxException = global::UseResponse.Fail_Vacancy;
 
-	// Token: 0x04000875 RID: 2165
-	public const UseResponse kMinSucessChecked = UseResponse.Pass_Checked;
+	// Token: 0x04000998 RID: 2456
+	public const global::UseResponse kMinSucessChecked = global::UseResponse.Pass_Checked;
 
-	// Token: 0x04000876 RID: 2166
-	public const UseResponse kMaxFailedChecked = (UseResponse)(-17);
+	// Token: 0x04000999 RID: 2457
+	public const global::UseResponse kMaxFailedChecked = (global::UseResponse)-17;
 
-	// Token: 0x04000877 RID: 2167
+	// Token: 0x0400099A RID: 2458
 	private static bool log_enabled;
 }

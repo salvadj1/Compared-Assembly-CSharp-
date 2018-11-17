@@ -1,31 +1,31 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005B7 RID: 1463
-public abstract class BasicTorchItem<T> : HeldItem<T> where T : BasicTorchItemDataBlock
+// Token: 0x02000675 RID: 1653
+public abstract class BasicTorchItem<T> : global::HeldItem<T> where T : global::BasicTorchItemDataBlock
 {
-	// Token: 0x060034FB RID: 13563 RVA: 0x000C1574 File Offset: 0x000BF774
+	// Token: 0x060038C3 RID: 14531 RVA: 0x000C97D0 File Offset: 0x000C79D0
 	protected BasicTorchItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x17000A67 RID: 2663
-	// (get) Token: 0x060034FC RID: 13564 RVA: 0x000C1588 File Offset: 0x000BF788
-	// (set) Token: 0x060034FD RID: 13565 RVA: 0x000C1590 File Offset: 0x000BF790
+	// Token: 0x17000ADD RID: 2781
+	// (get) Token: 0x060038C4 RID: 14532 RVA: 0x000C97E4 File Offset: 0x000C79E4
+	// (set) Token: 0x060038C5 RID: 14533 RVA: 0x000C97EC File Offset: 0x000C79EC
 	public bool isLit { get; set; }
 
-	// Token: 0x060034FE RID: 13566 RVA: 0x000C159C File Offset: 0x000BF79C
+	// Token: 0x060038C6 RID: 14534 RVA: 0x000C97F8 File Offset: 0x000C79F8
 	public void Ignite()
 	{
 		this.isLit = true;
 	}
 
-	// Token: 0x17000A68 RID: 2664
-	// (get) Token: 0x060034FF RID: 13567 RVA: 0x000C15A8 File Offset: 0x000BF7A8
-	// (set) Token: 0x06003500 RID: 13568 RVA: 0x000C15B0 File Offset: 0x000BF7B0
+	// Token: 0x17000ADE RID: 2782
+	// (get) Token: 0x060038C7 RID: 14535 RVA: 0x000C9804 File Offset: 0x000C7A04
+	// (set) Token: 0x060038C8 RID: 14536 RVA: 0x000C980C File Offset: 0x000C7A0C
 	public GameObject light { get; set; }
 
-	// Token: 0x06003501 RID: 13569 RVA: 0x000C15BC File Offset: 0x000BF7BC
+	// Token: 0x060038C9 RID: 14537 RVA: 0x000C9818 File Offset: 0x000C7A18
 	public virtual void Extinguish()
 	{
 		this.isLit = false;
@@ -36,7 +36,7 @@ public abstract class BasicTorchItem<T> : HeldItem<T> where T : BasicTorchItemDa
 		}
 	}
 
-	// Token: 0x06003502 RID: 13570 RVA: 0x000C15F4 File Offset: 0x000BF7F4
+	// Token: 0x060038CA RID: 14538 RVA: 0x000C9850 File Offset: 0x000C7A50
 	protected override void OnSetActive(bool isActive)
 	{
 		if (isActive)
@@ -45,20 +45,20 @@ public abstract class BasicTorchItem<T> : HeldItem<T> where T : BasicTorchItemDa
 			this.consumeAmount = 0f;
 			base.OnSetActive(isActive);
 			T datablock = this.datablock;
-			datablock.DoActualIgnite(base.itemRepresentation, this.iface as IBasicTorchItem, base.viewModelInstance);
+			datablock.DoActualIgnite(base.itemRepresentation, this.iface as global::IBasicTorchItem, base.viewModelInstance);
 		}
 		else
 		{
 			this.lastTickTime = -1f;
 			T datablock2 = this.datablock;
-			datablock2.DoActualExtinguish(base.itemRepresentation, this.iface as IBasicTorchItem, base.viewModelInstance);
+			datablock2.DoActualExtinguish(base.itemRepresentation, this.iface as global::IBasicTorchItem, base.viewModelInstance);
 			base.OnSetActive(isActive);
 		}
 	}
 
-	// Token: 0x04001A5F RID: 6751
+	// Token: 0x04001C30 RID: 7216
 	private float lastTickTime = -1f;
 
-	// Token: 0x04001A60 RID: 6752
+	// Token: 0x04001C31 RID: 7217
 	private float consumeAmount;
 }

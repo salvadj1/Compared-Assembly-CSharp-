@@ -4,12 +4,12 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000660 RID: 1632
-[NGCAutoAddScript]
-public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, IContextRequestable, IContextRequestableQuick, IContextRequestableText, IContextRequestablePointText, IComponentInterface<IActivatable, MonoBehaviour, Activatable>, IComponentInterface<IActivatable, MonoBehaviour>, IComponentInterface<IActivatable>, IComponentInterface<IContextRequestable, MonoBehaviour, Contextual>, IComponentInterface<IContextRequestable, MonoBehaviour>, IComponentInterface<IContextRequestable>
+// Token: 0x02000724 RID: 1828
+[global::NGCAutoAddScript]
+public class LightSwitch : NetBehaviour, global::IActivatable, global::IActivatableToggle, global::IContextRequestable, global::IContextRequestableQuick, global::IContextRequestableText, global::IContextRequestablePointText, global::IComponentInterface<global::IActivatable, MonoBehaviour, global::Activatable>, global::IComponentInterface<global::IActivatable, MonoBehaviour>, global::IComponentInterface<global::IActivatable>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour, global::Contextual>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour>, global::IComponentInterface<global::IContextRequestable>
 {
-	// Token: 0x17000B1E RID: 2846
-	// (get) Token: 0x060038C4 RID: 14532 RVA: 0x000D07FC File Offset: 0x000CE9FC
+	// Token: 0x17000BA0 RID: 2976
+	// (get) Token: 0x06003CB8 RID: 15544 RVA: 0x000D91DC File Offset: 0x000D73DC
 	protected int randSeed
 	{
 		get
@@ -18,9 +18,9 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x17000B1F RID: 2847
-	// (get) Token: 0x060038C5 RID: 14533 RVA: 0x000D0804 File Offset: 0x000CEA04
-	// (set) Token: 0x060038C6 RID: 14534 RVA: 0x000D080C File Offset: 0x000CEA0C
+	// Token: 0x17000BA1 RID: 2977
+	// (get) Token: 0x06003CB9 RID: 15545 RVA: 0x000D91E4 File Offset: 0x000D73E4
+	// (set) Token: 0x06003CBA RID: 15546 RVA: 0x000D91EC File Offset: 0x000D73EC
 	private protected bool startsOn
 	{
 		protected get
@@ -33,30 +33,30 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038C7 RID: 14535 RVA: 0x000D0818 File Offset: 0x000CEA18
-	private static void DefaultArray(string test, ref LightStyle[] array)
+	// Token: 0x06003CBB RID: 15547 RVA: 0x000D91F8 File Offset: 0x000D73F8
+	private static void DefaultArray(string test, ref global::LightStyle[] array)
 	{
 		if (array == null)
 		{
-			LightStyle lightStyle = test;
+			global::LightStyle lightStyle = test;
 			if (lightStyle)
 			{
-				array = new LightStyle[]
+				array = new global::LightStyle[]
 				{
 					lightStyle
 				};
 			}
 			else
 			{
-				array = new LightStyle[0];
+				array = new global::LightStyle[0];
 			}
 		}
 		else if (array.Length == 0)
 		{
-			LightStyle lightStyle2 = test;
+			global::LightStyle lightStyle2 = test;
 			if (lightStyle2)
 			{
-				array = new LightStyle[]
+				array = new global::LightStyle[]
 				{
 					lightStyle2
 				};
@@ -64,20 +64,20 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038C8 RID: 14536 RVA: 0x000D0884 File Offset: 0x000CEA84
+	// Token: 0x06003CBC RID: 15548 RVA: 0x000D9264 File Offset: 0x000D7464
 	private void Reset()
 	{
 		this._randSeed = Random.Range(0, int.MaxValue);
 		if (this.stylists == null)
 		{
-			this.stylists = new LightStylist[0];
+			this.stylists = new global::LightStylist[0];
 		}
-		LightSwitch.DefaultArray("on", ref this.randOn);
-		LightSwitch.DefaultArray("off", ref this.randOff);
+		global::LightSwitch.DefaultArray("on", ref this.randOn);
+		global::LightSwitch.DefaultArray("off", ref this.randOff);
 	}
 
-	// Token: 0x060038C9 RID: 14537 RVA: 0x000D08DC File Offset: 0x000CEADC
-	private static bool MakeCTX(ref LightStylist[] stylists, ref LightSwitch.StylistCTX[] ctx)
+	// Token: 0x06003CBD RID: 15549 RVA: 0x000D92BC File Offset: 0x000D74BC
+	private static bool MakeCTX(ref global::LightStylist[] stylists, ref global::LightSwitch.StylistCTX[] ctx)
 	{
 		int num;
 		if (stylists == null)
@@ -88,15 +88,15 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		{
 			num = stylists.Length;
 		}
-		Array.Resize<LightSwitch.StylistCTX>(ref ctx, num);
+		Array.Resize<global::LightSwitch.StylistCTX>(ref ctx, num);
 		return num > 0;
 	}
 
-	// Token: 0x060038CA RID: 14538 RVA: 0x000D0908 File Offset: 0x000CEB08
+	// Token: 0x06003CBE RID: 15550 RVA: 0x000D92E8 File Offset: 0x000D74E8
 	private void Awake()
 	{
-		this.rand = new SeededRandom(this.randSeed);
-		LightSwitch.MakeCTX(ref this.stylists, ref this.stylistCTX);
+		this.rand = new global::SeededRandom(this.randSeed);
+		global::LightSwitch.MakeCTX(ref this.stylists, ref this.stylistCTX);
 		if (this.stylists != null)
 		{
 			for (int i = 0; i < this.stylists.Length; i++)
@@ -109,7 +109,7 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038CB RID: 14539 RVA: 0x000D0984 File Offset: 0x000CEB84
+	// Token: 0x06003CBF RID: 15551 RVA: 0x000D9364 File Offset: 0x000D7564
 	private void TurnOn()
 	{
 		if (this.randOn == null || this.randOn.Length == 0)
@@ -130,7 +130,7 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038CC RID: 14540 RVA: 0x000D0A44 File Offset: 0x000CEC44
+	// Token: 0x06003CC0 RID: 15552 RVA: 0x000D9424 File Offset: 0x000D7624
 	private void TurnOff()
 	{
 		if (this.randOff == null || this.randOff.Length == 0)
@@ -151,9 +151,9 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038CD RID: 14541 RVA: 0x000D0B04 File Offset: 0x000CED04
+	// Token: 0x06003CC1 RID: 15553 RVA: 0x000D94E4 File Offset: 0x000D76E4
 	[RPC]
-	protected void ReadState(bool on, NetworkMessageInfo info)
+	protected void ReadState(bool on, uLink.NetworkMessageInfo info)
 	{
 		this.lastChangeTime = info.timestampInMillis;
 		this.on = on;
@@ -167,7 +167,7 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038CE RID: 14542 RVA: 0x000D0B40 File Offset: 0x000CED40
+	// Token: 0x06003CC2 RID: 15554 RVA: 0x000D9520 File Offset: 0x000D7720
 	private void ServerToggle(ulong timestamp)
 	{
 		this.on = !this.on;
@@ -180,11 +180,11 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		{
 			this.TurnOff();
 		}
-		NetCull.RPC<bool>(this, "ReadState", 1, this.on);
+		global::NetCull.RPC<bool>(this, "ReadState", 1, this.on);
 	}
 
-	// Token: 0x060038CF RID: 14543 RVA: 0x000D0BA0 File Offset: 0x000CEDA0
-	public string ContextText(Controllable localControllable)
+	// Token: 0x06003CC3 RID: 15555 RVA: 0x000D9580 File Offset: 0x000D7780
+	public string ContextText(global::Controllable localControllable)
 	{
 		if (this.on)
 		{
@@ -193,37 +193,37 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		return this.textTurnOn;
 	}
 
-	// Token: 0x060038D0 RID: 14544 RVA: 0x000D0BBC File Offset: 0x000CEDBC
-	public ContextExecution ContextQuery(Controllable controllable, ulong timestamp)
+	// Token: 0x06003CC4 RID: 15556 RVA: 0x000D959C File Offset: 0x000D779C
+	public global::ContextExecution ContextQuery(global::Controllable controllable, ulong timestamp)
 	{
-		return ContextExecution.Quick;
+		return global::ContextExecution.Quick;
 	}
 
-	// Token: 0x060038D1 RID: 14545 RVA: 0x000D0BC0 File Offset: 0x000CEDC0
-	public ContextResponse ContextRespondQuick(Controllable controllable, ulong timestamp)
+	// Token: 0x06003CC5 RID: 15557 RVA: 0x000D95A0 File Offset: 0x000D77A0
+	public global::ContextResponse ContextRespondQuick(global::Controllable controllable, ulong timestamp)
 	{
 		this.ServerToggle(timestamp);
-		return ContextResponse.DoneBreak;
+		return global::ContextResponse.DoneBreak;
 	}
 
-	// Token: 0x060038D2 RID: 14546 RVA: 0x000D0BCC File Offset: 0x000CEDCC
+	// Token: 0x06003CC6 RID: 15558 RVA: 0x000D95AC File Offset: 0x000D77AC
 	public bool ContextTextPoint(out Vector3 worldPoint)
 	{
 		worldPoint = default(Vector3);
 		return false;
 	}
 
-	// Token: 0x060038D3 RID: 14547 RVA: 0x000D0BEC File Offset: 0x000CEDEC
+	// Token: 0x06003CC7 RID: 15559 RVA: 0x000D95CC File Offset: 0x000D77CC
 	private void OnDestroy()
 	{
 		if (this.registeredConnectCallback)
 		{
-			GameEvent.PlayerConnected -= this.PlayerConnected;
+			global::GameEvent.PlayerConnected -= this.PlayerConnected;
 			this.registeredConnectCallback = false;
 		}
 	}
 
-	// Token: 0x060038D4 RID: 14548 RVA: 0x000D0C14 File Offset: 0x000CEE14
+	// Token: 0x06003CC8 RID: 15560 RVA: 0x000D95F4 File Offset: 0x000D77F4
 	private void Write(BinaryWriter writer)
 	{
 		writer.Write((!this.on) ? (-this.lastChangeTime) : this.lastChangeTime);
@@ -236,7 +236,7 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038D5 RID: 14549 RVA: 0x000D0CA0 File Offset: 0x000CEEA0
+	// Token: 0x06003CC9 RID: 15561 RVA: 0x000D9680 File Offset: 0x000D7880
 	private void Read(BinaryReader reader)
 	{
 		this.lastChangeTime = reader.ReadDouble();
@@ -248,8 +248,8 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		int num = reader.ReadInt32();
 		uint positionData = reader.ReadUInt32();
 		byte b = reader.ReadByte();
-		Array.Resize<LightSwitch.StylistCTX>(ref this.stylistCTX, (int)b);
-		Array.Resize<LightStylist>(ref this.stylists, (int)b);
+		Array.Resize<global::LightSwitch.StylistCTX>(ref this.stylistCTX, (int)b);
+		Array.Resize<global::LightStylist>(ref this.stylists, (int)b);
 		for (int i = 0; i < (int)b; i++)
 		{
 			this.stylistCTX[i].Read(reader);
@@ -257,16 +257,16 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		if (num != this.rand.Seed)
 		{
 			this._randSeed = num;
-			this.rand = new SeededRandom(num);
+			this.rand = new global::SeededRandom(num);
 		}
 		this.rand.PositionData = positionData;
 		this.JumpUpdate();
 	}
 
-	// Token: 0x060038D6 RID: 14550 RVA: 0x000D0D70 File Offset: 0x000CEF70
+	// Token: 0x06003CCA RID: 15562 RVA: 0x000D9750 File Offset: 0x000D7950
 	private void JumpUpdate()
 	{
-		double time = NetCull.time - this.lastChangeTime;
+		double time = global::NetCull.time - this.lastChangeTime;
 		if (this.on)
 		{
 			int i = 0;
@@ -303,8 +303,8 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x17000B20 RID: 2848
-	// (get) Token: 0x060038D7 RID: 14551 RVA: 0x000D0F50 File Offset: 0x000CF150
+	// Token: 0x17000BA2 RID: 2978
+	// (get) Token: 0x06003CCB RID: 15563 RVA: 0x000D9930 File Offset: 0x000D7B30
 	private int StreamSize
 	{
 		get
@@ -313,7 +313,7 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038D8 RID: 14552 RVA: 0x000D0F60 File Offset: 0x000CF160
+	// Token: 0x06003CCC RID: 15564 RVA: 0x000D9940 File Offset: 0x000D7B40
 	[RPC]
 	private void ConnectSetup(byte[] data)
 	{
@@ -326,8 +326,8 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 		}
 	}
 
-	// Token: 0x060038D9 RID: 14553 RVA: 0x000D0FDC File Offset: 0x000CF1DC
-	public void PlayerConnected(PlayerClient player)
+	// Token: 0x06003CCD RID: 15565 RVA: 0x000D99BC File Offset: 0x000D7BBC
+	public void PlayerConnected(global::PlayerClient player)
 	{
 		byte[] array = new byte[this.StreamSize];
 		using (MemoryStream memoryStream = new MemoryStream(array))
@@ -337,137 +337,137 @@ public class LightSwitch : NetBehaviour, IActivatable, IActivatableToggle, ICont
 				this.Write(binaryWriter);
 			}
 		}
-		NetCull.RPC<byte[]>(this, "ConnectSetup", player.netPlayer, array);
+		global::NetCull.RPC<byte[]>(this, "ConnectSetup", player.netPlayer, array);
 	}
 
-	// Token: 0x060038DA RID: 14554 RVA: 0x000D1078 File Offset: 0x000CF278
-	public ActivationResult ActTrigger(Character instigator, ActivationToggleState toggleTarget, ulong timestamp)
+	// Token: 0x06003CCE RID: 15566 RVA: 0x000D9A58 File Offset: 0x000D7C58
+	public global::ActivationResult ActTrigger(global::Character instigator, global::ActivationToggleState toggleTarget, ulong timestamp)
 	{
-		if (toggleTarget != ActivationToggleState.On)
+		if (toggleTarget != global::ActivationToggleState.On)
 		{
-			if (toggleTarget != ActivationToggleState.Off)
+			if (toggleTarget != global::ActivationToggleState.Off)
 			{
-				return ActivationResult.Fail_BadToggle;
+				return global::ActivationResult.Fail_BadToggle;
 			}
 			if (!this.on)
 			{
-				return ActivationResult.Fail_Redundant;
+				return global::ActivationResult.Fail_Redundant;
 			}
 			this.ServerToggle(timestamp);
-			return (!this.on) ? ActivationResult.Success : ActivationResult.Fail_Busy;
+			return (!this.on) ? global::ActivationResult.Success : global::ActivationResult.Fail_Busy;
 		}
 		else
 		{
 			if (this.on)
 			{
-				return ActivationResult.Fail_Redundant;
+				return global::ActivationResult.Fail_Redundant;
 			}
 			this.ServerToggle(timestamp);
-			return (!this.on) ? ActivationResult.Fail_Busy : ActivationResult.Success;
+			return (!this.on) ? global::ActivationResult.Fail_Busy : global::ActivationResult.Success;
 		}
 	}
 
-	// Token: 0x060038DB RID: 14555 RVA: 0x000D10EC File Offset: 0x000CF2EC
-	public ActivationToggleState ActGetToggleState()
+	// Token: 0x06003CCF RID: 15567 RVA: 0x000D9ACC File Offset: 0x000D7CCC
+	public global::ActivationToggleState ActGetToggleState()
 	{
-		return (!this.on) ? ActivationToggleState.Off : ActivationToggleState.On;
+		return (!this.on) ? global::ActivationToggleState.Off : global::ActivationToggleState.On;
 	}
 
-	// Token: 0x060038DC RID: 14556 RVA: 0x000D1100 File Offset: 0x000CF300
-	public ActivationResult ActTrigger(Character instigator, ulong timestamp)
+	// Token: 0x06003CD0 RID: 15568 RVA: 0x000D9AE0 File Offset: 0x000D7CE0
+	public global::ActivationResult ActTrigger(global::Character instigator, ulong timestamp)
 	{
-		return this.ActTrigger(instigator, (!this.on) ? ActivationToggleState.On : ActivationToggleState.Off, timestamp);
+		return this.ActTrigger(instigator, (!this.on) ? global::ActivationToggleState.On : global::ActivationToggleState.Off, timestamp);
 	}
 
-	// Token: 0x04001CF3 RID: 7411
+	// Token: 0x04001EEB RID: 7915
 	[SerializeField]
-	protected LightStylist[] stylists;
+	protected global::LightStylist[] stylists;
 
-	// Token: 0x04001CF4 RID: 7412
-	private LightSwitch.StylistCTX[] stylistCTX;
+	// Token: 0x04001EEC RID: 7916
+	private global::LightSwitch.StylistCTX[] stylistCTX;
 
-	// Token: 0x04001CF5 RID: 7413
+	// Token: 0x04001EED RID: 7917
 	private double lastChangeTime;
 
-	// Token: 0x04001CF6 RID: 7414
+	// Token: 0x04001EEE RID: 7918
 	[SerializeField]
-	protected LightStyle[] randOn;
+	protected global::LightStyle[] randOn;
 
-	// Token: 0x04001CF7 RID: 7415
+	// Token: 0x04001EEF RID: 7919
 	[SerializeField]
-	protected LightStyle[] randOff;
+	protected global::LightStyle[] randOff;
 
-	// Token: 0x04001CF8 RID: 7416
+	// Token: 0x04001EF0 RID: 7920
 	[SerializeField]
 	private int _randSeed;
 
-	// Token: 0x04001CF9 RID: 7417
+	// Token: 0x04001EF1 RID: 7921
 	[SerializeField]
 	protected float minOnFadeDuration;
 
-	// Token: 0x04001CFA RID: 7418
+	// Token: 0x04001EF2 RID: 7922
 	[SerializeField]
 	protected float maxOnFadeDuration;
 
-	// Token: 0x04001CFB RID: 7419
+	// Token: 0x04001EF3 RID: 7923
 	[SerializeField]
 	protected float minOffFadeDuration;
 
-	// Token: 0x04001CFC RID: 7420
+	// Token: 0x04001EF4 RID: 7924
 	[SerializeField]
 	protected float maxOffFadeDuration;
 
-	// Token: 0x04001CFD RID: 7421
+	// Token: 0x04001EF5 RID: 7925
 	[SerializeField]
 	private bool _startsOn;
 
-	// Token: 0x04001CFE RID: 7422
+	// Token: 0x04001EF6 RID: 7926
 	private sbyte lastPickedOn;
 
-	// Token: 0x04001CFF RID: 7423
+	// Token: 0x04001EF7 RID: 7927
 	private sbyte lastPickedOff;
 
-	// Token: 0x04001D00 RID: 7424
-	private SeededRandom rand;
+	// Token: 0x04001EF8 RID: 7928
+	private global::SeededRandom rand;
 
-	// Token: 0x04001D01 RID: 7425
+	// Token: 0x04001EF9 RID: 7929
 	private bool on;
 
-	// Token: 0x04001D02 RID: 7426
+	// Token: 0x04001EFA RID: 7930
 	[SerializeField]
 	protected string textTurnOn = "Flick Up";
 
-	// Token: 0x04001D03 RID: 7427
+	// Token: 0x04001EFB RID: 7931
 	[SerializeField]
 	protected string textTurnOff = "Flick Down";
 
-	// Token: 0x04001D04 RID: 7428
+	// Token: 0x04001EFC RID: 7932
 	private bool registeredConnectCallback;
 
-	// Token: 0x02000661 RID: 1633
+	// Token: 0x02000725 RID: 1829
 	private struct StylistCTX
 	{
-		// Token: 0x060038DD RID: 14557 RVA: 0x000D111C File Offset: 0x000CF31C
+		// Token: 0x06003CD1 RID: 15569 RVA: 0x000D9AFC File Offset: 0x000D7CFC
 		public void Write(BinaryWriter writer)
 		{
 			writer.Write(this.lastOnStyle);
 			writer.Write(this.lastOffStyle);
 		}
 
-		// Token: 0x060038DE RID: 14558 RVA: 0x000D1138 File Offset: 0x000CF338
+		// Token: 0x06003CD2 RID: 15570 RVA: 0x000D9B18 File Offset: 0x000D7D18
 		public void Read(BinaryReader reader)
 		{
 			this.lastOnStyle = reader.ReadSByte();
 			this.lastOffStyle = reader.ReadSByte();
 		}
 
-		// Token: 0x04001D05 RID: 7429
+		// Token: 0x04001EFD RID: 7933
 		public const int SIZE = 2;
 
-		// Token: 0x04001D06 RID: 7430
+		// Token: 0x04001EFE RID: 7934
 		public sbyte lastOnStyle;
 
-		// Token: 0x04001D07 RID: 7431
+		// Token: 0x04001EFF RID: 7935
 		public sbyte lastOffStyle;
 	}
 }

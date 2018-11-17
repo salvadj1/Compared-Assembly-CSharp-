@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020002B6 RID: 694
+// Token: 0x020002F3 RID: 755
 internal interface IIDLocalInterpolator
 {
-	// Token: 0x17000739 RID: 1849
-	// (get) Token: 0x060018E1 RID: 6369
+	// Token: 0x1700078D RID: 1933
+	// (get) Token: 0x06001A71 RID: 6769
 	IDMain idMain { get; }
 
-	// Token: 0x1700073A RID: 1850
-	// (get) Token: 0x060018E2 RID: 6370
+	// Token: 0x1700078E RID: 1934
+	// (get) Token: 0x06001A72 RID: 6770
 	IDLocal self { get; }
 
-	// Token: 0x060018E3 RID: 6371
+	// Token: 0x06001A73 RID: 6771
 	void SetGoals(Vector3 pos, Quaternion rot, double timestamp);
 }

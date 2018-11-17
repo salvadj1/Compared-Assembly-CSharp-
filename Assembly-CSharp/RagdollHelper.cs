@@ -2,43 +2,43 @@
 using Facepunch.Actor;
 using UnityEngine;
 
-// Token: 0x020001C7 RID: 455
+// Token: 0x020001F7 RID: 503
 public class RagdollHelper : MonoBehaviour
 {
-	// Token: 0x06000CDE RID: 3294 RVA: 0x000322D4 File Offset: 0x000304D4
+	// Token: 0x06000E1E RID: 3614 RVA: 0x000361C0 File Offset: 0x000343C0
 	private void Start()
 	{
 	}
 
-	// Token: 0x06000CDF RID: 3295 RVA: 0x000322D8 File Offset: 0x000304D8
+	// Token: 0x06000E1F RID: 3615 RVA: 0x000361C4 File Offset: 0x000343C4
 	private void Update()
 	{
 	}
 
-	// Token: 0x06000CE0 RID: 3296 RVA: 0x000322DC File Offset: 0x000304DC
+	// Token: 0x06000E20 RID: 3616 RVA: 0x000361C8 File Offset: 0x000343C8
 	private static void _RecursiveLinkTransformsByName(Transform ragdoll, Transform body)
 	{
 		for (int i = 0; i < ragdoll.childCount; i++)
 		{
-			Transform childAtIndex = FindChildHelper.GetChildAtIndex(ragdoll, i);
-			Transform transform = FindChildHelper.FindChildByName(childAtIndex.name, body);
+			Transform childAtIndex = global::FindChildHelper.GetChildAtIndex(ragdoll, i);
+			Transform transform = global::FindChildHelper.FindChildByName(childAtIndex.name, body);
 			if (transform)
 			{
 				childAtIndex.position = transform.position;
 				childAtIndex.rotation = transform.rotation;
 			}
-			RagdollHelper._RecursiveLinkTransformsByName(childAtIndex, body);
+			global::RagdollHelper._RecursiveLinkTransformsByName(childAtIndex, body);
 		}
 	}
 
-	// Token: 0x06000CE1 RID: 3297 RVA: 0x00032340 File Offset: 0x00030540
+	// Token: 0x06000E21 RID: 3617 RVA: 0x0003622C File Offset: 0x0003442C
 	private static void _RecursiveLinkTransformsByName(Transform ragdoll, Transform body, Transform bodyMatchTransform, ref Transform ragdollMatchTransform, ref bool foundMatch)
 	{
 		ragdollMatchTransform = null;
 		for (int i = 0; i < ragdoll.childCount; i++)
 		{
-			Transform childAtIndex = FindChildHelper.GetChildAtIndex(ragdoll, i);
-			Transform transform = FindChildHelper.FindChildByName(childAtIndex.name, body);
+			Transform childAtIndex = global::FindChildHelper.GetChildAtIndex(ragdoll, i);
+			Transform transform = global::FindChildHelper.FindChildByName(childAtIndex.name, body);
 			if (transform)
 			{
 				childAtIndex.position = transform.position;
@@ -50,17 +50,17 @@ public class RagdollHelper : MonoBehaviour
 				}
 				if (foundMatch)
 				{
-					RagdollHelper._RecursiveLinkTransformsByName(childAtIndex, transform);
+					global::RagdollHelper._RecursiveLinkTransformsByName(childAtIndex, transform);
 				}
 				else
 				{
-					RagdollHelper._RecursiveLinkTransformsByName(childAtIndex, transform, bodyMatchTransform, ref ragdollMatchTransform, ref foundMatch);
+					global::RagdollHelper._RecursiveLinkTransformsByName(childAtIndex, transform, bodyMatchTransform, ref ragdollMatchTransform, ref foundMatch);
 				}
 			}
 		}
 	}
 
-	// Token: 0x06000CE2 RID: 3298 RVA: 0x000323DC File Offset: 0x000305DC
+	// Token: 0x06000E22 RID: 3618 RVA: 0x000362C8 File Offset: 0x000344C8
 	public static void RecursiveLinkTransformsByName(Transform ragdoll, Transform body)
 	{
 		BoneStructure component = body.GetComponent<BoneStructure>();
@@ -85,22 +85,22 @@ public class RagdollHelper : MonoBehaviour
 				return;
 			}
 		}
-		RagdollHelper._RecursiveLinkTransformsByName(ragdoll, body);
+		global::RagdollHelper._RecursiveLinkTransformsByName(ragdoll, body);
 	}
 
-	// Token: 0x06000CE3 RID: 3299 RVA: 0x000324D8 File Offset: 0x000306D8
+	// Token: 0x06000E23 RID: 3619 RVA: 0x000363C4 File Offset: 0x000345C4
 	public static bool RecursiveLinkTransformsByName(Transform ragdoll, Transform body, Transform bodyMatchTransform, out Transform ragdollMatchTransform)
 	{
 		if (!bodyMatchTransform)
 		{
 			ragdollMatchTransform = null;
-			RagdollHelper.RecursiveLinkTransformsByName(ragdoll, body);
+			global::RagdollHelper.RecursiveLinkTransformsByName(ragdoll, body);
 			return false;
 		}
 		if (body == bodyMatchTransform)
 		{
 			ragdollMatchTransform = ragdoll;
-			RagdollHelper.RecursiveLinkTransformsByName(ragdoll, body);
+			global::RagdollHelper.RecursiveLinkTransformsByName(ragdoll, body);
 			return true;
 		}
 		BoneStructure component = body.GetComponent<BoneStructure>();
@@ -140,7 +140,7 @@ public class RagdollHelper : MonoBehaviour
 		}
 		bool result = false;
 		ragdollMatchTransform = null;
-		RagdollHelper._RecursiveLinkTransformsByName(ragdoll, body, bodyMatchTransform, ref ragdollMatchTransform, ref result);
+		global::RagdollHelper._RecursiveLinkTransformsByName(ragdoll, body, bodyMatchTransform, ref ragdollMatchTransform, ref result);
 		return result;
 	}
 }

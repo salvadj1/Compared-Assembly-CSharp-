@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000300 RID: 768
+// Token: 0x020003A8 RID: 936
 [AddComponentMenu("")]
 internal sealed class NGCInternalView : uLinkNetworkView
 {
-	// Token: 0x06001D9E RID: 7582 RVA: 0x00074994 File Offset: 0x00072B94
-	internal NGC GetNGC()
+	// Token: 0x060020DC RID: 8412 RVA: 0x00079414 File Offset: 0x00077614
+	internal global::NGC GetNGC()
 	{
 		return this.ngc;
 	}
 
-	// Token: 0x06001D9F RID: 7583 RVA: 0x0007499C File Offset: 0x00072B9C
+	// Token: 0x060020DD RID: 8413 RVA: 0x0007941C File Offset: 0x0007761C
 	private void Awake()
 	{
-		this.ngc = base.GetComponent<NGC>();
+		this.ngc = base.GetComponent<global::NGC>();
 		this.ngc.networkView = this;
 		try
 		{
@@ -38,8 +38,8 @@ internal sealed class NGCInternalView : uLinkNetworkView
 		}
 	}
 
-	// Token: 0x06001DA0 RID: 7584 RVA: 0x00074A3C File Offset: 0x00072C3C
-	protected override bool OnRPC(string rpcName, BitStream stream, NetworkMessageInfo info)
+	// Token: 0x060020DE RID: 8414 RVA: 0x000794BC File Offset: 0x000776BC
+	protected override bool OnRPC(string rpcName, BitStream stream, uLink.NetworkMessageInfo info)
 	{
 		char c = rpcName[0];
 		string text;
@@ -50,14 +50,14 @@ internal sealed class NGCInternalView : uLinkNetworkView
 		return base.OnRPC(text, stream, info);
 	}
 
-	// Token: 0x04000E14 RID: 3604
+	// Token: 0x04000F54 RID: 3924
 	[NonSerialized]
-	private NGC ngc;
+	private global::NGC ngc;
 
-	// Token: 0x02000301 RID: 769
+	// Token: 0x020003A9 RID: 937
 	private static class Hack
 	{
-		// Token: 0x04000E15 RID: 3605
+		// Token: 0x04000F55 RID: 3925
 		public static Dictionary<char, string> actionToRPCName = new Dictionary<char, string>();
 	}
 }

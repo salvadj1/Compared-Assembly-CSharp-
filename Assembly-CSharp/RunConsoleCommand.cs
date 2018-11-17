@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000C4 RID: 196
+// Token: 0x020000D8 RID: 216
 public class RunConsoleCommand : MonoBehaviour
 {
-	// Token: 0x0600041D RID: 1053 RVA: 0x00015530 File Offset: 0x00013730
+	// Token: 0x0600049B RID: 1179 RVA: 0x00016EF8 File Offset: 0x000150F8
 	public void RunCommandImmediately()
 	{
 		if (this.asIfTypedIntoConsole)
 		{
-			ConsoleWindow.singleton.RunCommand(this.consoleCommand);
+			global::ConsoleWindow.singleton.RunCommand(this.consoleCommand);
 			return;
 		}
-		ConsoleSystem.Run(this.consoleCommand, false);
+		global::ConsoleSystem.Run(this.consoleCommand, false);
 	}
 
-	// Token: 0x040003A5 RID: 933
+	// Token: 0x04000414 RID: 1044
 	public string consoleCommand = "echo Missing Console Command!";
 
-	// Token: 0x040003A6 RID: 934
+	// Token: 0x04000415 RID: 1045
 	public bool asIfTypedIntoConsole;
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020008FC RID: 2300
-// (Invoke) Token: 0x06004DC8 RID: 19912
-[dfEventCategory("Drag and Drop")]
-public delegate void DragEventHandler(dfControl control, dfDragEventArgs dragEvent);
+// Token: 0x02000951 RID: 2385
+// (Invoke) Token: 0x06004FDA RID: 20442
+[global::dfEventCategory("Drag and Drop")]
+public delegate void DragEventHandler(global::dfControl control, global::dfDragEventArgs dragEvent);

@@ -3,11 +3,11 @@ using MoPhoGames.USpeak.Core.Utils;
 
 namespace MoPhoGames.USpeak.Codec
 {
-	// Token: 0x020000B1 RID: 177
+	// Token: 0x020000C4 RID: 196
 	[Serializable]
 	internal class ADPCMCodec : ICodec
 	{
-		// Token: 0x060003C6 RID: 966 RVA: 0x000139E4 File Offset: 0x00011BE4
+		// Token: 0x0600043E RID: 1086 RVA: 0x000151D4 File Offset: 0x000133D4
 		private void Init()
 		{
 			this.predictedSample = 0;
@@ -16,7 +16,7 @@ namespace MoPhoGames.USpeak.Codec
 			this.newSample = 0;
 		}
 
-		// Token: 0x060003C7 RID: 967 RVA: 0x00013A04 File Offset: 0x00011C04
+		// Token: 0x0600043F RID: 1087 RVA: 0x000151F4 File Offset: 0x000133F4
 		private short ADPCM_Decode(byte originalSample)
 		{
 			int num = this.stepsize * (int)originalSample / 4 + this.stepsize / 8;
@@ -59,7 +59,7 @@ namespace MoPhoGames.USpeak.Codec
 			return (short)this.newSample;
 		}
 
-		// Token: 0x060003C8 RID: 968 RVA: 0x00013B10 File Offset: 0x00011D10
+		// Token: 0x06000440 RID: 1088 RVA: 0x00015300 File Offset: 0x00013500
 		private byte ADPCM_Encode(short originalSample)
 		{
 			int num = (int)originalSample - this.predictedSample;
@@ -123,8 +123,8 @@ namespace MoPhoGames.USpeak.Codec
 			return (byte)this.newSample;
 		}
 
-		// Token: 0x060003C9 RID: 969 RVA: 0x00013C84 File Offset: 0x00011E84
-		public byte[] Encode(short[] data, BandMode mode)
+		// Token: 0x06000441 RID: 1089 RVA: 0x00015474 File Offset: 0x00013674
+		public byte[] Encode(short[] data, global::BandMode mode)
 		{
 			this.Init();
 			int num = data.Length / 2;
@@ -132,7 +132,7 @@ namespace MoPhoGames.USpeak.Codec
 			{
 				num++;
 			}
-			byte[] @byte = USpeakPoolUtils.GetByte(num);
+			byte[] @byte = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetByte(num);
 			for (int i = 0; i < @byte.Length; i++)
 			{
 				if (i * 2 >= data.Length)
@@ -151,11 +151,11 @@ namespace MoPhoGames.USpeak.Codec
 			return @byte;
 		}
 
-		// Token: 0x060003CA RID: 970 RVA: 0x00013D10 File Offset: 0x00011F10
-		public short[] Decode(byte[] data, BandMode mode)
+		// Token: 0x06000442 RID: 1090 RVA: 0x00015500 File Offset: 0x00013700
+		public short[] Decode(byte[] data, global::BandMode mode)
 		{
 			this.Init();
-			short[] @short = USpeakPoolUtils.GetShort(data.Length * 2);
+			short[] @short = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetShort(data.Length * 2);
 			for (int i = 0; i < data.Length; i++)
 			{
 				byte b = data[i];
@@ -167,13 +167,13 @@ namespace MoPhoGames.USpeak.Codec
 			return @short;
 		}
 
-		// Token: 0x060003CB RID: 971 RVA: 0x00013D70 File Offset: 0x00011F70
+		// Token: 0x06000443 RID: 1091 RVA: 0x00015560 File Offset: 0x00013760
 		public int GetSampleSize(int recordingFrequency)
 		{
 			return 0;
 		}
 
-		// Token: 0x0400034F RID: 847
+		// Token: 0x040003BA RID: 954
 		private static int[] indexTable = new int[]
 		{
 			-1,
@@ -194,7 +194,7 @@ namespace MoPhoGames.USpeak.Codec
 			8
 		};
 
-		// Token: 0x04000350 RID: 848
+		// Token: 0x040003BB RID: 955
 		private static int[] stepsizeTable = new int[]
 		{
 			7,
@@ -287,16 +287,16 @@ namespace MoPhoGames.USpeak.Codec
 			32767
 		};
 
-		// Token: 0x04000351 RID: 849
+		// Token: 0x040003BC RID: 956
 		private int predictedSample;
 
-		// Token: 0x04000352 RID: 850
+		// Token: 0x040003BD RID: 957
 		private int stepsize = 7;
 
-		// Token: 0x04000353 RID: 851
+		// Token: 0x040003BE RID: 958
 		private int index;
 
-		// Token: 0x04000354 RID: 852
+		// Token: 0x040003BF RID: 959
 		private int newSample;
 	}
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006FA RID: 1786
+// Token: 0x020007CC RID: 1996
 public static class RectExtensions
 {
-	// Token: 0x06004081 RID: 16513 RVA: 0x000F7994 File Offset: 0x000F5B94
+	// Token: 0x0600449D RID: 17565 RVA: 0x00100598 File Offset: 0x000FE798
 	public static RectOffset ConstrainPadding(this RectOffset borders)
 	{
 		if (borders == null)
@@ -18,13 +18,13 @@ public static class RectExtensions
 		return borders;
 	}
 
-	// Token: 0x06004082 RID: 16514 RVA: 0x000F79F8 File Offset: 0x000F5BF8
+	// Token: 0x0600449E RID: 17566 RVA: 0x001005FC File Offset: 0x000FE7FC
 	public static bool IsEmpty(this Rect rect)
 	{
 		return rect.xMin == rect.xMax || rect.yMin == rect.yMax;
 	}
 
-	// Token: 0x06004083 RID: 16515 RVA: 0x000F7A2C File Offset: 0x000F5C2C
+	// Token: 0x0600449F RID: 17567 RVA: 0x00100630 File Offset: 0x000FE830
 	public static Rect Intersection(this Rect a, Rect b)
 	{
 		if (!a.Intersects(b))
@@ -38,7 +38,7 @@ public static class RectExtensions
 		return Rect.MinMaxRect(num, num4, num2, num3);
 	}
 
-	// Token: 0x06004084 RID: 16516 RVA: 0x000F7AAC File Offset: 0x000F5CAC
+	// Token: 0x060044A0 RID: 17568 RVA: 0x001006B0 File Offset: 0x000FE8B0
 	public static Rect Union(this Rect a, Rect b)
 	{
 		float num = Mathf.Min(a.xMin, b.xMin);
@@ -48,7 +48,7 @@ public static class RectExtensions
 		return Rect.MinMaxRect(num, num3, num2, num4);
 	}
 
-	// Token: 0x06004085 RID: 16517 RVA: 0x000F7B14 File Offset: 0x000F5D14
+	// Token: 0x060044A1 RID: 17569 RVA: 0x00100718 File Offset: 0x000FE918
 	public static bool Contains(this Rect rect, Rect other)
 	{
 		bool flag = rect.x <= other.x;
@@ -58,20 +58,20 @@ public static class RectExtensions
 		return flag && flag2 && flag3 && flag4;
 	}
 
-	// Token: 0x06004086 RID: 16518 RVA: 0x000F7BA8 File Offset: 0x000F5DA8
+	// Token: 0x060044A2 RID: 17570 RVA: 0x001007AC File Offset: 0x000FE9AC
 	public static bool Intersects(this Rect rect, Rect other)
 	{
 		bool flag = rect.xMax < other.xMin || rect.yMax < other.xMin || rect.xMin > other.xMax || rect.yMin > other.yMax;
 		return !flag;
 	}
 
-	// Token: 0x06004087 RID: 16519 RVA: 0x000F7C08 File Offset: 0x000F5E08
+	// Token: 0x060044A3 RID: 17571 RVA: 0x0010080C File Offset: 0x000FEA0C
 	public static Rect RoundToInt(this Rect rect)
 	{
 		return new Rect((float)Mathf.RoundToInt(rect.x), (float)Mathf.RoundToInt(rect.y), (float)Mathf.RoundToInt(rect.width), (float)Mathf.RoundToInt(rect.height));
 	}
 
-	// Token: 0x06004088 RID: 16520 RVA: 0x000F7C50 File Offset: 0x000F5E50
+	// Token: 0x060044A4 RID: 17572 RVA: 0x00100854 File Offset: 0x000FEA54
 	public static string Debug(this Rect rect)
 	{
 		return string.Format("[{0},{1},{2},{3}]", new object[]

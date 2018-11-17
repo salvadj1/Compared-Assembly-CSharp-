@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000600 RID: 1536
+// Token: 0x020006C0 RID: 1728
 public class IslandHello : MonoBehaviour
 {
-	// Token: 0x060036EE RID: 14062 RVA: 0x000C5BF8 File Offset: 0x000C3DF8
+	// Token: 0x06003AC6 RID: 15046 RVA: 0x000CE128 File Offset: 0x000CC328
 	private void Start()
 	{
 		Debug.Log("Island Hello!");

@@ -1,8 +1,8 @@
 ﻿using System;
 
-// Token: 0x020005B0 RID: 1456
-public interface IArmorItem : IEquipmentItem, IInventoryItem
+// Token: 0x0200066E RID: 1646
+public interface IArmorItem : global::IEquipmentItem, global::IInventoryItem
 {
-	// Token: 0x060034DA RID: 13530
-	void ArmorUpdate(Inventory belongInv, int belongSlot);
+	// Token: 0x060038A2 RID: 14498
+	void ArmorUpdate(global::Inventory belongInv, int belongSlot);
 }

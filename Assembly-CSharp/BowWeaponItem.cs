@@ -2,16 +2,16 @@
 using Rust;
 using UnityEngine;
 
-// Token: 0x020005BD RID: 1469
-public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBlock
+// Token: 0x0200067B RID: 1659
+public abstract class BowWeaponItem<T> : global::WeaponItem<T> where T : global::BowWeaponDataBlock
 {
-	// Token: 0x06003512 RID: 13586 RVA: 0x000C16D8 File Offset: 0x000BF8D8
+	// Token: 0x060038DA RID: 14554 RVA: 0x000C9934 File Offset: 0x000C7B34
 	protected BowWeaponItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x17000A6E RID: 2670
-	// (get) Token: 0x06003513 RID: 13587 RVA: 0x000C16EC File Offset: 0x000BF8EC
+	// Token: 0x17000AE4 RID: 2788
+	// (get) Token: 0x060038DB RID: 14555 RVA: 0x000C9948 File Offset: 0x000C7B48
 	public override bool canPrimaryAttack
 	{
 		get
@@ -20,8 +20,8 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		}
 	}
 
-	// Token: 0x17000A6F RID: 2671
-	// (get) Token: 0x06003514 RID: 13588 RVA: 0x000C1700 File Offset: 0x000BF900
+	// Token: 0x17000AE5 RID: 2789
+	// (get) Token: 0x060038DC RID: 14556 RVA: 0x000C995C File Offset: 0x000C7B5C
 	public override bool canReload
 	{
 		get
@@ -30,21 +30,21 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		}
 	}
 
-	// Token: 0x06003515 RID: 13589 RVA: 0x000C1704 File Offset: 0x000BF904
+	// Token: 0x060038DD RID: 14557 RVA: 0x000C9960 File Offset: 0x000C7B60
 	protected override bool CanAim()
 	{
 		return !this.IsReloading() && base.CanAim();
 	}
 
-	// Token: 0x06003516 RID: 13590 RVA: 0x000C171C File Offset: 0x000BF91C
+	// Token: 0x060038DE RID: 14558 RVA: 0x000C9978 File Offset: 0x000C7B78
 	public virtual bool IsReloading()
 	{
 		return false;
 	}
 
-	// Token: 0x17000A70 RID: 2672
-	// (get) Token: 0x06003517 RID: 13591 RVA: 0x000C1720 File Offset: 0x000BF920
-	// (set) Token: 0x06003518 RID: 13592 RVA: 0x000C1728 File Offset: 0x000BF928
+	// Token: 0x17000AE6 RID: 2790
+	// (get) Token: 0x060038DF RID: 14559 RVA: 0x000C997C File Offset: 0x000C7B7C
+	// (set) Token: 0x060038E0 RID: 14560 RVA: 0x000C9984 File Offset: 0x000C7B84
 	public int currentArrowID
 	{
 		get
@@ -57,9 +57,9 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		}
 	}
 
-	// Token: 0x17000A71 RID: 2673
-	// (get) Token: 0x06003519 RID: 13593 RVA: 0x000C1734 File Offset: 0x000BF934
-	// (set) Token: 0x0600351A RID: 13594 RVA: 0x000C173C File Offset: 0x000BF93C
+	// Token: 0x17000AE7 RID: 2791
+	// (get) Token: 0x060038E1 RID: 14561 RVA: 0x000C9990 File Offset: 0x000C7B90
+	// (set) Token: 0x060038E2 RID: 14562 RVA: 0x000C9998 File Offset: 0x000C7B98
 	public bool arrowDrawn
 	{
 		get
@@ -72,9 +72,9 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		}
 	}
 
-	// Token: 0x17000A72 RID: 2674
-	// (get) Token: 0x0600351B RID: 13595 RVA: 0x000C1748 File Offset: 0x000BF948
-	// (set) Token: 0x0600351C RID: 13596 RVA: 0x000C1750 File Offset: 0x000BF950
+	// Token: 0x17000AE8 RID: 2792
+	// (get) Token: 0x060038E3 RID: 14563 RVA: 0x000C99A4 File Offset: 0x000C7BA4
+	// (set) Token: 0x060038E4 RID: 14564 RVA: 0x000C99AC File Offset: 0x000C7BAC
 	public bool tired
 	{
 		get
@@ -87,9 +87,9 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		}
 	}
 
-	// Token: 0x17000A73 RID: 2675
-	// (get) Token: 0x0600351D RID: 13597 RVA: 0x000C175C File Offset: 0x000BF95C
-	// (set) Token: 0x0600351E RID: 13598 RVA: 0x000C1764 File Offset: 0x000BF964
+	// Token: 0x17000AE9 RID: 2793
+	// (get) Token: 0x060038E5 RID: 14565 RVA: 0x000C99B8 File Offset: 0x000C7BB8
+	// (set) Token: 0x060038E6 RID: 14566 RVA: 0x000C99C0 File Offset: 0x000C7BC0
 	public float completeDrawTime
 	{
 		get
@@ -102,31 +102,31 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		}
 	}
 
-	// Token: 0x0600351F RID: 13599 RVA: 0x000C1770 File Offset: 0x000BF970
+	// Token: 0x060038E7 RID: 14567 RVA: 0x000C99CC File Offset: 0x000C7BCC
 	public int GenerateArrowID()
 	{
 		return Random.Range(1, 65535);
 	}
 
-	// Token: 0x06003520 RID: 13600 RVA: 0x000C1780 File Offset: 0x000BF980
+	// Token: 0x060038E8 RID: 14568 RVA: 0x000C99DC File Offset: 0x000C7BDC
 	public void ClearArrowID()
 	{
 		this.currentArrowID = 0;
 	}
 
-	// Token: 0x06003521 RID: 13601 RVA: 0x000C178C File Offset: 0x000BF98C
+	// Token: 0x060038E9 RID: 14569 RVA: 0x000C99E8 File Offset: 0x000C7BE8
 	public bool IsArrowDrawn()
 	{
 		return this.arrowDrawn;
 	}
 
-	// Token: 0x06003522 RID: 13602 RVA: 0x000C1794 File Offset: 0x000BF994
+	// Token: 0x060038EA RID: 14570 RVA: 0x000C99F0 File Offset: 0x000C7BF0
 	public bool IsArrowDrawing()
 	{
 		return this.completeDrawTime != -1f;
 	}
 
-	// Token: 0x06003523 RID: 13603 RVA: 0x000C17A8 File Offset: 0x000BF9A8
+	// Token: 0x060038EB RID: 14571 RVA: 0x000C9A04 File Offset: 0x000C7C04
 	public void MakeReadyIn(float delay)
 	{
 		base.nextPrimaryAttackTime = Time.time + delay;
@@ -135,13 +135,13 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		this.completeDrawTime = -1f;
 	}
 
-	// Token: 0x06003524 RID: 13604 RVA: 0x000C17DC File Offset: 0x000BF9DC
+	// Token: 0x060038EC RID: 14572 RVA: 0x000C9A38 File Offset: 0x000C7C38
 	public bool IsArrowDrawingOrDrawn()
 	{
 		return this.IsArrowDrawn() || this.IsArrowDrawing();
 	}
 
-	// Token: 0x06003525 RID: 13605 RVA: 0x000C17F4 File Offset: 0x000BF9F4
+	// Token: 0x060038ED RID: 14573 RVA: 0x000C9A50 File Offset: 0x000C7C50
 	protected override void OnSetActive(bool isActive)
 	{
 		if (!isActive)
@@ -151,28 +151,28 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		base.OnSetActive(isActive);
 	}
 
-	// Token: 0x06003526 RID: 13606 RVA: 0x000C1814 File Offset: 0x000BFA14
+	// Token: 0x060038EE RID: 14574 RVA: 0x000C9A70 File Offset: 0x000C7C70
 	protected override bool CanSetActivate(bool value)
 	{
 		return base.CanSetActivate(value) && (value || base.nextPrimaryAttackTime <= Time.time);
 	}
 
-	// Token: 0x06003527 RID: 13607 RVA: 0x000C184C File Offset: 0x000BFA4C
-	public ItemDataBlock GetDesiredArrow()
+	// Token: 0x060038EF RID: 14575 RVA: 0x000C9AA8 File Offset: 0x000C7CA8
+	public global::ItemDataBlock GetDesiredArrow()
 	{
 		return this.datablock.defaultAmmo;
 	}
 
-	// Token: 0x06003528 RID: 13608 RVA: 0x000C1860 File Offset: 0x000BFA60
-	public IInventoryItem FindAmmo()
+	// Token: 0x060038F0 RID: 14576 RVA: 0x000C9ABC File Offset: 0x000C7CBC
+	public global::IInventoryItem FindAmmo()
 	{
 		return base.inventory.FindItem(this.GetDesiredArrow());
 	}
 
-	// Token: 0x06003529 RID: 13609 RVA: 0x000C1880 File Offset: 0x000BFA80
-	public override void ItemPreFrame(ref HumanController.InputSample sample)
+	// Token: 0x060038F1 RID: 14577 RVA: 0x000C9ADC File Offset: 0x000C7CDC
+	public override void ItemPreFrame(ref global::HumanController.InputSample sample)
 	{
-		ViewModel viewModelInstance = base.viewModelInstance;
+		global::ViewModel viewModelInstance = base.viewModelInstance;
 		if (sample.attack && base.nextPrimaryAttackTime <= Time.time)
 		{
 			if (this.IsArrowDrawn())
@@ -181,26 +181,26 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 				if (num > 1f)
 				{
 					T datablock = this.datablock;
-					datablock.Local_GetTired(viewModelInstance, base.itemRepresentation, this.iface as IBowWeaponItem, ref sample);
+					datablock.Local_GetTired(viewModelInstance, base.itemRepresentation, this.iface as global::IBowWeaponItem, ref sample);
 					this.tired = true;
 				}
 				if (num > this.datablock.tooTiredLength)
 				{
 					T datablock2 = this.datablock;
-					datablock2.Local_CancelArrow(viewModelInstance, base.itemRepresentation, this.iface as IBowWeaponItem, ref sample);
+					datablock2.Local_CancelArrow(viewModelInstance, base.itemRepresentation, this.iface as global::IBowWeaponItem, ref sample);
 				}
 			}
 			else if (!this.IsArrowDrawn() && !this.IsArrowDrawing())
 			{
 				if (this.FindAmmo() == null)
 				{
-					Notice.Popup("", "No Arrows!", 4f);
+					Rust.Notice.Popup("", "No Arrows!", 4f);
 					this.MakeReadyIn(2f);
 				}
 				else
 				{
 					T datablock3 = this.datablock;
-					datablock3.Local_ReadyArrow(viewModelInstance, base.itemRepresentation, this.iface as IBowWeaponItem, ref sample);
+					datablock3.Local_ReadyArrow(viewModelInstance, base.itemRepresentation, this.iface as global::IBowWeaponItem, ref sample);
 				}
 			}
 			else if (this.completeDrawTime < Time.time)
@@ -216,12 +216,12 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		{
 			if (this.IsArrowDrawn())
 			{
-				IInventoryItem inventoryItem = this.FindAmmo();
+				global::IInventoryItem inventoryItem = this.FindAmmo();
 				if (inventoryItem == null)
 				{
-					Notice.Popup("", "No Arrows!", 4f);
+					Rust.Notice.Popup("", "No Arrows!", 4f);
 					T datablock4 = this.datablock;
-					datablock4.Local_CancelArrow(viewModelInstance, base.itemRepresentation, this.iface as IBowWeaponItem, ref sample);
+					datablock4.Local_CancelArrow(viewModelInstance, base.itemRepresentation, this.iface as global::IBowWeaponItem, ref sample);
 				}
 				else
 				{
@@ -231,13 +231,13 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 						base.inventory.RemoveItem(inventoryItem.slot);
 					}
 					T datablock5 = this.datablock;
-					datablock5.Local_FireArrow(viewModelInstance, base.itemRepresentation, this.iface as IBowWeaponItem, ref sample);
+					datablock5.Local_FireArrow(viewModelInstance, base.itemRepresentation, this.iface as global::IBowWeaponItem, ref sample);
 				}
 			}
 			else if (this.IsArrowDrawingOrDrawn())
 			{
 				T datablock6 = this.datablock;
-				datablock6.Local_CancelArrow(viewModelInstance, base.itemRepresentation, this.iface as IBowWeaponItem, ref sample);
+				datablock6.Local_CancelArrow(viewModelInstance, base.itemRepresentation, this.iface as global::IBowWeaponItem, ref sample);
 			}
 			sample.aim = false;
 		}
@@ -248,29 +248,29 @@ public abstract class BowWeaponItem<T> : WeaponItem<T> where T : BowWeaponDataBl
 		}
 	}
 
-	// Token: 0x0600352A RID: 13610 RVA: 0x000C1B30 File Offset: 0x000BFD30
-	public void ArrowReportHit(IDMain hitMain, ArrowMovement arrow)
+	// Token: 0x060038F2 RID: 14578 RVA: 0x000C9D8C File Offset: 0x000C7F8C
+	public void ArrowReportHit(IDMain hitMain, global::ArrowMovement arrow)
 	{
 		T datablock = this.datablock;
-		datablock.ArrowReportHit(hitMain, arrow, base.itemRepresentation, this.iface as IBowWeaponItem);
+		datablock.ArrowReportHit(hitMain, arrow, base.itemRepresentation, this.iface as global::IBowWeaponItem);
 	}
 
-	// Token: 0x0600352B RID: 13611 RVA: 0x000C1B64 File Offset: 0x000BFD64
-	public void ArrowReportMiss(ArrowMovement arrow)
+	// Token: 0x060038F3 RID: 14579 RVA: 0x000C9DC0 File Offset: 0x000C7FC0
+	public void ArrowReportMiss(global::ArrowMovement arrow)
 	{
 		T datablock = this.datablock;
 		datablock.ArrowReportMiss(arrow, base.itemRepresentation);
 	}
 
-	// Token: 0x04001A63 RID: 6755
+	// Token: 0x04001C34 RID: 7220
 	private bool _arrowDrawn;
 
-	// Token: 0x04001A64 RID: 6756
+	// Token: 0x04001C35 RID: 7221
 	private bool _tired;
 
-	// Token: 0x04001A65 RID: 6757
+	// Token: 0x04001C36 RID: 7222
 	private float _completeDrawTime = -1f;
 
-	// Token: 0x04001A66 RID: 6758
+	// Token: 0x04001C37 RID: 7223
 	private int _currentArrowID;
 }

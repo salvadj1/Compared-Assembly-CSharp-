@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000773 RID: 1907
-[AddComponentMenu("NGUI/Interaction/Grid")]
+// Token: 0x02000856 RID: 2134
 [ExecuteInEditMode]
+[AddComponentMenu("NGUI/Interaction/Grid")]
 public class UIGrid : MonoBehaviour
 {
-	// Token: 0x0600454D RID: 17741 RVA: 0x00110E4C File Offset: 0x0010F04C
+	// Token: 0x060049B2 RID: 18866 RVA: 0x0011A7CC File Offset: 0x001189CC
 	private void Start()
 	{
 		this.mStarted = true;
 		this.Reposition();
 	}
 
-	// Token: 0x0600454E RID: 17742 RVA: 0x00110E5C File Offset: 0x0010F05C
+	// Token: 0x060049B3 RID: 18867 RVA: 0x0011A7DC File Offset: 0x001189DC
 	private void Update()
 	{
 		if (this.repositionNow)
@@ -24,13 +24,13 @@ public class UIGrid : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600454F RID: 17743 RVA: 0x00110E78 File Offset: 0x0010F078
+	// Token: 0x060049B4 RID: 18868 RVA: 0x0011A7F8 File Offset: 0x001189F8
 	public static int SortByName(Transform a, Transform b)
 	{
 		return string.Compare(a.name, b.name);
 	}
 
-	// Token: 0x06004550 RID: 17744 RVA: 0x00110E8C File Offset: 0x0010F08C
+	// Token: 0x060049B5 RID: 18869 RVA: 0x0011A80C File Offset: 0x00118A0C
 	public void Reposition()
 	{
 		if (!this.mStarted)
@@ -52,7 +52,7 @@ public class UIGrid : MonoBehaviour
 					list.Add(child);
 				}
 			}
-			list.Sort(new Comparison<Transform>(UIGrid.SortByName));
+			list.Sort(new Comparison<Transform>(global::UIGrid.SortByName));
 			int j = 0;
 			int count = list.Count;
 			while (j < count)
@@ -61,7 +61,7 @@ public class UIGrid : MonoBehaviour
 				if (transform2.gameObject.activeInHierarchy || !this.hideInactive)
 				{
 					float z = transform2.localPosition.z;
-					transform2.localPosition = ((this.arrangement != UIGrid.Arrangement.Horizontal) ? new Vector3(this.cellWidth * (float)num2, -this.cellHeight * (float)num, z) : new Vector3(this.cellWidth * (float)num, -this.cellHeight * (float)num2, z));
+					transform2.localPosition = ((this.arrangement != global::UIGrid.Arrangement.Horizontal) ? new Vector3(this.cellWidth * (float)num2, -this.cellHeight * (float)num, z) : new Vector3(this.cellWidth * (float)num, -this.cellHeight * (float)num2, z));
 					if (++num >= this.maxPerLine && this.maxPerLine > 0)
 					{
 						num = 0;
@@ -79,7 +79,7 @@ public class UIGrid : MonoBehaviour
 				if (child2.gameObject.activeInHierarchy || !this.hideInactive)
 				{
 					float z2 = child2.localPosition.z;
-					child2.localPosition = ((this.arrangement != UIGrid.Arrangement.Horizontal) ? new Vector3(this.cellWidth * (float)num2, -this.cellHeight * (float)num, z2) : new Vector3(this.cellWidth * (float)num, -this.cellHeight * (float)num2, z2));
+					child2.localPosition = ((this.arrangement != global::UIGrid.Arrangement.Horizontal) ? new Vector3(this.cellWidth * (float)num2, -this.cellHeight * (float)num, z2) : new Vector3(this.cellWidth * (float)num, -this.cellHeight * (float)num2, z2));
 					if (++num >= this.maxPerLine && this.maxPerLine > 0)
 					{
 						num = 0;
@@ -88,43 +88,43 @@ public class UIGrid : MonoBehaviour
 				}
 			}
 		}
-		UIDraggablePanel uidraggablePanel = NGUITools.FindInParents<UIDraggablePanel>(base.gameObject);
+		global::UIDraggablePanel uidraggablePanel = global::NGUITools.FindInParents<global::UIDraggablePanel>(base.gameObject);
 		if (uidraggablePanel != null)
 		{
 			uidraggablePanel.UpdateScrollbars(true);
 		}
 	}
 
-	// Token: 0x040025A2 RID: 9634
-	public UIGrid.Arrangement arrangement;
+	// Token: 0x040027D9 RID: 10201
+	public global::UIGrid.Arrangement arrangement;
 
-	// Token: 0x040025A3 RID: 9635
+	// Token: 0x040027DA RID: 10202
 	public int maxPerLine;
 
-	// Token: 0x040025A4 RID: 9636
+	// Token: 0x040027DB RID: 10203
 	public float cellWidth = 200f;
 
-	// Token: 0x040025A5 RID: 9637
+	// Token: 0x040027DC RID: 10204
 	public float cellHeight = 200f;
 
-	// Token: 0x040025A6 RID: 9638
+	// Token: 0x040027DD RID: 10205
 	public bool repositionNow;
 
-	// Token: 0x040025A7 RID: 9639
+	// Token: 0x040027DE RID: 10206
 	public bool sorted;
 
-	// Token: 0x040025A8 RID: 9640
+	// Token: 0x040027DF RID: 10207
 	public bool hideInactive = true;
 
-	// Token: 0x040025A9 RID: 9641
+	// Token: 0x040027E0 RID: 10208
 	private bool mStarted;
 
-	// Token: 0x02000774 RID: 1908
+	// Token: 0x02000857 RID: 2135
 	public enum Arrangement
 	{
-		// Token: 0x040025AB RID: 9643
+		// Token: 0x040027E2 RID: 10210
 		Horizontal,
-		// Token: 0x040025AC RID: 9644
+		// Token: 0x040027E3 RID: 10211
 		Vertical
 	}
 }

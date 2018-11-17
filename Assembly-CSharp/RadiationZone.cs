@@ -2,42 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000056 RID: 86
+// Token: 0x02000068 RID: 104
 public class RadiationZone : MonoBehaviour
 {
-	// Token: 0x060002D8 RID: 728 RVA: 0x0000EDA4 File Offset: 0x0000CFA4
+	// Token: 0x0600034A RID: 842 RVA: 0x0001034C File Offset: 0x0000E54C
 	private void Start()
 	{
 		this.UpdateCollider();
 	}
 
-	// Token: 0x060002D9 RID: 729 RVA: 0x0000EDAC File Offset: 0x0000CFAC
-	public Character GetFromCollider(Collider other)
+	// Token: 0x0600034B RID: 843 RVA: 0x00010354 File Offset: 0x0000E554
+	public global::Character GetFromCollider(Collider other)
 	{
 		IDBase idbase = IDBase.Get(other);
 		if (!idbase)
 		{
 			return null;
 		}
-		return idbase.idMain as Character;
+		return idbase.idMain as global::Character;
 	}
 
-	// Token: 0x060002DA RID: 730 RVA: 0x0000EDD8 File Offset: 0x0000CFD8
+	// Token: 0x0600034C RID: 844 RVA: 0x00010380 File Offset: 0x0000E580
 	private void OnTriggerEnter(Collider other)
 	{
-		Character fromCollider = this.GetFromCollider(other);
+		global::Character fromCollider = this.GetFromCollider(other);
 		if (!fromCollider)
 		{
 			return;
 		}
-		Radiation local = fromCollider.GetLocal<Radiation>();
+		global::Radiation local = fromCollider.GetLocal<global::Radiation>();
 		if (local)
 		{
 			local.AddRadiationZone(this);
 		}
 	}
 
-	// Token: 0x060002DB RID: 731 RVA: 0x0000EE14 File Offset: 0x0000D014
+	// Token: 0x0600034D RID: 845 RVA: 0x000103BC File Offset: 0x0000E5BC
 	public float GetExposureForPos(Vector3 pos)
 	{
 		if (this.strongerAtCenter)
@@ -47,15 +47,15 @@ public class RadiationZone : MonoBehaviour
 		return this.exposurePerMin;
 	}
 
-	// Token: 0x060002DC RID: 732 RVA: 0x0000EE60 File Offset: 0x0000D060
+	// Token: 0x0600034E RID: 846 RVA: 0x00010408 File Offset: 0x0000E608
 	private void OnTriggerExit(Collider other)
 	{
-		Character fromCollider = this.GetFromCollider(other);
+		global::Character fromCollider = this.GetFromCollider(other);
 		if (!fromCollider)
 		{
 			return;
 		}
-		Radiation local = fromCollider.GetLocal<Radiation>();
+		global::Radiation local = fromCollider.GetLocal<global::Radiation>();
 		if (!local)
 		{
 			return;
@@ -63,16 +63,16 @@ public class RadiationZone : MonoBehaviour
 		local.RemoveRadiationZone(this);
 	}
 
-	// Token: 0x060002DD RID: 733 RVA: 0x0000EE9C File Offset: 0x0000D09C
-	internal bool CanAddToRadiation(Radiation radiation)
+	// Token: 0x0600034F RID: 847 RVA: 0x00010444 File Offset: 0x0000E644
+	internal bool CanAddToRadiation(global::Radiation radiation)
 	{
 		bool result;
 		if (!this.shuttingDown)
 		{
-			HashSet<Radiation> hashSet;
+			HashSet<global::Radiation> hashSet;
 			if ((hashSet = this.radiating) == null)
 			{
-				hashSet = (this.radiating = new HashSet<Radiation>());
+				hashSet = (this.radiating = new HashSet<global::Radiation>());
 			}
 			result = hashSet.Add(radiation);
 		}
@@ -83,13 +83,13 @@ public class RadiationZone : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x060002DE RID: 734 RVA: 0x0000EED8 File Offset: 0x0000D0D8
-	internal bool RemoveFromRadiation(Radiation radiation)
+	// Token: 0x06000350 RID: 848 RVA: 0x00010480 File Offset: 0x0000E680
+	internal bool RemoveFromRadiation(global::Radiation radiation)
 	{
 		return this.shuttingDown || (this.radiating != null && this.radiating.Remove(radiation));
 	}
 
-	// Token: 0x060002DF RID: 735 RVA: 0x0000EF10 File Offset: 0x0000D110
+	// Token: 0x06000351 RID: 849 RVA: 0x000104B8 File Offset: 0x0000E6B8
 	[ContextMenu("Update Collider")]
 	public void UpdateCollider()
 	{
@@ -97,13 +97,13 @@ public class RadiationZone : MonoBehaviour
 		base.collider.isTrigger = true;
 	}
 
-	// Token: 0x060002E0 RID: 736 RVA: 0x0000EF3C File Offset: 0x0000D13C
+	// Token: 0x06000352 RID: 850 RVA: 0x000104E4 File Offset: 0x0000E6E4
 	private void OnDestroy()
 	{
 		this.shuttingDown = true;
 		if (this.radiating != null)
 		{
-			foreach (Radiation radiation in this.radiating)
+			foreach (global::Radiation radiation in this.radiating)
 			{
 				if (radiation)
 				{
@@ -114,7 +114,7 @@ public class RadiationZone : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002E1 RID: 737 RVA: 0x0000EFC8 File Offset: 0x0000D1C8
+	// Token: 0x06000353 RID: 851 RVA: 0x00010570 File Offset: 0x0000E770
 	public void OnDrawGizmos()
 	{
 		Gizmos.color = new Color(0.3f, 0.5f, 0.3f, 0.25f);
@@ -123,7 +123,7 @@ public class RadiationZone : MonoBehaviour
 		Gizmos.DrawCube(base.transform.position, Vector3.one * 0.5f);
 	}
 
-	// Token: 0x060002E2 RID: 738 RVA: 0x0000F034 File Offset: 0x0000D234
+	// Token: 0x06000354 RID: 852 RVA: 0x000105DC File Offset: 0x0000E7DC
 	public void OnDrawGizmosSelected()
 	{
 		Gizmos.color = new Color(0.3f, 0.5f, 0.3f, 0.4f);
@@ -132,20 +132,20 @@ public class RadiationZone : MonoBehaviour
 		Gizmos.DrawCube(base.transform.position, Vector3.one * 0.5f);
 	}
 
-	// Token: 0x040001B7 RID: 439
+	// Token: 0x04000219 RID: 537
 	public float radius = 10f;
 
-	// Token: 0x040001B8 RID: 440
+	// Token: 0x0400021A RID: 538
 	public float exposurePerMin = 50f;
 
-	// Token: 0x040001B9 RID: 441
+	// Token: 0x0400021B RID: 539
 	public bool strongerAtCenter = true;
 
-	// Token: 0x040001BA RID: 442
+	// Token: 0x0400021C RID: 540
 	[NonSerialized]
-	private HashSet<Radiation> radiating;
+	private HashSet<global::Radiation> radiating;
 
-	// Token: 0x040001BB RID: 443
+	// Token: 0x0400021D RID: 541
 	[NonSerialized]
 	private bool shuttingDown;
 }

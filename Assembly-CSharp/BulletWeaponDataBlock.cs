@@ -2,64 +2,64 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000561 RID: 1377
-public class BulletWeaponDataBlock : WeaponDataBlock
+// Token: 0x0200061F RID: 1567
+public class BulletWeaponDataBlock : global::WeaponDataBlock
 {
-	// Token: 0x06002F46 RID: 12102 RVA: 0x000B8488 File Offset: 0x000B6688
-	protected override IInventoryItem ConstructItem()
+	// Token: 0x0600330E RID: 13070 RVA: 0x000C06E4 File Offset: 0x000BE8E4
+	protected override global::IInventoryItem ConstructItem()
 	{
-		return new BulletWeaponDataBlock.ITEM_TYPE(this);
+		return new global::BulletWeaponDataBlock.ITEM_TYPE(this);
 	}
 
-	// Token: 0x06002F47 RID: 12103 RVA: 0x000B8490 File Offset: 0x000B6690
+	// Token: 0x0600330F RID: 13071 RVA: 0x000C06EC File Offset: 0x000BE8EC
 	public void Awake()
 	{
 	}
 
-	// Token: 0x06002F48 RID: 12104 RVA: 0x000B8494 File Offset: 0x000B6694
+	// Token: 0x06003310 RID: 13072 RVA: 0x000C06F0 File Offset: 0x000BE8F0
 	public override byte GetMaxEligableSlots()
 	{
 		return (byte)this.maxEligableSlots;
 	}
 
-	// Token: 0x06002F49 RID: 12105 RVA: 0x000B84A0 File Offset: 0x000B66A0
-	public override int RetreiveMenuOptions(IInventoryItem item, InventoryItem.MenuItem[] results, int offset)
+	// Token: 0x06003311 RID: 13073 RVA: 0x000C06FC File Offset: 0x000BE8FC
+	public override int RetreiveMenuOptions(global::IInventoryItem item, global::InventoryItem.MenuItem[] results, int offset)
 	{
 		offset = base.RetreiveMenuOptions(item, results, offset);
 		if (item.isInLocalInventory)
 		{
-			results[offset++] = InventoryItem.MenuItem.Unload;
+			results[offset++] = global::InventoryItem.MenuItem.Unload;
 		}
 		return offset;
 	}
 
-	// Token: 0x06002F4A RID: 12106 RVA: 0x000B84D0 File Offset: 0x000B66D0
-	public override InventoryItem.MenuItemResult ExecuteMenuOption(InventoryItem.MenuItem option, IInventoryItem item)
+	// Token: 0x06003312 RID: 13074 RVA: 0x000C072C File Offset: 0x000BE92C
+	public override global::InventoryItem.MenuItemResult ExecuteMenuOption(global::InventoryItem.MenuItem option, global::IInventoryItem item)
 	{
-		if (option != InventoryItem.MenuItem.Unload)
+		if (option != global::InventoryItem.MenuItem.Unload)
 		{
 			return base.ExecuteMenuOption(option, item);
 		}
-		return InventoryItem.MenuItemResult.DoneOnServer;
+		return global::InventoryItem.MenuItemResult.DoneOnServer;
 	}
 
-	// Token: 0x06002F4B RID: 12107 RVA: 0x000B84F8 File Offset: 0x000B66F8
-	public override void InstallData(IInventoryItem item)
+	// Token: 0x06003313 RID: 13075 RVA: 0x000C0754 File Offset: 0x000BE954
+	public override void InstallData(global::IInventoryItem item)
 	{
 		base.InstallData(item);
-		IBulletWeaponItem bulletWeaponItem = item as IBulletWeaponItem;
+		global::IBulletWeaponItem bulletWeaponItem = item as global::IBulletWeaponItem;
 		this._maxUses = this.maxClipAmmo;
 		bulletWeaponItem.clipAmmo = this.maxClipAmmo;
 	}
 
-	// Token: 0x06002F4C RID: 12108 RVA: 0x000B852C File Offset: 0x000B672C
-	public virtual void Local_DryFire(ViewModel vm, ItemRepresentation itemRep)
+	// Token: 0x06003314 RID: 13076 RVA: 0x000C0788 File Offset: 0x000BE988
+	public virtual void Local_DryFire(global::ViewModel vm, global::ItemRepresentation itemRep)
 	{
 		this.dryFireSound.PlayLocal(itemRep.transform, Vector3.zero, 1f, 0);
 	}
 
-	// Token: 0x06002F4D RID: 12109 RVA: 0x000B8558 File Offset: 0x000B6758
-	public virtual void Local_Reload(ViewModel vm, ItemRepresentation itemRep, IBulletWeaponItem itemInstance, ref HumanController.InputSample sample)
+	// Token: 0x06003315 RID: 13077 RVA: 0x000C07B4 File Offset: 0x000BE9B4
+	public virtual void Local_Reload(global::ViewModel vm, global::ItemRepresentation itemRep, global::IBulletWeaponItem itemInstance, ref global::HumanController.InputSample sample)
 	{
 		if (vm)
 		{
@@ -69,10 +69,10 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		itemRep.Action(3, 0);
 	}
 
-	// Token: 0x06002F4E RID: 12110 RVA: 0x000B859C File Offset: 0x000B679C
-	public virtual void Local_FireWeapon(ViewModel vm, ItemRepresentation itemRep, IBulletWeaponItem itemInstance, ref HumanController.InputSample sample)
+	// Token: 0x06003316 RID: 13078 RVA: 0x000C07F8 File Offset: 0x000BE9F8
+	public virtual void Local_FireWeapon(global::ViewModel vm, global::ItemRepresentation itemRep, global::IBulletWeaponItem itemInstance, ref global::HumanController.InputSample sample)
 	{
-		Character character = itemInstance.character;
+		global::Character character = itemInstance.character;
 		if (character == null)
 		{
 			return;
@@ -82,13 +82,13 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 			return;
 		}
 		Ray eyesRay = character.eyesRay;
-		NetEntityID hitView = NetEntityID.unassigned;
+		global::NetEntityID hitView = global::NetEntityID.unassigned;
 		bool hitNetworkView = false;
 		int num = 1;
 		itemInstance.Consume(ref num);
 		RaycastHit2 raycastHit;
 		bool flag = Physics2.Raycast2(eyesRay, ref raycastHit, this.GetBulletRange(itemRep), 406721553);
-		TakeDamage takeDamage = null;
+		global::TakeDamage takeDamage = null;
 		Vector3 point;
 		Component hitComponent;
 		if (flag)
@@ -99,11 +99,11 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 			IDMain idmain = (!id) ? null : id.idMain;
 			if (idmain)
 			{
-				hitView = NetEntityID.Get(idmain);
+				hitView = global::NetEntityID.Get(idmain);
 				if (!hitView.isUnassigned)
 				{
 					hitNetworkView = true;
-					takeDamage = idmain.GetComponent<TakeDamage>();
+					takeDamage = idmain.GetComponent<global::TakeDamage>();
 					if (takeDamage && takeDamage.ShouldPlayHitNotification())
 					{
 						this.PlayHitNotification(point, character);
@@ -145,7 +145,7 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 			hitComponent = null;
 		}
 		bool allowBlood = flag && (!raycastHit.isHitboxHit || BodyParts.IsDefined(raycastHit.bodyPart) || takeDamage != null);
-		Socket socket;
+		global::Socket socket;
 		bool flag3;
 		if (vm)
 		{
@@ -180,12 +180,12 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		num2 = Mathf.Clamp01(num2);
 		float pitch = Random.Range(this.recoilPitchMin, this.recoilPitchMax) * num2;
 		float yaw = Random.Range(this.recoilYawMin, this.recoilYawMax) * num2;
-		if (BulletWeaponDataBlock.weaponRecoil && character.recoilSimulation)
+		if (!global::BulletWeaponDataBlock.weaponRecoil && character.recoilSimulation)
 		{
 			character.recoilSimulation.AddRecoil(this.recoilDuration, pitch, yaw);
 		}
-		HeadBob component = CameraMount.current.GetComponent<HeadBob>();
-		if (component && this.shotBob && BulletWeaponDataBlock.headRecoil)
+		global::HeadBob component = global::CameraMount.current.GetComponent<global::HeadBob>();
+		if (component && this.shotBob && global::BulletWeaponDataBlock.headRecoil)
 		{
 			component.AddEffect(this.shotBob);
 		}
@@ -194,35 +194,35 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		itemRep.ActionStream(1, 0, bitStream);
 	}
 
-	// Token: 0x06002F4F RID: 12111 RVA: 0x000B8920 File Offset: 0x000B6B20
+	// Token: 0x06003317 RID: 13079 RVA: 0x000C0B7C File Offset: 0x000BED7C
 	protected void WriteHitInfo(BitStream sendStream, ref Ray ray, bool didHit, ref RaycastHit2 hit)
 	{
-		NetEntityID hitView;
+		global::NetEntityID hitView;
 		bool hitNetworkView;
 		if (didHit)
 		{
 			IDBase id = hit.id;
 			if (id && id.idMain)
 			{
-				hitView = NetEntityID.Get(id.idMain);
+				hitView = global::NetEntityID.Get(id.idMain);
 				hitNetworkView = !hitView.isUnassigned;
 			}
 			else
 			{
 				hitNetworkView = false;
-				hitView = NetEntityID.unassigned;
+				hitView = global::NetEntityID.unassigned;
 			}
 		}
 		else
 		{
-			hitView = NetEntityID.unassigned;
+			hitView = global::NetEntityID.unassigned;
 			hitNetworkView = false;
 		}
 		this.WriteHitInfo(sendStream, ref ray, didHit, ref hit, hitNetworkView, hitView);
 	}
 
-	// Token: 0x06002F50 RID: 12112 RVA: 0x000B8994 File Offset: 0x000B6B94
-	protected virtual void WriteHitInfo(BitStream sendStream, ref Ray ray, bool didHit, ref RaycastHit2 hit, bool hitNetworkView, NetEntityID hitView)
+	// Token: 0x06003318 RID: 13080 RVA: 0x000C0BF0 File Offset: 0x000BEDF0
+	protected virtual void WriteHitInfo(BitStream sendStream, ref Ray ray, bool didHit, ref RaycastHit2 hit, bool hitNetworkView, global::NetEntityID hitView)
 	{
 		Vector3 vector;
 		if (didHit)
@@ -241,7 +241,7 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 					sendStream.WriteByte(254);
 					transform = hitView.transform;
 				}
-				sendStream.Write<NetEntityID>(hitView, new object[0]);
+				sendStream.Write<global::NetEntityID>(hitView, new object[0]);
 				vector = transform.InverseTransformPoint(hit.point);
 			}
 			else
@@ -258,8 +258,8 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		sendStream.WriteVector3(vector);
 	}
 
-	// Token: 0x06002F51 RID: 12113 RVA: 0x000B8A44 File Offset: 0x000B6C44
-	protected virtual void ReadHitInfo(BitStream stream, out GameObject hitObj, out bool hitNetworkObj, out bool hitBodyPart, out BodyPart bodyPart, out IDRemoteBodyPart remoteBodyPart, out NetEntityID hitViewID, out Transform fromTransform, out Vector3 endPos, out Vector3 offset, out bool isHeadshot)
+	// Token: 0x06003319 RID: 13081 RVA: 0x000C0CA0 File Offset: 0x000BEEA0
+	protected virtual void ReadHitInfo(BitStream stream, out GameObject hitObj, out bool hitNetworkObj, out bool hitBodyPart, out BodyPart bodyPart, out IDRemoteBodyPart remoteBodyPart, out global::NetEntityID hitViewID, out Transform fromTransform, out Vector3 endPos, out Vector3 offset, out bool isHeadshot)
 	{
 		byte b = stream.ReadByte();
 		if (b < 255)
@@ -284,7 +284,7 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		}
 		if (hitNetworkObj)
 		{
-			hitViewID = stream.Read<NetEntityID>(new object[0]);
+			hitViewID = stream.Read<global::NetEntityID>(new object[0]);
 			if (!hitViewID.isUnassigned)
 			{
 				hitObj = hitViewID.gameObject;
@@ -296,14 +296,14 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 						IDMain idMain = idbase.idMain;
 						if (idMain)
 						{
-							HitBoxSystem hitBoxSystem;
-							if (idMain is Character)
+							global::HitBoxSystem hitBoxSystem;
+							if (idMain is global::Character)
 							{
-								hitBoxSystem = ((Character)idMain).hitBoxSystem;
+								hitBoxSystem = ((global::Character)idMain).hitBoxSystem;
 							}
 							else
 							{
-								hitBoxSystem = idMain.GetRemote<HitBoxSystem>();
+								hitBoxSystem = idMain.GetRemote<global::HitBoxSystem>();
 							}
 							if (hitBoxSystem)
 							{
@@ -337,7 +337,7 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		}
 		else
 		{
-			hitViewID = NetEntityID.unassigned;
+			hitViewID = global::NetEntityID.unassigned;
 			hitObj = null;
 			remoteBodyPart = null;
 		}
@@ -384,15 +384,15 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		}
 	}
 
-	// Token: 0x06002F52 RID: 12114 RVA: 0x000B8C6C File Offset: 0x000B6E6C
-	public override void DoAction1(BitStream stream, ItemRepresentation rep, ref NetworkMessageInfo info)
+	// Token: 0x0600331A RID: 13082 RVA: 0x000C0EC8 File Offset: 0x000BF0C8
+	public override void DoAction1(BitStream stream, global::ItemRepresentation rep, ref uLink.NetworkMessageInfo info)
 	{
 		GameObject gameObject;
 		bool flag;
 		bool flag2;
 		BodyPart bodyPart;
 		IDRemoteBodyPart idremoteBodyPart;
-		NetEntityID netEntityID;
+		global::NetEntityID netEntityID;
 		Transform transform;
 		Vector3 endPos;
 		Vector3 vector;
@@ -402,11 +402,11 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		{
 			this.headshotSound.Play(gameObject.transform.position, 1f, 4f, 30f);
 		}
-		this.DoWeaponEffects(rep.transform.parent, rep.muzzle.position, endPos, rep.muzzle, false, (!idremoteBodyPart) ? ((!gameObject) ? null : gameObject.GetComponentInChildren<CapsuleCollider>()) : idremoteBodyPart, flag && (!idremoteBodyPart || BodyParts.IsDefined(bodyPart) || gameObject.GetComponent<TakeDamage>() != null), rep);
+		this.DoWeaponEffects(rep.transform.parent, rep.muzzle.position, endPos, rep.muzzle, false, (!idremoteBodyPart) ? ((!gameObject) ? null : gameObject.GetComponentInChildren<CapsuleCollider>()) : idremoteBodyPart, flag && (!idremoteBodyPart || BodyParts.IsDefined(bodyPart) || gameObject.GetComponent<global::TakeDamage>() != null), rep);
 	}
 
-	// Token: 0x06002F53 RID: 12115 RVA: 0x000B8D40 File Offset: 0x000B6F40
-	public virtual float GetBulletRange(ItemRepresentation itemRep)
+	// Token: 0x0600331B RID: 13083 RVA: 0x000C0F9C File Offset: 0x000BF19C
+	public virtual float GetBulletRange(global::ItemRepresentation itemRep)
 	{
 		if (!itemRep)
 		{
@@ -415,21 +415,21 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		return this.bulletRange * ((!this.IsSilenced(itemRep)) ? 1f : 0.75f);
 	}
 
-	// Token: 0x06002F54 RID: 12116 RVA: 0x000B8D84 File Offset: 0x000B6F84
-	public virtual float GetDamage(ItemRepresentation itemRep)
+	// Token: 0x0600331C RID: 13084 RVA: 0x000C0FE0 File Offset: 0x000BF1E0
+	public virtual float GetDamage(global::ItemRepresentation itemRep)
 	{
 		float num = Random.Range(this.damageMin, this.damageMax);
 		return num * ((!this.IsSilenced(itemRep)) ? 1f : 0.8f);
 	}
 
-	// Token: 0x06002F55 RID: 12117 RVA: 0x000B8DC0 File Offset: 0x000B6FC0
-	public virtual bool IsSilenced(ItemRepresentation itemRep)
+	// Token: 0x0600331D RID: 13085 RVA: 0x000C101C File Offset: 0x000BF21C
+	public virtual bool IsSilenced(global::ItemRepresentation itemRep)
 	{
-		return (itemRep.modFlags & ItemModFlags.Audio) == ItemModFlags.Audio;
+		return (itemRep.modFlags & global::ItemModFlags.Audio) == global::ItemModFlags.Audio;
 	}
 
-	// Token: 0x06002F56 RID: 12118 RVA: 0x000B8DD0 File Offset: 0x000B6FD0
-	public virtual AudioClip GetFireSound(ItemRepresentation itemRep)
+	// Token: 0x0600331E RID: 13086 RVA: 0x000C102C File Offset: 0x000BF22C
+	public virtual AudioClip GetFireSound(global::ItemRepresentation itemRep)
 	{
 		if (this.IsSilenced(itemRep))
 		{
@@ -438,8 +438,8 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		return this.fireSound;
 	}
 
-	// Token: 0x06002F57 RID: 12119 RVA: 0x000B8DEC File Offset: 0x000B6FEC
-	public virtual AudioClip GetFarFireSound(ItemRepresentation itemRep)
+	// Token: 0x0600331F RID: 13087 RVA: 0x000C1048 File Offset: 0x000BF248
+	public virtual AudioClip GetFarFireSound(global::ItemRepresentation itemRep)
 	{
 		if (this.IsSilenced(itemRep))
 		{
@@ -448,32 +448,32 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		return this.fireSound_Far;
 	}
 
-	// Token: 0x06002F58 RID: 12120 RVA: 0x000B8E08 File Offset: 0x000B7008
+	// Token: 0x06003320 RID: 13088 RVA: 0x000C1064 File Offset: 0x000BF264
 	public virtual float GetFireSoundRangeMin()
 	{
 		return 2f;
 	}
 
-	// Token: 0x06002F59 RID: 12121 RVA: 0x000B8E10 File Offset: 0x000B7010
+	// Token: 0x06003321 RID: 13089 RVA: 0x000C106C File Offset: 0x000BF26C
 	public virtual float GetFireSoundRangeMax()
 	{
 		return 60f;
 	}
 
-	// Token: 0x06002F5A RID: 12122 RVA: 0x000B8E18 File Offset: 0x000B7018
+	// Token: 0x06003322 RID: 13090 RVA: 0x000C1074 File Offset: 0x000BF274
 	public virtual float GetFarFireSoundRangeMin()
 	{
 		return this.GetFireSoundRangeMax() * 0.5f;
 	}
 
-	// Token: 0x06002F5B RID: 12123 RVA: 0x000B8E28 File Offset: 0x000B7028
+	// Token: 0x06003323 RID: 13091 RVA: 0x000C1084 File Offset: 0x000BF284
 	public virtual float GetFarFireSoundRangeMax()
 	{
 		return this.fireSoundRange;
 	}
 
-	// Token: 0x06002F5C RID: 12124 RVA: 0x000B8E30 File Offset: 0x000B7030
-	public virtual void PlayFireSound(Transform soundTransform, bool firstPerson, ItemRepresentation itemRep)
+	// Token: 0x06003324 RID: 13092 RVA: 0x000C108C File Offset: 0x000BF28C
+	public virtual void PlayFireSound(Transform soundTransform, bool firstPerson, global::ItemRepresentation itemRep)
 	{
 		bool flag = this.IsSilenced(itemRep);
 		AudioClip clip = this.GetFireSound(itemRep);
@@ -490,14 +490,14 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		}
 	}
 
-	// Token: 0x06002F5D RID: 12125 RVA: 0x000B8F18 File Offset: 0x000B7118
-	public virtual void DoWeaponEffects(Transform soundTransform, Vector3 startPos, Vector3 endPos, Socket muzzleSocket, bool firstPerson, Component hitComponent, bool allowBlood, ItemRepresentation itemRep)
+	// Token: 0x06003325 RID: 13093 RVA: 0x000C1174 File Offset: 0x000BF374
+	public virtual void DoWeaponEffects(Transform soundTransform, Vector3 startPos, Vector3 endPos, global::Socket muzzleSocket, bool firstPerson, Component hitComponent, bool allowBlood, global::ItemRepresentation itemRep)
 	{
 		Vector3 vector = endPos - startPos;
 		vector.Normalize();
 		bool flag = this.IsSilenced(itemRep);
 		GameObject gameObject = (GameObject)Object.Instantiate(this.tracerPrefab, startPos, Quaternion.LookRotation(vector));
-		Tracer component = gameObject.GetComponent<Tracer>();
+		global::Tracer component = gameObject.GetComponent<global::Tracer>();
 		if (component)
 		{
 			component.Init(hitComponent, 406721553, this.GetBulletRange(itemRep), allowBlood);
@@ -514,19 +514,19 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		}
 	}
 
-	// Token: 0x06002F5E RID: 12126 RVA: 0x000B8FD4 File Offset: 0x000B71D4
-	public override void DoAction2(BitStream stream, ItemRepresentation itemRep, ref NetworkMessageInfo info)
+	// Token: 0x06003326 RID: 13094 RVA: 0x000C1230 File Offset: 0x000BF430
+	public override void DoAction2(BitStream stream, global::ItemRepresentation itemRep, ref uLink.NetworkMessageInfo info)
 	{
 	}
 
-	// Token: 0x06002F5F RID: 12127 RVA: 0x000B8FD8 File Offset: 0x000B71D8
+	// Token: 0x06003327 RID: 13095 RVA: 0x000C1234 File Offset: 0x000BF434
 	public virtual float GetGUIDamage()
 	{
 		return this.damageMin + (this.damageMax - this.damageMin) * 0.5f;
 	}
 
-	// Token: 0x06002F60 RID: 12128 RVA: 0x000B8FF4 File Offset: 0x000B71F4
-	public override void PopulateInfoWindow(ItemToolTip infoWindow, IInventoryItem tipItem)
+	// Token: 0x06003328 RID: 13096 RVA: 0x000C1250 File Offset: 0x000BF450
+	public override void PopulateInfoWindow(global::ItemToolTip infoWindow, global::IInventoryItem tipItem)
 	{
 		infoWindow.AddItemTitle(this, tipItem, 0f);
 		infoWindow.AddConditionInfo(tipItem);
@@ -549,13 +549,13 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		infoWindow.FinishPopulating();
 	}
 
-	// Token: 0x06002F61 RID: 12129 RVA: 0x000B90E0 File Offset: 0x000B72E0
+	// Token: 0x06003329 RID: 13097 RVA: 0x000C133C File Offset: 0x000BF53C
 	public override string GetItemDescription()
 	{
 		return "This is a weapon. Drag it to your belt (right side of screen) and press the corresponding number key to use it.";
 	}
 
-	// Token: 0x06002F62 RID: 12130 RVA: 0x000B90E8 File Offset: 0x000B72E8
+	// Token: 0x0600332A RID: 13098 RVA: 0x000C1344 File Offset: 0x000BF544
 	protected override void SecureWriteMemberValues(BitStream stream)
 	{
 		base.SecureWriteMemberValues(stream);
@@ -571,113 +571,113 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 		stream.Write<int>((!this.ammoType) ? 0 : this.ammoType.uniqueID, new object[0]);
 	}
 
-	// Token: 0x0400192E RID: 6446
+	// Token: 0x04001AFF RID: 6911
 	public const int hitMask = 406721553;
 
-	// Token: 0x0400192F RID: 6447
+	// Token: 0x04001B00 RID: 6912
 	private const byte kDidNotHitNetworkView = 255;
 
-	// Token: 0x04001930 RID: 6448
+	// Token: 0x04001B01 RID: 6913
 	private const byte kDidHitNetworkViewWithoutBodyPart = 254;
 
-	// Token: 0x04001931 RID: 6449
-	public AmmoItemDataBlock ammoType;
+	// Token: 0x04001B02 RID: 6914
+	public global::AmmoItemDataBlock ammoType;
 
-	// Token: 0x04001932 RID: 6450
+	// Token: 0x04001B03 RID: 6915
 	public int maxClipAmmo;
 
-	// Token: 0x04001933 RID: 6451
+	// Token: 0x04001B04 RID: 6916
 	public GameObject tracerPrefab;
 
-	// Token: 0x04001934 RID: 6452
+	// Token: 0x04001B05 RID: 6917
 	public GameObject muzzleflashVM;
 
-	// Token: 0x04001935 RID: 6453
+	// Token: 0x04001B06 RID: 6918
 	public GameObject muzzleFlashWorld;
 
-	// Token: 0x04001936 RID: 6454
+	// Token: 0x04001B07 RID: 6919
 	public AudioClip fireSound;
 
-	// Token: 0x04001937 RID: 6455
+	// Token: 0x04001B08 RID: 6920
 	public AudioClip fireSound_Far;
 
-	// Token: 0x04001938 RID: 6456
+	// Token: 0x04001B09 RID: 6921
 	public AudioClip reloadSound;
 
-	// Token: 0x04001939 RID: 6457
+	// Token: 0x04001B0A RID: 6922
 	public AudioClip headshotSound;
 
-	// Token: 0x0400193A RID: 6458
+	// Token: 0x04001B0B RID: 6923
 	public AudioClip fireSound_SilencedFar;
 
-	// Token: 0x0400193B RID: 6459
+	// Token: 0x04001B0C RID: 6924
 	public AudioClip fireSound_Silenced;
 
-	// Token: 0x0400193C RID: 6460
+	// Token: 0x04001B0D RID: 6925
 	public AudioClip dryFireSound;
 
-	// Token: 0x0400193D RID: 6461
+	// Token: 0x04001B0E RID: 6926
 	public float fireSoundRange = 300f;
 
-	// Token: 0x0400193E RID: 6462
+	// Token: 0x04001B0F RID: 6927
 	public float bulletRange = 200f;
 
-	// Token: 0x0400193F RID: 6463
+	// Token: 0x04001B10 RID: 6928
 	public float recoilPitchMin;
 
-	// Token: 0x04001940 RID: 6464
+	// Token: 0x04001B11 RID: 6929
 	public float recoilPitchMax;
 
-	// Token: 0x04001941 RID: 6465
+	// Token: 0x04001B12 RID: 6930
 	public float recoilYawMin;
 
-	// Token: 0x04001942 RID: 6466
+	// Token: 0x04001B13 RID: 6931
 	public float recoilYawMax;
 
-	// Token: 0x04001943 RID: 6467
+	// Token: 0x04001B14 RID: 6932
 	public float recoilDuration;
 
-	// Token: 0x04001944 RID: 6468
+	// Token: 0x04001B15 RID: 6933
 	public float aimingRecoilSubtract = 0.5f;
 
-	// Token: 0x04001945 RID: 6469
+	// Token: 0x04001B16 RID: 6934
 	public float crouchRecoilSubtract = 0.2f;
 
-	// Token: 0x04001946 RID: 6470
+	// Token: 0x04001B17 RID: 6935
 	public float reloadDuration = 1.5f;
 
-	// Token: 0x04001947 RID: 6471
+	// Token: 0x04001B18 RID: 6936
 	public int maxEligableSlots = 5;
 
-	// Token: 0x04001948 RID: 6472
+	// Token: 0x04001B19 RID: 6937
 	public bool NoAimingAfterShot;
 
-	// Token: 0x04001949 RID: 6473
+	// Token: 0x04001B1A RID: 6938
 	public float aimSway;
 
-	// Token: 0x0400194A RID: 6474
+	// Token: 0x04001B1B RID: 6939
 	public float aimSwaySpeed = 1f;
 
-	// Token: 0x0400194B RID: 6475
-	public BobEffect shotBob;
+	// Token: 0x04001B1C RID: 6940
+	public global::BobEffect shotBob;
 
-	// Token: 0x0400194C RID: 6476
-	private static bool weaponRecoil = true;
+	// Token: 0x04001B1D RID: 6941
+	private static bool weaponRecoil = false;
 
-	// Token: 0x0400194D RID: 6477
+	// Token: 0x04001B1E RID: 6942
 	private static bool headRecoil = true;
 
-	// Token: 0x02000562 RID: 1378
-	private sealed class ITEM_TYPE : BulletWeaponItem<BulletWeaponDataBlock>, IBulletWeaponItem, IHeldItem, IInventoryItem, IWeaponItem
+	// Token: 0x02000620 RID: 1568
+	private sealed class ITEM_TYPE : global::BulletWeaponItem<global::BulletWeaponDataBlock>, global::IBulletWeaponItem, global::IHeldItem, global::IInventoryItem, global::IWeaponItem
 	{
-		// Token: 0x06002F63 RID: 12131 RVA: 0x000B91CC File Offset: 0x000B73CC
-		public ITEM_TYPE(BulletWeaponDataBlock BLOCK) : base(BLOCK)
+		// Token: 0x0600332B RID: 13099 RVA: 0x000C1428 File Offset: 0x000BF628
+		public ITEM_TYPE(global::BulletWeaponDataBlock BLOCK) : base(BLOCK)
 		{
 		}
 
-		// Token: 0x17000A21 RID: 2593
-		// (get) Token: 0x06002F64 RID: 12132 RVA: 0x000B91D8 File Offset: 0x000B73D8
-		ItemDataBlock IInventoryItem.datablock
+		// Token: 0x17000A97 RID: 2711
+		// (get) Token: 0x0600332C RID: 13100 RVA: 0x000C1434 File Offset: 0x000BF634
+		global::ItemDataBlock global::IInventoryItem.datablock
 		{
 			get
 			{
@@ -685,349 +685,349 @@ public class BulletWeaponDataBlock : WeaponDataBlock
 			}
 		}
 
-		// Token: 0x06002F65 RID: 12133 RVA: 0x000B91E0 File Offset: 0x000B73E0
-		MagazineDataBlock get_clipType()
+		// Token: 0x0600332D RID: 13101 RVA: 0x000C143C File Offset: 0x000BF63C
+		global::MagazineDataBlock get_clipType()
 		{
 			return base.clipType;
 		}
 
-		// Token: 0x06002F66 RID: 12134 RVA: 0x000B91E8 File Offset: 0x000B73E8
+		// Token: 0x0600332E RID: 13102 RVA: 0x000C1444 File Offset: 0x000BF644
 		int get_clipAmmo()
 		{
 			return base.clipAmmo;
 		}
 
-		// Token: 0x06002F67 RID: 12135 RVA: 0x000B91F0 File Offset: 0x000B73F0
+		// Token: 0x0600332F RID: 13103 RVA: 0x000C144C File Offset: 0x000BF64C
 		void set_clipAmmo(int value)
 		{
 			base.clipAmmo = value;
 		}
 
-		// Token: 0x06002F68 RID: 12136 RVA: 0x000B91FC File Offset: 0x000B73FC
+		// Token: 0x06003330 RID: 13104 RVA: 0x000C1458 File Offset: 0x000BF658
 		int get_cachedCasings()
 		{
 			return base.cachedCasings;
 		}
 
-		// Token: 0x06002F69 RID: 12137 RVA: 0x000B9204 File Offset: 0x000B7404
+		// Token: 0x06003331 RID: 13105 RVA: 0x000C1460 File Offset: 0x000BF660
 		void set_cachedCasings(int value)
 		{
 			base.cachedCasings = value;
 		}
 
-		// Token: 0x06002F6A RID: 12138 RVA: 0x000B9210 File Offset: 0x000B7410
+		// Token: 0x06003332 RID: 13106 RVA: 0x000C146C File Offset: 0x000BF66C
 		float get_nextCasingsTime()
 		{
 			return base.nextCasingsTime;
 		}
 
-		// Token: 0x06002F6B RID: 12139 RVA: 0x000B9218 File Offset: 0x000B7418
+		// Token: 0x06003333 RID: 13107 RVA: 0x000C1474 File Offset: 0x000BF674
 		void set_nextCasingsTime(float value)
 		{
 			base.nextCasingsTime = value;
 		}
 
-		// Token: 0x06002F6C RID: 12140 RVA: 0x000B9224 File Offset: 0x000B7424
+		// Token: 0x06003334 RID: 13108 RVA: 0x000C1480 File Offset: 0x000BF680
 		bool ValidatePrimaryMessageTime(double timestamp)
 		{
 			return base.ValidatePrimaryMessageTime(timestamp);
 		}
 
-		// Token: 0x06002F6D RID: 12141 RVA: 0x000B9230 File Offset: 0x000B7430
+		// Token: 0x06003335 RID: 13109 RVA: 0x000C148C File Offset: 0x000BF68C
 		bool get_canAim()
 		{
 			return base.canAim;
 		}
 
-		// Token: 0x06002F6E RID: 12142 RVA: 0x000B9238 File Offset: 0x000B7438
+		// Token: 0x06003336 RID: 13110 RVA: 0x000C1494 File Offset: 0x000BF694
 		float get_nextPrimaryAttackTime()
 		{
 			return base.nextPrimaryAttackTime;
 		}
 
-		// Token: 0x06002F6F RID: 12143 RVA: 0x000B9240 File Offset: 0x000B7440
+		// Token: 0x06003337 RID: 13111 RVA: 0x000C149C File Offset: 0x000BF69C
 		void set_nextPrimaryAttackTime(float value)
 		{
 			base.nextPrimaryAttackTime = value;
 		}
 
-		// Token: 0x06002F70 RID: 12144 RVA: 0x000B924C File Offset: 0x000B744C
+		// Token: 0x06003338 RID: 13112 RVA: 0x000C14A8 File Offset: 0x000BF6A8
 		float get_nextSecondaryAttackTime()
 		{
 			return base.nextSecondaryAttackTime;
 		}
 
-		// Token: 0x06002F71 RID: 12145 RVA: 0x000B9254 File Offset: 0x000B7454
+		// Token: 0x06003339 RID: 13113 RVA: 0x000C14B0 File Offset: 0x000BF6B0
 		void set_nextSecondaryAttackTime(float value)
 		{
 			base.nextSecondaryAttackTime = value;
 		}
 
-		// Token: 0x06002F72 RID: 12146 RVA: 0x000B9260 File Offset: 0x000B7460
+		// Token: 0x0600333A RID: 13114 RVA: 0x000C14BC File Offset: 0x000BF6BC
 		float get_deployFinishedTime()
 		{
 			return base.deployFinishedTime;
 		}
 
-		// Token: 0x06002F73 RID: 12147 RVA: 0x000B9268 File Offset: 0x000B7468
+		// Token: 0x0600333B RID: 13115 RVA: 0x000C14C4 File Offset: 0x000BF6C4
 		void set_deployFinishedTime(float value)
 		{
 			base.deployFinishedTime = value;
 		}
 
-		// Token: 0x06002F74 RID: 12148 RVA: 0x000B9274 File Offset: 0x000B7474
+		// Token: 0x0600333C RID: 13116 RVA: 0x000C14D0 File Offset: 0x000BF6D0
 		void SetTotalModSlotCount(int count)
 		{
 			base.SetTotalModSlotCount(count);
 		}
 
-		// Token: 0x06002F75 RID: 12149 RVA: 0x000B9280 File Offset: 0x000B7480
+		// Token: 0x0600333D RID: 13117 RVA: 0x000C14DC File Offset: 0x000BF6DC
 		void SetUsedModSlotCount(int count)
 		{
 			base.SetUsedModSlotCount(count);
 		}
 
-		// Token: 0x06002F76 RID: 12150 RVA: 0x000B928C File Offset: 0x000B748C
-		void AddMod(ItemModDataBlock mod)
+		// Token: 0x0600333E RID: 13118 RVA: 0x000C14E8 File Offset: 0x000BF6E8
+		void AddMod(global::ItemModDataBlock mod)
 		{
 			base.AddMod(mod);
 		}
 
-		// Token: 0x06002F77 RID: 12151 RVA: 0x000B9298 File Offset: 0x000B7498
-		int FindMod(ItemModDataBlock mod)
+		// Token: 0x0600333F RID: 13119 RVA: 0x000C14F4 File Offset: 0x000BF6F4
+		int FindMod(global::ItemModDataBlock mod)
 		{
 			return base.FindMod(mod);
 		}
 
-		// Token: 0x06002F78 RID: 12152 RVA: 0x000B92A4 File Offset: 0x000B74A4
+		// Token: 0x06003340 RID: 13120 RVA: 0x000C1500 File Offset: 0x000BF700
 		void OnActivate()
 		{
 			base.OnActivate();
 		}
 
-		// Token: 0x06002F79 RID: 12153 RVA: 0x000B92AC File Offset: 0x000B74AC
+		// Token: 0x06003341 RID: 13121 RVA: 0x000C1508 File Offset: 0x000BF708
 		void OnDeactivate()
 		{
 			base.OnDeactivate();
 		}
 
-		// Token: 0x06002F7A RID: 12154 RVA: 0x000B92B4 File Offset: 0x000B74B4
-		ViewModel get_viewModelInstance()
+		// Token: 0x06003342 RID: 13122 RVA: 0x000C1510 File Offset: 0x000BF710
+		global::ViewModel get_viewModelInstance()
 		{
 			return base.viewModelInstance;
 		}
 
-		// Token: 0x06002F7B RID: 12155 RVA: 0x000B92BC File Offset: 0x000B74BC
-		ItemRepresentation get_itemRepresentation()
+		// Token: 0x06003343 RID: 13123 RVA: 0x000C1518 File Offset: 0x000BF718
+		global::ItemRepresentation get_itemRepresentation()
 		{
 			return base.itemRepresentation;
 		}
 
-		// Token: 0x06002F7C RID: 12156 RVA: 0x000B92C4 File Offset: 0x000B74C4
-		void set_itemRepresentation(ItemRepresentation value)
+		// Token: 0x06003344 RID: 13124 RVA: 0x000C1520 File Offset: 0x000BF720
+		void set_itemRepresentation(global::ItemRepresentation value)
 		{
 			base.itemRepresentation = value;
 		}
 
-		// Token: 0x06002F7D RID: 12157 RVA: 0x000B92D0 File Offset: 0x000B74D0
+		// Token: 0x06003345 RID: 13125 RVA: 0x000C152C File Offset: 0x000BF72C
 		bool get_canActivate()
 		{
 			return base.canActivate;
 		}
 
-		// Token: 0x06002F7E RID: 12158 RVA: 0x000B92D8 File Offset: 0x000B74D8
+		// Token: 0x06003346 RID: 13126 RVA: 0x000C1534 File Offset: 0x000BF734
 		bool get_canDeactivate()
 		{
 			return base.canDeactivate;
 		}
 
-		// Token: 0x06002F7F RID: 12159 RVA: 0x000B92E0 File Offset: 0x000B74E0
-		ItemModFlags get_modFlags()
+		// Token: 0x06003347 RID: 13127 RVA: 0x000C153C File Offset: 0x000BF73C
+		global::ItemModFlags get_modFlags()
 		{
 			return base.modFlags;
 		}
 
-		// Token: 0x06002F80 RID: 12160 RVA: 0x000B92E8 File Offset: 0x000B74E8
-		ItemModDataBlock[] get_itemMods()
+		// Token: 0x06003348 RID: 13128 RVA: 0x000C1544 File Offset: 0x000BF744
+		global::ItemModDataBlock[] get_itemMods()
 		{
 			return base.itemMods;
 		}
 
-		// Token: 0x06002F81 RID: 12161 RVA: 0x000B92F0 File Offset: 0x000B74F0
+		// Token: 0x06003349 RID: 13129 RVA: 0x000C154C File Offset: 0x000BF74C
 		int get_totalModSlots()
 		{
 			return base.totalModSlots;
 		}
 
-		// Token: 0x06002F82 RID: 12162 RVA: 0x000B92F8 File Offset: 0x000B74F8
+		// Token: 0x0600334A RID: 13130 RVA: 0x000C1554 File Offset: 0x000BF754
 		int get_usedModSlots()
 		{
 			return base.usedModSlots;
 		}
 
-		// Token: 0x06002F83 RID: 12163 RVA: 0x000B9300 File Offset: 0x000B7500
+		// Token: 0x0600334B RID: 13131 RVA: 0x000C155C File Offset: 0x000BF75C
 		int get_freeModSlots()
 		{
 			return base.freeModSlots;
 		}
 
-		// Token: 0x06002F84 RID: 12164 RVA: 0x000B9308 File Offset: 0x000B7508
+		// Token: 0x0600334C RID: 13132 RVA: 0x000C1564 File Offset: 0x000BF764
 		bool IsDamaged()
 		{
 			return base.IsDamaged();
 		}
 
-		// Token: 0x06002F85 RID: 12165 RVA: 0x000B9310 File Offset: 0x000B7510
+		// Token: 0x0600334D RID: 13133 RVA: 0x000C156C File Offset: 0x000BF76C
 		bool IsBroken()
 		{
 			return base.IsBroken();
 		}
 
-		// Token: 0x06002F86 RID: 12166 RVA: 0x000B9318 File Offset: 0x000B7518
+		// Token: 0x0600334E RID: 13134 RVA: 0x000C1574 File Offset: 0x000BF774
 		float GetConditionPercent()
 		{
 			return base.GetConditionPercent();
 		}
 
-		// Token: 0x06002F87 RID: 12167 RVA: 0x000B9320 File Offset: 0x000B7520
+		// Token: 0x0600334F RID: 13135 RVA: 0x000C157C File Offset: 0x000BF77C
 		int AddUses(int count)
 		{
 			return base.AddUses(count);
 		}
 
-		// Token: 0x06002F88 RID: 12168 RVA: 0x000B932C File Offset: 0x000B752C
+		// Token: 0x06003350 RID: 13136 RVA: 0x000C1588 File Offset: 0x000BF788
 		void SetUses(int count)
 		{
 			base.SetUses(count);
 		}
 
-		// Token: 0x06002F89 RID: 12169 RVA: 0x000B9338 File Offset: 0x000B7538
+		// Token: 0x06003351 RID: 13137 RVA: 0x000C1594 File Offset: 0x000BF794
 		void SetCondition(float condition)
 		{
 			base.SetCondition(condition);
 		}
 
-		// Token: 0x06002F8A RID: 12170 RVA: 0x000B9344 File Offset: 0x000B7544
+		// Token: 0x06003352 RID: 13138 RVA: 0x000C15A0 File Offset: 0x000BF7A0
 		void SetMaxCondition(float condition)
 		{
 			base.SetMaxCondition(condition);
 		}
 
-		// Token: 0x06002F8B RID: 12171 RVA: 0x000B9350 File Offset: 0x000B7550
+		// Token: 0x06003353 RID: 13139 RVA: 0x000C15AC File Offset: 0x000BF7AC
 		bool Consume(ref int count)
 		{
 			return base.Consume(ref count);
 		}
 
-		// Token: 0x06002F8C RID: 12172 RVA: 0x000B935C File Offset: 0x000B755C
+		// Token: 0x06003354 RID: 13140 RVA: 0x000C15B8 File Offset: 0x000BF7B8
 		bool TryConditionLoss(float probability, float percentLoss)
 		{
 			return base.TryConditionLoss(probability, percentLoss);
 		}
 
-		// Token: 0x06002F8D RID: 12173 RVA: 0x000B9368 File Offset: 0x000B7568
+		// Token: 0x06003355 RID: 13141 RVA: 0x000C15C4 File Offset: 0x000BF7C4
 		void Serialize(BitStream stream)
 		{
 			base.Serialize(stream);
 		}
 
-		// Token: 0x06002F8E RID: 12174 RVA: 0x000B9374 File Offset: 0x000B7574
+		// Token: 0x06003356 RID: 13142 RVA: 0x000C15D0 File Offset: 0x000BF7D0
 		void Deserialize(BitStream stream)
 		{
 			base.Deserialize(stream);
 		}
 
-		// Token: 0x06002F8F RID: 12175 RVA: 0x000B9380 File Offset: 0x000B7580
+		// Token: 0x06003357 RID: 13143 RVA: 0x000C15DC File Offset: 0x000BF7DC
 		bool MarkDirty()
 		{
 			return base.MarkDirty();
 		}
 
-		// Token: 0x06002F90 RID: 12176 RVA: 0x000B9388 File Offset: 0x000B7588
+		// Token: 0x06003358 RID: 13144 RVA: 0x000C15E4 File Offset: 0x000BF7E4
 		int get_slot()
 		{
 			return base.slot;
 		}
 
-		// Token: 0x06002F91 RID: 12177 RVA: 0x000B9390 File Offset: 0x000B7590
+		// Token: 0x06003359 RID: 13145 RVA: 0x000C15EC File Offset: 0x000BF7EC
 		float get_condition()
 		{
 			return base.condition;
 		}
 
-		// Token: 0x06002F92 RID: 12178 RVA: 0x000B9398 File Offset: 0x000B7598
+		// Token: 0x0600335A RID: 13146 RVA: 0x000C15F4 File Offset: 0x000BF7F4
 		float get_maxcondition()
 		{
 			return base.maxcondition;
 		}
 
-		// Token: 0x06002F93 RID: 12179 RVA: 0x000B93A0 File Offset: 0x000B75A0
+		// Token: 0x0600335B RID: 13147 RVA: 0x000C15FC File Offset: 0x000BF7FC
 		int get_uses()
 		{
 			return base.uses;
 		}
 
-		// Token: 0x06002F94 RID: 12180 RVA: 0x000B93A8 File Offset: 0x000B75A8
-		Inventory get_inventory()
+		// Token: 0x0600335C RID: 13148 RVA: 0x000C1604 File Offset: 0x000BF804
+		global::Inventory get_inventory()
 		{
 			return base.inventory;
 		}
 
-		// Token: 0x06002F95 RID: 12181 RVA: 0x000B93B0 File Offset: 0x000B75B0
+		// Token: 0x0600335D RID: 13149 RVA: 0x000C160C File Offset: 0x000BF80C
 		bool get_dirty()
 		{
 			return base.dirty;
 		}
 
-		// Token: 0x06002F96 RID: 12182 RVA: 0x000B93B8 File Offset: 0x000B75B8
+		// Token: 0x0600335E RID: 13150 RVA: 0x000C1614 File Offset: 0x000BF814
 		float get_lastUseTime()
 		{
 			return base.lastUseTime;
 		}
 
-		// Token: 0x06002F97 RID: 12183 RVA: 0x000B93C0 File Offset: 0x000B75C0
+		// Token: 0x0600335F RID: 13151 RVA: 0x000C161C File Offset: 0x000BF81C
 		void set_lastUseTime(float value)
 		{
 			base.lastUseTime = value;
 		}
 
-		// Token: 0x06002F98 RID: 12184 RVA: 0x000B93CC File Offset: 0x000B75CC
+		// Token: 0x06003360 RID: 13152 RVA: 0x000C1628 File Offset: 0x000BF828
 		bool get_isInLocalInventory()
 		{
 			return base.isInLocalInventory;
 		}
 
-		// Token: 0x06002F99 RID: 12185 RVA: 0x000B93D4 File Offset: 0x000B75D4
+		// Token: 0x06003361 RID: 13153 RVA: 0x000C1630 File Offset: 0x000BF830
 		IDMain get_idMain()
 		{
 			return base.idMain;
 		}
 
-		// Token: 0x06002F9A RID: 12186 RVA: 0x000B93DC File Offset: 0x000B75DC
-		Character get_character()
+		// Token: 0x06003362 RID: 13154 RVA: 0x000C1638 File Offset: 0x000BF838
+		global::Character get_character()
 		{
 			return base.character;
 		}
 
-		// Token: 0x06002F9B RID: 12187 RVA: 0x000B93E4 File Offset: 0x000B75E4
-		Controller get_controller()
+		// Token: 0x06003363 RID: 13155 RVA: 0x000C1640 File Offset: 0x000BF840
+		global::Controller get_controller()
 		{
 			return base.controller;
 		}
 
-		// Token: 0x06002F9C RID: 12188 RVA: 0x000B93EC File Offset: 0x000B75EC
-		Controllable get_controllable()
+		// Token: 0x06003364 RID: 13156 RVA: 0x000C1648 File Offset: 0x000BF848
+		global::Controllable get_controllable()
 		{
 			return base.controllable;
 		}
 
-		// Token: 0x06002F9D RID: 12189 RVA: 0x000B93F4 File Offset: 0x000B75F4
+		// Token: 0x06003365 RID: 13157 RVA: 0x000C1650 File Offset: 0x000BF850
 		bool get_active()
 		{
 			return base.active;
 		}
 
-		// Token: 0x06002F9E RID: 12190 RVA: 0x000B93FC File Offset: 0x000B75FC
+		// Token: 0x06003366 RID: 13158 RVA: 0x000C1658 File Offset: 0x000BF858
 		bool get_doNotSave()
 		{
 			return base.doNotSave;

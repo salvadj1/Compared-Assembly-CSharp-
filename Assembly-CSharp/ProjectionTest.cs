@@ -2,13 +2,13 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x02000686 RID: 1670
-[ExecuteInEditMode]
+// Token: 0x0200074B RID: 1867
 [AddComponentMenu("Precision/Tests/Projection Test")]
+[ExecuteInEditMode]
 public class ProjectionTest : MonoBehaviour
 {
-	// Token: 0x17000B38 RID: 2872
-	// (get) Token: 0x060039E9 RID: 14825 RVA: 0x000D6A28 File Offset: 0x000D4C28
+	// Token: 0x17000BBA RID: 3002
+	// (get) Token: 0x06003DE1 RID: 15841 RVA: 0x000DF408 File Offset: 0x000DD608
 	public Matrix4x4 UnityMatrix
 	{
 		get
@@ -17,8 +17,8 @@ public class ProjectionTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B39 RID: 2873
-	// (get) Token: 0x060039EA RID: 14826 RVA: 0x000D6A30 File Offset: 0x000D4C30
+	// Token: 0x17000BBB RID: 3003
+	// (get) Token: 0x06003DE2 RID: 15842 RVA: 0x000DF410 File Offset: 0x000DD610
 	public Matrix4x4G GMatrix
 	{
 		get
@@ -27,8 +27,8 @@ public class ProjectionTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B3A RID: 2874
-	// (get) Token: 0x060039EB RID: 14827 RVA: 0x000D6A38 File Offset: 0x000D4C38
+	// Token: 0x17000BBC RID: 3004
+	// (get) Token: 0x06003DE3 RID: 15843 RVA: 0x000DF418 File Offset: 0x000DD618
 	public Matrix4x4 UnityMatrixCasted
 	{
 		get
@@ -37,7 +37,7 @@ public class ProjectionTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039EC RID: 14828 RVA: 0x000D6A40 File Offset: 0x000D4C40
+	// Token: 0x06003DE4 RID: 15844 RVA: 0x000DF420 File Offset: 0x000DD620
 	private Matrix4x4G MultG(Matrix4x4G a, Matrix4x4G b)
 	{
 		Matrix4x4G result;
@@ -52,7 +52,7 @@ public class ProjectionTest : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x060039ED RID: 14829 RVA: 0x000D6A74 File Offset: 0x000D4C74
+	// Token: 0x06003DE5 RID: 15845 RVA: 0x000DF454 File Offset: 0x000DD654
 	private void Update()
 	{
 		double num = (this.aspect <= 0f) ? ((double)Screen.height / (double)Screen.width) : ((double)this.aspect);
@@ -64,7 +64,7 @@ public class ProjectionTest : MonoBehaviour
 		this.unity2 = this.facep.f;
 	}
 
-	// Token: 0x060039EE RID: 14830 RVA: 0x000D6B08 File Offset: 0x000D4D08
+	// Token: 0x06003DE6 RID: 15846 RVA: 0x000DF4E8 File Offset: 0x000DD6E8
 	private void Awake()
 	{
 		this.contents = new GUIContent[3, 4, 4];
@@ -87,7 +87,7 @@ public class ProjectionTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039EF RID: 14831 RVA: 0x000D6BC4 File Offset: 0x000D4DC4
+	// Token: 0x06003DE7 RID: 15847 RVA: 0x000DF5A4 File Offset: 0x000DD7A4
 	private void OnGUI()
 	{
 		if (Event.current.type != 7)
@@ -139,7 +139,7 @@ public class ProjectionTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039F0 RID: 14832 RVA: 0x000D6D70 File Offset: 0x000D4F70
+	// Token: 0x06003DE8 RID: 15848 RVA: 0x000DF750 File Offset: 0x000DD950
 	private Color RCCol(int col, int row)
 	{
 		Color result;
@@ -182,7 +182,7 @@ public class ProjectionTest : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x060039F1 RID: 14833 RVA: 0x000D6E54 File Offset: 0x000D5054
+	// Token: 0x06003DE9 RID: 15849 RVA: 0x000DF834 File Offset: 0x000DDA34
 	private void DrawLabel(int m, int col, int row, GUIStyle style)
 	{
 		if (this.contents[m, col, row].text != this.contents[0, col, row].text)
@@ -196,45 +196,45 @@ public class ProjectionTest : MonoBehaviour
 		GUI.Label(this.rects[m, col, row], this.contents[m, col, row], style);
 	}
 
-	// Token: 0x04001DE8 RID: 7656
+	// Token: 0x04001FE0 RID: 8160
 	private const float cellWidth = 100f;
 
-	// Token: 0x04001DE9 RID: 7657
+	// Token: 0x04001FE1 RID: 8161
 	private const float cellHeight = 30f;
 
-	// Token: 0x04001DEA RID: 7658
+	// Token: 0x04001FE2 RID: 8162
 	private GUIContent[,,] contents;
 
-	// Token: 0x04001DEB RID: 7659
+	// Token: 0x04001FE3 RID: 8163
 	private Rect[,,] rects;
 
-	// Token: 0x04001DEC RID: 7660
+	// Token: 0x04001FE4 RID: 8164
 	private Matrix4x4 unity = Matrix4x4.identity;
 
-	// Token: 0x04001DED RID: 7661
+	// Token: 0x04001FE5 RID: 8165
 	private Matrix4x4 lastUnity;
 
-	// Token: 0x04001DEE RID: 7662
+	// Token: 0x04001FE6 RID: 8166
 	private Matrix4x4G facep = Matrix4x4G.identity;
 
-	// Token: 0x04001DEF RID: 7663
+	// Token: 0x04001FE7 RID: 8167
 	private Matrix4x4 unity2;
 
-	// Token: 0x04001DF0 RID: 7664
+	// Token: 0x04001FE8 RID: 8168
 	public float near = 1f;
 
-	// Token: 0x04001DF1 RID: 7665
+	// Token: 0x04001FE9 RID: 8169
 	public float aspect = -1f;
 
-	// Token: 0x04001DF2 RID: 7666
+	// Token: 0x04001FEA RID: 8170
 	public float far = 1000f;
 
-	// Token: 0x04001DF3 RID: 7667
+	// Token: 0x04001FEB RID: 8171
 	public float fov = 60f;
 
-	// Token: 0x04001DF4 RID: 7668
+	// Token: 0x04001FEC RID: 8172
 	public bool revMul;
 
-	// Token: 0x04001DF5 RID: 7669
+	// Token: 0x04001FED RID: 8173
 	public bool revG;
 }

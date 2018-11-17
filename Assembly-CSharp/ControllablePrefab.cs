@@ -3,50 +3,50 @@ using System.Collections.Generic;
 using Facepunch;
 using uLink;
 
-// Token: 0x0200012E RID: 302
-public class ControllablePrefab : CharacterPrefab
+// Token: 0x02000152 RID: 338
+public class ControllablePrefab : global::CharacterPrefab
 {
-	// Token: 0x06000893 RID: 2195 RVA: 0x00025548 File Offset: 0x00023748
-	public ControllablePrefab() : this(typeof(Character), false, ControllablePrefab.minimalRequiredIDLocals, false)
+	// Token: 0x06000989 RID: 2441 RVA: 0x000287BC File Offset: 0x000269BC
+	public ControllablePrefab() : this(typeof(global::Character), false, global::ControllablePrefab.minimalRequiredIDLocals, false)
 	{
 	}
 
-	// Token: 0x06000894 RID: 2196 RVA: 0x00025564 File Offset: 0x00023764
+	// Token: 0x0600098A RID: 2442 RVA: 0x000287D8 File Offset: 0x000269D8
 	protected ControllablePrefab(Type characterType, params Type[] idlocalRequired) : this(characterType, true, idlocalRequired, idlocalRequired != null && idlocalRequired.Length > 0)
 	{
 	}
 
-	// Token: 0x06000895 RID: 2197 RVA: 0x00025580 File Offset: 0x00023780
+	// Token: 0x0600098B RID: 2443 RVA: 0x000287F4 File Offset: 0x000269F4
 	protected ControllablePrefab(Type characterType) : this(characterType, true, null, false)
 	{
 	}
 
-	// Token: 0x06000896 RID: 2198 RVA: 0x0002558C File Offset: 0x0002378C
-	private ControllablePrefab(Type characterType, bool typeCheck, Type[] requiredIDLocalTypes, bool mergeTypes) : base(characterType, (!mergeTypes) ? ControllablePrefab.minimalRequiredIDLocals : CharacterPrefab.TypeArrayAppend(ControllablePrefab.minimalRequiredIDLocals, requiredIDLocalTypes))
+	// Token: 0x0600098C RID: 2444 RVA: 0x00028800 File Offset: 0x00026A00
+	private ControllablePrefab(Type characterType, bool typeCheck, Type[] requiredIDLocalTypes, bool mergeTypes) : base(characterType, (!mergeTypes) ? global::ControllablePrefab.minimalRequiredIDLocals : global::CharacterPrefab.TypeArrayAppend(global::ControllablePrefab.minimalRequiredIDLocals, requiredIDLocalTypes))
 	{
 	}
 
-	// Token: 0x06000898 RID: 2200 RVA: 0x000255F8 File Offset: 0x000237F8
-	protected override void StandardInitialization(bool didAppend, IDRemote appended, NetInstance instance, NetworkView view, ref NetworkMessageInfo info)
+	// Token: 0x0600098E RID: 2446 RVA: 0x0002886C File Offset: 0x00026A6C
+	protected override void StandardInitialization(bool didAppend, IDRemote appended, global::NetInstance instance, Facepunch.NetworkView view, ref uLink.NetworkMessageInfo info)
 	{
-		Character character = (Character)instance.idMain;
-		Controllable controllable = character.controllable;
+		global::Character character = (global::Character)instance.idMain;
+		global::Controllable controllable = character.controllable;
 		controllable.PrepareInstantiate(view, ref info);
 		base.StandardInitialization(false, appended, instance, view, ref info);
 		if (didAppend)
 		{
-			NetMainPrefab.IssueLocallyAppended(appended, instance.idMain);
+			global::NetMainPrefab.IssueLocallyAppended(appended, instance.idMain);
 		}
 		controllable.OnInstantiated();
 	}
 
-	// Token: 0x17000209 RID: 521
-	// (get) Token: 0x06000899 RID: 2201 RVA: 0x00025648 File Offset: 0x00023848
+	// Token: 0x1700023F RID: 575
+	// (get) Token: 0x0600098F RID: 2447 RVA: 0x000288BC File Offset: 0x00026ABC
 	private bool playerRootComapatable
 	{
 		get
 		{
-			Controllable controllable = ((Character)base.serverPrefab).controllable;
+			global::Controllable controllable = ((global::Character)base.serverPrefab).controllable;
 			if (!controllable)
 			{
 				return false;
@@ -59,18 +59,18 @@ public class ControllablePrefab : CharacterPrefab
 			{
 				return false;
 			}
-			controllable = ((Character)base.proxyPrefab).controllable;
+			controllable = ((global::Character)base.proxyPrefab).controllable;
 			return controllable && controllable.classFlagsRootControllable && controllable.classFlagsPlayerSupport;
 		}
 	}
 
-	// Token: 0x1700020A RID: 522
-	// (get) Token: 0x0600089A RID: 2202 RVA: 0x000256C8 File Offset: 0x000238C8
+	// Token: 0x17000240 RID: 576
+	// (get) Token: 0x06000990 RID: 2448 RVA: 0x0002893C File Offset: 0x00026B3C
 	private bool aiRootComapatable
 	{
 		get
 		{
-			Controllable controllable = ((Character)base.serverPrefab).controllable;
+			global::Controllable controllable = ((global::Character)base.serverPrefab).controllable;
 			if (!controllable)
 			{
 				return false;
@@ -83,32 +83,32 @@ public class ControllablePrefab : CharacterPrefab
 			{
 				return false;
 			}
-			controllable = ((Character)base.proxyPrefab).controllable;
+			controllable = ((global::Character)base.proxyPrefab).controllable;
 			return controllable && controllable.classFlagsRootControllable && controllable.classFlagsAISupport;
 		}
 	}
 
-	// Token: 0x1700020B RID: 523
-	// (get) Token: 0x0600089B RID: 2203 RVA: 0x00025748 File Offset: 0x00023948
-	private ControllerClass.Merge mergedClasses
+	// Token: 0x17000241 RID: 577
+	// (get) Token: 0x06000991 RID: 2449 RVA: 0x000289BC File Offset: 0x00026BBC
+	private global::ControllerClass.Merge mergedClasses
 	{
 		get
 		{
-			ControllerClass.Merge result = default(ControllerClass.Merge);
-			Controllable.MergeClasses(base.serverPrefab, ref result);
-			Controllable.MergeClasses(base.proxyPrefab, ref result);
-			Controllable.MergeClasses(base.localPrefab, ref result);
+			global::ControllerClass.Merge result = default(global::ControllerClass.Merge);
+			global::Controllable.MergeClasses(base.serverPrefab, ref result);
+			global::Controllable.MergeClasses(base.proxyPrefab, ref result);
+			global::Controllable.MergeClasses(base.localPrefab, ref result);
 			return result;
 		}
 	}
 
-	// Token: 0x1700020C RID: 524
-	// (get) Token: 0x0600089C RID: 2204 RVA: 0x0002578C File Offset: 0x0002398C
+	// Token: 0x17000242 RID: 578
+	// (get) Token: 0x06000992 RID: 2450 RVA: 0x00028A00 File Offset: 0x00026C00
 	private byte vesselCompatibility
 	{
 		get
 		{
-			ControllerClass.Merge mergedClasses = this.mergedClasses;
+			global::ControllerClass.Merge mergedClasses = this.mergedClasses;
 			if (!mergedClasses.any)
 			{
 				return 0;
@@ -150,14 +150,14 @@ public class ControllablePrefab : CharacterPrefab
 		}
 	}
 
-	// Token: 0x0600089D RID: 2205 RVA: 0x00025834 File Offset: 0x00023A34
+	// Token: 0x06000993 RID: 2451 RVA: 0x00028AA8 File Offset: 0x00026CA8
 	public static void EnsurePrefabIsPlayerRootCompatible(string name)
 	{
-		NetMainPrefab.EnsurePrefabName(name);
+		global::NetMainPrefab.EnsurePrefabName(name);
 		byte b;
-		if (!ControllablePrefab.playerRootCompatibilityCache.TryGetValue(name, out b))
+		if (!global::ControllablePrefab.playerRootCompatibilityCache.TryGetValue(name, out b))
 		{
-			ControllablePrefab controllablePrefab = NetMainPrefab.Lookup<ControllablePrefab>(name);
+			global::ControllablePrefab controllablePrefab = global::NetMainPrefab.Lookup<global::ControllablePrefab>(name);
 			if (!controllablePrefab)
 			{
 				b = 0;
@@ -170,28 +170,28 @@ public class ControllablePrefab : CharacterPrefab
 			{
 				b = 1;
 			}
-			ControllablePrefab.playerRootCompatibilityCache[name] = b;
+			global::ControllablePrefab.playerRootCompatibilityCache[name] = b;
 		}
 		if (b == 0)
 		{
-			throw new NonControllableException(name);
+			throw new global::NonControllableException(name);
 		}
 		if (b == 2)
 		{
-			throw new NonPlayerRootControllableException(name);
+			throw new global::NonPlayerRootControllableException(name);
 		}
 	}
 
-	// Token: 0x0600089E RID: 2206 RVA: 0x000258B0 File Offset: 0x00023AB0
+	// Token: 0x06000994 RID: 2452 RVA: 0x00028B24 File Offset: 0x00026D24
 	private static byte GetVesselCompatibility(string name)
 	{
-		NetMainPrefab.EnsurePrefabName(name);
+		global::NetMainPrefab.EnsurePrefabName(name);
 		byte b;
-		if (ControllablePrefab.vesselCompatibilityCache.TryGetValue(name, out b))
+		if (global::ControllablePrefab.vesselCompatibilityCache.TryGetValue(name, out b))
 		{
 			return b;
 		}
-		ControllablePrefab controllablePrefab = NetMainPrefab.Lookup<ControllablePrefab>(name);
+		global::ControllablePrefab controllablePrefab = global::NetMainPrefab.Lookup<global::ControllablePrefab>(name);
 		if (!controllablePrefab)
 		{
 			b = 0;
@@ -200,61 +200,61 @@ public class ControllablePrefab : CharacterPrefab
 		{
 			b = controllablePrefab.vesselCompatibility;
 		}
-		ControllablePrefab.vesselCompatibilityCache[name] = b;
+		global::ControllablePrefab.vesselCompatibilityCache[name] = b;
 		return b;
 	}
 
-	// Token: 0x0600089F RID: 2207 RVA: 0x00025904 File Offset: 0x00023B04
-	public static void EnsurePrefabIsVessel(string name, out ControllablePrefab.VesselInfo vi)
+	// Token: 0x06000995 RID: 2453 RVA: 0x00028B78 File Offset: 0x00026D78
+	public static void EnsurePrefabIsVessel(string name, out global::ControllablePrefab.VesselInfo vi)
 	{
-		byte vesselCompatibility = ControllablePrefab.GetVesselCompatibility(name);
+		byte vesselCompatibility = global::ControllablePrefab.GetVesselCompatibility(name);
 		if ((vesselCompatibility & 1) != 1)
 		{
 			if ((vesselCompatibility & 64) == 64)
 			{
-				throw new NonVesselControllableException(name);
+				throw new global::NonVesselControllableException(name);
 			}
-			throw new NonControllableException(name);
+			throw new global::NonControllableException(name);
 		}
 		else
 		{
 			if ((vesselCompatibility & 24) == 0)
 			{
-				throw new NonControllableException("The vessel has not been marked for either ai and/or player control. not bothering to spawn it.");
+				throw new global::NonControllableException("The vessel has not been marked for either ai and/or player control. not bothering to spawn it.");
 			}
-			vi = new ControllablePrefab.VesselInfo(vesselCompatibility);
+			vi = new global::ControllablePrefab.VesselInfo(vesselCompatibility);
 			return;
 		}
 	}
 
-	// Token: 0x060008A0 RID: 2208 RVA: 0x00025958 File Offset: 0x00023B58
-	public static void EnsurePrefabIsVessel(string name, Controllable forControllable, out ControllablePrefab.VesselInfo vi)
+	// Token: 0x06000996 RID: 2454 RVA: 0x00028BCC File Offset: 0x00026DCC
+	public static void EnsurePrefabIsVessel(string name, global::Controllable forControllable, out global::ControllablePrefab.VesselInfo vi)
 	{
-		ControllablePrefab.EnsurePrefabIsVessel(name, out vi);
+		global::ControllablePrefab.EnsurePrefabIsVessel(name, out vi);
 		if (forControllable && forControllable.controlled)
 		{
 			if (forControllable.aiControlled)
 			{
 				if (!vi.supportsAI)
 				{
-					throw new NonAIVesselControllableException(name);
+					throw new global::NonAIVesselControllableException(name);
 				}
 			}
 			else if (forControllable.playerControlled && !vi.supportsPlayer)
 			{
-				throw new NonPlayerVesselControllableException(name);
+				throw new global::NonPlayerVesselControllableException(name);
 			}
 		}
 	}
 
-	// Token: 0x060008A1 RID: 2209 RVA: 0x000259C4 File Offset: 0x00023BC4
+	// Token: 0x06000997 RID: 2455 RVA: 0x00028C38 File Offset: 0x00026E38
 	public static void EnsurePrefabIsAIRootCompatible(string name, out bool staticGroup)
 	{
-		NetMainPrefab.EnsurePrefabName(name);
+		global::NetMainPrefab.EnsurePrefabName(name);
 		sbyte b;
-		if (!ControllablePrefab.aiRootCompatibilityCache.TryGetValue(name, out b))
+		if (!global::ControllablePrefab.aiRootCompatibilityCache.TryGetValue(name, out b))
 		{
-			ControllablePrefab controllablePrefab = NetMainPrefab.Lookup<ControllablePrefab>(name);
+			global::ControllablePrefab controllablePrefab = global::NetMainPrefab.Lookup<global::ControllablePrefab>(name);
 			if (!controllablePrefab)
 			{
 				b = 0;
@@ -265,9 +265,9 @@ public class ControllablePrefab : CharacterPrefab
 			}
 			else
 			{
-				b = ((!((Character)controllablePrefab.serverPrefab).controllable.classFlagsStaticGroup) ? 1 : -1);
+				b = ((!((global::Character)controllablePrefab.serverPrefab).controllable.classFlagsStaticGroup) ? 1 : -1);
 			}
-			ControllablePrefab.aiRootCompatibilityCache[name] = b;
+			global::ControllablePrefab.aiRootCompatibilityCache[name] = b;
 		}
 		sbyte b2 = b;
 		switch (b2 + 1)
@@ -279,64 +279,64 @@ public class ControllablePrefab : CharacterPrefab
 			staticGroup = false;
 			return;
 		case 3:
-			throw new NonAIRootControllableException(name);
+			throw new global::NonAIRootControllableException(name);
 		}
-		throw new NonControllableException(name);
+		throw new global::NonControllableException(name);
 	}
 
-	// Token: 0x040005F0 RID: 1520
+	// Token: 0x040006D3 RID: 1747
 	private const byte kVesselFlag_Vessel = 1;
 
-	// Token: 0x040005F1 RID: 1521
+	// Token: 0x040006D4 RID: 1748
 	private const byte kVesselFlag_Vessel_Standalone = 3;
 
-	// Token: 0x040005F2 RID: 1522
+	// Token: 0x040006D5 RID: 1749
 	private const byte kVesselFlag_Vessel_Dependant = 5;
 
-	// Token: 0x040005F3 RID: 1523
+	// Token: 0x040006D6 RID: 1750
 	private const byte kVesselFlag_Vessel_Free = 7;
 
-	// Token: 0x040005F4 RID: 1524
+	// Token: 0x040006D7 RID: 1751
 	private const byte kVesselFlag_PlayerCanControl = 8;
 
-	// Token: 0x040005F5 RID: 1525
+	// Token: 0x040006D8 RID: 1752
 	private const byte kVesselFlag_AICanControl = 16;
 
-	// Token: 0x040005F6 RID: 1526
+	// Token: 0x040006D9 RID: 1753
 	private const byte kVesselFlag_StaticGroup = 32;
 
-	// Token: 0x040005F7 RID: 1527
+	// Token: 0x040006DA RID: 1754
 	private const byte kVesselFlag_Missing = 64;
 
-	// Token: 0x040005F8 RID: 1528
+	// Token: 0x040006DB RID: 1755
 	private const byte kVesselKindMask = 7;
 
-	// Token: 0x040005F9 RID: 1529
+	// Token: 0x040006DC RID: 1756
 	private static readonly Type[] minimalRequiredIDLocals = new Type[]
 	{
-		typeof(Controllable)
+		typeof(global::Controllable)
 	};
 
-	// Token: 0x040005FA RID: 1530
+	// Token: 0x040006DD RID: 1757
 	private static Dictionary<string, byte> playerRootCompatibilityCache = new Dictionary<string, byte>();
 
-	// Token: 0x040005FB RID: 1531
+	// Token: 0x040006DE RID: 1758
 	private static Dictionary<string, sbyte> aiRootCompatibilityCache = new Dictionary<string, sbyte>();
 
-	// Token: 0x040005FC RID: 1532
+	// Token: 0x040006DF RID: 1759
 	private static Dictionary<string, byte> vesselCompatibilityCache = new Dictionary<string, byte>();
 
-	// Token: 0x0200012F RID: 303
+	// Token: 0x02000153 RID: 339
 	public struct VesselInfo
 	{
-		// Token: 0x060008A2 RID: 2210 RVA: 0x00025A80 File Offset: 0x00023C80
+		// Token: 0x06000998 RID: 2456 RVA: 0x00028CF4 File Offset: 0x00026EF4
 		internal VesselInfo(byte data)
 		{
 			this.data = data;
 		}
 
-		// Token: 0x1700020D RID: 525
-		// (get) Token: 0x060008A3 RID: 2211 RVA: 0x00025A8C File Offset: 0x00023C8C
+		// Token: 0x17000243 RID: 579
+		// (get) Token: 0x06000999 RID: 2457 RVA: 0x00028D00 File Offset: 0x00026F00
 		public bool staticGroup
 		{
 			get
@@ -345,8 +345,8 @@ public class ControllablePrefab : CharacterPrefab
 			}
 		}
 
-		// Token: 0x1700020E RID: 526
-		// (get) Token: 0x060008A4 RID: 2212 RVA: 0x00025A9C File Offset: 0x00023C9C
+		// Token: 0x17000244 RID: 580
+		// (get) Token: 0x0600099A RID: 2458 RVA: 0x00028D10 File Offset: 0x00026F10
 		public bool supportsAI
 		{
 			get
@@ -355,8 +355,8 @@ public class ControllablePrefab : CharacterPrefab
 			}
 		}
 
-		// Token: 0x1700020F RID: 527
-		// (get) Token: 0x060008A5 RID: 2213 RVA: 0x00025AAC File Offset: 0x00023CAC
+		// Token: 0x17000245 RID: 581
+		// (get) Token: 0x0600099B RID: 2459 RVA: 0x00028D20 File Offset: 0x00026F20
 		public bool supportsPlayer
 		{
 			get
@@ -365,8 +365,8 @@ public class ControllablePrefab : CharacterPrefab
 			}
 		}
 
-		// Token: 0x17000210 RID: 528
-		// (get) Token: 0x060008A6 RID: 2214 RVA: 0x00025ABC File Offset: 0x00023CBC
+		// Token: 0x17000246 RID: 582
+		// (get) Token: 0x0600099C RID: 2460 RVA: 0x00028D30 File Offset: 0x00026F30
 		public bool canBind
 		{
 			get
@@ -386,8 +386,8 @@ public class ControllablePrefab : CharacterPrefab
 			}
 		}
 
-		// Token: 0x17000211 RID: 529
-		// (get) Token: 0x060008A7 RID: 2215 RVA: 0x00025B0C File Offset: 0x00023D0C
+		// Token: 0x17000247 RID: 583
+		// (get) Token: 0x0600099D RID: 2461 RVA: 0x00028D80 File Offset: 0x00026F80
 		public bool mustBind
 		{
 			get
@@ -407,8 +407,8 @@ public class ControllablePrefab : CharacterPrefab
 			}
 		}
 
-		// Token: 0x17000212 RID: 530
-		// (get) Token: 0x060008A8 RID: 2216 RVA: 0x00025B5C File Offset: 0x00023D5C
+		// Token: 0x17000248 RID: 584
+		// (get) Token: 0x0600099E RID: 2462 RVA: 0x00028DD0 File Offset: 0x00026FD0
 		public bool bindless
 		{
 			get
@@ -428,7 +428,7 @@ public class ControllablePrefab : CharacterPrefab
 			}
 		}
 
-		// Token: 0x040005FD RID: 1533
+		// Token: 0x040006E0 RID: 1760
 		private byte data;
 	}
 }

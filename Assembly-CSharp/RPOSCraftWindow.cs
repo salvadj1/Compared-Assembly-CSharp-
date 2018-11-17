@@ -1,26 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000412 RID: 1042
-public class RPOSCraftWindow : RPOSWindowScrollable
+// Token: 0x020004C7 RID: 1223
+public class RPOSCraftWindow : global::RPOSWindowScrollable
 {
-	// Token: 0x0600267D RID: 9853 RVA: 0x00095AE4 File Offset: 0x00093CE4
+	// Token: 0x06002A07 RID: 10759 RVA: 0x0009B9A8 File Offset: 0x00099BA8
 	public new void Awake()
 	{
 		this.ShowCraftingOptions(false);
-		UIEventListener uieventListener = UIEventListener.Get(this.craftButton.gameObject);
-		UIEventListener uieventListener2 = uieventListener;
-		uieventListener2.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new UIEventListener.VoidDelegate(this.CraftButtonClicked));
-		UIEventListener uieventListener3 = UIEventListener.Get(this.plusButton.gameObject);
-		UIEventListener uieventListener4 = uieventListener3;
-		uieventListener4.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener4.onClick, new UIEventListener.VoidDelegate(this.PlusButtonClicked));
-		UIEventListener uieventListener5 = UIEventListener.Get(this.minusButton.gameObject);
-		UIEventListener uieventListener6 = uieventListener5;
-		uieventListener6.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener6.onClick, new UIEventListener.VoidDelegate(this.MinusButtonClicked));
+		global::UIEventListener uieventListener = global::UIEventListener.Get(this.craftButton.gameObject);
+		global::UIEventListener uieventListener2 = uieventListener;
+		uieventListener2.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new global::UIEventListener.VoidDelegate(this.CraftButtonClicked));
+		global::UIEventListener uieventListener3 = global::UIEventListener.Get(this.plusButton.gameObject);
+		global::UIEventListener uieventListener4 = uieventListener3;
+		uieventListener4.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener4.onClick, new global::UIEventListener.VoidDelegate(this.PlusButtonClicked));
+		global::UIEventListener uieventListener5 = global::UIEventListener.Get(this.minusButton.gameObject);
+		global::UIEventListener uieventListener6 = uieventListener5;
+		uieventListener6.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener6.onClick, new global::UIEventListener.VoidDelegate(this.MinusButtonClicked));
 		this.amountInput.text = "1";
 	}
 
-	// Token: 0x0600267E RID: 9854 RVA: 0x00095BA4 File Offset: 0x00093DA4
+	// Token: 0x06002A08 RID: 10760 RVA: 0x0009BA68 File Offset: 0x00099C68
 	public char ValidateAmountInput(string text, char ch)
 	{
 		Debug.Log("validating input");
@@ -35,13 +35,13 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		return '\0';
 	}
 
-	// Token: 0x0600267F RID: 9855 RVA: 0x00095BE4 File Offset: 0x00093DE4
+	// Token: 0x06002A09 RID: 10761 RVA: 0x0009BAA8 File Offset: 0x00099CA8
 	public void ItemHovered(GameObject go, bool what)
 	{
 	}
 
-	// Token: 0x170008EC RID: 2284
-	// (get) Token: 0x06002680 RID: 9856 RVA: 0x00095BE8 File Offset: 0x00093DE8
+	// Token: 0x17000952 RID: 2386
+	// (get) Token: 0x06002A0A RID: 10762 RVA: 0x0009BAAC File Offset: 0x00099CAC
 	private static int amountModifier
 	{
 		get
@@ -65,19 +65,19 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		}
 	}
 
-	// Token: 0x06002681 RID: 9857 RVA: 0x00095C50 File Offset: 0x00093E50
+	// Token: 0x06002A0B RID: 10763 RVA: 0x0009BB14 File Offset: 0x00099D14
 	public void MinusButtonClicked(GameObject go)
 	{
-		this.PlusMinusClick(-RPOSCraftWindow.amountModifier);
+		this.PlusMinusClick(-global::RPOSCraftWindow.amountModifier);
 	}
 
-	// Token: 0x06002682 RID: 9858 RVA: 0x00095C60 File Offset: 0x00093E60
+	// Token: 0x06002A0C RID: 10764 RVA: 0x0009BB24 File Offset: 0x00099D24
 	public void PlusButtonClicked(GameObject go)
 	{
-		this.PlusMinusClick(RPOSCraftWindow.amountModifier);
+		this.PlusMinusClick(global::RPOSCraftWindow.amountModifier);
 	}
 
-	// Token: 0x06002683 RID: 9859 RVA: 0x00095C70 File Offset: 0x00093E70
+	// Token: 0x06002A0D RID: 10765 RVA: 0x0009BB34 File Offset: 0x00099D34
 	public void SetRequestedAmount(int amount)
 	{
 		if (!this.selectedItem)
@@ -86,20 +86,20 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		}
 		else
 		{
-			int num = this.selectedItem.MaxAmount(RPOS.ObservedPlayer.GetComponent<Inventory>());
+			int num = this.selectedItem.MaxAmount(global::RPOS.ObservedPlayer.GetComponent<global::Inventory>());
 			this.desiredAmount = Mathf.Clamp(amount, 1, (num > 0) ? num : 1);
 		}
 		this.amountInput.text = this.desiredAmount.ToString();
 	}
 
-	// Token: 0x06002684 RID: 9860 RVA: 0x00095CE0 File Offset: 0x00093EE0
+	// Token: 0x06002A0E RID: 10766 RVA: 0x0009BBA4 File Offset: 0x00099DA4
 	public void PlusMinusClick(int amount)
 	{
 		if (amount == 0)
 		{
 			return;
 		}
-		CraftingInventory component = RPOS.ObservedPlayer.GetComponent<CraftingInventory>();
+		global::CraftingInventory component = global::RPOS.ObservedPlayer.GetComponent<global::CraftingInventory>();
 		if (component == null)
 		{
 			return;
@@ -112,7 +112,7 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		this.UpdateIngredients();
 	}
 
-	// Token: 0x06002685 RID: 9861 RVA: 0x00095D2C File Offset: 0x00093F2C
+	// Token: 0x06002A0F RID: 10767 RVA: 0x0009BBF0 File Offset: 0x00099DF0
 	public void ShowCraftingOptions(bool show)
 	{
 		this.plusButton.gameObject.SetActive(show);
@@ -124,14 +124,14 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		this.requirementLabel.gameObject.SetActive(show);
 	}
 
-	// Token: 0x06002686 RID: 9862 RVA: 0x00095DB0 File Offset: 0x00093FB0
+	// Token: 0x06002A10 RID: 10768 RVA: 0x0009BC74 File Offset: 0x00099E74
 	public void LocalInventoryModified()
 	{
 		this.bpLister.UpdateItems();
 		this.UpdateIngredients();
 	}
 
-	// Token: 0x06002687 RID: 9863 RVA: 0x00095DC4 File Offset: 0x00093FC4
+	// Token: 0x06002A11 RID: 10769 RVA: 0x0009BC88 File Offset: 0x00099E88
 	protected override void OnWindowShow()
 	{
 		this.bpLister.UpdateItems();
@@ -139,20 +139,20 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		base.OnWindowShow();
 	}
 
-	// Token: 0x06002688 RID: 9864 RVA: 0x00095DE0 File Offset: 0x00093FE0
+	// Token: 0x06002A12 RID: 10770 RVA: 0x0009BCA4 File Offset: 0x00099EA4
 	protected override void OnWindowHide()
 	{
 		base.OnWindowHide();
 	}
 
-	// Token: 0x06002689 RID: 9865 RVA: 0x00095DE8 File Offset: 0x00093FE8
+	// Token: 0x06002A13 RID: 10771 RVA: 0x0009BCAC File Offset: 0x00099EAC
 	public void Update()
 	{
-		if (RPOS.ObservedPlayer == null)
+		if (global::RPOS.ObservedPlayer == null)
 		{
 			return;
 		}
-		CraftingInventory component = RPOS.ObservedPlayer.GetComponent<CraftingInventory>();
+		global::CraftingInventory component = global::RPOS.ObservedPlayer.GetComponent<global::CraftingInventory>();
 		if (component == null)
 		{
 			return;
@@ -172,11 +172,11 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		}
 		if (this.craftButton.gameObject.activeSelf)
 		{
-			this.craftButton.GetComponentInChildren<UILabel>().text = ((!component.isCrafting) ? "Craft" : "Cancel");
+			this.craftButton.GetComponentInChildren<global::UILabel>().text = ((!component.isCrafting) ? "Craft" : "Cancel");
 		}
 		if (this.craftProgressBar && this.craftProgressBar.gameObject && this.craftProgressBar.gameObject.activeSelf)
 		{
-			UISlider uislider = this.craftProgressBar;
+			global::UISlider uislider = this.craftProgressBar;
 			float? craftingCompletePercent = component.craftingCompletePercent;
 			uislider.sliderValue = ((craftingCompletePercent == null) ? 0f : craftingCompletePercent.Value);
 			float? craftingSecondsRemaining = component.craftingSecondsRemaining;
@@ -214,7 +214,7 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		this.wasCrafting = component.isCrafting;
 	}
 
-	// Token: 0x0600268A RID: 9866 RVA: 0x00096008 File Offset: 0x00094208
+	// Token: 0x06002A14 RID: 10772 RVA: 0x0009BECC File Offset: 0x0009A0CC
 	public void CraftButtonClicked(GameObject go)
 	{
 		if (this.selectedItem == null)
@@ -222,7 +222,7 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 			return;
 		}
 		Debug.Log("Crafting clicked");
-		CraftingInventory component = RPOS.ObservedPlayer.GetComponent<CraftingInventory>();
+		global::CraftingInventory component = global::RPOS.ObservedPlayer.GetComponent<global::CraftingInventory>();
 		if (component == null)
 		{
 			Debug.Log("No local player inventory.. weird");
@@ -238,14 +238,14 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		}
 	}
 
-	// Token: 0x0600268B RID: 9867 RVA: 0x00096090 File Offset: 0x00094290
+	// Token: 0x06002A15 RID: 10773 RVA: 0x0009BF54 File Offset: 0x0009A154
 	public bool AtWorkbench()
 	{
-		CraftingInventory component = RPOS.ObservedPlayer.GetComponent<CraftingInventory>();
+		global::CraftingInventory component = global::RPOS.ObservedPlayer.GetComponent<global::CraftingInventory>();
 		return component.AtWorkBench();
 	}
 
-	// Token: 0x0600268C RID: 9868 RVA: 0x000960B0 File Offset: 0x000942B0
+	// Token: 0x06002A16 RID: 10774 RVA: 0x0009BF74 File Offset: 0x0009A174
 	public void UpdateWorkbenchRequirements()
 	{
 		if (this.selectedItem != null && this.selectedItem.RequireWorkbench)
@@ -259,8 +259,8 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		}
 	}
 
-	// Token: 0x0600268D RID: 9869 RVA: 0x00096128 File Offset: 0x00094328
-	public void SetSelectedItem(BlueprintDataBlock newSel)
+	// Token: 0x06002A17 RID: 10775 RVA: 0x0009BFEC File Offset: 0x0009A1EC
+	public void SetSelectedItem(global::BlueprintDataBlock newSel)
 	{
 		if (this.selectedItem)
 		{
@@ -274,13 +274,13 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		this.UpdateWorkbenchRequirements();
 	}
 
-	// Token: 0x0600268E RID: 9870 RVA: 0x0009617C File Offset: 0x0009437C
+	// Token: 0x06002A18 RID: 10776 RVA: 0x0009C040 File Offset: 0x0009A240
 	public int RequestedAmount()
 	{
 		return this.desiredAmount;
 	}
 
-	// Token: 0x0600268F RID: 9871 RVA: 0x00096184 File Offset: 0x00094384
+	// Token: 0x06002A19 RID: 10777 RVA: 0x0009C048 File Offset: 0x0009A248
 	public void UpdateIngredients()
 	{
 		if (this.selectedItem)
@@ -291,32 +291,32 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 			}
 			int num = this.RequestedAmount();
 			int num2 = 0;
-			foreach (BlueprintDataBlock.IngredientEntry ingredientEntry in this.selectedItem.ingredients)
+			foreach (global::BlueprintDataBlock.IngredientEntry ingredientEntry in this.selectedItem.ingredients)
 			{
 				int haveAmount = 0;
-				PlayerClient.GetLocalPlayer().controllable.GetComponent<CraftingInventory>().FindItem(ingredientEntry.Ingredient, out haveAmount);
+				global::PlayerClient.GetLocalPlayer().controllable.GetComponent<global::CraftingInventory>().FindItem(ingredientEntry.Ingredient, out haveAmount);
 				int needAmount = ingredientEntry.amount * num;
-				GameObject gameObject = NGUITools.AddChild(this.ingredientAnchor, this.ingredientPlaquePrefab);
-				gameObject.GetComponent<RPOS_Craft_IngredientPlaque>().Bind(ingredientEntry, needAmount, haveAmount);
+				GameObject gameObject = global::NGUITools.AddChild(this.ingredientAnchor, this.ingredientPlaquePrefab);
+				gameObject.GetComponent<global::RPOS_Craft_IngredientPlaque>().Bind(ingredientEntry, needAmount, haveAmount);
 				gameObject.transform.SetLocalPositionY((float)num2);
 				num2 -= 12;
 			}
 		}
 	}
 
-	// Token: 0x06002690 RID: 9872 RVA: 0x000962AC File Offset: 0x000944AC
+	// Token: 0x06002A1A RID: 10778 RVA: 0x0009C170 File Offset: 0x0009A370
 	public void ItemClicked(GameObject go)
 	{
-		if (RPOS.ObservedPlayer.GetComponent<CraftingInventory>().isCrafting)
+		if (global::RPOS.ObservedPlayer.GetComponent<global::CraftingInventory>().isCrafting)
 		{
 			return;
 		}
-		RPOSCraftItemEntry component = go.GetComponent<RPOSCraftItemEntry>();
+		global::RPOSCraftItemEntry component = go.GetComponent<global::RPOSCraftItemEntry>();
 		if (component == null)
 		{
 			return;
 		}
-		BlueprintDataBlock blueprint = component.blueprint;
+		global::BlueprintDataBlock blueprint = component.blueprint;
 		if (!blueprint)
 		{
 			Debug.Log("no bp by that name");
@@ -329,56 +329,56 @@ public class RPOSCraftWindow : RPOSWindowScrollable
 		}
 	}
 
-	// Token: 0x040012CD RID: 4813
+	// Token: 0x0400144D RID: 5197
 	public GameObject ingredientAnchor;
 
-	// Token: 0x040012CE RID: 4814
+	// Token: 0x0400144E RID: 5198
 	public GameObject ingredientPlaquePrefab;
 
-	// Token: 0x040012CF RID: 4815
-	public BlueprintDataBlock selectedItem;
+	// Token: 0x0400144F RID: 5199
+	public global::BlueprintDataBlock selectedItem;
 
-	// Token: 0x040012D0 RID: 4816
-	public UIButton craftButton;
+	// Token: 0x04001450 RID: 5200
+	public global::UIButton craftButton;
 
-	// Token: 0x040012D1 RID: 4817
-	public RPOS_Craft_BlueprintList bpLister;
+	// Token: 0x04001451 RID: 5201
+	public global::RPOS_Craft_BlueprintList bpLister;
 
-	// Token: 0x040012D2 RID: 4818
-	public UISlider craftProgressBar;
+	// Token: 0x04001452 RID: 5202
+	public global::UISlider craftProgressBar;
 
-	// Token: 0x040012D3 RID: 4819
-	public UILabel amountInput;
+	// Token: 0x04001453 RID: 5203
+	public global::UILabel amountInput;
 
-	// Token: 0x040012D4 RID: 4820
-	public UISprite amountInputBackground;
+	// Token: 0x04001454 RID: 5204
+	public global::UISprite amountInputBackground;
 
-	// Token: 0x040012D5 RID: 4821
-	public UIButton plusButton;
+	// Token: 0x04001455 RID: 5205
+	public global::UIButton plusButton;
 
-	// Token: 0x040012D6 RID: 4822
-	public UIButton minusButton;
+	// Token: 0x04001456 RID: 5206
+	public global::UIButton minusButton;
 
-	// Token: 0x040012D7 RID: 4823
-	public UILabel progressLabel;
+	// Token: 0x04001457 RID: 5207
+	public global::UILabel progressLabel;
 
-	// Token: 0x040012D8 RID: 4824
-	public UILabel requirementLabel;
+	// Token: 0x04001458 RID: 5208
+	public global::UILabel requirementLabel;
 
-	// Token: 0x040012D9 RID: 4825
+	// Token: 0x04001459 RID: 5209
 	public int desiredAmount = 1;
 
-	// Token: 0x040012DA RID: 4826
+	// Token: 0x0400145A RID: 5210
 	private bool wasCrafting;
 
-	// Token: 0x040012DB RID: 4827
+	// Token: 0x0400145B RID: 5211
 	public AudioClip craftSound;
 
-	// Token: 0x040012DC RID: 4828
+	// Token: 0x0400145C RID: 5212
 	[NonSerialized]
 	private float _lastTimeStringValue = float.PositiveInfinity;
 
-	// Token: 0x040012DD RID: 4829
+	// Token: 0x0400145D RID: 5213
 	[NonSerialized]
 	private string _lastTimeStringString;
 }

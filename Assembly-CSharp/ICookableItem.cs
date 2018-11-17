@@ -1,8 +1,8 @@
 ﻿using System;
 
-// Token: 0x020005CC RID: 1484
-public interface ICookableItem : IInventoryItem
+// Token: 0x0200068A RID: 1674
+public interface ICookableItem : global::IInventoryItem
 {
-	// Token: 0x06003590 RID: 13712
-	bool GetCookableInfo(out int consumeCount, out ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp);
+	// Token: 0x06003958 RID: 14680
+	bool GetCookableInfo(out int consumeCount, out global::ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp);
 }

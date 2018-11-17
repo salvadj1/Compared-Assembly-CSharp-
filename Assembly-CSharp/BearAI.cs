@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000431 RID: 1073
-public class BearAI : HostileWildlifeAI
+// Token: 0x020004E7 RID: 1255
+public class BearAI : global::HostileWildlifeAI
 {
-	// Token: 0x060027BD RID: 10173 RVA: 0x0009B0D4 File Offset: 0x000992D4
+	// Token: 0x06002B4D RID: 11085 RVA: 0x000A1054 File Offset: 0x0009F254
 	public override string GetDeathAnim()
 	{
 		return "4LegsDeath";
 	}
 
-	// Token: 0x060027BE RID: 10174 RVA: 0x0009B0DC File Offset: 0x000992DC
+	// Token: 0x06002B4E RID: 11086 RVA: 0x000A105C File Offset: 0x0009F25C
 	public override string GetAttackAnim()
 	{
 		int num = Random.Range(0, 3);
@@ -25,7 +25,7 @@ public class BearAI : HostileWildlifeAI
 		return "4LegsBiteAttack";
 	}
 
-	// Token: 0x060027BF RID: 10175 RVA: 0x0009B110 File Offset: 0x00099310
+	// Token: 0x06002B4F RID: 11087 RVA: 0x000A1090 File Offset: 0x0009F290
 	protected void Update()
 	{
 		if (this._takeDamage.dead)

@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000259 RID: 601
-public class BobPunchEffect : BobEffect
+// Token: 0x0200028C RID: 652
+public class BobPunchEffect : global::BobEffect
 {
-	// Token: 0x0600161F RID: 5663 RVA: 0x000536E0 File Offset: 0x000518E0
+	// Token: 0x06001773 RID: 6003 RVA: 0x00057A88 File Offset: 0x00055C88
 	protected override void InitializeNonSerializedData()
 	{
-		this.x = new BobPunchEffect.CurveInfo(this._x);
-		this.y = new BobPunchEffect.CurveInfo(this._y);
-		this.z = new BobPunchEffect.CurveInfo(this._z);
-		this.yaw = new BobPunchEffect.CurveInfo(this._yaw);
-		this.pitch = new BobPunchEffect.CurveInfo(this._pitch);
-		this.roll = new BobPunchEffect.CurveInfo(this._roll);
+		this.x = new global::BobPunchEffect.CurveInfo(this._x);
+		this.y = new global::BobPunchEffect.CurveInfo(this._y);
+		this.z = new global::BobPunchEffect.CurveInfo(this._z);
+		this.yaw = new global::BobPunchEffect.CurveInfo(this._yaw);
+		this.pitch = new global::BobPunchEffect.CurveInfo(this._pitch);
+		this.roll = new global::BobPunchEffect.CurveInfo(this._roll);
 		this.glob.valid = (this.x.valid || this.y.valid || this.z.valid || this.yaw.valid || this.pitch.valid || this.roll.valid);
 		this.glob.constant = (this.glob.valid && ((!this.x.valid || this.x.constant) && (!this.y.valid || this.y.constant) && (!this.z.valid || this.z.constant) && (!this.yaw.valid || this.yaw.constant) && (!this.pitch.valid || this.pitch.constant) && (!this.roll.valid || this.roll.constant)));
 		if (this.glob.constant)
@@ -106,39 +106,39 @@ public class BobPunchEffect : BobEffect
 		}
 	}
 
-	// Token: 0x06001620 RID: 5664 RVA: 0x00053C98 File Offset: 0x00051E98
-	protected override bool OpenData(out BobEffect.Data data)
+	// Token: 0x06001774 RID: 6004 RVA: 0x00058040 File Offset: 0x00056240
+	protected override bool OpenData(out global::BobEffect.Data data)
 	{
 		if (!this.glob.valid)
 		{
 			data = null;
 			return false;
 		}
-		data = new BobPunchEffect.PunchData();
+		data = new global::BobPunchEffect.PunchData();
 		data.effect = this;
 		return true;
 	}
 
-	// Token: 0x06001621 RID: 5665 RVA: 0x00053CC0 File Offset: 0x00051EC0
-	protected override void CloseData(BobEffect.Data data)
+	// Token: 0x06001775 RID: 6005 RVA: 0x00058068 File Offset: 0x00056268
+	protected override void CloseData(global::BobEffect.Data data)
 	{
 	}
 
-	// Token: 0x06001622 RID: 5666 RVA: 0x00053CC4 File Offset: 0x00051EC4
-	protected override BOBRES SimulateData(ref BobEffect.Context ctx)
+	// Token: 0x06001776 RID: 6006 RVA: 0x0005806C File Offset: 0x0005626C
+	protected override global::BOBRES SimulateData(ref global::BobEffect.Context ctx)
 	{
 		if (ctx.dt == 0.0)
 		{
-			return BOBRES.CONTINUE;
+			return global::BOBRES.CONTINUE;
 		}
-		BobPunchEffect.PunchData punchData = (BobPunchEffect.PunchData)ctx.data;
+		global::BobPunchEffect.PunchData punchData = (global::BobPunchEffect.PunchData)ctx.data;
 		if (punchData.time >= this.glob.endTime)
 		{
-			return BOBRES.EXIT;
+			return global::BOBRES.EXIT;
 		}
 		if (punchData.time >= this.glob.endTime)
 		{
-			return BOBRES.EXIT;
+			return global::BOBRES.EXIT;
 		}
 		if (this.x.valid)
 		{
@@ -231,77 +231,77 @@ public class BobPunchEffect : BobEffect
 			}
 		}
 		punchData.time += (float)ctx.dt;
-		return BOBRES.CONTINUE;
+		return global::BOBRES.CONTINUE;
 	}
 
-	// Token: 0x04000B2F RID: 2863
+	// Token: 0x04000C52 RID: 3154
 	[SerializeField]
 	private AnimationCurve _x;
 
-	// Token: 0x04000B30 RID: 2864
+	// Token: 0x04000C53 RID: 3155
 	[SerializeField]
 	private AnimationCurve _y;
 
-	// Token: 0x04000B31 RID: 2865
+	// Token: 0x04000C54 RID: 3156
 	[SerializeField]
 	private AnimationCurve _z;
 
-	// Token: 0x04000B32 RID: 2866
+	// Token: 0x04000C55 RID: 3157
 	[SerializeField]
 	private AnimationCurve _yaw;
 
-	// Token: 0x04000B33 RID: 2867
+	// Token: 0x04000C56 RID: 3158
 	[SerializeField]
 	private AnimationCurve _pitch;
 
-	// Token: 0x04000B34 RID: 2868
+	// Token: 0x04000C57 RID: 3159
 	[SerializeField]
 	private AnimationCurve _roll;
 
-	// Token: 0x04000B35 RID: 2869
-	private BobPunchEffect.CurveInfo x;
+	// Token: 0x04000C58 RID: 3160
+	private global::BobPunchEffect.CurveInfo x;
 
-	// Token: 0x04000B36 RID: 2870
-	private BobPunchEffect.CurveInfo y;
+	// Token: 0x04000C59 RID: 3161
+	private global::BobPunchEffect.CurveInfo y;
 
-	// Token: 0x04000B37 RID: 2871
-	private BobPunchEffect.CurveInfo z;
+	// Token: 0x04000C5A RID: 3162
+	private global::BobPunchEffect.CurveInfo z;
 
-	// Token: 0x04000B38 RID: 2872
-	private BobPunchEffect.CurveInfo yaw;
+	// Token: 0x04000C5B RID: 3163
+	private global::BobPunchEffect.CurveInfo yaw;
 
-	// Token: 0x04000B39 RID: 2873
-	private BobPunchEffect.CurveInfo pitch;
+	// Token: 0x04000C5C RID: 3164
+	private global::BobPunchEffect.CurveInfo pitch;
 
-	// Token: 0x04000B3A RID: 2874
-	private BobPunchEffect.CurveInfo roll;
+	// Token: 0x04000C5D RID: 3165
+	private global::BobPunchEffect.CurveInfo roll;
 
-	// Token: 0x04000B3B RID: 2875
-	private BobPunchEffect.CurveInfo glob;
+	// Token: 0x04000C5E RID: 3166
+	private global::BobPunchEffect.CurveInfo glob;
 
-	// Token: 0x0200025A RID: 602
-	private class PunchData : BobEffect.Data
+	// Token: 0x0200028D RID: 653
+	private class PunchData : global::BobEffect.Data
 	{
-		// Token: 0x06001624 RID: 5668 RVA: 0x00054124 File Offset: 0x00052324
-		public override void CopyDataTo(BobEffect.Data data)
+		// Token: 0x06001778 RID: 6008 RVA: 0x000584CC File Offset: 0x000566CC
+		public override void CopyDataTo(global::BobEffect.Data data)
 		{
 			base.CopyDataTo(data);
-			((BobPunchEffect.PunchData)data).time = this.time;
+			((global::BobPunchEffect.PunchData)data).time = this.time;
 		}
 
-		// Token: 0x04000B3C RID: 2876
+		// Token: 0x04000C5F RID: 3167
 		public float time;
 	}
 
-	// Token: 0x0200025B RID: 603
+	// Token: 0x0200028E RID: 654
 	private struct CurveInfo
 	{
-		// Token: 0x06001625 RID: 5669 RVA: 0x00054140 File Offset: 0x00052340
+		// Token: 0x06001779 RID: 6009 RVA: 0x000584E8 File Offset: 0x000566E8
 		public CurveInfo(AnimationCurve curve)
 		{
 			if (curve == null)
 			{
-				this = default(BobPunchEffect.CurveInfo);
+				this = default(global::BobPunchEffect.CurveInfo);
 			}
 			else
 			{
@@ -381,7 +381,7 @@ public class BobPunchEffect : BobEffect
 			}
 		}
 
-		// Token: 0x06001626 RID: 5670 RVA: 0x00054498 File Offset: 0x00052698
+		// Token: 0x0600177A RID: 6010 RVA: 0x00058840 File Offset: 0x00056A40
 		public override string ToString()
 		{
 			return string.Format("[CurveInfo startTime={0}, duration={1}, min={2}, max={3}, length={4}, valid={5}, constant={6}]", new object[]
@@ -396,40 +396,40 @@ public class BobPunchEffect : BobEffect
 			});
 		}
 
-		// Token: 0x04000B3D RID: 2877
+		// Token: 0x04000C60 RID: 3168
 		public AnimationCurve curve;
 
-		// Token: 0x04000B3E RID: 2878
+		// Token: 0x04000C61 RID: 3169
 		public float endTime;
 
-		// Token: 0x04000B3F RID: 2879
+		// Token: 0x04000C62 RID: 3170
 		public float startTime;
 
-		// Token: 0x04000B40 RID: 2880
+		// Token: 0x04000C63 RID: 3171
 		public float startValue;
 
-		// Token: 0x04000B41 RID: 2881
+		// Token: 0x04000C64 RID: 3172
 		public float endValue;
 
-		// Token: 0x04000B42 RID: 2882
+		// Token: 0x04000C65 RID: 3173
 		public float duration;
 
-		// Token: 0x04000B43 RID: 2883
+		// Token: 0x04000C66 RID: 3174
 		public float min;
 
-		// Token: 0x04000B44 RID: 2884
+		// Token: 0x04000C67 RID: 3175
 		public float max;
 
-		// Token: 0x04000B45 RID: 2885
+		// Token: 0x04000C68 RID: 3176
 		public float range;
 
-		// Token: 0x04000B46 RID: 2886
+		// Token: 0x04000C69 RID: 3177
 		public int length;
 
-		// Token: 0x04000B47 RID: 2887
+		// Token: 0x04000C6A RID: 3178
 		public bool valid;
 
-		// Token: 0x04000B48 RID: 2888
+		// Token: 0x04000C6B RID: 3179
 		public bool constant;
 	}
 }

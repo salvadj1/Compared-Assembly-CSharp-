@@ -2,12 +2,12 @@
 
 namespace AnimationOrTween
 {
-	// Token: 0x02000785 RID: 1925
+	// Token: 0x0200086A RID: 2154
 	public enum EnableCondition
 	{
-		// Token: 0x04002624 RID: 9764
+		// Token: 0x0400285B RID: 10331
 		DoNothing,
-		// Token: 0x04002625 RID: 9765
+		// Token: 0x0400285C RID: 10332
 		EnableThenPlay
 	}
 }

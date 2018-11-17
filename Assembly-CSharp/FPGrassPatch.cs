@@ -1,24 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000042 RID: 66
+// Token: 0x02000054 RID: 84
 [ExecuteInEditMode]
-public class FPGrassPatch : MonoBehaviour, IFPGrassAsset
+public class FPGrassPatch : MonoBehaviour, global::IFPGrassAsset
 {
-	// Token: 0x06000244 RID: 580 RVA: 0x0000CCE0 File Offset: 0x0000AEE0
+	// Token: 0x060002B6 RID: 694 RVA: 0x0000E288 File Offset: 0x0000C488
 	private void OnEnable()
 	{
 		this.transform = base.transform;
 		this.lastRenderPosition.x = (this.lastRenderPosition.y = (this.lastRenderPosition.z = float.NegativeInfinity));
 	}
 
-	// Token: 0x06000245 RID: 581 RVA: 0x0000CD28 File Offset: 0x0000AF28
+	// Token: 0x060002B7 RID: 695 RVA: 0x0000E2D0 File Offset: 0x0000C4D0
 	private void OnDestroy()
 	{
 	}
 
-	// Token: 0x06000246 RID: 582 RVA: 0x0000CD2C File Offset: 0x0000AF2C
-	internal void Render(ref FPGrass.RenderArguments renderArgs)
+	// Token: 0x060002B8 RID: 696 RVA: 0x0000E2D4 File Offset: 0x0000C4D4
+	internal void Render(ref global::FPGrass.RenderArguments renderArgs)
 	{
 		if (renderArgs.terrain == null)
 		{
@@ -114,31 +114,31 @@ public class FPGrassPatch : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x04000179 RID: 377
+	// Token: 0x040001DB RID: 475
 	[SerializeField]
 	private Mesh mesh;
 
-	// Token: 0x0400017A RID: 378
+	// Token: 0x040001DC RID: 476
 	[SerializeField]
 	private float patchSize;
 
-	// Token: 0x0400017B RID: 379
+	// Token: 0x040001DD RID: 477
 	[SerializeField]
-	public FPGrassLevel level;
+	public global::FPGrassLevel level;
 
-	// Token: 0x0400017C RID: 380
+	// Token: 0x040001DE RID: 478
 	[NonSerialized]
 	private Vector3 lastRenderPosition;
 
-	// Token: 0x0400017D RID: 381
+	// Token: 0x040001DF RID: 479
 	[NonSerialized]
 	private Mesh runtimeMesh;
 
-	// Token: 0x0400017E RID: 382
+	// Token: 0x040001E0 RID: 480
 	[NonSerialized]
 	private Bounds lastBounds;
 
-	// Token: 0x0400017F RID: 383
+	// Token: 0x040001E1 RID: 481
 	[NonSerialized]
 	public Transform transform;
 }

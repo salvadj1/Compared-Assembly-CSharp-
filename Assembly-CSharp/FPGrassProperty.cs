@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000046 RID: 70
+// Token: 0x02000058 RID: 88
 [ExecuteInEditMode]
-public class FPGrassProperty : ScriptableObject, IFPGrassAsset
+public class FPGrassProperty : ScriptableObject, global::IFPGrassAsset
 {
-	// Token: 0x17000062 RID: 98
-	// (get) Token: 0x06000268 RID: 616 RVA: 0x0000DA10 File Offset: 0x0000BC10
-	// (set) Token: 0x06000267 RID: 615 RVA: 0x0000DA04 File Offset: 0x0000BC04
+	// Token: 0x17000078 RID: 120
+	// (get) Token: 0x060002DA RID: 730 RVA: 0x0000EFB8 File Offset: 0x0000D1B8
+	// (set) Token: 0x060002D9 RID: 729 RVA: 0x0000EFAC File Offset: 0x0000D1AC
 	public Color Color1
 	{
 		get
@@ -20,9 +20,9 @@ public class FPGrassProperty : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x17000063 RID: 99
-	// (get) Token: 0x0600026A RID: 618 RVA: 0x0000DA24 File Offset: 0x0000BC24
-	// (set) Token: 0x06000269 RID: 617 RVA: 0x0000DA18 File Offset: 0x0000BC18
+	// Token: 0x17000079 RID: 121
+	// (get) Token: 0x060002DC RID: 732 RVA: 0x0000EFCC File Offset: 0x0000D1CC
+	// (set) Token: 0x060002DB RID: 731 RVA: 0x0000EFC0 File Offset: 0x0000D1C0
 	public Color Color2
 	{
 		get
@@ -35,9 +35,9 @@ public class FPGrassProperty : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x17000064 RID: 100
-	// (get) Token: 0x0600026C RID: 620 RVA: 0x0000DA38 File Offset: 0x0000BC38
-	// (set) Token: 0x0600026B RID: 619 RVA: 0x0000DA2C File Offset: 0x0000BC2C
+	// Token: 0x1700007A RID: 122
+	// (get) Token: 0x060002DE RID: 734 RVA: 0x0000EFE0 File Offset: 0x0000D1E0
+	// (set) Token: 0x060002DD RID: 733 RVA: 0x0000EFD4 File Offset: 0x0000D1D4
 	public float MinHeight
 	{
 		get
@@ -50,9 +50,9 @@ public class FPGrassProperty : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x17000065 RID: 101
-	// (get) Token: 0x0600026E RID: 622 RVA: 0x0000DA4C File Offset: 0x0000BC4C
-	// (set) Token: 0x0600026D RID: 621 RVA: 0x0000DA40 File Offset: 0x0000BC40
+	// Token: 0x1700007B RID: 123
+	// (get) Token: 0x060002E0 RID: 736 RVA: 0x0000EFF4 File Offset: 0x0000D1F4
+	// (set) Token: 0x060002DF RID: 735 RVA: 0x0000EFE8 File Offset: 0x0000D1E8
 	public float MaxHeight
 	{
 		get
@@ -65,9 +65,9 @@ public class FPGrassProperty : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x17000066 RID: 102
-	// (get) Token: 0x06000270 RID: 624 RVA: 0x0000DA60 File Offset: 0x0000BC60
-	// (set) Token: 0x0600026F RID: 623 RVA: 0x0000DA54 File Offset: 0x0000BC54
+	// Token: 0x1700007C RID: 124
+	// (get) Token: 0x060002E2 RID: 738 RVA: 0x0000F008 File Offset: 0x0000D208
+	// (set) Token: 0x060002E1 RID: 737 RVA: 0x0000EFFC File Offset: 0x0000D1FC
 	public float MinWidth
 	{
 		get
@@ -80,9 +80,9 @@ public class FPGrassProperty : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x17000067 RID: 103
-	// (get) Token: 0x06000272 RID: 626 RVA: 0x0000DA74 File Offset: 0x0000BC74
-	// (set) Token: 0x06000271 RID: 625 RVA: 0x0000DA68 File Offset: 0x0000BC68
+	// Token: 0x1700007D RID: 125
+	// (get) Token: 0x060002E4 RID: 740 RVA: 0x0000F01C File Offset: 0x0000D21C
+	// (set) Token: 0x060002E3 RID: 739 RVA: 0x0000F010 File Offset: 0x0000D210
 	public float MaxWidth
 	{
 		get
@@ -95,27 +95,27 @@ public class FPGrassProperty : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x0400019A RID: 410
+	// Token: 0x040001FC RID: 508
 	[SerializeField]
 	private Color color1 = Color.white;
 
-	// Token: 0x0400019B RID: 411
+	// Token: 0x040001FD RID: 509
 	[SerializeField]
 	private Color color2 = Color.white;
 
-	// Token: 0x0400019C RID: 412
+	// Token: 0x040001FE RID: 510
 	[SerializeField]
 	private float minWidth = 1f;
 
-	// Token: 0x0400019D RID: 413
+	// Token: 0x040001FF RID: 511
 	[SerializeField]
 	private float maxWidth = 1f;
 
-	// Token: 0x0400019E RID: 414
+	// Token: 0x04000200 RID: 512
 	[SerializeField]
 	private float minHeight = 1f;
 
-	// Token: 0x0400019F RID: 415
+	// Token: 0x04000201 RID: 513
 	[SerializeField]
 	private float maxHeight = 1f;
 }

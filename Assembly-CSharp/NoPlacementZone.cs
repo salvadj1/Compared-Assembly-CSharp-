@@ -2,45 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000054 RID: 84
+// Token: 0x02000066 RID: 102
 public class NoPlacementZone : MonoBehaviour
 {
-	// Token: 0x060002C9 RID: 713 RVA: 0x0000E990 File Offset: 0x0000CB90
-	public static void AddZone(NoPlacementZone zone)
+	// Token: 0x0600033B RID: 827 RVA: 0x0000FF38 File Offset: 0x0000E138
+	public static void AddZone(global::NoPlacementZone zone)
 	{
-		if (NoPlacementZone._zones == null)
+		if (global::NoPlacementZone._zones == null)
 		{
-			NoPlacementZone._zones = new List<NoPlacementZone>();
+			global::NoPlacementZone._zones = new List<global::NoPlacementZone>();
 		}
-		if (NoPlacementZone._zones.Contains(zone))
+		if (global::NoPlacementZone._zones.Contains(zone))
 		{
 			return;
 		}
-		NoPlacementZone._zones.Add(zone);
+		global::NoPlacementZone._zones.Add(zone);
 	}
 
-	// Token: 0x060002CA RID: 714 RVA: 0x0000E9D0 File Offset: 0x0000CBD0
-	public static void RemoveZone(NoPlacementZone zone)
+	// Token: 0x0600033C RID: 828 RVA: 0x0000FF78 File Offset: 0x0000E178
+	public static void RemoveZone(global::NoPlacementZone zone)
 	{
-		if (NoPlacementZone._zones.Contains(zone))
+		if (global::NoPlacementZone._zones.Contains(zone))
 		{
-			NoPlacementZone._zones.Remove(zone);
+			global::NoPlacementZone._zones.Remove(zone);
 		}
 	}
 
-	// Token: 0x060002CB RID: 715 RVA: 0x0000E9F0 File Offset: 0x0000CBF0
+	// Token: 0x0600033D RID: 829 RVA: 0x0000FF98 File Offset: 0x0000E198
 	public void Awake()
 	{
-		NoPlacementZone.AddZone(this);
+		global::NoPlacementZone.AddZone(this);
 	}
 
-	// Token: 0x060002CC RID: 716 RVA: 0x0000E9F8 File Offset: 0x0000CBF8
+	// Token: 0x0600033E RID: 830 RVA: 0x0000FFA0 File Offset: 0x0000E1A0
 	public void OnDestroy()
 	{
-		NoPlacementZone.RemoveZone(this);
+		global::NoPlacementZone.RemoveZone(this);
 	}
 
-	// Token: 0x060002CD RID: 717 RVA: 0x0000EA00 File Offset: 0x0000CC00
+	// Token: 0x0600033F RID: 831 RVA: 0x0000FFA8 File Offset: 0x0000E1A8
 	public void OnDrawGizmos()
 	{
 		Gizmos.color = new Color(1f, 0.5f, 0.3f, 0.1f);
@@ -49,7 +49,7 @@ public class NoPlacementZone : MonoBehaviour
 		Gizmos.DrawCube(base.transform.position, Vector3.one * 0.5f);
 	}
 
-	// Token: 0x060002CE RID: 718 RVA: 0x0000EA6C File Offset: 0x0000CC6C
+	// Token: 0x06000340 RID: 832 RVA: 0x00010014 File Offset: 0x0000E214
 	public void OnDrawGizmosSelected()
 	{
 		Gizmos.color = new Color(1f, 0.5f, 0.3f, 0.8f);
@@ -58,16 +58,16 @@ public class NoPlacementZone : MonoBehaviour
 		Gizmos.DrawCube(base.transform.position, Vector3.one * 0.5f);
 	}
 
-	// Token: 0x060002CF RID: 719 RVA: 0x0000EAD8 File Offset: 0x0000CCD8
+	// Token: 0x06000341 RID: 833 RVA: 0x00010080 File Offset: 0x0000E280
 	public float GetRadius()
 	{
 		return base.transform.localScale.x;
 	}
 
-	// Token: 0x060002D0 RID: 720 RVA: 0x0000EAF8 File Offset: 0x0000CCF8
+	// Token: 0x06000342 RID: 834 RVA: 0x000100A0 File Offset: 0x0000E2A0
 	public static bool ValidPos(Vector3 pos)
 	{
-		foreach (NoPlacementZone noPlacementZone in NoPlacementZone._zones)
+		foreach (global::NoPlacementZone noPlacementZone in global::NoPlacementZone._zones)
 		{
 			float num = Vector3.Distance(pos, noPlacementZone.transform.position);
 			if (num <= noPlacementZone.GetRadius())
@@ -78,6 +78,6 @@ public class NoPlacementZone : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x040001B5 RID: 437
-	public static List<NoPlacementZone> _zones;
+	// Token: 0x04000217 RID: 535
+	public static List<global::NoPlacementZone> _zones;
 }

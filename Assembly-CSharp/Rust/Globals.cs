@@ -2,16 +2,16 @@
 
 namespace Rust
 {
-	// Token: 0x02000090 RID: 144
+	// Token: 0x020000A3 RID: 163
 	public static class Globals
 	{
-		// Token: 0x04000291 RID: 657
+		// Token: 0x040002FC RID: 764
 		public static string currentLevel = string.Empty;
 
-		// Token: 0x04000292 RID: 658
+		// Token: 0x040002FD RID: 765
 		public static bool isPlaying;
 
-		// Token: 0x04000293 RID: 659
+		// Token: 0x040002FE RID: 766
 		public static bool isLoading;
 	}
 }

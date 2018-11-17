@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020000CE RID: 206
+// Token: 0x020000E2 RID: 226
 public class EngineSoundLoop : ScriptableObject
 {
-	// Token: 0x1700009F RID: 159
-	// (get) Token: 0x06000444 RID: 1092 RVA: 0x00015954 File Offset: 0x00013B54
+	// Token: 0x170000B9 RID: 185
+	// (get) Token: 0x060004C2 RID: 1218 RVA: 0x0001731C File Offset: 0x0001551C
 	private float volumeD
 	{
 		get
@@ -15,8 +15,8 @@ public class EngineSoundLoop : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000A0 RID: 160
-	// (get) Token: 0x06000445 RID: 1093 RVA: 0x00015968 File Offset: 0x00013B68
+	// Token: 0x170000BA RID: 186
+	// (get) Token: 0x060004C3 RID: 1219 RVA: 0x00017330 File Offset: 0x00015530
 	private float volumeF
 	{
 		get
@@ -25,8 +25,8 @@ public class EngineSoundLoop : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000A1 RID: 161
-	// (get) Token: 0x06000446 RID: 1094 RVA: 0x0001597C File Offset: 0x00013B7C
+	// Token: 0x170000BB RID: 187
+	// (get) Token: 0x060004C4 RID: 1220 RVA: 0x00017344 File Offset: 0x00015544
 	private float volumeE
 	{
 		get
@@ -35,8 +35,8 @@ public class EngineSoundLoop : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000A2 RID: 162
-	// (get) Token: 0x06000447 RID: 1095 RVA: 0x00015990 File Offset: 0x00013B90
+	// Token: 0x170000BC RID: 188
+	// (get) Token: 0x060004C5 RID: 1221 RVA: 0x00017358 File Offset: 0x00015558
 	private float volumeK
 	{
 		get
@@ -45,8 +45,8 @@ public class EngineSoundLoop : ScriptableObject
 		}
 	}
 
-	// Token: 0x170000A3 RID: 163
-	// (get) Token: 0x06000448 RID: 1096 RVA: 0x000159A4 File Offset: 0x00013BA4
+	// Token: 0x170000BD RID: 189
+	// (get) Token: 0x060004C6 RID: 1222 RVA: 0x0001736C File Offset: 0x0001556C
 	private float volumeL
 	{
 		get
@@ -55,7 +55,7 @@ public class EngineSoundLoop : ScriptableObject
 		}
 	}
 
-	// Token: 0x06000449 RID: 1097 RVA: 0x000159B8 File Offset: 0x00013BB8
+	// Token: 0x060004C7 RID: 1223 RVA: 0x00017380 File Offset: 0x00015580
 	private sbyte VolumeFactor(float pitch, out float between)
 	{
 		between = (pitch - this._volumeFromPitchBase) / this._volumeFromPitchRange;
@@ -72,7 +72,7 @@ public class EngineSoundLoop : ScriptableObject
 		return 0;
 	}
 
-	// Token: 0x0600044A RID: 1098 RVA: 0x00015A04 File Offset: 0x00013C04
+	// Token: 0x060004C8 RID: 1224 RVA: 0x000173CC File Offset: 0x000155CC
 	private void GearLerp(byte gear, float factor, ref float pitch, ref bool pitchChanged, ref float volume, ref bool volumeChanged)
 	{
 		int num;
@@ -99,215 +99,215 @@ public class EngineSoundLoop : ScriptableObject
 		}
 	}
 
-	// Token: 0x0600044B RID: 1099 RVA: 0x00015A80 File Offset: 0x00013C80
-	public EngineSoundLoop.Instance Create(Transform attachTo, Vector3 localPosition)
+	// Token: 0x060004C9 RID: 1225 RVA: 0x00017448 File Offset: 0x00015648
+	public global::EngineSoundLoop.Instance Create(Transform attachTo, Vector3 localPosition)
 	{
 		if (!attachTo)
 		{
 			throw new MissingReferenceException("attachTo must not be null or destroyed");
 		}
-		EngineSoundLoop.Instance instance;
+		global::EngineSoundLoop.Instance instance;
 		if (this.instances == null)
 		{
-			this.instances = new Dictionary<Transform, EngineSoundLoop.Instance>();
+			this.instances = new Dictionary<Transform, global::EngineSoundLoop.Instance>();
 		}
 		else if (this.instances.TryGetValue(attachTo, out instance))
 		{
 			instance.localPosition = localPosition;
 			return instance;
 		}
-		instance = new EngineSoundLoop.Instance(attachTo, localPosition, this);
+		instance = new global::EngineSoundLoop.Instance(attachTo, localPosition, this);
 		this.instances[attachTo] = instance;
 		return instance;
 	}
 
-	// Token: 0x0600044C RID: 1100 RVA: 0x00015AF4 File Offset: 0x00013CF4
-	public EngineSoundLoop.Instance Create(Transform attachTo)
+	// Token: 0x060004CA RID: 1226 RVA: 0x000174BC File Offset: 0x000156BC
+	public global::EngineSoundLoop.Instance Create(Transform attachTo)
 	{
 		return this.Create(attachTo, Vector3.zero);
 	}
 
-	// Token: 0x0600044D RID: 1101 RVA: 0x00015B04 File Offset: 0x00013D04
-	public EngineSoundLoop.Instance CreateWorld(Transform attachTo, Vector3 worldPosition)
+	// Token: 0x060004CB RID: 1227 RVA: 0x000174CC File Offset: 0x000156CC
+	public global::EngineSoundLoop.Instance CreateWorld(Transform attachTo, Vector3 worldPosition)
 	{
 		return this.Create(attachTo, attachTo.InverseTransformPoint(worldPosition));
 	}
 
-	// Token: 0x0600044E RID: 1102 RVA: 0x00015B14 File Offset: 0x00013D14
+	// Token: 0x060004CC RID: 1228 RVA: 0x000174DC File Offset: 0x000156DC
 	private static float Sinerp(float start, float end, float value)
 	{
 		float num = Mathf.Sin(value * 1.57079637f);
 		return (num > 0f) ? ((num < 1f) ? (end * num + start * (1f - num)) : end) : start;
 	}
 
-	// Token: 0x0600044F RID: 1103 RVA: 0x00015B60 File Offset: 0x00013D60
+	// Token: 0x060004CD RID: 1229 RVA: 0x00017528 File Offset: 0x00015728
 	private static float Coserp(float start, float end, float value)
 	{
 		float num = Mathf.Cos(value * 1.57079637f);
 		return (num < 1f) ? ((num > 0f) ? (start * num + end * (1f - num)) : end) : start;
 	}
 
-	// Token: 0x040003B6 RID: 950
+	// Token: 0x04000425 RID: 1061
 	private const float kPitchDefault_Idle = 0.7f;
 
-	// Token: 0x040003B7 RID: 951
+	// Token: 0x04000426 RID: 1062
 	private const float kPitchDefault_Start = 0.85f;
 
-	// Token: 0x040003B8 RID: 952
+	// Token: 0x04000427 RID: 1063
 	private const float kPitchDefault_Low = 1.17f;
 
-	// Token: 0x040003B9 RID: 953
+	// Token: 0x04000428 RID: 1064
 	private const float kPitchDefault_Medium = 1.25f;
 
-	// Token: 0x040003BA RID: 954
+	// Token: 0x04000429 RID: 1065
 	private const float kPitchDefault_High1 = 1.65f;
 
-	// Token: 0x040003BB RID: 955
+	// Token: 0x0400042A RID: 1066
 	private const float kPitchDefault_High2 = 1.76f;
 
-	// Token: 0x040003BC RID: 956
+	// Token: 0x0400042B RID: 1067
 	private const float kPitchDefault_High3 = 1.8f;
 
-	// Token: 0x040003BD RID: 957
+	// Token: 0x0400042C RID: 1068
 	private const float kPitchDefault_High4 = 1.86f;
 
-	// Token: 0x040003BE RID: 958
+	// Token: 0x0400042D RID: 1069
 	private const float kPitchDefault_Shift = 1.44f;
 
-	// Token: 0x040003BF RID: 959
+	// Token: 0x0400042E RID: 1070
 	private const float F_PITCH = 0.8f;
 
-	// Token: 0x040003C0 RID: 960
+	// Token: 0x0400042F RID: 1071
 	private const float F_THROTTLE = 0.7f;
 
-	// Token: 0x040003C1 RID: 961
+	// Token: 0x04000430 RID: 1072
 	private const float E_PITCH = 0.89f;
 
-	// Token: 0x040003C2 RID: 962
+	// Token: 0x04000431 RID: 1073
 	private const float E_THROTTLE = 0.8f;
 
-	// Token: 0x040003C3 RID: 963
+	// Token: 0x04000432 RID: 1074
 	private const float sD = 0.4f;
 
-	// Token: 0x040003C4 RID: 964
+	// Token: 0x04000433 RID: 1075
 	private const float sF = 0.4f;
 
-	// Token: 0x040003C5 RID: 965
+	// Token: 0x04000434 RID: 1076
 	private const float sE = 0.4f;
 
-	// Token: 0x040003C6 RID: 966
+	// Token: 0x04000435 RID: 1077
 	private const float sK = 0.7f;
 
-	// Token: 0x040003C7 RID: 967
+	// Token: 0x04000436 RID: 1078
 	private const float sL = 0.4f;
 
-	// Token: 0x040003C8 RID: 968
+	// Token: 0x04000437 RID: 1079
 	private const float F_PITCH_DELTA = 0.199999988f;
 
-	// Token: 0x040003C9 RID: 969
+	// Token: 0x04000438 RID: 1080
 	private const float F_THROTTLE_DELTA = 0.3f;
 
-	// Token: 0x040003CA RID: 970
+	// Token: 0x04000439 RID: 1081
 	private const float E_PITCH_DELTA = 0.110000014f;
 
-	// Token: 0x040003CB RID: 971
+	// Token: 0x0400043A RID: 1082
 	private const float E_THROTTLE_DELTA = 0.199999988f;
 
-	// Token: 0x040003CC RID: 972
+	// Token: 0x0400043B RID: 1083
 	[SerializeField]
-	private EngineSoundLoop.Phrase _dUpper = new EngineSoundLoop.Phrase(0.565f);
+	private global::EngineSoundLoop.Phrase _dUpper = new global::EngineSoundLoop.Phrase(0.565f);
 
-	// Token: 0x040003CD RID: 973
+	// Token: 0x0400043C RID: 1084
 	[SerializeField]
-	private EngineSoundLoop.Phrase _fMidHigh = new EngineSoundLoop.Phrase(0.78f);
+	private global::EngineSoundLoop.Phrase _fMidHigh = new global::EngineSoundLoop.Phrase(0.78f);
 
-	// Token: 0x040003CE RID: 974
+	// Token: 0x0400043D RID: 1085
 	[SerializeField]
-	private EngineSoundLoop.Phrase _eMidLow = new EngineSoundLoop.Phrase(0.8f);
+	private global::EngineSoundLoop.Phrase _eMidLow = new global::EngineSoundLoop.Phrase(0.8f);
 
-	// Token: 0x040003CF RID: 975
+	// Token: 0x0400043E RID: 1086
 	[SerializeField]
-	private EngineSoundLoop.Phrase _lLower = new EngineSoundLoop.Phrase(0.61f);
+	private global::EngineSoundLoop.Phrase _lLower = new global::EngineSoundLoop.Phrase(0.61f);
 
-	// Token: 0x040003D0 RID: 976
+	// Token: 0x0400043F RID: 1087
 	[SerializeField]
-	private EngineSoundLoop.Phrase _kPassing = new EngineSoundLoop.Phrase(0.565f);
+	private global::EngineSoundLoop.Phrase _kPassing = new global::EngineSoundLoop.Phrase(0.565f);
 
-	// Token: 0x040003D1 RID: 977
+	// Token: 0x04000440 RID: 1088
 	[SerializeField]
-	private EngineSoundLoop.Gear _idleShiftUp = new EngineSoundLoop.Gear(1.17f, 1.65f);
+	private global::EngineSoundLoop.Gear _idleShiftUp = new global::EngineSoundLoop.Gear(1.17f, 1.65f);
 
-	// Token: 0x040003D2 RID: 978
+	// Token: 0x04000441 RID: 1089
 	[SerializeField]
-	private EngineSoundLoop.Gear _shiftUp = new EngineSoundLoop.Gear(1.17f, 1.76f);
+	private global::EngineSoundLoop.Gear _shiftUp = new global::EngineSoundLoop.Gear(1.17f, 1.76f);
 
-	// Token: 0x040003D3 RID: 979
+	// Token: 0x04000442 RID: 1090
 	[SerializeField]
-	private EngineSoundLoop.Gear[] _gears = new EngineSoundLoop.Gear[]
+	private global::EngineSoundLoop.Gear[] _gears = new global::EngineSoundLoop.Gear[]
 	{
-		new EngineSoundLoop.Gear(0.7f, 1.65f),
-		new EngineSoundLoop.Gear(0.85f, 1.76f),
-		new EngineSoundLoop.Gear(1.17f, 1.8f),
-		new EngineSoundLoop.Gear(1.25f, 1.86f)
+		new global::EngineSoundLoop.Gear(0.7f, 1.65f),
+		new global::EngineSoundLoop.Gear(0.85f, 1.76f),
+		new global::EngineSoundLoop.Gear(1.17f, 1.8f),
+		new global::EngineSoundLoop.Gear(1.25f, 1.86f)
 	};
 
-	// Token: 0x040003D4 RID: 980
+	// Token: 0x04000443 RID: 1091
 	[SerializeField]
-	private EngineSoundLoop.Gear _shiftDown = new EngineSoundLoop.Gear(1.44f, 1.17f);
+	private global::EngineSoundLoop.Gear _shiftDown = new global::EngineSoundLoop.Gear(1.44f, 1.17f);
 
-	// Token: 0x040003D5 RID: 981
+	// Token: 0x04000444 RID: 1092
 	[SerializeField]
 	private float _shiftDuration = 0.1f;
 
-	// Token: 0x040003D6 RID: 982
+	// Token: 0x04000445 RID: 1093
 	[SerializeField]
 	private float _volumeFromPitchBase = 0.85f;
 
-	// Token: 0x040003D7 RID: 983
+	// Token: 0x04000446 RID: 1094
 	[SerializeField]
 	private float _volumeFromPitchRange = 0.909999967f;
 
-	// Token: 0x040003D8 RID: 984
+	// Token: 0x04000447 RID: 1095
 	[SerializeField]
 	private int _topGear = 4;
 
-	// Token: 0x040003D9 RID: 985
+	// Token: 0x04000448 RID: 1096
 	[NonSerialized]
-	private Dictionary<Transform, EngineSoundLoop.Instance> instances;
+	private Dictionary<Transform, global::EngineSoundLoop.Instance> instances;
 
-	// Token: 0x020000CF RID: 207
+	// Token: 0x020000E3 RID: 227
 	[Serializable]
 	private class Phrase
 	{
-		// Token: 0x06000450 RID: 1104 RVA: 0x00015BAC File Offset: 0x00013DAC
+		// Token: 0x060004CE RID: 1230 RVA: 0x00017574 File Offset: 0x00015774
 		public Phrase()
 		{
 			this.volume = 1f;
 		}
 
-		// Token: 0x06000451 RID: 1105 RVA: 0x00015BC0 File Offset: 0x00013DC0
+		// Token: 0x060004CF RID: 1231 RVA: 0x00017588 File Offset: 0x00015788
 		public Phrase(float volume)
 		{
 			this.volume = volume;
 		}
 
-		// Token: 0x040003DA RID: 986
+		// Token: 0x04000449 RID: 1097
 		public AudioClip clip;
 
-		// Token: 0x040003DB RID: 987
+		// Token: 0x0400044A RID: 1098
 		public float volume;
 	}
 
-	// Token: 0x020000D0 RID: 208
+	// Token: 0x020000E4 RID: 228
 	[Serializable]
 	private class Gear
 	{
-		// Token: 0x06000452 RID: 1106 RVA: 0x00015BD0 File Offset: 0x00013DD0
+		// Token: 0x060004D0 RID: 1232 RVA: 0x00017598 File Offset: 0x00015798
 		public Gear() : this(0.7f, 1.65f)
 		{
 		}
 
-		// Token: 0x06000453 RID: 1107 RVA: 0x00015BE4 File Offset: 0x00013DE4
+		// Token: 0x060004D1 RID: 1233 RVA: 0x000175AC File Offset: 0x000157AC
 		public Gear(float lower, float upper)
 		{
 			this.lowVolume = lower;
@@ -316,12 +316,12 @@ public class EngineSoundLoop : ScriptableObject
 			this.highPitch = upper;
 		}
 
-		// Token: 0x06000454 RID: 1108 RVA: 0x00015C18 File Offset: 0x00013E18
+		// Token: 0x060004D2 RID: 1234 RVA: 0x000175E0 File Offset: 0x000157E0
 		public Gear(float lowerPitch, float lowerVolume, float upperPitch, float upperVolume)
 		{
 		}
 
-		// Token: 0x06000455 RID: 1109 RVA: 0x00015C20 File Offset: 0x00013E20
+		// Token: 0x060004D3 RID: 1235 RVA: 0x000175E8 File Offset: 0x000157E8
 		public void Lerp(float t, out float pitch, out float volume)
 		{
 			if (t <= 0f)
@@ -342,7 +342,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000456 RID: 1110 RVA: 0x00015C9C File Offset: 0x00013E9C
+		// Token: 0x060004D4 RID: 1236 RVA: 0x00017664 File Offset: 0x00015864
 		public void CompareLerp(float t, ref float pitch, ref bool pitchChanged, ref float volume, ref bool volumeChanged)
 		{
 			if (t <= 0f)
@@ -389,24 +389,24 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x040003DC RID: 988
+		// Token: 0x0400044B RID: 1099
 		public float lowPitch;
 
-		// Token: 0x040003DD RID: 989
+		// Token: 0x0400044C RID: 1100
 		public float lowVolume;
 
-		// Token: 0x040003DE RID: 990
+		// Token: 0x0400044D RID: 1101
 		public float highPitch;
 
-		// Token: 0x040003DF RID: 991
+		// Token: 0x0400044E RID: 1102
 		public float highVolume;
 	}
 
-	// Token: 0x020000D1 RID: 209
+	// Token: 0x020000E5 RID: 229
 	public class Instance : IDisposable
 	{
-		// Token: 0x06000457 RID: 1111 RVA: 0x00015D7C File Offset: 0x00013F7C
-		internal Instance(Transform parent, Vector3 offset, EngineSoundLoop loop)
+		// Token: 0x060004D5 RID: 1237 RVA: 0x00017744 File Offset: 0x00015944
+		internal Instance(Transform parent, Vector3 offset, global::EngineSoundLoop loop)
 		{
 			this.parent = parent;
 			this.loop = loop;
@@ -416,11 +416,11 @@ public class EngineSoundLoop : ScriptableObject
 			});
 			this.player = gameObject.GetComponent<EngineSoundLoopPlayer>();
 			this.player.instance = this;
-			EngineSoundLoop.Instance.Setup(gameObject, ref this.D, ref this.flags, 1, loop._dUpper, 1f);
-			EngineSoundLoop.Instance.Setup(gameObject, ref this.F, ref this.flags, 2, loop._fMidHigh, 1f);
-			EngineSoundLoop.Instance.Setup(gameObject, ref this.E, ref this.flags, 4, loop._eMidLow, 1f);
-			EngineSoundLoop.Instance.Setup(gameObject, ref this.L, ref this.flags, 8, loop._lLower, 1f);
-			EngineSoundLoop.Instance.Setup(gameObject, ref this.K, ref this.flags, 16, loop._kPassing, 0f);
+			global::EngineSoundLoop.Instance.Setup(gameObject, ref this.D, ref this.flags, 1, loop._dUpper, 1f);
+			global::EngineSoundLoop.Instance.Setup(gameObject, ref this.F, ref this.flags, 2, loop._fMidHigh, 1f);
+			global::EngineSoundLoop.Instance.Setup(gameObject, ref this.E, ref this.flags, 4, loop._eMidLow, 1f);
+			global::EngineSoundLoop.Instance.Setup(gameObject, ref this.L, ref this.flags, 8, loop._lLower, 1f);
+			global::EngineSoundLoop.Instance.Setup(gameObject, ref this.K, ref this.flags, 16, loop._kPassing, 0f);
 			this._lastVolumeFactor = (this._lastClampedThrottle = (this._lastSinerp = (this._lastPitchFactor = float.NegativeInfinity)));
 			this._lastVolumeFactorClamp = sbyte.MinValue;
 			this._masterVolume = 1f;
@@ -434,8 +434,8 @@ public class EngineSoundLoop : ScriptableObject
 			transform.localRotation = Quaternion.identity;
 		}
 
-		// Token: 0x06000458 RID: 1112 RVA: 0x00015F20 File Offset: 0x00014120
-		private static void Setup(GameObject go, ref AudioSource source, ref ushort flags, ushort flag, EngineSoundLoop.Phrase phrase, float volumeScalar)
+		// Token: 0x060004D6 RID: 1238 RVA: 0x000178E8 File Offset: 0x00015AE8
+		private static void Setup(GameObject go, ref AudioSource source, ref ushort flags, ushort flag, global::EngineSoundLoop.Phrase phrase, float volumeScalar)
 		{
 			if (phrase == null || !phrase.clip)
 			{
@@ -450,9 +450,9 @@ public class EngineSoundLoop : ScriptableObject
 			flags |= flag;
 		}
 
-		// Token: 0x170000A4 RID: 164
-		// (get) Token: 0x06000459 RID: 1113 RVA: 0x00015F90 File Offset: 0x00014190
-		// (set) Token: 0x0600045A RID: 1114 RVA: 0x00015FA0 File Offset: 0x000141A0
+		// Token: 0x170000BE RID: 190
+		// (get) Token: 0x060004D7 RID: 1239 RVA: 0x00017958 File Offset: 0x00015B58
+		// (set) Token: 0x060004D8 RID: 1240 RVA: 0x00017968 File Offset: 0x00015B68
 		public bool playing
 		{
 			get
@@ -475,9 +475,9 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000A5 RID: 165
-		// (get) Token: 0x0600045B RID: 1115 RVA: 0x00015FD8 File Offset: 0x000141D8
-		// (set) Token: 0x0600045C RID: 1116 RVA: 0x00015FF0 File Offset: 0x000141F0
+		// Token: 0x170000BF RID: 191
+		// (get) Token: 0x060004D9 RID: 1241 RVA: 0x000179A0 File Offset: 0x00015BA0
+		// (set) Token: 0x060004DA RID: 1242 RVA: 0x000179B8 File Offset: 0x00015BB8
 		public bool paused
 		{
 			get
@@ -500,8 +500,8 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000A6 RID: 166
-		// (get) Token: 0x0600045D RID: 1117 RVA: 0x00016040 File Offset: 0x00014240
+		// Token: 0x170000C0 RID: 192
+		// (get) Token: 0x060004DB RID: 1243 RVA: 0x00017A08 File Offset: 0x00015C08
 		public bool playingOrPaused
 		{
 			get
@@ -510,8 +510,8 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000A7 RID: 167
-		// (get) Token: 0x0600045E RID: 1118 RVA: 0x00016074 File Offset: 0x00014274
+		// Token: 0x170000C1 RID: 193
+		// (get) Token: 0x060004DC RID: 1244 RVA: 0x00017A3C File Offset: 0x00015C3C
 		public bool stopped
 		{
 			get
@@ -520,9 +520,9 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000A8 RID: 168
-		// (get) Token: 0x0600045F RID: 1119 RVA: 0x00016088 File Offset: 0x00014288
-		// (set) Token: 0x06000460 RID: 1120 RVA: 0x00016090 File Offset: 0x00014290
+		// Token: 0x170000C2 RID: 194
+		// (get) Token: 0x060004DD RID: 1245 RVA: 0x00017A50 File Offset: 0x00015C50
+		// (set) Token: 0x060004DE RID: 1246 RVA: 0x00017A58 File Offset: 0x00015C58
 		public float volume
 		{
 			get
@@ -546,8 +546,8 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000A9 RID: 169
-		// (get) Token: 0x06000461 RID: 1121 RVA: 0x000160CC File Offset: 0x000142CC
+		// Token: 0x170000C3 RID: 195
+		// (get) Token: 0x060004DF RID: 1247 RVA: 0x00017A94 File Offset: 0x00015C94
 		public bool hasUpdated
 		{
 			get
@@ -556,8 +556,8 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000AA RID: 170
-		// (get) Token: 0x06000462 RID: 1122 RVA: 0x000160E4 File Offset: 0x000142E4
+		// Token: 0x170000C4 RID: 196
+		// (get) Token: 0x060004E0 RID: 1248 RVA: 0x00017AAC File Offset: 0x00015CAC
 		public bool disposed
 		{
 			get
@@ -566,8 +566,8 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000AB RID: 171
-		// (get) Token: 0x06000463 RID: 1123 RVA: 0x000160F4 File Offset: 0x000142F4
+		// Token: 0x170000C5 RID: 197
+		// (get) Token: 0x060004E1 RID: 1249 RVA: 0x00017ABC File Offset: 0x00015CBC
 		public bool anySounds
 		{
 			get
@@ -576,8 +576,8 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000AC RID: 172
-		// (get) Token: 0x06000464 RID: 1124 RVA: 0x00016114 File Offset: 0x00014314
+		// Token: 0x170000C6 RID: 198
+		// (get) Token: 0x060004E2 RID: 1250 RVA: 0x00017ADC File Offset: 0x00015CDC
 		public float speedFactor
 		{
 			get
@@ -586,7 +586,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000465 RID: 1125 RVA: 0x0001611C File Offset: 0x0001431C
+		// Token: 0x060004E3 RID: 1251 RVA: 0x00017AE4 File Offset: 0x00015CE4
 		public void Update(float speedFactor, float throttle)
 		{
 			int num = (int)(this.flags & 1056);
@@ -613,7 +613,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000466 RID: 1126 RVA: 0x000161A8 File Offset: 0x000143A8
+		// Token: 0x060004E4 RID: 1252 RVA: 0x00017B70 File Offset: 0x00015D70
 		public void Play()
 		{
 			if ((this.flags & 96) == 0)
@@ -622,7 +622,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000467 RID: 1127 RVA: 0x000161C0 File Offset: 0x000143C0
+		// Token: 0x060004E5 RID: 1253 RVA: 0x00017B88 File Offset: 0x00015D88
 		public void Stop()
 		{
 			if ((this.flags & 32) == 0 && (this.flags & 192) != 0)
@@ -631,7 +631,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000468 RID: 1128 RVA: 0x000161E8 File Offset: 0x000143E8
+		// Token: 0x060004E6 RID: 1254 RVA: 0x00017BB0 File Offset: 0x00015DB0
 		public void Pause()
 		{
 			if ((this.flags & 224) == 64)
@@ -640,13 +640,13 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000469 RID: 1129 RVA: 0x00016204 File Offset: 0x00014404
+		// Token: 0x060004E7 RID: 1255 RVA: 0x00017BCC File Offset: 0x00015DCC
 		public void Dispose()
 		{
 			this.Dispose(false);
 		}
 
-		// Token: 0x0600046A RID: 1130 RVA: 0x00016210 File Offset: 0x00014410
+		// Token: 0x060004E8 RID: 1256 RVA: 0x00017BD8 File Offset: 0x00015DD8
 		internal void Dispose(bool fromPlayer)
 		{
 			if ((this.flags & 32) == 32)
@@ -674,8 +674,8 @@ public class EngineSoundLoop : ScriptableObject
 			this.flags = 32;
 		}
 
-		// Token: 0x170000AD RID: 173
-		// (set) Token: 0x0600046B RID: 1131 RVA: 0x00016304 File Offset: 0x00014504
+		// Token: 0x170000C7 RID: 199
+		// (set) Token: 0x060004E9 RID: 1257 RVA: 0x00017CCC File Offset: 0x00015ECC
 		internal Vector3 localPosition
 		{
 			set
@@ -688,7 +688,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x0600046C RID: 1132 RVA: 0x00016334 File Offset: 0x00014534
+		// Token: 0x060004EA RID: 1258 RVA: 0x00017CFC File Offset: 0x00015EFC
 		private void PLAY()
 		{
 			if ((this.flags & 1024) == 1024)
@@ -718,7 +718,7 @@ public class EngineSoundLoop : ScriptableObject
 			this.flags &= 65407;
 		}
 
-		// Token: 0x0600046D RID: 1133 RVA: 0x000163FC File Offset: 0x000145FC
+		// Token: 0x060004EB RID: 1259 RVA: 0x00017DC4 File Offset: 0x00015FC4
 		private void STOP()
 		{
 			if ((this.flags & 1) == 1)
@@ -744,7 +744,7 @@ public class EngineSoundLoop : ScriptableObject
 			this.flags &= 65343;
 		}
 
-		// Token: 0x0600046E RID: 1134 RVA: 0x0001649C File Offset: 0x0001469C
+		// Token: 0x060004EC RID: 1260 RVA: 0x00017E64 File Offset: 0x00016064
 		private void PAUSE()
 		{
 			if ((this.flags & 1) == 1)
@@ -771,7 +771,7 @@ public class EngineSoundLoop : ScriptableObject
 			this.flags &= 65471;
 		}
 
-		// Token: 0x0600046F RID: 1135 RVA: 0x00016550 File Offset: 0x00014750
+		// Token: 0x060004ED RID: 1261 RVA: 0x00017F18 File Offset: 0x00016118
 		private void UPDATE_PITCH_AND_OR_THROTTLE_VOLUME()
 		{
 			ushort num = this.flags;
@@ -843,7 +843,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000470 RID: 1136 RVA: 0x0001682C File Offset: 0x00014A2C
+		// Token: 0x060004EE RID: 1262 RVA: 0x000181F4 File Offset: 0x000163F4
 		private void UPDATE_THROTTLE_VOLUME()
 		{
 			ushort num = this.flags;
@@ -891,7 +891,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000471 RID: 1137 RVA: 0x00016A44 File Offset: 0x00014C44
+		// Token: 0x060004EF RID: 1263 RVA: 0x0001840C File Offset: 0x0001660C
 		private void UPDATE_PASSING_VOLUME()
 		{
 			if ((this.flags & 16) == 16)
@@ -900,7 +900,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000472 RID: 1138 RVA: 0x00016A90 File Offset: 0x00014C90
+		// Token: 0x060004F0 RID: 1264 RVA: 0x00018458 File Offset: 0x00016658
 		private void UPDATE_MASTER_VOLUME()
 		{
 			if ((this.flags & 1) == 1)
@@ -925,7 +925,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000473 RID: 1139 RVA: 0x00016B64 File Offset: 0x00014D64
+		// Token: 0x060004F1 RID: 1265 RVA: 0x0001852C File Offset: 0x0001672C
 		private void UPDATE_RATES()
 		{
 			if ((this.flags & 1) == 1)
@@ -946,7 +946,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x06000474 RID: 1140 RVA: 0x00016BF0 File Offset: 0x00014DF0
+		// Token: 0x060004F2 RID: 1266 RVA: 0x000185B8 File Offset: 0x000167B8
 		private bool UPDATE_SHIFTING(ref bool doPitchAdjust, ref bool doVolumeAdjust)
 		{
 			float num = Time.time - this._shiftTime;
@@ -965,7 +965,7 @@ public class EngineSoundLoop : ScriptableObject
 			}
 			float num2 = num / this.loop._shiftDuration;
 			float t;
-			EngineSoundLoop.Gear gear;
+			global::EngineSoundLoop.Gear gear;
 			if ((this.flags & 768) == 768)
 			{
 				t = this._lastPitchFactor * num2;
@@ -987,7 +987,7 @@ public class EngineSoundLoop : ScriptableObject
 			return false;
 		}
 
-		// Token: 0x06000475 RID: 1141 RVA: 0x00016CF4 File Offset: 0x00014EF4
+		// Token: 0x060004F3 RID: 1267 RVA: 0x000186BC File Offset: 0x000168BC
 		private void UPDATE(float speedFactor, float throttle)
 		{
 			bool flag;
@@ -1031,7 +1031,7 @@ public class EngineSoundLoop : ScriptableObject
 					if (flag4 || flag5)
 					{
 						int topGear = this.loop._topGear;
-						this._lastSinerp = EngineSoundLoop.Sinerp(0f, (float)topGear, speedFactor);
+						this._lastSinerp = global::EngineSoundLoop.Sinerp(0f, (float)topGear, speedFactor);
 						int num = (int)this._lastSinerp;
 						if (num == (int)this._gear)
 						{
@@ -1146,187 +1146,187 @@ public class EngineSoundLoop : ScriptableObject
 			}
 		}
 
-		// Token: 0x040003E0 RID: 992
+		// Token: 0x0400044F RID: 1103
 		private const ushort kD = 1;
 
-		// Token: 0x040003E1 RID: 993
+		// Token: 0x04000450 RID: 1104
 		private const ushort kF = 2;
 
-		// Token: 0x040003E2 RID: 994
+		// Token: 0x04000451 RID: 1105
 		private const ushort kE = 4;
 
-		// Token: 0x040003E3 RID: 995
+		// Token: 0x04000452 RID: 1106
 		private const ushort kL = 8;
 
-		// Token: 0x040003E4 RID: 996
+		// Token: 0x04000453 RID: 1107
 		private const ushort kK = 16;
 
-		// Token: 0x040003E5 RID: 997
+		// Token: 0x04000454 RID: 1108
 		private const ushort kDisposed = 32;
 
-		// Token: 0x040003E6 RID: 998
+		// Token: 0x04000455 RID: 1109
 		private const ushort kPlaying = 64;
 
-		// Token: 0x040003E7 RID: 999
+		// Token: 0x04000456 RID: 1110
 		private const ushort kPaused = 128;
 
-		// Token: 0x040003E8 RID: 1000
+		// Token: 0x04000457 RID: 1111
 		private const ushort kShifting = 256;
 
-		// Token: 0x040003E9 RID: 1001
+		// Token: 0x04000458 RID: 1112
 		private const ushort kShiftingDown = 256;
 
-		// Token: 0x040003EA RID: 1002
+		// Token: 0x04000459 RID: 1113
 		private const ushort kShiftingUp = 768;
 
-		// Token: 0x040003EB RID: 1003
+		// Token: 0x0400045A RID: 1114
 		private const ushort kFlagOnceUpdate = 1024;
 
-		// Token: 0x040003EC RID: 1004
+		// Token: 0x0400045B RID: 1115
 		private const ushort FLAGS_MASK = 65535;
 
-		// Token: 0x040003ED RID: 1005
+		// Token: 0x0400045C RID: 1116
 		private const ushort nD = 65534;
 
-		// Token: 0x040003EE RID: 1006
+		// Token: 0x0400045D RID: 1117
 		private const ushort nF = 65533;
 
-		// Token: 0x040003EF RID: 1007
+		// Token: 0x0400045E RID: 1118
 		private const ushort nE = 65531;
 
-		// Token: 0x040003F0 RID: 1008
+		// Token: 0x0400045F RID: 1119
 		private const ushort nL = 65527;
 
-		// Token: 0x040003F1 RID: 1009
+		// Token: 0x04000460 RID: 1120
 		private const ushort nK = 65519;
 
-		// Token: 0x040003F2 RID: 1010
+		// Token: 0x04000461 RID: 1121
 		private const ushort nDisposed = 65503;
 
-		// Token: 0x040003F3 RID: 1011
+		// Token: 0x04000462 RID: 1122
 		private const ushort nPlaying = 65471;
 
-		// Token: 0x040003F4 RID: 1012
+		// Token: 0x04000463 RID: 1123
 		private const ushort nPaused = 65407;
 
-		// Token: 0x040003F5 RID: 1013
+		// Token: 0x04000464 RID: 1124
 		private const ushort nShifting = 65279;
 
-		// Token: 0x040003F6 RID: 1014
+		// Token: 0x04000465 RID: 1125
 		private const ushort nShiftingDown = 65279;
 
-		// Token: 0x040003F7 RID: 1015
+		// Token: 0x04000466 RID: 1126
 		private const ushort nShiftingUp = 64767;
 
-		// Token: 0x040003F8 RID: 1016
+		// Token: 0x04000467 RID: 1127
 		private const ushort kPlayingOrPaused = 192;
 
-		// Token: 0x040003F9 RID: 1017
+		// Token: 0x04000468 RID: 1128
 		private const ushort kShiftingUpOrDown = 768;
 
-		// Token: 0x040003FA RID: 1018
+		// Token: 0x04000469 RID: 1129
 		private const ushort nPlayingOrPaused = 65343;
 
-		// Token: 0x040003FB RID: 1019
+		// Token: 0x0400046A RID: 1130
 		private const ushort nShiftingUpOrDown = 64767;
 
-		// Token: 0x040003FC RID: 1020
+		// Token: 0x0400046B RID: 1131
 		[NonSerialized]
-		private EngineSoundLoop loop;
+		private global::EngineSoundLoop loop;
 
-		// Token: 0x040003FD RID: 1021
+		// Token: 0x0400046C RID: 1132
 		[NonSerialized]
 		private EngineSoundLoopPlayer player;
 
-		// Token: 0x040003FE RID: 1022
+		// Token: 0x0400046D RID: 1133
 		[NonSerialized]
 		private Transform parent;
 
-		// Token: 0x040003FF RID: 1023
+		// Token: 0x0400046E RID: 1134
 		[NonSerialized]
 		private AudioSource D;
 
-		// Token: 0x04000400 RID: 1024
+		// Token: 0x0400046F RID: 1135
 		[NonSerialized]
 		private AudioSource E;
 
-		// Token: 0x04000401 RID: 1025
+		// Token: 0x04000470 RID: 1136
 		[NonSerialized]
 		private AudioSource F;
 
-		// Token: 0x04000402 RID: 1026
+		// Token: 0x04000471 RID: 1137
 		[NonSerialized]
 		private AudioSource L;
 
-		// Token: 0x04000403 RID: 1027
+		// Token: 0x04000472 RID: 1138
 		[NonSerialized]
 		private AudioSource K;
 
-		// Token: 0x04000404 RID: 1028
+		// Token: 0x04000473 RID: 1139
 		[NonSerialized]
 		private float _volume;
 
-		// Token: 0x04000405 RID: 1029
+		// Token: 0x04000474 RID: 1140
 		[NonSerialized]
 		private float _pitch;
 
-		// Token: 0x04000406 RID: 1030
+		// Token: 0x04000475 RID: 1141
 		[NonSerialized]
 		private float _masterVolume;
 
-		// Token: 0x04000407 RID: 1031
+		// Token: 0x04000476 RID: 1142
 		[NonSerialized]
 		private float _speedFactor;
 
-		// Token: 0x04000408 RID: 1032
+		// Token: 0x04000477 RID: 1143
 		[NonSerialized]
 		private float _shiftTime;
 
-		// Token: 0x04000409 RID: 1033
+		// Token: 0x04000478 RID: 1144
 		[NonSerialized]
 		private float _throttle;
 
-		// Token: 0x0400040A RID: 1034
+		// Token: 0x04000479 RID: 1145
 		[NonSerialized]
 		private float _lastPitchFactor;
 
-		// Token: 0x0400040B RID: 1035
+		// Token: 0x0400047A RID: 1146
 		[NonSerialized]
 		private float _lastSinerp;
 
-		// Token: 0x0400040C RID: 1036
+		// Token: 0x0400047B RID: 1147
 		[NonSerialized]
 		private float _lastVolumeFactor;
 
-		// Token: 0x0400040D RID: 1037
+		// Token: 0x0400047C RID: 1148
 		[NonSerialized]
 		private float _lastClampedThrottle;
 
-		// Token: 0x0400040E RID: 1038
+		// Token: 0x0400047D RID: 1149
 		[NonSerialized]
 		private float _dVol;
 
-		// Token: 0x0400040F RID: 1039
+		// Token: 0x0400047E RID: 1150
 		[NonSerialized]
 		private float _fVol;
 
-		// Token: 0x04000410 RID: 1040
+		// Token: 0x0400047F RID: 1151
 		[NonSerialized]
 		private float _eVol;
 
-		// Token: 0x04000411 RID: 1041
+		// Token: 0x04000480 RID: 1152
 		[NonSerialized]
 		private float _kVol;
 
-		// Token: 0x04000412 RID: 1042
+		// Token: 0x04000481 RID: 1153
 		[NonSerialized]
 		private ushort flags;
 
-		// Token: 0x04000413 RID: 1043
+		// Token: 0x04000482 RID: 1154
 		[NonSerialized]
 		private byte _gear;
 
-		// Token: 0x04000414 RID: 1044
+		// Token: 0x04000483 RID: 1155
 		[NonSerialized]
 		private sbyte _lastVolumeFactorClamp;
 	}

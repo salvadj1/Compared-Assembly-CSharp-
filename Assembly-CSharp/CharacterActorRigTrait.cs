@@ -2,11 +2,11 @@
 using Facepunch.Actor;
 using UnityEngine;
 
-// Token: 0x020000FD RID: 253
-public class CharacterActorRigTrait : CharacterTrait
+// Token: 0x0200011C RID: 284
+public class CharacterActorRigTrait : global::CharacterTrait
 {
-	// Token: 0x17000148 RID: 328
-	// (get) Token: 0x06000685 RID: 1669 RVA: 0x0001E590 File Offset: 0x0001C790
+	// Token: 0x17000176 RID: 374
+	// (get) Token: 0x06000757 RID: 1879 RVA: 0x00021164 File Offset: 0x0001F364
 	public ActorRig actorRig
 	{
 		get
@@ -15,7 +15,7 @@ public class CharacterActorRigTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x040004E7 RID: 1255
+	// Token: 0x040005B2 RID: 1458
 	[SerializeField]
 	private ActorRig _actorRig;
 }

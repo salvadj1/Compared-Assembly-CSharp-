@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x0200017B RID: 379
+// Token: 0x020001A7 RID: 423
 public static class TempList
 {
-	// Token: 0x06000B7E RID: 2942 RVA: 0x0002CF80 File Offset: 0x0002B180
-	public static TempList<T> New<T>(IEnumerable<T> enumerable)
+	// Token: 0x06000CAE RID: 3246 RVA: 0x00030E6C File Offset: 0x0002F06C
+	public static global::TempList<T> New<T>(IEnumerable<T> enumerable)
 	{
-		return TempList<T>.New(enumerable);
+		return global::TempList<T>.New(enumerable);
 	}
 
-	// Token: 0x06000B7F RID: 2943 RVA: 0x0002CF88 File Offset: 0x0002B188
-	public static TempList<T> New<T>()
+	// Token: 0x06000CAF RID: 3247 RVA: 0x00030E74 File Offset: 0x0002F074
+	public static global::TempList<T> New<T>()
 	{
-		return TempList<T>.New();
+		return global::TempList<T>.New();
 	}
 }

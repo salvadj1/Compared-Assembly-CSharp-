@@ -1,38 +1,38 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200076D RID: 1901
+// Token: 0x0200084F RID: 2127
 [AddComponentMenu("NGUI/Interaction/Drag Panel Contents")]
 [ExecuteInEditMode]
 public class UIDragPanelContents : MonoBehaviour
 {
-	// Token: 0x06004512 RID: 17682 RVA: 0x0010F350 File Offset: 0x0010D550
+	// Token: 0x06004973 RID: 18803 RVA: 0x00118CD0 File Offset: 0x00116ED0
 	private void Awake()
 	{
 		if (this.panel != null)
 		{
 			if (this.draggablePanel == null)
 			{
-				this.draggablePanel = this.panel.GetComponent<UIDraggablePanel>();
+				this.draggablePanel = this.panel.GetComponent<global::UIDraggablePanel>();
 				if (this.draggablePanel == null)
 				{
-					this.draggablePanel = this.panel.gameObject.AddComponent<UIDraggablePanel>();
+					this.draggablePanel = this.panel.gameObject.AddComponent<global::UIDraggablePanel>();
 				}
 			}
 			this.panel = null;
 		}
 	}
 
-	// Token: 0x06004513 RID: 17683 RVA: 0x0010F3C0 File Offset: 0x0010D5C0
+	// Token: 0x06004974 RID: 18804 RVA: 0x00118D40 File Offset: 0x00116F40
 	private void Start()
 	{
 		if (this.draggablePanel == null)
 		{
-			this.draggablePanel = NGUITools.FindInParents<UIDraggablePanel>(base.gameObject);
+			this.draggablePanel = global::NGUITools.FindInParents<global::UIDraggablePanel>(base.gameObject);
 		}
 	}
 
-	// Token: 0x06004514 RID: 17684 RVA: 0x0010F3F0 File Offset: 0x0010D5F0
+	// Token: 0x06004975 RID: 18805 RVA: 0x00118D70 File Offset: 0x00116F70
 	private void OnPress(bool pressed)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.draggablePanel != null)
@@ -41,7 +41,7 @@ public class UIDragPanelContents : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004515 RID: 17685 RVA: 0x0010F438 File Offset: 0x0010D638
+	// Token: 0x06004976 RID: 18806 RVA: 0x00118DB8 File Offset: 0x00116FB8
 	private void OnDrag(Vector2 delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.draggablePanel != null)
@@ -50,7 +50,7 @@ public class UIDragPanelContents : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004516 RID: 17686 RVA: 0x0010F480 File Offset: 0x0010D680
+	// Token: 0x06004977 RID: 18807 RVA: 0x00118E00 File Offset: 0x00117000
 	private void OnScroll(float delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.draggablePanel != null)
@@ -59,11 +59,11 @@ public class UIDragPanelContents : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002563 RID: 9571
-	public UIDraggablePanel draggablePanel;
+	// Token: 0x0400279A RID: 10138
+	public global::UIDraggablePanel draggablePanel;
 
-	// Token: 0x04002564 RID: 9572
+	// Token: 0x0400279B RID: 10139
 	[HideInInspector]
 	[SerializeField]
-	private UIPanel panel;
+	private global::UIPanel panel;
 }

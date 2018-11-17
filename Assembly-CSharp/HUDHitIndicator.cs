@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004BB RID: 1211
-public class HUDHitIndicator : HUDIndicator
+// Token: 0x02000576 RID: 1398
+public class HUDHitIndicator : global::HUDIndicator
 {
-	// Token: 0x06002A44 RID: 10820 RVA: 0x000A5EF8 File Offset: 0x000A40F8
+	// Token: 0x06002DF6 RID: 11766 RVA: 0x000ADC90 File Offset: 0x000ABE90
 	private void Awake()
 	{
-		this.startTime = NetCull.time;
+		this.startTime = global::NetCull.time;
 		this.material = this.texture.material.Clone();
 		this.texture.material = this.material;
 	}
 
-	// Token: 0x06002A45 RID: 10821 RVA: 0x000A5F38 File Offset: 0x000A4138
+	// Token: 0x06002DF7 RID: 11767 RVA: 0x000ADCD0 File Offset: 0x000ABED0
 	protected new void OnDestroy()
 	{
 		base.OnDestroy();
@@ -23,10 +23,10 @@ public class HUDHitIndicator : HUDIndicator
 		}
 	}
 
-	// Token: 0x06002A46 RID: 10822 RVA: 0x000A5F70 File Offset: 0x000A4170
+	// Token: 0x06002DF8 RID: 11768 RVA: 0x000ADD08 File Offset: 0x000ABF08
 	protected override bool Continue()
 	{
-		float num = (float)(HUDIndicator.stepTime - this.startTime);
+		float num = (float)(global::HUDIndicator.stepTime - this.startTime);
 		if (num > this.curve[this.curve.length - 1].time)
 		{
 			return false;
@@ -35,7 +35,7 @@ public class HUDHitIndicator : HUDIndicator
 		if (this.followPoint)
 		{
 			Vector3 position = base.transform.position;
-			Vector3 vector = base.GetPoint(HUDIndicator.PlacementSpace.World, this.worldPosition);
+			Vector3 vector = base.GetPoint(global::HUDIndicator.PlacementSpace.World, this.worldPosition);
 			if (position.z != vector.z)
 			{
 				Plane plane;
@@ -68,35 +68,35 @@ public class HUDHitIndicator : HUDIndicator
 		return true;
 	}
 
-	// Token: 0x06002A47 RID: 10823 RVA: 0x000A60A8 File Offset: 0x000A42A8
-	public static void CreateIndicator(Vector3 worldPoint, bool followPoint, HUDHitIndicator prefab)
+	// Token: 0x06002DF9 RID: 11769 RVA: 0x000ADE40 File Offset: 0x000AC040
+	public static void CreateIndicator(Vector3 worldPoint, bool followPoint, global::HUDHitIndicator prefab)
 	{
-		HUDHitIndicator hudhitIndicator = (HUDHitIndicator)HUDIndicator.InstantiateIndicator(HUDIndicator.ScratchTarget.CenteredAuto, prefab, HUDIndicator.PlacementSpace.World, worldPoint);
+		global::HUDHitIndicator hudhitIndicator = (global::HUDHitIndicator)global::HUDIndicator.InstantiateIndicator(global::HUDIndicator.ScratchTarget.CenteredAuto, prefab, global::HUDIndicator.PlacementSpace.World, worldPoint);
 		hudhitIndicator.worldPosition = worldPoint;
 		hudhitIndicator.followPoint = followPoint;
 	}
 
-	// Token: 0x0400165C RID: 5724
+	// Token: 0x04001819 RID: 6169
 	private const float kMIN = 0.003921569f;
 
-	// Token: 0x0400165D RID: 5725
+	// Token: 0x0400181A RID: 6170
 	private const float kMAX = 0.996078432f;
 
-	// Token: 0x0400165E RID: 5726
-	public UITexture texture;
+	// Token: 0x0400181B RID: 6171
+	public global::UITexture texture;
 
-	// Token: 0x0400165F RID: 5727
+	// Token: 0x0400181C RID: 6172
 	public AnimationCurve curve;
 
-	// Token: 0x04001660 RID: 5728
-	private UIMaterial material;
+	// Token: 0x0400181D RID: 6173
+	private global::UIMaterial material;
 
-	// Token: 0x04001661 RID: 5729
+	// Token: 0x0400181E RID: 6174
 	private double startTime;
 
-	// Token: 0x04001662 RID: 5730
+	// Token: 0x0400181F RID: 6175
 	private Vector3 worldPosition;
 
-	// Token: 0x04001663 RID: 5731
+	// Token: 0x04001820 RID: 6176
 	private bool followPoint;
 }

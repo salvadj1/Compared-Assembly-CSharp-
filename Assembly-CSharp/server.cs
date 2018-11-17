@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020003C9 RID: 969
-public class server : ConsoleSystem
+// Token: 0x02000476 RID: 1142
+public class server : global::ConsoleSystem
 {
 }

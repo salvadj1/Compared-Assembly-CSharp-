@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004FB RID: 1275
+// Token: 0x020005B8 RID: 1464
 public sealed class GameFullscreen : PostEffectsBase
 {
-	// Token: 0x17000985 RID: 2437
-	// (get) Token: 0x06002B35 RID: 11061 RVA: 0x000ACFA4 File Offset: 0x000AB1A4
-	// (set) Token: 0x06002B36 RID: 11062 RVA: 0x000ACFAC File Offset: 0x000AB1AC
+	// Token: 0x170009F9 RID: 2553
+	// (get) Token: 0x06002EF5 RID: 12021 RVA: 0x000B5040 File Offset: 0x000B3240
+	// (set) Token: 0x06002EF6 RID: 12022 RVA: 0x000B5048 File Offset: 0x000B3248
 	public Color autoFadeColor
 	{
 		get
@@ -73,8 +73,8 @@ public sealed class GameFullscreen : PostEffectsBase
 		}
 	}
 
-	// Token: 0x17000986 RID: 2438
-	// (get) Token: 0x06002B37 RID: 11063 RVA: 0x000AD2D4 File Offset: 0x000AB4D4
+	// Token: 0x170009FA RID: 2554
+	// (get) Token: 0x06002EF7 RID: 12023 RVA: 0x000B5370 File Offset: 0x000B3570
 	private bool run
 	{
 		get
@@ -94,7 +94,7 @@ public sealed class GameFullscreen : PostEffectsBase
 		}
 	}
 
-	// Token: 0x06002B38 RID: 11064 RVA: 0x000AD340 File Offset: 0x000AB540
+	// Token: 0x06002EF8 RID: 12024 RVA: 0x000B53DC File Offset: 0x000B35DC
 	protected void OnDisable()
 	{
 		if (this.material)
@@ -103,7 +103,7 @@ public sealed class GameFullscreen : PostEffectsBase
 		}
 	}
 
-	// Token: 0x06002B39 RID: 11065 RVA: 0x000AD360 File Offset: 0x000AB560
+	// Token: 0x06002EF9 RID: 12025 RVA: 0x000B53FC File Offset: 0x000B35FC
 	public override bool CheckResources()
 	{
 		this.CheckSupport(false);
@@ -115,7 +115,7 @@ public sealed class GameFullscreen : PostEffectsBase
 		return this.isSupported;
 	}
 
-	// Token: 0x06002B3A RID: 11066 RVA: 0x000AD39C File Offset: 0x000AB59C
+	// Token: 0x06002EFA RID: 12026 RVA: 0x000B5438 File Offset: 0x000B3638
 	protected void OnRenderImage(RenderTexture src, RenderTexture dst)
 	{
 		if (!this.CheckResources() || !this.run)
@@ -211,53 +211,53 @@ public sealed class GameFullscreen : PostEffectsBase
 		}
 	}
 
-	// Token: 0x040017AF RID: 6063
+	// Token: 0x0400197B RID: 6523
 	private const ScaleMode kDefaultScaleMode = 0;
 
-	// Token: 0x040017B0 RID: 6064
+	// Token: 0x0400197C RID: 6524
 	private const int kDefaultOverlayPass = 1;
 
-	// Token: 0x040017B1 RID: 6065
+	// Token: 0x0400197D RID: 6525
 	private const float sqrtOf3 = 1.73205078f;
 
-	// Token: 0x040017B2 RID: 6066
+	// Token: 0x0400197E RID: 6526
 	public Color tintColor = Color.white;
 
-	// Token: 0x040017B3 RID: 6067
+	// Token: 0x0400197F RID: 6527
 	public Color fadeColor = new Color(0f, 0f, 0f, 1f);
 
-	// Token: 0x040017B4 RID: 6068
-	public readonly GameFullscreen.Overlay[] overlays = new GameFullscreen.Overlay[]
+	// Token: 0x04001980 RID: 6528
+	public readonly global::GameFullscreen.Overlay[] overlays = new global::GameFullscreen.Overlay[]
 	{
-		new GameFullscreen.Overlay
+		new global::GameFullscreen.Overlay
 		{
 			pass = 1
 		},
-		new GameFullscreen.Overlay
+		new global::GameFullscreen.Overlay
 		{
 			pass = 1
 		},
-		new GameFullscreen.Overlay
+		new global::GameFullscreen.Overlay
 		{
 			pass = 1
 		},
-		new GameFullscreen.Overlay
+		new global::GameFullscreen.Overlay
 		{
 			pass = 1
 		}
 	};
 
-	// Token: 0x040017B5 RID: 6069
+	// Token: 0x04001981 RID: 6529
 	public Shader shader;
 
-	// Token: 0x040017B6 RID: 6070
+	// Token: 0x04001982 RID: 6530
 	private Material material;
 
-	// Token: 0x020004FC RID: 1276
+	// Token: 0x020005B9 RID: 1465
 	public struct Overlay
 	{
-		// Token: 0x17000987 RID: 2439
-		// (get) Token: 0x06002B3B RID: 11067 RVA: 0x000AD804 File Offset: 0x000ABA04
+		// Token: 0x170009FB RID: 2555
+		// (get) Token: 0x06002EFB RID: 12027 RVA: 0x000B58A0 File Offset: 0x000B3AA0
 		public bool willRender
 		{
 			get
@@ -272,9 +272,9 @@ public sealed class GameFullscreen : PostEffectsBase
 			}
 		}
 
-		// Token: 0x17000988 RID: 2440
-		// (get) Token: 0x06002B3C RID: 11068 RVA: 0x000AD848 File Offset: 0x000ABA48
-		// (set) Token: 0x06002B3D RID: 11069 RVA: 0x000AD850 File Offset: 0x000ABA50
+		// Token: 0x170009FC RID: 2556
+		// (get) Token: 0x06002EFC RID: 12028 RVA: 0x000B58E4 File Offset: 0x000B3AE4
+		// (set) Token: 0x06002EFD RID: 12029 RVA: 0x000B58EC File Offset: 0x000B3AEC
 		public float alpha
 		{
 			get
@@ -293,9 +293,9 @@ public sealed class GameFullscreen : PostEffectsBase
 			}
 		}
 
-		// Token: 0x17000989 RID: 2441
-		// (get) Token: 0x06002B3E RID: 11070 RVA: 0x000AD8A0 File Offset: 0x000ABAA0
-		// (set) Token: 0x06002B3F RID: 11071 RVA: 0x000AD8A8 File Offset: 0x000ABAA8
+		// Token: 0x170009FD RID: 2557
+		// (get) Token: 0x06002EFE RID: 12030 RVA: 0x000B593C File Offset: 0x000B3B3C
+		// (set) Token: 0x06002EFF RID: 12031 RVA: 0x000B5944 File Offset: 0x000B3B44
 		public Texture2D texture
 		{
 			get
@@ -314,25 +314,25 @@ public sealed class GameFullscreen : PostEffectsBase
 			}
 		}
 
-		// Token: 0x040017B7 RID: 6071
+		// Token: 0x04001983 RID: 6531
 		public ScaleMode scaleMode;
 
-		// Token: 0x040017B8 RID: 6072
+		// Token: 0x04001984 RID: 6532
 		public int pass;
 
-		// Token: 0x040017B9 RID: 6073
+		// Token: 0x04001985 RID: 6533
 		private Texture2D _texture;
 
-		// Token: 0x040017BA RID: 6074
+		// Token: 0x04001986 RID: 6534
 		private float _alpha;
 
-		// Token: 0x040017BB RID: 6075
+		// Token: 0x04001987 RID: 6535
 		private bool hasTex;
 
-		// Token: 0x040017BC RID: 6076
+		// Token: 0x04001988 RID: 6536
 		private bool hasAlpha;
 
-		// Token: 0x040017BD RID: 6077
+		// Token: 0x04001989 RID: 6537
 		private bool shouldDraw;
 	}
 }

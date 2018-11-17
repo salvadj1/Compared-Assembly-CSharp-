@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005D7 RID: 1495
-public class conditionloss : ConsoleSystem
+// Token: 0x02000695 RID: 1685
+public class conditionloss : global::ConsoleSystem
 {
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020004B4 RID: 1204
-public class gizmos : ConsoleSystem
+// Token: 0x0200056F RID: 1391
+public class gizmos : global::ConsoleSystem
 {
-	// Token: 0x04001627 RID: 5671
-	[ConsoleSystem.Client]
+	// Token: 0x040017E4 RID: 6116
+	[global::ConsoleSystem.Client]
 	public static bool carrier = true;
 }

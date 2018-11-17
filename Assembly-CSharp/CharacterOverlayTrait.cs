@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200010D RID: 269
-public class CharacterOverlayTrait : CharacterTrait
+// Token: 0x0200012C RID: 300
+public class CharacterOverlayTrait : global::CharacterTrait
 {
-	// Token: 0x17000187 RID: 391
-	// (get) Token: 0x060006F1 RID: 1777 RVA: 0x0001F638 File Offset: 0x0001D838
+	// Token: 0x170001B5 RID: 437
+	// (get) Token: 0x060007C3 RID: 1987 RVA: 0x0002220C File Offset: 0x0002040C
 	public string overlayComponentName
 	{
 		get
@@ -14,8 +14,8 @@ public class CharacterOverlayTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000188 RID: 392
-	// (get) Token: 0x060006F2 RID: 1778 RVA: 0x0001F640 File Offset: 0x0001D840
+	// Token: 0x170001B6 RID: 438
+	// (get) Token: 0x060007C4 RID: 1988 RVA: 0x00022214 File Offset: 0x00020414
 	public Texture2D damageOverlay
 	{
 		get
@@ -24,8 +24,8 @@ public class CharacterOverlayTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000189 RID: 393
-	// (get) Token: 0x060006F3 RID: 1779 RVA: 0x0001F648 File Offset: 0x0001D848
+	// Token: 0x170001B7 RID: 439
+	// (get) Token: 0x060007C5 RID: 1989 RVA: 0x0002221C File Offset: 0x0002041C
 	public Texture2D damageOverlay2
 	{
 		get
@@ -34,8 +34,8 @@ public class CharacterOverlayTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700018A RID: 394
-	// (get) Token: 0x060006F4 RID: 1780 RVA: 0x0001F650 File Offset: 0x0001D850
+	// Token: 0x170001B8 RID: 440
+	// (get) Token: 0x060007C6 RID: 1990 RVA: 0x00022224 File Offset: 0x00020424
 	public ScriptableObject takeDamageBob
 	{
 		get
@@ -44,8 +44,8 @@ public class CharacterOverlayTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700018B RID: 395
-	// (get) Token: 0x060006F5 RID: 1781 RVA: 0x0001F658 File Offset: 0x0001D858
+	// Token: 0x170001B9 RID: 441
+	// (get) Token: 0x060007C7 RID: 1991 RVA: 0x0002222C File Offset: 0x0002042C
 	public ScriptableObject meleeBob
 	{
 		get
@@ -54,23 +54,23 @@ public class CharacterOverlayTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x04000529 RID: 1321
+	// Token: 0x040005F4 RID: 1524
 	[SerializeField]
 	private string _overlayComponentName = "LocalDamageDisplay";
 
-	// Token: 0x0400052A RID: 1322
+	// Token: 0x040005F5 RID: 1525
 	[SerializeField]
 	private Texture2D _damageOverlay;
 
-	// Token: 0x0400052B RID: 1323
+	// Token: 0x040005F6 RID: 1526
 	[SerializeField]
 	private Texture2D _damageOverlay2;
 
-	// Token: 0x0400052C RID: 1324
+	// Token: 0x040005F7 RID: 1527
 	[SerializeField]
 	private ScriptableObject _takeDamageBob;
 
-	// Token: 0x0400052D RID: 1325
+	// Token: 0x040005F8 RID: 1528
 	[SerializeField]
 	private ScriptableObject _meleeBob;
 }

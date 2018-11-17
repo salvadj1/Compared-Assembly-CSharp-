@@ -3,12 +3,12 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x02000707 RID: 1799
+// Token: 0x020007DD RID: 2013
 [AddComponentMenu("Daikon Forge/Data Binding/Event Binding")]
 [Serializable]
-public class dfEventBinding : MonoBehaviour, IDataBindingComponent
+public class dfEventBinding : MonoBehaviour, global::IDataBindingComponent
 {
-	// Token: 0x0600419D RID: 16797 RVA: 0x000FD154 File Offset: 0x000FB354
+	// Token: 0x060045CB RID: 17867 RVA: 0x00106024 File Offset: 0x00104224
 	public void OnEnable()
 	{
 		if (this.DataSource != null && !this.isBound && this.DataSource.IsValid && this.DataTarget.IsValid)
@@ -17,7 +17,7 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x0600419E RID: 16798 RVA: 0x000FD1A0 File Offset: 0x000FB3A0
+	// Token: 0x060045CC RID: 17868 RVA: 0x00106070 File Offset: 0x00104270
 	public void Start()
 	{
 		if (this.DataSource != null && !this.isBound && this.DataSource.IsValid && this.DataTarget.IsValid)
@@ -26,13 +26,13 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x0600419F RID: 16799 RVA: 0x000FD1EC File Offset: 0x000FB3EC
+	// Token: 0x060045CD RID: 17869 RVA: 0x001060BC File Offset: 0x001042BC
 	public void OnDisable()
 	{
 		this.Unbind();
 	}
 
-	// Token: 0x060041A0 RID: 16800 RVA: 0x000FD1F4 File Offset: 0x000FB3F4
+	// Token: 0x060045CE RID: 17870 RVA: 0x001060C4 File Offset: 0x001042C4
 	public void Bind()
 	{
 		if (this.isBound || this.DataSource == null)
@@ -88,7 +88,7 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		this.isBound = true;
 	}
 
-	// Token: 0x060041A1 RID: 16801 RVA: 0x000FD438 File Offset: 0x000FB638
+	// Token: 0x060045CF RID: 17871 RVA: 0x00106308 File Offset: 0x00104508
 	public void Unbind()
 	{
 		if (!this.isBound)
@@ -106,7 +106,7 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		this.targetComponent = null;
 	}
 
-	// Token: 0x060041A2 RID: 16802 RVA: 0x000FD4B4 File Offset: 0x000FB6B4
+	// Token: 0x060045D0 RID: 17872 RVA: 0x00106384 File Offset: 0x00104584
 	public override string ToString()
 	{
 		string text = (this.DataSource == null || !(this.DataSource.Component != null)) ? "[null]" : this.DataSource.Component.GetType().Name;
@@ -122,126 +122,126 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		});
 	}
 
-	// Token: 0x060041A3 RID: 16803 RVA: 0x000FD5D0 File Offset: 0x000FB7D0
-	[dfEventProxy]
-	private void MouseEventProxy(dfControl control, dfMouseEventArgs mouseEvent)
+	// Token: 0x060045D1 RID: 17873 RVA: 0x001064A0 File Offset: 0x001046A0
+	[global::dfEventProxy]
+	private void MouseEventProxy(global::dfControl control, global::dfMouseEventArgs mouseEvent)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041A4 RID: 16804 RVA: 0x000FD5D8 File Offset: 0x000FB7D8
-	[dfEventProxy]
-	private void KeyEventProxy(dfControl control, dfKeyEventArgs keyEvent)
+	// Token: 0x060045D2 RID: 17874 RVA: 0x001064A8 File Offset: 0x001046A8
+	[global::dfEventProxy]
+	private void KeyEventProxy(global::dfControl control, global::dfKeyEventArgs keyEvent)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041A5 RID: 16805 RVA: 0x000FD5E0 File Offset: 0x000FB7E0
-	[dfEventProxy]
-	private void DragEventProxy(dfControl control, dfDragEventArgs dragEvent)
+	// Token: 0x060045D3 RID: 17875 RVA: 0x001064B0 File Offset: 0x001046B0
+	[global::dfEventProxy]
+	private void DragEventProxy(global::dfControl control, global::dfDragEventArgs dragEvent)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041A6 RID: 16806 RVA: 0x000FD5E8 File Offset: 0x000FB7E8
-	[dfEventProxy]
-	private void ChildControlEventProxy(dfControl container, dfControl child)
+	// Token: 0x060045D4 RID: 17876 RVA: 0x001064B8 File Offset: 0x001046B8
+	[global::dfEventProxy]
+	private void ChildControlEventProxy(global::dfControl container, global::dfControl child)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041A7 RID: 16807 RVA: 0x000FD5F0 File Offset: 0x000FB7F0
-	[dfEventProxy]
-	private void FocusEventProxy(dfControl control, dfFocusEventArgs args)
+	// Token: 0x060045D5 RID: 17877 RVA: 0x001064C0 File Offset: 0x001046C0
+	[global::dfEventProxy]
+	private void FocusEventProxy(global::dfControl control, global::dfFocusEventArgs args)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041A8 RID: 16808 RVA: 0x000FD5F8 File Offset: 0x000FB7F8
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, int value)
+	// Token: 0x060045D6 RID: 17878 RVA: 0x001064C8 File Offset: 0x001046C8
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, int value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041A9 RID: 16809 RVA: 0x000FD600 File Offset: 0x000FB800
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, float value)
+	// Token: 0x060045D7 RID: 17879 RVA: 0x001064D0 File Offset: 0x001046D0
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, float value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041AA RID: 16810 RVA: 0x000FD608 File Offset: 0x000FB808
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, bool value)
+	// Token: 0x060045D8 RID: 17880 RVA: 0x001064D8 File Offset: 0x001046D8
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, bool value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041AB RID: 16811 RVA: 0x000FD610 File Offset: 0x000FB810
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, string value)
+	// Token: 0x060045D9 RID: 17881 RVA: 0x001064E0 File Offset: 0x001046E0
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, string value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041AC RID: 16812 RVA: 0x000FD618 File Offset: 0x000FB818
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, Vector2 value)
+	// Token: 0x060045DA RID: 17882 RVA: 0x001064E8 File Offset: 0x001046E8
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, Vector2 value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041AD RID: 16813 RVA: 0x000FD620 File Offset: 0x000FB820
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, Vector3 value)
+	// Token: 0x060045DB RID: 17883 RVA: 0x001064F0 File Offset: 0x001046F0
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, Vector3 value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041AE RID: 16814 RVA: 0x000FD628 File Offset: 0x000FB828
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, Vector4 value)
+	// Token: 0x060045DC RID: 17884 RVA: 0x001064F8 File Offset: 0x001046F8
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, Vector4 value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041AF RID: 16815 RVA: 0x000FD630 File Offset: 0x000FB830
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, Quaternion value)
+	// Token: 0x060045DD RID: 17885 RVA: 0x00106500 File Offset: 0x00104700
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, Quaternion value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041B0 RID: 16816 RVA: 0x000FD638 File Offset: 0x000FB838
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, dfButton.ButtonState value)
+	// Token: 0x060045DE RID: 17886 RVA: 0x00106508 File Offset: 0x00104708
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, global::dfButton.ButtonState value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041B1 RID: 16817 RVA: 0x000FD640 File Offset: 0x000FB840
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, dfPivotPoint value)
+	// Token: 0x060045DF RID: 17887 RVA: 0x00106510 File Offset: 0x00104710
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, global::dfPivotPoint value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041B2 RID: 16818 RVA: 0x000FD648 File Offset: 0x000FB848
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, Texture2D value)
+	// Token: 0x060045E0 RID: 17888 RVA: 0x00106518 File Offset: 0x00104718
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, Texture2D value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041B3 RID: 16819 RVA: 0x000FD650 File Offset: 0x000FB850
-	[dfEventProxy]
-	private void PropertyChangedProxy(dfControl control, Material value)
+	// Token: 0x060045E1 RID: 17889 RVA: 0x00106520 File Offset: 0x00104720
+	[global::dfEventProxy]
+	private void PropertyChangedProxy(global::dfControl control, Material value)
 	{
 		this.callProxyEventHandler();
 	}
 
-	// Token: 0x060041B4 RID: 16820 RVA: 0x000FD658 File Offset: 0x000FB858
+	// Token: 0x060045E2 RID: 17890 RVA: 0x00106528 File Offset: 0x00104728
 	private void callProxyEventHandler()
 	{
 		if (this.handlerProxy != null)
@@ -250,7 +250,7 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041B5 RID: 16821 RVA: 0x000FD678 File Offset: 0x000FB878
+	// Token: 0x060045E3 RID: 17891 RVA: 0x00106548 File Offset: 0x00104748
 	private FieldInfo getField(Component sourceComponent, string fieldName)
 	{
 		return (from f in sourceComponent.GetType().GetAllFields()
@@ -258,11 +258,11 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		select f).FirstOrDefault<FieldInfo>();
 	}
 
-	// Token: 0x060041B6 RID: 16822 RVA: 0x000FD6B4 File Offset: 0x000FB8B4
+	// Token: 0x060045E4 RID: 17892 RVA: 0x00106584 File Offset: 0x00104784
 	private Delegate createEventProxyDelegate(object target, Type delegateType, ParameterInfo[] eventParams, MethodInfo eventHandler)
 	{
-		MethodInfo methodInfo = (from m in typeof(dfEventBinding).GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
-		where m.IsDefined(typeof(dfEventProxyAttribute), true) && this.signatureIsCompatible(eventParams, m.GetParameters())
+		MethodInfo methodInfo = (from m in typeof(global::dfEventBinding).GetMethods(BindingFlags.Instance | BindingFlags.NonPublic)
+		where m.IsDefined(typeof(global::dfEventProxyAttribute), true) && this.signatureIsCompatible(eventParams, m.GetParameters())
 		select m).FirstOrDefault<MethodInfo>();
 		if (methodInfo == null)
 		{
@@ -272,7 +272,7 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		return Delegate.CreateDelegate(delegateType, this, methodInfo, true);
 	}
 
-	// Token: 0x060041B7 RID: 16823 RVA: 0x000FD718 File Offset: 0x000FB918
+	// Token: 0x060045E5 RID: 17893 RVA: 0x001065E8 File Offset: 0x001047E8
 	private bool signatureIsCompatible(ParameterInfo[] lhs, ParameterInfo[] rhs)
 	{
 		if (lhs == null || rhs == null)
@@ -293,33 +293,33 @@ public class dfEventBinding : MonoBehaviour, IDataBindingComponent
 		return true;
 	}
 
-	// Token: 0x060041B8 RID: 16824 RVA: 0x000FD768 File Offset: 0x000FB968
+	// Token: 0x060045E6 RID: 17894 RVA: 0x00106638 File Offset: 0x00104838
 	private bool areTypesCompatible(ParameterInfo lhs, ParameterInfo rhs)
 	{
 		return lhs.ParameterType.Equals(rhs.ParameterType) || lhs.ParameterType.IsAssignableFrom(rhs.ParameterType);
 	}
 
-	// Token: 0x04002298 RID: 8856
-	public dfComponentMemberInfo DataSource;
+	// Token: 0x040024A9 RID: 9385
+	public global::dfComponentMemberInfo DataSource;
 
-	// Token: 0x04002299 RID: 8857
-	public dfComponentMemberInfo DataTarget;
+	// Token: 0x040024AA RID: 9386
+	public global::dfComponentMemberInfo DataTarget;
 
-	// Token: 0x0400229A RID: 8858
+	// Token: 0x040024AB RID: 9387
 	private bool isBound;
 
-	// Token: 0x0400229B RID: 8859
+	// Token: 0x040024AC RID: 9388
 	private Component sourceComponent;
 
-	// Token: 0x0400229C RID: 8860
+	// Token: 0x040024AD RID: 9389
 	private Component targetComponent;
 
-	// Token: 0x0400229D RID: 8861
+	// Token: 0x040024AE RID: 9390
 	private FieldInfo eventField;
 
-	// Token: 0x0400229E RID: 8862
+	// Token: 0x040024AF RID: 9391
 	private Delegate eventDelegate;
 
-	// Token: 0x0400229F RID: 8863
+	// Token: 0x040024B0 RID: 9392
 	private MethodInfo handlerProxy;
 }

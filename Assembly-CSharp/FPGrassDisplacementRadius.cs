@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000036 RID: 54
-public class FPGrassDisplacementRadius : FPGrassDisplacementObject
+// Token: 0x02000048 RID: 72
+public class FPGrassDisplacementRadius : global::FPGrassDisplacementObject
 {
-	// Token: 0x0600020C RID: 524 RVA: 0x0000BC1C File Offset: 0x00009E1C
+	// Token: 0x0600027E RID: 638 RVA: 0x0000D1C4 File Offset: 0x0000B3C4
 	public override void Initialize()
 	{
 		this.startScale = this.myTransform.localScale;
 		this.myTransform.localScale = Vector3.zero;
 	}
 
-	// Token: 0x0600020D RID: 525 RVA: 0x0000BC40 File Offset: 0x00009E40
+	// Token: 0x0600027F RID: 639 RVA: 0x0000D1E8 File Offset: 0x0000B3E8
 	public override void UpdateDepression()
 	{
 		if (Mathf.Approximately(this.currentDepressionPercent, this.targetDepressionPercent))
@@ -23,7 +23,7 @@ public class FPGrassDisplacementRadius : FPGrassDisplacementObject
 		this.myTransform.localScale = this.startScale * this.currentDepressionPercent;
 	}
 
-	// Token: 0x0600020E RID: 526 RVA: 0x0000BCA4 File Offset: 0x00009EA4
+	// Token: 0x06000280 RID: 640 RVA: 0x0000D24C File Offset: 0x0000B44C
 	public override void DetachAndDestroy()
 	{
 		base.transform.parent = null;
@@ -31,6 +31,6 @@ public class FPGrassDisplacementRadius : FPGrassDisplacementObject
 		Object.Destroy(base.gameObject, 1f);
 	}
 
-	// Token: 0x04000140 RID: 320
+	// Token: 0x040001A2 RID: 418
 	private Vector3 startScale;
 }

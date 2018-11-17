@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020000AD RID: 173
-public class OfflinePlayer : IDLocalCharacter
+// Token: 0x020000C0 RID: 192
+public class OfflinePlayer : global::IDLocalCharacter
 {
 }

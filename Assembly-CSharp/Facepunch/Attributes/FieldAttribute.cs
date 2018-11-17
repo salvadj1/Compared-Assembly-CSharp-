@@ -2,7 +2,7 @@
 
 namespace Facepunch.Attributes
 {
-	// Token: 0x020003CA RID: 970
+	// Token: 0x02000477 RID: 1143
 	[AttributeUsage(AttributeTargets.Field, Inherited = true)]
 	public abstract class FieldAttribute : Attribute
 	{

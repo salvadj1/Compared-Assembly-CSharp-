@@ -1,21 +1,21 @@
 ﻿using System;
 
-// Token: 0x0200078B RID: 1931
+// Token: 0x02000870 RID: 2160
 [Serializable]
 public class BMSymbol
 {
-	// Token: 0x04002645 RID: 9797
+	// Token: 0x0400287C RID: 10364
 	public string sequence;
 
-	// Token: 0x04002646 RID: 9798
+	// Token: 0x0400287D RID: 10365
 	public int x;
 
-	// Token: 0x04002647 RID: 9799
+	// Token: 0x0400287E RID: 10366
 	public int y;
 
-	// Token: 0x04002648 RID: 9800
+	// Token: 0x0400287F RID: 10367
 	public int width;
 
-	// Token: 0x04002649 RID: 9801
+	// Token: 0x04002880 RID: 10368
 	public int height;
 }

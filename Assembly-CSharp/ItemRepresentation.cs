@@ -5,25 +5,25 @@ using Facepunch.Movement;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020005AA RID: 1450
+// Token: 0x02000668 RID: 1640
 [RequireComponent(typeof(uLinkNetworkView))]
-public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
+public class ItemRepresentation : IDMain, global::IInterpTimedEventReceiver
 {
-	// Token: 0x06003490 RID: 13456 RVA: 0x000BFDC0 File Offset: 0x000BDFC0
+	// Token: 0x06003858 RID: 14424 RVA: 0x000C801C File Offset: 0x000C621C
 	public ItemRepresentation() : base(2)
 	{
-		this.stateSignalReceive = new CharacterStateSignal(this.StateSignalReceive);
+		this.stateSignalReceive = new global::CharacterStateSignal(this.StateSignalReceive);
 	}
 
-	// Token: 0x06003491 RID: 13457 RVA: 0x000BFDDC File Offset: 0x000BDFDC
-	void IInterpTimedEventReceiver.OnInterpTimedEvent()
+	// Token: 0x06003859 RID: 14425 RVA: 0x000C8038 File Offset: 0x000C6238
+	void global::IInterpTimedEventReceiver.OnInterpTimedEvent()
 	{
 		this.OnInterpTimedEvent();
 	}
 
-	// Token: 0x17000A5A RID: 2650
-	// (get) Token: 0x06003492 RID: 13458 RVA: 0x000BFDE4 File Offset: 0x000BDFE4
-	public ItemModFlags modFlags
+	// Token: 0x17000AD0 RID: 2768
+	// (get) Token: 0x0600385A RID: 14426 RVA: 0x000C8040 File Offset: 0x000C6240
+	public global::ItemModFlags modFlags
 	{
 		get
 		{
@@ -31,9 +31,9 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x17000A5B RID: 2651
-	// (get) Token: 0x06003493 RID: 13459 RVA: 0x000BFDEC File Offset: 0x000BDFEC
-	public HeldItemDataBlock datablock
+	// Token: 0x17000AD1 RID: 2769
+	// (get) Token: 0x0600385B RID: 14427 RVA: 0x000C8048 File Offset: 0x000C6248
+	public global::HeldItemDataBlock datablock
 	{
 		get
 		{
@@ -41,8 +41,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x06003494 RID: 13460 RVA: 0x000BFDF4 File Offset: 0x000BDFF4
-	private void BindModAsLocal(ref ItemRepresentation.ItemModPair pair, ref ModViewModelAddArgs a)
+	// Token: 0x0600385C RID: 14428 RVA: 0x000C8050 File Offset: 0x000C6250
+	private void BindModAsLocal(ref global::ItemRepresentation.ItemModPair pair, ref global::ModViewModelAddArgs a)
 	{
 		if ((int)pair.bindState == 2)
 		{
@@ -52,48 +52,48 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		{
 			a.modRep = pair.representation;
 			pair.dataBlock.BindAsLocal(ref a);
-			pair.bindState = ItemRepresentation.BindState.Local;
+			pair.bindState = global::ItemRepresentation.BindState.Local;
 		}
 	}
 
-	// Token: 0x06003495 RID: 13461 RVA: 0x000BFE50 File Offset: 0x000BE050
-	private void UnBindModAsLocal(ref ItemRepresentation.ItemModPair pair, ref ModViewModelRemoveArgs a)
+	// Token: 0x0600385D RID: 14429 RVA: 0x000C80AC File Offset: 0x000C62AC
+	private void UnBindModAsLocal(ref global::ItemRepresentation.ItemModPair pair, ref global::ModViewModelRemoveArgs a)
 	{
 		if ((int)pair.bindState == 3)
 		{
 			a.modRep = pair.representation;
 			pair.dataBlock.UnBindAsLocal(ref a);
-			pair.bindState = ItemRepresentation.BindState.None;
+			pair.bindState = global::ItemRepresentation.BindState.None;
 		}
 	}
 
-	// Token: 0x06003496 RID: 13462 RVA: 0x000BFE8C File Offset: 0x000BE08C
-	private void BindModAsProxy(ref ItemRepresentation.ItemModPair pair)
+	// Token: 0x0600385E RID: 14430 RVA: 0x000C80E8 File Offset: 0x000C62E8
+	private void BindModAsProxy(ref global::ItemRepresentation.ItemModPair pair)
 	{
 		if ((int)pair.bindState == 1)
 		{
 			pair.dataBlock.BindAsProxy(pair.representation);
-			pair.bindState = ItemRepresentation.BindState.World;
+			pair.bindState = global::ItemRepresentation.BindState.World;
 		}
 	}
 
-	// Token: 0x06003497 RID: 13463 RVA: 0x000BFEB4 File Offset: 0x000BE0B4
-	private void UnBindModAsProxy(ref ItemRepresentation.ItemModPair pair)
+	// Token: 0x0600385F RID: 14431 RVA: 0x000C8110 File Offset: 0x000C6310
+	private void UnBindModAsProxy(ref global::ItemRepresentation.ItemModPair pair)
 	{
 		if ((int)pair.bindState == 2)
 		{
 			pair.dataBlock.UnBindAsProxy(pair.representation);
-			pair.bindState = ItemRepresentation.BindState.None;
+			pair.bindState = global::ItemRepresentation.BindState.None;
 		}
 	}
 
-	// Token: 0x06003498 RID: 13464 RVA: 0x000BFEDC File Offset: 0x000BE0DC
+	// Token: 0x06003860 RID: 14432 RVA: 0x000C8138 File Offset: 0x000C6338
 	protected void Awake()
 	{
 	}
 
-	// Token: 0x17000A5C RID: 2652
-	// (get) Token: 0x06003499 RID: 13465 RVA: 0x000BFEE0 File Offset: 0x000BE0E0
+	// Token: 0x17000AD2 RID: 2770
+	// (get) Token: 0x06003861 RID: 14433 RVA: 0x000C813C File Offset: 0x000C633C
 	public string worldAnimationGroupName
 	{
 		get
@@ -102,12 +102,12 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x0600349A RID: 13466 RVA: 0x000BFEFC File Offset: 0x000BE0FC
+	// Token: 0x06003862 RID: 14434 RVA: 0x000C8158 File Offset: 0x000C6358
 	public bool PlayWorldAnimation(GroupEvent GroupEvent, float speed, float animationTime)
 	{
 		if (this._characterSignalee)
 		{
-			PlayerAnimation component = this._characterSignalee.GetComponent<PlayerAnimation>();
+			global::PlayerAnimation component = this._characterSignalee.GetComponent<global::PlayerAnimation>();
 			if (component)
 			{
 				return component.PlayAnimation(GroupEvent, speed, animationTime);
@@ -116,12 +116,12 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x0600349B RID: 13467 RVA: 0x000BFF3C File Offset: 0x000BE13C
+	// Token: 0x06003863 RID: 14435 RVA: 0x000C8198 File Offset: 0x000C6398
 	public bool PlayWorldAnimation(GroupEvent GroupEvent, float speed)
 	{
 		if (this._characterSignalee)
 		{
-			PlayerAnimation component = this._characterSignalee.GetComponent<PlayerAnimation>();
+			global::PlayerAnimation component = this._characterSignalee.GetComponent<global::PlayerAnimation>();
 			if (component)
 			{
 				return component.PlayAnimation(GroupEvent, speed);
@@ -130,12 +130,12 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x0600349C RID: 13468 RVA: 0x000BFF7C File Offset: 0x000BE17C
+	// Token: 0x06003864 RID: 14436 RVA: 0x000C81D8 File Offset: 0x000C63D8
 	public bool PlayWorldAnimation(GroupEvent GroupEvent)
 	{
 		if (this._characterSignalee)
 		{
-			PlayerAnimation component = this._characterSignalee.GetComponent<PlayerAnimation>();
+			global::PlayerAnimation component = this._characterSignalee.GetComponent<global::PlayerAnimation>();
 			if (component)
 			{
 				return component.PlayAnimation(GroupEvent);
@@ -144,7 +144,7 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x0600349D RID: 13469 RVA: 0x000BFFBC File Offset: 0x000BE1BC
+	// Token: 0x06003865 RID: 14437 RVA: 0x000C8218 File Offset: 0x000C6418
 	public bool OverrideAnimationGroupName(string newGroupName)
 	{
 		if (string.IsNullOrEmpty(newGroupName))
@@ -168,18 +168,18 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x0600349E RID: 13470 RVA: 0x000C0028 File Offset: 0x000BE228
+	// Token: 0x06003866 RID: 14438 RVA: 0x000C8284 File Offset: 0x000C6484
 	protected void OnDrawGizmosSelected()
 	{
 		this.muzzle.DrawGizmos("muzzle");
 	}
 
-	// Token: 0x0600349F RID: 13471 RVA: 0x000C003C File Offset: 0x000BE23C
-	private void KillModRep(ref ItemModRepresentation rep, bool fromCallback)
+	// Token: 0x06003867 RID: 14439 RVA: 0x000C8298 File Offset: 0x000C6498
+	private void KillModRep(ref global::ItemModRepresentation rep, bool fromCallback)
 	{
 		if (!fromCallback && rep)
 		{
-			ItemModRepresentation itemModRepresentation = this.destroyingRep;
+			global::ItemModRepresentation itemModRepresentation = this.destroyingRep;
 			try
 			{
 				this.destroyingRep = rep;
@@ -193,23 +193,23 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		rep = null;
 	}
 
-	// Token: 0x060034A0 RID: 13472 RVA: 0x000C00A0 File Offset: 0x000BE2A0
+	// Token: 0x06003868 RID: 14440 RVA: 0x000C82FC File Offset: 0x000C64FC
 	protected void OnDestroy()
 	{
 		try
 		{
-			InterpTimedEvent.Remove(this, true);
+			global::InterpTimedEvent.Remove(this, true);
 			this.ClearMods();
 		}
 		finally
 		{
-			this._parentViewID = NetworkViewID.unassigned;
+			this._parentViewID = uLink.NetworkViewID.unassigned;
 			this.ClearSignals();
 			base.OnDestroy();
 		}
 	}
 
-	// Token: 0x060034A1 RID: 13473 RVA: 0x000C00F4 File Offset: 0x000BE2F4
+	// Token: 0x06003869 RID: 14441 RVA: 0x000C8350 File Offset: 0x000C6550
 	public virtual void SetParent(GameObject parentGameObject)
 	{
 		Transform transform = parentGameObject.transform;
@@ -219,21 +219,21 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034A2 RID: 13474 RVA: 0x000C0128 File Offset: 0x000BE328
+	// Token: 0x0600386A RID: 14442 RVA: 0x000C8384 File Offset: 0x000C6584
 	protected bool CheckParent()
 	{
 		if (this._parentView)
 		{
 			return true;
 		}
-		if (this._parentViewID != NetworkViewID.unassigned)
+		if (this._parentViewID != uLink.NetworkViewID.unassigned)
 		{
-			this._parentView = NetworkView.Find(this._parentViewID);
+			this._parentView = Facepunch.NetworkView.Find(this._parentViewID);
 			if (this._parentView)
 			{
 				this._parentMain = null;
-				PlayerAnimation component = this._parentView.GetComponent<PlayerAnimation>();
-				Socket.LocalSpace itemAttachment = component.itemAttachment;
+				global::PlayerAnimation component = this._parentView.GetComponent<global::PlayerAnimation>();
+				global::Socket.LocalSpace itemAttachment = component.itemAttachment;
 				if (itemAttachment != null)
 				{
 					Vector3 offsetFromThisSocket;
@@ -257,7 +257,7 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 				}
 				if (base.networkView.isMine)
 				{
-					this.worldModels = actor.forceThirdPerson;
+					this.worldModels = global::actor.forceThirdPerson;
 				}
 				this.FindSignalee();
 				return true;
@@ -267,19 +267,19 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x060034A3 RID: 13475 RVA: 0x000C0290 File Offset: 0x000BE490
-	protected void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x0600386B RID: 14443 RVA: 0x000C84EC File Offset: 0x000C66EC
+	protected void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		this._parentViewID = info.networkView.initialData.ReadNetworkViewID();
 		int uniqueID = info.networkView.initialData.ReadInt32();
-		this._datablock = (HeldItemDataBlock)DatablockDictionary.GetByUniqueID(uniqueID);
+		this._datablock = (global::HeldItemDataBlock)global::DatablockDictionary.GetByUniqueID(uniqueID);
 		if (!this.CheckParent())
 		{
 			Debug.Log("No parent for item rep (yet)", this);
 		}
 	}
 
-	// Token: 0x060034A4 RID: 13476 RVA: 0x000C02EC File Offset: 0x000BE4EC
+	// Token: 0x0600386C RID: 14444 RVA: 0x000C8548 File Offset: 0x000C6748
 	[RPC]
 	protected void Mods(byte[] data)
 	{
@@ -288,20 +288,20 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		byte b = bitStream.ReadByte();
 		if (b > 0)
 		{
-			CharacterStateFlags characterStateFlags = this.GetCharacterStateFlags();
+			global::CharacterStateFlags characterStateFlags = this.GetCharacterStateFlags();
 			for (int i = 0; i < (int)b; i++)
 			{
 				int uniqueID = bitStream.ReadInt32();
-				ItemModDataBlock itemModDataBlock = (ItemModDataBlock)DatablockDictionary.GetByUniqueID(uniqueID);
+				global::ItemModDataBlock itemModDataBlock = (global::ItemModDataBlock)global::DatablockDictionary.GetByUniqueID(uniqueID);
 				this._itemMods.InstallMod(i, this, itemModDataBlock, characterStateFlags);
 				this._modFlags |= itemModDataBlock.modFlag;
 			}
 		}
 	}
 
-	// Token: 0x17000A5D RID: 2653
-	// (get) Token: 0x060034A5 RID: 13477 RVA: 0x000C036C File Offset: 0x000BE56C
-	// (set) Token: 0x060034A6 RID: 13478 RVA: 0x000C0378 File Offset: 0x000BE578
+	// Token: 0x17000AD3 RID: 2771
+	// (get) Token: 0x0600386D RID: 14445 RVA: 0x000C85C8 File Offset: 0x000C67C8
+	// (set) Token: 0x0600386E RID: 14446 RVA: 0x000C85D4 File Offset: 0x000C67D4
 	public bool worldModels
 	{
 		get
@@ -345,15 +345,15 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034A7 RID: 13479 RVA: 0x000C044C File Offset: 0x000BE64C
-	protected virtual void StateSignalReceive(Character character, bool treatedAsFirst)
+	// Token: 0x0600386F RID: 14447 RVA: 0x000C86A8 File Offset: 0x000C68A8
+	protected virtual void StateSignalReceive(global::Character character, bool treatedAsFirst)
 	{
-		CharacterStateFlags stateFlags = character.stateFlags;
+		global::CharacterStateFlags stateFlags = character.stateFlags;
 		if (this.lastCharacterStateFlags != null && this.lastCharacterStateFlags.Value.Equals(stateFlags))
 		{
 			return;
 		}
-		this.lastCharacterStateFlags = new CharacterStateFlags?(stateFlags);
+		this.lastCharacterStateFlags = new global::CharacterStateFlags?(stateFlags);
 		for (int i = 0; i < 5; i++)
 		{
 			if (this._itemMods[i].representation)
@@ -363,22 +363,22 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034A8 RID: 13480 RVA: 0x000C04E8 File Offset: 0x000BE6E8
+	// Token: 0x06003870 RID: 14448 RVA: 0x000C8744 File Offset: 0x000C6944
 	[RPC]
-	protected void InterpDestroy(NetworkMessageInfo info)
+	protected void InterpDestroy(uLink.NetworkMessageInfo info)
 	{
 		if (base.networkView && base.networkView.isMine)
 		{
-			InterpTimedEvent.Remove(this, true);
+			global::InterpTimedEvent.Remove(this, true);
 		}
 		else
 		{
-			InterpTimedEvent.Queue(this, "InterpDestroy", ref info);
-			NetCull.DontDestroyWithNetwork(this);
+			global::InterpTimedEvent.Queue(this, "InterpDestroy", ref info);
+			global::NetCull.DontDestroyWithNetwork(this);
 		}
 	}
 
-	// Token: 0x060034A9 RID: 13481 RVA: 0x000C0538 File Offset: 0x000BE738
+	// Token: 0x06003871 RID: 14449 RVA: 0x000C8794 File Offset: 0x000C6994
 	private static string ActionRPC(int number)
 	{
 		switch (number)
@@ -394,7 +394,7 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034AA RID: 13482 RVA: 0x000C0588 File Offset: 0x000BE788
+	// Token: 0x06003872 RID: 14450 RVA: 0x000C87E4 File Offset: 0x000C69E4
 	private static string ActionRPCBitstream(int number)
 	{
 		switch (number)
@@ -410,80 +410,80 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034AB RID: 13483 RVA: 0x000C05D8 File Offset: 0x000BE7D8
-	public void Action(int number, RPCMode mode)
+	// Token: 0x06003873 RID: 14451 RVA: 0x000C8834 File Offset: 0x000C6A34
+	public void Action(int number, uLink.RPCMode mode)
 	{
-		base.networkView.RPC(ItemRepresentation.ActionRPC(number), mode, new object[0]);
+		base.networkView.RPC(global::ItemRepresentation.ActionRPC(number), mode, new object[0]);
 	}
 
-	// Token: 0x060034AC RID: 13484 RVA: 0x000C05F4 File Offset: 0x000BE7F4
-	public void Action<T>(int number, RPCMode mode, T argument)
+	// Token: 0x06003874 RID: 14452 RVA: 0x000C8850 File Offset: 0x000C6A50
+	public void Action<T>(int number, uLink.RPCMode mode, T argument)
 	{
-		base.networkView.RPC<T>(ItemRepresentation.ActionRPC(number), mode, argument);
+		base.networkView.RPC<T>(global::ItemRepresentation.ActionRPC(number), mode, argument);
 	}
 
-	// Token: 0x060034AD RID: 13485 RVA: 0x000C060C File Offset: 0x000BE80C
-	public void Action(int number, RPCMode mode, params object[] arguments)
+	// Token: 0x06003875 RID: 14453 RVA: 0x000C8868 File Offset: 0x000C6A68
+	public void Action(int number, uLink.RPCMode mode, params object[] arguments)
 	{
-		base.networkView.RPC(ItemRepresentation.ActionRPC(number), mode, arguments);
+		base.networkView.RPC(global::ItemRepresentation.ActionRPC(number), mode, arguments);
 	}
 
-	// Token: 0x060034AE RID: 13486 RVA: 0x000C0624 File Offset: 0x000BE824
-	public void Action(int number, NetworkPlayer target)
+	// Token: 0x06003876 RID: 14454 RVA: 0x000C8880 File Offset: 0x000C6A80
+	public void Action(int number, uLink.NetworkPlayer target)
 	{
-		base.networkView.RPC(ItemRepresentation.ActionRPC(number), target, new object[0]);
+		base.networkView.RPC(global::ItemRepresentation.ActionRPC(number), target, new object[0]);
 	}
 
-	// Token: 0x060034AF RID: 13487 RVA: 0x000C0640 File Offset: 0x000BE840
-	public void Action<T>(int number, NetworkPlayer target, T argument)
+	// Token: 0x06003877 RID: 14455 RVA: 0x000C889C File Offset: 0x000C6A9C
+	public void Action<T>(int number, uLink.NetworkPlayer target, T argument)
 	{
-		base.networkView.RPC<T>(ItemRepresentation.ActionRPC(number), target, argument);
+		base.networkView.RPC<T>(global::ItemRepresentation.ActionRPC(number), target, argument);
 	}
 
-	// Token: 0x060034B0 RID: 13488 RVA: 0x000C0658 File Offset: 0x000BE858
-	public void Action(int number, NetworkPlayer target, params object[] arguments)
+	// Token: 0x06003878 RID: 14456 RVA: 0x000C88B4 File Offset: 0x000C6AB4
+	public void Action(int number, uLink.NetworkPlayer target, params object[] arguments)
 	{
-		base.networkView.RPC(ItemRepresentation.ActionRPC(number), target, arguments);
+		base.networkView.RPC(global::ItemRepresentation.ActionRPC(number), target, arguments);
 	}
 
-	// Token: 0x060034B1 RID: 13489 RVA: 0x000C0670 File Offset: 0x000BE870
-	public void Action(int number, IEnumerable<NetworkPlayer> targets)
+	// Token: 0x06003879 RID: 14457 RVA: 0x000C88CC File Offset: 0x000C6ACC
+	public void Action(int number, IEnumerable<uLink.NetworkPlayer> targets)
 	{
-		base.networkView.RPC(ItemRepresentation.ActionRPC(number), targets, new object[0]);
+		base.networkView.RPC(global::ItemRepresentation.ActionRPC(number), targets, new object[0]);
 	}
 
-	// Token: 0x060034B2 RID: 13490 RVA: 0x000C068C File Offset: 0x000BE88C
-	public void Action<T>(int number, IEnumerable<NetworkPlayer> targets, T argument)
+	// Token: 0x0600387A RID: 14458 RVA: 0x000C88E8 File Offset: 0x000C6AE8
+	public void Action<T>(int number, IEnumerable<uLink.NetworkPlayer> targets, T argument)
 	{
-		base.networkView.RPC<T>(ItemRepresentation.ActionRPC(number), targets, argument);
+		base.networkView.RPC<T>(global::ItemRepresentation.ActionRPC(number), targets, argument);
 	}
 
-	// Token: 0x060034B3 RID: 13491 RVA: 0x000C06A4 File Offset: 0x000BE8A4
-	public void Action(int number, IEnumerable<NetworkPlayer> targets, params object[] arguments)
+	// Token: 0x0600387B RID: 14459 RVA: 0x000C8900 File Offset: 0x000C6B00
+	public void Action(int number, IEnumerable<uLink.NetworkPlayer> targets, params object[] arguments)
 	{
-		base.networkView.RPC(ItemRepresentation.ActionRPC(number), targets, arguments);
+		base.networkView.RPC(global::ItemRepresentation.ActionRPC(number), targets, arguments);
 	}
 
-	// Token: 0x060034B4 RID: 13492 RVA: 0x000C06BC File Offset: 0x000BE8BC
-	public void ActionStream(int number, IEnumerable<NetworkPlayer> targets, BitStream stream)
+	// Token: 0x0600387C RID: 14460 RVA: 0x000C8918 File Offset: 0x000C6B18
+	public void ActionStream(int number, IEnumerable<uLink.NetworkPlayer> targets, BitStream stream)
 	{
-		base.networkView.RPC<byte[]>(ItemRepresentation.ActionRPCBitstream(number), targets, stream.GetDataByteArray());
+		base.networkView.RPC<byte[]>(global::ItemRepresentation.ActionRPCBitstream(number), targets, stream.GetDataByteArray());
 	}
 
-	// Token: 0x060034B5 RID: 13493 RVA: 0x000C06E4 File Offset: 0x000BE8E4
-	public void ActionStream(int number, NetworkPlayer target, BitStream stream)
+	// Token: 0x0600387D RID: 14461 RVA: 0x000C8940 File Offset: 0x000C6B40
+	public void ActionStream(int number, uLink.NetworkPlayer target, BitStream stream)
 	{
-		base.networkView.RPC<byte[]>(ItemRepresentation.ActionRPCBitstream(number), target, stream.GetDataByteArray());
+		base.networkView.RPC<byte[]>(global::ItemRepresentation.ActionRPCBitstream(number), target, stream.GetDataByteArray());
 	}
 
-	// Token: 0x060034B6 RID: 13494 RVA: 0x000C070C File Offset: 0x000BE90C
-	public void ActionStream(int number, RPCMode mode, BitStream stream)
+	// Token: 0x0600387E RID: 14462 RVA: 0x000C8968 File Offset: 0x000C6B68
+	public void ActionStream(int number, uLink.RPCMode mode, BitStream stream)
 	{
-		base.networkView.RPC<byte[]>(ItemRepresentation.ActionRPCBitstream(number), mode, stream.GetDataByteArray());
+		base.networkView.RPC<byte[]>(global::ItemRepresentation.ActionRPCBitstream(number), mode, stream.GetDataByteArray());
 	}
 
-	// Token: 0x060034B7 RID: 13495 RVA: 0x000C0734 File Offset: 0x000BE934
-	private void RunAction(int number, BitStream stream, ref NetworkMessageInfo info)
+	// Token: 0x0600387F RID: 14463 RVA: 0x000C8990 File Offset: 0x000C6B90
+	private void RunAction(int number, BitStream stream, ref uLink.NetworkMessageInfo info)
 	{
 		switch (number)
 		{
@@ -499,66 +499,66 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034B8 RID: 13496 RVA: 0x000C0798 File Offset: 0x000BE998
+	// Token: 0x06003880 RID: 14464 RVA: 0x000C89F4 File Offset: 0x000C6BF4
 	[RPC]
-	protected void Action1(BitStream stream, NetworkMessageInfo info)
+	protected void Action1(BitStream stream, uLink.NetworkMessageInfo info)
 	{
-		InterpTimedEvent.Queue(this, "Action1", ref info, new object[]
+		global::InterpTimedEvent.Queue(this, "Action1", ref info, new object[]
 		{
 			stream
 		});
 	}
 
-	// Token: 0x060034B9 RID: 13497 RVA: 0x000C07B4 File Offset: 0x000BE9B4
+	// Token: 0x06003881 RID: 14465 RVA: 0x000C8A10 File Offset: 0x000C6C10
 	[RPC]
-	protected void Action2(BitStream stream, NetworkMessageInfo info)
+	protected void Action2(BitStream stream, uLink.NetworkMessageInfo info)
 	{
-		InterpTimedEvent.Queue(this, "Action2", ref info, new object[]
+		global::InterpTimedEvent.Queue(this, "Action2", ref info, new object[]
 		{
 			stream
 		});
 	}
 
-	// Token: 0x060034BA RID: 13498 RVA: 0x000C07D0 File Offset: 0x000BE9D0
+	// Token: 0x06003882 RID: 14466 RVA: 0x000C8A2C File Offset: 0x000C6C2C
 	[RPC]
-	protected void Action3(BitStream stream, NetworkMessageInfo info)
+	protected void Action3(BitStream stream, uLink.NetworkMessageInfo info)
 	{
-		InterpTimedEvent.Queue(this, "Action3", ref info, new object[]
+		global::InterpTimedEvent.Queue(this, "Action3", ref info, new object[]
 		{
 			stream
 		});
 	}
 
-	// Token: 0x060034BB RID: 13499 RVA: 0x000C07EC File Offset: 0x000BE9EC
+	// Token: 0x06003883 RID: 14467 RVA: 0x000C8A48 File Offset: 0x000C6C48
 	[RPC]
-	protected void Action1B(byte[] data, NetworkMessageInfo info)
+	protected void Action1B(byte[] data, uLink.NetworkMessageInfo info)
 	{
 		this.Action1(new BitStream(data, false), info);
 	}
 
-	// Token: 0x060034BC RID: 13500 RVA: 0x000C07FC File Offset: 0x000BE9FC
+	// Token: 0x06003884 RID: 14468 RVA: 0x000C8A58 File Offset: 0x000C6C58
 	[RPC]
-	protected void Action2B(byte[] data, NetworkMessageInfo info)
+	protected void Action2B(byte[] data, uLink.NetworkMessageInfo info)
 	{
 		this.Action2(new BitStream(data, false), info);
 	}
 
-	// Token: 0x060034BD RID: 13501 RVA: 0x000C080C File Offset: 0x000BEA0C
+	// Token: 0x06003885 RID: 14469 RVA: 0x000C8A68 File Offset: 0x000C6C68
 	[RPC]
-	protected void Action3B(byte[] data, NetworkMessageInfo info)
+	protected void Action3B(byte[] data, uLink.NetworkMessageInfo info)
 	{
 		this.Action3(new BitStream(data, false), info);
 	}
 
-	// Token: 0x060034BE RID: 13502 RVA: 0x000C081C File Offset: 0x000BEA1C
+	// Token: 0x06003886 RID: 14470 RVA: 0x000C8A78 File Offset: 0x000C6C78
 	protected virtual void OnInterpTimedEvent()
 	{
-		string tag = InterpTimedEvent.Tag;
+		string tag = global::InterpTimedEvent.Tag;
 		if (tag != null)
 		{
-			if (ItemRepresentation.<>f__switch$mapB == null)
+			if (global::ItemRepresentation.<>f__switch$mapB == null)
 			{
-				ItemRepresentation.<>f__switch$mapB = new Dictionary<string, int>(4)
+				global::ItemRepresentation.<>f__switch$mapB = new Dictionary<string, int>(4)
 				{
 					{
 						"Action1",
@@ -579,7 +579,7 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 				};
 			}
 			int num;
-			if (ItemRepresentation.<>f__switch$mapB.TryGetValue(tag, out num))
+			if (global::ItemRepresentation.<>f__switch$mapB.TryGetValue(tag, out num))
 			{
 				int number;
 				BitStream stream;
@@ -587,15 +587,15 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 				{
 				case 0:
 					number = 1;
-					stream = InterpTimedEvent.Argument<BitStream>(0);
+					stream = global::InterpTimedEvent.Argument<BitStream>(0);
 					break;
 				case 1:
 					number = 2;
-					stream = InterpTimedEvent.Argument<BitStream>(0);
+					stream = global::InterpTimedEvent.Argument<BitStream>(0);
 					break;
 				case 2:
 					number = 3;
-					stream = InterpTimedEvent.Argument<BitStream>(0);
+					stream = global::InterpTimedEvent.Argument<BitStream>(0);
 					break;
 				case 3:
 					Object.Destroy(base.gameObject);
@@ -603,24 +603,24 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 				default:
 					goto IL_BF;
 				}
-				NetworkMessageInfo info = InterpTimedEvent.Info;
+				uLink.NetworkMessageInfo info = global::InterpTimedEvent.Info;
 				this.RunAction(number, stream, ref info);
 				return;
 			}
 		}
 		IL_BF:
-		InterpTimedEvent.MarkUnhandled();
+		global::InterpTimedEvent.MarkUnhandled();
 	}
 
-	// Token: 0x060034BF RID: 13503 RVA: 0x000C0900 File Offset: 0x000BEB00
+	// Token: 0x06003887 RID: 14471 RVA: 0x000C8B5C File Offset: 0x000C6D5C
 	private void FindSignalee()
 	{
 		this._parentMain = this._parentView.idMain;
-		if (this._parentMain is Character)
+		if (this._parentMain is global::Character)
 		{
-			Character character = (Character)this._parentMain;
+			global::Character character = (global::Character)this._parentMain;
 			this.SetSignalee(character);
-			this._holder = character.GetLocal<InventoryHolder>();
+			this._holder = character.GetLocal<global::InventoryHolder>();
 			if (this._holder)
 			{
 				this._holder.SetItemRepresentation(this);
@@ -631,7 +631,7 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		this.ClearSignals();
 	}
 
-	// Token: 0x060034C0 RID: 13504 RVA: 0x000C0978 File Offset: 0x000BEB78
+	// Token: 0x06003888 RID: 14472 RVA: 0x000C8BD4 File Offset: 0x000C6DD4
 	private void ClearSignals()
 	{
 		if (this._characterSignalee)
@@ -646,8 +646,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		this._characterSignalee = null;
 	}
 
-	// Token: 0x060034C1 RID: 13505 RVA: 0x000C09D0 File Offset: 0x000BEBD0
-	private void SetSignalee(Character signalee)
+	// Token: 0x06003889 RID: 14473 RVA: 0x000C8C2C File Offset: 0x000C6E2C
+	private void SetSignalee(global::Character signalee)
 	{
 		if (!signalee)
 		{
@@ -664,34 +664,34 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034C2 RID: 13506 RVA: 0x000C0A28 File Offset: 0x000BEC28
-	private void RunViewModelAdd(ViewModel vm, IHeldItem item, bool doMeshes)
+	// Token: 0x0600388A RID: 14474 RVA: 0x000C8C84 File Offset: 0x000C6E84
+	private void RunViewModelAdd(global::ViewModel vm, global::IHeldItem item, bool doMeshes)
 	{
-		ModViewModelAddArgs modViewModelAddArgs = new ModViewModelAddArgs(vm, item, doMeshes);
+		global::ModViewModelAddArgs modViewModelAddArgs = new global::ModViewModelAddArgs(vm, item, doMeshes);
 		for (int i = 0; i < 5; i++)
 		{
 			this._itemMods.BindAsLocal(i, ref modViewModelAddArgs, this);
 		}
 	}
 
-	// Token: 0x060034C3 RID: 13507 RVA: 0x000C0A60 File Offset: 0x000BEC60
-	internal void PrepareViewModel(ViewModel vm, IHeldItem item)
+	// Token: 0x0600388B RID: 14475 RVA: 0x000C8CBC File Offset: 0x000C6EBC
+	internal void PrepareViewModel(global::ViewModel vm, global::IHeldItem item)
 	{
 		this.RunViewModelAdd(vm, item, true);
 		this._lastViewModel = vm;
 	}
 
-	// Token: 0x060034C4 RID: 13508 RVA: 0x000C0A74 File Offset: 0x000BEC74
-	internal void BindViewModel(ViewModel vm, IHeldItem item)
+	// Token: 0x0600388C RID: 14476 RVA: 0x000C8CD0 File Offset: 0x000C6ED0
+	internal void BindViewModel(global::ViewModel vm, global::IHeldItem item)
 	{
 		this.RunViewModelAdd(vm, item, false);
 		this._lastViewModel = vm;
 	}
 
-	// Token: 0x060034C5 RID: 13509 RVA: 0x000C0A88 File Offset: 0x000BEC88
-	internal void UnBindViewModel(ViewModel vm, IHeldItem item)
+	// Token: 0x0600388D RID: 14477 RVA: 0x000C8CE4 File Offset: 0x000C6EE4
+	internal void UnBindViewModel(global::ViewModel vm, global::IHeldItem item)
 	{
-		ModViewModelRemoveArgs modViewModelRemoveArgs = new ModViewModelRemoveArgs(vm, item);
+		global::ModViewModelRemoveArgs modViewModelRemoveArgs = new global::ModViewModelRemoveArgs(vm, item);
 		for (int i = 0; i < 5; i++)
 		{
 			this._itemMods.UnBindAsLocal(i, ref modViewModelRemoveArgs, this);
@@ -702,27 +702,27 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060034C6 RID: 13510 RVA: 0x000C0AD8 File Offset: 0x000BECD8
-	private void EraseModDatablock(ref ItemModDataBlock block)
+	// Token: 0x0600388E RID: 14478 RVA: 0x000C8D34 File Offset: 0x000C6F34
+	private void EraseModDatablock(ref global::ItemModDataBlock block)
 	{
 		block = null;
 	}
 
-	// Token: 0x060034C7 RID: 13511 RVA: 0x000C0AE0 File Offset: 0x000BECE0
-	private void ClearModPair(ref ItemRepresentation.ItemModPair pair)
+	// Token: 0x0600388F RID: 14479 RVA: 0x000C8D3C File Offset: 0x000C6F3C
+	private void ClearModPair(ref global::ItemRepresentation.ItemModPair pair)
 	{
 		this.KillModRep(ref pair.representation, false);
 		this.EraseModDatablock(ref pair.dataBlock);
-		pair = default(ItemRepresentation.ItemModPair);
+		pair = default(global::ItemRepresentation.ItemModPair);
 	}
 
-	// Token: 0x060034C8 RID: 13512 RVA: 0x000C0B18 File Offset: 0x000BED18
+	// Token: 0x06003890 RID: 14480 RVA: 0x000C8D74 File Offset: 0x000C6F74
 	private bool ClearMods()
 	{
 		bool flag = this.modLock;
 		if (!this.modLock)
 		{
-			this._modFlags = ItemModFlags.Other;
+			this._modFlags = global::ItemModFlags.Other;
 			try
 			{
 				this.modLock = true;
@@ -740,8 +740,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x060034C9 RID: 13513 RVA: 0x000C0B90 File Offset: 0x000BED90
-	internal void ItemModRepresentationDestroyed(ItemModRepresentation rep)
+	// Token: 0x06003891 RID: 14481 RVA: 0x000C8DEC File Offset: 0x000C6FEC
+	internal void ItemModRepresentationDestroyed(global::ItemModRepresentation rep)
 	{
 		if (this.modLock || this.destroyingRep == rep)
 		{
@@ -750,8 +750,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		this._itemMods.KillModForRep(rep, this, true);
 	}
 
-	// Token: 0x060034CA RID: 13514 RVA: 0x000C0BCC File Offset: 0x000BEDCC
-	private void InstallMod(ref ItemRepresentation.ItemModPair to, int slot, ItemModDataBlock datablock, CharacterStateFlags flags)
+	// Token: 0x06003892 RID: 14482 RVA: 0x000C8E28 File Offset: 0x000C7028
+	private void InstallMod(ref global::ItemRepresentation.ItemModPair to, int slot, global::ItemModDataBlock datablock, global::CharacterStateFlags flags)
 	{
 		to.dataBlock = datablock;
 		if (to.representation)
@@ -760,7 +760,7 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 		}
 		if (to.dataBlock.hasModRepresentation && to.dataBlock.AddModRepresentationComponent(base.gameObject, out to.representation))
 		{
-			to.bindState = ItemRepresentation.BindState.None;
+			to.bindState = global::ItemRepresentation.BindState.None;
 			to.representation.Initialize(this, slot, flags);
 			if (to.representation)
 			{
@@ -771,120 +771,120 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 			else
 			{
-				to.bindState = ItemRepresentation.BindState.Vacant;
+				to.bindState = global::ItemRepresentation.BindState.Vacant;
 				to.representation = null;
 			}
 		}
 	}
 
-	// Token: 0x060034CB RID: 13515 RVA: 0x000C0C7C File Offset: 0x000BEE7C
-	protected CharacterStateFlags GetCharacterStateFlags()
+	// Token: 0x06003893 RID: 14483 RVA: 0x000C8ED8 File Offset: 0x000C70D8
+	protected global::CharacterStateFlags GetCharacterStateFlags()
 	{
-		if (this.CheckParent() && this._parentMain is Character)
+		if (this.CheckParent() && this._parentMain is global::Character)
 		{
-			CharacterStateFlags stateFlags = ((Character)this._parentMain).stateFlags;
-			this.lastCharacterStateFlags = new CharacterStateFlags?(stateFlags);
+			global::CharacterStateFlags stateFlags = ((global::Character)this._parentMain).stateFlags;
+			this.lastCharacterStateFlags = new global::CharacterStateFlags?(stateFlags);
 			return stateFlags;
 		}
-		CharacterStateFlags? characterStateFlags = this.lastCharacterStateFlags;
-		return (characterStateFlags == null) ? default(CharacterStateFlags) : characterStateFlags.Value;
+		global::CharacterStateFlags? characterStateFlags = this.lastCharacterStateFlags;
+		return (characterStateFlags == null) ? default(global::CharacterStateFlags) : characterStateFlags.Value;
 	}
 
-	// Token: 0x060034CC RID: 13516 RVA: 0x000C0CEC File Offset: 0x000BEEEC
+	// Token: 0x06003894 RID: 14484 RVA: 0x000C8F48 File Offset: 0x000C7148
 	[Obsolete("This is dumb. The datablock shouldnt change")]
-	internal void SetDataBlockFromHeldItem<T>(HeldItem<T> item) where T : HeldItemDataBlock
+	internal void SetDataBlockFromHeldItem<T>(global::HeldItem<T> item) where T : global::HeldItemDataBlock
 	{
 		this._datablock = item.datablock;
 	}
 
-	// Token: 0x04001A3B RID: 6715
-	private HeldItemDataBlock _datablock;
+	// Token: 0x04001C0C RID: 7180
+	private global::HeldItemDataBlock _datablock;
 
-	// Token: 0x04001A3C RID: 6716
-	private InventoryHolder _holder;
+	// Token: 0x04001C0D RID: 7181
+	private global::InventoryHolder _holder;
 
-	// Token: 0x04001A3D RID: 6717
+	// Token: 0x04001C0E RID: 7182
 	[SerializeField]
 	private GameObject[] visuals;
 
-	// Token: 0x04001A3E RID: 6718
-	internal ItemRepresentation.ItemModPairArray _itemMods;
+	// Token: 0x04001C0F RID: 7183
+	internal global::ItemRepresentation.ItemModPairArray _itemMods;
 
-	// Token: 0x04001A3F RID: 6719
-	private NetworkView _parentView;
+	// Token: 0x04001C10 RID: 7184
+	private Facepunch.NetworkView _parentView;
 
-	// Token: 0x04001A40 RID: 6720
+	// Token: 0x04001C11 RID: 7185
 	private IDMain _parentMain;
 
-	// Token: 0x04001A41 RID: 6721
-	private NetworkViewID _parentViewID;
+	// Token: 0x04001C12 RID: 7186
+	private uLink.NetworkViewID _parentViewID;
 
-	// Token: 0x04001A42 RID: 6722
-	private Character _characterSignalee;
+	// Token: 0x04001C13 RID: 7187
+	private global::Character _characterSignalee;
 
-	// Token: 0x04001A43 RID: 6723
-	private ViewModel _lastViewModel;
+	// Token: 0x04001C14 RID: 7188
+	private global::ViewModel _lastViewModel;
 
-	// Token: 0x04001A44 RID: 6724
+	// Token: 0x04001C15 RID: 7189
 	[NonSerialized]
 	private string worldAnimationGroupNameOverride;
 
-	// Token: 0x04001A45 RID: 6725
-	public Socket.LocalSpace muzzle;
+	// Token: 0x04001C16 RID: 7190
+	public global::Socket.LocalSpace muzzle;
 
-	// Token: 0x04001A46 RID: 6726
-	public Socket.LocalSpace hand;
+	// Token: 0x04001C17 RID: 7191
+	public global::Socket.LocalSpace hand;
 
-	// Token: 0x04001A47 RID: 6727
-	private ItemModFlags _modFlags;
+	// Token: 0x04001C18 RID: 7192
+	private global::ItemModFlags _modFlags;
 
-	// Token: 0x04001A48 RID: 6728
+	// Token: 0x04001C19 RID: 7193
 	private bool worldStateDisabled;
 
-	// Token: 0x04001A49 RID: 6729
-	private CharacterStateFlags? lastCharacterStateFlags;
+	// Token: 0x04001C1A RID: 7194
+	private global::CharacterStateFlags? lastCharacterStateFlags;
 
-	// Token: 0x04001A4A RID: 6730
-	private readonly CharacterStateSignal stateSignalReceive;
+	// Token: 0x04001C1B RID: 7195
+	private readonly global::CharacterStateSignal stateSignalReceive;
 
-	// Token: 0x04001A4B RID: 6731
+	// Token: 0x04001C1C RID: 7196
 	private bool modLock;
 
-	// Token: 0x04001A4C RID: 6732
+	// Token: 0x04001C1D RID: 7197
 	[NonSerialized]
-	private ItemModRepresentation destroyingRep;
+	private global::ItemModRepresentation destroyingRep;
 
-	// Token: 0x020005AB RID: 1451
+	// Token: 0x02000669 RID: 1641
 	internal struct ItemModPair
 	{
-		// Token: 0x04001A4E RID: 6734
-		public ItemModDataBlock dataBlock;
+		// Token: 0x04001C1F RID: 7199
+		public global::ItemModDataBlock dataBlock;
 
-		// Token: 0x04001A4F RID: 6735
-		public ItemModRepresentation representation;
+		// Token: 0x04001C20 RID: 7200
+		public global::ItemModRepresentation representation;
 
-		// Token: 0x04001A50 RID: 6736
-		public ItemRepresentation.BindState bindState;
+		// Token: 0x04001C21 RID: 7201
+		public global::ItemRepresentation.BindState bindState;
 	}
 
-	// Token: 0x020005AC RID: 1452
+	// Token: 0x0200066A RID: 1642
 	internal enum BindState : sbyte
 	{
-		// Token: 0x04001A52 RID: 6738
+		// Token: 0x04001C23 RID: 7203
 		Vacant,
-		// Token: 0x04001A53 RID: 6739
+		// Token: 0x04001C24 RID: 7204
 		None,
-		// Token: 0x04001A54 RID: 6740
+		// Token: 0x04001C25 RID: 7205
 		World,
-		// Token: 0x04001A55 RID: 6741
+		// Token: 0x04001C26 RID: 7206
 		Local
 	}
 
-	// Token: 0x020005AD RID: 1453
+	// Token: 0x0200066B RID: 1643
 	internal struct ItemModPairArray
 	{
-		// Token: 0x17000A5E RID: 2654
-		public ItemRepresentation.ItemModPair this[int slotNumber]
+		// Token: 0x17000AD4 RID: 2772
+		public global::ItemRepresentation.ItemModPair this[int slotNumber]
 		{
 			get
 			{
@@ -929,8 +929,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x060034D0 RID: 13520 RVA: 0x000C0DCC File Offset: 0x000BEFCC
-		public ItemModDataBlock ItemModDataBlock(int slotNumber)
+		// Token: 0x06003898 RID: 14488 RVA: 0x000C9028 File Offset: 0x000C7228
+		public global::ItemModDataBlock ItemModDataBlock(int slotNumber)
 		{
 			switch (slotNumber)
 			{
@@ -949,8 +949,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x060034D1 RID: 13521 RVA: 0x000C0E3C File Offset: 0x000BF03C
-		public void BindAsLocal(int slotNumber, ref ModViewModelAddArgs args, ItemRepresentation itemRep)
+		// Token: 0x06003899 RID: 14489 RVA: 0x000C9098 File Offset: 0x000C7298
+		public void BindAsLocal(int slotNumber, ref global::ModViewModelAddArgs args, global::ItemRepresentation itemRep)
 		{
 			switch (slotNumber)
 			{
@@ -974,8 +974,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x060034D2 RID: 13522 RVA: 0x000C0ECC File Offset: 0x000BF0CC
-		public void UnBindAsLocal(int slotNumber, ref ModViewModelRemoveArgs args, ItemRepresentation itemRep)
+		// Token: 0x0600389A RID: 14490 RVA: 0x000C9128 File Offset: 0x000C7328
+		public void UnBindAsLocal(int slotNumber, ref global::ModViewModelRemoveArgs args, global::ItemRepresentation itemRep)
 		{
 			switch (slotNumber)
 			{
@@ -999,8 +999,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x060034D3 RID: 13523 RVA: 0x000C0F5C File Offset: 0x000BF15C
-		public void BindAsProxy(int slotNumber, ItemRepresentation itemRep)
+		// Token: 0x0600389B RID: 14491 RVA: 0x000C91B8 File Offset: 0x000C73B8
+		public void BindAsProxy(int slotNumber, global::ItemRepresentation itemRep)
 		{
 			switch (slotNumber)
 			{
@@ -1024,8 +1024,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x060034D4 RID: 13524 RVA: 0x000C0FE8 File Offset: 0x000BF1E8
-		public void UnBindAsProxy(int slotNumber, ItemRepresentation itemRep)
+		// Token: 0x0600389C RID: 14492 RVA: 0x000C9244 File Offset: 0x000C7444
+		public void UnBindAsProxy(int slotNumber, global::ItemRepresentation itemRep)
 		{
 			switch (slotNumber)
 			{
@@ -1049,8 +1049,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x060034D5 RID: 13525 RVA: 0x000C1074 File Offset: 0x000BF274
-		public void ClearModPair(int slotNumber, ItemRepresentation owner)
+		// Token: 0x0600389D RID: 14493 RVA: 0x000C92D0 File Offset: 0x000C74D0
+		public void ClearModPair(int slotNumber, global::ItemRepresentation owner)
 		{
 			switch (slotNumber)
 			{
@@ -1074,8 +1074,8 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x060034D6 RID: 13526 RVA: 0x000C1100 File Offset: 0x000BF300
-		private static bool KillModForRep(ref ItemRepresentation.ItemModPair pair, ItemModRepresentation modRep, ItemRepresentation owner, bool fromCallback)
+		// Token: 0x0600389E RID: 14494 RVA: 0x000C935C File Offset: 0x000C755C
+		private static bool KillModForRep(ref global::ItemRepresentation.ItemModPair pair, global::ItemModRepresentation modRep, global::ItemRepresentation owner, bool fromCallback)
 		{
 			if (pair.representation == modRep)
 			{
@@ -1085,28 +1085,28 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			return true;
 		}
 
-		// Token: 0x060034D7 RID: 13527 RVA: 0x000C1124 File Offset: 0x000BF324
-		public bool KillModForRep(ItemModRepresentation modRep, ItemRepresentation owner, bool fromCallback)
+		// Token: 0x0600389F RID: 14495 RVA: 0x000C9380 File Offset: 0x000C7580
+		public bool KillModForRep(global::ItemModRepresentation modRep, global::ItemRepresentation owner, bool fromCallback)
 		{
 			switch (modRep.modSlot)
 			{
 			case 0:
-				return ItemRepresentation.ItemModPairArray.KillModForRep(ref this.a, modRep, owner, fromCallback);
+				return global::ItemRepresentation.ItemModPairArray.KillModForRep(ref this.a, modRep, owner, fromCallback);
 			case 1:
-				return ItemRepresentation.ItemModPairArray.KillModForRep(ref this.b, modRep, owner, fromCallback);
+				return global::ItemRepresentation.ItemModPairArray.KillModForRep(ref this.b, modRep, owner, fromCallback);
 			case 2:
-				return ItemRepresentation.ItemModPairArray.KillModForRep(ref this.c, modRep, owner, fromCallback);
+				return global::ItemRepresentation.ItemModPairArray.KillModForRep(ref this.c, modRep, owner, fromCallback);
 			case 3:
-				return ItemRepresentation.ItemModPairArray.KillModForRep(ref this.d, modRep, owner, fromCallback);
+				return global::ItemRepresentation.ItemModPairArray.KillModForRep(ref this.d, modRep, owner, fromCallback);
 			case 4:
-				return ItemRepresentation.ItemModPairArray.KillModForRep(ref this.e, modRep, owner, fromCallback);
+				return global::ItemRepresentation.ItemModPairArray.KillModForRep(ref this.e, modRep, owner, fromCallback);
 			default:
 				throw new IndexOutOfRangeException();
 			}
 		}
 
-		// Token: 0x060034D8 RID: 13528 RVA: 0x000C11A8 File Offset: 0x000BF3A8
-		public void InstallMod(int slotNumber, ItemRepresentation owner, ItemModDataBlock datablock, CharacterStateFlags flags)
+		// Token: 0x060038A0 RID: 14496 RVA: 0x000C9404 File Offset: 0x000C7604
+		public void InstallMod(int slotNumber, global::ItemRepresentation owner, global::ItemModDataBlock datablock, global::CharacterStateFlags flags)
 		{
 			switch (slotNumber)
 			{
@@ -1130,22 +1130,22 @@ public class ItemRepresentation : IDMain, IInterpTimedEventReceiver
 			}
 		}
 
-		// Token: 0x04001A56 RID: 6742
+		// Token: 0x04001C27 RID: 7207
 		private const int internalPairCount = 5;
 
-		// Token: 0x04001A57 RID: 6743
-		private ItemRepresentation.ItemModPair a;
+		// Token: 0x04001C28 RID: 7208
+		private global::ItemRepresentation.ItemModPair a;
 
-		// Token: 0x04001A58 RID: 6744
-		private ItemRepresentation.ItemModPair b;
+		// Token: 0x04001C29 RID: 7209
+		private global::ItemRepresentation.ItemModPair b;
 
-		// Token: 0x04001A59 RID: 6745
-		private ItemRepresentation.ItemModPair c;
+		// Token: 0x04001C2A RID: 7210
+		private global::ItemRepresentation.ItemModPair c;
 
-		// Token: 0x04001A5A RID: 6746
-		private ItemRepresentation.ItemModPair d;
+		// Token: 0x04001C2B RID: 7211
+		private global::ItemRepresentation.ItemModPair d;
 
-		// Token: 0x04001A5B RID: 6747
-		private ItemRepresentation.ItemModPair e;
+		// Token: 0x04001C2C RID: 7212
+		private global::ItemRepresentation.ItemModPair e;
 	}
 }

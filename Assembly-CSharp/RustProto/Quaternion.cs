@@ -9,29 +9,29 @@ using UnityEngine;
 
 namespace RustProto
 {
-	// Token: 0x02000223 RID: 547
+	// Token: 0x02000256 RID: 598
 	[DebuggerNonUserCode]
 	public sealed class Quaternion : GeneratedMessage<Quaternion, Quaternion.Builder>
 	{
-		// Token: 0x06001384 RID: 4996 RVA: 0x00042E50 File Offset: 0x00041050
+		// Token: 0x060014D8 RID: 5336 RVA: 0x000471F8 File Offset: 0x000453F8
 		private Quaternion()
 		{
 		}
 
-		// Token: 0x06001385 RID: 4997 RVA: 0x00042E60 File Offset: 0x00041060
+		// Token: 0x060014D9 RID: 5337 RVA: 0x00047208 File Offset: 0x00045408
 		static Quaternion()
 		{
 			object.ReferenceEquals(Common.Descriptor, null);
 		}
 
-		// Token: 0x06001386 RID: 4998 RVA: 0x00042ECC File Offset: 0x000410CC
-		public static Recycler<Quaternion, Quaternion.Builder> Recycler()
+		// Token: 0x060014DA RID: 5338 RVA: 0x00047274 File Offset: 0x00045474
+		public static RustProto.Helpers.Recycler<Quaternion, Quaternion.Builder> Recycler()
 		{
-			return Recycler<Quaternion, Quaternion.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<Quaternion, Quaternion.Builder>.Manufacture();
 		}
 
-		// Token: 0x17000586 RID: 1414
-		// (get) Token: 0x06001387 RID: 4999 RVA: 0x00042ED4 File Offset: 0x000410D4
+		// Token: 0x170005CE RID: 1486
+		// (get) Token: 0x060014DB RID: 5339 RVA: 0x0004727C File Offset: 0x0004547C
 		public static Quaternion DefaultInstance
 		{
 			get
@@ -40,8 +40,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000587 RID: 1415
-		// (get) Token: 0x06001388 RID: 5000 RVA: 0x00042EDC File Offset: 0x000410DC
+		// Token: 0x170005CF RID: 1487
+		// (get) Token: 0x060014DC RID: 5340 RVA: 0x00047284 File Offset: 0x00045484
 		public override Quaternion DefaultInstanceForType
 		{
 			get
@@ -50,8 +50,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000588 RID: 1416
-		// (get) Token: 0x06001389 RID: 5001 RVA: 0x00042EE4 File Offset: 0x000410E4
+		// Token: 0x170005D0 RID: 1488
+		// (get) Token: 0x060014DD RID: 5341 RVA: 0x0004728C File Offset: 0x0004548C
 		protected override Quaternion ThisMessage
 		{
 			get
@@ -60,8 +60,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000589 RID: 1417
-		// (get) Token: 0x0600138A RID: 5002 RVA: 0x00042EE8 File Offset: 0x000410E8
+		// Token: 0x170005D1 RID: 1489
+		// (get) Token: 0x060014DE RID: 5342 RVA: 0x00047290 File Offset: 0x00045490
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -70,8 +70,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700058A RID: 1418
-		// (get) Token: 0x0600138B RID: 5003 RVA: 0x00042EF0 File Offset: 0x000410F0
+		// Token: 0x170005D2 RID: 1490
+		// (get) Token: 0x060014DF RID: 5343 RVA: 0x00047298 File Offset: 0x00045498
 		protected override FieldAccessorTable<Quaternion, Quaternion.Builder> InternalFieldAccessors
 		{
 			get
@@ -80,8 +80,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700058B RID: 1419
-		// (get) Token: 0x0600138C RID: 5004 RVA: 0x00042EF8 File Offset: 0x000410F8
+		// Token: 0x170005D3 RID: 1491
+		// (get) Token: 0x060014E0 RID: 5344 RVA: 0x000472A0 File Offset: 0x000454A0
 		public bool HasX
 		{
 			get
@@ -90,8 +90,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700058C RID: 1420
-		// (get) Token: 0x0600138D RID: 5005 RVA: 0x00042F00 File Offset: 0x00041100
+		// Token: 0x170005D4 RID: 1492
+		// (get) Token: 0x060014E1 RID: 5345 RVA: 0x000472A8 File Offset: 0x000454A8
 		public float X
 		{
 			get
@@ -100,8 +100,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700058D RID: 1421
-		// (get) Token: 0x0600138E RID: 5006 RVA: 0x00042F08 File Offset: 0x00041108
+		// Token: 0x170005D5 RID: 1493
+		// (get) Token: 0x060014E2 RID: 5346 RVA: 0x000472B0 File Offset: 0x000454B0
 		public bool HasY
 		{
 			get
@@ -110,8 +110,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700058E RID: 1422
-		// (get) Token: 0x0600138F RID: 5007 RVA: 0x00042F10 File Offset: 0x00041110
+		// Token: 0x170005D6 RID: 1494
+		// (get) Token: 0x060014E3 RID: 5347 RVA: 0x000472B8 File Offset: 0x000454B8
 		public float Y
 		{
 			get
@@ -120,8 +120,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700058F RID: 1423
-		// (get) Token: 0x06001390 RID: 5008 RVA: 0x00042F18 File Offset: 0x00041118
+		// Token: 0x170005D7 RID: 1495
+		// (get) Token: 0x060014E4 RID: 5348 RVA: 0x000472C0 File Offset: 0x000454C0
 		public bool HasZ
 		{
 			get
@@ -130,8 +130,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000590 RID: 1424
-		// (get) Token: 0x06001391 RID: 5009 RVA: 0x00042F20 File Offset: 0x00041120
+		// Token: 0x170005D8 RID: 1496
+		// (get) Token: 0x060014E5 RID: 5349 RVA: 0x000472C8 File Offset: 0x000454C8
 		public float Z
 		{
 			get
@@ -140,8 +140,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000591 RID: 1425
-		// (get) Token: 0x06001392 RID: 5010 RVA: 0x00042F28 File Offset: 0x00041128
+		// Token: 0x170005D9 RID: 1497
+		// (get) Token: 0x060014E6 RID: 5350 RVA: 0x000472D0 File Offset: 0x000454D0
 		public bool HasW
 		{
 			get
@@ -150,8 +150,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000592 RID: 1426
-		// (get) Token: 0x06001393 RID: 5011 RVA: 0x00042F30 File Offset: 0x00041130
+		// Token: 0x170005DA RID: 1498
+		// (get) Token: 0x060014E7 RID: 5351 RVA: 0x000472D8 File Offset: 0x000454D8
 		public float W
 		{
 			get
@@ -160,8 +160,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000593 RID: 1427
-		// (get) Token: 0x06001394 RID: 5012 RVA: 0x00042F38 File Offset: 0x00041138
+		// Token: 0x170005DB RID: 1499
+		// (get) Token: 0x060014E8 RID: 5352 RVA: 0x000472E0 File Offset: 0x000454E0
 		public override bool IsInitialized
 		{
 			get
@@ -170,7 +170,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001395 RID: 5013 RVA: 0x00042F3C File Offset: 0x0004113C
+		// Token: 0x060014E9 RID: 5353 RVA: 0x000472E4 File Offset: 0x000454E4
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -194,8 +194,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x17000594 RID: 1428
-		// (get) Token: 0x06001396 RID: 5014 RVA: 0x00042FD0 File Offset: 0x000411D0
+		// Token: 0x170005DC RID: 1500
+		// (get) Token: 0x060014EA RID: 5354 RVA: 0x00047378 File Offset: 0x00045578
 		public override int SerializedSize
 		{
 			get
@@ -228,101 +228,101 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001397 RID: 5015 RVA: 0x00043070 File Offset: 0x00041270
+		// Token: 0x060014EB RID: 5355 RVA: 0x00047418 File Offset: 0x00045618
 		public static Quaternion ParseFrom(ByteString data)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001398 RID: 5016 RVA: 0x00043084 File Offset: 0x00041284
+		// Token: 0x060014EC RID: 5356 RVA: 0x0004742C File Offset: 0x0004562C
 		public static Quaternion ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001399 RID: 5017 RVA: 0x00043098 File Offset: 0x00041298
+		// Token: 0x060014ED RID: 5357 RVA: 0x00047440 File Offset: 0x00045640
 		public static Quaternion ParseFrom(byte[] data)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x0600139A RID: 5018 RVA: 0x000430AC File Offset: 0x000412AC
+		// Token: 0x060014EE RID: 5358 RVA: 0x00047454 File Offset: 0x00045654
 		public static Quaternion ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600139B RID: 5019 RVA: 0x000430C0 File Offset: 0x000412C0
+		// Token: 0x060014EF RID: 5359 RVA: 0x00047468 File Offset: 0x00045668
 		public static Quaternion ParseFrom(Stream input)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600139C RID: 5020 RVA: 0x000430D4 File Offset: 0x000412D4
+		// Token: 0x060014F0 RID: 5360 RVA: 0x0004747C File Offset: 0x0004567C
 		public static Quaternion ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600139D RID: 5021 RVA: 0x000430E8 File Offset: 0x000412E8
+		// Token: 0x060014F1 RID: 5361 RVA: 0x00047490 File Offset: 0x00045690
 		public static Quaternion ParseDelimitedFrom(Stream input)
 		{
 			return Quaternion.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600139E RID: 5022 RVA: 0x000430FC File Offset: 0x000412FC
+		// Token: 0x060014F2 RID: 5362 RVA: 0x000474A4 File Offset: 0x000456A4
 		public static Quaternion ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return Quaternion.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600139F RID: 5023 RVA: 0x00043110 File Offset: 0x00041310
+		// Token: 0x060014F3 RID: 5363 RVA: 0x000474B8 File Offset: 0x000456B8
 		public static Quaternion ParseFrom(ICodedInputStream input)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060013A0 RID: 5024 RVA: 0x00043124 File Offset: 0x00041324
+		// Token: 0x060014F4 RID: 5364 RVA: 0x000474CC File Offset: 0x000456CC
 		public static Quaternion ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return Quaternion.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060013A1 RID: 5025 RVA: 0x00043138 File Offset: 0x00041338
+		// Token: 0x060014F5 RID: 5365 RVA: 0x000474E0 File Offset: 0x000456E0
 		private Quaternion MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x060013A2 RID: 5026 RVA: 0x0004313C File Offset: 0x0004133C
+		// Token: 0x060014F6 RID: 5366 RVA: 0x000474E4 File Offset: 0x000456E4
 		public static Quaternion.Builder CreateBuilder()
 		{
 			return new Quaternion.Builder();
 		}
 
-		// Token: 0x060013A3 RID: 5027 RVA: 0x00043144 File Offset: 0x00041344
+		// Token: 0x060014F7 RID: 5367 RVA: 0x000474EC File Offset: 0x000456EC
 		public override Quaternion.Builder ToBuilder()
 		{
 			return Quaternion.CreateBuilder(this);
 		}
 
-		// Token: 0x060013A4 RID: 5028 RVA: 0x0004314C File Offset: 0x0004134C
+		// Token: 0x060014F8 RID: 5368 RVA: 0x000474F4 File Offset: 0x000456F4
 		public override Quaternion.Builder CreateBuilderForType()
 		{
 			return new Quaternion.Builder();
 		}
 
-		// Token: 0x060013A5 RID: 5029 RVA: 0x00043154 File Offset: 0x00041354
+		// Token: 0x060014F9 RID: 5369 RVA: 0x000474FC File Offset: 0x000456FC
 		public static Quaternion.Builder CreateBuilder(Quaternion prototype)
 		{
 			return new Quaternion.Builder(prototype);
 		}
 
-		// Token: 0x060013A6 RID: 5030 RVA: 0x0004315C File Offset: 0x0004135C
+		// Token: 0x060014FA RID: 5370 RVA: 0x00047504 File Offset: 0x00045704
 		public static implicit operator Quaternion(Quaternion v)
 		{
 			Quaternion result;
-			using (Recycler<Quaternion, Quaternion.Builder> recycler = Quaternion.Recycler())
+			using (RustProto.Helpers.Recycler<Quaternion, Quaternion.Builder> recycler = Quaternion.Recycler())
 			{
 				Quaternion.Builder builder = recycler.OpenBuilder();
 				builder.SetX(v.x);
@@ -334,22 +334,22 @@ namespace RustProto
 			return result;
 		}
 
-		// Token: 0x040009E6 RID: 2534
+		// Token: 0x04000B09 RID: 2825
 		public const int XFieldNumber = 1;
 
-		// Token: 0x040009E7 RID: 2535
+		// Token: 0x04000B0A RID: 2826
 		public const int YFieldNumber = 2;
 
-		// Token: 0x040009E8 RID: 2536
+		// Token: 0x04000B0B RID: 2827
 		public const int ZFieldNumber = 3;
 
-		// Token: 0x040009E9 RID: 2537
+		// Token: 0x04000B0C RID: 2828
 		public const int WFieldNumber = 4;
 
-		// Token: 0x040009EA RID: 2538
+		// Token: 0x04000B0D RID: 2829
 		private static readonly Quaternion defaultInstance = new Quaternion().MakeReadOnly();
 
-		// Token: 0x040009EB RID: 2539
+		// Token: 0x04000B0E RID: 2830
 		private static readonly string[] _quaternionFieldNames = new string[]
 		{
 			"w",
@@ -358,7 +358,7 @@ namespace RustProto
 			"z"
 		};
 
-		// Token: 0x040009EC RID: 2540
+		// Token: 0x04000B0F RID: 2831
 		private static readonly uint[] _quaternionFieldTags = new uint[]
 		{
 			37u,
@@ -367,52 +367,52 @@ namespace RustProto
 			29u
 		};
 
-		// Token: 0x040009ED RID: 2541
+		// Token: 0x04000B10 RID: 2832
 		private bool hasX;
 
-		// Token: 0x040009EE RID: 2542
+		// Token: 0x04000B11 RID: 2833
 		private float x_;
 
-		// Token: 0x040009EF RID: 2543
+		// Token: 0x04000B12 RID: 2834
 		private bool hasY;
 
-		// Token: 0x040009F0 RID: 2544
+		// Token: 0x04000B13 RID: 2835
 		private float y_;
 
-		// Token: 0x040009F1 RID: 2545
+		// Token: 0x04000B14 RID: 2836
 		private bool hasZ;
 
-		// Token: 0x040009F2 RID: 2546
+		// Token: 0x04000B15 RID: 2837
 		private float z_;
 
-		// Token: 0x040009F3 RID: 2547
+		// Token: 0x04000B16 RID: 2838
 		private bool hasW;
 
-		// Token: 0x040009F4 RID: 2548
+		// Token: 0x04000B17 RID: 2839
 		private float w_;
 
-		// Token: 0x040009F5 RID: 2549
+		// Token: 0x04000B18 RID: 2840
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000224 RID: 548
+		// Token: 0x02000257 RID: 599
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<Quaternion, Quaternion.Builder>
 		{
-			// Token: 0x060013A7 RID: 5031 RVA: 0x000431EC File Offset: 0x000413EC
+			// Token: 0x060014FB RID: 5371 RVA: 0x00047594 File Offset: 0x00045794
 			public Builder()
 			{
 				this.result = Quaternion.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x060013A8 RID: 5032 RVA: 0x00043208 File Offset: 0x00041408
+			// Token: 0x060014FC RID: 5372 RVA: 0x000475B0 File Offset: 0x000457B0
 			internal Builder(Quaternion cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x060013A9 RID: 5033 RVA: 0x00043220 File Offset: 0x00041420
+			// Token: 0x060014FD RID: 5373 RVA: 0x000475C8 File Offset: 0x000457C8
 			public void Set(Quaternion value)
 			{
 				this.SetX(value.x);
@@ -421,8 +421,8 @@ namespace RustProto
 				this.SetW(value.w);
 			}
 
-			// Token: 0x17000595 RID: 1429
-			// (get) Token: 0x060013AA RID: 5034 RVA: 0x00043268 File Offset: 0x00041468
+			// Token: 0x170005DD RID: 1501
+			// (get) Token: 0x060014FE RID: 5374 RVA: 0x00047610 File Offset: 0x00045810
 			protected override Quaternion.Builder ThisBuilder
 			{
 				get
@@ -431,7 +431,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013AB RID: 5035 RVA: 0x0004326C File Offset: 0x0004146C
+			// Token: 0x060014FF RID: 5375 RVA: 0x00047614 File Offset: 0x00045814
 			private Quaternion PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -444,8 +444,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x17000596 RID: 1430
-			// (get) Token: 0x060013AC RID: 5036 RVA: 0x000432AC File Offset: 0x000414AC
+			// Token: 0x170005DE RID: 1502
+			// (get) Token: 0x06001500 RID: 5376 RVA: 0x00047654 File Offset: 0x00045854
 			public override bool IsInitialized
 			{
 				get
@@ -454,8 +454,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000597 RID: 1431
-			// (get) Token: 0x060013AD RID: 5037 RVA: 0x000432BC File Offset: 0x000414BC
+			// Token: 0x170005DF RID: 1503
+			// (get) Token: 0x06001501 RID: 5377 RVA: 0x00047664 File Offset: 0x00045864
 			protected override Quaternion MessageBeingBuilt
 			{
 				get
@@ -464,7 +464,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013AE RID: 5038 RVA: 0x000432C4 File Offset: 0x000414C4
+			// Token: 0x06001502 RID: 5378 RVA: 0x0004766C File Offset: 0x0004586C
 			public override Quaternion.Builder Clear()
 			{
 				this.result = Quaternion.DefaultInstance;
@@ -472,7 +472,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013AF RID: 5039 RVA: 0x000432DC File Offset: 0x000414DC
+			// Token: 0x06001503 RID: 5379 RVA: 0x00047684 File Offset: 0x00045884
 			public override Quaternion.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -482,8 +482,8 @@ namespace RustProto
 				return new Quaternion.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x17000598 RID: 1432
-			// (get) Token: 0x060013B0 RID: 5040 RVA: 0x00043308 File Offset: 0x00041508
+			// Token: 0x170005E0 RID: 1504
+			// (get) Token: 0x06001504 RID: 5380 RVA: 0x000476B0 File Offset: 0x000458B0
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -492,8 +492,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000599 RID: 1433
-			// (get) Token: 0x060013B1 RID: 5041 RVA: 0x00043310 File Offset: 0x00041510
+			// Token: 0x170005E1 RID: 1505
+			// (get) Token: 0x06001505 RID: 5381 RVA: 0x000476B8 File Offset: 0x000458B8
 			public override Quaternion DefaultInstanceForType
 			{
 				get
@@ -502,7 +502,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013B2 RID: 5042 RVA: 0x00043318 File Offset: 0x00041518
+			// Token: 0x06001506 RID: 5382 RVA: 0x000476C0 File Offset: 0x000458C0
 			public override Quaternion BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -513,7 +513,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x060013B3 RID: 5043 RVA: 0x0004334C File Offset: 0x0004154C
+			// Token: 0x06001507 RID: 5383 RVA: 0x000476F4 File Offset: 0x000458F4
 			public override Quaternion.Builder MergeFrom(IMessage other)
 			{
 				if (other is Quaternion)
@@ -524,7 +524,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013B4 RID: 5044 RVA: 0x00043370 File Offset: 0x00041570
+			// Token: 0x06001508 RID: 5384 RVA: 0x00047718 File Offset: 0x00045918
 			public override Quaternion.Builder MergeFrom(Quaternion other)
 			{
 				if (other == Quaternion.DefaultInstance)
@@ -552,13 +552,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013B5 RID: 5045 RVA: 0x000433FC File Offset: 0x000415FC
+			// Token: 0x06001509 RID: 5385 RVA: 0x000477A4 File Offset: 0x000459A4
 			public override Quaternion.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x060013B6 RID: 5046 RVA: 0x0004340C File Offset: 0x0004160C
+			// Token: 0x0600150A RID: 5386 RVA: 0x000477B4 File Offset: 0x000459B4
 			public override Quaternion.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -635,8 +635,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700059A RID: 1434
-			// (get) Token: 0x060013B7 RID: 5047 RVA: 0x000435A0 File Offset: 0x000417A0
+			// Token: 0x170005E2 RID: 1506
+			// (get) Token: 0x0600150B RID: 5387 RVA: 0x00047948 File Offset: 0x00045B48
 			public bool HasX
 			{
 				get
@@ -645,9 +645,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700059B RID: 1435
-			// (get) Token: 0x060013B8 RID: 5048 RVA: 0x000435B0 File Offset: 0x000417B0
-			// (set) Token: 0x060013B9 RID: 5049 RVA: 0x000435C0 File Offset: 0x000417C0
+			// Token: 0x170005E3 RID: 1507
+			// (get) Token: 0x0600150C RID: 5388 RVA: 0x00047958 File Offset: 0x00045B58
+			// (set) Token: 0x0600150D RID: 5389 RVA: 0x00047968 File Offset: 0x00045B68
 			public float X
 			{
 				get
@@ -660,7 +660,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013BA RID: 5050 RVA: 0x000435CC File Offset: 0x000417CC
+			// Token: 0x0600150E RID: 5390 RVA: 0x00047974 File Offset: 0x00045B74
 			public Quaternion.Builder SetX(float value)
 			{
 				this.PrepareBuilder();
@@ -669,7 +669,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013BB RID: 5051 RVA: 0x000435FC File Offset: 0x000417FC
+			// Token: 0x0600150F RID: 5391 RVA: 0x000479A4 File Offset: 0x00045BA4
 			public Quaternion.Builder ClearX()
 			{
 				this.PrepareBuilder();
@@ -678,8 +678,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700059C RID: 1436
-			// (get) Token: 0x060013BC RID: 5052 RVA: 0x00043630 File Offset: 0x00041830
+			// Token: 0x170005E4 RID: 1508
+			// (get) Token: 0x06001510 RID: 5392 RVA: 0x000479D8 File Offset: 0x00045BD8
 			public bool HasY
 			{
 				get
@@ -688,9 +688,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700059D RID: 1437
-			// (get) Token: 0x060013BD RID: 5053 RVA: 0x00043640 File Offset: 0x00041840
-			// (set) Token: 0x060013BE RID: 5054 RVA: 0x00043650 File Offset: 0x00041850
+			// Token: 0x170005E5 RID: 1509
+			// (get) Token: 0x06001511 RID: 5393 RVA: 0x000479E8 File Offset: 0x00045BE8
+			// (set) Token: 0x06001512 RID: 5394 RVA: 0x000479F8 File Offset: 0x00045BF8
 			public float Y
 			{
 				get
@@ -703,7 +703,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013BF RID: 5055 RVA: 0x0004365C File Offset: 0x0004185C
+			// Token: 0x06001513 RID: 5395 RVA: 0x00047A04 File Offset: 0x00045C04
 			public Quaternion.Builder SetY(float value)
 			{
 				this.PrepareBuilder();
@@ -712,7 +712,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013C0 RID: 5056 RVA: 0x0004368C File Offset: 0x0004188C
+			// Token: 0x06001514 RID: 5396 RVA: 0x00047A34 File Offset: 0x00045C34
 			public Quaternion.Builder ClearY()
 			{
 				this.PrepareBuilder();
@@ -721,8 +721,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700059E RID: 1438
-			// (get) Token: 0x060013C1 RID: 5057 RVA: 0x000436C0 File Offset: 0x000418C0
+			// Token: 0x170005E6 RID: 1510
+			// (get) Token: 0x06001515 RID: 5397 RVA: 0x00047A68 File Offset: 0x00045C68
 			public bool HasZ
 			{
 				get
@@ -731,9 +731,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700059F RID: 1439
-			// (get) Token: 0x060013C2 RID: 5058 RVA: 0x000436D0 File Offset: 0x000418D0
-			// (set) Token: 0x060013C3 RID: 5059 RVA: 0x000436E0 File Offset: 0x000418E0
+			// Token: 0x170005E7 RID: 1511
+			// (get) Token: 0x06001516 RID: 5398 RVA: 0x00047A78 File Offset: 0x00045C78
+			// (set) Token: 0x06001517 RID: 5399 RVA: 0x00047A88 File Offset: 0x00045C88
 			public float Z
 			{
 				get
@@ -746,7 +746,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013C4 RID: 5060 RVA: 0x000436EC File Offset: 0x000418EC
+			// Token: 0x06001518 RID: 5400 RVA: 0x00047A94 File Offset: 0x00045C94
 			public Quaternion.Builder SetZ(float value)
 			{
 				this.PrepareBuilder();
@@ -755,7 +755,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013C5 RID: 5061 RVA: 0x0004371C File Offset: 0x0004191C
+			// Token: 0x06001519 RID: 5401 RVA: 0x00047AC4 File Offset: 0x00045CC4
 			public Quaternion.Builder ClearZ()
 			{
 				this.PrepareBuilder();
@@ -764,8 +764,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170005A0 RID: 1440
-			// (get) Token: 0x060013C6 RID: 5062 RVA: 0x00043750 File Offset: 0x00041950
+			// Token: 0x170005E8 RID: 1512
+			// (get) Token: 0x0600151A RID: 5402 RVA: 0x00047AF8 File Offset: 0x00045CF8
 			public bool HasW
 			{
 				get
@@ -774,9 +774,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005A1 RID: 1441
-			// (get) Token: 0x060013C7 RID: 5063 RVA: 0x00043760 File Offset: 0x00041960
-			// (set) Token: 0x060013C8 RID: 5064 RVA: 0x00043770 File Offset: 0x00041970
+			// Token: 0x170005E9 RID: 1513
+			// (get) Token: 0x0600151B RID: 5403 RVA: 0x00047B08 File Offset: 0x00045D08
+			// (set) Token: 0x0600151C RID: 5404 RVA: 0x00047B18 File Offset: 0x00045D18
 			public float W
 			{
 				get
@@ -789,7 +789,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013C9 RID: 5065 RVA: 0x0004377C File Offset: 0x0004197C
+			// Token: 0x0600151D RID: 5405 RVA: 0x00047B24 File Offset: 0x00045D24
 			public Quaternion.Builder SetW(float value)
 			{
 				this.PrepareBuilder();
@@ -798,7 +798,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013CA RID: 5066 RVA: 0x000437AC File Offset: 0x000419AC
+			// Token: 0x0600151E RID: 5406 RVA: 0x00047B54 File Offset: 0x00045D54
 			public Quaternion.Builder ClearW()
 			{
 				this.PrepareBuilder();
@@ -807,10 +807,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x040009F6 RID: 2550
+			// Token: 0x04000B19 RID: 2841
 			private bool resultIsReadOnly;
 
-			// Token: 0x040009F7 RID: 2551
+			// Token: 0x04000B1A RID: 2842
 			private Quaternion result;
 		}
 	}

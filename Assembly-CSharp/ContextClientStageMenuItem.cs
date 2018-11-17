@@ -1,13 +1,13 @@
 ﻿using System;
 
-// Token: 0x02000465 RID: 1125
+// Token: 0x0200051B RID: 1307
 internal struct ContextClientStageMenuItem
 {
-	// Token: 0x040014D9 RID: 5337
+	// Token: 0x0400165C RID: 5724
 	[NonSerialized]
 	public int name;
 
-	// Token: 0x040014DA RID: 5338
+	// Token: 0x0400165D RID: 5725
 	[NonSerialized]
 	public string text;
 }

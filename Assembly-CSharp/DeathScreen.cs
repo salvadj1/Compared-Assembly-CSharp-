@@ -2,44 +2,44 @@
 using Facepunch.Cursor;
 using UnityEngine;
 
-// Token: 0x020003EF RID: 1007
+// Token: 0x0200049F RID: 1183
 public class DeathScreen : MonoBehaviour
 {
-	// Token: 0x0600252F RID: 9519 RVA: 0x0008EF34 File Offset: 0x0008D134
+	// Token: 0x060028A1 RID: 10401 RVA: 0x00094920 File Offset: 0x00092B20
 	private void Start()
 	{
-		DeathScreen.singleton = this;
+		global::DeathScreen.singleton = this;
 		this.Hide();
 	}
 
-	// Token: 0x06002530 RID: 9520 RVA: 0x0008EF44 File Offset: 0x0008D144
+	// Token: 0x060028A2 RID: 10402 RVA: 0x00094930 File Offset: 0x00092B30
 	private void OnDestroy()
 	{
 		this.cursorLocker.Dispose();
 		this.cursorLocker = null;
 	}
 
-	// Token: 0x06002531 RID: 9521 RVA: 0x0008EF58 File Offset: 0x0008D158
+	// Token: 0x060028A3 RID: 10403 RVA: 0x00094944 File Offset: 0x00092B44
 	public static void Show()
 	{
-		if (DeathScreen.singleton == null)
+		if (global::DeathScreen.singleton == null)
 		{
 			return;
 		}
-		DeathScreen.singleton.CancelInvoke("Hide");
-		DeathScreen.singleton.Hide();
-		DeathScreen.singleton.gameObject.GetComponent<dfPanel>().Show();
-		DeathScreen.singleton.lblDescription.Text = deathscreen.reason;
-		DeathScreen.singleton.gameObject.SetActive(true);
-		DeathScreen.singleton.IntroAnimations();
-		deathscreen.reason = string.Empty;
+		global::DeathScreen.singleton.CancelInvoke("Hide");
+		global::DeathScreen.singleton.Hide();
+		global::DeathScreen.singleton.gameObject.GetComponent<global::dfPanel>().Show();
+		global::DeathScreen.singleton.lblDescription.Text = global::deathscreen.reason;
+		global::DeathScreen.singleton.gameObject.SetActive(true);
+		global::DeathScreen.singleton.IntroAnimations();
+		global::deathscreen.reason = string.Empty;
 	}
 
-	// Token: 0x06002532 RID: 9522 RVA: 0x0008EFDC File Offset: 0x0008D1DC
+	// Token: 0x060028A4 RID: 10404 RVA: 0x000949C8 File Offset: 0x00092BC8
 	public void IntroAnimations()
 	{
-		dfTweenComponentBase[] componentsInChildren = base.gameObject.GetComponentsInChildren<dfTweenComponentBase>();
-		foreach (dfTweenComponentBase dfTweenComponentBase in componentsInChildren)
+		global::dfTweenComponentBase[] componentsInChildren = base.gameObject.GetComponentsInChildren<global::dfTweenComponentBase>();
+		foreach (global::dfTweenComponentBase dfTweenComponentBase in componentsInChildren)
 		{
 			if (!(dfTweenComponentBase.TweenName != "FadeIn"))
 			{
@@ -48,11 +48,11 @@ public class DeathScreen : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002533 RID: 9523 RVA: 0x0008F030 File Offset: 0x0008D230
+	// Token: 0x060028A5 RID: 10405 RVA: 0x00094A1C File Offset: 0x00092C1C
 	public void OutroAnimations()
 	{
-		dfTweenComponentBase[] componentsInChildren = base.gameObject.GetComponentsInChildren<dfTweenComponentBase>();
-		foreach (dfTweenComponentBase dfTweenComponentBase in componentsInChildren)
+		global::dfTweenComponentBase[] componentsInChildren = base.gameObject.GetComponentsInChildren<global::dfTweenComponentBase>();
+		foreach (global::dfTweenComponentBase dfTweenComponentBase in componentsInChildren)
 		{
 			if (!(dfTweenComponentBase.TweenName != "FadeOut"))
 			{
@@ -63,14 +63,14 @@ public class DeathScreen : MonoBehaviour
 		base.Invoke("Hide", 5f);
 	}
 
-	// Token: 0x06002534 RID: 9524 RVA: 0x0008F0A0 File Offset: 0x0008D2A0
+	// Token: 0x060028A6 RID: 10406 RVA: 0x00094A8C File Offset: 0x00092C8C
 	public void Hide()
 	{
-		base.gameObject.GetComponent<dfPanel>().Hide();
+		base.gameObject.GetComponent<global::dfPanel>().Hide();
 		base.gameObject.SetActive(false);
 	}
 
-	// Token: 0x06002535 RID: 9525 RVA: 0x0008F0CC File Offset: 0x0008D2CC
+	// Token: 0x060028A7 RID: 10407 RVA: 0x00094AB8 File Offset: 0x00092CB8
 	public void OnDisable()
 	{
 		if (this.cursorLocker)
@@ -79,7 +79,7 @@ public class DeathScreen : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002536 RID: 9526 RVA: 0x0008F0EC File Offset: 0x0008D2EC
+	// Token: 0x060028A8 RID: 10408 RVA: 0x00094AD8 File Offset: 0x00092CD8
 	public void OnEnable()
 	{
 		if (!this.cursorLocker)
@@ -89,26 +89,26 @@ public class DeathScreen : MonoBehaviour
 		this.cursorLocker.On = true;
 	}
 
-	// Token: 0x06002537 RID: 9527 RVA: 0x0008F11C File Offset: 0x0008D31C
+	// Token: 0x060028A9 RID: 10409 RVA: 0x00094B08 File Offset: 0x00092D08
 	public void RequestRespawn()
 	{
 		this.OutroAnimations();
-		ServerManagement.Get().networkView.RPC<bool>("RequestRespawn", 0, false);
+		global::ServerManagement.Get().networkView.RPC<bool>("RequestRespawn", 0, false);
 	}
 
-	// Token: 0x06002538 RID: 9528 RVA: 0x0008F148 File Offset: 0x0008D348
+	// Token: 0x060028AA RID: 10410 RVA: 0x00094B34 File Offset: 0x00092D34
 	public void RequestRespawn_InCamp()
 	{
 		this.OutroAnimations();
-		ServerManagement.Get().networkView.RPC<bool>("RequestRespawn", 0, true);
+		global::ServerManagement.Get().networkView.RPC<bool>("RequestRespawn", 0, true);
 	}
 
-	// Token: 0x0400120D RID: 4621
-	public dfLabel lblDescription;
+	// Token: 0x04001387 RID: 4999
+	public global::dfLabel lblDescription;
 
-	// Token: 0x0400120E RID: 4622
-	private static DeathScreen singleton;
+	// Token: 0x04001388 RID: 5000
+	private static global::DeathScreen singleton;
 
-	// Token: 0x0400120F RID: 4623
+	// Token: 0x04001389 RID: 5001
 	private UnlockCursorNode cursorLocker;
 }

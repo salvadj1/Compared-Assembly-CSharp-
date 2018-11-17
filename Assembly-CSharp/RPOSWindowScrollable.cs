@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000422 RID: 1058
-public class RPOSWindowScrollable : RPOSWindow
+// Token: 0x020004D7 RID: 1239
+public class RPOSWindowScrollable : global::RPOSWindow
 {
-	// Token: 0x06002750 RID: 10064 RVA: 0x000992A4 File Offset: 0x000974A4
+	// Token: 0x06002ADA RID: 10970 RVA: 0x0009F168 File Offset: 0x0009D368
 	protected override void OnWindowShow()
 	{
 		base.OnWindowShow();
@@ -15,17 +15,17 @@ public class RPOSWindowScrollable : RPOSWindow
 		}
 	}
 
-	// Token: 0x06002751 RID: 10065 RVA: 0x000992C0 File Offset: 0x000974C0
+	// Token: 0x06002ADB RID: 10971 RVA: 0x0009F184 File Offset: 0x0009D384
 	protected void ResetScrolling()
 	{
 		this.ResetScrolling(false);
 	}
 
-	// Token: 0x06002752 RID: 10066 RVA: 0x000992CC File Offset: 0x000974CC
+	// Token: 0x06002ADC RID: 10972 RVA: 0x0009F190 File Offset: 0x0009D390
 	protected virtual void ResetScrolling(bool retainCurrentValue)
 	{
-		UIScrollBar uiscrollBar = null;
-		UIScrollBar uiscrollBar2 = null;
+		global::UIScrollBar uiscrollBar = null;
+		global::UIScrollBar uiscrollBar2 = null;
 		if (this.myDraggablePanel)
 		{
 			if (!retainCurrentValue)
@@ -43,8 +43,8 @@ public class RPOSWindowScrollable : RPOSWindow
 		}
 		else if (!retainCurrentValue)
 		{
-			uiscrollBar = ((!this.vertical || this.horizontal) ? null : base.GetComponentInChildren<UIScrollBar>());
-			uiscrollBar2 = ((!this.horizontal || this.vertical) ? null : base.GetComponentInChildren<UIScrollBar>());
+			uiscrollBar = ((!this.vertical || this.horizontal) ? null : base.GetComponentInChildren<global::UIScrollBar>());
+			uiscrollBar2 = ((!this.horizontal || this.vertical) ? null : base.GetComponentInChildren<global::UIScrollBar>());
 		}
 		if (!retainCurrentValue)
 		{
@@ -61,7 +61,7 @@ public class RPOSWindowScrollable : RPOSWindow
 		}
 	}
 
-	// Token: 0x06002753 RID: 10067 RVA: 0x00099410 File Offset: 0x00097610
+	// Token: 0x06002ADD RID: 10973 RVA: 0x0009F2D4 File Offset: 0x0009D4D4
 	protected void NextFrameRecalculateBounds()
 	{
 		this.cancelCalculationNextFrame = false;
@@ -71,7 +71,7 @@ public class RPOSWindowScrollable : RPOSWindow
 		}
 	}
 
-	// Token: 0x06002754 RID: 10068 RVA: 0x00099434 File Offset: 0x00097634
+	// Token: 0x06002ADE RID: 10974 RVA: 0x0009F2F8 File Offset: 0x0009D4F8
 	private IEnumerator Routine_NextFrameRecalculateBounds()
 	{
 		yield return null;
@@ -83,27 +83,27 @@ public class RPOSWindowScrollable : RPOSWindow
 		yield break;
 	}
 
-	// Token: 0x04001355 RID: 4949
-	public UIDraggablePanel myDraggablePanel;
+	// Token: 0x040014D5 RID: 5333
+	public global::UIDraggablePanel myDraggablePanel;
 
-	// Token: 0x04001356 RID: 4950
+	// Token: 0x040014D6 RID: 5334
 	public bool horizontal;
 
-	// Token: 0x04001357 RID: 4951
+	// Token: 0x040014D7 RID: 5335
 	public bool vertical = true;
 
-	// Token: 0x04001358 RID: 4952
+	// Token: 0x040014D8 RID: 5336
 	protected bool autoResetScrolling = true;
 
-	// Token: 0x04001359 RID: 4953
+	// Token: 0x040014D9 RID: 5337
 	private bool didManualStart;
 
-	// Token: 0x0400135A RID: 4954
+	// Token: 0x040014DA RID: 5338
 	private bool queuedCalculationNextFrame;
 
-	// Token: 0x0400135B RID: 4955
+	// Token: 0x040014DB RID: 5339
 	private bool cancelCalculationNextFrame;
 
-	// Token: 0x0400135C RID: 4956
+	// Token: 0x040014DC RID: 5340
 	protected Vector2 initialScrollValue;
 }

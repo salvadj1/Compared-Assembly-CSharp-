@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000795 RID: 1941
+// Token: 0x0200087A RID: 2170
+[RequireComponent(typeof(global::UIPanel))]
 [AddComponentMenu("NGUI/Internal/Spring Panel")]
-[RequireComponent(typeof(UIPanel))]
-public class SpringPanel : IgnoreTimeScale
+public class SpringPanel : global::IgnoreTimeScale
 {
-	// Token: 0x0600463E RID: 17982 RVA: 0x00117608 File Offset: 0x00115808
+	// Token: 0x06004AAB RID: 19115 RVA: 0x00120F88 File Offset: 0x0011F188
 	private void Start()
 	{
-		this.mPanel = base.GetComponent<UIPanel>();
-		this.mDrag = base.GetComponent<UIDraggablePanel>();
+		this.mPanel = base.GetComponent<global::UIPanel>();
+		this.mDrag = base.GetComponent<global::UIDraggablePanel>();
 		this.mTrans = base.transform;
 	}
 
-	// Token: 0x0600463F RID: 17983 RVA: 0x0011763C File Offset: 0x0011583C
+	// Token: 0x06004AAC RID: 19116 RVA: 0x00120FBC File Offset: 0x0011F1BC
 	private void Update()
 	{
 		float deltaTime = base.UpdateRealTimeDelta();
@@ -23,7 +23,7 @@ public class SpringPanel : IgnoreTimeScale
 			this.mThreshold = (this.target - this.mTrans.localPosition).magnitude * 0.005f;
 		}
 		Vector3 localPosition = this.mTrans.localPosition;
-		this.mTrans.localPosition = NGUIMath.SpringLerp(this.mTrans.localPosition, this.target, this.strength, deltaTime);
+		this.mTrans.localPosition = global::NGUIMath.SpringLerp(this.mTrans.localPosition, this.target, this.strength, deltaTime);
 		Vector3 vector = this.mTrans.localPosition - localPosition;
 		Vector4 clipRange = this.mPanel.clipRange;
 		clipRange.x -= vector.x;
@@ -39,13 +39,13 @@ public class SpringPanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004640 RID: 17984 RVA: 0x00117764 File Offset: 0x00115964
-	public static SpringPanel Begin(GameObject go, Vector3 pos, float strength)
+	// Token: 0x06004AAD RID: 19117 RVA: 0x001210E4 File Offset: 0x0011F2E4
+	public static global::SpringPanel Begin(GameObject go, Vector3 pos, float strength)
 	{
-		SpringPanel springPanel = go.GetComponent<SpringPanel>();
+		global::SpringPanel springPanel = go.GetComponent<global::SpringPanel>();
 		if (springPanel == null)
 		{
-			springPanel = go.AddComponent<SpringPanel>();
+			springPanel = go.AddComponent<global::SpringPanel>();
 		}
 		springPanel.target = pos;
 		springPanel.strength = strength;
@@ -57,21 +57,21 @@ public class SpringPanel : IgnoreTimeScale
 		return springPanel;
 	}
 
-	// Token: 0x0400266D RID: 9837
+	// Token: 0x040028A4 RID: 10404
 	public Vector3 target = Vector3.zero;
 
-	// Token: 0x0400266E RID: 9838
+	// Token: 0x040028A5 RID: 10405
 	public float strength = 10f;
 
-	// Token: 0x0400266F RID: 9839
-	private UIPanel mPanel;
+	// Token: 0x040028A6 RID: 10406
+	private global::UIPanel mPanel;
 
-	// Token: 0x04002670 RID: 9840
+	// Token: 0x040028A7 RID: 10407
 	private Transform mTrans;
 
-	// Token: 0x04002671 RID: 9841
+	// Token: 0x040028A8 RID: 10408
 	private float mThreshold;
 
-	// Token: 0x04002672 RID: 9842
-	private UIDraggablePanel mDrag;
+	// Token: 0x040028A9 RID: 10409
+	private global::UIDraggablePanel mDrag;
 }

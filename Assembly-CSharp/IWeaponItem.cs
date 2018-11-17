@@ -1,52 +1,52 @@
 ﻿using System;
 
-// Token: 0x020005EE RID: 1518
-public interface IWeaponItem : IHeldItem, IInventoryItem
+// Token: 0x020006AC RID: 1708
+public interface IWeaponItem : global::IHeldItem, global::IInventoryItem
 {
-	// Token: 0x17000AD4 RID: 2772
-	// (get) Token: 0x06003663 RID: 13923
+	// Token: 0x17000B4A RID: 2890
+	// (get) Token: 0x06003A2B RID: 14891
 	bool canPrimaryAttack { get; }
 
-	// Token: 0x06003664 RID: 13924
-	void PrimaryAttack(ref HumanController.InputSample sample);
+	// Token: 0x06003A2C RID: 14892
+	void PrimaryAttack(ref global::HumanController.InputSample sample);
 
-	// Token: 0x17000AD5 RID: 2773
-	// (get) Token: 0x06003665 RID: 13925
+	// Token: 0x17000B4B RID: 2891
+	// (get) Token: 0x06003A2D RID: 14893
 	bool canSecondaryAttack { get; }
 
-	// Token: 0x06003666 RID: 13926
-	void SecondaryAttack(ref HumanController.InputSample sample);
+	// Token: 0x06003A2E RID: 14894
+	void SecondaryAttack(ref global::HumanController.InputSample sample);
 
-	// Token: 0x06003667 RID: 13927
-	void Reload(ref HumanController.InputSample sample);
+	// Token: 0x06003A2F RID: 14895
+	void Reload(ref global::HumanController.InputSample sample);
 
-	// Token: 0x17000AD6 RID: 2774
-	// (get) Token: 0x06003668 RID: 13928
+	// Token: 0x17000B4C RID: 2892
+	// (get) Token: 0x06003A30 RID: 14896
 	bool canAim { get; }
 
-	// Token: 0x17000AD7 RID: 2775
-	// (get) Token: 0x06003669 RID: 13929
+	// Token: 0x17000B4D RID: 2893
+	// (get) Token: 0x06003A31 RID: 14897
 	bool deployed { get; }
 
-	// Token: 0x17000AD8 RID: 2776
-	// (get) Token: 0x0600366A RID: 13930
+	// Token: 0x17000B4E RID: 2894
+	// (get) Token: 0x06003A32 RID: 14898
 	int possibleReloadCount { get; }
 
-	// Token: 0x17000AD9 RID: 2777
-	// (get) Token: 0x0600366B RID: 13931
-	// (set) Token: 0x0600366C RID: 13932
+	// Token: 0x17000B4F RID: 2895
+	// (get) Token: 0x06003A33 RID: 14899
+	// (set) Token: 0x06003A34 RID: 14900
 	float nextPrimaryAttackTime { get; set; }
 
-	// Token: 0x17000ADA RID: 2778
-	// (get) Token: 0x0600366D RID: 13933
-	// (set) Token: 0x0600366E RID: 13934
+	// Token: 0x17000B50 RID: 2896
+	// (get) Token: 0x06003A35 RID: 14901
+	// (set) Token: 0x06003A36 RID: 14902
 	float nextSecondaryAttackTime { get; set; }
 
-	// Token: 0x17000ADB RID: 2779
-	// (get) Token: 0x0600366F RID: 13935
-	// (set) Token: 0x06003670 RID: 13936
+	// Token: 0x17000B51 RID: 2897
+	// (get) Token: 0x06003A37 RID: 14903
+	// (set) Token: 0x06003A38 RID: 14904
 	float deployFinishedTime { get; set; }
 
-	// Token: 0x06003671 RID: 13937
+	// Token: 0x06003A39 RID: 14905
 	bool ValidatePrimaryMessageTime(double timestamp);
 }

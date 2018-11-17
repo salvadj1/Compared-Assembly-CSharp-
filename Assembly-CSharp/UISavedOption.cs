@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200077A RID: 1914
+// Token: 0x0200085D RID: 2141
 [AddComponentMenu("NGUI/Interaction/Saved Option")]
 public class UISavedOption : MonoBehaviour
 {
-	// Token: 0x17000D7D RID: 3453
-	// (get) Token: 0x0600456C RID: 17772 RVA: 0x0011213C File Offset: 0x0011033C
+	// Token: 0x17000E0D RID: 3597
+	// (get) Token: 0x060049D1 RID: 18897 RVA: 0x0011BABC File Offset: 0x00119CBC
 	private string key
 	{
 		get
@@ -15,59 +15,59 @@ public class UISavedOption : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600456D RID: 17773 RVA: 0x0011216C File Offset: 0x0011036C
+	// Token: 0x060049D2 RID: 18898 RVA: 0x0011BAEC File Offset: 0x00119CEC
 	private void OnEnable()
 	{
 		string @string = PlayerPrefs.GetString(this.key);
 		if (!string.IsNullOrEmpty(@string))
 		{
-			UICheckbox component = base.GetComponent<UICheckbox>();
+			global::UICheckbox component = base.GetComponent<global::UICheckbox>();
 			if (component != null)
 			{
 				component.isChecked = (@string == "true");
 			}
 			else
 			{
-				UICheckbox[] componentsInChildren = base.GetComponentsInChildren<UICheckbox>();
+				global::UICheckbox[] componentsInChildren = base.GetComponentsInChildren<global::UICheckbox>();
 				int i = 0;
 				int num = componentsInChildren.Length;
 				while (i < num)
 				{
-					UICheckbox uicheckbox = componentsInChildren[i];
-					UIEventListener uieventListener = UIEventListener.Get(uicheckbox.gameObject);
-					uieventListener.onClick = (UIEventListener.VoidDelegate)Delegate.Remove(uieventListener.onClick, new UIEventListener.VoidDelegate(this.Save));
+					global::UICheckbox uicheckbox = componentsInChildren[i];
+					global::UIEventListener uieventListener = global::UIEventListener.Get(uicheckbox.gameObject);
+					uieventListener.onClick = (global::UIEventListener.VoidDelegate)Delegate.Remove(uieventListener.onClick, new global::UIEventListener.VoidDelegate(this.Save));
 					uicheckbox.isChecked = (uicheckbox.name == @string);
 					Debug.Log(@string);
-					UIEventListener uieventListener2 = UIEventListener.Get(uicheckbox.gameObject);
-					uieventListener2.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new UIEventListener.VoidDelegate(this.Save));
+					global::UIEventListener uieventListener2 = global::UIEventListener.Get(uicheckbox.gameObject);
+					uieventListener2.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new global::UIEventListener.VoidDelegate(this.Save));
 					i++;
 				}
 			}
 		}
 	}
 
-	// Token: 0x0600456E RID: 17774 RVA: 0x00112254 File Offset: 0x00110454
+	// Token: 0x060049D3 RID: 18899 RVA: 0x0011BBD4 File Offset: 0x00119DD4
 	private void OnDisable()
 	{
 		this.Save(null);
 	}
 
-	// Token: 0x0600456F RID: 17775 RVA: 0x00112260 File Offset: 0x00110460
+	// Token: 0x060049D4 RID: 18900 RVA: 0x0011BBE0 File Offset: 0x00119DE0
 	private void Save(GameObject go)
 	{
-		UICheckbox component = base.GetComponent<UICheckbox>();
+		global::UICheckbox component = base.GetComponent<global::UICheckbox>();
 		if (component != null)
 		{
 			PlayerPrefs.SetString(this.key, (!component.isChecked) ? "false" : "true");
 		}
 		else
 		{
-			UICheckbox[] componentsInChildren = base.GetComponentsInChildren<UICheckbox>();
+			global::UICheckbox[] componentsInChildren = base.GetComponentsInChildren<global::UICheckbox>();
 			int i = 0;
 			int num = componentsInChildren.Length;
 			while (i < num)
 			{
-				UICheckbox uicheckbox = componentsInChildren[i];
+				global::UICheckbox uicheckbox = componentsInChildren[i];
 				if (uicheckbox.isChecked)
 				{
 					PlayerPrefs.SetString(this.key, uicheckbox.name);
@@ -78,6 +78,6 @@ public class UISavedOption : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040025D7 RID: 9687
+	// Token: 0x0400280E RID: 10254
 	public string keyName;
 }

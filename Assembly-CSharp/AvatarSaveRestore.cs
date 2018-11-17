@@ -2,11 +2,11 @@
 using RustProto;
 using UnityEngine;
 
-// Token: 0x02000099 RID: 153
+// Token: 0x020000AC RID: 172
 public class AvatarSaveRestore : MonoBehaviour
 {
-	// Token: 0x06000332 RID: 818 RVA: 0x0000FEAC File Offset: 0x0000E0AC
-	public static void CopyPersistantMessages(ref Avatar.Builder builder, ref Avatar avatar)
+	// Token: 0x060003AA RID: 938 RVA: 0x0001169C File Offset: 0x0000F89C
+	public static void CopyPersistantMessages(ref RustProto.Avatar.Builder builder, ref RustProto.Avatar avatar)
 	{
 		builder.ClearBlueprints();
 		for (int i = 0; i < avatar.BlueprintsCount; i++)

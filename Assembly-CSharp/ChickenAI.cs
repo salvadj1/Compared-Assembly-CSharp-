@@ -2,18 +2,18 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000433 RID: 1075
-public class ChickenAI : BasicWildLifeAI
+// Token: 0x020004E9 RID: 1257
+public class ChickenAI : global::BasicWildLifeAI
 {
-	// Token: 0x060027C3 RID: 10179 RVA: 0x0009B298 File Offset: 0x00099498
-	protected new void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06002B53 RID: 11091 RVA: 0x000A1218 File Offset: 0x0009F418
+	protected new void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		int id = info.networkView.viewID.id;
 		this.SetGender((id & 14) >> 1 <= 2, (id & 1) == 1);
 		base.uLink_OnNetworkInstantiate(info);
 	}
 
-	// Token: 0x060027C4 RID: 10180 RVA: 0x0009B2D8 File Offset: 0x000994D8
+	// Token: 0x06002B54 RID: 11092 RVA: 0x000A1258 File Offset: 0x0009F458
 	protected void Update()
 	{
 		if (this._takeDamage.dead)
@@ -45,7 +45,7 @@ public class ChickenAI : BasicWildLifeAI
 		this.lastMoveAnim = text;
 	}
 
-	// Token: 0x060027C5 RID: 10181 RVA: 0x0009B394 File Offset: 0x00099594
+	// Token: 0x06002B55 RID: 11093 RVA: 0x000A1314 File Offset: 0x0009F514
 	protected void SetGender(bool male, bool alt)
 	{
 		this.isMale = male;
@@ -63,25 +63,25 @@ public class ChickenAI : BasicWildLifeAI
 		}
 	}
 
-	// Token: 0x040013A4 RID: 5028
+	// Token: 0x04001527 RID: 5415
 	protected bool isMale;
 
-	// Token: 0x040013A5 RID: 5029
+	// Token: 0x04001528 RID: 5416
 	[SerializeField]
 	protected Material roosterMat;
 
-	// Token: 0x040013A6 RID: 5030
+	// Token: 0x04001529 RID: 5417
 	[SerializeField]
 	protected Material ChickenMatA;
 
-	// Token: 0x040013A7 RID: 5031
+	// Token: 0x0400152A RID: 5418
 	[SerializeField]
 	protected Material ChickenMatB;
 
-	// Token: 0x040013A8 RID: 5032
+	// Token: 0x0400152B RID: 5419
 	[SerializeField]
 	protected Renderer chickenRenderer;
 
-	// Token: 0x040013A9 RID: 5033
+	// Token: 0x0400152C RID: 5420
 	protected string lastMoveAnim;
 }

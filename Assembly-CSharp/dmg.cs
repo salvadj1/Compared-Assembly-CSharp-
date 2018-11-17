@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x0200015A RID: 346
-public class dmg : ConsoleSystem
+// Token: 0x02000184 RID: 388
+public class dmg : global::ConsoleSystem
 {
 }

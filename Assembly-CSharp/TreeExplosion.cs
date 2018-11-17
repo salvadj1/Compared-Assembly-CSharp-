@@ -2,10 +2,10 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x0200084D RID: 2125
+// Token: 0x02000943 RID: 2371
 public class TreeExplosion : MonoBehaviour
 {
-	// Token: 0x06004AE4 RID: 19172 RVA: 0x001472DC File Offset: 0x001454DC
+	// Token: 0x06004FA5 RID: 20389 RVA: 0x001518A0 File Offset: 0x0014FAA0
 	private void Explode()
 	{
 		Object.Instantiate(this.Explosion, base.transform.position, Quaternion.identity);
@@ -28,7 +28,7 @@ public class TreeExplosion : MonoBehaviour
 		terrainData.treeInstances = (TreeInstance[])arrayList.ToArray(typeof(TreeInstance));
 	}
 
-	// Token: 0x06004AE5 RID: 19173 RVA: 0x00147438 File Offset: 0x00145638
+	// Token: 0x06004FA6 RID: 20390 RVA: 0x001519FC File Offset: 0x0014FBFC
 	private void Update()
 	{
 		if (Input.GetButtonDown("Fire1"))
@@ -37,15 +37,15 @@ public class TreeExplosion : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002BFC RID: 11260
+	// Token: 0x04002E6A RID: 11882
 	public float BlastRange = 30f;
 
-	// Token: 0x04002BFD RID: 11261
+	// Token: 0x04002E6B RID: 11883
 	public float BlastForce = 30000f;
 
-	// Token: 0x04002BFE RID: 11262
+	// Token: 0x04002E6C RID: 11884
 	public GameObject DeadReplace;
 
-	// Token: 0x04002BFF RID: 11263
+	// Token: 0x04002E6D RID: 11885
 	public GameObject Explosion;
 }

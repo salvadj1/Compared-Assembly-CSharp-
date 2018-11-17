@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x020004AA RID: 1194
-public class VMAttachmentSocketOverride : ViewModelAttachment
+// Token: 0x02000565 RID: 1381
+public class VMAttachmentSocketOverride : global::ViewModelAttachment
 {
-	// Token: 0x06002A05 RID: 10757 RVA: 0x000A490C File Offset: 0x000A2B0C
+	// Token: 0x06002DB7 RID: 11703 RVA: 0x000AC6A4 File Offset: 0x000AA8A4
 	private void OnDrawGizmosSelected()
 	{
 		this.socketOverride.DrawGizmos("socketOverride");
 	}
 
-	// Token: 0x040015F7 RID: 5623
-	public Socket.CameraSpace socketOverride;
+	// Token: 0x040017B4 RID: 6068
+	public global::Socket.CameraSpace socketOverride;
 }

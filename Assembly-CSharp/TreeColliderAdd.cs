@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000057 RID: 87
+// Token: 0x02000069 RID: 105
 public class TreeColliderAdd : MonoBehaviour
 {
-	// Token: 0x060002E4 RID: 740 RVA: 0x0000F0B4 File Offset: 0x0000D2B4
+	// Token: 0x06000356 RID: 854 RVA: 0x0001065C File Offset: 0x0000E85C
 	private void Start()
 	{
 		this.terrainData = this.terrain.terrainData;
@@ -27,7 +27,7 @@ public class TreeColliderAdd : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002E5 RID: 741 RVA: 0x0000F1F8 File Offset: 0x0000D3F8
+	// Token: 0x06000357 RID: 855 RVA: 0x000107A0 File Offset: 0x0000E9A0
 	public GameObject GetFreeTreeCollider()
 	{
 		if (this.treeColliderPool.Count > 0)
@@ -39,7 +39,7 @@ public class TreeColliderAdd : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060002E6 RID: 742 RVA: 0x0000F234 File Offset: 0x0000D434
+	// Token: 0x06000358 RID: 856 RVA: 0x000107DC File Offset: 0x0000E9DC
 	private void Update()
 	{
 		Vector3 position = base.transform.position;
@@ -50,7 +50,7 @@ public class TreeColliderAdd : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002E7 RID: 743 RVA: 0x0000F270 File Offset: 0x0000D470
+	// Token: 0x06000359 RID: 857 RVA: 0x00010818 File Offset: 0x0000EA18
 	private void CleanupOldColliders()
 	{
 		foreach (GameObject item in this.usedCollidersPool)
@@ -60,7 +60,7 @@ public class TreeColliderAdd : MonoBehaviour
 		this.usedCollidersPool.Clear();
 	}
 
-	// Token: 0x060002E8 RID: 744 RVA: 0x0000F2E8 File Offset: 0x0000D4E8
+	// Token: 0x0600035A RID: 858 RVA: 0x00010890 File Offset: 0x0000EA90
 	private void AddNewColliders()
 	{
 		this.CleanupOldColliders();
@@ -99,27 +99,27 @@ public class TreeColliderAdd : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040001BC RID: 444
+	// Token: 0x0400021E RID: 542
 	public Terrain terrain;
 
-	// Token: 0x040001BD RID: 445
+	// Token: 0x0400021F RID: 543
 	private TerrainData terrainData;
 
-	// Token: 0x040001BE RID: 446
+	// Token: 0x04000220 RID: 544
 	public Vector3 lastPos;
 
-	// Token: 0x040001BF RID: 447
+	// Token: 0x04000221 RID: 545
 	public GameObject treeColliderPrefab;
 
-	// Token: 0x040001C0 RID: 448
+	// Token: 0x04000222 RID: 546
 	private int pooledColliders = 500;
 
-	// Token: 0x040001C1 RID: 449
+	// Token: 0x04000223 RID: 547
 	private List<GameObject> treeColliderPool;
 
-	// Token: 0x040001C2 RID: 450
+	// Token: 0x04000224 RID: 548
 	private List<GameObject> usedCollidersPool;
 
-	// Token: 0x040001C3 RID: 451
+	// Token: 0x04000225 RID: 549
 	private Vector3[] convertedTreePositions;
 }

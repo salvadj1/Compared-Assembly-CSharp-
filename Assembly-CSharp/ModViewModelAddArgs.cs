@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x0200058A RID: 1418
+// Token: 0x02000648 RID: 1608
 public struct ModViewModelAddArgs
 {
-	// Token: 0x06003206 RID: 12806 RVA: 0x000BC988 File Offset: 0x000BAB88
-	public ModViewModelAddArgs(ViewModel vm, IHeldItem item, bool isMesh, ItemModRepresentation modRep)
+	// Token: 0x060035CE RID: 13774 RVA: 0x000C4BE4 File Offset: 0x000C2DE4
+	public ModViewModelAddArgs(global::ViewModel vm, global::IHeldItem item, bool isMesh, global::ItemModRepresentation modRep)
 	{
 		this.vm = vm;
 		this.item = item;
@@ -12,21 +12,21 @@ public struct ModViewModelAddArgs
 		this.modRep = modRep;
 	}
 
-	// Token: 0x06003207 RID: 12807 RVA: 0x000BC9A8 File Offset: 0x000BABA8
-	public ModViewModelAddArgs(ViewModel vm, IHeldItem item, bool isMesh)
+	// Token: 0x060035CF RID: 13775 RVA: 0x000C4C04 File Offset: 0x000C2E04
+	public ModViewModelAddArgs(global::ViewModel vm, global::IHeldItem item, bool isMesh)
 	{
-		this = new ModViewModelAddArgs(vm, item, isMesh, null);
+		this = new global::ModViewModelAddArgs(vm, item, isMesh, null);
 	}
 
-	// Token: 0x040019E8 RID: 6632
-	public readonly ViewModel vm;
+	// Token: 0x04001BB9 RID: 7097
+	public readonly global::ViewModel vm;
 
-	// Token: 0x040019E9 RID: 6633
-	public ItemModRepresentation modRep;
+	// Token: 0x04001BBA RID: 7098
+	public global::ItemModRepresentation modRep;
 
-	// Token: 0x040019EA RID: 6634
-	public readonly IHeldItem item;
+	// Token: 0x04001BBB RID: 7099
+	public readonly global::IHeldItem item;
 
-	// Token: 0x040019EB RID: 6635
+	// Token: 0x04001BBC RID: 7100
 	public readonly bool isMesh;
 }

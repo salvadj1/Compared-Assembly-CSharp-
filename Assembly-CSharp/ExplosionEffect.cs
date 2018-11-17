@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004A0 RID: 1184
+// Token: 0x0200055B RID: 1371
 public class ExplosionEffect : MonoBehaviour
 {
-	// Token: 0x060029D6 RID: 10710 RVA: 0x000A3C18 File Offset: 0x000A1E18
+	// Token: 0x06002D88 RID: 11656 RVA: 0x000AB9B0 File Offset: 0x000A9BB0
 	public virtual void Start()
 	{
 		this.startTime = Time.time;
@@ -13,7 +13,7 @@ public class ExplosionEffect : MonoBehaviour
 		base.audio.Play();
 	}
 
-	// Token: 0x060029D7 RID: 10711 RVA: 0x000A3C68 File Offset: 0x000A1E68
+	// Token: 0x06002D89 RID: 11657 RVA: 0x000ABA00 File Offset: 0x000A9C00
 	public virtual void Update()
 	{
 		float num = Time.time - this.startTime;
@@ -28,12 +28,12 @@ public class ExplosionEffect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040015C3 RID: 5571
+	// Token: 0x04001780 RID: 6016
 	public Light myLight;
 
-	// Token: 0x040015C4 RID: 5572
+	// Token: 0x04001781 RID: 6017
 	public float initialLightIntensity = 2f;
 
-	// Token: 0x040015C5 RID: 5573
+	// Token: 0x04001782 RID: 6018
 	public float startTime;
 }

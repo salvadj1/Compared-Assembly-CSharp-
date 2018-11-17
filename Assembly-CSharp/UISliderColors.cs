@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200077F RID: 1919
-[AddComponentMenu("NGUI/Examples/Slider Colors")]
-[RequireComponent(typeof(UISlider))]
+// Token: 0x02000863 RID: 2147
+[RequireComponent(typeof(global::UISlider))]
 [ExecuteInEditMode]
+[AddComponentMenu("NGUI/Examples/Slider Colors")]
 public class UISliderColors : MonoBehaviour
 {
-	// Token: 0x06004599 RID: 17817 RVA: 0x00113444 File Offset: 0x00111644
+	// Token: 0x06004A02 RID: 18946 RVA: 0x0011CDC4 File Offset: 0x0011AFC4
 	private void Start()
 	{
-		this.mSlider = base.GetComponent<UISlider>();
+		this.mSlider = base.GetComponent<global::UISlider>();
 		this.Update();
 	}
 
-	// Token: 0x0600459A RID: 17818 RVA: 0x00113458 File Offset: 0x00111658
+	// Token: 0x06004A03 RID: 18947 RVA: 0x0011CDD8 File Offset: 0x0011AFD8
 	private void Update()
 	{
 		if (this.sprite == null || this.colors.Length == 0)
@@ -45,10 +45,10 @@ public class UISliderColors : MonoBehaviour
 		this.sprite.color = color;
 	}
 
-	// Token: 0x040025F9 RID: 9721
-	public UISprite sprite;
+	// Token: 0x04002830 RID: 10288
+	public global::UISprite sprite;
 
-	// Token: 0x040025FA RID: 9722
+	// Token: 0x04002831 RID: 10289
 	public Color[] colors = new Color[]
 	{
 		Color.red,
@@ -56,6 +56,6 @@ public class UISliderColors : MonoBehaviour
 		Color.green
 	};
 
-	// Token: 0x040025FB RID: 9723
-	private UISlider mSlider;
+	// Token: 0x04002832 RID: 10290
+	private global::UISlider mSlider;
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000708 RID: 1800
+// Token: 0x020007E0 RID: 2016
 [AttributeUsage(AttributeTargets.Method)]
 public class dfEventProxyAttribute : Attribute
 {

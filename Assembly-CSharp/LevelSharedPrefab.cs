@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004E1 RID: 1249
+// Token: 0x0200059C RID: 1436
 public class LevelSharedPrefab : MonoBehaviour
 {
-	// Token: 0x06002AD6 RID: 10966 RVA: 0x000AB1B4 File Offset: 0x000A93B4
+	// Token: 0x06002E88 RID: 11912 RVA: 0x000B2F4C File Offset: 0x000B114C
 	private void Awake()
 	{
 		base.transform.DetachChildren();

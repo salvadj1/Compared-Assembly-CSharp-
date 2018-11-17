@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020005DC RID: 1500
-public interface IMagazineItem : IInventoryItem
+// Token: 0x0200069A RID: 1690
+public interface IMagazineItem : global::IInventoryItem
 {
-	// Token: 0x17000AB6 RID: 2742
-	// (get) Token: 0x060035FA RID: 13818
+	// Token: 0x17000B2C RID: 2860
+	// (get) Token: 0x060039C2 RID: 14786
 	int numEmptyBulletSlots { get; }
 }

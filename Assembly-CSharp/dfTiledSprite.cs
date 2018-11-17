@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000700 RID: 1792
+// Token: 0x020007D3 RID: 2003
 [AddComponentMenu("Daikon Forge/User Interface/Sprite/Tiled")]
 [ExecuteInEditMode]
 [Serializable]
-public class dfTiledSprite : dfSprite
+public class dfTiledSprite : global::dfSprite
 {
-	// Token: 0x17000CE0 RID: 3296
-	// (get) Token: 0x0600415D RID: 16733 RVA: 0x000FBE68 File Offset: 0x000FA068
-	// (set) Token: 0x0600415E RID: 16734 RVA: 0x000FBE70 File Offset: 0x000FA070
+	// Token: 0x17000D66 RID: 3430
+	// (get) Token: 0x0600457F RID: 17791 RVA: 0x00104B54 File Offset: 0x00102D54
+	// (set) Token: 0x06004580 RID: 17792 RVA: 0x00104B5C File Offset: 0x00102D5C
 	public Vector2 TileScale
 	{
 		get
@@ -26,9 +26,9 @@ public class dfTiledSprite : dfSprite
 		}
 	}
 
-	// Token: 0x17000CE1 RID: 3297
-	// (get) Token: 0x0600415F RID: 16735 RVA: 0x000FBEAC File Offset: 0x000FA0AC
-	// (set) Token: 0x06004160 RID: 16736 RVA: 0x000FBEB4 File Offset: 0x000FA0B4
+	// Token: 0x17000D67 RID: 3431
+	// (get) Token: 0x06004581 RID: 17793 RVA: 0x00104B98 File Offset: 0x00102D98
+	// (set) Token: 0x06004582 RID: 17794 RVA: 0x00104BA0 File Offset: 0x00102DA0
 	public Vector2 TileScroll
 	{
 		get
@@ -45,23 +45,23 @@ public class dfTiledSprite : dfSprite
 		}
 	}
 
-	// Token: 0x06004161 RID: 16737 RVA: 0x000FBEDC File Offset: 0x000FA0DC
+	// Token: 0x06004583 RID: 17795 RVA: 0x00104BC8 File Offset: 0x00102DC8
 	protected override void OnRebuildRenderData()
 	{
 		if (base.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
 		if (spriteInfo == null)
 		{
 			return;
 		}
 		this.renderData.Material = base.Atlas.Material;
-		dfList<Vector3> vertices = this.renderData.Vertices;
-		dfList<Vector2> uv = this.renderData.UV;
-		dfList<Color32> colors = this.renderData.Colors;
-		dfList<int> triangles = this.renderData.Triangles;
+		global::dfList<Vector3> vertices = this.renderData.Vertices;
+		global::dfList<Vector2> uv = this.renderData.UV;
+		global::dfList<Color32> colors = this.renderData.Colors;
+		global::dfList<int> triangles = this.renderData.Triangles;
 		Vector2[] spriteUV = this.buildQuadUV();
 		Vector2 vector = Vector2.Scale(spriteInfo.sizeInPixels, this.tileScale);
 		Vector2 vector2;
@@ -89,8 +89,8 @@ public class dfTiledSprite : dfSprite
 		}
 	}
 
-	// Token: 0x06004162 RID: 16738 RVA: 0x000FC0F0 File Offset: 0x000FA2F0
-	private void clipQuads(dfList<Vector3> verts, dfList<Vector2> uv)
+	// Token: 0x06004584 RID: 17796 RVA: 0x00104DDC File Offset: 0x00102FDC
+	private void clipQuads(global::dfList<Vector3> verts, global::dfList<Vector2> uv)
 	{
 		float num = 0f;
 		float num2 = this.size.x;
@@ -98,7 +98,7 @@ public class dfTiledSprite : dfSprite
 		float num4 = 0f;
 		if (this.fillAmount < 1f)
 		{
-			if (this.fillDirection == dfFillDirection.Horizontal)
+			if (this.fillDirection == global::dfFillDirection.Horizontal)
 			{
 				if (!this.invertFill)
 				{
@@ -208,17 +208,17 @@ public class dfTiledSprite : dfSprite
 		}
 	}
 
-	// Token: 0x06004163 RID: 16739 RVA: 0x000FC790 File Offset: 0x000FA990
-	private void addQuadTriangles(dfList<int> triangles, int baseIndex)
+	// Token: 0x06004585 RID: 17797 RVA: 0x0010547C File Offset: 0x0010367C
+	private void addQuadTriangles(global::dfList<int> triangles, int baseIndex)
 	{
-		for (int i = 0; i < dfTiledSprite.quadTriangles.Length; i++)
+		for (int i = 0; i < global::dfTiledSprite.quadTriangles.Length; i++)
 		{
-			triangles.Add(dfTiledSprite.quadTriangles[i] + baseIndex);
+			triangles.Add(global::dfTiledSprite.quadTriangles[i] + baseIndex);
 		}
 	}
 
-	// Token: 0x06004164 RID: 16740 RVA: 0x000FC7C4 File Offset: 0x000FA9C4
-	private void addQuadColors(dfList<Color32> colors)
+	// Token: 0x06004586 RID: 17798 RVA: 0x001054B0 File Offset: 0x001036B0
+	private void addQuadColors(global::dfList<Color32> colors)
 	{
 		colors.EnsureCapacity(colors.Count + 4);
 		Color32 item = base.ApplyOpacity((!base.IsEnabled) ? this.disabledColor : this.color);
@@ -228,44 +228,44 @@ public class dfTiledSprite : dfSprite
 		}
 	}
 
-	// Token: 0x06004165 RID: 16741 RVA: 0x000FC81C File Offset: 0x000FAA1C
-	private void addQuadUV(dfList<Vector2> uv, Vector2[] spriteUV)
+	// Token: 0x06004587 RID: 17799 RVA: 0x00105508 File Offset: 0x00103708
+	private void addQuadUV(global::dfList<Vector2> uv, Vector2[] spriteUV)
 	{
 		uv.AddRange(spriteUV);
 	}
 
-	// Token: 0x06004166 RID: 16742 RVA: 0x000FC828 File Offset: 0x000FAA28
+	// Token: 0x06004588 RID: 17800 RVA: 0x00105514 File Offset: 0x00103714
 	private Vector2[] buildQuadUV()
 	{
-		dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
 		Rect region = spriteInfo.region;
-		dfTiledSprite.quadUV[0] = new Vector2(region.x, region.yMax);
-		dfTiledSprite.quadUV[1] = new Vector2(region.xMax, region.yMax);
-		dfTiledSprite.quadUV[2] = new Vector2(region.xMax, region.y);
-		dfTiledSprite.quadUV[3] = new Vector2(region.x, region.y);
+		global::dfTiledSprite.quadUV[0] = new Vector2(region.x, region.yMax);
+		global::dfTiledSprite.quadUV[1] = new Vector2(region.xMax, region.yMax);
+		global::dfTiledSprite.quadUV[2] = new Vector2(region.xMax, region.y);
+		global::dfTiledSprite.quadUV[3] = new Vector2(region.x, region.y);
 		Vector2 vector = Vector2.zero;
-		if (this.flip.IsSet(dfSpriteFlip.FlipHorizontal))
+		if (this.flip.IsSet(global::dfSpriteFlip.FlipHorizontal))
 		{
-			vector = dfTiledSprite.quadUV[1];
-			dfTiledSprite.quadUV[1] = dfTiledSprite.quadUV[0];
-			dfTiledSprite.quadUV[0] = vector;
-			vector = dfTiledSprite.quadUV[3];
-			dfTiledSprite.quadUV[3] = dfTiledSprite.quadUV[2];
-			dfTiledSprite.quadUV[2] = vector;
+			vector = global::dfTiledSprite.quadUV[1];
+			global::dfTiledSprite.quadUV[1] = global::dfTiledSprite.quadUV[0];
+			global::dfTiledSprite.quadUV[0] = vector;
+			vector = global::dfTiledSprite.quadUV[3];
+			global::dfTiledSprite.quadUV[3] = global::dfTiledSprite.quadUV[2];
+			global::dfTiledSprite.quadUV[2] = vector;
 		}
-		if (this.flip.IsSet(dfSpriteFlip.FlipVertical))
+		if (this.flip.IsSet(global::dfSpriteFlip.FlipVertical))
 		{
-			vector = dfTiledSprite.quadUV[0];
-			dfTiledSprite.quadUV[0] = dfTiledSprite.quadUV[3];
-			dfTiledSprite.quadUV[3] = vector;
-			vector = dfTiledSprite.quadUV[1];
-			dfTiledSprite.quadUV[1] = dfTiledSprite.quadUV[2];
-			dfTiledSprite.quadUV[2] = vector;
+			vector = global::dfTiledSprite.quadUV[0];
+			global::dfTiledSprite.quadUV[0] = global::dfTiledSprite.quadUV[3];
+			global::dfTiledSprite.quadUV[3] = vector;
+			vector = global::dfTiledSprite.quadUV[1];
+			global::dfTiledSprite.quadUV[1] = global::dfTiledSprite.quadUV[2];
+			global::dfTiledSprite.quadUV[2] = vector;
 		}
-		return dfTiledSprite.quadUV;
+		return global::dfTiledSprite.quadUV;
 	}
 
-	// Token: 0x04002285 RID: 8837
+	// Token: 0x04002491 RID: 9361
 	private static int[] quadTriangles = new int[]
 	{
 		0,
@@ -276,14 +276,14 @@ public class dfTiledSprite : dfSprite
 		2
 	};
 
-	// Token: 0x04002286 RID: 8838
+	// Token: 0x04002492 RID: 9362
 	private static Vector2[] quadUV = new Vector2[4];
 
-	// Token: 0x04002287 RID: 8839
+	// Token: 0x04002493 RID: 9363
 	[SerializeField]
 	protected Vector2 tileScale = Vector2.one;
 
-	// Token: 0x04002288 RID: 8840
+	// Token: 0x04002494 RID: 9364
 	[SerializeField]
 	protected Vector2 tileScroll = Vector2.zero;
 }

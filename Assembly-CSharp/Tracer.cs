@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004A9 RID: 1193
+// Token: 0x02000564 RID: 1380
 public class Tracer : MonoBehaviour
 {
-	// Token: 0x06002A00 RID: 10752 RVA: 0x000A4470 File Offset: 0x000A2670
+	// Token: 0x06002DB2 RID: 11698 RVA: 0x000AC208 File Offset: 0x000AA408
 	private void Awake()
 	{
 		this.startTime = Time.time;
@@ -13,7 +13,7 @@ public class Tracer : MonoBehaviour
 		base.transform.localScale = new Vector3(0f, 0f, this.startScale.z);
 	}
 
-	// Token: 0x06002A01 RID: 10753 RVA: 0x000A4518 File Offset: 0x000A2718
+	// Token: 0x06002DB3 RID: 11699 RVA: 0x000AC2B0 File Offset: 0x000AA4B0
 	public void Init(Component component, int layerMask, float range, bool allowBlood)
 	{
 		this.layerMask = layerMask;
@@ -23,13 +23,13 @@ public class Tracer : MonoBehaviour
 		this.allowBlood = allowBlood;
 	}
 
-	// Token: 0x06002A02 RID: 10754 RVA: 0x000A456C File Offset: 0x000A276C
+	// Token: 0x06002DB4 RID: 11700 RVA: 0x000AC304 File Offset: 0x000AA504
 	private void Start()
 	{
 		this.lastUpdateTime = Time.time;
 	}
 
-	// Token: 0x06002A03 RID: 10755 RVA: 0x000A457C File Offset: 0x000A277C
+	// Token: 0x06002DB5 RID: 11701 RVA: 0x000AC314 File Offset: 0x000AA514
 	private void Update()
 	{
 		float num = Time.time - this.lastUpdateTime;
@@ -79,7 +79,7 @@ public class Tracer : MonoBehaviour
 				rigidbody.AddForceAtPosition(Vector3.up * 200f, point);
 				rigidbody.AddForceAtPosition(ray.direction * 1000f, point);
 			}
-			SurfaceInfo.DoImpact(gameObject, SurfaceInfoObject.ImpactType.Bullet, point + normal * 0.01f, quaternion);
+			global::SurfaceInfo.DoImpact(gameObject, global::SurfaceInfoObject.ImpactType.Bullet, point + normal * 0.01f, quaternion);
 			if (layer == 17 || layer == 18 || layer == 27 || layer == 21)
 			{
 				flag2 = false;
@@ -107,63 +107,63 @@ public class Tracer : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040015E3 RID: 5603
+	// Token: 0x040017A0 RID: 6048
 	public float speedPerSec;
 
-	// Token: 0x040015E4 RID: 5604
+	// Token: 0x040017A1 RID: 6049
 	public float lastUpdateTime;
 
-	// Token: 0x040015E5 RID: 5605
+	// Token: 0x040017A2 RID: 6050
 	public GameObject impactPrefab;
 
-	// Token: 0x040015E6 RID: 5606
+	// Token: 0x040017A3 RID: 6051
 	public GameObject fleshImpactPrefab;
 
-	// Token: 0x040015E7 RID: 5607
+	// Token: 0x040017A4 RID: 6052
 	public GameObject decalPrefab;
 
-	// Token: 0x040015E8 RID: 5608
+	// Token: 0x040017A5 RID: 6053
 	public GameObject bloodDecalPrefab;
 
-	// Token: 0x040015E9 RID: 5609
+	// Token: 0x040017A6 RID: 6054
 	public GameObject myMesh;
 
-	// Token: 0x040015EA RID: 5610
+	// Token: 0x040017A7 RID: 6055
 	public Vector3 startScale;
 
-	// Token: 0x040015EB RID: 5611
+	// Token: 0x040017A8 RID: 6056
 	public float distance;
 
-	// Token: 0x040015EC RID: 5612
+	// Token: 0x040017A9 RID: 6057
 	public float startTime;
 
-	// Token: 0x040015ED RID: 5613
+	// Token: 0x040017AA RID: 6058
 	public float fadeDistStart = 0.15f;
 
-	// Token: 0x040015EE RID: 5614
+	// Token: 0x040017AB RID: 6059
 	public float fadeDistLength = 0.25f;
 
-	// Token: 0x040015EF RID: 5615
+	// Token: 0x040017AC RID: 6060
 	public AudioClip[] impactSounds;
 
-	// Token: 0x040015F0 RID: 5616
+	// Token: 0x040017AD RID: 6061
 	public AudioClip[] bodyImpactSounds;
 
-	// Token: 0x040015F1 RID: 5617
+	// Token: 0x040017AE RID: 6062
 	private Collider colliderToHit;
 
-	// Token: 0x040015F2 RID: 5618
+	// Token: 0x040017AF RID: 6063
 	private bool thereIsACollider;
 
-	// Token: 0x040015F3 RID: 5619
+	// Token: 0x040017B0 RID: 6064
 	private bool thereIsABodyPart;
 
-	// Token: 0x040015F4 RID: 5620
+	// Token: 0x040017B1 RID: 6065
 	private bool allowBlood;
 
-	// Token: 0x040015F5 RID: 5621
+	// Token: 0x040017B2 RID: 6066
 	private int layerMask = 406721553;
 
-	// Token: 0x040015F6 RID: 5622
+	// Token: 0x040017B3 RID: 6067
 	private float maxRange = 800f;
 }

@@ -1,43 +1,43 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000452 RID: 1106
+// Token: 0x02000508 RID: 1288
 public class CameraSettings : MonoBehaviour
 {
-	// Token: 0x06002878 RID: 10360 RVA: 0x0009F2D4 File Offset: 0x0009D4D4
+	// Token: 0x06002C08 RID: 11272 RVA: 0x000A5254 File Offset: 0x000A3454
 	protected void Awake()
 	{
-		GameEvent.QualitySettingsRefresh += this.RefreshSettings;
+		global::GameEvent.QualitySettingsRefresh += this.RefreshSettings;
 	}
 
-	// Token: 0x06002879 RID: 10361 RVA: 0x0009F2E8 File Offset: 0x0009D4E8
+	// Token: 0x06002C09 RID: 11273 RVA: 0x000A5268 File Offset: 0x000A3468
 	protected void OnDestroy()
 	{
-		GameEvent.QualitySettingsRefresh -= this.RefreshSettings;
+		global::GameEvent.QualitySettingsRefresh -= this.RefreshSettings;
 	}
 
-	// Token: 0x0600287A RID: 10362 RVA: 0x0009F2FC File Offset: 0x0009D4FC
+	// Token: 0x06002C0A RID: 11274 RVA: 0x000A527C File Offset: 0x000A347C
 	private void RefreshSettings()
 	{
-		CameraLayerDepths component = base.GetComponent<CameraLayerDepths>();
+		global::CameraLayerDepths component = base.GetComponent<global::CameraLayerDepths>();
 		if (component)
 		{
-			foreach (CameraSettings.ViewDistanceLayer viewDistanceLayer in this.ViewDistanceLayers)
+			foreach (global::CameraSettings.ViewDistanceLayer viewDistanceLayer in this.ViewDistanceLayers)
 			{
-				component[viewDistanceLayer.Index] = viewDistanceLayer.MinimumValue + render.distance * viewDistanceLayer.Range;
+				component[viewDistanceLayer.Index] = viewDistanceLayer.MinimumValue + global::render.distance * viewDistanceLayer.Range;
 			}
 		}
 	}
 
-	// Token: 0x04001481 RID: 5249
-	public CameraSettings.ViewDistanceLayer[] ViewDistanceLayers;
+	// Token: 0x04001604 RID: 5636
+	public global::CameraSettings.ViewDistanceLayer[] ViewDistanceLayers;
 
-	// Token: 0x02000453 RID: 1107
+	// Token: 0x02000509 RID: 1289
 	[Serializable]
 	public class ViewDistanceLayer
 	{
-		// Token: 0x1700092B RID: 2347
-		// (get) Token: 0x0600287C RID: 10364 RVA: 0x0009F364 File Offset: 0x0009D564
+		// Token: 0x17000993 RID: 2451
+		// (get) Token: 0x06002C0C RID: 11276 RVA: 0x000A52E4 File Offset: 0x000A34E4
 		public float Range
 		{
 			get
@@ -46,8 +46,8 @@ public class CameraSettings : MonoBehaviour
 			}
 		}
 
-		// Token: 0x1700092C RID: 2348
-		// (get) Token: 0x0600287D RID: 10365 RVA: 0x0009F374 File Offset: 0x0009D574
+		// Token: 0x17000994 RID: 2452
+		// (get) Token: 0x06002C0D RID: 11277 RVA: 0x000A52F4 File Offset: 0x000A34F4
 		public int Index
 		{
 			get
@@ -56,13 +56,13 @@ public class CameraSettings : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04001482 RID: 5250
+		// Token: 0x04001605 RID: 5637
 		public string Name;
 
-		// Token: 0x04001483 RID: 5251
+		// Token: 0x04001606 RID: 5638
 		public float MinimumValue;
 
-		// Token: 0x04001484 RID: 5252
+		// Token: 0x04001607 RID: 5639
 		public float MaximumValue;
 	}
 }

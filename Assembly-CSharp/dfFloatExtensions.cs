@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006F8 RID: 1784
+// Token: 0x020007CA RID: 1994
 public static class dfFloatExtensions
 {
-	// Token: 0x06004075 RID: 16501 RVA: 0x000F7764 File Offset: 0x000F5964
+	// Token: 0x06004491 RID: 17553 RVA: 0x00100368 File Offset: 0x000FE568
 	public static float Quantize(this float value, float stepSize)
 	{
 		if (stepSize <= 0f)
@@ -14,7 +14,7 @@ public static class dfFloatExtensions
 		return Mathf.Floor(value / stepSize) * stepSize;
 	}
 
-	// Token: 0x06004076 RID: 16502 RVA: 0x000F7780 File Offset: 0x000F5980
+	// Token: 0x06004492 RID: 17554 RVA: 0x00100384 File Offset: 0x000FE584
 	public static float RoundToNearest(this float value, float stepSize)
 	{
 		if (stepSize <= 0f)

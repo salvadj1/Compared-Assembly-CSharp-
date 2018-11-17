@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200045E RID: 1118
-public class CharacterSleepingAvatarTrait : CharacterTrait
+// Token: 0x02000514 RID: 1300
+public class CharacterSleepingAvatarTrait : global::CharacterTrait
 {
-	// Token: 0x060028AD RID: 10413 RVA: 0x0009FB64 File Offset: 0x0009DD64
+	// Token: 0x06002C3D RID: 11325 RVA: 0x000A5AE4 File Offset: 0x000A3CE4
 	private bool ValidatePrefab()
 	{
 		if (string.IsNullOrEmpty(this._sleepingAvatarPrefab))
@@ -12,27 +12,27 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 			return false;
 		}
 		GameObject gameObject;
-		NetCull.PrefabSearch prefabSearch = NetCull.LoadPrefab(this._sleepingAvatarPrefab, out gameObject);
+		global::NetCull.PrefabSearch prefabSearch = global::NetCull.LoadPrefab(this._sleepingAvatarPrefab, out gameObject);
 		if ((int)prefabSearch != 1)
 		{
-			Debug.LogError(string.Format("sleeping avatar prefab named \"{0}\" resulted in {1} which was not {2}(required)", this.prefab, prefabSearch, NetCull.PrefabSearch.NGC));
+			Debug.LogError(string.Format("sleeping avatar prefab named \"{0}\" resulted in {1} which was not {2}(required)", this.prefab, prefabSearch, global::NetCull.PrefabSearch.NGC));
 			return false;
 		}
 		IDMain component = gameObject.GetComponent<IDMain>();
-		if (!(component is SleepingAvatar))
+		if (!(component is global::SleepingAvatar))
 		{
 			Debug.LogError(string.Format("Theres no Sleeping avatar on prefab \"{0}\"", this.prefab), gameObject);
 			return false;
 		}
-		this._hasInventory = component.GetLocal<Inventory>();
-		TakeDamage local = component.GetLocal<TakeDamage>();
+		this._hasInventory = component.GetLocal<global::Inventory>();
+		global::TakeDamage local = component.GetLocal<global::TakeDamage>();
 		this._hasTakeDamage = local;
 		this._takeDamageType = ((!this._hasTakeDamage) ? null : local.GetType());
 		return true;
 	}
 
-	// Token: 0x1700093F RID: 2367
-	// (get) Token: 0x060028AE RID: 10414 RVA: 0x0009FC28 File Offset: 0x0009DE28
+	// Token: 0x170009A7 RID: 2471
+	// (get) Token: 0x06002C3E RID: 11326 RVA: 0x000A5BA8 File Offset: 0x000A3DA8
 	public bool valid
 	{
 		get
@@ -52,8 +52,8 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000940 RID: 2368
-	// (get) Token: 0x060028AF RID: 10415 RVA: 0x0009FC70 File Offset: 0x0009DE70
+	// Token: 0x170009A8 RID: 2472
+	// (get) Token: 0x06002C3F RID: 11327 RVA: 0x000A5BF0 File Offset: 0x000A3DF0
 	public bool hasTakeDamage
 	{
 		get
@@ -62,8 +62,8 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000941 RID: 2369
-	// (get) Token: 0x060028B0 RID: 10416 RVA: 0x0009FC88 File Offset: 0x0009DE88
+	// Token: 0x170009A9 RID: 2473
+	// (get) Token: 0x06002C40 RID: 11328 RVA: 0x000A5C08 File Offset: 0x000A3E08
 	public Type takeDamageType
 	{
 		get
@@ -76,8 +76,8 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000942 RID: 2370
-	// (get) Token: 0x060028B1 RID: 10417 RVA: 0x0009FCA8 File Offset: 0x0009DEA8
+	// Token: 0x170009AA RID: 2474
+	// (get) Token: 0x06002C41 RID: 11329 RVA: 0x000A5C28 File Offset: 0x000A3E28
 	public bool hasInventory
 	{
 		get
@@ -86,8 +86,8 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000943 RID: 2371
-	// (get) Token: 0x060028B2 RID: 10418 RVA: 0x0009FCC0 File Offset: 0x0009DEC0
+	// Token: 0x170009AB RID: 2475
+	// (get) Token: 0x06002C42 RID: 11330 RVA: 0x000A5C40 File Offset: 0x000A3E40
 	public bool canDropInventories
 	{
 		get
@@ -96,8 +96,8 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000944 RID: 2372
-	// (get) Token: 0x060028B3 RID: 10419 RVA: 0x0009FCD8 File Offset: 0x0009DED8
+	// Token: 0x170009AC RID: 2476
+	// (get) Token: 0x06002C43 RID: 11331 RVA: 0x000A5C58 File Offset: 0x000A3E58
 	public string prefab
 	{
 		get
@@ -106,8 +106,8 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000945 RID: 2373
-	// (get) Token: 0x060028B4 RID: 10420 RVA: 0x0009FCEC File Offset: 0x0009DEEC
+	// Token: 0x170009AD RID: 2477
+	// (get) Token: 0x06002C44 RID: 11332 RVA: 0x000A5C6C File Offset: 0x000A3E6C
 	public bool grabsCarrierOnCreate
 	{
 		get
@@ -116,45 +116,45 @@ public class CharacterSleepingAvatarTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x060028B5 RID: 10421 RVA: 0x0009FD04 File Offset: 0x0009DF04
+	// Token: 0x06002C45 RID: 11333 RVA: 0x000A5C84 File Offset: 0x000A3E84
 	public Vector3 SolvePlacement(Vector3 origin, Quaternion rot, int iter)
 	{
-		return TransformHelpers.TestBoxCorners(origin, rot, this.boxCenter, this.boxSize, 1024, iter);
+		return global::TransformHelpers.TestBoxCorners(origin, rot, this.boxCenter, this.boxSize, 1024, iter);
 	}
 
-	// Token: 0x040014A1 RID: 5281
+	// Token: 0x04001624 RID: 5668
 	[SerializeField]
 	private string _sleepingAvatarPrefab;
 
-	// Token: 0x040014A2 RID: 5282
+	// Token: 0x04001625 RID: 5669
 	[SerializeField]
 	private bool _allowDroppingOfInventory;
 
-	// Token: 0x040014A3 RID: 5283
+	// Token: 0x04001626 RID: 5670
 	[SerializeField]
 	private bool _grabCarrierOnCreate;
 
-	// Token: 0x040014A4 RID: 5284
+	// Token: 0x04001627 RID: 5671
 	[SerializeField]
 	private Vector3 boxCenter;
 
-	// Token: 0x040014A5 RID: 5285
+	// Token: 0x04001628 RID: 5672
 	[SerializeField]
 	private Vector3 boxSize;
 
-	// Token: 0x040014A6 RID: 5286
+	// Token: 0x04001629 RID: 5673
 	[NonSerialized]
 	private bool? _prefabValid;
 
-	// Token: 0x040014A7 RID: 5287
+	// Token: 0x0400162A RID: 5674
 	[NonSerialized]
 	private bool _hasInventory;
 
-	// Token: 0x040014A8 RID: 5288
+	// Token: 0x0400162B RID: 5675
 	[NonSerialized]
 	private bool _hasTakeDamage;
 
-	// Token: 0x040014A9 RID: 5289
+	// Token: 0x0400162C RID: 5676
 	[NonSerialized]
 	private Type _takeDamageType;
 }

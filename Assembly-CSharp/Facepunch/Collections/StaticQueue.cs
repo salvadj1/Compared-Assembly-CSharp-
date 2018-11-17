@@ -2,23 +2,23 @@
 
 namespace Facepunch.Collections
 {
-	// Token: 0x02000172 RID: 370
+	// Token: 0x0200019E RID: 414
 	public abstract class StaticQueue<KEY, T> where T : class
 	{
-		// Token: 0x06000B5D RID: 2909 RVA: 0x0002C484 File Offset: 0x0002A684
+		// Token: 0x06000C8D RID: 3213 RVA: 0x00030370 File Offset: 0x0002E570
 		protected static bool validate(T instance, ref StaticQueue<KEY, T>.Entry state, bool must_be_contained = false)
 		{
 			return (!state.inside) ? (!must_be_contained) : (!object.ReferenceEquals(state.node, null) && object.ReferenceEquals(state.node.v, instance));
 		}
 
-		// Token: 0x06000B5E RID: 2910 RVA: 0x0002C4D4 File Offset: 0x0002A6D4
+		// Token: 0x06000C8E RID: 3214 RVA: 0x000303C0 File Offset: 0x0002E5C0
 		protected static bool contains(ref StaticQueue<KEY, T>.Entry state)
 		{
 			return state.inside;
 		}
 
-		// Token: 0x17000316 RID: 790
-		// (get) Token: 0x06000B5F RID: 2911 RVA: 0x0002C4DC File Offset: 0x0002A6DC
+		// Token: 0x1700035A RID: 858
+		// (get) Token: 0x06000C8F RID: 3215 RVA: 0x000303C8 File Offset: 0x0002E5C8
 		protected static int num
 		{
 			get
@@ -27,7 +27,7 @@ namespace Facepunch.Collections
 			}
 		}
 
-		// Token: 0x06000B60 RID: 2912 RVA: 0x0002C4E4 File Offset: 0x0002A6E4
+		// Token: 0x06000C90 RID: 3216 RVA: 0x000303D0 File Offset: 0x0002E5D0
 		protected static bool enqueue(T instance, ref StaticQueue<KEY, T>.Entry state)
 		{
 			if (!state.inside)
@@ -39,7 +39,7 @@ namespace Facepunch.Collections
 			return false;
 		}
 
-		// Token: 0x06000B61 RID: 2913 RVA: 0x0002C518 File Offset: 0x0002A718
+		// Token: 0x06000C91 RID: 3217 RVA: 0x00030404 File Offset: 0x0002E604
 		protected static bool dequeue(T instance, ref StaticQueue<KEY, T>.Entry state)
 		{
 			if (state.inside)
@@ -50,7 +50,7 @@ namespace Facepunch.Collections
 			return false;
 		}
 
-		// Token: 0x06000B62 RID: 2914 RVA: 0x0002C53C File Offset: 0x0002A73C
+		// Token: 0x06000C92 RID: 3218 RVA: 0x00030428 File Offset: 0x0002E628
 		protected static bool requeue(T instance, ref StaticQueue<KEY, T>.Entry state)
 		{
 			if (!state.inside)
@@ -65,19 +65,19 @@ namespace Facepunch.Collections
 			return true;
 		}
 
-		// Token: 0x06000B63 RID: 2915 RVA: 0x0002C580 File Offset: 0x0002A780
+		// Token: 0x06000C93 RID: 3219 RVA: 0x0003046C File Offset: 0x0002E66C
 		protected static bool enrequeue(T instance, ref StaticQueue<KEY, T>.Entry state)
 		{
 			return (!state.inside) ? StaticQueue<KEY, T>.enqueue(instance, ref state) : StaticQueue<KEY, T>.requeue(instance, ref state);
 		}
 
-		// Token: 0x06000B64 RID: 2916 RVA: 0x0002C5A0 File Offset: 0x0002A7A0
+		// Token: 0x06000C94 RID: 3220 RVA: 0x0003048C File Offset: 0x0002E68C
 		protected static bool requeue(T instance, ref StaticQueue<KEY, T>.Entry state, bool enqueue_if_missing)
 		{
 			return (!enqueue_if_missing) ? StaticQueue<KEY, T>.enqueue(instance, ref state) : StaticQueue<KEY, T>.enrequeue(instance, ref state);
 		}
 
-		// Token: 0x06000B65 RID: 2917 RVA: 0x0002C5BC File Offset: 0x0002A7BC
+		// Token: 0x06000C95 RID: 3221 RVA: 0x000304A8 File Offset: 0x0002E6A8
 		protected static void drain()
 		{
 			if (StaticQueue<KEY, T>.reg_made)
@@ -86,55 +86,55 @@ namespace Facepunch.Collections
 			}
 		}
 
-		// Token: 0x04000709 RID: 1801
+		// Token: 0x0400081D RID: 2077
 		private static bool reg_made;
 
-		// Token: 0x0400070A RID: 1802
+		// Token: 0x0400081E RID: 2078
 		private static int count;
 
-		// Token: 0x02000173 RID: 371
+		// Token: 0x0200019F RID: 415
 		internal struct way
 		{
-			// Token: 0x0400070B RID: 1803
+			// Token: 0x0400081F RID: 2079
 			public StaticQueue<KEY, T>.node v;
 
-			// Token: 0x0400070C RID: 1804
+			// Token: 0x04000820 RID: 2080
 			public bool e;
 		}
 
-		// Token: 0x02000174 RID: 372
+		// Token: 0x020001A0 RID: 416
 		internal struct fork
 		{
-			// Token: 0x0400070D RID: 1805
+			// Token: 0x04000821 RID: 2081
 			public StaticQueue<KEY, T>.way p;
 
-			// Token: 0x0400070E RID: 1806
+			// Token: 0x04000822 RID: 2082
 			public StaticQueue<KEY, T>.way n;
 		}
 
-		// Token: 0x02000175 RID: 373
+		// Token: 0x020001A1 RID: 417
 		internal class node
 		{
-			// Token: 0x0400070F RID: 1807
+			// Token: 0x04000823 RID: 2083
 			public T v;
 
-			// Token: 0x04000710 RID: 1808
+			// Token: 0x04000824 RID: 2084
 			public bool e;
 
-			// Token: 0x04000711 RID: 1809
+			// Token: 0x04000825 RID: 2085
 			public StaticQueue<KEY, T>.fork w;
 		}
 
-		// Token: 0x02000176 RID: 374
+		// Token: 0x020001A2 RID: 418
 		private static class reg
 		{
-			// Token: 0x06000B67 RID: 2919 RVA: 0x0002C5D8 File Offset: 0x0002A7D8
+			// Token: 0x06000C97 RID: 3223 RVA: 0x000304C4 File Offset: 0x0002E6C4
 			static reg()
 			{
 				StaticQueue<KEY, T>.reg_made = true;
 			}
 
-			// Token: 0x06000B68 RID: 2920 RVA: 0x0002C5E0 File Offset: 0x0002A7E0
+			// Token: 0x06000C98 RID: 3224 RVA: 0x000304CC File Offset: 0x0002E6CC
 			internal static StaticQueue<KEY, T>.node make_node(T v)
 			{
 				StaticQueue<KEY, T>.node node;
@@ -154,7 +154,7 @@ namespace Facepunch.Collections
 				return node;
 			}
 
-			// Token: 0x06000B69 RID: 2921 RVA: 0x0002C648 File Offset: 0x0002A848
+			// Token: 0x06000C99 RID: 3225 RVA: 0x00030534 File Offset: 0x0002E734
 			internal static void delete(StaticQueue<KEY, T>.node r)
 			{
 				r.v = (T)((object)null);
@@ -167,7 +167,7 @@ namespace Facepunch.Collections
 				StaticQueue<KEY, T>.reg.dump = r;
 			}
 
-			// Token: 0x06000B6A RID: 2922 RVA: 0x0002C6B8 File Offset: 0x0002A8B8
+			// Token: 0x06000C9A RID: 3226 RVA: 0x000305A4 File Offset: 0x0002E7A4
 			internal static StaticQueue<KEY, T>.node insert_begin(StaticQueue<KEY, T>.node node)
 			{
 				if (node.e)
@@ -193,7 +193,7 @@ namespace Facepunch.Collections
 				return StaticQueue<KEY, T>.reg.first;
 			}
 
-			// Token: 0x06000B6B RID: 2923 RVA: 0x0002C75C File Offset: 0x0002A95C
+			// Token: 0x06000C9B RID: 3227 RVA: 0x00030648 File Offset: 0x0002E848
 			internal static StaticQueue<KEY, T>.node insert_end(StaticQueue<KEY, T>.node node)
 			{
 				if (node.e)
@@ -219,7 +219,7 @@ namespace Facepunch.Collections
 				return StaticQueue<KEY, T>.reg.last;
 			}
 
-			// Token: 0x06000B6C RID: 2924 RVA: 0x0002C800 File Offset: 0x0002AA00
+			// Token: 0x06000C9C RID: 3228 RVA: 0x000306EC File Offset: 0x0002E8EC
 			internal static bool deref(StaticQueue<KEY, T>.node node)
 			{
 				if (object.ReferenceEquals(node, null))
@@ -258,7 +258,7 @@ namespace Facepunch.Collections
 				return false;
 			}
 
-			// Token: 0x06000B6D RID: 2925 RVA: 0x0002C934 File Offset: 0x0002AB34
+			// Token: 0x06000C9D RID: 3229 RVA: 0x00030820 File Offset: 0x0002EA20
 			internal static bool dispose(ref StaticQueue<KEY, T>.node node)
 			{
 				if (StaticQueue<KEY, T>.reg.deref(node))
@@ -271,43 +271,43 @@ namespace Facepunch.Collections
 				return false;
 			}
 
-			// Token: 0x06000B6E RID: 2926 RVA: 0x0002C968 File Offset: 0x0002AB68
+			// Token: 0x06000C9E RID: 3230 RVA: 0x00030854 File Offset: 0x0002EA54
 			public static void drain()
 			{
 				StaticQueue<KEY, T>.reg.dump = null;
 				StaticQueue<KEY, T>.reg.dump_size = 0;
 			}
 
-			// Token: 0x04000712 RID: 1810
+			// Token: 0x04000826 RID: 2086
 			private static int dump_size;
 
-			// Token: 0x04000713 RID: 1811
+			// Token: 0x04000827 RID: 2087
 			private static StaticQueue<KEY, T>.node dump;
 
-			// Token: 0x04000714 RID: 1812
+			// Token: 0x04000828 RID: 2088
 			internal static StaticQueue<KEY, T>.node first;
 
-			// Token: 0x04000715 RID: 1813
+			// Token: 0x04000829 RID: 2089
 			internal static StaticQueue<KEY, T>.node last;
 		}
 
-		// Token: 0x02000177 RID: 375
+		// Token: 0x020001A3 RID: 419
 		protected enum act
 		{
-			// Token: 0x04000717 RID: 1815
+			// Token: 0x0400082B RID: 2091
 			none,
-			// Token: 0x04000718 RID: 1816
+			// Token: 0x0400082C RID: 2092
 			front,
-			// Token: 0x04000719 RID: 1817
+			// Token: 0x0400082D RID: 2093
 			back,
-			// Token: 0x0400071A RID: 1818
+			// Token: 0x0400082E RID: 2094
 			delist
 		}
 
-		// Token: 0x02000178 RID: 376
+		// Token: 0x020001A4 RID: 420
 		protected struct iterator
 		{
-			// Token: 0x06000B6F RID: 2927 RVA: 0x0002C978 File Offset: 0x0002AB78
+			// Token: 0x06000C9F RID: 3231 RVA: 0x00030864 File Offset: 0x0002EA64
 			public iterator(int maxIterations, int maxFailedIterations)
 			{
 				if (maxIterations == 0 || maxIterations > StaticQueue<KEY, T>.count)
@@ -335,13 +335,13 @@ namespace Facepunch.Collections
 				this.next = ((!StaticQueue<KEY, T>.reg_made) ? null : StaticQueue<KEY, T>.reg.first);
 			}
 
-			// Token: 0x06000B70 RID: 2928 RVA: 0x0002CA2C File Offset: 0x0002AC2C
+			// Token: 0x06000CA0 RID: 3232 RVA: 0x00030918 File Offset: 0x0002EB18
 			public iterator(int maxIter)
 			{
 				this = new StaticQueue<KEY, T>.iterator(maxIter, (maxIter >= StaticQueue<KEY, T>.count) ? 0 : (StaticQueue<KEY, T>.count - maxIter));
 			}
 
-			// Token: 0x06000B71 RID: 2929 RVA: 0x0002CA50 File Offset: 0x0002AC50
+			// Token: 0x06000CA1 RID: 3233 RVA: 0x0003093C File Offset: 0x0002EB3C
 			public bool Start(out T v)
 			{
 				if (this.position++ < this.attempts)
@@ -356,13 +356,13 @@ namespace Facepunch.Collections
 				return false;
 			}
 
-			// Token: 0x06000B72 RID: 2930 RVA: 0x0002CAD0 File Offset: 0x0002ACD0
+			// Token: 0x06000CA2 RID: 3234 RVA: 0x000309BC File Offset: 0x0002EBBC
 			public bool Validate(ref StaticQueue<KEY, T>.Entry key)
 			{
 				return key.inside;
 			}
 
-			// Token: 0x06000B73 RID: 2931 RVA: 0x0002CAD8 File Offset: 0x0002ACD8
+			// Token: 0x06000CA3 RID: 3235 RVA: 0x000309C4 File Offset: 0x0002EBC4
 			public bool MissingNext(out T v)
 			{
 				if (this.fail_left-- > 0)
@@ -373,7 +373,7 @@ namespace Facepunch.Collections
 				return this.Start(out v);
 			}
 
-			// Token: 0x06000B74 RID: 2932 RVA: 0x0002CB20 File Offset: 0x0002AD20
+			// Token: 0x06000CA4 RID: 3236 RVA: 0x00030A0C File Offset: 0x0002EC0C
 			public bool Next(ref StaticQueue<KEY, T>.Entry prev_key, StaticQueue<KEY, T>.act cmd, out T v)
 			{
 				bool flag = object.ReferenceEquals(prev_key.node, null);
@@ -426,29 +426,29 @@ namespace Facepunch.Collections
 				return this.Start(out v);
 			}
 
-			// Token: 0x0400071B RID: 1819
+			// Token: 0x0400082F RID: 2095
 			private int attempts;
 
-			// Token: 0x0400071C RID: 1820
+			// Token: 0x04000830 RID: 2096
 			private int fail_left;
 
-			// Token: 0x0400071D RID: 1821
+			// Token: 0x04000831 RID: 2097
 			private int position;
 
-			// Token: 0x0400071E RID: 1822
+			// Token: 0x04000832 RID: 2098
 			private StaticQueue<KEY, T>.node node;
 
-			// Token: 0x0400071F RID: 1823
+			// Token: 0x04000833 RID: 2099
 			private StaticQueue<KEY, T>.node next;
 		}
 
-		// Token: 0x02000179 RID: 377
+		// Token: 0x020001A5 RID: 421
 		public struct Entry
 		{
-			// Token: 0x04000720 RID: 1824
+			// Token: 0x04000834 RID: 2100
 			internal bool inside;
 
-			// Token: 0x04000721 RID: 1825
+			// Token: 0x04000835 RID: 2101
 			internal StaticQueue<KEY, T>.node node;
 		}
 	}

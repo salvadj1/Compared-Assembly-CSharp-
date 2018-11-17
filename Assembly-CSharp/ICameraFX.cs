@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x02000447 RID: 1095
+// Token: 0x020004FD RID: 1277
 public interface ICameraFX
 {
-	// Token: 0x0600280D RID: 10253
+	// Token: 0x06002B9D RID: 11165
 	void PreCull();
 
-	// Token: 0x0600280E RID: 10254
+	// Token: 0x06002B9E RID: 11166
 	void PostRender();
 
-	// Token: 0x0600280F RID: 10255
-	void OnViewModelChange(ViewModel viewModel);
+	// Token: 0x06002B9F RID: 11167
+	void OnViewModelChange(global::ViewModel viewModel);
 }

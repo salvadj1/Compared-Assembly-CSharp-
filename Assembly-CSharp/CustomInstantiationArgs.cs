@@ -2,23 +2,23 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000310 RID: 784
+// Token: 0x020003B9 RID: 953
 public struct CustomInstantiationArgs
 {
-	// Token: 0x06001E3E RID: 7742 RVA: 0x00076DDC File Offset: 0x00074FDC
-	public CustomInstantiationArgs(NetMainPrefab netMain, IDMain prefab, ref NetworkInstantiateArgs args, bool server)
+	// Token: 0x06002180 RID: 8576 RVA: 0x0007B85C File Offset: 0x00079A5C
+	public CustomInstantiationArgs(global::NetMainPrefab netMain, IDMain prefab, ref NetworkInstantiateArgs args, bool server)
 	{
-		this = new CustomInstantiationArgs(netMain, null, prefab, ref args, server, false);
+		this = new global::CustomInstantiationArgs(netMain, null, prefab, ref args, server, false);
 	}
 
-	// Token: 0x06001E3F RID: 7743 RVA: 0x00076DEC File Offset: 0x00074FEC
-	public CustomInstantiationArgs(NetMainPrefab netMain, Object customInstantiator, IDMain prefab, ref NetworkInstantiateArgs args, bool server)
+	// Token: 0x06002181 RID: 8577 RVA: 0x0007B86C File Offset: 0x00079A6C
+	public CustomInstantiationArgs(global::NetMainPrefab netMain, Object customInstantiator, IDMain prefab, ref NetworkInstantiateArgs args, bool server)
 	{
-		this = new CustomInstantiationArgs(netMain, customInstantiator, prefab, ref args, server, true);
+		this = new global::CustomInstantiationArgs(netMain, customInstantiator, prefab, ref args, server, true);
 	}
 
-	// Token: 0x06001E40 RID: 7744 RVA: 0x00076DFC File Offset: 0x00074FFC
-	private CustomInstantiationArgs(NetMainPrefab netMain, Object customInstantiator, IDMain prefab, ref NetworkInstantiateArgs args, bool server, bool checkCustomInstantitorArgument)
+	// Token: 0x06002182 RID: 8578 RVA: 0x0007B87C File Offset: 0x00079A7C
+	private CustomInstantiationArgs(global::NetMainPrefab netMain, Object customInstantiator, IDMain prefab, ref NetworkInstantiateArgs args, bool server, bool checkCustomInstantitorArgument)
 	{
 		this.netMain = netMain;
 		this.prefab = prefab;
@@ -27,10 +27,10 @@ public struct CustomInstantiationArgs
 		this.server = server;
 		if (checkCustomInstantitorArgument && customInstantiator)
 		{
-			this.customInstantiate = (customInstantiator as IPrefabCustomInstantiate);
+			this.customInstantiate = (customInstantiator as global::IPrefabCustomInstantiate);
 			if (this.customInstantiate == null)
 			{
-				this.hasCustomInstantiator = CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(this.prefabNetworkView, this.prefab, out this.customInstantiate);
+				this.hasCustomInstantiator = global::CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(this.prefabNetworkView, this.prefab, out this.customInstantiate);
 			}
 			else
 			{
@@ -39,12 +39,12 @@ public struct CustomInstantiationArgs
 		}
 		else
 		{
-			this.hasCustomInstantiator = CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(this.prefabNetworkView, this.prefab, out this.customInstantiate);
+			this.hasCustomInstantiator = global::CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(this.prefabNetworkView, this.prefab, out this.customInstantiate);
 		}
 	}
 
-	// Token: 0x17000795 RID: 1941
-	// (get) Token: 0x06001E41 RID: 7745 RVA: 0x00076EAC File Offset: 0x000750AC
+	// Token: 0x170007EB RID: 2027
+	// (get) Token: 0x06002183 RID: 8579 RVA: 0x0007B92C File Offset: 0x00079B2C
 	public BitStream initialData
 	{
 		get
@@ -53,8 +53,8 @@ public struct CustomInstantiationArgs
 		}
 	}
 
-	// Token: 0x17000796 RID: 1942
-	// (get) Token: 0x06001E42 RID: 7746 RVA: 0x00076EC8 File Offset: 0x000750C8
+	// Token: 0x170007EC RID: 2028
+	// (get) Token: 0x06002184 RID: 8580 RVA: 0x0007B948 File Offset: 0x00079B48
 	public Vector3 position
 	{
 		get
@@ -63,8 +63,8 @@ public struct CustomInstantiationArgs
 		}
 	}
 
-	// Token: 0x17000797 RID: 1943
-	// (get) Token: 0x06001E43 RID: 7747 RVA: 0x00076EE4 File Offset: 0x000750E4
+	// Token: 0x170007ED RID: 2029
+	// (get) Token: 0x06002185 RID: 8581 RVA: 0x0007B964 File Offset: 0x00079B64
 	public Quaternion rotation
 	{
 		get
@@ -73,8 +73,8 @@ public struct CustomInstantiationArgs
 		}
 	}
 
-	// Token: 0x17000798 RID: 1944
-	// (get) Token: 0x06001E44 RID: 7748 RVA: 0x00076F00 File Offset: 0x00075100
+	// Token: 0x170007EE RID: 2030
+	// (get) Token: 0x06002186 RID: 8582 RVA: 0x0007B980 File Offset: 0x00079B80
 	public bool client
 	{
 		get
@@ -83,44 +83,44 @@ public struct CustomInstantiationArgs
 		}
 	}
 
-	// Token: 0x06001E45 RID: 7749 RVA: 0x00076F0C File Offset: 0x0007510C
-	private static bool CheckNetworkViewCustomInstantiator(NetworkView view, out IPrefabCustomInstantiate custom)
+	// Token: 0x06002187 RID: 8583 RVA: 0x0007B98C File Offset: 0x00079B8C
+	private static bool CheckNetworkViewCustomInstantiator(uLink.NetworkView view, out global::IPrefabCustomInstantiate custom)
 	{
-		custom = (view.observed as IPrefabCustomInstantiate);
+		custom = (view.observed as global::IPrefabCustomInstantiate);
 		return custom != null;
 	}
 
-	// Token: 0x06001E46 RID: 7750 RVA: 0x00076F24 File Offset: 0x00075124
-	private static bool CheckNetworkViewCustomInstantiator(IDMain character, out IPrefabCustomInstantiate custom)
+	// Token: 0x06002188 RID: 8584 RVA: 0x0007B9A4 File Offset: 0x00079BA4
+	private static bool CheckNetworkViewCustomInstantiator(IDMain character, out global::IPrefabCustomInstantiate custom)
 	{
-		custom = (character as IPrefabCustomInstantiate);
+		custom = (character as global::IPrefabCustomInstantiate);
 		return custom != null;
 	}
 
-	// Token: 0x06001E47 RID: 7751 RVA: 0x00076F38 File Offset: 0x00075138
-	private static bool CheckNetworkViewCustomInstantiator(NetworkView view, IDMain character, out IPrefabCustomInstantiate custom)
+	// Token: 0x06002189 RID: 8585 RVA: 0x0007B9B8 File Offset: 0x00079BB8
+	private static bool CheckNetworkViewCustomInstantiator(uLink.NetworkView view, IDMain character, out global::IPrefabCustomInstantiate custom)
 	{
-		return CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(view, out custom) || CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(character, out custom);
+		return global::CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(view, out custom) || global::CustomInstantiationArgs.CheckNetworkViewCustomInstantiator(character, out custom);
 	}
 
-	// Token: 0x04000E90 RID: 3728
-	public readonly NetMainPrefab netMain;
+	// Token: 0x04000FD0 RID: 4048
+	public readonly global::NetMainPrefab netMain;
 
-	// Token: 0x04000E91 RID: 3729
+	// Token: 0x04000FD1 RID: 4049
 	public readonly IDMain prefab;
 
-	// Token: 0x04000E92 RID: 3730
-	public readonly NetworkView prefabNetworkView;
+	// Token: 0x04000FD2 RID: 4050
+	public readonly uLink.NetworkView prefabNetworkView;
 
-	// Token: 0x04000E93 RID: 3731
+	// Token: 0x04000FD3 RID: 4051
 	public readonly NetworkInstantiateArgs args;
 
-	// Token: 0x04000E94 RID: 3732
-	public readonly IPrefabCustomInstantiate customInstantiate;
+	// Token: 0x04000FD4 RID: 4052
+	public readonly global::IPrefabCustomInstantiate customInstantiate;
 
-	// Token: 0x04000E95 RID: 3733
+	// Token: 0x04000FD5 RID: 4053
 	public readonly bool server;
 
-	// Token: 0x04000E96 RID: 3734
+	// Token: 0x04000FD6 RID: 4054
 	public readonly bool hasCustomInstantiator;
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200005B RID: 91
+// Token: 0x0200006E RID: 110
 public class WorkZone : MonoBehaviour
 {
 }

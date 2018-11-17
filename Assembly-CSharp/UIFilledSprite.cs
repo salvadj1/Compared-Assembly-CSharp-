@@ -2,15 +2,15 @@
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x020007E0 RID: 2016
+// Token: 0x020008D1 RID: 2257
 [AddComponentMenu("NGUI/UI/Sprite (Filled)")]
 [ExecuteInEditMode]
-public class UIFilledSprite : UISprite
+public class UIFilledSprite : global::UISprite
 {
-	// Token: 0x17000E01 RID: 3585
-	// (get) Token: 0x0600484B RID: 18507 RVA: 0x00124400 File Offset: 0x00122600
-	// (set) Token: 0x0600484C RID: 18508 RVA: 0x00124408 File Offset: 0x00122608
-	public UIFilledSprite.FillDirection fillDirection
+	// Token: 0x17000E9B RID: 3739
+	// (get) Token: 0x06004CF6 RID: 19702 RVA: 0x0012E364 File Offset: 0x0012C564
+	// (set) Token: 0x06004CF7 RID: 19703 RVA: 0x0012E36C File Offset: 0x0012C56C
+	public global::UIFilledSprite.FillDirection fillDirection
 	{
 		get
 		{
@@ -26,9 +26,9 @@ public class UIFilledSprite : UISprite
 		}
 	}
 
-	// Token: 0x17000E02 RID: 3586
-	// (get) Token: 0x0600484D RID: 18509 RVA: 0x00124424 File Offset: 0x00122624
-	// (set) Token: 0x0600484E RID: 18510 RVA: 0x0012442C File Offset: 0x0012262C
+	// Token: 0x17000E9C RID: 3740
+	// (get) Token: 0x06004CF8 RID: 19704 RVA: 0x0012E388 File Offset: 0x0012C588
+	// (set) Token: 0x06004CF9 RID: 19705 RVA: 0x0012E390 File Offset: 0x0012C590
 	public float fillAmount
 	{
 		get
@@ -46,9 +46,9 @@ public class UIFilledSprite : UISprite
 		}
 	}
 
-	// Token: 0x17000E03 RID: 3587
-	// (get) Token: 0x0600484F RID: 18511 RVA: 0x0012445C File Offset: 0x0012265C
-	// (set) Token: 0x06004850 RID: 18512 RVA: 0x00124464 File Offset: 0x00122664
+	// Token: 0x17000E9D RID: 3741
+	// (get) Token: 0x06004CFA RID: 19706 RVA: 0x0012E3C0 File Offset: 0x0012C5C0
+	// (set) Token: 0x06004CFB RID: 19707 RVA: 0x0012E3C8 File Offset: 0x0012C5C8
 	public bool invert
 	{
 		get
@@ -65,7 +65,7 @@ public class UIFilledSprite : UISprite
 		}
 	}
 
-	// Token: 0x06004851 RID: 18513 RVA: 0x00124480 File Offset: 0x00122680
+	// Token: 0x06004CFC RID: 19708 RVA: 0x0012E3E4 File Offset: 0x0012C5E4
 	private bool AdjustRadial(Vector2[] xy, Vector2[] uv, float fill, bool invert)
 	{
 		if (fill < 0.001f)
@@ -126,7 +126,7 @@ public class UIFilledSprite : UISprite
 		return true;
 	}
 
-	// Token: 0x06004852 RID: 18514 RVA: 0x001246EC File Offset: 0x001228EC
+	// Token: 0x06004CFD RID: 19709 RVA: 0x0012E650 File Offset: 0x0012C850
 	private void Rotate(Vector2[] v, int offset)
 	{
 		for (int i = 0; i < offset; i++)
@@ -144,8 +144,8 @@ public class UIFilledSprite : UISprite
 		}
 	}
 
-	// Token: 0x06004853 RID: 18515 RVA: 0x001247E0 File Offset: 0x001229E0
-	public override void OnFill(MeshBuffer m)
+	// Token: 0x06004CFE RID: 19710 RVA: 0x0012E744 File Offset: 0x0012C944
+	public override void OnFill(NGUI.Meshing.MeshBuffer m)
 	{
 		float num = 0f;
 		float num2 = 0f;
@@ -155,11 +155,11 @@ public class UIFilledSprite : UISprite
 		float num6 = this.mOuterUV.yMin;
 		float num7 = this.mOuterUV.xMax;
 		float num8 = this.mOuterUV.yMax;
-		if (this.mFillDirection == UIFilledSprite.FillDirection.Horizontal || this.mFillDirection == UIFilledSprite.FillDirection.Vertical)
+		if (this.mFillDirection == global::UIFilledSprite.FillDirection.Horizontal || this.mFillDirection == global::UIFilledSprite.FillDirection.Vertical)
 		{
 			float num9 = (num7 - num5) * this.mFillAmount;
 			float num10 = (num8 - num6) * this.mFillAmount;
-			if (this.fillDirection == UIFilledSprite.FillDirection.Horizontal)
+			if (this.fillDirection == global::UIFilledSprite.FillDirection.Horizontal)
 			{
 				if (this.mInvert)
 				{
@@ -172,7 +172,7 @@ public class UIFilledSprite : UISprite
 					num7 = num5 + num9;
 				}
 			}
-			else if (this.fillDirection == UIFilledSprite.FillDirection.Vertical)
+			else if (this.fillDirection == global::UIFilledSprite.FillDirection.Vertical)
 			{
 				if (this.mInvert)
 				{
@@ -197,7 +197,7 @@ public class UIFilledSprite : UISprite
 		array2[2] = new Vector2(num5, num6);
 		array2[3] = new Vector2(num5, num8);
 		Color color = base.color;
-		if (this.fillDirection == UIFilledSprite.FillDirection.Radial90)
+		if (this.fillDirection == global::UIFilledSprite.FillDirection.Radial90)
 		{
 			if (!this.AdjustRadial(array, array2, this.mFillAmount, this.mInvert))
 			{
@@ -206,7 +206,7 @@ public class UIFilledSprite : UISprite
 		}
 		else
 		{
-			if (this.fillDirection == UIFilledSprite.FillDirection.Radial180)
+			if (this.fillDirection == global::UIFilledSprite.FillDirection.Radial180)
 			{
 				Vector2[] array3 = new Vector2[4];
 				Vector2[] array4 = new Vector2[4];
@@ -259,7 +259,7 @@ public class UIFilledSprite : UISprite
 						}
 						if (flag)
 						{
-							int num13 = m.Alloc(PrimitiveKind.Quad);
+							int num13 = m.Alloc(NGUI.Meshing.PrimitiveKind.Quad);
 							for (int j = 0; j < 4; j++)
 							{
 								m.v[num13].x = Mathf.Lerp(array[0].x, array[2].x, array3[j].x);
@@ -276,7 +276,7 @@ public class UIFilledSprite : UISprite
 						}
 						else
 						{
-							int num14 = m.Alloc(PrimitiveKind.Quad);
+							int num14 = m.Alloc(NGUI.Meshing.PrimitiveKind.Quad);
 							for (int k = 3; k > -1; k--)
 							{
 								m.v[num14].x = Mathf.Lerp(array[0].x, array[2].x, array3[k].x);
@@ -295,7 +295,7 @@ public class UIFilledSprite : UISprite
 				}
 				return;
 			}
-			if (this.fillDirection == UIFilledSprite.FillDirection.Radial360)
+			if (this.fillDirection == global::UIFilledSprite.FillDirection.Radial360)
 			{
 				float[] array5 = new float[]
 				{
@@ -363,7 +363,7 @@ public class UIFilledSprite : UISprite
 						}
 						if (flag2)
 						{
-							int num20 = m.Alloc(PrimitiveKind.Quad);
+							int num20 = m.Alloc(NGUI.Meshing.PrimitiveKind.Quad);
 							for (int num21 = 0; num21 < 4; num21++)
 							{
 								m.v[num20].x = Mathf.Lerp(array[0].x, array[2].x, array6[num21].x);
@@ -380,7 +380,7 @@ public class UIFilledSprite : UISprite
 						}
 						else
 						{
-							int num22 = m.Alloc(PrimitiveKind.Quad);
+							int num22 = m.Alloc(NGUI.Meshing.PrimitiveKind.Quad);
 							for (int num23 = 3; num23 > -1; num23--)
 							{
 								m.v[num22].x = Mathf.Lerp(array[0].x, array[2].x, array6[num23].x);
@@ -400,22 +400,22 @@ public class UIFilledSprite : UISprite
 				return;
 			}
 		}
-		Vertex a;
+		NGUI.Meshing.Vertex a;
 		a.x = array[0].x;
 		a.y = array[0].y;
 		a.u = array2[0].x;
 		a.v = array2[0].y;
-		Vertex b;
+		NGUI.Meshing.Vertex b;
 		b.x = array[1].x;
 		b.y = array[1].y;
 		b.u = array2[1].x;
 		b.v = array2[1].y;
-		Vertex c;
+		NGUI.Meshing.Vertex c;
 		c.x = array[2].x;
 		c.y = array[2].y;
 		c.u = array2[2].x;
 		c.v = array2[2].y;
-		Vertex d;
+		NGUI.Meshing.Vertex d;
 		d.x = array[3].x;
 		d.y = array[3].y;
 		d.u = array2[3].x;
@@ -428,33 +428,33 @@ public class UIFilledSprite : UISprite
 		m.Quad(a, b, c, d);
 	}
 
-	// Token: 0x04002886 RID: 10374
+	// Token: 0x04002AD4 RID: 10964
 	[HideInInspector]
 	[SerializeField]
-	private UIFilledSprite.FillDirection mFillDirection = UIFilledSprite.FillDirection.Radial360;
+	private global::UIFilledSprite.FillDirection mFillDirection = global::UIFilledSprite.FillDirection.Radial360;
 
-	// Token: 0x04002887 RID: 10375
+	// Token: 0x04002AD5 RID: 10965
 	[HideInInspector]
 	[SerializeField]
 	private float mFillAmount = 1f;
 
-	// Token: 0x04002888 RID: 10376
-	[SerializeField]
+	// Token: 0x04002AD6 RID: 10966
 	[HideInInspector]
+	[SerializeField]
 	private bool mInvert;
 
-	// Token: 0x020007E1 RID: 2017
+	// Token: 0x020008D2 RID: 2258
 	public enum FillDirection
 	{
-		// Token: 0x0400288A RID: 10378
+		// Token: 0x04002AD8 RID: 10968
 		Horizontal,
-		// Token: 0x0400288B RID: 10379
+		// Token: 0x04002AD9 RID: 10969
 		Vertical,
-		// Token: 0x0400288C RID: 10380
+		// Token: 0x04002ADA RID: 10970
 		Radial90,
-		// Token: 0x0400288D RID: 10381
+		// Token: 0x04002ADB RID: 10971
 		Radial180,
-		// Token: 0x0400288E RID: 10382
+		// Token: 0x04002ADC RID: 10972
 		Radial360
 	}
 }

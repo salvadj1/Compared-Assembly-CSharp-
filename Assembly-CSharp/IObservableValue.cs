@@ -1,13 +1,13 @@
 ﻿using System;
 
-// Token: 0x02000703 RID: 1795
+// Token: 0x020007D7 RID: 2007
 public interface IObservableValue
 {
-	// Token: 0x17000CE5 RID: 3301
-	// (get) Token: 0x06004172 RID: 16754
+	// Token: 0x17000D6D RID: 3437
+	// (get) Token: 0x0600459A RID: 17818
 	object Value { get; }
 
-	// Token: 0x17000CE6 RID: 3302
-	// (get) Token: 0x06004173 RID: 16755
+	// Token: 0x17000D6E RID: 3438
+	// (get) Token: 0x0600459B RID: 17819
 	bool HasChanged { get; }
 }

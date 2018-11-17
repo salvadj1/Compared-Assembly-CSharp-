@@ -1,43 +1,43 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000AC RID: 172
+// Token: 0x020000BF RID: 191
 public class OfflineMode : MonoBehaviour
 {
-	// Token: 0x060003B6 RID: 950 RVA: 0x00013770 File Offset: 0x00011970
+	// Token: 0x0600042E RID: 1070 RVA: 0x00014F60 File Offset: 0x00013160
 	private void Start()
 	{
 	}
 
-	// Token: 0x04000344 RID: 836
+	// Token: 0x040003AF RID: 943
 	[SerializeField]
-	private CharacterPrefab characterPrefab;
+	private global::CharacterPrefab characterPrefab;
 
-	// Token: 0x04000345 RID: 837
+	// Token: 0x040003B0 RID: 944
 	[SerializeField]
-	private OfflinePlayer offlinePlayer;
+	private global::OfflinePlayer offlinePlayer;
 
-	// Token: 0x04000346 RID: 838
+	// Token: 0x040003B1 RID: 945
 	[SerializeField]
-	private MountedCamera sceneCameraPrefab;
+	private global::MountedCamera sceneCameraPrefab;
 
-	// Token: 0x04000347 RID: 839
+	// Token: 0x040003B2 RID: 946
 	[SerializeField]
 	private bool useSceneViewWhenAvailable;
 
-	// Token: 0x04000348 RID: 840
+	// Token: 0x040003B3 RID: 947
 	[SerializeField]
 	private bool paused;
 
-	// Token: 0x04000349 RID: 841
+	// Token: 0x040003B4 RID: 948
 	[SerializeField]
 	private bool respawn;
 
-	// Token: 0x0400034A RID: 842
+	// Token: 0x040003B5 RID: 949
 	[SerializeField]
 	private bool teleport;
 
-	// Token: 0x0400034B RID: 843
+	// Token: 0x040003B6 RID: 950
 	[SerializeField]
 	private float timeScale = 1f;
 }

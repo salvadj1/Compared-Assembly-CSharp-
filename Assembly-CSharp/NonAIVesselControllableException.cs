@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-// Token: 0x0200012C RID: 300
+// Token: 0x02000150 RID: 336
 [Serializable]
-public class NonAIVesselControllableException : InstantiateControllableException
+public class NonAIVesselControllableException : global::InstantiateControllableException
 {
-	// Token: 0x0600088B RID: 2187 RVA: 0x000254F0 File Offset: 0x000236F0
+	// Token: 0x06000981 RID: 2433 RVA: 0x00028764 File Offset: 0x00026964
 	public NonAIVesselControllableException()
 	{
 	}
 
-	// Token: 0x0600088C RID: 2188 RVA: 0x000254F8 File Offset: 0x000236F8
+	// Token: 0x06000982 RID: 2434 RVA: 0x0002876C File Offset: 0x0002696C
 	public NonAIVesselControllableException(string message) : base(message)
 	{
 	}
 
-	// Token: 0x0600088D RID: 2189 RVA: 0x00025504 File Offset: 0x00023704
+	// Token: 0x06000983 RID: 2435 RVA: 0x00028778 File Offset: 0x00026978
 	public NonAIVesselControllableException(string message, Exception inner) : base(message, inner)
 	{
 	}
 
-	// Token: 0x0600088E RID: 2190 RVA: 0x00025510 File Offset: 0x00023710
+	// Token: 0x06000984 RID: 2436 RVA: 0x00028784 File Offset: 0x00026984
 	protected NonAIVesselControllableException(SerializationInfo info, StreamingContext context) : base(info, context)
 	{
 	}

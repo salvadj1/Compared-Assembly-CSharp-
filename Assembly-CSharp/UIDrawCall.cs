@@ -2,14 +2,14 @@
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x02000796 RID: 1942
-[AddComponentMenu("NGUI/Internal/Draw Call")]
+// Token: 0x0200087B RID: 2171
 [ExecuteInEditMode]
+[AddComponentMenu("NGUI/Internal/Draw Call")]
 public class UIDrawCall : MonoBehaviour
 {
-	// Token: 0x17000D96 RID: 3478
-	// (get) Token: 0x06004643 RID: 17987 RVA: 0x001177E8 File Offset: 0x001159E8
-	// (set) Token: 0x06004644 RID: 17988 RVA: 0x001177F0 File Offset: 0x001159F0
+	// Token: 0x17000E26 RID: 3622
+	// (get) Token: 0x06004AB0 RID: 19120 RVA: 0x00121168 File Offset: 0x0011F368
+	// (set) Token: 0x06004AB1 RID: 19121 RVA: 0x00121170 File Offset: 0x0011F370
 	public bool depthPass
 	{
 		get
@@ -26,8 +26,8 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D97 RID: 3479
-	// (get) Token: 0x06004645 RID: 17989 RVA: 0x0011780C File Offset: 0x00115A0C
+	// Token: 0x17000E27 RID: 3623
+	// (get) Token: 0x06004AB2 RID: 19122 RVA: 0x0012118C File Offset: 0x0011F38C
 	public Transform cachedTransform
 	{
 		get
@@ -40,10 +40,10 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D98 RID: 3480
-	// (get) Token: 0x06004646 RID: 17990 RVA: 0x00117834 File Offset: 0x00115A34
-	// (set) Token: 0x06004647 RID: 17991 RVA: 0x0011783C File Offset: 0x00115A3C
-	public UIMaterial material
+	// Token: 0x17000E28 RID: 3624
+	// (get) Token: 0x06004AB3 RID: 19123 RVA: 0x001211B4 File Offset: 0x0011F3B4
+	// (set) Token: 0x06004AB4 RID: 19124 RVA: 0x001211BC File Offset: 0x0011F3BC
+	public global::UIMaterial material
 	{
 		get
 		{
@@ -55,8 +55,8 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D99 RID: 3481
-	// (get) Token: 0x06004648 RID: 17992 RVA: 0x00117848 File Offset: 0x00115A48
+	// Token: 0x17000E29 RID: 3625
+	// (get) Token: 0x06004AB5 RID: 19125 RVA: 0x001211C8 File Offset: 0x0011F3C8
 	public int triangles
 	{
 		get
@@ -66,10 +66,10 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D9A RID: 3482
-	// (get) Token: 0x06004649 RID: 17993 RVA: 0x0011788C File Offset: 0x00115A8C
-	// (set) Token: 0x0600464A RID: 17994 RVA: 0x00117894 File Offset: 0x00115A94
-	public UIDrawCall.Clipping clipping
+	// Token: 0x17000E2A RID: 3626
+	// (get) Token: 0x06004AB6 RID: 19126 RVA: 0x0012120C File Offset: 0x0011F40C
+	// (set) Token: 0x06004AB7 RID: 19127 RVA: 0x00121214 File Offset: 0x0011F414
+	public global::UIDrawCall.Clipping clipping
 	{
 		get
 		{
@@ -85,9 +85,9 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D9B RID: 3483
-	// (get) Token: 0x0600464B RID: 17995 RVA: 0x001178B0 File Offset: 0x00115AB0
-	// (set) Token: 0x0600464C RID: 17996 RVA: 0x001178B8 File Offset: 0x00115AB8
+	// Token: 0x17000E2B RID: 3627
+	// (get) Token: 0x06004AB8 RID: 19128 RVA: 0x00121230 File Offset: 0x0011F430
+	// (set) Token: 0x06004AB9 RID: 19129 RVA: 0x00121238 File Offset: 0x0011F438
 	public Vector4 clipRange
 	{
 		get
@@ -100,9 +100,9 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D9C RID: 3484
-	// (get) Token: 0x0600464D RID: 17997 RVA: 0x001178C4 File Offset: 0x00115AC4
-	// (set) Token: 0x0600464E RID: 17998 RVA: 0x001178CC File Offset: 0x00115ACC
+	// Token: 0x17000E2C RID: 3628
+	// (get) Token: 0x06004ABA RID: 19130 RVA: 0x00121244 File Offset: 0x0011F444
+	// (set) Token: 0x06004ABB RID: 19131 RVA: 0x0012124C File Offset: 0x0011F44C
 	public Vector2 clipSoftness
 	{
 		get
@@ -115,10 +115,10 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D9D RID: 3485
-	// (get) Token: 0x0600464F RID: 17999 RVA: 0x001178D8 File Offset: 0x00115AD8
-	// (set) Token: 0x06004650 RID: 18000 RVA: 0x001178E0 File Offset: 0x00115AE0
-	public UIPanelMaterialPropertyBlock panelPropertyBlock
+	// Token: 0x17000E2D RID: 3629
+	// (get) Token: 0x06004ABC RID: 19132 RVA: 0x00121258 File Offset: 0x0011F458
+	// (set) Token: 0x06004ABD RID: 19133 RVA: 0x00121260 File Offset: 0x0011F460
+	public global::UIPanelMaterialPropertyBlock panelPropertyBlock
 	{
 		get
 		{
@@ -130,7 +130,7 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004651 RID: 18001 RVA: 0x001178EC File Offset: 0x00115AEC
+	// Token: 0x06004ABE RID: 19134 RVA: 0x0012126C File Offset: 0x0011F46C
 	private Mesh GetMesh(ref bool rebuildIndices, int vertexCount)
 	{
 		this.mEven = !this.mEven;
@@ -163,7 +163,7 @@ public class UIDrawCall : MonoBehaviour
 		return this.mMesh1;
 	}
 
-	// Token: 0x06004652 RID: 18002 RVA: 0x001179CC File Offset: 0x00115BCC
+	// Token: 0x06004ABF RID: 19135 RVA: 0x0012134C File Offset: 0x0011F54C
 	private void UpdateMaterials()
 	{
 		if (this.mDepthPass)
@@ -171,7 +171,7 @@ public class UIDrawCall : MonoBehaviour
 			if (this.mDepthMat == null)
 			{
 				Shader shader = Shader.Find("Depth");
-				this.mDepthMat = UIMaterial.Create(new Material(shader)
+				this.mDepthMat = global::UIMaterial.Create(new Material(shader)
 				{
 					hideFlags = 4,
 					mainTexture = this.mSharedMat.mainTexture
@@ -180,27 +180,27 @@ public class UIDrawCall : MonoBehaviour
 		}
 		else if (this.mDepthMat != null)
 		{
-			NGUITools.Destroy(this.mDepthMat);
+			global::NGUITools.Destroy(this.mDepthMat);
 			this.mDepthMat = null;
 		}
 		Material material = this.mSharedMat[this.mClipping];
 		if (this.mDepthMat != null)
 		{
-			UIDrawCall.materialBuffer2[0] = this.mDepthMat[this.mClipping];
-			UIDrawCall.materialBuffer2[1] = material;
-			this.mRen.sharedMaterials = UIDrawCall.materialBuffer2;
-			UIDrawCall.materialBuffer2[0] = (UIDrawCall.materialBuffer2[1] = null);
+			global::UIDrawCall.materialBuffer2[0] = this.mDepthMat[this.mClipping];
+			global::UIDrawCall.materialBuffer2[1] = material;
+			this.mRen.sharedMaterials = global::UIDrawCall.materialBuffer2;
+			global::UIDrawCall.materialBuffer2[0] = (global::UIDrawCall.materialBuffer2[1] = null);
 		}
 		else if (this.mRen.sharedMaterial != material)
 		{
-			UIDrawCall.materialBuffer1[0] = material;
-			this.mRen.sharedMaterials = UIDrawCall.materialBuffer1;
-			UIDrawCall.materialBuffer1[0] = null;
+			global::UIDrawCall.materialBuffer1[0] = material;
+			this.mRen.sharedMaterials = global::UIDrawCall.materialBuffer1;
+			global::UIDrawCall.materialBuffer1[0] = null;
 		}
 	}
 
-	// Token: 0x06004653 RID: 18003 RVA: 0x00117AFC File Offset: 0x00115CFC
-	public void Set(MeshBuffer m)
+	// Token: 0x06004AC0 RID: 19136 RVA: 0x0012147C File Offset: 0x0011F67C
+	public void Set(NGUI.Meshing.MeshBuffer m)
 	{
 		if (this.mFilter == null)
 		{
@@ -240,7 +240,7 @@ public class UIDrawCall : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004654 RID: 18004 RVA: 0x00117C5C File Offset: 0x00115E5C
+	// Token: 0x06004AC1 RID: 19137 RVA: 0x001215DC File Offset: 0x0011F7DC
 	private void OnWillRenderObject()
 	{
 		if (this.mReset)
@@ -260,14 +260,14 @@ public class UIDrawCall : MonoBehaviour
 		{
 			this.mPanelPropertyBlock.AddToMaterialPropertyBlock(this.mBlock);
 		}
-		if (this.mClipping != UIDrawCall.Clipping.None)
+		if (this.mClipping != global::UIDrawCall.Clipping.None)
 		{
 			Vector4 vector;
 			vector.z = -this.mClipRange.x / this.mClipRange.z;
 			vector.w = -this.mClipRange.y / this.mClipRange.w;
 			vector.x = 1f / this.mClipRange.z;
 			vector.y = 1f / this.mClipRange.w;
-			this.mBlock.AddVector(UIDrawCall.FastProperties.kProp_ClippingRegion, vector);
+			this.mBlock.AddVector(global::UIDrawCall.FastProperties.kProp_ClippingRegion, vector);
 			Vector4 vector2;
 			if (this.mClipSoft.x > 0f)
 			{
@@ -286,21 +286,21 @@ public class UIDrawCall : MonoBehaviour
 				vector2.y = 1000f;
 			}
 			vector2.z = (vector2.w = 0f);
-			this.mBlock.AddVector(UIDrawCall.FastProperties.kProp_ClipSharpness, vector2);
+			this.mBlock.AddVector(global::UIDrawCall.FastProperties.kProp_ClipSharpness, vector2);
 		}
 		base.renderer.SetPropertyBlock(this.mBlock);
 	}
 
-	// Token: 0x06004655 RID: 18005 RVA: 0x00117E10 File Offset: 0x00116010
+	// Token: 0x06004AC2 RID: 19138 RVA: 0x00121790 File Offset: 0x0011F990
 	private void OnDestroy()
 	{
-		NGUITools.DestroyImmediate(this.mMesh0);
-		NGUITools.DestroyImmediate(this.mMesh1);
-		NGUITools.DestroyImmediate(this.mDepthMat);
+		global::NGUITools.DestroyImmediate(this.mMesh0);
+		global::NGUITools.DestroyImmediate(this.mMesh1);
+		global::NGUITools.DestroyImmediate(this.mDepthMat);
 	}
 
-	// Token: 0x06004656 RID: 18006 RVA: 0x00117E34 File Offset: 0x00116034
-	internal void LinkedList__Insert(ref UIDrawCall list)
+	// Token: 0x06004AC3 RID: 19139 RVA: 0x001217B4 File Offset: 0x0011F9B4
+	internal void LinkedList__Insert(ref global::UIDrawCall list)
 	{
 		this.mHasPrev = false;
 		this.mHasNext = list;
@@ -314,7 +314,7 @@ public class UIDrawCall : MonoBehaviour
 		list = this;
 	}
 
-	// Token: 0x06004657 RID: 18007 RVA: 0x00117E84 File Offset: 0x00116084
+	// Token: 0x06004AC4 RID: 19140 RVA: 0x00121804 File Offset: 0x0011FA04
 	internal void LinkedList__Remove()
 	{
 		if (this.mHasPrev)
@@ -331,135 +331,135 @@ public class UIDrawCall : MonoBehaviour
 		this.mNext = (this.mPrev = null);
 	}
 
-	// Token: 0x04002673 RID: 9843
+	// Token: 0x040028AA RID: 10410
 	private Transform mTrans;
 
-	// Token: 0x04002674 RID: 9844
-	private UIMaterial mSharedMat;
+	// Token: 0x040028AB RID: 10411
+	private global::UIMaterial mSharedMat;
 
-	// Token: 0x04002675 RID: 9845
+	// Token: 0x040028AC RID: 10412
 	private Mesh mMesh0;
 
-	// Token: 0x04002676 RID: 9846
+	// Token: 0x040028AD RID: 10413
 	private Mesh mMesh1;
 
-	// Token: 0x04002677 RID: 9847
+	// Token: 0x040028AE RID: 10414
 	private MeshFilter mFilter;
 
-	// Token: 0x04002678 RID: 9848
+	// Token: 0x040028AF RID: 10415
 	private MeshRenderer mRen;
 
-	// Token: 0x04002679 RID: 9849
-	private UIDrawCall.Clipping mClipping;
+	// Token: 0x040028B0 RID: 10416
+	private global::UIDrawCall.Clipping mClipping;
 
-	// Token: 0x0400267A RID: 9850
+	// Token: 0x040028B1 RID: 10417
 	private Vector4 mClipRange;
 
-	// Token: 0x0400267B RID: 9851
+	// Token: 0x040028B2 RID: 10418
 	private Vector2 mClipSoft;
 
-	// Token: 0x0400267C RID: 9852
-	private UIMaterial mDepthMat;
+	// Token: 0x040028B3 RID: 10419
+	private global::UIMaterial mDepthMat;
 
-	// Token: 0x0400267D RID: 9853
+	// Token: 0x040028B4 RID: 10420
 	private int[] mIndices;
 
-	// Token: 0x0400267E RID: 9854
+	// Token: 0x040028B5 RID: 10421
 	private Vector3[] mVerts;
 
-	// Token: 0x0400267F RID: 9855
+	// Token: 0x040028B6 RID: 10422
 	private Vector2[] mUVs;
 
-	// Token: 0x04002680 RID: 9856
+	// Token: 0x040028B7 RID: 10423
 	private Color[] mColors;
 
-	// Token: 0x04002681 RID: 9857
-	private UIDrawCall mNext;
+	// Token: 0x040028B8 RID: 10424
+	private global::UIDrawCall mNext;
 
-	// Token: 0x04002682 RID: 9858
-	private UIDrawCall mPrev;
+	// Token: 0x040028B9 RID: 10425
+	private global::UIDrawCall mPrev;
 
-	// Token: 0x04002683 RID: 9859
+	// Token: 0x040028BA RID: 10426
 	private bool mHasNext;
 
-	// Token: 0x04002684 RID: 9860
+	// Token: 0x040028BB RID: 10427
 	private bool mHasPrev;
 
-	// Token: 0x04002685 RID: 9861
-	private UIPanelMaterialPropertyBlock mPanelPropertyBlock;
+	// Token: 0x040028BC RID: 10428
+	private global::UIPanelMaterialPropertyBlock mPanelPropertyBlock;
 
-	// Token: 0x04002686 RID: 9862
+	// Token: 0x040028BD RID: 10429
 	private MaterialPropertyBlock mBlock;
 
-	// Token: 0x04002687 RID: 9863
+	// Token: 0x040028BE RID: 10430
 	private bool mDepthPass;
 
-	// Token: 0x04002688 RID: 9864
+	// Token: 0x040028BF RID: 10431
 	private bool mReset = true;
 
-	// Token: 0x04002689 RID: 9865
+	// Token: 0x040028C0 RID: 10432
 	private bool mEven = true;
 
-	// Token: 0x0400268A RID: 9866
+	// Token: 0x040028C1 RID: 10433
 	private static Material[] materialBuffer2 = new Material[2];
 
-	// Token: 0x0400268B RID: 9867
+	// Token: 0x040028C2 RID: 10434
 	private static Material[] materialBuffer1 = new Material[1];
 
-	// Token: 0x02000797 RID: 1943
+	// Token: 0x0200087C RID: 2172
 	public enum Clipping
 	{
-		// Token: 0x0400268D RID: 9869
+		// Token: 0x040028C4 RID: 10436
 		None,
-		// Token: 0x0400268E RID: 9870
+		// Token: 0x040028C5 RID: 10437
 		HardClip,
-		// Token: 0x0400268F RID: 9871
+		// Token: 0x040028C6 RID: 10438
 		AlphaClip,
-		// Token: 0x04002690 RID: 9872
+		// Token: 0x040028C7 RID: 10439
 		SoftClip
 	}
 
-	// Token: 0x02000798 RID: 1944
+	// Token: 0x0200087D RID: 2173
 	public struct Iterator
 	{
-		// Token: 0x17000D9E RID: 3486
-		// (get) Token: 0x06004658 RID: 18008 RVA: 0x00117F0C File Offset: 0x0011610C
-		public UIDrawCall.Iterator Next
+		// Token: 0x17000E2E RID: 3630
+		// (get) Token: 0x06004AC5 RID: 19141 RVA: 0x0012188C File Offset: 0x0011FA8C
+		public global::UIDrawCall.Iterator Next
 		{
 			get
 			{
 				if (this.Has)
 				{
-					UIDrawCall.Iterator result;
+					global::UIDrawCall.Iterator result;
 					result.Has = this.Current.mHasNext;
 					result.Current = this.Current.mNext;
 					return result;
 				}
-				return default(UIDrawCall.Iterator);
+				return default(global::UIDrawCall.Iterator);
 			}
 		}
 
-		// Token: 0x17000D9F RID: 3487
-		// (get) Token: 0x06004659 RID: 18009 RVA: 0x00117F54 File Offset: 0x00116154
-		public UIDrawCall.Iterator Prev
+		// Token: 0x17000E2F RID: 3631
+		// (get) Token: 0x06004AC6 RID: 19142 RVA: 0x001218D4 File Offset: 0x0011FAD4
+		public global::UIDrawCall.Iterator Prev
 		{
 			get
 			{
 				if (this.Has)
 				{
-					UIDrawCall.Iterator result;
+					global::UIDrawCall.Iterator result;
 					result.Has = this.Current.mHasPrev;
 					result.Current = this.Current.mPrev;
 					return result;
 				}
-				return default(UIDrawCall.Iterator);
+				return default(global::UIDrawCall.Iterator);
 			}
 		}
 
-		// Token: 0x0600465A RID: 18010 RVA: 0x00117F9C File Offset: 0x0011619C
-		public static explicit operator UIDrawCall.Iterator(UIDrawCall call)
+		// Token: 0x06004AC7 RID: 19143 RVA: 0x0012191C File Offset: 0x0011FB1C
+		public static explicit operator global::UIDrawCall.Iterator(global::UIDrawCall call)
 		{
-			UIDrawCall.Iterator result;
+			global::UIDrawCall.Iterator result;
 			result.Has = call;
 			if (result.Has)
 			{
@@ -472,20 +472,20 @@ public class UIDrawCall : MonoBehaviour
 			return result;
 		}
 
-		// Token: 0x04002691 RID: 9873
-		public UIDrawCall Current;
+		// Token: 0x040028C8 RID: 10440
+		public global::UIDrawCall Current;
 
-		// Token: 0x04002692 RID: 9874
+		// Token: 0x040028C9 RID: 10441
 		public bool Has;
 	}
 
-	// Token: 0x02000799 RID: 1945
+	// Token: 0x0200087E RID: 2174
 	private static class FastProperties
 	{
-		// Token: 0x04002693 RID: 9875
+		// Token: 0x040028CA RID: 10442
 		public static readonly int kProp_ClippingRegion = Shader.PropertyToID("_MainTex_ST");
 
-		// Token: 0x04002694 RID: 9876
+		// Token: 0x040028CB RID: 10443
 		public static readonly int kProp_ClipSharpness = Shader.PropertyToID("_ClipSharpness");
 	}
 }

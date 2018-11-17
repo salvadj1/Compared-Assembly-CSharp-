@@ -2,26 +2,26 @@
 using System.Security.Cryptography;
 using System.Text;
 
-// Token: 0x020001A2 RID: 418
+// Token: 0x020001D0 RID: 464
 public sealed class CRC32 : HashAlgorithm
 {
-	// Token: 0x06000C07 RID: 3079 RVA: 0x00030088 File Offset: 0x0002E288
+	// Token: 0x06000D3F RID: 3391 RVA: 0x00033F74 File Offset: 0x00032174
 	public CRC32()
 	{
-		this.table = CRC32.Default.Table;
+		this.table = global::CRC32.Default.Table;
 		this.seed = uint.MaxValue;
 		this.Initialize();
 	}
 
-	// Token: 0x06000C08 RID: 3080 RVA: 0x000300A8 File Offset: 0x0002E2A8
+	// Token: 0x06000D40 RID: 3392 RVA: 0x00033F94 File Offset: 0x00032194
 	public CRC32(uint polynomial, uint seed)
 	{
-		this.table = ((polynomial != 3988292384u) ? CRC32.ProcessHashTable(polynomial) : CRC32.Default.Table);
+		this.table = ((polynomial != 3988292384u) ? global::CRC32.ProcessHashTable(polynomial) : global::CRC32.Default.Table);
 		this.seed = seed;
 		this.Initialize();
 	}
 
-	// Token: 0x06000C09 RID: 3081 RVA: 0x000300EC File Offset: 0x0002E2EC
+	// Token: 0x06000D41 RID: 3393 RVA: 0x00033FD8 File Offset: 0x000321D8
 	private static uint[] ProcessHashTable(uint p)
 	{
 		uint[] array = new uint[256];
@@ -36,32 +36,32 @@ public sealed class CRC32 : HashAlgorithm
 		return array;
 	}
 
-	// Token: 0x06000C0A RID: 3082 RVA: 0x00030154 File Offset: 0x0002E354
+	// Token: 0x06000D42 RID: 3394 RVA: 0x00034040 File Offset: 0x00032240
 	public static uint Quick(byte[] buffer)
 	{
-		return ~CRC32.BufferHash(CRC32.Default.Table, uint.MaxValue, buffer, 0, buffer.Length);
+		return ~global::CRC32.BufferHash(global::CRC32.Default.Table, uint.MaxValue, buffer, 0, buffer.Length);
 	}
 
-	// Token: 0x06000C0B RID: 3083 RVA: 0x00030168 File Offset: 0x0002E368
+	// Token: 0x06000D43 RID: 3395 RVA: 0x00034054 File Offset: 0x00032254
 	public static uint String(string str)
 	{
 		byte[] bytes = Encoding.ASCII.GetBytes(str);
-		return CRC32.Quick(bytes);
+		return global::CRC32.Quick(bytes);
 	}
 
-	// Token: 0x06000C0C RID: 3084 RVA: 0x00030188 File Offset: 0x0002E388
+	// Token: 0x06000D44 RID: 3396 RVA: 0x00034074 File Offset: 0x00032274
 	public static uint Quick(uint seed, byte[] buffer)
 	{
-		return ~CRC32.BufferHash(CRC32.Default.Table, seed, buffer, 0, buffer.Length);
+		return ~global::CRC32.BufferHash(global::CRC32.Default.Table, seed, buffer, 0, buffer.Length);
 	}
 
-	// Token: 0x06000C0D RID: 3085 RVA: 0x0003019C File Offset: 0x0002E39C
+	// Token: 0x06000D45 RID: 3397 RVA: 0x00034088 File Offset: 0x00032288
 	public static uint Quick(uint polynomial, uint seed, byte[] buffer)
 	{
-		return ~CRC32.BufferHash(CRC32.Default.Table, seed, buffer, 0, buffer.Length);
+		return ~global::CRC32.BufferHash(global::CRC32.Default.Table, seed, buffer, 0, buffer.Length);
 	}
 
-	// Token: 0x06000C0E RID: 3086 RVA: 0x000301B0 File Offset: 0x0002E3B0
+	// Token: 0x06000D46 RID: 3398 RVA: 0x0003409C File Offset: 0x0003229C
 	private static uint BufferHash(uint[] table, uint seed, byte[] buffer, int start, int size)
 	{
 		while (size-- > 0)
@@ -71,7 +71,7 @@ public sealed class CRC32 : HashAlgorithm
 		return seed;
 	}
 
-	// Token: 0x06000C0F RID: 3087 RVA: 0x000301EC File Offset: 0x0002E3EC
+	// Token: 0x06000D47 RID: 3399 RVA: 0x000340D8 File Offset: 0x000322D8
 	private void BufferHash(byte[] buffer, int start, int size)
 	{
 		while (size-- > 0)
@@ -80,19 +80,19 @@ public sealed class CRC32 : HashAlgorithm
 		}
 	}
 
-	// Token: 0x06000C10 RID: 3088 RVA: 0x0003022C File Offset: 0x0002E42C
+	// Token: 0x06000D48 RID: 3400 RVA: 0x00034118 File Offset: 0x00032318
 	public override void Initialize()
 	{
 		this.hash = this.seed;
 	}
 
-	// Token: 0x06000C11 RID: 3089 RVA: 0x0003023C File Offset: 0x0002E43C
+	// Token: 0x06000D49 RID: 3401 RVA: 0x00034128 File Offset: 0x00032328
 	protected sealed override void HashCore(byte[] buffer, int start, int length)
 	{
 		this.BufferHash(buffer, start, length);
 	}
 
-	// Token: 0x06000C12 RID: 3090 RVA: 0x00030248 File Offset: 0x0002E448
+	// Token: 0x06000D4A RID: 3402 RVA: 0x00034134 File Offset: 0x00032334
 	protected sealed override byte[] HashFinal()
 	{
 		uint num = ~this.hash;
@@ -107,8 +107,8 @@ public sealed class CRC32 : HashAlgorithm
 		return array;
 	}
 
-	// Token: 0x17000318 RID: 792
-	// (get) Token: 0x06000C13 RID: 3091 RVA: 0x000302A0 File Offset: 0x0002E4A0
+	// Token: 0x1700035C RID: 860
+	// (get) Token: 0x06000D4B RID: 3403 RVA: 0x0003418C File Offset: 0x0003238C
 	public sealed override int HashSize
 	{
 		get
@@ -117,47 +117,47 @@ public sealed class CRC32 : HashAlgorithm
 		}
 	}
 
-	// Token: 0x04000763 RID: 1891
+	// Token: 0x04000877 RID: 2167
 	public const uint kDefaultPolynomial = 3988292384u;
 
-	// Token: 0x04000764 RID: 1892
+	// Token: 0x04000878 RID: 2168
 	public const uint kDefaultSeed = 4294967295u;
 
-	// Token: 0x04000765 RID: 1893
+	// Token: 0x04000879 RID: 2169
 	public const uint kTableSize = 256u;
 
-	// Token: 0x04000766 RID: 1894
+	// Token: 0x0400087A RID: 2170
 	private const uint I = 256u;
 
-	// Token: 0x04000767 RID: 1895
+	// Token: 0x0400087B RID: 2171
 	private const uint J = 8u;
 
-	// Token: 0x04000768 RID: 1896
+	// Token: 0x0400087C RID: 2172
 	private uint hash;
 
-	// Token: 0x04000769 RID: 1897
+	// Token: 0x0400087D RID: 2173
 	private readonly uint seed;
 
-	// Token: 0x0400076A RID: 1898
+	// Token: 0x0400087E RID: 2174
 	private readonly uint[] table;
 
-	// Token: 0x020001A3 RID: 419
+	// Token: 0x020001D1 RID: 465
 	private static class Default
 	{
-		// Token: 0x06000C14 RID: 3092 RVA: 0x000302A4 File Offset: 0x0002E4A4
+		// Token: 0x06000D4C RID: 3404 RVA: 0x00034190 File Offset: 0x00032390
 		static Default()
 		{
 			for (uint num = 0u; num < 256u; num += 1u)
 			{
-				CRC32.Default.Table[(int)((UIntPtr)num)] = num;
+				global::CRC32.Default.Table[(int)((UIntPtr)num)] = num;
 				for (uint num2 = 0u; num2 < 8u; num2 += 1u)
 				{
-					CRC32.Default.Table[(int)((UIntPtr)num)] = (((CRC32.Default.Table[(int)((UIntPtr)num)] & 1u) != 1u) ? (CRC32.Default.Table[(int)((UIntPtr)num)] >> 1) : (CRC32.Default.Table[(int)((UIntPtr)num)] >> 1 ^ 3988292384u));
+					global::CRC32.Default.Table[(int)((UIntPtr)num)] = (((global::CRC32.Default.Table[(int)((UIntPtr)num)] & 1u) != 1u) ? (global::CRC32.Default.Table[(int)((UIntPtr)num)] >> 1) : (global::CRC32.Default.Table[(int)((UIntPtr)num)] >> 1 ^ 3988292384u));
 				}
 			}
 		}
 
-		// Token: 0x0400076B RID: 1899
+		// Token: 0x0400087F RID: 2175
 		public static readonly uint[] Table = new uint[256];
 	}
 }

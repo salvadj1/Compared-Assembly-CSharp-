@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020005C9 RID: 1481
-public abstract class HandGrenadeItem<T> : ThrowableItem<T> where T : HandGrenadeDataBlock
+// Token: 0x02000687 RID: 1671
+public abstract class HandGrenadeItem<T> : global::ThrowableItem<T> where T : global::HandGrenadeDataBlock
 {
-	// Token: 0x06003558 RID: 13656 RVA: 0x000C2628 File Offset: 0x000C0828
+	// Token: 0x06003920 RID: 14624 RVA: 0x000CA884 File Offset: 0x000C8A84
 	protected HandGrenadeItem(T db) : base(db)
 	{
 	}

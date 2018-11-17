@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x0200043D RID: 1085
+// Token: 0x020004F3 RID: 1267
 public enum ActivationToggleState
 {
-	// Token: 0x040013DD RID: 5085
+	// Token: 0x04001560 RID: 5472
 	Unspecified,
-	// Token: 0x040013DE RID: 5086
+	// Token: 0x04001561 RID: 5473
 	On,
-	// Token: 0x040013DF RID: 5087
+	// Token: 0x04001562 RID: 5474
 	Off
 }

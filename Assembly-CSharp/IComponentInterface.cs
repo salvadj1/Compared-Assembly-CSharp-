@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020001B7 RID: 439
+// Token: 0x020001E7 RID: 487
 public interface IComponentInterface
 {
 }

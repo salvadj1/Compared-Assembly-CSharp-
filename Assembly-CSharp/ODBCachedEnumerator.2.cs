@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000371 RID: 881
+// Token: 0x0200041E RID: 1054
 public static class ODBCachedEnumerator<T> where T : Object
 {
-	// Token: 0x06002178 RID: 8568 RVA: 0x0008262C File Offset: 0x0008082C
-	public static IEnumerator<T> Cache<TEnumerator>(ref TEnumerator enumerator) where TEnumerator : struct, ODBEnumerator<T>
+	// Token: 0x060024DA RID: 9434 RVA: 0x00087A28 File Offset: 0x00085C28
+	public static IEnumerator<T> Cache<TEnumerator>(ref TEnumerator enumerator) where TEnumerator : struct, global::ODBEnumerator<T>
 	{
-		return ODBCachedEnumerator<T, TEnumerator>.Cache(ref enumerator);
+		return global::ODBCachedEnumerator<T, TEnumerator>.Cache(ref enumerator);
 	}
 }

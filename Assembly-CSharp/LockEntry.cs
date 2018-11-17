@@ -2,40 +2,40 @@
 using Facepunch.Cursor;
 using UnityEngine;
 
-// Token: 0x020003F2 RID: 1010
+// Token: 0x020004A2 RID: 1186
 public class LockEntry : MonoBehaviour
 {
-	// Token: 0x06002542 RID: 9538 RVA: 0x0008F258 File Offset: 0x0008D458
+	// Token: 0x060028B4 RID: 10420 RVA: 0x00094C44 File Offset: 0x00092E44
 	public static void Show(bool changing)
 	{
-		LockEntry.singleton.changingEntry = changing;
-		LockEntry.singleton.SetVisible(true);
+		global::LockEntry.singleton.changingEntry = changing;
+		global::LockEntry.singleton.SetVisible(true);
 	}
 
-	// Token: 0x06002543 RID: 9539 RVA: 0x0008F270 File Offset: 0x0008D470
+	// Token: 0x060028B5 RID: 10421 RVA: 0x00094C5C File Offset: 0x00092E5C
 	public static bool IsVisible()
 	{
-		return !(LockEntry.singleton == null) && LockEntry.singleton.passwordInput.IsVisible;
+		return !(global::LockEntry.singleton == null) && global::LockEntry.singleton.passwordInput.IsVisible;
 	}
 
-	// Token: 0x06002544 RID: 9540 RVA: 0x0008F294 File Offset: 0x0008D494
+	// Token: 0x060028B6 RID: 10422 RVA: 0x00094C80 File Offset: 0x00092E80
 	public static void Hide()
 	{
-		LockEntry.singleton.SetVisible(false);
+		global::LockEntry.singleton.SetVisible(false);
 	}
 
-	// Token: 0x06002545 RID: 9541 RVA: 0x0008F2A4 File Offset: 0x0008D4A4
+	// Token: 0x060028B7 RID: 10423 RVA: 0x00094C90 File Offset: 0x00092E90
 	public void Start()
 	{
-		LockEntry.singleton = this;
-		LockEntry.Hide();
+		global::LockEntry.singleton = this;
+		global::LockEntry.Hide();
 	}
 
-	// Token: 0x06002546 RID: 9542 RVA: 0x0008F2B4 File Offset: 0x0008D4B4
+	// Token: 0x060028B8 RID: 10424 RVA: 0x00094CA0 File Offset: 0x00092EA0
 	public void SetVisible(bool visible)
 	{
 		this.entryLabel.Text = ((!this.changingEntry) ? "Password:" : "New Password:");
-		dfPanel component = base.GetComponent<dfPanel>();
+		global::dfPanel component = base.GetComponent<global::dfPanel>();
 		if (visible)
 		{
 			component.Show();
@@ -51,7 +51,7 @@ public class LockEntry : MonoBehaviour
 		base.gameObject.SetActive(visible);
 	}
 
-	// Token: 0x06002547 RID: 9543 RVA: 0x0008F33C File Offset: 0x0008D53C
+	// Token: 0x060028B9 RID: 10425 RVA: 0x00094D28 File Offset: 0x00092F28
 	public void OnDisable()
 	{
 		if (this.cursorLocker)
@@ -60,7 +60,7 @@ public class LockEntry : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002548 RID: 9544 RVA: 0x0008F35C File Offset: 0x0008D55C
+	// Token: 0x060028BA RID: 10426 RVA: 0x00094D48 File Offset: 0x00092F48
 	public void OnEnable()
 	{
 		if (!this.cursorLocker)
@@ -70,45 +70,45 @@ public class LockEntry : MonoBehaviour
 		this.cursorLocker.On = true;
 	}
 
-	// Token: 0x06002549 RID: 9545 RVA: 0x0008F38C File Offset: 0x0008D58C
+	// Token: 0x060028BB RID: 10427 RVA: 0x00094D78 File Offset: 0x00092F78
 	public void CancelPressed()
 	{
-		LockEntry.Hide();
+		global::LockEntry.Hide();
 	}
 
-	// Token: 0x0600254A RID: 9546 RVA: 0x0008F394 File Offset: 0x0008D594
+	// Token: 0x060028BC RID: 10428 RVA: 0x00094D80 File Offset: 0x00092F80
 	public void PasswordEntered()
 	{
 		string text = this.passwordInput.Text;
 		if (text.Length != 4)
 		{
-			ConsoleSystem.Run("notice.popup 5  \"Password must be 4 digits.\"", false);
+			global::ConsoleSystem.Run("notice.popup 5  \"Password must be 4 digits.\"", false);
 			return;
 		}
 		foreach (char c in text)
 		{
 			if (!char.IsDigit(c))
 			{
-				ConsoleSystem.Run("notice.popup 5  \"Must be digits only.\"", false);
+				global::ConsoleSystem.Run("notice.popup 5  \"Must be digits only.\"", false);
 				return;
 			}
 		}
-		ConsoleNetworker.SendCommandToServer("lockentry.passwordentry " + text + " " + ((!this.changingEntry) ? "false" : "true"));
-		LockEntry.Hide();
+		global::ConsoleNetworker.SendCommandToServer("lockentry.passwordentry " + text + " " + ((!this.changingEntry) ? "false" : "true"));
+		global::LockEntry.Hide();
 	}
 
-	// Token: 0x04001211 RID: 4625
-	private static LockEntry singleton;
+	// Token: 0x0400138B RID: 5003
+	private static global::LockEntry singleton;
 
-	// Token: 0x04001212 RID: 4626
+	// Token: 0x0400138C RID: 5004
 	private UnlockCursorNode cursorLocker;
 
-	// Token: 0x04001213 RID: 4627
-	public dfTextbox passwordInput;
+	// Token: 0x0400138D RID: 5005
+	public global::dfTextbox passwordInput;
 
-	// Token: 0x04001214 RID: 4628
-	public dfRichTextLabel entryLabel;
+	// Token: 0x0400138E RID: 5006
+	public global::dfRichTextLabel entryLabel;
 
-	// Token: 0x04001215 RID: 4629
+	// Token: 0x0400138F RID: 5007
 	private bool changingEntry;
 }

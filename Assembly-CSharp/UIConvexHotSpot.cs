@@ -1,26 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000752 RID: 1874
-public class UIConvexHotSpot : UIHotSpot
+// Token: 0x02000834 RID: 2100
+public class UIConvexHotSpot : global::UIHotSpot
 {
-	// Token: 0x0600445B RID: 17499 RVA: 0x0010AB40 File Offset: 0x00108D40
-	public UIConvexHotSpot() : base(UIHotSpot.Kind.Convex, true)
+	// Token: 0x060048BC RID: 18620 RVA: 0x001144C0 File Offset: 0x001126C0
+	public UIConvexHotSpot() : base(global::UIHotSpot.Kind.Convex, true)
 	{
 	}
 
-	// Token: 0x0600445C RID: 17500 RVA: 0x0010AB4C File Offset: 0x00108D4C
+	// Token: 0x060048BD RID: 18621 RVA: 0x001144CC File Offset: 0x001126CC
 	internal Bounds? Internal_CalculateBounds(bool moved)
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x0600445D RID: 17501 RVA: 0x0010AB54 File Offset: 0x00108D54
-	internal bool Internal_RaycastRef(Ray ray, ref UIHotSpot.Hit hit)
+	// Token: 0x060048BE RID: 18622 RVA: 0x001144D4 File Offset: 0x001126D4
+	internal bool Internal_RaycastRef(Ray ray, ref global::UIHotSpot.Hit hit)
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x040024A9 RID: 9385
-	private const UIHotSpot.Kind kKind = UIHotSpot.Kind.Convex;
+	// Token: 0x040026E0 RID: 9952
+	private const global::UIHotSpot.Kind kKind = global::UIHotSpot.Kind.Convex;
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000685 RID: 1669
+// Token: 0x0200074A RID: 1866
 [ExecuteInEditMode]
 public class PivotTest : MonoBehaviour
 {
-	// Token: 0x060039E6 RID: 14822 RVA: 0x000D6798 File Offset: 0x000D4998
+	// Token: 0x06003DDE RID: 15838 RVA: 0x000DF178 File Offset: 0x000DD378
 	public void Update()
 	{
 		if (this.child)
@@ -18,7 +18,7 @@ public class PivotTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039E7 RID: 14823 RVA: 0x000D6804 File Offset: 0x000D4A04
+	// Token: 0x06003DDF RID: 15839 RVA: 0x000DF1E4 File Offset: 0x000DD3E4
 	private void OnDrawGizmos()
 	{
 		Gizmos.matrix = base.transform.localToWorldMatrix;
@@ -49,18 +49,18 @@ public class PivotTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001DE3 RID: 7651
+	// Token: 0x04001FDB RID: 8155
 	public Transform child;
 
-	// Token: 0x04001DE4 RID: 7652
+	// Token: 0x04001FDC RID: 8156
 	public Vector3 pivot;
 
-	// Token: 0x04001DE5 RID: 7653
+	// Token: 0x04001FDD RID: 8157
 	public Vector3 pivotAngles;
 
-	// Token: 0x04001DE6 RID: 7654
+	// Token: 0x04001FDE RID: 8158
 	public Vector3 offsetTranslation;
 
-	// Token: 0x04001DE7 RID: 7655
+	// Token: 0x04001FDF RID: 8159
 	public Vector3 offsetRotation;
 }

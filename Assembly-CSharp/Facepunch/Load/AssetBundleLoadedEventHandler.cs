@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Facepunch.Load
 {
-	// Token: 0x020008F4 RID: 2292
-	// (Invoke) Token: 0x06004DA8 RID: 19880
+	// Token: 0x02000949 RID: 2377
+	// (Invoke) Token: 0x06004FBA RID: 20410
 	public delegate void AssetBundleLoadedEventHandler(AssetBundle assetBundle, Item item);
 }

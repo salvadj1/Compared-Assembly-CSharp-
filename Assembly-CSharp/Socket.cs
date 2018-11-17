@@ -2,59 +2,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200032A RID: 810
+// Token: 0x020003D7 RID: 983
 public abstract class Socket
 {
-	// Token: 0x06001EF7 RID: 7927 RVA: 0x0007A0BC File Offset: 0x000782BC
+	// Token: 0x06002259 RID: 8793 RVA: 0x0007F4B8 File Offset: 0x0007D6B8
 	protected Socket(bool is_vm)
 	{
 		this.is_vm = is_vm;
 	}
 
-	// Token: 0x170007B1 RID: 1969
-	// (get) Token: 0x06001EF8 RID: 7928 RVA: 0x0007A0CC File Offset: 0x000782CC
+	// Token: 0x1700080F RID: 2063
+	// (get) Token: 0x0600225A RID: 8794 RVA: 0x0007F4C8 File Offset: 0x0007D6C8
 	public Transform attachParent
 	{
 		get
 		{
 			if (this.is_vm)
 			{
-				return ((Socket.CameraSpace)this).attachParent;
+				return ((global::Socket.CameraSpace)this).attachParent;
 			}
 			return this.parent;
 		}
 	}
 
-	// Token: 0x170007B2 RID: 1970
-	// (get) Token: 0x06001EF9 RID: 7929 RVA: 0x0007A0EC File Offset: 0x000782EC
+	// Token: 0x17000810 RID: 2064
+	// (get) Token: 0x0600225B RID: 8795 RVA: 0x0007F4E8 File Offset: 0x0007D6E8
 	public Vector3 position
 	{
 		get
 		{
 			if (this.is_vm)
 			{
-				return ((Socket.CameraSpace)this).position;
+				return ((global::Socket.CameraSpace)this).position;
 			}
-			return ((Socket.LocalSpace)this).position;
+			return ((global::Socket.LocalSpace)this).position;
 		}
 	}
 
-	// Token: 0x170007B3 RID: 1971
-	// (get) Token: 0x06001EFA RID: 7930 RVA: 0x0007A11C File Offset: 0x0007831C
+	// Token: 0x17000811 RID: 2065
+	// (get) Token: 0x0600225C RID: 8796 RVA: 0x0007F518 File Offset: 0x0007D718
 	public Quaternion rotation
 	{
 		get
 		{
 			if (this.is_vm)
 			{
-				return ((Socket.CameraSpace)this).rotation;
+				return ((global::Socket.CameraSpace)this).rotation;
 			}
-			return ((Socket.LocalSpace)this).rotation;
+			return ((global::Socket.LocalSpace)this).rotation;
 		}
 	}
 
-	// Token: 0x170007B4 RID: 1972
-	// (get) Token: 0x06001EFB RID: 7931 RVA: 0x0007A14C File Offset: 0x0007834C
+	// Token: 0x17000812 RID: 2066
+	// (get) Token: 0x0600225D RID: 8797 RVA: 0x0007F548 File Offset: 0x0007D748
 	public Vector3 localPosition
 	{
 		get
@@ -63,8 +63,8 @@ public abstract class Socket
 		}
 	}
 
-	// Token: 0x170007B5 RID: 1973
-	// (get) Token: 0x06001EFC RID: 7932 RVA: 0x0007A154 File Offset: 0x00078354
+	// Token: 0x17000813 RID: 2067
+	// (get) Token: 0x0600225E RID: 8798 RVA: 0x0007F550 File Offset: 0x0007D750
 	public Quaternion localRotation
 	{
 		get
@@ -73,48 +73,48 @@ public abstract class Socket
 		}
 	}
 
-	// Token: 0x06001EFD RID: 7933 RVA: 0x0007A15C File Offset: 0x0007835C
+	// Token: 0x0600225F RID: 8799 RVA: 0x0007F558 File Offset: 0x0007D758
 	public bool AddChild(Transform transform, bool snap)
 	{
 		if (this.is_vm)
 		{
-			return ((Socket.CameraSpace)this).AddChild(transform, snap);
+			return ((global::Socket.CameraSpace)this).AddChild(transform, snap);
 		}
-		return ((Socket.LocalSpace)this).AddChild(transform, snap);
+		return ((global::Socket.LocalSpace)this).AddChild(transform, snap);
 	}
 
-	// Token: 0x06001EFE RID: 7934 RVA: 0x0007A190 File Offset: 0x00078390
+	// Token: 0x06002260 RID: 8800 RVA: 0x0007F58C File Offset: 0x0007D78C
 	public bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket)
 	{
 		if (this.is_vm)
 		{
-			return ((Socket.CameraSpace)this).AddChildWithCoords(transform, offsetFromThisSocket);
+			return ((global::Socket.CameraSpace)this).AddChildWithCoords(transform, offsetFromThisSocket);
 		}
-		return ((Socket.LocalSpace)this).AddChildWithCoords(transform, offsetFromThisSocket);
+		return ((global::Socket.LocalSpace)this).AddChildWithCoords(transform, offsetFromThisSocket);
 	}
 
-	// Token: 0x06001EFF RID: 7935 RVA: 0x0007A1C4 File Offset: 0x000783C4
+	// Token: 0x06002261 RID: 8801 RVA: 0x0007F5C0 File Offset: 0x0007D7C0
 	public bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket, Vector3 eulerOffsetFromThisSocket)
 	{
 		if (this.is_vm)
 		{
-			return ((Socket.CameraSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, eulerOffsetFromThisSocket);
+			return ((global::Socket.CameraSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, eulerOffsetFromThisSocket);
 		}
-		return ((Socket.LocalSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, eulerOffsetFromThisSocket);
+		return ((global::Socket.LocalSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, eulerOffsetFromThisSocket);
 	}
 
-	// Token: 0x06001F00 RID: 7936 RVA: 0x0007A1FC File Offset: 0x000783FC
+	// Token: 0x06002262 RID: 8802 RVA: 0x0007F5F8 File Offset: 0x0007D7F8
 	public bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket, Quaternion rotationalOffsetFromThisSocket)
 	{
 		if (this.is_vm)
 		{
-			return ((Socket.CameraSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, rotationalOffsetFromThisSocket);
+			return ((global::Socket.CameraSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, rotationalOffsetFromThisSocket);
 		}
-		return ((Socket.LocalSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, rotationalOffsetFromThisSocket);
+		return ((global::Socket.LocalSpace)this).AddChildWithCoords(transform, offsetFromThisSocket, rotationalOffsetFromThisSocket);
 	}
 
-	// Token: 0x170007B6 RID: 1974
-	// (get) Token: 0x06001F01 RID: 7937 RVA: 0x0007A234 File Offset: 0x00078434
+	// Token: 0x17000814 RID: 2068
+	// (get) Token: 0x06002263 RID: 8803 RVA: 0x0007F630 File Offset: 0x0007D830
 	public Quaternion rotate
 	{
 		get
@@ -129,33 +129,33 @@ public abstract class Socket
 		}
 	}
 
-	// Token: 0x06001F02 RID: 7938 RVA: 0x0007A28C File Offset: 0x0007848C
+	// Token: 0x06002264 RID: 8804 RVA: 0x0007F688 File Offset: 0x0007D888
 	public void Rotate(Quaternion rotation)
 	{
 		if (this.is_vm)
 		{
-			((Socket.CameraSpace)this).Rotate(rotation);
+			((global::Socket.CameraSpace)this).Rotate(rotation);
 		}
 		else
 		{
-			((Socket.LocalSpace)this).Rotate(rotation);
+			((global::Socket.LocalSpace)this).Rotate(rotation);
 		}
 	}
 
-	// Token: 0x06001F03 RID: 7939 RVA: 0x0007A2C4 File Offset: 0x000784C4
+	// Token: 0x06002265 RID: 8805 RVA: 0x0007F6C0 File Offset: 0x0007D8C0
 	public void UnRotate(Quaternion rotation)
 	{
 		if (this.is_vm)
 		{
-			((Socket.CameraSpace)this).UnRotate(rotation);
+			((global::Socket.CameraSpace)this).UnRotate(rotation);
 		}
 		else
 		{
-			((Socket.LocalSpace)this).UnRotate(rotation);
+			((global::Socket.LocalSpace)this).UnRotate(rotation);
 		}
 	}
 
-	// Token: 0x06001F04 RID: 7940 RVA: 0x0007A2FC File Offset: 0x000784FC
+	// Token: 0x06002266 RID: 8806 RVA: 0x0007F6F8 File Offset: 0x0007D8F8
 	public void DrawGizmos(string icon)
 	{
 		Matrix4x4 matrix = Gizmos.matrix;
@@ -183,7 +183,7 @@ public abstract class Socket
 		Gizmos.color = color;
 	}
 
-	// Token: 0x06001F05 RID: 7941 RVA: 0x0007A404 File Offset: 0x00078604
+	// Token: 0x06002267 RID: 8807 RVA: 0x0007F800 File Offset: 0x0007DA00
 	private void AddInstanceChild(Transform tr, bool snap)
 	{
 		if (!this.AddChild(tr, snap))
@@ -192,7 +192,7 @@ public abstract class Socket
 		}
 	}
 
-	// Token: 0x06001F06 RID: 7942 RVA: 0x0007A420 File Offset: 0x00078620
+	// Token: 0x06002268 RID: 8808 RVA: 0x0007F81C File Offset: 0x0007DA1C
 	public Transform InstantiateAsChild(Transform prefab, bool snap)
 	{
 		Transform transform = (Transform)Object.Instantiate(prefab, this.position, this.rotation);
@@ -200,7 +200,7 @@ public abstract class Socket
 		return transform;
 	}
 
-	// Token: 0x06001F07 RID: 7943 RVA: 0x0007A450 File Offset: 0x00078650
+	// Token: 0x06002269 RID: 8809 RVA: 0x0007F84C File Offset: 0x0007DA4C
 	public GameObject InstantiateAsChild(GameObject prefab, bool snap)
 	{
 		GameObject gameObject = (GameObject)Object.Instantiate(prefab, this.position, this.rotation);
@@ -208,7 +208,7 @@ public abstract class Socket
 		return gameObject;
 	}
 
-	// Token: 0x06001F08 RID: 7944 RVA: 0x0007A484 File Offset: 0x00078684
+	// Token: 0x0600226A RID: 8810 RVA: 0x0007F880 File Offset: 0x0007DA80
 	public TComponent InstantiateAsChild<TComponent>(TComponent prefab, bool snap) where TComponent : Component
 	{
 		TComponent result = (TComponent)((object)Object.Instantiate(prefab, this.position, this.rotation));
@@ -216,46 +216,46 @@ public abstract class Socket
 		return result;
 	}
 
-	// Token: 0x06001F09 RID: 7945 RVA: 0x0007A4C4 File Offset: 0x000786C4
+	// Token: 0x0600226B RID: 8811 RVA: 0x0007F8C0 File Offset: 0x0007DAC0
 	public TObject Instantiate<TObject>(TObject prefab) where TObject : Object
 	{
 		return (TObject)((object)Object.Instantiate(prefab, this.position, this.rotation));
 	}
 
-	// Token: 0x06001F0A RID: 7946 RVA: 0x0007A4E4 File Offset: 0x000786E4
+	// Token: 0x0600226C RID: 8812 RVA: 0x0007F8E0 File Offset: 0x0007DAE0
 	public void Snap()
 	{
 		if (this.is_vm)
 		{
-			((Socket.CameraSpace)this).Snap();
+			((global::Socket.CameraSpace)this).Snap();
 		}
 	}
 
-	// Token: 0x04000EEE RID: 3822
+	// Token: 0x04001054 RID: 4180
 	public Transform parent;
 
-	// Token: 0x04000EEF RID: 3823
+	// Token: 0x04001055 RID: 4181
 	public Vector3 offset;
 
-	// Token: 0x04000EF0 RID: 3824
+	// Token: 0x04001056 RID: 4182
 	public Vector3 eulerRotate;
 
-	// Token: 0x04000EF1 RID: 3825
+	// Token: 0x04001057 RID: 4183
 	private readonly bool is_vm;
 
-	// Token: 0x04000EF2 RID: 3826
+	// Token: 0x04001058 RID: 4184
 	private Vector3 rotate_last;
 
-	// Token: 0x04000EF3 RID: 3827
+	// Token: 0x04001059 RID: 4185
 	private Quaternion quat_last;
 
-	// Token: 0x04000EF4 RID: 3828
+	// Token: 0x0400105A RID: 4186
 	private bool got_last;
 
-	// Token: 0x0200032B RID: 811
-	public struct CameraConversion : IEquatable<Socket.CameraConversion>
+	// Token: 0x020003D8 RID: 984
+	public struct CameraConversion : IEquatable<global::Socket.CameraConversion>
 	{
-		// Token: 0x06001F0B RID: 7947 RVA: 0x0007A4FC File Offset: 0x000786FC
+		// Token: 0x0600226D RID: 8813 RVA: 0x0007F8F8 File Offset: 0x0007DAF8
 		public CameraConversion(Transform World, Transform Camera)
 		{
 			this.Eye = World;
@@ -263,8 +263,8 @@ public abstract class Socket
 			this.Provided = (World != Camera && World && Camera);
 		}
 
-		// Token: 0x170007B7 RID: 1975
-		// (get) Token: 0x06001F0C RID: 7948 RVA: 0x0007A540 File Offset: 0x00078740
+		// Token: 0x17000815 RID: 2069
+		// (get) Token: 0x0600226E RID: 8814 RVA: 0x0007F93C File Offset: 0x0007DB3C
 		public bool Valid
 		{
 			get
@@ -273,78 +273,78 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F0D RID: 7949 RVA: 0x0007A56C File Offset: 0x0007876C
-		public bool Equals(Socket.CameraConversion other)
+		// Token: 0x0600226F RID: 8815 RVA: 0x0007F968 File Offset: 0x0007DB68
+		public bool Equals(global::Socket.CameraConversion other)
 		{
 			return (!this.Provided) ? (!other.Provided) : (other.Provided && this.Eye == other.Eye && this.Shelf == other.Shelf);
 		}
 
-		// Token: 0x06001F0E RID: 7950 RVA: 0x0007A5CC File Offset: 0x000787CC
+		// Token: 0x06002270 RID: 8816 RVA: 0x0007F9C8 File Offset: 0x0007DBC8
 		public override bool Equals(object obj)
 		{
-			return obj is Socket.CameraConversion && this.Equals((Socket.CameraConversion)obj);
+			return obj is global::Socket.CameraConversion && this.Equals((global::Socket.CameraConversion)obj);
 		}
 
-		// Token: 0x06001F0F RID: 7951 RVA: 0x0007A5E8 File Offset: 0x000787E8
+		// Token: 0x06002271 RID: 8817 RVA: 0x0007F9E4 File Offset: 0x0007DBE4
 		public override string ToString()
 		{
 			return (!this.Valid) ? ((!this.Provided) ? "[CameraConversion:NotProvided]" : "[CameraConversion:Invalid]") : "[CameraConversion:Valid]";
 		}
 
-		// Token: 0x06001F10 RID: 7952 RVA: 0x0007A61C File Offset: 0x0007881C
+		// Token: 0x06002272 RID: 8818 RVA: 0x0007FA18 File Offset: 0x0007DC18
 		public override int GetHashCode()
 		{
 			return (!this.Provided) ? 0 : (this.Eye.GetHashCode() ^ this.Shelf.GetHashCode());
 		}
 
-		// Token: 0x170007B8 RID: 1976
-		// (get) Token: 0x06001F11 RID: 7953 RVA: 0x0007A654 File Offset: 0x00078854
-		public static Socket.CameraConversion None
+		// Token: 0x17000816 RID: 2070
+		// (get) Token: 0x06002273 RID: 8819 RVA: 0x0007FA50 File Offset: 0x0007DC50
+		public static global::Socket.CameraConversion None
 		{
 			get
 			{
-				return default(Socket.CameraConversion);
+				return default(global::Socket.CameraConversion);
 			}
 		}
 
-		// Token: 0x06001F12 RID: 7954 RVA: 0x0007A66C File Offset: 0x0007886C
-		public static implicit operator bool(Socket.CameraConversion cc)
+		// Token: 0x06002274 RID: 8820 RVA: 0x0007FA68 File Offset: 0x0007DC68
+		public static implicit operator bool(global::Socket.CameraConversion cc)
 		{
 			return cc.Valid;
 		}
 
-		// Token: 0x06001F13 RID: 7955 RVA: 0x0007A678 File Offset: 0x00078878
-		public static bool operator true(Socket.CameraConversion cc)
+		// Token: 0x06002275 RID: 8821 RVA: 0x0007FA74 File Offset: 0x0007DC74
+		public static bool operator true(global::Socket.CameraConversion cc)
 		{
 			return cc.Valid;
 		}
 
-		// Token: 0x06001F14 RID: 7956 RVA: 0x0007A684 File Offset: 0x00078884
-		public static bool operator false(Socket.CameraConversion cc)
+		// Token: 0x06002276 RID: 8822 RVA: 0x0007FA80 File Offset: 0x0007DC80
+		public static bool operator false(global::Socket.CameraConversion cc)
 		{
 			return !cc.Valid;
 		}
 
-		// Token: 0x04000EF5 RID: 3829
+		// Token: 0x0400105B RID: 4187
 		public readonly Transform Eye;
 
-		// Token: 0x04000EF6 RID: 3830
+		// Token: 0x0400105C RID: 4188
 		public readonly Transform Shelf;
 
-		// Token: 0x04000EF7 RID: 3831
+		// Token: 0x0400105D RID: 4189
 		public readonly bool Provided;
 	}
 
-	// Token: 0x0200032C RID: 812
+	// Token: 0x020003D9 RID: 985
 	[Serializable]
-	public sealed class CameraSpace : Socket
+	public sealed class CameraSpace : global::Socket
 	{
-		// Token: 0x06001F15 RID: 7957 RVA: 0x0007A690 File Offset: 0x00078890
+		// Token: 0x06002277 RID: 8823 RVA: 0x0007FA8C File Offset: 0x0007DC8C
 		public CameraSpace() : base(true)
 		{
 		}
 
-		// Token: 0x06001F16 RID: 7958 RVA: 0x0007A69C File Offset: 0x0007889C
+		// Token: 0x06002278 RID: 8824 RVA: 0x0007FA98 File Offset: 0x0007DC98
 		public static void UpdateProxy(Transform key, Transform value, Transform shelf, Transform eye)
 		{
 			value.position = eye.TransformPoint(shelf.InverseTransformPoint(key.position));
@@ -353,8 +353,8 @@ public abstract class Socket
 			value.rotation = Quaternion.LookRotation(vector, vector2);
 		}
 
-		// Token: 0x170007B9 RID: 1977
-		// (get) Token: 0x06001F17 RID: 7959 RVA: 0x0007A6F4 File Offset: 0x000788F4
+		// Token: 0x17000817 RID: 2071
+		// (get) Token: 0x06002279 RID: 8825 RVA: 0x0007FAF0 File Offset: 0x0007DCF0
 		public new Vector3 position
 		{
 			get
@@ -383,8 +383,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007BA RID: 1978
-		// (get) Token: 0x06001F18 RID: 7960 RVA: 0x0007A7B8 File Offset: 0x000789B8
+		// Token: 0x17000818 RID: 2072
+		// (get) Token: 0x0600227A RID: 8826 RVA: 0x0007FBB4 File Offset: 0x0007DDB4
 		public new Quaternion rotation
 		{
 			get
@@ -417,8 +417,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007BB RID: 1979
-		// (get) Token: 0x06001F19 RID: 7961 RVA: 0x0007A890 File Offset: 0x00078A90
+		// Token: 0x17000819 RID: 2073
+		// (get) Token: 0x0600227B RID: 8827 RVA: 0x0007FC8C File Offset: 0x0007DE8C
 		public new Transform attachParent
 		{
 			get
@@ -431,8 +431,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007BC RID: 1980
-		// (get) Token: 0x06001F1A RID: 7962 RVA: 0x0007A8AC File Offset: 0x00078AAC
+		// Token: 0x1700081A RID: 2074
+		// (get) Token: 0x0600227C RID: 8828 RVA: 0x0007FCA8 File Offset: 0x0007DEA8
 		public Vector3 preEyePosition
 		{
 			get
@@ -441,8 +441,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007BD RID: 1981
-		// (get) Token: 0x06001F1B RID: 7963 RVA: 0x0007A8E8 File Offset: 0x00078AE8
+		// Token: 0x1700081B RID: 2075
+		// (get) Token: 0x0600227D RID: 8829 RVA: 0x0007FCE4 File Offset: 0x0007DEE4
 		public Quaternion preEyeRotation
 		{
 			get
@@ -451,7 +451,7 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F1C RID: 7964 RVA: 0x0007A928 File Offset: 0x00078B28
+		// Token: 0x0600227E RID: 8830 RVA: 0x0007FD24 File Offset: 0x0007DF24
 		public new void Rotate(Quaternion rotation)
 		{
 			float num;
@@ -461,7 +461,7 @@ public abstract class Socket
 			this.parent.RotateAround(this.preEyePosition, vector, num);
 		}
 
-		// Token: 0x06001F1D RID: 7965 RVA: 0x0007A960 File Offset: 0x00078B60
+		// Token: 0x0600227F RID: 8831 RVA: 0x0007FD5C File Offset: 0x0007DF5C
 		public new void UnRotate(Quaternion rotation)
 		{
 			float num;
@@ -471,7 +471,7 @@ public abstract class Socket
 			this.parent.RotateAround(this.preEyePosition, -vector, num);
 		}
 
-		// Token: 0x06001F1E RID: 7966 RVA: 0x0007A9A0 File Offset: 0x00078BA0
+		// Token: 0x06002280 RID: 8832 RVA: 0x0007FD9C File Offset: 0x0007DF9C
 		public new bool AddChild(Transform transform, bool snap)
 		{
 			if (this.proxy && this.proxyTransform)
@@ -514,7 +514,7 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F1F RID: 7967 RVA: 0x0007AAD4 File Offset: 0x00078CD4
+		// Token: 0x06002281 RID: 8833 RVA: 0x0007FED0 File Offset: 0x0007E0D0
 		public new bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket)
 		{
 			if (this.AddChild(transform, false))
@@ -525,7 +525,7 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F20 RID: 7968 RVA: 0x0007AB10 File Offset: 0x00078D10
+		// Token: 0x06002282 RID: 8834 RVA: 0x0007FF0C File Offset: 0x0007E10C
 		public new bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket, Vector3 eulerOffsetFromThisSocket)
 		{
 			if (this.AddChild(transform, false))
@@ -538,7 +538,7 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F21 RID: 7969 RVA: 0x0007AB60 File Offset: 0x00078D60
+		// Token: 0x06002283 RID: 8835 RVA: 0x0007FF5C File Offset: 0x0007E15C
 		public new bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket, Quaternion rotationOffsetFromThisSocket)
 		{
 			if (this.AddChild(transform, false))
@@ -551,39 +551,39 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F22 RID: 7970 RVA: 0x0007ABAC File Offset: 0x00078DAC
+		// Token: 0x06002284 RID: 8836 RVA: 0x0007FFA8 File Offset: 0x0007E1A8
 		public new void Snap()
 		{
 			if (this.proxy && this.proxyTransform && this.root && this.eye)
 			{
-				Socket.CameraSpace.UpdateProxy(this.parent, this.proxyTransform, this.root, this.eye);
+				global::Socket.CameraSpace.UpdateProxy(this.parent, this.proxyTransform, this.root, this.eye);
 			}
 		}
 
-		// Token: 0x04000EF8 RID: 3832
+		// Token: 0x0400105E RID: 4190
 		[NonSerialized]
 		public Transform eye;
 
-		// Token: 0x04000EF9 RID: 3833
+		// Token: 0x0400105F RID: 4191
 		[NonSerialized]
 		public Transform root;
 
-		// Token: 0x04000EFA RID: 3834
+		// Token: 0x04001060 RID: 4192
 		public bool proxy;
 
-		// Token: 0x04000EFB RID: 3835
+		// Token: 0x04001061 RID: 4193
 		[NonSerialized]
 		internal Transform proxyTransform;
 	}
 
-	// Token: 0x0200032D RID: 813
+	// Token: 0x020003DA RID: 986
 	[Serializable]
 	public sealed class ConfigBodyPart
 	{
-		// Token: 0x06001F24 RID: 7972 RVA: 0x0007AC1C File Offset: 0x00078E1C
-		public static Socket.ConfigBodyPart Create(BodyPart parent, Vector3 offset, Vector3 eulerRotate)
+		// Token: 0x06002286 RID: 8838 RVA: 0x00080018 File Offset: 0x0007E218
+		public static global::Socket.ConfigBodyPart Create(BodyPart parent, Vector3 offset, Vector3 eulerRotate)
 		{
-			return new Socket.ConfigBodyPart
+			return new global::Socket.ConfigBodyPart
 			{
 				parent = parent,
 				offset = offset,
@@ -591,8 +591,8 @@ public abstract class Socket
 			};
 		}
 
-		// Token: 0x06001F25 RID: 7973 RVA: 0x0007AC48 File Offset: 0x00078E48
-		private bool Find(HitBoxSystem system, out Transform parent)
+		// Token: 0x06002287 RID: 8839 RVA: 0x00080044 File Offset: 0x0007E244
+		private bool Find(global::HitBoxSystem system, out Transform parent)
 		{
 			if (!system)
 			{
@@ -609,15 +609,15 @@ public abstract class Socket
 			return true;
 		}
 
-		// Token: 0x06001F26 RID: 7974 RVA: 0x0007AC8C File Offset: 0x00078E8C
-		public bool Extract(ref Socket.LocalSpace space, HitBoxSystem system)
+		// Token: 0x06002288 RID: 8840 RVA: 0x00080088 File Offset: 0x0007E288
+		public bool Extract(ref global::Socket.LocalSpace space, global::HitBoxSystem system)
 		{
 			Transform transform;
 			if (this.Find(system, out transform))
 			{
 				if (space == null)
 				{
-					space = new Socket.LocalSpace
+					space = new global::Socket.LocalSpace
 					{
 						parent = transform,
 						eulerRotate = this.eulerRotate,
@@ -635,15 +635,15 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F27 RID: 7975 RVA: 0x0007AD14 File Offset: 0x00078F14
-		public bool Extract(ref Socket.CameraSpace space, HitBoxSystem system)
+		// Token: 0x06002289 RID: 8841 RVA: 0x00080110 File Offset: 0x0007E310
+		public bool Extract(ref global::Socket.CameraSpace space, global::HitBoxSystem system)
 		{
 			Transform transform;
 			if (this.Find(system, out transform))
 			{
 				if (space == null)
 				{
-					space = new Socket.CameraSpace
+					space = new global::Socket.CameraSpace
 					{
 						parent = transform,
 						eulerRotate = this.eulerRotate,
@@ -661,27 +661,27 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x04000EFC RID: 3836
+		// Token: 0x04001062 RID: 4194
 		public BodyPart parent;
 
-		// Token: 0x04000EFD RID: 3837
+		// Token: 0x04001063 RID: 4195
 		public Vector3 offset;
 
-		// Token: 0x04000EFE RID: 3838
+		// Token: 0x04001064 RID: 4196
 		public Vector3 eulerRotate;
 	}
 
-	// Token: 0x0200032E RID: 814
+	// Token: 0x020003DB RID: 987
 	[Serializable]
-	public sealed class LocalSpace : Socket
+	public sealed class LocalSpace : global::Socket
 	{
-		// Token: 0x06001F28 RID: 7976 RVA: 0x0007AD9C File Offset: 0x00078F9C
+		// Token: 0x0600228A RID: 8842 RVA: 0x00080198 File Offset: 0x0007E398
 		public LocalSpace() : base(false)
 		{
 		}
 
-		// Token: 0x170007BE RID: 1982
-		// (get) Token: 0x06001F29 RID: 7977 RVA: 0x0007ADA8 File Offset: 0x00078FA8
+		// Token: 0x1700081C RID: 2076
+		// (get) Token: 0x0600228B RID: 8843 RVA: 0x000801A4 File Offset: 0x0007E3A4
 		public new Vector3 position
 		{
 			get
@@ -690,8 +690,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007BF RID: 1983
-		// (get) Token: 0x06001F2A RID: 7978 RVA: 0x0007ADE4 File Offset: 0x00078FE4
+		// Token: 0x1700081D RID: 2077
+		// (get) Token: 0x0600228C RID: 8844 RVA: 0x000801E0 File Offset: 0x0007E3E0
 		public new Quaternion rotation
 		{
 			get
@@ -700,7 +700,7 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F2B RID: 7979 RVA: 0x0007AE24 File Offset: 0x00079024
+		// Token: 0x0600228D RID: 8845 RVA: 0x00080220 File Offset: 0x0007E420
 		public new void Rotate(Quaternion rotation)
 		{
 			float num;
@@ -710,7 +710,7 @@ public abstract class Socket
 			this.parent.RotateAround(this.position, vector, num);
 		}
 
-		// Token: 0x06001F2C RID: 7980 RVA: 0x0007AE5C File Offset: 0x0007905C
+		// Token: 0x0600228E RID: 8846 RVA: 0x00080258 File Offset: 0x0007E458
 		public new void UnRotate(Quaternion rotation)
 		{
 			float num;
@@ -720,7 +720,7 @@ public abstract class Socket
 			this.parent.RotateAround(this.position, -vector, num);
 		}
 
-		// Token: 0x06001F2D RID: 7981 RVA: 0x0007AE9C File Offset: 0x0007909C
+		// Token: 0x0600228F RID: 8847 RVA: 0x00080298 File Offset: 0x0007E498
 		public new bool AddChild(Transform transform, bool snap)
 		{
 			if (transform)
@@ -736,7 +736,7 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F2E RID: 7982 RVA: 0x0007AEE4 File Offset: 0x000790E4
+		// Token: 0x06002290 RID: 8848 RVA: 0x000802E0 File Offset: 0x0007E4E0
 		public new bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket)
 		{
 			if (this.AddChild(transform, false))
@@ -747,7 +747,7 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F2F RID: 7983 RVA: 0x0007AF20 File Offset: 0x00079120
+		// Token: 0x06002291 RID: 8849 RVA: 0x0008031C File Offset: 0x0007E51C
 		public new bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket, Vector3 eulerOffsetFromThisSocket)
 		{
 			if (this.AddChild(transform, false))
@@ -760,7 +760,7 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F30 RID: 7984 RVA: 0x0007AF70 File Offset: 0x00079170
+		// Token: 0x06002292 RID: 8850 RVA: 0x0008036C File Offset: 0x0007E56C
 		public new bool AddChildWithCoords(Transform transform, Vector3 offsetFromThisSocket, Quaternion rotationOffsetFromThisSocket)
 		{
 			if (this.AddChild(transform, false))
@@ -773,61 +773,61 @@ public abstract class Socket
 			return false;
 		}
 
-		// Token: 0x06001F31 RID: 7985 RVA: 0x0007AFBC File Offset: 0x000791BC
+		// Token: 0x06002293 RID: 8851 RVA: 0x000803B8 File Offset: 0x0007E5B8
 		public new void Snap()
 		{
 		}
 	}
 
-	// Token: 0x0200032F RID: 815
+	// Token: 0x020003DC RID: 988
 	public interface Source
 	{
-		// Token: 0x06001F32 RID: 7986
-		bool GetSocket(string name, out Socket socket);
+		// Token: 0x06002294 RID: 8852
+		bool GetSocket(string name, out global::Socket socket);
 
-		// Token: 0x06001F33 RID: 7987
-		bool ReplaceSocket(string name, Socket newValue);
+		// Token: 0x06002295 RID: 8853
+		bool ReplaceSocket(string name, global::Socket newValue);
 
-		// Token: 0x170007C0 RID: 1984
-		// (get) Token: 0x06001F34 RID: 7988
+		// Token: 0x1700081E RID: 2078
+		// (get) Token: 0x06002296 RID: 8854
 		IEnumerable<string> SocketNames { get; }
 
-		// Token: 0x170007C1 RID: 1985
-		// (get) Token: 0x06001F35 RID: 7989
+		// Token: 0x1700081F RID: 2079
+		// (get) Token: 0x06002297 RID: 8855
 		int SocketsVersion { get; }
 
-		// Token: 0x06001F36 RID: 7990
-		Socket.CameraConversion CameraSpaceSetup();
+		// Token: 0x06002298 RID: 8856
+		global::Socket.CameraConversion CameraSpaceSetup();
 
-		// Token: 0x06001F37 RID: 7991
+		// Token: 0x06002299 RID: 8857
 		Type ProxyScriptType(string name);
 	}
 
-	// Token: 0x02000330 RID: 816
+	// Token: 0x020003DD RID: 989
 	public interface Mapped
 	{
-		// Token: 0x170007C2 RID: 1986
-		// (get) Token: 0x06001F38 RID: 7992
-		Socket.Map socketMap { get; }
+		// Token: 0x17000820 RID: 2080
+		// (get) Token: 0x0600229A RID: 8858
+		global::Socket.Map socketMap { get; }
 	}
 
-	// Token: 0x02000331 RID: 817
-	public interface Provider : Socket.Source, Socket.Mapped
+	// Token: 0x020003DE RID: 990
+	public interface Provider : global::Socket.Source, global::Socket.Mapped
 	{
 	}
 
-	// Token: 0x02000332 RID: 818
-	public abstract class Proxy : MonoBehaviour, Socket.Mapped
+	// Token: 0x020003DF RID: 991
+	public abstract class Proxy : MonoBehaviour, global::Socket.Mapped
 	{
-		// Token: 0x06001F39 RID: 7993 RVA: 0x0007AFC0 File Offset: 0x000791C0
+		// Token: 0x0600229B RID: 8859 RVA: 0x000803BC File Offset: 0x0007E5BC
 		public Proxy()
 		{
-			this.link = Socket.ProxyLink.Pop();
+			this.link = global::Socket.ProxyLink.Pop();
 			this.link.proxy = this;
 		}
 
-		// Token: 0x170007C3 RID: 1987
-		// (get) Token: 0x06001F3A RID: 7994 RVA: 0x0007AFE0 File Offset: 0x000791E0
+		// Token: 0x17000821 RID: 2081
+		// (get) Token: 0x0600229C RID: 8860 RVA: 0x000803DC File Offset: 0x0007E5DC
 		public Transform transform
 		{
 			get
@@ -836,15 +836,15 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F3B RID: 7995 RVA: 0x0007AFE8 File Offset: 0x000791E8
-		public bool GetSocketMap(out Socket.Map map)
+		// Token: 0x0600229D RID: 8861 RVA: 0x000803E4 File Offset: 0x0007E5E4
+		public bool GetSocketMap(out global::Socket.Map map)
 		{
 			return this.link.map.Try(out map);
 		}
 
-		// Token: 0x170007C4 RID: 1988
-		// (get) Token: 0x06001F3C RID: 7996 RVA: 0x0007AFFC File Offset: 0x000791FC
-		public Socket.Map socketMap
+		// Token: 0x17000822 RID: 2082
+		// (get) Token: 0x0600229E RID: 8862 RVA: 0x000803F8 File Offset: 0x0007E5F8
+		public global::Socket.Map socketMap
 		{
 			get
 			{
@@ -852,8 +852,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007C5 RID: 1989
-		// (get) Token: 0x06001F3D RID: 7997 RVA: 0x0007B010 File Offset: 0x00079210
+		// Token: 0x17000823 RID: 2083
+		// (get) Token: 0x0600229F RID: 8863 RVA: 0x0008040C File Offset: 0x0007E60C
 		public int socketIndex
 		{
 			get
@@ -862,19 +862,19 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007C6 RID: 1990
-		// (get) Token: 0x06001F3E RID: 7998 RVA: 0x0007B054 File Offset: 0x00079254
-		public Socket.CameraSpace socket
+		// Token: 0x17000824 RID: 2084
+		// (get) Token: 0x060022A0 RID: 8864 RVA: 0x00080450 File Offset: 0x0007E650
+		public global::Socket.CameraSpace socket
 		{
 			get
 			{
-				Socket.CameraSpace cameraSpace;
-				return (!this.link.linked || !this.link.map.Socket<Socket.CameraSpace>(this.link.index, out cameraSpace)) ? null : cameraSpace;
+				global::Socket.CameraSpace cameraSpace;
+				return (!this.link.linked || !this.link.map.Socket<global::Socket.CameraSpace>(this.link.index, out cameraSpace)) ? null : cameraSpace;
 			}
 		}
 
-		// Token: 0x170007C7 RID: 1991
-		// (get) Token: 0x06001F3F RID: 7999 RVA: 0x0007B09C File Offset: 0x0007929C
+		// Token: 0x17000825 RID: 2085
+		// (get) Token: 0x060022A1 RID: 8865 RVA: 0x00080498 File Offset: 0x0007E698
 		public string socketName
 		{
 			get
@@ -884,8 +884,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007C8 RID: 1992
-		// (get) Token: 0x06001F40 RID: 8000 RVA: 0x0007B0E4 File Offset: 0x000792E4
+		// Token: 0x17000826 RID: 2086
+		// (get) Token: 0x060022A2 RID: 8866 RVA: 0x000804E0 File Offset: 0x0007E6E0
 		public bool socketExists
 		{
 			get
@@ -894,17 +894,17 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F41 RID: 8001 RVA: 0x0007B10C File Offset: 0x0007930C
+		// Token: 0x060022A3 RID: 8867 RVA: 0x00080508 File Offset: 0x0007E708
 		protected virtual void InitializeProxy()
 		{
 		}
 
-		// Token: 0x06001F42 RID: 8002 RVA: 0x0007B110 File Offset: 0x00079310
+		// Token: 0x060022A4 RID: 8868 RVA: 0x0008050C File Offset: 0x0007E70C
 		protected virtual void UninitializeProxy()
 		{
 		}
 
-		// Token: 0x06001F43 RID: 8003 RVA: 0x0007B114 File Offset: 0x00079314
+		// Token: 0x060022A5 RID: 8869 RVA: 0x00080510 File Offset: 0x0007E710
 		protected void Awake()
 		{
 			this._transform = base.transform;
@@ -919,7 +919,7 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F44 RID: 8004 RVA: 0x0007B170 File Offset: 0x00079370
+		// Token: 0x060022A6 RID: 8870 RVA: 0x0008056C File Offset: 0x0007E76C
 		protected void OnDestroy()
 		{
 			if (this.link.scriptAlive)
@@ -931,7 +931,7 @@ public abstract class Socket
 				}
 				finally
 				{
-					Socket.Map map;
+					global::Socket.Map map;
 					if (this.GetSocketMap(out map))
 					{
 						map.OnProxyDestroyed(this.link);
@@ -941,85 +941,85 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x04000EFF RID: 3839
+		// Token: 0x04001065 RID: 4197
 		[NonSerialized]
-		private readonly Socket.ProxyLink link;
+		private readonly global::Socket.ProxyLink link;
 
-		// Token: 0x04000F00 RID: 3840
+		// Token: 0x04001066 RID: 4198
 		[NonSerialized]
 		private Transform _transform;
 	}
 
-	// Token: 0x02000333 RID: 819
+	// Token: 0x020003E0 RID: 992
 	internal sealed class ProxyLink
 	{
-		// Token: 0x06001F46 RID: 8006 RVA: 0x0007B1F8 File Offset: 0x000793F8
-		public static Socket.ProxyLink Pop()
+		// Token: 0x060022A8 RID: 8872 RVA: 0x000805F4 File Offset: 0x0007E7F4
+		public static global::Socket.ProxyLink Pop()
 		{
-			return Socket.ProxyLink.Usage.Stack.Pop();
+			return global::Socket.ProxyLink.Usage.Stack.Pop();
 		}
 
-		// Token: 0x06001F47 RID: 8007 RVA: 0x0007B204 File Offset: 0x00079404
-		public static void Push(Socket.ProxyLink top)
+		// Token: 0x060022A9 RID: 8873 RVA: 0x00080600 File Offset: 0x0007E800
+		public static void Push(global::Socket.ProxyLink top)
 		{
-			Socket.ProxyLink.Usage.Stack.Push(top);
+			global::Socket.ProxyLink.Usage.Stack.Push(top);
 		}
 
-		// Token: 0x06001F48 RID: 8008 RVA: 0x0007B214 File Offset: 0x00079414
-		public static void EnsurePopped(Socket.ProxyLink top)
+		// Token: 0x060022AA RID: 8874 RVA: 0x00080610 File Offset: 0x0007E810
+		public static void EnsurePopped(global::Socket.ProxyLink top)
 		{
-			if (Socket.ProxyLink.Usage.Stack.Count > 0 && Socket.ProxyLink.Usage.Stack.Peek() == top)
+			if (global::Socket.ProxyLink.Usage.Stack.Count > 0 && global::Socket.ProxyLink.Usage.Stack.Peek() == top)
 			{
-				Socket.ProxyLink.Usage.Stack.Pop();
+				global::Socket.ProxyLink.Usage.Stack.Pop();
 			}
 		}
 
-		// Token: 0x04000F01 RID: 3841
+		// Token: 0x04001067 RID: 4199
 		[NonSerialized]
-		public Socket.Map.Reference map;
+		public global::Socket.Map.Reference map;
 
-		// Token: 0x04000F02 RID: 3842
+		// Token: 0x04001068 RID: 4200
 		[NonSerialized]
-		public Socket.Proxy proxy;
+		public global::Socket.Proxy proxy;
 
-		// Token: 0x04000F03 RID: 3843
+		// Token: 0x04001069 RID: 4201
 		[NonSerialized]
 		public GameObject gameObject;
 
-		// Token: 0x04000F04 RID: 3844
+		// Token: 0x0400106A RID: 4202
 		[NonSerialized]
 		public bool scriptAlive;
 
-		// Token: 0x04000F05 RID: 3845
+		// Token: 0x0400106B RID: 4203
 		[NonSerialized]
 		public bool linked;
 
-		// Token: 0x04000F06 RID: 3846
+		// Token: 0x0400106C RID: 4204
 		[NonSerialized]
 		public int index = -1;
 
-		// Token: 0x02000334 RID: 820
+		// Token: 0x020003E1 RID: 993
 		private static class Usage
 		{
-			// Token: 0x04000F07 RID: 3847
-			public static readonly Stack<Socket.ProxyLink> Stack = new Stack<Socket.ProxyLink>();
+			// Token: 0x0400106D RID: 4205
+			public static readonly Stack<global::Socket.ProxyLink> Stack = new Stack<global::Socket.ProxyLink>();
 		}
 	}
 
-	// Token: 0x02000335 RID: 821
+	// Token: 0x020003E2 RID: 994
 	public struct Slot
 	{
-		// Token: 0x06001F4A RID: 8010 RVA: 0x0007B250 File Offset: 0x00079450
-		internal Slot(Socket.Map.Reference map, int index)
+		// Token: 0x060022AC RID: 8876 RVA: 0x0008064C File Offset: 0x0007E84C
+		internal Slot(global::Socket.Map.Reference map, int index)
 		{
 			this.m = map;
 			this.index = index;
 		}
 
-		// Token: 0x170007C9 RID: 1993
-		// (get) Token: 0x06001F4B RID: 8011 RVA: 0x0007B260 File Offset: 0x00079460
-		// (set) Token: 0x06001F4C RID: 8012 RVA: 0x0007B274 File Offset: 0x00079474
-		public Socket socket
+		// Token: 0x17000827 RID: 2087
+		// (get) Token: 0x060022AD RID: 8877 RVA: 0x0008065C File Offset: 0x0007E85C
+		// (set) Token: 0x060022AE RID: 8878 RVA: 0x00080670 File Offset: 0x0007E870
+		public global::Socket socket
 		{
 			get
 			{
@@ -1034,19 +1034,19 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007CA RID: 1994
-		// (get) Token: 0x06001F4D RID: 8013 RVA: 0x0007B290 File Offset: 0x00079490
+		// Token: 0x17000828 RID: 2088
+		// (get) Token: 0x060022AF RID: 8879 RVA: 0x0008068C File Offset: 0x0007E88C
 		public Transform proxy
 		{
 			get
 			{
-				Socket.ProxyLink proxyLink;
+				global::Socket.ProxyLink proxyLink;
 				return (!this.m.Proxy(this.index, out proxyLink) || !proxyLink.proxy) ? null : proxyLink.proxy.transform;
 			}
 		}
 
-		// Token: 0x170007CB RID: 1995
-		// (get) Token: 0x06001F4E RID: 8014 RVA: 0x0007B2D8 File Offset: 0x000794D8
+		// Token: 0x17000829 RID: 2089
+		// (get) Token: 0x060022B0 RID: 8880 RVA: 0x000806D4 File Offset: 0x0007E8D4
 		public string name
 		{
 			get
@@ -1055,39 +1055,39 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F4F RID: 8015 RVA: 0x0007B2EC File Offset: 0x000794EC
-		public bool BelongsTo(Socket.Map map)
+		// Token: 0x060022B1 RID: 8881 RVA: 0x000806E8 File Offset: 0x0007E8E8
+		public bool BelongsTo(global::Socket.Map map)
 		{
 			return this.m.Is(map);
 		}
 
-		// Token: 0x06001F50 RID: 8016 RVA: 0x0007B2FC File Offset: 0x000794FC
-		public bool ReplaceSocket(Socket newSocketValue)
+		// Token: 0x060022B2 RID: 8882 RVA: 0x000806F8 File Offset: 0x0007E8F8
+		public bool ReplaceSocket(global::Socket newSocketValue)
 		{
-			Socket.Map map;
+			global::Socket.Map map;
 			return this.m.Try(out map) && map.ReplaceSocket(this.index, newSocketValue);
 		}
 
-		// Token: 0x04000F08 RID: 3848
-		private Socket.Map.Reference m;
+		// Token: 0x0400106E RID: 4206
+		private global::Socket.Map.Reference m;
 
-		// Token: 0x04000F09 RID: 3849
+		// Token: 0x0400106F RID: 4207
 		public readonly int index;
 	}
 
-	// Token: 0x02000336 RID: 822
-	public sealed class Map : Socket.Mapped
+	// Token: 0x020003E3 RID: 995
+	public sealed class Map : global::Socket.Mapped
 	{
-		// Token: 0x06001F51 RID: 8017 RVA: 0x0007B32C File Offset: 0x0007952C
-		private Map(Socket.Source source, Object script)
+		// Token: 0x060022B3 RID: 8883 RVA: 0x00080728 File Offset: 0x0007E928
+		private Map(global::Socket.Source source, Object script)
 		{
 			this.source = source;
 			this.script = script;
 		}
 
-		// Token: 0x170007CC RID: 1996
-		// (get) Token: 0x06001F52 RID: 8018 RVA: 0x0007B344 File Offset: 0x00079544
-		Socket.Map Socket.Mapped.socketMap
+		// Token: 0x1700082A RID: 2090
+		// (get) Token: 0x060022B4 RID: 8884 RVA: 0x00080740 File Offset: 0x0007E940
+		global::Socket.Map global::Socket.Mapped.socketMap
 		{
 			get
 			{
@@ -1095,8 +1095,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007CD RID: 1997
-		// (get) Token: 0x06001F53 RID: 8019 RVA: 0x0007B34C File Offset: 0x0007954C
+		// Token: 0x1700082B RID: 2091
+		// (get) Token: 0x060022B5 RID: 8885 RVA: 0x00080748 File Offset: 0x0007E948
 		public int socketCount
 		{
 			get
@@ -1105,8 +1105,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x170007CE RID: 1998
-		public Socket.Slot this[int index]
+		// Token: 0x1700082C RID: 2092
+		public global::Socket.Slot this[int index]
 		{
 			get
 			{
@@ -1114,12 +1114,12 @@ public abstract class Socket
 				{
 					throw new IndexOutOfRangeException();
 				}
-				return new Socket.Slot(this, index);
+				return new global::Socket.Slot(this, index);
 			}
 		}
 
-		// Token: 0x170007CF RID: 1999
-		public Socket.Slot this[string name]
+		// Token: 0x1700082D RID: 2093
+		public global::Socket.Slot this[string name]
 		{
 			get
 			{
@@ -1127,47 +1127,47 @@ public abstract class Socket
 				{
 					throw new KeyNotFoundException(name);
 				}
-				return new Socket.Slot(this, this.dict[name]);
+				return new global::Socket.Slot(this, this.dict[name]);
 			}
 		}
 
-		// Token: 0x170007D0 RID: 2000
-		// (get) Token: 0x06001F56 RID: 8022 RVA: 0x0007B3D4 File Offset: 0x000795D4
-		public Socket.CameraConversion cameraConversion
+		// Token: 0x1700082E RID: 2094
+		// (get) Token: 0x060022B8 RID: 8888 RVA: 0x000807D0 File Offset: 0x0007E9D0
+		public global::Socket.CameraConversion cameraConversion
 		{
 			get
 			{
-				Socket.CameraConversion result;
+				global::Socket.CameraConversion result;
 				this.GetCameraSpace(out result);
 				return result;
 			}
 		}
 
-		// Token: 0x06001F57 RID: 8023 RVA: 0x0007B3EC File Offset: 0x000795EC
-		public bool ReplaceSocket(string name, Socket value)
+		// Token: 0x060022B9 RID: 8889 RVA: 0x000807E8 File Offset: 0x0007E9E8
+		public bool ReplaceSocket(string name, global::Socket value)
 		{
 			int index;
 			return this.EnsureState() && this.dict.TryGetValue(name, out index) && this.ValidSlotReplace(index, value);
 		}
 
-		// Token: 0x06001F58 RID: 8024 RVA: 0x0007B424 File Offset: 0x00079624
-		public bool ReplaceSocket(int index, Socket value)
+		// Token: 0x060022BA RID: 8890 RVA: 0x00080820 File Offset: 0x0007EA20
+		public bool ReplaceSocket(int index, global::Socket value)
 		{
 			return index >= 0 && (this.EnsureState() && index < this.array.Length) && this.ValidSlotReplace(index, value);
 		}
 
-		// Token: 0x06001F59 RID: 8025 RVA: 0x0007B454 File Offset: 0x00079654
-		public bool ReplaceSocket(Socket.Slot slot, Socket value)
+		// Token: 0x060022BB RID: 8891 RVA: 0x00080850 File Offset: 0x0007EA50
+		public bool ReplaceSocket(global::Socket.Slot slot, global::Socket value)
 		{
 			return slot.index >= 0 && (slot.BelongsTo(this) && slot.index < this.array.Length) && this.ValidSlotReplace(slot.index, value);
 		}
 
-		// Token: 0x06001F5A RID: 8026 RVA: 0x0007B4A4 File Offset: 0x000796A4
+		// Token: 0x060022BC RID: 8892 RVA: 0x000808A0 File Offset: 0x0007EAA0
 		public void SnapProxies()
 		{
 			if (this.EnsureState())
 			{
-				Socket.CameraConversion cameraConversion;
+				global::Socket.CameraConversion cameraConversion;
 				bool flag = this.GetCameraSpace(out cameraConversion);
 				for (int i = 0; i < this.array.Length; i++)
 				{
@@ -1175,7 +1175,7 @@ public abstract class Socket
 					{
 						try
 						{
-							Socket.CameraSpace cameraSpace = (Socket.CameraSpace)this.array[i].socket;
+							global::Socket.CameraSpace cameraSpace = (global::Socket.CameraSpace)this.array[i].socket;
 							cameraSpace.proxyTransform = this.array[i].link.proxy.transform;
 							cameraSpace.eye = cameraConversion.Eye;
 							cameraSpace.root = cameraConversion.Shelf;
@@ -1193,30 +1193,30 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F5B RID: 8027 RVA: 0x0007B5D0 File Offset: 0x000797D0
-		private static bool Of(ref Socket.Map member, out Socket.Map value)
+		// Token: 0x060022BD RID: 8893 RVA: 0x000809CC File Offset: 0x0007EBCC
+		private static bool Of(ref global::Socket.Map member, out global::Socket.Map value)
 		{
 			if (object.ReferenceEquals(member, null))
 			{
 				value = null;
 				return false;
 			}
-			Socket.Map map = member.EnsureMap();
+			global::Socket.Map map = member.EnsureMap();
 			member = map;
 			value = map;
 			return !object.ReferenceEquals(map, null);
 		}
 
-		// Token: 0x06001F5C RID: 8028 RVA: 0x0007B608 File Offset: 0x00079808
-		internal static Socket.Map Of(ref Socket.Map member)
+		// Token: 0x060022BE RID: 8894 RVA: 0x00080A04 File Offset: 0x0007EC04
+		internal static global::Socket.Map Of(ref global::Socket.Map member)
 		{
-			Socket.Map result;
-			Socket.Map.Of(ref member, out result);
+			global::Socket.Map result;
+			global::Socket.Map.Of(ref member, out result);
 			return result;
 		}
 
-		// Token: 0x06001F5D RID: 8029 RVA: 0x0007B620 File Offset: 0x00079820
-		private static Socket.Map Get<TSource>(TSource source, ref Socket.Map member) where TSource : Object, Socket.Source
+		// Token: 0x060022BF RID: 8895 RVA: 0x00080A1C File Offset: 0x0007EC1C
+		private static global::Socket.Map Get<TSource>(TSource source, ref global::Socket.Map member) where TSource : Object, global::Socket.Source
 		{
 			if (object.ReferenceEquals(source, null))
 			{
@@ -1224,32 +1224,32 @@ public abstract class Socket
 			}
 			if (!source)
 			{
-				return Socket.Map.NullMap;
+				return global::Socket.Map.NullMap;
 			}
-			Socket.Map map = member;
+			global::Socket.Map map = member;
 			if (object.ReferenceEquals(map, null))
 			{
-				map = new Socket.Map(source, source);
+				map = new global::Socket.Map(source, source);
 			}
-			Socket.Map result;
+			global::Socket.Map result;
 			member = (result = map.EnsureMap());
 			return result;
 		}
 
-		// Token: 0x06001F5E RID: 8030 RVA: 0x0007B68C File Offset: 0x0007988C
+		// Token: 0x060022C0 RID: 8896 RVA: 0x00080A88 File Offset: 0x0007EC88
 		private void CleanTransforms()
 		{
 			this.checkTransforms = true;
-			this.cameraSpace = Socket.CameraConversion.None;
+			this.cameraSpace = global::Socket.CameraConversion.None;
 		}
 
-		// Token: 0x06001F5F RID: 8031 RVA: 0x0007B6A0 File Offset: 0x000798A0
-		private Socket.Map EnsureMap()
+		// Token: 0x060022C1 RID: 8897 RVA: 0x00080A9C File Offset: 0x0007EC9C
+		private global::Socket.Map EnsureMap()
 		{
-			return (!this.EnsureState()) ? Socket.Map.NullMap : this;
+			return (!this.EnsureState()) ? global::Socket.Map.NullMap : this;
 		}
 
-		// Token: 0x06001F60 RID: 8032 RVA: 0x0007B6B8 File Offset: 0x000798B8
+		// Token: 0x060022C2 RID: 8898 RVA: 0x00080AB4 File Offset: 0x0007ECB4
 		private bool EnsureState()
 		{
 			if (!this.script || this.deleted)
@@ -1272,9 +1272,9 @@ public abstract class Socket
 			return true;
 		}
 
-		// Token: 0x170007D1 RID: 2001
-		// (get) Token: 0x06001F61 RID: 8033 RVA: 0x0007B728 File Offset: 0x00079928
-		private static Socket.Map NullMap
+		// Token: 0x1700082F RID: 2095
+		// (get) Token: 0x060022C3 RID: 8899 RVA: 0x00080B24 File Offset: 0x0007ED24
+		private static global::Socket.Map NullMap
 		{
 			get
 			{
@@ -1282,20 +1282,20 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F62 RID: 8034 RVA: 0x0007B72C File Offset: 0x0007992C
-		private Socket.Map.Result SecureState()
+		// Token: 0x060022C4 RID: 8900 RVA: 0x00080B28 File Offset: 0x0007ED28
+		private global::Socket.Map.Result SecureState()
 		{
-			Socket.Map.Result result = this.PollState();
+			global::Socket.Map.Result result = this.PollState();
 			switch (result)
 			{
-			case Socket.Map.Result.Initialized:
+			case global::Socket.Map.Result.Initialized:
 				this.initialized = true;
 				this.CleanTransforms();
 				break;
-			case Socket.Map.Result.Version:
+			case global::Socket.Map.Result.Version:
 				this.CleanTransforms();
 				break;
-			case Socket.Map.Result.Forced:
+			case global::Socket.Map.Result.Forced:
 				break;
 			default:
 				return result;
@@ -1304,35 +1304,35 @@ public abstract class Socket
 			return result;
 		}
 
-		// Token: 0x06001F63 RID: 8035 RVA: 0x0007B788 File Offset: 0x00079988
-		private Socket.Map.Result PollState()
+		// Token: 0x060022C5 RID: 8901 RVA: 0x00080B84 File Offset: 0x0007ED84
+		private global::Socket.Map.Result PollState()
 		{
 			if (!this.initialized)
 			{
 				this.Initialize();
-				return Socket.Map.Result.Initialized;
+				return global::Socket.Map.Result.Initialized;
 			}
 			int socketsVersion = this.source.SocketsVersion;
-			Socket.Map.Result result;
+			global::Socket.Map.Result result;
 			if (this.version != socketsVersion)
 			{
 				this.version = socketsVersion;
-				result = Socket.Map.Result.Version;
+				result = global::Socket.Map.Result.Version;
 			}
 			else
 			{
 				if (!this.forceUpdate)
 				{
-					return Socket.Map.Result.Nothing;
+					return global::Socket.Map.Result.Nothing;
 				}
-				result = Socket.Map.Result.Forced;
+				result = global::Socket.Map.Result.Forced;
 			}
 			this.forceUpdate = false;
 			this.Update(result);
 			return result;
 		}
 
-		// Token: 0x06001F64 RID: 8036 RVA: 0x0007B7F4 File Offset: 0x000799F4
+		// Token: 0x060022C6 RID: 8902 RVA: 0x00080BF0 File Offset: 0x0007EDF0
 		private void Initialize()
 		{
 			IEnumerable<string> socketNames = this.source.SocketNames;
@@ -1350,7 +1350,7 @@ public abstract class Socket
 				}
 			}
 			int count = collection.Count;
-			this.array = new Socket.Map.Element[count];
+			this.array = new global::Socket.Map.Element[count];
 			this.dict = new Dictionary<string, int>(count, StringComparer.InvariantCultureIgnoreCase);
 			int num = 0;
 			foreach (string text in collection)
@@ -1370,12 +1370,12 @@ public abstract class Socket
 					num++;
 				}
 			}
-			Array.Resize<Socket.Map.Element>(ref this.array, num);
+			Array.Resize<global::Socket.Map.Element>(ref this.array, num);
 			this.version = this.source.SocketsVersion;
 		}
 
-		// Token: 0x06001F65 RID: 8037 RVA: 0x0007B95C File Offset: 0x00079B5C
-		private void ElementUpdate(int srcIndex, ref Socket.Map.Element src, int dstIndex, ref Socket.Map.Element dst, Socket newSocket)
+		// Token: 0x060022C7 RID: 8903 RVA: 0x00080D58 File Offset: 0x0007EF58
+		private void ElementUpdate(int srcIndex, ref global::Socket.Map.Element src, int dstIndex, ref global::Socket.Map.Element dst, global::Socket newSocket)
 		{
 			if (srcIndex != dstIndex)
 			{
@@ -1392,17 +1392,17 @@ public abstract class Socket
 			this.SocketUpdate(ref dst.socket, newSocket);
 		}
 
-		// Token: 0x06001F66 RID: 8038 RVA: 0x0007B9E0 File Offset: 0x00079BE0
-		private void SocketUpdate(ref Socket socket, Socket newSocket)
+		// Token: 0x060022C8 RID: 8904 RVA: 0x00080DDC File Offset: 0x0007EFDC
+		private void SocketUpdate(ref global::Socket socket, global::Socket newSocket)
 		{
-			Socket socket2 = socket;
+			global::Socket socket2 = socket;
 			if (!object.ReferenceEquals(socket2, newSocket))
 			{
 				socket = newSocket;
-				if (socket2 is Socket.CameraSpace && newSocket is Socket.CameraSpace)
+				if (socket2 is global::Socket.CameraSpace && newSocket is global::Socket.CameraSpace)
 				{
-					Socket.CameraSpace cameraSpace = (Socket.CameraSpace)socket2;
-					Socket.CameraSpace cameraSpace2 = (Socket.CameraSpace)newSocket;
+					global::Socket.CameraSpace cameraSpace = (global::Socket.CameraSpace)socket2;
+					global::Socket.CameraSpace cameraSpace2 = (global::Socket.CameraSpace)newSocket;
 					cameraSpace2.root = cameraSpace.root;
 					cameraSpace2.eye = cameraSpace.eye;
 					cameraSpace2.proxyTransform = cameraSpace.proxyTransform;
@@ -1410,8 +1410,8 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F67 RID: 8039 RVA: 0x0007BA48 File Offset: 0x00079C48
-		private void ElementRemove(ref Socket.Map.Element element, ref Socket.Map.RemoveList<Socket.ProxyLink> removeList)
+		// Token: 0x060022C9 RID: 8905 RVA: 0x00080E44 File Offset: 0x0007F044
+		private void ElementRemove(ref global::Socket.Map.Element element, ref global::Socket.Map.RemoveList<global::Socket.ProxyLink> removeList)
 		{
 			if (element.madeLink)
 			{
@@ -1425,18 +1425,18 @@ public abstract class Socket
 			this.dict.Remove(element.name);
 		}
 
-		// Token: 0x06001F68 RID: 8040 RVA: 0x0007BA9C File Offset: 0x00079C9C
-		private void Update(Socket.Map.Result Because)
+		// Token: 0x060022CA RID: 8906 RVA: 0x00080E98 File Offset: 0x0007F098
+		private void Update(global::Socket.Map.Result Because)
 		{
-			if (Because == Socket.Map.Result.Version)
+			if (Because == global::Socket.Map.Result.Version)
 			{
 				this.CleanTransforms();
 			}
 			int newSize = 0;
-			Socket.Map.RemoveList<Socket.ProxyLink> removeList = default(Socket.Map.RemoveList<Socket.ProxyLink>);
+			global::Socket.Map.RemoveList<global::Socket.ProxyLink> removeList = default(global::Socket.Map.RemoveList<global::Socket.ProxyLink>);
 			for (int i = 0; i < this.array.Length; i++)
 			{
-				Socket newSocket;
+				global::Socket newSocket;
 				if (this.source.GetSocket(this.array[i].name, out newSocket))
 				{
 					int num = newSize++;
@@ -1447,17 +1447,17 @@ public abstract class Socket
 					this.ElementRemove(ref this.array[i], ref removeList);
 				}
 			}
-			Array.Resize<Socket.Map.Element>(ref this.array, newSize);
+			Array.Resize<global::Socket.Map.Element>(ref this.array, newSize);
 		}
 
-		// Token: 0x06001F69 RID: 8041 RVA: 0x0007BB50 File Offset: 0x00079D50
-		private void OnState(Socket.Map.Result State)
+		// Token: 0x060022CB RID: 8907 RVA: 0x00080F4C File Offset: 0x0007F14C
+		private void OnState(global::Socket.Map.Result State)
 		{
 			bool flag = false;
-			Socket.CameraConversion cameraConversion = default(Socket.CameraConversion);
+			global::Socket.CameraConversion cameraConversion = default(global::Socket.CameraConversion);
 			for (int i = 0; i < this.array.Length; i++)
 			{
-				Socket.Map.ProxyCheck proxyCheck;
+				global::Socket.Map.ProxyCheck proxyCheck;
 				this.CheckProxyIndex(i, out proxyCheck);
 				if (proxyCheck.isCameraSpace)
 				{
@@ -1473,10 +1473,10 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F6A RID: 8042 RVA: 0x0007BBEC File Offset: 0x00079DEC
-		private bool ValidSlotReplace(int index, Socket value)
+		// Token: 0x060022CC RID: 8908 RVA: 0x00080FE8 File Offset: 0x0007F1E8
+		private bool ValidSlotReplace(int index, global::Socket value)
 		{
-			Socket socket = this.array[index].socket;
+			global::Socket socket = this.array[index].socket;
 			if (object.ReferenceEquals(value, socket))
 			{
 				return true;
@@ -1489,13 +1489,13 @@ public abstract class Socket
 			return this.EnsureState();
 		}
 
-		// Token: 0x06001F6B RID: 8043 RVA: 0x0007BC68 File Offset: 0x00079E68
-		private bool GetCameraSpace(out Socket.CameraConversion cameraSpace)
+		// Token: 0x060022CD RID: 8909 RVA: 0x00081064 File Offset: 0x0007F264
+		private bool GetCameraSpace(out global::Socket.CameraConversion cameraSpace)
 		{
 			if (!this.EnsureState())
 			{
 				this.checkTransforms = false;
-				this.cameraSpace = Socket.CameraConversion.None;
+				this.cameraSpace = global::Socket.CameraConversion.None;
 			}
 			else if (this.checkTransforms)
 			{
@@ -1506,8 +1506,8 @@ public abstract class Socket
 			return cameraSpace.Valid;
 		}
 
-		// Token: 0x06001F6C RID: 8044 RVA: 0x0007BCCC File Offset: 0x00079ECC
-		private void DestroyProxyLink(Socket.ProxyLink link)
+		// Token: 0x060022CE RID: 8910 RVA: 0x000810C8 File Offset: 0x0007F2C8
+		private void DestroyProxyLink(global::Socket.ProxyLink link)
 		{
 			if (link.linked)
 			{
@@ -1526,31 +1526,31 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x06001F6D RID: 8045 RVA: 0x0007BD44 File Offset: 0x00079F44
+		// Token: 0x060022CF RID: 8911 RVA: 0x00081140 File Offset: 0x0007F340
 		internal void OnProxyDestroyed(object link)
 		{
-			this.DestroyProxyLink((Socket.ProxyLink)link);
+			this.DestroyProxyLink((global::Socket.ProxyLink)link);
 		}
 
-		// Token: 0x06001F6E RID: 8046 RVA: 0x0007BD54 File Offset: 0x00079F54
-		private Socket.ProxyLink MakeProxy(Socket.CameraSpace socket, int index)
+		// Token: 0x060022D0 RID: 8912 RVA: 0x00081150 File Offset: 0x0007F350
+		private global::Socket.ProxyLink MakeProxy(global::Socket.CameraSpace socket, int index)
 		{
 			Type type = this.source.ProxyScriptType(this.array[index].name);
 			if (object.ReferenceEquals(type, null))
 			{
 				return null;
 			}
-			if (!typeof(Socket.Proxy).IsAssignableFrom(type))
+			if (!typeof(global::Socket.Proxy).IsAssignableFrom(type))
 			{
 				throw new InvalidProgramException("SocketSource returned a type that did not extend SocketMap.Proxy");
 			}
-			Socket.ProxyLink proxyLink = new Socket.ProxyLink();
+			global::Socket.ProxyLink proxyLink = new global::Socket.ProxyLink();
 			proxyLink.map = this;
 			proxyLink.index = index;
-			Socket.ProxyLink.Push(proxyLink);
+			global::Socket.ProxyLink.Push(proxyLink);
 			Vector3 position = Vector3.zero;
 			Quaternion rotation = Quaternion.identity;
-			Socket.CameraConversion cameraConversion;
+			global::Socket.CameraConversion cameraConversion;
 			if (this.GetCameraSpace(out cameraConversion))
 			{
 				socket.root = cameraConversion.Shelf;
@@ -1595,17 +1595,17 @@ public abstract class Socket
 			}
 			finally
 			{
-				Socket.ProxyLink.EnsurePopped(proxyLink);
+				global::Socket.ProxyLink.EnsurePopped(proxyLink);
 			}
 			proxyLink.linked = true;
 			socket.proxyTransform = proxyLink.proxy.transform;
 			return proxyLink;
 		}
 
-		// Token: 0x06001F6F RID: 8047 RVA: 0x0007BF18 File Offset: 0x0007A118
-		private void CheckProxyIndex(int index, out Socket.Map.ProxyCheck o)
+		// Token: 0x060022D1 RID: 8913 RVA: 0x00081314 File Offset: 0x0007F514
+		private void CheckProxyIndex(int index, out global::Socket.Map.ProxyCheck o)
 		{
-			if (o.isProxy = ((o.isCameraSpace = !object.ReferenceEquals(o.cameraSpace = (this.array[index].socket as Socket.CameraSpace), null)) && o.cameraSpace.proxy))
+			if (o.isProxy = ((o.isCameraSpace = !object.ReferenceEquals(o.cameraSpace = (this.array[index].socket as global::Socket.CameraSpace), null)) && o.cameraSpace.proxy))
 			{
 				if (!this.array[index].madeLink)
 				{
@@ -1626,7 +1626,7 @@ public abstract class Socket
 			o.index = index;
 		}
 
-		// Token: 0x06001F70 RID: 8048 RVA: 0x0007C028 File Offset: 0x0007A228
+		// Token: 0x060022D2 RID: 8914 RVA: 0x00081424 File Offset: 0x0007F624
 		private void Delete()
 		{
 			if (!this.initialized || this.deleted)
@@ -1643,72 +1643,72 @@ public abstract class Socket
 			}
 		}
 
-		// Token: 0x04000F0A RID: 3850
+		// Token: 0x04001070 RID: 4208
 		[NonSerialized]
 		private readonly Object script;
 
-		// Token: 0x04000F0B RID: 3851
+		// Token: 0x04001071 RID: 4209
 		[NonSerialized]
-		private readonly Socket.Source source;
+		private readonly global::Socket.Source source;
 
-		// Token: 0x04000F0C RID: 3852
+		// Token: 0x04001072 RID: 4210
 		[NonSerialized]
 		private Dictionary<string, int> dict;
 
-		// Token: 0x04000F0D RID: 3853
+		// Token: 0x04001073 RID: 4211
 		[NonSerialized]
 		private bool initialized;
 
-		// Token: 0x04000F0E RID: 3854
+		// Token: 0x04001074 RID: 4212
 		[NonSerialized]
 		private bool checkTransforms;
 
-		// Token: 0x04000F0F RID: 3855
+		// Token: 0x04001075 RID: 4213
 		[NonSerialized]
 		private bool securing;
 
-		// Token: 0x04000F10 RID: 3856
+		// Token: 0x04001076 RID: 4214
 		[NonSerialized]
 		private bool forceUpdate;
 
-		// Token: 0x04000F11 RID: 3857
+		// Token: 0x04001077 RID: 4215
 		[NonSerialized]
 		private bool deleted;
 
-		// Token: 0x04000F12 RID: 3858
+		// Token: 0x04001078 RID: 4216
 		[NonSerialized]
-		private Socket.Map.Element[] array;
+		private global::Socket.Map.Element[] array;
 
-		// Token: 0x04000F13 RID: 3859
+		// Token: 0x04001079 RID: 4217
 		[NonSerialized]
 		private int version;
 
-		// Token: 0x04000F14 RID: 3860
+		// Token: 0x0400107A RID: 4218
 		[NonSerialized]
-		private Socket.CameraConversion cameraSpace;
+		private global::Socket.CameraConversion cameraSpace;
 
-		// Token: 0x02000337 RID: 823
+		// Token: 0x020003E4 RID: 996
 		public struct Member
 		{
-			// Token: 0x06001F71 RID: 8049 RVA: 0x0007C09C File Offset: 0x0007A29C
-			public Socket.Map Get<T>(T outerInstance) where T : Object, Socket.Source
+			// Token: 0x060022D3 RID: 8915 RVA: 0x00081498 File Offset: 0x0007F698
+			public global::Socket.Map Get<T>(T outerInstance) where T : Object, global::Socket.Source
 			{
 				if (this.deleted)
 				{
 					return null;
 				}
-				return Socket.Map.Get<T>(outerInstance, ref this.reference);
+				return global::Socket.Map.Get<T>(outerInstance, ref this.reference);
 			}
 
-			// Token: 0x06001F72 RID: 8050 RVA: 0x0007C0B8 File Offset: 0x0007A2B8
-			public bool Get<T>(T outerInstance, out Socket.Map map) where T : Object, Socket.Source
+			// Token: 0x060022D4 RID: 8916 RVA: 0x000814B4 File Offset: 0x0007F6B4
+			public bool Get<T>(T outerInstance, out global::Socket.Map map) where T : Object, global::Socket.Source
 			{
 				map = this.Get<T>(outerInstance);
 				return !object.ReferenceEquals(map, null);
 			}
 
-			// Token: 0x06001F73 RID: 8051 RVA: 0x0007C0D0 File Offset: 0x0007A2D0
-			public bool DeleteBy<T>(T outerInstance) where T : Object, Socket.Source
+			// Token: 0x060022D5 RID: 8917 RVA: 0x000814CC File Offset: 0x0007F6CC
+			public bool DeleteBy<T>(T outerInstance) where T : Object, global::Socket.Source
 			{
 				if (!this.deleted)
 				{
@@ -1741,46 +1741,46 @@ public abstract class Socket
 				return false;
 			}
 
-			// Token: 0x04000F15 RID: 3861
-			private Socket.Map reference;
+			// Token: 0x0400107B RID: 4219
+			private global::Socket.Map reference;
 
-			// Token: 0x04000F16 RID: 3862
+			// Token: 0x0400107C RID: 4220
 			private bool deleted;
 		}
 
-		// Token: 0x02000338 RID: 824
+		// Token: 0x020003E5 RID: 997
 		private struct Element
 		{
-			// Token: 0x04000F17 RID: 3863
-			public Socket socket;
+			// Token: 0x0400107D RID: 4221
+			public global::Socket socket;
 
-			// Token: 0x04000F18 RID: 3864
+			// Token: 0x0400107E RID: 4222
 			public string name;
 
-			// Token: 0x04000F19 RID: 3865
-			public Socket.ProxyLink link;
+			// Token: 0x0400107F RID: 4223
+			public global::Socket.ProxyLink link;
 
-			// Token: 0x04000F1A RID: 3866
+			// Token: 0x04001080 RID: 4224
 			public bool madeLink;
 		}
 
-		// Token: 0x02000339 RID: 825
+		// Token: 0x020003E6 RID: 998
 		private enum Result
 		{
-			// Token: 0x04000F1C RID: 3868
+			// Token: 0x04001082 RID: 4226
 			Nothing,
-			// Token: 0x04000F1D RID: 3869
+			// Token: 0x04001083 RID: 4227
 			Initialized,
-			// Token: 0x04000F1E RID: 3870
+			// Token: 0x04001084 RID: 4228
 			Version,
-			// Token: 0x04000F1F RID: 3871
+			// Token: 0x04001085 RID: 4229
 			Forced
 		}
 
-		// Token: 0x0200033A RID: 826
+		// Token: 0x020003E7 RID: 999
 		private struct RemoveList<T>
 		{
-			// Token: 0x06001F74 RID: 8052 RVA: 0x0007C198 File Offset: 0x0007A398
+			// Token: 0x060022D6 RID: 8918 RVA: 0x00081594 File Offset: 0x0007F794
 			public void Add(T item)
 			{
 				if (!this.exists)
@@ -1790,18 +1790,18 @@ public abstract class Socket
 				this.list.Add(item);
 			}
 
-			// Token: 0x04000F20 RID: 3872
+			// Token: 0x04001086 RID: 4230
 			public bool exists;
 
-			// Token: 0x04000F21 RID: 3873
+			// Token: 0x04001087 RID: 4231
 			public List<T> list;
 		}
 
-		// Token: 0x0200033B RID: 827
+		// Token: 0x020003E8 RID: 1000
 		private struct ProxyCheck
 		{
-			// Token: 0x170007D2 RID: 2002
-			// (get) Token: 0x06001F75 RID: 8053 RVA: 0x0007C1C8 File Offset: 0x0007A3C8
+			// Token: 0x17000830 RID: 2096
+			// (get) Token: 0x060022D7 RID: 8919 RVA: 0x000815C4 File Offset: 0x0007F7C4
 			public Transform proxyTransform
 			{
 				get
@@ -1810,8 +1810,8 @@ public abstract class Socket
 				}
 			}
 
-			// Token: 0x170007D3 RID: 2003
-			// (get) Token: 0x06001F76 RID: 8054 RVA: 0x0007C1E4 File Offset: 0x0007A3E4
+			// Token: 0x17000831 RID: 2097
+			// (get) Token: 0x060022D8 RID: 8920 RVA: 0x000815E0 File Offset: 0x0007F7E0
 			public Transform parent
 			{
 				get
@@ -1820,42 +1820,42 @@ public abstract class Socket
 				}
 			}
 
-			// Token: 0x04000F22 RID: 3874
+			// Token: 0x04001088 RID: 4232
 			public Transform parentOrProxy;
 
-			// Token: 0x04000F23 RID: 3875
-			public Socket.CameraSpace cameraSpace;
+			// Token: 0x04001089 RID: 4233
+			public global::Socket.CameraSpace cameraSpace;
 
-			// Token: 0x04000F24 RID: 3876
-			public Socket.ProxyLink proxyLink;
+			// Token: 0x0400108A RID: 4234
+			public global::Socket.ProxyLink proxyLink;
 
-			// Token: 0x04000F25 RID: 3877
+			// Token: 0x0400108B RID: 4235
 			public int index;
 
-			// Token: 0x04000F26 RID: 3878
+			// Token: 0x0400108C RID: 4236
 			public bool isCameraSpace;
 
-			// Token: 0x04000F27 RID: 3879
+			// Token: 0x0400108D RID: 4237
 			public bool isProxy;
 		}
 
-		// Token: 0x0200033C RID: 828
+		// Token: 0x020003E9 RID: 1001
 		internal struct Reference
 		{
-			// Token: 0x06001F77 RID: 8055 RVA: 0x0007C208 File Offset: 0x0007A408
-			private Reference(Socket.Map reference)
+			// Token: 0x060022D9 RID: 8921 RVA: 0x00081604 File Offset: 0x0007F804
+			private Reference(global::Socket.Map reference)
 			{
 				this.reference = reference;
 			}
 
-			// Token: 0x06001F78 RID: 8056 RVA: 0x0007C214 File Offset: 0x0007A414
-			public bool Try(out Socket.Map map)
+			// Token: 0x060022DA RID: 8922 RVA: 0x00081610 File Offset: 0x0007F810
+			public bool Try(out global::Socket.Map map)
 			{
 				return global::Socket.Map.Of(ref this.reference, out map);
 			}
 
-			// Token: 0x06001F79 RID: 8057 RVA: 0x0007C224 File Offset: 0x0007A424
-			private bool ByIndex(int index, out Socket.Map map)
+			// Token: 0x060022DB RID: 8923 RVA: 0x00081620 File Offset: 0x0007F820
+			private bool ByIndex(int index, out global::Socket.Map map)
 			{
 				if (index < 0)
 				{
@@ -1868,8 +1868,8 @@ public abstract class Socket
 				return false;
 			}
 
-			// Token: 0x06001F7A RID: 8058 RVA: 0x0007C254 File Offset: 0x0007A454
-			private bool ByKey(string name, out Socket.Map map, out int index)
+			// Token: 0x060022DC RID: 8924 RVA: 0x00081650 File Offset: 0x0007F850
+			private bool ByKey(string name, out global::Socket.Map map, out int index)
 			{
 				if (object.ReferenceEquals(name, null))
 				{
@@ -1883,8 +1883,8 @@ public abstract class Socket
 				return false;
 			}
 
-			// Token: 0x06001F7B RID: 8059 RVA: 0x0007C28C File Offset: 0x0007A48C
-			private static bool Socket(bool valid, int index, Socket.Map map, out Socket socket)
+			// Token: 0x060022DD RID: 8925 RVA: 0x00081688 File Offset: 0x0007F888
+			private static bool Socket(bool valid, int index, global::Socket.Map map, out global::Socket socket)
 			{
 				if (valid)
 				{
@@ -1895,8 +1895,8 @@ public abstract class Socket
 				return false;
 			}
 
-			// Token: 0x06001F7C RID: 8060 RVA: 0x0007C2B0 File Offset: 0x0007A4B0
-			private static bool Name(bool valid, int index, Socket.Map map, out string name)
+			// Token: 0x060022DE RID: 8926 RVA: 0x000816AC File Offset: 0x0007F8AC
+			private static bool Name(bool valid, int index, global::Socket.Map map, out string name)
 			{
 				if (valid)
 				{
@@ -1907,8 +1907,8 @@ public abstract class Socket
 				return false;
 			}
 
-			// Token: 0x06001F7D RID: 8061 RVA: 0x0007C2D4 File Offset: 0x0007A4D4
-			private static bool Proxy(bool valid, int index, Socket.Map map, out Socket.ProxyLink proxyLink)
+			// Token: 0x060022DF RID: 8927 RVA: 0x000816D0 File Offset: 0x0007F8D0
+			private static bool Proxy(bool valid, int index, global::Socket.Map map, out global::Socket.ProxyLink proxyLink)
 			{
 				if (valid)
 				{
@@ -1919,96 +1919,96 @@ public abstract class Socket
 				return false;
 			}
 
-			// Token: 0x06001F7E RID: 8062 RVA: 0x0007C308 File Offset: 0x0007A508
-			public bool Socket(int index, out Socket socket)
+			// Token: 0x060022E0 RID: 8928 RVA: 0x00081704 File Offset: 0x0007F904
+			public bool Socket(int index, out global::Socket socket)
 			{
-				Socket.Map map;
+				global::Socket.Map map;
 				return global::Socket.Map.Reference.Socket(this.ByIndex(index, out map), index, map, out socket);
 			}
 
-			// Token: 0x06001F7F RID: 8063 RVA: 0x0007C328 File Offset: 0x0007A528
-			public Socket Socket(int index)
+			// Token: 0x060022E1 RID: 8929 RVA: 0x00081724 File Offset: 0x0007F924
+			public global::Socket Socket(int index)
 			{
-				Socket.Map map = this.Map;
+				global::Socket.Map map = this.Map;
 				return map.array[index].socket;
 			}
 
-			// Token: 0x06001F80 RID: 8064 RVA: 0x0007C350 File Offset: 0x0007A550
+			// Token: 0x060022E2 RID: 8930 RVA: 0x0008174C File Offset: 0x0007F94C
 			public bool Name(int index, out string name)
 			{
-				Socket.Map map;
+				global::Socket.Map map;
 				return global::Socket.Map.Reference.Name(this.ByIndex(index, out map), index, map, out name);
 			}
 
-			// Token: 0x06001F81 RID: 8065 RVA: 0x0007C370 File Offset: 0x0007A570
+			// Token: 0x060022E3 RID: 8931 RVA: 0x0008176C File Offset: 0x0007F96C
 			public string Name(int index)
 			{
-				Socket.Map map = this.Map;
+				global::Socket.Map map = this.Map;
 				return map.array[index].name;
 			}
 
-			// Token: 0x06001F82 RID: 8066 RVA: 0x0007C398 File Offset: 0x0007A598
-			public bool Proxy(int index, out Socket.ProxyLink link)
+			// Token: 0x060022E4 RID: 8932 RVA: 0x00081794 File Offset: 0x0007F994
+			public bool Proxy(int index, out global::Socket.ProxyLink link)
 			{
-				Socket.Map map;
+				global::Socket.Map map;
 				return global::Socket.Map.Reference.Proxy(this.ByIndex(index, out map), index, map, out link);
 			}
 
-			// Token: 0x06001F83 RID: 8067 RVA: 0x0007C3B8 File Offset: 0x0007A5B8
-			internal Socket.ProxyLink Proxy(int index)
+			// Token: 0x060022E5 RID: 8933 RVA: 0x000817B4 File Offset: 0x0007F9B4
+			internal global::Socket.ProxyLink Proxy(int index)
 			{
-				Socket.Map map = this.Map;
+				global::Socket.Map map = this.Map;
 				return map.array[index].link;
 			}
 
-			// Token: 0x06001F84 RID: 8068 RVA: 0x0007C3E0 File Offset: 0x0007A5E0
-			public bool Socket(string key, out Socket socket)
+			// Token: 0x060022E6 RID: 8934 RVA: 0x000817DC File Offset: 0x0007F9DC
+			public bool Socket(string key, out global::Socket socket)
 			{
-				Socket.Map map;
+				global::Socket.Map map;
 				int index;
 				return global::Socket.Map.Reference.Socket(this.ByKey(key, out map, out index), index, map, out socket);
 			}
 
-			// Token: 0x06001F85 RID: 8069 RVA: 0x0007C400 File Offset: 0x0007A600
-			public Socket Socket(string key)
+			// Token: 0x060022E7 RID: 8935 RVA: 0x000817FC File Offset: 0x0007F9FC
+			public global::Socket Socket(string key)
 			{
-				Socket.Map map = this.Map;
+				global::Socket.Map map = this.Map;
 				return map.array[map.dict[key]].socket;
 			}
 
-			// Token: 0x06001F86 RID: 8070 RVA: 0x0007C430 File Offset: 0x0007A630
+			// Token: 0x060022E8 RID: 8936 RVA: 0x0008182C File Offset: 0x0007FA2C
 			public bool Name(string key, out string name)
 			{
-				Socket.Map map;
+				global::Socket.Map map;
 				int index;
 				return global::Socket.Map.Reference.Name(this.ByKey(key, out map, out index), index, map, out name);
 			}
 
-			// Token: 0x06001F87 RID: 8071 RVA: 0x0007C450 File Offset: 0x0007A650
+			// Token: 0x060022E9 RID: 8937 RVA: 0x0008184C File Offset: 0x0007FA4C
 			public string Name(string key)
 			{
-				Socket.Map map = this.Map;
+				global::Socket.Map map = this.Map;
 				return map.array[map.dict[key]].name;
 			}
 
-			// Token: 0x06001F88 RID: 8072 RVA: 0x0007C480 File Offset: 0x0007A680
-			internal bool Proxy(string key, out Socket.ProxyLink link)
+			// Token: 0x060022EA RID: 8938 RVA: 0x0008187C File Offset: 0x0007FA7C
+			internal bool Proxy(string key, out global::Socket.ProxyLink link)
 			{
-				Socket.Map map;
+				global::Socket.Map map;
 				int index;
 				return global::Socket.Map.Reference.Proxy(this.ByKey(key, out map, out index), index, map, out link);
 			}
 
-			// Token: 0x06001F89 RID: 8073 RVA: 0x0007C4A0 File Offset: 0x0007A6A0
-			internal Socket.ProxyLink Proxy(string key)
+			// Token: 0x060022EB RID: 8939 RVA: 0x0008189C File Offset: 0x0007FA9C
+			internal global::Socket.ProxyLink Proxy(string key)
 			{
-				Socket.Map map = this.Map;
+				global::Socket.Map map = this.Map;
 				return map.array[map.dict[key]].link;
 			}
 
-			// Token: 0x170007D4 RID: 2004
-			// (get) Token: 0x06001F8A RID: 8074 RVA: 0x0007C4D0 File Offset: 0x0007A6D0
-			public Socket.Map Map
+			// Token: 0x17000832 RID: 2098
+			// (get) Token: 0x060022EC RID: 8940 RVA: 0x000818CC File Offset: 0x0007FACC
+			public global::Socket.Map Map
 			{
 				get
 				{
@@ -2016,63 +2016,63 @@ public abstract class Socket
 				}
 			}
 
-			// Token: 0x170007D5 RID: 2005
-			// (get) Token: 0x06001F8B RID: 8075 RVA: 0x0007C4E0 File Offset: 0x0007A6E0
+			// Token: 0x17000833 RID: 2099
+			// (get) Token: 0x060022ED RID: 8941 RVA: 0x000818DC File Offset: 0x0007FADC
 			public bool Exists
 			{
 				get
 				{
-					Socket.Map map;
+					global::Socket.Map map;
 					return global::Socket.Map.Of(ref this.reference, out map);
 				}
 			}
 
-			// Token: 0x06001F8C RID: 8076 RVA: 0x0007C4FC File Offset: 0x0007A6FC
-			public bool RefEquals(Socket.Map map)
+			// Token: 0x060022EE RID: 8942 RVA: 0x000818F8 File Offset: 0x0007FAF8
+			public bool RefEquals(global::Socket.Map map)
 			{
 				return object.ReferenceEquals(this.reference, map);
 			}
 
-			// Token: 0x06001F8D RID: 8077 RVA: 0x0007C50C File Offset: 0x0007A70C
-			public bool Is(Socket.Map map)
+			// Token: 0x060022EF RID: 8943 RVA: 0x00081908 File Offset: 0x0007FB08
+			public bool Is(global::Socket.Map map)
 			{
 				return object.ReferenceEquals(this.Map, map);
 			}
 
-			// Token: 0x06001F8E RID: 8078 RVA: 0x0007C51C File Offset: 0x0007A71C
-			public bool Socket<TSocket>(int index, out TSocket socket) where TSocket : Socket, new()
+			// Token: 0x060022F0 RID: 8944 RVA: 0x00081918 File Offset: 0x0007FB18
+			public bool Socket<TSocket>(int index, out TSocket socket) where TSocket : global::Socket, new()
 			{
-				Socket socket2;
+				global::Socket socket2;
 				bool flag = this.Socket(index, out socket2);
 				socket = ((!flag) ? ((TSocket)((object)null)) : (socket2 as TSocket));
 				return flag && socket2 != null;
 			}
 
-			// Token: 0x06001F8F RID: 8079 RVA: 0x0007C568 File Offset: 0x0007A768
-			public bool Socket<TSocket>(string name, out TSocket socket) where TSocket : Socket, new()
+			// Token: 0x060022F1 RID: 8945 RVA: 0x00081964 File Offset: 0x0007FB64
+			public bool Socket<TSocket>(string name, out TSocket socket) where TSocket : global::Socket, new()
 			{
-				Socket socket2;
+				global::Socket socket2;
 				bool flag = this.Socket(name, out socket2);
 				socket = ((!flag) ? ((TSocket)((object)null)) : (socket2 as TSocket));
 				return flag && socket2 != null;
 			}
 
-			// Token: 0x06001F90 RID: 8080 RVA: 0x0007C5B4 File Offset: 0x0007A7B4
-			public TSocket Socket<TSocket>(int index) where TSocket : Socket, new()
+			// Token: 0x060022F2 RID: 8946 RVA: 0x000819B0 File Offset: 0x0007FBB0
+			public TSocket Socket<TSocket>(int index) where TSocket : global::Socket, new()
 			{
 				return (TSocket)((object)this.Socket(index));
 			}
 
-			// Token: 0x06001F91 RID: 8081 RVA: 0x0007C5C4 File Offset: 0x0007A7C4
-			public TSocket Socket<TSocket>(string name) where TSocket : Socket, new()
+			// Token: 0x060022F3 RID: 8947 RVA: 0x000819C0 File Offset: 0x0007FBC0
+			public TSocket Socket<TSocket>(string name) where TSocket : global::Socket, new()
 			{
 				return (TSocket)((object)this.Socket(name));
 			}
 
-			// Token: 0x06001F92 RID: 8082 RVA: 0x0007C5D4 File Offset: 0x0007A7D4
+			// Token: 0x060022F4 RID: 8948 RVA: 0x000819D0 File Offset: 0x0007FBD0
 			public bool SocketIndex(string name, out int index)
 			{
-				Socket.Map map;
+				global::Socket.Map map;
 				if (this.Try(out map))
 				{
 					return map.dict.TryGetValue(name, out index);
@@ -2081,20 +2081,20 @@ public abstract class Socket
 				return false;
 			}
 
-			// Token: 0x06001F93 RID: 8083 RVA: 0x0007C600 File Offset: 0x0007A800
+			// Token: 0x060022F5 RID: 8949 RVA: 0x000819FC File Offset: 0x0007FBFC
 			public int SocketIndex(string name)
 			{
 				return this.Map.dict[name];
 			}
 
-			// Token: 0x06001F94 RID: 8084 RVA: 0x0007C614 File Offset: 0x0007A814
-			public static implicit operator Socket.Map.Reference(Socket.Map reference)
+			// Token: 0x060022F6 RID: 8950 RVA: 0x00081A10 File Offset: 0x0007FC10
+			public static implicit operator global::Socket.Map.Reference(global::Socket.Map reference)
 			{
-				return new Socket.Map.Reference(reference);
+				return new global::Socket.Map.Reference(reference);
 			}
 
-			// Token: 0x04000F28 RID: 3880
-			private Socket.Map reference;
+			// Token: 0x0400108E RID: 4238
+			private global::Socket.Map reference;
 		}
 	}
 }

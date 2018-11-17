@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005D8 RID: 1496
-public interface IItemModItem : IInventoryItem
+// Token: 0x02000696 RID: 1686
+public interface IItemModItem : global::IInventoryItem
 {
 }

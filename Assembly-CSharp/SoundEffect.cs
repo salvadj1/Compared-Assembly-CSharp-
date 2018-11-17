@@ -1,95 +1,95 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020000D3 RID: 211
+// Token: 0x020000E7 RID: 231
 public class SoundEffect : ScriptableObject
 {
-	// Token: 0x020000D4 RID: 212
+	// Token: 0x020000E8 RID: 232
 	public enum ParentMode
 	{
-		// Token: 0x04000417 RID: 1047
+		// Token: 0x04000486 RID: 1158
 		None,
-		// Token: 0x04000418 RID: 1048
+		// Token: 0x04000487 RID: 1159
 		RetainLocal,
-		// Token: 0x04000419 RID: 1049
+		// Token: 0x04000488 RID: 1160
 		RetainWorld = 3,
-		// Token: 0x0400041A RID: 1050
+		// Token: 0x04000489 RID: 1161
 		StartLocally = 5,
-		// Token: 0x0400041B RID: 1051
+		// Token: 0x0400048A RID: 1162
 		StartWorld,
-		// Token: 0x0400041C RID: 1052
+		// Token: 0x0400048B RID: 1163
 		CameraLocally = 9,
-		// Token: 0x0400041D RID: 1053
+		// Token: 0x0400048C RID: 1164
 		CameraWorld
 	}
 
-	// Token: 0x020000D5 RID: 213
+	// Token: 0x020000E9 RID: 233
 	public struct Parent
 	{
-		// Token: 0x0400041E RID: 1054
+		// Token: 0x0400048D RID: 1165
 		public Transform transform;
 
-		// Token: 0x0400041F RID: 1055
-		public SoundEffect.ParentMode mode;
+		// Token: 0x0400048E RID: 1166
+		public global::SoundEffect.ParentMode mode;
 	}
 
-	// Token: 0x020000D6 RID: 214
+	// Token: 0x020000EA RID: 234
 	public struct Levels
 	{
-		// Token: 0x04000420 RID: 1056
+		// Token: 0x0400048F RID: 1167
 		public float volume;
 
-		// Token: 0x04000421 RID: 1057
+		// Token: 0x04000490 RID: 1168
 		public float pitch;
 
-		// Token: 0x04000422 RID: 1058
+		// Token: 0x04000491 RID: 1169
 		public float pan;
 
-		// Token: 0x04000423 RID: 1059
+		// Token: 0x04000492 RID: 1170
 		public float doppler;
 
-		// Token: 0x04000424 RID: 1060
+		// Token: 0x04000493 RID: 1171
 		public float spread;
 	}
 
-	// Token: 0x020000D7 RID: 215
+	// Token: 0x020000EB RID: 235
 	public struct MinMax
 	{
-		// Token: 0x04000425 RID: 1061
+		// Token: 0x04000494 RID: 1172
 		public float min;
 
-		// Token: 0x04000426 RID: 1062
+		// Token: 0x04000495 RID: 1173
 		public float max;
 	}
 
-	// Token: 0x020000D8 RID: 216
+	// Token: 0x020000EC RID: 236
 	public struct Rolloff
 	{
-		// Token: 0x04000427 RID: 1063
+		// Token: 0x04000496 RID: 1174
 		public const float kCutoffVolume = 0.001f;
 
-		// Token: 0x04000428 RID: 1064
-		public SoundEffect.MinMax distance;
+		// Token: 0x04000497 RID: 1175
+		public global::SoundEffect.MinMax distance;
 
-		// Token: 0x04000429 RID: 1065
+		// Token: 0x04000498 RID: 1176
 		public float? manualCutoffDistance;
 
-		// Token: 0x0400042A RID: 1066
+		// Token: 0x04000499 RID: 1177
 		public bool logarithmic;
 	}
 
-	// Token: 0x020000D9 RID: 217
+	// Token: 0x020000ED RID: 237
 	public struct Parameters
 	{
-		// Token: 0x170000AE RID: 174
-		// (get) Token: 0x06000479 RID: 1145 RVA: 0x00017090 File Offset: 0x00015290
-		// (set) Token: 0x0600047A RID: 1146 RVA: 0x000170D4 File Offset: 0x000152D4
+		// Token: 0x170000C8 RID: 200
+		// (get) Token: 0x060004F7 RID: 1271 RVA: 0x00018A58 File Offset: 0x00016C58
+		// (set) Token: 0x060004F8 RID: 1272 RVA: 0x00018A9C File Offset: 0x00016C9C
 		public Vector3 position
 		{
 			get
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainLocal)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainLocal)
 				{
 					return this.positionalValue;
 				}
@@ -97,8 +97,8 @@ public class SoundEffect : ScriptableObject
 			}
 			set
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainLocal)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainLocal)
 				{
 					this.positionalValue = value;
 				}
@@ -109,15 +109,15 @@ public class SoundEffect : ScriptableObject
 			}
 		}
 
-		// Token: 0x170000AF RID: 175
-		// (get) Token: 0x0600047B RID: 1147 RVA: 0x00017124 File Offset: 0x00015324
-		// (set) Token: 0x0600047C RID: 1148 RVA: 0x00017168 File Offset: 0x00015368
+		// Token: 0x170000C9 RID: 201
+		// (get) Token: 0x060004F9 RID: 1273 RVA: 0x00018AEC File Offset: 0x00016CEC
+		// (set) Token: 0x060004FA RID: 1274 RVA: 0x00018B30 File Offset: 0x00016D30
 		public Vector3 localPosition
 		{
 			get
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainWorld)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainWorld)
 				{
 					return this.positionalValue;
 				}
@@ -125,8 +125,8 @@ public class SoundEffect : ScriptableObject
 			}
 			set
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainWorld)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainWorld)
 				{
 					this.positionalValue = value;
 				}
@@ -137,99 +137,99 @@ public class SoundEffect : ScriptableObject
 			}
 		}
 
-		// Token: 0x0600047D RID: 1149 RVA: 0x000171B8 File Offset: 0x000153B8
+		// Token: 0x060004FB RID: 1275 RVA: 0x00018B80 File Offset: 0x00016D80
 		private static Quaternion TransformQuaternion(Transform transform, Quaternion rotation)
 		{
 			return transform.rotation * rotation;
 		}
 
-		// Token: 0x0600047E RID: 1150 RVA: 0x000171C8 File Offset: 0x000153C8
+		// Token: 0x060004FC RID: 1276 RVA: 0x00018B90 File Offset: 0x00016D90
 		private static Quaternion InverseTransformQuaternion(Transform transform, Quaternion rotation)
 		{
 			return rotation * Quaternion.Inverse(transform.rotation);
 		}
 
-		// Token: 0x170000B0 RID: 176
-		// (get) Token: 0x0600047F RID: 1151 RVA: 0x000171DC File Offset: 0x000153DC
-		// (set) Token: 0x06000480 RID: 1152 RVA: 0x00017220 File Offset: 0x00015420
+		// Token: 0x170000CA RID: 202
+		// (get) Token: 0x060004FD RID: 1277 RVA: 0x00018BA4 File Offset: 0x00016DA4
+		// (set) Token: 0x060004FE RID: 1278 RVA: 0x00018BE8 File Offset: 0x00016DE8
 		public Quaternion rotation
 		{
 			get
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainLocal)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainLocal)
 				{
 					return this.rotationalValue;
 				}
-				return SoundEffect.Parameters.TransformQuaternion(this.parent.transform, this.rotationalValue);
+				return global::SoundEffect.Parameters.TransformQuaternion(this.parent.transform, this.rotationalValue);
 			}
 			set
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainLocal)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainLocal)
 				{
 					this.rotationalValue = value;
 				}
 				else
 				{
-					this.rotationalValue = SoundEffect.Parameters.InverseTransformQuaternion(this.parent.transform, value);
+					this.rotationalValue = global::SoundEffect.Parameters.InverseTransformQuaternion(this.parent.transform, value);
 				}
 			}
 		}
 
-		// Token: 0x170000B1 RID: 177
-		// (get) Token: 0x06000481 RID: 1153 RVA: 0x00017270 File Offset: 0x00015470
-		// (set) Token: 0x06000482 RID: 1154 RVA: 0x000172B4 File Offset: 0x000154B4
+		// Token: 0x170000CB RID: 203
+		// (get) Token: 0x060004FF RID: 1279 RVA: 0x00018C38 File Offset: 0x00016E38
+		// (set) Token: 0x06000500 RID: 1280 RVA: 0x00018C7C File Offset: 0x00016E7C
 		public Quaternion localRotation
 		{
 			get
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainWorld)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainWorld)
 				{
 					return this.rotationalValue;
 				}
-				return SoundEffect.Parameters.InverseTransformQuaternion(this.parent.transform, this.rotationalValue);
+				return global::SoundEffect.Parameters.InverseTransformQuaternion(this.parent.transform, this.rotationalValue);
 			}
 			set
 			{
-				SoundEffect.ParentMode parentMode = this.parent.mode & SoundEffect.ParentMode.RetainWorld;
-				if (parentMode != SoundEffect.ParentMode.RetainWorld)
+				global::SoundEffect.ParentMode parentMode = this.parent.mode & global::SoundEffect.ParentMode.RetainWorld;
+				if (parentMode != global::SoundEffect.ParentMode.RetainWorld)
 				{
 					this.rotationalValue = value;
 				}
 				else
 				{
-					this.rotationalValue = SoundEffect.Parameters.TransformQuaternion(this.parent.transform, value);
+					this.rotationalValue = global::SoundEffect.Parameters.TransformQuaternion(this.parent.transform, value);
 				}
 			}
 		}
 
-		// Token: 0x0400042B RID: 1067
+		// Token: 0x0400049A RID: 1178
 		public AudioClip clip;
 
-		// Token: 0x0400042C RID: 1068
-		public SoundEffect.Parent parent;
+		// Token: 0x0400049B RID: 1179
+		public global::SoundEffect.Parent parent;
 
-		// Token: 0x0400042D RID: 1069
-		public SoundEffect.Levels levels;
+		// Token: 0x0400049C RID: 1180
+		public global::SoundEffect.Levels levels;
 
-		// Token: 0x0400042E RID: 1070
-		public SoundEffect.Rolloff rolloff;
+		// Token: 0x0400049D RID: 1181
+		public global::SoundEffect.Rolloff rolloff;
 
-		// Token: 0x0400042F RID: 1071
+		// Token: 0x0400049E RID: 1182
 		public int priority;
 
-		// Token: 0x04000430 RID: 1072
+		// Token: 0x0400049F RID: 1183
 		public bool bypassEffects;
 
-		// Token: 0x04000431 RID: 1073
+		// Token: 0x040004A0 RID: 1184
 		public bool bypassListenerVolume;
 
-		// Token: 0x04000432 RID: 1074
+		// Token: 0x040004A1 RID: 1185
 		public Vector3 positionalValue;
 
-		// Token: 0x04000433 RID: 1075
+		// Token: 0x040004A2 RID: 1186
 		public Quaternion rotationalValue;
 	}
 }

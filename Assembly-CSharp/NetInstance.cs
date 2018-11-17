@@ -3,22 +3,22 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200030C RID: 780
+// Token: 0x020003B4 RID: 948
 [AddComponentMenu("")]
 public sealed class NetInstance : IDLocal
 {
-	// Token: 0x06001E02 RID: 7682 RVA: 0x0007606C File Offset: 0x0007426C
+	// Token: 0x06002140 RID: 8512 RVA: 0x0007AAEC File Offset: 0x00078CEC
 	public NetInstance()
 	{
-		this.preDestroy = new DisposeCallbackList<NetInstance, NetInstance.CallbackFunction>(this, NetInstance.callbackFire);
-		this.postCreate = new DisposeCallbackList<NetInstance, NetInstance.CallbackFunction>(this, NetInstance.callbackFire);
-		this.preCreate = new DisposeCallbackList<NetInstance, NetInstance.CallbackFunction>(this, NetInstance.callbackFire);
+		this.preDestroy = new global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction>(this, global::NetInstance.callbackFire);
+		this.postCreate = new global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction>(this, global::NetInstance.callbackFire);
+		this.preCreate = new global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction>(this, global::NetInstance.callbackFire);
 	}
 
 	// Token: 0x14000014 RID: 20
-	// (add) Token: 0x06001E04 RID: 7684 RVA: 0x000760BC File Offset: 0x000742BC
-	// (remove) Token: 0x06001E05 RID: 7685 RVA: 0x000760CC File Offset: 0x000742CC
-	public event NetInstance.CallbackFunction onPreDestroy
+	// (add) Token: 0x06002142 RID: 8514 RVA: 0x0007AB3C File Offset: 0x00078D3C
+	// (remove) Token: 0x06002143 RID: 8515 RVA: 0x0007AB4C File Offset: 0x00078D4C
+	public event global::NetInstance.CallbackFunction onPreDestroy
 	{
 		add
 		{
@@ -31,9 +31,9 @@ public sealed class NetInstance : IDLocal
 	}
 
 	// Token: 0x14000015 RID: 21
-	// (add) Token: 0x06001E06 RID: 7686 RVA: 0x000760DC File Offset: 0x000742DC
-	// (remove) Token: 0x06001E07 RID: 7687 RVA: 0x000760EC File Offset: 0x000742EC
-	public event NetInstance.CallbackFunction onPreCreate
+	// (add) Token: 0x06002144 RID: 8516 RVA: 0x0007AB5C File Offset: 0x00078D5C
+	// (remove) Token: 0x06002145 RID: 8517 RVA: 0x0007AB6C File Offset: 0x00078D6C
+	public event global::NetInstance.CallbackFunction onPreCreate
 	{
 		add
 		{
@@ -46,9 +46,9 @@ public sealed class NetInstance : IDLocal
 	}
 
 	// Token: 0x14000016 RID: 22
-	// (add) Token: 0x06001E08 RID: 7688 RVA: 0x000760FC File Offset: 0x000742FC
-	// (remove) Token: 0x06001E09 RID: 7689 RVA: 0x0007610C File Offset: 0x0007430C
-	public event NetInstance.CallbackFunction onPostCreate
+	// (add) Token: 0x06002146 RID: 8518 RVA: 0x0007AB7C File Offset: 0x00078D7C
+	// (remove) Token: 0x06002147 RID: 8519 RVA: 0x0007AB8C File Offset: 0x00078D8C
+	public event global::NetInstance.CallbackFunction onPostCreate
 	{
 		add
 		{
@@ -60,8 +60,8 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x17000784 RID: 1924
-	// (get) Token: 0x06001E0A RID: 7690 RVA: 0x0007611C File Offset: 0x0007431C
+	// Token: 0x170007DA RID: 2010
+	// (get) Token: 0x06002148 RID: 8520 RVA: 0x0007AB9C File Offset: 0x00078D9C
 	public bool serverSide
 	{
 		get
@@ -70,8 +70,8 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x17000785 RID: 1925
-	// (get) Token: 0x06001E0B RID: 7691 RVA: 0x0007612C File Offset: 0x0007432C
+	// Token: 0x170007DB RID: 2011
+	// (get) Token: 0x06002149 RID: 8521 RVA: 0x0007ABAC File Offset: 0x00078DAC
 	public bool clientSide
 	{
 		get
@@ -80,8 +80,8 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x17000786 RID: 1926
-	// (get) Token: 0x06001E0C RID: 7692 RVA: 0x0007613C File Offset: 0x0007433C
+	// Token: 0x170007DC RID: 2012
+	// (get) Token: 0x0600214A RID: 8522 RVA: 0x0007ABBC File Offset: 0x00078DBC
 	public bool isProxy
 	{
 		get
@@ -90,8 +90,8 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x17000787 RID: 1927
-	// (get) Token: 0x06001E0D RID: 7693 RVA: 0x00076168 File Offset: 0x00074368
+	// Token: 0x170007DD RID: 2013
+	// (get) Token: 0x0600214B RID: 8523 RVA: 0x0007ABE8 File Offset: 0x00078DE8
 	public IDMain prefab
 	{
 		get
@@ -100,9 +100,9 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x17000788 RID: 1928
-	// (get) Token: 0x06001E0E RID: 7694 RVA: 0x00076178 File Offset: 0x00074378
-	public NetworkView prefabNetworkView
+	// Token: 0x170007DE RID: 2014
+	// (get) Token: 0x0600214C RID: 8524 RVA: 0x0007ABF8 File Offset: 0x00078DF8
+	public uLink.NetworkView prefabNetworkView
 	{
 		get
 		{
@@ -110,9 +110,9 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x17000789 RID: 1929
-	// (get) Token: 0x06001E0F RID: 7695 RVA: 0x00076188 File Offset: 0x00074388
-	public NetMainPrefab netMain
+	// Token: 0x170007DF RID: 2015
+	// (get) Token: 0x0600214D RID: 8525 RVA: 0x0007AC08 File Offset: 0x00078E08
+	public global::NetMainPrefab netMain
 	{
 		get
 		{
@@ -120,8 +120,8 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x1700078A RID: 1930
-	// (get) Token: 0x06001E10 RID: 7696 RVA: 0x00076198 File Offset: 0x00074398
+	// Token: 0x170007E0 RID: 2016
+	// (get) Token: 0x0600214E RID: 8526 RVA: 0x0007AC18 File Offset: 0x00078E18
 	public bool wasCreatedByCustomInstantiate
 	{
 		get
@@ -130,9 +130,9 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x1700078B RID: 1931
-	// (get) Token: 0x06001E11 RID: 7697 RVA: 0x000761A8 File Offset: 0x000743A8
-	public IPrefabCustomInstantiate customeInstantiateCreator
+	// Token: 0x170007E1 RID: 2017
+	// (get) Token: 0x0600214F RID: 8527 RVA: 0x0007AC28 File Offset: 0x00078E28
+	public global::IPrefabCustomInstantiate customeInstantiateCreator
 	{
 		get
 		{
@@ -140,112 +140,112 @@ public sealed class NetInstance : IDLocal
 		}
 	}
 
-	// Token: 0x06001E12 RID: 7698 RVA: 0x000761B8 File Offset: 0x000743B8
-	private static void CallbackFire(NetInstance instance, NetInstance.CallbackFunction func)
+	// Token: 0x06002150 RID: 8528 RVA: 0x0007AC38 File Offset: 0x00078E38
+	private static void CallbackFire(global::NetInstance instance, global::NetInstance.CallbackFunction func)
 	{
 		func(instance);
 	}
 
-	// Token: 0x06001E13 RID: 7699 RVA: 0x000761C4 File Offset: 0x000743C4
+	// Token: 0x06002151 RID: 8529 RVA: 0x0007AC44 File Offset: 0x00078E44
 	internal void zzz___onpredestroy()
 	{
 		this.preDestroy.Dispose();
 	}
 
-	// Token: 0x06001E14 RID: 7700 RVA: 0x000761D4 File Offset: 0x000743D4
+	// Token: 0x06002152 RID: 8530 RVA: 0x0007AC54 File Offset: 0x00078E54
 	internal void zzz___onprecreate()
 	{
 		this.preCreate.Dispose();
 	}
 
-	// Token: 0x06001E15 RID: 7701 RVA: 0x000761E4 File Offset: 0x000743E4
+	// Token: 0x06002153 RID: 8531 RVA: 0x0007AC64 File Offset: 0x00078E64
 	internal void zzz___onpostcreate()
 	{
 		this.postCreate.Dispose();
 	}
 
-	// Token: 0x06001E16 RID: 7702 RVA: 0x000761F4 File Offset: 0x000743F4
+	// Token: 0x06002154 RID: 8532 RVA: 0x0007AC74 File Offset: 0x00078E74
 	private void OnDestroy()
 	{
-		this.postCreate = (this.preCreate = (this.preDestroy = DisposeCallbackList<NetInstance, NetInstance.CallbackFunction>.invalid));
+		this.postCreate = (this.preCreate = (this.preDestroy = global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction>.invalid));
 	}
 
-	// Token: 0x1700078C RID: 1932
-	// (get) Token: 0x06001E17 RID: 7703 RVA: 0x00076220 File Offset: 0x00074420
-	public static NetInstance current
+	// Token: 0x170007E2 RID: 2018
+	// (get) Token: 0x06002155 RID: 8533 RVA: 0x0007ACA0 File Offset: 0x00078EA0
+	public static global::NetInstance current
 	{
 		get
 		{
-			return NetMainPrefab.zzz__currentNetInstance;
+			return global::NetMainPrefab.zzz__currentNetInstance;
 		}
 	}
 
-	// Token: 0x06001E18 RID: 7704 RVA: 0x00076228 File Offset: 0x00074428
+	// Token: 0x06002156 RID: 8534 RVA: 0x0007ACA8 File Offset: 0x00078EA8
 	public static bool IsCurrentlyDestroying(IDMain main)
 	{
-		NetInstance current = NetInstance.current;
+		global::NetInstance current = global::NetInstance.current;
 		return current && current.idMain == main;
 	}
 
-	// Token: 0x06001E19 RID: 7705 RVA: 0x00076258 File Offset: 0x00074458
+	// Token: 0x06002157 RID: 8535 RVA: 0x0007ACD8 File Offset: 0x00078ED8
 	public static bool IsCurrentlyDestroying(IDLocal local)
 	{
-		NetInstance current = NetInstance.current;
+		global::NetInstance current = global::NetInstance.current;
 		return current && current.idMain == local.idMain;
 	}
 
-	// Token: 0x06001E1A RID: 7706 RVA: 0x0007628C File Offset: 0x0007448C
+	// Token: 0x06002158 RID: 8536 RVA: 0x0007AD0C File Offset: 0x00078F0C
 	public static bool IsCurrentlyDestroying(IDRemote remote)
 	{
-		NetInstance current = NetInstance.current;
+		global::NetInstance current = global::NetInstance.current;
 		return current && current.idMain == remote.idMain;
 	}
 
-	// Token: 0x04000E74 RID: 3700
+	// Token: 0x04000FB4 RID: 4020
 	[NonSerialized]
-	public CustomInstantiationArgs args;
+	public global::CustomInstantiationArgs args;
 
-	// Token: 0x04000E75 RID: 3701
+	// Token: 0x04000FB5 RID: 4021
 	[NonSerialized]
 	public bool prepared;
 
-	// Token: 0x04000E76 RID: 3702
+	// Token: 0x04000FB6 RID: 4022
 	[NonSerialized]
 	public bool local;
 
-	// Token: 0x04000E77 RID: 3703
+	// Token: 0x04000FB7 RID: 4023
 	[NonSerialized]
 	internal bool destroying;
 
-	// Token: 0x04000E78 RID: 3704
+	// Token: 0x04000FB8 RID: 4024
 	[NonSerialized]
-	public NetworkMessageInfo info;
+	public uLink.NetworkMessageInfo info;
 
-	// Token: 0x04000E79 RID: 3705
+	// Token: 0x04000FB9 RID: 4025
 	[NonSerialized]
-	public NetworkView networkView;
+	public Facepunch.NetworkView networkView;
 
-	// Token: 0x04000E7A RID: 3706
+	// Token: 0x04000FBA RID: 4026
 	[NonSerialized]
 	public IDRemote localAppendage;
 
-	// Token: 0x04000E7B RID: 3707
+	// Token: 0x04000FBB RID: 4027
 	[NonSerialized]
 	public bool madeLocalAppendage;
 
-	// Token: 0x04000E7C RID: 3708
-	private static readonly DisposeCallbackList<NetInstance, NetInstance.CallbackFunction>.Function callbackFire = new DisposeCallbackList<NetInstance, NetInstance.CallbackFunction>.Function(NetInstance.CallbackFire);
+	// Token: 0x04000FBC RID: 4028
+	private static readonly global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction>.Function callbackFire = new global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction>.Function(global::NetInstance.CallbackFire);
 
-	// Token: 0x04000E7D RID: 3709
-	private DisposeCallbackList<NetInstance, NetInstance.CallbackFunction> preDestroy;
+	// Token: 0x04000FBD RID: 4029
+	private global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction> preDestroy;
 
-	// Token: 0x04000E7E RID: 3710
-	private DisposeCallbackList<NetInstance, NetInstance.CallbackFunction> preCreate;
+	// Token: 0x04000FBE RID: 4030
+	private global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction> preCreate;
 
-	// Token: 0x04000E7F RID: 3711
-	private DisposeCallbackList<NetInstance, NetInstance.CallbackFunction> postCreate;
+	// Token: 0x04000FBF RID: 4031
+	private global::DisposeCallbackList<global::NetInstance, global::NetInstance.CallbackFunction> postCreate;
 
-	// Token: 0x020008D6 RID: 2262
-	// (Invoke) Token: 0x06004D30 RID: 19760
-	public delegate void CallbackFunction(NetInstance instance);
+	// Token: 0x020003B5 RID: 949
+	// (Invoke) Token: 0x0600215A RID: 8538
+	public delegate void CallbackFunction(global::NetInstance instance);
 }

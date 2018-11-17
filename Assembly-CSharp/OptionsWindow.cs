@@ -1,31 +1,31 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000402 RID: 1026
+// Token: 0x020004B3 RID: 1203
 public class OptionsWindow : MonoBehaviour
 {
-	// Token: 0x060025A6 RID: 9638 RVA: 0x00090BCC File Offset: 0x0008EDCC
+	// Token: 0x0600291E RID: 10526 RVA: 0x00096A04 File Offset: 0x00094C04
 	private void Start()
 	{
 	}
 
-	// Token: 0x060025A7 RID: 9639 RVA: 0x00090BD0 File Offset: 0x0008EDD0
+	// Token: 0x0600291F RID: 10527 RVA: 0x00096A08 File Offset: 0x00094C08
 	public void DoApply()
 	{
 		base.BroadcastMessage("UpdateConVars");
-		ConsoleSystem.Run("config.save", false);
+		global::ConsoleSystem.Run("config.save", false);
 	}
 
-	// Token: 0x060025A8 RID: 9640 RVA: 0x00090BEC File Offset: 0x0008EDEC
+	// Token: 0x06002920 RID: 10528 RVA: 0x00096A24 File Offset: 0x00094C24
 	public void DoOK()
 	{
 		this.DoApply();
 	}
 
-	// Token: 0x060025A9 RID: 9641 RVA: 0x00090BF4 File Offset: 0x0008EDF4
+	// Token: 0x06002921 RID: 10529 RVA: 0x00096A2C File Offset: 0x00094C2C
 	public void OnWindowVisibleChanged()
 	{
-		if (base.GetComponent<dfPanel>().IsVisible)
+		if (base.GetComponent<global::dfPanel>().IsVisible)
 		{
 			base.BroadcastMessage("UpdateFromConVar");
 		}

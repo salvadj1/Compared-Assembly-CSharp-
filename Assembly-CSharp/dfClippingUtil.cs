@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006A4 RID: 1700
+// Token: 0x0200076A RID: 1898
 public class dfClippingUtil
 {
-	// Token: 0x06003AFD RID: 15101 RVA: 0x000DCDA8 File Offset: 0x000DAFA8
-	public static void Clip(IList<Plane> planes, dfRenderData source, dfRenderData dest)
+	// Token: 0x06003EFB RID: 16123 RVA: 0x000E5838 File Offset: 0x000E3A38
+	public static void Clip(IList<Plane> planes, global::dfRenderData source, global::dfRenderData dest)
 	{
 		dest.EnsureCapacity(dest.Vertices.Count + source.Vertices.Count);
 		for (int i = 0; i < source.Triangles.Count; i += 3)
@@ -14,38 +14,38 @@ public class dfClippingUtil
 			for (int j = 0; j < 3; j++)
 			{
 				int index = source.Triangles[i + j];
-				dfClippingUtil.clipSource[0].corner[j] = source.Transform.MultiplyPoint(source.Vertices[index]);
-				dfClippingUtil.clipSource[0].uv[j] = source.UV[index];
-				dfClippingUtil.clipSource[0].color[j] = source.Colors[index];
+				global::dfClippingUtil.clipSource[0].corner[j] = source.Transform.MultiplyPoint(source.Vertices[index]);
+				global::dfClippingUtil.clipSource[0].uv[j] = source.UV[index];
+				global::dfClippingUtil.clipSource[0].color[j] = source.Colors[index];
 			}
 			int num = 1;
 			for (int k = 0; k < planes.Count; k++)
 			{
-				num = dfClippingUtil.clipToPlane(planes[k], dfClippingUtil.clipSource, dfClippingUtil.clipDest, num);
-				dfClippingUtil.ClipTriangle[] array = dfClippingUtil.clipSource;
-				dfClippingUtil.clipSource = dfClippingUtil.clipDest;
-				dfClippingUtil.clipDest = array;
+				num = global::dfClippingUtil.clipToPlane(planes[k], global::dfClippingUtil.clipSource, global::dfClippingUtil.clipDest, num);
+				global::dfClippingUtil.ClipTriangle[] array = global::dfClippingUtil.clipSource;
+				global::dfClippingUtil.clipSource = global::dfClippingUtil.clipDest;
+				global::dfClippingUtil.clipDest = array;
 			}
 			for (int l = 0; l < num; l++)
 			{
-				dfClippingUtil.clipSource[l].CopyTo(dest);
+				global::dfClippingUtil.clipSource[l].CopyTo(dest);
 			}
 		}
 	}
 
-	// Token: 0x06003AFE RID: 15102 RVA: 0x000DCF0C File Offset: 0x000DB10C
-	private static int clipToPlane(Plane plane, dfClippingUtil.ClipTriangle[] source, dfClippingUtil.ClipTriangle[] dest, int count)
+	// Token: 0x06003EFC RID: 16124 RVA: 0x000E599C File Offset: 0x000E3B9C
+	private static int clipToPlane(Plane plane, global::dfClippingUtil.ClipTriangle[] source, global::dfClippingUtil.ClipTriangle[] dest, int count)
 	{
 		int num = 0;
 		for (int i = 0; i < count; i++)
 		{
-			num += dfClippingUtil.clipToPlane(plane, source[i], dest, num);
+			num += global::dfClippingUtil.clipToPlane(plane, source[i], dest, num);
 		}
 		return num;
 	}
 
-	// Token: 0x06003AFF RID: 15103 RVA: 0x000DCF48 File Offset: 0x000DB148
-	private static int clipToPlane(Plane plane, dfClippingUtil.ClipTriangle triangle, dfClippingUtil.ClipTriangle[] dest, int destIndex)
+	// Token: 0x06003EFD RID: 16125 RVA: 0x000E59D8 File Offset: 0x000E3BD8
+	private static int clipToPlane(Plane plane, global::dfClippingUtil.ClipTriangle triangle, global::dfClippingUtil.ClipTriangle[] dest, int destIndex)
 	{
 		Vector3[] corner = triangle.corner;
 		int num = 0;
@@ -56,7 +56,7 @@ public class dfClippingUtil
 		{
 			if (Vector3.Dot(normal, corner[i]) + distance > 0f)
 			{
-				dfClippingUtil.inside[num++] = i;
+				global::dfClippingUtil.inside[num++] = i;
 			}
 			else
 			{
@@ -74,7 +74,7 @@ public class dfClippingUtil
 		}
 		if (num == 1)
 		{
-			int num3 = dfClippingUtil.inside[0];
+			int num3 = global::dfClippingUtil.inside[0];
 			int num4 = (num3 + 1) % 3;
 			int num5 = (num3 + 2) % 3;
 			Vector3 vector = corner[num3];
@@ -163,10 +163,10 @@ public class dfClippingUtil
 		return 2;
 	}
 
-	// Token: 0x06003B00 RID: 15104 RVA: 0x000DD608 File Offset: 0x000DB808
-	private static dfClippingUtil.ClipTriangle[] initClipBuffer(int size)
+	// Token: 0x06003EFE RID: 16126 RVA: 0x000E6098 File Offset: 0x000E4298
+	private static global::dfClippingUtil.ClipTriangle[] initClipBuffer(int size)
 	{
-		dfClippingUtil.ClipTriangle[] array = new dfClippingUtil.ClipTriangle[size];
+		global::dfClippingUtil.ClipTriangle[] array = new global::dfClippingUtil.ClipTriangle[size];
 		for (int i = 0; i < size; i++)
 		{
 			array[i].corner = new Vector3[3];
@@ -176,28 +176,28 @@ public class dfClippingUtil
 		return array;
 	}
 
-	// Token: 0x04001F28 RID: 7976
+	// Token: 0x04002124 RID: 8484
 	private static int[] inside = new int[3];
 
-	// Token: 0x04001F29 RID: 7977
-	private static dfClippingUtil.ClipTriangle[] clipSource = dfClippingUtil.initClipBuffer(1024);
+	// Token: 0x04002125 RID: 8485
+	private static global::dfClippingUtil.ClipTriangle[] clipSource = global::dfClippingUtil.initClipBuffer(1024);
 
-	// Token: 0x04001F2A RID: 7978
-	private static dfClippingUtil.ClipTriangle[] clipDest = dfClippingUtil.initClipBuffer(1024);
+	// Token: 0x04002126 RID: 8486
+	private static global::dfClippingUtil.ClipTriangle[] clipDest = global::dfClippingUtil.initClipBuffer(1024);
 
-	// Token: 0x020006A5 RID: 1701
+	// Token: 0x0200076B RID: 1899
 	protected struct ClipTriangle
 	{
-		// Token: 0x06003B01 RID: 15105 RVA: 0x000DD668 File Offset: 0x000DB868
-		public void CopyTo(dfClippingUtil.ClipTriangle target)
+		// Token: 0x06003EFF RID: 16127 RVA: 0x000E60F8 File Offset: 0x000E42F8
+		public void CopyTo(global::dfClippingUtil.ClipTriangle target)
 		{
 			Array.Copy(this.corner, target.corner, 3);
 			Array.Copy(this.uv, target.uv, 3);
 			Array.Copy(this.color, target.color, 3);
 		}
 
-		// Token: 0x06003B02 RID: 15106 RVA: 0x000DD6A4 File Offset: 0x000DB8A4
-		public void CopyTo(dfRenderData buffer)
+		// Token: 0x06003F00 RID: 16128 RVA: 0x000E6134 File Offset: 0x000E4334
+		public void CopyTo(global::dfRenderData buffer)
 		{
 			int count = buffer.Vertices.Count;
 			buffer.Vertices.AddRange(this.corner);
@@ -208,13 +208,13 @@ public class dfClippingUtil
 			buffer.Triangles.Add(count + 2);
 		}
 
-		// Token: 0x04001F2B RID: 7979
+		// Token: 0x04002127 RID: 8487
 		public Vector3[] corner;
 
-		// Token: 0x04001F2C RID: 7980
+		// Token: 0x04002128 RID: 8488
 		public Vector2[] uv;
 
-		// Token: 0x04001F2D RID: 7981
+		// Token: 0x04002129 RID: 8489
 		public Color32[] color;
 	}
 }

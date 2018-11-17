@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000353 RID: 851
+// Token: 0x02000400 RID: 1024
 public struct Matrix4x4Decomp
 {
-	// Token: 0x06002105 RID: 8453 RVA: 0x000812C8 File Offset: 0x0007F4C8
+	// Token: 0x06002467 RID: 9319 RVA: 0x000866C4 File Offset: 0x000848C4
 	public Matrix4x4Decomp(Matrix4x4 v)
 	{
 		this.r.x = v.m00;
@@ -25,9 +25,9 @@ public struct Matrix4x4Decomp
 		this.s.w = v.m33;
 	}
 
-	// Token: 0x1700081F RID: 2079
-	// (get) Token: 0x06002106 RID: 8454 RVA: 0x000813F8 File Offset: 0x0007F5F8
-	// (set) Token: 0x06002107 RID: 8455 RVA: 0x00081528 File Offset: 0x0007F728
+	// Token: 0x1700087D RID: 2173
+	// (get) Token: 0x06002468 RID: 9320 RVA: 0x000867F4 File Offset: 0x000849F4
+	// (set) Token: 0x06002469 RID: 9321 RVA: 0x00086924 File Offset: 0x00084B24
 	public Matrix4x4 m
 	{
 		get
@@ -72,9 +72,9 @@ public struct Matrix4x4Decomp
 		}
 	}
 
-	// Token: 0x17000820 RID: 2080
-	// (get) Token: 0x06002108 RID: 8456 RVA: 0x00081658 File Offset: 0x0007F858
-	// (set) Token: 0x06002109 RID: 8457 RVA: 0x0008166C File Offset: 0x0007F86C
+	// Token: 0x1700087E RID: 2174
+	// (get) Token: 0x0600246A RID: 9322 RVA: 0x00086A54 File Offset: 0x00084C54
+	// (set) Token: 0x0600246B RID: 9323 RVA: 0x00086A68 File Offset: 0x00084C68
 	public Quaternion q
 	{
 		get
@@ -90,9 +90,9 @@ public struct Matrix4x4Decomp
 		}
 	}
 
-	// Token: 0x17000821 RID: 2081
-	// (get) Token: 0x0600210A RID: 8458 RVA: 0x000816C4 File Offset: 0x0007F8C4
-	// (set) Token: 0x0600210B RID: 8459 RVA: 0x00081708 File Offset: 0x0007F908
+	// Token: 0x1700087F RID: 2175
+	// (get) Token: 0x0600246C RID: 9324 RVA: 0x00086AC0 File Offset: 0x00084CC0
+	// (set) Token: 0x0600246D RID: 9325 RVA: 0x00086B04 File Offset: 0x00084D04
 	public Vector3 S
 	{
 		get
@@ -111,9 +111,9 @@ public struct Matrix4x4Decomp
 		}
 	}
 
-	// Token: 0x17000822 RID: 2082
-	// (get) Token: 0x0600210C RID: 8460 RVA: 0x0008174C File Offset: 0x0007F94C
-	// (set) Token: 0x0600210D RID: 8461 RVA: 0x0008175C File Offset: 0x0007F95C
+	// Token: 0x17000880 RID: 2176
+	// (get) Token: 0x0600246E RID: 9326 RVA: 0x00086B48 File Offset: 0x00084D48
+	// (set) Token: 0x0600246F RID: 9327 RVA: 0x00086B58 File Offset: 0x00084D58
 	public float w
 	{
 		get
@@ -126,18 +126,18 @@ public struct Matrix4x4Decomp
 		}
 	}
 
-	// Token: 0x04000F68 RID: 3944
+	// Token: 0x040010CE RID: 4302
 	public Vector3 r;
 
-	// Token: 0x04000F69 RID: 3945
+	// Token: 0x040010CF RID: 4303
 	public Vector3 u;
 
-	// Token: 0x04000F6A RID: 3946
+	// Token: 0x040010D0 RID: 4304
 	public Vector3 f;
 
-	// Token: 0x04000F6B RID: 3947
+	// Token: 0x040010D1 RID: 4305
 	public Vector3 t;
 
-	// Token: 0x04000F6C RID: 3948
+	// Token: 0x040010D2 RID: 4306
 	public Vector4 s;
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000058 RID: 88
+// Token: 0x0200006A RID: 106
 public class TreePack : ScriptableObject
 {
-	// Token: 0x040001C4 RID: 452
+	// Token: 0x04000226 RID: 550
 	public string levelID;
 
-	// Token: 0x040001C5 RID: 453
+	// Token: 0x04000227 RID: 551
 	public int packedMeshes;
 }

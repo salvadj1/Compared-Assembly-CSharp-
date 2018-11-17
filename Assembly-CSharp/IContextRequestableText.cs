@@ -1,9 +1,9 @@
 ﻿using System;
 using Facepunch;
 
-// Token: 0x02000474 RID: 1140
-public interface IContextRequestableText : IContextRequestable, IComponentInterface<IContextRequestable, MonoBehaviour, Contextual>, IComponentInterface<IContextRequestable, MonoBehaviour>, IComponentInterface<IContextRequestable>
+// Token: 0x0200052A RID: 1322
+public interface IContextRequestableText : global::IContextRequestable, global::IComponentInterface<global::IContextRequestable, MonoBehaviour, global::Contextual>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour>, global::IComponentInterface<global::IContextRequestable>
 {
-	// Token: 0x060028E4 RID: 10468
-	string ContextText(Controllable localControllable);
+	// Token: 0x06002C74 RID: 11380
+	string ContextText(global::Controllable localControllable);
 }

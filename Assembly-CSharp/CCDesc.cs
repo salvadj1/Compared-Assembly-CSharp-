@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000273 RID: 627
+// Token: 0x020002A8 RID: 680
 [RequireComponent(typeof(CharacterController))]
 public sealed class CCDesc : MonoBehaviour
 {
-	// Token: 0x060016BA RID: 5818 RVA: 0x000567B4 File Offset: 0x000549B4
+	// Token: 0x06001818 RID: 6168 RVA: 0x0005ABFC File Offset: 0x00058DFC
 	public CCDesc()
 	{
 		Vector3 center = default(Vector3);
@@ -14,8 +14,8 @@ public sealed class CCDesc : MonoBehaviour
 		base..ctor();
 	}
 
-	// Token: 0x17000681 RID: 1665
-	// (get) Token: 0x060016BB RID: 5819 RVA: 0x0005681C File Offset: 0x00054A1C
+	// Token: 0x170006CB RID: 1739
+	// (get) Token: 0x06001819 RID: 6169 RVA: 0x0005AC64 File Offset: 0x00058E64
 	public float height
 	{
 		get
@@ -24,8 +24,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000682 RID: 1666
-	// (get) Token: 0x060016BC RID: 5820 RVA: 0x00056824 File Offset: 0x00054A24
+	// Token: 0x170006CC RID: 1740
+	// (get) Token: 0x0600181A RID: 6170 RVA: 0x0005AC6C File Offset: 0x00058E6C
 	public float radius
 	{
 		get
@@ -34,8 +34,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000683 RID: 1667
-	// (get) Token: 0x060016BD RID: 5821 RVA: 0x0005682C File Offset: 0x00054A2C
+	// Token: 0x170006CD RID: 1741
+	// (get) Token: 0x0600181B RID: 6171 RVA: 0x0005AC74 File Offset: 0x00058E74
 	public Vector3 center
 	{
 		get
@@ -44,8 +44,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000684 RID: 1668
-	// (get) Token: 0x060016BE RID: 5822 RVA: 0x00056834 File Offset: 0x00054A34
+	// Token: 0x170006CE RID: 1742
+	// (get) Token: 0x0600181C RID: 6172 RVA: 0x0005AC7C File Offset: 0x00058E7C
 	public float slopeLimit
 	{
 		get
@@ -54,8 +54,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000685 RID: 1669
-	// (get) Token: 0x060016BF RID: 5823 RVA: 0x0005683C File Offset: 0x00054A3C
+	// Token: 0x170006CF RID: 1743
+	// (get) Token: 0x0600181D RID: 6173 RVA: 0x0005AC84 File Offset: 0x00058E84
 	public float stepOffset
 	{
 		get
@@ -64,9 +64,9 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000686 RID: 1670
-	// (get) Token: 0x060016C0 RID: 5824 RVA: 0x00056844 File Offset: 0x00054A44
-	// (set) Token: 0x060016C1 RID: 5825 RVA: 0x00056854 File Offset: 0x00054A54
+	// Token: 0x170006D0 RID: 1744
+	// (get) Token: 0x0600181E RID: 6174 RVA: 0x0005AC8C File Offset: 0x00058E8C
+	// (set) Token: 0x0600181F RID: 6175 RVA: 0x0005AC9C File Offset: 0x00058E9C
 	public bool detectCollisions
 	{
 		get
@@ -79,8 +79,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000687 RID: 1671
-	// (get) Token: 0x060016C2 RID: 5826 RVA: 0x00056864 File Offset: 0x00054A64
+	// Token: 0x170006D1 RID: 1745
+	// (get) Token: 0x06001820 RID: 6176 RVA: 0x0005ACAC File Offset: 0x00058EAC
 	public CollisionFlags collisionFlags
 	{
 		get
@@ -89,8 +89,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000688 RID: 1672
-	// (get) Token: 0x060016C3 RID: 5827 RVA: 0x00056874 File Offset: 0x00054A74
+	// Token: 0x170006D2 RID: 1746
+	// (get) Token: 0x06001821 RID: 6177 RVA: 0x0005ACBC File Offset: 0x00058EBC
 	public bool isGrounded
 	{
 		get
@@ -99,8 +99,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000689 RID: 1673
-	// (get) Token: 0x060016C4 RID: 5828 RVA: 0x00056884 File Offset: 0x00054A84
+	// Token: 0x170006D3 RID: 1747
+	// (get) Token: 0x06001822 RID: 6178 RVA: 0x0005ACCC File Offset: 0x00058ECC
 	public Vector3 velocity
 	{
 		get
@@ -109,8 +109,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700068A RID: 1674
-	// (get) Token: 0x060016C5 RID: 5829 RVA: 0x00056894 File Offset: 0x00054A94
+	// Token: 0x170006D4 RID: 1748
+	// (get) Token: 0x06001823 RID: 6179 RVA: 0x0005ACDC File Offset: 0x00058EDC
 	public float skinWidth
 	{
 		get
@@ -119,8 +119,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700068B RID: 1675
-	// (get) Token: 0x060016C6 RID: 5830 RVA: 0x0005689C File Offset: 0x00054A9C
+	// Token: 0x170006D5 RID: 1749
+	// (get) Token: 0x06001824 RID: 6180 RVA: 0x0005ACE4 File Offset: 0x00058EE4
 	public float minMoveDistance
 	{
 		get
@@ -129,8 +129,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700068C RID: 1676
-	// (get) Token: 0x060016C7 RID: 5831 RVA: 0x000568A4 File Offset: 0x00054AA4
+	// Token: 0x170006D6 RID: 1750
+	// (get) Token: 0x06001825 RID: 6181 RVA: 0x0005ACEC File Offset: 0x00058EEC
 	public float diameter
 	{
 		get
@@ -139,8 +139,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700068D RID: 1677
-	// (get) Token: 0x060016C8 RID: 5832 RVA: 0x000568B4 File Offset: 0x00054AB4
+	// Token: 0x170006D7 RID: 1751
+	// (get) Token: 0x06001826 RID: 6182 RVA: 0x0005ACFC File Offset: 0x00058EFC
 	public float skinnedRadius
 	{
 		get
@@ -149,8 +149,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700068E RID: 1678
-	// (get) Token: 0x060016C9 RID: 5833 RVA: 0x000568C4 File Offset: 0x00054AC4
+	// Token: 0x170006D8 RID: 1752
+	// (get) Token: 0x06001827 RID: 6183 RVA: 0x0005AD0C File Offset: 0x00058F0C
 	public float skinnedDiameter
 	{
 		get
@@ -159,8 +159,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700068F RID: 1679
-	// (get) Token: 0x060016CA RID: 5834 RVA: 0x000568E4 File Offset: 0x00054AE4
+	// Token: 0x170006D9 RID: 1753
+	// (get) Token: 0x06001828 RID: 6184 RVA: 0x0005AD2C File Offset: 0x00058F2C
 	public float effectiveHeight
 	{
 		get
@@ -170,8 +170,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000690 RID: 1680
-	// (get) Token: 0x060016CB RID: 5835 RVA: 0x00056918 File Offset: 0x00054B18
+	// Token: 0x170006DA RID: 1754
+	// (get) Token: 0x06001829 RID: 6185 RVA: 0x0005AD60 File Offset: 0x00058F60
 	public float effectiveSkinnedHeight
 	{
 		get
@@ -181,8 +181,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000691 RID: 1681
-	// (get) Token: 0x060016CC RID: 5836 RVA: 0x0005695C File Offset: 0x00054B5C
+	// Token: 0x170006DB RID: 1755
+	// (get) Token: 0x0600182A RID: 6186 RVA: 0x0005ADA4 File Offset: 0x00058FA4
 	public float skinnedHeight
 	{
 		get
@@ -191,8 +191,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000692 RID: 1682
-	// (get) Token: 0x060016CD RID: 5837 RVA: 0x00056974 File Offset: 0x00054B74
+	// Token: 0x170006DC RID: 1756
+	// (get) Token: 0x0600182B RID: 6187 RVA: 0x0005ADBC File Offset: 0x00058FBC
 	public Vector3 top
 	{
 		get
@@ -210,8 +210,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000693 RID: 1683
-	// (get) Token: 0x060016CE RID: 5838 RVA: 0x000569DC File Offset: 0x00054BDC
+	// Token: 0x170006DD RID: 1757
+	// (get) Token: 0x0600182C RID: 6188 RVA: 0x0005AE24 File Offset: 0x00059024
 	public Vector3 skinnedTop
 	{
 		get
@@ -229,8 +229,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000694 RID: 1684
-	// (get) Token: 0x060016CF RID: 5839 RVA: 0x00056A4C File Offset: 0x00054C4C
+	// Token: 0x170006DE RID: 1758
+	// (get) Token: 0x0600182D RID: 6189 RVA: 0x0005AE94 File Offset: 0x00059094
 	public Vector3 bottom
 	{
 		get
@@ -248,8 +248,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000695 RID: 1685
-	// (get) Token: 0x060016D0 RID: 5840 RVA: 0x00056AB4 File Offset: 0x00054CB4
+	// Token: 0x170006DF RID: 1759
+	// (get) Token: 0x0600182E RID: 6190 RVA: 0x0005AEFC File Offset: 0x000590FC
 	public Vector3 skinnedBottom
 	{
 		get
@@ -267,8 +267,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000696 RID: 1686
-	// (get) Token: 0x060016D1 RID: 5841 RVA: 0x00056B24 File Offset: 0x00054D24
+	// Token: 0x170006E0 RID: 1760
+	// (get) Token: 0x0600182F RID: 6191 RVA: 0x0005AF6C File Offset: 0x0005916C
 	public Vector3 worldTop
 	{
 		get
@@ -277,8 +277,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000697 RID: 1687
-	// (get) Token: 0x060016D2 RID: 5842 RVA: 0x00056B34 File Offset: 0x00054D34
+	// Token: 0x170006E1 RID: 1761
+	// (get) Token: 0x06001830 RID: 6192 RVA: 0x0005AF7C File Offset: 0x0005917C
 	public Vector3 worldSkinnedTop
 	{
 		get
@@ -287,8 +287,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000698 RID: 1688
-	// (get) Token: 0x060016D3 RID: 5843 RVA: 0x00056B44 File Offset: 0x00054D44
+	// Token: 0x170006E2 RID: 1762
+	// (get) Token: 0x06001831 RID: 6193 RVA: 0x0005AF8C File Offset: 0x0005918C
 	public Vector3 worldCenter
 	{
 		get
@@ -297,8 +297,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000699 RID: 1689
-	// (get) Token: 0x060016D4 RID: 5844 RVA: 0x00056B54 File Offset: 0x00054D54
+	// Token: 0x170006E3 RID: 1763
+	// (get) Token: 0x06001832 RID: 6194 RVA: 0x0005AF9C File Offset: 0x0005919C
 	public Vector3 worldBottom
 	{
 		get
@@ -307,8 +307,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700069A RID: 1690
-	// (get) Token: 0x060016D5 RID: 5845 RVA: 0x00056B64 File Offset: 0x00054D64
+	// Token: 0x170006E4 RID: 1764
+	// (get) Token: 0x06001833 RID: 6195 RVA: 0x0005AFAC File Offset: 0x000591AC
 	public Vector3 worldSkinnedBottom
 	{
 		get
@@ -317,8 +317,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700069B RID: 1691
-	// (get) Token: 0x060016D6 RID: 5846 RVA: 0x00056B74 File Offset: 0x00054D74
+	// Token: 0x170006E5 RID: 1765
+	// (get) Token: 0x06001834 RID: 6196 RVA: 0x0005AFBC File Offset: 0x000591BC
 	public Vector3 centroidTop
 	{
 		get
@@ -340,8 +340,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700069C RID: 1692
-	// (get) Token: 0x060016D7 RID: 5847 RVA: 0x00056BE8 File Offset: 0x00054DE8
+	// Token: 0x170006E6 RID: 1766
+	// (get) Token: 0x06001835 RID: 6197 RVA: 0x0005B030 File Offset: 0x00059230
 	public Vector3 centroidBottom
 	{
 		get
@@ -363,8 +363,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700069D RID: 1693
-	// (get) Token: 0x060016D8 RID: 5848 RVA: 0x00056C5C File Offset: 0x00054E5C
+	// Token: 0x170006E7 RID: 1767
+	// (get) Token: 0x06001836 RID: 6198 RVA: 0x0005B0A4 File Offset: 0x000592A4
 	public Vector3 worldCentroidTop
 	{
 		get
@@ -373,8 +373,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700069E RID: 1694
-	// (get) Token: 0x060016D9 RID: 5849 RVA: 0x00056C6C File Offset: 0x00054E6C
+	// Token: 0x170006E8 RID: 1768
+	// (get) Token: 0x06001837 RID: 6199 RVA: 0x0005B0B4 File Offset: 0x000592B4
 	public Vector3 worldCentroidBottom
 	{
 		get
@@ -383,8 +383,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700069F RID: 1695
-	// (get) Token: 0x060016DA RID: 5850 RVA: 0x00056C7C File Offset: 0x00054E7C
+	// Token: 0x170006E9 RID: 1769
+	// (get) Token: 0x06001838 RID: 6200 RVA: 0x0005B0C4 File Offset: 0x000592C4
 	public Quaternion flatRotation
 	{
 		get
@@ -409,18 +409,18 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006A0 RID: 1696
-	// (get) Token: 0x060016DB RID: 5851 RVA: 0x00056D8C File Offset: 0x00054F8C
-	public static CCDesc Moving
+	// Token: 0x170006EA RID: 1770
+	// (get) Token: 0x06001839 RID: 6201 RVA: 0x0005B1D4 File Offset: 0x000593D4
+	public static global::CCDesc Moving
 	{
 		get
 		{
-			return CCDesc.s_CurrentMovingCCDesc;
+			return global::CCDesc.s_CurrentMovingCCDesc;
 		}
 	}
 
-	// Token: 0x170006A1 RID: 1697
-	// (get) Token: 0x060016DC RID: 5852 RVA: 0x00056D94 File Offset: 0x00054F94
+	// Token: 0x170006EB RID: 1771
+	// (get) Token: 0x0600183A RID: 6202 RVA: 0x0005B1DC File Offset: 0x000593DC
 	public Rigidbody attachedRigidbody
 	{
 		get
@@ -429,8 +429,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006A2 RID: 1698
-	// (get) Token: 0x060016DD RID: 5853 RVA: 0x00056DA4 File Offset: 0x00054FA4
+	// Token: 0x170006EC RID: 1772
+	// (get) Token: 0x0600183B RID: 6203 RVA: 0x0005B1EC File Offset: 0x000593EC
 	public Bounds bounds
 	{
 		get
@@ -439,9 +439,9 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006A3 RID: 1699
-	// (get) Token: 0x060016DE RID: 5854 RVA: 0x00056DB4 File Offset: 0x00054FB4
-	// (set) Token: 0x060016DF RID: 5855 RVA: 0x00056DC4 File Offset: 0x00054FC4
+	// Token: 0x170006ED RID: 1773
+	// (get) Token: 0x0600183C RID: 6204 RVA: 0x0005B1FC File Offset: 0x000593FC
+	// (set) Token: 0x0600183D RID: 6205 RVA: 0x0005B20C File Offset: 0x0005940C
 	public bool enabled
 	{
 		get
@@ -454,9 +454,9 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006A4 RID: 1700
-	// (get) Token: 0x060016E0 RID: 5856 RVA: 0x00056DD4 File Offset: 0x00054FD4
-	// (set) Token: 0x060016E1 RID: 5857 RVA: 0x00056DE4 File Offset: 0x00054FE4
+	// Token: 0x170006EE RID: 1774
+	// (get) Token: 0x0600183E RID: 6206 RVA: 0x0005B21C File Offset: 0x0005941C
+	// (set) Token: 0x0600183F RID: 6207 RVA: 0x0005B22C File Offset: 0x0005942C
 	public bool isTrigger
 	{
 		get
@@ -469,9 +469,9 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006A5 RID: 1701
-	// (get) Token: 0x060016E2 RID: 5858 RVA: 0x00056DF4 File Offset: 0x00054FF4
-	// (set) Token: 0x060016E3 RID: 5859 RVA: 0x00056E04 File Offset: 0x00055004
+	// Token: 0x170006EF RID: 1775
+	// (get) Token: 0x06001840 RID: 6208 RVA: 0x0005B23C File Offset: 0x0005943C
+	// (set) Token: 0x06001841 RID: 6209 RVA: 0x0005B24C File Offset: 0x0005944C
 	public PhysicMaterial material
 	{
 		get
@@ -484,9 +484,9 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006A6 RID: 1702
-	// (get) Token: 0x060016E4 RID: 5860 RVA: 0x00056E14 File Offset: 0x00055014
-	// (set) Token: 0x060016E5 RID: 5861 RVA: 0x00056E24 File Offset: 0x00055024
+	// Token: 0x170006F0 RID: 1776
+	// (get) Token: 0x06001842 RID: 6210 RVA: 0x0005B25C File Offset: 0x0005945C
+	// (set) Token: 0x06001843 RID: 6211 RVA: 0x0005B26C File Offset: 0x0005946C
 	public PhysicMaterial sharedMaterial
 	{
 		get
@@ -499,8 +499,8 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006A7 RID: 1703
-	// (get) Token: 0x060016E6 RID: 5862 RVA: 0x00056E34 File Offset: 0x00055034
+	// Token: 0x170006F1 RID: 1777
+	// (get) Token: 0x06001844 RID: 6212 RVA: 0x0005B27C File Offset: 0x0005947C
 	public CharacterController collider
 	{
 		get
@@ -509,14 +509,14 @@ public sealed class CCDesc : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060016E7 RID: 5863 RVA: 0x00056E3C File Offset: 0x0005503C
+	// Token: 0x06001845 RID: 6213 RVA: 0x0005B284 File Offset: 0x00059484
 	public CollisionFlags Move(Vector3 motion)
 	{
-		CCDesc ccdesc = CCDesc.s_CurrentMovingCCDesc;
+		global::CCDesc ccdesc = global::CCDesc.s_CurrentMovingCCDesc;
 		CollisionFlags result;
 		try
 		{
-			CCDesc.s_CurrentMovingCCDesc = this;
+			global::CCDesc.s_CurrentMovingCCDesc = this;
 			if (!object.ReferenceEquals(this.AssignedHitManager, null))
 			{
 				this.AssignedHitManager.Clear();
@@ -525,41 +525,41 @@ public sealed class CCDesc : MonoBehaviour
 		}
 		finally
 		{
-			CCDesc.s_CurrentMovingCCDesc = ((!ccdesc) ? null : ccdesc);
+			global::CCDesc.s_CurrentMovingCCDesc = ((!ccdesc) ? null : ccdesc);
 		}
 		return result;
 	}
 
-	// Token: 0x060016E8 RID: 5864 RVA: 0x00056EC0 File Offset: 0x000550C0
+	// Token: 0x06001846 RID: 6214 RVA: 0x0005B308 File Offset: 0x00059508
 	public bool SimpleMove(Vector3 speed)
 	{
-		CCDesc ccdesc = CCDesc.s_CurrentMovingCCDesc;
+		global::CCDesc ccdesc = global::CCDesc.s_CurrentMovingCCDesc;
 		bool result;
 		try
 		{
-			CCDesc.s_CurrentMovingCCDesc = this;
+			global::CCDesc.s_CurrentMovingCCDesc = this;
 			result = this.m_Collider.SimpleMove(speed);
 		}
 		finally
 		{
-			CCDesc.s_CurrentMovingCCDesc = ((!ccdesc) ? null : ccdesc);
+			global::CCDesc.s_CurrentMovingCCDesc = ((!ccdesc) ? null : ccdesc);
 		}
 		return result;
 	}
 
-	// Token: 0x060016E9 RID: 5865 RVA: 0x00056F28 File Offset: 0x00055128
+	// Token: 0x06001847 RID: 6215 RVA: 0x0005B370 File Offset: 0x00059570
 	public Vector3 ClosestPointOnBounds(Vector3 position)
 	{
 		return this.m_Collider.ClosestPointOnBounds(position);
 	}
 
-	// Token: 0x060016EA RID: 5866 RVA: 0x00056F38 File Offset: 0x00055138
+	// Token: 0x06001848 RID: 6216 RVA: 0x0005B380 File Offset: 0x00059580
 	public bool Raycast(Ray ray, out RaycastHit hitInfo, float distance)
 	{
 		return this.m_Collider.Raycast(ray, ref hitInfo, distance);
 	}
 
-	// Token: 0x060016EB RID: 5867 RVA: 0x00056F48 File Offset: 0x00055148
+	// Token: 0x06001849 RID: 6217 RVA: 0x0005B390 File Offset: 0x00059590
 	public Vector3 OffsetToWorld(Vector3 offset)
 	{
 		if (offset.x != 0f || offset.z != 0f)
@@ -577,13 +577,13 @@ public sealed class CCDesc : MonoBehaviour
 		return offset;
 	}
 
-	// Token: 0x060016EC RID: 5868 RVA: 0x0005701C File Offset: 0x0005521C
-	public CCDesc.HeightModification ModifyHeight(float newEffectiveSkinnedHeight, bool preview = false)
+	// Token: 0x0600184A RID: 6218 RVA: 0x0005B464 File Offset: 0x00059664
+	public global::CCDesc.HeightModification ModifyHeight(float newEffectiveSkinnedHeight, bool preview = false)
 	{
 		float num = this.m_Radius + this.m_Radius;
 		float num2 = this.m_SkinWidth + this.m_SkinWidth + num;
 		float num3 = (num <= this.m_Height) ? (this.m_Height + this.m_SkinWidth + this.m_SkinWidth) : num2;
-		CCDesc.HeightModification result;
+		global::CCDesc.HeightModification result;
 		result.original.effectiveSkinnedHeight = num3;
 		result.original.center = this.m_Center;
 		if (newEffectiveSkinnedHeight < num2)
@@ -628,63 +628,63 @@ public sealed class CCDesc : MonoBehaviour
 		else
 		{
 			result.modified = result.original;
-			result.delta = default(CCDesc.HeightModification.State);
+			result.delta = default(global::CCDesc.HeightModification.State);
 			result.applied = false;
 			result.scale = 1f;
 		}
 		return result;
 	}
 
-	// Token: 0x04000B9D RID: 2973
+	// Token: 0x04000CC3 RID: 3267
 	[SerializeField]
 	private float m_Height = 2f;
 
-	// Token: 0x04000B9E RID: 2974
+	// Token: 0x04000CC4 RID: 3268
 	[SerializeField]
 	private float m_Radius = 0.4f;
 
-	// Token: 0x04000B9F RID: 2975
+	// Token: 0x04000CC5 RID: 3269
 	[SerializeField]
 	private float m_SlopeLimit = 90f;
 
-	// Token: 0x04000BA0 RID: 2976
+	// Token: 0x04000CC6 RID: 3270
 	[SerializeField]
 	private float m_StepOffset = 0.5f;
 
-	// Token: 0x04000BA1 RID: 2977
+	// Token: 0x04000CC7 RID: 3271
 	[SerializeField]
 	private float m_SkinWidth = 0.05f;
 
-	// Token: 0x04000BA2 RID: 2978
+	// Token: 0x04000CC8 RID: 3272
 	[SerializeField]
 	private float m_MinMoveDistance;
 
-	// Token: 0x04000BA3 RID: 2979
+	// Token: 0x04000CC9 RID: 3273
 	[SerializeField]
 	private Vector3 m_Center;
 
-	// Token: 0x04000BA4 RID: 2980
+	// Token: 0x04000CCA RID: 3274
 	[PrefetchComponent]
-	[HideInInspector]
 	[SerializeField]
+	[HideInInspector]
 	private CharacterController m_Collider;
 
-	// Token: 0x04000BA5 RID: 2981
+	// Token: 0x04000CCB RID: 3275
 	[NonSerialized]
 	public object Tag;
 
-	// Token: 0x04000BA6 RID: 2982
-	private static CCDesc s_CurrentMovingCCDesc;
+	// Token: 0x04000CCC RID: 3276
+	private static global::CCDesc s_CurrentMovingCCDesc;
 
-	// Token: 0x04000BA7 RID: 2983
+	// Token: 0x04000CCD RID: 3277
 	[NonSerialized]
-	internal CCDesc.HitManager AssignedHitManager;
+	internal global::CCDesc.HitManager AssignedHitManager;
 
-	// Token: 0x02000274 RID: 628
+	// Token: 0x020002A9 RID: 681
 	public struct HeightModification
 	{
-		// Token: 0x170006A8 RID: 1704
-		// (get) Token: 0x060016ED RID: 5869 RVA: 0x00057310 File Offset: 0x00055510
+		// Token: 0x170006F2 RID: 1778
+		// (get) Token: 0x0600184B RID: 6219 RVA: 0x0005B758 File Offset: 0x00059958
 		public float bottomDeltaHeight
 		{
 			get
@@ -693,8 +693,8 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006A9 RID: 1705
-		// (get) Token: 0x060016EE RID: 5870 RVA: 0x0005732C File Offset: 0x0005552C
+		// Token: 0x170006F3 RID: 1779
+		// (get) Token: 0x0600184C RID: 6220 RVA: 0x0005B774 File Offset: 0x00059974
 		public float topDeltaHeight
 		{
 			get
@@ -703,29 +703,29 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04000BA8 RID: 2984
-		public CCDesc.HeightModification.State original;
+		// Token: 0x04000CCE RID: 3278
+		public global::CCDesc.HeightModification.State original;
 
-		// Token: 0x04000BA9 RID: 2985
-		public CCDesc.HeightModification.State modified;
+		// Token: 0x04000CCF RID: 3279
+		public global::CCDesc.HeightModification.State modified;
 
-		// Token: 0x04000BAA RID: 2986
-		public CCDesc.HeightModification.State delta;
+		// Token: 0x04000CD0 RID: 3280
+		public global::CCDesc.HeightModification.State delta;
 
-		// Token: 0x04000BAB RID: 2987
+		// Token: 0x04000CD1 RID: 3281
 		public float scale;
 
-		// Token: 0x04000BAC RID: 2988
+		// Token: 0x04000CD2 RID: 3282
 		public bool differed;
 
-		// Token: 0x04000BAD RID: 2989
+		// Token: 0x04000CD3 RID: 3283
 		public bool applied;
 
-		// Token: 0x02000275 RID: 629
+		// Token: 0x020002AA RID: 682
 		public struct State
 		{
-			// Token: 0x170006AA RID: 1706
-			// (get) Token: 0x060016EF RID: 5871 RVA: 0x00057348 File Offset: 0x00055548
+			// Token: 0x170006F4 RID: 1780
+			// (get) Token: 0x0600184D RID: 6221 RVA: 0x0005B790 File Offset: 0x00059990
 			public float skinnedBottomY
 			{
 				get
@@ -734,8 +734,8 @@ public sealed class CCDesc : MonoBehaviour
 				}
 			}
 
-			// Token: 0x170006AB RID: 1707
-			// (get) Token: 0x060016F0 RID: 5872 RVA: 0x00057364 File Offset: 0x00055564
+			// Token: 0x170006F5 RID: 1781
+			// (get) Token: 0x0600184E RID: 6222 RVA: 0x0005B7AC File Offset: 0x000599AC
 			public float skinnedTopY
 			{
 				get
@@ -744,25 +744,25 @@ public sealed class CCDesc : MonoBehaviour
 				}
 			}
 
-			// Token: 0x04000BAE RID: 2990
+			// Token: 0x04000CD4 RID: 3284
 			public float effectiveSkinnedHeight;
 
-			// Token: 0x04000BAF RID: 2991
+			// Token: 0x04000CD5 RID: 3285
 			public Vector3 center;
 		}
 	}
 
-	// Token: 0x02000276 RID: 630
+	// Token: 0x020002AB RID: 683
 	public struct Hit
 	{
-		// Token: 0x060016F1 RID: 5873 RVA: 0x00057380 File Offset: 0x00055580
+		// Token: 0x0600184F RID: 6223 RVA: 0x0005B7C8 File Offset: 0x000599C8
 		public Hit(ControllerColliderHit ControllerColliderHit)
 		{
 			this.CharacterController = ControllerColliderHit.controller;
-			CCDesc s_CurrentMovingCCDesc = CCDesc.s_CurrentMovingCCDesc;
+			global::CCDesc s_CurrentMovingCCDesc = global::CCDesc.s_CurrentMovingCCDesc;
 			if (!s_CurrentMovingCCDesc || s_CurrentMovingCCDesc.collider != this.CharacterController)
 			{
-				this.CCDesc = this.CharacterController.GetComponent<CCDesc>();
+				this.CCDesc = this.CharacterController.GetComponent<global::CCDesc>();
 			}
 			else
 			{
@@ -775,8 +775,8 @@ public sealed class CCDesc : MonoBehaviour
 			this.MoveLength = ControllerColliderHit.moveLength;
 		}
 
-		// Token: 0x170006AC RID: 1708
-		// (get) Token: 0x060016F2 RID: 5874 RVA: 0x0005741C File Offset: 0x0005561C
+		// Token: 0x170006F6 RID: 1782
+		// (get) Token: 0x06001850 RID: 6224 RVA: 0x0005B864 File Offset: 0x00059A64
 		public GameObject GameObject
 		{
 			get
@@ -785,8 +785,8 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006AD RID: 1709
-		// (get) Token: 0x060016F3 RID: 5875 RVA: 0x00057450 File Offset: 0x00055650
+		// Token: 0x170006F7 RID: 1783
+		// (get) Token: 0x06001851 RID: 6225 RVA: 0x0005B898 File Offset: 0x00059A98
 		public Transform Transform
 		{
 			get
@@ -795,8 +795,8 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006AE RID: 1710
-		// (get) Token: 0x060016F4 RID: 5876 RVA: 0x00057474 File Offset: 0x00055674
+		// Token: 0x170006F8 RID: 1784
+		// (get) Token: 0x06001852 RID: 6226 RVA: 0x0005B8BC File Offset: 0x00059ABC
 		public Rigidbody Rigidbody
 		{
 			get
@@ -805,50 +805,50 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04000BB0 RID: 2992
+		// Token: 0x04000CD6 RID: 3286
 		public readonly CharacterController CharacterController;
 
-		// Token: 0x04000BB1 RID: 2993
-		public readonly CCDesc CCDesc;
+		// Token: 0x04000CD7 RID: 3287
+		public readonly global::CCDesc CCDesc;
 
-		// Token: 0x04000BB2 RID: 2994
+		// Token: 0x04000CD8 RID: 3288
 		public readonly Collider Collider;
 
-		// Token: 0x04000BB3 RID: 2995
+		// Token: 0x04000CD9 RID: 3289
 		public readonly Vector3 Point;
 
-		// Token: 0x04000BB4 RID: 2996
+		// Token: 0x04000CDA RID: 3290
 		public readonly Vector3 Normal;
 
-		// Token: 0x04000BB5 RID: 2997
+		// Token: 0x04000CDB RID: 3291
 		public readonly Vector3 MoveDirection;
 
-		// Token: 0x04000BB6 RID: 2998
+		// Token: 0x04000CDC RID: 3292
 		public readonly float MoveLength;
 	}
 
-	// Token: 0x02000277 RID: 631
+	// Token: 0x020002AC RID: 684
 	public class HitManager : IDisposable
 	{
-		// Token: 0x060016F5 RID: 5877 RVA: 0x00057498 File Offset: 0x00055698
+		// Token: 0x06001853 RID: 6227 RVA: 0x0005B8E0 File Offset: 0x00059AE0
 		public HitManager(int bufferSize)
 		{
 			this.bufferSize = bufferSize;
-			this.buffer = new CCDesc.Hit[bufferSize];
+			this.buffer = new global::CCDesc.Hit[bufferSize];
 			this.filledCount = 0;
 		}
 
-		// Token: 0x060016F6 RID: 5878 RVA: 0x000574C8 File Offset: 0x000556C8
+		// Token: 0x06001854 RID: 6228 RVA: 0x0005B910 File Offset: 0x00059B10
 		public HitManager() : this(8)
 		{
 		}
 
 		// Token: 0x1400000B RID: 11
-		// (add) Token: 0x060016F7 RID: 5879 RVA: 0x000574D4 File Offset: 0x000556D4
-		// (remove) Token: 0x060016F8 RID: 5880 RVA: 0x000574F0 File Offset: 0x000556F0
-		public event CCDesc.HitFilter OnHit;
+		// (add) Token: 0x06001855 RID: 6229 RVA: 0x0005B91C File Offset: 0x00059B1C
+		// (remove) Token: 0x06001856 RID: 6230 RVA: 0x0005B938 File Offset: 0x00059B38
+		public event global::CCDesc.HitFilter OnHit;
 
-		// Token: 0x060016F9 RID: 5881 RVA: 0x0005750C File Offset: 0x0005570C
+		// Token: 0x06001857 RID: 6231 RVA: 0x0005B954 File Offset: 0x00059B54
 		public bool Push(ControllerColliderHit cchit)
 		{
 			if (this.issuingEvent)
@@ -858,21 +858,21 @@ public sealed class CCDesc : MonoBehaviour
 			}
 			if (!object.ReferenceEquals(cchit, null))
 			{
-				CCDesc.Hit hit = new CCDesc.Hit(cchit);
+				global::CCDesc.Hit hit = new global::CCDesc.Hit(cchit);
 				return this.Push(ref hit);
 			}
 			return false;
 		}
 
-		// Token: 0x060016FA RID: 5882 RVA: 0x00057550 File Offset: 0x00055750
-		public bool Push(ref CCDesc.Hit evnt)
+		// Token: 0x06001858 RID: 6232 RVA: 0x0005B998 File Offset: 0x00059B98
+		public bool Push(ref global::CCDesc.Hit evnt)
 		{
 			if (this.issuingEvent)
 			{
 				Debug.LogError("Push during event call back");
 				return false;
 			}
-			CCDesc.HitFilter onHit = this.OnHit;
+			global::CCDesc.HitFilter onHit = this.OnHit;
 			if (onHit != null)
 			{
 				bool flag = false;
@@ -904,30 +904,30 @@ public sealed class CCDesc : MonoBehaviour
 				while (this.filledCount > this.bufferSize);
 				if (this.filledCount > 1)
 				{
-					CCDesc.Hit[] sourceArray = this.buffer;
-					this.buffer = new CCDesc.Hit[this.bufferSize];
+					global::CCDesc.Hit[] sourceArray = this.buffer;
+					this.buffer = new global::CCDesc.Hit[this.bufferSize];
 					Array.Copy(sourceArray, this.buffer, this.filledCount - 1);
 				}
 				else
 				{
-					this.buffer = new CCDesc.Hit[this.bufferSize];
+					this.buffer = new global::CCDesc.Hit[this.bufferSize];
 				}
 			}
 			this.buffer[num] = evnt;
 			return true;
 		}
 
-		// Token: 0x060016FB RID: 5883 RVA: 0x00057698 File Offset: 0x00055898
+		// Token: 0x06001859 RID: 6233 RVA: 0x0005BAE0 File Offset: 0x00059CE0
 		public void Clear()
 		{
 			while (this.filledCount > 0)
 			{
-				this.buffer[--this.filledCount] = default(CCDesc.Hit);
+				this.buffer[--this.filledCount] = default(global::CCDesc.Hit);
 			}
 		}
 
-		// Token: 0x170006AF RID: 1711
-		// (get) Token: 0x060016FC RID: 5884 RVA: 0x000576E0 File Offset: 0x000558E0
+		// Token: 0x170006F9 RID: 1785
+		// (get) Token: 0x0600185A RID: 6234 RVA: 0x0005BB28 File Offset: 0x00059D28
 		public int Count
 		{
 			get
@@ -936,8 +936,8 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006B0 RID: 1712
-		public CCDesc.Hit this[int i]
+		// Token: 0x170006FA RID: 1786
+		public global::CCDesc.Hit this[int i]
 		{
 			get
 			{
@@ -949,15 +949,15 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060016FE RID: 5886 RVA: 0x0005771C File Offset: 0x0005591C
+		// Token: 0x0600185C RID: 6236 RVA: 0x0005BB64 File Offset: 0x00059D64
 		public void Dispose()
 		{
 			this.buffer = null;
 			this.OnHit = null;
 		}
 
-		// Token: 0x060016FF RID: 5887 RVA: 0x0005772C File Offset: 0x0005592C
-		public void CopyTo(CCDesc.Hit[] array, int startIndex = 0)
+		// Token: 0x0600185D RID: 6237 RVA: 0x0005BB74 File Offset: 0x00059D74
+		public void CopyTo(global::CCDesc.Hit[] array, int startIndex = 0)
 		{
 			for (int i = 0; i < this.filledCount; i++)
 			{
@@ -965,31 +965,31 @@ public sealed class CCDesc : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06001700 RID: 5888 RVA: 0x00057774 File Offset: 0x00055974
-		public CCDesc.Hit[] ToArray()
+		// Token: 0x0600185E RID: 6238 RVA: 0x0005BBBC File Offset: 0x00059DBC
+		public global::CCDesc.Hit[] ToArray()
 		{
-			CCDesc.Hit[] array = new CCDesc.Hit[this.filledCount];
+			global::CCDesc.Hit[] array = new global::CCDesc.Hit[this.filledCount];
 			this.CopyTo(array, 0);
 			return array;
 		}
 
-		// Token: 0x04000BB7 RID: 2999
-		private CCDesc.Hit[] buffer;
+		// Token: 0x04000CDD RID: 3293
+		private global::CCDesc.Hit[] buffer;
 
-		// Token: 0x04000BB8 RID: 3000
+		// Token: 0x04000CDE RID: 3294
 		private int bufferSize;
 
-		// Token: 0x04000BB9 RID: 3001
+		// Token: 0x04000CDF RID: 3295
 		private int filledCount;
 
-		// Token: 0x04000BBA RID: 3002
+		// Token: 0x04000CE0 RID: 3296
 		private bool issuingEvent;
 
-		// Token: 0x04000BBB RID: 3003
+		// Token: 0x04000CE1 RID: 3297
 		public object Tag;
 	}
 
-	// Token: 0x02000869 RID: 2153
-	// (Invoke) Token: 0x06004B7C RID: 19324
-	public delegate bool HitFilter(CCDesc.HitManager hitManager, ref CCDesc.Hit hit);
+	// Token: 0x020002AD RID: 685
+	// (Invoke) Token: 0x06001860 RID: 6240
+	public delegate bool HitFilter(global::CCDesc.HitManager hitManager, ref global::CCDesc.Hit hit);
 }

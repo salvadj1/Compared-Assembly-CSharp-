@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020002F2 RID: 754
+// Token: 0x02000399 RID: 921
 public sealed class NGCView : MonoBehaviour
 {
 	// Token: 0x1400000F RID: 15
-	// (add) Token: 0x06001A7C RID: 6780 RVA: 0x000693C4 File Offset: 0x000675C4
-	// (remove) Token: 0x06001A7D RID: 6781 RVA: 0x00069400 File Offset: 0x00067600
-	public event NGC.EventCallback OnPreDestroy
+	// (add) Token: 0x06001DB6 RID: 7606 RVA: 0x0006DE44 File Offset: 0x0006C044
+	// (remove) Token: 0x06001DB7 RID: 7607 RVA: 0x0006DE80 File Offset: 0x0006C080
+	public event global::NGC.EventCallback OnPreDestroy
 	{
 		add
 		{
@@ -19,941 +19,941 @@ public sealed class NGCView : MonoBehaviour
 			}
 			else
 			{
-				this.onPreDestroy = (NGC.EventCallback)Delegate.Combine(this.onPreDestroy, value);
+				this.onPreDestroy = (global::NGC.EventCallback)Delegate.Combine(this.onPreDestroy, value);
 			}
 		}
 		remove
 		{
-			this.onPreDestroy = (NGC.EventCallback)Delegate.Remove(this.onPreDestroy, value);
+			this.onPreDestroy = (global::NGC.EventCallback)Delegate.Remove(this.onPreDestroy, value);
 		}
 	}
 
-	// Token: 0x06001A7E RID: 6782 RVA: 0x0006941C File Offset: 0x0006761C
-	public void RPC<P0, P1>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1)
+	// Token: 0x06001DB8 RID: 7608 RVA: 0x0006DE9C File Offset: 0x0006C09C
+	public void RPC<P0, P1>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1)
 	{
-		this.RPC<P0, P1>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1>(p0, p1));
+		this.RPC<P0, P1>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1>(p0, p1));
 	}
 
-	// Token: 0x06001A7F RID: 6783 RVA: 0x00069430 File Offset: 0x00067630
-	public void RPC<P0, P1>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1>.Block block)
+	// Token: 0x06001DB9 RID: 7609 RVA: 0x0006DEB0 File Offset: 0x0006C0B0
+	public void RPC<P0, P1>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001A80 RID: 6784 RVA: 0x0006945C File Offset: 0x0006765C
-	public void RPC<P0, P1>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1)
+	// Token: 0x06001DBA RID: 7610 RVA: 0x0006DEDC File Offset: 0x0006C0DC
+	public void RPC<P0, P1>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1)
 	{
-		this.RPC<P0, P1>(flags, messageName, target, NGC.BlockArgs<P0, P1>(p0, p1));
+		this.RPC<P0, P1>(flags, messageName, target, global::NGC.BlockArgs<P0, P1>(p0, p1));
 	}
 
-	// Token: 0x06001A81 RID: 6785 RVA: 0x00069470 File Offset: 0x00067670
-	public void RPC<P0, P1>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1>.Block block)
+	// Token: 0x06001DBB RID: 7611 RVA: 0x0006DEF0 File Offset: 0x0006C0F0
+	public void RPC<P0, P1>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001A82 RID: 6786 RVA: 0x0006949C File Offset: 0x0006769C
-	public void RPC<P0, P1>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1)
+	// Token: 0x06001DBC RID: 7612 RVA: 0x0006DF1C File Offset: 0x0006C11C
+	public void RPC<P0, P1>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1)
 	{
-		this.RPC<P0, P1>(flags, messageName, targets, NGC.BlockArgs<P0, P1>(p0, p1));
+		this.RPC<P0, P1>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1>(p0, p1));
 	}
 
-	// Token: 0x06001A83 RID: 6787 RVA: 0x000694B0 File Offset: 0x000676B0
-	public void RPC<P0, P1>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1>.Block block)
+	// Token: 0x06001DBD RID: 7613 RVA: 0x0006DF30 File Offset: 0x0006C130
+	public void RPC<P0, P1>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001A84 RID: 6788 RVA: 0x000694DC File Offset: 0x000676DC
-	public void RPC<P0, P1>(string messageName, RPCMode rpcMode, P0 p0, P1 p1)
+	// Token: 0x06001DBE RID: 7614 RVA: 0x0006DF5C File Offset: 0x0006C15C
+	public void RPC<P0, P1>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1)
 	{
-		this.RPC<P0, P1>(messageName, rpcMode, NGC.BlockArgs<P0, P1>(p0, p1));
+		this.RPC<P0, P1>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1>(p0, p1));
 	}
 
-	// Token: 0x06001A85 RID: 6789 RVA: 0x000694F0 File Offset: 0x000676F0
-	public void RPC<P0, P1>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1>.Block block)
+	// Token: 0x06001DBF RID: 7615 RVA: 0x0006DF70 File Offset: 0x0006C170
+	public void RPC<P0, P1>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001A86 RID: 6790 RVA: 0x0006951C File Offset: 0x0006771C
-	public void RPC<P0, P1>(string messageName, NetworkPlayer target, P0 p0, P1 p1)
+	// Token: 0x06001DC0 RID: 7616 RVA: 0x0006DF9C File Offset: 0x0006C19C
+	public void RPC<P0, P1>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1)
 	{
-		this.RPC<P0, P1>(messageName, target, NGC.BlockArgs<P0, P1>(p0, p1));
+		this.RPC<P0, P1>(messageName, target, global::NGC.BlockArgs<P0, P1>(p0, p1));
 	}
 
-	// Token: 0x06001A87 RID: 6791 RVA: 0x00069530 File Offset: 0x00067730
-	public void RPC<P0, P1>(string messageName, NetworkPlayer target, NGC.callf<P0, P1>.Block block)
+	// Token: 0x06001DC1 RID: 7617 RVA: 0x0006DFB0 File Offset: 0x0006C1B0
+	public void RPC<P0, P1>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001A88 RID: 6792 RVA: 0x0006955C File Offset: 0x0006775C
-	public void RPC<P0, P1>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1)
+	// Token: 0x06001DC2 RID: 7618 RVA: 0x0006DFDC File Offset: 0x0006C1DC
+	public void RPC<P0, P1>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1)
 	{
-		this.RPC<P0, P1>(messageName, targets, NGC.BlockArgs<P0, P1>(p0, p1));
+		this.RPC<P0, P1>(messageName, targets, global::NGC.BlockArgs<P0, P1>(p0, p1));
 	}
 
-	// Token: 0x06001A89 RID: 6793 RVA: 0x00069570 File Offset: 0x00067770
-	public void RPC<P0, P1>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1>.Block block)
+	// Token: 0x06001DC3 RID: 7619 RVA: 0x0006DFF0 File Offset: 0x0006C1F0
+	public void RPC<P0, P1>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001A8A RID: 6794 RVA: 0x0006959C File Offset: 0x0006779C
-	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2)
+	// Token: 0x06001DC4 RID: 7620 RVA: 0x0006E01C File Offset: 0x0006C21C
+	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2)
 	{
-		this.RPC<P0, P1, P2>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
+		this.RPC<P0, P1, P2>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
 	}
 
-	// Token: 0x06001A8B RID: 6795 RVA: 0x000695B4 File Offset: 0x000677B4
-	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2>.Block block)
+	// Token: 0x06001DC5 RID: 7621 RVA: 0x0006E034 File Offset: 0x0006C234
+	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001A8C RID: 6796 RVA: 0x000695E0 File Offset: 0x000677E0
-	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2)
+	// Token: 0x06001DC6 RID: 7622 RVA: 0x0006E060 File Offset: 0x0006C260
+	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2)
 	{
-		this.RPC<P0, P1, P2>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
+		this.RPC<P0, P1, P2>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
 	}
 
-	// Token: 0x06001A8D RID: 6797 RVA: 0x000695F8 File Offset: 0x000677F8
-	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2>.Block block)
+	// Token: 0x06001DC7 RID: 7623 RVA: 0x0006E078 File Offset: 0x0006C278
+	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001A8E RID: 6798 RVA: 0x00069624 File Offset: 0x00067824
-	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2)
+	// Token: 0x06001DC8 RID: 7624 RVA: 0x0006E0A4 File Offset: 0x0006C2A4
+	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2)
 	{
-		this.RPC<P0, P1, P2>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
+		this.RPC<P0, P1, P2>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
 	}
 
-	// Token: 0x06001A8F RID: 6799 RVA: 0x0006963C File Offset: 0x0006783C
-	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2>.Block block)
+	// Token: 0x06001DC9 RID: 7625 RVA: 0x0006E0BC File Offset: 0x0006C2BC
+	public void RPC<P0, P1, P2>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001A90 RID: 6800 RVA: 0x00069668 File Offset: 0x00067868
-	public void RPC<P0, P1, P2>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2)
+	// Token: 0x06001DCA RID: 7626 RVA: 0x0006E0E8 File Offset: 0x0006C2E8
+	public void RPC<P0, P1, P2>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2)
 	{
-		this.RPC<P0, P1, P2>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
+		this.RPC<P0, P1, P2>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
 	}
 
-	// Token: 0x06001A91 RID: 6801 RVA: 0x0006967C File Offset: 0x0006787C
-	public void RPC<P0, P1, P2>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2>.Block block)
+	// Token: 0x06001DCB RID: 7627 RVA: 0x0006E0FC File Offset: 0x0006C2FC
+	public void RPC<P0, P1, P2>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001A92 RID: 6802 RVA: 0x000696A8 File Offset: 0x000678A8
-	public void RPC<P0, P1, P2>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2)
+	// Token: 0x06001DCC RID: 7628 RVA: 0x0006E128 File Offset: 0x0006C328
+	public void RPC<P0, P1, P2>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2)
 	{
-		this.RPC<P0, P1, P2>(messageName, target, NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
+		this.RPC<P0, P1, P2>(messageName, target, global::NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
 	}
 
-	// Token: 0x06001A93 RID: 6803 RVA: 0x000696BC File Offset: 0x000678BC
-	public void RPC<P0, P1, P2>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2>.Block block)
+	// Token: 0x06001DCD RID: 7629 RVA: 0x0006E13C File Offset: 0x0006C33C
+	public void RPC<P0, P1, P2>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001A94 RID: 6804 RVA: 0x000696E8 File Offset: 0x000678E8
-	public void RPC<P0, P1, P2>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2)
+	// Token: 0x06001DCE RID: 7630 RVA: 0x0006E168 File Offset: 0x0006C368
+	public void RPC<P0, P1, P2>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2)
 	{
-		this.RPC<P0, P1, P2>(messageName, targets, NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
+		this.RPC<P0, P1, P2>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2>(p0, p1, p2));
 	}
 
-	// Token: 0x06001A95 RID: 6805 RVA: 0x000696FC File Offset: 0x000678FC
-	public void RPC<P0, P1, P2>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2>.Block block)
+	// Token: 0x06001DCF RID: 7631 RVA: 0x0006E17C File Offset: 0x0006C37C
+	public void RPC<P0, P1, P2>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001A96 RID: 6806 RVA: 0x00069728 File Offset: 0x00067928
-	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3)
+	// Token: 0x06001DD0 RID: 7632 RVA: 0x0006E1A8 File Offset: 0x0006C3A8
+	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3)
 	{
-		this.RPC<P0, P1, P2, P3>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
+		this.RPC<P0, P1, P2, P3>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
 	}
 
-	// Token: 0x06001A97 RID: 6807 RVA: 0x0006974C File Offset: 0x0006794C
-	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3>.Block block)
+	// Token: 0x06001DD1 RID: 7633 RVA: 0x0006E1CC File Offset: 0x0006C3CC
+	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001A98 RID: 6808 RVA: 0x00069778 File Offset: 0x00067978
-	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3)
+	// Token: 0x06001DD2 RID: 7634 RVA: 0x0006E1F8 File Offset: 0x0006C3F8
+	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3)
 	{
-		this.RPC<P0, P1, P2, P3>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
+		this.RPC<P0, P1, P2, P3>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
 	}
 
-	// Token: 0x06001A99 RID: 6809 RVA: 0x0006979C File Offset: 0x0006799C
-	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3>.Block block)
+	// Token: 0x06001DD3 RID: 7635 RVA: 0x0006E21C File Offset: 0x0006C41C
+	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001A9A RID: 6810 RVA: 0x000697C8 File Offset: 0x000679C8
-	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3)
+	// Token: 0x06001DD4 RID: 7636 RVA: 0x0006E248 File Offset: 0x0006C448
+	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3)
 	{
-		this.RPC<P0, P1, P2, P3>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
+		this.RPC<P0, P1, P2, P3>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
 	}
 
-	// Token: 0x06001A9B RID: 6811 RVA: 0x000697EC File Offset: 0x000679EC
-	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3>.Block block)
+	// Token: 0x06001DD5 RID: 7637 RVA: 0x0006E26C File Offset: 0x0006C46C
+	public void RPC<P0, P1, P2, P3>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001A9C RID: 6812 RVA: 0x00069818 File Offset: 0x00067A18
-	public void RPC<P0, P1, P2, P3>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3)
+	// Token: 0x06001DD6 RID: 7638 RVA: 0x0006E298 File Offset: 0x0006C498
+	public void RPC<P0, P1, P2, P3>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3)
 	{
-		this.RPC<P0, P1, P2, P3>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
+		this.RPC<P0, P1, P2, P3>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
 	}
 
-	// Token: 0x06001A9D RID: 6813 RVA: 0x00069830 File Offset: 0x00067A30
-	public void RPC<P0, P1, P2, P3>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3>.Block block)
+	// Token: 0x06001DD7 RID: 7639 RVA: 0x0006E2B0 File Offset: 0x0006C4B0
+	public void RPC<P0, P1, P2, P3>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001A9E RID: 6814 RVA: 0x0006985C File Offset: 0x00067A5C
-	public void RPC<P0, P1, P2, P3>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3)
+	// Token: 0x06001DD8 RID: 7640 RVA: 0x0006E2DC File Offset: 0x0006C4DC
+	public void RPC<P0, P1, P2, P3>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3)
 	{
-		this.RPC<P0, P1, P2, P3>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
+		this.RPC<P0, P1, P2, P3>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
 	}
 
-	// Token: 0x06001A9F RID: 6815 RVA: 0x00069874 File Offset: 0x00067A74
-	public void RPC<P0, P1, P2, P3>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3>.Block block)
+	// Token: 0x06001DD9 RID: 7641 RVA: 0x0006E2F4 File Offset: 0x0006C4F4
+	public void RPC<P0, P1, P2, P3>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AA0 RID: 6816 RVA: 0x000698A0 File Offset: 0x00067AA0
-	public void RPC<P0, P1, P2, P3>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3)
+	// Token: 0x06001DDA RID: 7642 RVA: 0x0006E320 File Offset: 0x0006C520
+	public void RPC<P0, P1, P2, P3>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3)
 	{
-		this.RPC<P0, P1, P2, P3>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
+		this.RPC<P0, P1, P2, P3>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3>(p0, p1, p2, p3));
 	}
 
-	// Token: 0x06001AA1 RID: 6817 RVA: 0x000698B8 File Offset: 0x00067AB8
-	public void RPC<P0, P1, P2, P3>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3>.Block block)
+	// Token: 0x06001DDB RID: 7643 RVA: 0x0006E338 File Offset: 0x0006C538
+	public void RPC<P0, P1, P2, P3>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AA2 RID: 6818 RVA: 0x000698E4 File Offset: 0x00067AE4
-	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
+	// Token: 0x06001DDC RID: 7644 RVA: 0x0006E364 File Offset: 0x0006C564
+	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
 	{
-		this.RPC<P0, P1, P2, P3, P4>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
+		this.RPC<P0, P1, P2, P3, P4>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
 	}
 
-	// Token: 0x06001AA3 RID: 6819 RVA: 0x0006990C File Offset: 0x00067B0C
-	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4>.Block block)
+	// Token: 0x06001DDD RID: 7645 RVA: 0x0006E38C File Offset: 0x0006C58C
+	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AA4 RID: 6820 RVA: 0x00069938 File Offset: 0x00067B38
-	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
+	// Token: 0x06001DDE RID: 7646 RVA: 0x0006E3B8 File Offset: 0x0006C5B8
+	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
 	{
-		this.RPC<P0, P1, P2, P3, P4>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
+		this.RPC<P0, P1, P2, P3, P4>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
 	}
 
-	// Token: 0x06001AA5 RID: 6821 RVA: 0x00069960 File Offset: 0x00067B60
-	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4>.Block block)
+	// Token: 0x06001DDF RID: 7647 RVA: 0x0006E3E0 File Offset: 0x0006C5E0
+	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AA6 RID: 6822 RVA: 0x0006998C File Offset: 0x00067B8C
-	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
+	// Token: 0x06001DE0 RID: 7648 RVA: 0x0006E40C File Offset: 0x0006C60C
+	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
 	{
-		this.RPC<P0, P1, P2, P3, P4>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
+		this.RPC<P0, P1, P2, P3, P4>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
 	}
 
-	// Token: 0x06001AA7 RID: 6823 RVA: 0x000699B4 File Offset: 0x00067BB4
-	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4>.Block block)
+	// Token: 0x06001DE1 RID: 7649 RVA: 0x0006E434 File Offset: 0x0006C634
+	public void RPC<P0, P1, P2, P3, P4>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AA8 RID: 6824 RVA: 0x000699E0 File Offset: 0x00067BE0
-	public void RPC<P0, P1, P2, P3, P4>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
+	// Token: 0x06001DE2 RID: 7650 RVA: 0x0006E460 File Offset: 0x0006C660
+	public void RPC<P0, P1, P2, P3, P4>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
 	{
-		this.RPC<P0, P1, P2, P3, P4>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
+		this.RPC<P0, P1, P2, P3, P4>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
 	}
 
-	// Token: 0x06001AA9 RID: 6825 RVA: 0x00069A04 File Offset: 0x00067C04
-	public void RPC<P0, P1, P2, P3, P4>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4>.Block block)
+	// Token: 0x06001DE3 RID: 7651 RVA: 0x0006E484 File Offset: 0x0006C684
+	public void RPC<P0, P1, P2, P3, P4>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AAA RID: 6826 RVA: 0x00069A30 File Offset: 0x00067C30
-	public void RPC<P0, P1, P2, P3, P4>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
+	// Token: 0x06001DE4 RID: 7652 RVA: 0x0006E4B0 File Offset: 0x0006C6B0
+	public void RPC<P0, P1, P2, P3, P4>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
 	{
-		this.RPC<P0, P1, P2, P3, P4>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
+		this.RPC<P0, P1, P2, P3, P4>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
 	}
 
-	// Token: 0x06001AAB RID: 6827 RVA: 0x00069A54 File Offset: 0x00067C54
-	public void RPC<P0, P1, P2, P3, P4>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4>.Block block)
+	// Token: 0x06001DE5 RID: 7653 RVA: 0x0006E4D4 File Offset: 0x0006C6D4
+	public void RPC<P0, P1, P2, P3, P4>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AAC RID: 6828 RVA: 0x00069A80 File Offset: 0x00067C80
-	public void RPC<P0, P1, P2, P3, P4>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
+	// Token: 0x06001DE6 RID: 7654 RVA: 0x0006E500 File Offset: 0x0006C700
+	public void RPC<P0, P1, P2, P3, P4>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
 	{
-		this.RPC<P0, P1, P2, P3, P4>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
+		this.RPC<P0, P1, P2, P3, P4>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4>(p0, p1, p2, p3, p4));
 	}
 
-	// Token: 0x06001AAD RID: 6829 RVA: 0x00069AA4 File Offset: 0x00067CA4
-	public void RPC<P0, P1, P2, P3, P4>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4>.Block block)
+	// Token: 0x06001DE7 RID: 7655 RVA: 0x0006E524 File Offset: 0x0006C724
+	public void RPC<P0, P1, P2, P3, P4>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AAE RID: 6830 RVA: 0x00069AD0 File Offset: 0x00067CD0
-	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
+	// Token: 0x06001DE8 RID: 7656 RVA: 0x0006E550 File Offset: 0x0006C750
+	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
+		this.RPC<P0, P1, P2, P3, P4, P5>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
 	}
 
-	// Token: 0x06001AAF RID: 6831 RVA: 0x00069AF8 File Offset: 0x00067CF8
-	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
+	// Token: 0x06001DE9 RID: 7657 RVA: 0x0006E578 File Offset: 0x0006C778
+	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AB0 RID: 6832 RVA: 0x00069B24 File Offset: 0x00067D24
-	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
+	// Token: 0x06001DEA RID: 7658 RVA: 0x0006E5A4 File Offset: 0x0006C7A4
+	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
+		this.RPC<P0, P1, P2, P3, P4, P5>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
 	}
 
-	// Token: 0x06001AB1 RID: 6833 RVA: 0x00069B4C File Offset: 0x00067D4C
-	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
+	// Token: 0x06001DEB RID: 7659 RVA: 0x0006E5CC File Offset: 0x0006C7CC
+	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AB2 RID: 6834 RVA: 0x00069B78 File Offset: 0x00067D78
-	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
+	// Token: 0x06001DEC RID: 7660 RVA: 0x0006E5F8 File Offset: 0x0006C7F8
+	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
+		this.RPC<P0, P1, P2, P3, P4, P5>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
 	}
 
-	// Token: 0x06001AB3 RID: 6835 RVA: 0x00069BA0 File Offset: 0x00067DA0
-	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
+	// Token: 0x06001DED RID: 7661 RVA: 0x0006E620 File Offset: 0x0006C820
+	public void RPC<P0, P1, P2, P3, P4, P5>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AB4 RID: 6836 RVA: 0x00069BCC File Offset: 0x00067DCC
-	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
+	// Token: 0x06001DEE RID: 7662 RVA: 0x0006E64C File Offset: 0x0006C84C
+	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
+		this.RPC<P0, P1, P2, P3, P4, P5>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
 	}
 
-	// Token: 0x06001AB5 RID: 6837 RVA: 0x00069BF4 File Offset: 0x00067DF4
-	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
+	// Token: 0x06001DEF RID: 7663 RVA: 0x0006E674 File Offset: 0x0006C874
+	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AB6 RID: 6838 RVA: 0x00069C20 File Offset: 0x00067E20
-	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
+	// Token: 0x06001DF0 RID: 7664 RVA: 0x0006E6A0 File Offset: 0x0006C8A0
+	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
+		this.RPC<P0, P1, P2, P3, P4, P5>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
 	}
 
-	// Token: 0x06001AB7 RID: 6839 RVA: 0x00069C48 File Offset: 0x00067E48
-	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
+	// Token: 0x06001DF1 RID: 7665 RVA: 0x0006E6C8 File Offset: 0x0006C8C8
+	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AB8 RID: 6840 RVA: 0x00069C74 File Offset: 0x00067E74
-	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
+	// Token: 0x06001DF2 RID: 7666 RVA: 0x0006E6F4 File Offset: 0x0006C8F4
+	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
+		this.RPC<P0, P1, P2, P3, P4, P5>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5>(p0, p1, p2, p3, p4, p5));
 	}
 
-	// Token: 0x06001AB9 RID: 6841 RVA: 0x00069C9C File Offset: 0x00067E9C
-	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
+	// Token: 0x06001DF3 RID: 7667 RVA: 0x0006E71C File Offset: 0x0006C91C
+	public void RPC<P0, P1, P2, P3, P4, P5>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001ABA RID: 6842 RVA: 0x00069CC8 File Offset: 0x00067EC8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
+	// Token: 0x06001DF4 RID: 7668 RVA: 0x0006E748 File Offset: 0x0006C948
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
 	}
 
-	// Token: 0x06001ABB RID: 6843 RVA: 0x00069CF4 File Offset: 0x00067EF4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
+	// Token: 0x06001DF5 RID: 7669 RVA: 0x0006E774 File Offset: 0x0006C974
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001ABC RID: 6844 RVA: 0x00069D20 File Offset: 0x00067F20
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
+	// Token: 0x06001DF6 RID: 7670 RVA: 0x0006E7A0 File Offset: 0x0006C9A0
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
 	}
 
-	// Token: 0x06001ABD RID: 6845 RVA: 0x00069D4C File Offset: 0x00067F4C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
+	// Token: 0x06001DF7 RID: 7671 RVA: 0x0006E7CC File Offset: 0x0006C9CC
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001ABE RID: 6846 RVA: 0x00069D78 File Offset: 0x00067F78
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
+	// Token: 0x06001DF8 RID: 7672 RVA: 0x0006E7F8 File Offset: 0x0006C9F8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
 	}
 
-	// Token: 0x06001ABF RID: 6847 RVA: 0x00069DA4 File Offset: 0x00067FA4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
+	// Token: 0x06001DF9 RID: 7673 RVA: 0x0006E824 File Offset: 0x0006CA24
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AC0 RID: 6848 RVA: 0x00069DD0 File Offset: 0x00067FD0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
+	// Token: 0x06001DFA RID: 7674 RVA: 0x0006E850 File Offset: 0x0006CA50
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
 	}
 
-	// Token: 0x06001AC1 RID: 6849 RVA: 0x00069DF8 File Offset: 0x00067FF8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
+	// Token: 0x06001DFB RID: 7675 RVA: 0x0006E878 File Offset: 0x0006CA78
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AC2 RID: 6850 RVA: 0x00069E24 File Offset: 0x00068024
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
+	// Token: 0x06001DFC RID: 7676 RVA: 0x0006E8A4 File Offset: 0x0006CAA4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
 	}
 
-	// Token: 0x06001AC3 RID: 6851 RVA: 0x00069E4C File Offset: 0x0006804C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
+	// Token: 0x06001DFD RID: 7677 RVA: 0x0006E8CC File Offset: 0x0006CACC
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AC4 RID: 6852 RVA: 0x00069E78 File Offset: 0x00068078
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
+	// Token: 0x06001DFE RID: 7678 RVA: 0x0006E8F8 File Offset: 0x0006CAF8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6>(p0, p1, p2, p3, p4, p5, p6));
 	}
 
-	// Token: 0x06001AC5 RID: 6853 RVA: 0x00069EA0 File Offset: 0x000680A0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
+	// Token: 0x06001DFF RID: 7679 RVA: 0x0006E920 File Offset: 0x0006CB20
+	public void RPC<P0, P1, P2, P3, P4, P5, P6>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AC6 RID: 6854 RVA: 0x00069ECC File Offset: 0x000680CC
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
+	// Token: 0x06001E00 RID: 7680 RVA: 0x0006E94C File Offset: 0x0006CB4C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
 	}
 
-	// Token: 0x06001AC7 RID: 6855 RVA: 0x00069EF8 File Offset: 0x000680F8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
+	// Token: 0x06001E01 RID: 7681 RVA: 0x0006E978 File Offset: 0x0006CB78
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AC8 RID: 6856 RVA: 0x00069F24 File Offset: 0x00068124
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
+	// Token: 0x06001E02 RID: 7682 RVA: 0x0006E9A4 File Offset: 0x0006CBA4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
 	}
 
-	// Token: 0x06001AC9 RID: 6857 RVA: 0x00069F50 File Offset: 0x00068150
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
+	// Token: 0x06001E03 RID: 7683 RVA: 0x0006E9D0 File Offset: 0x0006CBD0
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001ACA RID: 6858 RVA: 0x00069F7C File Offset: 0x0006817C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
+	// Token: 0x06001E04 RID: 7684 RVA: 0x0006E9FC File Offset: 0x0006CBFC
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
 	}
 
-	// Token: 0x06001ACB RID: 6859 RVA: 0x00069FA8 File Offset: 0x000681A8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
+	// Token: 0x06001E05 RID: 7685 RVA: 0x0006EA28 File Offset: 0x0006CC28
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001ACC RID: 6860 RVA: 0x00069FD4 File Offset: 0x000681D4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
+	// Token: 0x06001E06 RID: 7686 RVA: 0x0006EA54 File Offset: 0x0006CC54
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
 	}
 
-	// Token: 0x06001ACD RID: 6861 RVA: 0x0006A000 File Offset: 0x00068200
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
+	// Token: 0x06001E07 RID: 7687 RVA: 0x0006EA80 File Offset: 0x0006CC80
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001ACE RID: 6862 RVA: 0x0006A02C File Offset: 0x0006822C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
+	// Token: 0x06001E08 RID: 7688 RVA: 0x0006EAAC File Offset: 0x0006CCAC
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
 	}
 
-	// Token: 0x06001ACF RID: 6863 RVA: 0x0006A058 File Offset: 0x00068258
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
+	// Token: 0x06001E09 RID: 7689 RVA: 0x0006EAD8 File Offset: 0x0006CCD8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AD0 RID: 6864 RVA: 0x0006A084 File Offset: 0x00068284
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
+	// Token: 0x06001E0A RID: 7690 RVA: 0x0006EB04 File Offset: 0x0006CD04
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(p0, p1, p2, p3, p4, p5, p6, p7));
 	}
 
-	// Token: 0x06001AD1 RID: 6865 RVA: 0x0006A0B0 File Offset: 0x000682B0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
+	// Token: 0x06001E0B RID: 7691 RVA: 0x0006EB30 File Offset: 0x0006CD30
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AD2 RID: 6866 RVA: 0x0006A0DC File Offset: 0x000682DC
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
+	// Token: 0x06001E0C RID: 7692 RVA: 0x0006EB5C File Offset: 0x0006CD5C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
 	}
 
-	// Token: 0x06001AD3 RID: 6867 RVA: 0x0006A10C File Offset: 0x0006830C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
+	// Token: 0x06001E0D RID: 7693 RVA: 0x0006EB8C File Offset: 0x0006CD8C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AD4 RID: 6868 RVA: 0x0006A138 File Offset: 0x00068338
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
+	// Token: 0x06001E0E RID: 7694 RVA: 0x0006EBB8 File Offset: 0x0006CDB8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
 	}
 
-	// Token: 0x06001AD5 RID: 6869 RVA: 0x0006A168 File Offset: 0x00068368
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
+	// Token: 0x06001E0F RID: 7695 RVA: 0x0006EBE8 File Offset: 0x0006CDE8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AD6 RID: 6870 RVA: 0x0006A194 File Offset: 0x00068394
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
+	// Token: 0x06001E10 RID: 7696 RVA: 0x0006EC14 File Offset: 0x0006CE14
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
 	}
 
-	// Token: 0x06001AD7 RID: 6871 RVA: 0x0006A1C4 File Offset: 0x000683C4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
+	// Token: 0x06001E11 RID: 7697 RVA: 0x0006EC44 File Offset: 0x0006CE44
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AD8 RID: 6872 RVA: 0x0006A1F0 File Offset: 0x000683F0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
+	// Token: 0x06001E12 RID: 7698 RVA: 0x0006EC70 File Offset: 0x0006CE70
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
 	}
 
-	// Token: 0x06001AD9 RID: 6873 RVA: 0x0006A21C File Offset: 0x0006841C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
+	// Token: 0x06001E13 RID: 7699 RVA: 0x0006EC9C File Offset: 0x0006CE9C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001ADA RID: 6874 RVA: 0x0006A248 File Offset: 0x00068448
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
+	// Token: 0x06001E14 RID: 7700 RVA: 0x0006ECC8 File Offset: 0x0006CEC8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
 	}
 
-	// Token: 0x06001ADB RID: 6875 RVA: 0x0006A274 File Offset: 0x00068474
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
+	// Token: 0x06001E15 RID: 7701 RVA: 0x0006ECF4 File Offset: 0x0006CEF4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001ADC RID: 6876 RVA: 0x0006A2A0 File Offset: 0x000684A0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
+	// Token: 0x06001E16 RID: 7702 RVA: 0x0006ED20 File Offset: 0x0006CF20
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(p0, p1, p2, p3, p4, p5, p6, p7, p8));
 	}
 
-	// Token: 0x06001ADD RID: 6877 RVA: 0x0006A2CC File Offset: 0x000684CC
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
+	// Token: 0x06001E17 RID: 7703 RVA: 0x0006ED4C File Offset: 0x0006CF4C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001ADE RID: 6878 RVA: 0x0006A2F8 File Offset: 0x000684F8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
+	// Token: 0x06001E18 RID: 7704 RVA: 0x0006ED78 File Offset: 0x0006CF78
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
 	}
 
-	// Token: 0x06001ADF RID: 6879 RVA: 0x0006A328 File Offset: 0x00068528
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
+	// Token: 0x06001E19 RID: 7705 RVA: 0x0006EDA8 File Offset: 0x0006CFA8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AE0 RID: 6880 RVA: 0x0006A354 File Offset: 0x00068554
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
+	// Token: 0x06001E1A RID: 7706 RVA: 0x0006EDD4 File Offset: 0x0006CFD4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
 	}
 
-	// Token: 0x06001AE1 RID: 6881 RVA: 0x0006A384 File Offset: 0x00068584
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
+	// Token: 0x06001E1B RID: 7707 RVA: 0x0006EE04 File Offset: 0x0006D004
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AE2 RID: 6882 RVA: 0x0006A3B0 File Offset: 0x000685B0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
+	// Token: 0x06001E1C RID: 7708 RVA: 0x0006EE30 File Offset: 0x0006D030
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
 	}
 
-	// Token: 0x06001AE3 RID: 6883 RVA: 0x0006A3E0 File Offset: 0x000685E0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
+	// Token: 0x06001E1D RID: 7709 RVA: 0x0006EE60 File Offset: 0x0006D060
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AE4 RID: 6884 RVA: 0x0006A40C File Offset: 0x0006860C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
+	// Token: 0x06001E1E RID: 7710 RVA: 0x0006EE8C File Offset: 0x0006D08C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
 	}
 
-	// Token: 0x06001AE5 RID: 6885 RVA: 0x0006A43C File Offset: 0x0006863C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
+	// Token: 0x06001E1F RID: 7711 RVA: 0x0006EEBC File Offset: 0x0006D0BC
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AE6 RID: 6886 RVA: 0x0006A468 File Offset: 0x00068668
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
+	// Token: 0x06001E20 RID: 7712 RVA: 0x0006EEE8 File Offset: 0x0006D0E8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
 	}
 
-	// Token: 0x06001AE7 RID: 6887 RVA: 0x0006A498 File Offset: 0x00068698
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
+	// Token: 0x06001E21 RID: 7713 RVA: 0x0006EF18 File Offset: 0x0006D118
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AE8 RID: 6888 RVA: 0x0006A4C4 File Offset: 0x000686C4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
+	// Token: 0x06001E22 RID: 7714 RVA: 0x0006EF44 File Offset: 0x0006D144
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9));
 	}
 
-	// Token: 0x06001AE9 RID: 6889 RVA: 0x0006A4F4 File Offset: 0x000686F4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
+	// Token: 0x06001E23 RID: 7715 RVA: 0x0006EF74 File Offset: 0x0006D174
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AEA RID: 6890 RVA: 0x0006A520 File Offset: 0x00068720
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
+	// Token: 0x06001E24 RID: 7716 RVA: 0x0006EFA0 File Offset: 0x0006D1A0
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 	}
 
-	// Token: 0x06001AEB RID: 6891 RVA: 0x0006A554 File Offset: 0x00068754
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
+	// Token: 0x06001E25 RID: 7717 RVA: 0x0006EFD4 File Offset: 0x0006D1D4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AEC RID: 6892 RVA: 0x0006A580 File Offset: 0x00068780
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
+	// Token: 0x06001E26 RID: 7718 RVA: 0x0006F000 File Offset: 0x0006D200
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 	}
 
-	// Token: 0x06001AED RID: 6893 RVA: 0x0006A5B4 File Offset: 0x000687B4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
+	// Token: 0x06001E27 RID: 7719 RVA: 0x0006F034 File Offset: 0x0006D234
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AEE RID: 6894 RVA: 0x0006A5E0 File Offset: 0x000687E0
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
+	// Token: 0x06001E28 RID: 7720 RVA: 0x0006F060 File Offset: 0x0006D260
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 	}
 
-	// Token: 0x06001AEF RID: 6895 RVA: 0x0006A614 File Offset: 0x00068814
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
+	// Token: 0x06001E29 RID: 7721 RVA: 0x0006F094 File Offset: 0x0006D294
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AF0 RID: 6896 RVA: 0x0006A640 File Offset: 0x00068840
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
+	// Token: 0x06001E2A RID: 7722 RVA: 0x0006F0C0 File Offset: 0x0006D2C0
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 	}
 
-	// Token: 0x06001AF1 RID: 6897 RVA: 0x0006A670 File Offset: 0x00068870
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
+	// Token: 0x06001E2B RID: 7723 RVA: 0x0006F0F0 File Offset: 0x0006D2F0
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AF2 RID: 6898 RVA: 0x0006A69C File Offset: 0x0006889C
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
+	// Token: 0x06001E2C RID: 7724 RVA: 0x0006F11C File Offset: 0x0006D31C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 	}
 
-	// Token: 0x06001AF3 RID: 6899 RVA: 0x0006A6CC File Offset: 0x000688CC
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
+	// Token: 0x06001E2D RID: 7725 RVA: 0x0006F14C File Offset: 0x0006D34C
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AF4 RID: 6900 RVA: 0x0006A6F8 File Offset: 0x000688F8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
+	// Token: 0x06001E2E RID: 7726 RVA: 0x0006F178 File Offset: 0x0006D378
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10));
 	}
 
-	// Token: 0x06001AF5 RID: 6901 RVA: 0x0006A728 File Offset: 0x00068928
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
+	// Token: 0x06001E2F RID: 7727 RVA: 0x0006F1A8 File Offset: 0x0006D3A8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AF6 RID: 6902 RVA: 0x0006A754 File Offset: 0x00068954
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
+	// Token: 0x06001E30 RID: 7728 RVA: 0x0006F1D4 File Offset: 0x0006D3D4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(flags, messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(flags, messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 	}
 
-	// Token: 0x06001AF7 RID: 6903 RVA: 0x0006A788 File Offset: 0x00068988
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
+	// Token: 0x06001E31 RID: 7729 RVA: 0x0006F208 File Offset: 0x0006D408
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AF8 RID: 6904 RVA: 0x0006A7B4 File Offset: 0x000689B4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
+	// Token: 0x06001E32 RID: 7730 RVA: 0x0006F234 File Offset: 0x0006D434
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(flags, messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(flags, messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 	}
 
-	// Token: 0x06001AF9 RID: 6905 RVA: 0x0006A7E8 File Offset: 0x000689E8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
+	// Token: 0x06001E33 RID: 7731 RVA: 0x0006F268 File Offset: 0x0006D468
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, target, bitStream);
 	}
 
-	// Token: 0x06001AFA RID: 6906 RVA: 0x0006A814 File Offset: 0x00068A14
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
+	// Token: 0x06001E34 RID: 7732 RVA: 0x0006F294 File Offset: 0x0006D494
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(flags, messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(flags, messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 	}
 
-	// Token: 0x06001AFB RID: 6907 RVA: 0x0006A848 File Offset: 0x00068A48
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
+	// Token: 0x06001E35 RID: 7733 RVA: 0x0006F2C8 File Offset: 0x0006D4C8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(NetworkFlags flags, string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
 		this.RPC_Stream(flags, messageName, targets, bitStream);
 	}
 
-	// Token: 0x06001AFC RID: 6908 RVA: 0x0006A874 File Offset: 0x00068A74
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
+	// Token: 0x06001E36 RID: 7734 RVA: 0x0006F2F4 File Offset: 0x0006D4F4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, uLink.RPCMode rpcMode, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(messageName, rpcMode, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(messageName, rpcMode, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 	}
 
-	// Token: 0x06001AFD RID: 6909 RVA: 0x0006A8A8 File Offset: 0x00068AA8
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, RPCMode rpcMode, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
+	// Token: 0x06001E37 RID: 7735 RVA: 0x0006F328 File Offset: 0x0006D528
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, uLink.RPCMode rpcMode, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, rpcMode, bitStream);
 	}
 
-	// Token: 0x06001AFE RID: 6910 RVA: 0x0006A8D4 File Offset: 0x00068AD4
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
+	// Token: 0x06001E38 RID: 7736 RVA: 0x0006F354 File Offset: 0x0006D554
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, uLink.NetworkPlayer target, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(messageName, target, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(messageName, target, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 	}
 
-	// Token: 0x06001AFF RID: 6911 RVA: 0x0006A908 File Offset: 0x00068B08
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, NetworkPlayer target, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
+	// Token: 0x06001E39 RID: 7737 RVA: 0x0006F388 File Offset: 0x0006D588
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, uLink.NetworkPlayer target, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, target, bitStream);
 	}
 
-	// Token: 0x06001B00 RID: 6912 RVA: 0x0006A934 File Offset: 0x00068B34
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, IEnumerable<NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
+	// Token: 0x06001E3A RID: 7738 RVA: 0x0006F3B4 File Offset: 0x0006D5B4
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
 	{
-		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(messageName, targets, NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
+		this.RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(messageName, targets, global::NGC.BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11));
 	}
 
-	// Token: 0x06001B01 RID: 6913 RVA: 0x0006A968 File Offset: 0x00068B68
-	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, IEnumerable<NetworkPlayer> targets, NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
+	// Token: 0x06001E3B RID: 7739 RVA: 0x0006F3E8 File Offset: 0x0006D5E8
+	public void RPC<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(string messageName, IEnumerable<uLink.NetworkPlayer> targets, global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block)
 	{
 		BitStream bitStream = new BitStream(false);
-		bitStream.Write<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
+		bitStream.Write<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(block, new object[0]);
 		this.RPC_Stream(messageName, targets, bitStream);
 	}
 
-	// Token: 0x17000752 RID: 1874
-	// (get) Token: 0x06001B02 RID: 6914 RVA: 0x0006A994 File Offset: 0x00068B94
+	// Token: 0x170007A8 RID: 1960
+	// (get) Token: 0x06001E3C RID: 7740 RVA: 0x0006F414 File Offset: 0x0006D614
 	internal int id
 	{
 		get
@@ -962,22 +962,22 @@ public sealed class NGCView : MonoBehaviour
 			{
 				return 0;
 			}
-			return NGC.PackID((int)this.outer.groupNumber, (int)this.innerID);
+			return global::NGC.PackID((int)this.outer.groupNumber, (int)this.innerID);
 		}
 	}
 
-	// Token: 0x17000753 RID: 1875
-	// (get) Token: 0x06001B03 RID: 6915 RVA: 0x0006A9D8 File Offset: 0x00068BD8
-	public NetEntityID entityID
+	// Token: 0x170007A9 RID: 1961
+	// (get) Token: 0x06001E3D RID: 7741 RVA: 0x0006F458 File Offset: 0x0006D658
+	public global::NetEntityID entityID
 	{
 		get
 		{
-			return new NetEntityID(this);
+			return new global::NetEntityID(this);
 		}
 	}
 
-	// Token: 0x17000754 RID: 1876
-	// (get) Token: 0x06001B04 RID: 6916 RVA: 0x0006A9E0 File Offset: 0x00068BE0
+	// Token: 0x170007AA RID: 1962
+	// (get) Token: 0x06001E3E RID: 7742 RVA: 0x0006F460 File Offset: 0x0006D660
 	public Vector3 creationPosition
 	{
 		get
@@ -986,8 +986,8 @@ public sealed class NGCView : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000755 RID: 1877
-	// (get) Token: 0x06001B05 RID: 6917 RVA: 0x0006A9E8 File Offset: 0x00068BE8
+	// Token: 0x170007AB RID: 1963
+	// (get) Token: 0x06001E3F RID: 7743 RVA: 0x0006F468 File Offset: 0x0006D668
 	public Quaternion creationRotation
 	{
 		get
@@ -996,13 +996,13 @@ public sealed class NGCView : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001B06 RID: 6918 RVA: 0x0006A9F0 File Offset: 0x00068BF0
+	// Token: 0x06001E40 RID: 7744 RVA: 0x0006F470 File Offset: 0x0006D670
 	internal void PostInstantiate()
 	{
 		base.BroadcastMessage("NGC_OnInstantiate", this, 1);
 	}
 
-	// Token: 0x06001B07 RID: 6919 RVA: 0x0006AA00 File Offset: 0x00068C00
+	// Token: 0x06001E41 RID: 7745 RVA: 0x0006F480 File Offset: 0x0006D680
 	internal void PreDestroy()
 	{
 		if (!this.preDestroying)
@@ -1010,7 +1010,7 @@ public sealed class NGCView : MonoBehaviour
 			this.preDestroying = true;
 			if (this.onPreDestroy != null)
 			{
-				NGC.EventCallback eventCallback = this.onPreDestroy;
+				global::NGC.EventCallback eventCallback = this.onPreDestroy;
 				this.onPreDestroy = null;
 				try
 				{
@@ -1024,121 +1024,121 @@ public sealed class NGCView : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001B08 RID: 6920 RVA: 0x0006AA6C File Offset: 0x00068C6C
-	private NGC EnsureCall()
+	// Token: 0x06001E42 RID: 7746 RVA: 0x0006F4EC File Offset: 0x0006D6EC
+	private global::NGC EnsureCall()
 	{
 		return this.outer;
 	}
 
-	// Token: 0x06001B09 RID: 6921 RVA: 0x0006AA74 File Offset: 0x00068C74
-	public void RPC(NetworkFlags flags, string message, RPCMode mode)
+	// Token: 0x06001E43 RID: 7747 RVA: 0x0006F4F4 File Offset: 0x0006D6F4
+	public void RPC(NetworkFlags flags, string message, uLink.RPCMode mode)
 	{
 		this.EnsureCall().NGCViewRPC(flags, mode, this, this.prefab.MessageIndex(message), null, 0, 0);
 	}
 
-	// Token: 0x06001B0A RID: 6922 RVA: 0x0006AAA0 File Offset: 0x00068CA0
-	public void RPC(NetworkFlags flags, string message, NetworkPlayer target)
+	// Token: 0x06001E44 RID: 7748 RVA: 0x0006F520 File Offset: 0x0006D720
+	public void RPC(NetworkFlags flags, string message, uLink.NetworkPlayer target)
 	{
 		this.EnsureCall().NGCViewRPC(flags, target, this, this.prefab.MessageIndex(message), null, 0, 0);
 	}
 
-	// Token: 0x06001B0B RID: 6923 RVA: 0x0006AACC File Offset: 0x00068CCC
-	public void RPC(NetworkFlags flags, string message, IEnumerable<NetworkPlayer> target)
+	// Token: 0x06001E45 RID: 7749 RVA: 0x0006F54C File Offset: 0x0006D74C
+	public void RPC(NetworkFlags flags, string message, IEnumerable<uLink.NetworkPlayer> target)
 	{
 		this.EnsureCall().NGCViewRPC(flags, target, this, this.prefab.MessageIndex(message), null, 0, 0);
 	}
 
-	// Token: 0x06001B0C RID: 6924 RVA: 0x0006AAF8 File Offset: 0x00068CF8
-	public void RPC(string message, RPCMode mode)
+	// Token: 0x06001E46 RID: 7750 RVA: 0x0006F578 File Offset: 0x0006D778
+	public void RPC(string message, uLink.RPCMode mode)
 	{
 		this.EnsureCall().NGCViewRPC(mode, this, this.prefab.MessageIndex(message), null, 0, 0);
 	}
 
-	// Token: 0x06001B0D RID: 6925 RVA: 0x0006AB24 File Offset: 0x00068D24
-	public void RPC(string message, NetworkPlayer target)
+	// Token: 0x06001E47 RID: 7751 RVA: 0x0006F5A4 File Offset: 0x0006D7A4
+	public void RPC(string message, uLink.NetworkPlayer target)
 	{
 		this.EnsureCall().NGCViewRPC(target, this, this.prefab.MessageIndex(message), null, 0, 0);
 	}
 
-	// Token: 0x06001B0E RID: 6926 RVA: 0x0006AB50 File Offset: 0x00068D50
-	public void RPC(string message, IEnumerable<NetworkPlayer> target)
+	// Token: 0x06001E48 RID: 7752 RVA: 0x0006F5D0 File Offset: 0x0006D7D0
+	public void RPC(string message, IEnumerable<uLink.NetworkPlayer> target)
 	{
 		this.EnsureCall().NGCViewRPC(target, this, this.prefab.MessageIndex(message), null, 0, 0);
 	}
 
-	// Token: 0x06001B0F RID: 6927 RVA: 0x0006AB7C File Offset: 0x00068D7C
-	public void RPC_Bytes(NetworkFlags flags, string message, RPCMode mode, byte[] data)
+	// Token: 0x06001E49 RID: 7753 RVA: 0x0006F5FC File Offset: 0x0006D7FC
+	public void RPC_Bytes(NetworkFlags flags, string message, uLink.RPCMode mode, byte[] data)
 	{
 		this.EnsureCall().NGCViewRPC(flags, mode, this, this.prefab.MessageIndex(message), data, 0, (data != null) ? data.Length : 0);
 	}
 
-	// Token: 0x06001B10 RID: 6928 RVA: 0x0006ABB8 File Offset: 0x00068DB8
-	public void RPC_Bytes(NetworkFlags flags, string message, NetworkPlayer target, byte[] data)
+	// Token: 0x06001E4A RID: 7754 RVA: 0x0006F638 File Offset: 0x0006D838
+	public void RPC_Bytes(NetworkFlags flags, string message, uLink.NetworkPlayer target, byte[] data)
 	{
 		this.EnsureCall().NGCViewRPC(flags, target, this, this.prefab.MessageIndex(message), data, 0, (data != null) ? data.Length : 0);
 	}
 
-	// Token: 0x06001B11 RID: 6929 RVA: 0x0006ABF4 File Offset: 0x00068DF4
-	public void RPC_Bytes(NetworkFlags flags, string message, IEnumerable<NetworkPlayer> target, byte[] data)
+	// Token: 0x06001E4B RID: 7755 RVA: 0x0006F674 File Offset: 0x0006D874
+	public void RPC_Bytes(NetworkFlags flags, string message, IEnumerable<uLink.NetworkPlayer> target, byte[] data)
 	{
 		this.EnsureCall().NGCViewRPC(flags, target, this, this.prefab.MessageIndex(message), data, 0, (data != null) ? data.Length : 0);
 	}
 
-	// Token: 0x06001B12 RID: 6930 RVA: 0x0006AC30 File Offset: 0x00068E30
-	public void RPC_Bytes(string message, RPCMode mode, byte[] data)
+	// Token: 0x06001E4C RID: 7756 RVA: 0x0006F6B0 File Offset: 0x0006D8B0
+	public void RPC_Bytes(string message, uLink.RPCMode mode, byte[] data)
 	{
 		this.EnsureCall().NGCViewRPC(mode, this, this.prefab.MessageIndex(message), data, 0, (data != null) ? data.Length : 0);
 	}
 
-	// Token: 0x06001B13 RID: 6931 RVA: 0x0006AC68 File Offset: 0x00068E68
-	public void RPC_Bytes(string message, NetworkPlayer target, byte[] data)
+	// Token: 0x06001E4D RID: 7757 RVA: 0x0006F6E8 File Offset: 0x0006D8E8
+	public void RPC_Bytes(string message, uLink.NetworkPlayer target, byte[] data)
 	{
 		this.EnsureCall().NGCViewRPC(target, this, this.prefab.MessageIndex(message), data, 0, (data != null) ? data.Length : 0);
 	}
 
-	// Token: 0x06001B14 RID: 6932 RVA: 0x0006ACA0 File Offset: 0x00068EA0
-	public void RPC_Bytes(string message, IEnumerable<NetworkPlayer> target, byte[] data)
+	// Token: 0x06001E4E RID: 7758 RVA: 0x0006F720 File Offset: 0x0006D920
+	public void RPC_Bytes(string message, IEnumerable<uLink.NetworkPlayer> target, byte[] data)
 	{
 		this.EnsureCall().NGCViewRPC(target, this, this.prefab.MessageIndex(message), data, 0, (data != null) ? data.Length : 0);
 	}
 
-	// Token: 0x06001B15 RID: 6933 RVA: 0x0006ACD8 File Offset: 0x00068ED8
-	public void RPC_Stream(NetworkFlags flags, string message, RPCMode mode, BitStream data)
+	// Token: 0x06001E4F RID: 7759 RVA: 0x0006F758 File Offset: 0x0006D958
+	public void RPC_Stream(NetworkFlags flags, string message, uLink.RPCMode mode, BitStream data)
 	{
 		this.RPC_Bytes(flags, message, mode, data.GetDataByteArray());
 	}
 
-	// Token: 0x06001B16 RID: 6934 RVA: 0x0006ACEC File Offset: 0x00068EEC
-	public void RPC_Stream(NetworkFlags flags, string message, NetworkPlayer target, BitStream data)
+	// Token: 0x06001E50 RID: 7760 RVA: 0x0006F76C File Offset: 0x0006D96C
+	public void RPC_Stream(NetworkFlags flags, string message, uLink.NetworkPlayer target, BitStream data)
 	{
 		this.RPC_Bytes(flags, message, target, data.GetDataByteArray());
 	}
 
-	// Token: 0x06001B17 RID: 6935 RVA: 0x0006AD00 File Offset: 0x00068F00
-	public void RPC_Stream(NetworkFlags flags, string message, IEnumerable<NetworkPlayer> target, BitStream data)
+	// Token: 0x06001E51 RID: 7761 RVA: 0x0006F780 File Offset: 0x0006D980
+	public void RPC_Stream(NetworkFlags flags, string message, IEnumerable<uLink.NetworkPlayer> target, BitStream data)
 	{
 		this.RPC_Bytes(flags, message, target, data.GetDataByteArray());
 	}
 
-	// Token: 0x06001B18 RID: 6936 RVA: 0x0006AD14 File Offset: 0x00068F14
-	public void RPC_Stream(string message, RPCMode mode, BitStream data)
+	// Token: 0x06001E52 RID: 7762 RVA: 0x0006F794 File Offset: 0x0006D994
+	public void RPC_Stream(string message, uLink.RPCMode mode, BitStream data)
 	{
 		this.RPC_Bytes(message, mode, data.GetDataByteArray());
 	}
 
-	// Token: 0x06001B19 RID: 6937 RVA: 0x0006AD24 File Offset: 0x00068F24
-	public void RPC_Stream(string message, NetworkPlayer target, BitStream data)
+	// Token: 0x06001E53 RID: 7763 RVA: 0x0006F7A4 File Offset: 0x0006D9A4
+	public void RPC_Stream(string message, uLink.NetworkPlayer target, BitStream data)
 	{
 		this.RPC_Bytes(message, target, data.GetDataByteArray());
 	}
 
-	// Token: 0x06001B1A RID: 6938 RVA: 0x0006AD34 File Offset: 0x00068F34
-	public void RPC_Stream(string message, IEnumerable<NetworkPlayer> target, BitStream data)
+	// Token: 0x06001E54 RID: 7764 RVA: 0x0006F7B4 File Offset: 0x0006D9B4
+	public void RPC_Stream(string message, IEnumerable<uLink.NetworkPlayer> target, BitStream data)
 	{
 		this.RPC_Bytes(message, target, data.GetDataByteArray());
 	}
 
-	// Token: 0x06001B1B RID: 6939 RVA: 0x0006AD44 File Offset: 0x00068F44
+	// Token: 0x06001E55 RID: 7765 RVA: 0x0006F7C4 File Offset: 0x0006D9C4
 	private static BitStream ToStream<T>(T arg)
 	{
 		BitStream bitStream = new BitStream(false);
@@ -1146,89 +1146,89 @@ public sealed class NGCView : MonoBehaviour
 		return bitStream;
 	}
 
-	// Token: 0x06001B1C RID: 6940 RVA: 0x0006AD68 File Offset: 0x00068F68
-	public void RPC<T>(NetworkFlags flags, string message, RPCMode mode, T arg)
+	// Token: 0x06001E56 RID: 7766 RVA: 0x0006F7E8 File Offset: 0x0006D9E8
+	public void RPC<T>(NetworkFlags flags, string message, uLink.RPCMode mode, T arg)
 	{
-		this.RPC_Stream(flags, message, mode, NGCView.ToStream<T>(arg));
+		this.RPC_Stream(flags, message, mode, global::NGCView.ToStream<T>(arg));
 	}
 
-	// Token: 0x06001B1D RID: 6941 RVA: 0x0006AD7C File Offset: 0x00068F7C
-	public void RPC<T>(NetworkFlags flags, string message, NetworkPlayer target, T arg)
+	// Token: 0x06001E57 RID: 7767 RVA: 0x0006F7FC File Offset: 0x0006D9FC
+	public void RPC<T>(NetworkFlags flags, string message, uLink.NetworkPlayer target, T arg)
 	{
-		this.RPC_Stream(flags, message, target, NGCView.ToStream<T>(arg));
+		this.RPC_Stream(flags, message, target, global::NGCView.ToStream<T>(arg));
 	}
 
-	// Token: 0x06001B1E RID: 6942 RVA: 0x0006AD90 File Offset: 0x00068F90
-	public void RPC<T>(NetworkFlags flags, string message, IEnumerable<NetworkPlayer> target, T arg)
+	// Token: 0x06001E58 RID: 7768 RVA: 0x0006F810 File Offset: 0x0006DA10
+	public void RPC<T>(NetworkFlags flags, string message, IEnumerable<uLink.NetworkPlayer> target, T arg)
 	{
-		this.RPC_Stream(flags, message, target, NGCView.ToStream<T>(arg));
+		this.RPC_Stream(flags, message, target, global::NGCView.ToStream<T>(arg));
 	}
 
-	// Token: 0x06001B1F RID: 6943 RVA: 0x0006ADA4 File Offset: 0x00068FA4
-	public void RPC<T>(string message, RPCMode mode, T arg)
+	// Token: 0x06001E59 RID: 7769 RVA: 0x0006F824 File Offset: 0x0006DA24
+	public void RPC<T>(string message, uLink.RPCMode mode, T arg)
 	{
-		this.RPC_Stream(message, mode, NGCView.ToStream<T>(arg));
+		this.RPC_Stream(message, mode, global::NGCView.ToStream<T>(arg));
 	}
 
-	// Token: 0x06001B20 RID: 6944 RVA: 0x0006ADB4 File Offset: 0x00068FB4
-	public void RPC<T>(string message, NetworkPlayer target, T arg)
+	// Token: 0x06001E5A RID: 7770 RVA: 0x0006F834 File Offset: 0x0006DA34
+	public void RPC<T>(string message, uLink.NetworkPlayer target, T arg)
 	{
-		this.RPC_Stream(message, target, NGCView.ToStream<T>(arg));
+		this.RPC_Stream(message, target, global::NGCView.ToStream<T>(arg));
 	}
 
-	// Token: 0x06001B21 RID: 6945 RVA: 0x0006ADC4 File Offset: 0x00068FC4
-	public void RPC<T>(string message, IEnumerable<NetworkPlayer> target, T arg)
+	// Token: 0x06001E5B RID: 7771 RVA: 0x0006F844 File Offset: 0x0006DA44
+	public void RPC<T>(string message, IEnumerable<uLink.NetworkPlayer> target, T arg)
 	{
-		this.RPC_Stream(message, target, NGCView.ToStream<T>(arg));
+		this.RPC_Stream(message, target, global::NGCView.ToStream<T>(arg));
 	}
 
-	// Token: 0x06001B22 RID: 6946 RVA: 0x0006ADD4 File Offset: 0x00068FD4
-	public static NGCView Find(int id)
+	// Token: 0x06001E5C RID: 7772 RVA: 0x0006F854 File Offset: 0x0006DA54
+	public static global::NGCView Find(int id)
 	{
-		return NGC.Find(id);
+		return global::NGC.Find(id);
 	}
 
-	// Token: 0x04000DE6 RID: 3558
+	// Token: 0x04000F26 RID: 3878
 	[NonSerialized]
-	public NGC.Prefab prefab;
+	public global::NGC.Prefab prefab;
 
-	// Token: 0x04000DE7 RID: 3559
+	// Token: 0x04000F27 RID: 3879
 	[NonSerialized]
-	public NGC outer;
+	public global::NGC outer;
 
-	// Token: 0x04000DE8 RID: 3560
+	// Token: 0x04000F28 RID: 3880
 	[NonSerialized]
 	public ushort innerID;
 
-	// Token: 0x04000DE9 RID: 3561
+	// Token: 0x04000F29 RID: 3881
 	[NonSerialized]
-	public NetworkMessageInfo creation;
+	public uLink.NetworkMessageInfo creation;
 
-	// Token: 0x04000DEA RID: 3562
+	// Token: 0x04000F2A RID: 3882
 	[NonSerialized]
 	public BitStream initialData;
 
-	// Token: 0x04000DEB RID: 3563
+	// Token: 0x04000F2B RID: 3883
 	[SerializeField]
 	internal MonoBehaviour[] scripts;
 
-	// Token: 0x04000DEC RID: 3564
+	// Token: 0x04000F2C RID: 3884
 	[NonSerialized]
-	internal NGC.Prefab.Installation.Instance install;
+	internal global::NGC.Prefab.Installation.Instance install;
 
-	// Token: 0x04000DED RID: 3565
+	// Token: 0x04000F2D RID: 3885
 	[NonSerialized]
 	internal Vector3 spawnPosition;
 
-	// Token: 0x04000DEE RID: 3566
+	// Token: 0x04000F2E RID: 3886
 	[NonSerialized]
 	internal Quaternion spawnRotation;
 
-	// Token: 0x04000DEF RID: 3567
+	// Token: 0x04000F2F RID: 3887
 	[NonSerialized]
-	private NGC.EventCallback onPreDestroy;
+	private global::NGC.EventCallback onPreDestroy;
 
-	// Token: 0x04000DF0 RID: 3568
+	// Token: 0x04000F30 RID: 3888
 	[NonSerialized]
 	private bool preDestroying;
 }

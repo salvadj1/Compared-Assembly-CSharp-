@@ -2,10 +2,10 @@
 using Facepunch.Geometry;
 using UnityEngine;
 
-// Token: 0x0200028A RID: 650
+// Token: 0x020002C1 RID: 705
 public class CCPusher : MonoBehaviour
 {
-	// Token: 0x0600177F RID: 6015 RVA: 0x0005B07C File Offset: 0x0005927C
+	// Token: 0x060018E7 RID: 6375 RVA: 0x0005F5D0 File Offset: 0x0005D7D0
 	private void OnDrawGizmosSelected()
 	{
 		Collider collider = base.collider;
@@ -15,13 +15,13 @@ public class CCPusher : MonoBehaviour
 			this.shape.Transform(ColliderUtility.ColliderToWorld(collider)).Gizmo();
 			Matrix4x4 localToWorldMatrix = base.transform.localToWorldMatrix;
 			Gizmos.color = new Color(0.9f, 0.5f, 1f, 0.8f);
-			CCPusher.DrawPushPlane(localToWorldMatrix, this.pushPoint0, this.pushDir0);
+			global::CCPusher.DrawPushPlane(localToWorldMatrix, this.pushPoint0, this.pushDir0);
 			Gizmos.color = new Color(1f, 0.5f, 0.5f, 0.8f);
-			CCPusher.DrawPushPlane(localToWorldMatrix, this.pushPoint1, this.pushDir1);
+			global::CCPusher.DrawPushPlane(localToWorldMatrix, this.pushPoint1, this.pushDir1);
 		}
 	}
 
-	// Token: 0x06001780 RID: 6016 RVA: 0x0005B148 File Offset: 0x00059348
+	// Token: 0x060018E8 RID: 6376 RVA: 0x0005F69C File Offset: 0x0005D89C
 	private static void DrawPushPlane(Matrix4x4 trs, Vector3 point, Vector3 dir)
 	{
 		point = trs.MultiplyPoint3x4(point);
@@ -34,7 +34,7 @@ public class CCPusher : MonoBehaviour
 		Gizmos.matrix = matrix;
 	}
 
-	// Token: 0x06001781 RID: 6017 RVA: 0x0005B1D0 File Offset: 0x000593D0
+	// Token: 0x060018E9 RID: 6377 RVA: 0x0005F724 File Offset: 0x0005D924
 	private void Reset()
 	{
 		if (this.shape == null)
@@ -48,7 +48,7 @@ public class CCPusher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001782 RID: 6018 RVA: 0x0005B224 File Offset: 0x00059424
+	// Token: 0x060018EA RID: 6378 RVA: 0x0005F778 File Offset: 0x0005D978
 	public bool Push(Sphere Sphere, ref Vector3 Velocity)
 	{
 		if (this.shape.Shape.Intersects(Sphere))
@@ -74,27 +74,27 @@ public class CCPusher : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x04000C47 RID: 3143
+	// Token: 0x04000D72 RID: 3442
 	[SerializeField]
 	private ShapeDefinition shape;
 
-	// Token: 0x04000C48 RID: 3144
+	// Token: 0x04000D73 RID: 3443
 	[SerializeField]
 	private Vector3 pushPoint0 = Vector3.forward;
 
-	// Token: 0x04000C49 RID: 3145
+	// Token: 0x04000D74 RID: 3444
 	[SerializeField]
 	private Vector3 pushDir0 = Vector3.back;
 
-	// Token: 0x04000C4A RID: 3146
+	// Token: 0x04000D75 RID: 3445
 	[SerializeField]
 	private Vector3 pushPoint1 = Vector3.back;
 
-	// Token: 0x04000C4B RID: 3147
+	// Token: 0x04000D76 RID: 3446
 	[SerializeField]
 	private Vector3 pushDir1 = Vector3.forward;
 
-	// Token: 0x04000C4C RID: 3148
+	// Token: 0x04000D77 RID: 3447
 	[SerializeField]
 	private float pushSpeed = 3f;
 }

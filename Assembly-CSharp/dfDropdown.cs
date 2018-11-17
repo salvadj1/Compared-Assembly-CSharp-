@@ -1,38 +1,38 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006A9 RID: 1705
-[AddComponentMenu("Daikon Forge/User Interface/Dropdown List")]
-[RequireComponent(typeof(BoxCollider))]
+// Token: 0x02000772 RID: 1906
 [ExecuteInEditMode]
+[RequireComponent(typeof(BoxCollider))]
+[AddComponentMenu("Daikon Forge/User Interface/Dropdown List")]
 [Serializable]
-public class dfDropdown : dfInteractiveBase, IDFMultiRender
+public class dfDropdown : global::dfInteractiveBase, global::IDFMultiRender
 {
 	// Token: 0x14000046 RID: 70
-	// (add) Token: 0x06003C10 RID: 15376 RVA: 0x000E2518 File Offset: 0x000E0718
-	// (remove) Token: 0x06003C11 RID: 15377 RVA: 0x000E2534 File Offset: 0x000E0734
-	public event dfDropdown.PopupEventHandler DropdownOpen;
+	// (add) Token: 0x06004014 RID: 16404 RVA: 0x000EB040 File Offset: 0x000E9240
+	// (remove) Token: 0x06004015 RID: 16405 RVA: 0x000EB05C File Offset: 0x000E925C
+	public event global::dfDropdown.PopupEventHandler DropdownOpen;
 
 	// Token: 0x14000047 RID: 71
-	// (add) Token: 0x06003C12 RID: 15378 RVA: 0x000E2550 File Offset: 0x000E0750
-	// (remove) Token: 0x06003C13 RID: 15379 RVA: 0x000E256C File Offset: 0x000E076C
-	public event dfDropdown.PopupEventHandler DropdownClose;
+	// (add) Token: 0x06004016 RID: 16406 RVA: 0x000EB078 File Offset: 0x000E9278
+	// (remove) Token: 0x06004017 RID: 16407 RVA: 0x000EB094 File Offset: 0x000E9294
+	public event global::dfDropdown.PopupEventHandler DropdownClose;
 
 	// Token: 0x14000048 RID: 72
-	// (add) Token: 0x06003C14 RID: 15380 RVA: 0x000E2588 File Offset: 0x000E0788
-	// (remove) Token: 0x06003C15 RID: 15381 RVA: 0x000E25A4 File Offset: 0x000E07A4
-	public event PropertyChangedEventHandler<int> SelectedIndexChanged;
+	// (add) Token: 0x06004018 RID: 16408 RVA: 0x000EB0B0 File Offset: 0x000E92B0
+	// (remove) Token: 0x06004019 RID: 16409 RVA: 0x000EB0CC File Offset: 0x000E92CC
+	public event global::PropertyChangedEventHandler<int> SelectedIndexChanged;
 
-	// Token: 0x17000B97 RID: 2967
-	// (get) Token: 0x06003C16 RID: 15382 RVA: 0x000E25C0 File Offset: 0x000E07C0
-	// (set) Token: 0x06003C17 RID: 15383 RVA: 0x000E2604 File Offset: 0x000E0804
-	public dfFontBase Font
+	// Token: 0x17000C1B RID: 3099
+	// (get) Token: 0x0600401A RID: 16410 RVA: 0x000EB0E8 File Offset: 0x000E92E8
+	// (set) Token: 0x0600401B RID: 16411 RVA: 0x000EB12C File Offset: 0x000E932C
+	public global::dfFontBase Font
 	{
 		get
 		{
 			if (this.font == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					this.font = manager.DefaultFont;
@@ -51,10 +51,10 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B98 RID: 2968
-	// (get) Token: 0x06003C18 RID: 15384 RVA: 0x000E262C File Offset: 0x000E082C
-	// (set) Token: 0x06003C19 RID: 15385 RVA: 0x000E2634 File Offset: 0x000E0834
-	public dfScrollbar ListScrollbar
+	// Token: 0x17000C1C RID: 3100
+	// (get) Token: 0x0600401C RID: 16412 RVA: 0x000EB154 File Offset: 0x000E9354
+	// (set) Token: 0x0600401D RID: 16413 RVA: 0x000EB15C File Offset: 0x000E935C
+	public global::dfScrollbar ListScrollbar
 	{
 		get
 		{
@@ -70,9 +70,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B99 RID: 2969
-	// (get) Token: 0x06003C1A RID: 15386 RVA: 0x000E2654 File Offset: 0x000E0854
-	// (set) Token: 0x06003C1B RID: 15387 RVA: 0x000E265C File Offset: 0x000E085C
+	// Token: 0x17000C1D RID: 3101
+	// (get) Token: 0x0600401E RID: 16414 RVA: 0x000EB17C File Offset: 0x000E937C
+	// (set) Token: 0x0600401F RID: 16415 RVA: 0x000EB184 File Offset: 0x000E9384
 	public Vector2 ListOffset
 	{
 		get
@@ -89,9 +89,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B9A RID: 2970
-	// (get) Token: 0x06003C1C RID: 15388 RVA: 0x000E2684 File Offset: 0x000E0884
-	// (set) Token: 0x06003C1D RID: 15389 RVA: 0x000E268C File Offset: 0x000E088C
+	// Token: 0x17000C1E RID: 3102
+	// (get) Token: 0x06004020 RID: 16416 RVA: 0x000EB1AC File Offset: 0x000E93AC
+	// (set) Token: 0x06004021 RID: 16417 RVA: 0x000EB1B4 File Offset: 0x000E93B4
 	public string ListBackground
 	{
 		get
@@ -109,9 +109,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B9B RID: 2971
-	// (get) Token: 0x06003C1E RID: 15390 RVA: 0x000E26B4 File Offset: 0x000E08B4
-	// (set) Token: 0x06003C1F RID: 15391 RVA: 0x000E26BC File Offset: 0x000E08BC
+	// Token: 0x17000C1F RID: 3103
+	// (get) Token: 0x06004022 RID: 16418 RVA: 0x000EB1DC File Offset: 0x000E93DC
+	// (set) Token: 0x06004023 RID: 16419 RVA: 0x000EB1E4 File Offset: 0x000E93E4
 	public string ItemHover
 	{
 		get
@@ -128,9 +128,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B9C RID: 2972
-	// (get) Token: 0x06003C20 RID: 15392 RVA: 0x000E26DC File Offset: 0x000E08DC
-	// (set) Token: 0x06003C21 RID: 15393 RVA: 0x000E26E4 File Offset: 0x000E08E4
+	// Token: 0x17000C20 RID: 3104
+	// (get) Token: 0x06004024 RID: 16420 RVA: 0x000EB204 File Offset: 0x000E9404
+	// (set) Token: 0x06004025 RID: 16421 RVA: 0x000EB20C File Offset: 0x000E940C
 	public string ItemHighlight
 	{
 		get
@@ -148,9 +148,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B9D RID: 2973
-	// (get) Token: 0x06003C22 RID: 15394 RVA: 0x000E270C File Offset: 0x000E090C
-	// (set) Token: 0x06003C23 RID: 15395 RVA: 0x000E271C File Offset: 0x000E091C
+	// Token: 0x17000C21 RID: 3105
+	// (get) Token: 0x06004026 RID: 16422 RVA: 0x000EB234 File Offset: 0x000E9434
+	// (set) Token: 0x06004027 RID: 16423 RVA: 0x000EB244 File Offset: 0x000E9444
 	public string SelectedValue
 	{
 		get
@@ -171,9 +171,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B9E RID: 2974
-	// (get) Token: 0x06003C24 RID: 15396 RVA: 0x000E2768 File Offset: 0x000E0968
-	// (set) Token: 0x06003C25 RID: 15397 RVA: 0x000E2770 File Offset: 0x000E0970
+	// Token: 0x17000C22 RID: 3106
+	// (get) Token: 0x06004028 RID: 16424 RVA: 0x000EB290 File Offset: 0x000E9490
+	// (set) Token: 0x06004029 RID: 16425 RVA: 0x000EB298 File Offset: 0x000E9498
 	public int SelectedIndex
 	{
 		get
@@ -197,9 +197,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000B9F RID: 2975
-	// (get) Token: 0x06003C26 RID: 15398 RVA: 0x000E27D4 File Offset: 0x000E09D4
-	// (set) Token: 0x06003C27 RID: 15399 RVA: 0x000E27F4 File Offset: 0x000E09F4
+	// Token: 0x17000C23 RID: 3107
+	// (get) Token: 0x0600402A RID: 16426 RVA: 0x000EB2FC File Offset: 0x000E94FC
+	// (set) Token: 0x0600402B RID: 16427 RVA: 0x000EB31C File Offset: 0x000E951C
 	public RectOffset TextFieldPadding
 	{
 		get
@@ -221,9 +221,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA0 RID: 2976
-	// (get) Token: 0x06003C28 RID: 15400 RVA: 0x000E2828 File Offset: 0x000E0A28
-	// (set) Token: 0x06003C29 RID: 15401 RVA: 0x000E2830 File Offset: 0x000E0A30
+	// Token: 0x17000C24 RID: 3108
+	// (get) Token: 0x0600402C RID: 16428 RVA: 0x000EB350 File Offset: 0x000E9550
+	// (set) Token: 0x0600402D RID: 16429 RVA: 0x000EB358 File Offset: 0x000E9558
 	public Color32 TextColor
 	{
 		get
@@ -238,9 +238,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA1 RID: 2977
-	// (get) Token: 0x06003C2A RID: 15402 RVA: 0x000E2848 File Offset: 0x000E0A48
-	// (set) Token: 0x06003C2B RID: 15403 RVA: 0x000E2850 File Offset: 0x000E0A50
+	// Token: 0x17000C25 RID: 3109
+	// (get) Token: 0x0600402E RID: 16430 RVA: 0x000EB370 File Offset: 0x000E9570
+	// (set) Token: 0x0600402F RID: 16431 RVA: 0x000EB378 File Offset: 0x000E9578
 	public float TextScale
 	{
 		get
@@ -259,9 +259,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA2 RID: 2978
-	// (get) Token: 0x06003C2C RID: 15404 RVA: 0x000E2890 File Offset: 0x000E0A90
-	// (set) Token: 0x06003C2D RID: 15405 RVA: 0x000E2898 File Offset: 0x000E0A98
+	// Token: 0x17000C26 RID: 3110
+	// (get) Token: 0x06004030 RID: 16432 RVA: 0x000EB3B8 File Offset: 0x000E95B8
+	// (set) Token: 0x06004031 RID: 16433 RVA: 0x000EB3C0 File Offset: 0x000E95C0
 	public int ItemHeight
 	{
 		get
@@ -280,9 +280,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA3 RID: 2979
-	// (get) Token: 0x06003C2E RID: 15406 RVA: 0x000E28C4 File Offset: 0x000E0AC4
-	// (set) Token: 0x06003C2F RID: 15407 RVA: 0x000E28E4 File Offset: 0x000E0AE4
+	// Token: 0x17000C27 RID: 3111
+	// (get) Token: 0x06004032 RID: 16434 RVA: 0x000EB3EC File Offset: 0x000E95EC
+	// (set) Token: 0x06004033 RID: 16435 RVA: 0x000EB40C File Offset: 0x000E960C
 	public string[] Items
 	{
 		get
@@ -305,9 +305,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA4 RID: 2980
-	// (get) Token: 0x06003C30 RID: 15408 RVA: 0x000E2914 File Offset: 0x000E0B14
-	// (set) Token: 0x06003C31 RID: 15409 RVA: 0x000E2934 File Offset: 0x000E0B34
+	// Token: 0x17000C28 RID: 3112
+	// (get) Token: 0x06004034 RID: 16436 RVA: 0x000EB43C File Offset: 0x000E963C
+	// (set) Token: 0x06004035 RID: 16437 RVA: 0x000EB45C File Offset: 0x000E965C
 	public RectOffset ListPadding
 	{
 		get
@@ -329,10 +329,10 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA5 RID: 2981
-	// (get) Token: 0x06003C32 RID: 15410 RVA: 0x000E2968 File Offset: 0x000E0B68
-	// (set) Token: 0x06003C33 RID: 15411 RVA: 0x000E2970 File Offset: 0x000E0B70
-	public dfDropdown.PopupListPosition ListPosition
+	// Token: 0x17000C29 RID: 3113
+	// (get) Token: 0x06004036 RID: 16438 RVA: 0x000EB490 File Offset: 0x000E9690
+	// (set) Token: 0x06004037 RID: 16439 RVA: 0x000EB498 File Offset: 0x000E9698
+	public global::dfDropdown.PopupListPosition ListPosition
 	{
 		get
 		{
@@ -349,9 +349,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA6 RID: 2982
-	// (get) Token: 0x06003C34 RID: 15412 RVA: 0x000E29A0 File Offset: 0x000E0BA0
-	// (set) Token: 0x06003C35 RID: 15413 RVA: 0x000E29A8 File Offset: 0x000E0BA8
+	// Token: 0x17000C2A RID: 3114
+	// (get) Token: 0x06004038 RID: 16440 RVA: 0x000EB4C8 File Offset: 0x000E96C8
+	// (set) Token: 0x06004039 RID: 16441 RVA: 0x000EB4D0 File Offset: 0x000E96D0
 	public int MaxListWidth
 	{
 		get
@@ -364,9 +364,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA7 RID: 2983
-	// (get) Token: 0x06003C36 RID: 15414 RVA: 0x000E29B4 File Offset: 0x000E0BB4
-	// (set) Token: 0x06003C37 RID: 15415 RVA: 0x000E29BC File Offset: 0x000E0BBC
+	// Token: 0x17000C2B RID: 3115
+	// (get) Token: 0x0600403A RID: 16442 RVA: 0x000EB4DC File Offset: 0x000E96DC
+	// (set) Token: 0x0600403B RID: 16443 RVA: 0x000EB4E4 File Offset: 0x000E96E4
 	public int MaxListHeight
 	{
 		get
@@ -380,10 +380,10 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA8 RID: 2984
-	// (get) Token: 0x06003C38 RID: 15416 RVA: 0x000E29CC File Offset: 0x000E0BCC
-	// (set) Token: 0x06003C39 RID: 15417 RVA: 0x000E29D4 File Offset: 0x000E0BD4
-	public dfControl TriggerButton
+	// Token: 0x17000C2C RID: 3116
+	// (get) Token: 0x0600403C RID: 16444 RVA: 0x000EB4F4 File Offset: 0x000E96F4
+	// (set) Token: 0x0600403D RID: 16445 RVA: 0x000EB4FC File Offset: 0x000E96FC
+	public global::dfControl TriggerButton
 	{
 		get
 		{
@@ -401,9 +401,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BA9 RID: 2985
-	// (get) Token: 0x06003C3A RID: 15418 RVA: 0x000E2A0C File Offset: 0x000E0C0C
-	// (set) Token: 0x06003C3B RID: 15419 RVA: 0x000E2A14 File Offset: 0x000E0C14
+	// Token: 0x17000C2D RID: 3117
+	// (get) Token: 0x0600403E RID: 16446 RVA: 0x000EB534 File Offset: 0x000E9734
+	// (set) Token: 0x0600403F RID: 16447 RVA: 0x000EB53C File Offset: 0x000E973C
 	public bool OpenOnMouseDown
 	{
 		get
@@ -416,9 +416,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BAA RID: 2986
-	// (get) Token: 0x06003C3C RID: 15420 RVA: 0x000E2A20 File Offset: 0x000E0C20
-	// (set) Token: 0x06003C3D RID: 15421 RVA: 0x000E2A28 File Offset: 0x000E0C28
+	// Token: 0x17000C2E RID: 3118
+	// (get) Token: 0x06004040 RID: 16448 RVA: 0x000EB548 File Offset: 0x000E9748
+	// (set) Token: 0x06004041 RID: 16449 RVA: 0x000EB550 File Offset: 0x000E9750
 	public bool Shadow
 	{
 		get
@@ -435,9 +435,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BAB RID: 2987
-	// (get) Token: 0x06003C3E RID: 15422 RVA: 0x000E2A44 File Offset: 0x000E0C44
-	// (set) Token: 0x06003C3F RID: 15423 RVA: 0x000E2A4C File Offset: 0x000E0C4C
+	// Token: 0x17000C2F RID: 3119
+	// (get) Token: 0x06004042 RID: 16450 RVA: 0x000EB56C File Offset: 0x000E976C
+	// (set) Token: 0x06004043 RID: 16451 RVA: 0x000EB574 File Offset: 0x000E9774
 	public Color32 ShadowColor
 	{
 		get
@@ -454,9 +454,9 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000BAC RID: 2988
-	// (get) Token: 0x06003C40 RID: 15424 RVA: 0x000E2A84 File Offset: 0x000E0C84
-	// (set) Token: 0x06003C41 RID: 15425 RVA: 0x000E2A8C File Offset: 0x000E0C8C
+	// Token: 0x17000C30 RID: 3120
+	// (get) Token: 0x06004044 RID: 16452 RVA: 0x000EB5AC File Offset: 0x000E97AC
+	// (set) Token: 0x06004045 RID: 16453 RVA: 0x000EB5B4 File Offset: 0x000E97B4
 	public Vector2 ShadowOffset
 	{
 		get
@@ -473,18 +473,18 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C42 RID: 15426 RVA: 0x000E2AAC File Offset: 0x000E0CAC
-	protected internal override void OnMouseWheel(dfMouseEventArgs args)
+	// Token: 0x06004046 RID: 16454 RVA: 0x000EB5D4 File Offset: 0x000E97D4
+	protected internal override void OnMouseWheel(global::dfMouseEventArgs args)
 	{
 		this.SelectedIndex = Mathf.Max(0, this.SelectedIndex - Mathf.RoundToInt(args.WheelDelta));
 		args.Use();
 		base.OnMouseWheel(args);
 	}
 
-	// Token: 0x06003C43 RID: 15427 RVA: 0x000E2AE4 File Offset: 0x000E0CE4
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x06004047 RID: 16455 RVA: 0x000EB60C File Offset: 0x000E980C
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
-		if (this.openOnMouseDown && !args.Used && args.Buttons == dfMouseButtons.Left && args.Source == this)
+		if (this.openOnMouseDown && !args.Used && args.Buttons == global::dfMouseButtons.Left && args.Source == this)
 		{
 			args.Use();
 			base.OnMouseDown(args);
@@ -503,8 +503,8 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C44 RID: 15428 RVA: 0x000E2B60 File Offset: 0x000E0D60
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x06004048 RID: 16456 RVA: 0x000EB688 File Offset: 0x000E9888
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
 		KeyCode keyCode = args.KeyCode;
 		switch (keyCode)
@@ -531,7 +531,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		base.OnKeyDown(args);
 	}
 
-	// Token: 0x06003C45 RID: 15429 RVA: 0x000E2C20 File Offset: 0x000E0E20
+	// Token: 0x06004049 RID: 16457 RVA: 0x000EB748 File Offset: 0x000E9948
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -542,14 +542,14 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C46 RID: 15430 RVA: 0x000E2C74 File Offset: 0x000E0E74
+	// Token: 0x0600404A RID: 16458 RVA: 0x000EB79C File Offset: 0x000E999C
 	public override void OnDisable()
 	{
 		base.OnDisable();
 		this.closePopup(false);
 	}
 
-	// Token: 0x06003C47 RID: 15431 RVA: 0x000E2C84 File Offset: 0x000E0E84
+	// Token: 0x0600404B RID: 16459 RVA: 0x000EB7AC File Offset: 0x000E99AC
 	public override void OnDestroy()
 	{
 		base.OnDestroy();
@@ -557,14 +557,14 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		this.detachChildEvents();
 	}
 
-	// Token: 0x06003C48 RID: 15432 RVA: 0x000E2C9C File Offset: 0x000E0E9C
+	// Token: 0x0600404C RID: 16460 RVA: 0x000EB7C4 File Offset: 0x000E99C4
 	public override void Update()
 	{
 		base.Update();
 		this.checkForPopupClose();
 	}
 
-	// Token: 0x06003C49 RID: 15433 RVA: 0x000E2CAC File Offset: 0x000E0EAC
+	// Token: 0x0600404D RID: 16461 RVA: 0x000EB7D4 File Offset: 0x000E99D4
 	private void checkForPopupClose()
 	{
 		if (this.popup == null || !Input.GetMouseButtonDown(0))
@@ -585,7 +585,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		this.closePopup(true);
 	}
 
-	// Token: 0x06003C4A RID: 15434 RVA: 0x000E2D4C File Offset: 0x000E0F4C
+	// Token: 0x0600404E RID: 16462 RVA: 0x000EB874 File Offset: 0x000E9A74
 	public override void LateUpdate()
 	{
 		base.LateUpdate();
@@ -603,7 +603,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C4B RID: 15435 RVA: 0x000E2DA4 File Offset: 0x000E0FA4
+	// Token: 0x0600404F RID: 16463 RVA: 0x000EB8CC File Offset: 0x000E9ACC
 	private void attachChildEvents()
 	{
 		if (this.triggerButton != null && !this.eventsAttached)
@@ -613,7 +613,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C4C RID: 15436 RVA: 0x000E2DEC File Offset: 0x000E0FEC
+	// Token: 0x06004050 RID: 16464 RVA: 0x000EB914 File Offset: 0x000E9B14
 	private void detachChildEvents()
 	{
 		if (this.triggerButton != null && this.eventsAttached)
@@ -623,8 +623,8 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C4D RID: 15437 RVA: 0x000E2E34 File Offset: 0x000E1034
-	private void trigger_Click(dfControl control, dfMouseEventArgs mouseEvent)
+	// Token: 0x06004051 RID: 16465 RVA: 0x000EB95C File Offset: 0x000E9B5C
+	private void trigger_Click(global::dfControl control, global::dfMouseEventArgs mouseEvent)
 	{
 		if (mouseEvent.Source == this.triggerButton && !mouseEvent.Used)
 		{
@@ -641,7 +641,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C4E RID: 15438 RVA: 0x000E2E98 File Offset: 0x000E1098
+	// Token: 0x06004052 RID: 16466 RVA: 0x000EB9C0 File Offset: 0x000E9BC0
 	protected internal virtual void OnSelectedIndexChanged()
 	{
 		base.SignalHierarchy("OnSelectedIndexChanged", new object[]
@@ -654,8 +654,8 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C4F RID: 15439 RVA: 0x000E2ED8 File Offset: 0x000E10D8
-	private void renderText(dfRenderData buffer)
+	// Token: 0x06004053 RID: 16467 RVA: 0x000EBA00 File Offset: 0x000E9C00
+	private void renderText(global::dfRenderData buffer)
 	{
 		if (this.selectedIndex < 0 || this.selectedIndex >= this.items.Length)
 		{
@@ -668,7 +668,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		Vector3 vector = this.pivot.TransformToUpperLeft(base.Size);
 		Vector3 vectorOffset = new Vector3(vector.x + (float)this.textFieldPadding.left, vector.y - (float)this.textFieldPadding.top, 0f) * num;
 		Color32 defaultColor = (!base.IsEnabled) ? base.DisabledColor : this.TextColor;
-		using (dfFontRendererBase dfFontRendererBase = this.font.ObtainRenderer())
+		using (global::dfFontRendererBase dfFontRendererBase = this.font.ObtainRenderer())
 		{
 			dfFontRendererBase.WordWrap = false;
 			dfFontRendererBase.MaxSize = maxSize;
@@ -684,7 +684,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 			dfFontRendererBase.Shadow = this.Shadow;
 			dfFontRendererBase.ShadowColor = this.ShadowColor;
 			dfFontRendererBase.ShadowOffset = this.ShadowOffset;
-			dfDynamicFont.DynamicFontRenderer dynamicFontRenderer = dfFontRendererBase as dfDynamicFont.DynamicFontRenderer;
+			global::dfDynamicFont.DynamicFontRenderer dynamicFontRenderer = dfFontRendererBase as global::dfDynamicFont.DynamicFontRenderer;
 			if (dynamicFontRenderer != null)
 			{
 				dynamicFontRenderer.SpriteAtlas = base.Atlas;
@@ -694,7 +694,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C50 RID: 15440 RVA: 0x000E30B4 File Offset: 0x000E12B4
+	// Token: 0x06004054 RID: 16468 RVA: 0x000EBBDC File Offset: 0x000E9DDC
 	public void AddItem(string item)
 	{
 		string[] array = new string[this.items.Length + 1];
@@ -703,7 +703,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		this.items = array;
 	}
 
-	// Token: 0x06003C51 RID: 15441 RVA: 0x000E30F8 File Offset: 0x000E12F8
+	// Token: 0x06004055 RID: 16469 RVA: 0x000EBC20 File Offset: 0x000E9E20
 	private Vector3 calculatePopupPosition(int height)
 	{
 		float num = base.PixelsToUnits();
@@ -713,11 +713,11 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		Vector3 vector3 = base.transformOffset(this.listOffset) * num;
 		Vector3 vector4 = vector2 + vector3 + scaledDirection * base.Size.y * num;
 		Vector3 result = vector2 + vector3 - scaledDirection * this.popup.Size.y * num;
-		if (this.listPosition == dfDropdown.PopupListPosition.Above)
+		if (this.listPosition == global::dfDropdown.PopupListPosition.Above)
 		{
 			return result;
 		}
-		if (this.listPosition == dfDropdown.PopupListPosition.Below)
+		if (this.listPosition == global::dfDropdown.PopupListPosition.Below)
 		{
 			return vector4;
 		}
@@ -735,7 +735,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		return vector4;
 	}
 
-	// Token: 0x06003C52 RID: 15442 RVA: 0x000E329C File Offset: 0x000E149C
+	// Token: 0x06004056 RID: 16470 RVA: 0x000EBDC4 File Offset: 0x000E9FC4
 	private Vector2 calculatePopupSize()
 	{
 		float num = (this.MaxListWidth <= 0) ? this.size.x : ((float)this.MaxListWidth);
@@ -747,7 +747,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		return new Vector2(num, (float)Mathf.Min(this.MaxListHeight, num2));
 	}
 
-	// Token: 0x06003C53 RID: 15443 RVA: 0x000E3320 File Offset: 0x000E1520
+	// Token: 0x06004057 RID: 16471 RVA: 0x000EBE48 File Offset: 0x000EA048
 	private void openPopup()
 	{
 		if (this.popup != null || this.items.Length == 0)
@@ -755,13 +755,13 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 			return;
 		}
 		Vector2 size2 = this.calculatePopupSize();
-		this.popup = base.GetManager().AddControl<dfListbox>();
+		this.popup = base.GetManager().AddControl<global::dfListbox>();
 		this.popup.name = base.name + " - Dropdown List";
 		this.popup.gameObject.hideFlags = 4;
 		this.popup.Atlas = base.Atlas;
-		this.popup.Anchor = (dfAnchorStyle.Top | dfAnchorStyle.Left);
+		this.popup.Anchor = (global::dfAnchorStyle.Top | global::dfAnchorStyle.Left);
 		this.popup.Font = this.Font;
-		this.popup.Pivot = dfPivotPoint.TopLeft;
+		this.popup.Pivot = global::dfPivotPoint.TopLeft;
 		this.popup.Size = size2;
 		this.popup.Font = this.Font;
 		this.popup.ItemHeight = this.ItemHeight;
@@ -780,17 +780,17 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		if (size2.y >= (float)this.MaxListHeight && this.listScrollbar != null)
 		{
 			GameObject gameObject = Object.Instantiate(this.listScrollbar.gameObject) as GameObject;
-			dfScrollbar activeScrollbar = gameObject.GetComponent<dfScrollbar>();
+			global::dfScrollbar activeScrollbar = gameObject.GetComponent<global::dfScrollbar>();
 			float num = base.PixelsToUnits();
 			Vector3 vector = this.popup.transform.TransformDirection(Vector3.right);
 			Vector3 position = this.popup.transform.position + vector * (size2.x - activeScrollbar.Width) * num;
 			activeScrollbar.transform.parent = this.popup.transform;
 			activeScrollbar.transform.position = position;
-			activeScrollbar.Anchor = (dfAnchorStyle.Top | dfAnchorStyle.Bottom);
+			activeScrollbar.Anchor = (global::dfAnchorStyle.Top | global::dfAnchorStyle.Bottom);
 			activeScrollbar.Height = this.popup.Height;
 			this.popup.Width -= activeScrollbar.Width;
 			this.popup.Scrollbar = activeScrollbar;
-			this.popup.SizeChanged += delegate(dfControl control, Vector2 size)
+			this.popup.SizeChanged += delegate(global::dfControl control, Vector2 size)
 			{
 				activeScrollbar.Height = control.Height;
 			};
@@ -817,7 +817,7 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		});
 	}
 
-	// Token: 0x06003C54 RID: 15444 RVA: 0x000E3720 File Offset: 0x000E1920
+	// Token: 0x06004058 RID: 16472 RVA: 0x000EC248 File Offset: 0x000EA448
 	private void closePopup(bool allowOverride = true)
 	{
 		if (this.popup == null)
@@ -854,8 +854,8 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		this.popup = null;
 	}
 
-	// Token: 0x06003C55 RID: 15445 RVA: 0x000E381C File Offset: 0x000E1A1C
-	private void popup_KeyDown(dfControl control, dfKeyEventArgs args)
+	// Token: 0x06004059 RID: 16473 RVA: 0x000EC344 File Offset: 0x000EA544
+	private void popup_KeyDown(global::dfControl control, global::dfKeyEventArgs args)
 	{
 		if (args.KeyCode == 27 || args.KeyCode == 13)
 		{
@@ -864,15 +864,15 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C56 RID: 15446 RVA: 0x000E3848 File Offset: 0x000E1A48
-	private void popup_ItemClicked(dfControl control, int selectedIndex)
+	// Token: 0x0600405A RID: 16474 RVA: 0x000EC370 File Offset: 0x000EA570
+	private void popup_ItemClicked(global::dfControl control, int selectedIndex)
 	{
 		this.closePopup(true);
 		base.Focus();
 	}
 
-	// Token: 0x06003C57 RID: 15447 RVA: 0x000E3858 File Offset: 0x000E1A58
-	private void popup_LostFocus(dfControl control, dfFocusEventArgs args)
+	// Token: 0x0600405B RID: 16475 RVA: 0x000EC380 File Offset: 0x000EA580
+	private void popup_LostFocus(global::dfControl control, global::dfFocusEventArgs args)
 	{
 		if (this.popup != null && !this.popup.ContainsFocus)
 		{
@@ -880,15 +880,15 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003C58 RID: 15448 RVA: 0x000E3890 File Offset: 0x000E1A90
-	private void popup_SelectedIndexChanged(dfControl control, int selectedIndex)
+	// Token: 0x0600405C RID: 16476 RVA: 0x000EC3B8 File Offset: 0x000EA5B8
+	private void popup_SelectedIndexChanged(global::dfControl control, int selectedIndex)
 	{
 		this.SelectedIndex = selectedIndex;
 		this.Invalidate();
 	}
 
-	// Token: 0x06003C59 RID: 15449 RVA: 0x000E38A0 File Offset: 0x000E1AA0
-	public dfList<dfRenderData> RenderMultiple()
+	// Token: 0x0600405D RID: 16477 RVA: 0x000EC3C8 File Offset: 0x000EA5C8
+	public global::dfList<global::dfRenderData> RenderMultiple()
 	{
 		if (base.Atlas == null || this.Font == null)
 		{
@@ -900,8 +900,8 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		}
 		if (this.renderData == null)
 		{
-			this.renderData = dfRenderData.Obtain();
-			this.textRenderData = dfRenderData.Obtain();
+			this.renderData = global::dfRenderData.Obtain();
+			this.textRenderData = global::dfRenderData.Obtain();
 			this.isControlInvalidated = true;
 		}
 		if (!this.isControlInvalidated)
@@ -928,115 +928,115 @@ public class dfDropdown : dfInteractiveBase, IDFMultiRender
 		return this.buffers;
 	}
 
-	// Token: 0x04001F83 RID: 8067
+	// Token: 0x04002183 RID: 8579
 	[SerializeField]
-	protected dfFontBase font;
+	protected global::dfFontBase font;
 
-	// Token: 0x04001F84 RID: 8068
+	// Token: 0x04002184 RID: 8580
 	[SerializeField]
 	protected int selectedIndex = -1;
 
-	// Token: 0x04001F85 RID: 8069
+	// Token: 0x04002185 RID: 8581
 	[SerializeField]
-	protected dfControl triggerButton;
+	protected global::dfControl triggerButton;
 
-	// Token: 0x04001F86 RID: 8070
+	// Token: 0x04002186 RID: 8582
 	[SerializeField]
 	protected Color32 textColor = UnityEngine.Color.white;
 
-	// Token: 0x04001F87 RID: 8071
+	// Token: 0x04002187 RID: 8583
 	[SerializeField]
 	protected float textScale = 1f;
 
-	// Token: 0x04001F88 RID: 8072
+	// Token: 0x04002188 RID: 8584
 	[SerializeField]
 	protected RectOffset textFieldPadding = new RectOffset();
 
-	// Token: 0x04001F89 RID: 8073
+	// Token: 0x04002189 RID: 8585
 	[SerializeField]
-	protected dfDropdown.PopupListPosition listPosition;
+	protected global::dfDropdown.PopupListPosition listPosition;
 
-	// Token: 0x04001F8A RID: 8074
+	// Token: 0x0400218A RID: 8586
 	[SerializeField]
 	protected int listWidth;
 
-	// Token: 0x04001F8B RID: 8075
+	// Token: 0x0400218B RID: 8587
 	[SerializeField]
 	protected int listHeight = 200;
 
-	// Token: 0x04001F8C RID: 8076
+	// Token: 0x0400218C RID: 8588
 	[SerializeField]
 	protected RectOffset listPadding = new RectOffset();
 
-	// Token: 0x04001F8D RID: 8077
+	// Token: 0x0400218D RID: 8589
 	[SerializeField]
-	protected dfScrollbar listScrollbar;
+	protected global::dfScrollbar listScrollbar;
 
-	// Token: 0x04001F8E RID: 8078
+	// Token: 0x0400218E RID: 8590
 	[SerializeField]
 	protected int itemHeight = 25;
 
-	// Token: 0x04001F8F RID: 8079
+	// Token: 0x0400218F RID: 8591
 	[SerializeField]
 	protected string itemHighlight = string.Empty;
 
-	// Token: 0x04001F90 RID: 8080
+	// Token: 0x04002190 RID: 8592
 	[SerializeField]
 	protected string itemHover = string.Empty;
 
-	// Token: 0x04001F91 RID: 8081
+	// Token: 0x04002191 RID: 8593
 	[SerializeField]
 	protected string listBackground = string.Empty;
 
-	// Token: 0x04001F92 RID: 8082
+	// Token: 0x04002192 RID: 8594
 	[SerializeField]
 	protected Vector2 listOffset = Vector2.zero;
 
-	// Token: 0x04001F93 RID: 8083
+	// Token: 0x04002193 RID: 8595
 	[SerializeField]
 	protected string[] items = new string[0];
 
-	// Token: 0x04001F94 RID: 8084
+	// Token: 0x04002194 RID: 8596
 	[SerializeField]
 	protected bool shadow;
 
-	// Token: 0x04001F95 RID: 8085
+	// Token: 0x04002195 RID: 8597
 	[SerializeField]
 	protected Color32 shadowColor = UnityEngine.Color.black;
 
-	// Token: 0x04001F96 RID: 8086
+	// Token: 0x04002196 RID: 8598
 	[SerializeField]
 	protected Vector2 shadowOffset = new Vector2(1f, -1f);
 
-	// Token: 0x04001F97 RID: 8087
+	// Token: 0x04002197 RID: 8599
 	[SerializeField]
 	protected bool openOnMouseDown;
 
-	// Token: 0x04001F98 RID: 8088
+	// Token: 0x04002198 RID: 8600
 	private bool eventsAttached;
 
-	// Token: 0x04001F99 RID: 8089
-	private dfListbox popup;
+	// Token: 0x04002199 RID: 8601
+	private global::dfListbox popup;
 
-	// Token: 0x04001F9A RID: 8090
-	private dfRenderData textRenderData;
+	// Token: 0x0400219A RID: 8602
+	private global::dfRenderData textRenderData;
 
-	// Token: 0x04001F9B RID: 8091
-	private dfList<dfRenderData> buffers = dfList<dfRenderData>.Obtain();
+	// Token: 0x0400219B RID: 8603
+	private global::dfList<global::dfRenderData> buffers = global::dfList<global::dfRenderData>.Obtain();
 
-	// Token: 0x020006AA RID: 1706
+	// Token: 0x02000773 RID: 1907
 	public enum PopupListPosition
 	{
-		// Token: 0x04001FA0 RID: 8096
+		// Token: 0x040021A0 RID: 8608
 		Below,
-		// Token: 0x04001FA1 RID: 8097
+		// Token: 0x040021A1 RID: 8609
 		Above,
-		// Token: 0x04001FA2 RID: 8098
+		// Token: 0x040021A2 RID: 8610
 		Automatic
 	}
 
-	// Token: 0x020008DC RID: 2268
-	// (Invoke) Token: 0x06004D48 RID: 19784
-	[dfEventCategory("Popup")]
-	public delegate void PopupEventHandler(dfDropdown dropdown, dfListbox popup, ref bool overridden);
+	// Token: 0x02000774 RID: 1908
+	// (Invoke) Token: 0x0600405F RID: 16479
+	[global::dfEventCategory("Popup")]
+	public delegate void PopupEventHandler(global::dfDropdown dropdown, global::dfListbox popup, ref bool overridden);
 }

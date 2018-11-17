@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000425 RID: 1061
+// Token: 0x020004DB RID: 1243
 public class RPOS_Craft_IngredientPlaque : MonoBehaviour
 {
-	// Token: 0x0600276A RID: 10090 RVA: 0x00099B90 File Offset: 0x00097D90
-	public void Bind(BlueprintDataBlock.IngredientEntry ingredient, int needAmount, int haveAmount)
+	// Token: 0x06002AFA RID: 11002 RVA: 0x0009FB10 File Offset: 0x0009DD10
+	public void Bind(global::BlueprintDataBlock.IngredientEntry ingredient, int needAmount, int haveAmount)
 	{
-		ItemDataBlock ingredient2 = ingredient.Ingredient;
+		global::ItemDataBlock ingredient2 = ingredient.Ingredient;
 		Color color;
 		if (needAmount <= haveAmount)
 		{
@@ -21,7 +21,7 @@ public class RPOS_Craft_IngredientPlaque : MonoBehaviour
 			this.xIcon.enabled = true;
 			color = Color.red;
 		}
-		UIWidget uiwidget = this.need;
+		global::UIWidget uiwidget = this.need;
 		Color color2 = color;
 		this.have.color = color2;
 		uiwidget.color = color2;
@@ -30,23 +30,23 @@ public class RPOS_Craft_IngredientPlaque : MonoBehaviour
 		this.have.text = haveAmount.ToString("N0");
 	}
 
-	// Token: 0x04001368 RID: 4968
+	// Token: 0x040014EB RID: 5355
 	[PrefetchChildComponent(NameMask = "ItemName")]
-	public UILabel itemName;
+	public global::UILabel itemName;
 
-	// Token: 0x04001369 RID: 4969
+	// Token: 0x040014EC RID: 5356
 	[PrefetchChildComponent(NameMask = "NeedLabel")]
-	public UILabel need;
+	public global::UILabel need;
 
-	// Token: 0x0400136A RID: 4970
+	// Token: 0x040014ED RID: 5357
 	[PrefetchChildComponent(NameMask = "HaveLabel")]
-	public UILabel have;
+	public global::UILabel have;
 
-	// Token: 0x0400136B RID: 4971
+	// Token: 0x040014EE RID: 5358
 	[PrefetchChildComponent(NameMask = "checkmark")]
-	public UISprite checkIcon;
+	public global::UISprite checkIcon;
 
-	// Token: 0x0400136C RID: 4972
+	// Token: 0x040014EF RID: 5359
 	[PrefetchChildComponent(NameMask = "xmark")]
-	public UISprite xIcon;
+	public global::UISprite xIcon;
 }

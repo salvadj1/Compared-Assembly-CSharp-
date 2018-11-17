@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x02000217 RID: 535
+	// Token: 0x0200024A RID: 586
 	[DebuggerNonUserCode]
 	public sealed class objectFireBarrel : GeneratedMessage<objectFireBarrel, objectFireBarrel.Builder>
 	{
-		// Token: 0x06001220 RID: 4640 RVA: 0x00040300 File Offset: 0x0003E500
+		// Token: 0x06001374 RID: 4980 RVA: 0x000446A8 File Offset: 0x000428A8
 		private objectFireBarrel()
 		{
 		}
 
-		// Token: 0x06001221 RID: 4641 RVA: 0x00040310 File Offset: 0x0003E510
+		// Token: 0x06001375 RID: 4981 RVA: 0x000446B8 File Offset: 0x000428B8
 		static objectFireBarrel()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x06001222 RID: 4642 RVA: 0x00040350 File Offset: 0x0003E550
-		public static Recycler<objectFireBarrel, objectFireBarrel.Builder> Recycler()
+		// Token: 0x06001376 RID: 4982 RVA: 0x000446F8 File Offset: 0x000428F8
+		public static RustProto.Helpers.Recycler<objectFireBarrel, objectFireBarrel.Builder> Recycler()
 		{
-			return Recycler<objectFireBarrel, objectFireBarrel.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectFireBarrel, objectFireBarrel.Builder>.Manufacture();
 		}
 
-		// Token: 0x17000502 RID: 1282
-		// (get) Token: 0x06001223 RID: 4643 RVA: 0x00040358 File Offset: 0x0003E558
+		// Token: 0x1700054A RID: 1354
+		// (get) Token: 0x06001377 RID: 4983 RVA: 0x00044700 File Offset: 0x00042900
 		public static objectFireBarrel DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000503 RID: 1283
-		// (get) Token: 0x06001224 RID: 4644 RVA: 0x00040360 File Offset: 0x0003E560
+		// Token: 0x1700054B RID: 1355
+		// (get) Token: 0x06001378 RID: 4984 RVA: 0x00044708 File Offset: 0x00042908
 		public override objectFireBarrel DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000504 RID: 1284
-		// (get) Token: 0x06001225 RID: 4645 RVA: 0x00040368 File Offset: 0x0003E568
+		// Token: 0x1700054C RID: 1356
+		// (get) Token: 0x06001379 RID: 4985 RVA: 0x00044710 File Offset: 0x00042910
 		protected override objectFireBarrel ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000505 RID: 1285
-		// (get) Token: 0x06001226 RID: 4646 RVA: 0x0004036C File Offset: 0x0003E56C
+		// Token: 0x1700054D RID: 1357
+		// (get) Token: 0x0600137A RID: 4986 RVA: 0x00044714 File Offset: 0x00042914
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000506 RID: 1286
-		// (get) Token: 0x06001227 RID: 4647 RVA: 0x00040374 File Offset: 0x0003E574
+		// Token: 0x1700054E RID: 1358
+		// (get) Token: 0x0600137B RID: 4987 RVA: 0x0004471C File Offset: 0x0004291C
 		protected override FieldAccessorTable<objectFireBarrel, objectFireBarrel.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000507 RID: 1287
-		// (get) Token: 0x06001228 RID: 4648 RVA: 0x0004037C File Offset: 0x0003E57C
+		// Token: 0x1700054F RID: 1359
+		// (get) Token: 0x0600137C RID: 4988 RVA: 0x00044724 File Offset: 0x00042924
 		public bool HasOnFire
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000508 RID: 1288
-		// (get) Token: 0x06001229 RID: 4649 RVA: 0x00040384 File Offset: 0x0003E584
+		// Token: 0x17000550 RID: 1360
+		// (get) Token: 0x0600137D RID: 4989 RVA: 0x0004472C File Offset: 0x0004292C
 		public bool OnFire
 		{
 			get
@@ -99,8 +99,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000509 RID: 1289
-		// (get) Token: 0x0600122A RID: 4650 RVA: 0x0004038C File Offset: 0x0003E58C
+		// Token: 0x17000551 RID: 1361
+		// (get) Token: 0x0600137E RID: 4990 RVA: 0x00044734 File Offset: 0x00042934
 		public override bool IsInitialized
 		{
 			get
@@ -109,7 +109,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600122B RID: 4651 RVA: 0x00040390 File Offset: 0x0003E590
+		// Token: 0x0600137F RID: 4991 RVA: 0x00044738 File Offset: 0x00042938
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -121,8 +121,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x1700050A RID: 1290
-		// (get) Token: 0x0600122C RID: 4652 RVA: 0x000403D4 File Offset: 0x0003E5D4
+		// Token: 0x17000552 RID: 1362
+		// (get) Token: 0x06001380 RID: 4992 RVA: 0x0004477C File Offset: 0x0004297C
 		public override int SerializedSize
 		{
 			get
@@ -143,143 +143,143 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600122D RID: 4653 RVA: 0x00040424 File Offset: 0x0003E624
+		// Token: 0x06001381 RID: 4993 RVA: 0x000447CC File Offset: 0x000429CC
 		public static objectFireBarrel ParseFrom(ByteString data)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x0600122E RID: 4654 RVA: 0x00040438 File Offset: 0x0003E638
+		// Token: 0x06001382 RID: 4994 RVA: 0x000447E0 File Offset: 0x000429E0
 		public static objectFireBarrel ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600122F RID: 4655 RVA: 0x0004044C File Offset: 0x0003E64C
+		// Token: 0x06001383 RID: 4995 RVA: 0x000447F4 File Offset: 0x000429F4
 		public static objectFireBarrel ParseFrom(byte[] data)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001230 RID: 4656 RVA: 0x00040460 File Offset: 0x0003E660
+		// Token: 0x06001384 RID: 4996 RVA: 0x00044808 File Offset: 0x00042A08
 		public static objectFireBarrel ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001231 RID: 4657 RVA: 0x00040474 File Offset: 0x0003E674
+		// Token: 0x06001385 RID: 4997 RVA: 0x0004481C File Offset: 0x00042A1C
 		public static objectFireBarrel ParseFrom(Stream input)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001232 RID: 4658 RVA: 0x00040488 File Offset: 0x0003E688
+		// Token: 0x06001386 RID: 4998 RVA: 0x00044830 File Offset: 0x00042A30
 		public static objectFireBarrel ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001233 RID: 4659 RVA: 0x0004049C File Offset: 0x0003E69C
+		// Token: 0x06001387 RID: 4999 RVA: 0x00044844 File Offset: 0x00042A44
 		public static objectFireBarrel ParseDelimitedFrom(Stream input)
 		{
 			return objectFireBarrel.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001234 RID: 4660 RVA: 0x000404B0 File Offset: 0x0003E6B0
+		// Token: 0x06001388 RID: 5000 RVA: 0x00044858 File Offset: 0x00042A58
 		public static objectFireBarrel ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectFireBarrel.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001235 RID: 4661 RVA: 0x000404C4 File Offset: 0x0003E6C4
+		// Token: 0x06001389 RID: 5001 RVA: 0x0004486C File Offset: 0x00042A6C
 		public static objectFireBarrel ParseFrom(ICodedInputStream input)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001236 RID: 4662 RVA: 0x000404D8 File Offset: 0x0003E6D8
+		// Token: 0x0600138A RID: 5002 RVA: 0x00044880 File Offset: 0x00042A80
 		public static objectFireBarrel ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectFireBarrel.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001237 RID: 4663 RVA: 0x000404EC File Offset: 0x0003E6EC
+		// Token: 0x0600138B RID: 5003 RVA: 0x00044894 File Offset: 0x00042A94
 		private objectFireBarrel MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x06001238 RID: 4664 RVA: 0x000404F0 File Offset: 0x0003E6F0
+		// Token: 0x0600138C RID: 5004 RVA: 0x00044898 File Offset: 0x00042A98
 		public static objectFireBarrel.Builder CreateBuilder()
 		{
 			return new objectFireBarrel.Builder();
 		}
 
-		// Token: 0x06001239 RID: 4665 RVA: 0x000404F8 File Offset: 0x0003E6F8
+		// Token: 0x0600138D RID: 5005 RVA: 0x000448A0 File Offset: 0x00042AA0
 		public override objectFireBarrel.Builder ToBuilder()
 		{
 			return objectFireBarrel.CreateBuilder(this);
 		}
 
-		// Token: 0x0600123A RID: 4666 RVA: 0x00040500 File Offset: 0x0003E700
+		// Token: 0x0600138E RID: 5006 RVA: 0x000448A8 File Offset: 0x00042AA8
 		public override objectFireBarrel.Builder CreateBuilderForType()
 		{
 			return new objectFireBarrel.Builder();
 		}
 
-		// Token: 0x0600123B RID: 4667 RVA: 0x00040508 File Offset: 0x0003E708
+		// Token: 0x0600138F RID: 5007 RVA: 0x000448B0 File Offset: 0x00042AB0
 		public static objectFireBarrel.Builder CreateBuilder(objectFireBarrel prototype)
 		{
 			return new objectFireBarrel.Builder(prototype);
 		}
 
-		// Token: 0x04000996 RID: 2454
+		// Token: 0x04000AB9 RID: 2745
 		public const int OnFireFieldNumber = 1;
 
-		// Token: 0x04000997 RID: 2455
+		// Token: 0x04000ABA RID: 2746
 		private static readonly objectFireBarrel defaultInstance = new objectFireBarrel().MakeReadOnly();
 
-		// Token: 0x04000998 RID: 2456
+		// Token: 0x04000ABB RID: 2747
 		private static readonly string[] _objectFireBarrelFieldNames = new string[]
 		{
 			"OnFire"
 		};
 
-		// Token: 0x04000999 RID: 2457
+		// Token: 0x04000ABC RID: 2748
 		private static readonly uint[] _objectFireBarrelFieldTags = new uint[]
 		{
 			8u
 		};
 
-		// Token: 0x0400099A RID: 2458
+		// Token: 0x04000ABD RID: 2749
 		private bool hasOnFire;
 
-		// Token: 0x0400099B RID: 2459
+		// Token: 0x04000ABE RID: 2750
 		private bool onFire_;
 
-		// Token: 0x0400099C RID: 2460
+		// Token: 0x04000ABF RID: 2751
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000218 RID: 536
+		// Token: 0x0200024B RID: 587
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectFireBarrel, objectFireBarrel.Builder>
 		{
-			// Token: 0x0600123C RID: 4668 RVA: 0x00040510 File Offset: 0x0003E710
+			// Token: 0x06001390 RID: 5008 RVA: 0x000448B8 File Offset: 0x00042AB8
 			public Builder()
 			{
 				this.result = objectFireBarrel.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x0600123D RID: 4669 RVA: 0x0004052C File Offset: 0x0003E72C
+			// Token: 0x06001391 RID: 5009 RVA: 0x000448D4 File Offset: 0x00042AD4
 			internal Builder(objectFireBarrel cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x1700050B RID: 1291
-			// (get) Token: 0x0600123E RID: 4670 RVA: 0x00040544 File Offset: 0x0003E744
+			// Token: 0x17000553 RID: 1363
+			// (get) Token: 0x06001392 RID: 5010 RVA: 0x000448EC File Offset: 0x00042AEC
 			protected override objectFireBarrel.Builder ThisBuilder
 			{
 				get
@@ -288,7 +288,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600123F RID: 4671 RVA: 0x00040548 File Offset: 0x0003E748
+			// Token: 0x06001393 RID: 5011 RVA: 0x000448F0 File Offset: 0x00042AF0
 			private objectFireBarrel PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -301,8 +301,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x1700050C RID: 1292
-			// (get) Token: 0x06001240 RID: 4672 RVA: 0x00040588 File Offset: 0x0003E788
+			// Token: 0x17000554 RID: 1364
+			// (get) Token: 0x06001394 RID: 5012 RVA: 0x00044930 File Offset: 0x00042B30
 			public override bool IsInitialized
 			{
 				get
@@ -311,8 +311,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700050D RID: 1293
-			// (get) Token: 0x06001241 RID: 4673 RVA: 0x00040598 File Offset: 0x0003E798
+			// Token: 0x17000555 RID: 1365
+			// (get) Token: 0x06001395 RID: 5013 RVA: 0x00044940 File Offset: 0x00042B40
 			protected override objectFireBarrel MessageBeingBuilt
 			{
 				get
@@ -321,7 +321,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001242 RID: 4674 RVA: 0x000405A0 File Offset: 0x0003E7A0
+			// Token: 0x06001396 RID: 5014 RVA: 0x00044948 File Offset: 0x00042B48
 			public override objectFireBarrel.Builder Clear()
 			{
 				this.result = objectFireBarrel.DefaultInstance;
@@ -329,7 +329,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001243 RID: 4675 RVA: 0x000405B8 File Offset: 0x0003E7B8
+			// Token: 0x06001397 RID: 5015 RVA: 0x00044960 File Offset: 0x00042B60
 			public override objectFireBarrel.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -339,8 +339,8 @@ namespace RustProto
 				return new objectFireBarrel.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x1700050E RID: 1294
-			// (get) Token: 0x06001244 RID: 4676 RVA: 0x000405E4 File Offset: 0x0003E7E4
+			// Token: 0x17000556 RID: 1366
+			// (get) Token: 0x06001398 RID: 5016 RVA: 0x0004498C File Offset: 0x00042B8C
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -349,8 +349,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700050F RID: 1295
-			// (get) Token: 0x06001245 RID: 4677 RVA: 0x000405EC File Offset: 0x0003E7EC
+			// Token: 0x17000557 RID: 1367
+			// (get) Token: 0x06001399 RID: 5017 RVA: 0x00044994 File Offset: 0x00042B94
 			public override objectFireBarrel DefaultInstanceForType
 			{
 				get
@@ -359,7 +359,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001246 RID: 4678 RVA: 0x000405F4 File Offset: 0x0003E7F4
+			// Token: 0x0600139A RID: 5018 RVA: 0x0004499C File Offset: 0x00042B9C
 			public override objectFireBarrel BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -370,7 +370,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x06001247 RID: 4679 RVA: 0x00040628 File Offset: 0x0003E828
+			// Token: 0x0600139B RID: 5019 RVA: 0x000449D0 File Offset: 0x00042BD0
 			public override objectFireBarrel.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectFireBarrel)
@@ -381,7 +381,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001248 RID: 4680 RVA: 0x0004064C File Offset: 0x0003E84C
+			// Token: 0x0600139C RID: 5020 RVA: 0x000449F4 File Offset: 0x00042BF4
 			public override objectFireBarrel.Builder MergeFrom(objectFireBarrel other)
 			{
 				if (other == objectFireBarrel.DefaultInstance)
@@ -397,13 +397,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001249 RID: 4681 RVA: 0x00040694 File Offset: 0x0003E894
+			// Token: 0x0600139D RID: 5021 RVA: 0x00044A3C File Offset: 0x00042C3C
 			public override objectFireBarrel.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x0600124A RID: 4682 RVA: 0x000406A4 File Offset: 0x0003E8A4
+			// Token: 0x0600139E RID: 5022 RVA: 0x00044A4C File Offset: 0x00042C4C
 			public override objectFireBarrel.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -459,8 +459,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000510 RID: 1296
-			// (get) Token: 0x0600124B RID: 4683 RVA: 0x000407B8 File Offset: 0x0003E9B8
+			// Token: 0x17000558 RID: 1368
+			// (get) Token: 0x0600139F RID: 5023 RVA: 0x00044B60 File Offset: 0x00042D60
 			public bool HasOnFire
 			{
 				get
@@ -469,9 +469,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000511 RID: 1297
-			// (get) Token: 0x0600124C RID: 4684 RVA: 0x000407C8 File Offset: 0x0003E9C8
-			// (set) Token: 0x0600124D RID: 4685 RVA: 0x000407D8 File Offset: 0x0003E9D8
+			// Token: 0x17000559 RID: 1369
+			// (get) Token: 0x060013A0 RID: 5024 RVA: 0x00044B70 File Offset: 0x00042D70
+			// (set) Token: 0x060013A1 RID: 5025 RVA: 0x00044B80 File Offset: 0x00042D80
 			public bool OnFire
 			{
 				get
@@ -484,7 +484,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600124E RID: 4686 RVA: 0x000407E4 File Offset: 0x0003E9E4
+			// Token: 0x060013A2 RID: 5026 RVA: 0x00044B8C File Offset: 0x00042D8C
 			public objectFireBarrel.Builder SetOnFire(bool value)
 			{
 				this.PrepareBuilder();
@@ -493,7 +493,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600124F RID: 4687 RVA: 0x00040814 File Offset: 0x0003EA14
+			// Token: 0x060013A3 RID: 5027 RVA: 0x00044BBC File Offset: 0x00042DBC
 			public objectFireBarrel.Builder ClearOnFire()
 			{
 				this.PrepareBuilder();
@@ -502,10 +502,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0400099D RID: 2461
+			// Token: 0x04000AC0 RID: 2752
 			private bool resultIsReadOnly;
 
-			// Token: 0x0400099E RID: 2462
+			// Token: 0x04000AC1 RID: 2753
 			private objectFireBarrel result;
 		}
 	}

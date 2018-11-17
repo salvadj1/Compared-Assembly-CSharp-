@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace NGUI.Meshing
 {
-	// Token: 0x020007A3 RID: 1955
+	// Token: 0x0200088E RID: 2190
 	public class MeshBuffer
 	{
-		// Token: 0x060046A3 RID: 18083 RVA: 0x00119DBC File Offset: 0x00117FBC
+		// Token: 0x06004B28 RID: 19240 RVA: 0x0012373C File Offset: 0x0012193C
 		private static int Gen_Alloc<T>(int count, ref int size, ref int cap, ref T[] array, int initAllocSize, int maxAllocSize, int maxAllocSizeIncrement)
 		{
 			if (count <= 0)
@@ -37,7 +37,7 @@ namespace NGUI.Meshing
 			return result;
 		}
 
-		// Token: 0x060046A4 RID: 18084 RVA: 0x00119E24 File Offset: 0x00118024
+		// Token: 0x06004B29 RID: 19241 RVA: 0x001237A4 File Offset: 0x001219A4
 		public int Alloc(PrimitiveKind kind, out int end)
 		{
 			int num = Primitive.VertexCount(kind);
@@ -60,7 +60,7 @@ namespace NGUI.Meshing
 			return num3;
 		}
 
-		// Token: 0x060046A5 RID: 18085 RVA: 0x00119EE0 File Offset: 0x001180E0
+		// Token: 0x06004B2A RID: 19242 RVA: 0x00123860 File Offset: 0x00121A60
 		public int Alloc(PrimitiveKind primitive, Color color, out int end)
 		{
 			int num = this.Alloc(primitive, out end);
@@ -78,7 +78,7 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046A6 RID: 18086 RVA: 0x00119F80 File Offset: 0x00118180
+		// Token: 0x06004B2B RID: 19243 RVA: 0x00123900 File Offset: 0x00121B00
 		public int Alloc(PrimitiveKind primitive, float z, Color color, out int end)
 		{
 			int num = this.Alloc(primitive, out end);
@@ -97,7 +97,7 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046A7 RID: 18087 RVA: 0x0011A038 File Offset: 0x00118238
+		// Token: 0x06004B2C RID: 19244 RVA: 0x001239B8 File Offset: 0x00121BB8
 		public int Alloc(PrimitiveKind primitive, float z, ref Color color, out int end)
 		{
 			int num = this.Alloc(primitive, out end);
@@ -116,7 +116,7 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046A8 RID: 18088 RVA: 0x0011A0EC File Offset: 0x001182EC
+		// Token: 0x06004B2D RID: 19245 RVA: 0x00123A6C File Offset: 0x00121C6C
 		public int Alloc(PrimitiveKind primitive, float z, out int end)
 		{
 			int num = this.Alloc(primitive, out end);
@@ -128,7 +128,7 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046A9 RID: 18089 RVA: 0x0011A17C File Offset: 0x0011837C
+		// Token: 0x06004B2E RID: 19246 RVA: 0x00123AFC File Offset: 0x00121CFC
 		public int Alloc(PrimitiveKind primitive, Vertex V, out int end)
 		{
 			int num = this.Alloc(primitive, out end);
@@ -146,49 +146,49 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046AA RID: 18090 RVA: 0x0011A268 File Offset: 0x00118468
+		// Token: 0x06004B2F RID: 19247 RVA: 0x00123BE8 File Offset: 0x00121DE8
 		public int Alloc(PrimitiveKind kind)
 		{
 			int num;
 			return this.Alloc(kind, out num);
 		}
 
-		// Token: 0x060046AB RID: 18091 RVA: 0x0011A280 File Offset: 0x00118480
+		// Token: 0x06004B30 RID: 19248 RVA: 0x00123C00 File Offset: 0x00121E00
 		public int Alloc(PrimitiveKind kind, Color color)
 		{
 			int num;
 			return this.Alloc(kind, color, out num);
 		}
 
-		// Token: 0x060046AC RID: 18092 RVA: 0x0011A298 File Offset: 0x00118498
+		// Token: 0x06004B31 RID: 19249 RVA: 0x00123C18 File Offset: 0x00121E18
 		public int Alloc(PrimitiveKind kind, float z)
 		{
 			int num;
 			return this.Alloc(kind, z, out num);
 		}
 
-		// Token: 0x060046AD RID: 18093 RVA: 0x0011A2B0 File Offset: 0x001184B0
+		// Token: 0x06004B32 RID: 19250 RVA: 0x00123C30 File Offset: 0x00121E30
 		public int Alloc(PrimitiveKind kind, float z, Color color)
 		{
 			int num;
 			return this.Alloc(kind, z, color, out num);
 		}
 
-		// Token: 0x060046AE RID: 18094 RVA: 0x0011A2C8 File Offset: 0x001184C8
+		// Token: 0x06004B33 RID: 19251 RVA: 0x00123C48 File Offset: 0x00121E48
 		public int Alloc(PrimitiveKind kind, float z, ref Color color)
 		{
 			int num;
 			return this.Alloc(kind, z, ref color, out num);
 		}
 
-		// Token: 0x060046AF RID: 18095 RVA: 0x0011A2E0 File Offset: 0x001184E0
+		// Token: 0x06004B34 RID: 19252 RVA: 0x00123C60 File Offset: 0x00121E60
 		public int Alloc(PrimitiveKind kind, Vertex v)
 		{
 			int num;
 			return this.Alloc(kind, v, out num);
 		}
 
-		// Token: 0x060046B0 RID: 18096 RVA: 0x0011A2F8 File Offset: 0x001184F8
+		// Token: 0x06004B35 RID: 19253 RVA: 0x00123C78 File Offset: 0x00121E78
 		public int Triangle(Vertex A, Vertex B, Vertex C)
 		{
 			int num2;
@@ -200,7 +200,7 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046B1 RID: 18097 RVA: 0x0011A354 File Offset: 0x00118554
+		// Token: 0x06004B36 RID: 19254 RVA: 0x00123CD4 File Offset: 0x00121ED4
 		public int Quad(Vertex A, Vertex B, Vertex C, Vertex D)
 		{
 			int num2;
@@ -213,13 +213,13 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046B2 RID: 18098 RVA: 0x0011A3C8 File Offset: 0x001185C8
+		// Token: 0x06004B37 RID: 19255 RVA: 0x00123D48 File Offset: 0x00121F48
 		public int QuadAlt(Vertex A, Vertex B, Vertex C, Vertex D)
 		{
 			return this.Quad(D, A, B, C);
 		}
 
-		// Token: 0x060046B3 RID: 18099 RVA: 0x0011A3D8 File Offset: 0x001185D8
+		// Token: 0x06004B38 RID: 19256 RVA: 0x00123D58 File Offset: 0x00121F58
 		public int TextureQuad(Vertex A, Vertex B, Vertex C, Vertex D)
 		{
 			int num2;
@@ -232,7 +232,7 @@ namespace NGUI.Meshing
 			return num;
 		}
 
-		// Token: 0x060046B4 RID: 18100 RVA: 0x0011A44C File Offset: 0x0011864C
+		// Token: 0x06004B39 RID: 19257 RVA: 0x00123DCC File Offset: 0x00121FCC
 		public int FastQuad(Vector2 uv0, Vector2 uv1, Color color)
 		{
 			Vertex a;
@@ -253,13 +253,13 @@ namespace NGUI.Meshing
 			return this.Quad(a, b, c, d);
 		}
 
-		// Token: 0x060046B5 RID: 18101 RVA: 0x0011A624 File Offset: 0x00118824
+		// Token: 0x06004B3A RID: 19258 RVA: 0x00123FA4 File Offset: 0x001221A4
 		public int FastQuad(Rect uv, Color color)
 		{
 			return this.FastQuad(new Vector2(uv.xMin, uv.yMin), new Vector2(uv.xMax, uv.yMax), color);
 		}
 
-		// Token: 0x060046B6 RID: 18102 RVA: 0x0011A660 File Offset: 0x00118860
+		// Token: 0x06004B3B RID: 19259 RVA: 0x00123FE0 File Offset: 0x001221E0
 		public int FastQuad(Vector2 xy0, Vector2 xy1, Vector2 uv0, Vector2 uv1, Color color)
 		{
 			Vertex a;
@@ -282,7 +282,7 @@ namespace NGUI.Meshing
 			return this.Quad(a, b, c, d);
 		}
 
-		// Token: 0x060046B7 RID: 18103 RVA: 0x0011A840 File Offset: 0x00118A40
+		// Token: 0x06004B3C RID: 19260 RVA: 0x001241C0 File Offset: 0x001223C0
 		public void FastCell(Vector2 xy0, Vector2 xy1, Vector2 uv0, Vector2 uv1, ref Color color)
 		{
 			Vertex a;
@@ -305,7 +305,7 @@ namespace NGUI.Meshing
 			this.Quad(a, b, c, d);
 		}
 
-		// Token: 0x060046B8 RID: 18104 RVA: 0x0011AA20 File Offset: 0x00118C20
+		// Token: 0x06004B3D RID: 19261 RVA: 0x001243A0 File Offset: 0x001225A0
 		public int FastQuad(Vector2 xy0, Vector2 xy1, float z, Vector2 uv0, Vector2 uv1, Color color)
 		{
 			Vertex a;
@@ -331,7 +331,7 @@ namespace NGUI.Meshing
 			return this.Quad(a, b, c, d);
 		}
 
-		// Token: 0x060046B9 RID: 18105 RVA: 0x0011ABFC File Offset: 0x00118DFC
+		// Token: 0x06004B3E RID: 19262 RVA: 0x0012457C File Offset: 0x0012277C
 		private void Extract(MeshBuffer.FillBuffer<Vector3> vertices, MeshBuffer.FillBuffer<Vector2> uvs, MeshBuffer.FillBuffer<Color> colors, MeshBuffer.FillBuffer<int> triangles)
 		{
 			Vector3[] buf = vertices.buf;
@@ -368,7 +368,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046BA RID: 18106 RVA: 0x0011AE1C File Offset: 0x0011901C
+		// Token: 0x06004B3F RID: 19263 RVA: 0x0012479C File Offset: 0x0012299C
 		private static bool ResizeChecked<T>(ref T[] array, int size)
 		{
 			if (size == 0)
@@ -391,7 +391,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046BB RID: 18107 RVA: 0x0011AE64 File Offset: 0x00119064
+		// Token: 0x06004B40 RID: 19264 RVA: 0x001247E4 File Offset: 0x001229E4
 		public bool ExtractMeshBuffers(ref Vector3[] vertices, ref Vector2[] uvs, ref Color[] colors, ref int[] triangles)
 		{
 			bool result = MeshBuffer.ResizeChecked<Vector3>(ref vertices, this.vSize) | MeshBuffer.ResizeChecked<Vector2>(ref uvs, this.vSize) | MeshBuffer.ResizeChecked<Color>(ref colors, this.vSize) | MeshBuffer.ResizeChecked<int>(ref triangles, this.iCount);
@@ -411,7 +411,7 @@ namespace NGUI.Meshing
 			return result;
 		}
 
-		// Token: 0x060046BC RID: 18108 RVA: 0x0011AEF8 File Offset: 0x001190F8
+		// Token: 0x06004B41 RID: 19265 RVA: 0x00124878 File Offset: 0x00122A78
 		public void Offset(float x, float y, float z)
 		{
 			if (x == 0f)
@@ -504,7 +504,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046BD RID: 18109 RVA: 0x0011B154 File Offset: 0x00119354
+		// Token: 0x06004B42 RID: 19266 RVA: 0x00124AD4 File Offset: 0x00122CD4
 		public void BuildTransformedVertices4x4(ref Vector3[] tV, float m00, float m10, float m20, float m30, float m01, float m11, float m21, float m31, float m02, float m12, float m22, float m32, float m03, float m13, float m23, float m33)
 		{
 			Array.Resize<Vector3>(ref tV, this.vSize);
@@ -517,7 +517,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046BE RID: 18110 RVA: 0x0011B2BC File Offset: 0x001194BC
+		// Token: 0x06004B43 RID: 19267 RVA: 0x00124C3C File Offset: 0x00122E3C
 		public void TransformVertices(float m00, float m10, float m20, float m01, float m11, float m21, float m02, float m12, float m22, float m03, float m13, float m23)
 		{
 			for (int i = 0; i < this.vSize; i++)
@@ -531,7 +531,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046BF RID: 18111 RVA: 0x0011B37C File Offset: 0x0011957C
+		// Token: 0x06004B44 RID: 19268 RVA: 0x00124CFC File Offset: 0x00122EFC
 		public void OffsetThenTransformVertices(float x, float y, float z, float m00, float m10, float m20, float m01, float m11, float m21, float m02, float m12, float m22, float m03, float m13, float m23)
 		{
 			if (x == 0f)
@@ -641,7 +641,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046C0 RID: 18112 RVA: 0x0011B9F0 File Offset: 0x00119BF0
+		// Token: 0x06004B45 RID: 19269 RVA: 0x00125370 File Offset: 0x00123570
 		public void TransformThenOffsetVertices(float m00, float m10, float m20, float m01, float m11, float m21, float m02, float m12, float m22, float m03, float m13, float m23, float x, float y, float z)
 		{
 			if (x == 0f)
@@ -751,7 +751,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046C1 RID: 18113 RVA: 0x0011C060 File Offset: 0x0011A260
+		// Token: 0x06004B46 RID: 19270 RVA: 0x001259E0 File Offset: 0x00123BE0
 		public void Clear()
 		{
 			this.vSize = 0;
@@ -760,7 +760,7 @@ namespace NGUI.Meshing
 			this.lastPrimitiveKind = PrimitiveKind.Invalid;
 		}
 
-		// Token: 0x060046C2 RID: 18114 RVA: 0x0011C090 File Offset: 0x0011A290
+		// Token: 0x06004B47 RID: 19271 RVA: 0x00125A10 File Offset: 0x00123C10
 		private static bool ZeroedXYScale(Transform transform)
 		{
 			if (!transform)
@@ -771,7 +771,7 @@ namespace NGUI.Meshing
 			return localScale.x == 0f || localScale.y == 0f;
 		}
 
-		// Token: 0x060046C3 RID: 18115 RVA: 0x0011C0D4 File Offset: 0x0011A2D4
+		// Token: 0x06004B48 RID: 19272 RVA: 0x00125A54 File Offset: 0x00123C54
 		private bool SeekPrimitiveIndex(int start, out int i)
 		{
 			for (i = this.primSize - 1; i >= 0; i--)
@@ -785,7 +785,7 @@ namespace NGUI.Meshing
 			return false;
 		}
 
-		// Token: 0x060046C4 RID: 18116 RVA: 0x0011C114 File Offset: 0x0011A314
+		// Token: 0x06004B49 RID: 19273 RVA: 0x00125A94 File Offset: 0x00123C94
 		private void ApplyShadow(int start, int end, int primitiveIndex, float pixel, float r, float g, float b, float a)
 		{
 			while (start < end)
@@ -820,7 +820,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046C5 RID: 18117 RVA: 0x0011C240 File Offset: 0x0011A440
+		// Token: 0x06004B4A RID: 19274 RVA: 0x00125BC0 File Offset: 0x00123DC0
 		private void ApplyOutline(int start, int end, int primitiveIndex, float pixel, float r, float g, float b, float a)
 		{
 			while (start < end)
@@ -884,22 +884,22 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046C6 RID: 18118 RVA: 0x0011C4C8 File Offset: 0x0011A6C8
-		public void ApplyEffect(Transform transform, int vertexStart, UILabel.Effect effect, Color effectColor, float size)
+		// Token: 0x06004B4B RID: 19275 RVA: 0x00125E48 File Offset: 0x00124048
+		public void ApplyEffect(Transform transform, int vertexStart, global::UILabel.Effect effect, Color effectColor, float size)
 		{
 			this.ApplyEffect(transform, vertexStart, this.vSize, effect, effectColor, size);
 		}
 
-		// Token: 0x060046C7 RID: 18119 RVA: 0x0011C4E0 File Offset: 0x0011A6E0
-		public void ApplyEffect(Transform transform, int vertexStart, int vertexEnd, UILabel.Effect effect, Color effectColor, float size)
+		// Token: 0x06004B4C RID: 19276 RVA: 0x00125E60 File Offset: 0x00124060
+		public void ApplyEffect(Transform transform, int vertexStart, int vertexEnd, global::UILabel.Effect effect, Color effectColor, float size)
 		{
 			int primitiveIndex;
-			if (effect != UILabel.Effect.None && vertexStart != vertexEnd && !NGUITools.ZeroAlpha(effectColor.a) && size != 0f && !MeshBuffer.ZeroedXYScale(transform) && this.SeekPrimitiveIndex(vertexStart, out primitiveIndex))
+			if (effect != global::UILabel.Effect.None && vertexStart != vertexEnd && !global::NGUITools.ZeroAlpha(effectColor.a) && size != 0f && !MeshBuffer.ZeroedXYScale(transform) && this.SeekPrimitiveIndex(vertexStart, out primitiveIndex))
 			{
 				float pixel = 1f / size;
-				if (effect != UILabel.Effect.Shadow)
+				if (effect != global::UILabel.Effect.Shadow)
 				{
-					if (effect == UILabel.Effect.Outline)
+					if (effect == global::UILabel.Effect.Outline)
 					{
 						this.ApplyOutline(vertexStart, vertexEnd, primitiveIndex, pixel, effectColor.r, effectColor.g, effectColor.b, effectColor.a);
 					}
@@ -911,7 +911,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046C8 RID: 18120 RVA: 0x0011C5A8 File Offset: 0x0011A7A8
+		// Token: 0x06004B4D RID: 19277 RVA: 0x00125F28 File Offset: 0x00124128
 		public void WriteBuffers(Vector3[] transformedVertexes, MeshBuffer target)
 		{
 			if (transformedVertexes == null)
@@ -930,7 +930,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046C9 RID: 18121 RVA: 0x0011C640 File Offset: 0x0011A840
+		// Token: 0x06004B4E RID: 19278 RVA: 0x00125FC0 File Offset: 0x001241C0
 		public void WriteBuffers(MeshBuffer target)
 		{
 			if (this.primSize > 0)
@@ -945,37 +945,37 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x040026D3 RID: 9939
+		// Token: 0x0400290A RID: 10506
 		public Vertex[] v;
 
-		// Token: 0x040026D4 RID: 9940
+		// Token: 0x0400290B RID: 10507
 		public int vSize;
 
-		// Token: 0x040026D5 RID: 9941
+		// Token: 0x0400290C RID: 10508
 		public int iCount;
 
-		// Token: 0x040026D6 RID: 9942
+		// Token: 0x0400290D RID: 10509
 		private Primitive[] primitives;
 
-		// Token: 0x040026D7 RID: 9943
+		// Token: 0x0400290E RID: 10510
 		private int vertCapacity;
 
-		// Token: 0x040026D8 RID: 9944
+		// Token: 0x0400290F RID: 10511
 		private int primSize;
 
-		// Token: 0x040026D9 RID: 9945
+		// Token: 0x04002910 RID: 10512
 		private int primCapacity;
 
-		// Token: 0x040026DA RID: 9946
+		// Token: 0x04002911 RID: 10513
 		private PrimitiveKind lastPrimitiveKind = PrimitiveKind.Invalid;
 
-		// Token: 0x020007A4 RID: 1956
+		// Token: 0x0200088F RID: 2191
 		private struct FillBuffer<T>
 		{
-			// Token: 0x040026DB RID: 9947
+			// Token: 0x04002912 RID: 10514
 			public T[] buf;
 
-			// Token: 0x040026DC RID: 9948
+			// Token: 0x04002913 RID: 10515
 			public int offset;
 		}
 	}

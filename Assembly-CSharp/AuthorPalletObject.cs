@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200000C RID: 12
+// Token: 0x0200000F RID: 15
 public class AuthorPalletObject
 {
-	// Token: 0x06000047 RID: 71 RVA: 0x00002EE4 File Offset: 0x000010E4
-	public bool Validate(AuthorCreation creation)
+	// Token: 0x0600005F RID: 95 RVA: 0x00003418 File Offset: 0x00001618
+	public bool Validate(global::AuthorCreation creation)
 	{
 		return this.validator == null || this.validator(creation, this);
 	}
 
-	// Token: 0x06000048 RID: 72 RVA: 0x00002F04 File Offset: 0x00001104
-	public bool Create(AuthorCreation creation, out AuthorPeice peice)
+	// Token: 0x06000060 RID: 96 RVA: 0x00003438 File Offset: 0x00001638
+	public bool Create(global::AuthorCreation creation, out global::AuthorPeice peice)
 	{
 		if (this.creator == null)
 		{
@@ -22,20 +22,20 @@ public class AuthorPalletObject
 		return peice;
 	}
 
-	// Token: 0x04000027 RID: 39
-	public AuthorPalletObject.Validator validator;
+	// Token: 0x0400003E RID: 62
+	public global::AuthorPalletObject.Validator validator;
 
-	// Token: 0x04000028 RID: 40
-	public AuthorPalletObject.Creator creator;
+	// Token: 0x0400003F RID: 63
+	public global::AuthorPalletObject.Creator creator;
 
-	// Token: 0x04000029 RID: 41
+	// Token: 0x04000040 RID: 64
 	public GUIContent guiContent;
 
-	// Token: 0x0200085E RID: 2142
-	// (Invoke) Token: 0x06004B50 RID: 19280
-	public delegate bool Validator(AuthorCreation creation, AuthorPalletObject obj);
+	// Token: 0x02000010 RID: 16
+	// (Invoke) Token: 0x06000062 RID: 98
+	public delegate bool Validator(global::AuthorCreation creation, global::AuthorPalletObject obj);
 
-	// Token: 0x0200085F RID: 2143
-	// (Invoke) Token: 0x06004B54 RID: 19284
-	public delegate AuthorPeice Creator(AuthorCreation creation, AuthorPalletObject obj);
+	// Token: 0x02000011 RID: 17
+	// (Invoke) Token: 0x06000066 RID: 102
+	public delegate global::AuthorPeice Creator(global::AuthorCreation creation, global::AuthorPalletObject obj);
 }

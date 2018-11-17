@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020006F7 RID: 1783
+// Token: 0x020007C9 RID: 1993
 public static class dfStringExtensions
 {
-	// Token: 0x06004073 RID: 16499 RVA: 0x000F770C File Offset: 0x000F590C
+	// Token: 0x0600448F RID: 17551 RVA: 0x00100310 File Offset: 0x000FE510
 	public static string MakeRelativePath(this string path)
 	{
 		if (string.IsNullOrEmpty(path))
@@ -13,7 +13,7 @@ public static class dfStringExtensions
 		return path.Substring(path.IndexOf("Assets/", StringComparison.InvariantCultureIgnoreCase));
 	}
 
-	// Token: 0x06004074 RID: 16500 RVA: 0x000F7734 File Offset: 0x000F5934
+	// Token: 0x06004490 RID: 17552 RVA: 0x00100338 File Offset: 0x000FE538
 	public static bool Contains(this string value, string pattern, bool caseInsensitive)
 	{
 		if (caseInsensitive)

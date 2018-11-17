@@ -2,11 +2,11 @@
 using Facepunch;
 using uLink;
 
-// Token: 0x0200014F RID: 335
+// Token: 0x02000179 RID: 377
 public struct DamageBeing
 {
-	// Token: 0x170002D6 RID: 726
-	// (get) Token: 0x06000A29 RID: 2601 RVA: 0x00028A14 File Offset: 0x00026C14
+	// Token: 0x17000318 RID: 792
+	// (get) Token: 0x06000B4F RID: 2895 RVA: 0x0002C790 File Offset: 0x0002A990
 	public IDMain idMain
 	{
 		get
@@ -15,18 +15,18 @@ public struct DamageBeing
 		}
 	}
 
-	// Token: 0x170002D7 RID: 727
-	// (get) Token: 0x06000A2A RID: 2602 RVA: 0x00028A38 File Offset: 0x00026C38
-	public Character character
+	// Token: 0x17000319 RID: 793
+	// (get) Token: 0x06000B50 RID: 2896 RVA: 0x0002C7B4 File Offset: 0x0002A9B4
+	public global::Character character
 	{
 		get
 		{
-			return this.idOwnerMain as Character;
+			return this.idOwnerMain as global::Character;
 		}
 	}
 
-	// Token: 0x170002D8 RID: 728
-	// (get) Token: 0x06000A2B RID: 2603 RVA: 0x00028A48 File Offset: 0x00026C48
+	// Token: 0x1700031A RID: 794
+	// (get) Token: 0x06000B51 RID: 2897 RVA: 0x0002C7C4 File Offset: 0x0002A9C4
 	public IDMain idOwnerMain
 	{
 		get
@@ -34,9 +34,9 @@ public struct DamageBeing
 			IDMain idmain = (!this.id) ? null : this.id.idMain;
 			if (idmain)
 			{
-				if (idmain is RigidObj)
+				if (idmain is global::RigidObj)
 				{
-					NetworkView ownerView = ((RigidObj)idmain).ownerView;
+					Facepunch.NetworkView ownerView = ((global::RigidObj)idmain).ownerView;
 					if (ownerView)
 					{
 						idmain = ownerView.GetComponent<IDMain>();
@@ -46,9 +46,9 @@ public struct DamageBeing
 						idmain = null;
 					}
 				}
-				else if (idmain is IDeployedObjectMain)
+				else if (idmain is global::IDeployedObjectMain)
 				{
-					DeployedObjectInfo deployedObjectInfo = ((IDeployedObjectMain)idmain).DeployedObjectInfo;
+					global::DeployedObjectInfo deployedObjectInfo = ((global::IDeployedObjectMain)idmain).DeployedObjectInfo;
 					if (deployedObjectInfo.valid)
 					{
 						return deployedObjectInfo.playerCharacter;
@@ -59,9 +59,9 @@ public struct DamageBeing
 		}
 	}
 
-	// Token: 0x170002D9 RID: 729
-	// (get) Token: 0x06000A2C RID: 2604 RVA: 0x00028AE4 File Offset: 0x00026CE4
-	public Controllable controllable
+	// Token: 0x1700031B RID: 795
+	// (get) Token: 0x06000B52 RID: 2898 RVA: 0x0002C860 File Offset: 0x0002AA60
+	public global::Controllable controllable
 	{
 		get
 		{
@@ -74,13 +74,13 @@ public struct DamageBeing
 			{
 				return null;
 			}
-			if (idOwnerMain is Character)
+			if (idOwnerMain is global::Character)
 			{
-				return ((Character)idOwnerMain).controllable;
+				return ((global::Character)idOwnerMain).controllable;
 			}
-			if (idOwnerMain is IDeployedObjectMain)
+			if (idOwnerMain is global::IDeployedObjectMain)
 			{
-				DeployedObjectInfo deployedObjectInfo = ((IDeployedObjectMain)idOwnerMain).DeployedObjectInfo;
+				global::DeployedObjectInfo deployedObjectInfo = ((global::IDeployedObjectMain)idOwnerMain).DeployedObjectInfo;
 				if (deployedObjectInfo.valid)
 				{
 					return deployedObjectInfo.playerControllable;
@@ -90,9 +90,9 @@ public struct DamageBeing
 		}
 	}
 
-	// Token: 0x170002DA RID: 730
-	// (get) Token: 0x06000A2D RID: 2605 RVA: 0x00028B5C File Offset: 0x00026D5C
-	public PlayerClient client
+	// Token: 0x1700031C RID: 796
+	// (get) Token: 0x06000B53 RID: 2899 RVA: 0x0002C8D8 File Offset: 0x0002AAD8
+	public global::PlayerClient client
 	{
 		get
 		{
@@ -105,28 +105,28 @@ public struct DamageBeing
 			{
 				return null;
 			}
-			if (idOwnerMain is Character)
+			if (idOwnerMain is global::Character)
 			{
-				return ((Character)idOwnerMain).playerClient;
+				return ((global::Character)idOwnerMain).playerClient;
 			}
-			if (idOwnerMain is IDeployedObjectMain)
+			if (idOwnerMain is global::IDeployedObjectMain)
 			{
-				DeployedObjectInfo deployedObjectInfo = ((IDeployedObjectMain)idOwnerMain).DeployedObjectInfo;
+				global::DeployedObjectInfo deployedObjectInfo = ((global::IDeployedObjectMain)idOwnerMain).DeployedObjectInfo;
 				if (deployedObjectInfo.valid)
 				{
 					return deployedObjectInfo.playerClient;
 				}
 			}
-			Controllable component = idOwnerMain.GetComponent<Controllable>();
+			global::Controllable component = idOwnerMain.GetComponent<global::Controllable>();
 			if (component)
 			{
-				PlayerClient playerClient = component.playerClient;
+				global::PlayerClient playerClient = component.playerClient;
 				if (!playerClient)
 				{
-					NetworkView networkView = component.networkView;
+					Facepunch.NetworkView networkView = component.networkView;
 					if (networkView)
 					{
-						PlayerClient.Find(networkView.owner, out playerClient);
+						global::PlayerClient.Find(networkView.owner, out playerClient);
 					}
 				}
 				return playerClient;
@@ -135,9 +135,9 @@ public struct DamageBeing
 		}
 	}
 
-	// Token: 0x170002DB RID: 731
-	// (get) Token: 0x06000A2E RID: 2606 RVA: 0x00028C1C File Offset: 0x00026E1C
-	public NetworkView networkView
+	// Token: 0x1700031D RID: 797
+	// (get) Token: 0x06000B54 RID: 2900 RVA: 0x0002C998 File Offset: 0x0002AB98
+	public Facepunch.NetworkView networkView
 	{
 		get
 		{
@@ -154,53 +154,53 @@ public struct DamageBeing
 		}
 	}
 
-	// Token: 0x170002DC RID: 732
-	// (get) Token: 0x06000A2F RID: 2607 RVA: 0x00028C64 File Offset: 0x00026E64
-	public NetworkView ownerView
+	// Token: 0x1700031E RID: 798
+	// (get) Token: 0x06000B55 RID: 2901 RVA: 0x0002C9E0 File Offset: 0x0002ABE0
+	public Facepunch.NetworkView ownerView
 	{
 		get
 		{
 			IDMain idmain = (!this.id) ? null : this.id.idMain;
-			if (idmain is RigidObj)
+			if (idmain is global::RigidObj)
 			{
-				return ((RigidObj)idmain).ownerView;
+				return ((global::RigidObj)idmain).ownerView;
 			}
 			return this.networkView;
 		}
 	}
 
-	// Token: 0x170002DD RID: 733
-	// (get) Token: 0x06000A30 RID: 2608 RVA: 0x00028CB0 File Offset: 0x00026EB0
-	public NetworkViewID networkViewID
+	// Token: 0x1700031F RID: 799
+	// (get) Token: 0x06000B56 RID: 2902 RVA: 0x0002CA2C File Offset: 0x0002AC2C
+	public uLink.NetworkViewID networkViewID
 	{
 		get
 		{
-			NetworkView networkView = this.networkView;
+			Facepunch.NetworkView networkView = this.networkView;
 			if (networkView)
 			{
 				return networkView.viewID;
 			}
-			return NetworkViewID.unassigned;
+			return uLink.NetworkViewID.unassigned;
 		}
 	}
 
-	// Token: 0x170002DE RID: 734
-	// (get) Token: 0x06000A31 RID: 2609 RVA: 0x00028CDC File Offset: 0x00026EDC
-	public NetworkViewID ownerViewID
+	// Token: 0x17000320 RID: 800
+	// (get) Token: 0x06000B57 RID: 2903 RVA: 0x0002CA58 File Offset: 0x0002AC58
+	public uLink.NetworkViewID ownerViewID
 	{
 		get
 		{
-			NetworkView ownerView = this.ownerView;
+			Facepunch.NetworkView ownerView = this.ownerView;
 			if (ownerView)
 			{
 				return ownerView.viewID;
 			}
-			return NetworkViewID.unassigned;
+			return uLink.NetworkViewID.unassigned;
 		}
 	}
 
-	// Token: 0x170002DF RID: 735
-	// (get) Token: 0x06000A32 RID: 2610 RVA: 0x00028D08 File Offset: 0x00026F08
+	// Token: 0x17000321 RID: 801
+	// (get) Token: 0x06000B58 RID: 2904 RVA: 0x0002CA84 File Offset: 0x0002AC84
 	public BodyPart bodyPart
 	{
 		get
@@ -213,25 +213,25 @@ public struct DamageBeing
 		}
 	}
 
-	// Token: 0x06000A33 RID: 2611 RVA: 0x00028D48 File Offset: 0x00026F48
-	public bool Equals(DamageBeing other)
+	// Token: 0x06000B59 RID: 2905 RVA: 0x0002CAC4 File Offset: 0x0002ACC4
+	public bool Equals(global::DamageBeing other)
 	{
 		return this.id == other.id;
 	}
 
-	// Token: 0x06000A34 RID: 2612 RVA: 0x00028D5C File Offset: 0x00026F5C
+	// Token: 0x06000B5A RID: 2906 RVA: 0x0002CAD8 File Offset: 0x0002ACD8
 	public override bool Equals(object obj)
 	{
 		return object.Equals(this.id, obj);
 	}
 
-	// Token: 0x06000A35 RID: 2613 RVA: 0x00028D6C File Offset: 0x00026F6C
+	// Token: 0x06000B5B RID: 2907 RVA: 0x0002CAE8 File Offset: 0x0002ACE8
 	public override int GetHashCode()
 	{
 		return (!this.id) ? 0 : this.id.GetHashCode();
 	}
 
-	// Token: 0x06000A36 RID: 2614 RVA: 0x00028D90 File Offset: 0x00026F90
+	// Token: 0x06000B5C RID: 2908 RVA: 0x0002CB0C File Offset: 0x0002AD0C
 	public override string ToString()
 	{
 		if (this.id)
@@ -241,8 +241,8 @@ public struct DamageBeing
 		return "{{null}}";
 	}
 
-	// Token: 0x06000A37 RID: 2615 RVA: 0x00028DC4 File Offset: 0x00026FC4
-	public bool IsDifferentPlayer(PlayerClient exclude)
+	// Token: 0x06000B5D RID: 2909 RVA: 0x0002CB40 File Offset: 0x0002AD40
+	public bool IsDifferentPlayer(global::PlayerClient exclude)
 	{
 		if (!this.id)
 		{
@@ -257,36 +257,36 @@ public struct DamageBeing
 				return false;
 			}
 		}
-		if (idmain is Character)
+		if (idmain is global::Character)
 		{
-			PlayerClient playerClient = ((Character)idmain).playerClient;
+			global::PlayerClient playerClient = ((global::Character)idmain).playerClient;
 			return playerClient && playerClient != exclude;
 		}
-		if (idmain is IDeployedObjectMain)
+		if (idmain is global::IDeployedObjectMain)
 		{
-			DeployedObjectInfo deployedObjectInfo = ((IDeployedObjectMain)idmain).DeployedObjectInfo;
+			global::DeployedObjectInfo deployedObjectInfo = ((global::IDeployedObjectMain)idmain).DeployedObjectInfo;
 			if (deployedObjectInfo.valid)
 			{
-				PlayerClient playerClient2 = deployedObjectInfo.playerClient;
+				global::PlayerClient playerClient2 = deployedObjectInfo.playerClient;
 				return playerClient2 && playerClient2 != exclude;
 			}
 		}
-		Controllable component = idmain.GetComponent<Controllable>();
+		global::Controllable component = idmain.GetComponent<global::Controllable>();
 		if (component)
 		{
-			PlayerClient playerClient3 = component.playerClient;
+			global::PlayerClient playerClient3 = component.playerClient;
 			return playerClient3 && playerClient3 != exclude;
 		}
 		return false;
 	}
 
-	// Token: 0x170002E0 RID: 736
-	// (get) Token: 0x06000A38 RID: 2616 RVA: 0x00028EB4 File Offset: 0x000270B4
+	// Token: 0x17000322 RID: 802
+	// (get) Token: 0x06000B5E RID: 2910 RVA: 0x0002CC30 File Offset: 0x0002AE30
 	public ulong userID
 	{
 		get
 		{
-			PlayerClient client = this.client;
+			global::PlayerClient client = this.client;
 			if (client)
 			{
 				return client.userID;
@@ -295,24 +295,24 @@ public struct DamageBeing
 		}
 	}
 
-	// Token: 0x06000A39 RID: 2617 RVA: 0x00028EDC File Offset: 0x000270DC
-	public static implicit operator IDBase(DamageBeing being)
+	// Token: 0x06000B5F RID: 2911 RVA: 0x0002CC58 File Offset: 0x0002AE58
+	public static implicit operator IDBase(global::DamageBeing being)
 	{
 		return being.id;
 	}
 
-	// Token: 0x06000A3A RID: 2618 RVA: 0x00028EE8 File Offset: 0x000270E8
-	public static bool operator true(DamageBeing being)
+	// Token: 0x06000B60 RID: 2912 RVA: 0x0002CC64 File Offset: 0x0002AE64
+	public static bool operator true(global::DamageBeing being)
 	{
 		return being.id;
 	}
 
-	// Token: 0x06000A3B RID: 2619 RVA: 0x00028EFC File Offset: 0x000270FC
-	public static bool operator false(DamageBeing being)
+	// Token: 0x06000B61 RID: 2913 RVA: 0x0002CC78 File Offset: 0x0002AE78
+	public static bool operator false(global::DamageBeing being)
 	{
 		return !being.id;
 	}
 
-	// Token: 0x04000694 RID: 1684
+	// Token: 0x040007A3 RID: 1955
 	public IDBase id;
 }

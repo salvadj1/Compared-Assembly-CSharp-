@@ -1,40 +1,40 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004B0 RID: 1200
-public class GameGizmoWaveAnimation : GameGizmo
+// Token: 0x0200056B RID: 1387
+public class GameGizmoWaveAnimation : global::GameGizmo
 {
-	// Token: 0x06002A2A RID: 10794 RVA: 0x000A52A8 File Offset: 0x000A34A8
-	protected override GameGizmo.Instance ConstructInstance()
+	// Token: 0x06002DDC RID: 11740 RVA: 0x000AD040 File Offset: 0x000AB240
+	protected override global::GameGizmo.Instance ConstructInstance()
 	{
-		return new GameGizmoWaveAnimation.Instance(this);
+		return new global::GameGizmoWaveAnimation.Instance(this);
 	}
 
-	// Token: 0x04001616 RID: 5654
+	// Token: 0x040017D3 RID: 6099
 	[SerializeField]
 	protected float frequency = 1.2566371f;
 
-	// Token: 0x04001617 RID: 5655
+	// Token: 0x040017D4 RID: 6100
 	[SerializeField]
 	protected float amplitudePositive = 0.15f;
 
-	// Token: 0x04001618 RID: 5656
+	// Token: 0x040017D5 RID: 6101
 	[SerializeField]
 	protected float amplitudeNegative = -0.1f;
 
-	// Token: 0x04001619 RID: 5657
+	// Token: 0x040017D6 RID: 6102
 	[SerializeField]
 	protected float phase;
 
-	// Token: 0x0400161A RID: 5658
+	// Token: 0x040017D7 RID: 6103
 	[SerializeField]
 	protected Vector3 axis = Vector3.up;
 
-	// Token: 0x020004B1 RID: 1201
-	public new class Instance : GameGizmo.Instance
+	// Token: 0x0200056C RID: 1388
+	public new class Instance : global::GameGizmo.Instance
 	{
-		// Token: 0x06002A2B RID: 10795 RVA: 0x000A52B0 File Offset: 0x000A34B0
-		protected internal Instance(GameGizmoWaveAnimation gameGizmo) : base(gameGizmo)
+		// Token: 0x06002DDD RID: 11741 RVA: 0x000AD048 File Offset: 0x000AB248
+		protected internal Instance(global::GameGizmoWaveAnimation gameGizmo) : base(gameGizmo)
 		{
 			this.Frequency = (double)gameGizmo.frequency;
 			this.Phase = (double)gameGizmo.phase;
@@ -43,10 +43,10 @@ public class GameGizmoWaveAnimation : GameGizmo
 			this.Axis = gameGizmo.axis;
 		}
 
-		// Token: 0x06002A2C RID: 10796 RVA: 0x000A5304 File Offset: 0x000A3504
+		// Token: 0x06002DDE RID: 11742 RVA: 0x000AD09C File Offset: 0x000AB29C
 		protected override void Render(bool useCamera, Camera camera)
 		{
-			ulong localTimeInMillis = NetCull.localTimeInMillis;
+			ulong localTimeInMillis = global::NetCull.localTimeInMillis;
 			if (!this.Started || this.lastRenderTime >= localTimeInMillis)
 			{
 				this.Started = true;
@@ -122,34 +122,34 @@ public class GameGizmoWaveAnimation : GameGizmo
 			this.ultimateMatrix = ultimateMatrix;
 		}
 
-		// Token: 0x0400161B RID: 5659
+		// Token: 0x040017D8 RID: 6104
 		public double Phase;
 
-		// Token: 0x0400161C RID: 5660
+		// Token: 0x040017D9 RID: 6105
 		public double Frequency;
 
-		// Token: 0x0400161D RID: 5661
+		// Token: 0x040017DA RID: 6106
 		public double AmplitudePositive;
 
-		// Token: 0x0400161E RID: 5662
+		// Token: 0x040017DB RID: 6107
 		public double AmplitudeNegative;
 
-		// Token: 0x0400161F RID: 5663
+		// Token: 0x040017DC RID: 6108
 		public double value;
 
-		// Token: 0x04001620 RID: 5664
+		// Token: 0x040017DD RID: 6109
 		public double arcSine;
 
-		// Token: 0x04001621 RID: 5665
+		// Token: 0x040017DE RID: 6110
 		public double sine;
 
-		// Token: 0x04001622 RID: 5666
+		// Token: 0x040017DF RID: 6111
 		public Vector3 Axis;
 
-		// Token: 0x04001623 RID: 5667
+		// Token: 0x040017E0 RID: 6112
 		public bool Started;
 
-		// Token: 0x04001624 RID: 5668
+		// Token: 0x040017E1 RID: 6113
 		private ulong lastRenderTime;
 	}
 }

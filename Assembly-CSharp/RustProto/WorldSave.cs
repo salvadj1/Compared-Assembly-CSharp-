@@ -10,29 +10,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x020001FB RID: 507
+	// Token: 0x0200022E RID: 558
 	[DebuggerNonUserCode]
 	public sealed class WorldSave : GeneratedMessage<WorldSave, WorldSave.Builder>
 	{
-		// Token: 0x06000DBB RID: 3515 RVA: 0x00035CF8 File Offset: 0x00033EF8
+		// Token: 0x06000F0F RID: 3855 RVA: 0x0003A0A0 File Offset: 0x000382A0
 		private WorldSave()
 		{
 		}
 
-		// Token: 0x06000DBC RID: 3516 RVA: 0x00035D20 File Offset: 0x00033F20
+		// Token: 0x06000F10 RID: 3856 RVA: 0x0003A0C8 File Offset: 0x000382C8
 		static WorldSave()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x06000DBD RID: 3517 RVA: 0x00035D78 File Offset: 0x00033F78
-		public static Recycler<WorldSave, WorldSave.Builder> Recycler()
+		// Token: 0x06000F11 RID: 3857 RVA: 0x0003A120 File Offset: 0x00038320
+		public static RustProto.Helpers.Recycler<WorldSave, WorldSave.Builder> Recycler()
 		{
-			return Recycler<WorldSave, WorldSave.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<WorldSave, WorldSave.Builder>.Manufacture();
 		}
 
-		// Token: 0x1700034E RID: 846
-		// (get) Token: 0x06000DBE RID: 3518 RVA: 0x00035D80 File Offset: 0x00033F80
+		// Token: 0x17000396 RID: 918
+		// (get) Token: 0x06000F12 RID: 3858 RVA: 0x0003A128 File Offset: 0x00038328
 		public static WorldSave DefaultInstance
 		{
 			get
@@ -41,8 +41,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700034F RID: 847
-		// (get) Token: 0x06000DBF RID: 3519 RVA: 0x00035D88 File Offset: 0x00033F88
+		// Token: 0x17000397 RID: 919
+		// (get) Token: 0x06000F13 RID: 3859 RVA: 0x0003A130 File Offset: 0x00038330
 		public override WorldSave DefaultInstanceForType
 		{
 			get
@@ -51,8 +51,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000350 RID: 848
-		// (get) Token: 0x06000DC0 RID: 3520 RVA: 0x00035D90 File Offset: 0x00033F90
+		// Token: 0x17000398 RID: 920
+		// (get) Token: 0x06000F14 RID: 3860 RVA: 0x0003A138 File Offset: 0x00038338
 		protected override WorldSave ThisMessage
 		{
 			get
@@ -61,8 +61,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000351 RID: 849
-		// (get) Token: 0x06000DC1 RID: 3521 RVA: 0x00035D94 File Offset: 0x00033F94
+		// Token: 0x17000399 RID: 921
+		// (get) Token: 0x06000F15 RID: 3861 RVA: 0x0003A13C File Offset: 0x0003833C
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -71,8 +71,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000352 RID: 850
-		// (get) Token: 0x06000DC2 RID: 3522 RVA: 0x00035D9C File Offset: 0x00033F9C
+		// Token: 0x1700039A RID: 922
+		// (get) Token: 0x06000F16 RID: 3862 RVA: 0x0003A144 File Offset: 0x00038344
 		protected override FieldAccessorTable<WorldSave, WorldSave.Builder> InternalFieldAccessors
 		{
 			get
@@ -81,8 +81,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000353 RID: 851
-		// (get) Token: 0x06000DC3 RID: 3523 RVA: 0x00035DA4 File Offset: 0x00033FA4
+		// Token: 0x1700039B RID: 923
+		// (get) Token: 0x06000F17 RID: 3863 RVA: 0x0003A14C File Offset: 0x0003834C
 		public IList<SavedObject> SceneObjectList
 		{
 			get
@@ -91,8 +91,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000354 RID: 852
-		// (get) Token: 0x06000DC4 RID: 3524 RVA: 0x00035DAC File Offset: 0x00033FAC
+		// Token: 0x1700039C RID: 924
+		// (get) Token: 0x06000F18 RID: 3864 RVA: 0x0003A154 File Offset: 0x00038354
 		public int SceneObjectCount
 		{
 			get
@@ -101,14 +101,14 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06000DC5 RID: 3525 RVA: 0x00035DBC File Offset: 0x00033FBC
+		// Token: 0x06000F19 RID: 3865 RVA: 0x0003A164 File Offset: 0x00038364
 		public SavedObject GetSceneObject(int index)
 		{
 			return this.sceneObject_[index];
 		}
 
-		// Token: 0x17000355 RID: 853
-		// (get) Token: 0x06000DC6 RID: 3526 RVA: 0x00035DCC File Offset: 0x00033FCC
+		// Token: 0x1700039D RID: 925
+		// (get) Token: 0x06000F1A RID: 3866 RVA: 0x0003A174 File Offset: 0x00038374
 		public IList<SavedObject> InstanceObjectList
 		{
 			get
@@ -117,8 +117,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000356 RID: 854
-		// (get) Token: 0x06000DC7 RID: 3527 RVA: 0x00035DD4 File Offset: 0x00033FD4
+		// Token: 0x1700039E RID: 926
+		// (get) Token: 0x06000F1B RID: 3867 RVA: 0x0003A17C File Offset: 0x0003837C
 		public int InstanceObjectCount
 		{
 			get
@@ -127,14 +127,14 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06000DC8 RID: 3528 RVA: 0x00035DE4 File Offset: 0x00033FE4
+		// Token: 0x06000F1C RID: 3868 RVA: 0x0003A18C File Offset: 0x0003838C
 		public SavedObject GetInstanceObject(int index)
 		{
 			return this.instanceObject_[index];
 		}
 
-		// Token: 0x17000357 RID: 855
-		// (get) Token: 0x06000DC9 RID: 3529 RVA: 0x00035DF4 File Offset: 0x00033FF4
+		// Token: 0x1700039F RID: 927
+		// (get) Token: 0x06000F1D RID: 3869 RVA: 0x0003A19C File Offset: 0x0003839C
 		public override bool IsInitialized
 		{
 			get
@@ -157,7 +157,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06000DCA RID: 3530 RVA: 0x00035EC8 File Offset: 0x000340C8
+		// Token: 0x06000F1E RID: 3870 RVA: 0x0003A270 File Offset: 0x00038470
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -173,8 +173,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x17000358 RID: 856
-		// (get) Token: 0x06000DCB RID: 3531 RVA: 0x00035F30 File Offset: 0x00034130
+		// Token: 0x170003A0 RID: 928
+		// (get) Token: 0x06000F1F RID: 3871 RVA: 0x0003A2D8 File Offset: 0x000384D8
 		public override int SerializedSize
 		{
 			get
@@ -199,67 +199,67 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06000DCC RID: 3532 RVA: 0x00036018 File Offset: 0x00034218
+		// Token: 0x06000F20 RID: 3872 RVA: 0x0003A3C0 File Offset: 0x000385C0
 		public static WorldSave ParseFrom(ByteString data)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06000DCD RID: 3533 RVA: 0x0003602C File Offset: 0x0003422C
+		// Token: 0x06000F21 RID: 3873 RVA: 0x0003A3D4 File Offset: 0x000385D4
 		public static WorldSave ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000DCE RID: 3534 RVA: 0x00036040 File Offset: 0x00034240
+		// Token: 0x06000F22 RID: 3874 RVA: 0x0003A3E8 File Offset: 0x000385E8
 		public static WorldSave ParseFrom(byte[] data)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06000DCF RID: 3535 RVA: 0x00036054 File Offset: 0x00034254
+		// Token: 0x06000F23 RID: 3875 RVA: 0x0003A3FC File Offset: 0x000385FC
 		public static WorldSave ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000DD0 RID: 3536 RVA: 0x00036068 File Offset: 0x00034268
+		// Token: 0x06000F24 RID: 3876 RVA: 0x0003A410 File Offset: 0x00038610
 		public static WorldSave ParseFrom(Stream input)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06000DD1 RID: 3537 RVA: 0x0003607C File Offset: 0x0003427C
+		// Token: 0x06000F25 RID: 3877 RVA: 0x0003A424 File Offset: 0x00038624
 		public static WorldSave ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000DD2 RID: 3538 RVA: 0x00036090 File Offset: 0x00034290
+		// Token: 0x06000F26 RID: 3878 RVA: 0x0003A438 File Offset: 0x00038638
 		public static WorldSave ParseDelimitedFrom(Stream input)
 		{
 			return WorldSave.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06000DD3 RID: 3539 RVA: 0x000360A4 File Offset: 0x000342A4
+		// Token: 0x06000F27 RID: 3879 RVA: 0x0003A44C File Offset: 0x0003864C
 		public static WorldSave ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return WorldSave.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000DD4 RID: 3540 RVA: 0x000360B8 File Offset: 0x000342B8
+		// Token: 0x06000F28 RID: 3880 RVA: 0x0003A460 File Offset: 0x00038660
 		public static WorldSave ParseFrom(ICodedInputStream input)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06000DD5 RID: 3541 RVA: 0x000360CC File Offset: 0x000342CC
+		// Token: 0x06000F29 RID: 3881 RVA: 0x0003A474 File Offset: 0x00038674
 		public static WorldSave ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return WorldSave.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06000DD6 RID: 3542 RVA: 0x000360E0 File Offset: 0x000342E0
+		// Token: 0x06000F2A RID: 3882 RVA: 0x0003A488 File Offset: 0x00038688
 		private WorldSave MakeReadOnly()
 		{
 			this.sceneObject_.MakeReadOnly();
@@ -267,82 +267,82 @@ namespace RustProto
 			return this;
 		}
 
-		// Token: 0x06000DD7 RID: 3543 RVA: 0x000360FC File Offset: 0x000342FC
+		// Token: 0x06000F2B RID: 3883 RVA: 0x0003A4A4 File Offset: 0x000386A4
 		public static WorldSave.Builder CreateBuilder()
 		{
 			return new WorldSave.Builder();
 		}
 
-		// Token: 0x06000DD8 RID: 3544 RVA: 0x00036104 File Offset: 0x00034304
+		// Token: 0x06000F2C RID: 3884 RVA: 0x0003A4AC File Offset: 0x000386AC
 		public override WorldSave.Builder ToBuilder()
 		{
 			return WorldSave.CreateBuilder(this);
 		}
 
-		// Token: 0x06000DD9 RID: 3545 RVA: 0x0003610C File Offset: 0x0003430C
+		// Token: 0x06000F2D RID: 3885 RVA: 0x0003A4B4 File Offset: 0x000386B4
 		public override WorldSave.Builder CreateBuilderForType()
 		{
 			return new WorldSave.Builder();
 		}
 
-		// Token: 0x06000DDA RID: 3546 RVA: 0x00036114 File Offset: 0x00034314
+		// Token: 0x06000F2E RID: 3886 RVA: 0x0003A4BC File Offset: 0x000386BC
 		public static WorldSave.Builder CreateBuilder(WorldSave prototype)
 		{
 			return new WorldSave.Builder(prototype);
 		}
 
-		// Token: 0x04000881 RID: 2177
+		// Token: 0x040009A4 RID: 2468
 		public const int SceneObjectFieldNumber = 1;
 
-		// Token: 0x04000882 RID: 2178
+		// Token: 0x040009A5 RID: 2469
 		public const int InstanceObjectFieldNumber = 2;
 
-		// Token: 0x04000883 RID: 2179
+		// Token: 0x040009A6 RID: 2470
 		private static readonly WorldSave defaultInstance = new WorldSave().MakeReadOnly();
 
-		// Token: 0x04000884 RID: 2180
+		// Token: 0x040009A7 RID: 2471
 		private static readonly string[] _worldSaveFieldNames = new string[]
 		{
 			"instanceObject",
 			"sceneObject"
 		};
 
-		// Token: 0x04000885 RID: 2181
+		// Token: 0x040009A8 RID: 2472
 		private static readonly uint[] _worldSaveFieldTags = new uint[]
 		{
 			18u,
 			10u
 		};
 
-		// Token: 0x04000886 RID: 2182
+		// Token: 0x040009A9 RID: 2473
 		private PopsicleList<SavedObject> sceneObject_ = new PopsicleList<SavedObject>();
 
-		// Token: 0x04000887 RID: 2183
+		// Token: 0x040009AA RID: 2474
 		private PopsicleList<SavedObject> instanceObject_ = new PopsicleList<SavedObject>();
 
-		// Token: 0x04000888 RID: 2184
+		// Token: 0x040009AB RID: 2475
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x020001FC RID: 508
+		// Token: 0x0200022F RID: 559
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<WorldSave, WorldSave.Builder>
 		{
-			// Token: 0x06000DDB RID: 3547 RVA: 0x0003611C File Offset: 0x0003431C
+			// Token: 0x06000F2F RID: 3887 RVA: 0x0003A4C4 File Offset: 0x000386C4
 			public Builder()
 			{
 				this.result = WorldSave.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x06000DDC RID: 3548 RVA: 0x00036138 File Offset: 0x00034338
+			// Token: 0x06000F30 RID: 3888 RVA: 0x0003A4E0 File Offset: 0x000386E0
 			internal Builder(WorldSave cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x17000359 RID: 857
-			// (get) Token: 0x06000DDD RID: 3549 RVA: 0x00036150 File Offset: 0x00034350
+			// Token: 0x170003A1 RID: 929
+			// (get) Token: 0x06000F31 RID: 3889 RVA: 0x0003A4F8 File Offset: 0x000386F8
 			protected override WorldSave.Builder ThisBuilder
 			{
 				get
@@ -351,7 +351,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000DDE RID: 3550 RVA: 0x00036154 File Offset: 0x00034354
+			// Token: 0x06000F32 RID: 3890 RVA: 0x0003A4FC File Offset: 0x000386FC
 			private WorldSave PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -364,8 +364,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x1700035A RID: 858
-			// (get) Token: 0x06000DDF RID: 3551 RVA: 0x00036194 File Offset: 0x00034394
+			// Token: 0x170003A2 RID: 930
+			// (get) Token: 0x06000F33 RID: 3891 RVA: 0x0003A53C File Offset: 0x0003873C
 			public override bool IsInitialized
 			{
 				get
@@ -374,8 +374,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700035B RID: 859
-			// (get) Token: 0x06000DE0 RID: 3552 RVA: 0x000361A4 File Offset: 0x000343A4
+			// Token: 0x170003A3 RID: 931
+			// (get) Token: 0x06000F34 RID: 3892 RVA: 0x0003A54C File Offset: 0x0003874C
 			protected override WorldSave MessageBeingBuilt
 			{
 				get
@@ -384,7 +384,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000DE1 RID: 3553 RVA: 0x000361AC File Offset: 0x000343AC
+			// Token: 0x06000F35 RID: 3893 RVA: 0x0003A554 File Offset: 0x00038754
 			public override WorldSave.Builder Clear()
 			{
 				this.result = WorldSave.DefaultInstance;
@@ -392,7 +392,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DE2 RID: 3554 RVA: 0x000361C4 File Offset: 0x000343C4
+			// Token: 0x06000F36 RID: 3894 RVA: 0x0003A56C File Offset: 0x0003876C
 			public override WorldSave.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -402,8 +402,8 @@ namespace RustProto
 				return new WorldSave.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x1700035C RID: 860
-			// (get) Token: 0x06000DE3 RID: 3555 RVA: 0x000361F0 File Offset: 0x000343F0
+			// Token: 0x170003A4 RID: 932
+			// (get) Token: 0x06000F37 RID: 3895 RVA: 0x0003A598 File Offset: 0x00038798
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -412,8 +412,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700035D RID: 861
-			// (get) Token: 0x06000DE4 RID: 3556 RVA: 0x000361F8 File Offset: 0x000343F8
+			// Token: 0x170003A5 RID: 933
+			// (get) Token: 0x06000F38 RID: 3896 RVA: 0x0003A5A0 File Offset: 0x000387A0
 			public override WorldSave DefaultInstanceForType
 			{
 				get
@@ -422,7 +422,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000DE5 RID: 3557 RVA: 0x00036200 File Offset: 0x00034400
+			// Token: 0x06000F39 RID: 3897 RVA: 0x0003A5A8 File Offset: 0x000387A8
 			public override WorldSave BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -433,7 +433,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x06000DE6 RID: 3558 RVA: 0x00036234 File Offset: 0x00034434
+			// Token: 0x06000F3A RID: 3898 RVA: 0x0003A5DC File Offset: 0x000387DC
 			public override WorldSave.Builder MergeFrom(IMessage other)
 			{
 				if (other is WorldSave)
@@ -444,7 +444,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DE7 RID: 3559 RVA: 0x00036258 File Offset: 0x00034458
+			// Token: 0x06000F3B RID: 3899 RVA: 0x0003A600 File Offset: 0x00038800
 			public override WorldSave.Builder MergeFrom(WorldSave other)
 			{
 				if (other == WorldSave.DefaultInstance)
@@ -464,13 +464,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DE8 RID: 3560 RVA: 0x000362D4 File Offset: 0x000344D4
+			// Token: 0x06000F3C RID: 3900 RVA: 0x0003A67C File Offset: 0x0003887C
 			public override WorldSave.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x06000DE9 RID: 3561 RVA: 0x000362E4 File Offset: 0x000344E4
+			// Token: 0x06000F3D RID: 3901 RVA: 0x0003A68C File Offset: 0x0003888C
 			public override WorldSave.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -533,8 +533,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700035E RID: 862
-			// (get) Token: 0x06000DEA RID: 3562 RVA: 0x0003641C File Offset: 0x0003461C
+			// Token: 0x170003A6 RID: 934
+			// (get) Token: 0x06000F3E RID: 3902 RVA: 0x0003A7C4 File Offset: 0x000389C4
 			public IPopsicleList<SavedObject> SceneObjectList
 			{
 				get
@@ -543,8 +543,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700035F RID: 863
-			// (get) Token: 0x06000DEB RID: 3563 RVA: 0x0003642C File Offset: 0x0003462C
+			// Token: 0x170003A7 RID: 935
+			// (get) Token: 0x06000F3F RID: 3903 RVA: 0x0003A7D4 File Offset: 0x000389D4
 			public int SceneObjectCount
 			{
 				get
@@ -553,13 +553,13 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000DEC RID: 3564 RVA: 0x0003643C File Offset: 0x0003463C
+			// Token: 0x06000F40 RID: 3904 RVA: 0x0003A7E4 File Offset: 0x000389E4
 			public SavedObject GetSceneObject(int index)
 			{
 				return this.result.GetSceneObject(index);
 			}
 
-			// Token: 0x06000DED RID: 3565 RVA: 0x0003644C File Offset: 0x0003464C
+			// Token: 0x06000F41 RID: 3905 RVA: 0x0003A7F4 File Offset: 0x000389F4
 			public WorldSave.Builder SetSceneObject(int index, SavedObject value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -568,7 +568,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DEE RID: 3566 RVA: 0x00036474 File Offset: 0x00034674
+			// Token: 0x06000F42 RID: 3906 RVA: 0x0003A81C File Offset: 0x00038A1C
 			public WorldSave.Builder SetSceneObject(int index, SavedObject.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -577,7 +577,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DEF RID: 3567 RVA: 0x000364AC File Offset: 0x000346AC
+			// Token: 0x06000F43 RID: 3907 RVA: 0x0003A854 File Offset: 0x00038A54
 			public WorldSave.Builder AddSceneObject(SavedObject value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -586,7 +586,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DF0 RID: 3568 RVA: 0x000364E0 File Offset: 0x000346E0
+			// Token: 0x06000F44 RID: 3908 RVA: 0x0003A888 File Offset: 0x00038A88
 			public WorldSave.Builder AddSceneObject(SavedObject.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -595,7 +595,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DF1 RID: 3569 RVA: 0x0003650C File Offset: 0x0003470C
+			// Token: 0x06000F45 RID: 3909 RVA: 0x0003A8B4 File Offset: 0x00038AB4
 			public WorldSave.Builder AddRangeSceneObject(IEnumerable<SavedObject> values)
 			{
 				this.PrepareBuilder();
@@ -603,7 +603,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DF2 RID: 3570 RVA: 0x00036528 File Offset: 0x00034728
+			// Token: 0x06000F46 RID: 3910 RVA: 0x0003A8D0 File Offset: 0x00038AD0
 			public WorldSave.Builder ClearSceneObject()
 			{
 				this.PrepareBuilder();
@@ -611,8 +611,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000360 RID: 864
-			// (get) Token: 0x06000DF3 RID: 3571 RVA: 0x00036544 File Offset: 0x00034744
+			// Token: 0x170003A8 RID: 936
+			// (get) Token: 0x06000F47 RID: 3911 RVA: 0x0003A8EC File Offset: 0x00038AEC
 			public IPopsicleList<SavedObject> InstanceObjectList
 			{
 				get
@@ -621,8 +621,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000361 RID: 865
-			// (get) Token: 0x06000DF4 RID: 3572 RVA: 0x00036554 File Offset: 0x00034754
+			// Token: 0x170003A9 RID: 937
+			// (get) Token: 0x06000F48 RID: 3912 RVA: 0x0003A8FC File Offset: 0x00038AFC
 			public int InstanceObjectCount
 			{
 				get
@@ -631,13 +631,13 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06000DF5 RID: 3573 RVA: 0x00036564 File Offset: 0x00034764
+			// Token: 0x06000F49 RID: 3913 RVA: 0x0003A90C File Offset: 0x00038B0C
 			public SavedObject GetInstanceObject(int index)
 			{
 				return this.result.GetInstanceObject(index);
 			}
 
-			// Token: 0x06000DF6 RID: 3574 RVA: 0x00036574 File Offset: 0x00034774
+			// Token: 0x06000F4A RID: 3914 RVA: 0x0003A91C File Offset: 0x00038B1C
 			public WorldSave.Builder SetInstanceObject(int index, SavedObject value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -646,7 +646,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DF7 RID: 3575 RVA: 0x0003659C File Offset: 0x0003479C
+			// Token: 0x06000F4B RID: 3915 RVA: 0x0003A944 File Offset: 0x00038B44
 			public WorldSave.Builder SetInstanceObject(int index, SavedObject.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -655,7 +655,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DF8 RID: 3576 RVA: 0x000365D4 File Offset: 0x000347D4
+			// Token: 0x06000F4C RID: 3916 RVA: 0x0003A97C File Offset: 0x00038B7C
 			public WorldSave.Builder AddInstanceObject(SavedObject value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -664,7 +664,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DF9 RID: 3577 RVA: 0x00036608 File Offset: 0x00034808
+			// Token: 0x06000F4D RID: 3917 RVA: 0x0003A9B0 File Offset: 0x00038BB0
 			public WorldSave.Builder AddInstanceObject(SavedObject.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -673,7 +673,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DFA RID: 3578 RVA: 0x00036634 File Offset: 0x00034834
+			// Token: 0x06000F4E RID: 3918 RVA: 0x0003A9DC File Offset: 0x00038BDC
 			public WorldSave.Builder AddRangeInstanceObject(IEnumerable<SavedObject> values)
 			{
 				this.PrepareBuilder();
@@ -681,7 +681,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06000DFB RID: 3579 RVA: 0x00036650 File Offset: 0x00034850
+			// Token: 0x06000F4F RID: 3919 RVA: 0x0003A9F8 File Offset: 0x00038BF8
 			public WorldSave.Builder ClearInstanceObject()
 			{
 				this.PrepareBuilder();
@@ -689,10 +689,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x04000889 RID: 2185
+			// Token: 0x040009AC RID: 2476
 			private bool resultIsReadOnly;
 
-			// Token: 0x0400088A RID: 2186
+			// Token: 0x040009AD RID: 2477
 			private WorldSave result;
 		}
 	}

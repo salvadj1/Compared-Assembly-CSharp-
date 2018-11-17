@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005A3 RID: 1443
-public class FlashlightItemRep : ItemRepresentation
+// Token: 0x02000661 RID: 1633
+public class FlashlightItemRep : global::ItemRepresentation
 {
-	// Token: 0x0600346A RID: 13418 RVA: 0x000BF5D0 File Offset: 0x000BD7D0
-	protected override void StateSignalReceive(Character character, bool treatedAsFirst)
+	// Token: 0x06003832 RID: 14386 RVA: 0x000C782C File Offset: 0x000C5A2C
+	protected override void StateSignalReceive(global::Character character, bool treatedAsFirst)
 	{
 		this.SetLightOn(character.stateFlags.lamp);
 	}
 
-	// Token: 0x0600346B RID: 13419 RVA: 0x000BF5E4 File Offset: 0x000BD7E4
+	// Token: 0x06003833 RID: 14387 RVA: 0x000C7840 File Offset: 0x000C5A40
 	public virtual void SetLightOn(bool on)
 	{
-		bool flag = base.networkViewOwner == NetCull.player;
+		bool flag = base.networkViewOwner == global::NetCull.player;
 		if (on)
 		{
 			if (!flag)
@@ -31,12 +31,12 @@ public class FlashlightItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x04001A22 RID: 6690
+	// Token: 0x04001BF3 RID: 7155
 	private GameObject lightEffect;
 
-	// Token: 0x04001A23 RID: 6691
+	// Token: 0x04001BF4 RID: 7156
 	public GameObject lightEffectPrefab1P;
 
-	// Token: 0x04001A24 RID: 6692
+	// Token: 0x04001BF5 RID: 7157
 	public GameObject lightEffectPrefab3P;
 }

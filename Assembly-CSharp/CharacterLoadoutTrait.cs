@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200045C RID: 1116
-public class CharacterLoadoutTrait : CharacterTrait
+// Token: 0x02000512 RID: 1298
+public class CharacterLoadoutTrait : global::CharacterTrait
 {
-	// Token: 0x1700093B RID: 2363
-	// (get) Token: 0x060028A7 RID: 10407 RVA: 0x0009FB1C File Offset: 0x0009DD1C
-	public Loadout loadout
+	// Token: 0x170009A3 RID: 2467
+	// (get) Token: 0x06002C37 RID: 11319 RVA: 0x000A5A9C File Offset: 0x000A3C9C
+	public global::Loadout loadout
 	{
 		get
 		{
@@ -14,7 +14,7 @@ public class CharacterLoadoutTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x0400149D RID: 5277
+	// Token: 0x04001620 RID: 5664
 	[SerializeField]
-	private Loadout _loadout;
+	private global::Loadout _loadout;
 }

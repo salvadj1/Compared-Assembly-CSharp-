@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200013D RID: 317
+// Token: 0x02000167 RID: 359
 [Serializable]
 public class ControllerClassesConfigurations
 {
-	// Token: 0x17000256 RID: 598
-	// (get) Token: 0x06000922 RID: 2338 RVA: 0x00026B00 File Offset: 0x00024D00
+	// Token: 0x17000298 RID: 664
+	// (get) Token: 0x06000A48 RID: 2632 RVA: 0x0002A87C File Offset: 0x00028A7C
 	internal string unassignedClassName
 	{
 		get
@@ -17,7 +17,7 @@ public class ControllerClassesConfigurations
 		}
 	}
 
-	// Token: 0x06000923 RID: 2339 RVA: 0x00026B40 File Offset: 0x00024D40
+	// Token: 0x06000A49 RID: 2633 RVA: 0x0002A8BC File Offset: 0x00028ABC
 	internal string GetClassName(bool player, bool local)
 	{
 		if (player)
@@ -38,27 +38,27 @@ public class ControllerClassesConfigurations
 		}
 	}
 
-	// Token: 0x04000648 RID: 1608
+	// Token: 0x04000757 RID: 1879
 	[SerializeField]
 	public string localPlayer;
 
-	// Token: 0x04000649 RID: 1609
+	// Token: 0x04000758 RID: 1880
 	[SerializeField]
 	public string remotePlayer;
 
-	// Token: 0x0400064A RID: 1610
+	// Token: 0x04000759 RID: 1881
 	[SerializeField]
 	public string localAI;
 
-	// Token: 0x0400064B RID: 1611
+	// Token: 0x0400075A RID: 1882
 	[SerializeField]
 	public string remoteAI;
 
-	// Token: 0x0400064C RID: 1612
+	// Token: 0x0400075B RID: 1883
 	[SerializeField]
 	public string cl_unassigned;
 
-	// Token: 0x0400064D RID: 1613
+	// Token: 0x0400075C RID: 1884
 	[SerializeField]
 	public string sv_unassigned;
 }

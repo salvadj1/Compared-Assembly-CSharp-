@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000709 RID: 1801
+// Token: 0x020007E1 RID: 2017
 [AddComponentMenu("Daikon Forge/Data Binding/Expression Binding")]
 [Serializable]
-public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
+public class dfExpressionPropertyBinding : MonoBehaviour, global::IDataBindingComponent
 {
-	// Token: 0x17000CF1 RID: 3313
-	// (get) Token: 0x060041BB RID: 16827 RVA: 0x000FD7B8 File Offset: 0x000FB9B8
-	// (set) Token: 0x060041BC RID: 16828 RVA: 0x000FD7C0 File Offset: 0x000FB9C0
+	// Token: 0x17000D79 RID: 3449
+	// (get) Token: 0x060045ED RID: 17901 RVA: 0x001066EC File Offset: 0x001048EC
+	// (set) Token: 0x060045EE RID: 17902 RVA: 0x001066F4 File Offset: 0x001048F4
 	public string Expression
 	{
 		get
@@ -26,13 +26,13 @@ public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041BD RID: 16829 RVA: 0x000FD7E0 File Offset: 0x000FB9E0
+	// Token: 0x060045EF RID: 17903 RVA: 0x00106714 File Offset: 0x00104914
 	public void OnDisable()
 	{
 		this.Unbind();
 	}
 
-	// Token: 0x060041BE RID: 16830 RVA: 0x000FD7E8 File Offset: 0x000FB9E8
+	// Token: 0x060045F0 RID: 17904 RVA: 0x0010671C File Offset: 0x0010491C
 	public void Update()
 	{
 		if (this.isBound)
@@ -49,7 +49,7 @@ public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041BF RID: 16831 RVA: 0x000FD848 File Offset: 0x000FBA48
+	// Token: 0x060045F1 RID: 17905 RVA: 0x0010677C File Offset: 0x0010497C
 	public void Unbind()
 	{
 		if (!this.isBound)
@@ -61,14 +61,14 @@ public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
 		this.isBound = false;
 	}
 
-	// Token: 0x060041C0 RID: 16832 RVA: 0x000FD86C File Offset: 0x000FBA6C
+	// Token: 0x060045F2 RID: 17906 RVA: 0x001067A0 File Offset: 0x001049A0
 	public void Bind()
 	{
 		if (this.isBound)
 		{
 			return;
 		}
-		if (this.DataSource is dfDataObjectProxy && ((dfDataObjectProxy)this.DataSource).Data == null)
+		if (this.DataSource is global::dfDataObjectProxy && ((global::dfDataObjectProxy)this.DataSource).Data == null)
 		{
 			return;
 		}
@@ -126,9 +126,9 @@ public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
 				}
 			}
 		};
-		if (this.DataSource is dfDataObjectProxy)
+		if (this.DataSource is global::dfDataObjectProxy)
 		{
-			dfDataObjectProxy dfDataObjectProxy = this.DataSource as dfDataObjectProxy;
+			global::dfDataObjectProxy dfDataObjectProxy = this.DataSource as global::dfDataObjectProxy;
 			dfScriptEngineSettings.AddVariable(new dfScriptVariable("source", null, dfDataObjectProxy.DataType));
 		}
 		else
@@ -140,15 +140,15 @@ public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
 		this.isBound = (this.compiledExpression != null && this.targetProperty != null);
 	}
 
-	// Token: 0x060041C1 RID: 16833 RVA: 0x000FDA50 File Offset: 0x000FBC50
+	// Token: 0x060045F3 RID: 17907 RVA: 0x00106984 File Offset: 0x00104B84
 	private void evaluate()
 	{
 		try
 		{
 			object obj = this.DataSource;
-			if (obj is dfDataObjectProxy)
+			if (obj is global::dfDataObjectProxy)
 			{
-				obj = ((dfDataObjectProxy)obj).Data;
+				obj = ((global::dfDataObjectProxy)obj).Data;
 			}
 			object value = this.compiledExpression.DynamicInvoke(new object[]
 			{
@@ -162,7 +162,7 @@ public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041C2 RID: 16834 RVA: 0x000FDACC File Offset: 0x000FBCCC
+	// Token: 0x060045F4 RID: 17908 RVA: 0x00106A00 File Offset: 0x00104C00
 	public override string ToString()
 	{
 		string arg = (this.DataTarget == null || !(this.DataTarget.Component != null)) ? "[null]" : this.DataTarget.Component.GetType().Name;
@@ -170,22 +170,22 @@ public class dfExpressionPropertyBinding : MonoBehaviour, IDataBindingComponent
 		return string.Format("Bind [expression] -> {0}.{1}", arg, arg2);
 	}
 
-	// Token: 0x040022A0 RID: 8864
+	// Token: 0x040024B4 RID: 9396
 	public Component DataSource;
 
-	// Token: 0x040022A1 RID: 8865
-	public dfComponentMemberInfo DataTarget;
+	// Token: 0x040024B5 RID: 9397
+	public global::dfComponentMemberInfo DataTarget;
 
-	// Token: 0x040022A2 RID: 8866
+	// Token: 0x040024B6 RID: 9398
 	[SerializeField]
 	protected string expression;
 
-	// Token: 0x040022A3 RID: 8867
+	// Token: 0x040024B7 RID: 9399
 	private Delegate compiledExpression;
 
-	// Token: 0x040022A4 RID: 8868
-	private dfObservableProperty targetProperty;
+	// Token: 0x040024B8 RID: 9400
+	private global::dfObservableProperty targetProperty;
 
-	// Token: 0x040022A5 RID: 8869
+	// Token: 0x040024B9 RID: 9401
 	private bool isBound;
 }

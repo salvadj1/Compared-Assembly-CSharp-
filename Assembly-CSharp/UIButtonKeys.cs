@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200075D RID: 1885
+// Token: 0x0200083F RID: 2111
 [AddComponentMenu("NGUI/Interaction/Button Keys")]
 public class UIButtonKeys : MonoBehaviour
 {
-	// Token: 0x060044C1 RID: 17601 RVA: 0x0010D470 File Offset: 0x0010B670
+	// Token: 0x06004922 RID: 18722 RVA: 0x00116DF0 File Offset: 0x00114FF0
 	private void Start()
 	{
-		if (this.startsSelected && (UICamera.selectedObject == null || !UICamera.selectedObject.activeInHierarchy))
+		if (this.startsSelected && (global::UICamera.selectedObject == null || !global::UICamera.selectedObject.activeInHierarchy))
 		{
-			UICamera.selectedObject = base.gameObject;
+			global::UICamera.selectedObject = base.gameObject;
 		}
 	}
 
-	// Token: 0x060044C2 RID: 17602 RVA: 0x0010D4B4 File Offset: 0x0010B6B4
+	// Token: 0x06004923 RID: 18723 RVA: 0x00116E34 File Offset: 0x00115034
 	private void OnKey(KeyCode key)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy)
@@ -24,25 +24,25 @@ public class UIButtonKeys : MonoBehaviour
 			case 273:
 				if (this.selectOnUp != null)
 				{
-					UICamera.selectedObject = this.selectOnUp.gameObject;
+					global::UICamera.selectedObject = this.selectOnUp.gameObject;
 				}
 				break;
 			case 274:
 				if (this.selectOnDown != null)
 				{
-					UICamera.selectedObject = this.selectOnDown.gameObject;
+					global::UICamera.selectedObject = this.selectOnDown.gameObject;
 				}
 				break;
 			case 275:
 				if (this.selectOnRight != null)
 				{
-					UICamera.selectedObject = this.selectOnRight.gameObject;
+					global::UICamera.selectedObject = this.selectOnRight.gameObject;
 				}
 				break;
 			case 276:
 				if (this.selectOnLeft != null)
 				{
-					UICamera.selectedObject = this.selectOnLeft.gameObject;
+					global::UICamera.selectedObject = this.selectOnLeft.gameObject;
 				}
 				break;
 			default:
@@ -52,36 +52,36 @@ public class UIButtonKeys : MonoBehaviour
 					{
 						if (this.selectOnLeft != null)
 						{
-							UICamera.selectedObject = this.selectOnLeft.gameObject;
+							global::UICamera.selectedObject = this.selectOnLeft.gameObject;
 						}
 						else if (this.selectOnUp != null)
 						{
-							UICamera.selectedObject = this.selectOnUp.gameObject;
+							global::UICamera.selectedObject = this.selectOnUp.gameObject;
 						}
 						else if (this.selectOnDown != null)
 						{
-							UICamera.selectedObject = this.selectOnDown.gameObject;
+							global::UICamera.selectedObject = this.selectOnDown.gameObject;
 						}
 						else if (this.selectOnRight != null)
 						{
-							UICamera.selectedObject = this.selectOnRight.gameObject;
+							global::UICamera.selectedObject = this.selectOnRight.gameObject;
 						}
 					}
 					else if (this.selectOnRight != null)
 					{
-						UICamera.selectedObject = this.selectOnRight.gameObject;
+						global::UICamera.selectedObject = this.selectOnRight.gameObject;
 					}
 					else if (this.selectOnDown != null)
 					{
-						UICamera.selectedObject = this.selectOnDown.gameObject;
+						global::UICamera.selectedObject = this.selectOnDown.gameObject;
 					}
 					else if (this.selectOnUp != null)
 					{
-						UICamera.selectedObject = this.selectOnUp.gameObject;
+						global::UICamera.selectedObject = this.selectOnUp.gameObject;
 					}
 					else if (this.selectOnRight != null)
 					{
-						UICamera.selectedObject = this.selectOnRight.gameObject;
+						global::UICamera.selectedObject = this.selectOnRight.gameObject;
 					}
 				}
 				break;
@@ -89,30 +89,30 @@ public class UIButtonKeys : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044C3 RID: 17603 RVA: 0x0010D6F0 File Offset: 0x0010B8F0
+	// Token: 0x06004924 RID: 18724 RVA: 0x00117070 File Offset: 0x00115270
 	private void OnClick()
 	{
 		if (base.enabled && this.selectOnClick != null)
 		{
-			UICamera.selectedObject = this.selectOnClick.gameObject;
+			global::UICamera.selectedObject = this.selectOnClick.gameObject;
 		}
 	}
 
-	// Token: 0x040024F0 RID: 9456
+	// Token: 0x04002727 RID: 10023
 	public bool startsSelected;
 
-	// Token: 0x040024F1 RID: 9457
-	public UIButtonKeys selectOnClick;
+	// Token: 0x04002728 RID: 10024
+	public global::UIButtonKeys selectOnClick;
 
-	// Token: 0x040024F2 RID: 9458
-	public UIButtonKeys selectOnUp;
+	// Token: 0x04002729 RID: 10025
+	public global::UIButtonKeys selectOnUp;
 
-	// Token: 0x040024F3 RID: 9459
-	public UIButtonKeys selectOnDown;
+	// Token: 0x0400272A RID: 10026
+	public global::UIButtonKeys selectOnDown;
 
-	// Token: 0x040024F4 RID: 9460
-	public UIButtonKeys selectOnLeft;
+	// Token: 0x0400272B RID: 10027
+	public global::UIButtonKeys selectOnLeft;
 
-	// Token: 0x040024F5 RID: 9461
-	public UIButtonKeys selectOnRight;
+	// Token: 0x0400272C RID: 10028
+	public global::UIButtonKeys selectOnRight;
 }

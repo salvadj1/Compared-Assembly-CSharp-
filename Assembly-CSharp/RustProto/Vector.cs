@@ -9,29 +9,29 @@ using UnityEngine;
 
 namespace RustProto
 {
-	// Token: 0x02000221 RID: 545
+	// Token: 0x02000254 RID: 596
 	[DebuggerNonUserCode]
 	public sealed class Vector : GeneratedMessage<Vector, Vector.Builder>
 	{
-		// Token: 0x06001344 RID: 4932 RVA: 0x00042600 File Offset: 0x00040800
+		// Token: 0x06001498 RID: 5272 RVA: 0x000469A8 File Offset: 0x00044BA8
 		private Vector()
 		{
 		}
 
-		// Token: 0x06001345 RID: 4933 RVA: 0x00042610 File Offset: 0x00040810
+		// Token: 0x06001499 RID: 5273 RVA: 0x000469B8 File Offset: 0x00044BB8
 		static Vector()
 		{
 			object.ReferenceEquals(Common.Descriptor, null);
 		}
 
-		// Token: 0x06001346 RID: 4934 RVA: 0x00042678 File Offset: 0x00040878
-		public static Recycler<Vector, Vector.Builder> Recycler()
+		// Token: 0x0600149A RID: 5274 RVA: 0x00046A20 File Offset: 0x00044C20
+		public static RustProto.Helpers.Recycler<Vector, Vector.Builder> Recycler()
 		{
-			return Recycler<Vector, Vector.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<Vector, Vector.Builder>.Manufacture();
 		}
 
-		// Token: 0x1700056E RID: 1390
-		// (get) Token: 0x06001347 RID: 4935 RVA: 0x00042680 File Offset: 0x00040880
+		// Token: 0x170005B6 RID: 1462
+		// (get) Token: 0x0600149B RID: 5275 RVA: 0x00046A28 File Offset: 0x00044C28
 		public static Vector DefaultInstance
 		{
 			get
@@ -40,8 +40,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700056F RID: 1391
-		// (get) Token: 0x06001348 RID: 4936 RVA: 0x00042688 File Offset: 0x00040888
+		// Token: 0x170005B7 RID: 1463
+		// (get) Token: 0x0600149C RID: 5276 RVA: 0x00046A30 File Offset: 0x00044C30
 		public override Vector DefaultInstanceForType
 		{
 			get
@@ -50,8 +50,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000570 RID: 1392
-		// (get) Token: 0x06001349 RID: 4937 RVA: 0x00042690 File Offset: 0x00040890
+		// Token: 0x170005B8 RID: 1464
+		// (get) Token: 0x0600149D RID: 5277 RVA: 0x00046A38 File Offset: 0x00044C38
 		protected override Vector ThisMessage
 		{
 			get
@@ -60,8 +60,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000571 RID: 1393
-		// (get) Token: 0x0600134A RID: 4938 RVA: 0x00042694 File Offset: 0x00040894
+		// Token: 0x170005B9 RID: 1465
+		// (get) Token: 0x0600149E RID: 5278 RVA: 0x00046A3C File Offset: 0x00044C3C
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -70,8 +70,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000572 RID: 1394
-		// (get) Token: 0x0600134B RID: 4939 RVA: 0x0004269C File Offset: 0x0004089C
+		// Token: 0x170005BA RID: 1466
+		// (get) Token: 0x0600149F RID: 5279 RVA: 0x00046A44 File Offset: 0x00044C44
 		protected override FieldAccessorTable<Vector, Vector.Builder> InternalFieldAccessors
 		{
 			get
@@ -80,8 +80,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000573 RID: 1395
-		// (get) Token: 0x0600134C RID: 4940 RVA: 0x000426A4 File Offset: 0x000408A4
+		// Token: 0x170005BB RID: 1467
+		// (get) Token: 0x060014A0 RID: 5280 RVA: 0x00046A4C File Offset: 0x00044C4C
 		public bool HasX
 		{
 			get
@@ -90,8 +90,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000574 RID: 1396
-		// (get) Token: 0x0600134D RID: 4941 RVA: 0x000426AC File Offset: 0x000408AC
+		// Token: 0x170005BC RID: 1468
+		// (get) Token: 0x060014A1 RID: 5281 RVA: 0x00046A54 File Offset: 0x00044C54
 		public float X
 		{
 			get
@@ -100,8 +100,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000575 RID: 1397
-		// (get) Token: 0x0600134E RID: 4942 RVA: 0x000426B4 File Offset: 0x000408B4
+		// Token: 0x170005BD RID: 1469
+		// (get) Token: 0x060014A2 RID: 5282 RVA: 0x00046A5C File Offset: 0x00044C5C
 		public bool HasY
 		{
 			get
@@ -110,8 +110,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000576 RID: 1398
-		// (get) Token: 0x0600134F RID: 4943 RVA: 0x000426BC File Offset: 0x000408BC
+		// Token: 0x170005BE RID: 1470
+		// (get) Token: 0x060014A3 RID: 5283 RVA: 0x00046A64 File Offset: 0x00044C64
 		public float Y
 		{
 			get
@@ -120,8 +120,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000577 RID: 1399
-		// (get) Token: 0x06001350 RID: 4944 RVA: 0x000426C4 File Offset: 0x000408C4
+		// Token: 0x170005BF RID: 1471
+		// (get) Token: 0x060014A4 RID: 5284 RVA: 0x00046A6C File Offset: 0x00044C6C
 		public bool HasZ
 		{
 			get
@@ -130,8 +130,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000578 RID: 1400
-		// (get) Token: 0x06001351 RID: 4945 RVA: 0x000426CC File Offset: 0x000408CC
+		// Token: 0x170005C0 RID: 1472
+		// (get) Token: 0x060014A5 RID: 5285 RVA: 0x00046A74 File Offset: 0x00044C74
 		public float Z
 		{
 			get
@@ -140,8 +140,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000579 RID: 1401
-		// (get) Token: 0x06001352 RID: 4946 RVA: 0x000426D4 File Offset: 0x000408D4
+		// Token: 0x170005C1 RID: 1473
+		// (get) Token: 0x060014A6 RID: 5286 RVA: 0x00046A7C File Offset: 0x00044C7C
 		public override bool IsInitialized
 		{
 			get
@@ -150,7 +150,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001353 RID: 4947 RVA: 0x000426D8 File Offset: 0x000408D8
+		// Token: 0x060014A7 RID: 5287 RVA: 0x00046A80 File Offset: 0x00044C80
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -170,8 +170,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x1700057A RID: 1402
-		// (get) Token: 0x06001354 RID: 4948 RVA: 0x00042750 File Offset: 0x00040950
+		// Token: 0x170005C2 RID: 1474
+		// (get) Token: 0x060014A8 RID: 5288 RVA: 0x00046AF8 File Offset: 0x00044CF8
 		public override int SerializedSize
 		{
 			get
@@ -200,101 +200,101 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001355 RID: 4949 RVA: 0x000427D4 File Offset: 0x000409D4
+		// Token: 0x060014A9 RID: 5289 RVA: 0x00046B7C File Offset: 0x00044D7C
 		public static Vector ParseFrom(ByteString data)
 		{
 			return Vector.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001356 RID: 4950 RVA: 0x000427E8 File Offset: 0x000409E8
+		// Token: 0x060014AA RID: 5290 RVA: 0x00046B90 File Offset: 0x00044D90
 		public static Vector ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return Vector.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001357 RID: 4951 RVA: 0x000427FC File Offset: 0x000409FC
+		// Token: 0x060014AB RID: 5291 RVA: 0x00046BA4 File Offset: 0x00044DA4
 		public static Vector ParseFrom(byte[] data)
 		{
 			return Vector.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001358 RID: 4952 RVA: 0x00042810 File Offset: 0x00040A10
+		// Token: 0x060014AC RID: 5292 RVA: 0x00046BB8 File Offset: 0x00044DB8
 		public static Vector ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return Vector.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001359 RID: 4953 RVA: 0x00042824 File Offset: 0x00040A24
+		// Token: 0x060014AD RID: 5293 RVA: 0x00046BCC File Offset: 0x00044DCC
 		public static Vector ParseFrom(Stream input)
 		{
 			return Vector.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600135A RID: 4954 RVA: 0x00042838 File Offset: 0x00040A38
+		// Token: 0x060014AE RID: 5294 RVA: 0x00046BE0 File Offset: 0x00044DE0
 		public static Vector ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return Vector.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600135B RID: 4955 RVA: 0x0004284C File Offset: 0x00040A4C
+		// Token: 0x060014AF RID: 5295 RVA: 0x00046BF4 File Offset: 0x00044DF4
 		public static Vector ParseDelimitedFrom(Stream input)
 		{
 			return Vector.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600135C RID: 4956 RVA: 0x00042860 File Offset: 0x00040A60
+		// Token: 0x060014B0 RID: 5296 RVA: 0x00046C08 File Offset: 0x00044E08
 		public static Vector ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return Vector.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600135D RID: 4957 RVA: 0x00042874 File Offset: 0x00040A74
+		// Token: 0x060014B1 RID: 5297 RVA: 0x00046C1C File Offset: 0x00044E1C
 		public static Vector ParseFrom(ICodedInputStream input)
 		{
 			return Vector.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600135E RID: 4958 RVA: 0x00042888 File Offset: 0x00040A88
+		// Token: 0x060014B2 RID: 5298 RVA: 0x00046C30 File Offset: 0x00044E30
 		public static Vector ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return Vector.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600135F RID: 4959 RVA: 0x0004289C File Offset: 0x00040A9C
+		// Token: 0x060014B3 RID: 5299 RVA: 0x00046C44 File Offset: 0x00044E44
 		private Vector MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x06001360 RID: 4960 RVA: 0x000428A0 File Offset: 0x00040AA0
+		// Token: 0x060014B4 RID: 5300 RVA: 0x00046C48 File Offset: 0x00044E48
 		public static Vector.Builder CreateBuilder()
 		{
 			return new Vector.Builder();
 		}
 
-		// Token: 0x06001361 RID: 4961 RVA: 0x000428A8 File Offset: 0x00040AA8
+		// Token: 0x060014B5 RID: 5301 RVA: 0x00046C50 File Offset: 0x00044E50
 		public override Vector.Builder ToBuilder()
 		{
 			return Vector.CreateBuilder(this);
 		}
 
-		// Token: 0x06001362 RID: 4962 RVA: 0x000428B0 File Offset: 0x00040AB0
+		// Token: 0x060014B6 RID: 5302 RVA: 0x00046C58 File Offset: 0x00044E58
 		public override Vector.Builder CreateBuilderForType()
 		{
 			return new Vector.Builder();
 		}
 
-		// Token: 0x06001363 RID: 4963 RVA: 0x000428B8 File Offset: 0x00040AB8
+		// Token: 0x060014B7 RID: 5303 RVA: 0x00046C60 File Offset: 0x00044E60
 		public static Vector.Builder CreateBuilder(Vector prototype)
 		{
 			return new Vector.Builder(prototype);
 		}
 
-		// Token: 0x06001364 RID: 4964 RVA: 0x000428C0 File Offset: 0x00040AC0
+		// Token: 0x060014B8 RID: 5304 RVA: 0x00046C68 File Offset: 0x00044E68
 		public static implicit operator Vector(Vector3 v)
 		{
 			Vector result;
-			using (Recycler<Vector, Vector.Builder> recycler = Vector.Recycler())
+			using (RustProto.Helpers.Recycler<Vector, Vector.Builder> recycler = Vector.Recycler())
 			{
 				Vector.Builder builder = recycler.OpenBuilder();
 				builder.SetX(v.x);
@@ -305,19 +305,19 @@ namespace RustProto
 			return result;
 		}
 
-		// Token: 0x040009D7 RID: 2519
+		// Token: 0x04000AFA RID: 2810
 		public const int XFieldNumber = 1;
 
-		// Token: 0x040009D8 RID: 2520
+		// Token: 0x04000AFB RID: 2811
 		public const int YFieldNumber = 2;
 
-		// Token: 0x040009D9 RID: 2521
+		// Token: 0x04000AFC RID: 2812
 		public const int ZFieldNumber = 3;
 
-		// Token: 0x040009DA RID: 2522
+		// Token: 0x04000AFD RID: 2813
 		private static readonly Vector defaultInstance = new Vector().MakeReadOnly();
 
-		// Token: 0x040009DB RID: 2523
+		// Token: 0x04000AFE RID: 2814
 		private static readonly string[] _vectorFieldNames = new string[]
 		{
 			"x",
@@ -325,7 +325,7 @@ namespace RustProto
 			"z"
 		};
 
-		// Token: 0x040009DC RID: 2524
+		// Token: 0x04000AFF RID: 2815
 		private static readonly uint[] _vectorFieldTags = new uint[]
 		{
 			13u,
@@ -333,46 +333,46 @@ namespace RustProto
 			29u
 		};
 
-		// Token: 0x040009DD RID: 2525
+		// Token: 0x04000B00 RID: 2816
 		private bool hasX;
 
-		// Token: 0x040009DE RID: 2526
+		// Token: 0x04000B01 RID: 2817
 		private float x_;
 
-		// Token: 0x040009DF RID: 2527
+		// Token: 0x04000B02 RID: 2818
 		private bool hasY;
 
-		// Token: 0x040009E0 RID: 2528
+		// Token: 0x04000B03 RID: 2819
 		private float y_;
 
-		// Token: 0x040009E1 RID: 2529
+		// Token: 0x04000B04 RID: 2820
 		private bool hasZ;
 
-		// Token: 0x040009E2 RID: 2530
+		// Token: 0x04000B05 RID: 2821
 		private float z_;
 
-		// Token: 0x040009E3 RID: 2531
+		// Token: 0x04000B06 RID: 2822
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000222 RID: 546
+		// Token: 0x02000255 RID: 597
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<Vector, Vector.Builder>
 		{
-			// Token: 0x06001365 RID: 4965 RVA: 0x00042940 File Offset: 0x00040B40
+			// Token: 0x060014B9 RID: 5305 RVA: 0x00046CE8 File Offset: 0x00044EE8
 			public Builder()
 			{
 				this.result = Vector.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x06001366 RID: 4966 RVA: 0x0004295C File Offset: 0x00040B5C
+			// Token: 0x060014BA RID: 5306 RVA: 0x00046D04 File Offset: 0x00044F04
 			internal Builder(Vector cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x06001367 RID: 4967 RVA: 0x00042974 File Offset: 0x00040B74
+			// Token: 0x060014BB RID: 5307 RVA: 0x00046D1C File Offset: 0x00044F1C
 			public void Set(Vector3 value)
 			{
 				this.SetX(value.x);
@@ -380,8 +380,8 @@ namespace RustProto
 				this.SetZ(value.z);
 			}
 
-			// Token: 0x1700057B RID: 1403
-			// (get) Token: 0x06001368 RID: 4968 RVA: 0x000429AC File Offset: 0x00040BAC
+			// Token: 0x170005C3 RID: 1475
+			// (get) Token: 0x060014BC RID: 5308 RVA: 0x00046D54 File Offset: 0x00044F54
 			protected override Vector.Builder ThisBuilder
 			{
 				get
@@ -390,7 +390,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001369 RID: 4969 RVA: 0x000429B0 File Offset: 0x00040BB0
+			// Token: 0x060014BD RID: 5309 RVA: 0x00046D58 File Offset: 0x00044F58
 			private Vector PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -403,8 +403,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x1700057C RID: 1404
-			// (get) Token: 0x0600136A RID: 4970 RVA: 0x000429F0 File Offset: 0x00040BF0
+			// Token: 0x170005C4 RID: 1476
+			// (get) Token: 0x060014BE RID: 5310 RVA: 0x00046D98 File Offset: 0x00044F98
 			public override bool IsInitialized
 			{
 				get
@@ -413,8 +413,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700057D RID: 1405
-			// (get) Token: 0x0600136B RID: 4971 RVA: 0x00042A00 File Offset: 0x00040C00
+			// Token: 0x170005C5 RID: 1477
+			// (get) Token: 0x060014BF RID: 5311 RVA: 0x00046DA8 File Offset: 0x00044FA8
 			protected override Vector MessageBeingBuilt
 			{
 				get
@@ -423,7 +423,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600136C RID: 4972 RVA: 0x00042A08 File Offset: 0x00040C08
+			// Token: 0x060014C0 RID: 5312 RVA: 0x00046DB0 File Offset: 0x00044FB0
 			public override Vector.Builder Clear()
 			{
 				this.result = Vector.DefaultInstance;
@@ -431,7 +431,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600136D RID: 4973 RVA: 0x00042A20 File Offset: 0x00040C20
+			// Token: 0x060014C1 RID: 5313 RVA: 0x00046DC8 File Offset: 0x00044FC8
 			public override Vector.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -441,8 +441,8 @@ namespace RustProto
 				return new Vector.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x1700057E RID: 1406
-			// (get) Token: 0x0600136E RID: 4974 RVA: 0x00042A4C File Offset: 0x00040C4C
+			// Token: 0x170005C6 RID: 1478
+			// (get) Token: 0x060014C2 RID: 5314 RVA: 0x00046DF4 File Offset: 0x00044FF4
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -451,8 +451,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700057F RID: 1407
-			// (get) Token: 0x0600136F RID: 4975 RVA: 0x00042A54 File Offset: 0x00040C54
+			// Token: 0x170005C7 RID: 1479
+			// (get) Token: 0x060014C3 RID: 5315 RVA: 0x00046DFC File Offset: 0x00044FFC
 			public override Vector DefaultInstanceForType
 			{
 				get
@@ -461,7 +461,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001370 RID: 4976 RVA: 0x00042A5C File Offset: 0x00040C5C
+			// Token: 0x060014C4 RID: 5316 RVA: 0x00046E04 File Offset: 0x00045004
 			public override Vector BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -472,7 +472,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x06001371 RID: 4977 RVA: 0x00042A90 File Offset: 0x00040C90
+			// Token: 0x060014C5 RID: 5317 RVA: 0x00046E38 File Offset: 0x00045038
 			public override Vector.Builder MergeFrom(IMessage other)
 			{
 				if (other is Vector)
@@ -483,7 +483,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001372 RID: 4978 RVA: 0x00042AB4 File Offset: 0x00040CB4
+			// Token: 0x060014C6 RID: 5318 RVA: 0x00046E5C File Offset: 0x0004505C
 			public override Vector.Builder MergeFrom(Vector other)
 			{
 				if (other == Vector.DefaultInstance)
@@ -507,13 +507,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001373 RID: 4979 RVA: 0x00042B28 File Offset: 0x00040D28
+			// Token: 0x060014C7 RID: 5319 RVA: 0x00046ED0 File Offset: 0x000450D0
 			public override Vector.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x06001374 RID: 4980 RVA: 0x00042B38 File Offset: 0x00040D38
+			// Token: 0x060014C8 RID: 5320 RVA: 0x00046EE0 File Offset: 0x000450E0
 			public override Vector.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -583,8 +583,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000580 RID: 1408
-			// (get) Token: 0x06001375 RID: 4981 RVA: 0x00042CA0 File Offset: 0x00040EA0
+			// Token: 0x170005C8 RID: 1480
+			// (get) Token: 0x060014C9 RID: 5321 RVA: 0x00047048 File Offset: 0x00045248
 			public bool HasX
 			{
 				get
@@ -593,9 +593,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000581 RID: 1409
-			// (get) Token: 0x06001376 RID: 4982 RVA: 0x00042CB0 File Offset: 0x00040EB0
-			// (set) Token: 0x06001377 RID: 4983 RVA: 0x00042CC0 File Offset: 0x00040EC0
+			// Token: 0x170005C9 RID: 1481
+			// (get) Token: 0x060014CA RID: 5322 RVA: 0x00047058 File Offset: 0x00045258
+			// (set) Token: 0x060014CB RID: 5323 RVA: 0x00047068 File Offset: 0x00045268
 			public float X
 			{
 				get
@@ -608,7 +608,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001378 RID: 4984 RVA: 0x00042CCC File Offset: 0x00040ECC
+			// Token: 0x060014CC RID: 5324 RVA: 0x00047074 File Offset: 0x00045274
 			public Vector.Builder SetX(float value)
 			{
 				this.PrepareBuilder();
@@ -617,7 +617,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001379 RID: 4985 RVA: 0x00042CFC File Offset: 0x00040EFC
+			// Token: 0x060014CD RID: 5325 RVA: 0x000470A4 File Offset: 0x000452A4
 			public Vector.Builder ClearX()
 			{
 				this.PrepareBuilder();
@@ -626,8 +626,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000582 RID: 1410
-			// (get) Token: 0x0600137A RID: 4986 RVA: 0x00042D30 File Offset: 0x00040F30
+			// Token: 0x170005CA RID: 1482
+			// (get) Token: 0x060014CE RID: 5326 RVA: 0x000470D8 File Offset: 0x000452D8
 			public bool HasY
 			{
 				get
@@ -636,9 +636,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000583 RID: 1411
-			// (get) Token: 0x0600137B RID: 4987 RVA: 0x00042D40 File Offset: 0x00040F40
-			// (set) Token: 0x0600137C RID: 4988 RVA: 0x00042D50 File Offset: 0x00040F50
+			// Token: 0x170005CB RID: 1483
+			// (get) Token: 0x060014CF RID: 5327 RVA: 0x000470E8 File Offset: 0x000452E8
+			// (set) Token: 0x060014D0 RID: 5328 RVA: 0x000470F8 File Offset: 0x000452F8
 			public float Y
 			{
 				get
@@ -651,7 +651,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600137D RID: 4989 RVA: 0x00042D5C File Offset: 0x00040F5C
+			// Token: 0x060014D1 RID: 5329 RVA: 0x00047104 File Offset: 0x00045304
 			public Vector.Builder SetY(float value)
 			{
 				this.PrepareBuilder();
@@ -660,7 +660,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600137E RID: 4990 RVA: 0x00042D8C File Offset: 0x00040F8C
+			// Token: 0x060014D2 RID: 5330 RVA: 0x00047134 File Offset: 0x00045334
 			public Vector.Builder ClearY()
 			{
 				this.PrepareBuilder();
@@ -669,8 +669,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000584 RID: 1412
-			// (get) Token: 0x0600137F RID: 4991 RVA: 0x00042DC0 File Offset: 0x00040FC0
+			// Token: 0x170005CC RID: 1484
+			// (get) Token: 0x060014D3 RID: 5331 RVA: 0x00047168 File Offset: 0x00045368
 			public bool HasZ
 			{
 				get
@@ -679,9 +679,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000585 RID: 1413
-			// (get) Token: 0x06001380 RID: 4992 RVA: 0x00042DD0 File Offset: 0x00040FD0
-			// (set) Token: 0x06001381 RID: 4993 RVA: 0x00042DE0 File Offset: 0x00040FE0
+			// Token: 0x170005CD RID: 1485
+			// (get) Token: 0x060014D4 RID: 5332 RVA: 0x00047178 File Offset: 0x00045378
+			// (set) Token: 0x060014D5 RID: 5333 RVA: 0x00047188 File Offset: 0x00045388
 			public float Z
 			{
 				get
@@ -694,7 +694,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001382 RID: 4994 RVA: 0x00042DEC File Offset: 0x00040FEC
+			// Token: 0x060014D6 RID: 5334 RVA: 0x00047194 File Offset: 0x00045394
 			public Vector.Builder SetZ(float value)
 			{
 				this.PrepareBuilder();
@@ -703,7 +703,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001383 RID: 4995 RVA: 0x00042E1C File Offset: 0x0004101C
+			// Token: 0x060014D7 RID: 5335 RVA: 0x000471C4 File Offset: 0x000453C4
 			public Vector.Builder ClearZ()
 			{
 				this.PrepareBuilder();
@@ -712,10 +712,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x040009E4 RID: 2532
+			// Token: 0x04000B07 RID: 2823
 			private bool resultIsReadOnly;
 
-			// Token: 0x040009E5 RID: 2533
+			// Token: 0x04000B08 RID: 2824
 			private Vector result;
 		}
 	}

@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000118 RID: 280
-public sealed class CharacterTraitMap : TraitMap<CharacterTrait, CharacterTraitMap>
+// Token: 0x02000137 RID: 311
+public sealed class CharacterTraitMap : global::TraitMap<global::CharacterTrait, global::CharacterTraitMap>
 {
 }

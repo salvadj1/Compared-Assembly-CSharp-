@@ -1,27 +1,27 @@
 ﻿using System;
 
-// Token: 0x020005BE RID: 1470
-public interface IBulletWeaponItem : IHeldItem, IInventoryItem, IWeaponItem
+// Token: 0x0200067C RID: 1660
+public interface IBulletWeaponItem : global::IHeldItem, global::IInventoryItem, global::IWeaponItem
 {
-	// Token: 0x17000A74 RID: 2676
-	// (get) Token: 0x0600352C RID: 13612
-	MagazineDataBlock clipType { get; }
+	// Token: 0x17000AEA RID: 2794
+	// (get) Token: 0x060038F4 RID: 14580
+	global::MagazineDataBlock clipType { get; }
 
-	// Token: 0x17000A75 RID: 2677
-	// (get) Token: 0x0600352D RID: 13613
-	// (set) Token: 0x0600352E RID: 13614
+	// Token: 0x17000AEB RID: 2795
+	// (get) Token: 0x060038F5 RID: 14581
+	// (set) Token: 0x060038F6 RID: 14582
 	int clipAmmo { get; set; }
 
-	// Token: 0x17000A76 RID: 2678
-	// (get) Token: 0x0600352F RID: 13615
-	// (set) Token: 0x06003530 RID: 13616
+	// Token: 0x17000AEC RID: 2796
+	// (get) Token: 0x060038F7 RID: 14583
+	// (set) Token: 0x060038F8 RID: 14584
 	int cachedCasings { get; set; }
 
-	// Token: 0x17000A77 RID: 2679
-	// (get) Token: 0x06003531 RID: 13617
-	// (set) Token: 0x06003532 RID: 13618
+	// Token: 0x17000AED RID: 2797
+	// (get) Token: 0x060038F9 RID: 14585
+	// (set) Token: 0x060038FA RID: 14586
 	float nextCasingsTime { get; set; }
 
-	// Token: 0x06003533 RID: 13619
+	// Token: 0x060038FB RID: 14587
 	void ActualReload();
 }

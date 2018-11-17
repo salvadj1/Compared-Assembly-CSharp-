@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace EditorHooksPrivate
 {
-	// Token: 0x020008F6 RID: 2294
-	// (Invoke) Token: 0x06004DB0 RID: 19888
+	// Token: 0x0200094B RID: 2379
+	// (Invoke) Token: 0x06004FC2 RID: 20418
 	public delegate void VoidCallObject(Object obj);
 }

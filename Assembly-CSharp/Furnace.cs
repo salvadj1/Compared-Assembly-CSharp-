@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x02000031 RID: 49
-public class Furnace : FireBarrel
+// Token: 0x02000043 RID: 67
+public class Furnace : global::FireBarrel
 {
-	// Token: 0x060001F9 RID: 505 RVA: 0x0000B998 File Offset: 0x00009B98
+	// Token: 0x0600026B RID: 619 RVA: 0x0000CF40 File Offset: 0x0000B140
 	protected override float GetCookDuration()
 	{
 		return 30f;

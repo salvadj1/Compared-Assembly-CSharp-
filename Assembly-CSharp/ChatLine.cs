@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003EC RID: 1004
+// Token: 0x0200049C RID: 1180
 public class ChatLine : MonoBehaviour
 {
-	// Token: 0x0600251B RID: 9499 RVA: 0x0008EB34 File Offset: 0x0008CD34
+	// Token: 0x0600288D RID: 10381 RVA: 0x00094520 File Offset: 0x00092720
 	public void Setup(string name, string text)
 	{
 		this.lblName.Text = name;
 		this.lblText.Text = text;
 	}
 
-	// Token: 0x04001205 RID: 4613
-	public dfLabel lblName;
+	// Token: 0x0400137F RID: 4991
+	public global::dfLabel lblName;
 
-	// Token: 0x04001206 RID: 4614
-	public dfLabel lblText;
+	// Token: 0x04001380 RID: 4992
+	public global::dfLabel lblText;
 }

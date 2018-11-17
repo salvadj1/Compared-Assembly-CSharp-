@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020001E7 RID: 487
+// Token: 0x02000218 RID: 536
 public static class TransformHelpers
 {
-	// Token: 0x06000D53 RID: 3411 RVA: 0x00033AE0 File Offset: 0x00031CE0
+	// Token: 0x06000E9B RID: 3739 RVA: 0x00037B68 File Offset: 0x00035D68
 	// Note: this type is marked as 'beforefieldinit'.
 	static TransformHelpers()
 	{
@@ -29,10 +29,10 @@ public static class TransformHelpers
 		vector4.x = 200f;
 		vector4.y = -4000f;
 		array[num4] = vector4;
-		TransformHelpers.upHeightTests = array;
+		global::TransformHelpers.upHeightTests = array;
 	}
 
-	// Token: 0x06000D54 RID: 3412 RVA: 0x00033BA0 File Offset: 0x00031DA0
+	// Token: 0x06000E9C RID: 3740 RVA: 0x00037C28 File Offset: 0x00035E28
 	public static void SetLocalPositionY(this Transform transform, float y)
 	{
 		Vector3 localPosition = transform.localPosition;
@@ -40,7 +40,7 @@ public static class TransformHelpers
 		transform.localPosition = localPosition;
 	}
 
-	// Token: 0x06000D55 RID: 3413 RVA: 0x00033BC4 File Offset: 0x00031DC4
+	// Token: 0x06000E9D RID: 3741 RVA: 0x00037C4C File Offset: 0x00035E4C
 	public static void SetLocalPositionX(this Transform transform, float x)
 	{
 		Vector3 localPosition = transform.localPosition;
@@ -48,7 +48,7 @@ public static class TransformHelpers
 		transform.localPosition = localPosition;
 	}
 
-	// Token: 0x06000D56 RID: 3414 RVA: 0x00033BE8 File Offset: 0x00031DE8
+	// Token: 0x06000E9E RID: 3742 RVA: 0x00037C70 File Offset: 0x00035E70
 	public static void SetLocalPositionZ(this Transform transform, float z)
 	{
 		Vector3 localPosition = transform.localPosition;
@@ -56,7 +56,7 @@ public static class TransformHelpers
 		transform.localPosition = localPosition;
 	}
 
-	// Token: 0x06000D57 RID: 3415 RVA: 0x00033C0C File Offset: 0x00031E0C
+	// Token: 0x06000E9F RID: 3743 RVA: 0x00037C94 File Offset: 0x00035E94
 	private static IEnumerable<Transform> IterateChildren(Transform parent, int iChild)
 	{
 		Transform child;
@@ -75,12 +75,12 @@ public static class TransformHelpers
 		}
 		if (iChild + 1 < parent.childCount)
 		{
-			foreach (Transform sibling in TransformHelpers.IterateChildren(parent, ++iChild))
+			foreach (Transform sibling in global::TransformHelpers.IterateChildren(parent, ++iChild))
 			{
 				yield return sibling;
 			}
 		}
-		foreach (Transform subChild in TransformHelpers.IterateChildren(child, 0))
+		foreach (Transform subChild in global::TransformHelpers.IterateChildren(child, 0))
 		{
 			yield return subChild;
 		}
@@ -88,19 +88,19 @@ public static class TransformHelpers
 		yield break;
 	}
 
-	// Token: 0x06000D58 RID: 3416 RVA: 0x00033C44 File Offset: 0x00031E44
+	// Token: 0x06000EA0 RID: 3744 RVA: 0x00037CCC File Offset: 0x00035ECC
 	public static List<Transform> ListDecendantsByDepth(this Transform root)
 	{
-		return (root.childCount != 0) ? new List<Transform>(TransformHelpers.IterateChildren(root, 0)) : new List<Transform>(0);
+		return (root.childCount != 0) ? new List<Transform>(global::TransformHelpers.IterateChildren(root, 0)) : new List<Transform>(0);
 	}
 
-	// Token: 0x06000D59 RID: 3417 RVA: 0x00033C74 File Offset: 0x00031E74
+	// Token: 0x06000EA1 RID: 3745 RVA: 0x00037CFC File Offset: 0x00035EFC
 	public static bool GetGroundInfo(this Transform transform, out Vector3 pos, out Vector3 normal)
 	{
-		return TransformHelpers.GetGroundInfoNoTransform(transform.position, out pos, out normal);
+		return global::TransformHelpers.GetGroundInfoNoTransform(transform.position, out pos, out normal);
 	}
 
-	// Token: 0x06000D5A RID: 3418 RVA: 0x00033C84 File Offset: 0x00031E84
+	// Token: 0x06000EA2 RID: 3746 RVA: 0x00037D0C File Offset: 0x00035F0C
 	public static bool GetGroundInfoNoTransform(Vector3 transformOrigin, out Vector3 pos, out Vector3 normal)
 	{
 		Vector3 vector = transformOrigin;
@@ -119,7 +119,7 @@ public static class TransformHelpers
 		return false;
 	}
 
-	// Token: 0x06000D5B RID: 3419 RVA: 0x00033CF4 File Offset: 0x00031EF4
+	// Token: 0x06000EA3 RID: 3747 RVA: 0x00037D7C File Offset: 0x00035F7C
 	public static Quaternion GetGroundInfoRotation(Quaternion ang, Vector3 y)
 	{
 		float num = y.magnitude;
@@ -138,18 +138,18 @@ public static class TransformHelpers
 		float num3 = vector.x * y.x + vector.y * y.y + vector.z * y.z;
 		if (num2 * num2 > num3 * num3)
 		{
-			return TransformHelpers.LookRotationForcedUp(vector, y);
+			return global::TransformHelpers.LookRotationForcedUp(vector, y);
 		}
-		return TransformHelpers.LookRotationForcedUp(vector2, y);
+		return global::TransformHelpers.LookRotationForcedUp(vector2, y);
 	}
 
-	// Token: 0x06000D5C RID: 3420 RVA: 0x00033DF8 File Offset: 0x00031FF8
+	// Token: 0x06000EA4 RID: 3748 RVA: 0x00037E80 File Offset: 0x00036080
 	public static bool GetGroundInfo(Vector3 startPos, out Vector3 pos, out Vector3 normal)
 	{
-		return TransformHelpers.GetGroundInfo(startPos, 100f, out pos, out normal);
+		return global::TransformHelpers.GetGroundInfo(startPos, 100f, out pos, out normal);
 	}
 
-	// Token: 0x06000D5D RID: 3421 RVA: 0x00033E08 File Offset: 0x00032008
+	// Token: 0x06000EA5 RID: 3749 RVA: 0x00037E90 File Offset: 0x00036090
 	public static bool GetGroundInfo(Vector3 startPos, float range, out Vector3 pos, out Vector3 normal)
 	{
 		startPos.y += 0.25f;
@@ -167,7 +167,7 @@ public static class TransformHelpers
 		return false;
 	}
 
-	// Token: 0x06000D5E RID: 3422 RVA: 0x00033E78 File Offset: 0x00032078
+	// Token: 0x06000EA6 RID: 3750 RVA: 0x00037F00 File Offset: 0x00036100
 	public static bool GetGroundInfoTerrainOnly(Vector3 startPos, float range, out Vector3 pos, out Vector3 normal)
 	{
 		startPos.y += 0.25f;
@@ -185,7 +185,7 @@ public static class TransformHelpers
 		return false;
 	}
 
-	// Token: 0x06000D5F RID: 3423 RVA: 0x00033EFC File Offset: 0x000320FC
+	// Token: 0x06000EA7 RID: 3751 RVA: 0x00037F84 File Offset: 0x00036184
 	private static bool GetGroundInfoNavMesh(Vector3 startPos, out NavMeshHit hit, float maxVariationFallback, int acceptMask)
 	{
 		int num = ~acceptMask;
@@ -193,10 +193,10 @@ public static class TransformHelpers
 		Vector3 vector2;
 		vector.x = (vector2.x = startPos.x);
 		vector.z = (vector2.z = startPos.z);
-		for (int i = 0; i < TransformHelpers.upHeightTests.Length; i++)
+		for (int i = 0; i < global::TransformHelpers.upHeightTests.Length; i++)
 		{
-			vector2.y = startPos.y + TransformHelpers.upHeightTests[i].x;
-			vector.y = startPos.y + TransformHelpers.upHeightTests[i].y;
+			vector2.y = startPos.y + global::TransformHelpers.upHeightTests[i].x;
+			vector.y = startPos.y + global::TransformHelpers.upHeightTests[i].y;
 			if (NavMesh.Raycast(vector2, vector, ref hit, num))
 			{
 				return true;
@@ -205,11 +205,11 @@ public static class TransformHelpers
 		return NavMesh.SamplePosition(startPos, ref hit, maxVariationFallback, acceptMask);
 	}
 
-	// Token: 0x06000D60 RID: 3424 RVA: 0x00033FB8 File Offset: 0x000321B8
+	// Token: 0x06000EA8 RID: 3752 RVA: 0x00038040 File Offset: 0x00036240
 	public static bool GetGroundInfoNavMesh(Vector3 startPos, out Vector3 pos, float maxVariationFallback, int acceptMask)
 	{
 		NavMeshHit navMeshHit;
-		if (TransformHelpers.GetGroundInfoNavMesh(startPos, out navMeshHit, maxVariationFallback, acceptMask))
+		if (global::TransformHelpers.GetGroundInfoNavMesh(startPos, out navMeshHit, maxVariationFallback, acceptMask))
 		{
 			pos = navMeshHit.position;
 			return true;
@@ -218,19 +218,19 @@ public static class TransformHelpers
 		return false;
 	}
 
-	// Token: 0x06000D61 RID: 3425 RVA: 0x00033FEC File Offset: 0x000321EC
+	// Token: 0x06000EA9 RID: 3753 RVA: 0x00038074 File Offset: 0x00036274
 	public static bool GetGroundInfoNavMesh(Vector3 startPos, out Vector3 pos, float maxVariationFallback)
 	{
-		return TransformHelpers.GetGroundInfoNavMesh(startPos, out pos, maxVariationFallback, -1);
+		return global::TransformHelpers.GetGroundInfoNavMesh(startPos, out pos, maxVariationFallback, -1);
 	}
 
-	// Token: 0x06000D62 RID: 3426 RVA: 0x00033FF8 File Offset: 0x000321F8
+	// Token: 0x06000EAA RID: 3754 RVA: 0x00038080 File Offset: 0x00036280
 	public static bool GetGroundInfoNavMesh(Vector3 startPos, out Vector3 pos)
 	{
-		return TransformHelpers.GetGroundInfoNavMesh(startPos, out pos, 200f);
+		return global::TransformHelpers.GetGroundInfoNavMesh(startPos, out pos, 200f);
 	}
 
-	// Token: 0x06000D63 RID: 3427 RVA: 0x00034008 File Offset: 0x00032208
+	// Token: 0x06000EAB RID: 3755 RVA: 0x00038090 File Offset: 0x00036290
 	public static Vector3 TestBoxCorners(Vector3 origin, Quaternion rotation, Vector3 boxCenter, Vector3 boxSize, int layerMask = 1024, int iterations = 7)
 	{
 		boxSize.x = Mathf.Abs(boxSize.x) * 0.5f;
@@ -292,7 +292,7 @@ public static class TransformHelpers
 		return origin;
 	}
 
-	// Token: 0x06000D64 RID: 3428 RVA: 0x00034354 File Offset: 0x00032554
+	// Token: 0x06000EAC RID: 3756 RVA: 0x000383DC File Offset: 0x000365DC
 	public static Quaternion LookRotationForcedUp(Vector3 forward, Vector3 up)
 	{
 		if (forward == up)
@@ -308,31 +308,31 @@ public static class TransformHelpers
 		return Quaternion.LookRotation(forward, up);
 	}
 
-	// Token: 0x06000D65 RID: 3429 RVA: 0x000343A4 File Offset: 0x000325A4
+	// Token: 0x06000EAD RID: 3757 RVA: 0x0003842C File Offset: 0x0003662C
 	private static float InvSqrt(float x)
 	{
 		return 1f / Mathf.Sqrt(x);
 	}
 
-	// Token: 0x06000D66 RID: 3430 RVA: 0x000343B4 File Offset: 0x000325B4
+	// Token: 0x06000EAE RID: 3758 RVA: 0x0003843C File Offset: 0x0003663C
 	private static float InvSqrt(float x, float y)
 	{
 		return 1f / Mathf.Sqrt(x * x + y * y);
 	}
 
-	// Token: 0x06000D67 RID: 3431 RVA: 0x000343C8 File Offset: 0x000325C8
+	// Token: 0x06000EAF RID: 3759 RVA: 0x00038450 File Offset: 0x00036650
 	private static float InvSqrt(float x, float y, float z)
 	{
 		return 1f / Mathf.Sqrt(x * x + y * y + z * z);
 	}
 
-	// Token: 0x06000D68 RID: 3432 RVA: 0x000343E0 File Offset: 0x000325E0
+	// Token: 0x06000EB0 RID: 3760 RVA: 0x00038468 File Offset: 0x00036668
 	private static float InvSqrt(float x, float y, float z, float w)
 	{
 		return 1f / Mathf.Sqrt(x * x + y * y + z * z + w * w);
 	}
 
-	// Token: 0x06000D69 RID: 3433 RVA: 0x000343FC File Offset: 0x000325FC
+	// Token: 0x06000EB1 RID: 3761 RVA: 0x00038484 File Offset: 0x00036684
 	public static Quaternion LookRotationForcedUp(Quaternion rotation, Vector3 up)
 	{
 		float num = up.x * up.x + up.y * up.y + up.z * up.z;
@@ -340,7 +340,7 @@ public static class TransformHelpers
 		{
 			return rotation;
 		}
-		float num2 = TransformHelpers.InvSqrt(num);
+		float num2 = global::TransformHelpers.InvSqrt(num);
 		up.x *= num2;
 		up.y *= num2;
 		up.z *= num2;
@@ -369,7 +369,7 @@ public static class TransformHelpers
 			vector2.x = -(vector4.y * vector5.z - vector4.z * vector5.y);
 			vector2.y = -(vector4.z * vector5.x - vector4.x * vector5.z);
 			vector2.z = -(vector4.x * vector5.y - vector4.y * vector5.x);
-			float num5 = TransformHelpers.InvSqrt(vector2.x, vector2.y, vector2.z);
+			float num5 = global::TransformHelpers.InvSqrt(vector2.x, vector2.y, vector2.z);
 			vector4.x = num5 * vector2.x;
 			vector4.y = num5 * vector2.y;
 			vector4.z = num5 * vector2.z;
@@ -386,7 +386,7 @@ public static class TransformHelpers
 		vector3.x = vector4.y * vector5.z - vector4.z * vector5.y;
 		vector3.y = vector4.z * vector5.x - vector4.x * vector5.z;
 		vector3.z = vector4.x * vector5.y - vector4.y * vector5.x;
-		float num6 = TransformHelpers.InvSqrt(vector3.x, vector3.y, vector3.z);
+		float num6 = global::TransformHelpers.InvSqrt(vector3.x, vector3.y, vector3.z);
 		vector5.x = vector3.x * num6;
 		vector5.y = vector3.y * num6;
 		vector5.z = vector3.z * num6;
@@ -403,7 +403,7 @@ public static class TransformHelpers
 		return Quaternion.LookRotation(vector2, up);
 	}
 
-	// Token: 0x06000D6A RID: 3434 RVA: 0x00034884 File Offset: 0x00032A84
+	// Token: 0x06000EB2 RID: 3762 RVA: 0x0003890C File Offset: 0x00036B0C
 	public static Quaternion UpRotation(Vector3 up)
 	{
 		float num = Vector3.Dot(up, Vector3.forward);
@@ -420,7 +420,7 @@ public static class TransformHelpers
 		return Quaternion.LookRotation(vector, up);
 	}
 
-	// Token: 0x06000D6B RID: 3435 RVA: 0x000348D8 File Offset: 0x00032AD8
+	// Token: 0x06000EB3 RID: 3763 RVA: 0x00038960 File Offset: 0x00036B60
 	public static void DropToGround(this Transform transform, bool useNormal)
 	{
 		Vector3 position;
@@ -435,7 +435,7 @@ public static class TransformHelpers
 		}
 	}
 
-	// Token: 0x06000D6C RID: 3436 RVA: 0x00034910 File Offset: 0x00032B10
+	// Token: 0x06000EB4 RID: 3764 RVA: 0x00038998 File Offset: 0x00036B98
 	public static float Dist2D(Vector3 a, Vector3 b)
 	{
 		Vector2 vector;
@@ -444,7 +444,7 @@ public static class TransformHelpers
 		return Mathf.Sqrt(vector.x * vector.x + vector.y * vector.y);
 	}
 
-	// Token: 0x06000D6D RID: 3437 RVA: 0x00034970 File Offset: 0x00032B70
+	// Token: 0x06000EB5 RID: 3765 RVA: 0x000389F8 File Offset: 0x00036BF8
 	public static bool GetIDBaseFromCollider(Collider collider, out IDBase id)
 	{
 		if (!collider)
@@ -466,11 +466,11 @@ public static class TransformHelpers
 		return false;
 	}
 
-	// Token: 0x06000D6E RID: 3438 RVA: 0x000349C8 File Offset: 0x00032BC8
+	// Token: 0x06000EB6 RID: 3766 RVA: 0x00038A50 File Offset: 0x00036C50
 	public static bool GetIDMainFromCollider(Collider collider, out IDMain main)
 	{
 		IDBase idbase;
-		if (TransformHelpers.GetIDBaseFromCollider(collider, out idbase))
+		if (global::TransformHelpers.GetIDBaseFromCollider(collider, out idbase))
 		{
 			main = idbase.idMain;
 			return main;
@@ -479,6 +479,6 @@ public static class TransformHelpers
 		return false;
 	}
 
-	// Token: 0x0400082D RID: 2093
+	// Token: 0x04000945 RID: 2373
 	private static readonly Vector2[] upHeightTests;
 }

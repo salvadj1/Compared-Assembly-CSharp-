@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006E7 RID: 1767
+// Token: 0x020007B9 RID: 1977
+[RequireComponent(typeof(global::dfPanel))]
 [AddComponentMenu("Daikon Forge/User Interface/Panel Addon/Flow Layout")]
-[RequireComponent(typeof(dfPanel))]
 [ExecuteInEditMode]
 public class dfPanelFlowLayout : MonoBehaviour
 {
-	// Token: 0x17000C5F RID: 3167
-	// (get) Token: 0x06003F29 RID: 16169 RVA: 0x000F00E0 File Offset: 0x000EE2E0
-	// (set) Token: 0x06003F2A RID: 16170 RVA: 0x000F00E8 File Offset: 0x000EE2E8
-	public dfControlOrientation Direction
+	// Token: 0x17000CE3 RID: 3299
+	// (get) Token: 0x06004345 RID: 17221 RVA: 0x000F8CE4 File Offset: 0x000F6EE4
+	// (set) Token: 0x06004346 RID: 17222 RVA: 0x000F8CEC File Offset: 0x000F6EEC
+	public global::dfControlOrientation Direction
 	{
 		get
 		{
@@ -27,9 +27,9 @@ public class dfPanelFlowLayout : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C60 RID: 3168
-	// (get) Token: 0x06003F2B RID: 16171 RVA: 0x000F0104 File Offset: 0x000EE304
-	// (set) Token: 0x06003F2C RID: 16172 RVA: 0x000F010C File Offset: 0x000EE30C
+	// Token: 0x17000CE4 RID: 3300
+	// (get) Token: 0x06004347 RID: 17223 RVA: 0x000F8D08 File Offset: 0x000F6F08
+	// (set) Token: 0x06004348 RID: 17224 RVA: 0x000F8D10 File Offset: 0x000F6F10
 	public Vector2 ItemSpacing
 	{
 		get
@@ -47,9 +47,9 @@ public class dfPanelFlowLayout : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C61 RID: 3169
-	// (get) Token: 0x06003F2D RID: 16173 RVA: 0x000F0144 File Offset: 0x000EE344
-	// (set) Token: 0x06003F2E RID: 16174 RVA: 0x000F0164 File Offset: 0x000EE364
+	// Token: 0x17000CE5 RID: 3301
+	// (get) Token: 0x06004349 RID: 17225 RVA: 0x000F8D48 File Offset: 0x000F6F48
+	// (set) Token: 0x0600434A RID: 17226 RVA: 0x000F8D68 File Offset: 0x000F6F68
 	public RectOffset BorderPadding
 	{
 		get
@@ -71,9 +71,9 @@ public class dfPanelFlowLayout : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C62 RID: 3170
-	// (get) Token: 0x06003F2F RID: 16175 RVA: 0x000F0198 File Offset: 0x000EE398
-	// (set) Token: 0x06003F30 RID: 16176 RVA: 0x000F01A0 File Offset: 0x000EE3A0
+	// Token: 0x17000CE6 RID: 3302
+	// (get) Token: 0x0600434B RID: 17227 RVA: 0x000F8D9C File Offset: 0x000F6F9C
+	// (set) Token: 0x0600434C RID: 17228 RVA: 0x000F8DA4 File Offset: 0x000F6FA4
 	public bool HideClippedControls
 	{
 		get
@@ -90,53 +90,53 @@ public class dfPanelFlowLayout : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003F31 RID: 16177 RVA: 0x000F01BC File Offset: 0x000EE3BC
+	// Token: 0x0600434D RID: 17229 RVA: 0x000F8DC0 File Offset: 0x000F6FC0
 	public void OnEnable()
 	{
-		this.panel = base.GetComponent<dfPanel>();
+		this.panel = base.GetComponent<global::dfPanel>();
 		this.panel.SizeChanged += this.OnSizeChanged;
 	}
 
-	// Token: 0x06003F32 RID: 16178 RVA: 0x000F01E4 File Offset: 0x000EE3E4
-	public void OnControlAdded(dfControl container, dfControl child)
+	// Token: 0x0600434E RID: 17230 RVA: 0x000F8DE8 File Offset: 0x000F6FE8
+	public void OnControlAdded(global::dfControl container, global::dfControl child)
 	{
 		child.ZOrderChanged += this.child_ZOrderChanged;
 		child.SizeChanged += this.child_SizeChanged;
 		this.performLayout();
 	}
 
-	// Token: 0x06003F33 RID: 16179 RVA: 0x000F021C File Offset: 0x000EE41C
-	public void OnControlRemoved(dfControl container, dfControl child)
+	// Token: 0x0600434F RID: 17231 RVA: 0x000F8E20 File Offset: 0x000F7020
+	public void OnControlRemoved(global::dfControl container, global::dfControl child)
 	{
 		child.ZOrderChanged -= this.child_ZOrderChanged;
 		child.SizeChanged -= this.child_SizeChanged;
 		this.performLayout();
 	}
 
-	// Token: 0x06003F34 RID: 16180 RVA: 0x000F0254 File Offset: 0x000EE454
-	public void OnSizeChanged(dfControl control, Vector2 value)
+	// Token: 0x06004350 RID: 17232 RVA: 0x000F8E58 File Offset: 0x000F7058
+	public void OnSizeChanged(global::dfControl control, Vector2 value)
 	{
 		this.performLayout();
 	}
 
-	// Token: 0x06003F35 RID: 16181 RVA: 0x000F025C File Offset: 0x000EE45C
-	private void child_SizeChanged(dfControl control, Vector2 value)
+	// Token: 0x06004351 RID: 17233 RVA: 0x000F8E60 File Offset: 0x000F7060
+	private void child_SizeChanged(global::dfControl control, Vector2 value)
 	{
 		this.performLayout();
 	}
 
-	// Token: 0x06003F36 RID: 16182 RVA: 0x000F0264 File Offset: 0x000EE464
-	private void child_ZOrderChanged(dfControl control, int value)
+	// Token: 0x06004352 RID: 17234 RVA: 0x000F8E68 File Offset: 0x000F7068
+	private void child_ZOrderChanged(global::dfControl control, int value)
 	{
 		this.performLayout();
 	}
 
-	// Token: 0x06003F37 RID: 16183 RVA: 0x000F026C File Offset: 0x000EE46C
+	// Token: 0x06004353 RID: 17235 RVA: 0x000F8E70 File Offset: 0x000F7070
 	private void performLayout()
 	{
 		if (this.panel == null)
 		{
-			this.panel = base.GetComponent<dfPanel>();
+			this.panel = base.GetComponent<global::dfPanel>();
 		}
 		Vector3 relativePosition;
 		relativePosition..ctor((float)this.borderPadding.left, (float)this.borderPadding.top);
@@ -144,13 +144,13 @@ public class dfPanelFlowLayout : MonoBehaviour
 		float num = this.panel.Width - (float)this.borderPadding.right;
 		float num2 = this.panel.Height - (float)this.borderPadding.bottom;
 		int num3 = 0;
-		IList<dfControl> controls = this.panel.Controls;
+		IList<global::dfControl> controls = this.panel.Controls;
 		int i = 0;
 		while (i < controls.Count)
 		{
 			if (!flag)
 			{
-				if (this.flowDirection == dfControlOrientation.Horizontal)
+				if (this.flowDirection == global::dfControlOrientation.Horizontal)
 				{
 					relativePosition.x += this.itemSpacing.x;
 				}
@@ -159,8 +159,8 @@ public class dfPanelFlowLayout : MonoBehaviour
 					relativePosition.y += this.itemSpacing.y;
 				}
 			}
-			dfControl dfControl = controls[i];
-			if (this.flowDirection == dfControlOrientation.Horizontal)
+			global::dfControl dfControl = controls[i];
+			if (this.flowDirection == global::dfControlOrientation.Horizontal)
 			{
 				if (!flag && relativePosition.x + dfControl.Width >= num)
 				{
@@ -176,7 +176,7 @@ public class dfPanelFlowLayout : MonoBehaviour
 				num3 = 0;
 			}
 			dfControl.RelativePosition = relativePosition;
-			if (this.flowDirection == dfControlOrientation.Horizontal)
+			if (this.flowDirection == global::dfControlOrientation.Horizontal)
 			{
 				relativePosition.x += dfControl.Width;
 				num3 = Mathf.Max(Mathf.CeilToInt(dfControl.Height + this.itemSpacing.y), num3);
@@ -192,8 +192,8 @@ public class dfPanelFlowLayout : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003F38 RID: 16184 RVA: 0x000F0498 File Offset: 0x000EE698
-	private bool canShowControlUnclipped(dfControl control)
+	// Token: 0x06004354 RID: 17236 RVA: 0x000F909C File Offset: 0x000F729C
+	private bool canShowControlUnclipped(global::dfControl control)
 	{
 		if (!this.hideClippedControls)
 		{
@@ -203,22 +203,22 @@ public class dfPanelFlowLayout : MonoBehaviour
 		return relativePosition.x + control.Width < this.panel.Width - (float)this.borderPadding.right && relativePosition.y + control.Height < this.panel.Height - (float)this.borderPadding.bottom;
 	}
 
-	// Token: 0x040021C1 RID: 8641
+	// Token: 0x040023CA RID: 9162
 	[SerializeField]
 	protected RectOffset borderPadding = new RectOffset();
 
-	// Token: 0x040021C2 RID: 8642
+	// Token: 0x040023CB RID: 9163
 	[SerializeField]
 	protected Vector2 itemSpacing = default(Vector2);
 
-	// Token: 0x040021C3 RID: 8643
+	// Token: 0x040023CC RID: 9164
 	[SerializeField]
-	protected dfControlOrientation flowDirection;
+	protected global::dfControlOrientation flowDirection;
 
-	// Token: 0x040021C4 RID: 8644
+	// Token: 0x040023CD RID: 9165
 	[SerializeField]
 	protected bool hideClippedControls;
 
-	// Token: 0x040021C5 RID: 8645
-	private dfPanel panel;
+	// Token: 0x040023CE RID: 9166
+	private global::dfPanel panel;
 }

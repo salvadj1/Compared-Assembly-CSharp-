@@ -4,57 +4,57 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000317 RID: 791
-public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
+// Token: 0x020003C0 RID: 960
+public abstract class RigidObj : IDMain, global::IInterpTimedEventReceiver
 {
-	// Token: 0x06001E6D RID: 7789 RVA: 0x00077730 File Offset: 0x00075930
-	protected RigidObj(RigidObj.FeatureFlags classFeatures) : base(2)
+	// Token: 0x060021AF RID: 8623 RVA: 0x0007C1B0 File Offset: 0x0007A3B0
+	protected RigidObj(global::RigidObj.FeatureFlags classFeatures) : base(2)
 	{
 		this.featureFlags = classFeatures;
 	}
 
-	// Token: 0x06001E6E RID: 7790 RVA: 0x0007774C File Offset: 0x0007594C
-	void IInterpTimedEventReceiver.OnInterpTimedEvent()
+	// Token: 0x060021B0 RID: 8624 RVA: 0x0007C1CC File Offset: 0x0007A3CC
+	void global::IInterpTimedEventReceiver.OnInterpTimedEvent()
 	{
 		if (!this.OnInterpTimedEvent())
 		{
-			InterpTimedEvent.MarkUnhandled();
+			global::InterpTimedEvent.MarkUnhandled();
 		}
 	}
 
-	// Token: 0x1700079F RID: 1951
-	// (get) Token: 0x06001E6F RID: 7791 RVA: 0x00077760 File Offset: 0x00075960
+	// Token: 0x170007F5 RID: 2037
+	// (get) Token: 0x060021B1 RID: 8625 RVA: 0x0007C1E0 File Offset: 0x0007A3E0
 	public bool expectsInitialVelocity
 	{
 		get
 		{
-			return (byte)(this.featureFlags & RigidObj.FeatureFlags.StreamInitialVelocity) == 1;
+			return (byte)(this.featureFlags & global::RigidObj.FeatureFlags.StreamInitialVelocity) == 1;
 		}
 	}
 
-	// Token: 0x170007A0 RID: 1952
-	// (get) Token: 0x06001E70 RID: 7792 RVA: 0x00077770 File Offset: 0x00075970
+	// Token: 0x170007F6 RID: 2038
+	// (get) Token: 0x060021B2 RID: 8626 RVA: 0x0007C1F0 File Offset: 0x0007A3F0
 	public bool expectsOwner
 	{
 		get
 		{
-			return (byte)(this.featureFlags & RigidObj.FeatureFlags.StreamOwnerViewID) == 2;
+			return (byte)(this.featureFlags & global::RigidObj.FeatureFlags.StreamOwnerViewID) == 2;
 		}
 	}
 
-	// Token: 0x170007A1 RID: 1953
-	// (get) Token: 0x06001E71 RID: 7793 RVA: 0x00077780 File Offset: 0x00075980
+	// Token: 0x170007F7 RID: 2039
+	// (get) Token: 0x060021B3 RID: 8627 RVA: 0x0007C200 File Offset: 0x0007A400
 	public bool serverSideCollisions
 	{
 		get
 		{
-			return (byte)(this.featureFlags & RigidObj.FeatureFlags.ServerCollisions) == 128;
+			return (byte)(this.featureFlags & global::RigidObj.FeatureFlags.ServerCollisions) == 128;
 		}
 	}
 
-	// Token: 0x170007A2 RID: 1954
-	// (get) Token: 0x06001E72 RID: 7794 RVA: 0x00077798 File Offset: 0x00075998
-	// (set) Token: 0x06001E73 RID: 7795 RVA: 0x000777A4 File Offset: 0x000759A4
+	// Token: 0x170007F8 RID: 2040
+	// (get) Token: 0x060021B4 RID: 8628 RVA: 0x0007C218 File Offset: 0x0007A418
+	// (set) Token: 0x060021B5 RID: 8629 RVA: 0x0007C224 File Offset: 0x0007A424
 	public bool showing
 	{
 		get
@@ -78,24 +78,24 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x170007A3 RID: 1955
-	// (get) Token: 0x06001E74 RID: 7796 RVA: 0x000777E4 File Offset: 0x000759E4
-	public NetworkView ownerView
+	// Token: 0x170007F9 RID: 2041
+	// (get) Token: 0x060021B6 RID: 8630 RVA: 0x0007C264 File Offset: 0x0007A464
+	public Facepunch.NetworkView ownerView
 	{
 		get
 		{
-			return (!this.__ownerView) ? (this.__ownerView = NetworkView.Find(this.ownerViewID)) : this.__ownerView;
+			return (!this.__ownerView) ? (this.__ownerView = Facepunch.NetworkView.Find(this.ownerViewID)) : this.__ownerView;
 		}
 	}
 
-	// Token: 0x06001E75 RID: 7797 RVA: 0x00077820 File Offset: 0x00075A20
+	// Token: 0x060021B7 RID: 8631 RVA: 0x0007C2A0 File Offset: 0x0007A4A0
 	protected void Awake()
 	{
 		this.rigidbody = base.rigidbody;
-		this._interp = base.GetComponent<RigidbodyInterpolator>();
+		this._interp = base.GetComponent<global::RigidbodyInterpolator>();
 	}
 
-	// Token: 0x06001E76 RID: 7798 RVA: 0x0007783C File Offset: 0x00075A3C
+	// Token: 0x060021B8 RID: 8632 RVA: 0x0007C2BC File Offset: 0x0007A4BC
 	private void __invoke_do_network()
 	{
 		if (this.__calling_from_do_network)
@@ -113,7 +113,7 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x06001E77 RID: 7799 RVA: 0x0007788C File Offset: 0x00075A8C
+	// Token: 0x060021B9 RID: 8633 RVA: 0x0007C30C File Offset: 0x0007A50C
 	protected virtual void DoNetwork()
 	{
 		base.networkView.RPC("RecieveNetwork", 10, new object[]
@@ -121,16 +121,16 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 			this.rigidbody.position,
 			this.rigidbody.rotation
 		});
-		this.serverLastUpdateTimestamp = NetCull.time;
+		this.serverLastUpdateTimestamp = global::NetCull.time;
 	}
 
-	// Token: 0x06001E78 RID: 7800 RVA: 0x000778E4 File Offset: 0x00075AE4
+	// Token: 0x060021BA RID: 8634 RVA: 0x0007C364 File Offset: 0x0007A564
 	[RPC]
-	protected void RecieveNetwork(Vector3 pos, Quaternion rot, NetworkMessageInfo info)
+	protected void RecieveNetwork(Vector3 pos, Quaternion rot, uLink.NetworkMessageInfo info)
 	{
 		if (this.hasInterp && this._interp)
 		{
-			PosRot frame;
+			global::PosRot frame;
 			frame.position = pos;
 			frame.rotation = rot;
 			this.rigidbody.isKinematic = true;
@@ -139,10 +139,10 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x06001E79 RID: 7801 RVA: 0x00077948 File Offset: 0x00075B48
-	protected void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x060021BB RID: 8635 RVA: 0x0007C3C8 File Offset: 0x0007A5C8
+	protected void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
-		this.view = (NetworkView)info.networkView;
+		this.view = (Facepunch.NetworkView)info.networkView;
 		BitStream initialData = this.view.initialData;
 		if (this.expectsInitialVelocity)
 		{
@@ -153,25 +153,25 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 			this.ownerViewID = initialData.ReadNetworkViewID();
 		}
 		this.spawnTime = info.timestamp;
-		this.updateInterval = 1.0 / ((double)NetCull.sendRate * (double)Mathf.Max(1f, this.updateRate));
+		this.updateInterval = 1.0 / ((double)global::NetCull.sendRate * (double)Mathf.Max(1f, this.updateRate));
 		this.hasInterp = this._interp;
 		if (this.hasInterp)
 		{
 			this._interp.running = false;
 		}
 		this.rigidbody.isKinematic = true;
-		this.__hiding = (this.spawnTime > Interpolation.time);
+		this.__hiding = (this.spawnTime > global::Interpolation.time);
 		if (this.__hiding)
 		{
 			this.OnHide();
 			if (this.hasInterp)
 			{
-				PosRot frame;
+				global::PosRot frame;
 				frame.position = this.view.position;
 				frame.rotation = this.view.rotation;
 				this._interp.SetGoals(frame, this.spawnTime);
 			}
-			InterpTimedEvent.Queue(this, "_init", ref info);
+			global::InterpTimedEvent.Queue(this, "_init", ref info);
 		}
 		else
 		{
@@ -179,43 +179,43 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x06001E7A RID: 7802 RVA: 0x00077A88 File Offset: 0x00075C88
+	// Token: 0x060021BC RID: 8636 RVA: 0x0007C508 File Offset: 0x0007A708
 	[RPC]
 	[Obsolete("Do not call manually")]
-	protected void RODone(NetworkMessageInfo info)
+	protected void RODone(uLink.NetworkMessageInfo info)
 	{
 		if (!this.__done)
 		{
-			NetCull.DontDestroyWithNetwork(this);
-			InterpTimedEvent.Queue(this, "_done", ref info);
+			global::NetCull.DontDestroyWithNetwork(this);
+			global::InterpTimedEvent.Queue(this, "_done", ref info);
 		}
 	}
 
-	// Token: 0x06001E7B RID: 7803
+	// Token: 0x060021BD RID: 8637
 	protected abstract void OnHide();
 
-	// Token: 0x06001E7C RID: 7804
+	// Token: 0x060021BE RID: 8638
 	protected abstract void OnShow();
 
-	// Token: 0x06001E7D RID: 7805
+	// Token: 0x060021BF RID: 8639
 	protected abstract void OnDone();
 
-	// Token: 0x06001E7E RID: 7806 RVA: 0x00077AAC File Offset: 0x00075CAC
+	// Token: 0x060021C0 RID: 8640 RVA: 0x0007C52C File Offset: 0x0007A72C
 	protected virtual void OnServerCollisionEnter(Collision collision)
 	{
 	}
 
-	// Token: 0x06001E7F RID: 7807 RVA: 0x00077AB0 File Offset: 0x00075CB0
+	// Token: 0x060021C1 RID: 8641 RVA: 0x0007C530 File Offset: 0x0007A730
 	protected virtual void OnServerCollisionStay(Collision collision)
 	{
 	}
 
-	// Token: 0x06001E80 RID: 7808 RVA: 0x00077AB4 File Offset: 0x00075CB4
+	// Token: 0x060021C2 RID: 8642 RVA: 0x0007C534 File Offset: 0x0007A734
 	protected virtual void OnServerCollisionExit(Collision collision)
 	{
 	}
 
-	// Token: 0x06001E81 RID: 7809 RVA: 0x00077AB8 File Offset: 0x00075CB8
+	// Token: 0x060021C3 RID: 8643 RVA: 0x0007C538 File Offset: 0x0007A738
 	internal void OnServerCollision(byte kind, Collision collision)
 	{
 		switch (kind)
@@ -234,15 +234,15 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x06001E82 RID: 7810 RVA: 0x00077B08 File Offset: 0x00075D08
+	// Token: 0x060021C4 RID: 8644 RVA: 0x0007C588 File Offset: 0x0007A788
 	protected virtual bool OnInterpTimedEvent()
 	{
-		string tag = InterpTimedEvent.Tag;
+		string tag = global::InterpTimedEvent.Tag;
 		if (tag != null)
 		{
-			if (RigidObj.<>f__switch$map5 == null)
+			if (global::RigidObj.<>f__switch$map5 == null)
 			{
-				RigidObj.<>f__switch$map5 = new Dictionary<string, int>(2)
+				global::RigidObj.<>f__switch$map5 = new Dictionary<string, int>(2)
 				{
 					{
 						"_init",
@@ -255,7 +255,7 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 				};
 			}
 			int num;
-			if (RigidObj.<>f__switch$map5.TryGetValue(tag, out num))
+			if (global::RigidObj.<>f__switch$map5.TryGetValue(tag, out num))
 			{
 				if (num == 0)
 				{
@@ -291,69 +291,69 @@ public abstract class RigidObj : IDMain, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x04000EAA RID: 3754
+	// Token: 0x04000FEA RID: 4074
 	private const string kDoNetworkMethodName = "__invoke_do_network";
 
-	// Token: 0x04000EAB RID: 3755
+	// Token: 0x04000FEB RID: 4075
 	[NonSerialized]
 	public Rigidbody rigidbody;
 
-	// Token: 0x04000EAC RID: 3756
+	// Token: 0x04000FEC RID: 4076
 	[NonSerialized]
-	protected readonly RigidObj.FeatureFlags featureFlags;
+	protected readonly global::RigidObj.FeatureFlags featureFlags;
 
-	// Token: 0x04000EAD RID: 3757
+	// Token: 0x04000FED RID: 4077
 	[SerializeField]
 	private float updateRate = 2f;
 
-	// Token: 0x04000EAE RID: 3758
+	// Token: 0x04000FEE RID: 4078
 	private double updateInterval;
 
-	// Token: 0x04000EAF RID: 3759
+	// Token: 0x04000FEF RID: 4079
 	private double serverLastUpdateTimestamp;
 
-	// Token: 0x04000EB0 RID: 3760
-	protected NetworkView view;
+	// Token: 0x04000FF0 RID: 4080
+	protected Facepunch.NetworkView view;
 
-	// Token: 0x04000EB1 RID: 3761
-	private RigidbodyInterpolator _interp;
+	// Token: 0x04000FF1 RID: 4081
+	private global::RigidbodyInterpolator _interp;
 
-	// Token: 0x04000EB2 RID: 3762
-	private RigidObjServerCollision _serverCollision;
+	// Token: 0x04000FF2 RID: 4082
+	private global::RigidObjServerCollision _serverCollision;
 
-	// Token: 0x04000EB3 RID: 3763
+	// Token: 0x04000FF3 RID: 4083
 	private bool hasInterp;
 
-	// Token: 0x04000EB4 RID: 3764
+	// Token: 0x04000FF4 RID: 4084
 	private bool __hiding;
 
-	// Token: 0x04000EB5 RID: 3765
+	// Token: 0x04000FF5 RID: 4085
 	private bool __done;
 
-	// Token: 0x04000EB6 RID: 3766
+	// Token: 0x04000FF6 RID: 4086
 	private bool __calling_from_do_network;
 
-	// Token: 0x04000EB7 RID: 3767
+	// Token: 0x04000FF7 RID: 4087
 	protected Vector3 initialVelocity;
 
-	// Token: 0x04000EB8 RID: 3768
+	// Token: 0x04000FF8 RID: 4088
 	protected double spawnTime;
 
-	// Token: 0x04000EB9 RID: 3769
-	protected NetworkViewID ownerViewID;
+	// Token: 0x04000FF9 RID: 4089
+	protected uLink.NetworkViewID ownerViewID;
 
-	// Token: 0x04000EBA RID: 3770
-	private NetworkView __ownerView;
+	// Token: 0x04000FFA RID: 4090
+	private Facepunch.NetworkView __ownerView;
 
-	// Token: 0x02000318 RID: 792
+	// Token: 0x020003C1 RID: 961
 	[Flags]
 	protected enum FeatureFlags : byte
 	{
-		// Token: 0x04000EBD RID: 3773
+		// Token: 0x04000FFD RID: 4093
 		StreamInitialVelocity = 1,
-		// Token: 0x04000EBE RID: 3774
+		// Token: 0x04000FFE RID: 4094
 		StreamOwnerViewID = 2,
-		// Token: 0x04000EBF RID: 3775
+		// Token: 0x04000FFF RID: 4095
 		ServerCollisions = 128
 	}
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020002A7 RID: 679
+// Token: 0x020002E4 RID: 740
 public sealed class DestroysOnDisconnect : MonoBehaviour
 {
-	// Token: 0x0600186B RID: 6251 RVA: 0x00060748 File Offset: 0x0005E948
+	// Token: 0x060019FB RID: 6651 RVA: 0x000650BC File Offset: 0x000632BC
 	private void Awake()
 	{
 		if (!this.inList)
@@ -14,7 +14,7 @@ public sealed class DestroysOnDisconnect : MonoBehaviour
 			this.inList = true;
 			try
 			{
-				DestroysOnDisconnect.List.all.Add(this);
+				global::DestroysOnDisconnect.List.all.Add(this);
 			}
 			catch
 			{
@@ -24,14 +24,14 @@ public sealed class DestroysOnDisconnect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600186C RID: 6252 RVA: 0x000607A4 File Offset: 0x0005E9A4
+	// Token: 0x060019FC RID: 6652 RVA: 0x00065118 File Offset: 0x00063318
 	private void OnDestroy()
 	{
 		if (this.inList)
 		{
 			try
 			{
-				if (!DestroysOnDisconnect.List.all.Remove(this))
+				if (!global::DestroysOnDisconnect.List.all.Remove(this))
 				{
 					Debug.LogWarning("serious problem, script reload?", this);
 				}
@@ -43,7 +43,7 @@ public sealed class DestroysOnDisconnect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600186D RID: 6253 RVA: 0x00060800 File Offset: 0x0005EA00
+	// Token: 0x060019FD RID: 6653 RVA: 0x00065174 File Offset: 0x00063374
 	private void DestroyManually()
 	{
 		if (this.inList)
@@ -52,28 +52,28 @@ public sealed class DestroysOnDisconnect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600186E RID: 6254 RVA: 0x00060818 File Offset: 0x0005EA18
+	// Token: 0x060019FE RID: 6654 RVA: 0x0006518C File Offset: 0x0006338C
 	public static void ApplyToGameObject(GameObject gameObject)
 	{
-		DestroysOnDisconnect component = gameObject.GetComponent<DestroysOnDisconnect>();
+		global::DestroysOnDisconnect component = gameObject.GetComponent<global::DestroysOnDisconnect>();
 		if (!component)
 		{
-			gameObject.AddComponent<DestroysOnDisconnect>();
+			gameObject.AddComponent<global::DestroysOnDisconnect>();
 		}
 	}
 
-	// Token: 0x0600186F RID: 6255 RVA: 0x00060840 File Offset: 0x0005EA40
-	private void uLink_OnDisconnectedFromServer(NetworkDisconnection blowme)
+	// Token: 0x060019FF RID: 6655 RVA: 0x000651B4 File Offset: 0x000633B4
+	private void uLink_OnDisconnectedFromServer(uLink.NetworkDisconnection blowme)
 	{
 		this.DestroyManually();
 	}
 
-	// Token: 0x06001870 RID: 6256 RVA: 0x00060848 File Offset: 0x0005EA48
+	// Token: 0x06001A00 RID: 6656 RVA: 0x000651BC File Offset: 0x000633BC
 	public static void OnDisconnectedFromServer()
 	{
-		if (DestroysOnDisconnect.ListClassInitialized && DestroysOnDisconnect.List.all.Count > 0)
+		if (global::DestroysOnDisconnect.ListClassInitialized && global::DestroysOnDisconnect.List.all.Count > 0)
 		{
-			foreach (DestroysOnDisconnect destroysOnDisconnect in DestroysOnDisconnect.List.all.ToArray())
+			foreach (global::DestroysOnDisconnect destroysOnDisconnect in global::DestroysOnDisconnect.List.all.ToArray())
 			{
 				if (destroysOnDisconnect)
 				{
@@ -83,22 +83,22 @@ public sealed class DestroysOnDisconnect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000D02 RID: 3330
+	// Token: 0x04000E3D RID: 3645
 	private static bool ListClassInitialized;
 
-	// Token: 0x04000D03 RID: 3331
+	// Token: 0x04000E3E RID: 3646
 	private bool inList;
 
-	// Token: 0x020002A8 RID: 680
+	// Token: 0x020002E5 RID: 741
 	private static class List
 	{
-		// Token: 0x06001871 RID: 6257 RVA: 0x000608A8 File Offset: 0x0005EAA8
+		// Token: 0x06001A01 RID: 6657 RVA: 0x0006521C File Offset: 0x0006341C
 		static List()
 		{
-			DestroysOnDisconnect.ListClassInitialized = true;
+			global::DestroysOnDisconnect.ListClassInitialized = true;
 		}
 
-		// Token: 0x04000D04 RID: 3332
-		public static readonly List<DestroysOnDisconnect> all = new List<DestroysOnDisconnect>();
+		// Token: 0x04000E3F RID: 3647
+		public static readonly List<global::DestroysOnDisconnect> all = new List<global::DestroysOnDisconnect>();
 	}
 }

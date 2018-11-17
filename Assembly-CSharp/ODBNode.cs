@@ -1,61 +1,61 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000373 RID: 883
+// Token: 0x02000420 RID: 1056
 public class ODBNode<T> : IDisposable where T : Object
 {
-	// Token: 0x0600217A RID: 8570 RVA: 0x0008263C File Offset: 0x0008083C
+	// Token: 0x060024DC RID: 9436 RVA: 0x00087A38 File Offset: 0x00085C38
 	private ODBNode()
 	{
 	}
 
-	// Token: 0x17000831 RID: 2097
-	// (get) Token: 0x0600217B RID: 8571 RVA: 0x00082644 File Offset: 0x00080844
-	public ODBReverseEnumerable<T> beforeInclusive
+	// Token: 0x1700088F RID: 2191
+	// (get) Token: 0x060024DD RID: 9437 RVA: 0x00087A40 File Offset: 0x00085C40
+	public global::ODBReverseEnumerable<T> beforeInclusive
 	{
 		get
 		{
-			return new ODBReverseEnumerable<T>(this);
+			return new global::ODBReverseEnumerable<T>(this);
 		}
 	}
 
-	// Token: 0x17000832 RID: 2098
-	// (get) Token: 0x0600217C RID: 8572 RVA: 0x0008264C File Offset: 0x0008084C
-	public ODBReverseEnumerable<T> beforeExclusive
+	// Token: 0x17000890 RID: 2192
+	// (get) Token: 0x060024DE RID: 9438 RVA: 0x00087A48 File Offset: 0x00085C48
+	public global::ODBReverseEnumerable<T> beforeExclusive
 	{
 		get
 		{
-			return new ODBReverseEnumerable<T>(this.p);
+			return new global::ODBReverseEnumerable<T>(this.p);
 		}
 	}
 
-	// Token: 0x17000833 RID: 2099
-	// (get) Token: 0x0600217D RID: 8573 RVA: 0x0008265C File Offset: 0x0008085C
-	public ODBForwardEnumerable<T> afterInclusive
+	// Token: 0x17000891 RID: 2193
+	// (get) Token: 0x060024DF RID: 9439 RVA: 0x00087A58 File Offset: 0x00085C58
+	public global::ODBForwardEnumerable<T> afterInclusive
 	{
 		get
 		{
-			return new ODBForwardEnumerable<T>(this);
+			return new global::ODBForwardEnumerable<T>(this);
 		}
 	}
 
-	// Token: 0x17000834 RID: 2100
-	// (get) Token: 0x0600217E RID: 8574 RVA: 0x00082664 File Offset: 0x00080864
-	public ODBForwardEnumerable<T> afterExclusive
+	// Token: 0x17000892 RID: 2194
+	// (get) Token: 0x060024E0 RID: 9440 RVA: 0x00087A60 File Offset: 0x00085C60
+	public global::ODBForwardEnumerable<T> afterExclusive
 	{
 		get
 		{
-			return new ODBForwardEnumerable<T>(this.n);
+			return new global::ODBForwardEnumerable<T>(this.n);
 		}
 	}
 
-	// Token: 0x0600217F RID: 8575 RVA: 0x00082674 File Offset: 0x00080874
-	private void Setup(ODBList<T> list, T self)
+	// Token: 0x060024E1 RID: 9441 RVA: 0x00087A70 File Offset: 0x00085C70
+	private void Setup(global::ODBList<T> list, T self)
 	{
 		this.self = self;
 		this.list = list;
 		this.hasList = true;
-		this.n = default(ODBSibling<T>);
+		this.n = default(global::ODBSibling<T>);
 		if (list.any)
 		{
 			this.p = list.last;
@@ -68,7 +68,7 @@ public class ODBNode<T> : IDisposable where T : Object
 		{
 			list.count = 1;
 			list.any = true;
-			ODBSibling<T> odbsibling;
+			global::ODBSibling<T> odbsibling;
 			odbsibling.has = true;
 			odbsibling.item = this;
 			list.first = odbsibling;
@@ -76,19 +76,19 @@ public class ODBNode<T> : IDisposable where T : Object
 		}
 	}
 
-	// Token: 0x06002180 RID: 8576 RVA: 0x00082734 File Offset: 0x00080934
-	public static ODBNode<T> New(ODBList<T> list, T self)
+	// Token: 0x060024E2 RID: 9442 RVA: 0x00087B30 File Offset: 0x00085D30
+	public static global::ODBNode<T> New(global::ODBList<T> list, T self)
 	{
-		ODBNode<T> odbnode;
-		if (!ODBNode<T>.recycle.Pop(out odbnode))
+		global::ODBNode<T> odbnode;
+		if (!global::ODBNode<T>.recycle.Pop(out odbnode))
 		{
-			odbnode = new ODBNode<T>();
+			odbnode = new global::ODBNode<T>();
 		}
 		odbnode.Setup(list, self);
 		return odbnode;
 	}
 
-	// Token: 0x06002181 RID: 8577 RVA: 0x00082764 File Offset: 0x00080964
+	// Token: 0x060024E3 RID: 9443 RVA: 0x00087B60 File Offset: 0x00085D60
 	public void Dispose()
 	{
 		if (this.hasList)
@@ -99,59 +99,59 @@ public class ODBNode<T> : IDisposable where T : Object
 				{
 					this.p.item.n = this.n;
 					this.n.item.p = this.p;
-					this.p = default(ODBSibling<T>);
+					this.p = default(global::ODBSibling<T>);
 					this.list.count--;
 				}
 				else
 				{
-					this.n.item.p = default(ODBSibling<T>);
+					this.n.item.p = default(global::ODBSibling<T>);
 					this.list.first = this.n;
 					this.list.count--;
 				}
 			}
 			else if (this.p.has)
 			{
-				this.p.item.n = default(ODBSibling<T>);
+				this.p.item.n = default(global::ODBSibling<T>);
 				this.list.last = this.p;
-				this.p = default(ODBSibling<T>);
+				this.p = default(global::ODBSibling<T>);
 				this.list.count--;
 			}
 			else
 			{
 				this.list.count = 0;
 				this.list.any = false;
-				this.list.first = default(ODBSibling<T>);
-				this.list.last = default(ODBSibling<T>);
+				this.list.first = default(global::ODBSibling<T>);
+				this.list.last = default(global::ODBSibling<T>);
 			}
 			this.hasList = false;
 			this.list = null;
-			ODBNode<T>.recycle.Push(this);
+			global::ODBNode<T>.recycle.Push(this);
 		}
 	}
 
-	// Token: 0x04000FAB RID: 4011
+	// Token: 0x04001111 RID: 4369
 	public T self;
 
-	// Token: 0x04000FAC RID: 4012
-	public ODBSibling<T> n;
+	// Token: 0x04001112 RID: 4370
+	public global::ODBSibling<T> n;
 
-	// Token: 0x04000FAD RID: 4013
-	public ODBSibling<T> p;
+	// Token: 0x04001113 RID: 4371
+	public global::ODBSibling<T> p;
 
-	// Token: 0x04000FAE RID: 4014
-	public ODBList<T> list;
+	// Token: 0x04001114 RID: 4372
+	public global::ODBList<T> list;
 
-	// Token: 0x04000FAF RID: 4015
+	// Token: 0x04001115 RID: 4373
 	private bool hasList;
 
-	// Token: 0x04000FB0 RID: 4016
-	private static ODBNode<T>.Recycler recycle;
+	// Token: 0x04001116 RID: 4374
+	private static global::ODBNode<T>.Recycler recycle;
 
-	// Token: 0x02000374 RID: 884
+	// Token: 0x02000421 RID: 1057
 	private struct Recycler
 	{
-		// Token: 0x06002182 RID: 8578 RVA: 0x000828F0 File Offset: 0x00080AF0
-		public bool Pop(out ODBNode<T> o)
+		// Token: 0x060024E4 RID: 9444 RVA: 0x00087CEC File Offset: 0x00085EEC
+		public bool Pop(out global::ODBNode<T> o)
 		{
 			o = this.items;
 			if (this.any)
@@ -170,8 +170,8 @@ public class ODBNode<T> : IDisposable where T : Object
 			return false;
 		}
 
-		// Token: 0x06002183 RID: 8579 RVA: 0x00082950 File Offset: 0x00080B50
-		public void Push(ODBNode<T> item)
+		// Token: 0x060024E5 RID: 9445 RVA: 0x00087D4C File Offset: 0x00085F4C
+		public void Push(global::ODBNode<T> item)
 		{
 			item.list = null;
 			item.self = (T)((object)null);
@@ -184,20 +184,20 @@ public class ODBNode<T> : IDisposable where T : Object
 			}
 			else
 			{
-				item.n = default(ODBSibling<T>);
+				item.n = default(global::ODBSibling<T>);
 				this.items = item;
 				this.count = 1;
 				this.any = true;
 			}
 		}
 
-		// Token: 0x04000FB1 RID: 4017
-		public ODBNode<T> items;
+		// Token: 0x04001117 RID: 4375
+		public global::ODBNode<T> items;
 
-		// Token: 0x04000FB2 RID: 4018
+		// Token: 0x04001118 RID: 4376
 		public int count;
 
-		// Token: 0x04000FB3 RID: 4019
+		// Token: 0x04001119 RID: 4377
 		public bool any;
 	}
 }

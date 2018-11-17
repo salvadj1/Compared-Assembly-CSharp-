@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x020004C7 RID: 1223
+// Token: 0x02000582 RID: 1410
 public enum BobForceCurveTarget
 {
-	// Token: 0x040016CB RID: 5835
+	// Token: 0x04001888 RID: 6280
 	Position,
-	// Token: 0x040016CC RID: 5836
+	// Token: 0x04001889 RID: 6281
 	Rotation
 }

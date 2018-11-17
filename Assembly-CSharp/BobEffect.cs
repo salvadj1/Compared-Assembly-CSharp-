@@ -2,23 +2,23 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x02000255 RID: 597
+// Token: 0x02000288 RID: 648
 public abstract class BobEffect : ScriptableObject
 {
-	// Token: 0x0600160B RID: 5643
+	// Token: 0x0600175F RID: 5983
 	protected abstract void InitializeNonSerializedData();
 
-	// Token: 0x0600160C RID: 5644
-	protected abstract bool OpenData(out BobEffect.Data data);
+	// Token: 0x06001760 RID: 5984
+	protected abstract bool OpenData(out global::BobEffect.Data data);
 
-	// Token: 0x0600160D RID: 5645
-	protected abstract void CloseData(BobEffect.Data data);
+	// Token: 0x06001761 RID: 5985
+	protected abstract void CloseData(global::BobEffect.Data data);
 
-	// Token: 0x0600160E RID: 5646
-	protected abstract BOBRES SimulateData(ref BobEffect.Context ctx);
+	// Token: 0x06001762 RID: 5986
+	protected abstract global::BOBRES SimulateData(ref global::BobEffect.Context ctx);
 
-	// Token: 0x0600160F RID: 5647 RVA: 0x00053074 File Offset: 0x00051274
-	public bool Create(out BobEffect.Data data)
+	// Token: 0x06001763 RID: 5987 RVA: 0x0005741C File Offset: 0x0005561C
+	public bool Create(out global::BobEffect.Data data)
 	{
 		if (!this.loaded)
 		{
@@ -28,8 +28,8 @@ public abstract class BobEffect : ScriptableObject
 		return this.OpenData(out data);
 	}
 
-	// Token: 0x06001610 RID: 5648 RVA: 0x00053098 File Offset: 0x00051298
-	public void Destroy(ref BobEffect.Data data)
+	// Token: 0x06001764 RID: 5988 RVA: 0x00057440 File Offset: 0x00055640
+	public void Destroy(ref global::BobEffect.Data data)
 	{
 		if (this.loaded && data != null)
 		{
@@ -38,53 +38,53 @@ public abstract class BobEffect : ScriptableObject
 		}
 	}
 
-	// Token: 0x06001611 RID: 5649 RVA: 0x000530B8 File Offset: 0x000512B8
-	public BOBRES Simulate(ref BobEffect.Context ctx)
+	// Token: 0x06001765 RID: 5989 RVA: 0x00057460 File Offset: 0x00055660
+	public global::BOBRES Simulate(ref global::BobEffect.Context ctx)
 	{
 		if (this.loaded)
 		{
 			return this.SimulateData(ref ctx);
 		}
-		return BOBRES.ERROR;
+		return global::BOBRES.ERROR;
 	}
 
-	// Token: 0x04000B23 RID: 2851
+	// Token: 0x04000C46 RID: 3142
 	[NonSerialized]
 	private bool loaded;
 
-	// Token: 0x02000256 RID: 598
+	// Token: 0x02000289 RID: 649
 	public class Data
 	{
-		// Token: 0x06001613 RID: 5651 RVA: 0x000530D8 File Offset: 0x000512D8
-		public virtual BobEffect.Data Clone()
+		// Token: 0x06001767 RID: 5991 RVA: 0x00057480 File Offset: 0x00055680
+		public virtual global::BobEffect.Data Clone()
 		{
-			return (BobEffect.Data)base.MemberwiseClone();
+			return (global::BobEffect.Data)base.MemberwiseClone();
 		}
 
-		// Token: 0x06001614 RID: 5652 RVA: 0x000530E8 File Offset: 0x000512E8
-		public virtual void CopyDataTo(BobEffect.Data target)
+		// Token: 0x06001768 RID: 5992 RVA: 0x00057490 File Offset: 0x00055690
+		public virtual void CopyDataTo(global::BobEffect.Data target)
 		{
 			target.force = this.force;
 			target.torque = this.torque;
 		}
 
-		// Token: 0x04000B24 RID: 2852
+		// Token: 0x04000C47 RID: 3143
 		public Vector3G force;
 
-		// Token: 0x04000B25 RID: 2853
+		// Token: 0x04000C48 RID: 3144
 		public Vector3G torque;
 
-		// Token: 0x04000B26 RID: 2854
-		public BobEffect effect;
+		// Token: 0x04000C49 RID: 3145
+		public global::BobEffect effect;
 	}
 
-	// Token: 0x02000257 RID: 599
+	// Token: 0x0200028A RID: 650
 	public struct Context
 	{
-		// Token: 0x04000B27 RID: 2855
+		// Token: 0x04000C4A RID: 3146
 		public double dt;
 
-		// Token: 0x04000B28 RID: 2856
-		public BobEffect.Data data;
+		// Token: 0x04000C4B RID: 3147
+		public global::BobEffect.Data data;
 	}
 }

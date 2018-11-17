@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Facepunch.Clocks.Counters.Unity
 {
-	// Token: 0x02000346 RID: 838
+	// Token: 0x020003F3 RID: 1011
 	public struct NetworkTime
 	{
-		// Token: 0x06001FE9 RID: 8169 RVA: 0x0007D5D4 File Offset: 0x0007B7D4
+		// Token: 0x0600234B RID: 9035 RVA: 0x000829D0 File Offset: 0x00080BD0
 		public void Start()
 		{
 			if (double.IsNegativeInfinity(this.startTime))
@@ -23,7 +23,7 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x06001FEA RID: 8170 RVA: 0x0007D65C File Offset: 0x0007B85C
+		// Token: 0x0600234C RID: 9036 RVA: 0x00082A58 File Offset: 0x00080C58
 		public void Stop()
 		{
 			if (double.IsNegativeInfinity(this.startTime))
@@ -36,8 +36,8 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x170007F5 RID: 2037
-		// (get) Token: 0x06001FEB RID: 8171 RVA: 0x0007D698 File Offset: 0x0007B898
+		// Token: 0x17000853 RID: 2131
+		// (get) Token: 0x0600234D RID: 9037 RVA: 0x00082A94 File Offset: 0x00080C94
 		public double ElapsedSeconds
 		{
 			get
@@ -54,8 +54,8 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x170007F6 RID: 2038
-		// (get) Token: 0x06001FEC RID: 8172 RVA: 0x0007D6FC File Offset: 0x0007B8FC
+		// Token: 0x17000854 RID: 2132
+		// (get) Token: 0x0600234E RID: 9038 RVA: 0x00082AF8 File Offset: 0x00080CF8
 		public long ElapsedMilliseconds
 		{
 			get
@@ -64,8 +64,8 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x170007F7 RID: 2039
-		// (get) Token: 0x06001FED RID: 8173 RVA: 0x0007D714 File Offset: 0x0007B914
+		// Token: 0x17000855 RID: 2133
+		// (get) Token: 0x0600234F RID: 9039 RVA: 0x00082B10 File Offset: 0x00080D10
 		public TimeSpan Elapsed
 		{
 			get
@@ -78,8 +78,8 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x170007F8 RID: 2040
-		// (get) Token: 0x06001FEE RID: 8174 RVA: 0x0007D76C File Offset: 0x0007B96C
+		// Token: 0x17000856 RID: 2134
+		// (get) Token: 0x06002350 RID: 9040 RVA: 0x00082B68 File Offset: 0x00080D68
 		public bool IsRunning
 		{
 			get
@@ -88,8 +88,8 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x170007F9 RID: 2041
-		// (get) Token: 0x06001FEF RID: 8175 RVA: 0x0007D790 File Offset: 0x0007B990
+		// Token: 0x17000857 RID: 2135
+		// (get) Token: 0x06002351 RID: 9041 RVA: 0x00082B8C File Offset: 0x00080D8C
 		public static NetworkTime Restart
 		{
 			get
@@ -102,8 +102,8 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x170007FA RID: 2042
-		// (get) Token: 0x06001FF0 RID: 8176 RVA: 0x0007D7CC File Offset: 0x0007B9CC
+		// Token: 0x17000858 RID: 2136
+		// (get) Token: 0x06002352 RID: 9042 RVA: 0x00082BC8 File Offset: 0x00080DC8
 		public static NetworkTime Reset
 		{
 			get
@@ -116,34 +116,34 @@ namespace Facepunch.Clocks.Counters.Unity
 			}
 		}
 
-		// Token: 0x04000F44 RID: 3908
+		// Token: 0x040010AA RID: 4266
 		private const double ZeroDeductions = 0.0;
 
-		// Token: 0x04000F45 RID: 3909
+		// Token: 0x040010AB RID: 4267
 		private const double OneThousand = 1000.0;
 
-		// Token: 0x04000F46 RID: 3910
+		// Token: 0x040010AC RID: 4268
 		private const double ZeroElapsed = 0.0;
 
-		// Token: 0x04000F47 RID: 3911
+		// Token: 0x040010AD RID: 4269
 		private double startTime;
 
-		// Token: 0x04000F48 RID: 3912
+		// Token: 0x040010AE RID: 4270
 		private double endTime;
 
-		// Token: 0x04000F49 RID: 3913
+		// Token: 0x040010AF RID: 4271
 		private double deductSeconds;
 
-		// Token: 0x02000347 RID: 839
+		// Token: 0x020003F4 RID: 1012
 		private static class TIME_SOURCE
 		{
-			// Token: 0x170007FB RID: 2043
-			// (get) Token: 0x06001FF1 RID: 8177 RVA: 0x0007D80C File Offset: 0x0007BA0C
+			// Token: 0x17000859 RID: 2137
+			// (get) Token: 0x06002353 RID: 9043 RVA: 0x00082C08 File Offset: 0x00080E08
 			public static double NOW
 			{
 				get
 				{
-					return Network.time;
+					return UnityEngine.Network.time;
 				}
 			}
 		}

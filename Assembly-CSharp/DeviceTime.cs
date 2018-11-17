@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000842 RID: 2114
+// Token: 0x02000937 RID: 2359
 public class DeviceTime : MonoBehaviour
 {
-	// Token: 0x06004AC5 RID: 19141 RVA: 0x00146840 File Offset: 0x00144A40
+	// Token: 0x06004F80 RID: 20352 RVA: 0x001507A4 File Offset: 0x0014E9A4
 	protected void OnEnable()
 	{
 		if (!this.sky)
@@ -22,6 +22,6 @@ public class DeviceTime : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002BDA RID: 11226
-	public TOD_Sky sky;
+	// Token: 0x04002E28 RID: 11816
+	public global::TOD_Sky sky;
 }

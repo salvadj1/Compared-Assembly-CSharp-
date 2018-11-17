@@ -2,10 +2,10 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x0200061A RID: 1562
+// Token: 0x020006DB RID: 1755
 public class MatrixHelper : MonoBehaviour
 {
-	// Token: 0x0600378E RID: 14222 RVA: 0x000CA354 File Offset: 0x000C8554
+	// Token: 0x06003B6E RID: 15214 RVA: 0x000D2A2C File Offset: 0x000D0C2C
 	public static bool Project(ref Vector3 obj, ref Matrix4x4 modelview, ref Matrix4x4 projection, ref Vector4 viewport, out Vector3 windowCoordinate)
 	{
 		Vector4 vector;
@@ -33,12 +33,12 @@ public class MatrixHelper : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0600378F RID: 14223 RVA: 0x000CA5F4 File Offset: 0x000C87F4
+	// Token: 0x06003B6F RID: 15215 RVA: 0x000D2CCC File Offset: 0x000D0ECC
 	public static bool UnProject(ref Vector3 win, ref Matrix4x4 modelview, ref Matrix4x4 projection, ref Vector4 viewport, out Vector3 objectCoordinate)
 	{
 		Matrix4x4 matrix4x = projection * modelview;
 		Matrix4x4 matrix4x2;
-		if (!MatrixHelper.InvertMatrix(ref matrix4x, out matrix4x2))
+		if (!global::MatrixHelper.InvertMatrix(ref matrix4x, out matrix4x2))
 		{
 			objectCoordinate = default(Vector3);
 			return false;
@@ -49,7 +49,7 @@ public class MatrixHelper : MonoBehaviour
 		vector.z = 1f - win.z;
 		vector.w = 1f;
 		Vector4 vector2;
-		MatrixHelper.MultiplyVector4(out vector2, ref matrix4x2, ref vector);
+		global::MatrixHelper.MultiplyVector4(out vector2, ref matrix4x2, ref vector);
 		if ((double)vector2.w == 0.0)
 		{
 			objectCoordinate = default(Vector3);
@@ -62,7 +62,7 @@ public class MatrixHelper : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06003790 RID: 14224 RVA: 0x000CA72C File Offset: 0x000C892C
+	// Token: 0x06003B70 RID: 15216 RVA: 0x000D2E04 File Offset: 0x000D1004
 	public static void MultiplyVector4(out Vector4 resultvector, ref Matrix4x4 matrix, ref Vector4 pvector)
 	{
 		resultvector.x = matrix[0] * pvector[0] + matrix[4] * pvector[1] + matrix[8] * pvector[2] + matrix[12] * pvector[3];
@@ -71,7 +71,7 @@ public class MatrixHelper : MonoBehaviour
 		resultvector.w = matrix[3] * pvector[0] + matrix[7] * pvector[1] + matrix[11] * pvector[2] + matrix[15] * pvector[3];
 	}
 
-	// Token: 0x06003791 RID: 14225 RVA: 0x000CA854 File Offset: 0x000C8A54
+	// Token: 0x06003B71 RID: 15217 RVA: 0x000D2F2C File Offset: 0x000D112C
 	public static bool InvertMatrix(ref Matrix4x4 m, out Matrix4x4 o)
 	{
 		Vector4 vector;
@@ -299,10 +299,10 @@ public class MatrixHelper : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x0200061B RID: 1563
+	// Token: 0x020006DC RID: 1756
 	public struct ProjectHelper
 	{
-		// Token: 0x06003792 RID: 14226 RVA: 0x000CB474 File Offset: 0x000C9674
+		// Token: 0x06003B72 RID: 15218 RVA: 0x000D3B4C File Offset: 0x000D1D4C
 		public bool Project(ref Vector3 obj, out Vector3 windowCoordinate)
 		{
 			Vector4 vector;
@@ -329,12 +329,12 @@ public class MatrixHelper : MonoBehaviour
 			return true;
 		}
 
-		// Token: 0x06003793 RID: 14227 RVA: 0x000CB794 File Offset: 0x000C9994
+		// Token: 0x06003B73 RID: 15219 RVA: 0x000D3E6C File Offset: 0x000D206C
 		public bool UnProject(ref Vector3 win, out Vector3 objectCoordinate)
 		{
 			Matrix4x4 matrix4x = this.projection * this.modelview;
 			Matrix4x4 matrix4x2;
-			if (!MatrixHelper.InvertMatrix(ref matrix4x, out matrix4x2))
+			if (!global::MatrixHelper.InvertMatrix(ref matrix4x, out matrix4x2))
 			{
 				objectCoordinate = default(Vector3);
 				return false;
@@ -345,7 +345,7 @@ public class MatrixHelper : MonoBehaviour
 			vector.z = -win.z;
 			vector.w = 1f;
 			Vector4 vector2;
-			MatrixHelper.MultiplyVector4(out vector2, ref matrix4x2, ref vector);
+			global::MatrixHelper.MultiplyVector4(out vector2, ref matrix4x2, ref vector);
 			if ((double)vector2.w == 0.0)
 			{
 				objectCoordinate = default(Vector3);
@@ -358,23 +358,23 @@ public class MatrixHelper : MonoBehaviour
 			return true;
 		}
 
-		// Token: 0x04001BAD RID: 7085
+		// Token: 0x04001D98 RID: 7576
 		public Matrix4x4 modelview;
 
-		// Token: 0x04001BAE RID: 7086
+		// Token: 0x04001D99 RID: 7577
 		public Matrix4x4 projection;
 
-		// Token: 0x04001BAF RID: 7087
+		// Token: 0x04001D9A RID: 7578
 		public Vector2 offset;
 
-		// Token: 0x04001BB0 RID: 7088
+		// Token: 0x04001D9B RID: 7579
 		public Vector2 size;
 	}
 
-	// Token: 0x0200061C RID: 1564
+	// Token: 0x020006DD RID: 1757
 	public struct ProjectHelperG
 	{
-		// Token: 0x06003794 RID: 14228 RVA: 0x000CB8D8 File Offset: 0x000C9AD8
+		// Token: 0x06003B74 RID: 15220 RVA: 0x000D3FB0 File Offset: 0x000D21B0
 		public bool Project(ref Vector3G obj, out Vector3G windowCoordinate)
 		{
 			Vector4G vector4G;
@@ -401,7 +401,7 @@ public class MatrixHelper : MonoBehaviour
 			return true;
 		}
 
-		// Token: 0x06003795 RID: 14229 RVA: 0x000CBC0C File Offset: 0x000C9E0C
+		// Token: 0x06003B75 RID: 15221 RVA: 0x000D42E4 File Offset: 0x000D24E4
 		public bool UnProject(ref Vector3G win, out Vector3G objectCoordinate)
 		{
 			Matrix4x4G matrix4x4G;
@@ -431,16 +431,16 @@ public class MatrixHelper : MonoBehaviour
 			return true;
 		}
 
-		// Token: 0x04001BB1 RID: 7089
+		// Token: 0x04001D9C RID: 7580
 		public Matrix4x4G modelview;
 
-		// Token: 0x04001BB2 RID: 7090
+		// Token: 0x04001D9D RID: 7581
 		public Matrix4x4G projection;
 
-		// Token: 0x04001BB3 RID: 7091
+		// Token: 0x04001D9E RID: 7582
 		public Vector2G offset;
 
-		// Token: 0x04001BB4 RID: 7092
+		// Token: 0x04001D9F RID: 7583
 		public Vector2G size;
 	}
 }

@@ -1,24 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003E0 RID: 992
+// Token: 0x0200048E RID: 1166
 public class RockDecorAreaHelper : MonoBehaviour
 {
-	// Token: 0x060024DE RID: 9438 RVA: 0x0008D750 File Offset: 0x0008B950
+	// Token: 0x06002842 RID: 10306 RVA: 0x00092B3C File Offset: 0x00090D3C
 	private void OnDrawGizmos()
 	{
 		Gizmos.color = Color.grey;
 		this.DrawBounds();
 	}
 
-	// Token: 0x060024DF RID: 9439 RVA: 0x0008D764 File Offset: 0x0008B964
+	// Token: 0x06002843 RID: 10307 RVA: 0x00092B50 File Offset: 0x00090D50
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.white;
 		this.DrawBounds();
 	}
 
-	// Token: 0x060024E0 RID: 9440 RVA: 0x0008D778 File Offset: 0x0008B978
+	// Token: 0x06002844 RID: 10308 RVA: 0x00092B64 File Offset: 0x00090D64
 	private void DrawBounds()
 	{
 		Color color = Gizmos.color;

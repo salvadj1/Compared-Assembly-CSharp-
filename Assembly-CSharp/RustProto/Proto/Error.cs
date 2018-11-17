@@ -6,11 +6,11 @@ using Google.ProtocolBuffers.FieldAccess;
 
 namespace RustProto.Proto
 {
-	// Token: 0x0200022C RID: 556
+	// Token: 0x0200025F RID: 607
 	[DebuggerNonUserCode]
 	public static class Error
 	{
-		// Token: 0x06001415 RID: 5141 RVA: 0x00044278 File Offset: 0x00042478
+		// Token: 0x06001569 RID: 5481 RVA: 0x00048620 File Offset: 0x00046820
 		static Error()
 		{
 			byte[] array = Convert.FromBase64String("ChBydXN0L2Vycm9yLnByb3RvEglSdXN0UHJvdG8iKAoFRXJyb3ISDgoGc3RhdHVzGAEgAigJEg8KB21lc3NhZ2UYAiACKAkiKQoJR2FtZUVycm9yEg0KBWVycm9yGAEgAigJEg0KBXRyYWNlGAIgAigJQgJIAQ==");
@@ -34,13 +34,13 @@ namespace RustProto.Proto
 			FileDescriptor.InternalBuildGeneratedFileFrom(array, new FileDescriptor[0], internalDescriptorAssigner);
 		}
 
-		// Token: 0x06001416 RID: 5142 RVA: 0x000442BC File Offset: 0x000424BC
+		// Token: 0x0600156A RID: 5482 RVA: 0x00048664 File Offset: 0x00046864
 		public static void RegisterAllExtensions(ExtensionRegistry registry)
 		{
 		}
 
-		// Token: 0x170005BD RID: 1469
-		// (get) Token: 0x06001417 RID: 5143 RVA: 0x000442C0 File Offset: 0x000424C0
+		// Token: 0x17000605 RID: 1541
+		// (get) Token: 0x0600156B RID: 5483 RVA: 0x00048668 File Offset: 0x00046868
 		public static FileDescriptor Descriptor
 		{
 			get
@@ -49,19 +49,19 @@ namespace RustProto.Proto
 			}
 		}
 
-		// Token: 0x04000A1B RID: 2587
+		// Token: 0x04000B3E RID: 2878
 		internal static MessageDescriptor internal__static_RustProto_Error__Descriptor;
 
-		// Token: 0x04000A1C RID: 2588
+		// Token: 0x04000B3F RID: 2879
 		internal static FieldAccessorTable<Error, Error.Builder> internal__static_RustProto_Error__FieldAccessorTable;
 
-		// Token: 0x04000A1D RID: 2589
+		// Token: 0x04000B40 RID: 2880
 		internal static MessageDescriptor internal__static_RustProto_GameError__Descriptor;
 
-		// Token: 0x04000A1E RID: 2590
+		// Token: 0x04000B41 RID: 2881
 		internal static FieldAccessorTable<GameError, GameError.Builder> internal__static_RustProto_GameError__FieldAccessorTable;
 
-		// Token: 0x04000A1F RID: 2591
+		// Token: 0x04000B42 RID: 2882
 		private static FileDescriptor descriptor;
 	}
 }

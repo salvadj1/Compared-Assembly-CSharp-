@@ -1,21 +1,21 @@
 ﻿using System;
 
-// Token: 0x020003F3 RID: 1011
-public class lockentry : ConsoleSystem
+// Token: 0x020004A3 RID: 1187
+public class lockentry : global::ConsoleSystem
 {
-	// Token: 0x0600254C RID: 9548 RVA: 0x0008F444 File Offset: 0x0008D644
-	[ConsoleSystem.Client]
-	public static void show(ref ConsoleSystem.Arg arg)
+	// Token: 0x060028BE RID: 10430 RVA: 0x00094E30 File Offset: 0x00093030
+	[global::ConsoleSystem.Client]
+	public static void show(ref global::ConsoleSystem.Arg arg)
 	{
 		bool changing = false;
 		bool.TryParse(arg.Args[0], out changing);
-		LockEntry.Show(changing);
+		global::LockEntry.Show(changing);
 	}
 
-	// Token: 0x0600254D RID: 9549 RVA: 0x0008F46C File Offset: 0x0008D66C
-	[ConsoleSystem.Client]
-	public static void hide(ref ConsoleSystem.Arg arg)
+	// Token: 0x060028BF RID: 10431 RVA: 0x00094E58 File Offset: 0x00093058
+	[global::ConsoleSystem.Client]
+	public static void hide(ref global::ConsoleSystem.Arg arg)
 	{
-		LockEntry.Hide();
+		global::LockEntry.Hide();
 	}
 }

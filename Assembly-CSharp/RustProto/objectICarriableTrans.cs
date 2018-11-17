@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x0200021F RID: 543
+	// Token: 0x02000252 RID: 594
 	[DebuggerNonUserCode]
 	public sealed class objectICarriableTrans : GeneratedMessage<objectICarriableTrans, objectICarriableTrans.Builder>
 	{
-		// Token: 0x06001314 RID: 4884 RVA: 0x000420BC File Offset: 0x000402BC
+		// Token: 0x06001468 RID: 5224 RVA: 0x00046464 File Offset: 0x00044664
 		private objectICarriableTrans()
 		{
 		}
 
-		// Token: 0x06001315 RID: 4885 RVA: 0x000420CC File Offset: 0x000402CC
+		// Token: 0x06001469 RID: 5225 RVA: 0x00046474 File Offset: 0x00044674
 		static objectICarriableTrans()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x06001316 RID: 4886 RVA: 0x0004210C File Offset: 0x0004030C
-		public static Recycler<objectICarriableTrans, objectICarriableTrans.Builder> Recycler()
+		// Token: 0x0600146A RID: 5226 RVA: 0x000464B4 File Offset: 0x000446B4
+		public static RustProto.Helpers.Recycler<objectICarriableTrans, objectICarriableTrans.Builder> Recycler()
 		{
-			return Recycler<objectICarriableTrans, objectICarriableTrans.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectICarriableTrans, objectICarriableTrans.Builder>.Manufacture();
 		}
 
-		// Token: 0x1700055E RID: 1374
-		// (get) Token: 0x06001317 RID: 4887 RVA: 0x00042114 File Offset: 0x00040314
+		// Token: 0x170005A6 RID: 1446
+		// (get) Token: 0x0600146B RID: 5227 RVA: 0x000464BC File Offset: 0x000446BC
 		public static objectICarriableTrans DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700055F RID: 1375
-		// (get) Token: 0x06001318 RID: 4888 RVA: 0x0004211C File Offset: 0x0004031C
+		// Token: 0x170005A7 RID: 1447
+		// (get) Token: 0x0600146C RID: 5228 RVA: 0x000464C4 File Offset: 0x000446C4
 		public override objectICarriableTrans DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000560 RID: 1376
-		// (get) Token: 0x06001319 RID: 4889 RVA: 0x00042124 File Offset: 0x00040324
+		// Token: 0x170005A8 RID: 1448
+		// (get) Token: 0x0600146D RID: 5229 RVA: 0x000464CC File Offset: 0x000446CC
 		protected override objectICarriableTrans ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000561 RID: 1377
-		// (get) Token: 0x0600131A RID: 4890 RVA: 0x00042128 File Offset: 0x00040328
+		// Token: 0x170005A9 RID: 1449
+		// (get) Token: 0x0600146E RID: 5230 RVA: 0x000464D0 File Offset: 0x000446D0
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000562 RID: 1378
-		// (get) Token: 0x0600131B RID: 4891 RVA: 0x00042130 File Offset: 0x00040330
+		// Token: 0x170005AA RID: 1450
+		// (get) Token: 0x0600146F RID: 5231 RVA: 0x000464D8 File Offset: 0x000446D8
 		protected override FieldAccessorTable<objectICarriableTrans, objectICarriableTrans.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000563 RID: 1379
-		// (get) Token: 0x0600131C RID: 4892 RVA: 0x00042138 File Offset: 0x00040338
+		// Token: 0x170005AB RID: 1451
+		// (get) Token: 0x06001470 RID: 5232 RVA: 0x000464E0 File Offset: 0x000446E0
 		public bool HasTransCarrierID
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000564 RID: 1380
-		// (get) Token: 0x0600131D RID: 4893 RVA: 0x00042140 File Offset: 0x00040340
+		// Token: 0x170005AC RID: 1452
+		// (get) Token: 0x06001471 RID: 5233 RVA: 0x000464E8 File Offset: 0x000446E8
 		public int TransCarrierID
 		{
 			get
@@ -99,8 +99,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000565 RID: 1381
-		// (get) Token: 0x0600131E RID: 4894 RVA: 0x00042148 File Offset: 0x00040348
+		// Token: 0x170005AD RID: 1453
+		// (get) Token: 0x06001472 RID: 5234 RVA: 0x000464F0 File Offset: 0x000446F0
 		public override bool IsInitialized
 		{
 			get
@@ -109,7 +109,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600131F RID: 4895 RVA: 0x0004214C File Offset: 0x0004034C
+		// Token: 0x06001473 RID: 5235 RVA: 0x000464F4 File Offset: 0x000446F4
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -121,8 +121,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x17000566 RID: 1382
-		// (get) Token: 0x06001320 RID: 4896 RVA: 0x00042190 File Offset: 0x00040390
+		// Token: 0x170005AE RID: 1454
+		// (get) Token: 0x06001474 RID: 5236 RVA: 0x00046538 File Offset: 0x00044738
 		public override int SerializedSize
 		{
 			get
@@ -143,143 +143,143 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001321 RID: 4897 RVA: 0x000421E0 File Offset: 0x000403E0
+		// Token: 0x06001475 RID: 5237 RVA: 0x00046588 File Offset: 0x00044788
 		public static objectICarriableTrans ParseFrom(ByteString data)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001322 RID: 4898 RVA: 0x000421F4 File Offset: 0x000403F4
+		// Token: 0x06001476 RID: 5238 RVA: 0x0004659C File Offset: 0x0004479C
 		public static objectICarriableTrans ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001323 RID: 4899 RVA: 0x00042208 File Offset: 0x00040408
+		// Token: 0x06001477 RID: 5239 RVA: 0x000465B0 File Offset: 0x000447B0
 		public static objectICarriableTrans ParseFrom(byte[] data)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001324 RID: 4900 RVA: 0x0004221C File Offset: 0x0004041C
+		// Token: 0x06001478 RID: 5240 RVA: 0x000465C4 File Offset: 0x000447C4
 		public static objectICarriableTrans ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001325 RID: 4901 RVA: 0x00042230 File Offset: 0x00040430
+		// Token: 0x06001479 RID: 5241 RVA: 0x000465D8 File Offset: 0x000447D8
 		public static objectICarriableTrans ParseFrom(Stream input)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001326 RID: 4902 RVA: 0x00042244 File Offset: 0x00040444
+		// Token: 0x0600147A RID: 5242 RVA: 0x000465EC File Offset: 0x000447EC
 		public static objectICarriableTrans ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001327 RID: 4903 RVA: 0x00042258 File Offset: 0x00040458
+		// Token: 0x0600147B RID: 5243 RVA: 0x00046600 File Offset: 0x00044800
 		public static objectICarriableTrans ParseDelimitedFrom(Stream input)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001328 RID: 4904 RVA: 0x0004226C File Offset: 0x0004046C
+		// Token: 0x0600147C RID: 5244 RVA: 0x00046614 File Offset: 0x00044814
 		public static objectICarriableTrans ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001329 RID: 4905 RVA: 0x00042280 File Offset: 0x00040480
+		// Token: 0x0600147D RID: 5245 RVA: 0x00046628 File Offset: 0x00044828
 		public static objectICarriableTrans ParseFrom(ICodedInputStream input)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600132A RID: 4906 RVA: 0x00042294 File Offset: 0x00040494
+		// Token: 0x0600147E RID: 5246 RVA: 0x0004663C File Offset: 0x0004483C
 		public static objectICarriableTrans ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectICarriableTrans.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600132B RID: 4907 RVA: 0x000422A8 File Offset: 0x000404A8
+		// Token: 0x0600147F RID: 5247 RVA: 0x00046650 File Offset: 0x00044850
 		private objectICarriableTrans MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x0600132C RID: 4908 RVA: 0x000422AC File Offset: 0x000404AC
+		// Token: 0x06001480 RID: 5248 RVA: 0x00046654 File Offset: 0x00044854
 		public static objectICarriableTrans.Builder CreateBuilder()
 		{
 			return new objectICarriableTrans.Builder();
 		}
 
-		// Token: 0x0600132D RID: 4909 RVA: 0x000422B4 File Offset: 0x000404B4
+		// Token: 0x06001481 RID: 5249 RVA: 0x0004665C File Offset: 0x0004485C
 		public override objectICarriableTrans.Builder ToBuilder()
 		{
 			return objectICarriableTrans.CreateBuilder(this);
 		}
 
-		// Token: 0x0600132E RID: 4910 RVA: 0x000422BC File Offset: 0x000404BC
+		// Token: 0x06001482 RID: 5250 RVA: 0x00046664 File Offset: 0x00044864
 		public override objectICarriableTrans.Builder CreateBuilderForType()
 		{
 			return new objectICarriableTrans.Builder();
 		}
 
-		// Token: 0x0600132F RID: 4911 RVA: 0x000422C4 File Offset: 0x000404C4
+		// Token: 0x06001483 RID: 5251 RVA: 0x0004666C File Offset: 0x0004486C
 		public static objectICarriableTrans.Builder CreateBuilder(objectICarriableTrans prototype)
 		{
 			return new objectICarriableTrans.Builder(prototype);
 		}
 
-		// Token: 0x040009CE RID: 2510
+		// Token: 0x04000AF1 RID: 2801
 		public const int TransCarrierIDFieldNumber = 1;
 
-		// Token: 0x040009CF RID: 2511
+		// Token: 0x04000AF2 RID: 2802
 		private static readonly objectICarriableTrans defaultInstance = new objectICarriableTrans().MakeReadOnly();
 
-		// Token: 0x040009D0 RID: 2512
+		// Token: 0x04000AF3 RID: 2803
 		private static readonly string[] _objectICarriableTransFieldNames = new string[]
 		{
 			"transCarrierID"
 		};
 
-		// Token: 0x040009D1 RID: 2513
+		// Token: 0x04000AF4 RID: 2804
 		private static readonly uint[] _objectICarriableTransFieldTags = new uint[]
 		{
 			8u
 		};
 
-		// Token: 0x040009D2 RID: 2514
+		// Token: 0x04000AF5 RID: 2805
 		private bool hasTransCarrierID;
 
-		// Token: 0x040009D3 RID: 2515
+		// Token: 0x04000AF6 RID: 2806
 		private int transCarrierID_;
 
-		// Token: 0x040009D4 RID: 2516
+		// Token: 0x04000AF7 RID: 2807
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000220 RID: 544
+		// Token: 0x02000253 RID: 595
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectICarriableTrans, objectICarriableTrans.Builder>
 		{
-			// Token: 0x06001330 RID: 4912 RVA: 0x000422CC File Offset: 0x000404CC
+			// Token: 0x06001484 RID: 5252 RVA: 0x00046674 File Offset: 0x00044874
 			public Builder()
 			{
 				this.result = objectICarriableTrans.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x06001331 RID: 4913 RVA: 0x000422E8 File Offset: 0x000404E8
+			// Token: 0x06001485 RID: 5253 RVA: 0x00046690 File Offset: 0x00044890
 			internal Builder(objectICarriableTrans cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x17000567 RID: 1383
-			// (get) Token: 0x06001332 RID: 4914 RVA: 0x00042300 File Offset: 0x00040500
+			// Token: 0x170005AF RID: 1455
+			// (get) Token: 0x06001486 RID: 5254 RVA: 0x000466A8 File Offset: 0x000448A8
 			protected override objectICarriableTrans.Builder ThisBuilder
 			{
 				get
@@ -288,7 +288,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001333 RID: 4915 RVA: 0x00042304 File Offset: 0x00040504
+			// Token: 0x06001487 RID: 5255 RVA: 0x000466AC File Offset: 0x000448AC
 			private objectICarriableTrans PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -301,8 +301,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x17000568 RID: 1384
-			// (get) Token: 0x06001334 RID: 4916 RVA: 0x00042344 File Offset: 0x00040544
+			// Token: 0x170005B0 RID: 1456
+			// (get) Token: 0x06001488 RID: 5256 RVA: 0x000466EC File Offset: 0x000448EC
 			public override bool IsInitialized
 			{
 				get
@@ -311,8 +311,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000569 RID: 1385
-			// (get) Token: 0x06001335 RID: 4917 RVA: 0x00042354 File Offset: 0x00040554
+			// Token: 0x170005B1 RID: 1457
+			// (get) Token: 0x06001489 RID: 5257 RVA: 0x000466FC File Offset: 0x000448FC
 			protected override objectICarriableTrans MessageBeingBuilt
 			{
 				get
@@ -321,7 +321,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001336 RID: 4918 RVA: 0x0004235C File Offset: 0x0004055C
+			// Token: 0x0600148A RID: 5258 RVA: 0x00046704 File Offset: 0x00044904
 			public override objectICarriableTrans.Builder Clear()
 			{
 				this.result = objectICarriableTrans.DefaultInstance;
@@ -329,7 +329,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001337 RID: 4919 RVA: 0x00042374 File Offset: 0x00040574
+			// Token: 0x0600148B RID: 5259 RVA: 0x0004671C File Offset: 0x0004491C
 			public override objectICarriableTrans.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -339,8 +339,8 @@ namespace RustProto
 				return new objectICarriableTrans.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x1700056A RID: 1386
-			// (get) Token: 0x06001338 RID: 4920 RVA: 0x000423A0 File Offset: 0x000405A0
+			// Token: 0x170005B2 RID: 1458
+			// (get) Token: 0x0600148C RID: 5260 RVA: 0x00046748 File Offset: 0x00044948
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -349,8 +349,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700056B RID: 1387
-			// (get) Token: 0x06001339 RID: 4921 RVA: 0x000423A8 File Offset: 0x000405A8
+			// Token: 0x170005B3 RID: 1459
+			// (get) Token: 0x0600148D RID: 5261 RVA: 0x00046750 File Offset: 0x00044950
 			public override objectICarriableTrans DefaultInstanceForType
 			{
 				get
@@ -359,7 +359,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600133A RID: 4922 RVA: 0x000423B0 File Offset: 0x000405B0
+			// Token: 0x0600148E RID: 5262 RVA: 0x00046758 File Offset: 0x00044958
 			public override objectICarriableTrans BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -370,7 +370,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x0600133B RID: 4923 RVA: 0x000423E4 File Offset: 0x000405E4
+			// Token: 0x0600148F RID: 5263 RVA: 0x0004678C File Offset: 0x0004498C
 			public override objectICarriableTrans.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectICarriableTrans)
@@ -381,7 +381,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600133C RID: 4924 RVA: 0x00042408 File Offset: 0x00040608
+			// Token: 0x06001490 RID: 5264 RVA: 0x000467B0 File Offset: 0x000449B0
 			public override objectICarriableTrans.Builder MergeFrom(objectICarriableTrans other)
 			{
 				if (other == objectICarriableTrans.DefaultInstance)
@@ -397,13 +397,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600133D RID: 4925 RVA: 0x00042450 File Offset: 0x00040650
+			// Token: 0x06001491 RID: 5265 RVA: 0x000467F8 File Offset: 0x000449F8
 			public override objectICarriableTrans.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x0600133E RID: 4926 RVA: 0x00042460 File Offset: 0x00040660
+			// Token: 0x06001492 RID: 5266 RVA: 0x00046808 File Offset: 0x00044A08
 			public override objectICarriableTrans.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -459,8 +459,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700056C RID: 1388
-			// (get) Token: 0x0600133F RID: 4927 RVA: 0x00042574 File Offset: 0x00040774
+			// Token: 0x170005B4 RID: 1460
+			// (get) Token: 0x06001493 RID: 5267 RVA: 0x0004691C File Offset: 0x00044B1C
 			public bool HasTransCarrierID
 			{
 				get
@@ -469,9 +469,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700056D RID: 1389
-			// (get) Token: 0x06001340 RID: 4928 RVA: 0x00042584 File Offset: 0x00040784
-			// (set) Token: 0x06001341 RID: 4929 RVA: 0x00042594 File Offset: 0x00040794
+			// Token: 0x170005B5 RID: 1461
+			// (get) Token: 0x06001494 RID: 5268 RVA: 0x0004692C File Offset: 0x00044B2C
+			// (set) Token: 0x06001495 RID: 5269 RVA: 0x0004693C File Offset: 0x00044B3C
 			public int TransCarrierID
 			{
 				get
@@ -484,7 +484,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001342 RID: 4930 RVA: 0x000425A0 File Offset: 0x000407A0
+			// Token: 0x06001496 RID: 5270 RVA: 0x00046948 File Offset: 0x00044B48
 			public objectICarriableTrans.Builder SetTransCarrierID(int value)
 			{
 				this.PrepareBuilder();
@@ -493,7 +493,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001343 RID: 4931 RVA: 0x000425D0 File Offset: 0x000407D0
+			// Token: 0x06001497 RID: 5271 RVA: 0x00046978 File Offset: 0x00044B78
 			public objectICarriableTrans.Builder ClearTransCarrierID()
 			{
 				this.PrepareBuilder();
@@ -502,10 +502,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x040009D5 RID: 2517
+			// Token: 0x04000AF8 RID: 2808
 			private bool resultIsReadOnly;
 
-			// Token: 0x040009D6 RID: 2518
+			// Token: 0x04000AF9 RID: 2809
 			private objectICarriableTrans result;
 		}
 	}

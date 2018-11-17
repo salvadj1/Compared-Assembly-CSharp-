@@ -2,10 +2,10 @@
 
 namespace MoPhoGames.USpeak.Core
 {
-	// Token: 0x020000BE RID: 190
+	// Token: 0x020000D2 RID: 210
 	public struct USpeakFrameContainer
 	{
-		// Token: 0x06000408 RID: 1032 RVA: 0x000151F4 File Offset: 0x000133F4
+		// Token: 0x06000486 RID: 1158 RVA: 0x00016BBC File Offset: 0x00014DBC
 		public void LoadFrom(byte[] source)
 		{
 			int num = BitConverter.ToInt32(source, 0);
@@ -14,7 +14,7 @@ namespace MoPhoGames.USpeak.Core
 			Array.Copy(source, 6, this.encodedData, 0, num);
 		}
 
-		// Token: 0x06000409 RID: 1033 RVA: 0x00015234 File Offset: 0x00013434
+		// Token: 0x06000487 RID: 1159 RVA: 0x00016BFC File Offset: 0x00014DFC
 		public byte[] ToByteArray()
 		{
 			byte[] array = new byte[6 + this.encodedData.Length];
@@ -29,10 +29,10 @@ namespace MoPhoGames.USpeak.Core
 			return array;
 		}
 
-		// Token: 0x0400039B RID: 923
+		// Token: 0x0400040A RID: 1034
 		public ushort Samples;
 
-		// Token: 0x0400039C RID: 924
+		// Token: 0x0400040B RID: 1035
 		public byte[] encodedData;
 	}
 }

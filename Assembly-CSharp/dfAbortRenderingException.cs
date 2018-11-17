@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020006F5 RID: 1781
+// Token: 0x020007C7 RID: 1991
 public class dfAbortRenderingException : Exception
 {
 }

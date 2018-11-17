@@ -1,43 +1,43 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004CA RID: 1226
+// Token: 0x02000585 RID: 1413
 [Serializable]
 public class BobAntiOutput
 {
-	// Token: 0x06002A8D RID: 10893 RVA: 0x000A91AC File Offset: 0x000A73AC
-	private static Vector3 GetVector3(ref Vector3 v, BobAntiOutputAxes axes)
+	// Token: 0x06002E3F RID: 11839 RVA: 0x000B0F44 File Offset: 0x000AF144
+	private static Vector3 GetVector3(ref Vector3 v, global::BobAntiOutputAxes axes)
 	{
 		Vector3 result;
-		switch (axes & (BobAntiOutputAxes)3)
+		switch (axes & (global::BobAntiOutputAxes)3)
 		{
 		default:
 			result.x = v.x;
 			break;
-		case (BobAntiOutputAxes)2:
+		case (global::BobAntiOutputAxes)2:
 			result.x = v.y;
 			break;
-		case (BobAntiOutputAxes)3:
+		case (global::BobAntiOutputAxes)3:
 			result.x = v.z;
 			break;
 		}
-		switch ((axes & (BobAntiOutputAxes)12) >> 2)
+		switch ((axes & (global::BobAntiOutputAxes)12) >> 2)
 		{
-		case (BobAntiOutputAxes)1:
+		case (global::BobAntiOutputAxes)1:
 			result.y = v.x;
 			goto IL_A9;
-		case (BobAntiOutputAxes)3:
+		case (global::BobAntiOutputAxes)3:
 			result.y = v.z;
 			goto IL_A9;
 		}
 		result.y = v.y;
 		IL_A9:
-		switch ((axes & (BobAntiOutputAxes)48) >> 4)
+		switch ((axes & (global::BobAntiOutputAxes)48) >> 4)
 		{
-		case (BobAntiOutputAxes)1:
+		case (global::BobAntiOutputAxes)1:
 			result.z = v.x;
 			return result;
-		case (BobAntiOutputAxes)2:
+		case (global::BobAntiOutputAxes)2:
 			result.z = v.y;
 			return result;
 		}
@@ -45,32 +45,32 @@ public class BobAntiOutput
 		return result;
 	}
 
-	// Token: 0x06002A8E RID: 10894 RVA: 0x000A92BC File Offset: 0x000A74BC
+	// Token: 0x06002E40 RID: 11840 RVA: 0x000B1054 File Offset: 0x000AF254
 	public Vector3 Positional(Vector3 v)
 	{
-		return Vector3.Scale(BobAntiOutput.GetVector3(ref v, this.positionalAxes), this.positional);
+		return Vector3.Scale(global::BobAntiOutput.GetVector3(ref v, this.positionalAxes), this.positional);
 	}
 
-	// Token: 0x06002A8F RID: 10895 RVA: 0x000A92D8 File Offset: 0x000A74D8
+	// Token: 0x06002E41 RID: 11841 RVA: 0x000B1070 File Offset: 0x000AF270
 	public Vector3 Rotational(Vector3 v)
 	{
-		return Vector3.Scale(BobAntiOutput.GetVector3(ref v, this.rotationalAxes), this.rotational);
+		return Vector3.Scale(global::BobAntiOutput.GetVector3(ref v, this.rotationalAxes), this.rotational);
 	}
 
-	// Token: 0x06002A90 RID: 10896 RVA: 0x000A92F4 File Offset: 0x000A74F4
+	// Token: 0x06002E42 RID: 11842 RVA: 0x000B108C File Offset: 0x000AF28C
 	public void Add(Transform transform, ref Vector3 lp, ref Vector3 lr)
 	{
 		if (!this.wasAdded)
 		{
-			this.lastPos = Vector3.Scale(BobAntiOutput.GetVector3(ref lp, this.positionalAxes), this.positional);
+			this.lastPos = Vector3.Scale(global::BobAntiOutput.GetVector3(ref lp, this.positionalAxes), this.positional);
 			transform.localPosition = this.lastPos;
-			this.lastRot = Vector3.Scale(BobAntiOutput.GetVector3(ref lr, this.rotationalAxes), this.rotational);
+			this.lastRot = Vector3.Scale(global::BobAntiOutput.GetVector3(ref lr, this.rotationalAxes), this.rotational);
 			transform.localEulerAngles = this.lastRot;
 			this.wasAdded = true;
 		}
 	}
 
-	// Token: 0x06002A91 RID: 10897 RVA: 0x000A9368 File Offset: 0x000A7568
+	// Token: 0x06002E43 RID: 11843 RVA: 0x000B1100 File Offset: 0x000AF300
 	public void Subtract(Transform transform)
 	{
 		if (this.wasAdded)
@@ -81,30 +81,30 @@ public class BobAntiOutput
 		}
 	}
 
-	// Token: 0x06002A92 RID: 10898 RVA: 0x000A93B8 File Offset: 0x000A75B8
+	// Token: 0x06002E44 RID: 11844 RVA: 0x000B1150 File Offset: 0x000AF350
 	public void Reset()
 	{
 		this.wasAdded = false;
 	}
 
-	// Token: 0x04001703 RID: 5891
-	public BobAntiOutputAxes positionalAxes;
+	// Token: 0x040018C0 RID: 6336
+	public global::BobAntiOutputAxes positionalAxes;
 
-	// Token: 0x04001704 RID: 5892
+	// Token: 0x040018C1 RID: 6337
 	public Vector3 positional;
 
-	// Token: 0x04001705 RID: 5893
-	public BobAntiOutputAxes rotationalAxes;
+	// Token: 0x040018C2 RID: 6338
+	public global::BobAntiOutputAxes rotationalAxes;
 
-	// Token: 0x04001706 RID: 5894
+	// Token: 0x040018C3 RID: 6339
 	public Vector3 rotational;
 
-	// Token: 0x04001707 RID: 5895
+	// Token: 0x040018C4 RID: 6340
 	private bool wasAdded;
 
-	// Token: 0x04001708 RID: 5896
+	// Token: 0x040018C5 RID: 6341
 	private Vector3 lastPos;
 
-	// Token: 0x04001709 RID: 5897
+	// Token: 0x040018C6 RID: 6342
 	private Vector3 lastRot;
 }

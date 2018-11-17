@@ -1,31 +1,31 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200075E RID: 1886
+// Token: 0x02000840 RID: 2112
 [AddComponentMenu("NGUI/Interaction/Button Message")]
 public class UIButtonMessage : MonoBehaviour
 {
-	// Token: 0x060044C5 RID: 17605 RVA: 0x0010D734 File Offset: 0x0010B934
+	// Token: 0x06004926 RID: 18726 RVA: 0x001170B4 File Offset: 0x001152B4
 	private void Start()
 	{
 		this.mStarted = true;
 	}
 
-	// Token: 0x060044C6 RID: 17606 RVA: 0x0010D740 File Offset: 0x0010B940
+	// Token: 0x06004927 RID: 18727 RVA: 0x001170C0 File Offset: 0x001152C0
 	private void OnEnable()
 	{
 		if (this.mStarted && this.mHighlighted)
 		{
-			this.OnHover(UICamera.IsHighlighted(base.gameObject));
+			this.OnHover(global::UICamera.IsHighlighted(base.gameObject));
 		}
 	}
 
-	// Token: 0x060044C7 RID: 17607 RVA: 0x0010D76C File Offset: 0x0010B96C
+	// Token: 0x06004928 RID: 18728 RVA: 0x001170EC File Offset: 0x001152EC
 	private void OnHover(bool isOver)
 	{
 		if (base.enabled)
 		{
-			if ((isOver && this.trigger == UIButtonMessage.Trigger.OnMouseOver) || (!isOver && this.trigger == UIButtonMessage.Trigger.OnMouseOut))
+			if ((isOver && this.trigger == global::UIButtonMessage.Trigger.OnMouseOver) || (!isOver && this.trigger == global::UIButtonMessage.Trigger.OnMouseOut))
 			{
 				this.Send();
 			}
@@ -33,34 +33,34 @@ public class UIButtonMessage : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044C8 RID: 17608 RVA: 0x0010D7B8 File Offset: 0x0010B9B8
+	// Token: 0x06004929 RID: 18729 RVA: 0x00117138 File Offset: 0x00115338
 	private void OnPress(bool isPressed)
 	{
-		if (base.enabled && ((isPressed && this.trigger == UIButtonMessage.Trigger.OnPress) || (!isPressed && this.trigger == UIButtonMessage.Trigger.OnRelease)))
+		if (base.enabled && ((isPressed && this.trigger == global::UIButtonMessage.Trigger.OnPress) || (!isPressed && this.trigger == global::UIButtonMessage.Trigger.OnRelease)))
 		{
 			this.Send();
 		}
 	}
 
-	// Token: 0x060044C9 RID: 17609 RVA: 0x0010D7F0 File Offset: 0x0010B9F0
+	// Token: 0x0600492A RID: 18730 RVA: 0x00117170 File Offset: 0x00115370
 	private void OnClick()
 	{
-		if (base.enabled && this.trigger == UIButtonMessage.Trigger.OnClick)
+		if (base.enabled && this.trigger == global::UIButtonMessage.Trigger.OnClick)
 		{
 			this.Send();
 		}
 	}
 
-	// Token: 0x060044CA RID: 17610 RVA: 0x0010D810 File Offset: 0x0010BA10
+	// Token: 0x0600492B RID: 18731 RVA: 0x00117190 File Offset: 0x00115390
 	private void OnDoubleClick()
 	{
-		if (base.enabled && this.trigger == UIButtonMessage.Trigger.OnDoubleClick)
+		if (base.enabled && this.trigger == global::UIButtonMessage.Trigger.OnDoubleClick)
 		{
 			this.Send();
 		}
 	}
 
-	// Token: 0x060044CB RID: 17611 RVA: 0x0010D830 File Offset: 0x0010BA30
+	// Token: 0x0600492C RID: 18732 RVA: 0x001171B0 File Offset: 0x001153B0
 	private void Send()
 	{
 		if (string.IsNullOrEmpty(this.functionName))
@@ -89,38 +89,38 @@ public class UIButtonMessage : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040024F6 RID: 9462
+	// Token: 0x0400272D RID: 10029
 	public GameObject target;
 
-	// Token: 0x040024F7 RID: 9463
+	// Token: 0x0400272E RID: 10030
 	public string functionName;
 
-	// Token: 0x040024F8 RID: 9464
-	public UIButtonMessage.Trigger trigger;
+	// Token: 0x0400272F RID: 10031
+	public global::UIButtonMessage.Trigger trigger;
 
-	// Token: 0x040024F9 RID: 9465
+	// Token: 0x04002730 RID: 10032
 	public bool includeChildren;
 
-	// Token: 0x040024FA RID: 9466
+	// Token: 0x04002731 RID: 10033
 	private bool mStarted;
 
-	// Token: 0x040024FB RID: 9467
+	// Token: 0x04002732 RID: 10034
 	private bool mHighlighted;
 
-	// Token: 0x0200075F RID: 1887
+	// Token: 0x02000841 RID: 2113
 	public enum Trigger
 	{
-		// Token: 0x040024FD RID: 9469
+		// Token: 0x04002734 RID: 10036
 		OnClick,
-		// Token: 0x040024FE RID: 9470
+		// Token: 0x04002735 RID: 10037
 		OnMouseOver,
-		// Token: 0x040024FF RID: 9471
+		// Token: 0x04002736 RID: 10038
 		OnMouseOut,
-		// Token: 0x04002500 RID: 9472
+		// Token: 0x04002737 RID: 10039
 		OnPress,
-		// Token: 0x04002501 RID: 9473
+		// Token: 0x04002738 RID: 10040
 		OnRelease,
-		// Token: 0x04002502 RID: 9474
+		// Token: 0x04002739 RID: 10041
 		OnDoubleClick
 	}
 }

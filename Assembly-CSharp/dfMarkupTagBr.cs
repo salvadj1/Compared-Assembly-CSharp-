@@ -1,23 +1,23 @@
 ﻿using System;
 
-// Token: 0x0200072D RID: 1837
-[dfMarkupTagInfo("br")]
-public class dfMarkupTagBr : dfMarkupTag
+// Token: 0x02000809 RID: 2057
+[global::dfMarkupTagInfo("br")]
+public class dfMarkupTagBr : global::dfMarkupTag
 {
-	// Token: 0x06004302 RID: 17154 RVA: 0x00104834 File Offset: 0x00102A34
+	// Token: 0x06004746 RID: 18246 RVA: 0x0010DB44 File Offset: 0x0010BD44
 	public dfMarkupTagBr() : base("br")
 	{
 		this.IsClosedTag = true;
 	}
 
-	// Token: 0x06004303 RID: 17155 RVA: 0x00104848 File Offset: 0x00102A48
-	public dfMarkupTagBr(dfMarkupTag original) : base(original)
+	// Token: 0x06004747 RID: 18247 RVA: 0x0010DB58 File Offset: 0x0010BD58
+	public dfMarkupTagBr(global::dfMarkupTag original) : base(original)
 	{
 		this.IsClosedTag = true;
 	}
 
-	// Token: 0x06004304 RID: 17156 RVA: 0x00104858 File Offset: 0x00102A58
-	protected override void _PerformLayoutImpl(dfMarkupBox container, dfMarkupStyle style)
+	// Token: 0x06004748 RID: 18248 RVA: 0x0010DB68 File Offset: 0x0010BD68
+	protected override void _PerformLayoutImpl(global::dfMarkupBox container, global::dfMarkupStyle style)
 	{
 		container.AddLineBreak();
 	}

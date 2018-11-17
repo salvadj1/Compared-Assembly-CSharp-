@@ -3,39 +3,39 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-// Token: 0x0200060D RID: 1549
+// Token: 0x020006CD RID: 1741
 public abstract class LightStyle : ScriptableObject
 {
-	// Token: 0x17000AF5 RID: 2805
-	// (get) Token: 0x0600371D RID: 14109 RVA: 0x000C83F0 File Offset: 0x000C65F0
+	// Token: 0x17000B6F RID: 2927
+	// (get) Token: 0x06003AF5 RID: 15093 RVA: 0x000D0920 File Offset: 0x000CEB20
 	public static double time
 	{
 		get
 		{
-			if (NetCull.isRunning)
+			if (global::NetCull.isRunning)
 			{
-				return NetCull.time;
+				return global::NetCull.time;
 			}
 			return (double)Time.time;
 		}
 	}
 
-	// Token: 0x0600371E RID: 14110
-	protected abstract LightStyle.Simulation ConstructSimulation(LightStylist stylist);
+	// Token: 0x06003AF6 RID: 15094
+	protected abstract global::LightStyle.Simulation ConstructSimulation(global::LightStylist stylist);
 
-	// Token: 0x0600371F RID: 14111
-	protected abstract bool DeconstructSimulation(LightStyle.Simulation simulation);
+	// Token: 0x06003AF7 RID: 15095
+	protected abstract bool DeconstructSimulation(global::LightStyle.Simulation simulation);
 
-	// Token: 0x06003720 RID: 14112 RVA: 0x000C8408 File Offset: 0x000C6608
-	public LightStyle.Simulation CreateSimulation(LightStylist stylist)
+	// Token: 0x06003AF8 RID: 15096 RVA: 0x000D0938 File Offset: 0x000CEB38
+	public global::LightStyle.Simulation CreateSimulation(global::LightStylist stylist)
 	{
-		return this.CreateSimulation(LightStyle.time, stylist);
+		return this.CreateSimulation(global::LightStyle.time, stylist);
 	}
 
-	// Token: 0x06003721 RID: 14113 RVA: 0x000C8418 File Offset: 0x000C6618
-	public LightStyle.Simulation CreateSimulation(double startTime, LightStylist stylist)
+	// Token: 0x06003AF9 RID: 15097 RVA: 0x000D0948 File Offset: 0x000CEB48
+	public global::LightStyle.Simulation CreateSimulation(double startTime, global::LightStylist stylist)
 	{
-		LightStyle.Simulation simulation = this.ConstructSimulation(stylist);
+		global::LightStyle.Simulation simulation = this.ConstructSimulation(stylist);
 		if (simulation != null)
 		{
 			simulation.ResetTime(startTime);
@@ -43,168 +43,168 @@ public abstract class LightStyle : ScriptableObject
 		return simulation;
 	}
 
-	// Token: 0x06003722 RID: 14114 RVA: 0x000C843C File Offset: 0x000C663C
-	private static LightStyle MissingLightStyle(string name)
+	// Token: 0x06003AFA RID: 15098 RVA: 0x000D096C File Offset: 0x000CEB6C
+	private static global::LightStyle MissingLightStyle(string name)
 	{
-		return LightStyleDefault.Singleton;
+		return global::LightStyleDefault.Singleton;
 	}
 
-	// Token: 0x06003723 RID: 14115 RVA: 0x000C8444 File Offset: 0x000C6644
-	public static implicit operator LightStyle(string name)
+	// Token: 0x06003AFB RID: 15099 RVA: 0x000D0974 File Offset: 0x000CEB74
+	public static implicit operator global::LightStyle(string name)
 	{
-		if (!LightStyle.madeLoadedByString)
+		if (!global::LightStyle.madeLoadedByString)
 		{
-			LightStyle lightStyle = (LightStyle)Resources.Load(name, typeof(LightStyle));
+			global::LightStyle lightStyle = (global::LightStyle)UnityEngine.Resources.Load(name, typeof(global::LightStyle));
 			if (lightStyle)
 			{
-				LightStyle.loadedByString = new Dictionary<string, WeakReference>(StringComparer.InvariantCultureIgnoreCase);
-				LightStyle.loadedByString[name] = new WeakReference(lightStyle);
+				global::LightStyle.loadedByString = new Dictionary<string, WeakReference>(StringComparer.InvariantCultureIgnoreCase);
+				global::LightStyle.loadedByString[name] = new WeakReference(lightStyle);
 			}
 			else
 			{
-				lightStyle = LightStyle.MissingLightStyle(name);
+				lightStyle = global::LightStyle.MissingLightStyle(name);
 			}
 			return lightStyle;
 		}
 		WeakReference weakReference;
-		if (!LightStyle.loadedByString.TryGetValue(name, out weakReference))
+		if (!global::LightStyle.loadedByString.TryGetValue(name, out weakReference))
 		{
-			LightStyle lightStyle2 = (LightStyle)Resources.Load(name, typeof(LightStyle));
+			global::LightStyle lightStyle2 = (global::LightStyle)UnityEngine.Resources.Load(name, typeof(global::LightStyle));
 			if (lightStyle2)
 			{
 				weakReference = new WeakReference(lightStyle2);
-				LightStyle.loadedByString[name] = weakReference;
+				global::LightStyle.loadedByString[name] = weakReference;
 			}
 			else
 			{
-				lightStyle2 = LightStyle.MissingLightStyle(name);
+				lightStyle2 = global::LightStyle.MissingLightStyle(name);
 			}
 			return lightStyle2;
 		}
 		object target = weakReference.Target;
 		if (weakReference.IsAlive && (Object)target)
 		{
-			return (LightStyle)target;
+			return (global::LightStyle)target;
 		}
-		LightStyle lightStyle3 = (LightStyle)Resources.Load(name, typeof(LightStyle));
+		global::LightStyle lightStyle3 = (global::LightStyle)UnityEngine.Resources.Load(name, typeof(global::LightStyle));
 		if (lightStyle3)
 		{
 			weakReference.Target = lightStyle3;
 		}
 		else
 		{
-			lightStyle3 = LightStyle.MissingLightStyle(name);
+			lightStyle3 = global::LightStyle.MissingLightStyle(name);
 		}
 		return lightStyle3;
 	}
 
-	// Token: 0x06003724 RID: 14116 RVA: 0x000C8564 File Offset: 0x000C6764
-	public static implicit operator string(LightStyle lightStyle)
+	// Token: 0x06003AFC RID: 15100 RVA: 0x000D0A94 File Offset: 0x000CEC94
+	public static implicit operator string(global::LightStyle lightStyle)
 	{
 		return (!lightStyle) ? null : lightStyle.name;
 	}
 
-	// Token: 0x04001B65 RID: 7013
+	// Token: 0x04001D4B RID: 7499
 	private static Dictionary<string, WeakReference> loadedByString;
 
-	// Token: 0x04001B66 RID: 7014
+	// Token: 0x04001D4C RID: 7500
 	private static bool madeLoadedByString;
 
-	// Token: 0x0200060E RID: 1550
+	// Token: 0x020006CE RID: 1742
 	[StructLayout(LayoutKind.Explicit)]
 	public struct Mod
 	{
-		// Token: 0x06003725 RID: 14117 RVA: 0x000C8580 File Offset: 0x000C6780
-		public bool AnyOf(LightStyle.Mod.Mask mask)
+		// Token: 0x06003AFD RID: 15101 RVA: 0x000D0AB0 File Offset: 0x000CECB0
+		public bool AnyOf(global::LightStyle.Mod.Mask mask)
 		{
-			return (this.mask & mask) != (LightStyle.Mod.Mask)0;
+			return (this.mask & mask) != (global::LightStyle.Mod.Mask)0;
 		}
 
-		// Token: 0x06003726 RID: 14118 RVA: 0x000C8590 File Offset: 0x000C6790
-		public bool AllOf(LightStyle.Mod.Mask mask)
+		// Token: 0x06003AFE RID: 15102 RVA: 0x000D0AC0 File Offset: 0x000CECC0
+		public bool AllOf(global::LightStyle.Mod.Mask mask)
 		{
 			return (this.mask & mask) == mask;
 		}
 
-		// Token: 0x06003727 RID: 14119 RVA: 0x000C85A0 File Offset: 0x000C67A0
-		public bool Contains(LightStyle.Mod.Element element)
+		// Token: 0x06003AFF RID: 15103 RVA: 0x000D0AD0 File Offset: 0x000CECD0
+		public bool Contains(global::LightStyle.Mod.Element element)
 		{
-			return this.AllOf(LightStyle.Mod.ElementToMask(element));
+			return this.AllOf(global::LightStyle.Mod.ElementToMask(element));
 		}
 
-		// Token: 0x06003728 RID: 14120 RVA: 0x000C85B0 File Offset: 0x000C67B0
-		public void SetModify(LightStyle.Mod.Element element)
+		// Token: 0x06003B00 RID: 15104 RVA: 0x000D0AE0 File Offset: 0x000CECE0
+		public void SetModify(global::LightStyle.Mod.Element element)
 		{
-			this.mask |= LightStyle.Mod.ElementToMask(element);
+			this.mask |= global::LightStyle.Mod.ElementToMask(element);
 		}
 
-		// Token: 0x06003729 RID: 14121 RVA: 0x000C85C8 File Offset: 0x000C67C8
-		public void SetModify(LightStyle.Mod.Element element, float assignValue)
+		// Token: 0x06003B01 RID: 15105 RVA: 0x000D0AF8 File Offset: 0x000CECF8
+		public void SetModify(global::LightStyle.Mod.Element element, float assignValue)
 		{
 			this.SetFaceValue(element, assignValue);
-			this.mask |= LightStyle.Mod.ElementToMask(element);
+			this.mask |= global::LightStyle.Mod.ElementToMask(element);
 		}
 
-		// Token: 0x0600372A RID: 14122 RVA: 0x000C85E8 File Offset: 0x000C67E8
-		public void ClearModify(LightStyle.Mod.Element element)
+		// Token: 0x06003B02 RID: 15106 RVA: 0x000D0B18 File Offset: 0x000CED18
+		public void ClearModify(global::LightStyle.Mod.Element element)
 		{
-			this.mask &= LightStyle.Mod.ElementToMaskNot(element);
+			this.mask &= global::LightStyle.Mod.ElementToMaskNot(element);
 		}
 
-		// Token: 0x0600372B RID: 14123 RVA: 0x000C8600 File Offset: 0x000C6800
-		public void ToggleModify(LightStyle.Mod.Element element)
+		// Token: 0x06003B03 RID: 15107 RVA: 0x000D0B30 File Offset: 0x000CED30
+		public void ToggleModify(global::LightStyle.Mod.Element element)
 		{
-			this.mask ^= LightStyle.Mod.ElementToMask(element);
+			this.mask ^= global::LightStyle.Mod.ElementToMask(element);
 		}
 
-		// Token: 0x0600372C RID: 14124 RVA: 0x000C8618 File Offset: 0x000C6818
-		public float GetFaceValue(LightStyle.Mod.Element element)
+		// Token: 0x06003B04 RID: 15108 RVA: 0x000D0B48 File Offset: 0x000CED48
+		public float GetFaceValue(global::LightStyle.Mod.Element element)
 		{
 			switch (element)
 			{
-			case LightStyle.Mod.Element.Red:
+			case global::LightStyle.Mod.Element.Red:
 				return this.r;
-			case LightStyle.Mod.Element.Green:
+			case global::LightStyle.Mod.Element.Green:
 				return this.g;
-			case LightStyle.Mod.Element.Blue:
+			case global::LightStyle.Mod.Element.Blue:
 				return this.b;
-			case LightStyle.Mod.Element.Alpha:
+			case global::LightStyle.Mod.Element.Alpha:
 				return this.a;
-			case LightStyle.Mod.Element.Intensity:
+			case global::LightStyle.Mod.Element.Intensity:
 				return this.intensity;
-			case LightStyle.Mod.Element.Range:
+			case global::LightStyle.Mod.Element.Range:
 				return this.range;
-			case LightStyle.Mod.Element.SpotAngle:
+			case global::LightStyle.Mod.Element.SpotAngle:
 				return this.spotAngle;
 			default:
 				throw new ArgumentOutOfRangeException("element");
 			}
 		}
 
-		// Token: 0x0600372D RID: 14125 RVA: 0x000C868C File Offset: 0x000C688C
-		public void SetFaceValue(LightStyle.Mod.Element element, float value)
+		// Token: 0x06003B05 RID: 15109 RVA: 0x000D0BBC File Offset: 0x000CEDBC
+		public void SetFaceValue(global::LightStyle.Mod.Element element, float value)
 		{
 			switch (element)
 			{
-			case LightStyle.Mod.Element.Red:
+			case global::LightStyle.Mod.Element.Red:
 				this.r = value;
 				break;
-			case LightStyle.Mod.Element.Green:
+			case global::LightStyle.Mod.Element.Green:
 				this.g = value;
 				break;
-			case LightStyle.Mod.Element.Blue:
+			case global::LightStyle.Mod.Element.Blue:
 				this.b = value;
 				break;
-			case LightStyle.Mod.Element.Alpha:
+			case global::LightStyle.Mod.Element.Alpha:
 				this.a = value;
 				break;
-			case LightStyle.Mod.Element.Intensity:
+			case global::LightStyle.Mod.Element.Intensity:
 				this.intensity = value;
 				break;
-			case LightStyle.Mod.Element.Range:
+			case global::LightStyle.Mod.Element.Range:
 				this.range = value;
 				break;
-			case LightStyle.Mod.Element.SpotAngle:
+			case global::LightStyle.Mod.Element.SpotAngle:
 				this.spotAngle = value;
 				break;
 			default:
@@ -212,8 +212,8 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000AF6 RID: 2806
-		public float? this[LightStyle.Mod.Element element]
+		// Token: 0x17000B70 RID: 2928
+		public float? this[global::LightStyle.Mod.Element element]
 		{
 			get
 			{
@@ -237,103 +237,103 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x06003730 RID: 14128 RVA: 0x000C8790 File Offset: 0x000C6990
-		public static LightStyle.Mod.Mask ElementToMask(LightStyle.Mod.Element element)
+		// Token: 0x06003B08 RID: 15112 RVA: 0x000D0CC0 File Offset: 0x000CEEC0
+		public static global::LightStyle.Mod.Mask ElementToMask(global::LightStyle.Mod.Element element)
 		{
-			return (LightStyle.Mod.Mask)(1 << (int)element & 127);
+			return (global::LightStyle.Mod.Mask)(1 << (int)element & 127);
 		}
 
-		// Token: 0x06003731 RID: 14129 RVA: 0x000C879C File Offset: 0x000C699C
-		public static LightStyle.Mod.Mask ElementToMaskNot(LightStyle.Mod.Element element)
+		// Token: 0x06003B09 RID: 15113 RVA: 0x000D0CCC File Offset: 0x000CEECC
+		public static global::LightStyle.Mod.Mask ElementToMaskNot(global::LightStyle.Mod.Element element)
 		{
-			return (LightStyle.Mod.Mask)(~(1 << (int)element) & 127);
+			return (global::LightStyle.Mod.Mask)(~(1 << (int)element) & 127);
 		}
 
-		// Token: 0x06003732 RID: 14130 RVA: 0x000C87A8 File Offset: 0x000C69A8
+		// Token: 0x06003B0A RID: 15114 RVA: 0x000D0CD8 File Offset: 0x000CEED8
 		public void ApplyTo(Light light)
 		{
 			switch (light.type)
 			{
 			case 0:
-				this.ApplyTo(light, LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle);
+				this.ApplyTo(light, global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle);
 				break;
 			case 1:
-				this.ApplyTo(light, LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity);
+				this.ApplyTo(light, global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity);
 				break;
 			case 2:
-				this.ApplyTo(light, LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range);
+				this.ApplyTo(light, global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range);
 				break;
 			}
 		}
 
-		// Token: 0x06003733 RID: 14131 RVA: 0x000C8800 File Offset: 0x000C6A00
-		public void ApplyTo(Light light, LightStyle.Mod.Mask applyMask)
+		// Token: 0x06003B0B RID: 15115 RVA: 0x000D0D30 File Offset: 0x000CEF30
+		public void ApplyTo(Light light, global::LightStyle.Mod.Mask applyMask)
 		{
-			LightStyle.Mod.Mask mask = this.mask & applyMask;
-			if ((mask & (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha)) != (LightStyle.Mod.Mask)0)
+			global::LightStyle.Mod.Mask mask = this.mask & applyMask;
+			if ((mask & (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha)) != (global::LightStyle.Mod.Mask)0)
 			{
-				if ((mask & (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha)) == (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha))
+				if ((mask & (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha)) == (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha))
 				{
 					light.color = this.color;
 				}
 				else
 				{
 					Color color = light.color;
-					if ((mask & LightStyle.Mod.Mask.Red) == LightStyle.Mod.Mask.Red)
+					if ((mask & global::LightStyle.Mod.Mask.Red) == global::LightStyle.Mod.Mask.Red)
 					{
 						color.r = this.r;
 					}
-					if ((mask & LightStyle.Mod.Mask.Green) == LightStyle.Mod.Mask.Green)
+					if ((mask & global::LightStyle.Mod.Mask.Green) == global::LightStyle.Mod.Mask.Green)
 					{
 						color.g = this.g;
 					}
-					if ((mask & LightStyle.Mod.Mask.Blue) == LightStyle.Mod.Mask.Blue)
+					if ((mask & global::LightStyle.Mod.Mask.Blue) == global::LightStyle.Mod.Mask.Blue)
 					{
 						color.b = this.b;
 					}
-					if ((mask & LightStyle.Mod.Mask.Alpha) == LightStyle.Mod.Mask.Alpha)
+					if ((mask & global::LightStyle.Mod.Mask.Alpha) == global::LightStyle.Mod.Mask.Alpha)
 					{
 						color.a = this.a;
 					}
 					light.color = color;
 				}
 			}
-			if ((mask & LightStyle.Mod.Mask.Intensity) == LightStyle.Mod.Mask.Intensity)
+			if ((mask & global::LightStyle.Mod.Mask.Intensity) == global::LightStyle.Mod.Mask.Intensity)
 			{
 				light.intensity = this.intensity;
 			}
-			if ((mask & LightStyle.Mod.Mask.Range) == LightStyle.Mod.Mask.Range)
+			if ((mask & global::LightStyle.Mod.Mask.Range) == global::LightStyle.Mod.Mask.Range)
 			{
 				light.range = this.range;
 			}
-			if ((mask & LightStyle.Mod.Mask.SpotAngle) == LightStyle.Mod.Mask.SpotAngle)
+			if ((mask & global::LightStyle.Mod.Mask.SpotAngle) == global::LightStyle.Mod.Mask.SpotAngle)
 			{
 				light.spotAngle = this.spotAngle;
 			}
 		}
 
-		// Token: 0x06003734 RID: 14132 RVA: 0x000C88E8 File Offset: 0x000C6AE8
-		public static LightStyle.Mod Lerp(LightStyle.Mod a, LightStyle.Mod b, float t, LightStyle.Mod.Mask mask)
+		// Token: 0x06003B0C RID: 15116 RVA: 0x000D0E18 File Offset: 0x000CF018
+		public static global::LightStyle.Mod Lerp(global::LightStyle.Mod a, global::LightStyle.Mod b, float t, global::LightStyle.Mod.Mask mask)
 		{
 			b.mask &= mask;
-			if (b.mask == (LightStyle.Mod.Mask)0)
+			if (b.mask == (global::LightStyle.Mod.Mask)0)
 			{
 				return a;
 			}
 			a.mask &= mask;
-			if (a.mask == (LightStyle.Mod.Mask)0)
+			if (a.mask == (global::LightStyle.Mod.Mask)0)
 			{
 				return b;
 			}
-			LightStyle.Mod.Mask mask2 = a.mask & b.mask;
-			if (mask2 != (LightStyle.Mod.Mask)0)
+			global::LightStyle.Mod.Mask mask2 = a.mask & b.mask;
+			if (mask2 != (global::LightStyle.Mod.Mask)0)
 			{
 				float num = 1f - t;
-				if (mask != (LightStyle.Mod.Mask)0)
+				if (mask != (global::LightStyle.Mod.Mask)0)
 				{
-					for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+					for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 					{
-						if ((mask2 & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+						if ((mask2 & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 						{
 							float faceValue = a.GetFaceValue(element);
 							float faceValue2 = b.GetFaceValue(element);
@@ -350,14 +350,14 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x06003735 RID: 14133 RVA: 0x000C89B8 File Offset: 0x000C6BB8
-		public static LightStyle.Mod operator +(LightStyle.Mod a, LightStyle.Mod b)
+		// Token: 0x06003B0D RID: 15117 RVA: 0x000D0EE8 File Offset: 0x000CF0E8
+		public static global::LightStyle.Mod operator +(global::LightStyle.Mod a, global::LightStyle.Mod b)
 		{
-			LightStyle.Mod result = a;
-			LightStyle.Mod.Mask mask = a.mask & b.mask;
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			global::LightStyle.Mod result = a;
+			global::LightStyle.Mod.Mask mask = a.mask & b.mask;
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					result.SetFaceValue(element, a.GetFaceValue(element) + b.GetFaceValue(element));
 				}
@@ -365,13 +365,13 @@ public abstract class LightStyle : ScriptableObject
 			return result;
 		}
 
-		// Token: 0x06003736 RID: 14134 RVA: 0x000C8A18 File Offset: 0x000C6C18
-		public static LightStyle.Mod operator -(LightStyle.Mod a, LightStyle.Mod b)
+		// Token: 0x06003B0E RID: 15118 RVA: 0x000D0F48 File Offset: 0x000CF148
+		public static global::LightStyle.Mod operator -(global::LightStyle.Mod a, global::LightStyle.Mod b)
 		{
-			LightStyle.Mod.Mask mask = a.mask & b.mask;
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			global::LightStyle.Mod.Mask mask = a.mask & b.mask;
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetFaceValue(element, a.GetFaceValue(element) - b.GetFaceValue(element));
 				}
@@ -379,13 +379,13 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x06003737 RID: 14135 RVA: 0x000C8A74 File Offset: 0x000C6C74
-		public static LightStyle.Mod operator *(LightStyle.Mod a, LightStyle.Mod b)
+		// Token: 0x06003B0F RID: 15119 RVA: 0x000D0FA4 File Offset: 0x000CF1A4
+		public static global::LightStyle.Mod operator *(global::LightStyle.Mod a, global::LightStyle.Mod b)
 		{
-			LightStyle.Mod.Mask mask = a.mask & b.mask;
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			global::LightStyle.Mod.Mask mask = a.mask & b.mask;
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetFaceValue(element, a.GetFaceValue(element) * b.GetFaceValue(element));
 				}
@@ -393,13 +393,13 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x06003738 RID: 14136 RVA: 0x000C8AD0 File Offset: 0x000C6CD0
-		public static LightStyle.Mod operator /(LightStyle.Mod a, LightStyle.Mod b)
+		// Token: 0x06003B10 RID: 15120 RVA: 0x000D1000 File Offset: 0x000CF200
+		public static global::LightStyle.Mod operator /(global::LightStyle.Mod a, global::LightStyle.Mod b)
 		{
-			LightStyle.Mod.Mask mask = a.mask & b.mask;
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			global::LightStyle.Mod.Mask mask = a.mask & b.mask;
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetFaceValue(element, a.GetFaceValue(element) / b.GetFaceValue(element));
 				}
@@ -407,12 +407,12 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x06003739 RID: 14137 RVA: 0x000C8B2C File Offset: 0x000C6D2C
-		public static LightStyle.Mod operator |(LightStyle.Mod a, LightStyle.Mod b)
+		// Token: 0x06003B11 RID: 15121 RVA: 0x000D105C File Offset: 0x000CF25C
+		public static global::LightStyle.Mod operator |(global::LightStyle.Mod a, global::LightStyle.Mod b)
 		{
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(element)) != LightStyle.Mod.ElementToMask(element) && (b.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(element)) != global::LightStyle.Mod.ElementToMask(element) && (b.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetModify(element, b.GetFaceValue(element));
 				}
@@ -420,12 +420,12 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x0600373A RID: 14138 RVA: 0x000C8B90 File Offset: 0x000C6D90
-		public static LightStyle.Mod operator &(LightStyle.Mod a, LightStyle.Mod b)
+		// Token: 0x06003B12 RID: 15122 RVA: 0x000D10C0 File Offset: 0x000CF2C0
+		public static global::LightStyle.Mod operator &(global::LightStyle.Mod a, global::LightStyle.Mod b)
 		{
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element) && (b.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element) && (b.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetFaceValue(element, b.GetFaceValue(element));
 				}
@@ -433,19 +433,19 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x0600373B RID: 14139 RVA: 0x000C8BF4 File Offset: 0x000C6DF4
-		public static LightStyle.Mod operator ^(LightStyle.Mod a, LightStyle.Mod b)
+		// Token: 0x06003B13 RID: 15123 RVA: 0x000D1124 File Offset: 0x000CF324
+		public static global::LightStyle.Mod operator ^(global::LightStyle.Mod a, global::LightStyle.Mod b)
 		{
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
-					if ((b.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+					if ((b.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 					{
 						a.SetFaceValue(element, b.GetFaceValue(element));
 					}
 				}
-				else if ((b.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				else if ((b.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetModify(element, b.GetFaceValue(element));
 				}
@@ -453,65 +453,65 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x0600373C RID: 14140 RVA: 0x000C8C90 File Offset: 0x000C6E90
-		public static LightStyle.Mod operator |(LightStyle.Mod a, LightStyle.Mod.Mask b)
+		// Token: 0x06003B14 RID: 15124 RVA: 0x000D11C0 File Offset: 0x000CF3C0
+		public static global::LightStyle.Mod operator |(global::LightStyle.Mod a, global::LightStyle.Mod.Mask b)
 		{
 			a.mask |= b;
 			return a;
 		}
 
-		// Token: 0x0600373D RID: 14141 RVA: 0x000C8CA4 File Offset: 0x000C6EA4
-		public static LightStyle.Mod operator &(LightStyle.Mod a, LightStyle.Mod.Mask b)
+		// Token: 0x06003B15 RID: 15125 RVA: 0x000D11D4 File Offset: 0x000CF3D4
+		public static global::LightStyle.Mod operator &(global::LightStyle.Mod a, global::LightStyle.Mod.Mask b)
 		{
 			a.mask &= b;
 			return a;
 		}
 
-		// Token: 0x0600373E RID: 14142 RVA: 0x000C8CB8 File Offset: 0x000C6EB8
-		public static LightStyle.Mod operator ^(LightStyle.Mod a, LightStyle.Mod.Mask b)
+		// Token: 0x06003B16 RID: 15126 RVA: 0x000D11E8 File Offset: 0x000CF3E8
+		public static global::LightStyle.Mod operator ^(global::LightStyle.Mod a, global::LightStyle.Mod.Mask b)
 		{
 			a.mask ^= b;
 			return a;
 		}
 
-		// Token: 0x0600373F RID: 14143 RVA: 0x000C8CCC File Offset: 0x000C6ECC
-		public static LightStyle.Mod operator +(LightStyle.Mod a, LightStyle.Mod.Element b)
+		// Token: 0x06003B17 RID: 15127 RVA: 0x000D11FC File Offset: 0x000CF3FC
+		public static global::LightStyle.Mod operator +(global::LightStyle.Mod a, global::LightStyle.Mod.Element b)
 		{
-			a.mask |= LightStyle.Mod.ElementToMask(b);
+			a.mask |= global::LightStyle.Mod.ElementToMask(b);
 			return a;
 		}
 
-		// Token: 0x06003740 RID: 14144 RVA: 0x000C8CE4 File Offset: 0x000C6EE4
-		public static LightStyle.Mod operator -(LightStyle.Mod a, LightStyle.Mod.Element b)
+		// Token: 0x06003B18 RID: 15128 RVA: 0x000D1214 File Offset: 0x000CF414
+		public static global::LightStyle.Mod operator -(global::LightStyle.Mod a, global::LightStyle.Mod.Element b)
 		{
-			a.mask &= LightStyle.Mod.ElementToMaskNot(b);
+			a.mask &= global::LightStyle.Mod.ElementToMaskNot(b);
 			return a;
 		}
 
-		// Token: 0x06003741 RID: 14145 RVA: 0x000C8CFC File Offset: 0x000C6EFC
-		public static float?operator |(LightStyle.Mod a, LightStyle.Mod.Element b)
+		// Token: 0x06003B19 RID: 15129 RVA: 0x000D122C File Offset: 0x000CF42C
+		public static float?operator |(global::LightStyle.Mod a, global::LightStyle.Mod.Element b)
 		{
 			return a[b];
 		}
 
-		// Token: 0x06003742 RID: 14146 RVA: 0x000C8D08 File Offset: 0x000C6F08
-		public static bool operator &(LightStyle.Mod a, LightStyle.Mod.Element b)
+		// Token: 0x06003B1A RID: 15130 RVA: 0x000D1238 File Offset: 0x000CF438
+		public static bool operator &(global::LightStyle.Mod a, global::LightStyle.Mod.Element b)
 		{
 			return a.Contains(b);
 		}
 
-		// Token: 0x06003743 RID: 14147 RVA: 0x000C8D14 File Offset: 0x000C6F14
-		public static float operator ^(LightStyle.Mod a, LightStyle.Mod.Element b)
+		// Token: 0x06003B1B RID: 15131 RVA: 0x000D1244 File Offset: 0x000CF444
+		public static float operator ^(global::LightStyle.Mod a, global::LightStyle.Mod.Element b)
 		{
 			return a.GetFaceValue(b);
 		}
 
-		// Token: 0x06003744 RID: 14148 RVA: 0x000C8D20 File Offset: 0x000C6F20
-		public static LightStyle.Mod operator +(LightStyle.Mod a, float b)
+		// Token: 0x06003B1C RID: 15132 RVA: 0x000D1250 File Offset: 0x000CF450
+		public static global::LightStyle.Mod operator +(global::LightStyle.Mod a, float b)
 		{
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetFaceValue(element, a.GetFaceValue(element) + b);
 				}
@@ -519,12 +519,12 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x06003745 RID: 14149 RVA: 0x000C8D6C File Offset: 0x000C6F6C
-		public static LightStyle.Mod operator -(LightStyle.Mod a, float b)
+		// Token: 0x06003B1D RID: 15133 RVA: 0x000D129C File Offset: 0x000CF49C
+		public static global::LightStyle.Mod operator -(global::LightStyle.Mod a, float b)
 		{
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetFaceValue(element, a.GetFaceValue(element) - b);
 				}
@@ -532,13 +532,13 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x06003746 RID: 14150 RVA: 0x000C8DB8 File Offset: 0x000C6FB8
-		public static LightStyle.Mod operator *(LightStyle.Mod a, float b)
+		// Token: 0x06003B1E RID: 15134 RVA: 0x000D12E8 File Offset: 0x000CF4E8
+		public static global::LightStyle.Mod operator *(global::LightStyle.Mod a, float b)
 		{
-			LightStyle.Mod result = a;
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			global::LightStyle.Mod result = a;
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					result.SetFaceValue(element, a.GetFaceValue(element) * b);
 				}
@@ -546,12 +546,12 @@ public abstract class LightStyle : ScriptableObject
 			return result;
 		}
 
-		// Token: 0x06003747 RID: 14151 RVA: 0x000C8E08 File Offset: 0x000C7008
-		public static LightStyle.Mod operator /(LightStyle.Mod a, float b)
+		// Token: 0x06003B1F RID: 15135 RVA: 0x000D1338 File Offset: 0x000CF538
+		public static global::LightStyle.Mod operator /(global::LightStyle.Mod a, float b)
 		{
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(element)) == LightStyle.Mod.ElementToMask(element))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(element)) == global::LightStyle.Mod.ElementToMask(element))
 				{
 					a.SetFaceValue(element, a.GetFaceValue(element) / b);
 				}
@@ -559,159 +559,159 @@ public abstract class LightStyle : ScriptableObject
 			return a;
 		}
 
-		// Token: 0x06003748 RID: 14152 RVA: 0x000C8E54 File Offset: 0x000C7054
-		public static LightStyle.Mod operator +(LightStyle.Mod a, Color b)
+		// Token: 0x06003B20 RID: 15136 RVA: 0x000D1384 File Offset: 0x000CF584
+		public static global::LightStyle.Mod operator +(global::LightStyle.Mod a, Color b)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
-					a.SetFaceValue(LightStyle.Mod.Element.Red + i, a.GetFaceValue(LightStyle.Mod.Element.Red + i) + b[i]);
+					a.SetFaceValue(global::LightStyle.Mod.Element.Red + i, a.GetFaceValue(global::LightStyle.Mod.Element.Red + i) + b[i]);
 				}
 			}
 			return a;
 		}
 
-		// Token: 0x06003749 RID: 14153 RVA: 0x000C8EB0 File Offset: 0x000C70B0
-		public static LightStyle.Mod operator -(LightStyle.Mod a, Color b)
+		// Token: 0x06003B21 RID: 15137 RVA: 0x000D13E0 File Offset: 0x000CF5E0
+		public static global::LightStyle.Mod operator -(global::LightStyle.Mod a, Color b)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
-					a.SetFaceValue(LightStyle.Mod.Element.Red + i, a.GetFaceValue(LightStyle.Mod.Element.Red + i) - b[i]);
+					a.SetFaceValue(global::LightStyle.Mod.Element.Red + i, a.GetFaceValue(global::LightStyle.Mod.Element.Red + i) - b[i]);
 				}
 			}
 			return a;
 		}
 
-		// Token: 0x0600374A RID: 14154 RVA: 0x000C8F0C File Offset: 0x000C710C
-		public static LightStyle.Mod operator *(LightStyle.Mod a, Color b)
+		// Token: 0x06003B22 RID: 15138 RVA: 0x000D143C File Offset: 0x000CF63C
+		public static global::LightStyle.Mod operator *(global::LightStyle.Mod a, Color b)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
-					a.SetFaceValue(LightStyle.Mod.Element.Red + i, a.GetFaceValue(LightStyle.Mod.Element.Red + i) * b[i]);
+					a.SetFaceValue(global::LightStyle.Mod.Element.Red + i, a.GetFaceValue(global::LightStyle.Mod.Element.Red + i) * b[i]);
 				}
 			}
 			return a;
 		}
 
-		// Token: 0x0600374B RID: 14155 RVA: 0x000C8F68 File Offset: 0x000C7168
-		public static LightStyle.Mod operator /(LightStyle.Mod a, Color b)
+		// Token: 0x06003B23 RID: 15139 RVA: 0x000D1498 File Offset: 0x000CF698
+		public static global::LightStyle.Mod operator /(global::LightStyle.Mod a, Color b)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
-					a.SetFaceValue(LightStyle.Mod.Element.Red + i, a.GetFaceValue(LightStyle.Mod.Element.Red + i) / b[i]);
+					a.SetFaceValue(global::LightStyle.Mod.Element.Red + i, a.GetFaceValue(global::LightStyle.Mod.Element.Red + i) / b[i]);
 				}
 			}
 			return a;
 		}
 
-		// Token: 0x0600374C RID: 14156 RVA: 0x000C8FC4 File Offset: 0x000C71C4
-		public static Color operator +(Color b, LightStyle.Mod a)
+		// Token: 0x06003B24 RID: 15140 RVA: 0x000D14F4 File Offset: 0x000CF6F4
+		public static Color operator +(Color b, global::LightStyle.Mod a)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
 					ref Color ptr = ref b;
 					int num2;
 					int num = num2 = i;
 					float num3 = ptr[num2];
-					b[num] = num3 + a.GetFaceValue(LightStyle.Mod.Element.Red + i);
+					b[num] = num3 + a.GetFaceValue(global::LightStyle.Mod.Element.Red + i);
 				}
 			}
 			return b;
 		}
 
-		// Token: 0x0600374D RID: 14157 RVA: 0x000C9024 File Offset: 0x000C7224
-		public static Color operator -(Color b, LightStyle.Mod a)
+		// Token: 0x06003B25 RID: 15141 RVA: 0x000D1554 File Offset: 0x000CF754
+		public static Color operator -(Color b, global::LightStyle.Mod a)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
 					ref Color ptr = ref b;
 					int num2;
 					int num = num2 = i;
 					float num3 = ptr[num2];
-					b[num] = num3 - a.GetFaceValue(LightStyle.Mod.Element.Red + i);
+					b[num] = num3 - a.GetFaceValue(global::LightStyle.Mod.Element.Red + i);
 				}
 			}
 			return b;
 		}
 
-		// Token: 0x0600374E RID: 14158 RVA: 0x000C9084 File Offset: 0x000C7284
-		public static Color operator *(Color b, LightStyle.Mod a)
+		// Token: 0x06003B26 RID: 15142 RVA: 0x000D15B4 File Offset: 0x000CF7B4
+		public static Color operator *(Color b, global::LightStyle.Mod a)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
 					ref Color ptr = ref b;
 					int num2;
 					int num = num2 = i;
 					float num3 = ptr[num2];
-					b[num] = num3 * a.GetFaceValue(LightStyle.Mod.Element.Red + i);
+					b[num] = num3 * a.GetFaceValue(global::LightStyle.Mod.Element.Red + i);
 				}
 			}
 			return b;
 		}
 
-		// Token: 0x0600374F RID: 14159 RVA: 0x000C90E4 File Offset: 0x000C72E4
-		public static Color operator /(Color b, LightStyle.Mod a)
+		// Token: 0x06003B27 RID: 15143 RVA: 0x000D1614 File Offset: 0x000CF814
+		public static Color operator /(Color b, global::LightStyle.Mod a)
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				if ((a.mask & LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i)) == LightStyle.Mod.ElementToMask(LightStyle.Mod.Element.Red + i))
+				if ((a.mask & global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i)) == global::LightStyle.Mod.ElementToMask(global::LightStyle.Mod.Element.Red + i))
 				{
 					ref Color ptr = ref b;
 					int num2;
 					int num = num2 = i;
 					float num3 = ptr[num2];
-					b[num] = num3 / a.GetFaceValue(LightStyle.Mod.Element.Red + i);
+					b[num] = num3 / a.GetFaceValue(global::LightStyle.Mod.Element.Red + i);
 				}
 			}
 			return b;
 		}
 
-		// Token: 0x06003750 RID: 14160 RVA: 0x000C9144 File Offset: 0x000C7344
-		public static LightStyle.Mod operator ~(LightStyle.Mod a)
+		// Token: 0x06003B28 RID: 15144 RVA: 0x000D1674 File Offset: 0x000CF874
+		public static global::LightStyle.Mod operator ~(global::LightStyle.Mod a)
 		{
-			a.mask = (~a.mask & (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle));
+			a.mask = (~a.mask & (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle));
 			return a;
 		}
 
-		// Token: 0x06003751 RID: 14161 RVA: 0x000C915C File Offset: 0x000C735C
-		public static LightStyle.Mod operator -(LightStyle.Mod a)
+		// Token: 0x06003B29 RID: 15145 RVA: 0x000D168C File Offset: 0x000CF88C
+		public static global::LightStyle.Mod operator -(global::LightStyle.Mod a)
 		{
-			for (LightStyle.Mod.Element element = LightStyle.Mod.Element.Red; element < (LightStyle.Mod.Element)7; element++)
+			for (global::LightStyle.Mod.Element element = global::LightStyle.Mod.Element.Red; element < (global::LightStyle.Mod.Element)7; element++)
 			{
 				a.SetFaceValue(element, -a.GetFaceValue(element));
 			}
 			return a;
 		}
 
-		// Token: 0x06003752 RID: 14162 RVA: 0x000C9190 File Offset: 0x000C7390
-		public static bool operator true(LightStyle.Mod a)
+		// Token: 0x06003B2A RID: 15146 RVA: 0x000D16C0 File Offset: 0x000CF8C0
+		public static bool operator true(global::LightStyle.Mod a)
 		{
-			return (a.mask & (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle)) != (LightStyle.Mod.Mask)0;
+			return (a.mask & (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle)) != (global::LightStyle.Mod.Mask)0;
 		}
 
-		// Token: 0x06003753 RID: 14163 RVA: 0x000C91A4 File Offset: 0x000C73A4
-		public static bool operator false(LightStyle.Mod b)
+		// Token: 0x06003B2B RID: 15147 RVA: 0x000D16D4 File Offset: 0x000CF8D4
+		public static bool operator false(global::LightStyle.Mod b)
 		{
-			return (b.mask & (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle)) == (LightStyle.Mod.Mask)0;
+			return (b.mask & (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle)) == (global::LightStyle.Mod.Mask)0;
 		}
 
-		// Token: 0x06003754 RID: 14164 RVA: 0x000C91B4 File Offset: 0x000C73B4
-		public static explicit operator LightStyle.Mod(Light light)
+		// Token: 0x06003B2C RID: 15148 RVA: 0x000D16E4 File Offset: 0x000CF8E4
+		public static explicit operator global::LightStyle.Mod(Light light)
 		{
-			LightStyle.Mod result = default(LightStyle.Mod);
+			global::LightStyle.Mod result = default(global::LightStyle.Mod);
 			if (light)
 			{
 				result.color = light.color;
@@ -721,162 +721,162 @@ public abstract class LightStyle : ScriptableObject
 				switch (light.type)
 				{
 				case 0:
-					result.mask = (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle);
+					result.mask = (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle);
 					break;
 				case 1:
-					result.mask = (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity);
+					result.mask = (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity);
 					break;
 				case 2:
-					result.mask = (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range);
+					result.mask = (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range);
 					break;
 				}
 			}
 			return result;
 		}
 
-		// Token: 0x06003755 RID: 14165 RVA: 0x000C9254 File Offset: 0x000C7454
-		public static explicit operator LightStyle.Mod(Color color)
+		// Token: 0x06003B2D RID: 15149 RVA: 0x000D1784 File Offset: 0x000CF984
+		public static explicit operator global::LightStyle.Mod(Color color)
 		{
-			return new LightStyle.Mod
+			return new global::LightStyle.Mod
 			{
 				color = color,
-				mask = (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha)
+				mask = (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha)
 			};
 		}
 
-		// Token: 0x06003756 RID: 14166 RVA: 0x000C9280 File Offset: 0x000C7480
-		public static explicit operator LightStyle.Mod(float intensity)
+		// Token: 0x06003B2E RID: 15150 RVA: 0x000D17B0 File Offset: 0x000CF9B0
+		public static explicit operator global::LightStyle.Mod(float intensity)
 		{
-			return new LightStyle.Mod
+			return new global::LightStyle.Mod
 			{
 				intensity = intensity,
-				mask = LightStyle.Mod.Mask.Intensity
+				mask = global::LightStyle.Mod.Mask.Intensity
 			};
 		}
 
-		// Token: 0x04001B67 RID: 7015
-		public const LightStyle.Mod.Element kElementFirst = LightStyle.Mod.Element.Red;
+		// Token: 0x04001D4D RID: 7501
+		public const global::LightStyle.Mod.Element kElementFirst = global::LightStyle.Mod.Element.Red;
 
-		// Token: 0x04001B68 RID: 7016
-		public const LightStyle.Mod.Element kElementLast = LightStyle.Mod.Element.SpotAngle;
+		// Token: 0x04001D4E RID: 7502
+		public const global::LightStyle.Mod.Element kElementLast = global::LightStyle.Mod.Element.SpotAngle;
 
-		// Token: 0x04001B69 RID: 7017
-		public const LightStyle.Mod.Element kElementBegin = LightStyle.Mod.Element.Red;
+		// Token: 0x04001D4F RID: 7503
+		public const global::LightStyle.Mod.Element kElementBegin = global::LightStyle.Mod.Element.Red;
 
-		// Token: 0x04001B6A RID: 7018
-		public const LightStyle.Mod.Element kElementEnd = (LightStyle.Mod.Element)7;
+		// Token: 0x04001D50 RID: 7504
+		public const global::LightStyle.Mod.Element kElementEnd = (global::LightStyle.Mod.Element)7;
 
-		// Token: 0x04001B6B RID: 7019
-		public const LightStyle.Mod.Element kElementEnumeratorBegin = (LightStyle.Mod.Element)(-1);
+		// Token: 0x04001D51 RID: 7505
+		public const global::LightStyle.Mod.Element kElementEnumeratorBegin = (global::LightStyle.Mod.Element)(-1);
 
-		// Token: 0x04001B6C RID: 7020
-		public const LightStyle.Mod.Mask kMaskNone = (LightStyle.Mod.Mask)0;
+		// Token: 0x04001D52 RID: 7506
+		public const global::LightStyle.Mod.Mask kMaskNone = (global::LightStyle.Mod.Mask)0;
 
-		// Token: 0x04001B6D RID: 7021
-		public const LightStyle.Mod.Mask kMaskRGB = LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue;
+		// Token: 0x04001D53 RID: 7507
+		public const global::LightStyle.Mod.Mask kMaskRGB = global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue;
 
-		// Token: 0x04001B6E RID: 7022
-		public const LightStyle.Mod.Mask kMaskRGBA = LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha;
+		// Token: 0x04001D54 RID: 7508
+		public const global::LightStyle.Mod.Mask kMaskRGBA = global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha;
 
-		// Token: 0x04001B6F RID: 7023
-		public const LightStyle.Mod.Mask kMaskDirectionalLight = LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity;
+		// Token: 0x04001D55 RID: 7509
+		public const global::LightStyle.Mod.Mask kMaskDirectionalLight = global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity;
 
-		// Token: 0x04001B70 RID: 7024
-		public const LightStyle.Mod.Mask kMaskPointLight = LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range;
+		// Token: 0x04001D56 RID: 7510
+		public const global::LightStyle.Mod.Mask kMaskPointLight = global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range;
 
-		// Token: 0x04001B71 RID: 7025
-		public const LightStyle.Mod.Mask kMaskSpotLight = LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle;
+		// Token: 0x04001D57 RID: 7511
+		public const global::LightStyle.Mod.Mask kMaskSpotLight = global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle;
 
-		// Token: 0x04001B72 RID: 7026
-		public const LightStyle.Mod.Mask kMaskAll = LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle;
+		// Token: 0x04001D58 RID: 7512
+		public const global::LightStyle.Mod.Mask kMaskAll = global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle;
 
-		// Token: 0x04001B73 RID: 7027
+		// Token: 0x04001D59 RID: 7513
 		[FieldOffset(0)]
 		public Color color;
 
-		// Token: 0x04001B74 RID: 7028
+		// Token: 0x04001D5A RID: 7514
 		[FieldOffset(0)]
 		public float r;
 
-		// Token: 0x04001B75 RID: 7029
+		// Token: 0x04001D5B RID: 7515
 		[FieldOffset(4)]
 		public float g;
 
-		// Token: 0x04001B76 RID: 7030
+		// Token: 0x04001D5C RID: 7516
 		[FieldOffset(8)]
 		public float b;
 
-		// Token: 0x04001B77 RID: 7031
+		// Token: 0x04001D5D RID: 7517
 		[FieldOffset(12)]
 		public float a;
 
-		// Token: 0x04001B78 RID: 7032
+		// Token: 0x04001D5E RID: 7518
 		[FieldOffset(16)]
 		public float intensity;
 
-		// Token: 0x04001B79 RID: 7033
+		// Token: 0x04001D5F RID: 7519
 		[FieldOffset(20)]
 		public float range;
 
-		// Token: 0x04001B7A RID: 7034
+		// Token: 0x04001D60 RID: 7520
 		[FieldOffset(24)]
 		public float spotAngle;
 
-		// Token: 0x04001B7B RID: 7035
+		// Token: 0x04001D61 RID: 7521
 		[FieldOffset(28)]
-		public LightStyle.Mod.Mask mask;
+		public global::LightStyle.Mod.Mask mask;
 
-		// Token: 0x0200060F RID: 1551
+		// Token: 0x020006CF RID: 1743
 		public enum Element
 		{
-			// Token: 0x04001B7D RID: 7037
+			// Token: 0x04001D63 RID: 7523
 			Red,
-			// Token: 0x04001B7E RID: 7038
+			// Token: 0x04001D64 RID: 7524
 			Green,
-			// Token: 0x04001B7F RID: 7039
+			// Token: 0x04001D65 RID: 7525
 			Blue,
-			// Token: 0x04001B80 RID: 7040
+			// Token: 0x04001D66 RID: 7526
 			Alpha,
-			// Token: 0x04001B81 RID: 7041
+			// Token: 0x04001D67 RID: 7527
 			Intensity,
-			// Token: 0x04001B82 RID: 7042
+			// Token: 0x04001D68 RID: 7528
 			Range,
-			// Token: 0x04001B83 RID: 7043
+			// Token: 0x04001D69 RID: 7529
 			SpotAngle
 		}
 
-		// Token: 0x02000610 RID: 1552
+		// Token: 0x020006D0 RID: 1744
 		[Flags]
 		public enum Mask
 		{
-			// Token: 0x04001B85 RID: 7045
+			// Token: 0x04001D6B RID: 7531
 			Red = 1,
-			// Token: 0x04001B86 RID: 7046
+			// Token: 0x04001D6C RID: 7532
 			Green = 2,
-			// Token: 0x04001B87 RID: 7047
+			// Token: 0x04001D6D RID: 7533
 			Blue = 4,
-			// Token: 0x04001B88 RID: 7048
+			// Token: 0x04001D6E RID: 7534
 			Alpha = 8,
-			// Token: 0x04001B89 RID: 7049
+			// Token: 0x04001D6F RID: 7535
 			Intensity = 16,
-			// Token: 0x04001B8A RID: 7050
+			// Token: 0x04001D70 RID: 7536
 			Range = 32,
-			// Token: 0x04001B8B RID: 7051
+			// Token: 0x04001D71 RID: 7537
 			SpotAngle = 64
 		}
 	}
 
-	// Token: 0x02000611 RID: 1553
+	// Token: 0x020006D1 RID: 1745
 	public abstract class Simulation : IDisposable
 	{
-		// Token: 0x06003757 RID: 14167 RVA: 0x000C92AC File Offset: 0x000C74AC
-		protected Simulation(LightStyle creator)
+		// Token: 0x06003B2F RID: 15151 RVA: 0x000D17DC File Offset: 0x000CF9DC
+		protected Simulation(global::LightStyle creator)
 		{
 			this.creator = creator;
 		}
 
-		// Token: 0x17000AF7 RID: 2807
-		// (get) Token: 0x06003758 RID: 14168 RVA: 0x000C92DC File Offset: 0x000C74DC
+		// Token: 0x17000B71 RID: 2929
+		// (get) Token: 0x06003B30 RID: 15152 RVA: 0x000D180C File Offset: 0x000CFA0C
 		public bool alive
 		{
 			get
@@ -885,8 +885,8 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000AF8 RID: 2808
-		// (get) Token: 0x06003759 RID: 14169 RVA: 0x000C92E8 File Offset: 0x000C74E8
+		// Token: 0x17000B72 RID: 2930
+		// (get) Token: 0x06003B31 RID: 15153 RVA: 0x000D1818 File Offset: 0x000CFA18
 		public bool disposed
 		{
 			get
@@ -895,7 +895,7 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x0600375A RID: 14170 RVA: 0x000C92F0 File Offset: 0x000C74F0
+		// Token: 0x06003B32 RID: 15154 RVA: 0x000D1820 File Offset: 0x000CFA20
 		public void ResetTime(double time)
 		{
 			if (this.startTime != time)
@@ -905,18 +905,18 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x0600375B RID: 14171
+		// Token: 0x06003B33 RID: 15155
 		protected abstract void Simulate(double currentTime);
 
-		// Token: 0x0600375C RID: 14172 RVA: 0x000C930C File Offset: 0x000C750C
+		// Token: 0x06003B34 RID: 15156 RVA: 0x000D183C File Offset: 0x000CFA3C
 		protected virtual void OnTimeReset()
 		{
 		}
 
-		// Token: 0x0600375D RID: 14173 RVA: 0x000C9310 File Offset: 0x000C7510
+		// Token: 0x06003B35 RID: 15157 RVA: 0x000D1840 File Offset: 0x000CFA40
 		private void UpdateBinding()
 		{
-			double time = LightStyle.time;
+			double time = global::LightStyle.time;
 			if (time >= this.nextBindTime)
 			{
 				this.Simulate(time);
@@ -924,7 +924,7 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x0600375E RID: 14174 RVA: 0x000C9340 File Offset: 0x000C7540
+		// Token: 0x06003B36 RID: 15158 RVA: 0x000D1870 File Offset: 0x000CFA70
 		public void BindToLight(Light light)
 		{
 			if (this.destroyed)
@@ -935,22 +935,22 @@ public abstract class LightStyle : ScriptableObject
 			this.mod.ApplyTo(light);
 		}
 
-		// Token: 0x0600375F RID: 14175 RVA: 0x000C9360 File Offset: 0x000C7560
-		public LightStyle.Mod BindMod(LightStyle.Mod.Mask mask)
+		// Token: 0x06003B37 RID: 15159 RVA: 0x000D1890 File Offset: 0x000CFA90
+		public global::LightStyle.Mod BindMod(global::LightStyle.Mod.Mask mask)
 		{
 			if (!this.destroyed)
 			{
 				this.UpdateBinding();
 			}
-			LightStyle.Mod result = this.mod;
+			global::LightStyle.Mod result = this.mod;
 			result.mask &= mask;
 			return result;
 		}
 
-		// Token: 0x06003760 RID: 14176 RVA: 0x000C9398 File Offset: 0x000C7598
-		public void BindToLight(Light light, LightStyle.Mod.Mask mask)
+		// Token: 0x06003B38 RID: 15160 RVA: 0x000D18C8 File Offset: 0x000CFAC8
+		public void BindToLight(Light light, global::LightStyle.Mod.Mask mask)
 		{
-			if (mask == (LightStyle.Mod.Mask.Red | LightStyle.Mod.Mask.Green | LightStyle.Mod.Mask.Blue | LightStyle.Mod.Mask.Alpha | LightStyle.Mod.Mask.Intensity | LightStyle.Mod.Mask.Range | LightStyle.Mod.Mask.SpotAngle))
+			if (mask == (global::LightStyle.Mod.Mask.Red | global::LightStyle.Mod.Mask.Green | global::LightStyle.Mod.Mask.Blue | global::LightStyle.Mod.Mask.Alpha | global::LightStyle.Mod.Mask.Intensity | global::LightStyle.Mod.Mask.Range | global::LightStyle.Mod.Mask.SpotAngle))
 			{
 				this.BindToLight(light);
 			}
@@ -963,7 +963,7 @@ public abstract class LightStyle : ScriptableObject
 				this.UpdateBinding();
 				if ((this.mod.mask & mask) != this.mod.mask)
 				{
-					LightStyle.Mod mod = this.mod;
+					global::LightStyle.Mod mod = this.mod;
 					mod.mask &= mask;
 					mod.ApplyTo(light);
 				}
@@ -974,7 +974,7 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x06003761 RID: 14177 RVA: 0x000C9418 File Offset: 0x000C7618
+		// Token: 0x06003B39 RID: 15161 RVA: 0x000D1948 File Offset: 0x000CFB48
 		public void Dispose()
 		{
 			if (this.isDisposing || this.destroyed)
@@ -994,39 +994,39 @@ public abstract class LightStyle : ScriptableObject
 			}
 		}
 
-		// Token: 0x04001B8C RID: 7052
-		protected LightStyle creator;
+		// Token: 0x04001D72 RID: 7538
+		protected global::LightStyle creator;
 
-		// Token: 0x04001B8D RID: 7053
-		protected LightStyle.Mod mod;
+		// Token: 0x04001D73 RID: 7539
+		protected global::LightStyle.Mod mod;
 
-		// Token: 0x04001B8E RID: 7054
+		// Token: 0x04001D74 RID: 7540
 		protected double startTime;
 
-		// Token: 0x04001B8F RID: 7055
+		// Token: 0x04001D75 RID: 7541
 		protected double nextBindTime = double.NegativeInfinity;
 
-		// Token: 0x04001B90 RID: 7056
+		// Token: 0x04001D76 RID: 7542
 		protected double lastSimulateTime = double.NegativeInfinity;
 
-		// Token: 0x04001B91 RID: 7057
+		// Token: 0x04001D77 RID: 7543
 		private bool isDisposing;
 
-		// Token: 0x04001B92 RID: 7058
+		// Token: 0x04001D78 RID: 7544
 		private bool destroyed;
 	}
 
-	// Token: 0x02000612 RID: 1554
-	public abstract class Simulation<Style> : LightStyle.Simulation where Style : LightStyle
+	// Token: 0x020006D2 RID: 1746
+	public abstract class Simulation<Style> : global::LightStyle.Simulation where Style : global::LightStyle
 	{
-		// Token: 0x06003762 RID: 14178 RVA: 0x000C9484 File Offset: 0x000C7684
+		// Token: 0x06003B3A RID: 15162 RVA: 0x000D19B4 File Offset: 0x000CFBB4
 		protected Simulation(Style creator) : base(creator)
 		{
 		}
 
-		// Token: 0x17000AF9 RID: 2809
-		// (get) Token: 0x06003763 RID: 14179 RVA: 0x000C9494 File Offset: 0x000C7694
-		// (set) Token: 0x06003764 RID: 14180 RVA: 0x000C94A4 File Offset: 0x000C76A4
+		// Token: 0x17000B73 RID: 2931
+		// (get) Token: 0x06003B3B RID: 15163 RVA: 0x000D19C4 File Offset: 0x000CFBC4
+		// (set) Token: 0x06003B3C RID: 15164 RVA: 0x000D19D4 File Offset: 0x000CFBD4
 		protected new Style creator
 		{
 			get

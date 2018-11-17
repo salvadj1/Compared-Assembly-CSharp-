@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007F6 RID: 2038
-[RequireComponent(typeof(UIWidget))]
+// Token: 0x020008E8 RID: 2280
 [AddComponentMenu("NGUI/UI/Localize")]
+[RequireComponent(typeof(global::UIWidget))]
 public class UILocalize : MonoBehaviour
 {
-	// Token: 0x0600491B RID: 18715 RVA: 0x0012BE28 File Offset: 0x0012A028
-	private void OnLocalize(Localization loc)
+	// Token: 0x06004DCA RID: 19914 RVA: 0x00135D8C File Offset: 0x00133F8C
+	private void OnLocalize(global::Localization loc)
 	{
 		if (this.mLanguage != loc.currentLanguage)
 		{
-			UIWidget component = base.GetComponent<UIWidget>();
-			UILabel uilabel = component as UILabel;
-			UISprite uisprite = component as UISprite;
+			global::UIWidget component = base.GetComponent<global::UIWidget>();
+			global::UILabel uilabel = component as global::UILabel;
+			global::UISprite uisprite = component as global::UISprite;
 			if (string.IsNullOrEmpty(this.mLanguage) && string.IsNullOrEmpty(this.key) && uilabel != null)
 			{
 				this.key = uilabel.text;
@@ -32,31 +32,31 @@ public class UILocalize : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600491C RID: 18716 RVA: 0x0012BF04 File Offset: 0x0012A104
+	// Token: 0x06004DCB RID: 19915 RVA: 0x00135E68 File Offset: 0x00134068
 	private void OnEnable()
 	{
-		if (this.mStarted && Localization.instance != null)
+		if (this.mStarted && global::Localization.instance != null)
 		{
-			this.OnLocalize(Localization.instance);
+			this.OnLocalize(global::Localization.instance);
 		}
 	}
 
-	// Token: 0x0600491D RID: 18717 RVA: 0x0012BF38 File Offset: 0x0012A138
+	// Token: 0x06004DCC RID: 19916 RVA: 0x00135E9C File Offset: 0x0013409C
 	private void Start()
 	{
 		this.mStarted = true;
-		if (Localization.instance != null)
+		if (global::Localization.instance != null)
 		{
-			this.OnLocalize(Localization.instance);
+			this.OnLocalize(global::Localization.instance);
 		}
 	}
 
-	// Token: 0x0400294B RID: 10571
+	// Token: 0x04002B99 RID: 11161
 	public string key;
 
-	// Token: 0x0400294C RID: 10572
+	// Token: 0x04002B9A RID: 11162
 	private string mLanguage;
 
-	// Token: 0x0400294D RID: 10573
+	// Token: 0x04002B9B RID: 11163
 	private bool mStarted;
 }

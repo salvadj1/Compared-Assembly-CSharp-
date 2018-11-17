@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020006ED RID: 1773
+// Token: 0x020007BF RID: 1983
 public class BakeFunction
 {
 }

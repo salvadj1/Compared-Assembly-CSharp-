@@ -2,12 +2,12 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x02000687 RID: 1671
+// Token: 0x0200074C RID: 1868
 [AddComponentMenu("Precision/Tests/Quaternion Test")]
 [ExecuteInEditMode]
 public class QuaternionTest : MonoBehaviour
 {
-	// Token: 0x060039F3 RID: 14835 RVA: 0x000D6EF0 File Offset: 0x000D50F0
+	// Token: 0x06003DEB RID: 15851 RVA: 0x000DF8D0 File Offset: 0x000DDAD0
 	private void Update()
 	{
 		if (this.R == null || this.R.Length == 0)
@@ -50,7 +50,7 @@ public class QuaternionTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039F4 RID: 14836 RVA: 0x000D70B8 File Offset: 0x000D52B8
+	// Token: 0x06003DEC RID: 15852 RVA: 0x000DFA98 File Offset: 0x000DDC98
 	private void Awake()
 	{
 		this.contents = new GUIContent[3, 4];
@@ -70,7 +70,7 @@ public class QuaternionTest : MonoBehaviour
 		this.contents[2, 0].text = "Degrees:";
 	}
 
-	// Token: 0x060039F5 RID: 14837 RVA: 0x000D7168 File Offset: 0x000D5368
+	// Token: 0x06003DED RID: 15853 RVA: 0x000DFB48 File Offset: 0x000DDD48
 	private void OnGUI()
 	{
 		if (Event.current.type != 7)
@@ -120,39 +120,39 @@ public class QuaternionTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001DF6 RID: 7670
+	// Token: 0x04001FEE RID: 8174
 	private const float cellWidth = 100f;
 
-	// Token: 0x04001DF7 RID: 7671
+	// Token: 0x04001FEF RID: 8175
 	private const float cellHeight = 30f;
 
-	// Token: 0x04001DF8 RID: 7672
+	// Token: 0x04001FF0 RID: 8176
 	private const string formatFloat = "0.######";
 
-	// Token: 0x04001DF9 RID: 7673
+	// Token: 0x04001FF1 RID: 8177
 	private GUIContent[,] contents;
 
-	// Token: 0x04001DFA RID: 7674
+	// Token: 0x04001FF2 RID: 8178
 	private Rect[,] rects;
 
-	// Token: 0x04001DFB RID: 7675
+	// Token: 0x04001FF3 RID: 8179
 	private Quaternion unity = Quaternion.identity;
 
-	// Token: 0x04001DFC RID: 7676
+	// Token: 0x04001FF4 RID: 8180
 	private Quaternion lastUnity;
 
-	// Token: 0x04001DFD RID: 7677
+	// Token: 0x04001FF5 RID: 8181
 	private QuaternionG facep = QuaternionG.identity;
 
-	// Token: 0x04001DFE RID: 7678
+	// Token: 0x04001FF6 RID: 8182
 	public Vector3[] R;
 
-	// Token: 0x04001DFF RID: 7679
+	// Token: 0x04001FF7 RID: 8183
 	public bool revMul;
 
-	// Token: 0x04001E00 RID: 7680
+	// Token: 0x04001FF8 RID: 8184
 	public bool nonHomogenous;
 
-	// Token: 0x04001E01 RID: 7681
+	// Token: 0x04001FF9 RID: 8185
 	private bool nonHomogenousWas;
 }

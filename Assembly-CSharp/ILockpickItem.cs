@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005DA RID: 1498
-public interface ILockpickItem : IInventoryItem
+// Token: 0x02000698 RID: 1688
+public interface ILockpickItem : global::IInventoryItem
 {
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000325 RID: 805
-public abstract class StateInterpolator<T> : StateInterpolator
+// Token: 0x020003D2 RID: 978
+public abstract class StateInterpolator<T> : global::StateInterpolator
 {
-	// Token: 0x170007AA RID: 1962
-	// (get) Token: 0x06001EC8 RID: 7880 RVA: 0x00078CA0 File Offset: 0x00076EA0
+	// Token: 0x17000808 RID: 2056
+	// (get) Token: 0x0600222A RID: 8746 RVA: 0x0007E09C File Offset: 0x0007C29C
 	public int bufferCapacity
 	{
 		get
@@ -14,18 +14,18 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x06001EC9 RID: 7881 RVA: 0x00078CAC File Offset: 0x00076EAC
+	// Token: 0x0600222B RID: 8747 RVA: 0x0007E0A8 File Offset: 0x0007C2A8
 	protected void Awake()
 	{
-		this.tbuffer = new TimeStamped<T>[this._bufferCapacity];
+		this.tbuffer = new global::TimeStamped<T>[this._bufferCapacity];
 		for (int i = 0; i < this._bufferCapacity; i++)
 		{
 			this.tbuffer[i].index = i;
 		}
 	}
 
-	// Token: 0x170007AB RID: 1963
-	// (get) Token: 0x06001ECA RID: 7882 RVA: 0x00078CF4 File Offset: 0x00076EF4
+	// Token: 0x17000809 RID: 2057
+	// (get) Token: 0x0600222C RID: 8748 RVA: 0x0007E0F0 File Offset: 0x0007C2F0
 	public new double storedDuration
 	{
 		get
@@ -34,8 +34,8 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x170007AC RID: 1964
-	// (get) Token: 0x06001ECB RID: 7883 RVA: 0x00078D68 File Offset: 0x00076F68
+	// Token: 0x1700080A RID: 2058
+	// (get) Token: 0x0600222D RID: 8749 RVA: 0x0007E164 File Offset: 0x0007C364
 	public new double oldestTimeStamp
 	{
 		get
@@ -44,8 +44,8 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x170007AD RID: 1965
-	// (get) Token: 0x06001ECC RID: 7884 RVA: 0x00078DB0 File Offset: 0x00076FB0
+	// Token: 0x1700080B RID: 2059
+	// (get) Token: 0x0600222E RID: 8750 RVA: 0x0007E1AC File Offset: 0x0007C3AC
 	public new double newestTimeStamp
 	{
 		get
@@ -54,12 +54,12 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x06001ECD RID: 7885 RVA: 0x00078E00 File Offset: 0x00077000
+	// Token: 0x0600222F RID: 8751 RVA: 0x0007E1FC File Offset: 0x0007C3FC
 	public new void Clear()
 	{
 		if (this.len > 0)
 		{
-			if (ReferenceTypeHelper<T>.TreatAsReferenceHolder)
+			if (global::ReferenceTypeHelper<T>.TreatAsReferenceHolder)
 			{
 				for (int i = 0; i < this.len; i++)
 				{
@@ -70,8 +70,8 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x170007AE RID: 1966
-	// (get) Token: 0x06001ECE RID: 7886 RVA: 0x00078E6C File Offset: 0x0007706C
+	// Token: 0x1700080C RID: 2060
+	// (get) Token: 0x06002230 RID: 8752 RVA: 0x0007E268 File Offset: 0x0007C468
 	protected sealed override double __newestTimeStamp
 	{
 		get
@@ -80,8 +80,8 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x170007AF RID: 1967
-	// (get) Token: 0x06001ECF RID: 7887 RVA: 0x00078E74 File Offset: 0x00077074
+	// Token: 0x1700080D RID: 2061
+	// (get) Token: 0x06002231 RID: 8753 RVA: 0x0007E270 File Offset: 0x0007C470
 	protected sealed override double __oldestTimeStamp
 	{
 		get
@@ -90,8 +90,8 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x170007B0 RID: 1968
-	// (get) Token: 0x06001ED0 RID: 7888 RVA: 0x00078E7C File Offset: 0x0007707C
+	// Token: 0x1700080E RID: 2062
+	// (get) Token: 0x06002232 RID: 8754 RVA: 0x0007E278 File Offset: 0x0007C478
 	protected sealed override double __storedDuration
 	{
 		get
@@ -100,19 +100,19 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x06001ED1 RID: 7889 RVA: 0x00078E84 File Offset: 0x00077084
+	// Token: 0x06002233 RID: 8755 RVA: 0x0007E280 File Offset: 0x0007C480
 	protected sealed override void __Clear()
 	{
 		this.Clear();
 	}
 
-	// Token: 0x06001ED2 RID: 7890 RVA: 0x00078E8C File Offset: 0x0007708C
+	// Token: 0x06002234 RID: 8756 RVA: 0x0007E288 File Offset: 0x0007C488
 	public override void SetGoals(Vector3 pos, Quaternion rot, double timestamp)
 	{
 		throw new NotImplementedException("The thing using this has not implemented a way to take pos, rot to " + typeof(T));
 	}
 
-	// Token: 0x06001ED3 RID: 7891 RVA: 0x00078EA8 File Offset: 0x000770A8
+	// Token: 0x06002235 RID: 8757 RVA: 0x0007E2A4 File Offset: 0x0007C4A4
 	protected void Push(ref T state, ref double timeStamp)
 	{
 		int num = this.tbuffer.Length;
@@ -165,20 +165,20 @@ public abstract class StateInterpolator<T> : StateInterpolator
 		}
 	}
 
-	// Token: 0x06001ED4 RID: 7892 RVA: 0x000790E4 File Offset: 0x000772E4
+	// Token: 0x06002236 RID: 8758 RVA: 0x0007E4E0 File Offset: 0x0007C6E0
 	public virtual void SetGoals(ref T state, ref double timeStamp)
 	{
 		this.Push(ref state, ref timeStamp);
 	}
 
-	// Token: 0x06001ED5 RID: 7893 RVA: 0x000790F0 File Offset: 0x000772F0
-	public void SetGoals(ref TimeStamped<T> state)
+	// Token: 0x06002237 RID: 8759 RVA: 0x0007E4EC File Offset: 0x0007C6EC
+	public void SetGoals(ref global::TimeStamped<T> state)
 	{
 		T value = state.value;
 		double timeStamp = state.timeStamp;
 		this.SetGoals(ref value, ref timeStamp);
 	}
 
-	// Token: 0x04000EDC RID: 3804
-	protected TimeStamped<T>[] tbuffer;
+	// Token: 0x04001042 RID: 4162
+	protected global::TimeStamped<T>[] tbuffer;
 }

@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace NGUIHack
 {
-	// Token: 0x0200080D RID: 2061
+	// Token: 0x020008FF RID: 2303
 	public class Event : IDisposable
 	{
-		// Token: 0x060049D9 RID: 18905 RVA: 0x0013B25C File Offset: 0x0013945C
+		// Token: 0x06004E88 RID: 20104 RVA: 0x001451C0 File Offset: 0x001433C0
 		internal Event(Event @event)
 		{
 			this.@event = @event;
@@ -16,14 +16,14 @@ namespace NGUIHack
 			this.screenPosition = Input.mousePosition;
 		}
 
-		// Token: 0x060049DA RID: 18906 RVA: 0x0013B2A8 File Offset: 0x001394A8
+		// Token: 0x06004E89 RID: 20105 RVA: 0x0014520C File Offset: 0x0014340C
 		internal Event(Event @event, EventType overrideType) : this(@event)
 		{
 			this.overrideType = overrideType;
 		}
 
-		// Token: 0x17000E77 RID: 3703
-		// (get) Token: 0x060049DB RID: 18907 RVA: 0x0013B2B8 File Offset: 0x001394B8
+		// Token: 0x17000F11 RID: 3857
+		// (get) Token: 0x06004E8A RID: 20106 RVA: 0x0014521C File Offset: 0x0014341C
 		public EventType type
 		{
 			get
@@ -32,8 +32,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E78 RID: 3704
-		// (get) Token: 0x060049DC RID: 18908 RVA: 0x0013B2E0 File Offset: 0x001394E0
+		// Token: 0x17000F12 RID: 3858
+		// (get) Token: 0x06004E8B RID: 20107 RVA: 0x00145244 File Offset: 0x00143444
 		public EventType rawType
 		{
 			get
@@ -42,8 +42,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E79 RID: 3705
-		// (get) Token: 0x060049DD RID: 18909 RVA: 0x0013B308 File Offset: 0x00139508
+		// Token: 0x17000F13 RID: 3859
+		// (get) Token: 0x06004E8C RID: 20108 RVA: 0x0014526C File Offset: 0x0014346C
 		public int button
 		{
 			get
@@ -52,8 +52,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E7A RID: 3706
-		// (get) Token: 0x060049DE RID: 18910 RVA: 0x0013B318 File Offset: 0x00139518
+		// Token: 0x17000F14 RID: 3860
+		// (get) Token: 0x06004E8D RID: 20109 RVA: 0x0014527C File Offset: 0x0014347C
 		public Vector2 mousePosition
 		{
 			get
@@ -62,8 +62,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E7B RID: 3707
-		// (get) Token: 0x060049DF RID: 18911 RVA: 0x0013B320 File Offset: 0x00139520
+		// Token: 0x17000F15 RID: 3861
+		// (get) Token: 0x06004E8E RID: 20110 RVA: 0x00145284 File Offset: 0x00143484
 		public KeyCode keyCode
 		{
 			get
@@ -72,8 +72,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E7C RID: 3708
-		// (get) Token: 0x060049E0 RID: 18912 RVA: 0x0013B330 File Offset: 0x00139530
+		// Token: 0x17000F16 RID: 3862
+		// (get) Token: 0x06004E8F RID: 20111 RVA: 0x00145294 File Offset: 0x00143494
 		public char character
 		{
 			get
@@ -82,8 +82,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E7D RID: 3709
-		// (get) Token: 0x060049E1 RID: 18913 RVA: 0x0013B340 File Offset: 0x00139540
+		// Token: 0x17000F17 RID: 3863
+		// (get) Token: 0x06004E90 RID: 20112 RVA: 0x001452A4 File Offset: 0x001434A4
 		public EventModifiers modifiers
 		{
 			get
@@ -92,8 +92,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E7E RID: 3710
-		// (get) Token: 0x060049E2 RID: 18914 RVA: 0x0013B350 File Offset: 0x00139550
+		// Token: 0x17000F18 RID: 3864
+		// (get) Token: 0x06004E91 RID: 20113 RVA: 0x001452B4 File Offset: 0x001434B4
 		public bool shift
 		{
 			get
@@ -102,8 +102,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E7F RID: 3711
-		// (get) Token: 0x060049E3 RID: 18915 RVA: 0x0013B360 File Offset: 0x00139560
+		// Token: 0x17000F19 RID: 3865
+		// (get) Token: 0x06004E92 RID: 20114 RVA: 0x001452C4 File Offset: 0x001434C4
 		public bool alt
 		{
 			get
@@ -112,8 +112,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E80 RID: 3712
-		// (get) Token: 0x060049E4 RID: 18916 RVA: 0x0013B370 File Offset: 0x00139570
+		// Token: 0x17000F1A RID: 3866
+		// (get) Token: 0x06004E93 RID: 20115 RVA: 0x001452D4 File Offset: 0x001434D4
 		public bool control
 		{
 			get
@@ -122,8 +122,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E81 RID: 3713
-		// (get) Token: 0x060049E5 RID: 18917 RVA: 0x0013B380 File Offset: 0x00139580
+		// Token: 0x17000F1B RID: 3867
+		// (get) Token: 0x06004E94 RID: 20116 RVA: 0x001452E4 File Offset: 0x001434E4
 		public bool capsLock
 		{
 			get
@@ -132,8 +132,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E82 RID: 3714
-		// (get) Token: 0x060049E6 RID: 18918 RVA: 0x0013B390 File Offset: 0x00139590
+		// Token: 0x17000F1C RID: 3868
+		// (get) Token: 0x06004E95 RID: 20117 RVA: 0x001452F4 File Offset: 0x001434F4
 		public Vector2 delta
 		{
 			get
@@ -142,7 +142,7 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x060049E7 RID: 18919 RVA: 0x0013B3A0 File Offset: 0x001395A0
+		// Token: 0x06004E96 RID: 20118 RVA: 0x00145304 File Offset: 0x00143504
 		public void Dispose()
 		{
 			if (this.overrideType != 12 && this.@event.type == this.overrideType)
@@ -151,7 +151,7 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x060049E8 RID: 18920 RVA: 0x0013B3E4 File Offset: 0x001395E4
+		// Token: 0x06004E97 RID: 20119 RVA: 0x00145348 File Offset: 0x00143548
 		public void Use()
 		{
 			if (this.overrideType == 12)
@@ -160,8 +160,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E83 RID: 3715
-		// (get) Token: 0x060049E9 RID: 18921 RVA: 0x0013B400 File Offset: 0x00139600
+		// Token: 0x17000F1D RID: 3869
+		// (get) Token: 0x06004E98 RID: 20120 RVA: 0x00145364 File Offset: 0x00143564
 		internal Event real
 		{
 			get
@@ -170,8 +170,8 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x17000E84 RID: 3716
-		// (get) Token: 0x060049EA RID: 18922 RVA: 0x0013B408 File Offset: 0x00139608
+		// Token: 0x17000F1E RID: 3870
+		// (get) Token: 0x06004E99 RID: 20121 RVA: 0x0014536C File Offset: 0x0014356C
 		public EventType unityOriginalRawType
 		{
 			get
@@ -180,28 +180,28 @@ namespace NGUIHack
 			}
 		}
 
-		// Token: 0x040029D0 RID: 10704
+		// Token: 0x04002C1E RID: 11294
 		public static int pressed;
 
-		// Token: 0x040029D1 RID: 10705
+		// Token: 0x04002C1F RID: 11295
 		public static int unpressed;
 
-		// Token: 0x040029D2 RID: 10706
+		// Token: 0x04002C20 RID: 11296
 		public static int held;
 
-		// Token: 0x040029D3 RID: 10707
+		// Token: 0x04002C21 RID: 11297
 		private readonly Event @event;
 
-		// Token: 0x040029D4 RID: 10708
+		// Token: 0x04002C22 RID: 11298
 		private readonly EventType originalType;
 
-		// Token: 0x040029D5 RID: 10709
+		// Token: 0x04002C23 RID: 11299
 		private readonly EventType originalRawType;
 
-		// Token: 0x040029D6 RID: 10710
+		// Token: 0x04002C24 RID: 11300
 		private readonly EventType overrideType;
 
-		// Token: 0x040029D7 RID: 10711
+		// Token: 0x04002C25 RID: 11301
 		private readonly Vector2 screenPosition;
 	}
 }

@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000731 RID: 1841
-public class dfAnimatedFloat : dfAnimatedValue<float>
+// Token: 0x0200080E RID: 2062
+public class dfAnimatedFloat : global::dfAnimatedValue<float>
 {
-	// Token: 0x06004353 RID: 17235 RVA: 0x00105E64 File Offset: 0x00104064
+	// Token: 0x0600479B RID: 18331 RVA: 0x0010F174 File Offset: 0x0010D374
 	public dfAnimatedFloat(float StartValue, float EndValue, float Time) : base(StartValue, EndValue, Time)
 	{
 	}
 
-	// Token: 0x06004354 RID: 17236 RVA: 0x00105E70 File Offset: 0x00104070
+	// Token: 0x0600479C RID: 18332 RVA: 0x0010F180 File Offset: 0x0010D380
 	protected override float Lerp(float startValue, float endValue, float time)
 	{
 		return Mathf.Lerp(startValue, endValue, time);
 	}
 
-	// Token: 0x06004355 RID: 17237 RVA: 0x00105E7C File Offset: 0x0010407C
-	public static implicit operator dfAnimatedFloat(float value)
+	// Token: 0x0600479D RID: 18333 RVA: 0x0010F18C File Offset: 0x0010D38C
+	public static implicit operator global::dfAnimatedFloat(float value)
 	{
-		return new dfAnimatedFloat(value, value, 0f);
+		return new global::dfAnimatedFloat(value, value, 0f);
 	}
 }

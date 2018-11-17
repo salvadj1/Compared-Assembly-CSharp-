@@ -2,31 +2,31 @@
 using AnimationOrTween;
 using UnityEngine;
 
-// Token: 0x02000761 RID: 1889
+// Token: 0x02000843 RID: 2115
 [AddComponentMenu("NGUI/Interaction/Button Play Animation")]
 public class UIButtonPlayAnimation : MonoBehaviour
 {
-	// Token: 0x060044D4 RID: 17620 RVA: 0x0010DAD4 File Offset: 0x0010BCD4
+	// Token: 0x06004935 RID: 18741 RVA: 0x00117454 File Offset: 0x00115654
 	private void Start()
 	{
 		this.mStarted = true;
 	}
 
-	// Token: 0x060044D5 RID: 17621 RVA: 0x0010DAE0 File Offset: 0x0010BCE0
+	// Token: 0x06004936 RID: 18742 RVA: 0x00117460 File Offset: 0x00115660
 	private void OnEnable()
 	{
 		if (this.mStarted && this.mHighlighted)
 		{
-			this.OnHover(UICamera.IsHighlighted(base.gameObject));
+			this.OnHover(global::UICamera.IsHighlighted(base.gameObject));
 		}
 	}
 
-	// Token: 0x060044D6 RID: 17622 RVA: 0x0010DB0C File Offset: 0x0010BD0C
+	// Token: 0x06004937 RID: 18743 RVA: 0x0011748C File Offset: 0x0011568C
 	private void OnHover(bool isOver)
 	{
 		if (base.enabled)
 		{
-			if (this.trigger == Trigger.OnHover || (this.trigger == Trigger.OnHoverTrue && isOver) || (this.trigger == Trigger.OnHoverFalse && !isOver))
+			if (this.trigger == AnimationOrTween.Trigger.OnHover || (this.trigger == AnimationOrTween.Trigger.OnHoverTrue && isOver) || (this.trigger == AnimationOrTween.Trigger.OnHoverFalse && !isOver))
 			{
 				this.Play(isOver);
 			}
@@ -34,52 +34,52 @@ public class UIButtonPlayAnimation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044D7 RID: 17623 RVA: 0x0010DB64 File Offset: 0x0010BD64
+	// Token: 0x06004938 RID: 18744 RVA: 0x001174E4 File Offset: 0x001156E4
 	private void OnPress(bool isPressed)
 	{
-		if (base.enabled && (this.trigger == Trigger.OnPress || (this.trigger == Trigger.OnPressTrue && isPressed) || (this.trigger == Trigger.OnPressFalse && !isPressed)))
+		if (base.enabled && (this.trigger == AnimationOrTween.Trigger.OnPress || (this.trigger == AnimationOrTween.Trigger.OnPressTrue && isPressed) || (this.trigger == AnimationOrTween.Trigger.OnPressFalse && !isPressed)))
 		{
 			this.Play(isPressed);
 		}
 	}
 
-	// Token: 0x060044D8 RID: 17624 RVA: 0x0010DBB4 File Offset: 0x0010BDB4
+	// Token: 0x06004939 RID: 18745 RVA: 0x00117534 File Offset: 0x00115734
 	private void OnClick()
 	{
-		if (base.enabled && this.trigger == Trigger.OnClick)
+		if (base.enabled && this.trigger == AnimationOrTween.Trigger.OnClick)
 		{
 			this.Play(true);
 		}
 	}
 
-	// Token: 0x060044D9 RID: 17625 RVA: 0x0010DBD4 File Offset: 0x0010BDD4
+	// Token: 0x0600493A RID: 18746 RVA: 0x00117554 File Offset: 0x00115754
 	private void OnDoubleClick()
 	{
-		if (base.enabled && this.trigger == Trigger.OnDoubleClick)
+		if (base.enabled && this.trigger == AnimationOrTween.Trigger.OnDoubleClick)
 		{
 			this.Play(true);
 		}
 	}
 
-	// Token: 0x060044DA RID: 17626 RVA: 0x0010DBF8 File Offset: 0x0010BDF8
+	// Token: 0x0600493B RID: 18747 RVA: 0x00117578 File Offset: 0x00115778
 	private void OnSelect(bool isSelected)
 	{
-		if (base.enabled && (this.trigger == Trigger.OnSelect || (this.trigger == Trigger.OnSelectTrue && isSelected) || (this.trigger == Trigger.OnSelectFalse && !isSelected)))
+		if (base.enabled && (this.trigger == AnimationOrTween.Trigger.OnSelect || (this.trigger == AnimationOrTween.Trigger.OnSelectTrue && isSelected) || (this.trigger == AnimationOrTween.Trigger.OnSelectFalse && !isSelected)))
 		{
 			this.Play(true);
 		}
 	}
 
-	// Token: 0x060044DB RID: 17627 RVA: 0x0010DC4C File Offset: 0x0010BE4C
+	// Token: 0x0600493C RID: 18748 RVA: 0x001175CC File Offset: 0x001157CC
 	private void OnActivate(bool isActive)
 	{
-		if (base.enabled && (this.trigger == Trigger.OnActivate || (this.trigger == Trigger.OnActivateTrue && isActive) || (this.trigger == Trigger.OnActivateFalse && !isActive)))
+		if (base.enabled && (this.trigger == AnimationOrTween.Trigger.OnActivate || (this.trigger == AnimationOrTween.Trigger.OnActivateTrue && isActive) || (this.trigger == AnimationOrTween.Trigger.OnActivateFalse && !isActive)))
 		{
 			this.Play(isActive);
 		}
 	}
 
-	// Token: 0x060044DC RID: 17628 RVA: 0x0010DC9C File Offset: 0x0010BE9C
+	// Token: 0x0600493D RID: 18749 RVA: 0x0011761C File Offset: 0x0011581C
 	private void Play(bool forward)
 	{
 		if (this.target == null)
@@ -88,13 +88,13 @@ public class UIButtonPlayAnimation : MonoBehaviour
 		}
 		if (this.target != null)
 		{
-			if (this.clearSelection && UICamera.selectedObject == base.gameObject)
+			if (this.clearSelection && global::UICamera.selectedObject == base.gameObject)
 			{
-				UICamera.selectedObject = null;
+				global::UICamera.selectedObject = null;
 			}
 			int num = (int)(-(int)this.playDirection);
-			Direction direction = (Direction)((!forward) ? num : ((int)this.playDirection));
-			ActiveAnimation activeAnimation = ActiveAnimation.Play(this.target, this.clipName, direction, this.ifDisabledOnPlay, this.disableWhenFinished);
+			AnimationOrTween.Direction direction = (AnimationOrTween.Direction)((!forward) ? num : ((int)this.playDirection));
+			global::ActiveAnimation activeAnimation = global::ActiveAnimation.Play(this.target, this.clipName, direction, this.ifDisabledOnPlay, this.disableWhenFinished);
 			if (this.resetOnPlay)
 			{
 				activeAnimation.Reset();
@@ -107,39 +107,39 @@ public class UIButtonPlayAnimation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400250B RID: 9483
+	// Token: 0x04002742 RID: 10050
 	public Animation target;
 
-	// Token: 0x0400250C RID: 9484
+	// Token: 0x04002743 RID: 10051
 	public string clipName;
 
-	// Token: 0x0400250D RID: 9485
-	public Trigger trigger;
+	// Token: 0x04002744 RID: 10052
+	public AnimationOrTween.Trigger trigger;
 
-	// Token: 0x0400250E RID: 9486
-	public Direction playDirection = Direction.Forward;
+	// Token: 0x04002745 RID: 10053
+	public AnimationOrTween.Direction playDirection = AnimationOrTween.Direction.Forward;
 
-	// Token: 0x0400250F RID: 9487
+	// Token: 0x04002746 RID: 10054
 	public bool resetOnPlay;
 
-	// Token: 0x04002510 RID: 9488
+	// Token: 0x04002747 RID: 10055
 	public bool clearSelection;
 
-	// Token: 0x04002511 RID: 9489
-	public EnableCondition ifDisabledOnPlay;
+	// Token: 0x04002748 RID: 10056
+	public AnimationOrTween.EnableCondition ifDisabledOnPlay;
 
-	// Token: 0x04002512 RID: 9490
-	public DisableCondition disableWhenFinished;
+	// Token: 0x04002749 RID: 10057
+	public AnimationOrTween.DisableCondition disableWhenFinished;
 
-	// Token: 0x04002513 RID: 9491
+	// Token: 0x0400274A RID: 10058
 	public GameObject eventReceiver;
 
-	// Token: 0x04002514 RID: 9492
+	// Token: 0x0400274B RID: 10059
 	public string callWhenFinished;
 
-	// Token: 0x04002515 RID: 9493
+	// Token: 0x0400274C RID: 10060
 	private bool mStarted;
 
-	// Token: 0x04002516 RID: 9494
+	// Token: 0x0400274D RID: 10061
 	private bool mHighlighted;
 }

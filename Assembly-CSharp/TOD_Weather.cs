@@ -1,72 +1,72 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200083C RID: 2108
+// Token: 0x02000931 RID: 2353
 public class TOD_Weather : MonoBehaviour
 {
-	// Token: 0x06004AB9 RID: 19129 RVA: 0x001462B4 File Offset: 0x001444B4
+	// Token: 0x06004F74 RID: 20340 RVA: 0x00150218 File Offset: 0x0014E418
 	protected void Start()
 	{
-		this.sky = base.GetComponent<TOD_Sky>();
+		this.sky = base.GetComponent<global::TOD_Sky>();
 		this.cloudBrightness = (this.cloudBrightnessDefault = this.sky.Clouds.Brightness);
 		this.cloudDensity = (this.cloudDensityDefault = this.sky.Clouds.Density);
 		this.atmosphereFog = (this.atmosphereFogDefault = this.sky.Atmosphere.Fogginess);
 		this.cloudSharpness = this.sky.Clouds.Sharpness;
 	}
 
-	// Token: 0x06004ABA RID: 19130 RVA: 0x00146340 File Offset: 0x00144540
+	// Token: 0x06004F75 RID: 20341 RVA: 0x001502A4 File Offset: 0x0014E4A4
 	protected void Update()
 	{
-		if (this.Clouds == TOD_Weather.CloudType.Custom && this.Weather == TOD_Weather.WeatherType.Custom)
+		if (this.Clouds == global::TOD_Weather.CloudType.Custom && this.Weather == global::TOD_Weather.WeatherType.Custom)
 		{
 			return;
 		}
 		switch (this.Clouds)
 		{
-		case TOD_Weather.CloudType.Custom:
+		case global::TOD_Weather.CloudType.Custom:
 			this.cloudDensity = this.sky.Clouds.Density;
 			this.cloudSharpness = this.sky.Clouds.Sharpness;
 			break;
-		case TOD_Weather.CloudType.None:
+		case global::TOD_Weather.CloudType.None:
 			this.cloudDensity = 0f;
 			this.cloudSharpness = 1f;
 			break;
-		case TOD_Weather.CloudType.Few:
+		case global::TOD_Weather.CloudType.Few:
 			this.cloudDensity = this.cloudDensityDefault;
 			this.cloudSharpness = 6f;
 			break;
-		case TOD_Weather.CloudType.Scattered:
+		case global::TOD_Weather.CloudType.Scattered:
 			this.cloudDensity = this.cloudDensityDefault;
 			this.cloudSharpness = 3f;
 			break;
-		case TOD_Weather.CloudType.Broken:
+		case global::TOD_Weather.CloudType.Broken:
 			this.cloudDensity = this.cloudDensityDefault;
 			this.cloudSharpness = 1f;
 			break;
-		case TOD_Weather.CloudType.Overcast:
+		case global::TOD_Weather.CloudType.Overcast:
 			this.cloudDensity = this.cloudDensityDefault;
 			this.cloudSharpness = 0.1f;
 			break;
 		}
 		switch (this.Weather)
 		{
-		case TOD_Weather.WeatherType.Custom:
+		case global::TOD_Weather.WeatherType.Custom:
 			this.cloudBrightness = this.sky.Clouds.Brightness;
 			this.atmosphereFog = this.sky.Atmosphere.Fogginess;
 			break;
-		case TOD_Weather.WeatherType.Clear:
+		case global::TOD_Weather.WeatherType.Clear:
 			this.cloudBrightness = this.cloudBrightnessDefault;
 			this.atmosphereFog = this.atmosphereFogDefault;
 			break;
-		case TOD_Weather.WeatherType.Storm:
+		case global::TOD_Weather.WeatherType.Storm:
 			this.cloudBrightness = 0.3f;
 			this.atmosphereFog = 1f;
 			break;
-		case TOD_Weather.WeatherType.Dust:
+		case global::TOD_Weather.WeatherType.Dust:
 			this.cloudBrightness = this.cloudBrightnessDefault;
 			this.atmosphereFog = 0.5f;
 			break;
-		case TOD_Weather.WeatherType.Fog:
+		case global::TOD_Weather.WeatherType.Fog:
 			this.cloudBrightness = this.cloudBrightnessDefault;
 			this.atmosphereFog = 1f;
 			break;
@@ -78,68 +78,68 @@ public class TOD_Weather : MonoBehaviour
 		this.sky.Atmosphere.Fogginess = Mathf.Lerp(this.sky.Atmosphere.Fogginess, this.atmosphereFog, num);
 	}
 
-	// Token: 0x04002BB2 RID: 11186
+	// Token: 0x04002E00 RID: 11776
 	public float FadeTime = 10f;
 
-	// Token: 0x04002BB3 RID: 11187
-	public TOD_Weather.CloudType Clouds;
+	// Token: 0x04002E01 RID: 11777
+	public global::TOD_Weather.CloudType Clouds;
 
-	// Token: 0x04002BB4 RID: 11188
-	public TOD_Weather.WeatherType Weather;
+	// Token: 0x04002E02 RID: 11778
+	public global::TOD_Weather.WeatherType Weather;
 
-	// Token: 0x04002BB5 RID: 11189
+	// Token: 0x04002E03 RID: 11779
 	private float cloudBrightnessDefault;
 
-	// Token: 0x04002BB6 RID: 11190
+	// Token: 0x04002E04 RID: 11780
 	private float cloudDensityDefault;
 
-	// Token: 0x04002BB7 RID: 11191
+	// Token: 0x04002E05 RID: 11781
 	private float atmosphereFogDefault;
 
-	// Token: 0x04002BB8 RID: 11192
+	// Token: 0x04002E06 RID: 11782
 	private float cloudBrightness;
 
-	// Token: 0x04002BB9 RID: 11193
+	// Token: 0x04002E07 RID: 11783
 	private float cloudDensity;
 
-	// Token: 0x04002BBA RID: 11194
+	// Token: 0x04002E08 RID: 11784
 	private float atmosphereFog;
 
-	// Token: 0x04002BBB RID: 11195
+	// Token: 0x04002E09 RID: 11785
 	private float cloudSharpness;
 
-	// Token: 0x04002BBC RID: 11196
-	private TOD_Sky sky;
+	// Token: 0x04002E0A RID: 11786
+	private global::TOD_Sky sky;
 
-	// Token: 0x0200083D RID: 2109
+	// Token: 0x02000932 RID: 2354
 	public enum CloudType
 	{
-		// Token: 0x04002BBE RID: 11198
+		// Token: 0x04002E0C RID: 11788
 		Custom,
-		// Token: 0x04002BBF RID: 11199
+		// Token: 0x04002E0D RID: 11789
 		None,
-		// Token: 0x04002BC0 RID: 11200
+		// Token: 0x04002E0E RID: 11790
 		Few,
-		// Token: 0x04002BC1 RID: 11201
+		// Token: 0x04002E0F RID: 11791
 		Scattered,
-		// Token: 0x04002BC2 RID: 11202
+		// Token: 0x04002E10 RID: 11792
 		Broken,
-		// Token: 0x04002BC3 RID: 11203
+		// Token: 0x04002E11 RID: 11793
 		Overcast
 	}
 
-	// Token: 0x0200083E RID: 2110
+	// Token: 0x02000933 RID: 2355
 	public enum WeatherType
 	{
-		// Token: 0x04002BC5 RID: 11205
+		// Token: 0x04002E13 RID: 11795
 		Custom,
-		// Token: 0x04002BC6 RID: 11206
+		// Token: 0x04002E14 RID: 11796
 		Clear,
-		// Token: 0x04002BC7 RID: 11207
+		// Token: 0x04002E15 RID: 11797
 		Storm,
-		// Token: 0x04002BC8 RID: 11208
+		// Token: 0x04002E16 RID: 11798
 		Dust,
-		// Token: 0x04002BC9 RID: 11209
+		// Token: 0x04002E17 RID: 11799
 		Fog
 	}
 }

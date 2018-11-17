@@ -1,30 +1,30 @@
 ﻿using System;
 
-// Token: 0x020003F5 RID: 1013
-public class notice : ConsoleSystem
+// Token: 0x020004A6 RID: 1190
+public class notice : global::ConsoleSystem
 {
-	// Token: 0x06002554 RID: 9556 RVA: 0x0008F538 File Offset: 0x0008D738
-	[ConsoleSystem.Client]
-	public static void popup(ref ConsoleSystem.Arg arg)
+	// Token: 0x060028CC RID: 10444 RVA: 0x00095370 File Offset: 0x00093570
+	[global::ConsoleSystem.Client]
+	public static void popup(ref global::ConsoleSystem.Arg arg)
 	{
 		float @float = arg.GetFloat(0, 2f);
 		string @string = arg.GetString(1, "!");
 		string string2 = arg.GetString(2, "This is the text");
-		PopupUI.singleton.CreateNotice(@float, @string, string2);
+		global::PopupUI.singleton.CreateNotice(@float, @string, string2);
 	}
 
-	// Token: 0x06002555 RID: 9557 RVA: 0x0008F57C File Offset: 0x0008D77C
-	[ConsoleSystem.Client]
-	public static void inventory(ref ConsoleSystem.Arg arg)
+	// Token: 0x060028CD RID: 10445 RVA: 0x000953B4 File Offset: 0x000935B4
+	[global::ConsoleSystem.Client]
+	public static void inventory(ref global::ConsoleSystem.Arg arg)
 	{
 		string @string = arg.GetString(0, "This is the text");
-		PopupUI.singleton.CreateInventory(@string);
+		global::PopupUI.singleton.CreateInventory(@string);
 	}
 
-	// Token: 0x06002556 RID: 9558 RVA: 0x0008F5A4 File Offset: 0x0008D7A4
-	[ConsoleSystem.Client]
-	public static void test(ref ConsoleSystem.Arg arg)
+	// Token: 0x060028CE RID: 10446 RVA: 0x000953DC File Offset: 0x000935DC
+	[global::ConsoleSystem.Client]
+	public static void test(ref global::ConsoleSystem.Arg arg)
 	{
-		PopupUI.singleton.StartCoroutine("DoTests");
+		global::PopupUI.singleton.StartCoroutine("DoTests");
 	}
 }

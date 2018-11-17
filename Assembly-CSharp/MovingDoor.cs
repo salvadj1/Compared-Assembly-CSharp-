@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000653 RID: 1619
-[NGCAutoAddScript]
-public class MovingDoor : BasicDoor
+// Token: 0x02000716 RID: 1814
+[global::NGCAutoAddScript]
+public class MovingDoor : global::BasicDoor
 {
-	// Token: 0x17000B16 RID: 2838
-	// (get) Token: 0x06003874 RID: 14452 RVA: 0x000CF1F0 File Offset: 0x000CD3F0
+	// Token: 0x17000B96 RID: 2966
+	// (get) Token: 0x06003C60 RID: 15456 RVA: 0x000D7AA0 File Offset: 0x000D5CA0
 	public Rigidbody rigidbody
 	{
 		get
@@ -20,7 +20,7 @@ public class MovingDoor : BasicDoor
 		}
 	}
 
-	// Token: 0x06003875 RID: 14453 RVA: 0x000CF224 File Offset: 0x000CD424
+	// Token: 0x06003C61 RID: 15457 RVA: 0x000D7AD4 File Offset: 0x000D5CD4
 	protected void UpdateMovement(double openFraction, out Vector3 localPosition, out Quaternion localRotation)
 	{
 		if (openFraction == 0.0)
@@ -59,7 +59,7 @@ public class MovingDoor : BasicDoor
 		localRotation = ((openFraction != 0.0) ? (this.originalLocalRotation * quaternion) : this.originalLocalRotation);
 	}
 
-	// Token: 0x06003876 RID: 14454 RVA: 0x000CF438 File Offset: 0x000CD638
+	// Token: 0x06003C62 RID: 15458 RVA: 0x000D7CE8 File Offset: 0x000D5EE8
 	protected void UpdateMovement(double openFraction)
 	{
 		Vector3 localPosition;
@@ -69,24 +69,24 @@ public class MovingDoor : BasicDoor
 		base.transform.localRotation = localRotation;
 	}
 
-	// Token: 0x06003877 RID: 14455 RVA: 0x000CF468 File Offset: 0x000CD668
+	// Token: 0x06003C63 RID: 15459 RVA: 0x000D7D18 File Offset: 0x000D5F18
 	protected override void OnDoorFraction(double fractionOpen)
 	{
 		this.UpdateMovement(fractionOpen);
 	}
 
-	// Token: 0x06003878 RID: 14456 RVA: 0x000CF474 File Offset: 0x000CD674
-	protected override BasicDoor.IdealSide IdealSideForPoint(Vector3 worldPoint)
+	// Token: 0x06003C64 RID: 15460 RVA: 0x000D7D24 File Offset: 0x000D5F24
+	protected override global::BasicDoor.IdealSide IdealSideForPoint(Vector3 worldPoint)
 	{
 		float num = Vector3.Dot(base.transform.InverseTransformPoint(worldPoint), Vector3.Cross(this.rotationCross, this.rotationAxis));
 		if (float.IsInfinity(num) || float.IsNaN(num) || Mathf.Approximately(0f, num))
 		{
-			return BasicDoor.IdealSide.Unknown;
+			return global::BasicDoor.IdealSide.Unknown;
 		}
-		return (num <= 0f) ? BasicDoor.IdealSide.Reverse : BasicDoor.IdealSide.Forward;
+		return (num <= 0f) ? global::BasicDoor.IdealSide.Reverse : global::BasicDoor.IdealSide.Forward;
 	}
 
-	// Token: 0x06003879 RID: 14457 RVA: 0x000CF4E0 File Offset: 0x000CD6E0
+	// Token: 0x06003C65 RID: 15461 RVA: 0x000D7D90 File Offset: 0x000D5F90
 	private static void DrawOpenGizmo(Vector3 closedPositionPivot, Vector3 rotationCross, Vector3 rotationAxis, float degrees, Vector3 openMovement, bool movementABS, bool rotationABS, bool rotationFirst, bool reversed)
 	{
 		Color color = Gizmos.color;
@@ -132,77 +132,77 @@ public class MovingDoor : BasicDoor
 		Gizmos.color = color;
 	}
 
-	// Token: 0x04001CB3 RID: 7347
+	// Token: 0x04001EA8 RID: 7848
 	private const float kFixedTimeElapsedMinimum = 1.5f;
 
-	// Token: 0x04001CB4 RID: 7348
+	// Token: 0x04001EA9 RID: 7849
 	[SerializeField]
 	protected Vector3 closedPositionPivot;
 
-	// Token: 0x04001CB5 RID: 7349
+	// Token: 0x04001EAA RID: 7850
 	[SerializeField]
 	protected Vector3 openMovement = Vector3.up;
 
-	// Token: 0x04001CB6 RID: 7350
+	// Token: 0x04001EAB RID: 7851
 	[SerializeField]
 	protected Vector3 rotationAxis = Vector3.up;
 
-	// Token: 0x04001CB7 RID: 7351
+	// Token: 0x04001EAC RID: 7852
 	[SerializeField]
 	protected Vector3 rotationCross = Vector3.right;
 
-	// Token: 0x04001CB8 RID: 7352
+	// Token: 0x04001EAD RID: 7853
 	[SerializeField]
 	protected float degrees;
 
-	// Token: 0x04001CB9 RID: 7353
+	// Token: 0x04001EAE RID: 7854
 	[SerializeField]
 	protected bool rotationFirst;
 
-	// Token: 0x04001CBA RID: 7354
+	// Token: 0x04001EAF RID: 7855
 	[SerializeField]
 	protected bool smooth;
 
-	// Token: 0x04001CBB RID: 7355
+	// Token: 0x04001EB0 RID: 7856
 	[SerializeField]
 	protected bool movementABS;
 
-	// Token: 0x04001CBC RID: 7356
+	// Token: 0x04001EB1 RID: 7857
 	[SerializeField]
 	protected bool rotationABS;
 
-	// Token: 0x04001CBD RID: 7357
+	// Token: 0x04001EB2 RID: 7858
 	[SerializeField]
 	protected bool slerpMovementByDegrees;
 
-	// Token: 0x04001CBE RID: 7358
+	// Token: 0x04001EB3 RID: 7859
 	[NonSerialized]
 	private Vector3 lastLocalPosition;
 
-	// Token: 0x04001CBF RID: 7359
+	// Token: 0x04001EB4 RID: 7860
 	[NonSerialized]
 	private Quaternion lastLocalRotation;
 
-	// Token: 0x04001CC0 RID: 7360
+	// Token: 0x04001EB5 RID: 7861
 	[NonSerialized]
 	private bool onceMoved;
 
-	// Token: 0x04001CC1 RID: 7361
+	// Token: 0x04001EB6 RID: 7862
 	[NonSerialized]
 	private int timesBoundKinematic;
 
-	// Token: 0x04001CC2 RID: 7362
+	// Token: 0x04001EB7 RID: 7863
 	[NonSerialized]
 	private float kinematicFrameStart;
 
-	// Token: 0x04001CC3 RID: 7363
+	// Token: 0x04001EB8 RID: 7864
 	[NonSerialized]
 	protected Rigidbody _rigidbody;
 
-	// Token: 0x04001CC4 RID: 7364
+	// Token: 0x04001EB9 RID: 7865
 	[NonSerialized]
 	protected bool _gotRigidbody;
 
-	// Token: 0x04001CC5 RID: 7365
+	// Token: 0x04001EBA RID: 7866
 	private Quaternion baseRot;
 }

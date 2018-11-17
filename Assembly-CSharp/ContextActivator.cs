@@ -2,22 +2,22 @@
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x02000461 RID: 1121
-public sealed class ContextActivator : MonoBehaviour, IContextRequestable, IContextRequestableQuick, IContextRequestableStatus, IContextRequestableText, IContextRequestablePointText, IComponentInterface<IContextRequestable, MonoBehaviour, Contextual>, IComponentInterface<IContextRequestable, MonoBehaviour>, IComponentInterface<IContextRequestable>
+// Token: 0x02000517 RID: 1303
+public sealed class ContextActivator : MonoBehaviour, global::IContextRequestable, global::IContextRequestableQuick, global::IContextRequestableStatus, global::IContextRequestableText, global::IContextRequestablePointText, global::IComponentInterface<global::IContextRequestable, MonoBehaviour, global::Contextual>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour>, global::IComponentInterface<global::IContextRequestable>
 {
-	// Token: 0x060028D4 RID: 10452 RVA: 0x000A0104 File Offset: 0x0009E304
-	bool IContextRequestablePointText.ContextTextPoint(out Vector3 worldPoint)
+	// Token: 0x06002C64 RID: 11364 RVA: 0x000A6084 File Offset: 0x000A4284
+	bool global::IContextRequestablePointText.ContextTextPoint(out Vector3 worldPoint)
 	{
 		if (this.useTextPoint)
 		{
-			if (!this.useSpriteTextPoint || !ContextRequestable.PointUtil.SpriteOrOrigin(this, out worldPoint))
+			if (!this.useSpriteTextPoint || !global::ContextRequestable.PointUtil.SpriteOrOrigin(this, out worldPoint))
 			{
 				if (this.isSwitch)
 				{
-					ActivationToggleState toggleState = this.toggleState;
-					if (toggleState != ActivationToggleState.On)
+					global::ActivationToggleState toggleState = this.toggleState;
+					if (toggleState != global::ActivationToggleState.On)
 					{
-						if (toggleState != ActivationToggleState.Off)
+						if (toggleState != global::ActivationToggleState.Off)
 						{
 							worldPoint = this.defaultTextPoint;
 						}
@@ -43,17 +43,17 @@ public sealed class ContextActivator : MonoBehaviour, IContextRequestable, ICont
 		return false;
 	}
 
-	// Token: 0x060028D5 RID: 10453 RVA: 0x000A01C8 File Offset: 0x0009E3C8
-	string IContextRequestableText.ContextText(Controllable localControllable)
+	// Token: 0x06002C65 RID: 11365 RVA: 0x000A6148 File Offset: 0x000A4348
+	string global::IContextRequestableText.ContextText(global::Controllable localControllable)
 	{
 		if (this.isSwitch)
 		{
-			ActivationToggleState toggleState = this.toggleState;
-			if (toggleState == ActivationToggleState.On)
+			global::ActivationToggleState toggleState = this.toggleState;
+			if (toggleState == global::ActivationToggleState.On)
 			{
 				return this.onText;
 			}
-			if (toggleState == ActivationToggleState.Off)
+			if (toggleState == global::ActivationToggleState.Off)
 			{
 				return this.offText;
 			}
@@ -61,16 +61,16 @@ public sealed class ContextActivator : MonoBehaviour, IContextRequestable, ICont
 		return this.defaultText;
 	}
 
-	// Token: 0x060028D6 RID: 10454 RVA: 0x000A0210 File Offset: 0x0009E410
-	ContextStatusFlags IContextRequestableStatus.ContextStatusPoll()
+	// Token: 0x06002C66 RID: 11366 RVA: 0x000A6190 File Offset: 0x000A4390
+	global::ContextStatusFlags global::IContextRequestableStatus.ContextStatusPoll()
 	{
-		ContextActivator.SpriteQuickMode spriteQuickMode;
+		global::ContextActivator.SpriteQuickMode spriteQuickMode;
 		if (this.isSwitch)
 		{
-			ActivationToggleState toggleState = this.toggleState;
-			if (toggleState != ActivationToggleState.On)
+			global::ActivationToggleState toggleState = this.toggleState;
+			if (toggleState != global::ActivationToggleState.On)
 			{
-				if (toggleState != ActivationToggleState.Off)
+				if (toggleState != global::ActivationToggleState.Off)
 				{
 					spriteQuickMode = this.defaultSprite;
 				}
@@ -90,41 +90,41 @@ public sealed class ContextActivator : MonoBehaviour, IContextRequestable, ICont
 		}
 		switch (spriteQuickMode)
 		{
-		case ContextActivator.SpriteQuickMode.Faded:
-			return ContextStatusFlags.SpriteFlag0;
-		case ContextActivator.SpriteQuickMode.AlwaysVisible:
-			return ContextStatusFlags.SpriteFlag0 | ContextStatusFlags.SpriteFlag1;
-		case ContextActivator.SpriteQuickMode.NeverVisisble:
-			return ContextStatusFlags.SpriteFlag1;
+		case global::ContextActivator.SpriteQuickMode.Faded:
+			return global::ContextStatusFlags.SpriteFlag0;
+		case global::ContextActivator.SpriteQuickMode.AlwaysVisible:
+			return global::ContextStatusFlags.SpriteFlag0 | global::ContextStatusFlags.SpriteFlag1;
+		case global::ContextActivator.SpriteQuickMode.NeverVisisble:
+			return global::ContextStatusFlags.SpriteFlag1;
 		default:
-			return (ContextStatusFlags)0;
+			return (global::ContextStatusFlags)0;
 		}
 	}
 
-	// Token: 0x1700094A RID: 2378
-	// (get) Token: 0x060028D7 RID: 10455 RVA: 0x000A02A0 File Offset: 0x0009E4A0
-	private ActivationToggleState toggleState
+	// Token: 0x170009B2 RID: 2482
+	// (get) Token: 0x06002C67 RID: 11367 RVA: 0x000A6220 File Offset: 0x000A4420
+	private global::ActivationToggleState toggleState
 	{
 		get
 		{
 			if (!this.mainAction)
 			{
-				return ActivationToggleState.Unspecified;
+				return global::ActivationToggleState.Unspecified;
 			}
 			return this.mainAction.toggleState;
 		}
 	}
 
-	// Token: 0x060028D8 RID: 10456 RVA: 0x000A02C0 File Offset: 0x0009E4C0
-	private ActivationResult ApplyActivatable(Activatable activatable, Character instigator, ulong timestamp, bool extra)
+	// Token: 0x06002C68 RID: 11368 RVA: 0x000A6240 File Offset: 0x000A4440
+	private global::ActivationResult ApplyActivatable(global::Activatable activatable, global::Character instigator, ulong timestamp, bool extra)
 	{
-		ActivationResult result;
+		global::ActivationResult result;
 		if (activatable)
 		{
-			ContextActivator.ActivationMode activationMode = this.activationMode;
-			if (activationMode != ContextActivator.ActivationMode.TurnOn)
+			global::ContextActivator.ActivationMode activationMode = this.activationMode;
+			if (activationMode != global::ContextActivator.ActivationMode.TurnOn)
 			{
-				if (activationMode != ContextActivator.ActivationMode.TurnOff)
+				if (activationMode != global::ContextActivator.ActivationMode.TurnOff)
 				{
 					result = activatable.Activate(instigator, timestamp);
 				}
@@ -140,95 +140,95 @@ public sealed class ContextActivator : MonoBehaviour, IContextRequestable, ICont
 		}
 		else
 		{
-			result = ActivationResult.Error_Destroyed;
+			result = global::ActivationResult.Error_Destroyed;
 		}
 		return result;
 	}
 
-	// Token: 0x040014BE RID: 5310
+	// Token: 0x04001641 RID: 5697
 	[SerializeField]
-	private Activatable mainAction;
+	private global::Activatable mainAction;
 
-	// Token: 0x040014BF RID: 5311
+	// Token: 0x04001642 RID: 5698
 	[SerializeField]
-	private ContextActivator.ActivationMode activationMode;
+	private global::ContextActivator.ActivationMode activationMode;
 
-	// Token: 0x040014C0 RID: 5312
+	// Token: 0x04001643 RID: 5699
 	[SerializeField]
-	private Activatable[] extraActions;
+	private global::Activatable[] extraActions;
 
-	// Token: 0x040014C1 RID: 5313
+	// Token: 0x04001644 RID: 5700
 	[SerializeField]
 	private string defaultText;
 
-	// Token: 0x040014C2 RID: 5314
+	// Token: 0x04001645 RID: 5701
 	[SerializeField]
 	private string onText;
 
-	// Token: 0x040014C3 RID: 5315
+	// Token: 0x04001646 RID: 5702
 	[SerializeField]
 	private string offText;
 
-	// Token: 0x040014C4 RID: 5316
+	// Token: 0x04001647 RID: 5703
 	[SerializeField]
 	private Vector3 defaultTextPoint;
 
-	// Token: 0x040014C5 RID: 5317
+	// Token: 0x04001648 RID: 5704
 	[SerializeField]
 	private Vector3 onTextPoint;
 
-	// Token: 0x040014C6 RID: 5318
+	// Token: 0x04001649 RID: 5705
 	[SerializeField]
 	private Vector3 offTextPoint;
 
-	// Token: 0x040014C7 RID: 5319
+	// Token: 0x0400164A RID: 5706
 	[SerializeField]
 	private bool useTextPoint;
 
-	// Token: 0x040014C8 RID: 5320
+	// Token: 0x0400164B RID: 5707
 	[SerializeField]
 	private bool useSpriteTextPoint;
 
-	// Token: 0x040014C9 RID: 5321
+	// Token: 0x0400164C RID: 5708
 	[SerializeField]
-	private ContextActivator.SpriteQuickMode defaultSprite;
+	private global::ContextActivator.SpriteQuickMode defaultSprite;
 
-	// Token: 0x040014CA RID: 5322
+	// Token: 0x0400164D RID: 5709
 	[SerializeField]
-	private ContextActivator.SpriteQuickMode onSprite;
+	private global::ContextActivator.SpriteQuickMode onSprite;
 
-	// Token: 0x040014CB RID: 5323
+	// Token: 0x0400164E RID: 5710
 	[SerializeField]
-	private ContextActivator.SpriteQuickMode offSprite;
+	private global::ContextActivator.SpriteQuickMode offSprite;
 
-	// Token: 0x040014CC RID: 5324
+	// Token: 0x0400164F RID: 5711
 	[SerializeField]
 	private bool isSwitch;
 
-	// Token: 0x040014CD RID: 5325
+	// Token: 0x04001650 RID: 5712
 	private bool isToggle;
 
-	// Token: 0x02000462 RID: 1122
+	// Token: 0x02000518 RID: 1304
 	private enum SpriteQuickMode
 	{
-		// Token: 0x040014CF RID: 5327
+		// Token: 0x04001652 RID: 5714
 		Default,
-		// Token: 0x040014D0 RID: 5328
+		// Token: 0x04001653 RID: 5715
 		Faded,
-		// Token: 0x040014D1 RID: 5329
+		// Token: 0x04001654 RID: 5716
 		AlwaysVisible,
-		// Token: 0x040014D2 RID: 5330
+		// Token: 0x04001655 RID: 5717
 		NeverVisisble
 	}
 
-	// Token: 0x02000463 RID: 1123
+	// Token: 0x02000519 RID: 1305
 	private enum ActivationMode
 	{
-		// Token: 0x040014D4 RID: 5332
+		// Token: 0x04001657 RID: 5719
 		ActivateOrToggle,
-		// Token: 0x040014D5 RID: 5333
+		// Token: 0x04001658 RID: 5720
 		TurnOn,
-		// Token: 0x040014D6 RID: 5334
+		// Token: 0x04001659 RID: 5721
 		TurnOff
 	}
 }

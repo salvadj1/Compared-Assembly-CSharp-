@@ -3,10 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace Facepunch.Utility
 {
-	// Token: 0x02000193 RID: 403
+	// Token: 0x020001C1 RID: 449
 	public static class String
 	{
-		// Token: 0x06000BF6 RID: 3062 RVA: 0x0002FF10 File Offset: 0x0002E110
+		// Token: 0x06000D2E RID: 3374 RVA: 0x00033DFC File Offset: 0x00031FFC
 		public static string[] SplitQuotesStrings(string input)
 		{
 			input = input.Replace("\\\"", "&qute;");
@@ -25,7 +25,7 @@ namespace Facepunch.Utility
 			return array;
 		}
 
-		// Token: 0x06000BF7 RID: 3063 RVA: 0x0002FFAC File Offset: 0x0002E1AC
+		// Token: 0x06000D2F RID: 3375 RVA: 0x00033E98 File Offset: 0x00032098
 		public static string QuoteSafe(string str)
 		{
 			str = str.Replace("\"", "\\\"");

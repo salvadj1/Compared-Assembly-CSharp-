@@ -4,55 +4,55 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000308 RID: 776
+// Token: 0x020003B0 RID: 944
 [StructLayout(LayoutKind.Explicit, Size = 4)]
-public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, IComparable<NetworkViewID>, IComparable<NetEntityID>
+public struct NetEntityID : IEquatable<uLink.NetworkViewID>, IEquatable<global::NetEntityID>, IComparable<uLink.NetworkViewID>, IComparable<global::NetEntityID>
 {
-	// Token: 0x06001DB0 RID: 7600 RVA: 0x00074F9C File Offset: 0x0007319C
-	public NetEntityID(NGCView view)
+	// Token: 0x060020EE RID: 8430 RVA: 0x00079A1C File Offset: 0x00077C1C
+	public NetEntityID(global::NGCView view)
 	{
-		this = default(NetEntityID);
+		this = default(global::NetEntityID);
 		if (view)
 		{
 			this.v = view.id;
 		}
 	}
 
-	// Token: 0x06001DB1 RID: 7601 RVA: 0x00074FD0 File Offset: 0x000731D0
-	public NetEntityID(NetworkView view)
+	// Token: 0x060020EF RID: 8431 RVA: 0x00079A50 File Offset: 0x00077C50
+	public NetEntityID(uLink.NetworkView view)
 	{
-		this = default(NetEntityID);
+		this = default(global::NetEntityID);
 		if (view)
 		{
 			this._viewID = view.viewID;
 		}
 	}
 
-	// Token: 0x06001DB2 RID: 7602 RVA: 0x00075004 File Offset: 0x00073204
-	public NetEntityID(NetworkViewID viewID)
+	// Token: 0x060020F0 RID: 8432 RVA: 0x00079A84 File Offset: 0x00077C84
+	public NetEntityID(uLink.NetworkViewID viewID)
 	{
-		this = default(NetEntityID);
+		this = default(global::NetEntityID);
 		this._viewID = viewID;
 	}
 
-	// Token: 0x06001DB3 RID: 7603 RVA: 0x00075028 File Offset: 0x00073228
+	// Token: 0x060020F1 RID: 8433 RVA: 0x00079AA8 File Offset: 0x00077CA8
 	static NetEntityID()
 	{
-		BitStreamCodec.AddAndMakeArray<NetEntityID>(NetEntityID.deserializer, NetEntityID.serializer);
+		BitStreamCodec.AddAndMakeArray<global::NetEntityID>(global::NetEntityID.deserializer, global::NetEntityID.serializer);
 	}
 
-	// Token: 0x17000771 RID: 1905
-	// (get) Token: 0x06001DB4 RID: 7604 RVA: 0x0007505C File Offset: 0x0007325C
+	// Token: 0x170007C7 RID: 1991
+	// (get) Token: 0x060020F2 RID: 8434 RVA: 0x00079ADC File Offset: 0x00077CDC
 	public bool isNet
 	{
 		get
 		{
-			return this.p1 == 0 && this._viewID != NetworkViewID.unassigned;
+			return this.p1 == 0 && this._viewID != uLink.NetworkViewID.unassigned;
 		}
 	}
 
-	// Token: 0x17000772 RID: 1906
-	// (get) Token: 0x06001DB5 RID: 7605 RVA: 0x0007507C File Offset: 0x0007327C
+	// Token: 0x170007C8 RID: 1992
+	// (get) Token: 0x060020F3 RID: 8435 RVA: 0x00079AFC File Offset: 0x00077CFC
 	public bool isNGC
 	{
 		get
@@ -61,8 +61,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000773 RID: 1907
-	// (get) Token: 0x06001DB6 RID: 7606 RVA: 0x0007508C File Offset: 0x0007328C
+	// Token: 0x170007C9 RID: 1993
+	// (get) Token: 0x060020F4 RID: 8436 RVA: 0x00079B0C File Offset: 0x00077D0C
 	public bool isUnassigned
 	{
 		get
@@ -71,8 +71,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000774 RID: 1908
-	// (get) Token: 0x06001DB7 RID: 7607 RVA: 0x00075098 File Offset: 0x00073298
+	// Token: 0x170007CA RID: 1994
+	// (get) Token: 0x060020F5 RID: 8437 RVA: 0x00079B18 File Offset: 0x00077D18
 	public bool isMine
 	{
 		get
@@ -81,8 +81,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000775 RID: 1909
-	// (get) Token: 0x06001DB8 RID: 7608 RVA: 0x000750B4 File Offset: 0x000732B4
+	// Token: 0x170007CB RID: 1995
+	// (get) Token: 0x060020F6 RID: 8438 RVA: 0x00079B34 File Offset: 0x00077D34
 	public bool isAllocated
 	{
 		get
@@ -91,8 +91,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000776 RID: 1910
-	// (get) Token: 0x06001DB9 RID: 7609 RVA: 0x000750D0 File Offset: 0x000732D0
+	// Token: 0x170007CC RID: 1996
+	// (get) Token: 0x060020F7 RID: 8439 RVA: 0x00079B50 File Offset: 0x00077D50
 	public bool isManual
 	{
 		get
@@ -101,8 +101,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000777 RID: 1911
-	// (get) Token: 0x06001DBA RID: 7610 RVA: 0x000750EC File Offset: 0x000732EC
+	// Token: 0x170007CD RID: 1997
+	// (get) Token: 0x060020F8 RID: 8440 RVA: 0x00079B6C File Offset: 0x00077D6C
 	public int id
 	{
 		get
@@ -111,9 +111,9 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000778 RID: 1912
-	// (get) Token: 0x06001DBB RID: 7611 RVA: 0x000750F4 File Offset: 0x000732F4
-	public NetworkPlayer owner
+	// Token: 0x170007CE RID: 1998
+	// (get) Token: 0x060020F9 RID: 8441 RVA: 0x00079B74 File Offset: 0x00077D74
+	public uLink.NetworkPlayer owner
 	{
 		get
 		{
@@ -121,29 +121,29 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 			{
 				return this._viewID.owner;
 			}
-			return NetworkPlayer.server;
+			return uLink.NetworkPlayer.server;
 		}
 	}
 
-	// Token: 0x06001DBC RID: 7612 RVA: 0x00075114 File Offset: 0x00073314
+	// Token: 0x060020FA RID: 8442 RVA: 0x00079B94 File Offset: 0x00077D94
 	public override bool Equals(object obj)
 	{
-		return (!(obj is NetEntityID)) ? (this.isNet && obj is NetworkViewID && this.Equals((NetworkViewID)obj)) : this.Equals((NetEntityID)obj);
+		return (!(obj is global::NetEntityID)) ? (this.isNet && obj is uLink.NetworkViewID && this.Equals((uLink.NetworkViewID)obj)) : this.Equals((global::NetEntityID)obj);
 	}
 
-	// Token: 0x06001DBD RID: 7613 RVA: 0x00075164 File Offset: 0x00073364
-	public bool Equals(NetEntityID obj)
+	// Token: 0x060020FB RID: 8443 RVA: 0x00079BE4 File Offset: 0x00077DE4
+	public bool Equals(global::NetEntityID obj)
 	{
 		return this.v == obj.v;
 	}
 
-	// Token: 0x06001DBE RID: 7614 RVA: 0x00075178 File Offset: 0x00073378
-	public bool Equals(NetworkViewID obj)
+	// Token: 0x060020FC RID: 8444 RVA: 0x00079BF8 File Offset: 0x00077DF8
+	public bool Equals(uLink.NetworkViewID obj)
 	{
 		return this.p1 == 0 && this._viewID == obj;
 	}
 
-	// Token: 0x06001DBF RID: 7615 RVA: 0x00075194 File Offset: 0x00073394
+	// Token: 0x060020FD RID: 8445 RVA: 0x00079C14 File Offset: 0x00077E14
 	public override string ToString()
 	{
 		if (this.v == 0)
@@ -157,18 +157,18 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		return string.Format("NGC ViewID {0} ({1}:{2})", this.v, this.p1, (int)(this.p2 + 1));
 	}
 
-	// Token: 0x17000779 RID: 1913
-	// (get) Token: 0x06001DC0 RID: 7616 RVA: 0x000751F8 File Offset: 0x000733F8
-	public static NetEntityID unassigned
+	// Token: 0x170007CF RID: 1999
+	// (get) Token: 0x060020FE RID: 8446 RVA: 0x00079C78 File Offset: 0x00077E78
+	public static global::NetEntityID unassigned
 	{
 		get
 		{
-			return default(NetEntityID);
+			return default(global::NetEntityID);
 		}
 	}
 
-	// Token: 0x1700077A RID: 1914
-	// (get) Token: 0x06001DC1 RID: 7617 RVA: 0x00075210 File Offset: 0x00073410
+	// Token: 0x170007D0 RID: 2000
+	// (get) Token: 0x060020FF RID: 8447 RVA: 0x00079C90 File Offset: 0x00077E90
 	public IDMain main
 	{
 		get
@@ -179,7 +179,7 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 				{
 					return null;
 				}
-				NetworkView networkView = NetworkView.Find(this._viewID);
+				Facepunch.NetworkView networkView = Facepunch.NetworkView.Find(this._viewID);
 				if (!networkView)
 				{
 					return null;
@@ -193,7 +193,7 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 			}
 			else
 			{
-				NGCView ngcview = NGC.Find(this.v);
+				global::NGCView ngcview = global::NGC.Find(this.v);
 				if (ngcview)
 				{
 					return IDBase.GetMain(ngcview.gameObject);
@@ -203,8 +203,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x1700077B RID: 1915
-	// (get) Token: 0x06001DC2 RID: 7618 RVA: 0x00075290 File Offset: 0x00073490
+	// Token: 0x170007D1 RID: 2001
+	// (get) Token: 0x06002100 RID: 8448 RVA: 0x00079D10 File Offset: 0x00077F10
 	public IDBase idBase
 	{
 		get
@@ -215,7 +215,7 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 				{
 					return null;
 				}
-				NetworkView networkView = NetworkView.Find(this._viewID);
+				Facepunch.NetworkView networkView = Facepunch.NetworkView.Find(this._viewID);
 				if (networkView)
 				{
 					return IDBase.Get(networkView);
@@ -224,7 +224,7 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 			}
 			else
 			{
-				NGCView ngcview = NGC.Find(this.v);
+				global::NGCView ngcview = global::NGC.Find(this.v);
 				if (ngcview)
 				{
 					return IDBase.Get(ngcview.gameObject);
@@ -234,23 +234,23 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x1700077C RID: 1916
-	// (get) Token: 0x06001DC3 RID: 7619 RVA: 0x000752FC File Offset: 0x000734FC
-	public NetworkView networkView
+	// Token: 0x170007D2 RID: 2002
+	// (get) Token: 0x06002101 RID: 8449 RVA: 0x00079D7C File Offset: 0x00077F7C
+	public Facepunch.NetworkView networkView
 	{
 		get
 		{
 			if (this.p1 == 0)
 			{
-				return NetworkView.Find(this._viewID);
+				return Facepunch.NetworkView.Find(this._viewID);
 			}
 			return null;
 		}
 	}
 
-	// Token: 0x1700077D RID: 1917
-	// (get) Token: 0x06001DC4 RID: 7620 RVA: 0x00075318 File Offset: 0x00073518
-	public NGCView ngcView
+	// Token: 0x170007D3 RID: 2003
+	// (get) Token: 0x06002102 RID: 8450 RVA: 0x00079D98 File Offset: 0x00077F98
+	public global::NGCView ngcView
 	{
 		get
 		{
@@ -258,12 +258,12 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 			{
 				return null;
 			}
-			return NGC.Find(this.v);
+			return global::NGC.Find(this.v);
 		}
 	}
 
-	// Token: 0x1700077E RID: 1918
-	// (get) Token: 0x06001DC5 RID: 7621 RVA: 0x00075334 File Offset: 0x00073534
+	// Token: 0x170007D4 RID: 2004
+	// (get) Token: 0x06002103 RID: 8451 RVA: 0x00079DB4 File Offset: 0x00077FB4
 	public GameObject gameObject
 	{
 		get
@@ -273,50 +273,50 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x1700077F RID: 1919
-	// (get) Token: 0x06001DC6 RID: 7622 RVA: 0x00075360 File Offset: 0x00073560
+	// Token: 0x170007D5 RID: 2005
+	// (get) Token: 0x06002104 RID: 8452 RVA: 0x00079DE0 File Offset: 0x00077FE0
 	public MonoBehaviour view
 	{
 		get
 		{
 			if (this.p1 != 0)
 			{
-				return NGC.Find(this.v);
+				return global::NGC.Find(this.v);
 			}
 			if (this.p2 == 0)
 			{
 				return null;
 			}
-			return NetworkView.Find(this._viewID);
+			return Facepunch.NetworkView.Find(this._viewID);
 		}
 	}
 
-	// Token: 0x06001DC7 RID: 7623 RVA: 0x00075394 File Offset: 0x00073594
+	// Token: 0x06002105 RID: 8453 RVA: 0x00079E14 File Offset: 0x00078014
 	public override int GetHashCode()
 	{
 		return (this.p1 != 0) ? (this.v ^ -65536) : this.p2.GetHashCode();
 	}
 
-	// Token: 0x06001DC8 RID: 7624 RVA: 0x000753C0 File Offset: 0x000735C0
-	public int CompareTo(NetEntityID other)
+	// Token: 0x06002106 RID: 8454 RVA: 0x00079E40 File Offset: 0x00078040
+	public int CompareTo(global::NetEntityID other)
 	{
 		return this.v.CompareTo(other.v);
 	}
 
-	// Token: 0x06001DC9 RID: 7625 RVA: 0x000753D4 File Offset: 0x000735D4
-	public int CompareTo(NetworkViewID other)
+	// Token: 0x06002107 RID: 8455 RVA: 0x00079E54 File Offset: 0x00078054
+	public int CompareTo(uLink.NetworkViewID other)
 	{
 		return this.v.CompareTo(other.id);
 	}
 
-	// Token: 0x06001DCA RID: 7626 RVA: 0x000753E8 File Offset: 0x000735E8
+	// Token: 0x06002108 RID: 8456 RVA: 0x00079E68 File Offset: 0x00078068
 	private static void Serializer(BitStream bs, object value, params object[] codecOptions)
 	{
-		NetEntityID netEntityID = (NetEntityID)value;
+		global::NetEntityID netEntityID = (global::NetEntityID)value;
 		bs.Write<ushort>(netEntityID.p1, codecOptions);
 		if (netEntityID.p1 == 0)
 		{
-			bs.Write<NetworkViewID>(netEntityID._viewID, codecOptions);
+			bs.Write<uLink.NetworkViewID>(netEntityID._viewID, codecOptions);
 		}
 		else
 		{
@@ -324,14 +324,14 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x06001DCB RID: 7627 RVA: 0x0007543C File Offset: 0x0007363C
+	// Token: 0x06002109 RID: 8457 RVA: 0x00079EBC File Offset: 0x000780BC
 	private static object Deserializer(BitStream bs, params object[] codecOptions)
 	{
-		NetEntityID netEntityID = default(NetEntityID);
+		global::NetEntityID netEntityID = default(global::NetEntityID);
 		netEntityID.p1 = bs.Read<ushort>(codecOptions);
 		if (netEntityID.p1 == 0)
 		{
-			netEntityID._viewID = bs.Read<NetworkViewID>(codecOptions);
+			netEntityID._viewID = bs.Read<uLink.NetworkViewID>(codecOptions);
 		}
 		else
 		{
@@ -340,148 +340,148 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		return netEntityID;
 	}
 
-	// Token: 0x06001DCC RID: 7628 RVA: 0x00075494 File Offset: 0x00073694
-	public static NetEntityID.Kind Of(Component component, out NetEntityID entID, out MonoBehaviour view)
+	// Token: 0x0600210A RID: 8458 RVA: 0x00079F14 File Offset: 0x00078114
+	public static global::NetEntityID.Kind Of(Component component, out global::NetEntityID entID, out MonoBehaviour view)
 	{
 		if (component is MonoBehaviour)
 		{
-			return NetEntityID.Of((MonoBehaviour)component, out entID, out view);
+			return global::NetEntityID.Of((MonoBehaviour)component, out entID, out view);
 		}
 		if (component)
 		{
-			return NetEntityID.Of(component.gameObject, out entID, out view);
+			return global::NetEntityID.Of(component.gameObject, out entID, out view);
 		}
-		entID = NetEntityID.unassigned;
+		entID = global::NetEntityID.unassigned;
 		view = null;
-		return NetEntityID.Kind.Missing;
+		return global::NetEntityID.Kind.Missing;
 	}
 
-	// Token: 0x06001DCD RID: 7629 RVA: 0x000754E4 File Offset: 0x000736E4
-	public static NetEntityID.Kind Of(Component component, out NetEntityID entID)
+	// Token: 0x0600210B RID: 8459 RVA: 0x00079F64 File Offset: 0x00078164
+	public static global::NetEntityID.Kind Of(Component component, out global::NetEntityID entID)
 	{
 		MonoBehaviour monoBehaviour;
-		return NetEntityID.Of(component, out entID, out monoBehaviour);
+		return global::NetEntityID.Of(component, out entID, out monoBehaviour);
 	}
 
-	// Token: 0x06001DCE RID: 7630 RVA: 0x000754FC File Offset: 0x000736FC
-	public static NetEntityID.Kind Of(Component component, out MonoBehaviour view)
+	// Token: 0x0600210C RID: 8460 RVA: 0x00079F7C File Offset: 0x0007817C
+	public static global::NetEntityID.Kind Of(Component component, out MonoBehaviour view)
 	{
-		NetEntityID netEntityID;
-		return NetEntityID.Of(component, out netEntityID, out view);
+		global::NetEntityID netEntityID;
+		return global::NetEntityID.Of(component, out netEntityID, out view);
 	}
 
-	// Token: 0x06001DCF RID: 7631 RVA: 0x00075514 File Offset: 0x00073714
-	public static NetEntityID.Kind Of(Component component)
+	// Token: 0x0600210D RID: 8461 RVA: 0x00079F94 File Offset: 0x00078194
+	public static global::NetEntityID.Kind Of(Component component)
 	{
-		NetEntityID netEntityID;
+		global::NetEntityID netEntityID;
 		MonoBehaviour monoBehaviour;
-		return NetEntityID.Of(component, out netEntityID, out monoBehaviour);
+		return global::NetEntityID.Of(component, out netEntityID, out monoBehaviour);
 	}
 
-	// Token: 0x06001DD0 RID: 7632 RVA: 0x0007552C File Offset: 0x0007372C
-	public static NetEntityID.Kind Of(MonoBehaviour script, out NetEntityID entID, out MonoBehaviour view)
+	// Token: 0x0600210E RID: 8462 RVA: 0x00079FAC File Offset: 0x000781AC
+	public static global::NetEntityID.Kind Of(MonoBehaviour script, out global::NetEntityID entID, out MonoBehaviour view)
 	{
 		if (!script)
 		{
-			entID = NetEntityID.unassigned;
+			entID = global::NetEntityID.unassigned;
 			view = null;
-			return NetEntityID.Kind.Missing;
+			return global::NetEntityID.Kind.Missing;
 		}
-		if (script is NetworkView)
+		if (script is uLink.NetworkView)
 		{
 			view = script;
-			entID = ((NetworkView)script).viewID;
-			return NetEntityID.Kind.Net;
+			entID = ((uLink.NetworkView)script).viewID;
+			return global::NetEntityID.Kind.Net;
 		}
-		if (script is NGCView)
+		if (script is global::NGCView)
 		{
 			view = script;
-			entID = new NetEntityID((NGCView)script);
-			return NetEntityID.Kind.NGC;
+			entID = new global::NetEntityID((global::NGCView)script);
+			return global::NetEntityID.Kind.NGC;
 		}
-		return NetEntityID.Of(script.gameObject, out entID, out view);
+		return global::NetEntityID.Of(script.gameObject, out entID, out view);
 	}
 
-	// Token: 0x06001DD1 RID: 7633 RVA: 0x000755A4 File Offset: 0x000737A4
-	public static NetEntityID.Kind Of(MonoBehaviour script, out NetEntityID entID)
+	// Token: 0x0600210F RID: 8463 RVA: 0x0007A024 File Offset: 0x00078224
+	public static global::NetEntityID.Kind Of(MonoBehaviour script, out global::NetEntityID entID)
 	{
 		MonoBehaviour monoBehaviour;
-		return NetEntityID.Of(script, out entID, out monoBehaviour);
+		return global::NetEntityID.Of(script, out entID, out monoBehaviour);
 	}
 
-	// Token: 0x06001DD2 RID: 7634 RVA: 0x000755BC File Offset: 0x000737BC
-	public static NetEntityID.Kind Of(MonoBehaviour script, out MonoBehaviour view)
+	// Token: 0x06002110 RID: 8464 RVA: 0x0007A03C File Offset: 0x0007823C
+	public static global::NetEntityID.Kind Of(MonoBehaviour script, out MonoBehaviour view)
 	{
-		NetEntityID netEntityID;
-		return NetEntityID.Of(script, out netEntityID, out view);
+		global::NetEntityID netEntityID;
+		return global::NetEntityID.Of(script, out netEntityID, out view);
 	}
 
-	// Token: 0x06001DD3 RID: 7635 RVA: 0x000755D4 File Offset: 0x000737D4
-	public static NetEntityID.Kind Of(MonoBehaviour script)
+	// Token: 0x06002111 RID: 8465 RVA: 0x0007A054 File Offset: 0x00078254
+	public static global::NetEntityID.Kind Of(MonoBehaviour script)
 	{
-		NetEntityID netEntityID;
+		global::NetEntityID netEntityID;
 		MonoBehaviour monoBehaviour;
-		return NetEntityID.Of(script, out netEntityID, out monoBehaviour);
+		return global::NetEntityID.Of(script, out netEntityID, out monoBehaviour);
 	}
 
-	// Token: 0x06001DD4 RID: 7636 RVA: 0x000755EC File Offset: 0x000737EC
-	public static NetEntityID.Kind Of(GameObject entity)
+	// Token: 0x06002112 RID: 8466 RVA: 0x0007A06C File Offset: 0x0007826C
+	public static global::NetEntityID.Kind Of(GameObject entity)
 	{
-		NetEntityID netEntityID;
+		global::NetEntityID netEntityID;
 		MonoBehaviour monoBehaviour;
-		return NetEntityID.Of(entity, out netEntityID, out monoBehaviour);
+		return global::NetEntityID.Of(entity, out netEntityID, out monoBehaviour);
 	}
 
-	// Token: 0x06001DD5 RID: 7637 RVA: 0x00075604 File Offset: 0x00073804
-	public static NetEntityID.Kind Of(GameObject entity, out MonoBehaviour view)
+	// Token: 0x06002113 RID: 8467 RVA: 0x0007A084 File Offset: 0x00078284
+	public static global::NetEntityID.Kind Of(GameObject entity, out MonoBehaviour view)
 	{
-		NetEntityID netEntityID;
-		return NetEntityID.Of(entity, out netEntityID, out view);
+		global::NetEntityID netEntityID;
+		return global::NetEntityID.Of(entity, out netEntityID, out view);
 	}
 
-	// Token: 0x06001DD6 RID: 7638 RVA: 0x0007561C File Offset: 0x0007381C
-	public static NetEntityID.Kind Of(GameObject entity, out NetEntityID entID)
+	// Token: 0x06002114 RID: 8468 RVA: 0x0007A09C File Offset: 0x0007829C
+	public static global::NetEntityID.Kind Of(GameObject entity, out global::NetEntityID entID)
 	{
 		MonoBehaviour monoBehaviour;
-		return NetEntityID.Of(entity, out entID, out monoBehaviour);
+		return global::NetEntityID.Of(entity, out entID, out monoBehaviour);
 	}
 
-	// Token: 0x06001DD7 RID: 7639 RVA: 0x00075634 File Offset: 0x00073834
-	public static NetEntityID.Kind Of(GameObject entity, out NetEntityID entID, out MonoBehaviour view)
+	// Token: 0x06002115 RID: 8469 RVA: 0x0007A0B4 File Offset: 0x000782B4
+	public static global::NetEntityID.Kind Of(GameObject entity, out global::NetEntityID entID, out MonoBehaviour view)
 	{
 		if (!entity)
 		{
-			entID = NetEntityID.unassigned;
+			entID = global::NetEntityID.unassigned;
 			view = null;
-			return NetEntityID.Kind.Missing;
+			return global::NetEntityID.Kind.Missing;
 		}
-		NetworkView component = entity.GetComponent<NetworkView>();
+		uLink.NetworkView component = entity.GetComponent<uLink.NetworkView>();
 		if (component)
 		{
-			entID = new NetEntityID(component.viewID);
+			entID = new global::NetEntityID(component.viewID);
 			view = component;
-			return NetEntityID.Kind.Net;
+			return global::NetEntityID.Kind.Net;
 		}
-		NGCView component2 = entity.GetComponent<NGCView>();
+		global::NGCView component2 = entity.GetComponent<global::NGCView>();
 		if (component2)
 		{
-			entID = new NetEntityID(component2);
+			entID = new global::NetEntityID(component2);
 			view = component2;
-			return NetEntityID.Kind.NGC;
+			return global::NetEntityID.Kind.NGC;
 		}
-		entID = NetEntityID.unassigned;
+		entID = global::NetEntityID.unassigned;
 		view = null;
-		return NetEntityID.Kind.Missing;
+		return global::NetEntityID.Kind.Missing;
 	}
 
-	// Token: 0x06001DD8 RID: 7640 RVA: 0x000756AC File Offset: 0x000738AC
+	// Token: 0x06002116 RID: 8470 RVA: 0x0007A12C File Offset: 0x0007832C
 	public TComponent GetComponent<TComponent>() where TComponent : Component
 	{
 		MonoBehaviour view = this.view;
 		return (!view) ? ((TComponent)((object)null)) : view.GetComponent<TComponent>();
 	}
 
-	// Token: 0x06001DD9 RID: 7641 RVA: 0x000756DC File Offset: 0x000738DC
+	// Token: 0x06002117 RID: 8471 RVA: 0x0007A15C File Offset: 0x0007835C
 	public bool GetComponent<TComponent>(out TComponent component) where TComponent : Component
 	{
 		MonoBehaviour view = this.view;
@@ -498,8 +498,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		return component = view.GetComponent<TComponent>();
 	}
 
-	// Token: 0x17000780 RID: 1920
-	// (get) Token: 0x06001DDA RID: 7642 RVA: 0x0007573C File Offset: 0x0007393C
+	// Token: 0x170007D6 RID: 2006
+	// (get) Token: 0x06002118 RID: 8472 RVA: 0x0007A1BC File Offset: 0x000783BC
 	public Collider collider
 	{
 		get
@@ -509,8 +509,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000781 RID: 1921
-	// (get) Token: 0x06001DDB RID: 7643 RVA: 0x00075768 File Offset: 0x00073968
+	// Token: 0x170007D7 RID: 2007
+	// (get) Token: 0x06002119 RID: 8473 RVA: 0x0007A1E8 File Offset: 0x000783E8
 	public Renderer renderer
 	{
 		get
@@ -520,8 +520,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000782 RID: 1922
-	// (get) Token: 0x06001DDC RID: 7644 RVA: 0x00075794 File Offset: 0x00073994
+	// Token: 0x170007D8 RID: 2008
+	// (get) Token: 0x0600211A RID: 8474 RVA: 0x0007A214 File Offset: 0x00078414
 	public Transform transform
 	{
 		get
@@ -531,8 +531,8 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x17000783 RID: 1923
-	// (get) Token: 0x06001DDD RID: 7645 RVA: 0x000757C0 File Offset: 0x000739C0
+	// Token: 0x170007D9 RID: 2009
+	// (get) Token: 0x0600211B RID: 8475 RVA: 0x0007A240 File Offset: 0x00078440
 	public Rigidbody rigidbody
 	{
 		get
@@ -542,17 +542,17 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		}
 	}
 
-	// Token: 0x06001DDE RID: 7646 RVA: 0x000757EC File Offset: 0x000739EC
-	public static NetEntityID Get(GameObject entity)
+	// Token: 0x0600211C RID: 8476 RVA: 0x0007A26C File Offset: 0x0007846C
+	public static global::NetEntityID Get(GameObject entity)
 	{
-		return NetEntityID.Get(entity, false);
+		return global::NetEntityID.Get(entity, false);
 	}
 
-	// Token: 0x06001DDF RID: 7647 RVA: 0x000757F8 File Offset: 0x000739F8
-	public static NetEntityID Get(GameObject entity, bool throwIfNotFound)
+	// Token: 0x0600211D RID: 8477 RVA: 0x0007A278 File Offset: 0x00078478
+	public static global::NetEntityID Get(GameObject entity, bool throwIfNotFound)
 	{
-		NetEntityID result;
-		if ((int)NetEntityID.Of(entity, out result) != 0)
+		global::NetEntityID result;
+		if ((int)global::NetEntityID.Of(entity, out result) != 0)
 		{
 			return result;
 		}
@@ -560,20 +560,20 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		{
 			throw new InvalidOperationException("no recognizable net entity id");
 		}
-		return NetEntityID.unassigned;
+		return global::NetEntityID.unassigned;
 	}
 
-	// Token: 0x06001DE0 RID: 7648 RVA: 0x0007582C File Offset: 0x00073A2C
-	public static NetEntityID Get(Component entityComponent)
+	// Token: 0x0600211E RID: 8478 RVA: 0x0007A2AC File Offset: 0x000784AC
+	public static global::NetEntityID Get(Component entityComponent)
 	{
-		return NetEntityID.Get(entityComponent, false);
+		return global::NetEntityID.Get(entityComponent, false);
 	}
 
-	// Token: 0x06001DE1 RID: 7649 RVA: 0x00075838 File Offset: 0x00073A38
-	public static NetEntityID Get(Component entityComponent, bool throwIfNotFound)
+	// Token: 0x0600211F RID: 8479 RVA: 0x0007A2B8 File Offset: 0x000784B8
+	public static global::NetEntityID Get(Component entityComponent, bool throwIfNotFound)
 	{
-		NetEntityID result;
-		if ((int)NetEntityID.Of(entityComponent, out result) != 0)
+		global::NetEntityID result;
+		if ((int)global::NetEntityID.Of(entityComponent, out result) != 0)
 		{
 			return result;
 		}
@@ -581,20 +581,20 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		{
 			throw new InvalidOperationException("no recognizable net entity id");
 		}
-		return NetEntityID.unassigned;
+		return global::NetEntityID.unassigned;
 	}
 
-	// Token: 0x06001DE2 RID: 7650 RVA: 0x0007586C File Offset: 0x00073A6C
-	public static NetEntityID Get(MonoBehaviour entityScript)
+	// Token: 0x06002120 RID: 8480 RVA: 0x0007A2EC File Offset: 0x000784EC
+	public static global::NetEntityID Get(MonoBehaviour entityScript)
 	{
-		return NetEntityID.Get(entityScript, false);
+		return global::NetEntityID.Get(entityScript, false);
 	}
 
-	// Token: 0x06001DE3 RID: 7651 RVA: 0x00075878 File Offset: 0x00073A78
-	public static NetEntityID Get(MonoBehaviour entityScript, bool throwIfNotFound)
+	// Token: 0x06002121 RID: 8481 RVA: 0x0007A2F8 File Offset: 0x000784F8
+	public static global::NetEntityID Get(MonoBehaviour entityScript, bool throwIfNotFound)
 	{
-		NetEntityID result;
-		if ((int)NetEntityID.Of(entityScript, out result) != 0)
+		global::NetEntityID result;
+		if ((int)global::NetEntityID.Of(entityScript, out result) != 0)
 		{
 			return result;
 		}
@@ -602,134 +602,134 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		{
 			throw new InvalidOperationException("no recognizable net entity id");
 		}
-		return NetEntityID.unassigned;
+		return global::NetEntityID.unassigned;
 	}
 
-	// Token: 0x06001DE4 RID: 7652 RVA: 0x000758AC File Offset: 0x00073AAC
-	public static NetEntityID Get(NetworkViewID id)
+	// Token: 0x06002122 RID: 8482 RVA: 0x0007A32C File Offset: 0x0007852C
+	public static global::NetEntityID Get(uLink.NetworkViewID id)
 	{
-		return new NetEntityID(id);
+		return new global::NetEntityID(id);
 	}
 
-	// Token: 0x06001DE5 RID: 7653 RVA: 0x000758B4 File Offset: 0x00073AB4
-	public static bool operator ==(NetEntityID lhs, NetEntityID rhs)
+	// Token: 0x06002123 RID: 8483 RVA: 0x0007A334 File Offset: 0x00078534
+	public static bool operator ==(global::NetEntityID lhs, global::NetEntityID rhs)
 	{
 		return lhs.v == rhs.v;
 	}
 
-	// Token: 0x06001DE6 RID: 7654 RVA: 0x000758C8 File Offset: 0x00073AC8
-	public static bool operator !=(NetEntityID lhs, NetEntityID rhs)
+	// Token: 0x06002124 RID: 8484 RVA: 0x0007A348 File Offset: 0x00078548
+	public static bool operator !=(global::NetEntityID lhs, global::NetEntityID rhs)
 	{
 		return lhs.v != rhs.v;
 	}
 
-	// Token: 0x06001DE7 RID: 7655 RVA: 0x000758E0 File Offset: 0x00073AE0
-	public static bool operator ==(NetEntityID lhs, NetworkViewID rhs)
+	// Token: 0x06002125 RID: 8485 RVA: 0x0007A360 File Offset: 0x00078560
+	public static bool operator ==(global::NetEntityID lhs, uLink.NetworkViewID rhs)
 	{
 		return lhs.p1 == 0 && (int)lhs.p2 == rhs.id;
 	}
 
-	// Token: 0x06001DE8 RID: 7656 RVA: 0x00075904 File Offset: 0x00073B04
-	public static bool operator !=(NetEntityID lhs, NetworkViewID rhs)
+	// Token: 0x06002126 RID: 8486 RVA: 0x0007A384 File Offset: 0x00078584
+	public static bool operator !=(global::NetEntityID lhs, uLink.NetworkViewID rhs)
 	{
 		return lhs.p1 != 0 || (int)lhs.p2 != rhs.id;
 	}
 
-	// Token: 0x06001DE9 RID: 7657 RVA: 0x00075934 File Offset: 0x00073B34
-	public static bool operator ==(NetworkViewID lhs, NetEntityID rhs)
+	// Token: 0x06002127 RID: 8487 RVA: 0x0007A3B4 File Offset: 0x000785B4
+	public static bool operator ==(uLink.NetworkViewID lhs, global::NetEntityID rhs)
 	{
 		return rhs.p1 == 0 && (int)rhs.p2 == lhs.id;
 	}
 
-	// Token: 0x06001DEA RID: 7658 RVA: 0x00075958 File Offset: 0x00073B58
-	public static bool operator !=(NetworkViewID lhs, NetEntityID rhs)
+	// Token: 0x06002128 RID: 8488 RVA: 0x0007A3D8 File Offset: 0x000785D8
+	public static bool operator !=(uLink.NetworkViewID lhs, global::NetEntityID rhs)
 	{
 		return rhs.p1 != 0 || (int)rhs.p2 != lhs.id;
 	}
 
-	// Token: 0x06001DEB RID: 7659 RVA: 0x00075988 File Offset: 0x00073B88
-	public static bool operator >=(NetEntityID lhs, NetEntityID rhs)
+	// Token: 0x06002129 RID: 8489 RVA: 0x0007A408 File Offset: 0x00078608
+	public static bool operator >=(global::NetEntityID lhs, global::NetEntityID rhs)
 	{
 		return lhs.v >= rhs.v;
 	}
 
-	// Token: 0x06001DEC RID: 7660 RVA: 0x000759A0 File Offset: 0x00073BA0
-	public static bool operator >=(NetEntityID lhs, NetworkViewID rhs)
+	// Token: 0x0600212A RID: 8490 RVA: 0x0007A420 File Offset: 0x00078620
+	public static bool operator >=(global::NetEntityID lhs, uLink.NetworkViewID rhs)
 	{
 		return lhs.v >= rhs.id;
 	}
 
-	// Token: 0x06001DED RID: 7661 RVA: 0x000759B8 File Offset: 0x00073BB8
-	public static bool operator >=(NetworkViewID lhs, NetEntityID rhs)
+	// Token: 0x0600212B RID: 8491 RVA: 0x0007A438 File Offset: 0x00078638
+	public static bool operator >=(uLink.NetworkViewID lhs, global::NetEntityID rhs)
 	{
 		return lhs.id >= rhs.v;
 	}
 
-	// Token: 0x06001DEE RID: 7662 RVA: 0x000759D0 File Offset: 0x00073BD0
-	public static bool operator <=(NetEntityID lhs, NetEntityID rhs)
+	// Token: 0x0600212C RID: 8492 RVA: 0x0007A450 File Offset: 0x00078650
+	public static bool operator <=(global::NetEntityID lhs, global::NetEntityID rhs)
 	{
 		return lhs.v <= rhs.v;
 	}
 
-	// Token: 0x06001DEF RID: 7663 RVA: 0x000759E8 File Offset: 0x00073BE8
-	public static bool operator <=(NetEntityID lhs, NetworkViewID rhs)
+	// Token: 0x0600212D RID: 8493 RVA: 0x0007A468 File Offset: 0x00078668
+	public static bool operator <=(global::NetEntityID lhs, uLink.NetworkViewID rhs)
 	{
 		return lhs.v <= rhs.id;
 	}
 
-	// Token: 0x06001DF0 RID: 7664 RVA: 0x00075A00 File Offset: 0x00073C00
-	public static bool operator <=(NetworkViewID lhs, NetEntityID rhs)
+	// Token: 0x0600212E RID: 8494 RVA: 0x0007A480 File Offset: 0x00078680
+	public static bool operator <=(uLink.NetworkViewID lhs, global::NetEntityID rhs)
 	{
 		return lhs.id <= rhs.v;
 	}
 
-	// Token: 0x06001DF1 RID: 7665 RVA: 0x00075A18 File Offset: 0x00073C18
-	public static bool operator >(NetEntityID lhs, NetEntityID rhs)
+	// Token: 0x0600212F RID: 8495 RVA: 0x0007A498 File Offset: 0x00078698
+	public static bool operator >(global::NetEntityID lhs, global::NetEntityID rhs)
 	{
 		return lhs.v > rhs.v;
 	}
 
-	// Token: 0x06001DF2 RID: 7666 RVA: 0x00075A2C File Offset: 0x00073C2C
-	public static bool operator >(NetEntityID lhs, NetworkViewID rhs)
+	// Token: 0x06002130 RID: 8496 RVA: 0x0007A4AC File Offset: 0x000786AC
+	public static bool operator >(global::NetEntityID lhs, uLink.NetworkViewID rhs)
 	{
 		return lhs.v > rhs.id;
 	}
 
-	// Token: 0x06001DF3 RID: 7667 RVA: 0x00075A40 File Offset: 0x00073C40
-	public static bool operator >(NetworkViewID lhs, NetEntityID rhs)
+	// Token: 0x06002131 RID: 8497 RVA: 0x0007A4C0 File Offset: 0x000786C0
+	public static bool operator >(uLink.NetworkViewID lhs, global::NetEntityID rhs)
 	{
 		return lhs.id > rhs.v;
 	}
 
-	// Token: 0x06001DF4 RID: 7668 RVA: 0x00075A54 File Offset: 0x00073C54
-	public static bool operator <(NetEntityID lhs, NetEntityID rhs)
+	// Token: 0x06002132 RID: 8498 RVA: 0x0007A4D4 File Offset: 0x000786D4
+	public static bool operator <(global::NetEntityID lhs, global::NetEntityID rhs)
 	{
 		return lhs.v < rhs.v;
 	}
 
-	// Token: 0x06001DF5 RID: 7669 RVA: 0x00075A68 File Offset: 0x00073C68
-	public static bool operator <(NetEntityID lhs, NetworkViewID rhs)
+	// Token: 0x06002133 RID: 8499 RVA: 0x0007A4E8 File Offset: 0x000786E8
+	public static bool operator <(global::NetEntityID lhs, uLink.NetworkViewID rhs)
 	{
 		return lhs.v < rhs.id;
 	}
 
-	// Token: 0x06001DF6 RID: 7670 RVA: 0x00075A7C File Offset: 0x00073C7C
-	public static bool operator <(NetworkViewID lhs, NetEntityID rhs)
+	// Token: 0x06002134 RID: 8500 RVA: 0x0007A4FC File Offset: 0x000786FC
+	public static bool operator <(uLink.NetworkViewID lhs, global::NetEntityID rhs)
 	{
 		return lhs.id < rhs.v;
 	}
 
-	// Token: 0x06001DF7 RID: 7671 RVA: 0x00075A90 File Offset: 0x00073C90
-	public static implicit operator NetEntityID(NetworkViewID viewID)
+	// Token: 0x06002135 RID: 8501 RVA: 0x0007A510 File Offset: 0x00078710
+	public static implicit operator global::NetEntityID(uLink.NetworkViewID viewID)
 	{
-		return new NetEntityID
+		return new global::NetEntityID
 		{
 			_viewID = viewID
 		};
 	}
 
-	// Token: 0x06001DF8 RID: 7672 RVA: 0x00075AB0 File Offset: 0x00073CB0
-	public static explicit operator NetworkViewID(NetEntityID viewID)
+	// Token: 0x06002136 RID: 8502 RVA: 0x0007A530 File Offset: 0x00078730
+	public static explicit operator uLink.NetworkViewID(global::NetEntityID viewID)
 	{
 		if (viewID.p1 != 0)
 		{
@@ -738,48 +738,48 @@ public struct NetEntityID : IEquatable<NetworkViewID>, IEquatable<NetEntityID>, 
 		return viewID._viewID;
 	}
 
-	// Token: 0x06001DF9 RID: 7673 RVA: 0x00075AD0 File Offset: 0x00073CD0
-	public static bool operator true(NetEntityID id)
+	// Token: 0x06002137 RID: 8503 RVA: 0x0007A550 File Offset: 0x00078750
+	public static bool operator true(global::NetEntityID id)
 	{
 		return id.v != 0;
 	}
 
-	// Token: 0x06001DFA RID: 7674 RVA: 0x00075AE0 File Offset: 0x00073CE0
-	public static bool operator false(NetEntityID id)
+	// Token: 0x06002138 RID: 8504 RVA: 0x0007A560 File Offset: 0x00078760
+	public static bool operator false(global::NetEntityID id)
 	{
 		return id.v == 0;
 	}
 
-	// Token: 0x04000E27 RID: 3623
+	// Token: 0x04000F67 RID: 3943
 	[FieldOffset(0)]
-	private NetworkViewID _viewID;
+	private uLink.NetworkViewID _viewID;
 
-	// Token: 0x04000E28 RID: 3624
+	// Token: 0x04000F68 RID: 3944
 	[FieldOffset(0)]
 	private ushort p2;
 
-	// Token: 0x04000E29 RID: 3625
+	// Token: 0x04000F69 RID: 3945
 	[FieldOffset(2)]
 	private ushort p1;
 
-	// Token: 0x04000E2A RID: 3626
+	// Token: 0x04000F6A RID: 3946
 	[FieldOffset(0)]
 	private int v;
 
-	// Token: 0x04000E2B RID: 3627
-	private static readonly BitStreamCodec.Serializer serializer = new BitStreamCodec.Serializer(NetEntityID.Serializer);
+	// Token: 0x04000F6B RID: 3947
+	private static readonly BitStreamCodec.Serializer serializer = new BitStreamCodec.Serializer(global::NetEntityID.Serializer);
 
-	// Token: 0x04000E2C RID: 3628
-	private static readonly BitStreamCodec.Deserializer deserializer = new BitStreamCodec.Deserializer(NetEntityID.Deserializer);
+	// Token: 0x04000F6C RID: 3948
+	private static readonly BitStreamCodec.Deserializer deserializer = new BitStreamCodec.Deserializer(global::NetEntityID.Deserializer);
 
-	// Token: 0x02000309 RID: 777
+	// Token: 0x020003B1 RID: 945
 	public enum Kind : sbyte
 	{
-		// Token: 0x04000E2E RID: 3630
+		// Token: 0x04000F6E RID: 3950
 		NGC = -1,
-		// Token: 0x04000E2F RID: 3631
+		// Token: 0x04000F6F RID: 3951
 		Missing,
-		// Token: 0x04000E30 RID: 3632
+		// Token: 0x04000F70 RID: 3952
 		Net
 	}
 }

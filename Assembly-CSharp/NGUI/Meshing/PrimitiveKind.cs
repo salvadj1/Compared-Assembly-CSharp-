@@ -2,34 +2,34 @@
 
 namespace NGUI.Meshing
 {
-	// Token: 0x020007A1 RID: 1953
+	// Token: 0x0200088C RID: 2188
 	public enum PrimitiveKind : byte
 	{
-		// Token: 0x040026C4 RID: 9924
+		// Token: 0x040028FB RID: 10491
 		Triangle,
-		// Token: 0x040026C5 RID: 9925
+		// Token: 0x040028FC RID: 10492
 		Quad,
-		// Token: 0x040026C6 RID: 9926
+		// Token: 0x040028FD RID: 10493
 		Grid1x1 = 1,
-		// Token: 0x040026C7 RID: 9927
+		// Token: 0x040028FE RID: 10494
 		Grid2x1,
-		// Token: 0x040026C8 RID: 9928
+		// Token: 0x040028FF RID: 10495
 		Grid1x2,
-		// Token: 0x040026C9 RID: 9929
+		// Token: 0x04002900 RID: 10496
 		Grid2x2,
-		// Token: 0x040026CA RID: 9930
+		// Token: 0x04002901 RID: 10497
 		Grid1x3,
-		// Token: 0x040026CB RID: 9931
+		// Token: 0x04002902 RID: 10498
 		Grid3x1,
-		// Token: 0x040026CC RID: 9932
+		// Token: 0x04002903 RID: 10499
 		Grid3x2,
-		// Token: 0x040026CD RID: 9933
+		// Token: 0x04002904 RID: 10500
 		Grid2x3,
-		// Token: 0x040026CE RID: 9934
+		// Token: 0x04002905 RID: 10501
 		Grid3x3,
-		// Token: 0x040026CF RID: 9935
+		// Token: 0x04002906 RID: 10502
 		Hole3x3,
-		// Token: 0x040026D0 RID: 9936
+		// Token: 0x04002907 RID: 10503
 		Invalid = 255
 	}
 }

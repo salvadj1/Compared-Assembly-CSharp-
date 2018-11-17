@@ -1,50 +1,50 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200075A RID: 1882
-[RequireComponent(typeof(UIPopupList))]
+// Token: 0x0200083C RID: 2108
 [AddComponentMenu("NGUI/Interaction/Language Selection")]
+[RequireComponent(typeof(global::UIPopupList))]
 public class LanguageSelection : MonoBehaviour
 {
-	// Token: 0x060044AD RID: 17581 RVA: 0x0010CFE4 File Offset: 0x0010B1E4
+	// Token: 0x0600490E RID: 18702 RVA: 0x00116964 File Offset: 0x00114B64
 	private void Start()
 	{
-		this.mList = base.GetComponent<UIPopupList>();
+		this.mList = base.GetComponent<global::UIPopupList>();
 		this.UpdateList();
 		this.mList.eventReceiver = base.gameObject;
 		this.mList.functionName = "OnLanguageSelection";
 	}
 
-	// Token: 0x060044AE RID: 17582 RVA: 0x0010D01C File Offset: 0x0010B21C
+	// Token: 0x0600490F RID: 18703 RVA: 0x0011699C File Offset: 0x00114B9C
 	private void UpdateList()
 	{
-		if (Localization.instance != null && Localization.instance.languages != null)
+		if (global::Localization.instance != null && global::Localization.instance.languages != null)
 		{
 			this.mList.items.Clear();
 			int i = 0;
-			int num = Localization.instance.languages.Length;
+			int num = global::Localization.instance.languages.Length;
 			while (i < num)
 			{
-				TextAsset textAsset = Localization.instance.languages[i];
+				TextAsset textAsset = global::Localization.instance.languages[i];
 				if (textAsset != null)
 				{
 					this.mList.items.Add(textAsset.name);
 				}
 				i++;
 			}
-			this.mList.selection = Localization.instance.currentLanguage;
+			this.mList.selection = global::Localization.instance.currentLanguage;
 		}
 	}
 
-	// Token: 0x060044AF RID: 17583 RVA: 0x0010D0BC File Offset: 0x0010B2BC
+	// Token: 0x06004910 RID: 18704 RVA: 0x00116A3C File Offset: 0x00114C3C
 	private void OnLanguageSelection(string language)
 	{
-		if (Localization.instance != null)
+		if (global::Localization.instance != null)
 		{
-			Localization.instance.currentLanguage = language;
+			global::Localization.instance.currentLanguage = language;
 		}
 	}
 
-	// Token: 0x040024E6 RID: 9446
-	private UIPopupList mList;
+	// Token: 0x0400271D RID: 10013
+	private global::UIPopupList mList;
 }

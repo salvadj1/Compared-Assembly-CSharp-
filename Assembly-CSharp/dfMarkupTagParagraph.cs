@@ -1,21 +1,21 @@
 ﻿using System;
 
-// Token: 0x02000728 RID: 1832
-[dfMarkupTagInfo("p")]
-public class dfMarkupTagParagraph : dfMarkupTag
+// Token: 0x02000804 RID: 2052
+[global::dfMarkupTagInfo("p")]
+public class dfMarkupTagParagraph : global::dfMarkupTag
 {
-	// Token: 0x060042F2 RID: 17138 RVA: 0x001042D0 File Offset: 0x001024D0
+	// Token: 0x06004736 RID: 18230 RVA: 0x0010D5E0 File Offset: 0x0010B7E0
 	public dfMarkupTagParagraph() : base("p")
 	{
 	}
 
-	// Token: 0x060042F3 RID: 17139 RVA: 0x001042E0 File Offset: 0x001024E0
-	public dfMarkupTagParagraph(dfMarkupTag original) : base(original)
+	// Token: 0x06004737 RID: 18231 RVA: 0x0010D5F0 File Offset: 0x0010B7F0
+	public dfMarkupTagParagraph(global::dfMarkupTag original) : base(original)
 	{
 	}
 
-	// Token: 0x060042F4 RID: 17140 RVA: 0x001042EC File Offset: 0x001024EC
-	protected override void _PerformLayoutImpl(dfMarkupBox container, dfMarkupStyle style)
+	// Token: 0x06004738 RID: 18232 RVA: 0x0010D5FC File Offset: 0x0010B7FC
+	protected override void _PerformLayoutImpl(global::dfMarkupBox container, global::dfMarkupStyle style)
 	{
 		if (base.ChildNodes.Count == 0)
 		{
@@ -23,10 +23,10 @@ public class dfMarkupTagParagraph : dfMarkupTag
 		}
 		style = base.applyTextStyleAttributes(style);
 		int top = (container.Children.Count != 0) ? style.LineHeight : 0;
-		dfMarkupBox dfMarkupBox;
+		global::dfMarkupBox dfMarkupBox;
 		if (style.BackgroundColor.a > 0.005f)
 		{
-			dfMarkupBoxSprite dfMarkupBoxSprite = new dfMarkupBoxSprite(this, dfMarkupDisplayType.block, style);
+			global::dfMarkupBoxSprite dfMarkupBoxSprite = new global::dfMarkupBoxSprite(this, global::dfMarkupDisplayType.block, style);
 			dfMarkupBoxSprite.Atlas = base.Owner.Atlas;
 			dfMarkupBoxSprite.Source = base.Owner.BlankTextureSprite;
 			dfMarkupBoxSprite.Style.Color = style.BackgroundColor;
@@ -34,24 +34,24 @@ public class dfMarkupTagParagraph : dfMarkupTag
 		}
 		else
 		{
-			dfMarkupBox = new dfMarkupBox(this, dfMarkupDisplayType.block, style);
+			dfMarkupBox = new global::dfMarkupBox(this, global::dfMarkupDisplayType.block, style);
 		}
-		dfMarkupBox.Margins = new dfMarkupBorders(0, 0, top, style.LineHeight);
-		dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
+		dfMarkupBox.Margins = new global::dfMarkupBorders(0, 0, top, style.LineHeight);
+		global::dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
 		{
 			"margin"
 		});
 		if (dfMarkupAttribute != null)
 		{
-			dfMarkupBox.Margins = dfMarkupBorders.Parse(dfMarkupAttribute.Value);
+			dfMarkupBox.Margins = global::dfMarkupBorders.Parse(dfMarkupAttribute.Value);
 		}
-		dfMarkupAttribute dfMarkupAttribute2 = base.findAttribute(new string[]
+		global::dfMarkupAttribute dfMarkupAttribute2 = base.findAttribute(new string[]
 		{
 			"padding"
 		});
 		if (dfMarkupAttribute2 != null)
 		{
-			dfMarkupBox.Padding = dfMarkupBorders.Parse(dfMarkupAttribute2.Value);
+			dfMarkupBox.Padding = global::dfMarkupBorders.Parse(dfMarkupAttribute2.Value);
 		}
 		container.AddChild(dfMarkupBox);
 		base._PerformLayoutImpl(dfMarkupBox, style);

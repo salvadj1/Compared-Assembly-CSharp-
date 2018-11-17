@@ -1,58 +1,58 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001A5 RID: 421
+// Token: 0x020001D3 RID: 467
 public static class Resources
 {
-	// Token: 0x06000C43 RID: 3139 RVA: 0x00030CE4 File Offset: 0x0002EEE4
+	// Token: 0x06000D7B RID: 3451 RVA: 0x00034BD0 File Offset: 0x00032DD0
 	[Obsolete("Do not use Resources. Use Bundles.", false)]
 	public static Object Load(string path)
 	{
-		return Resources.Load(path);
+		return UnityEngine.Resources.Load(path);
 	}
 
-	// Token: 0x06000C44 RID: 3140 RVA: 0x00030CEC File Offset: 0x0002EEEC
+	// Token: 0x06000D7C RID: 3452 RVA: 0x00034BD8 File Offset: 0x00032DD8
 	[Obsolete("Do not use Resources. Use Bundles.", false)]
 	public static Object Load(string path, Type type)
 	{
-		return Resources.Load(path, type);
+		return UnityEngine.Resources.Load(path, type);
 	}
 
-	// Token: 0x06000C45 RID: 3141 RVA: 0x00030CF8 File Offset: 0x0002EEF8
+	// Token: 0x06000D7D RID: 3453 RVA: 0x00034BE4 File Offset: 0x00032DE4
 	[Obsolete("Do not use Resources. Use Bundles.", false)]
 	public static Object[] LoadAll(string path)
 	{
-		return Resources.LoadAll(path);
+		return UnityEngine.Resources.LoadAll(path);
 	}
 
-	// Token: 0x06000C46 RID: 3142 RVA: 0x00030D00 File Offset: 0x0002EF00
+	// Token: 0x06000D7E RID: 3454 RVA: 0x00034BEC File Offset: 0x00032DEC
 	[Obsolete("Do not use Resources. Use Bundles.", false)]
 	public static Object[] LoadAll(string path, Type type)
 	{
-		return Resources.LoadAll(path, type);
+		return UnityEngine.Resources.LoadAll(path, type);
 	}
 
-	// Token: 0x06000C47 RID: 3143 RVA: 0x00030D0C File Offset: 0x0002EF0C
+	// Token: 0x06000D7F RID: 3455 RVA: 0x00034BF8 File Offset: 0x00032DF8
 	public static void UnloadAsset(Object assetToUnload)
 	{
-		Resources.UnloadAsset(assetToUnload);
+		UnityEngine.Resources.UnloadAsset(assetToUnload);
 	}
 
-	// Token: 0x06000C48 RID: 3144 RVA: 0x00030D14 File Offset: 0x0002EF14
+	// Token: 0x06000D80 RID: 3456 RVA: 0x00034C00 File Offset: 0x00032E00
 	public static AsyncOperation UnloadUnusedAssets()
 	{
-		return Resources.UnloadUnusedAssets();
+		return UnityEngine.Resources.UnloadUnusedAssets();
 	}
 
-	// Token: 0x06000C49 RID: 3145 RVA: 0x00030D1C File Offset: 0x0002EF1C
+	// Token: 0x06000D81 RID: 3457 RVA: 0x00034C08 File Offset: 0x00032E08
 	public static Object[] FindObjectsOfTypeAll(Type type)
 	{
-		return Resources.FindObjectsOfTypeAll(type);
+		return UnityEngine.Resources.FindObjectsOfTypeAll(type);
 	}
 
-	// Token: 0x0400076E RID: 1902
+	// Token: 0x04000882 RID: 2178
 	private const string kDontUse = "Do not use Resources. Use Bundles.";
 
-	// Token: 0x0400076F RID: 1903
+	// Token: 0x04000883 RID: 2179
 	private const bool kErrorNotWarning = false;
 }

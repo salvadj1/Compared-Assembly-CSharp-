@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200078D RID: 1933
+// Token: 0x02000872 RID: 2162
 [AddComponentMenu("NGUI/Internal/Ignore TimeScale Behaviour")]
 public class IgnoreTimeScale : MonoBehaviour
 {
-	// Token: 0x17000D91 RID: 3473
-	// (get) Token: 0x060045CD RID: 17869 RVA: 0x00114934 File Offset: 0x00112B34
+	// Token: 0x17000E21 RID: 3617
+	// (get) Token: 0x06004A3A RID: 19002 RVA: 0x0011E2B4 File Offset: 0x0011C4B4
 	public float realTimeDelta
 	{
 		get
@@ -15,7 +15,7 @@ public class IgnoreTimeScale : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060045CE RID: 17870 RVA: 0x0011493C File Offset: 0x00112B3C
+	// Token: 0x06004A3B RID: 19003 RVA: 0x0011E2BC File Offset: 0x0011C4BC
 	private void OnEnable()
 	{
 		this.mTimeStarted = true;
@@ -23,7 +23,7 @@ public class IgnoreTimeScale : MonoBehaviour
 		this.mTimeStart = Time.realtimeSinceStartup;
 	}
 
-	// Token: 0x060045CF RID: 17871 RVA: 0x0011495C File Offset: 0x00112B5C
+	// Token: 0x06004A3C RID: 19004 RVA: 0x0011E2DC File Offset: 0x0011C4DC
 	protected float UpdateRealTimeDelta()
 	{
 		if (this.mTimeStarted)
@@ -44,15 +44,15 @@ public class IgnoreTimeScale : MonoBehaviour
 		return this.mTimeDelta;
 	}
 
-	// Token: 0x0400264C RID: 9804
+	// Token: 0x04002883 RID: 10371
 	private float mTimeStart;
 
-	// Token: 0x0400264D RID: 9805
+	// Token: 0x04002884 RID: 10372
 	private float mTimeDelta;
 
-	// Token: 0x0400264E RID: 9806
+	// Token: 0x04002885 RID: 10373
 	private float mActual;
 
-	// Token: 0x0400264F RID: 9807
+	// Token: 0x04002886 RID: 10374
 	private bool mTimeStarted;
 }

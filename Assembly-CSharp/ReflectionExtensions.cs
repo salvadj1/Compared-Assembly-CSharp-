@@ -3,10 +3,10 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x020006FB RID: 1787
+// Token: 0x020007CD RID: 1997
 public static class ReflectionExtensions
 {
-	// Token: 0x06004089 RID: 16521 RVA: 0x000F7CAC File Offset: 0x000F5EAC
+	// Token: 0x060044A5 RID: 17573 RVA: 0x001008B0 File Offset: 0x000FEAB0
 	public static FieldInfo[] GetAllFields(this Type type)
 	{
 		if (type == null)
@@ -19,7 +19,7 @@ public static class ReflectionExtensions
 		select f).ToArray<FieldInfo>();
 	}
 
-	// Token: 0x0600408A RID: 16522 RVA: 0x000F7D08 File Offset: 0x000F5F08
+	// Token: 0x060044A6 RID: 17574 RVA: 0x0010090C File Offset: 0x000FEB0C
 	public static object GetProperty(this object target, string property)
 	{
 		if (target == null)
@@ -43,7 +43,7 @@ public static class ReflectionExtensions
 		throw new InvalidOperationException("Member type not supported: " + memberInfo.MemberType);
 	}
 
-	// Token: 0x0600408B RID: 16523 RVA: 0x000F7DA4 File Offset: 0x000F5FA4
+	// Token: 0x060044A7 RID: 17575 RVA: 0x001009A8 File Offset: 0x000FEBA8
 	public static void SetProperty(this object target, string property, object value)
 	{
 		if (target == null)

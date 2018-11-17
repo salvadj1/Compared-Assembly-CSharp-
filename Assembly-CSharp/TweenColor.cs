@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007B3 RID: 1971
+// Token: 0x020008A0 RID: 2208
 [AddComponentMenu("NGUI/Tween/Color")]
-public class TweenColor : UITweener
+public class TweenColor : global::UITweener
 {
-	// Token: 0x17000DBB RID: 3515
-	// (get) Token: 0x06004732 RID: 18226 RVA: 0x0011E534 File Offset: 0x0011C734
-	// (set) Token: 0x06004733 RID: 18227 RVA: 0x0011E5A0 File Offset: 0x0011C7A0
+	// Token: 0x17000E4D RID: 3661
+	// (get) Token: 0x06004BC1 RID: 19393 RVA: 0x00127F58 File Offset: 0x00126158
+	// (set) Token: 0x06004BC2 RID: 19394 RVA: 0x00127FC4 File Offset: 0x001261C4
 	public Color color
 	{
 		get
@@ -44,10 +44,10 @@ public class TweenColor : UITweener
 		}
 	}
 
-	// Token: 0x06004734 RID: 18228 RVA: 0x0011E630 File Offset: 0x0011C830
+	// Token: 0x06004BC3 RID: 19395 RVA: 0x00128054 File Offset: 0x00126254
 	private void Awake()
 	{
-		this.mWidget = base.GetComponentInChildren<UIWidget>();
+		this.mWidget = base.GetComponentInChildren<global::UIWidget>();
 		Renderer renderer = base.renderer;
 		if (renderer != null)
 		{
@@ -56,13 +56,13 @@ public class TweenColor : UITweener
 		this.mLight = base.light;
 	}
 
-	// Token: 0x06004735 RID: 18229 RVA: 0x0011E674 File Offset: 0x0011C874
+	// Token: 0x06004BC4 RID: 19396 RVA: 0x00128098 File Offset: 0x00126298
 	protected override void OnUpdate(float factor)
 	{
 		Color color = this.from * (1f - factor) + this.to * factor;
 		if (this.isFullscreen)
 		{
-			GameFullscreen instance = ImageEffectManager.GetInstance<GameFullscreen>();
+			global::GameFullscreen instance = global::ImageEffectManager.GetInstance<global::GameFullscreen>();
 			if (instance)
 			{
 				instance.autoFadeColor = color;
@@ -72,34 +72,34 @@ public class TweenColor : UITweener
 		this.color = color;
 	}
 
-	// Token: 0x06004736 RID: 18230 RVA: 0x0011E6DC File Offset: 0x0011C8DC
-	public static TweenColor Begin(GameObject go, float duration, Color color)
+	// Token: 0x06004BC5 RID: 19397 RVA: 0x00128100 File Offset: 0x00126300
+	public static global::TweenColor Begin(GameObject go, float duration, Color color)
 	{
-		TweenColor tweenColor = UITweener.Begin<TweenColor>(go, duration);
+		global::TweenColor tweenColor = global::UITweener.Begin<global::TweenColor>(go, duration);
 		tweenColor.from = tweenColor.color;
 		tweenColor.to = color;
 		return tweenColor;
 	}
 
-	// Token: 0x04002738 RID: 10040
+	// Token: 0x04002972 RID: 10610
 	public Color from = Color.white;
 
-	// Token: 0x04002739 RID: 10041
+	// Token: 0x04002973 RID: 10611
 	public Color to = Color.white;
 
-	// Token: 0x0400273A RID: 10042
+	// Token: 0x04002974 RID: 10612
 	[NonSerialized]
 	public bool isFullscreen;
 
-	// Token: 0x0400273B RID: 10043
+	// Token: 0x04002975 RID: 10613
 	private Transform mTrans;
 
-	// Token: 0x0400273C RID: 10044
-	private UIWidget mWidget;
+	// Token: 0x04002976 RID: 10614
+	private global::UIWidget mWidget;
 
-	// Token: 0x0400273D RID: 10045
+	// Token: 0x04002977 RID: 10615
 	private Material mMat;
 
-	// Token: 0x0400273E RID: 10046
+	// Token: 0x04002978 RID: 10616
 	private Light mLight;
 }

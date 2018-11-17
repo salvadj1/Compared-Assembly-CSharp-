@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020003DC RID: 988
+// Token: 0x02000489 RID: 1161
 public static class RCon
 {
 }

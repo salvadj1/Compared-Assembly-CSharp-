@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200010F RID: 271
-public class CharacterRagdollTrait : CharacterTrait
+// Token: 0x0200012E RID: 302
+public class CharacterRagdollTrait : global::CharacterTrait
 {
-	// Token: 0x1700018C RID: 396
-	// (get) Token: 0x060006FC RID: 1788 RVA: 0x0001F778 File Offset: 0x0001D978
+	// Token: 0x170001BA RID: 442
+	// (get) Token: 0x060007CE RID: 1998 RVA: 0x0002234C File Offset: 0x0002054C
 	public GameObject ragdollPrefab
 	{
 		get
@@ -14,7 +14,7 @@ public class CharacterRagdollTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x0400052E RID: 1326
+	// Token: 0x040005F9 RID: 1529
 	[SerializeField]
 	private GameObject _ragdollPrefab;
 }

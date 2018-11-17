@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000427 RID: 1063
+// Token: 0x020004DD RID: 1245
 public class UIActionProgress : MonoBehaviour
 {
-	// Token: 0x17000909 RID: 2313
-	// (get) Token: 0x0600276F RID: 10095 RVA: 0x00099C60 File Offset: 0x00097E60
-	public UILabel label
+	// Token: 0x17000971 RID: 2417
+	// (get) Token: 0x06002AFF RID: 11007 RVA: 0x0009FBE0 File Offset: 0x0009DDE0
+	public global::UILabel label
 	{
 		get
 		{
@@ -14,9 +14,9 @@ public class UIActionProgress : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700090A RID: 2314
-	// (get) Token: 0x06002770 RID: 10096 RVA: 0x00099C68 File Offset: 0x00097E68
-	public UISlider slider
+	// Token: 0x17000972 RID: 2418
+	// (get) Token: 0x06002B00 RID: 11008 RVA: 0x0009FBE8 File Offset: 0x0009DDE8
+	public global::UISlider slider
 	{
 		get
 		{
@@ -24,9 +24,9 @@ public class UIActionProgress : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700090B RID: 2315
-	// (get) Token: 0x06002771 RID: 10097 RVA: 0x00099C70 File Offset: 0x00097E70
-	// (set) Token: 0x06002772 RID: 10098 RVA: 0x00099C80 File Offset: 0x00097E80
+	// Token: 0x17000973 RID: 2419
+	// (get) Token: 0x06002B01 RID: 11009 RVA: 0x0009FBF0 File Offset: 0x0009DDF0
+	// (set) Token: 0x06002B02 RID: 11010 RVA: 0x0009FC00 File Offset: 0x0009DE00
 	public string text
 	{
 		get
@@ -39,9 +39,9 @@ public class UIActionProgress : MonoBehaviour
 		}
 	}
 
-	// Token: 0x1700090C RID: 2316
-	// (get) Token: 0x06002773 RID: 10099 RVA: 0x00099C90 File Offset: 0x00097E90
-	// (set) Token: 0x06002774 RID: 10100 RVA: 0x00099CA0 File Offset: 0x00097EA0
+	// Token: 0x17000974 RID: 2420
+	// (get) Token: 0x06002B03 RID: 11011 RVA: 0x0009FC10 File Offset: 0x0009DE10
+	// (set) Token: 0x06002B04 RID: 11012 RVA: 0x0009FC20 File Offset: 0x0009DE20
 	public float progress
 	{
 		get
@@ -54,13 +54,13 @@ public class UIActionProgress : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002775 RID: 10101 RVA: 0x00099CB0 File Offset: 0x00097EB0
+	// Token: 0x06002B05 RID: 11013 RVA: 0x0009FC30 File Offset: 0x0009DE30
 	private void Awake()
 	{
-		this.sliderSprites = this._slider.GetComponentsInChildren<UISprite>();
+		this.sliderSprites = this._slider.GetComponentsInChildren<global::UISprite>();
 	}
 
-	// Token: 0x06002776 RID: 10102 RVA: 0x00099CC4 File Offset: 0x00097EC4
+	// Token: 0x06002B06 RID: 11014 RVA: 0x0009FC44 File Offset: 0x0009DE44
 	private void SetEnabled(bool yes)
 	{
 		if (this._slider)
@@ -73,7 +73,7 @@ public class UIActionProgress : MonoBehaviour
 		}
 		if (this.sliderSprites != null)
 		{
-			foreach (UISprite uisprite in this.sliderSprites)
+			foreach (global::UISprite uisprite in this.sliderSprites)
 			{
 				if (uisprite)
 				{
@@ -83,26 +83,26 @@ public class UIActionProgress : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002777 RID: 10103 RVA: 0x00099D48 File Offset: 0x00097F48
+	// Token: 0x06002B07 RID: 11015 RVA: 0x0009FCC8 File Offset: 0x0009DEC8
 	private void OnEnable()
 	{
 		this.SetEnabled(true);
 	}
 
-	// Token: 0x06002778 RID: 10104 RVA: 0x00099D54 File Offset: 0x00097F54
+	// Token: 0x06002B08 RID: 11016 RVA: 0x0009FCD4 File Offset: 0x0009DED4
 	private void OnDisable()
 	{
 		this.SetEnabled(false);
 	}
 
-	// Token: 0x0400136D RID: 4973
+	// Token: 0x040014F0 RID: 5360
 	[SerializeField]
-	private UILabel _label;
+	private global::UILabel _label;
 
-	// Token: 0x0400136E RID: 4974
+	// Token: 0x040014F1 RID: 5361
 	[SerializeField]
-	private UISlider _slider;
+	private global::UISlider _slider;
 
-	// Token: 0x0400136F RID: 4975
-	private UISprite[] sliderSprites;
+	// Token: 0x040014F2 RID: 5362
+	private global::UISprite[] sliderSprites;
 }

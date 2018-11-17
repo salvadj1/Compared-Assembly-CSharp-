@@ -1,30 +1,30 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200076F RID: 1903
-[RequireComponent(typeof(UIPanel))]
+// Token: 0x02000851 RID: 2129
 [AddComponentMenu("NGUI/Interaction/Draggable Panel")]
+[RequireComponent(typeof(global::UIPanel))]
 [ExecuteInEditMode]
-public class UIDraggablePanel : IgnoreTimeScale
+public class UIDraggablePanel : global::IgnoreTimeScale
 {
 	// Token: 0x1400006F RID: 111
-	// (add) Token: 0x06004523 RID: 17699 RVA: 0x0010FACC File Offset: 0x0010DCCC
-	// (remove) Token: 0x06004524 RID: 17700 RVA: 0x0010FAE8 File Offset: 0x0010DCE8
-	public event UIDraggablePanel.CalculatedNextChangeCallback onNextChangeCallback
+	// (add) Token: 0x06004984 RID: 18820 RVA: 0x0011944C File Offset: 0x0011764C
+	// (remove) Token: 0x06004985 RID: 18821 RVA: 0x00119468 File Offset: 0x00117668
+	public event global::UIDraggablePanel.CalculatedNextChangeCallback onNextChangeCallback
 	{
 		add
 		{
-			this.calculatedNextChangeCallback = (UIDraggablePanel.CalculatedNextChangeCallback)Delegate.Combine(this.calculatedNextChangeCallback, value);
+			this.calculatedNextChangeCallback = (global::UIDraggablePanel.CalculatedNextChangeCallback)Delegate.Combine(this.calculatedNextChangeCallback, value);
 		}
 		remove
 		{
-			this.calculatedNextChangeCallback = (UIDraggablePanel.CalculatedNextChangeCallback)Delegate.Remove(this.calculatedNextChangeCallback, value);
+			this.calculatedNextChangeCallback = (global::UIDraggablePanel.CalculatedNextChangeCallback)Delegate.Remove(this.calculatedNextChangeCallback, value);
 		}
 	}
 
-	// Token: 0x17000D72 RID: 3442
-	// (get) Token: 0x06004525 RID: 17701 RVA: 0x0010FB04 File Offset: 0x0010DD04
-	// (set) Token: 0x06004526 RID: 17702 RVA: 0x0010FB0C File Offset: 0x0010DD0C
+	// Token: 0x17000E02 RID: 3586
+	// (get) Token: 0x06004986 RID: 18822 RVA: 0x00119484 File Offset: 0x00117684
+	// (set) Token: 0x06004987 RID: 18823 RVA: 0x0011948C File Offset: 0x0011768C
 	public bool calculateBoundsEveryChange
 	{
 		get
@@ -48,8 +48,8 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x17000D73 RID: 3443
-	// (get) Token: 0x06004527 RID: 17703 RVA: 0x0010FB3C File Offset: 0x0010DD3C
+	// Token: 0x17000E03 RID: 3587
+	// (get) Token: 0x06004988 RID: 18824 RVA: 0x001194BC File Offset: 0x001176BC
 	public bool panelMayNeedBoundsCalculated
 	{
 		get
@@ -58,8 +58,8 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x17000D74 RID: 3444
-	// (set) Token: 0x06004528 RID: 17704 RVA: 0x0010FB44 File Offset: 0x0010DD44
+	// Token: 0x17000E04 RID: 3588
+	// (set) Token: 0x06004989 RID: 18825 RVA: 0x001194C4 File Offset: 0x001176C4
 	public bool calculateNextChange
 	{
 		set
@@ -71,29 +71,29 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x17000D75 RID: 3445
-	// (get) Token: 0x06004529 RID: 17705 RVA: 0x0010FB54 File Offset: 0x0010DD54
-	public AABBox bounds
+	// Token: 0x17000E05 RID: 3589
+	// (get) Token: 0x0600498A RID: 18826 RVA: 0x001194D4 File Offset: 0x001176D4
+	public global::AABBox bounds
 	{
 		get
 		{
 			if (!this.mCalculatedBounds)
 			{
 				this.mCalculatedBounds = true;
-				this.mBounds = NGUIMath.CalculateRelativeWidgetBounds(this.mTrans, this.mTrans);
+				this.mBounds = global::NGUIMath.CalculateRelativeWidgetBounds(this.mTrans, this.mTrans);
 			}
 			return this.mBounds;
 		}
 	}
 
-	// Token: 0x17000D76 RID: 3446
-	// (get) Token: 0x0600452A RID: 17706 RVA: 0x0010FB88 File Offset: 0x0010DD88
+	// Token: 0x17000E06 RID: 3590
+	// (get) Token: 0x0600498B RID: 18827 RVA: 0x00119508 File Offset: 0x00117708
 	public bool shouldMoveHorizontally
 	{
 		get
 		{
 			float num = this.bounds.size.x;
-			if (this.mPanel.clipping == UIDrawCall.Clipping.SoftClip)
+			if (this.mPanel.clipping == global::UIDrawCall.Clipping.SoftClip)
 			{
 				num += this.mPanel.clipSoftness.x * 2f;
 			}
@@ -101,14 +101,14 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x17000D77 RID: 3447
-	// (get) Token: 0x0600452B RID: 17707 RVA: 0x0010FBF0 File Offset: 0x0010DDF0
+	// Token: 0x17000E07 RID: 3591
+	// (get) Token: 0x0600498C RID: 18828 RVA: 0x00119570 File Offset: 0x00117770
 	public bool shouldMoveVertically
 	{
 		get
 		{
 			float num = this.bounds.size.y;
-			if (this.mPanel.clipping == UIDrawCall.Clipping.SoftClip)
+			if (this.mPanel.clipping == global::UIDrawCall.Clipping.SoftClip)
 			{
 				num += this.mPanel.clipSoftness.y * 2f;
 			}
@@ -116,8 +116,8 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x17000D78 RID: 3448
-	// (get) Token: 0x0600452C RID: 17708 RVA: 0x0010FC58 File Offset: 0x0010DE58
+	// Token: 0x17000E08 RID: 3592
+	// (get) Token: 0x0600498D RID: 18829 RVA: 0x001195D8 File Offset: 0x001177D8
 	private bool shouldMove
 	{
 		get
@@ -128,10 +128,10 @@ public class UIDraggablePanel : IgnoreTimeScale
 			}
 			if (this.mPanel == null)
 			{
-				this.mPanel = base.GetComponent<UIPanel>();
+				this.mPanel = base.GetComponent<global::UIPanel>();
 			}
 			Vector4 clipRange = this.mPanel.clipRange;
-			AABBox bounds = this.bounds;
+			global::AABBox bounds = this.bounds;
 			float num = clipRange.z * 0.5f;
 			float num2 = clipRange.w * 0.5f;
 			if (!Mathf.Approximately(this.scale.x, 0f))
@@ -160,9 +160,9 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x17000D79 RID: 3449
-	// (get) Token: 0x0600452D RID: 17709 RVA: 0x0010FD74 File Offset: 0x0010DF74
-	// (set) Token: 0x0600452E RID: 17710 RVA: 0x0010FD7C File Offset: 0x0010DF7C
+	// Token: 0x17000E09 RID: 3593
+	// (get) Token: 0x0600498E RID: 18830 RVA: 0x001196F4 File Offset: 0x001178F4
+	// (set) Token: 0x0600498F RID: 18831 RVA: 0x001196FC File Offset: 0x001178FC
 	public Vector3 currentMomentum
 	{
 		get
@@ -175,14 +175,14 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0600452F RID: 17711 RVA: 0x0010FD88 File Offset: 0x0010DF88
+	// Token: 0x06004990 RID: 18832 RVA: 0x00119708 File Offset: 0x00117908
 	private void Awake()
 	{
 		this.mTrans = base.transform;
-		this.mPanel = base.GetComponent<UIPanel>();
+		this.mPanel = base.GetComponent<global::UIPanel>();
 	}
 
-	// Token: 0x06004530 RID: 17712 RVA: 0x0010FDA4 File Offset: 0x0010DFA4
+	// Token: 0x06004991 RID: 18833 RVA: 0x00119724 File Offset: 0x00117924
 	private void Start()
 	{
 		if (this.mStartedManually)
@@ -192,20 +192,20 @@ public class UIDraggablePanel : IgnoreTimeScale
 		this.UpdateScrollbars(true);
 		if (this.horizontalScrollBar != null)
 		{
-			UIScrollBar uiscrollBar = this.horizontalScrollBar;
-			uiscrollBar.onChange = (UIScrollBar.OnScrollBarChange)Delegate.Combine(uiscrollBar.onChange, new UIScrollBar.OnScrollBarChange(this.OnHorizontalBar));
-			this.horizontalScrollBar.alpha = ((this.showScrollBars != UIDraggablePanel.ShowCondition.Always && !this.shouldMoveHorizontally) ? 0f : 1f);
+			global::UIScrollBar uiscrollBar = this.horizontalScrollBar;
+			uiscrollBar.onChange = (global::UIScrollBar.OnScrollBarChange)Delegate.Combine(uiscrollBar.onChange, new global::UIScrollBar.OnScrollBarChange(this.OnHorizontalBar));
+			this.horizontalScrollBar.alpha = ((this.showScrollBars != global::UIDraggablePanel.ShowCondition.Always && !this.shouldMoveHorizontally) ? 0f : 1f);
 		}
 		if (this.verticalScrollBar != null)
 		{
-			UIScrollBar uiscrollBar2 = this.verticalScrollBar;
-			uiscrollBar2.onChange = (UIScrollBar.OnScrollBarChange)Delegate.Combine(uiscrollBar2.onChange, new UIScrollBar.OnScrollBarChange(this.OnVerticalBar));
-			this.verticalScrollBar.alpha = ((this.showScrollBars != UIDraggablePanel.ShowCondition.Always && !this.shouldMoveVertically) ? 0f : 1f);
+			global::UIScrollBar uiscrollBar2 = this.verticalScrollBar;
+			uiscrollBar2.onChange = (global::UIScrollBar.OnScrollBarChange)Delegate.Combine(uiscrollBar2.onChange, new global::UIScrollBar.OnScrollBarChange(this.OnVerticalBar));
+			this.verticalScrollBar.alpha = ((this.showScrollBars != global::UIDraggablePanel.ShowCondition.Always && !this.shouldMoveVertically) ? 0f : 1f);
 		}
 		this.mStartedAutomatically = true;
 	}
 
-	// Token: 0x06004531 RID: 17713 RVA: 0x0010FE9C File Offset: 0x0010E09C
+	// Token: 0x06004992 RID: 18834 RVA: 0x0011981C File Offset: 0x00117A1C
 	public bool ManualStart()
 	{
 		if (!this.mStartedManually)
@@ -220,15 +220,15 @@ public class UIDraggablePanel : IgnoreTimeScale
 		return false;
 	}
 
-	// Token: 0x06004532 RID: 17714 RVA: 0x0010FECC File Offset: 0x0010E0CC
+	// Token: 0x06004993 RID: 18835 RVA: 0x0011984C File Offset: 0x00117A4C
 	public void RestrictWithinBounds(bool instant)
 	{
 		Vector3 vector = this.mPanel.CalculateConstrainOffset(this.bounds.min, this.bounds.max);
 		if (vector.magnitude > 0.001f)
 		{
-			if (!instant && this.dragEffect == UIDraggablePanel.DragEffect.MomentumAndSpring)
+			if (!instant && this.dragEffect == global::UIDraggablePanel.DragEffect.MomentumAndSpring)
 			{
-				SpringPanel.Begin(this.mPanel.gameObject, this.mTrans.localPosition + vector, 13f);
+				global::SpringPanel.Begin(this.mPanel.gameObject, this.mTrans.localPosition + vector, 13f);
 			}
 			else
 			{
@@ -243,17 +243,17 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004533 RID: 17715 RVA: 0x0010FF84 File Offset: 0x0010E184
+	// Token: 0x06004994 RID: 18836 RVA: 0x00119904 File Offset: 0x00117B04
 	public void DisableSpring()
 	{
-		SpringPanel component = base.GetComponent<SpringPanel>();
+		global::SpringPanel component = base.GetComponent<global::SpringPanel>();
 		if (component != null)
 		{
 			component.enabled = false;
 		}
 	}
 
-	// Token: 0x06004534 RID: 17716 RVA: 0x0010FFAC File Offset: 0x0010E1AC
+	// Token: 0x06004995 RID: 18837 RVA: 0x0011992C File Offset: 0x00117B2C
 	public void UpdateScrollbars(bool recalculateBounds)
 	{
 		if (this.mPanel == null)
@@ -270,7 +270,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 			}
 			if (this.horizontalScrollBar != null)
 			{
-				AABBox bounds = this.bounds;
+				global::AABBox bounds = this.bounds;
 				Vector3 size = bounds.size;
 				if (size.x > 0f)
 				{
@@ -278,7 +278,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 					float num = clipRange.z * 0.5f;
 					float num2 = clipRange.x - num - bounds.min.x;
 					float num3 = bounds.max.x - num - clipRange.x;
-					if (this.mPanel.clipping == UIDrawCall.Clipping.SoftClip)
+					if (this.mPanel.clipping == global::UIDrawCall.Clipping.SoftClip)
 					{
 						num2 += this.mPanel.clipSoftness.x;
 						num3 -= this.mPanel.clipSoftness.x;
@@ -294,7 +294,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 			}
 			if (this.verticalScrollBar != null)
 			{
-				AABBox bounds2 = this.bounds;
+				global::AABBox bounds2 = this.bounds;
 				Vector3 size2 = bounds2.size;
 				if (size2.y > 0f)
 				{
@@ -302,7 +302,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 					float num5 = clipRange2.w * 0.5f;
 					float num6 = clipRange2.y - num5 - bounds2.min.y;
 					float num7 = bounds2.max.y - num5 - clipRange2.y;
-					if (this.mPanel.clipping == UIDrawCall.Clipping.SoftClip)
+					if (this.mPanel.clipping == global::UIDrawCall.Clipping.SoftClip)
 					{
 						num6 += this.mPanel.clipSoftness.y;
 						num7 -= this.mPanel.clipSoftness.y;
@@ -324,11 +324,11 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004535 RID: 17717 RVA: 0x001102A0 File Offset: 0x0010E4A0
+	// Token: 0x06004996 RID: 18838 RVA: 0x00119C20 File Offset: 0x00117E20
 	public void SetDragAmount(float x, float y, bool updateScrollbars)
 	{
 		this.DisableSpring();
-		AABBox bounds = this.bounds;
+		global::AABBox bounds = this.bounds;
 		if (bounds.min.x == bounds.max.x || bounds.min.y == bounds.max.x)
 		{
 			return;
@@ -340,7 +340,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		float num4 = bounds.max.x - num;
 		float num5 = bounds.min.y + num2;
 		float num6 = bounds.max.y - num2;
-		if (this.mPanel.clipping == UIDrawCall.Clipping.SoftClip)
+		if (this.mPanel.clipping == global::UIDrawCall.Clipping.SoftClip)
 		{
 			num3 -= this.mPanel.clipSoftness.x;
 			num4 += this.mPanel.clipSoftness.x;
@@ -371,7 +371,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004536 RID: 17718 RVA: 0x001104B0 File Offset: 0x0010E6B0
+	// Token: 0x06004997 RID: 18839 RVA: 0x00119E30 File Offset: 0x00118030
 	public void ResetPosition()
 	{
 		this.mCalculatedBounds = false;
@@ -379,8 +379,8 @@ public class UIDraggablePanel : IgnoreTimeScale
 		this.SetDragAmount(this.relativePositionOnReset.x, this.relativePositionOnReset.y, true);
 	}
 
-	// Token: 0x06004537 RID: 17719 RVA: 0x00110500 File Offset: 0x0010E700
-	private void OnHorizontalBar(UIScrollBar sb)
+	// Token: 0x06004998 RID: 18840 RVA: 0x00119E80 File Offset: 0x00118080
+	private void OnHorizontalBar(global::UIScrollBar sb)
 	{
 		if (!this.mIgnoreCallbacks)
 		{
@@ -390,8 +390,8 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004538 RID: 17720 RVA: 0x00110570 File Offset: 0x0010E770
-	private void OnVerticalBar(UIScrollBar sb)
+	// Token: 0x06004999 RID: 18841 RVA: 0x00119EF0 File Offset: 0x001180F0
+	private void OnVerticalBar(global::UIScrollBar sb)
 	{
 		if (!this.mIgnoreCallbacks)
 		{
@@ -401,7 +401,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004539 RID: 17721 RVA: 0x001105E0 File Offset: 0x0010E7E0
+	// Token: 0x0600499A RID: 18842 RVA: 0x00119F60 File Offset: 0x00118160
 	private void MoveRelative(Vector3 relative)
 	{
 		this.mTrans.localPosition += relative;
@@ -412,7 +412,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		this.UpdateScrollbars(false);
 	}
 
-	// Token: 0x0600453A RID: 17722 RVA: 0x00110650 File Offset: 0x0010E850
+	// Token: 0x0600499B RID: 18843 RVA: 0x00119FD0 File Offset: 0x001181D0
 	private void MoveAbsolute(Vector3 absolute)
 	{
 		Vector3 vector = this.mTrans.InverseTransformPoint(absolute);
@@ -420,7 +420,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		this.MoveRelative(vector - vector2);
 	}
 
-	// Token: 0x0600453B RID: 17723 RVA: 0x00110688 File Offset: 0x0010E888
+	// Token: 0x0600499C RID: 18844 RVA: 0x0011A008 File Offset: 0x00118208
 	public void Press(bool pressed)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy)
@@ -438,23 +438,23 @@ public class UIDraggablePanel : IgnoreTimeScale
 				this.mMomentum = Vector3.zero;
 				this.mScroll = 0f;
 				this.DisableSpring();
-				this.mLastPos = UICamera.lastHit.point;
+				this.mLastPos = global::UICamera.lastHit.point;
 				this.mPlane = new Plane(this.mTrans.rotation * Vector3.back, this.mLastPos);
 			}
-			else if (this.restrictWithinPanel && this.mPanel.clipping != UIDrawCall.Clipping.None && this.dragEffect == UIDraggablePanel.DragEffect.MomentumAndSpring)
+			else if (this.restrictWithinPanel && this.mPanel.clipping != global::UIDrawCall.Clipping.None && this.dragEffect == global::UIDraggablePanel.DragEffect.MomentumAndSpring)
 			{
 				this.RestrictWithinBounds(false);
 			}
 		}
 	}
 
-	// Token: 0x0600453C RID: 17724 RVA: 0x0011077C File Offset: 0x0010E97C
+	// Token: 0x0600499D RID: 18845 RVA: 0x0011A0FC File Offset: 0x001182FC
 	public void Drag(Vector2 delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.mShouldMove)
 		{
-			UICamera.currentTouch.clickNotification = UICamera.ClickNotification.BasedOnDelta;
-			Ray ray = UICamera.currentCamera.ScreenPointToRay(UICamera.currentTouch.pos);
+			global::UICamera.currentTouch.clickNotification = global::UICamera.ClickNotification.BasedOnDelta;
+			Ray ray = global::UICamera.currentCamera.ScreenPointToRay(global::UICamera.currentTouch.pos);
 			float num = 0f;
 			if (this.mPlane.Raycast(ray, ref num))
 			{
@@ -469,7 +469,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 				}
 				this.mMomentum = Vector3.Lerp(this.mMomentum, this.mMomentum + vector * (0.01f * this.momentumAmount), 0.67f);
 				this.MoveAbsolute(vector);
-				if (this.restrictWithinPanel && this.mPanel.clipping != UIDrawCall.Clipping.None && this.dragEffect != UIDraggablePanel.DragEffect.MomentumAndSpring)
+				if (this.restrictWithinPanel && this.mPanel.clipping != global::UIDrawCall.Clipping.None && this.dragEffect != global::UIDraggablePanel.DragEffect.MomentumAndSpring)
 				{
 					this.RestrictWithinBounds(false);
 				}
@@ -477,7 +477,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0600453D RID: 17725 RVA: 0x001108BC File Offset: 0x0010EABC
+	// Token: 0x0600499E RID: 18846 RVA: 0x0011A23C File Offset: 0x0011843C
 	public void Scroll(float delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy)
@@ -491,7 +491,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0600453E RID: 17726 RVA: 0x00110928 File Offset: 0x0010EB28
+	// Token: 0x0600499F RID: 18847 RVA: 0x0011A2A8 File Offset: 0x001184A8
 	private void OnPanelChanged()
 	{
 		if (this._calculateNextChange)
@@ -500,7 +500,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 			this.UpdateScrollbars(true);
 			if (this.calculatedNextChangeCallback != null)
 			{
-				UIDraggablePanel.CalculatedNextChangeCallback calculatedNextChangeCallback = this.calculatedNextChangeCallback;
+				global::UIDraggablePanel.CalculatedNextChangeCallback calculatedNextChangeCallback = this.calculatedNextChangeCallback;
 				this.calculatedNextChangeCallback = null;
 				calculatedNextChangeCallback();
 			}
@@ -515,7 +515,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0600453F RID: 17727 RVA: 0x0011099C File Offset: 0x0010EB9C
+	// Token: 0x060049A0 RID: 18848 RVA: 0x0011A31C File Offset: 0x0011851C
 	public bool CalculateBoundsIfNeeded()
 	{
 		if (this._panelMayNeedBoundCalculation)
@@ -526,7 +526,7 @@ public class UIDraggablePanel : IgnoreTimeScale
 		return false;
 	}
 
-	// Token: 0x06004540 RID: 17728 RVA: 0x001109BC File Offset: 0x0010EBBC
+	// Token: 0x060049A1 RID: 18849 RVA: 0x0011A33C File Offset: 0x0011853C
 	private void LateUpdate()
 	{
 		if (!this.mPanel.enabled)
@@ -549,11 +549,11 @@ public class UIDraggablePanel : IgnoreTimeScale
 			return;
 		}
 		float num = base.UpdateRealTimeDelta();
-		if (this.showScrollBars != UIDraggablePanel.ShowCondition.Always)
+		if (this.showScrollBars != global::UIDraggablePanel.ShowCondition.Always)
 		{
 			bool flag = false;
 			bool flag2 = false;
-			if (this.showScrollBars != UIDraggablePanel.ShowCondition.WhenDragging || this.mTouches > 0)
+			if (this.showScrollBars != global::UIDraggablePanel.ShowCondition.WhenDragging || this.mTouches > 0)
 			{
 				flag = this.shouldMoveVertically;
 				flag2 = this.shouldMoveHorizontally;
@@ -584,10 +584,10 @@ public class UIDraggablePanel : IgnoreTimeScale
 			this.mMomentum += this.scale * (-this.mScroll * 0.05f);
 			if (this.mMomentum.magnitude > 0.0001f)
 			{
-				this.mScroll = NGUIMath.SpringLerp(this.mScroll, 0f, 20f, num);
-				Vector3 absolute = NGUIMath.SpringDampen(ref this.mMomentum, 9f, num);
+				this.mScroll = global::NGUIMath.SpringLerp(this.mScroll, 0f, 20f, num);
+				Vector3 absolute = global::NGUIMath.SpringDampen(ref this.mMomentum, 9f, num);
 				this.MoveAbsolute(absolute);
-				if ((this.restrictWithinPanel || this.restrictWithinPanelWithScroll) && this.mPanel.clipping != UIDrawCall.Clipping.None)
+				if ((this.restrictWithinPanel || this.restrictWithinPanelWithScroll) && this.mPanel.clipping != global::UIDrawCall.Clipping.None)
 				{
 					this.RestrictWithinBounds(false);
 				}
@@ -599,10 +599,10 @@ public class UIDraggablePanel : IgnoreTimeScale
 		{
 			this.mScroll = 0f;
 		}
-		NGUIMath.SpringDampen(ref this.mMomentum, 9f, num);
+		global::NGUIMath.SpringDampen(ref this.mMomentum, 9f, num);
 	}
 
-	// Token: 0x06004541 RID: 17729 RVA: 0x00110C20 File Offset: 0x0010EE20
+	// Token: 0x060049A2 RID: 18850 RVA: 0x0011A5A0 File Offset: 0x001187A0
 	private void OnHoverScroll(float y)
 	{
 		if (this.respondHoverScroll)
@@ -611,123 +611,123 @@ public class UIDraggablePanel : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x04002571 RID: 9585
+	// Token: 0x040027A8 RID: 10152
 	public bool restrictWithinPanel = true;
 
-	// Token: 0x04002572 RID: 9586
+	// Token: 0x040027A9 RID: 10153
 	public bool restrictWithinPanelWithScroll = true;
 
-	// Token: 0x04002573 RID: 9587
+	// Token: 0x040027AA RID: 10154
 	public bool disableDragIfFits;
 
-	// Token: 0x04002574 RID: 9588
-	public UIDraggablePanel.DragEffect dragEffect = UIDraggablePanel.DragEffect.MomentumAndSpring;
+	// Token: 0x040027AB RID: 10155
+	public global::UIDraggablePanel.DragEffect dragEffect = global::UIDraggablePanel.DragEffect.MomentumAndSpring;
 
-	// Token: 0x04002575 RID: 9589
+	// Token: 0x040027AC RID: 10156
 	public Vector3 scale = Vector3.one;
 
-	// Token: 0x04002576 RID: 9590
+	// Token: 0x040027AD RID: 10157
 	public float scrollWheelFactor;
 
-	// Token: 0x04002577 RID: 9591
+	// Token: 0x040027AE RID: 10158
 	public float momentumAmount = 35f;
 
-	// Token: 0x04002578 RID: 9592
+	// Token: 0x040027AF RID: 10159
 	public Vector2 relativePositionOnReset = Vector2.zero;
 
-	// Token: 0x04002579 RID: 9593
+	// Token: 0x040027B0 RID: 10160
 	public bool repositionClipping;
 
-	// Token: 0x0400257A RID: 9594
-	public UIScrollBar horizontalScrollBar;
+	// Token: 0x040027B1 RID: 10161
+	public global::UIScrollBar horizontalScrollBar;
 
-	// Token: 0x0400257B RID: 9595
-	public UIScrollBar verticalScrollBar;
+	// Token: 0x040027B2 RID: 10162
+	public global::UIScrollBar verticalScrollBar;
 
-	// Token: 0x0400257C RID: 9596
-	public UIDraggablePanel.ShowCondition showScrollBars = UIDraggablePanel.ShowCondition.OnlyIfNeeded;
+	// Token: 0x040027B3 RID: 10163
+	public global::UIDraggablePanel.ShowCondition showScrollBars = global::UIDraggablePanel.ShowCondition.OnlyIfNeeded;
 
-	// Token: 0x0400257D RID: 9597
+	// Token: 0x040027B4 RID: 10164
 	[SerializeField]
 	private bool _calculateBoundsEveryChange = true;
 
-	// Token: 0x0400257E RID: 9598
+	// Token: 0x040027B5 RID: 10165
 	private bool _panelMayNeedBoundCalculation;
 
-	// Token: 0x0400257F RID: 9599
+	// Token: 0x040027B6 RID: 10166
 	private Transform mTrans;
 
-	// Token: 0x04002580 RID: 9600
-	private UIPanel mPanel;
+	// Token: 0x040027B7 RID: 10167
+	private global::UIPanel mPanel;
 
-	// Token: 0x04002581 RID: 9601
+	// Token: 0x040027B8 RID: 10168
 	private Plane mPlane;
 
-	// Token: 0x04002582 RID: 9602
+	// Token: 0x040027B9 RID: 10169
 	private Vector3 mLastPos;
 
-	// Token: 0x04002583 RID: 9603
+	// Token: 0x040027BA RID: 10170
 	private bool mPressed;
 
-	// Token: 0x04002584 RID: 9604
+	// Token: 0x040027BB RID: 10171
 	private Vector3 mMomentum = Vector3.zero;
 
-	// Token: 0x04002585 RID: 9605
+	// Token: 0x040027BC RID: 10172
 	private float mScroll;
 
-	// Token: 0x04002586 RID: 9606
-	private AABBox mBounds;
+	// Token: 0x040027BD RID: 10173
+	private global::AABBox mBounds;
 
-	// Token: 0x04002587 RID: 9607
+	// Token: 0x040027BE RID: 10174
 	private bool mCalculatedBounds;
 
-	// Token: 0x04002588 RID: 9608
+	// Token: 0x040027BF RID: 10175
 	private bool mShouldMove;
 
-	// Token: 0x04002589 RID: 9609
+	// Token: 0x040027C0 RID: 10176
 	private bool mIgnoreCallbacks;
 
-	// Token: 0x0400258A RID: 9610
+	// Token: 0x040027C1 RID: 10177
 	private bool mStartedManually;
 
-	// Token: 0x0400258B RID: 9611
+	// Token: 0x040027C2 RID: 10178
 	private bool mStartedAutomatically;
 
-	// Token: 0x0400258C RID: 9612
+	// Token: 0x040027C3 RID: 10179
 	private int mTouches;
 
-	// Token: 0x0400258D RID: 9613
+	// Token: 0x040027C4 RID: 10180
 	private bool _calculateNextChange;
 
-	// Token: 0x0400258E RID: 9614
+	// Token: 0x040027C5 RID: 10181
 	public bool respondHoverScroll = true;
 
-	// Token: 0x0400258F RID: 9615
-	private UIDraggablePanel.CalculatedNextChangeCallback calculatedNextChangeCallback;
+	// Token: 0x040027C6 RID: 10182
+	private global::UIDraggablePanel.CalculatedNextChangeCallback calculatedNextChangeCallback;
 
-	// Token: 0x02000770 RID: 1904
+	// Token: 0x02000852 RID: 2130
 	public enum DragEffect
 	{
-		// Token: 0x04002591 RID: 9617
+		// Token: 0x040027C8 RID: 10184
 		None,
-		// Token: 0x04002592 RID: 9618
+		// Token: 0x040027C9 RID: 10185
 		Momentum,
-		// Token: 0x04002593 RID: 9619
+		// Token: 0x040027CA RID: 10186
 		MomentumAndSpring
 	}
 
-	// Token: 0x02000771 RID: 1905
+	// Token: 0x02000853 RID: 2131
 	public enum ShowCondition
 	{
-		// Token: 0x04002595 RID: 9621
+		// Token: 0x040027CC RID: 10188
 		Always,
-		// Token: 0x04002596 RID: 9622
+		// Token: 0x040027CD RID: 10189
 		OnlyIfNeeded,
-		// Token: 0x04002597 RID: 9623
+		// Token: 0x040027CE RID: 10190
 		WhenDragging
 	}
 
-	// Token: 0x020008E4 RID: 2276
-	// (Invoke) Token: 0x06004D68 RID: 19816
+	// Token: 0x02000854 RID: 2132
+	// (Invoke) Token: 0x060049A4 RID: 18852
 	public delegate void CalculatedNextChangeCallback();
 }

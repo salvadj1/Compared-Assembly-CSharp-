@@ -2,19 +2,19 @@
 
 namespace Facepunch.Load
 {
-	// Token: 0x02000265 RID: 613
+	// Token: 0x02000298 RID: 664
 	public interface IDownloaderDispatch
 	{
-		// Token: 0x0600165A RID: 5722
+		// Token: 0x060017AE RID: 6062
 		void BindLoader(Loader loader);
 
-		// Token: 0x0600165B RID: 5723
+		// Token: 0x060017AF RID: 6063
 		void UnbindLoader(Loader loader);
 
-		// Token: 0x0600165C RID: 5724
+		// Token: 0x060017B0 RID: 6064
 		IDownloader CreateDownloaderForJob(Job job);
 
-		// Token: 0x0600165D RID: 5725
+		// Token: 0x060017B1 RID: 6065
 		void DeleteDownloader(Job job, IDownloader downloader);
 	}
 }

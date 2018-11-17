@@ -2,43 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000445 RID: 1093
+// Token: 0x020004FB RID: 1275
 [RequireComponent(typeof(SkinnedMeshRenderer))]
 public class BoundHack : MonoBehaviour
 {
-	// Token: 0x06002807 RID: 10247 RVA: 0x0009C26C File Offset: 0x0009A46C
+	// Token: 0x06002B97 RID: 11159 RVA: 0x000A21EC File Offset: 0x000A03EC
 	private void Awake()
 	{
 		this.renderer = (base.renderer as SkinnedMeshRenderer);
-		if (BoundHack.renders == null)
+		if (global::BoundHack.renders == null)
 		{
-			BoundHack.renders = new HashSet<BoundHack>();
+			global::BoundHack.renders = new HashSet<global::BoundHack>();
 		}
-		BoundHack.renders.Add(this);
+		global::BoundHack.renders.Add(this);
 	}
 
-	// Token: 0x06002808 RID: 10248 RVA: 0x0009C2A0 File Offset: 0x0009A4A0
+	// Token: 0x06002B98 RID: 11160 RVA: 0x000A2220 File Offset: 0x000A0420
 	private void OnDestroy()
 	{
-		if (BoundHack.renders != null)
+		if (global::BoundHack.renders != null)
 		{
-			BoundHack.renders.Remove(this);
+			global::BoundHack.renders.Remove(this);
 		}
 	}
 
-	// Token: 0x06002809 RID: 10249 RVA: 0x0009C2B8 File Offset: 0x0009A4B8
+	// Token: 0x06002B99 RID: 11161 RVA: 0x000A2238 File Offset: 0x000A0438
 	public static void Achieve(Vector3 centroid)
 	{
-		if (BoundHack.renders != null)
+		if (global::BoundHack.renders != null)
 		{
-			foreach (BoundHack boundHack in BoundHack.renders)
+			foreach (global::BoundHack boundHack in global::BoundHack.renders)
 			{
 				boundHack.renderer.localBounds = new Bounds(((!boundHack.rootbone) ? boundHack.transform : boundHack.rootbone).InverseTransformPoint(centroid), new Vector3(100f, 100f, 100f));
 			}
 		}
 	}
 
-	// Token: 0x0600280A RID: 10250 RVA: 0x0009C36C File Offset: 0x0009A56C
+	// Token: 0x06002B9A RID: 11162 RVA: 0x000A22EC File Offset: 0x000A04EC
 	private void OnDrawGizmosSelected()
 	{
 		if (base.renderer)
@@ -53,12 +53,12 @@ public class BoundHack : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040013EC RID: 5100
-	private static HashSet<BoundHack> renders;
+	// Token: 0x0400156F RID: 5487
+	private static HashSet<global::BoundHack> renders;
 
-	// Token: 0x040013ED RID: 5101
+	// Token: 0x04001570 RID: 5488
 	private SkinnedMeshRenderer renderer;
 
-	// Token: 0x040013EE RID: 5102
+	// Token: 0x04001571 RID: 5489
 	public Transform rootbone;
 }

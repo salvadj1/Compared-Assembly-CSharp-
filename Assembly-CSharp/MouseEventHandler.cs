@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020008FA RID: 2298
-// (Invoke) Token: 0x06004DC0 RID: 19904
-[dfEventCategory("Mouse Input")]
-public delegate void MouseEventHandler(dfControl control, dfMouseEventArgs mouseEvent);
+// Token: 0x0200094F RID: 2383
+// (Invoke) Token: 0x06004FD2 RID: 20434
+[global::dfEventCategory("Mouse Input")]
+public delegate void MouseEventHandler(global::dfControl control, global::dfMouseEventArgs mouseEvent);

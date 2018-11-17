@@ -2,41 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020005F2 RID: 1522
+// Token: 0x020006B0 RID: 1712
 public sealed class Loadout : ScriptableObject
 {
-	// Token: 0x0600369F RID: 13983 RVA: 0x000C4EE4 File Offset: 0x000C30E4
-	private static Loadout.Entry[] LoadEntryArray(Loadout.Entry[] array, Inventory.Slot.Kind kind)
+	// Token: 0x06003A67 RID: 14951 RVA: 0x000CD140 File Offset: 0x000CB340
+	private static global::Loadout.Entry[] LoadEntryArray(global::Loadout.Entry[] array, global::Inventory.Slot.Kind kind)
 	{
-		array = (array ?? Loadout.Empty.EntryArray);
+		array = (array ?? global::Loadout.Empty.EntryArray);
 		for (int i = 0; i < array.Length; i++)
 		{
-			Loadout.Entry entry = array[i];
+			global::Loadout.Entry entry = array[i];
 			entry.inferredSlotKind = kind;
 			entry.inferredSlotOfKind = i;
 		}
 		return array;
 	}
 
-	// Token: 0x060036A0 RID: 13984 RVA: 0x000C4F28 File Offset: 0x000C3128
-	private Loadout.Entry[][] GetEntryArrays()
+	// Token: 0x06003A68 RID: 14952 RVA: 0x000CD184 File Offset: 0x000CB384
+	private global::Loadout.Entry[][] GetEntryArrays()
 	{
-		return new Loadout.Entry[][]
+		return new global::Loadout.Entry[][]
 		{
-			Loadout.LoadEntryArray(this._inventory, Inventory.Slot.Kind.Default),
-			Loadout.LoadEntryArray(this._belt, Inventory.Slot.Kind.Belt),
-			Loadout.LoadEntryArray(this._wearable, Inventory.Slot.Kind.Armor)
+			global::Loadout.LoadEntryArray(this._inventory, global::Inventory.Slot.Kind.Default),
+			global::Loadout.LoadEntryArray(this._belt, global::Inventory.Slot.Kind.Belt),
+			global::Loadout.LoadEntryArray(this._wearable, global::Inventory.Slot.Kind.Armor)
 		};
 	}
 
-	// Token: 0x060036A1 RID: 13985 RVA: 0x000C4F60 File Offset: 0x000C3160
-	private static IEnumerable<Inventory.Addition> EnumerateAdditions(Loadout.Entry[][] arrays)
+	// Token: 0x06003A69 RID: 14953 RVA: 0x000CD1BC File Offset: 0x000CB3BC
+	private static IEnumerable<global::Inventory.Addition> EnumerateAdditions(global::Loadout.Entry[][] arrays)
 	{
-		foreach (Loadout.Entry array in arrays)
+		foreach (global::Loadout.Entry array in arrays)
 		{
-			foreach (Loadout.Entry entry in array)
+			foreach (global::Loadout.Entry entry in array)
 			{
-				Inventory.Addition current;
+				global::Inventory.Addition current;
 				if (entry.GetInventoryAddition(out current))
 				{
 					yield return current;
@@ -46,12 +46,12 @@ public sealed class Loadout : ScriptableObject
 		yield break;
 	}
 
-	// Token: 0x060036A2 RID: 13986 RVA: 0x000C4F8C File Offset: 0x000C318C
-	private static IEnumerable<Loadout.Entry> EnumerateRequired(Loadout.Entry[][] arrays)
+	// Token: 0x06003A6A RID: 14954 RVA: 0x000CD1E8 File Offset: 0x000CB3E8
+	private static IEnumerable<global::Loadout.Entry> EnumerateRequired(global::Loadout.Entry[][] arrays)
 	{
-		foreach (Loadout.Entry array in arrays)
+		foreach (global::Loadout.Entry array in arrays)
 		{
-			foreach (Loadout.Entry entry in array)
+			foreach (global::Loadout.Entry entry in array)
 			{
 				if (entry.minimumRequirement)
 				{
@@ -62,27 +62,27 @@ public sealed class Loadout : ScriptableObject
 		yield break;
 	}
 
-	// Token: 0x060036A3 RID: 13987 RVA: 0x000C4FB8 File Offset: 0x000C31B8
-	private void GetAdditionArray(ref Inventory.Addition[] array, bool forceUpdate)
+	// Token: 0x06003A6B RID: 14955 RVA: 0x000CD214 File Offset: 0x000CB414
+	private void GetAdditionArray(ref global::Inventory.Addition[] array, bool forceUpdate)
 	{
 		if (forceUpdate || array == null)
 		{
-			array = new List<Inventory.Addition>(Loadout.EnumerateAdditions(this.GetEntryArrays())).ToArray();
+			array = new List<global::Inventory.Addition>(global::Loadout.EnumerateAdditions(this.GetEntryArrays())).ToArray();
 		}
 	}
 
-	// Token: 0x060036A4 RID: 13988 RVA: 0x000C4FEC File Offset: 0x000C31EC
-	private void GetMinimumRequirementArray(ref Loadout.Entry[] array, bool forceUpdate)
+	// Token: 0x06003A6C RID: 14956 RVA: 0x000CD248 File Offset: 0x000CB448
+	private void GetMinimumRequirementArray(ref global::Loadout.Entry[] array, bool forceUpdate)
 	{
 		if (forceUpdate || array == null)
 		{
-			array = new List<Loadout.Entry>(Loadout.EnumerateRequired(this.GetEntryArrays())).ToArray();
+			array = new List<global::Loadout.Entry>(global::Loadout.EnumerateRequired(this.GetEntryArrays())).ToArray();
 		}
 	}
 
-	// Token: 0x17000AE5 RID: 2789
-	// (get) Token: 0x060036A5 RID: 13989 RVA: 0x000C5020 File Offset: 0x000C3220
-	private Inventory.Addition[] emptyInventoryAdditions
+	// Token: 0x17000B5B RID: 2907
+	// (get) Token: 0x06003A6D RID: 14957 RVA: 0x000CD27C File Offset: 0x000CB47C
+	private global::Inventory.Addition[] emptyInventoryAdditions
 	{
 		get
 		{
@@ -91,9 +91,9 @@ public sealed class Loadout : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000AE6 RID: 2790
-	// (get) Token: 0x060036A6 RID: 13990 RVA: 0x000C5038 File Offset: 0x000C3238
-	private Loadout.Entry[] minimumRequirements
+	// Token: 0x17000B5C RID: 2908
+	// (get) Token: 0x06003A6E RID: 14958 RVA: 0x000CD294 File Offset: 0x000CB494
+	private global::Loadout.Entry[] minimumRequirements
 	{
 		get
 		{
@@ -102,46 +102,46 @@ public sealed class Loadout : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000AE7 RID: 2791
-	// (get) Token: 0x060036A7 RID: 13991 RVA: 0x000C5050 File Offset: 0x000C3250
-	public BlueprintDataBlock[] defaultBlueprints
+	// Token: 0x17000B5D RID: 2909
+	// (get) Token: 0x06003A6F RID: 14959 RVA: 0x000CD2AC File Offset: 0x000CB4AC
+	public global::BlueprintDataBlock[] defaultBlueprints
 	{
 		get
 		{
-			return this._defaultBlueprints ?? Loadout.Empty.BlueprintArray;
+			return this._defaultBlueprints ?? global::Loadout.Empty.BlueprintArray;
 		}
 	}
 
-	// Token: 0x04001AC8 RID: 6856
+	// Token: 0x04001C99 RID: 7321
 	[SerializeField]
-	private Loadout.Entry[] _inventory;
+	private global::Loadout.Entry[] _inventory;
 
-	// Token: 0x04001AC9 RID: 6857
+	// Token: 0x04001C9A RID: 7322
 	[SerializeField]
-	private Loadout.Entry[] _belt;
+	private global::Loadout.Entry[] _belt;
 
-	// Token: 0x04001ACA RID: 6858
+	// Token: 0x04001C9B RID: 7323
 	[SerializeField]
-	private Loadout.Entry[] _wearable;
+	private global::Loadout.Entry[] _wearable;
 
-	// Token: 0x04001ACB RID: 6859
+	// Token: 0x04001C9C RID: 7324
 	[SerializeField]
-	private BlueprintDataBlock[] _defaultBlueprints;
+	private global::BlueprintDataBlock[] _defaultBlueprints;
 
-	// Token: 0x04001ACC RID: 6860
+	// Token: 0x04001C9D RID: 7325
 	[NonSerialized]
-	private Inventory.Addition[] _blankInventoryLoadout;
+	private global::Inventory.Addition[] _blankInventoryLoadout;
 
-	// Token: 0x04001ACD RID: 6861
+	// Token: 0x04001C9E RID: 7326
 	[NonSerialized]
-	private Loadout.Entry[] _minimumRequirements;
+	private global::Loadout.Entry[] _minimumRequirements;
 
-	// Token: 0x020005F3 RID: 1523
+	// Token: 0x020006B1 RID: 1713
 	[Serializable]
 	private class Entry
 	{
-		// Token: 0x17000AE8 RID: 2792
-		// (get) Token: 0x060036A9 RID: 13993 RVA: 0x000C506C File Offset: 0x000C326C
+		// Token: 0x17000B5E RID: 2910
+		// (get) Token: 0x06003A71 RID: 14961 RVA: 0x000CD2C8 File Offset: 0x000CB4C8
 		public bool allowed
 		{
 			get
@@ -150,8 +150,8 @@ public sealed class Loadout : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000AE9 RID: 2793
-		// (get) Token: 0x060036AA RID: 13994 RVA: 0x000C50B4 File Offset: 0x000C32B4
+		// Token: 0x17000B5F RID: 2911
+		// (get) Token: 0x06003A72 RID: 14962 RVA: 0x000CD310 File Offset: 0x000CB510
 		public bool forEmptyInventories
 		{
 			get
@@ -160,8 +160,8 @@ public sealed class Loadout : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000AEA RID: 2794
-		// (get) Token: 0x060036AB RID: 13995 RVA: 0x000C50CC File Offset: 0x000C32CC
+		// Token: 0x17000B60 RID: 2912
+		// (get) Token: 0x06003A73 RID: 14963 RVA: 0x000CD328 File Offset: 0x000CB528
 		public bool minimumRequirement
 		{
 			get
@@ -170,8 +170,8 @@ public sealed class Loadout : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000AEB RID: 2795
-		// (get) Token: 0x060036AC RID: 13996 RVA: 0x000C50E4 File Offset: 0x000C32E4
+		// Token: 0x17000B61 RID: 2913
+		// (get) Token: 0x06003A74 RID: 14964 RVA: 0x000CD340 File Offset: 0x000CB540
 		public int useCount
 		{
 			get
@@ -180,54 +180,54 @@ public sealed class Loadout : ScriptableObject
 			}
 		}
 
-		// Token: 0x060036AD RID: 13997 RVA: 0x000C5130 File Offset: 0x000C3330
-		public bool GetInventoryAddition(out Inventory.Addition addition)
+		// Token: 0x06003A75 RID: 14965 RVA: 0x000CD38C File Offset: 0x000CB58C
+		public bool GetInventoryAddition(out global::Inventory.Addition addition)
 		{
 			if (this.allowed)
 			{
-				addition = default(Inventory.Addition);
-				Inventory.Addition addition2 = addition;
-				addition2.Ident = (Datablock.Ident)this.item;
-				addition2.SlotPreference = Inventory.Slot.Preference.Define(this.inferredSlotKind, this.inferredSlotOfKind);
+				addition = default(global::Inventory.Addition);
+				global::Inventory.Addition addition2 = addition;
+				addition2.Ident = (global::Datablock.Ident)this.item;
+				addition2.SlotPreference = global::Inventory.Slot.Preference.Define(this.inferredSlotKind, this.inferredSlotOfKind);
 				addition2.UsesQuantity = this.useCount;
 				addition = addition2;
 				return true;
 			}
-			addition = default(Inventory.Addition);
+			addition = default(global::Inventory.Addition);
 			return false;
 		}
 
-		// Token: 0x04001ACE RID: 6862
+		// Token: 0x04001C9F RID: 7327
 		[SerializeField]
 		private bool enabled;
 
-		// Token: 0x04001ACF RID: 6863
-		public ItemDataBlock item;
+		// Token: 0x04001CA0 RID: 7328
+		public global::ItemDataBlock item;
 
-		// Token: 0x04001AD0 RID: 6864
+		// Token: 0x04001CA1 RID: 7329
 		[SerializeField]
 		private int _useCount;
 
-		// Token: 0x04001AD1 RID: 6865
+		// Token: 0x04001CA2 RID: 7330
 		[SerializeField]
 		private bool _minimumRequirement;
 
-		// Token: 0x04001AD2 RID: 6866
+		// Token: 0x04001CA3 RID: 7331
 		[NonSerialized]
-		internal Inventory.Slot.Kind inferredSlotKind;
+		internal global::Inventory.Slot.Kind inferredSlotKind;
 
-		// Token: 0x04001AD3 RID: 6867
+		// Token: 0x04001CA4 RID: 7332
 		[NonSerialized]
 		internal int inferredSlotOfKind;
 	}
 
-	// Token: 0x020005F4 RID: 1524
+	// Token: 0x020006B2 RID: 1714
 	private static class Empty
 	{
-		// Token: 0x04001AD4 RID: 6868
-		public static readonly Loadout.Entry[] EntryArray = new Loadout.Entry[0];
+		// Token: 0x04001CA5 RID: 7333
+		public static readonly global::Loadout.Entry[] EntryArray = new global::Loadout.Entry[0];
 
-		// Token: 0x04001AD5 RID: 6869
-		public static readonly BlueprintDataBlock[] BlueprintArray = new BlueprintDataBlock[0];
+		// Token: 0x04001CA6 RID: 7334
+		public static readonly global::BlueprintDataBlock[] BlueprintArray = new global::BlueprintDataBlock[0];
 	}
 }

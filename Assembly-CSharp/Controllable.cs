@@ -6,39 +6,39 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200011D RID: 285
-public sealed class Controllable : IDLocalCharacter
+// Token: 0x0200013C RID: 316
+public sealed class Controllable : global::IDLocalCharacter
 {
 	// Token: 0x14000004 RID: 4
-	// (add) Token: 0x060007BF RID: 1983 RVA: 0x00022540 File Offset: 0x00020740
-	// (remove) Token: 0x060007C0 RID: 1984 RVA: 0x00022558 File Offset: 0x00020758
-	public static event Controllable.DestroyInContextQuery onDestroyInContextQuery;
+	// (add) Token: 0x06000891 RID: 2193 RVA: 0x00025114 File Offset: 0x00023314
+	// (remove) Token: 0x06000892 RID: 2194 RVA: 0x0002512C File Offset: 0x0002332C
+	public static event global::Controllable.DestroyInContextQuery onDestroyInContextQuery;
 
-	// Token: 0x060007C1 RID: 1985 RVA: 0x00022570 File Offset: 0x00020770
+	// Token: 0x06000893 RID: 2195 RVA: 0x00025144 File Offset: 0x00023344
 	private void ON_CHAIN_RENEW()
 	{
 	}
 
-	// Token: 0x060007C2 RID: 1986 RVA: 0x00022574 File Offset: 0x00020774
+	// Token: 0x06000894 RID: 2196 RVA: 0x00025148 File Offset: 0x00023348
 	private void ON_CHAIN_SUBSCRIBE()
 	{
 	}
 
-	// Token: 0x060007C3 RID: 1987 RVA: 0x00022578 File Offset: 0x00020778
+	// Token: 0x06000895 RID: 2197 RVA: 0x0002514C File Offset: 0x0002334C
 	private void ON_CHAIN_ERASE(int cmd)
 	{
 	}
 
-	// Token: 0x060007C4 RID: 1988 RVA: 0x0002257C File Offset: 0x0002077C
+	// Token: 0x06000896 RID: 2198 RVA: 0x00025150 File Offset: 0x00023350
 	private void ON_CHAIN_ABOLISHED()
 	{
 	}
 
-	// Token: 0x060007C5 RID: 1989 RVA: 0x00022580 File Offset: 0x00020780
-	private static int CAP_THIS(int cmd, int RT, Controllable.ControlFlags F)
+	// Token: 0x06000897 RID: 2199 RVA: 0x00025154 File Offset: 0x00023354
+	private static int CAP_THIS(int cmd, int RT, global::Controllable.ControlFlags F)
 	{
 		cmd &= -30721;
-		if ((F & Controllable.ControlFlags.Strong) == (Controllable.ControlFlags)0)
+		if ((F & global::Controllable.ControlFlags.Strong) == (global::Controllable.ControlFlags)0)
 		{
 			cmd |= 0;
 		}
@@ -50,15 +50,15 @@ public sealed class Controllable : IDLocalCharacter
 		{
 			cmd |= 4096;
 		}
-		if ((F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) == Controllable.ControlFlags.Owned)
+		if ((F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) == global::Controllable.ControlFlags.Owned)
 		{
 			cmd |= 0;
 		}
-		else if ((F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player))
+		else if ((F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player))
 		{
 			cmd |= 8192;
 		}
-		if ((F & Controllable.ControlFlags.Local) == Controllable.ControlFlags.Local)
+		if ((F & global::Controllable.ControlFlags.Local) == global::Controllable.ControlFlags.Local)
 		{
 			cmd |= 16384;
 		}
@@ -66,7 +66,7 @@ public sealed class Controllable : IDLocalCharacter
 		{
 			cmd |= 0;
 		}
-		if ((F & Controllable.ControlFlags.Root) == Controllable.ControlFlags.Root)
+		if ((F & global::Controllable.ControlFlags.Root) == global::Controllable.ControlFlags.Root)
 		{
 			cmd |= 2048;
 		}
@@ -81,10 +81,10 @@ public sealed class Controllable : IDLocalCharacter
 		return cmd;
 	}
 
-	// Token: 0x060007C6 RID: 1990 RVA: 0x0002264C File Offset: 0x0002084C
-	private static int CAP_ENTER(int cmd, int RT, Controllable.ControlFlags F)
+	// Token: 0x06000898 RID: 2200 RVA: 0x00025220 File Offset: 0x00023420
+	private static int CAP_ENTER(int cmd, int RT, global::Controllable.ControlFlags F)
 	{
-		cmd = Controllable.CAP_THIS(cmd, RT, F);
+		cmd = global::Controllable.CAP_THIS(cmd, RT, F);
 		if ((RT & 64) == 64)
 		{
 			cmd |= ((cmd & -1025) | 1024);
@@ -96,10 +96,10 @@ public sealed class Controllable : IDLocalCharacter
 		return cmd;
 	}
 
-	// Token: 0x060007C7 RID: 1991 RVA: 0x00022688 File Offset: 0x00020888
-	private static int CAP_PROMOTE(int cmd, int RT, Controllable.ControlFlags F)
+	// Token: 0x06000899 RID: 2201 RVA: 0x0002525C File Offset: 0x0002345C
+	private static int CAP_PROMOTE(int cmd, int RT, global::Controllable.ControlFlags F)
 	{
-		cmd = Controllable.CAP_THIS(cmd, RT, F);
+		cmd = global::Controllable.CAP_THIS(cmd, RT, F);
 		if ((RT & 128) == 128)
 		{
 			cmd |= ((cmd & -1025) | 1024);
@@ -111,10 +111,10 @@ public sealed class Controllable : IDLocalCharacter
 		return cmd;
 	}
 
-	// Token: 0x060007C8 RID: 1992 RVA: 0x000226D4 File Offset: 0x000208D4
-	private static int CAP_DEMOTE(int cmd, int RT, Controllable.ControlFlags F)
+	// Token: 0x0600089A RID: 2202 RVA: 0x000252A8 File Offset: 0x000234A8
+	private static int CAP_DEMOTE(int cmd, int RT, global::Controllable.ControlFlags F)
 	{
-		cmd = Controllable.CAP_THIS(cmd, RT, F);
+		cmd = global::Controllable.CAP_THIS(cmd, RT, F);
 		if ((RT & 256) == 256)
 		{
 			cmd = ((cmd & -1025) | 1024);
@@ -126,8 +126,8 @@ public sealed class Controllable : IDLocalCharacter
 		return cmd;
 	}
 
-	// Token: 0x060007C9 RID: 1993 RVA: 0x00022714 File Offset: 0x00020914
-	private static int CAP_EXIT(int cmd, int RT, Controllable.ControlFlags F)
+	// Token: 0x0600089B RID: 2203 RVA: 0x000252E8 File Offset: 0x000234E8
+	private static int CAP_EXIT(int cmd, int RT, global::Controllable.ControlFlags F)
 	{
 		if ((RT & 512) == 512)
 		{
@@ -140,8 +140,8 @@ public sealed class Controllable : IDLocalCharacter
 		return cmd;
 	}
 
-	// Token: 0x060007CA RID: 1994 RVA: 0x0002274C File Offset: 0x0002094C
-	private static void DO_ENTER(int cmd, Controllable citr)
+	// Token: 0x0600089C RID: 2204 RVA: 0x00025320 File Offset: 0x00023520
+	private static void DO_ENTER(int cmd, global::Controllable citr)
 	{
 		if ((citr.RT & 8) == 8)
 		{
@@ -152,8 +152,8 @@ public sealed class Controllable : IDLocalCharacter
 		citr.RT = ((citr.RT & -12) | 65);
 	}
 
-	// Token: 0x060007CB RID: 1995 RVA: 0x00022790 File Offset: 0x00020990
-	private static void DO_PROMOTE(int cmd, Controllable citr)
+	// Token: 0x0600089D RID: 2205 RVA: 0x00025364 File Offset: 0x00023564
+	private static void DO_PROMOTE(int cmd, global::Controllable citr)
 	{
 		if ((citr.RT & 16) == 16)
 		{
@@ -164,8 +164,8 @@ public sealed class Controllable : IDLocalCharacter
 		citr.RT = ((citr.RT & -20) | 131);
 	}
 
-	// Token: 0x060007CC RID: 1996 RVA: 0x000227DC File Offset: 0x000209DC
-	private static void DO_DEMOTE(int cmd, Controllable citr)
+	// Token: 0x0600089E RID: 2206 RVA: 0x000253B0 File Offset: 0x000235B0
+	private static void DO_DEMOTE(int cmd, global::Controllable citr)
 	{
 		if ((citr.RT & 16) == 16)
 		{
@@ -176,8 +176,8 @@ public sealed class Controllable : IDLocalCharacter
 		citr.RT = ((citr.RT & -20) | 257);
 	}
 
-	// Token: 0x060007CD RID: 1997 RVA: 0x00022828 File Offset: 0x00020A28
-	private static void DO_EXIT(int cmd, Controllable citr)
+	// Token: 0x0600089F RID: 2207 RVA: 0x000253FC File Offset: 0x000235FC
+	private static void DO_EXIT(int cmd, global::Controllable citr)
 	{
 		if ((citr.RT & 8) == 8)
 		{
@@ -188,7 +188,7 @@ public sealed class Controllable : IDLocalCharacter
 		citr.RT = ((citr.RT & -12) | 512);
 	}
 
-	// Token: 0x060007CE RID: 1998 RVA: 0x00022864 File Offset: 0x00020A64
+	// Token: 0x060008A0 RID: 2208 RVA: 0x00025438 File Offset: 0x00023638
 	private void ClearBinder()
 	{
 		if (this._binder != null)
@@ -197,19 +197,19 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x060007CF RID: 1999 RVA: 0x0002287C File Offset: 0x00020A7C
-	private void CL_OverideControlOf(NetworkViewID rootViewID, NetworkViewID parentViewID, ref NetworkMessageInfo info)
+	// Token: 0x060008A1 RID: 2209 RVA: 0x00025450 File Offset: 0x00023650
+	private void CL_OverideControlOf(uLink.NetworkViewID rootViewID, uLink.NetworkViewID parentViewID, ref uLink.NetworkMessageInfo info)
 	{
 		this.ClearBinder();
-		this._binder = new Controllable.CL_Binder(this, rootViewID, parentViewID, ref info);
+		this._binder = new global::Controllable.CL_Binder(this, rootViewID, parentViewID, ref info);
 		if (this._binder.CanLink())
 		{
 			this._binder.Link();
 		}
 	}
 
-	// Token: 0x060007D0 RID: 2000 RVA: 0x000228BC File Offset: 0x00020ABC
-	private void CL_RootControlCountSet(int count, ref NetworkMessageInfo info)
+	// Token: 0x060008A2 RID: 2210 RVA: 0x00025490 File Offset: 0x00023690
+	private void CL_RootControlCountSet(int count, ref uLink.NetworkMessageInfo info)
 	{
 		if (this._rootCountTimeStamps == null)
 		{
@@ -235,7 +235,7 @@ public sealed class Controllable : IDLocalCharacter
 		this._pendingControlCount = count;
 	}
 
-	// Token: 0x060007D1 RID: 2001 RVA: 0x0002295C File Offset: 0x00020B5C
+	// Token: 0x060008A3 RID: 2211 RVA: 0x00025530 File Offset: 0x00023730
 	private void CL_Refresh(int top)
 	{
 		this._refreshedControlCount = top;
@@ -253,25 +253,25 @@ public sealed class Controllable : IDLocalCharacter
 		}
 		else
 		{
-			Controllable.CL_Binder.StaticLink(this);
+			global::Controllable.CL_Binder.StaticLink(this);
 		}
 	}
 
-	// Token: 0x060007D2 RID: 2002 RVA: 0x000229D4 File Offset: 0x00020BD4
+	// Token: 0x060008A4 RID: 2212 RVA: 0x000255A8 File Offset: 0x000237A8
 	private void CL_Clear()
 	{
 		this.ClearBinder();
 	}
 
-	// Token: 0x060007D3 RID: 2003 RVA: 0x000229DC File Offset: 0x00020BDC
-	private void RN(int n, ref NetworkMessageInfo info)
+	// Token: 0x060008A5 RID: 2213 RVA: 0x000255B0 File Offset: 0x000237B0
+	private void RN(int n, ref uLink.NetworkMessageInfo info)
 	{
 		this.CL_RootControlCountSet(n, ref info);
 	}
 
-	// Token: 0x170001C4 RID: 452
-	// (get) Token: 0x060007D4 RID: 2004 RVA: 0x000229E8 File Offset: 0x00020BE8
-	public new Controller controller
+	// Token: 0x170001F2 RID: 498
+	// (get) Token: 0x060008A6 RID: 2214 RVA: 0x000255BC File Offset: 0x000237BC
+	public new global::Controller controller
 	{
 		get
 		{
@@ -279,79 +279,79 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001C5 RID: 453
-	// (get) Token: 0x060007D5 RID: 2005 RVA: 0x000229F0 File Offset: 0x00020BF0
-	public new Controller controlledController
+	// Token: 0x170001F3 RID: 499
+	// (get) Token: 0x060008A7 RID: 2215 RVA: 0x000255C4 File Offset: 0x000237C4
+	public new global::Controller controlledController
 	{
 		get
 		{
-			return ((this.F & Controllable.ControlFlags.Owned) != Controllable.ControlFlags.Owned) ? null : this._controller;
+			return ((this.F & global::Controllable.ControlFlags.Owned) != global::Controllable.ControlFlags.Owned) ? null : this._controller;
 		}
 	}
 
-	// Token: 0x170001C6 RID: 454
-	// (get) Token: 0x060007D6 RID: 2006 RVA: 0x00022A0C File Offset: 0x00020C0C
-	public new Controller playerControlledController
+	// Token: 0x170001F4 RID: 500
+	// (get) Token: 0x060008A8 RID: 2216 RVA: 0x000255E0 File Offset: 0x000237E0
+	public new global::Controller playerControlledController
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) ? null : this._controller;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) ? null : this._controller;
 		}
 	}
 
-	// Token: 0x170001C7 RID: 455
-	// (get) Token: 0x060007D7 RID: 2007 RVA: 0x00022A28 File Offset: 0x00020C28
-	public new Controller aiControlledController
+	// Token: 0x170001F5 RID: 501
+	// (get) Token: 0x060008A9 RID: 2217 RVA: 0x000255FC File Offset: 0x000237FC
+	public new global::Controller aiControlledController
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) != Controllable.ControlFlags.Owned) ? null : this._controller;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) != global::Controllable.ControlFlags.Owned) ? null : this._controller;
 		}
 	}
 
-	// Token: 0x170001C8 RID: 456
-	// (get) Token: 0x060007D8 RID: 2008 RVA: 0x00022A44 File Offset: 0x00020C44
-	public new Controller localPlayerControlledController
+	// Token: 0x170001F6 RID: 502
+	// (get) Token: 0x060008AA RID: 2218 RVA: 0x00025618 File Offset: 0x00023818
+	public new global::Controller localPlayerControlledController
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) ? null : this._controller;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) ? null : this._controller;
 		}
 	}
 
-	// Token: 0x170001C9 RID: 457
-	// (get) Token: 0x060007D9 RID: 2009 RVA: 0x00022A60 File Offset: 0x00020C60
-	public new Controller localAIControlledController
+	// Token: 0x170001F7 RID: 503
+	// (get) Token: 0x060008AB RID: 2219 RVA: 0x00025634 File Offset: 0x00023834
+	public new global::Controller localAIControlledController
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local)) ? null : this._controller;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local)) ? null : this._controller;
 		}
 	}
 
-	// Token: 0x170001CA RID: 458
-	// (get) Token: 0x060007DA RID: 2010 RVA: 0x00022A7C File Offset: 0x00020C7C
-	public new Controller remotePlayerControlledController
+	// Token: 0x170001F8 RID: 504
+	// (get) Token: 0x060008AC RID: 2220 RVA: 0x00025650 File Offset: 0x00023850
+	public new global::Controller remotePlayerControlledController
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) ? null : this._controller;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) ? null : this._controller;
 		}
 	}
 
-	// Token: 0x170001CB RID: 459
-	// (get) Token: 0x060007DB RID: 2011 RVA: 0x00022A98 File Offset: 0x00020C98
-	public new Controller remoteAIControlledController
+	// Token: 0x170001F9 RID: 505
+	// (get) Token: 0x060008AD RID: 2221 RVA: 0x0002566C File Offset: 0x0002386C
+	public new global::Controller remoteAIControlledController
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != Controllable.ControlFlags.Owned) ? null : this._controller;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != global::Controllable.ControlFlags.Owned) ? null : this._controller;
 		}
 	}
 
-	// Token: 0x170001CC RID: 460
-	// (get) Token: 0x060007DC RID: 2012 RVA: 0x00022AB4 File Offset: 0x00020CB4
-	public new Controllable controllable
+	// Token: 0x170001FA RID: 506
+	// (get) Token: 0x060008AE RID: 2222 RVA: 0x00025688 File Offset: 0x00023888
+	public new global::Controllable controllable
 	{
 		get
 		{
@@ -359,79 +359,79 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001CD RID: 461
-	// (get) Token: 0x060007DD RID: 2013 RVA: 0x00022AB8 File Offset: 0x00020CB8
-	public new Controllable controlledControllable
+	// Token: 0x170001FB RID: 507
+	// (get) Token: 0x060008AF RID: 2223 RVA: 0x0002568C File Offset: 0x0002388C
+	public new global::Controllable controlledControllable
 	{
 		get
 		{
-			return ((this.F & Controllable.ControlFlags.Owned) != Controllable.ControlFlags.Owned) ? null : this;
+			return ((this.F & global::Controllable.ControlFlags.Owned) != global::Controllable.ControlFlags.Owned) ? null : this;
 		}
 	}
 
-	// Token: 0x170001CE RID: 462
-	// (get) Token: 0x060007DE RID: 2014 RVA: 0x00022AD0 File Offset: 0x00020CD0
-	public new Controllable playerControlledControllable
+	// Token: 0x170001FC RID: 508
+	// (get) Token: 0x060008B0 RID: 2224 RVA: 0x000256A4 File Offset: 0x000238A4
+	public new global::Controllable playerControlledControllable
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) ? null : this;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) ? null : this;
 		}
 	}
 
-	// Token: 0x170001CF RID: 463
-	// (get) Token: 0x060007DF RID: 2015 RVA: 0x00022AE8 File Offset: 0x00020CE8
-	public new Controllable aiControlledControllable
+	// Token: 0x170001FD RID: 509
+	// (get) Token: 0x060008B1 RID: 2225 RVA: 0x000256BC File Offset: 0x000238BC
+	public new global::Controllable aiControlledControllable
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) != Controllable.ControlFlags.Owned) ? null : this;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) != global::Controllable.ControlFlags.Owned) ? null : this;
 		}
 	}
 
-	// Token: 0x170001D0 RID: 464
-	// (get) Token: 0x060007E0 RID: 2016 RVA: 0x00022B00 File Offset: 0x00020D00
-	public new Controllable localPlayerControlledControllable
+	// Token: 0x170001FE RID: 510
+	// (get) Token: 0x060008B2 RID: 2226 RVA: 0x000256D4 File Offset: 0x000238D4
+	public new global::Controllable localPlayerControlledControllable
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) ? null : this;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) ? null : this;
 		}
 	}
 
-	// Token: 0x170001D1 RID: 465
-	// (get) Token: 0x060007E1 RID: 2017 RVA: 0x00022B18 File Offset: 0x00020D18
-	public new Controllable localAIControlledControllable
+	// Token: 0x170001FF RID: 511
+	// (get) Token: 0x060008B3 RID: 2227 RVA: 0x000256EC File Offset: 0x000238EC
+	public new global::Controllable localAIControlledControllable
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local)) ? null : this;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local)) ? null : this;
 		}
 	}
 
-	// Token: 0x170001D2 RID: 466
-	// (get) Token: 0x060007E2 RID: 2018 RVA: 0x00022B30 File Offset: 0x00020D30
-	public new Controllable remotePlayerControlledControllable
+	// Token: 0x17000200 RID: 512
+	// (get) Token: 0x060008B4 RID: 2228 RVA: 0x00025704 File Offset: 0x00023904
+	public new global::Controllable remotePlayerControlledControllable
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) ? null : this;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) ? null : this;
 		}
 	}
 
-	// Token: 0x170001D3 RID: 467
-	// (get) Token: 0x060007E3 RID: 2019 RVA: 0x00022B48 File Offset: 0x00020D48
-	public new Controllable remoteAIControlledControllable
+	// Token: 0x17000201 RID: 513
+	// (get) Token: 0x060008B5 RID: 2229 RVA: 0x0002571C File Offset: 0x0002391C
+	public new global::Controllable remoteAIControlledControllable
 	{
 		get
 		{
-			return ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) != Controllable.ControlFlags.Owned) ? null : this;
+			return ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) != global::Controllable.ControlFlags.Owned) ? null : this;
 		}
 	}
 
-	// Token: 0x170001D4 RID: 468
-	// (get) Token: 0x060007E4 RID: 2020 RVA: 0x00022B60 File Offset: 0x00020D60
-	public new PlayerClient playerClient
+	// Token: 0x17000202 RID: 514
+	// (get) Token: 0x060008B6 RID: 2230 RVA: 0x00025734 File Offset: 0x00023934
+	public new global::PlayerClient playerClient
 	{
 		get
 		{
@@ -439,128 +439,128 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001D5 RID: 469
-	// (get) Token: 0x060007E5 RID: 2021 RVA: 0x00022B68 File Offset: 0x00020D68
-	public NetworkPlayer netPlayer
+	// Token: 0x17000203 RID: 515
+	// (get) Token: 0x060008B7 RID: 2231 RVA: 0x0002573C File Offset: 0x0002393C
+	public uLink.NetworkPlayer netPlayer
 	{
 		get
 		{
-			return (!this._playerClient) ? NetworkPlayer.unassigned : this._playerClient.netPlayer;
+			return (!this._playerClient) ? uLink.NetworkPlayer.unassigned : this._playerClient.netPlayer;
 		}
 	}
 
-	// Token: 0x170001D6 RID: 470
-	// (get) Token: 0x060007E6 RID: 2022 RVA: 0x00022B90 File Offset: 0x00020D90
+	// Token: 0x17000204 RID: 516
+	// (get) Token: 0x060008B8 RID: 2232 RVA: 0x00025764 File Offset: 0x00023964
 	public new bool controlled
 	{
 		get
 		{
-			return (this.F & Controllable.ControlFlags.Owned) == Controllable.ControlFlags.Owned;
+			return (this.F & global::Controllable.ControlFlags.Owned) == global::Controllable.ControlFlags.Owned;
 		}
 	}
 
-	// Token: 0x170001D7 RID: 471
-	// (get) Token: 0x060007E7 RID: 2023 RVA: 0x00022BA0 File Offset: 0x00020DA0
+	// Token: 0x17000205 RID: 517
+	// (get) Token: 0x060008B9 RID: 2233 RVA: 0x00025774 File Offset: 0x00023974
 	public new bool playerControlled
 	{
 		get
 		{
-			return (this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player);
+			return (this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player);
 		}
 	}
 
-	// Token: 0x170001D8 RID: 472
-	// (get) Token: 0x060007E8 RID: 2024 RVA: 0x00022BB0 File Offset: 0x00020DB0
+	// Token: 0x17000206 RID: 518
+	// (get) Token: 0x060008BA RID: 2234 RVA: 0x00025784 File Offset: 0x00023984
 	public new bool aiControlled
 	{
 		get
 		{
-			return (this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) == Controllable.ControlFlags.Owned;
+			return (this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) == global::Controllable.ControlFlags.Owned;
 		}
 	}
 
-	// Token: 0x170001D9 RID: 473
-	// (get) Token: 0x060007E9 RID: 2025 RVA: 0x00022BC0 File Offset: 0x00020DC0
+	// Token: 0x17000207 RID: 519
+	// (get) Token: 0x060008BB RID: 2235 RVA: 0x00025794 File Offset: 0x00023994
 	public new bool localPlayerControlled
 	{
 		get
 		{
-			return (this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player);
+			return (this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player);
 		}
 	}
 
-	// Token: 0x170001DA RID: 474
-	// (get) Token: 0x060007EA RID: 2026 RVA: 0x00022BD0 File Offset: 0x00020DD0
+	// Token: 0x17000208 RID: 520
+	// (get) Token: 0x060008BC RID: 2236 RVA: 0x000257A4 File Offset: 0x000239A4
 	public new bool remotePlayerControlled
 	{
 		get
 		{
-			return (this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player);
+			return (this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player);
 		}
 	}
 
-	// Token: 0x170001DB RID: 475
-	// (get) Token: 0x060007EB RID: 2027 RVA: 0x00022BE0 File Offset: 0x00020DE0
+	// Token: 0x17000209 RID: 521
+	// (get) Token: 0x060008BD RID: 2237 RVA: 0x000257B4 File Offset: 0x000239B4
 	public new bool localAIControlled
 	{
 		get
 		{
-			return (this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local);
+			return (this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local);
 		}
 	}
 
-	// Token: 0x170001DC RID: 476
-	// (get) Token: 0x060007EC RID: 2028 RVA: 0x00022BF0 File Offset: 0x00020DF0
+	// Token: 0x1700020A RID: 522
+	// (get) Token: 0x060008BE RID: 2238 RVA: 0x000257C4 File Offset: 0x000239C4
 	public new bool remoteAIControlled
 	{
 		get
 		{
-			return (this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)) == Controllable.ControlFlags.Owned;
+			return (this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)) == global::Controllable.ControlFlags.Owned;
 		}
 	}
 
-	// Token: 0x170001DD RID: 477
-	// (get) Token: 0x060007ED RID: 2029 RVA: 0x00022C00 File Offset: 0x00020E00
+	// Token: 0x1700020B RID: 523
+	// (get) Token: 0x060008BF RID: 2239 RVA: 0x000257D4 File Offset: 0x000239D4
 	public new bool localControlled
 	{
 		get
 		{
-			return (this.F & Controllable.ControlFlags.Local) == Controllable.ControlFlags.Local;
+			return (this.F & global::Controllable.ControlFlags.Local) == global::Controllable.ControlFlags.Local;
 		}
 	}
 
-	// Token: 0x170001DE RID: 478
-	// (get) Token: 0x060007EE RID: 2030 RVA: 0x00022C10 File Offset: 0x00020E10
+	// Token: 0x1700020C RID: 524
+	// (get) Token: 0x060008C0 RID: 2240 RVA: 0x000257E4 File Offset: 0x000239E4
 	public new bool remoteControlled
 	{
 		get
 		{
-			return (this.F & Controllable.ControlFlags.Local) == (Controllable.ControlFlags)0;
+			return (this.F & global::Controllable.ControlFlags.Local) == (global::Controllable.ControlFlags)0;
 		}
 	}
 
-	// Token: 0x170001DF RID: 479
-	// (get) Token: 0x060007EF RID: 2031 RVA: 0x00022C20 File Offset: 0x00020E20
+	// Token: 0x1700020D RID: 525
+	// (get) Token: 0x060008C1 RID: 2241 RVA: 0x000257F4 File Offset: 0x000239F4
 	public bool core
 	{
 		get
 		{
-			return (this.F & Controllable.ControlFlags.Root) == Controllable.ControlFlags.Root;
+			return (this.F & global::Controllable.ControlFlags.Root) == global::Controllable.ControlFlags.Root;
 		}
 	}
 
-	// Token: 0x170001E0 RID: 480
-	// (get) Token: 0x060007F0 RID: 2032 RVA: 0x00022C30 File Offset: 0x00020E30
+	// Token: 0x1700020E RID: 526
+	// (get) Token: 0x060008C2 RID: 2242 RVA: 0x00025804 File Offset: 0x00023A04
 	public bool vessel
 	{
 		get
 		{
-			return (this.F & Controllable.ControlFlags.Root) == (Controllable.ControlFlags)0;
+			return (this.F & global::Controllable.ControlFlags.Root) == (global::Controllable.ControlFlags)0;
 		}
 	}
 
-	// Token: 0x170001E1 RID: 481
-	// (get) Token: 0x060007F1 RID: 2033 RVA: 0x00022C40 File Offset: 0x00020E40
+	// Token: 0x1700020F RID: 527
+	// (get) Token: 0x060008C3 RID: 2243 RVA: 0x00025814 File Offset: 0x00023A14
 	public new string npcName
 	{
 		get
@@ -569,8 +569,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001E2 RID: 482
-	// (get) Token: 0x060007F2 RID: 2034 RVA: 0x00022C64 File Offset: 0x00020E64
+	// Token: 0x17000210 RID: 528
+	// (get) Token: 0x060008C4 RID: 2244 RVA: 0x00025838 File Offset: 0x00023A38
 	public new bool controlOverridden
 	{
 		get
@@ -579,46 +579,46 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x060007F3 RID: 2035 RVA: 0x00022C88 File Offset: 0x00020E88
-	public new bool ControlOverriddenBy(Controllable controllable)
+	// Token: 0x060008C5 RID: 2245 RVA: 0x0002585C File Offset: 0x00023A5C
+	public new bool ControlOverriddenBy(global::Controllable controllable)
 	{
 		return this.ch.vl && this.ch.ln > 0 && controllable && controllable.ch.vl && this.ch.ln > controllable.ch.ln && this.ch.bt == controllable.ch.bt;
 	}
 
-	// Token: 0x060007F4 RID: 2036 RVA: 0x00022D0C File Offset: 0x00020F0C
-	public new bool ControlOverriddenBy(Controller controller)
+	// Token: 0x060008C6 RID: 2246 RVA: 0x000258E0 File Offset: 0x00023AE0
+	public new bool ControlOverriddenBy(global::Controller controller)
 	{
-		Controllable controllable;
+		global::Controllable controllable;
 		return this.ch.vl && this.ch.ln > 0 && controller && (controllable = controller.controllable) && controllable.ch.vl && this.ch.ln > controllable.ch.ln && this.ch.bt == controllable.ch.bt;
 	}
 
-	// Token: 0x060007F5 RID: 2037 RVA: 0x00022DA0 File Offset: 0x00020FA0
-	public new bool ControlOverriddenBy(Character character)
+	// Token: 0x060008C7 RID: 2247 RVA: 0x00025974 File Offset: 0x00023B74
+	public new bool ControlOverriddenBy(global::Character character)
 	{
-		Controllable controllable;
+		global::Controllable controllable;
 		return this.ch.vl && this.ch.ln > 0 && character && (controllable = character.controllable) && controllable.ch.vl && this.ch.ln > controllable.ch.ln && this.ch.bt == controllable.ch.bt;
 	}
 
-	// Token: 0x060007F6 RID: 2038 RVA: 0x00022E34 File Offset: 0x00021034
+	// Token: 0x060008C8 RID: 2248 RVA: 0x00025A08 File Offset: 0x00023C08
 	public new bool ControlOverriddenBy(IDMain main)
 	{
-		return this.ch.vl && this.ch.ln != 0 && main is Character && this.ControlOverriddenBy((Character)main);
+		return this.ch.vl && this.ch.ln != 0 && main is global::Character && this.ControlOverriddenBy((global::Character)main);
 	}
 
-	// Token: 0x060007F7 RID: 2039 RVA: 0x00022E70 File Offset: 0x00021070
+	// Token: 0x060008C9 RID: 2249 RVA: 0x00025A44 File Offset: 0x00023C44
 	public new bool ControlOverriddenBy(IDBase idBase)
 	{
 		return this.ch.vl && this.ch.ln != 0 && idBase && this.ControlOverriddenBy(idBase.idMain);
 	}
 
-	// Token: 0x060007F8 RID: 2040 RVA: 0x00022EAC File Offset: 0x000210AC
-	public new bool ControlOverriddenBy(IDLocalCharacter idLocal)
+	// Token: 0x060008CA RID: 2250 RVA: 0x00025A80 File Offset: 0x00023C80
+	public new bool ControlOverriddenBy(global::IDLocalCharacter idLocal)
 	{
 		return this.ch.vl && this.ch.ln != 0 && idLocal && this.ControlOverriddenBy(idLocal.idMain);
 	}
 
-	// Token: 0x170001E3 RID: 483
-	// (get) Token: 0x060007F9 RID: 2041 RVA: 0x00022EE8 File Offset: 0x000210E8
+	// Token: 0x17000211 RID: 529
+	// (get) Token: 0x060008CB RID: 2251 RVA: 0x00025ABC File Offset: 0x00023CBC
 	public new bool overridingControl
 	{
 		get
@@ -627,46 +627,46 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x060007FA RID: 2042 RVA: 0x00022F0C File Offset: 0x0002110C
-	public new bool OverridingControlOf(Controllable controllable)
+	// Token: 0x060008CC RID: 2252 RVA: 0x00025AE0 File Offset: 0x00023CE0
+	public new bool OverridingControlOf(global::Controllable controllable)
 	{
 		return this.ch.vl && this.ch.nm > 0 && controllable && controllable.ch.vl && this.ch.nm > controllable.ch.nm && this.ch.bt == controllable.ch.bt;
 	}
 
-	// Token: 0x060007FB RID: 2043 RVA: 0x00022F90 File Offset: 0x00021190
-	public new bool OverridingControlOf(Controller controller)
+	// Token: 0x060008CD RID: 2253 RVA: 0x00025B64 File Offset: 0x00023D64
+	public new bool OverridingControlOf(global::Controller controller)
 	{
-		Controllable controllable;
+		global::Controllable controllable;
 		return this.ch.vl && this.ch.nm > 0 && controller && (controllable = controller.controllable) && controllable.ch.vl && this.ch.nm > controllable.ch.nm && this.ch.bt == controllable.ch.bt;
 	}
 
-	// Token: 0x060007FC RID: 2044 RVA: 0x00023024 File Offset: 0x00021224
-	public new bool OverridingControlOf(Character character)
+	// Token: 0x060008CE RID: 2254 RVA: 0x00025BF8 File Offset: 0x00023DF8
+	public new bool OverridingControlOf(global::Character character)
 	{
-		Controllable controllable;
+		global::Controllable controllable;
 		return this.ch.vl && this.ch.nm > 0 && character && (controllable = character.controllable) && controllable.ch.vl && this.ch.nm > controllable.ch.nm && this.ch.bt == controllable.ch.bt;
 	}
 
-	// Token: 0x060007FD RID: 2045 RVA: 0x000230B8 File Offset: 0x000212B8
+	// Token: 0x060008CF RID: 2255 RVA: 0x00025C8C File Offset: 0x00023E8C
 	public new bool OverridingControlOf(IDMain main)
 	{
-		return this.ch.vl && this.ch.nm != 0 && main is Character && this.OverridingControlOf((Character)main);
+		return this.ch.vl && this.ch.nm != 0 && main is global::Character && this.OverridingControlOf((global::Character)main);
 	}
 
-	// Token: 0x060007FE RID: 2046 RVA: 0x000230F4 File Offset: 0x000212F4
+	// Token: 0x060008D0 RID: 2256 RVA: 0x00025CC8 File Offset: 0x00023EC8
 	public new bool OverridingControlOf(IDBase idBase)
 	{
 		return this.ch.vl && this.ch.nm != 0 && idBase && this.OverridingControlOf(idBase.idMain);
 	}
 
-	// Token: 0x060007FF RID: 2047 RVA: 0x00023130 File Offset: 0x00021330
-	public new bool OverridingControlOf(IDLocalCharacter idLocal)
+	// Token: 0x060008D1 RID: 2257 RVA: 0x00025D04 File Offset: 0x00023F04
+	public new bool OverridingControlOf(global::IDLocalCharacter idLocal)
 	{
 		return this.ch.vl && this.ch.nm != 0 && idLocal && this.OverridingControlOf(idLocal.idMain);
 	}
 
-	// Token: 0x170001E4 RID: 484
-	// (get) Token: 0x06000800 RID: 2048 RVA: 0x0002316C File Offset: 0x0002136C
+	// Token: 0x17000212 RID: 530
+	// (get) Token: 0x060008D2 RID: 2258 RVA: 0x00025D40 File Offset: 0x00023F40
 	public new bool assignedControl
 	{
 		get
@@ -675,192 +675,192 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000801 RID: 2049 RVA: 0x0002317C File Offset: 0x0002137C
-	public new bool AssignedControlOf(Controllable controllable)
+	// Token: 0x060008D3 RID: 2259 RVA: 0x00025D50 File Offset: 0x00023F50
+	public new bool AssignedControlOf(global::Controllable controllable)
 	{
 		return this.ch.vl && this == controllable;
 	}
 
-	// Token: 0x06000802 RID: 2050 RVA: 0x00023198 File Offset: 0x00021398
-	public new bool AssignedControlOf(Controller controller)
+	// Token: 0x060008D4 RID: 2260 RVA: 0x00025D6C File Offset: 0x00023F6C
+	public new bool AssignedControlOf(global::Controller controller)
 	{
 		return this.ch.vl && this._controller == controller && this._controller;
 	}
 
-	// Token: 0x06000803 RID: 2051 RVA: 0x000231CC File Offset: 0x000213CC
+	// Token: 0x060008D5 RID: 2261 RVA: 0x00025DA0 File Offset: 0x00023FA0
 	public new bool AssignedControlOf(IDMain character)
 	{
 		return this.ch.vl && this.idMain == character;
 	}
 
-	// Token: 0x06000804 RID: 2052 RVA: 0x000231F0 File Offset: 0x000213F0
+	// Token: 0x060008D6 RID: 2262 RVA: 0x00025DC4 File Offset: 0x00023FC4
 	public new bool AssignedControlOf(IDBase idBase)
 	{
 		return this.ch.vl && idBase && this.idMain == idBase.idMain;
 	}
 
-	// Token: 0x06000805 RID: 2053 RVA: 0x00023224 File Offset: 0x00021424
-	public new RelativeControl RelativeControlTo(Controllable controllable)
+	// Token: 0x060008D7 RID: 2263 RVA: 0x00025DF8 File Offset: 0x00023FF8
+	public new global::RelativeControl RelativeControlTo(global::Controllable controllable)
 	{
 		if (!this.ch.vl || !controllable || !controllable.ch.vl || controllable.ch.bt != this.ch.bt)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		if (this.ch.ln > controllable.ch.ln)
 		{
-			return RelativeControl.OverriddenBy;
+			return global::RelativeControl.OverriddenBy;
 		}
 		if (this.ch.ln < controllable.ch.ln)
 		{
-			return RelativeControl.IsOverriding;
+			return global::RelativeControl.IsOverriding;
 		}
-		return RelativeControl.Assigned;
+		return global::RelativeControl.Assigned;
 	}
 
-	// Token: 0x06000806 RID: 2054 RVA: 0x000232BC File Offset: 0x000214BC
-	public new RelativeControl RelativeControlTo(Controller controller)
+	// Token: 0x060008D8 RID: 2264 RVA: 0x00025E90 File Offset: 0x00024090
+	public new global::RelativeControl RelativeControlTo(global::Controller controller)
 	{
-		Controllable controllable;
+		global::Controllable controllable;
 		if (!this.ch.vl || !controller || !(controllable = controller.controllable) || controllable.ch.vl || controllable.ch.bt != this.ch.bt)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		if (this.ch.ln > controllable.ch.ln)
 		{
-			return RelativeControl.OverriddenBy;
+			return global::RelativeControl.OverriddenBy;
 		}
 		if (this.ch.ln < controllable.ch.ln)
 		{
-			return RelativeControl.IsOverriding;
+			return global::RelativeControl.IsOverriding;
 		}
-		return RelativeControl.Assigned;
+		return global::RelativeControl.Assigned;
 	}
 
-	// Token: 0x06000807 RID: 2055 RVA: 0x00023364 File Offset: 0x00021564
-	public new RelativeControl RelativeControlTo(Character character)
+	// Token: 0x060008D9 RID: 2265 RVA: 0x00025F38 File Offset: 0x00024138
+	public new global::RelativeControl RelativeControlTo(global::Character character)
 	{
 		if (!character)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		return this.RelativeControlTo(character.controllable);
 	}
 
-	// Token: 0x06000808 RID: 2056 RVA: 0x00023380 File Offset: 0x00021580
-	public new RelativeControl RelativeControlTo(IDMain idMain)
+	// Token: 0x060008DA RID: 2266 RVA: 0x00025F54 File Offset: 0x00024154
+	public new global::RelativeControl RelativeControlTo(IDMain idMain)
 	{
-		if (!(idMain is Character))
+		if (!(idMain is global::Character))
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
-		return this.RelativeControlTo((Character)idMain);
+		return this.RelativeControlTo((global::Character)idMain);
 	}
 
-	// Token: 0x06000809 RID: 2057 RVA: 0x0002339C File Offset: 0x0002159C
-	public new RelativeControl RelativeControlTo(IDLocalCharacter idLocal)
+	// Token: 0x060008DB RID: 2267 RVA: 0x00025F70 File Offset: 0x00024170
+	public new global::RelativeControl RelativeControlTo(global::IDLocalCharacter idLocal)
 	{
 		if (!idLocal)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		return this.RelativeControlTo(idLocal.idMain.controllable);
 	}
 
-	// Token: 0x0600080A RID: 2058 RVA: 0x000233C8 File Offset: 0x000215C8
-	public new RelativeControl RelativeControlTo(IDBase idBase)
+	// Token: 0x060008DC RID: 2268 RVA: 0x00025F9C File Offset: 0x0002419C
+	public new global::RelativeControl RelativeControlTo(IDBase idBase)
 	{
 		if (!idBase)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
-		return this.RelativeControlTo(idBase.idMain as Character);
+		return this.RelativeControlTo(idBase.idMain as global::Character);
 	}
 
-	// Token: 0x0600080B RID: 2059 RVA: 0x000233E8 File Offset: 0x000215E8
-	public new RelativeControl RelativeControlFrom(Controllable controllable)
+	// Token: 0x060008DD RID: 2269 RVA: 0x00025FBC File Offset: 0x000241BC
+	public new global::RelativeControl RelativeControlFrom(global::Controllable controllable)
 	{
 		if (!this.ch.vl || !controllable || !controllable.ch.vl || controllable.ch.bt != this.ch.bt)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		if (this.ch.ln > controllable.ch.ln)
 		{
-			return RelativeControl.IsOverriding;
+			return global::RelativeControl.IsOverriding;
 		}
 		if (this.ch.ln < controllable.ch.ln)
 		{
-			return RelativeControl.OverriddenBy;
+			return global::RelativeControl.OverriddenBy;
 		}
-		return RelativeControl.Assigned;
+		return global::RelativeControl.Assigned;
 	}
 
-	// Token: 0x0600080C RID: 2060 RVA: 0x00023480 File Offset: 0x00021680
-	public new RelativeControl RelativeControlFrom(Controller controller)
+	// Token: 0x060008DE RID: 2270 RVA: 0x00026054 File Offset: 0x00024254
+	public new global::RelativeControl RelativeControlFrom(global::Controller controller)
 	{
-		Controllable controllable;
+		global::Controllable controllable;
 		if (!this.ch.vl || !controller || !(controllable = controller.controllable) || controllable.ch.vl || controllable.ch.bt != this.ch.bt)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		if (this.ch.ln > controllable.ch.ln)
 		{
-			return RelativeControl.IsOverriding;
+			return global::RelativeControl.IsOverriding;
 		}
 		if (this.ch.ln < controllable.ch.ln)
 		{
-			return RelativeControl.OverriddenBy;
+			return global::RelativeControl.OverriddenBy;
 		}
-		return RelativeControl.Assigned;
+		return global::RelativeControl.Assigned;
 	}
 
-	// Token: 0x0600080D RID: 2061 RVA: 0x00023528 File Offset: 0x00021728
-	public new RelativeControl RelativeControlFrom(Character character)
+	// Token: 0x060008DF RID: 2271 RVA: 0x000260FC File Offset: 0x000242FC
+	public new global::RelativeControl RelativeControlFrom(global::Character character)
 	{
 		if (!character)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		return this.RelativeControlFrom(character.controllable);
 	}
 
-	// Token: 0x0600080E RID: 2062 RVA: 0x00023544 File Offset: 0x00021744
-	public new RelativeControl RelativeControlFrom(IDMain idMain)
+	// Token: 0x060008E0 RID: 2272 RVA: 0x00026118 File Offset: 0x00024318
+	public new global::RelativeControl RelativeControlFrom(IDMain idMain)
 	{
-		if (!(idMain is Character))
+		if (!(idMain is global::Character))
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
-		return this.RelativeControlFrom((Character)idMain);
+		return this.RelativeControlFrom((global::Character)idMain);
 	}
 
-	// Token: 0x0600080F RID: 2063 RVA: 0x00023560 File Offset: 0x00021760
-	public new RelativeControl RelativeControlFrom(IDLocalCharacter idLocal)
+	// Token: 0x060008E1 RID: 2273 RVA: 0x00026134 File Offset: 0x00024334
+	public new global::RelativeControl RelativeControlFrom(global::IDLocalCharacter idLocal)
 	{
 		if (!idLocal)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
 		return this.RelativeControlFrom(idLocal.idMain.controllable);
 	}
 
-	// Token: 0x06000810 RID: 2064 RVA: 0x0002358C File Offset: 0x0002178C
-	public new RelativeControl RelativeControlFrom(IDBase idBase)
+	// Token: 0x060008E2 RID: 2274 RVA: 0x00026160 File Offset: 0x00024360
+	public new global::RelativeControl RelativeControlFrom(IDBase idBase)
 	{
 		if (!idBase)
 		{
-			return RelativeControl.Incompatible;
+			return global::RelativeControl.Incompatible;
 		}
-		return this.RelativeControlFrom(idBase.idMain as Character);
+		return this.RelativeControlFrom(idBase.idMain as global::Character);
 	}
 
-	// Token: 0x06000811 RID: 2065 RVA: 0x000235AC File Offset: 0x000217AC
-	internal void PrepareInstantiate(NetworkView view, ref NetworkMessageInfo info)
+	// Token: 0x060008E3 RID: 2275 RVA: 0x00026180 File Offset: 0x00024380
+	internal void PrepareInstantiate(Facepunch.NetworkView view, ref uLink.NetworkMessageInfo info)
 	{
 		this.__controllerCreateMessageInfo = info;
 		this.__networkViewForControllable = view;
 		if (this.classFlagsRootControllable || this.classFlagsStandaloneVessel)
 		{
-			this.__controllerDriverViewID = NetworkViewID.unassigned;
+			this.__controllerDriverViewID = uLink.NetworkViewID.unassigned;
 			if (this.classFlagsStandaloneVessel)
 			{
 				return;
@@ -868,20 +868,20 @@ public sealed class Controllable : IDLocalCharacter
 		}
 		else if (this.classFlagsDependantVessel || this.classFlagsFreeVessel)
 		{
-			PlayerClient playerClient;
-			if (PlayerClient.Find(view.owner, out playerClient))
+			global::PlayerClient playerClient;
+			if (global::PlayerClient.Find(view.owner, out playerClient))
 			{
 				this.__controllerDriverViewID = playerClient.topControllable.networkViewID;
 			}
 			else
 			{
-				this.__controllerDriverViewID = NetworkViewID.unassigned;
+				this.__controllerDriverViewID = uLink.NetworkViewID.unassigned;
 			}
 			if (this.classFlagsFreeVessel)
 			{
 				return;
 			}
-			if (this.__controllerDriverViewID == NetworkViewID.unassigned)
+			if (this.__controllerDriverViewID == uLink.NetworkViewID.unassigned)
 			{
 				Debug.LogError("NOT RIGHT");
 				return;
@@ -890,28 +890,28 @@ public sealed class Controllable : IDLocalCharacter
 		this.FreshInitializeController();
 	}
 
-	// Token: 0x06000812 RID: 2066 RVA: 0x00023678 File Offset: 0x00021878
+	// Token: 0x060008E4 RID: 2276 RVA: 0x0002624C File Offset: 0x0002444C
 	internal void FreshInitializeController()
 	{
-		if (this.__controllerDriverViewID == NetworkViewID.unassigned)
+		if (this.__controllerDriverViewID == uLink.NetworkViewID.unassigned)
 		{
-			if ((this.F & Controllable.ControlFlags.Initialized) == Controllable.ControlFlags.Initialized)
+			if ((this.F & global::Controllable.ControlFlags.Initialized) == global::Controllable.ControlFlags.Initialized)
 			{
 				throw new InvalidOperationException("Was already intialized.");
 			}
-			Controllable.Chain.ROOT(this);
-			this.F = Controllable.ControlFlags.Root;
+			global::Controllable.Chain.ROOT(this);
+			this.F = global::Controllable.ControlFlags.Root;
 			this.InitializeController_OnFoundOverriding(null);
 		}
 		else
 		{
-			NetworkView driverView = NetworkView.Find(this.__controllerDriverViewID);
-			this.F |= (Controllable.ControlFlags)0;
+			Facepunch.NetworkView driverView = Facepunch.NetworkView.Find(this.__controllerDriverViewID);
+			this.F |= (global::Controllable.ControlFlags)0;
 			this.InitializeController_OnFoundOverriding(driverView);
 		}
 	}
 
-	// Token: 0x06000813 RID: 2067 RVA: 0x000236F0 File Offset: 0x000218F0
+	// Token: 0x060008E5 RID: 2277 RVA: 0x000262C4 File Offset: 0x000244C4
 	public void ClientExit()
 	{
 		if (!this.ch.vl)
@@ -930,8 +930,8 @@ public sealed class Controllable : IDLocalCharacter
 		base.networkView.RPC("Controllable:CLD", 0, new object[0]);
 	}
 
-	// Token: 0x06000814 RID: 2068 RVA: 0x00023778 File Offset: 0x00021978
-	private bool EnsureControllee(NetworkPlayer player)
+	// Token: 0x060008E6 RID: 2278 RVA: 0x0002634C File Offset: 0x0002454C
+	private bool EnsureControllee(uLink.NetworkPlayer player)
 	{
 		if (!this.controlled)
 		{
@@ -953,40 +953,40 @@ public sealed class Controllable : IDLocalCharacter
 		return true;
 	}
 
-	// Token: 0x06000815 RID: 2069 RVA: 0x000237FC File Offset: 0x000219FC
-	private void InitializeController_OnFoundOverriding(NetworkView driverView)
+	// Token: 0x060008E7 RID: 2279 RVA: 0x000263D0 File Offset: 0x000245D0
+	private void InitializeController_OnFoundOverriding(Facepunch.NetworkView driverView)
 	{
-		if ((this.F & Controllable.ControlFlags.Root) == (Controllable.ControlFlags)0)
+		if ((this.F & global::Controllable.ControlFlags.Root) == (global::Controllable.ControlFlags)0)
 		{
-			Character character = driverView.idMain as Character;
-			Controllable controllable = character.controllable;
-			this.F = ((this.F & (Controllable.ControlFlags.Root | Controllable.ControlFlags.Strong)) | (controllable.F & (Controllable.ControlFlags.Local | Controllable.ControlFlags.Player)));
+			global::Character character = driverView.idMain as global::Character;
+			global::Controllable controllable = character.controllable;
+			this.F = ((this.F & (global::Controllable.ControlFlags.Root | global::Controllable.ControlFlags.Strong)) | (controllable.F & (global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player)));
 			this._playerClient = controllable.playerClient;
 			controllable.ch.Add(this);
 		}
 		else
 		{
-			this.F |= ((!this.__networkViewForControllable.isMine) ? ((Controllable.ControlFlags)0) : Controllable.ControlFlags.Local);
-			this.F |= ((!PlayerClient.Find(this.__networkViewForControllable.owner, out this._playerClient)) ? Controllable.ControlFlags.Owned : (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player));
+			this.F |= ((!this.__networkViewForControllable.isMine) ? ((global::Controllable.ControlFlags)0) : global::Controllable.ControlFlags.Local);
+			this.F |= ((!global::PlayerClient.Find(this.__networkViewForControllable.owner, out this._playerClient)) ? global::Controllable.ControlFlags.Owned : (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player));
 		}
-		this.F |= Controllable.ControlFlags.Owned;
+		this.F |= global::Controllable.ControlFlags.Owned;
 		string controllerClassName = this.controllerClassName;
 		if (string.IsNullOrEmpty(controllerClassName))
 		{
-			Controllable.ControlFlags f = this.F;
-			this.F = (Controllable.ControlFlags)0;
+			global::Controllable.ControlFlags f = this.F;
+			this.F = (global::Controllable.ControlFlags)0;
 			throw new ArgumentOutOfRangeException("@class", f, "The ControllerClass did not support given flags");
 		}
-		Controller controller = null;
+		global::Controller controller = null;
 		try
 		{
-			controller = base.AddAddon<Controller>(controllerClassName);
+			controller = base.AddAddon<global::Controller>(controllerClassName);
 			if (!controller)
 			{
 				throw new ArgumentOutOfRangeException("className", controllerClassName, "classname as not a Controller!");
 			}
 			this._controller = controller;
-			Controller controller2 = this._controller;
+			global::Controller controller2 = this._controller;
 			try
 			{
 				try
@@ -1003,7 +1003,7 @@ public sealed class Controllable : IDLocalCharacter
 			{
 				throw;
 			}
-			this.F |= Controllable.ControlFlags.Initialized;
+			this.F |= global::Controllable.ControlFlags.Initialized;
 		}
 		catch
 		{
@@ -1016,8 +1016,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001E5 RID: 485
-	// (get) Token: 0x06000816 RID: 2070 RVA: 0x000239F0 File Offset: 0x00021BF0
+	// Token: 0x17000213 RID: 531
+	// (get) Token: 0x060008E8 RID: 2280 RVA: 0x000265C4 File Offset: 0x000247C4
 	public bool forwardsPlayerClientInput
 	{
 		get
@@ -1026,8 +1026,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001E6 RID: 486
-	// (get) Token: 0x06000817 RID: 2071 RVA: 0x00023A10 File Offset: 0x00021C10
+	// Token: 0x17000214 RID: 532
+	// (get) Token: 0x060008E9 RID: 2281 RVA: 0x000265E4 File Offset: 0x000247E4
 	public bool doesNotSave
 	{
 		get
@@ -1036,9 +1036,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001E7 RID: 487
-	// (get) Token: 0x06000818 RID: 2072 RVA: 0x00023A30 File Offset: 0x00021C30
-	public new Controllable masterControllable
+	// Token: 0x17000215 RID: 533
+	// (get) Token: 0x060008EA RID: 2282 RVA: 0x00026604 File Offset: 0x00024804
+	public new global::Controllable masterControllable
 	{
 		get
 		{
@@ -1046,9 +1046,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001E8 RID: 488
-	// (get) Token: 0x06000819 RID: 2073 RVA: 0x00023A54 File Offset: 0x00021C54
-	public new Controllable rootControllable
+	// Token: 0x17000216 RID: 534
+	// (get) Token: 0x060008EB RID: 2283 RVA: 0x00026628 File Offset: 0x00024828
+	public new global::Controllable rootControllable
 	{
 		get
 		{
@@ -1056,9 +1056,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001E9 RID: 489
-	// (get) Token: 0x0600081A RID: 2074 RVA: 0x00023A78 File Offset: 0x00021C78
-	public new Controllable nextControllable
+	// Token: 0x17000217 RID: 535
+	// (get) Token: 0x060008EC RID: 2284 RVA: 0x0002664C File Offset: 0x0002484C
+	public new global::Controllable nextControllable
 	{
 		get
 		{
@@ -1066,9 +1066,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001EA RID: 490
-	// (get) Token: 0x0600081B RID: 2075 RVA: 0x00023AB8 File Offset: 0x00021CB8
-	public new Controllable previousControllable
+	// Token: 0x17000218 RID: 536
+	// (get) Token: 0x060008ED RID: 2285 RVA: 0x0002668C File Offset: 0x0002488C
+	public new global::Controllable previousControllable
 	{
 		get
 		{
@@ -1076,9 +1076,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001EB RID: 491
-	// (get) Token: 0x0600081C RID: 2076 RVA: 0x00023AF8 File Offset: 0x00021CF8
-	public new Controller masterController
+	// Token: 0x17000219 RID: 537
+	// (get) Token: 0x060008EE RID: 2286 RVA: 0x000266CC File Offset: 0x000248CC
+	public new global::Controller masterController
 	{
 		get
 		{
@@ -1086,9 +1086,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001EC RID: 492
-	// (get) Token: 0x0600081D RID: 2077 RVA: 0x00023B2C File Offset: 0x00021D2C
-	public new Controller rootController
+	// Token: 0x1700021A RID: 538
+	// (get) Token: 0x060008EF RID: 2287 RVA: 0x00026700 File Offset: 0x00024900
+	public new global::Controller rootController
 	{
 		get
 		{
@@ -1096,9 +1096,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001ED RID: 493
-	// (get) Token: 0x0600081E RID: 2078 RVA: 0x00023B60 File Offset: 0x00021D60
-	public new Controller nextController
+	// Token: 0x1700021B RID: 539
+	// (get) Token: 0x060008F0 RID: 2288 RVA: 0x00026734 File Offset: 0x00024934
+	public new global::Controller nextController
 	{
 		get
 		{
@@ -1106,9 +1106,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001EE RID: 494
-	// (get) Token: 0x0600081F RID: 2079 RVA: 0x00023BB0 File Offset: 0x00021DB0
-	public new Controller previousController
+	// Token: 0x1700021C RID: 540
+	// (get) Token: 0x060008F1 RID: 2289 RVA: 0x00026784 File Offset: 0x00024984
+	public new global::Controller previousController
 	{
 		get
 		{
@@ -1116,9 +1116,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001EF RID: 495
-	// (get) Token: 0x06000820 RID: 2080 RVA: 0x00023C00 File Offset: 0x00021E00
-	public new Character masterCharacter
+	// Token: 0x1700021D RID: 541
+	// (get) Token: 0x060008F2 RID: 2290 RVA: 0x000267D4 File Offset: 0x000249D4
+	public new global::Character masterCharacter
 	{
 		get
 		{
@@ -1126,9 +1126,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F0 RID: 496
-	// (get) Token: 0x06000821 RID: 2081 RVA: 0x00023C34 File Offset: 0x00021E34
-	public new Character rootCharacter
+	// Token: 0x1700021E RID: 542
+	// (get) Token: 0x060008F3 RID: 2291 RVA: 0x00026808 File Offset: 0x00024A08
+	public new global::Character rootCharacter
 	{
 		get
 		{
@@ -1136,9 +1136,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F1 RID: 497
-	// (get) Token: 0x06000822 RID: 2082 RVA: 0x00023C68 File Offset: 0x00021E68
-	public new Character nextCharacter
+	// Token: 0x1700021F RID: 543
+	// (get) Token: 0x060008F4 RID: 2292 RVA: 0x0002683C File Offset: 0x00024A3C
+	public new global::Character nextCharacter
 	{
 		get
 		{
@@ -1146,9 +1146,9 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F2 RID: 498
-	// (get) Token: 0x06000823 RID: 2083 RVA: 0x00023CB8 File Offset: 0x00021EB8
-	public new Character previousCharacter
+	// Token: 0x17000220 RID: 544
+	// (get) Token: 0x060008F5 RID: 2293 RVA: 0x0002688C File Offset: 0x00024A8C
+	public new global::Character previousCharacter
 	{
 		get
 		{
@@ -1156,8 +1156,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F3 RID: 499
-	// (get) Token: 0x06000824 RID: 2084 RVA: 0x00023D08 File Offset: 0x00021F08
+	// Token: 0x17000221 RID: 545
+	// (get) Token: 0x060008F6 RID: 2294 RVA: 0x000268DC File Offset: 0x00024ADC
 	public new int controlDepth
 	{
 		get
@@ -1166,8 +1166,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F4 RID: 500
-	// (get) Token: 0x06000825 RID: 2085 RVA: 0x00023D18 File Offset: 0x00021F18
+	// Token: 0x17000222 RID: 546
+	// (get) Token: 0x060008F7 RID: 2295 RVA: 0x000268EC File Offset: 0x00024AEC
 	public new int controlCount
 	{
 		get
@@ -1176,8 +1176,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F5 RID: 501
-	// (get) Token: 0x06000826 RID: 2086 RVA: 0x00023D28 File Offset: 0x00021F28
+	// Token: 0x17000223 RID: 547
+	// (get) Token: 0x060008F8 RID: 2296 RVA: 0x000268FC File Offset: 0x00024AFC
 	internal bool classAssigned
 	{
 		get
@@ -1186,8 +1186,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F6 RID: 502
-	// (get) Token: 0x06000827 RID: 2087 RVA: 0x00023D38 File Offset: 0x00021F38
+	// Token: 0x17000224 RID: 548
+	// (get) Token: 0x060008F9 RID: 2297 RVA: 0x0002690C File Offset: 0x00024B0C
 	internal bool classFlagsRootControllable
 	{
 		get
@@ -1196,8 +1196,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F7 RID: 503
-	// (get) Token: 0x06000828 RID: 2088 RVA: 0x00023D58 File Offset: 0x00021F58
+	// Token: 0x17000225 RID: 549
+	// (get) Token: 0x060008FA RID: 2298 RVA: 0x0002692C File Offset: 0x00024B2C
 	internal bool classFlagsVessel
 	{
 		get
@@ -1206,8 +1206,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F8 RID: 504
-	// (get) Token: 0x06000829 RID: 2089 RVA: 0x00023D78 File Offset: 0x00021F78
+	// Token: 0x17000226 RID: 550
+	// (get) Token: 0x060008FB RID: 2299 RVA: 0x0002694C File Offset: 0x00024B4C
 	internal bool classFlagsStandaloneVessel
 	{
 		get
@@ -1216,8 +1216,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001F9 RID: 505
-	// (get) Token: 0x0600082A RID: 2090 RVA: 0x00023D98 File Offset: 0x00021F98
+	// Token: 0x17000227 RID: 551
+	// (get) Token: 0x060008FC RID: 2300 RVA: 0x0002696C File Offset: 0x00024B6C
 	internal bool classFlagsDependantVessel
 	{
 		get
@@ -1226,8 +1226,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001FA RID: 506
-	// (get) Token: 0x0600082B RID: 2091 RVA: 0x00023DB8 File Offset: 0x00021FB8
+	// Token: 0x17000228 RID: 552
+	// (get) Token: 0x060008FD RID: 2301 RVA: 0x0002698C File Offset: 0x00024B8C
 	internal bool classFlagsFreeVessel
 	{
 		get
@@ -1236,8 +1236,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001FB RID: 507
-	// (get) Token: 0x0600082C RID: 2092 RVA: 0x00023DD8 File Offset: 0x00021FD8
+	// Token: 0x17000229 RID: 553
+	// (get) Token: 0x060008FE RID: 2302 RVA: 0x000269AC File Offset: 0x00024BAC
 	internal bool classFlagsStaticGroup
 	{
 		get
@@ -1246,8 +1246,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001FC RID: 508
-	// (get) Token: 0x0600082D RID: 2093 RVA: 0x00023DF8 File Offset: 0x00021FF8
+	// Token: 0x1700022A RID: 554
+	// (get) Token: 0x060008FF RID: 2303 RVA: 0x000269CC File Offset: 0x00024BCC
 	internal bool classFlagsPlayerSupport
 	{
 		get
@@ -1256,8 +1256,8 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001FD RID: 509
-	// (get) Token: 0x0600082E RID: 2094 RVA: 0x00023E1C File Offset: 0x0002201C
+	// Token: 0x1700022B RID: 555
+	// (get) Token: 0x06000900 RID: 2304 RVA: 0x000269F0 File Offset: 0x00024BF0
 	internal bool classFlagsAISupport
 	{
 		get
@@ -1266,42 +1266,42 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170001FE RID: 510
-	// (get) Token: 0x0600082F RID: 2095 RVA: 0x00023E40 File Offset: 0x00022040
+	// Token: 0x1700022C RID: 556
+	// (get) Token: 0x06000901 RID: 2305 RVA: 0x00026A14 File Offset: 0x00024C14
 	public new string controllerClassName
 	{
 		get
 		{
-			return (!this.@class) ? null : this.@class.GetClassName((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player), (this.F & Controllable.ControlFlags.Local) == Controllable.ControlFlags.Local);
+			return (!this.@class) ? null : this.@class.GetClassName((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player), (this.F & global::Controllable.ControlFlags.Local) == global::Controllable.ControlFlags.Local);
 		}
 	}
 
-	// Token: 0x06000830 RID: 2096 RVA: 0x00023E7C File Offset: 0x0002207C
+	// Token: 0x06000902 RID: 2306 RVA: 0x00026A50 File Offset: 0x00024C50
 	internal void ProcessLocalPlayerPreRender()
 	{
 		this._controller.ProcessLocalPlayerPreRender();
 	}
 
-	// Token: 0x06000831 RID: 2097 RVA: 0x00023E8C File Offset: 0x0002208C
+	// Token: 0x06000903 RID: 2307 RVA: 0x00026A60 File Offset: 0x00024C60
 	[Conditional("LOG_CONTROL_CHANGE")]
-	private static void LogState(bool guard, string state, Controllable controllable)
+	private static void LogState(bool guard, string state, global::Controllable controllable)
 	{
 		Debug.Log(string.Format("{2}{0}::{1}", controllable.GetType().Name, state, (!guard) ? "-" : "+"), controllable);
 	}
 
-	// Token: 0x06000832 RID: 2098 RVA: 0x00023ECC File Offset: 0x000220CC
+	// Token: 0x06000904 RID: 2308 RVA: 0x00026AA0 File Offset: 0x00024CA0
 	[Conditional("LOG_CONTROL_CHANGE")]
-	private static void GuardState(string state, Controllable self)
+	private static void GuardState(string state, global::Controllable self)
 	{
 	}
 
-	// Token: 0x06000833 RID: 2099 RVA: 0x00023ED0 File Offset: 0x000220D0
+	// Token: 0x06000905 RID: 2309 RVA: 0x00026AA4 File Offset: 0x00024CA4
 	[Conditional("LOG_CONTROL_CHANGE")]
-	private static void UnguardState(string state, Controllable self)
+	private static void UnguardState(string state, global::Controllable self)
 	{
 	}
 
-	// Token: 0x06000834 RID: 2100 RVA: 0x00023ED4 File Offset: 0x000220D4
+	// Token: 0x06000906 RID: 2310 RVA: 0x00026AA8 File Offset: 0x00024CA8
 	private void ControlEnter(int cmd)
 	{
 		try
@@ -1310,7 +1310,7 @@ public sealed class Controllable : IDLocalCharacter
 		}
 		finally
 		{
-			if ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root))
+			if ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root))
 			{
 				try
 				{
@@ -1320,16 +1320,16 @@ public sealed class Controllable : IDLocalCharacter
 				{
 					Debug.LogError(ex, this);
 				}
-				if ((this.F & Controllable.ControlFlags.Local) == Controllable.ControlFlags.Local)
+				if ((this.F & global::Controllable.ControlFlags.Local) == global::Controllable.ControlFlags.Local)
 				{
-					Controllable.localPlayerControllableCount++;
-					Controllable.LocalOnly.rootLocalPlayerControllables.Add(this);
+					global::Controllable.localPlayerControllableCount++;
+					global::Controllable.LocalOnly.rootLocalPlayerControllables.Add(this);
 				}
 			}
 		}
 	}
 
-	// Token: 0x06000835 RID: 2101 RVA: 0x00023F7C File Offset: 0x0002217C
+	// Token: 0x06000907 RID: 2311 RVA: 0x00026B50 File Offset: 0x00024D50
 	private void ControlExit(int cmd)
 	{
 		try
@@ -1338,7 +1338,7 @@ public sealed class Controllable : IDLocalCharacter
 		}
 		finally
 		{
-			if ((this.F & (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root)) == (Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root))
+			if ((this.F & (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root)) == (global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root))
 			{
 				if (this._playerClient)
 				{
@@ -1351,52 +1351,52 @@ public sealed class Controllable : IDLocalCharacter
 						Debug.LogError(ex, this);
 					}
 				}
-				if ((this.F & Controllable.ControlFlags.Local) == Controllable.ControlFlags.Local)
+				if ((this.F & global::Controllable.ControlFlags.Local) == global::Controllable.ControlFlags.Local)
 				{
-					Controllable.localPlayerControllableCount--;
-					Controllable.LocalOnly.rootLocalPlayerControllables.Remove(this);
+					global::Controllable.localPlayerControllableCount--;
+					global::Controllable.LocalOnly.rootLocalPlayerControllables.Remove(this);
 				}
 			}
 		}
 	}
 
-	// Token: 0x06000836 RID: 2102 RVA: 0x00024034 File Offset: 0x00022234
+	// Token: 0x06000908 RID: 2312 RVA: 0x00026C08 File Offset: 0x00024E08
 	private void Net_Shutdown_Exit()
 	{
 	}
 
-	// Token: 0x06000837 RID: 2103 RVA: 0x00024038 File Offset: 0x00022238
+	// Token: 0x06000909 RID: 2313 RVA: 0x00026C0C File Offset: 0x00024E0C
 	private void ControlEngauge(int cmd)
 	{
 		this._controller.ControlEngauge(cmd);
 	}
 
-	// Token: 0x06000838 RID: 2104 RVA: 0x00024048 File Offset: 0x00022248
+	// Token: 0x0600090A RID: 2314 RVA: 0x00026C1C File Offset: 0x00024E1C
 	private void ControlCease(int cmd)
 	{
 		this._controller.ControlCease(cmd);
 	}
 
-	// Token: 0x170001FF RID: 511
-	// (get) Token: 0x06000839 RID: 2105 RVA: 0x00024058 File Offset: 0x00022258
-	public new RPOSLimitFlags rposLimitFlags
+	// Token: 0x1700022D RID: 557
+	// (get) Token: 0x0600090B RID: 2315 RVA: 0x00026C2C File Offset: 0x00024E2C
+	public new global::RPOSLimitFlags rposLimitFlags
 	{
 		get
 		{
-			return (!this._controller) ? ((RPOSLimitFlags)(-1)) : this._controller.rposLimitFlags;
+			return (!this._controller) ? ((global::RPOSLimitFlags)-1) : this._controller.rposLimitFlags;
 		}
 	}
 
-	// Token: 0x0600083A RID: 2106 RVA: 0x0002407C File Offset: 0x0002227C
+	// Token: 0x0600090C RID: 2316 RVA: 0x00026C50 File Offset: 0x00024E50
 	[Obsolete("Used only by PlayerClient")]
-	internal void SetRootPlayer(PlayerClient rootPlayer)
+	internal void SetRootPlayer(global::PlayerClient rootPlayer)
 	{
 	}
 
-	// Token: 0x0600083B RID: 2107 RVA: 0x00024080 File Offset: 0x00022280
+	// Token: 0x0600090D RID: 2317 RVA: 0x00026C54 File Offset: 0x00024E54
 	private bool SetIdle(bool idle)
 	{
-		IDLocalCharacterIdleControl idleControl = base.idMain.idleControl;
+		global::IDLocalCharacterIdleControl idleControl = base.idMain.idleControl;
 		if (idleControl)
 		{
 			try
@@ -1413,37 +1413,37 @@ public sealed class Controllable : IDLocalCharacter
 		return false;
 	}
 
-	// Token: 0x0600083C RID: 2108 RVA: 0x000240EC File Offset: 0x000222EC
-	[RPC]
+	// Token: 0x0600090E RID: 2318 RVA: 0x00026CC0 File Offset: 0x00024EC0
 	[Obsolete("RPC call only. Do not call through script", false)]
-	private void CLD(NetworkMessageInfo info)
+	[RPC]
+	private void CLD(uLink.NetworkMessageInfo info)
 	{
 	}
 
-	// Token: 0x0600083D RID: 2109 RVA: 0x000240F0 File Offset: 0x000222F0
+	// Token: 0x0600090F RID: 2319 RVA: 0x00026CC4 File Offset: 0x00024EC4
 	[Obsolete("RPC call only. Do not call through script", false)]
 	[RPC]
-	private void CLR(NetworkMessageInfo info)
+	private void CLR(uLink.NetworkMessageInfo info)
 	{
 		this.ch.Delete();
 		this.SharedPostCLR();
 	}
 
-	// Token: 0x0600083E RID: 2110 RVA: 0x00024104 File Offset: 0x00022304
+	// Token: 0x06000910 RID: 2320 RVA: 0x00026CD8 File Offset: 0x00024ED8
 	private void SharedPostCLR()
 	{
 		if (this._controller)
 		{
 			Object.Destroy(this._controller);
 		}
-		this.F &= (Controllable.ControlFlags.Root | Controllable.ControlFlags.Strong);
+		this.F &= (global::Controllable.ControlFlags.Root | global::Controllable.ControlFlags.Strong);
 		this.RT = 0;
 		this._playerClient = null;
 		this._controller = null;
 		this.SetIdle(true);
 	}
 
-	// Token: 0x0600083F RID: 2111 RVA: 0x00024158 File Offset: 0x00022358
+	// Token: 0x06000911 RID: 2321 RVA: 0x00026D2C File Offset: 0x00024F2C
 	[Obsolete("RPC call only. Do not call through script", false)]
 	[RPC]
 	private void ID1()
@@ -1451,100 +1451,100 @@ public sealed class Controllable : IDLocalCharacter
 		this.SetIdle(true);
 	}
 
-	// Token: 0x06000840 RID: 2112 RVA: 0x00024164 File Offset: 0x00022364
+	// Token: 0x06000912 RID: 2322 RVA: 0x00026D38 File Offset: 0x00024F38
 	[RPC]
-	private void OC2(NetworkViewID rootViewID, NetworkViewID parentViewID, NetworkMessageInfo info)
+	private void OC2(uLink.NetworkViewID rootViewID, uLink.NetworkViewID parentViewID, uLink.NetworkMessageInfo info)
 	{
 		this.OverrideControlOfHandleRPC(rootViewID, parentViewID, ref info);
 	}
 
-	// Token: 0x06000841 RID: 2113 RVA: 0x00024170 File Offset: 0x00022370
+	// Token: 0x06000913 RID: 2323 RVA: 0x00026D44 File Offset: 0x00024F44
 	[RPC]
-	private void OC1(NetworkViewID rootViewID, NetworkMessageInfo info)
+	private void OC1(uLink.NetworkViewID rootViewID, uLink.NetworkMessageInfo info)
 	{
 		this.OverrideControlOfHandleRPC(rootViewID, rootViewID, ref info);
 	}
 
-	// Token: 0x06000842 RID: 2114 RVA: 0x0002417C File Offset: 0x0002237C
-	private void OverrideControlOfHandleRPC(NetworkViewID rootViewID, NetworkViewID parentViewID, ref NetworkMessageInfo info)
+	// Token: 0x06000914 RID: 2324 RVA: 0x00026D50 File Offset: 0x00024F50
+	private void OverrideControlOfHandleRPC(uLink.NetworkViewID rootViewID, uLink.NetworkViewID parentViewID, ref uLink.NetworkMessageInfo info)
 	{
 		this.CL_OverideControlOf(rootViewID, parentViewID, ref info);
 	}
 
-	// Token: 0x06000843 RID: 2115 RVA: 0x00024188 File Offset: 0x00022388
+	// Token: 0x06000915 RID: 2325 RVA: 0x00026D5C File Offset: 0x00024F5C
 	[RPC]
-	private void RN0(NetworkMessageInfo info)
+	private void RN0(uLink.NetworkMessageInfo info)
 	{
 		this.RN(0, ref info);
 	}
 
-	// Token: 0x06000844 RID: 2116 RVA: 0x00024194 File Offset: 0x00022394
+	// Token: 0x06000916 RID: 2326 RVA: 0x00026D68 File Offset: 0x00024F68
 	[RPC]
-	private void RN1(NetworkMessageInfo info)
+	private void RN1(uLink.NetworkMessageInfo info)
 	{
 		this.RN(1, ref info);
 	}
 
-	// Token: 0x06000845 RID: 2117 RVA: 0x000241A0 File Offset: 0x000223A0
+	// Token: 0x06000917 RID: 2327 RVA: 0x00026D74 File Offset: 0x00024F74
 	[RPC]
-	private void RN2(NetworkMessageInfo info)
+	private void RN2(uLink.NetworkMessageInfo info)
 	{
 		this.RN(2, ref info);
 	}
 
-	// Token: 0x06000846 RID: 2118 RVA: 0x000241AC File Offset: 0x000223AC
+	// Token: 0x06000918 RID: 2328 RVA: 0x00026D80 File Offset: 0x00024F80
 	[RPC]
-	private void RN3(NetworkMessageInfo info)
+	private void RN3(uLink.NetworkMessageInfo info)
 	{
 		this.RN(3, ref info);
 	}
 
-	// Token: 0x06000847 RID: 2119 RVA: 0x000241B8 File Offset: 0x000223B8
+	// Token: 0x06000919 RID: 2329 RVA: 0x00026D8C File Offset: 0x00024F8C
 	[RPC]
-	private void RN4(NetworkMessageInfo info)
+	private void RN4(uLink.NetworkMessageInfo info)
 	{
 		this.RN(4, ref info);
 	}
 
-	// Token: 0x06000848 RID: 2120 RVA: 0x000241C4 File Offset: 0x000223C4
+	// Token: 0x0600091A RID: 2330 RVA: 0x00026D98 File Offset: 0x00024F98
 	[RPC]
-	private void RN5(NetworkMessageInfo info)
+	private void RN5(uLink.NetworkMessageInfo info)
 	{
 		this.RN(5, ref info);
 	}
 
-	// Token: 0x06000849 RID: 2121 RVA: 0x000241D0 File Offset: 0x000223D0
+	// Token: 0x0600091B RID: 2331 RVA: 0x00026DA4 File Offset: 0x00024FA4
 	[RPC]
-	private void RN6(NetworkMessageInfo info)
+	private void RN6(uLink.NetworkMessageInfo info)
 	{
 		this.RN(6, ref info);
 	}
 
-	// Token: 0x0600084A RID: 2122 RVA: 0x000241DC File Offset: 0x000223DC
+	// Token: 0x0600091C RID: 2332 RVA: 0x00026DB0 File Offset: 0x00024FB0
 	[RPC]
-	private void RN7(NetworkMessageInfo info)
+	private void RN7(uLink.NetworkMessageInfo info)
 	{
 		this.RN(7, ref info);
 	}
 
-	// Token: 0x0600084B RID: 2123 RVA: 0x000241E8 File Offset: 0x000223E8
+	// Token: 0x0600091D RID: 2333 RVA: 0x00026DBC File Offset: 0x00024FBC
 	[RPC]
 	private void RFH(byte top)
 	{
 		this.CL_Refresh((int)top);
 	}
 
-	// Token: 0x0600084C RID: 2124 RVA: 0x000241F4 File Offset: 0x000223F4
+	// Token: 0x0600091E RID: 2334 RVA: 0x00026DC8 File Offset: 0x00024FC8
 	internal void OnInstantiated()
 	{
-		if ((this.F & Controllable.ControlFlags.Root) == Controllable.ControlFlags.Root)
+		if ((this.F & global::Controllable.ControlFlags.Root) == global::Controllable.ControlFlags.Root)
 		{
 			this.ch.RefreshEngauge();
 		}
 	}
 
-	// Token: 0x0600084D RID: 2125 RVA: 0x00024210 File Offset: 0x00022410
-	private void OCO_FOUND(NetworkViewID viewID, ref NetworkMessageInfo info)
+	// Token: 0x0600091F RID: 2335 RVA: 0x00026DE4 File Offset: 0x00024FE4
+	private void OCO_FOUND(uLink.NetworkViewID viewID, ref uLink.NetworkMessageInfo info)
 	{
 		this.SetIdle(false);
 		this.__networkViewForControllable = base.networkView;
@@ -1553,36 +1553,36 @@ public sealed class Controllable : IDLocalCharacter
 		this.FreshInitializeController();
 	}
 
-	// Token: 0x17000200 RID: 512
-	// (get) Token: 0x0600084E RID: 2126 RVA: 0x0002423C File Offset: 0x0002243C
+	// Token: 0x1700022E RID: 558
+	// (get) Token: 0x06000920 RID: 2336 RVA: 0x00026E10 File Offset: 0x00025010
 	public static bool localPlayerControllableExists
 	{
 		get
 		{
-			return Controllable.localPlayerControllableCount > 0;
+			return global::Controllable.localPlayerControllableCount > 0;
 		}
 	}
 
-	// Token: 0x17000201 RID: 513
-	// (get) Token: 0x0600084F RID: 2127 RVA: 0x00024248 File Offset: 0x00022448
-	public static Controllable localPlayerControllable
+	// Token: 0x1700022F RID: 559
+	// (get) Token: 0x06000921 RID: 2337 RVA: 0x00026E1C File Offset: 0x0002501C
+	public static global::Controllable localPlayerControllable
 	{
 		get
 		{
-			int num = Controllable.localPlayerControllableCount;
+			int num = global::Controllable.localPlayerControllableCount;
 			if (num == 0)
 			{
 				return null;
 			}
 			if (num != 1)
 			{
-				return Controllable.LocalOnly.rootLocalPlayerControllables[Controllable.localPlayerControllableCount - 1];
+				return global::Controllable.LocalOnly.rootLocalPlayerControllables[global::Controllable.localPlayerControllableCount - 1];
 			}
-			return Controllable.LocalOnly.rootLocalPlayerControllables[0];
+			return global::Controllable.LocalOnly.rootLocalPlayerControllables[0];
 		}
 	}
 
-	// Token: 0x06000850 RID: 2128 RVA: 0x0002428C File Offset: 0x0002248C
+	// Token: 0x06000922 RID: 2338 RVA: 0x00026E60 File Offset: 0x00025060
 	private void OnDestroy()
 	{
 		this.CL_Clear();
@@ -1590,9 +1590,9 @@ public sealed class Controllable : IDLocalCharacter
 		{
 			try
 			{
-				if (Controllable.onDestroyInContextQuery != null)
+				if (global::Controllable.onDestroyInContextQuery != null)
 				{
-					Controllable.onDestroyInContextQuery(this);
+					global::Controllable.onDestroyInContextQuery(this);
 				}
 			}
 			catch (Exception ex)
@@ -1611,7 +1611,7 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000851 RID: 2129 RVA: 0x00024338 File Offset: 0x00022538
+	// Token: 0x06000923 RID: 2339 RVA: 0x00026F0C File Offset: 0x0002510C
 	private void DoDestroy()
 	{
 		this.CL_Clear();
@@ -1629,28 +1629,28 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000852 RID: 2130 RVA: 0x000243A4 File Offset: 0x000225A4
-	internal bool MergeClasses(ref ControllerClass.Merge merge)
+	// Token: 0x06000924 RID: 2340 RVA: 0x00026F78 File Offset: 0x00025178
+	internal bool MergeClasses(ref global::ControllerClass.Merge merge)
 	{
 		return this.@class && merge.Add(this.controllable.@class);
 	}
 
-	// Token: 0x06000853 RID: 2131 RVA: 0x000243D8 File Offset: 0x000225D8
-	internal static bool MergeClasses(IDMain character, ref ControllerClass.Merge merge)
+	// Token: 0x06000925 RID: 2341 RVA: 0x00026FAC File Offset: 0x000251AC
+	internal static bool MergeClasses(IDMain character, ref global::ControllerClass.Merge merge)
 	{
-		Controllable component;
-		return character && (component = character.GetComponent<Controllable>()) && component.MergeClasses(ref merge);
+		global::Controllable component;
+		return character && (component = character.GetComponent<global::Controllable>()) && component.MergeClasses(ref merge);
 	}
 
-	// Token: 0x17000202 RID: 514
-	// (get) Token: 0x06000854 RID: 2132 RVA: 0x0002440C File Offset: 0x0002260C
-	public static IEnumerable<Controllable> PlayerRootControllables
+	// Token: 0x17000230 RID: 560
+	// (get) Token: 0x06000926 RID: 2342 RVA: 0x00026FE0 File Offset: 0x000251E0
+	public static IEnumerable<global::Controllable> PlayerRootControllables
 	{
 		get
 		{
-			foreach (PlayerClient pc in PlayerClient.All)
+			foreach (global::PlayerClient pc in global::PlayerClient.All)
 			{
-				Controllable controllable = pc.rootControllable;
+				global::Controllable controllable = pc.rootControllable;
 				if (controllable)
 				{
 					yield return controllable;
@@ -1660,15 +1660,15 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x17000203 RID: 515
-	// (get) Token: 0x06000855 RID: 2133 RVA: 0x00024428 File Offset: 0x00022628
-	public static IEnumerable<Controllable> PlayerCurrentControllables
+	// Token: 0x17000231 RID: 561
+	// (get) Token: 0x06000927 RID: 2343 RVA: 0x00026FFC File Offset: 0x000251FC
+	public static IEnumerable<global::Controllable> PlayerCurrentControllables
 	{
 		get
 		{
-			foreach (PlayerClient pc in PlayerClient.All)
+			foreach (global::PlayerClient pc in global::PlayerClient.All)
 			{
-				Controllable controllable = pc.controllable;
+				global::Controllable controllable = pc.controllable;
 				if (controllable)
 				{
 					yield return controllable;
@@ -1678,12 +1678,12 @@ public sealed class Controllable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000856 RID: 2134 RVA: 0x00024444 File Offset: 0x00022644
-	public static IEnumerable<Controllable> RootControllers(IEnumerable<PlayerClient> playerClients)
+	// Token: 0x06000928 RID: 2344 RVA: 0x00027018 File Offset: 0x00025218
+	public static IEnumerable<global::Controllable> RootControllers(IEnumerable<global::PlayerClient> playerClients)
 	{
-		foreach (PlayerClient pc in playerClients)
+		foreach (global::PlayerClient pc in playerClients)
 		{
-			Controllable controllable = pc.rootControllable;
+			global::Controllable controllable = pc.rootControllable;
 			if (controllable)
 			{
 				yield return controllable;
@@ -1692,12 +1692,12 @@ public sealed class Controllable : IDLocalCharacter
 		yield break;
 	}
 
-	// Token: 0x06000857 RID: 2135 RVA: 0x00024470 File Offset: 0x00022670
-	public static IEnumerable<Controllable> CurrentControllers(IEnumerable<PlayerClient> playerClients)
+	// Token: 0x06000929 RID: 2345 RVA: 0x00027044 File Offset: 0x00025244
+	public static IEnumerable<global::Controllable> CurrentControllers(IEnumerable<global::PlayerClient> playerClients)
 	{
-		foreach (PlayerClient pc in playerClients)
+		foreach (global::PlayerClient pc in playerClients)
 		{
-			Controllable controllable = pc.controllable;
+			global::Controllable controllable = pc.controllable;
 			if (controllable)
 			{
 				yield return controllable;
@@ -1706,293 +1706,293 @@ public sealed class Controllable : IDLocalCharacter
 		yield break;
 	}
 
-	// Token: 0x04000570 RID: 1392
+	// Token: 0x0400063B RID: 1595
 	private const int RT_ENTERED = 1;
 
-	// Token: 0x04000571 RID: 1393
+	// Token: 0x0400063C RID: 1596
 	private const int RT_PROMOTED = 3;
 
-	// Token: 0x04000572 RID: 1394
+	// Token: 0x0400063D RID: 1597
 	private const int RT_ENTER_LOCK = 8;
 
-	// Token: 0x04000573 RID: 1395
+	// Token: 0x0400063E RID: 1598
 	private const int RT_PROMO_LOCK = 16;
 
-	// Token: 0x04000574 RID: 1396
+	// Token: 0x0400063F RID: 1599
 	private const int RT_DESTROY_LOCK = 32;
 
-	// Token: 0x04000575 RID: 1397
+	// Token: 0x04000640 RID: 1600
 	private const int RT_ENTERED_ONCE = 64;
 
-	// Token: 0x04000576 RID: 1398
+	// Token: 0x04000641 RID: 1601
 	private const int RT_PROMOTED_ONCE = 128;
 
-	// Token: 0x04000577 RID: 1399
+	// Token: 0x04000642 RID: 1602
 	private const int RT_DEMOTED_ONCE = 256;
 
-	// Token: 0x04000578 RID: 1400
+	// Token: 0x04000643 RID: 1603
 	private const int RT_EXITED_ONCE = 512;
 
-	// Token: 0x04000579 RID: 1401
+	// Token: 0x04000644 RID: 1604
 	private const int RT_WILL_DESTROY = 1024;
 
-	// Token: 0x0400057A RID: 1402
+	// Token: 0x04000645 RID: 1605
 	private const int RT_IS_DESTROYED = 2048;
 
-	// Token: 0x0400057B RID: 1403
+	// Token: 0x04000646 RID: 1606
 	private const int RT_RPC_CONTROL_0 = 4096;
 
-	// Token: 0x0400057C RID: 1404
+	// Token: 0x04000647 RID: 1607
 	private const int RT_RPC_CONTROL_1 = 8192;
 
-	// Token: 0x0400057D RID: 1405
+	// Token: 0x04000648 RID: 1608
 	private const int RT_RPC_CONTROL_2 = 12288;
 
-	// Token: 0x0400057E RID: 1406
+	// Token: 0x04000649 RID: 1609
 	private const int RT_STATE = 3;
 
-	// Token: 0x0400057F RID: 1407
+	// Token: 0x0400064A RID: 1610
 	private const int RT_ONCE = 960;
 
-	// Token: 0x04000580 RID: 1408
+	// Token: 0x0400064B RID: 1611
 	private const int RT_DESTROY_STATE = 3072;
 
-	// Token: 0x04000581 RID: 1409
+	// Token: 0x0400064C RID: 1612
 	private const int RT_RPC_CONTROL = 12288;
 
-	// Token: 0x04000582 RID: 1410
-	private const Controllable.ControlFlags PERSISTANT_FLAGS = Controllable.ControlFlags.Root | Controllable.ControlFlags.Strong;
+	// Token: 0x0400064D RID: 1613
+	private const global::Controllable.ControlFlags PERSISTANT_FLAGS = global::Controllable.ControlFlags.Root | global::Controllable.ControlFlags.Strong;
 
-	// Token: 0x04000583 RID: 1411
-	private const Controllable.ControlFlags MUTABLE_FLAGS = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player | Controllable.ControlFlags.Initialized;
+	// Token: 0x0400064E RID: 1614
+	private const global::Controllable.ControlFlags MUTABLE_FLAGS = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Initialized;
 
-	// Token: 0x04000584 RID: 1412
-	private const Controllable.ControlFlags TRANSFERED_FLAGS = Controllable.ControlFlags.Local | Controllable.ControlFlags.Player;
+	// Token: 0x0400064F RID: 1615
+	private const global::Controllable.ControlFlags TRANSFERED_FLAGS = global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x04000585 RID: 1413
-	private const Controllable.ControlFlags CONTROLLER_NPC = (Controllable.ControlFlags)0;
+	// Token: 0x04000650 RID: 1616
+	private const global::Controllable.ControlFlags CONTROLLER_NPC = (global::Controllable.ControlFlags)0;
 
-	// Token: 0x04000586 RID: 1414
-	private const Controllable.ControlFlags CONTROLLER_CLIENT = Controllable.ControlFlags.Player;
+	// Token: 0x04000651 RID: 1617
+	private const global::Controllable.ControlFlags CONTROLLER_CLIENT = global::Controllable.ControlFlags.Player;
 
-	// Token: 0x04000587 RID: 1415
-	private const Controllable.ControlFlags NETWORK_MINE = Controllable.ControlFlags.Local;
+	// Token: 0x04000652 RID: 1618
+	private const global::Controllable.ControlFlags NETWORK_MINE = global::Controllable.ControlFlags.Local;
 
-	// Token: 0x04000588 RID: 1416
-	private const Controllable.ControlFlags NETWORK_PROXY = (Controllable.ControlFlags)0;
+	// Token: 0x04000653 RID: 1619
+	private const global::Controllable.ControlFlags NETWORK_PROXY = (global::Controllable.ControlFlags)0;
 
-	// Token: 0x04000589 RID: 1417
-	private const Controllable.ControlFlags ACTIVE_OCCUPIED = Controllable.ControlFlags.Owned;
+	// Token: 0x04000654 RID: 1620
+	private const global::Controllable.ControlFlags ACTIVE_OCCUPIED = global::Controllable.ControlFlags.Owned;
 
-	// Token: 0x0400058A RID: 1418
-	private const Controllable.ControlFlags ACTIVE_VACANT = (Controllable.ControlFlags)0;
+	// Token: 0x04000655 RID: 1621
+	private const global::Controllable.ControlFlags ACTIVE_VACANT = (global::Controllable.ControlFlags)0;
 
-	// Token: 0x0400058B RID: 1419
-	private const Controllable.ControlFlags TREE_TRUNK = Controllable.ControlFlags.Root;
+	// Token: 0x04000656 RID: 1622
+	private const global::Controllable.ControlFlags TREE_TRUNK = global::Controllable.ControlFlags.Root;
 
-	// Token: 0x0400058C RID: 1420
-	private const Controllable.ControlFlags TREE_BRANCH = (Controllable.ControlFlags)0;
+	// Token: 0x04000657 RID: 1623
+	private const global::Controllable.ControlFlags TREE_BRANCH = (global::Controllable.ControlFlags)0;
 
-	// Token: 0x0400058D RID: 1421
-	private const Controllable.ControlFlags SETUP_INITIALIZED = Controllable.ControlFlags.Initialized;
+	// Token: 0x04000658 RID: 1624
+	private const global::Controllable.ControlFlags SETUP_INITIALIZED = global::Controllable.ControlFlags.Initialized;
 
-	// Token: 0x0400058E RID: 1422
-	private const Controllable.ControlFlags SETUP_UNINITIALIZED = (Controllable.ControlFlags)0;
+	// Token: 0x04000659 RID: 1625
+	private const global::Controllable.ControlFlags SETUP_UNINITIALIZED = (global::Controllable.ControlFlags)0;
 
-	// Token: 0x0400058F RID: 1423
-	private const Controllable.ControlFlags BINDING_STRONG = Controllable.ControlFlags.Strong;
+	// Token: 0x0400065A RID: 1626
+	private const global::Controllable.ControlFlags BINDING_STRONG = global::Controllable.ControlFlags.Strong;
 
-	// Token: 0x04000590 RID: 1424
-	private const Controllable.ControlFlags BINDING_WEAK = (Controllable.ControlFlags)0;
+	// Token: 0x0400065B RID: 1627
+	private const global::Controllable.ControlFlags BINDING_WEAK = (global::Controllable.ControlFlags)0;
 
-	// Token: 0x04000591 RID: 1425
-	private const Controllable.ControlFlags CONTROLLER_MASK = Controllable.ControlFlags.Player;
+	// Token: 0x0400065C RID: 1628
+	private const global::Controllable.ControlFlags CONTROLLER_MASK = global::Controllable.ControlFlags.Player;
 
-	// Token: 0x04000592 RID: 1426
-	private const Controllable.ControlFlags NETWORK_MASK = Controllable.ControlFlags.Local;
+	// Token: 0x0400065D RID: 1629
+	private const global::Controllable.ControlFlags NETWORK_MASK = global::Controllable.ControlFlags.Local;
 
-	// Token: 0x04000593 RID: 1427
-	private const Controllable.ControlFlags ACTIVE_MASK = Controllable.ControlFlags.Owned;
+	// Token: 0x0400065E RID: 1630
+	private const global::Controllable.ControlFlags ACTIVE_MASK = global::Controllable.ControlFlags.Owned;
 
-	// Token: 0x04000594 RID: 1428
-	private const Controllable.ControlFlags TREE_MASK = Controllable.ControlFlags.Root;
+	// Token: 0x0400065F RID: 1631
+	private const global::Controllable.ControlFlags TREE_MASK = global::Controllable.ControlFlags.Root;
 
-	// Token: 0x04000595 RID: 1429
-	private const Controllable.ControlFlags SETUP_MASK = Controllable.ControlFlags.Initialized;
+	// Token: 0x04000660 RID: 1632
+	private const global::Controllable.ControlFlags SETUP_MASK = global::Controllable.ControlFlags.Initialized;
 
-	// Token: 0x04000596 RID: 1430
-	private const Controllable.ControlFlags BINDING_MASK = Controllable.ControlFlags.Strong;
+	// Token: 0x04000661 RID: 1633
+	private const global::Controllable.ControlFlags BINDING_MASK = global::Controllable.ControlFlags.Strong;
 
-	// Token: 0x04000597 RID: 1431
-	private const Controllable.ControlFlags MASK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root | Controllable.ControlFlags.Initialized | Controllable.ControlFlags.Strong;
+	// Token: 0x04000662 RID: 1634
+	private const global::Controllable.ControlFlags MASK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root | global::Controllable.ControlFlags.Initialized | global::Controllable.ControlFlags.Strong;
 
-	// Token: 0x04000598 RID: 1432
-	private const Controllable.ControlFlags OWNER_MASK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player;
+	// Token: 0x04000663 RID: 1635
+	private const global::Controllable.ControlFlags OWNER_MASK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x04000599 RID: 1433
-	private const Controllable.ControlFlags OWNER_NPC = Controllable.ControlFlags.Owned;
+	// Token: 0x04000664 RID: 1636
+	private const global::Controllable.ControlFlags OWNER_NPC = global::Controllable.ControlFlags.Owned;
 
-	// Token: 0x0400059A RID: 1434
-	private const Controllable.ControlFlags OWNER_CLIENT = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player;
+	// Token: 0x04000665 RID: 1637
+	private const global::Controllable.ControlFlags OWNER_CLIENT = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x0400059B RID: 1435
-	private const Controllable.ControlFlags OWNER_NET_MASK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player;
+	// Token: 0x04000666 RID: 1638
+	private const global::Controllable.ControlFlags OWNER_NET_MASK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x0400059C RID: 1436
-	private const Controllable.ControlFlags OWNER_NET_NPC_MINE = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local;
+	// Token: 0x04000667 RID: 1639
+	private const global::Controllable.ControlFlags OWNER_NET_NPC_MINE = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local;
 
-	// Token: 0x0400059D RID: 1437
-	private const Controllable.ControlFlags OWNER_NET_NPC_PROXY = Controllable.ControlFlags.Owned;
+	// Token: 0x04000668 RID: 1640
+	private const global::Controllable.ControlFlags OWNER_NET_NPC_PROXY = global::Controllable.ControlFlags.Owned;
 
-	// Token: 0x0400059E RID: 1438
-	private const Controllable.ControlFlags OWNER_NET_CLIENT_MINE = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player;
+	// Token: 0x04000669 RID: 1641
+	private const global::Controllable.ControlFlags OWNER_NET_CLIENT_MINE = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x0400059F RID: 1439
-	private const Controllable.ControlFlags OWNER_NET_CLIENT_PROXY = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player;
+	// Token: 0x0400066A RID: 1642
+	private const global::Controllable.ControlFlags OWNER_NET_CLIENT_PROXY = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x040005A0 RID: 1440
-	private const Controllable.ControlFlags OWNER_NET_TREE_MASK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root;
+	// Token: 0x0400066B RID: 1643
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_MASK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root;
 
-	// Token: 0x040005A1 RID: 1441
-	private const Controllable.ControlFlags OWNER_NET_TREE_NPC_MINE_TRUNK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Root;
+	// Token: 0x0400066C RID: 1644
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_NPC_MINE_TRUNK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Root;
 
-	// Token: 0x040005A2 RID: 1442
-	private const Controllable.ControlFlags OWNER_NET_TREE_NPC_PROXY_TRUNK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Root;
+	// Token: 0x0400066D RID: 1645
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_NPC_PROXY_TRUNK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Root;
 
-	// Token: 0x040005A3 RID: 1443
-	private const Controllable.ControlFlags OWNER_NET_TREE_CLIENT_MINE_TRUNK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root;
+	// Token: 0x0400066E RID: 1646
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_CLIENT_MINE_TRUNK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root;
 
-	// Token: 0x040005A4 RID: 1444
-	private const Controllable.ControlFlags OWNER_NET_TREE_CLIENT_PROXY_TRUNK = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player | Controllable.ControlFlags.Root;
+	// Token: 0x0400066F RID: 1647
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_CLIENT_PROXY_TRUNK = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player | global::Controllable.ControlFlags.Root;
 
-	// Token: 0x040005A5 RID: 1445
-	private const Controllable.ControlFlags OWNER_NET_TREE_NPC_MINE_BRANCH = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local;
+	// Token: 0x04000670 RID: 1648
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_NPC_MINE_BRANCH = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local;
 
-	// Token: 0x040005A6 RID: 1446
-	private const Controllable.ControlFlags OWNER_NET_TREE_NPC_PROXY_BRANCH = Controllable.ControlFlags.Owned;
+	// Token: 0x04000671 RID: 1649
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_NPC_PROXY_BRANCH = global::Controllable.ControlFlags.Owned;
 
-	// Token: 0x040005A7 RID: 1447
-	private const Controllable.ControlFlags OWNER_NET_TREE_CLIENT_MINE_BRANCH = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Local | Controllable.ControlFlags.Player;
+	// Token: 0x04000672 RID: 1650
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_CLIENT_MINE_BRANCH = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Local | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x040005A8 RID: 1448
-	private const Controllable.ControlFlags OWNER_NET_TREE_CLIENT_PROXY_BRANCH = Controllable.ControlFlags.Owned | Controllable.ControlFlags.Player;
+	// Token: 0x04000673 RID: 1651
+	private const global::Controllable.ControlFlags OWNER_NET_TREE_CLIENT_PROXY_BRANCH = global::Controllable.ControlFlags.Owned | global::Controllable.ControlFlags.Player;
 
-	// Token: 0x040005A9 RID: 1449
+	// Token: 0x04000674 RID: 1652
 	private const string kControllableRPCPrefix = "Controllable:";
 
-	// Token: 0x040005AA RID: 1450
+	// Token: 0x04000675 RID: 1653
 	private const string kClientDeleteRPCName = "Controllable:CLD";
 
-	// Token: 0x040005AB RID: 1451
+	// Token: 0x04000676 RID: 1654
 	private const string kClearFromChainRPCName = "Controllable:CLR";
 
-	// Token: 0x040005AC RID: 1452
+	// Token: 0x04000677 RID: 1655
 	private const string kIdleOnRPCName = "Controllable:ID1";
 
-	// Token: 0x040005AD RID: 1453
+	// Token: 0x04000678 RID: 1656
 	private const string kOverrideControlOfRPCName1 = "Controllable:OC1";
 
-	// Token: 0x040005AE RID: 1454
+	// Token: 0x04000679 RID: 1657
 	private const string kOverrideControlOfRPCName2 = "Controllable:OC2";
 
-	// Token: 0x040005AF RID: 1455
+	// Token: 0x0400067A RID: 1658
 	private const string kClientRefreshRPCName = "Controllable:RFH";
 
-	// Token: 0x040005B0 RID: 1456
-	private const RPCMode kClientDeleteRPCMode = 0;
+	// Token: 0x0400067B RID: 1659
+	private const uLink.RPCMode kClientDeleteRPCMode = 0;
 
-	// Token: 0x040005B1 RID: 1457
-	private const RPCMode kClearFromChainRPCMode = 2;
+	// Token: 0x0400067C RID: 1660
+	private const uLink.RPCMode kClearFromChainRPCMode = 2;
 
-	// Token: 0x040005B2 RID: 1458
-	private const RPCMode kClearFromChainRPCMode_POST = 1;
+	// Token: 0x0400067D RID: 1661
+	private const uLink.RPCMode kClearFromChainRPCMode_POST = 1;
 
-	// Token: 0x040005B3 RID: 1459
-	private const RPCMode kOverrideControlOfRPCMode = 6;
+	// Token: 0x0400067E RID: 1662
+	private const uLink.RPCMode kOverrideControlOfRPCMode = 6;
 
-	// Token: 0x040005B4 RID: 1460
-	private const RPCMode kIdleOnRPCMode = 6;
+	// Token: 0x0400067F RID: 1663
+	private const uLink.RPCMode kIdleOnRPCMode = 6;
 
-	// Token: 0x040005B5 RID: 1461
-	private const RPCMode kClientSideRootNumberRPCMode = 5;
+	// Token: 0x04000680 RID: 1664
+	private const uLink.RPCMode kClientSideRootNumberRPCMode = 5;
 
-	// Token: 0x040005B6 RID: 1462
-	private const RPCMode kClientRefreshRPCMode = 5;
+	// Token: 0x04000681 RID: 1665
+	private const uLink.RPCMode kClientRefreshRPCMode = 5;
 
-	// Token: 0x040005B7 RID: 1463
+	// Token: 0x04000682 RID: 1666
 	private const string kRPCCall = "RPC call only. Do not call through script";
 
-	// Token: 0x040005B8 RID: 1464
+	// Token: 0x04000683 RID: 1667
 	private const bool kRPCCallError = false;
 
-	// Token: 0x040005B9 RID: 1465
+	// Token: 0x04000684 RID: 1668
 	[NonSerialized]
-	private Controllable.CL_Binder _binder;
+	private global::Controllable.CL_Binder _binder;
 
-	// Token: 0x040005BA RID: 1466
+	// Token: 0x04000685 RID: 1669
 	[NonSerialized]
 	private List<ulong> _rootCountTimeStamps;
 
-	// Token: 0x040005BB RID: 1467
+	// Token: 0x04000686 RID: 1670
 	[NonSerialized]
 	private int _pendingControlCount;
 
-	// Token: 0x040005BC RID: 1468
+	// Token: 0x04000687 RID: 1671
 	[NonSerialized]
 	private int _refreshedControlCount;
 
-	// Token: 0x040005BD RID: 1469
+	// Token: 0x04000688 RID: 1672
 	[SerializeField]
-	private ControllerClass @class;
+	private global::ControllerClass @class;
 
-	// Token: 0x040005BE RID: 1470
+	// Token: 0x04000689 RID: 1673
 	[NonSerialized]
-	private PlayerClient _playerClient;
+	private global::PlayerClient _playerClient;
 
-	// Token: 0x040005BF RID: 1471
+	// Token: 0x0400068A RID: 1674
 	[NonSerialized]
-	private Controller _controller;
+	private global::Controller _controller;
 
-	// Token: 0x040005C0 RID: 1472
+	// Token: 0x0400068B RID: 1675
 	[NonSerialized]
-	private Controllable.ControlFlags F;
+	private global::Controllable.ControlFlags F;
 
-	// Token: 0x040005C1 RID: 1473
+	// Token: 0x0400068C RID: 1676
 	[NonSerialized]
-	private Controllable.Chain ch;
+	private global::Controllable.Chain ch;
 
-	// Token: 0x040005C2 RID: 1474
+	// Token: 0x0400068D RID: 1677
 	[NonSerialized]
 	private int RT;
 
-	// Token: 0x040005C3 RID: 1475
+	// Token: 0x0400068E RID: 1678
 	[NonSerialized]
-	private NetworkViewID __controllerDriverViewID;
+	private uLink.NetworkViewID __controllerDriverViewID;
 
-	// Token: 0x040005C4 RID: 1476
+	// Token: 0x0400068F RID: 1679
 	[NonSerialized]
-	private NetworkMessageInfo __controllerCreateMessageInfo;
+	private uLink.NetworkMessageInfo __controllerCreateMessageInfo;
 
-	// Token: 0x040005C5 RID: 1477
+	// Token: 0x04000690 RID: 1680
 	[NonSerialized]
-	private NetworkView __networkViewForControllable;
+	private uLink.NetworkView __networkViewForControllable;
 
-	// Token: 0x040005C6 RID: 1478
+	// Token: 0x04000691 RID: 1681
 	[NonSerialized]
 	private bool lateFinding;
 
-	// Token: 0x040005C7 RID: 1479
+	// Token: 0x04000692 RID: 1682
 	[NonSerialized]
 	public bool isInContextQuery;
 
-	// Token: 0x040005C8 RID: 1480
+	// Token: 0x04000693 RID: 1683
 	private static int localPlayerControllableCount;
 
-	// Token: 0x0200011E RID: 286
+	// Token: 0x0200013D RID: 317
 	private struct Chain
 	{
-		// Token: 0x17000204 RID: 516
-		// (get) Token: 0x06000858 RID: 2136 RVA: 0x0002449C File Offset: 0x0002269C
+		// Token: 0x17000232 RID: 562
+		// (get) Token: 0x0600092A RID: 2346 RVA: 0x00027070 File Offset: 0x00025270
 		public int id
 		{
 			get
@@ -2001,8 +2001,8 @@ public sealed class Controllable : IDLocalCharacter
 			}
 		}
 
-		// Token: 0x17000205 RID: 517
-		// (get) Token: 0x06000859 RID: 2137 RVA: 0x000244B8 File Offset: 0x000226B8
+		// Token: 0x17000233 RID: 563
+		// (get) Token: 0x0600092B RID: 2347 RVA: 0x0002708C File Offset: 0x0002528C
 		public int su
 		{
 			get
@@ -2011,8 +2011,8 @@ public sealed class Controllable : IDLocalCharacter
 			}
 		}
 
-		// Token: 0x0600085A RID: 2138 RVA: 0x000244E8 File Offset: 0x000226E8
-		public static void ROOT(Controllable root)
+		// Token: 0x0600092C RID: 2348 RVA: 0x000270BC File Offset: 0x000252BC
+		public static void ROOT(global::Controllable root)
 		{
 			root.ch.tp = root;
 			root.ch.bt = root;
@@ -2024,8 +2024,8 @@ public sealed class Controllable : IDLocalCharacter
 			root.ch.iv = true;
 		}
 
-		// Token: 0x0600085B RID: 2139 RVA: 0x00024598 File Offset: 0x00022798
-		private bool Add(ref Controllable.Chain nw, Controllable ct)
+		// Token: 0x0600092D RID: 2349 RVA: 0x0002716C File Offset: 0x0002536C
+		private bool Add(ref global::Controllable.Chain nw, global::Controllable ct)
 		{
 			if (!this.vl || nw.vl)
 			{
@@ -2045,12 +2045,12 @@ public sealed class Controllable : IDLocalCharacter
 			nw.tp = nw.it;
 			nw.bt = this.tp.ch.bt;
 			nw.vl = true;
-			Controllable.Link link = nw.dn;
+			global::Controllable.Link link = nw.dn;
 			nw.iv = true;
 			do
 			{
 				link.it.ch.tp = nw.tp;
-				Controllable controllable = link.it;
+				global::Controllable controllable = link.it;
 				controllable.ch.ln = controllable.ch.ln + 1;
 				link.it.ch.iv = true;
 				link = link.it.ch.dn;
@@ -2060,13 +2060,13 @@ public sealed class Controllable : IDLocalCharacter
 			return true;
 		}
 
-		// Token: 0x0600085C RID: 2140 RVA: 0x00024708 File Offset: 0x00022908
-		public bool Add(Controllable vessel)
+		// Token: 0x0600092E RID: 2350 RVA: 0x000272DC File Offset: 0x000254DC
+		public bool Add(global::Controllable vessel)
 		{
 			return vessel && this.Add(ref vessel.ch, vessel);
 		}
 
-		// Token: 0x0600085D RID: 2141 RVA: 0x00024728 File Offset: 0x00022928
+		// Token: 0x0600092F RID: 2351 RVA: 0x000272FC File Offset: 0x000254FC
 		public bool RefreshEngauge()
 		{
 			if (!this.vl)
@@ -2078,7 +2078,7 @@ public sealed class Controllable : IDLocalCharacter
 				int num;
 				if (this.bt.ch.up.vl)
 				{
-					Controllable controllable = this.bt;
+					global::Controllable controllable = this.bt;
 					num = 128;
 					for (;;)
 					{
@@ -2086,10 +2086,10 @@ public sealed class Controllable : IDLocalCharacter
 						switch (controllable.RT & 3)
 						{
 						case 0:
-							Controllable.DO_ENTER(Controllable.CAP_ENTER(num, controllable.RT, controllable.F), controllable);
+							global::Controllable.DO_ENTER(global::Controllable.CAP_ENTER(num, controllable.RT, controllable.F), controllable);
 							break;
 						case 3:
-							Controllable.DO_DEMOTE(Controllable.CAP_DEMOTE(num, controllable.RT, controllable.F), controllable);
+							global::Controllable.DO_DEMOTE(global::Controllable.CAP_DEMOTE(num, controllable.RT, controllable.F), controllable);
 							break;
 						}
 						num |= 768;
@@ -2108,18 +2108,18 @@ public sealed class Controllable : IDLocalCharacter
 				switch (this.tp.RT & 3)
 				{
 				case 0:
-					Controllable.DO_ENTER(Controllable.CAP_ENTER(num & -129, this.tp.RT, this.tp.F), this.tp);
-					Controllable.DO_PROMOTE(Controllable.CAP_PROMOTE(num & -129, this.tp.RT, this.tp.F), this.tp);
+					global::Controllable.DO_ENTER(global::Controllable.CAP_ENTER(num & -129, this.tp.RT, this.tp.F), this.tp);
+					global::Controllable.DO_PROMOTE(global::Controllable.CAP_PROMOTE(num & -129, this.tp.RT, this.tp.F), this.tp);
 					break;
 				case 1:
-					Controllable.DO_PROMOTE(Controllable.CAP_PROMOTE(num & -129, this.tp.RT, this.tp.F), this.tp);
+					global::Controllable.DO_PROMOTE(global::Controllable.CAP_PROMOTE(num & -129, this.tp.RT, this.tp.F), this.tp);
 					break;
 				}
 			}
 			return true;
 		}
 
-		// Token: 0x0600085E RID: 2142 RVA: 0x00024904 File Offset: 0x00022B04
+		// Token: 0x06000930 RID: 2352 RVA: 0x000274D8 File Offset: 0x000256D8
 		public bool RefreshEnter()
 		{
 			if (!this.vl)
@@ -2131,17 +2131,17 @@ public sealed class Controllable : IDLocalCharacter
 				int num;
 				if (this.bt.ch.up.vl)
 				{
-					Controllable controllable = this.bt;
+					global::Controllable controllable = this.bt;
 					num = 128;
 					for (;;)
 					{
 						switch (controllable.RT & 3)
 						{
 						case 0:
-							Controllable.DO_ENTER(Controllable.CAP_ENTER(num, controllable.RT, controllable.F), controllable);
+							global::Controllable.DO_ENTER(global::Controllable.CAP_ENTER(num, controllable.RT, controllable.F), controllable);
 							break;
 						case 3:
-							Controllable.DO_DEMOTE(Controllable.CAP_DEMOTE(num, controllable.RT, controllable.F), controllable);
+							global::Controllable.DO_DEMOTE(global::Controllable.CAP_DEMOTE(num, controllable.RT, controllable.F), controllable);
 							break;
 						}
 						num |= 768;
@@ -2159,14 +2159,14 @@ public sealed class Controllable : IDLocalCharacter
 				switch (this.tp.RT & 3)
 				{
 				case 0:
-					Controllable.DO_ENTER(Controllable.CAP_ENTER(num, this.tp.RT, this.tp.F), this.tp);
+					global::Controllable.DO_ENTER(global::Controllable.CAP_ENTER(num, this.tp.RT, this.tp.F), this.tp);
 					break;
 				}
 			}
 			return true;
 		}
 
-		// Token: 0x0600085F RID: 2143 RVA: 0x00024A64 File Offset: 0x00022C64
+		// Token: 0x06000931 RID: 2353 RVA: 0x00027638 File Offset: 0x00025838
 		public override string ToString()
 		{
 			if (!this.vl)
@@ -2174,7 +2174,7 @@ public sealed class Controllable : IDLocalCharacter
 				return "invalid";
 			}
 			StringBuilder stringBuilder = new StringBuilder();
-			Controllable controllable = this.bt;
+			global::Controllable controllable = this.bt;
 			while (controllable)
 			{
 				if (controllable == this.it)
@@ -2191,14 +2191,14 @@ public sealed class Controllable : IDLocalCharacter
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000860 RID: 2144 RVA: 0x00024B0C File Offset: 0x00022D0C
+		// Token: 0x06000932 RID: 2354 RVA: 0x000276E0 File Offset: 0x000258E0
 		public void Delete()
 		{
 			if (!this.vl)
 			{
 				return;
 			}
-			int num = Controllable.CAP_THIS(16, this.it.RT, this.it.F);
+			int num = global::Controllable.CAP_THIS(16, this.it.RT, this.it.F);
 			if (this.up.vl)
 			{
 				int num2 = (int)this.ln;
@@ -2209,37 +2209,37 @@ public sealed class Controllable : IDLocalCharacter
 				}
 				for (;;)
 				{
-					Controllable controllable = this.tp.ch.dn.it;
-					Controllable controllable2 = this.tp;
+					global::Controllable controllable = this.tp.ch.dn.it;
+					global::Controllable controllable2 = this.tp;
 					int cmd;
 					switch (controllable2.RT & 3)
 					{
 					case 1:
-						Controllable.DO_EXIT(cmd = Controllable.CAP_EXIT(num3, controllable2.RT, controllable2.F), controllable2);
+						global::Controllable.DO_EXIT(cmd = global::Controllable.CAP_EXIT(num3, controllable2.RT, controllable2.F), controllable2);
 						break;
 					case 2:
 						goto IL_10A;
 					case 3:
-						cmd = Controllable.CAP_EXIT(num3, controllable2.RT, controllable2.F);
-						Controllable.DO_DEMOTE(Controllable.CAP_DEMOTE(cmd, controllable2.RT, controllable2.F), controllable2);
-						Controllable.DO_EXIT(cmd, controllable2);
+						cmd = global::Controllable.CAP_EXIT(num3, controllable2.RT, controllable2.F);
+						global::Controllable.DO_DEMOTE(global::Controllable.CAP_DEMOTE(cmd, controllable2.RT, controllable2.F), controllable2);
+						global::Controllable.DO_EXIT(cmd, controllable2);
 						break;
 					default:
 						goto IL_10A;
 					}
 					IL_124:
 					controllable2.ON_CHAIN_ERASE(cmd);
-					controllable2.ch = default(Controllable.Chain);
+					controllable2.ch = default(global::Controllable.Chain);
 					controllable2.ON_CHAIN_ABOLISHED();
 					this.tp = controllable;
-					this.tp.ch.up = default(Controllable.Link);
+					this.tp.ch.up = default(global::Controllable.Link);
 					this.tp.ch.ln = this.tp.ch.ln - 1;
 					this.tp.ch.tp = this.tp;
-					Controllable.Link link = this.tp.ch.dn;
+					global::Controllable.Link link = this.tp.ch.dn;
 					byte b = this.tp.ch.ln;
 					while (link.vl)
 					{
-						Controllable controllable3 = link.it;
+						global::Controllable controllable3 = link.it;
 						link = controllable3.ch.dn;
 						controllable3.ch.tp = this.tp;
 						b = (controllable3.ch.ln = b - 1);
@@ -2250,32 +2250,32 @@ public sealed class Controllable : IDLocalCharacter
 					}
 					continue;
 					IL_10A:
-					cmd = Controllable.CAP_THIS(num3, controllable2.RT, controllable2.F);
+					cmd = global::Controllable.CAP_THIS(num3, controllable2.RT, controllable2.F);
 					goto IL_124;
 				}
 			}
 			switch (this.it.RT & 3)
 			{
 			case 1:
-				Controllable.DO_EXIT(Controllable.CAP_EXIT(num, this.it.RT, this.it.F), this.it);
+				global::Controllable.DO_EXIT(global::Controllable.CAP_EXIT(num, this.it.RT, this.it.F), this.it);
 				break;
 			case 3:
-				Controllable.DO_DEMOTE(Controllable.CAP_DEMOTE(num, this.it.RT, this.it.F), this.it);
-				Controllable.DO_EXIT(Controllable.CAP_EXIT(num, this.it.RT, this.it.F), this.it);
+				global::Controllable.DO_DEMOTE(global::Controllable.CAP_DEMOTE(num, this.it.RT, this.it.F), this.it);
+				global::Controllable.DO_EXIT(global::Controllable.CAP_EXIT(num, this.it.RT, this.it.F), this.it);
 				break;
 			}
-			Controllable controllable4 = this.it;
+			global::Controllable controllable4 = this.it;
 			controllable4.ON_CHAIN_ERASE(num);
-			Controllable.Link link2 = this.dn;
-			controllable4.ch = (this = default(Controllable.Chain));
+			global::Controllable.Link link2 = this.dn;
+			controllable4.ch = (this = default(global::Controllable.Chain));
 			if (link2.vl)
 			{
-				Controllable controllable5 = link2.it;
-				controllable5.ch.up = default(Controllable.Link);
+				global::Controllable controllable5 = link2.it;
+				controllable5.ch.up = default(global::Controllable.Link);
 				int num4 = 0;
 				do
 				{
-					Controllable controllable6 = link2.it;
+					global::Controllable controllable6 = link2.it;
 					link2 = controllable6.ch.dn;
 					controllable6.ch.iv = true;
 					controllable6.ch.tp = controllable5;
@@ -2286,59 +2286,59 @@ public sealed class Controllable : IDLocalCharacter
 			controllable4.ON_CHAIN_ABOLISHED();
 		}
 
-		// Token: 0x040005CA RID: 1482
-		public Controllable it;
+		// Token: 0x04000695 RID: 1685
+		public global::Controllable it;
 
-		// Token: 0x040005CB RID: 1483
-		public Controllable bt;
+		// Token: 0x04000696 RID: 1686
+		public global::Controllable bt;
 
-		// Token: 0x040005CC RID: 1484
-		public Controllable tp;
+		// Token: 0x04000697 RID: 1687
+		public global::Controllable tp;
 
-		// Token: 0x040005CD RID: 1485
-		public Controllable.Link dn;
+		// Token: 0x04000698 RID: 1688
+		public global::Controllable.Link dn;
 
-		// Token: 0x040005CE RID: 1486
-		public Controllable.Link up;
+		// Token: 0x04000699 RID: 1689
+		public global::Controllable.Link up;
 
-		// Token: 0x040005CF RID: 1487
+		// Token: 0x0400069A RID: 1690
 		public byte nm;
 
-		// Token: 0x040005D0 RID: 1488
+		// Token: 0x0400069B RID: 1691
 		public byte ln;
 
-		// Token: 0x040005D1 RID: 1489
+		// Token: 0x0400069C RID: 1692
 		public bool vl;
 
-		// Token: 0x040005D2 RID: 1490
+		// Token: 0x0400069D RID: 1693
 		public bool iv;
 	}
 
-	// Token: 0x0200011F RID: 287
+	// Token: 0x0200013E RID: 318
 	private class CL_Binder : IDisposable
 	{
-		// Token: 0x06000861 RID: 2145 RVA: 0x00024EA0 File Offset: 0x000230A0
-		public CL_Binder(Controllable owner, NetworkViewID rootID, NetworkViewID parentID, ref NetworkMessageInfo info)
+		// Token: 0x06000933 RID: 2355 RVA: 0x00027A74 File Offset: 0x00025C74
+		public CL_Binder(global::Controllable owner, uLink.NetworkViewID rootID, uLink.NetworkViewID parentID, ref uLink.NetworkMessageInfo info)
 		{
 			this._root.id = rootID;
 			this._parent.id = parentID;
 			this._info = info;
 			this.owner = owner;
 			this.sameSearch = (this._root.id == this._parent.id);
-			if (Controllable.CL_Binder.binderCount++ == 0)
+			if (global::Controllable.CL_Binder.binderCount++ == 0)
 			{
-				Controllable.CL_Binder.last = this;
-				Controllable.CL_Binder.first = this;
+				global::Controllable.CL_Binder.last = this;
+				global::Controllable.CL_Binder.first = this;
 			}
 			else
 			{
-				this.prev = Controllable.CL_Binder.last;
+				this.prev = global::Controllable.CL_Binder.last;
 				this.prev.next = this;
-				Controllable.CL_Binder.last = this;
+				global::Controllable.CL_Binder.last = this;
 			}
 		}
 
-		// Token: 0x06000862 RID: 2146 RVA: 0x00024F3C File Offset: 0x0002313C
+		// Token: 0x06000934 RID: 2356 RVA: 0x00027B10 File Offset: 0x00025D10
 		public void Dispose()
 		{
 			if (this.disposed)
@@ -2350,20 +2350,20 @@ public sealed class Controllable : IDLocalCharacter
 			{
 				this.owner._binder = null;
 			}
-			if (--Controllable.CL_Binder.binderCount == 0)
+			if (--global::Controllable.CL_Binder.binderCount == 0)
 			{
-				Controllable.CL_Binder.first = (Controllable.CL_Binder.last = (this.next = (this.prev = null)));
+				global::Controllable.CL_Binder.first = (global::Controllable.CL_Binder.last = (this.next = (this.prev = null)));
 			}
 			else
 			{
-				if (Controllable.CL_Binder.first == this)
+				if (global::Controllable.CL_Binder.first == this)
 				{
-					Controllable.CL_Binder.first = this.next;
+					global::Controllable.CL_Binder.first = this.next;
 					this.next.prev = null;
 				}
-				else if (Controllable.CL_Binder.last == this)
+				else if (global::Controllable.CL_Binder.last == this)
 				{
-					Controllable.CL_Binder.last = this.prev;
+					global::Controllable.CL_Binder.last = this.prev;
 					this.prev.next = null;
 				}
 				else
@@ -2375,18 +2375,18 @@ public sealed class Controllable : IDLocalCharacter
 			}
 		}
 
-		// Token: 0x06000863 RID: 2147 RVA: 0x00025040 File Offset: 0x00023240
+		// Token: 0x06000935 RID: 2357 RVA: 0x00027C14 File Offset: 0x00025E14
 		public bool Find()
 		{
 			return this._root.Find() && (this.sameSearch || this._parent.Find());
 		}
 
-		// Token: 0x06000864 RID: 2148 RVA: 0x0002507C File Offset: 0x0002327C
+		// Token: 0x06000936 RID: 2358 RVA: 0x00027C50 File Offset: 0x00025E50
 		protected int CountValidate(List<ulong> ts, int tsCount)
 		{
 			if (this.Find())
 			{
-				Controllable controllable = (!this.sameSearch) ? this._parent.controllable : this._root.controllable;
+				global::Controllable controllable = (!this.sameSearch) ? this._parent.controllable : this._root.controllable;
 				if (this.sameSearch)
 				{
 					if (tsCount > 1 && ts[1] <= this._info.timestampInMillis)
@@ -2407,7 +2407,7 @@ public sealed class Controllable : IDLocalCharacter
 			return -1;
 		}
 
-		// Token: 0x06000865 RID: 2149 RVA: 0x00025124 File Offset: 0x00023324
+		// Token: 0x06000937 RID: 2359 RVA: 0x00027CF8 File Offset: 0x00025EF8
 		public bool CanLink()
 		{
 			if (this._root.Find() && this._root.controllable._rootCountTimeStamps != null)
@@ -2418,21 +2418,21 @@ public sealed class Controllable : IDLocalCharacter
 			return false;
 		}
 
-		// Token: 0x06000866 RID: 2150 RVA: 0x00025198 File Offset: 0x00023398
+		// Token: 0x06000938 RID: 2360 RVA: 0x00027D6C File Offset: 0x00025F6C
 		private void PreLink()
 		{
-			Controllable controllable = (!this.sameSearch) ? this._parent.controllable : this._root.controllable;
-			if ((controllable.F & Controllable.ControlFlags.Root) == (Controllable.ControlFlags)0)
+			global::Controllable controllable = (!this.sameSearch) ? this._parent.controllable : this._root.controllable;
+			if ((controllable.F & global::Controllable.ControlFlags.Root) == (global::Controllable.ControlFlags)0)
 			{
 				controllable._binder.PreLink();
 			}
-			if ((this.owner.F & Controllable.ControlFlags.Initialized) == (Controllable.ControlFlags)0)
+			if ((this.owner.F & global::Controllable.ControlFlags.Initialized) == (global::Controllable.ControlFlags)0)
 			{
 				this.owner.OCO_FOUND(controllable.networkViewID, ref this._info);
 			}
 		}
 
-		// Token: 0x06000867 RID: 2151 RVA: 0x00025210 File Offset: 0x00023410
+		// Token: 0x06000939 RID: 2361 RVA: 0x00027DE4 File Offset: 0x00025FE4
 		public void Link()
 		{
 			this.PreLink();
@@ -2446,13 +2446,13 @@ public sealed class Controllable : IDLocalCharacter
 			}
 		}
 
-		// Token: 0x06000868 RID: 2152 RVA: 0x0002527C File Offset: 0x0002347C
-		public static void StaticLink(Controllable root)
+		// Token: 0x0600093A RID: 2362 RVA: 0x00027E50 File Offset: 0x00026050
+		public static void StaticLink(global::Controllable root)
 		{
-			Controllable.CL_Binder cl_Binder = Controllable.CL_Binder.last;
-			for (int i = Controllable.CL_Binder.binderCount - 1; i >= 0; i--)
+			global::Controllable.CL_Binder cl_Binder = global::Controllable.CL_Binder.last;
+			for (int i = global::Controllable.CL_Binder.binderCount - 1; i >= 0; i--)
 			{
-				Controllable.CL_Binder cl_Binder2 = cl_Binder;
+				global::Controllable.CL_Binder cl_Binder2 = cl_Binder;
 				cl_Binder = cl_Binder.prev;
 				if (cl_Binder2.Find() && cl_Binder2._root.controllable == root && cl_Binder2.CountValidate(root._rootCountTimeStamps, root._rootCountTimeStamps.Count) == root._refreshedControlCount)
 				{
@@ -2462,46 +2462,46 @@ public sealed class Controllable : IDLocalCharacter
 			}
 		}
 
-		// Token: 0x040005D3 RID: 1491
-		private static Controllable.CL_Binder first;
+		// Token: 0x0400069E RID: 1694
+		private static global::Controllable.CL_Binder first;
 
-		// Token: 0x040005D4 RID: 1492
-		private static Controllable.CL_Binder last;
+		// Token: 0x0400069F RID: 1695
+		private static global::Controllable.CL_Binder last;
 
-		// Token: 0x040005D5 RID: 1493
+		// Token: 0x040006A0 RID: 1696
 		private static int binderCount;
 
-		// Token: 0x040005D6 RID: 1494
-		private Controllable.CL_Binder.Search _root;
+		// Token: 0x040006A1 RID: 1697
+		private global::Controllable.CL_Binder.Search _root;
 
-		// Token: 0x040005D7 RID: 1495
-		private Controllable.CL_Binder.Search _parent;
+		// Token: 0x040006A2 RID: 1698
+		private global::Controllable.CL_Binder.Search _parent;
 
-		// Token: 0x040005D8 RID: 1496
+		// Token: 0x040006A3 RID: 1699
 		private readonly bool sameSearch;
 
-		// Token: 0x040005D9 RID: 1497
-		private NetworkMessageInfo _info;
+		// Token: 0x040006A4 RID: 1700
+		private uLink.NetworkMessageInfo _info;
 
-		// Token: 0x040005DA RID: 1498
-		private readonly Controllable owner;
+		// Token: 0x040006A5 RID: 1701
+		private readonly global::Controllable owner;
 
-		// Token: 0x040005DB RID: 1499
+		// Token: 0x040006A6 RID: 1702
 		private bool disposed;
 
-		// Token: 0x040005DC RID: 1500
-		private Controllable.CL_Binder next;
+		// Token: 0x040006A7 RID: 1703
+		private global::Controllable.CL_Binder next;
 
-		// Token: 0x040005DD RID: 1501
-		private Controllable.CL_Binder prev;
+		// Token: 0x040006A8 RID: 1704
+		private global::Controllable.CL_Binder prev;
 
-		// Token: 0x02000120 RID: 288
+		// Token: 0x0200013F RID: 319
 		private struct Search
 		{
-			// Token: 0x17000206 RID: 518
-			// (get) Token: 0x06000869 RID: 2153 RVA: 0x000252FC File Offset: 0x000234FC
-			// (set) Token: 0x0600086A RID: 2154 RVA: 0x00025304 File Offset: 0x00023504
-			public NetworkViewID id
+			// Token: 0x17000234 RID: 564
+			// (get) Token: 0x0600093B RID: 2363 RVA: 0x00027ED0 File Offset: 0x000260D0
+			// (set) Token: 0x0600093C RID: 2364 RVA: 0x00027ED8 File Offset: 0x000260D8
+			public uLink.NetworkViewID id
 			{
 				get
 				{
@@ -2515,9 +2515,9 @@ public sealed class Controllable : IDLocalCharacter
 				}
 			}
 
-			// Token: 0x17000207 RID: 519
-			// (get) Token: 0x0600086B RID: 2155 RVA: 0x0002531C File Offset: 0x0002351C
-			public NetworkView view
+			// Token: 0x17000235 RID: 565
+			// (get) Token: 0x0600093D RID: 2365 RVA: 0x00027EF0 File Offset: 0x000260F0
+			public Facepunch.NetworkView view
 			{
 				get
 				{
@@ -2525,9 +2525,9 @@ public sealed class Controllable : IDLocalCharacter
 				}
 			}
 
-			// Token: 0x17000208 RID: 520
-			// (get) Token: 0x0600086C RID: 2156 RVA: 0x00025324 File Offset: 0x00023524
-			public Controllable controllable
+			// Token: 0x17000236 RID: 566
+			// (get) Token: 0x0600093E RID: 2366 RVA: 0x00027EF8 File Offset: 0x000260F8
+			public global::Controllable controllable
 			{
 				get
 				{
@@ -2535,72 +2535,72 @@ public sealed class Controllable : IDLocalCharacter
 				}
 			}
 
-			// Token: 0x0600086D RID: 2157 RVA: 0x0002532C File Offset: 0x0002352C
+			// Token: 0x0600093F RID: 2367 RVA: 0x00027F00 File Offset: 0x00026100
 			public bool Find()
 			{
 				if (!this._controllable)
 				{
 					if (!this._view)
 					{
-						this._view = NetworkView.Find(this._id);
+						this._view = Facepunch.NetworkView.Find(this._id);
 						if (!this._view)
 						{
 							return false;
 						}
 					}
-					Character character = this._view.idMain as Character;
+					global::Character character = this._view.idMain as global::Character;
 					return character && (this._controllable = character.controllable);
 				}
 				return true;
 			}
 
-			// Token: 0x040005DE RID: 1502
-			private NetworkViewID _id;
+			// Token: 0x040006A9 RID: 1705
+			private uLink.NetworkViewID _id;
 
-			// Token: 0x040005DF RID: 1503
-			private NetworkView _view;
+			// Token: 0x040006AA RID: 1706
+			private Facepunch.NetworkView _view;
 
-			// Token: 0x040005E0 RID: 1504
-			private Controllable _controllable;
+			// Token: 0x040006AB RID: 1707
+			private global::Controllable _controllable;
 		}
 	}
 
-	// Token: 0x02000121 RID: 289
+	// Token: 0x02000140 RID: 320
 	[Flags]
 	private enum ControlFlags
 	{
-		// Token: 0x040005E2 RID: 1506
+		// Token: 0x040006AD RID: 1709
 		Owned = 1,
-		// Token: 0x040005E3 RID: 1507
+		// Token: 0x040006AE RID: 1710
 		Local = 2,
-		// Token: 0x040005E4 RID: 1508
+		// Token: 0x040006AF RID: 1711
 		Player = 4,
-		// Token: 0x040005E5 RID: 1509
+		// Token: 0x040006B0 RID: 1712
 		Root = 8,
-		// Token: 0x040005E6 RID: 1510
+		// Token: 0x040006B1 RID: 1713
 		Initialized = 16,
-		// Token: 0x040005E7 RID: 1511
+		// Token: 0x040006B2 RID: 1714
 		Strong = 32
 	}
 
-	// Token: 0x02000122 RID: 290
+	// Token: 0x02000141 RID: 321
 	private struct Link
 	{
-		// Token: 0x040005E8 RID: 1512
-		public Controllable it;
+		// Token: 0x040006B3 RID: 1715
+		public global::Controllable it;
 
-		// Token: 0x040005E9 RID: 1513
+		// Token: 0x040006B4 RID: 1716
 		public bool vl;
 	}
 
-	// Token: 0x02000123 RID: 291
+	// Token: 0x02000142 RID: 322
 	private static class LocalOnly
 	{
-		// Token: 0x040005EA RID: 1514
-		public static readonly List<Controllable> rootLocalPlayerControllables = new List<Controllable>();
+		// Token: 0x040006B5 RID: 1717
+		public static readonly List<global::Controllable> rootLocalPlayerControllables = new List<global::Controllable>();
 	}
 
-	// Token: 0x02000862 RID: 2146
-	// (Invoke) Token: 0x06004B60 RID: 19296
-	public delegate void DestroyInContextQuery(Controllable controllable);
+	// Token: 0x02000143 RID: 323
+	// (Invoke) Token: 0x06000942 RID: 2370
+	public delegate void DestroyInContextQuery(global::Controllable controllable);
 }

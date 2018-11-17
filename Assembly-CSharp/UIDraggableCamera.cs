@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200076E RID: 1902
-[RequireComponent(typeof(Camera))]
+// Token: 0x02000850 RID: 2128
 [AddComponentMenu("NGUI/Interaction/Draggable Camera")]
-public class UIDraggableCamera : IgnoreTimeScale
+[RequireComponent(typeof(Camera))]
+public class UIDraggableCamera : global::IgnoreTimeScale
 {
-	// Token: 0x17000D71 RID: 3441
-	// (get) Token: 0x06004518 RID: 17688 RVA: 0x0010F504 File Offset: 0x0010D704
-	// (set) Token: 0x06004519 RID: 17689 RVA: 0x0010F50C File Offset: 0x0010D70C
+	// Token: 0x17000E01 RID: 3585
+	// (get) Token: 0x06004979 RID: 18809 RVA: 0x00118E84 File Offset: 0x00117084
+	// (set) Token: 0x0600497A RID: 18810 RVA: 0x00118E8C File Offset: 0x0011708C
 	public Vector2 currentMomentum
 	{
 		get
@@ -21,25 +21,25 @@ public class UIDraggableCamera : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0600451A RID: 17690 RVA: 0x0010F518 File Offset: 0x0010D718
+	// Token: 0x0600497B RID: 18811 RVA: 0x00118E98 File Offset: 0x00117098
 	private void Awake()
 	{
 		this.mCam = base.camera;
 		this.mTrans = base.transform;
 		if (this.rootForBounds == null)
 		{
-			Debug.LogError(NGUITools.GetHierarchy(base.gameObject) + " needs the 'Root For Bounds' parameter to be set", this);
+			Debug.LogError(global::NGUITools.GetHierarchy(base.gameObject) + " needs the 'Root For Bounds' parameter to be set", this);
 			base.enabled = false;
 		}
 	}
 
-	// Token: 0x0600451B RID: 17691 RVA: 0x0010F570 File Offset: 0x0010D770
+	// Token: 0x0600497C RID: 18812 RVA: 0x00118EF0 File Offset: 0x001170F0
 	private void Start()
 	{
-		this.mRoot = NGUITools.FindInParents<UIRoot>(base.gameObject);
+		this.mRoot = global::NGUITools.FindInParents<global::UIRoot>(base.gameObject);
 	}
 
-	// Token: 0x0600451C RID: 17692 RVA: 0x0010F584 File Offset: 0x0010D784
+	// Token: 0x0600497D RID: 18813 RVA: 0x00118F04 File Offset: 0x00117104
 	private Vector3 CalculateConstrainOffset()
 	{
 		if (this.rootForBounds == null || this.rootForBounds.childCount == 0)
@@ -56,10 +56,10 @@ public class UIDraggableCamera : IgnoreTimeScale
 		minRect..ctor(this.mBounds.min.x, this.mBounds.min.y);
 		Vector2 maxRect;
 		maxRect..ctor(this.mBounds.max.x, this.mBounds.max.y);
-		return NGUIMath.ConstrainRect(minRect, maxRect, vector, vector2);
+		return global::NGUIMath.ConstrainRect(minRect, maxRect, vector, vector2);
 	}
 
-	// Token: 0x0600451D RID: 17693 RVA: 0x0010F6CC File Offset: 0x0010D8CC
+	// Token: 0x0600497E RID: 18814 RVA: 0x0011904C File Offset: 0x0011724C
 	public bool ConstrainToBounds(bool immediate)
 	{
 		if (this.mTrans != null && this.rootForBounds != null)
@@ -73,7 +73,7 @@ public class UIDraggableCamera : IgnoreTimeScale
 				}
 				else
 				{
-					SpringPosition springPosition = SpringPosition.Begin(base.gameObject, this.mTrans.position - vector, 13f);
+					global::SpringPosition springPosition = global::SpringPosition.Begin(base.gameObject, this.mTrans.position - vector, 13f);
 					springPosition.ignoreTimeScale = true;
 					springPosition.worldSpace = true;
 				}
@@ -83,7 +83,7 @@ public class UIDraggableCamera : IgnoreTimeScale
 		return false;
 	}
 
-	// Token: 0x0600451E RID: 17694 RVA: 0x0010F768 File Offset: 0x0010D968
+	// Token: 0x0600497F RID: 18815 RVA: 0x001190E8 File Offset: 0x001172E8
 	public void Press(bool isPressed)
 	{
 		if (this.rootForBounds != null)
@@ -91,26 +91,26 @@ public class UIDraggableCamera : IgnoreTimeScale
 			this.mPressed = isPressed;
 			if (isPressed)
 			{
-				this.mBounds = NGUIMath.CalculateAbsoluteWidgetBounds(this.rootForBounds);
+				this.mBounds = global::NGUIMath.CalculateAbsoluteWidgetBounds(this.rootForBounds);
 				this.mMomentum = Vector2.zero;
 				this.mScroll = 0f;
-				SpringPosition component = base.GetComponent<SpringPosition>();
+				global::SpringPosition component = base.GetComponent<global::SpringPosition>();
 				if (component != null)
 				{
 					component.enabled = false;
 				}
 			}
-			else if (this.dragEffect == UIDragObject.DragEffect.MomentumAndSpring)
+			else if (this.dragEffect == global::UIDragObject.DragEffect.MomentumAndSpring)
 			{
 				this.ConstrainToBounds(false);
 			}
 		}
 	}
 
-	// Token: 0x0600451F RID: 17695 RVA: 0x0010F7F0 File Offset: 0x0010D9F0
+	// Token: 0x06004980 RID: 18816 RVA: 0x00119170 File Offset: 0x00117370
 	public void Drag(Vector2 delta)
 	{
-		UICamera.currentTouch.clickNotification = UICamera.ClickNotification.BasedOnDelta;
+		global::UICamera.currentTouch.clickNotification = global::UICamera.ClickNotification.BasedOnDelta;
 		if (this.mRoot != null && !this.mRoot.automatic)
 		{
 			delta *= (float)this.mRoot.manualHeight / (float)Screen.height;
@@ -118,14 +118,14 @@ public class UIDraggableCamera : IgnoreTimeScale
 		Vector2 vector = Vector2.Scale(delta, -this.scale);
 		this.mTrans.localPosition += vector;
 		this.mMomentum = Vector2.Lerp(this.mMomentum, this.mMomentum + vector * (0.01f * this.momentumAmount), 0.67f);
-		if (this.dragEffect != UIDragObject.DragEffect.MomentumAndSpring && this.ConstrainToBounds(true))
+		if (this.dragEffect != global::UIDragObject.DragEffect.MomentumAndSpring && this.ConstrainToBounds(true))
 		{
 			this.mMomentum = Vector2.zero;
 			this.mScroll = 0f;
 		}
 	}
 
-	// Token: 0x06004520 RID: 17696 RVA: 0x0010F8D4 File Offset: 0x0010DAD4
+	// Token: 0x06004981 RID: 18817 RVA: 0x00119254 File Offset: 0x00117454
 	public void Scroll(float delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy)
@@ -138,13 +138,13 @@ public class UIDraggableCamera : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004521 RID: 17697 RVA: 0x0010F934 File Offset: 0x0010DB34
+	// Token: 0x06004982 RID: 18818 RVA: 0x001192B4 File Offset: 0x001174B4
 	private void Update()
 	{
 		float deltaTime = base.UpdateRealTimeDelta();
 		if (this.mPressed)
 		{
-			SpringPosition component = base.GetComponent<SpringPosition>();
+			global::SpringPosition component = base.GetComponent<global::SpringPosition>();
 			if (component != null)
 			{
 				component.enabled = false;
@@ -154,14 +154,14 @@ public class UIDraggableCamera : IgnoreTimeScale
 		else
 		{
 			this.mMomentum += this.scale * (this.mScroll * 20f);
-			this.mScroll = NGUIMath.SpringLerp(this.mScroll, 0f, 20f, deltaTime);
+			this.mScroll = global::NGUIMath.SpringLerp(this.mScroll, 0f, 20f, deltaTime);
 			if (this.mMomentum.magnitude > 0.01f)
 			{
-				this.mTrans.localPosition += NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
-				this.mBounds = NGUIMath.CalculateAbsoluteWidgetBounds(this.rootForBounds);
-				if (!this.ConstrainToBounds(this.dragEffect == UIDragObject.DragEffect.None))
+				this.mTrans.localPosition += global::NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
+				this.mBounds = global::NGUIMath.CalculateAbsoluteWidgetBounds(this.rootForBounds);
+				if (!this.ConstrainToBounds(this.dragEffect == global::UIDragObject.DragEffect.None))
 				{
-					SpringPosition component2 = base.GetComponent<SpringPosition>();
+					global::SpringPosition component2 = base.GetComponent<global::SpringPosition>();
 					if (component2 != null)
 					{
 						component2.enabled = false;
@@ -171,42 +171,42 @@ public class UIDraggableCamera : IgnoreTimeScale
 			}
 			this.mScroll = 0f;
 		}
-		NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
+		global::NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
 	}
 
-	// Token: 0x04002565 RID: 9573
+	// Token: 0x0400279C RID: 10140
 	public Transform rootForBounds;
 
-	// Token: 0x04002566 RID: 9574
+	// Token: 0x0400279D RID: 10141
 	public Vector2 scale = Vector2.one;
 
-	// Token: 0x04002567 RID: 9575
+	// Token: 0x0400279E RID: 10142
 	public float scrollWheelFactor;
 
-	// Token: 0x04002568 RID: 9576
-	public UIDragObject.DragEffect dragEffect = UIDragObject.DragEffect.MomentumAndSpring;
+	// Token: 0x0400279F RID: 10143
+	public global::UIDragObject.DragEffect dragEffect = global::UIDragObject.DragEffect.MomentumAndSpring;
 
-	// Token: 0x04002569 RID: 9577
+	// Token: 0x040027A0 RID: 10144
 	public float momentumAmount = 35f;
 
-	// Token: 0x0400256A RID: 9578
+	// Token: 0x040027A1 RID: 10145
 	private Camera mCam;
 
-	// Token: 0x0400256B RID: 9579
+	// Token: 0x040027A2 RID: 10146
 	private Transform mTrans;
 
-	// Token: 0x0400256C RID: 9580
+	// Token: 0x040027A3 RID: 10147
 	private bool mPressed;
 
-	// Token: 0x0400256D RID: 9581
+	// Token: 0x040027A4 RID: 10148
 	private Vector2 mMomentum = Vector2.zero;
 
-	// Token: 0x0400256E RID: 9582
-	private AABBox mBounds;
+	// Token: 0x040027A5 RID: 10149
+	private global::AABBox mBounds;
 
-	// Token: 0x0400256F RID: 9583
+	// Token: 0x040027A6 RID: 10150
 	private float mScroll;
 
-	// Token: 0x04002570 RID: 9584
-	private UIRoot mRoot;
+	// Token: 0x040027A7 RID: 10151
+	private global::UIRoot mRoot;
 }

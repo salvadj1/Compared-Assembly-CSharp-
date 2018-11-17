@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200029F RID: 671
+// Token: 0x020002DC RID: 732
 public sealed class PlayerPusher : MonoBehaviour
 {
-	// Token: 0x170006F8 RID: 1784
-	// (get) Token: 0x060017F8 RID: 6136 RVA: 0x0005DA98 File Offset: 0x0005BC98
+	// Token: 0x1700074C RID: 1868
+	// (get) Token: 0x06001988 RID: 6536 RVA: 0x0006240C File Offset: 0x0006060C
 	public Rigidbody rigidbody
 	{
 		get
@@ -20,25 +20,25 @@ public sealed class PlayerPusher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060017F9 RID: 6137 RVA: 0x0005DACC File Offset: 0x0005BCCC
-	private static bool GetCCMotor(Collision collision, out CCMotor ccmotor)
+	// Token: 0x06001989 RID: 6537 RVA: 0x00062440 File Offset: 0x00060640
+	private static bool GetCCMotor(Collision collision, out global::CCMotor ccmotor)
 	{
 		GameObject gameObject = collision.gameObject;
 		if (gameObject.layer == 16)
 		{
-			ccmotor = gameObject.GetComponent<CCMotor>();
+			ccmotor = gameObject.GetComponent<global::CCMotor>();
 			return ccmotor;
 		}
 		ccmotor = null;
 		return false;
 	}
 
-	// Token: 0x060017FA RID: 6138 RVA: 0x0005DB04 File Offset: 0x0005BD04
-	private bool AddMotor(CCMotor motor)
+	// Token: 0x0600198A RID: 6538 RVA: 0x00062478 File Offset: 0x00060678
+	private bool AddMotor(global::CCMotor motor)
 	{
 		if (this.activeMotors == null)
 		{
-			this.activeMotors = new HashSet<CCMotor>();
+			this.activeMotors = new HashSet<global::CCMotor>();
 			this.activeMotors.Add(motor);
 			return true;
 		}
@@ -50,8 +50,8 @@ public sealed class PlayerPusher : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x060017FB RID: 6139 RVA: 0x0005DB58 File Offset: 0x0005BD58
-	private bool RemoveMotor(CCMotor motor)
+	// Token: 0x0600198B RID: 6539 RVA: 0x000624CC File Offset: 0x000606CC
+	private bool RemoveMotor(global::CCMotor motor)
 	{
 		if (this.activeMotors == null || !this.activeMotors.Remove(motor))
 		{
@@ -64,17 +64,17 @@ public sealed class PlayerPusher : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x060017FC RID: 6140 RVA: 0x0005DB9C File Offset: 0x0005BD9C
-	private bool ContainsMotor(CCMotor motor)
+	// Token: 0x0600198C RID: 6540 RVA: 0x00062510 File Offset: 0x00060710
+	private bool ContainsMotor(global::CCMotor motor)
 	{
 		return this.activeMotors != null && this.activeMotors.Contains(motor);
 	}
 
-	// Token: 0x060017FD RID: 6141 RVA: 0x0005DBB8 File Offset: 0x0005BDB8
+	// Token: 0x0600198D RID: 6541 RVA: 0x0006252C File Offset: 0x0006072C
 	private void OnCollisionEnter(Collision collision)
 	{
-		CCMotor ccmotor;
-		if (PlayerPusher.GetCCMotor(collision, out ccmotor) && this.AddMotor(ccmotor))
+		global::CCMotor ccmotor;
+		if (global::PlayerPusher.GetCCMotor(collision, out ccmotor) && this.AddMotor(ccmotor))
 		{
 			try
 			{
@@ -87,11 +87,11 @@ public sealed class PlayerPusher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060017FE RID: 6142 RVA: 0x0005DC20 File Offset: 0x0005BE20
+	// Token: 0x0600198E RID: 6542 RVA: 0x00062594 File Offset: 0x00060794
 	private void OnCollisionStay(Collision collision)
 	{
-		CCMotor ccmotor;
-		if (PlayerPusher.GetCCMotor(collision, out ccmotor) && this.ContainsMotor(ccmotor))
+		global::CCMotor ccmotor;
+		if (global::PlayerPusher.GetCCMotor(collision, out ccmotor) && this.ContainsMotor(ccmotor))
 		{
 			try
 			{
@@ -104,11 +104,11 @@ public sealed class PlayerPusher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060017FF RID: 6143 RVA: 0x0005DC88 File Offset: 0x0005BE88
+	// Token: 0x0600198F RID: 6543 RVA: 0x000625FC File Offset: 0x000607FC
 	private void OnCollisionExit(Collision collision)
 	{
-		CCMotor ccmotor;
-		if (PlayerPusher.GetCCMotor(collision, out ccmotor) && this.RemoveMotor(ccmotor))
+		global::CCMotor ccmotor;
+		if (global::PlayerPusher.GetCCMotor(collision, out ccmotor) && this.RemoveMotor(ccmotor))
 		{
 			try
 			{
@@ -121,15 +121,15 @@ public sealed class PlayerPusher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000CB9 RID: 3257
+	// Token: 0x04000DF4 RID: 3572
 	[NonSerialized]
 	private Rigidbody _rigidbody;
 
-	// Token: 0x04000CBA RID: 3258
+	// Token: 0x04000DF5 RID: 3573
 	[NonSerialized]
 	private bool _gotRigidbody;
 
-	// Token: 0x04000CBB RID: 3259
+	// Token: 0x04000DF6 RID: 3574
 	[NonSerialized]
-	private HashSet<CCMotor> activeMotors;
+	private HashSet<global::CCMotor> activeMotors;
 }

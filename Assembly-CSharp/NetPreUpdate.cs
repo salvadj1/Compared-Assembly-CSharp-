@@ -1,29 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000313 RID: 787
+// Token: 0x020003BC RID: 956
 internal class NetPreUpdate : MonoBehaviour
 {
-	// Token: 0x06001E4F RID: 7759 RVA: 0x00076F90 File Offset: 0x00075190
+	// Token: 0x06002191 RID: 8593 RVA: 0x0007BA10 File Offset: 0x00079C10
 	private void Awake()
 	{
-		NetCull.Callbacks.BindUpdater(this);
+		global::NetCull.Callbacks.BindUpdater(this);
 	}
 
-	// Token: 0x06001E50 RID: 7760 RVA: 0x00076F98 File Offset: 0x00075198
+	// Token: 0x06002192 RID: 8594 RVA: 0x0007BA18 File Offset: 0x00079C18
 	private void OnDestroy()
 	{
-		NetCull.Callbacks.ResignUpdater(this);
+		global::NetCull.Callbacks.ResignUpdater(this);
 	}
 
-	// Token: 0x06001E51 RID: 7761 RVA: 0x00076FA0 File Offset: 0x000751A0
+	// Token: 0x06002193 RID: 8595 RVA: 0x0007BA20 File Offset: 0x00079C20
 	private void LateUpdate()
 	{
-		if (global.fpslog >= 0f)
+		if (global::global.fpslog >= 0f)
 		{
-			if (this.lastfpslog != global.fpslog)
+			if (this.lastfpslog != global::global.fpslog)
 			{
-				this.lastfpslog = global.fpslog;
+				this.lastfpslog = global::global.fpslog;
 				this.lastfpslogtime = Time.time - this.lastfpslog;
 			}
 			float time = Time.time;
@@ -42,15 +42,15 @@ internal class NetPreUpdate : MonoBehaviour
 		}
 		if (Application.isPlaying)
 		{
-			NetCull.Callbacks.FirePreUpdate(this);
+			global::NetCull.Callbacks.FirePreUpdate(this);
 		}
 	}
 
-	// Token: 0x04000E97 RID: 3735
+	// Token: 0x04000FD7 RID: 4055
 	[NonSerialized]
 	private float lastfpslog = -1f;
 
-	// Token: 0x04000E98 RID: 3736
+	// Token: 0x04000FD8 RID: 4056
 	[NonSerialized]
 	private float lastfpslogtime;
 }

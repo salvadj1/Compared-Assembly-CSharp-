@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200004D RID: 77
-public class render : ConsoleSystem
+// Token: 0x0200005F RID: 95
+public class render : global::ConsoleSystem
 {
-	// Token: 0x17000072 RID: 114
-	// (get) Token: 0x060002A1 RID: 673 RVA: 0x0000E200 File Offset: 0x0000C400
-	// (set) Token: 0x060002A2 RID: 674 RVA: 0x0000E214 File Offset: 0x0000C414
-	[ConsoleSystem.Help("The render quality level. (0-1)", "")]
-	[ConsoleSystem.Client]
+	// Token: 0x17000088 RID: 136
+	// (get) Token: 0x06000313 RID: 787 RVA: 0x0000F7A8 File Offset: 0x0000D9A8
+	// (set) Token: 0x06000314 RID: 788 RVA: 0x0000F7BC File Offset: 0x0000D9BC
+	[global::ConsoleSystem.Help("The render quality level. (0-1)", "")]
+	[global::ConsoleSystem.Client]
 	public static float level
 	{
 		get
@@ -19,99 +19,99 @@ public class render : ConsoleSystem
 		{
 			int num = Mathf.RoundToInt(value * (float)(QualitySettings.names.Length - 1));
 			QualitySettings.SetQualityLevel(num, true);
-			render.update();
+			global::render.update();
 		}
 	}
 
-	// Token: 0x17000073 RID: 115
-	// (get) Token: 0x060002A3 RID: 675 RVA: 0x0000E240 File Offset: 0x0000C440
-	// (set) Token: 0x060002A4 RID: 676 RVA: 0x0000E248 File Offset: 0x0000C448
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Help("The relative render distance. (0-1)", "")]
-	[ConsoleSystem.Saved]
+	// Token: 0x17000089 RID: 137
+	// (get) Token: 0x06000315 RID: 789 RVA: 0x0000F7E8 File Offset: 0x0000D9E8
+	// (set) Token: 0x06000316 RID: 790 RVA: 0x0000F7F0 File Offset: 0x0000D9F0
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
+	[global::ConsoleSystem.Help("The relative render distance. (0-1)", "")]
 	public static float distance
 	{
 		get
 		{
-			return render.distance_real;
+			return global::render.distance_real;
 		}
 		set
 		{
-			render.distance_real = Mathf.Clamp01(value);
-			render.update();
+			global::render.distance_real = Mathf.Clamp01(value);
+			global::render.update();
 		}
 	}
 
-	// Token: 0x17000074 RID: 116
-	// (get) Token: 0x060002A5 RID: 677 RVA: 0x0000E25C File Offset: 0x0000C45C
-	// (set) Token: 0x060002A6 RID: 678 RVA: 0x0000E264 File Offset: 0x0000C464
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Saved]
-	[ConsoleSystem.Help("The limit for how many frames may be rendered per second. (default -1 for no fps limit)", "")]
+	// Token: 0x1700008A RID: 138
+	// (get) Token: 0x06000317 RID: 791 RVA: 0x0000F804 File Offset: 0x0000DA04
+	// (set) Token: 0x06000318 RID: 792 RVA: 0x0000F80C File Offset: 0x0000DA0C
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Help("The limit for how many frames may be rendered per second. (default -1 for no fps limit)", "")]
+	[global::ConsoleSystem.Saved]
 	public static int frames
 	{
 		get
 		{
-			return render.frames_real;
+			return global::render.frames_real;
 		}
 		set
 		{
-			render.frames_real = value;
-			render.update();
+			global::render.frames_real = value;
+			global::render.update();
 		}
 	}
 
-	// Token: 0x17000075 RID: 117
-	// (get) Token: 0x060002A7 RID: 679 RVA: 0x0000E274 File Offset: 0x0000C474
-	// (set) Token: 0x060002A8 RID: 680 RVA: 0x0000E27C File Offset: 0x0000C47C
-	[ConsoleSystem.Help("The field of view. (60-120, default 60)", "")]
-	[ConsoleSystem.Saved]
-	[ConsoleSystem.Client]
+	// Token: 0x1700008B RID: 139
+	// (get) Token: 0x06000319 RID: 793 RVA: 0x0000F81C File Offset: 0x0000DA1C
+	// (set) Token: 0x0600031A RID: 794 RVA: 0x0000F824 File Offset: 0x0000DA24
+	[global::ConsoleSystem.Saved]
+	[global::ConsoleSystem.Help("The field of view. (60-120, default 60)", "")]
+	[global::ConsoleSystem.Client]
 	public static int fov
 	{
 		get
 		{
-			return render.fov_real;
+			return global::render.fov_real;
 		}
 		set
 		{
-			render.fov_real = Mathf.Clamp(value, 60, 120);
-			render.update();
+			global::render.fov_real = Mathf.Clamp(value, 60, 120);
+			global::render.update();
 		}
 	}
 
-	// Token: 0x17000076 RID: 118
-	// (get) Token: 0x060002A9 RID: 681 RVA: 0x0000E294 File Offset: 0x0000C494
-	// (set) Token: 0x060002AA RID: 682 RVA: 0x0000E29C File Offset: 0x0000C49C
-	[ConsoleSystem.Saved]
-	[ConsoleSystem.Help("Whether VSync should be enabled or disabled", "")]
-	[ConsoleSystem.Client]
+	// Token: 0x1700008C RID: 140
+	// (get) Token: 0x0600031B RID: 795 RVA: 0x0000F83C File Offset: 0x0000DA3C
+	// (set) Token: 0x0600031C RID: 796 RVA: 0x0000F844 File Offset: 0x0000DA44
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
+	[global::ConsoleSystem.Help("Whether VSync should be enabled or disabled", "")]
 	public static bool vsync
 	{
 		get
 		{
-			return render.vsync_real;
+			return global::render.vsync_real;
 		}
 		set
 		{
-			render.vsync_real = value;
-			render.update();
+			global::render.vsync_real = value;
+			global::render.update();
 		}
 	}
 
-	// Token: 0x060002AB RID: 683 RVA: 0x0000E2AC File Offset: 0x0000C4AC
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Help("Makes sure settings match their convar values. You shouldn't need to call this manually.", "")]
-	public static void update(ref ConsoleSystem.Arg args)
+	// Token: 0x0600031D RID: 797 RVA: 0x0000F854 File Offset: 0x0000DA54
+	[global::ConsoleSystem.Help("Makes sure settings match their convar values. You shouldn't need to call this manually.", "")]
+	[global::ConsoleSystem.Client]
+	public static void update(ref global::ConsoleSystem.Arg args)
 	{
-		render.update();
+		global::render.update();
 	}
 
-	// Token: 0x060002AC RID: 684 RVA: 0x0000E2B4 File Offset: 0x0000C4B4
+	// Token: 0x0600031E RID: 798 RVA: 0x0000F85C File Offset: 0x0000DA5C
 	private static void update()
 	{
-		QualitySettings.vSyncCount = ((!render.vsync_real) ? 0 : 1);
-		Application.targetFrameRate = render.frames_real;
+		QualitySettings.vSyncCount = ((!global::render.vsync_real) ? 0 : 1);
+		Application.targetFrameRate = global::render.frames_real;
 		int qualityLevel = QualitySettings.GetQualityLevel();
 		if (PlayerPrefs.GetInt("UnityGraphicsQualityBackup", -1) != qualityLevel)
 		{
@@ -121,42 +121,42 @@ public class render : ConsoleSystem
 			case 0:
 			case 1:
 			case 2:
-				gfx.ssaa = false;
-				gfx.bloom = false;
-				gfx.ssao = false;
-				gfx.tonemap = false;
-				gfx.shafts = false;
+				global::gfx.ssaa = false;
+				global::gfx.bloom = false;
+				global::gfx.ssao = false;
+				global::gfx.tonemap = false;
+				global::gfx.shafts = false;
 				break;
 			case 3:
-				gfx.ssaa = false;
-				gfx.bloom = false;
-				gfx.ssao = false;
-				gfx.tonemap = false;
-				gfx.shafts = true;
+				global::gfx.ssaa = false;
+				global::gfx.bloom = false;
+				global::gfx.ssao = false;
+				global::gfx.tonemap = false;
+				global::gfx.shafts = true;
 				break;
 			case 4:
 				break;
 			default:
-				gfx.ssaa = true;
-				gfx.bloom = true;
-				gfx.ssao = true;
-				gfx.tonemap = true;
-				gfx.shafts = true;
+				global::gfx.ssaa = true;
+				global::gfx.bloom = true;
+				global::gfx.ssao = true;
+				global::gfx.tonemap = true;
+				global::gfx.shafts = true;
 				break;
 			}
 		}
-		GameEvent.DoQualitySettingsRefresh();
+		global::GameEvent.DoQualitySettingsRefresh();
 	}
 
-	// Token: 0x040001A9 RID: 425
+	// Token: 0x0400020B RID: 523
 	private static float distance_real = 0.2f;
 
-	// Token: 0x040001AA RID: 426
+	// Token: 0x0400020C RID: 524
 	private static int frames_real = -1;
 
-	// Token: 0x040001AB RID: 427
+	// Token: 0x0400020D RID: 525
 	private static int fov_real = 60;
 
-	// Token: 0x040001AC RID: 428
+	// Token: 0x0400020E RID: 526
 	private static bool vsync_real;
 }

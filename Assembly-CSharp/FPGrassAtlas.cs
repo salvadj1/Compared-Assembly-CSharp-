@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200003E RID: 62
+// Token: 0x02000050 RID: 80
 [ExecuteInEditMode]
-public class FPGrassAtlas : ScriptableObject, IFPGrassAsset
+public class FPGrassAtlas : ScriptableObject, global::IFPGrassAsset
 {
-	// Token: 0x06000235 RID: 565 RVA: 0x0000C758 File Offset: 0x0000A958
+	// Token: 0x060002A7 RID: 679 RVA: 0x0000DD00 File Offset: 0x0000BF00
 	private void OnEnable()
 	{
 		if (this.textures.Count == 0)
@@ -15,7 +15,7 @@ public class FPGrassAtlas : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x06000236 RID: 566 RVA: 0x0000C770 File Offset: 0x0000A970
+	// Token: 0x060002A8 RID: 680 RVA: 0x0000DD18 File Offset: 0x0000BF18
 	private void Initialize()
 	{
 		this.textures.Clear();
@@ -26,19 +26,19 @@ public class FPGrassAtlas : ScriptableObject, IFPGrassAsset
 		}
 		for (int j = 0; j < 16; j++)
 		{
-			this.properties.Add(ScriptableObject.CreateInstance<FPGrassProperty>());
+			this.properties.Add(ScriptableObject.CreateInstance<global::FPGrassProperty>());
 		}
 	}
 
-	// Token: 0x04000167 RID: 359
+	// Token: 0x040001C9 RID: 457
 	public const int max_textures = 16;
 
-	// Token: 0x04000168 RID: 360
-	public List<FPGrassProperty> properties = new List<FPGrassProperty>();
+	// Token: 0x040001CA RID: 458
+	public List<global::FPGrassProperty> properties = new List<global::FPGrassProperty>();
 
-	// Token: 0x04000169 RID: 361
+	// Token: 0x040001CB RID: 459
 	public List<Texture2D> textures = new List<Texture2D>();
 
-	// Token: 0x0400016A RID: 362
+	// Token: 0x040001CC RID: 460
 	public Texture2D textureAtlas;
 }

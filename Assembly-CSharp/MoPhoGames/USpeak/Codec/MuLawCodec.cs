@@ -3,32 +3,32 @@ using MoPhoGames.USpeak.Core.Utils;
 
 namespace MoPhoGames.USpeak.Codec
 {
-	// Token: 0x020000B3 RID: 179
+	// Token: 0x020000C6 RID: 198
 	[Serializable]
 	public class MuLawCodec : ICodec
 	{
-		// Token: 0x060003D0 RID: 976 RVA: 0x00013D7C File Offset: 0x00011F7C
-		public byte[] Encode(short[] data, BandMode mode)
+		// Token: 0x06000448 RID: 1096 RVA: 0x0001556C File Offset: 0x0001376C
+		public byte[] Encode(short[] data, global::BandMode mode)
 		{
 			return MuLawCodec.MuLawEncoder.MuLawEncode(data);
 		}
 
-		// Token: 0x060003D1 RID: 977 RVA: 0x00013D84 File Offset: 0x00011F84
-		public short[] Decode(byte[] data, BandMode mode)
+		// Token: 0x06000449 RID: 1097 RVA: 0x00015574 File Offset: 0x00013774
+		public short[] Decode(byte[] data, global::BandMode mode)
 		{
 			return MuLawCodec.MuLawDecoder.MuLawDecode(data);
 		}
 
-		// Token: 0x060003D2 RID: 978 RVA: 0x00013D8C File Offset: 0x00011F8C
+		// Token: 0x0600044A RID: 1098 RVA: 0x0001557C File Offset: 0x0001377C
 		public int GetSampleSize(int recordingFrequency)
 		{
 			return 0;
 		}
 
-		// Token: 0x020000B4 RID: 180
+		// Token: 0x020000C7 RID: 199
 		private class MuLawEncoder
 		{
-			// Token: 0x060003D4 RID: 980 RVA: 0x00013D98 File Offset: 0x00011F98
+			// Token: 0x0600044C RID: 1100 RVA: 0x00015588 File Offset: 0x00013788
 			static MuLawEncoder()
 			{
 				for (int i = -32768; i <= 32767; i++)
@@ -37,9 +37,9 @@ namespace MoPhoGames.USpeak.Codec
 				}
 			}
 
-			// Token: 0x17000091 RID: 145
-			// (get) Token: 0x060003D5 RID: 981 RVA: 0x00013DE4 File Offset: 0x00011FE4
-			// (set) Token: 0x060003D6 RID: 982 RVA: 0x00013DF8 File Offset: 0x00011FF8
+			// Token: 0x170000A9 RID: 169
+			// (get) Token: 0x0600044D RID: 1101 RVA: 0x000155D4 File Offset: 0x000137D4
+			// (set) Token: 0x0600044E RID: 1102 RVA: 0x000155E8 File Offset: 0x000137E8
 			public static bool ZeroTrap
 			{
 				get
@@ -56,23 +56,23 @@ namespace MoPhoGames.USpeak.Codec
 				}
 			}
 
-			// Token: 0x060003D7 RID: 983 RVA: 0x00013E38 File Offset: 0x00012038
+			// Token: 0x0600044F RID: 1103 RVA: 0x00015628 File Offset: 0x00013828
 			public static byte MuLawEncode(int pcm)
 			{
 				return MuLawCodec.MuLawEncoder.pcmToMuLawMap[pcm & 65535];
 			}
 
-			// Token: 0x060003D8 RID: 984 RVA: 0x00013E48 File Offset: 0x00012048
+			// Token: 0x06000450 RID: 1104 RVA: 0x00015638 File Offset: 0x00013838
 			public static byte MuLawEncode(short pcm)
 			{
 				return MuLawCodec.MuLawEncoder.pcmToMuLawMap[(int)pcm & 65535];
 			}
 
-			// Token: 0x060003D9 RID: 985 RVA: 0x00013E58 File Offset: 0x00012058
+			// Token: 0x06000451 RID: 1105 RVA: 0x00015648 File Offset: 0x00013848
 			public static byte[] MuLawEncode(int[] pcm)
 			{
 				int num = pcm.Length;
-				byte[] @byte = USpeakPoolUtils.GetByte(num);
+				byte[] @byte = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetByte(num);
 				for (int i = 0; i < num; i++)
 				{
 					@byte[i] = MuLawCodec.MuLawEncoder.MuLawEncode(pcm[i]);
@@ -80,11 +80,11 @@ namespace MoPhoGames.USpeak.Codec
 				return @byte;
 			}
 
-			// Token: 0x060003DA RID: 986 RVA: 0x00013E90 File Offset: 0x00012090
+			// Token: 0x06000452 RID: 1106 RVA: 0x00015680 File Offset: 0x00013880
 			public static byte[] MuLawEncode(short[] pcm)
 			{
 				int num = pcm.Length;
-				byte[] @byte = USpeakPoolUtils.GetByte(num);
+				byte[] @byte = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetByte(num);
 				for (int i = 0; i < num; i++)
 				{
 					@byte[i] = MuLawCodec.MuLawEncoder.MuLawEncode(pcm[i]);
@@ -92,7 +92,7 @@ namespace MoPhoGames.USpeak.Codec
 				return @byte;
 			}
 
-			// Token: 0x060003DB RID: 987 RVA: 0x00013EC8 File Offset: 0x000120C8
+			// Token: 0x06000453 RID: 1107 RVA: 0x000156B8 File Offset: 0x000138B8
 			private static byte encode(int pcm)
 			{
 				int num = (pcm & 32768) >> 8;
@@ -117,20 +117,20 @@ namespace MoPhoGames.USpeak.Codec
 				return ~b;
 			}
 
-			// Token: 0x04000355 RID: 853
+			// Token: 0x040003C0 RID: 960
 			public const int BIAS = 132;
 
-			// Token: 0x04000356 RID: 854
+			// Token: 0x040003C1 RID: 961
 			public const int MAX = 32635;
 
-			// Token: 0x04000357 RID: 855
+			// Token: 0x040003C2 RID: 962
 			private static byte[] pcmToMuLawMap = new byte[65536];
 		}
 
-		// Token: 0x020000B5 RID: 181
+		// Token: 0x020000C8 RID: 200
 		private class MuLawDecoder
 		{
-			// Token: 0x060003DD RID: 989 RVA: 0x00013F44 File Offset: 0x00012144
+			// Token: 0x06000455 RID: 1109 RVA: 0x00015734 File Offset: 0x00013934
 			static MuLawDecoder()
 			{
 				for (byte b = 0; b < 255; b += 1)
@@ -139,11 +139,11 @@ namespace MoPhoGames.USpeak.Codec
 				}
 			}
 
-			// Token: 0x060003DE RID: 990 RVA: 0x00013F84 File Offset: 0x00012184
+			// Token: 0x06000456 RID: 1110 RVA: 0x00015774 File Offset: 0x00013974
 			public static short[] MuLawDecode(byte[] data)
 			{
 				int num = data.Length;
-				short[] @short = USpeakPoolUtils.GetShort(num);
+				short[] @short = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetShort(num);
 				for (int i = 0; i < num; i++)
 				{
 					@short[i] = MuLawCodec.MuLawDecoder.muLawToPcmMap[(int)data[i]];
@@ -151,7 +151,7 @@ namespace MoPhoGames.USpeak.Codec
 				return @short;
 			}
 
-			// Token: 0x060003DF RID: 991 RVA: 0x00013FBC File Offset: 0x000121BC
+			// Token: 0x06000457 RID: 1111 RVA: 0x000157AC File Offset: 0x000139AC
 			private static short Decode(byte mulaw)
 			{
 				mulaw = ~mulaw;
@@ -166,7 +166,7 @@ namespace MoPhoGames.USpeak.Codec
 				return (short)((num != 0) ? (-(short)num3) : num3);
 			}
 
-			// Token: 0x04000358 RID: 856
+			// Token: 0x040003C3 RID: 963
 			private static readonly short[] muLawToPcmMap = new short[256];
 		}
 	}

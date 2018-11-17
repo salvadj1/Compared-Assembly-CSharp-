@@ -2,10 +2,10 @@
 using System.Diagnostics;
 using UnityEngine;
 
-// Token: 0x02000189 RID: 393
+// Token: 0x020001B5 RID: 437
 public class Assert
 {
-	// Token: 0x06000BD5 RID: 3029 RVA: 0x0002EA5C File Offset: 0x0002CC5C
+	// Token: 0x06000D05 RID: 3333 RVA: 0x00032948 File Offset: 0x00030B48
 	[Conditional("UNITY_EDITOR")]
 	public static void Test(bool comparison, string message = "")
 	{
@@ -15,7 +15,7 @@ public class Assert
 		}
 	}
 
-	// Token: 0x06000BD6 RID: 3030 RVA: 0x0002EA68 File Offset: 0x0002CC68
+	// Token: 0x06000D06 RID: 3334 RVA: 0x00032954 File Offset: 0x00030B54
 	[Conditional("UNITY_EDITOR")]
 	public static void Throw(string message = "")
 	{

@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200076B RID: 1899
+// Token: 0x0200084D RID: 2125
 [AddComponentMenu("NGUI/Interaction/Drag Object")]
-public class UIDragObject : IgnoreTimeScale
+public class UIDragObject : global::IgnoreTimeScale
 {
-	// Token: 0x17000D70 RID: 3440
-	// (get) Token: 0x0600450B RID: 17675 RVA: 0x0010EBC8 File Offset: 0x0010CDC8
+	// Token: 0x17000E00 RID: 3584
+	// (get) Token: 0x0600496C RID: 18796 RVA: 0x00118548 File Offset: 0x00116748
 	public static RectOffset screenBorder
 	{
 		get
@@ -15,17 +15,17 @@ public class UIDragObject : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0600450C RID: 17676 RVA: 0x0010EBD4 File Offset: 0x0010CDD4
+	// Token: 0x0600496D RID: 18797 RVA: 0x00118554 File Offset: 0x00116754
 	private void FindPanel()
 	{
-		this.mPanel = ((!(this.target != null)) ? null : UIPanel.Find(this.target.transform, false));
+		this.mPanel = ((!(this.target != null)) ? null : global::UIPanel.Find(this.target.transform, false));
 		if (this.mPanel == null)
 		{
 			this.restrictWithinPanel = false;
 		}
 	}
 
-	// Token: 0x0600450D RID: 17677 RVA: 0x0010EC28 File Offset: 0x0010CE28
+	// Token: 0x0600496E RID: 18798 RVA: 0x001185A8 File Offset: 0x001167A8
 	private void OnPress(bool pressed)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.target != null)
@@ -39,39 +39,39 @@ public class UIDragObject : IgnoreTimeScale
 				}
 				if (this.restrictWithinPanel)
 				{
-					this.mBounds = NGUIMath.CalculateRelativeWidgetBounds(this.mPanel.cachedTransform, this.target);
+					this.mBounds = global::NGUIMath.CalculateRelativeWidgetBounds(this.mPanel.cachedTransform, this.target);
 				}
 				if (this.restrictToScreen)
 				{
-					UICamera uicamera = UICamera.FindCameraForLayer(base.gameObject.layer);
-					Rect rect = UIDragObject.screenBorder.Add(uicamera.camera.pixelRect);
-					this.mBounds = AABBox.CenterAndSize(rect.center, new Vector3(rect.width, rect.height, 0f));
+					global::UICamera uicamera = global::UICamera.FindCameraForLayer(base.gameObject.layer);
+					Rect rect = global::UIDragObject.screenBorder.Add(uicamera.camera.pixelRect);
+					this.mBounds = global::AABBox.CenterAndSize(rect.center, new Vector3(rect.width, rect.height, 0f));
 				}
 				this.mMomentum = Vector3.zero;
 				this.mScroll = 0f;
-				SpringPosition component = this.target.GetComponent<SpringPosition>();
+				global::SpringPosition component = this.target.GetComponent<global::SpringPosition>();
 				if (component != null)
 				{
 					component.enabled = false;
 				}
-				this.mLastPos = UICamera.lastHit.point;
-				Transform transform = UICamera.currentCamera.transform;
+				this.mLastPos = global::UICamera.lastHit.point;
+				Transform transform = global::UICamera.currentCamera.transform;
 				this.mPlane = new Plane(((!(this.mPanel != null)) ? transform.rotation : this.mPanel.cachedTransform.rotation) * Vector3.back, this.mLastPos);
 			}
-			else if (this.restrictWithinPanel && this.mPanel.clipping != UIDrawCall.Clipping.None && this.dragEffect == UIDragObject.DragEffect.MomentumAndSpring)
+			else if (this.restrictWithinPanel && this.mPanel.clipping != global::UIDrawCall.Clipping.None && this.dragEffect == global::UIDragObject.DragEffect.MomentumAndSpring)
 			{
 				this.mPanel.ConstrainTargetToBounds(this.target, ref this.mBounds, false);
 			}
 		}
 	}
 
-	// Token: 0x0600450E RID: 17678 RVA: 0x0010EE00 File Offset: 0x0010D000
+	// Token: 0x0600496F RID: 18799 RVA: 0x00118780 File Offset: 0x00116980
 	private void OnDrag(Vector2 delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.target != null)
 		{
-			UICamera.currentTouch.clickNotification = UICamera.ClickNotification.BasedOnDelta;
-			Ray ray = UICamera.currentCamera.ScreenPointToRay(UICamera.currentTouch.pos);
+			global::UICamera.currentTouch.clickNotification = global::UICamera.ClickNotification.BasedOnDelta;
+			Ray ray = global::UICamera.currentCamera.ScreenPointToRay(global::UICamera.currentTouch.pos);
 			float num = 0f;
 			if (this.mPlane.Raycast(ray, ref num))
 			{
@@ -90,7 +90,7 @@ public class UIDragObject : IgnoreTimeScale
 					Vector3 localPosition = this.target.localPosition;
 					this.target.position += vector;
 					this.mBounds.center = this.mBounds.center + (this.target.localPosition - localPosition);
-					if (this.dragEffect != UIDragObject.DragEffect.MomentumAndSpring && this.mPanel.clipping != UIDrawCall.Clipping.None && this.mPanel.ConstrainTargetToBounds(this.target, ref this.mBounds, true))
+					if (this.dragEffect != global::UIDragObject.DragEffect.MomentumAndSpring && this.mPanel.clipping != global::UIDrawCall.Clipping.None && this.mPanel.ConstrainTargetToBounds(this.target, ref this.mBounds, true))
 					{
 						this.mMomentum = Vector3.zero;
 						this.mScroll = 0f;
@@ -106,9 +106,9 @@ public class UIDragObject : IgnoreTimeScale
 					}
 					else
 					{
-						vector2 = NGUIMath.CalculateRelativeWidgetBounds(this.target).size;
+						vector2 = global::NGUIMath.CalculateRelativeWidgetBounds(this.target).size;
 					}
-					Rect rect = UIDragObject.screenBorder.Add(new Rect(0f, (float)(-(float)Screen.height), (float)Screen.width, (float)Screen.height));
+					Rect rect = global::UIDragObject.screenBorder.Add(new Rect(0f, (float)(-(float)Screen.height), (float)Screen.width, (float)Screen.height));
 					Vector3 localPosition2 = this.target.localPosition;
 					bool flag = true;
 					if (localPosition2.x + vector2.x > rect.xMax)
@@ -145,7 +145,7 @@ public class UIDragObject : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0600450F RID: 17679 RVA: 0x0010F140 File Offset: 0x0010D340
+	// Token: 0x06004970 RID: 18800 RVA: 0x00118AC0 File Offset: 0x00116CC0
 	private void LateUpdate()
 	{
 		float deltaTime = base.UpdateRealTimeDelta();
@@ -155,7 +155,7 @@ public class UIDragObject : IgnoreTimeScale
 		}
 		if (this.mPressed)
 		{
-			SpringPosition component = this.target.GetComponent<SpringPosition>();
+			global::SpringPosition component = this.target.GetComponent<global::SpringPosition>();
 			if (component != null)
 			{
 				component.enabled = false;
@@ -165,7 +165,7 @@ public class UIDragObject : IgnoreTimeScale
 		else
 		{
 			this.mMomentum += this.scale * (-this.mScroll * 0.05f);
-			this.mScroll = NGUIMath.SpringLerp(this.mScroll, 0f, 20f, deltaTime);
+			this.mScroll = global::NGUIMath.SpringLerp(this.mScroll, 0f, 20f, deltaTime);
 			if (this.mMomentum.magnitude > 0.0001f)
 			{
 				if (this.mPanel == null)
@@ -174,13 +174,13 @@ public class UIDragObject : IgnoreTimeScale
 				}
 				if (this.mPanel != null)
 				{
-					this.target.position += NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
-					if (this.restrictWithinPanel && this.mPanel.clipping != UIDrawCall.Clipping.None)
+					this.target.position += global::NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
+					if (this.restrictWithinPanel && this.mPanel.clipping != global::UIDrawCall.Clipping.None)
 					{
-						this.mBounds = NGUIMath.CalculateRelativeWidgetBounds(this.mPanel.cachedTransform, this.target);
-						if (!this.mPanel.ConstrainTargetToBounds(this.target, ref this.mBounds, this.dragEffect == UIDragObject.DragEffect.None))
+						this.mBounds = global::NGUIMath.CalculateRelativeWidgetBounds(this.mPanel.cachedTransform, this.target);
+						if (!this.mPanel.ConstrainTargetToBounds(this.target, ref this.mBounds, this.dragEffect == global::UIDragObject.DragEffect.None))
 						{
-							SpringPosition component2 = this.target.GetComponent<SpringPosition>();
+							global::SpringPosition component2 = this.target.GetComponent<global::SpringPosition>();
 							if (component2 != null)
 							{
 								component2.enabled = false;
@@ -195,10 +195,10 @@ public class UIDragObject : IgnoreTimeScale
 				this.mScroll = 0f;
 			}
 		}
-		NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
+		global::NGUIMath.SpringDampen(ref this.mMomentum, 9f, deltaTime);
 	}
 
-	// Token: 0x06004510 RID: 17680 RVA: 0x0010F2E8 File Offset: 0x0010D4E8
+	// Token: 0x06004971 RID: 18801 RVA: 0x00118C68 File Offset: 0x00116E68
 	private void OnScroll(float delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy)
@@ -211,59 +211,59 @@ public class UIDragObject : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x04002550 RID: 9552
+	// Token: 0x04002787 RID: 10119
 	public Transform target;
 
-	// Token: 0x04002551 RID: 9553
+	// Token: 0x04002788 RID: 10120
 	public Transform sizeParent;
 
-	// Token: 0x04002552 RID: 9554
+	// Token: 0x04002789 RID: 10121
 	public Vector3 scale = Vector3.one;
 
-	// Token: 0x04002553 RID: 9555
+	// Token: 0x0400278A RID: 10122
 	public float scrollWheelFactor;
 
-	// Token: 0x04002554 RID: 9556
+	// Token: 0x0400278B RID: 10123
 	public bool restrictWithinPanel;
 
-	// Token: 0x04002555 RID: 9557
+	// Token: 0x0400278C RID: 10124
 	public bool restrictToScreen;
 
-	// Token: 0x04002556 RID: 9558
-	public UIDragObject.DragEffect dragEffect = UIDragObject.DragEffect.MomentumAndSpring;
+	// Token: 0x0400278D RID: 10125
+	public global::UIDragObject.DragEffect dragEffect = global::UIDragObject.DragEffect.MomentumAndSpring;
 
-	// Token: 0x04002557 RID: 9559
+	// Token: 0x0400278E RID: 10126
 	public float momentumAmount = 35f;
 
-	// Token: 0x04002558 RID: 9560
+	// Token: 0x0400278F RID: 10127
 	private Plane mPlane;
 
-	// Token: 0x04002559 RID: 9561
+	// Token: 0x04002790 RID: 10128
 	private Vector3 mLastPos;
 
-	// Token: 0x0400255A RID: 9562
-	private UIPanel mPanel;
+	// Token: 0x04002791 RID: 10129
+	private global::UIPanel mPanel;
 
-	// Token: 0x0400255B RID: 9563
+	// Token: 0x04002792 RID: 10130
 	private bool mPressed;
 
-	// Token: 0x0400255C RID: 9564
+	// Token: 0x04002793 RID: 10131
 	private Vector3 mMomentum = Vector3.zero;
 
-	// Token: 0x0400255D RID: 9565
+	// Token: 0x04002794 RID: 10132
 	private float mScroll;
 
-	// Token: 0x0400255E RID: 9566
-	private AABBox mBounds;
+	// Token: 0x04002795 RID: 10133
+	private global::AABBox mBounds;
 
-	// Token: 0x0200076C RID: 1900
+	// Token: 0x0200084E RID: 2126
 	public enum DragEffect
 	{
-		// Token: 0x04002560 RID: 9568
+		// Token: 0x04002797 RID: 10135
 		None,
-		// Token: 0x04002561 RID: 9569
+		// Token: 0x04002798 RID: 10136
 		Momentum,
-		// Token: 0x04002562 RID: 9570
+		// Token: 0x04002799 RID: 10137
 		MomentumAndSpring
 	}
 }

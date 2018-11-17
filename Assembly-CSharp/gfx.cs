@@ -1,146 +1,146 @@
 ﻿using System;
 
-// Token: 0x02000049 RID: 73
-public class gfx : ConsoleSystem
+// Token: 0x0200005B RID: 91
+public class gfx : global::ConsoleSystem
 {
-	// Token: 0x17000068 RID: 104
-	// (get) Token: 0x0600027F RID: 639 RVA: 0x0000DF78 File Offset: 0x0000C178
-	// (set) Token: 0x06000280 RID: 640 RVA: 0x0000DF80 File Offset: 0x0000C180
-	[ConsoleSystem.Saved]
-	[ConsoleSystem.Client]
+	// Token: 0x1700007E RID: 126
+	// (get) Token: 0x060002F1 RID: 753 RVA: 0x0000F520 File Offset: 0x0000D720
+	// (set) Token: 0x060002F2 RID: 754 RVA: 0x0000F528 File Offset: 0x0000D728
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
 	public static bool ssaa
 	{
 		get
 		{
-			return ImageEffectManager.GetEnabled<AntialiasingAsPostEffect>();
+			return global::ImageEffectManager.GetEnabled<AntialiasingAsPostEffect>();
 		}
 		set
 		{
-			ImageEffectManager.SetEnabled<AntialiasingAsPostEffect>(value);
+			global::ImageEffectManager.SetEnabled<AntialiasingAsPostEffect>(value);
 		}
 	}
 
-	// Token: 0x17000069 RID: 105
-	// (get) Token: 0x06000281 RID: 641 RVA: 0x0000DF88 File Offset: 0x0000C188
-	// (set) Token: 0x06000282 RID: 642 RVA: 0x0000DF90 File Offset: 0x0000C190
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Saved]
+	// Token: 0x1700007F RID: 127
+	// (get) Token: 0x060002F3 RID: 755 RVA: 0x0000F530 File Offset: 0x0000D730
+	// (set) Token: 0x060002F4 RID: 756 RVA: 0x0000F538 File Offset: 0x0000D738
+	[global::ConsoleSystem.Saved]
+	[global::ConsoleSystem.Client]
 	public static bool bloom
 	{
 		get
 		{
-			return ImageEffectManager.GetEnabled<Bloom>();
+			return global::ImageEffectManager.GetEnabled<Bloom>();
 		}
 		set
 		{
-			ImageEffectManager.SetEnabled<Bloom>(value);
+			global::ImageEffectManager.SetEnabled<Bloom>(value);
 		}
 	}
 
-	// Token: 0x1700006A RID: 106
-	// (get) Token: 0x06000283 RID: 643 RVA: 0x0000DF98 File Offset: 0x0000C198
-	// (set) Token: 0x06000284 RID: 644 RVA: 0x0000DFA0 File Offset: 0x0000C1A0
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Saved]
+	// Token: 0x17000080 RID: 128
+	// (get) Token: 0x060002F5 RID: 757 RVA: 0x0000F540 File Offset: 0x0000D740
+	// (set) Token: 0x060002F6 RID: 758 RVA: 0x0000F548 File Offset: 0x0000D748
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
 	public static bool grain
 	{
 		get
 		{
-			return ImageEffectManager.GetEnabled<NoiseAndGrain>();
+			return global::ImageEffectManager.GetEnabled<NoiseAndGrain>();
 		}
 		set
 		{
-			ImageEffectManager.SetEnabled<NoiseAndGrain>(value);
+			global::ImageEffectManager.SetEnabled<NoiseAndGrain>(value);
 		}
 	}
 
-	// Token: 0x1700006B RID: 107
-	// (get) Token: 0x06000285 RID: 645 RVA: 0x0000DFA8 File Offset: 0x0000C1A8
-	// (set) Token: 0x06000286 RID: 646 RVA: 0x0000DFB0 File Offset: 0x0000C1B0
-	[ConsoleSystem.Saved]
-	[ConsoleSystem.Client]
+	// Token: 0x17000081 RID: 129
+	// (get) Token: 0x060002F7 RID: 759 RVA: 0x0000F550 File Offset: 0x0000D750
+	// (set) Token: 0x060002F8 RID: 760 RVA: 0x0000F558 File Offset: 0x0000D758
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
 	public static bool ssao
 	{
 		get
 		{
-			return ImageEffectManager.GetEnabled<SSAOEffect>();
+			return global::ImageEffectManager.GetEnabled<SSAOEffect>();
 		}
 		set
 		{
-			ImageEffectManager.SetEnabled<SSAOEffect>(value);
+			global::ImageEffectManager.SetEnabled<SSAOEffect>(value);
 		}
 	}
 
-	// Token: 0x1700006C RID: 108
-	// (get) Token: 0x06000287 RID: 647 RVA: 0x0000DFB8 File Offset: 0x0000C1B8
-	// (set) Token: 0x06000288 RID: 648 RVA: 0x0000DFC0 File Offset: 0x0000C1C0
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Saved]
+	// Token: 0x17000082 RID: 130
+	// (get) Token: 0x060002F9 RID: 761 RVA: 0x0000F560 File Offset: 0x0000D760
+	// (set) Token: 0x060002FA RID: 762 RVA: 0x0000F568 File Offset: 0x0000D768
+	[global::ConsoleSystem.Saved]
+	[global::ConsoleSystem.Client]
 	public static bool tonemap
 	{
 		get
 		{
-			return ImageEffectManager.GetEnabled<Tonemapping>();
+			return global::ImageEffectManager.GetEnabled<Tonemapping>();
 		}
 		set
 		{
-			ImageEffectManager.SetEnabled<Tonemapping>(value);
+			global::ImageEffectManager.SetEnabled<Tonemapping>(value);
 		}
 	}
 
-	// Token: 0x1700006D RID: 109
-	// (get) Token: 0x06000289 RID: 649 RVA: 0x0000DFC8 File Offset: 0x0000C1C8
-	// (set) Token: 0x0600028A RID: 650 RVA: 0x0000DFD0 File Offset: 0x0000C1D0
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Saved]
+	// Token: 0x17000083 RID: 131
+	// (get) Token: 0x060002FB RID: 763 RVA: 0x0000F570 File Offset: 0x0000D770
+	// (set) Token: 0x060002FC RID: 764 RVA: 0x0000F578 File Offset: 0x0000D778
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
 	public static bool shafts
 	{
 		get
 		{
-			return ImageEffectManager.GetEnabled<TOD_SunShafts>();
+			return global::ImageEffectManager.GetEnabled<TOD_SunShafts>();
 		}
 		set
 		{
-			ImageEffectManager.SetEnabled<TOD_SunShafts>(value);
+			global::ImageEffectManager.SetEnabled<TOD_SunShafts>(value);
 		}
 	}
 
-	// Token: 0x1700006E RID: 110
-	// (get) Token: 0x0600028B RID: 651 RVA: 0x0000DFD8 File Offset: 0x0000C1D8
-	// (set) Token: 0x0600028C RID: 652 RVA: 0x0000DFE0 File Offset: 0x0000C1E0
-	[ConsoleSystem.Saved]
-	[ConsoleSystem.Client]
+	// Token: 0x17000084 RID: 132
+	// (get) Token: 0x060002FD RID: 765 RVA: 0x0000F580 File Offset: 0x0000D780
+	// (set) Token: 0x060002FE RID: 766 RVA: 0x0000F588 File Offset: 0x0000D788
+	[global::ConsoleSystem.Saved]
+	[global::ConsoleSystem.Client]
 	public static bool damage
 	{
 		get
 		{
-			return ImageEffectManager.GetEnabled<GameFullscreen>();
+			return global::ImageEffectManager.GetEnabled<global::GameFullscreen>();
 		}
 		set
 		{
-			ImageEffectManager.SetEnabled<GameFullscreen>(value);
+			global::ImageEffectManager.SetEnabled<global::GameFullscreen>(value);
 		}
 	}
 
-	// Token: 0x1700006F RID: 111
-	// (get) Token: 0x0600028D RID: 653 RVA: 0x0000DFE8 File Offset: 0x0000C1E8
-	// (set) Token: 0x0600028E RID: 654 RVA: 0x0000E03C File Offset: 0x0000C23C
-	[ConsoleSystem.Client]
+	// Token: 0x17000085 RID: 133
+	// (get) Token: 0x060002FF RID: 767 RVA: 0x0000F590 File Offset: 0x0000D790
+	// (set) Token: 0x06000300 RID: 768 RVA: 0x0000F5E4 File Offset: 0x0000D7E4
+	[global::ConsoleSystem.Client]
 	public static bool all
 	{
 		get
 		{
-			return gfx.ssaa && gfx.bloom && gfx.grain && gfx.ssao && gfx.tonemap && gfx.shafts && gfx.damage;
+			return global::gfx.ssaa && global::gfx.bloom && global::gfx.grain && global::gfx.ssao && global::gfx.tonemap && global::gfx.shafts && global::gfx.damage;
 		}
 		set
 		{
-			gfx.damage = value;
-			gfx.shafts = value;
-			gfx.tonemap = value;
-			gfx.ssao = value;
-			gfx.grain = value;
-			gfx.bloom = value;
-			gfx.ssaa = value;
+			global::gfx.damage = value;
+			global::gfx.shafts = value;
+			global::gfx.tonemap = value;
+			global::gfx.ssao = value;
+			global::gfx.grain = value;
+			global::gfx.bloom = value;
+			global::gfx.ssaa = value;
 		}
 	}
 }

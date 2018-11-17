@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000759 RID: 1881
-public class UISphereHotSpot : UIHotSpot
+// Token: 0x0200083B RID: 2107
+public class UISphereHotSpot : global::UIHotSpot
 {
-	// Token: 0x060044A6 RID: 17574 RVA: 0x0010CE78 File Offset: 0x0010B078
-	public UISphereHotSpot() : base(UIHotSpot.Kind.Sphere, true)
+	// Token: 0x06004907 RID: 18695 RVA: 0x001167F8 File Offset: 0x001149F8
+	public UISphereHotSpot() : base(global::UIHotSpot.Kind.Sphere, true)
 	{
 	}
 
-	// Token: 0x17000D6C RID: 3436
-	// (get) Token: 0x060044A7 RID: 17575 RVA: 0x0010CE94 File Offset: 0x0010B094
-	// (set) Token: 0x060044A8 RID: 17576 RVA: 0x0010CEA4 File Offset: 0x0010B0A4
+	// Token: 0x17000DFC RID: 3580
+	// (get) Token: 0x06004908 RID: 18696 RVA: 0x00116814 File Offset: 0x00114A14
+	// (set) Token: 0x06004909 RID: 18697 RVA: 0x00116824 File Offset: 0x00114A24
 	public new float size
 	{
 		get
@@ -24,15 +24,15 @@ public class UISphereHotSpot : UIHotSpot
 		}
 	}
 
-	// Token: 0x060044A9 RID: 17577 RVA: 0x0010CEB4 File Offset: 0x0010B0B4
+	// Token: 0x0600490A RID: 18698 RVA: 0x00116834 File Offset: 0x00114A34
 	internal Bounds? Internal_CalculateBounds(bool moved)
 	{
 		float num = this.radius * 2f;
 		return new Bounds?(new Bounds(this.center, new Vector3(num, num, num)));
 	}
 
-	// Token: 0x060044AA RID: 17578 RVA: 0x0010CEE8 File Offset: 0x0010B0E8
-	internal bool Internal_RaycastRef(Ray ray, ref UIHotSpot.Hit hit)
+	// Token: 0x0600490B RID: 18699 RVA: 0x00116868 File Offset: 0x00114A68
+	internal bool Internal_RaycastRef(Ray ray, ref global::UIHotSpot.Hit hit)
 	{
 		float num;
 		float num2;
@@ -56,7 +56,7 @@ public class UISphereHotSpot : UIHotSpot
 		}
 	}
 
-	// Token: 0x060044AB RID: 17579 RVA: 0x0010CFA8 File Offset: 0x0010B1A8
+	// Token: 0x0600490C RID: 18700 RVA: 0x00116928 File Offset: 0x00114B28
 	private void OnDrawGizmos()
 	{
 		Gizmos.matrix = base.gizmoMatrix;
@@ -64,12 +64,12 @@ public class UISphereHotSpot : UIHotSpot
 		Gizmos.DrawWireSphere(this.center, this.radius);
 	}
 
-	// Token: 0x040024E3 RID: 9443
-	private const UIHotSpot.Kind kKind = UIHotSpot.Kind.Sphere;
+	// Token: 0x0400271A RID: 10010
+	private const global::UIHotSpot.Kind kKind = global::UIHotSpot.Kind.Sphere;
 
-	// Token: 0x040024E4 RID: 9444
+	// Token: 0x0400271B RID: 10011
 	public new Vector3 center;
 
-	// Token: 0x040024E5 RID: 9445
+	// Token: 0x0400271C RID: 10012
 	public float radius = 0.5f;
 }

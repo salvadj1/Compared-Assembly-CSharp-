@@ -1,37 +1,37 @@
 ﻿using System;
 
-// Token: 0x020005BC RID: 1468
-public interface IBowWeaponItem : IHeldItem, IInventoryItem, IWeaponItem
+// Token: 0x0200067A RID: 1658
+public interface IBowWeaponItem : global::IHeldItem, global::IInventoryItem, global::IWeaponItem
 {
-	// Token: 0x17000A6A RID: 2666
-	// (get) Token: 0x06003506 RID: 13574
-	// (set) Token: 0x06003507 RID: 13575
+	// Token: 0x17000AE0 RID: 2784
+	// (get) Token: 0x060038CE RID: 14542
+	// (set) Token: 0x060038CF RID: 14543
 	bool arrowDrawn { get; set; }
 
-	// Token: 0x17000A6B RID: 2667
-	// (get) Token: 0x06003508 RID: 13576
-	// (set) Token: 0x06003509 RID: 13577
+	// Token: 0x17000AE1 RID: 2785
+	// (get) Token: 0x060038D0 RID: 14544
+	// (set) Token: 0x060038D1 RID: 14545
 	bool tired { get; set; }
 
-	// Token: 0x17000A6C RID: 2668
-	// (get) Token: 0x0600350A RID: 13578
-	// (set) Token: 0x0600350B RID: 13579
+	// Token: 0x17000AE2 RID: 2786
+	// (get) Token: 0x060038D2 RID: 14546
+	// (set) Token: 0x060038D3 RID: 14547
 	float completeDrawTime { get; set; }
 
-	// Token: 0x17000A6D RID: 2669
-	// (get) Token: 0x0600350C RID: 13580
-	// (set) Token: 0x0600350D RID: 13581
+	// Token: 0x17000AE3 RID: 2787
+	// (get) Token: 0x060038D4 RID: 14548
+	// (set) Token: 0x060038D5 RID: 14549
 	int currentArrowID { get; set; }
 
-	// Token: 0x0600350E RID: 13582
-	IInventoryItem FindAmmo();
+	// Token: 0x060038D6 RID: 14550
+	global::IInventoryItem FindAmmo();
 
-	// Token: 0x0600350F RID: 13583
-	void ArrowReportMiss(ArrowMovement arrow);
+	// Token: 0x060038D7 RID: 14551
+	void ArrowReportMiss(global::ArrowMovement arrow);
 
-	// Token: 0x06003510 RID: 13584
-	void ArrowReportHit(IDMain hitMain, ArrowMovement arrow);
+	// Token: 0x060038D8 RID: 14552
+	void ArrowReportHit(IDMain hitMain, global::ArrowMovement arrow);
 
-	// Token: 0x06003511 RID: 13585
+	// Token: 0x060038D9 RID: 14553
 	void MakeReadyIn(float delay);
 }

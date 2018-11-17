@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000492 RID: 1170
-public class SimpleHitbox : BaseHitBox
+// Token: 0x0200054D RID: 1357
+public class SimpleHitbox : global::BaseHitBox
 {
-	// Token: 0x060029B1 RID: 10673 RVA: 0x000A35F8 File Offset: 0x000A17F8
+	// Token: 0x06002D63 RID: 11619 RVA: 0x000AB390 File Offset: 0x000A9590
 	private void Start()
 	{
 		this.myCap = (base.collider as CapsuleCollider);
@@ -16,7 +16,7 @@ public class SimpleHitbox : BaseHitBox
 		this.myTransform = base.transform;
 	}
 
-	// Token: 0x060029B2 RID: 10674 RVA: 0x000A366C File Offset: 0x000A186C
+	// Token: 0x06002D64 RID: 11620 RVA: 0x000AB404 File Offset: 0x000A9604
 	private void Snap()
 	{
 		if (base.idMain.stateFlags.crouch != this.oldCrouch)
@@ -36,7 +36,7 @@ public class SimpleHitbox : BaseHitBox
 		this.myTransform.position = position;
 	}
 
-	// Token: 0x060029B3 RID: 10675 RVA: 0x000A3730 File Offset: 0x000A1930
+	// Token: 0x06002D65 RID: 11621 RVA: 0x000AB4C8 File Offset: 0x000A96C8
 	private void Update()
 	{
 		if (!this.fixedUpdate)
@@ -45,7 +45,7 @@ public class SimpleHitbox : BaseHitBox
 		}
 	}
 
-	// Token: 0x060029B4 RID: 10676 RVA: 0x000A3744 File Offset: 0x000A1944
+	// Token: 0x06002D66 RID: 11622 RVA: 0x000AB4DC File Offset: 0x000A96DC
 	private void FixedUpdate()
 	{
 		if (this.fixedUpdate)
@@ -54,33 +54,33 @@ public class SimpleHitbox : BaseHitBox
 		}
 	}
 
-	// Token: 0x04001593 RID: 5523
+	// Token: 0x04001750 RID: 5968
 	private bool oldCrouch;
 
-	// Token: 0x04001594 RID: 5524
+	// Token: 0x04001751 RID: 5969
 	private CapsuleCollider myCap;
 
-	// Token: 0x04001595 RID: 5525
+	// Token: 0x04001752 RID: 5970
 	public bool fixedUpdate;
 
-	// Token: 0x04001596 RID: 5526
+	// Token: 0x04001753 RID: 5971
 	private Transform parent;
 
-	// Token: 0x04001597 RID: 5527
+	// Token: 0x04001754 RID: 5972
 	private Transform root;
 
-	// Token: 0x04001598 RID: 5528
+	// Token: 0x04001755 RID: 5973
 	private Vector3 offset;
 
-	// Token: 0x04001599 RID: 5529
+	// Token: 0x04001756 RID: 5974
 	public float crouchHeight = 1f;
 
-	// Token: 0x0400159A RID: 5530
+	// Token: 0x04001757 RID: 5975
 	public float standingHeight = 1.85f;
 
-	// Token: 0x0400159B RID: 5531
+	// Token: 0x04001758 RID: 5976
 	private Transform rootTransform;
 
-	// Token: 0x0400159C RID: 5532
+	// Token: 0x04001759 RID: 5977
 	private Transform myTransform;
 }

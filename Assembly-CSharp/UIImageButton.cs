@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000775 RID: 1909
+// Token: 0x02000858 RID: 2136
 [ExecuteInEditMode]
 [AddComponentMenu("NGUI/UI/Image Button")]
 public class UIImageButton : MonoBehaviour
 {
-	// Token: 0x06004552 RID: 17746 RVA: 0x001110D0 File Offset: 0x0010F2D0
+	// Token: 0x060049B7 RID: 18871 RVA: 0x0011AA50 File Offset: 0x00118C50
 	private void Start()
 	{
 		if (this.target == null)
 		{
-			this.target = base.GetComponentInChildren<UISprite>();
+			this.target = base.GetComponentInChildren<global::UISprite>();
 		}
 	}
 
-	// Token: 0x06004553 RID: 17747 RVA: 0x001110F0 File Offset: 0x0010F2F0
+	// Token: 0x060049B8 RID: 18872 RVA: 0x0011AA70 File Offset: 0x00118C70
 	private void OnHover(bool isOver)
 	{
 		if (base.enabled && this.target != null)
@@ -25,7 +25,7 @@ public class UIImageButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004554 RID: 17748 RVA: 0x00111148 File Offset: 0x0010F348
+	// Token: 0x060049B9 RID: 18873 RVA: 0x0011AAC8 File Offset: 0x00118CC8
 	private void OnPress(bool pressed)
 	{
 		if (base.enabled && this.target != null)
@@ -35,15 +35,15 @@ public class UIImageButton : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040025AD RID: 9645
-	public UISprite target;
+	// Token: 0x040027E4 RID: 10212
+	public global::UISprite target;
 
-	// Token: 0x040025AE RID: 9646
+	// Token: 0x040027E5 RID: 10213
 	public string normalSprite;
 
-	// Token: 0x040025AF RID: 9647
+	// Token: 0x040027E6 RID: 10214
 	public string hoverSprite;
 
-	// Token: 0x040025B0 RID: 9648
+	// Token: 0x040027E7 RID: 10215
 	public string pressedSprite;
 }

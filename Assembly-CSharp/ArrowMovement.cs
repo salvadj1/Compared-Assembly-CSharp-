@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000030 RID: 48
+// Token: 0x02000042 RID: 66
 public class ArrowMovement : MonoBehaviour
 {
-	// Token: 0x060001F2 RID: 498 RVA: 0x0000B5F4 File Offset: 0x000097F4
+	// Token: 0x06000264 RID: 612 RVA: 0x0000CB9C File Offset: 0x0000AD9C
 	private void Start()
 	{
 		this.spawnTime = Time.time;
 		this.lastUpdateTime = Time.time;
 	}
 
-	// Token: 0x060001F3 RID: 499 RVA: 0x0000B60C File Offset: 0x0000980C
-	public void Init(float arrowSpeed, ItemRepresentation itemRep, IBowWeaponItem itemInstance, bool firedLocal)
+	// Token: 0x06000265 RID: 613 RVA: 0x0000CBB4 File Offset: 0x0000ADB4
+	public void Init(float arrowSpeed, global::ItemRepresentation itemRep, global::IBowWeaponItem itemInstance, bool firedLocal)
 	{
 		this.speedPerSec = arrowSpeed;
 		if (itemRep != null && itemInstance != null)
@@ -22,7 +22,7 @@ public class ArrowMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060001F4 RID: 500 RVA: 0x0000B638 File Offset: 0x00009838
+	// Token: 0x06000266 RID: 614 RVA: 0x0000CBE0 File Offset: 0x0000ADE0
 	private void OnDestroy()
 	{
 		if (!this.impacted)
@@ -31,7 +31,7 @@ public class ArrowMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060001F5 RID: 501 RVA: 0x0000B64C File Offset: 0x0000984C
+	// Token: 0x06000267 RID: 615 RVA: 0x0000CBF4 File Offset: 0x0000ADF4
 	private void Update()
 	{
 		if (this.impacted)
@@ -91,9 +91,9 @@ public class ArrowMovement : MonoBehaviour
 			base.audio.enabled = false;
 			if (gameObject)
 			{
-				SurfaceInfoObject surfaceInfoFor = SurfaceInfo.GetSurfaceInfoFor(gameObject, point);
-				surfaceInfoFor.GetImpactEffect(SurfaceInfoObject.ImpactType.Bullet);
-				Object @object = Object.Instantiate(surfaceInfoFor.GetImpactEffect(SurfaceInfoObject.ImpactType.Bullet), point, quaternion);
+				global::SurfaceInfoObject surfaceInfoFor = global::SurfaceInfo.GetSurfaceInfoFor(gameObject, point);
+				surfaceInfoFor.GetImpactEffect(global::SurfaceInfoObject.ImpactType.Bullet);
+				Object @object = Object.Instantiate(surfaceInfoFor.GetImpactEffect(global::SurfaceInfoObject.ImpactType.Bullet), point, quaternion);
 				Object.Destroy(@object, 1.5f);
 				this.TryReportMiss();
 			}
@@ -110,7 +110,7 @@ public class ArrowMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060001F6 RID: 502 RVA: 0x0000B924 File Offset: 0x00009B24
+	// Token: 0x06000268 RID: 616 RVA: 0x0000CECC File Offset: 0x0000B0CC
 	public void TryReportMiss()
 	{
 		if (this._myItemInstance != null && !this.reported)
@@ -120,7 +120,7 @@ public class ArrowMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060001F7 RID: 503 RVA: 0x0000B950 File Offset: 0x00009B50
+	// Token: 0x06000269 RID: 617 RVA: 0x0000CEF8 File Offset: 0x0000B0F8
 	public void TryReportHit(GameObject hitGameObject)
 	{
 		if (this._myItemInstance != null && !this.reported)
@@ -131,39 +131,39 @@ public class ArrowMovement : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400012F RID: 303
+	// Token: 0x04000191 RID: 401
 	public bool impacted;
 
-	// Token: 0x04000130 RID: 304
+	// Token: 0x04000192 RID: 402
 	public float speedPerSec = 80f;
 
-	// Token: 0x04000131 RID: 305
+	// Token: 0x04000193 RID: 403
 	public float maxRange = 1000f;
 
-	// Token: 0x04000132 RID: 306
+	// Token: 0x04000194 RID: 404
 	private float maxLifeTime = 4f;
 
-	// Token: 0x04000133 RID: 307
+	// Token: 0x04000195 RID: 405
 	public float lastUpdateTime;
 
-	// Token: 0x04000134 RID: 308
+	// Token: 0x04000196 RID: 406
 	public float spawnTime;
 
-	// Token: 0x04000135 RID: 309
+	// Token: 0x04000197 RID: 407
 	private int layerMask = 406721553;
 
-	// Token: 0x04000136 RID: 310
+	// Token: 0x04000198 RID: 408
 	private float distance;
 
-	// Token: 0x04000137 RID: 311
+	// Token: 0x04000199 RID: 409
 	public float dropDegreesPerSec = 5f;
 
-	// Token: 0x04000138 RID: 312
+	// Token: 0x0400019A RID: 410
 	private bool reported;
 
-	// Token: 0x04000139 RID: 313
-	public ItemRepresentation _myBow;
+	// Token: 0x0400019B RID: 411
+	public global::ItemRepresentation _myBow;
 
-	// Token: 0x0400013A RID: 314
-	public IBowWeaponItem _myItemInstance;
+	// Token: 0x0400019C RID: 412
+	public global::IBowWeaponItem _myItemInstance;
 }

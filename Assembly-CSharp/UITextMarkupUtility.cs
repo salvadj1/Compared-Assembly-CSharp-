@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x020007EA RID: 2026
+// Token: 0x020008DB RID: 2267
 public static class UITextMarkupUtility
 {
-	// Token: 0x0600486D RID: 18541 RVA: 0x00126038 File Offset: 0x00124238
-	public static void SortMarkup(this List<UITextMarkup> list)
+	// Token: 0x06004D18 RID: 19736 RVA: 0x0012FF9C File Offset: 0x0012E19C
+	public static void SortMarkup(this List<global::UITextMarkup> list)
 	{
-		list.Sort(delegate(UITextMarkup x, UITextMarkup y)
+		list.Sort(delegate(global::UITextMarkup x, global::UITextMarkup y)
 		{
 			int num = x.index.CompareTo(y.index);
 			int result;
@@ -26,8 +26,8 @@ public static class UITextMarkupUtility
 		});
 	}
 
-	// Token: 0x0600486E RID: 18542 RVA: 0x00126060 File Offset: 0x00124260
-	public static string MarkUp(this List<UITextMarkup> list, string input)
+	// Token: 0x06004D19 RID: 19737 RVA: 0x0012FFC4 File Offset: 0x0012E1C4
+	public static string MarkUp(this List<global::UITextMarkup> list, string input)
 	{
 		int count;
 		if (list == null || (count = list.Count) == 0)
@@ -37,7 +37,7 @@ public static class UITextMarkupUtility
 		int index = list[0].index;
 		StringBuilder stringBuilder = new StringBuilder(input, 0, index, input.Length + count);
 		int num = 0;
-		UITextMarkup uitextMarkup = list[num];
+		global::UITextMarkup uitextMarkup = list[num];
 		for (int i = uitextMarkup.index; i < input.Length; i++)
 		{
 			char c = input[i];
@@ -47,18 +47,18 @@ public static class UITextMarkupUtility
 				{
 					switch (uitextMarkup.mod)
 					{
-					case UITextMod.End:
+					case global::UITextMod.End:
 						i = input.Length + 1;
 						c = '\0';
 						break;
-					case UITextMod.Removed:
+					case global::UITextMod.Removed:
 						c = '\0';
 						break;
-					case UITextMod.Replaced:
+					case global::UITextMod.Replaced:
 						stringBuilder.Append(uitextMarkup.value);
 						c = '\0';
 						break;
-					case UITextMod.Added:
+					case global::UITextMod.Added:
 						stringBuilder.Append(uitextMarkup.value);
 						break;
 					}
@@ -107,9 +107,9 @@ public static class UITextMarkupUtility
 		{
 			switch (uitextMarkup.mod)
 			{
-			case UITextMod.End:
+			case global::UITextMod.End:
 				continue;
-			case UITextMod.Added:
+			case global::UITextMod.Added:
 				stringBuilder.Append(uitextMarkup.value);
 				continue;
 			}

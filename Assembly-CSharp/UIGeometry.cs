@@ -2,11 +2,11 @@
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x0200079B RID: 1947
+// Token: 0x02000886 RID: 2182
 public class UIGeometry
 {
-	// Token: 0x17000DA0 RID: 3488
-	// (get) Token: 0x0600466A RID: 18026 RVA: 0x00118184 File Offset: 0x00116384
+	// Token: 0x17000E30 RID: 3632
+	// (get) Token: 0x06004AEF RID: 19183 RVA: 0x00121B04 File Offset: 0x0011FD04
 	public bool hasVertices
 	{
 		get
@@ -15,8 +15,8 @@ public class UIGeometry
 		}
 	}
 
-	// Token: 0x17000DA1 RID: 3489
-	// (get) Token: 0x0600466B RID: 18027 RVA: 0x00118194 File Offset: 0x00116394
+	// Token: 0x17000E31 RID: 3633
+	// (get) Token: 0x06004AF0 RID: 19184 RVA: 0x00121B14 File Offset: 0x0011FD14
 	public bool hasTransformed
 	{
 		get
@@ -25,14 +25,14 @@ public class UIGeometry
 		}
 	}
 
-	// Token: 0x0600466C RID: 18028 RVA: 0x001181B4 File Offset: 0x001163B4
+	// Token: 0x06004AF1 RID: 19185 RVA: 0x00121B34 File Offset: 0x0011FD34
 	public void Clear()
 	{
 		this.meshBuffer.Clear();
 		this.vertsTransformed = false;
 	}
 
-	// Token: 0x0600466D RID: 18029 RVA: 0x001181C8 File Offset: 0x001163C8
+	// Token: 0x06004AF2 RID: 19186 RVA: 0x00121B48 File Offset: 0x0011FD48
 	public void Apply(ref Matrix4x4 widgetToPanel)
 	{
 		if (!this.vertsTransformed)
@@ -42,7 +42,7 @@ public class UIGeometry
 		this.Apply(ref this.lastPivotOffset, ref widgetToPanel);
 	}
 
-	// Token: 0x0600466E RID: 18030 RVA: 0x001181F8 File Offset: 0x001163F8
+	// Token: 0x06004AF3 RID: 19187 RVA: 0x00121B78 File Offset: 0x0011FD78
 	public void Apply(ref Vector3 pivotOffset, ref Matrix4x4 widgetToPanel)
 	{
 		if (this.vertsTransformed)
@@ -77,22 +77,22 @@ public class UIGeometry
 		}
 	}
 
-	// Token: 0x0600466F RID: 18031 RVA: 0x00118468 File Offset: 0x00116668
-	public void WriteToBuffers(MeshBuffer m)
+	// Token: 0x06004AF4 RID: 19188 RVA: 0x00121DE8 File Offset: 0x0011FFE8
+	public void WriteToBuffers(NGUI.Meshing.MeshBuffer m)
 	{
 		this.meshBuffer.WriteBuffers(m);
 	}
 
-	// Token: 0x040026A0 RID: 9888
+	// Token: 0x040028D7 RID: 10455
 	[NonSerialized]
-	public MeshBuffer meshBuffer = new MeshBuffer();
+	public NGUI.Meshing.MeshBuffer meshBuffer = new NGUI.Meshing.MeshBuffer();
 
-	// Token: 0x040026A1 RID: 9889
+	// Token: 0x040028D8 RID: 10456
 	private bool vertsTransformed;
 
-	// Token: 0x040026A2 RID: 9890
+	// Token: 0x040028D9 RID: 10457
 	private Vector3 lastPivotOffset;
 
-	// Token: 0x040026A3 RID: 9891
+	// Token: 0x040028DA RID: 10458
 	private Matrix4x4 lastWidgetToPanel;
 }

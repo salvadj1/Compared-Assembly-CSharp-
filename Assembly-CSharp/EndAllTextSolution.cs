@@ -2,11 +2,11 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x0200067C RID: 1660
+// Token: 0x02000740 RID: 1856
 public class EndAllTextSolution : MonoBehaviour
 {
-	// Token: 0x17000B30 RID: 2864
-	// (get) Token: 0x060039CC RID: 14796 RVA: 0x000D5810 File Offset: 0x000D3A10
+	// Token: 0x17000BB2 RID: 2994
+	// (get) Token: 0x06003DC0 RID: 15808 RVA: 0x000DE1F0 File Offset: 0x000DC3F0
 	private static GUISkin skin
 	{
 		get
@@ -15,9 +15,9 @@ public class EndAllTextSolution : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B31 RID: 2865
-	// (get) Token: 0x060039CD RID: 14797 RVA: 0x000D5818 File Offset: 0x000D3A18
-	// (set) Token: 0x060039CE RID: 14798 RVA: 0x000D5820 File Offset: 0x000D3A20
+	// Token: 0x17000BB3 RID: 2995
+	// (get) Token: 0x06003DC1 RID: 15809 RVA: 0x000DE1F8 File Offset: 0x000DC3F8
+	// (set) Token: 0x06003DC2 RID: 15810 RVA: 0x000DE200 File Offset: 0x000DC400
 	private static bool changed
 	{
 		get
@@ -30,14 +30,14 @@ public class EndAllTextSolution : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039CF RID: 14799 RVA: 0x000D5828 File Offset: 0x000D3A28
+	// Token: 0x06003DC3 RID: 15811 RVA: 0x000DE208 File Offset: 0x000DC408
 	private static void DoTextField(Rect position, int id, GUIContent content, bool multiline, int maxLength, GUIStyle style)
 	{
 		if (maxLength >= 0 && content.text.Length > maxLength)
 		{
 			content.text = content.text.Substring(0, maxLength);
 		}
-		EndAllTextSolution.GUI2.CheckOnGUI();
+		global::EndAllTextSolution.GUI2.CheckOnGUI();
 		TextEditor textEditor = (TextEditor)GUIUtility.GetStateObject(typeof(TextEditor), id);
 		textEditor.content.text = content.text;
 		textEditor.SaveBackup();
@@ -56,13 +56,13 @@ public class EndAllTextSolution : MonoBehaviour
 				GUIUtility.hotControl = id;
 				GUIUtility.keyboardControl = id;
 				textEditor.MoveCursorToPosition(Event.current.mousePosition);
-				if (Event.current.clickCount == 2 && EndAllTextSolution.skin.settings.doubleClickSelectsWord)
+				if (Event.current.clickCount == 2 && global::EndAllTextSolution.skin.settings.doubleClickSelectsWord)
 				{
 					textEditor.SelectCurrentWord();
 					textEditor.DblClickSnap(0);
 					textEditor.MouseDragSelectsWholeWords(true);
 				}
-				if (Event.current.clickCount == 3 && EndAllTextSolution.skin.settings.tripleClickSelectsLine)
+				if (Event.current.clickCount == 3 && global::EndAllTextSolution.skin.settings.tripleClickSelectsLine)
 				{
 					textEditor.SelectCurrentParagraph();
 					textEditor.MouseDragSelectsWholeWords(true);
@@ -118,7 +118,7 @@ public class EndAllTextSolution : MonoBehaviour
 				Font font = style.font;
 				if (font == null)
 				{
-					font = EndAllTextSolution.skin.font;
+					font = global::EndAllTextSolution.skin.font;
 				}
 				if (font.HasCharacter(character) || character == '\n')
 				{
@@ -149,11 +149,11 @@ public class EndAllTextSolution : MonoBehaviour
 		}
 		if (GUIUtility.keyboardControl == id)
 		{
-			EndAllTextSolution.GUI2.textFieldInput = true;
+			global::EndAllTextSolution.GUI2.textFieldInput = true;
 		}
 		if (flag)
 		{
-			EndAllTextSolution.changed = true;
+			global::EndAllTextSolution.changed = true;
 			content.text = textEditor.content.text;
 			if (maxLength >= 0 && content.text.Length > maxLength)
 			{
@@ -163,68 +163,68 @@ public class EndAllTextSolution : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039D0 RID: 14800 RVA: 0x000D5B88 File Offset: 0x000D3D88
+	// Token: 0x06003DC4 RID: 15812 RVA: 0x000DE568 File Offset: 0x000DC768
 	private void OnGUI()
 	{
 		int controlID = GUIUtility.GetControlID(1);
-		EndAllTextSolution.DoTextField(new Rect(0f, 0f, (float)Screen.width, 30f), controlID, this.content, this.multiLine, this.maxLength, this.styleName);
+		global::EndAllTextSolution.DoTextField(new Rect(0f, 0f, (float)Screen.width, 30f), controlID, this.content, this.multiLine, this.maxLength, this.styleName);
 	}
 
-	// Token: 0x04001DB9 RID: 7609
+	// Token: 0x04001FB1 RID: 8113
 	public GUIContent content = new GUIContent();
 
-	// Token: 0x04001DBA RID: 7610
+	// Token: 0x04001FB2 RID: 8114
 	[SerializeField]
 	private string styleName = "textfield";
 
-	// Token: 0x04001DBB RID: 7611
+	// Token: 0x04001FB3 RID: 8115
 	[SerializeField]
 	private bool multiLine;
 
-	// Token: 0x04001DBC RID: 7612
+	// Token: 0x04001FB4 RID: 8116
 	[SerializeField]
 	private int maxLength;
 
-	// Token: 0x0200067D RID: 1661
+	// Token: 0x02000741 RID: 1857
 	private static class GUI2
 	{
-		// Token: 0x060039D1 RID: 14801 RVA: 0x000D5BDC File Offset: 0x000D3DDC
+		// Token: 0x06003DC5 RID: 15813 RVA: 0x000DE5BC File Offset: 0x000DC7BC
 		static GUI2()
 		{
 			MethodInfo method = typeof(GUIUtility).GetMethod("CheckOnGUI", BindingFlags.Static | BindingFlags.NonPublic);
-			EndAllTextSolution.GUI2.CheckOnGUI = (EndAllTextSolution.VoidCall)Delegate.CreateDelegate(typeof(EndAllTextSolution.VoidCall), method);
-			EndAllTextSolution.GUI2.textFieldInputProperty = typeof(GUIUtility).GetProperty("textFieldInput", BindingFlags.Static | BindingFlags.NonPublic);
+			global::EndAllTextSolution.GUI2.CheckOnGUI = (global::EndAllTextSolution.VoidCall)Delegate.CreateDelegate(typeof(global::EndAllTextSolution.VoidCall), method);
+			global::EndAllTextSolution.GUI2.textFieldInputProperty = typeof(GUIUtility).GetProperty("textFieldInput", BindingFlags.Static | BindingFlags.NonPublic);
 		}
 
-		// Token: 0x17000B32 RID: 2866
-		// (get) Token: 0x060039D2 RID: 14802 RVA: 0x000D5C4C File Offset: 0x000D3E4C
-		// (set) Token: 0x060039D3 RID: 14803 RVA: 0x000D5C60 File Offset: 0x000D3E60
+		// Token: 0x17000BB4 RID: 2996
+		// (get) Token: 0x06003DC6 RID: 15814 RVA: 0x000DE62C File Offset: 0x000DC82C
+		// (set) Token: 0x06003DC7 RID: 15815 RVA: 0x000DE640 File Offset: 0x000DC840
 		public static bool textFieldInput
 		{
 			get
 			{
-				return (bool)EndAllTextSolution.GUI2.textFieldInputProperty.GetValue(null, null);
+				return (bool)global::EndAllTextSolution.GUI2.textFieldInputProperty.GetValue(null, null);
 			}
 			set
 			{
-				EndAllTextSolution.GUI2.textFieldInputProperty.SetValue(null, (!value) ? EndAllTextSolution.GUI2.boxed_false : EndAllTextSolution.GUI2.boxed_true, null);
+				global::EndAllTextSolution.GUI2.textFieldInputProperty.SetValue(null, (!value) ? global::EndAllTextSolution.GUI2.boxed_false : global::EndAllTextSolution.GUI2.boxed_true, null);
 			}
 		}
 
-		// Token: 0x04001DBD RID: 7613
-		public static readonly EndAllTextSolution.VoidCall CheckOnGUI;
+		// Token: 0x04001FB5 RID: 8117
+		public static readonly global::EndAllTextSolution.VoidCall CheckOnGUI;
 
-		// Token: 0x04001DBE RID: 7614
+		// Token: 0x04001FB6 RID: 8118
 		private static readonly PropertyInfo textFieldInputProperty;
 
-		// Token: 0x04001DBF RID: 7615
+		// Token: 0x04001FB7 RID: 8119
 		private static readonly object boxed_true = true;
 
-		// Token: 0x04001DC0 RID: 7616
+		// Token: 0x04001FB8 RID: 8120
 		private static readonly object boxed_false = false;
 	}
 
-	// Token: 0x020008DB RID: 2267
-	// (Invoke) Token: 0x06004D44 RID: 19780
+	// Token: 0x02000742 RID: 1858
+	// (Invoke) Token: 0x06003DC9 RID: 15817
 	private delegate void VoidCall();
 }

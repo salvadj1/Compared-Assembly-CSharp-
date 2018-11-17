@@ -2,18 +2,18 @@
 using Facepunch.Actor;
 using UnityEngine;
 
-// Token: 0x020004FE RID: 1278
+// Token: 0x020005BB RID: 1467
 public abstract class ArmorModel : ScriptableObject
 {
-	// Token: 0x06002B45 RID: 11077 RVA: 0x000ADA7C File Offset: 0x000ABC7C
-	internal ArmorModel(ArmorModelSlot slot)
+	// Token: 0x06002F05 RID: 12037 RVA: 0x000B5B18 File Offset: 0x000B3D18
+	internal ArmorModel(global::ArmorModelSlot slot)
 	{
 		this.slot = slot;
 	}
 
-	// Token: 0x1700098A RID: 2442
-	// (get) Token: 0x06002B46 RID: 11078 RVA: 0x000ADA8C File Offset: 0x000ABC8C
-	public ArmorModel censoredModel
+	// Token: 0x170009FE RID: 2558
+	// (get) Token: 0x06002F06 RID: 12038 RVA: 0x000B5B28 File Offset: 0x000B3D28
+	public global::ArmorModel censoredModel
 	{
 		get
 		{
@@ -21,12 +21,12 @@ public abstract class ArmorModel : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700098B RID: 2443
-	// (get) Token: 0x06002B47 RID: 11079
-	protected abstract ArmorModel _censored { get; }
+	// Token: 0x170009FF RID: 2559
+	// (get) Token: 0x06002F07 RID: 12039
+	protected abstract global::ArmorModel _censored { get; }
 
-	// Token: 0x1700098C RID: 2444
-	// (get) Token: 0x06002B48 RID: 11080 RVA: 0x000ADA94 File Offset: 0x000ABC94
+	// Token: 0x17000A00 RID: 2560
+	// (get) Token: 0x06002F08 RID: 12040 RVA: 0x000B5B30 File Offset: 0x000B3D30
 	public bool hasCensoredModel
 	{
 		get
@@ -35,9 +35,9 @@ public abstract class ArmorModel : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700098D RID: 2445
-	// (get) Token: 0x06002B49 RID: 11081 RVA: 0x000ADAA4 File Offset: 0x000ABCA4
-	public ArmorModelSlotMask slotMask
+	// Token: 0x17000A01 RID: 2561
+	// (get) Token: 0x06002F09 RID: 12041 RVA: 0x000B5B40 File Offset: 0x000B3D40
+	public global::ArmorModelSlotMask slotMask
 	{
 		get
 		{
@@ -45,8 +45,8 @@ public abstract class ArmorModel : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700098E RID: 2446
-	// (get) Token: 0x06002B4A RID: 11082 RVA: 0x000ADAB4 File Offset: 0x000ABCB4
+	// Token: 0x17000A02 RID: 2562
+	// (get) Token: 0x06002F0A RID: 12042 RVA: 0x000B5B50 File Offset: 0x000B3D50
 	public Mesh sharedMesh
 	{
 		get
@@ -55,8 +55,8 @@ public abstract class ArmorModel : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700098F RID: 2447
-	// (get) Token: 0x06002B4B RID: 11083 RVA: 0x000ADAD8 File Offset: 0x000ABCD8
+	// Token: 0x17000A03 RID: 2563
+	// (get) Token: 0x06002F0B RID: 12043 RVA: 0x000B5B74 File Offset: 0x000B3D74
 	public ActorMeshInfo actorMeshInfo
 	{
 		get
@@ -65,8 +65,8 @@ public abstract class ArmorModel : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000990 RID: 2448
-	// (get) Token: 0x06002B4C RID: 11084 RVA: 0x000ADAE0 File Offset: 0x000ABCE0
+	// Token: 0x17000A04 RID: 2564
+	// (get) Token: 0x06002F0C RID: 12044 RVA: 0x000B5B7C File Offset: 0x000B3D7C
 	public ActorRig actorRig
 	{
 		get
@@ -75,8 +75,8 @@ public abstract class ArmorModel : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000991 RID: 2449
-	// (get) Token: 0x06002B4D RID: 11085 RVA: 0x000ADB04 File Offset: 0x000ABD04
+	// Token: 0x17000A05 RID: 2565
+	// (get) Token: 0x06002F0D RID: 12045 RVA: 0x000B5BA0 File Offset: 0x000B3DA0
 	public Material[] sharedMaterials
 	{
 		get
@@ -85,15 +85,15 @@ public abstract class ArmorModel : ScriptableObject
 		}
 	}
 
-	// Token: 0x040017C3 RID: 6083
+	// Token: 0x0400198F RID: 6543
 	[NonSerialized]
-	public readonly ArmorModelSlot slot;
+	public readonly global::ArmorModelSlot slot;
 
-	// Token: 0x040017C4 RID: 6084
+	// Token: 0x04001990 RID: 6544
 	[SerializeField]
 	private ActorMeshInfo _actorMeshInfo;
 
-	// Token: 0x040017C5 RID: 6085
+	// Token: 0x04001991 RID: 6545
 	[SerializeField]
 	private Material[] _materials;
 }

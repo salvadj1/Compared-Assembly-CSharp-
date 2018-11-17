@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000738 RID: 1848
-public class dfAnimatedColor32 : dfAnimatedValue<Color32>
+// Token: 0x02000815 RID: 2069
+public class dfAnimatedColor32 : global::dfAnimatedValue<Color32>
 {
-	// Token: 0x06004368 RID: 17256 RVA: 0x00105F84 File Offset: 0x00104184
+	// Token: 0x060047B0 RID: 18352 RVA: 0x0010F294 File Offset: 0x0010D494
 	public dfAnimatedColor32(Color32 StartValue, Color32 EndValue, float Time) : base(StartValue, EndValue, Time)
 	{
 	}
 
-	// Token: 0x06004369 RID: 17257 RVA: 0x00105F90 File Offset: 0x00104190
+	// Token: 0x060047B1 RID: 18353 RVA: 0x0010F2A0 File Offset: 0x0010D4A0
 	protected override Color32 Lerp(Color32 startValue, Color32 endValue, float time)
 	{
 		return Color.Lerp(startValue, endValue, time);
 	}
 
-	// Token: 0x0600436A RID: 17258 RVA: 0x00105FAC File Offset: 0x001041AC
-	public static implicit operator dfAnimatedColor32(Color32 value)
+	// Token: 0x060047B2 RID: 18354 RVA: 0x0010F2BC File Offset: 0x0010D4BC
+	public static implicit operator global::dfAnimatedColor32(Color32 value)
 	{
-		return new dfAnimatedColor32(value, value, 0f);
+		return new global::dfAnimatedColor32(value, value, 0f);
 	}
 }

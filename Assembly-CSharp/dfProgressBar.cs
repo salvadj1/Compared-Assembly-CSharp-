@@ -1,28 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006E8 RID: 1768
-[AddComponentMenu("Daikon Forge/User Interface/Progress Bar")]
+// Token: 0x020007BA RID: 1978
 [ExecuteInEditMode]
+[AddComponentMenu("Daikon Forge/User Interface/Progress Bar")]
 [RequireComponent(typeof(BoxCollider))]
 [Serializable]
-public class dfProgressBar : dfControl
+public class dfProgressBar : global::dfControl
 {
 	// Token: 0x1400004E RID: 78
-	// (add) Token: 0x06003F3A RID: 16186 RVA: 0x000F0550 File Offset: 0x000EE750
-	// (remove) Token: 0x06003F3B RID: 16187 RVA: 0x000F056C File Offset: 0x000EE76C
-	public event PropertyChangedEventHandler<float> ValueChanged;
+	// (add) Token: 0x06004356 RID: 17238 RVA: 0x000F9154 File Offset: 0x000F7354
+	// (remove) Token: 0x06004357 RID: 17239 RVA: 0x000F9170 File Offset: 0x000F7370
+	public event global::PropertyChangedEventHandler<float> ValueChanged;
 
-	// Token: 0x17000C63 RID: 3171
-	// (get) Token: 0x06003F3C RID: 16188 RVA: 0x000F0588 File Offset: 0x000EE788
-	// (set) Token: 0x06003F3D RID: 16189 RVA: 0x000F05D0 File Offset: 0x000EE7D0
-	public dfAtlas Atlas
+	// Token: 0x17000CE7 RID: 3303
+	// (get) Token: 0x06004358 RID: 17240 RVA: 0x000F918C File Offset: 0x000F738C
+	// (set) Token: 0x06004359 RID: 17241 RVA: 0x000F91D4 File Offset: 0x000F73D4
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -32,7 +32,7 @@ public class dfProgressBar : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -40,9 +40,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C64 RID: 3172
-	// (get) Token: 0x06003F3E RID: 16190 RVA: 0x000F05F0 File Offset: 0x000EE7F0
-	// (set) Token: 0x06003F3F RID: 16191 RVA: 0x000F05F8 File Offset: 0x000EE7F8
+	// Token: 0x17000CE8 RID: 3304
+	// (get) Token: 0x0600435A RID: 17242 RVA: 0x000F91F4 File Offset: 0x000F73F4
+	// (set) Token: 0x0600435B RID: 17243 RVA: 0x000F91FC File Offset: 0x000F73FC
 	public string BackgroundSprite
 	{
 		get
@@ -60,9 +60,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C65 RID: 3173
-	// (get) Token: 0x06003F40 RID: 16192 RVA: 0x000F0620 File Offset: 0x000EE820
-	// (set) Token: 0x06003F41 RID: 16193 RVA: 0x000F0628 File Offset: 0x000EE828
+	// Token: 0x17000CE9 RID: 3305
+	// (get) Token: 0x0600435C RID: 17244 RVA: 0x000F9224 File Offset: 0x000F7424
+	// (set) Token: 0x0600435D RID: 17245 RVA: 0x000F922C File Offset: 0x000F742C
 	public string ProgressSprite
 	{
 		get
@@ -79,9 +79,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C66 RID: 3174
-	// (get) Token: 0x06003F42 RID: 16194 RVA: 0x000F0648 File Offset: 0x000EE848
-	// (set) Token: 0x06003F43 RID: 16195 RVA: 0x000F0650 File Offset: 0x000EE850
+	// Token: 0x17000CEA RID: 3306
+	// (get) Token: 0x0600435E RID: 17246 RVA: 0x000F924C File Offset: 0x000F744C
+	// (set) Token: 0x0600435F RID: 17247 RVA: 0x000F9254 File Offset: 0x000F7454
 	public Color32 ProgressColor
 	{
 		get
@@ -98,9 +98,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C67 RID: 3175
-	// (get) Token: 0x06003F44 RID: 16196 RVA: 0x000F0688 File Offset: 0x000EE888
-	// (set) Token: 0x06003F45 RID: 16197 RVA: 0x000F0690 File Offset: 0x000EE890
+	// Token: 0x17000CEB RID: 3307
+	// (get) Token: 0x06004360 RID: 17248 RVA: 0x000F928C File Offset: 0x000F748C
+	// (set) Token: 0x06004361 RID: 17249 RVA: 0x000F9294 File Offset: 0x000F7494
 	public float MinValue
 	{
 		get
@@ -121,9 +121,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C68 RID: 3176
-	// (get) Token: 0x06003F46 RID: 16198 RVA: 0x000F06CC File Offset: 0x000EE8CC
-	// (set) Token: 0x06003F47 RID: 16199 RVA: 0x000F06D4 File Offset: 0x000EE8D4
+	// Token: 0x17000CEC RID: 3308
+	// (get) Token: 0x06004362 RID: 17250 RVA: 0x000F92D0 File Offset: 0x000F74D0
+	// (set) Token: 0x06004363 RID: 17251 RVA: 0x000F92D8 File Offset: 0x000F74D8
 	public float MaxValue
 	{
 		get
@@ -144,9 +144,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C69 RID: 3177
-	// (get) Token: 0x06003F48 RID: 16200 RVA: 0x000F0710 File Offset: 0x000EE910
-	// (set) Token: 0x06003F49 RID: 16201 RVA: 0x000F0718 File Offset: 0x000EE918
+	// Token: 0x17000CED RID: 3309
+	// (get) Token: 0x06004364 RID: 17252 RVA: 0x000F9314 File Offset: 0x000F7514
+	// (set) Token: 0x06004365 RID: 17253 RVA: 0x000F931C File Offset: 0x000F751C
 	public float Value
 	{
 		get
@@ -164,10 +164,10 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C6A RID: 3178
-	// (get) Token: 0x06003F4A RID: 16202 RVA: 0x000F0754 File Offset: 0x000EE954
-	// (set) Token: 0x06003F4B RID: 16203 RVA: 0x000F075C File Offset: 0x000EE95C
-	public dfProgressFillMode FillMode
+	// Token: 0x17000CEE RID: 3310
+	// (get) Token: 0x06004366 RID: 17254 RVA: 0x000F9358 File Offset: 0x000F7558
+	// (set) Token: 0x06004367 RID: 17255 RVA: 0x000F9360 File Offset: 0x000F7560
+	public global::dfProgressFillMode FillMode
 	{
 		get
 		{
@@ -183,9 +183,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C6B RID: 3179
-	// (get) Token: 0x06003F4C RID: 16204 RVA: 0x000F0778 File Offset: 0x000EE978
-	// (set) Token: 0x06003F4D RID: 16205 RVA: 0x000F0798 File Offset: 0x000EE998
+	// Token: 0x17000CEF RID: 3311
+	// (get) Token: 0x06004368 RID: 17256 RVA: 0x000F937C File Offset: 0x000F757C
+	// (set) Token: 0x06004369 RID: 17257 RVA: 0x000F939C File Offset: 0x000F759C
 	public RectOffset Padding
 	{
 		get
@@ -206,9 +206,9 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x17000C6C RID: 3180
-	// (get) Token: 0x06003F4E RID: 16206 RVA: 0x000F07B8 File Offset: 0x000EE9B8
-	// (set) Token: 0x06003F4F RID: 16207 RVA: 0x000F07C0 File Offset: 0x000EE9C0
+	// Token: 0x17000CF0 RID: 3312
+	// (get) Token: 0x0600436A RID: 17258 RVA: 0x000F93BC File Offset: 0x000F75BC
+	// (set) Token: 0x0600436B RID: 17259 RVA: 0x000F93C4 File Offset: 0x000F75C4
 	public bool ActAsSlider
 	{
 		get
@@ -221,8 +221,8 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x06003F50 RID: 16208 RVA: 0x000F07CC File Offset: 0x000EE9CC
-	protected internal override void OnMouseWheel(dfMouseEventArgs args)
+	// Token: 0x0600436C RID: 17260 RVA: 0x000F93D0 File Offset: 0x000F75D0
+	protected internal override void OnMouseWheel(global::dfMouseEventArgs args)
 	{
 		try
 		{
@@ -239,14 +239,14 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x06003F51 RID: 16209 RVA: 0x000F0848 File Offset: 0x000EEA48
-	protected internal override void OnMouseMove(dfMouseEventArgs args)
+	// Token: 0x0600436D RID: 17261 RVA: 0x000F944C File Offset: 0x000F764C
+	protected internal override void OnMouseMove(global::dfMouseEventArgs args)
 	{
 		try
 		{
 			if (this.actAsSlider)
 			{
-				if (args.Buttons.IsSet(dfMouseButtons.Left))
+				if (args.Buttons.IsSet(global::dfMouseButtons.Left))
 				{
 					this.Value = this.getValueFromMouseEvent(args);
 					args.Use();
@@ -259,14 +259,14 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x06003F52 RID: 16210 RVA: 0x000F08B8 File Offset: 0x000EEAB8
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x0600436E RID: 17262 RVA: 0x000F94BC File Offset: 0x000F76BC
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
 		try
 		{
 			if (this.actAsSlider)
 			{
-				if (args.Buttons.IsSet(dfMouseButtons.Left))
+				if (args.Buttons.IsSet(global::dfMouseButtons.Left))
 				{
 					base.Focus();
 					this.Value = this.getValueFromMouseEvent(args);
@@ -280,8 +280,8 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x06003F53 RID: 16211 RVA: 0x000F0930 File Offset: 0x000EEB30
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x0600436F RID: 17263 RVA: 0x000F9534 File Offset: 0x000F7734
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
 		try
 		{
@@ -306,7 +306,7 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x06003F54 RID: 16212 RVA: 0x000F09DC File Offset: 0x000EEBDC
+	// Token: 0x06004370 RID: 17264 RVA: 0x000F95E0 File Offset: 0x000F77E0
 	protected internal virtual void OnValueChanged()
 	{
 		this.Invalidate();
@@ -320,7 +320,7 @@ public class dfProgressBar : dfControl
 		}
 	}
 
-	// Token: 0x06003F55 RID: 16213 RVA: 0x000F0A2C File Offset: 0x000EEC2C
+	// Token: 0x06004371 RID: 17265 RVA: 0x000F9630 File Offset: 0x000F7830
 	protected override void OnRebuildRenderData()
 	{
 		if (this.Atlas == null)
@@ -332,14 +332,14 @@ public class dfProgressBar : dfControl
 		this.renderProgressFill();
 	}
 
-	// Token: 0x06003F56 RID: 16214 RVA: 0x000F0A70 File Offset: 0x000EEC70
+	// Token: 0x06004372 RID: 17266 RVA: 0x000F9674 File Offset: 0x000F7874
 	private void renderProgressFill()
 	{
 		if (this.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[this.progressSprite];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[this.progressSprite];
 		if (itemInfo == null)
 		{
 			return;
@@ -351,11 +351,11 @@ public class dfProgressBar : dfControl
 		float fillAmount = 1f;
 		float num = this.maxValue - this.minValue;
 		float num2 = (this.rawValue - this.minValue) / num;
-		dfProgressFillMode dfProgressFillMode = this.fillMode;
-		if (dfProgressFillMode != dfProgressFillMode.Stretch || size.x * num2 < (float)itemInfo.border.horizontal)
+		global::dfProgressFillMode dfProgressFillMode = this.fillMode;
+		if (dfProgressFillMode != global::dfProgressFillMode.Stretch || size.x * num2 < (float)itemInfo.border.horizontal)
 		{
 		}
-		if (dfProgressFillMode == dfProgressFillMode.Fill)
+		if (dfProgressFillMode == global::dfProgressFillMode.Fill)
 		{
 			fillAmount = num2;
 		}
@@ -364,7 +364,7 @@ public class dfProgressBar : dfControl
 			size.x = Mathf.Max((float)itemInfo.border.horizontal, size.x * num2);
 		}
 		Color32 color = base.ApplyOpacity((!base.IsEnabled) ? base.DisabledColor : this.ProgressColor);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -376,28 +376,28 @@ public class dfProgressBar : dfControl
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x06003F57 RID: 16215 RVA: 0x000F0C54 File Offset: 0x000EEE54
+	// Token: 0x06004373 RID: 17267 RVA: 0x000F9858 File Offset: 0x000F7A58
 	private void renderBackground()
 	{
 		if (this.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
 		if (itemInfo == null)
 		{
 			return;
 		}
 		Color32 color = base.ApplyOpacity((!base.IsEnabled) ? base.DisabledColor : base.Color);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -409,16 +409,16 @@ public class dfProgressBar : dfControl
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x06003F58 RID: 16216 RVA: 0x000F0D5C File Offset: 0x000EEF5C
-	private float getValueFromMouseEvent(dfMouseEventArgs args)
+	// Token: 0x06004374 RID: 17268 RVA: 0x000F9960 File Offset: 0x000F7B60
+	private float getValueFromMouseEvent(global::dfMouseEventArgs args)
 	{
 		Vector3[] endPoints = this.getEndPoints(true);
 		Vector3 vector = endPoints[0];
@@ -432,12 +432,12 @@ public class dfProgressBar : dfControl
 			return this.rawValue;
 		}
 		Vector3 test = ray.origin + ray.direction * num;
-		Vector3 vector3 = dfProgressBar.closestPoint(vector, vector2, test, true);
+		Vector3 vector3 = global::dfProgressBar.closestPoint(vector, vector2, test, true);
 		float num2 = (vector3 - vector).magnitude / (vector2 - vector).magnitude;
 		return this.minValue + (this.maxValue - this.minValue) * num2;
 	}
 
-	// Token: 0x06003F59 RID: 16217 RVA: 0x000F0E30 File Offset: 0x000EF030
+	// Token: 0x06004375 RID: 17269 RVA: 0x000F9A34 File Offset: 0x000F7C34
 	private Vector3[] getEndPoints(bool convertToWorld = false)
 	{
 		Vector3 vector = this.pivot.TransformToUpperLeft(base.Size);
@@ -458,7 +458,7 @@ public class dfProgressBar : dfControl
 		};
 	}
 
-	// Token: 0x06003F5A RID: 16218 RVA: 0x000F0F04 File Offset: 0x000EF104
+	// Token: 0x06004376 RID: 17270 RVA: 0x000F9B08 File Offset: 0x000F7D08
 	private static Vector3 closestPoint(Vector3 start, Vector3 end, Vector3 test, bool clamp)
 	{
 		Vector3 vector = test - start;
@@ -480,57 +480,57 @@ public class dfProgressBar : dfControl
 		return start + vector2;
 	}
 
-	// Token: 0x06003F5B RID: 16219 RVA: 0x000F0F70 File Offset: 0x000EF170
+	// Token: 0x06004377 RID: 17271 RVA: 0x000F9B74 File Offset: 0x000F7D74
 	private void setDefaultSize(string spriteName)
 	{
 		if (this.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[spriteName];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[spriteName];
 		if (this.size == Vector2.zero && itemInfo != null)
 		{
 			base.Size = itemInfo.sizeInPixels;
 		}
 	}
 
-	// Token: 0x040021C6 RID: 8646
+	// Token: 0x040023CF RID: 9167
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x040021C7 RID: 8647
+	// Token: 0x040023D0 RID: 9168
 	[SerializeField]
 	protected string backgroundSprite;
 
-	// Token: 0x040021C8 RID: 8648
+	// Token: 0x040023D1 RID: 9169
 	[SerializeField]
 	protected string progressSprite;
 
-	// Token: 0x040021C9 RID: 8649
+	// Token: 0x040023D2 RID: 9170
 	[SerializeField]
 	protected Color32 progressColor = UnityEngine.Color.white;
 
-	// Token: 0x040021CA RID: 8650
+	// Token: 0x040023D3 RID: 9171
 	[SerializeField]
 	protected float rawValue = 0.25f;
 
-	// Token: 0x040021CB RID: 8651
+	// Token: 0x040023D4 RID: 9172
 	[SerializeField]
 	protected float minValue;
 
-	// Token: 0x040021CC RID: 8652
+	// Token: 0x040023D5 RID: 9173
 	[SerializeField]
 	protected float maxValue = 1f;
 
-	// Token: 0x040021CD RID: 8653
+	// Token: 0x040023D6 RID: 9174
 	[SerializeField]
-	protected dfProgressFillMode fillMode;
+	protected global::dfProgressFillMode fillMode;
 
-	// Token: 0x040021CE RID: 8654
+	// Token: 0x040023D7 RID: 9175
 	[SerializeField]
 	protected RectOffset padding = new RectOffset();
 
-	// Token: 0x040021CF RID: 8655
+	// Token: 0x040023D8 RID: 9176
 	[SerializeField]
 	protected bool actAsSlider;
 }

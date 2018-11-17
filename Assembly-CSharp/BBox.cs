@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200023E RID: 574
+// Token: 0x02000271 RID: 625
 public struct BBox
 {
-	// Token: 0x1700063E RID: 1598
+	// Token: 0x17000686 RID: 1670
 	public Vector3 this[int corner]
 	{
 		get
@@ -65,7 +65,7 @@ public struct BBox
 		}
 	}
 
-	// Token: 0x1700063F RID: 1599
+	// Token: 0x17000687 RID: 1671
 	public float this[int corner, int axis]
 	{
 		get
@@ -126,27 +126,27 @@ public struct BBox
 		}
 	}
 
-	// Token: 0x04000A94 RID: 2708
+	// Token: 0x04000BB7 RID: 2999
 	public Vector3 a;
 
-	// Token: 0x04000A95 RID: 2709
+	// Token: 0x04000BB8 RID: 3000
 	public Vector3 b;
 
-	// Token: 0x04000A96 RID: 2710
+	// Token: 0x04000BB9 RID: 3001
 	public Vector3 c;
 
-	// Token: 0x04000A97 RID: 2711
+	// Token: 0x04000BBA RID: 3002
 	public Vector3 d;
 
-	// Token: 0x04000A98 RID: 2712
+	// Token: 0x04000BBB RID: 3003
 	public Vector3 e;
 
-	// Token: 0x04000A99 RID: 2713
+	// Token: 0x04000BBC RID: 3004
 	public Vector3 f;
 
-	// Token: 0x04000A9A RID: 2714
+	// Token: 0x04000BBD RID: 3005
 	public Vector3 g;
 
-	// Token: 0x04000A9B RID: 2715
+	// Token: 0x04000BBE RID: 3006
 	public Vector3 h;
 }

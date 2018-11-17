@@ -1,83 +1,83 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000418 RID: 1048
+// Token: 0x020004CD RID: 1229
 public class RPOSItemRightClickMenu : MonoBehaviour
 {
-	// Token: 0x060026BF RID: 9919 RVA: 0x000971A8 File Offset: 0x000953A8
+	// Token: 0x06002A49 RID: 10825 RVA: 0x0009D06C File Offset: 0x0009B26C
 	public void Awake()
 	{
 		if (this.uiCamera == null)
 		{
-			this.uiCamera = NGUITools.FindCameraForLayer(base.gameObject.layer);
+			this.uiCamera = global::NGUITools.FindCameraForLayer(base.gameObject.layer);
 		}
 		this.planeTest = new Plane(this.uiCamera.transform.forward * 1f, new Vector3(0f, 0f, 2f));
-		base.GetComponent<UIPanel>().enabled = false;
+		base.GetComponent<global::UIPanel>().enabled = false;
 	}
 
-	// Token: 0x060026C0 RID: 9920 RVA: 0x00097224 File Offset: 0x00095424
+	// Token: 0x06002A4A RID: 10826 RVA: 0x0009D0E8 File Offset: 0x0009B2E8
 	public void AddRightClickEntry(string entry)
 	{
-		GameObject gameObject = NGUITools.AddChild(base.gameObject, this._buttonPrefab);
-		gameObject.GetComponentInChildren<UILabel>().text = entry;
-		UIEventListener uieventListener = UIEventListener.Get(gameObject);
-		UIEventListener uieventListener2 = uieventListener;
-		uieventListener2.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new UIEventListener.VoidDelegate(this.EntryClicked));
+		GameObject gameObject = global::NGUITools.AddChild(base.gameObject, this._buttonPrefab);
+		gameObject.GetComponentInChildren<global::UILabel>().text = entry;
+		global::UIEventListener uieventListener = global::UIEventListener.Get(gameObject);
+		global::UIEventListener uieventListener2 = uieventListener;
+		uieventListener2.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new global::UIEventListener.VoidDelegate(this.EntryClicked));
 		gameObject.name = entry;
 		Vector3 localPosition = gameObject.transform.localPosition;
 		localPosition.y = this.lastHeight;
 		gameObject.transform.localPosition = localPosition;
-		this.lastHeight -= gameObject.GetComponentInChildren<UISlicedSprite>().transform.localScale.y;
+		this.lastHeight -= gameObject.GetComponentInChildren<global::UISlicedSprite>().transform.localScale.y;
 	}
 
-	// Token: 0x060026C1 RID: 9921 RVA: 0x000972CC File Offset: 0x000954CC
-	public virtual void SetItem(IInventoryItem item)
+	// Token: 0x06002A4B RID: 10827 RVA: 0x0009D190 File Offset: 0x0009B390
+	public virtual void SetItem(global::IInventoryItem item)
 	{
 		this.ClearChildren();
 		this._observedItem = item;
-		int num = item.datablock.RetreiveMenuOptions(item, RPOSItemRightClickMenu.menuItemBuffer, 0);
+		int num = item.datablock.RetreiveMenuOptions(item, global::RPOSItemRightClickMenu.menuItemBuffer, 0);
 		for (int i = 0; i < num; i++)
 		{
-			this.AddRightClickEntry(RPOSItemRightClickMenu.menuItemBuffer[i].ToString());
+			this.AddRightClickEntry(global::RPOSItemRightClickMenu.menuItemBuffer[i].ToString());
 		}
-		UICamera.PopupPanel(base.GetComponent<UIPanel>());
+		global::UICamera.PopupPanel(base.GetComponent<global::UIPanel>());
 	}
 
-	// Token: 0x060026C2 RID: 9922 RVA: 0x00097330 File Offset: 0x00095530
+	// Token: 0x06002A4C RID: 10828 RVA: 0x0009D1F4 File Offset: 0x0009B3F4
 	private void PopupStart()
 	{
 		this.RepositionAtCursor();
-		base.GetComponent<UIPanel>().enabled = true;
+		base.GetComponent<global::UIPanel>().enabled = true;
 	}
 
-	// Token: 0x060026C3 RID: 9923 RVA: 0x00097344 File Offset: 0x00095544
+	// Token: 0x06002A4D RID: 10829 RVA: 0x0009D208 File Offset: 0x0009B408
 	private void PopupEnd()
 	{
-		base.GetComponent<UIPanel>().enabled = false;
+		base.GetComponent<global::UIPanel>().enabled = false;
 	}
 
-	// Token: 0x060026C4 RID: 9924 RVA: 0x00097354 File Offset: 0x00095554
+	// Token: 0x06002A4E RID: 10830 RVA: 0x0009D218 File Offset: 0x0009B418
 	public void ClearChildren()
 	{
-		UIButton[] componentsInChildren = base.GetComponentsInChildren<UIButton>();
-		foreach (UIButton uibutton in componentsInChildren)
+		global::UIButton[] componentsInChildren = base.GetComponentsInChildren<global::UIButton>();
+		foreach (global::UIButton uibutton in componentsInChildren)
 		{
 			Object.Destroy(uibutton.gameObject);
 		}
 		this.lastHeight = 0f;
 	}
 
-	// Token: 0x060026C5 RID: 9925 RVA: 0x00097398 File Offset: 0x00095598
+	// Token: 0x06002A4F RID: 10831 RVA: 0x0009D25C File Offset: 0x0009B45C
 	public void EntryClicked(GameObject go)
 	{
 		try
 		{
 			if (this._observedItem != null)
 			{
-				InventoryItem.MenuItem? menuItem;
+				global::InventoryItem.MenuItem? menuItem;
 				try
 				{
-					menuItem = new InventoryItem.MenuItem?((InventoryItem.MenuItem)((byte)Enum.Parse(typeof(InventoryItem.MenuItem), go.name, true)));
+					menuItem = new global::InventoryItem.MenuItem?((global::InventoryItem.MenuItem)((byte)Enum.Parse(typeof(global::InventoryItem.MenuItem), go.name, true)));
 				}
 				catch (Exception ex)
 				{
@@ -96,20 +96,20 @@ public class RPOSItemRightClickMenu : MonoBehaviour
 		}
 		finally
 		{
-			UICamera.UnPopupPanel(base.GetComponent<UIPanel>());
+			global::UICamera.UnPopupPanel(base.GetComponent<global::UIPanel>());
 		}
 	}
 
-	// Token: 0x060026C6 RID: 9926 RVA: 0x00097478 File Offset: 0x00095678
+	// Token: 0x06002A50 RID: 10832 RVA: 0x0009D33C File Offset: 0x0009B53C
 	public void RepositionAtCursor()
 	{
-		Vector3 vector = UICamera.lastMousePosition;
+		Vector3 vector = global::UICamera.lastMousePosition;
 		Ray ray = this.uiCamera.ScreenPointToRay(vector);
 		float num = 0f;
 		if (this.planeTest.Raycast(ray, ref num))
 		{
 			base.transform.position = ray.GetPoint(num);
-			AABBox aabbox = NGUIMath.CalculateRelativeWidgetBounds(base.transform);
+			global::AABBox aabbox = global::NGUIMath.CalculateRelativeWidgetBounds(base.transform);
 			float num2 = base.transform.localPosition.x + aabbox.size.x - (float)Screen.width;
 			if (num2 > 0f)
 			{
@@ -124,21 +124,21 @@ public class RPOSItemRightClickMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001306 RID: 4870
-	private IInventoryItem _observedItem;
+	// Token: 0x04001486 RID: 5254
+	private global::IInventoryItem _observedItem;
 
-	// Token: 0x04001307 RID: 4871
+	// Token: 0x04001487 RID: 5255
 	public GameObject _buttonPrefab;
 
-	// Token: 0x04001308 RID: 4872
+	// Token: 0x04001488 RID: 5256
 	public Camera uiCamera;
 
-	// Token: 0x04001309 RID: 4873
+	// Token: 0x04001489 RID: 5257
 	private Plane planeTest;
 
-	// Token: 0x0400130A RID: 4874
+	// Token: 0x0400148A RID: 5258
 	public float lastHeight;
 
-	// Token: 0x0400130B RID: 4875
-	private static readonly InventoryItem.MenuItem[] menuItemBuffer = new InventoryItem.MenuItem[30];
+	// Token: 0x0400148B RID: 5259
+	private static readonly global::InventoryItem.MenuItem[] menuItemBuffer = new global::InventoryItem.MenuItem[30];
 }

@@ -3,17 +3,17 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x02000706 RID: 1798
+// Token: 0x020007DA RID: 2010
 [AddComponentMenu("Daikon Forge/Data Binding/Proxy Data Object")]
 [Serializable]
-public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
+public class dfDataObjectProxy : MonoBehaviour, global::IDataBindingComponent
 {
 	// Token: 0x1400005B RID: 91
-	// (add) Token: 0x0600418E RID: 16782 RVA: 0x000FCF34 File Offset: 0x000FB134
-	// (remove) Token: 0x0600418F RID: 16783 RVA: 0x000FCF50 File Offset: 0x000FB150
-	public event dfDataObjectProxy.DataObjectChangedHandler DataChanged;
+	// (add) Token: 0x060045B6 RID: 17846 RVA: 0x00105DE8 File Offset: 0x00103FE8
+	// (remove) Token: 0x060045B7 RID: 17847 RVA: 0x00105E04 File Offset: 0x00104004
+	public event global::dfDataObjectProxy.DataObjectChangedHandler DataChanged;
 
-	// Token: 0x06004190 RID: 16784 RVA: 0x000FCF6C File Offset: 0x000FB16C
+	// Token: 0x060045B8 RID: 17848 RVA: 0x00105E20 File Offset: 0x00104020
 	public void Start()
 	{
 		if (this.DataType == null)
@@ -22,9 +22,9 @@ public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x17000CEE RID: 3310
-	// (get) Token: 0x06004191 RID: 16785 RVA: 0x000FCF9C File Offset: 0x000FB19C
-	// (set) Token: 0x06004192 RID: 16786 RVA: 0x000FCFA4 File Offset: 0x000FB1A4
+	// Token: 0x17000D76 RID: 3446
+	// (get) Token: 0x060045B9 RID: 17849 RVA: 0x00105E50 File Offset: 0x00104050
+	// (set) Token: 0x060045BA RID: 17850 RVA: 0x00105E58 File Offset: 0x00104058
 	public string TypeName
 	{
 		get
@@ -41,8 +41,8 @@ public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x17000CEF RID: 3311
-	// (get) Token: 0x06004193 RID: 16787 RVA: 0x000FCFC8 File Offset: 0x000FB1C8
+	// Token: 0x17000D77 RID: 3447
+	// (get) Token: 0x060045BB RID: 17851 RVA: 0x00105E7C File Offset: 0x0010407C
 	public Type DataType
 	{
 		get
@@ -51,9 +51,9 @@ public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x17000CF0 RID: 3312
-	// (get) Token: 0x06004194 RID: 16788 RVA: 0x000FCFD8 File Offset: 0x000FB1D8
-	// (set) Token: 0x06004195 RID: 16789 RVA: 0x000FCFE0 File Offset: 0x000FB1E0
+	// Token: 0x17000D78 RID: 3448
+	// (get) Token: 0x060045BC RID: 17852 RVA: 0x00105E8C File Offset: 0x0010408C
+	// (set) Token: 0x060045BD RID: 17853 RVA: 0x00105E94 File Offset: 0x00104094
 	public object Data
 	{
 		get
@@ -77,7 +77,7 @@ public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x06004196 RID: 16790 RVA: 0x000FD034 File Offset: 0x000FB234
+	// Token: 0x060045BE RID: 17854 RVA: 0x00105EE8 File Offset: 0x001040E8
 	public Type GetPropertyType(string PropertyName)
 	{
 		Type dataType = this.DataType;
@@ -97,17 +97,17 @@ public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
 		return null;
 	}
 
-	// Token: 0x06004197 RID: 16791 RVA: 0x000FD090 File Offset: 0x000FB290
-	public dfObservableProperty GetProperty(string PropertyName)
+	// Token: 0x060045BF RID: 17855 RVA: 0x00105F44 File Offset: 0x00104144
+	public global::dfObservableProperty GetProperty(string PropertyName)
 	{
 		if (this.data == null)
 		{
 			return null;
 		}
-		return new dfObservableProperty(this.data, PropertyName);
+		return new global::dfObservableProperty(this.data, PropertyName);
 	}
 
-	// Token: 0x06004198 RID: 16792 RVA: 0x000FD0AC File Offset: 0x000FB2AC
+	// Token: 0x060045C0 RID: 17856 RVA: 0x00105F60 File Offset: 0x00104160
 	private Type getTypeFromName(string typeName)
 	{
 		Type[] types = base.GetType().Assembly.GetTypes();
@@ -116,7 +116,7 @@ public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
 		select t).FirstOrDefault<Type>();
 	}
 
-	// Token: 0x06004199 RID: 16793 RVA: 0x000FD0F0 File Offset: 0x000FB2F0
+	// Token: 0x060045C1 RID: 17857 RVA: 0x00105FA4 File Offset: 0x001041A4
 	private static Type getTypeFromQualifiedName(string typeName)
 	{
 		Type type = Type.GetType(typeName);
@@ -137,25 +137,25 @@ public class dfDataObjectProxy : MonoBehaviour, IDataBindingComponent
 		return assembly.GetType(typeName);
 	}
 
-	// Token: 0x0600419A RID: 16794 RVA: 0x000FD144 File Offset: 0x000FB344
+	// Token: 0x060045C2 RID: 17858 RVA: 0x00105FF8 File Offset: 0x001041F8
 	public void Bind()
 	{
 	}
 
-	// Token: 0x0600419B RID: 16795 RVA: 0x000FD148 File Offset: 0x000FB348
+	// Token: 0x060045C3 RID: 17859 RVA: 0x00105FFC File Offset: 0x001041FC
 	public void Unbind()
 	{
 	}
 
-	// Token: 0x04002295 RID: 8853
+	// Token: 0x040024A5 RID: 9381
 	[SerializeField]
 	protected string typeName;
 
-	// Token: 0x04002296 RID: 8854
+	// Token: 0x040024A6 RID: 9382
 	private object data;
 
-	// Token: 0x020008DF RID: 2271
-	// (Invoke) Token: 0x06004D54 RID: 19796
-	[dfEventCategory("Data Changed")]
+	// Token: 0x020007DB RID: 2011
+	// (Invoke) Token: 0x060045C5 RID: 17861
+	[global::dfEventCategory("Data Changed")]
 	public delegate void DataObjectChangedHandler(object data);
 }

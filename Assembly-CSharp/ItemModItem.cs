@@ -1,45 +1,45 @@
 ﻿using System;
 
-// Token: 0x020005D9 RID: 1497
-public abstract class ItemModItem<T> : InventoryItem<T> where T : ItemModDataBlock
+// Token: 0x02000697 RID: 1687
+public abstract class ItemModItem<T> : global::InventoryItem<T> where T : global::ItemModDataBlock
 {
-	// Token: 0x060035F6 RID: 13814 RVA: 0x000C34CC File Offset: 0x000C16CC
+	// Token: 0x060039BE RID: 14782 RVA: 0x000CB728 File Offset: 0x000C9928
 	protected ItemModItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x060035F7 RID: 13815 RVA: 0x000C34D8 File Offset: 0x000C16D8
-	public override InventoryItem.MergeResult TryStack(IInventoryItem otherItem)
+	// Token: 0x060039BF RID: 14783 RVA: 0x000CB734 File Offset: 0x000C9934
+	public override global::InventoryItem.MergeResult TryStack(global::IInventoryItem otherItem)
 	{
-		InventoryItem.MergeResult mergeResult = this.TryCombine(otherItem);
-		if (mergeResult == InventoryItem.MergeResult.Failed)
+		global::InventoryItem.MergeResult mergeResult = this.TryCombine(otherItem);
+		if (mergeResult == global::InventoryItem.MergeResult.Failed)
 		{
 			return base.TryStack(otherItem);
 		}
 		return mergeResult;
 	}
 
-	// Token: 0x060035F8 RID: 13816 RVA: 0x000C34FC File Offset: 0x000C16FC
-	public override InventoryItem.MergeResult TryCombine(IInventoryItem otherItem)
+	// Token: 0x060039C0 RID: 14784 RVA: 0x000CB758 File Offset: 0x000C9958
+	public override global::InventoryItem.MergeResult TryCombine(global::IInventoryItem otherItem)
 	{
-		IHeldItem heldItem = otherItem as IHeldItem;
+		global::IHeldItem heldItem = otherItem as global::IHeldItem;
 		if (heldItem == null)
 		{
-			return InventoryItem.MergeResult.Failed;
+			return global::InventoryItem.MergeResult.Failed;
 		}
 		if (heldItem.freeModSlots <= 0)
 		{
-			return InventoryItem.MergeResult.Failed;
+			return global::InventoryItem.MergeResult.Failed;
 		}
-		if (!(otherItem.datablock is BulletWeaponDataBlock))
+		if (!(otherItem.datablock is global::BulletWeaponDataBlock))
 		{
 			return base.TryCombine(otherItem);
 		}
-		IHeldItem heldItem2 = otherItem as IHeldItem;
+		global::IHeldItem heldItem2 = otherItem as global::IHeldItem;
 		if (heldItem2.FindMod(this.datablock) != -1)
 		{
-			return InventoryItem.MergeResult.Failed;
+			return global::InventoryItem.MergeResult.Failed;
 		}
-		return InventoryItem.MergeResult.Combined;
+		return global::InventoryItem.MergeResult.Combined;
 	}
 }

@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Facepunch.Procedural
 {
-	// Token: 0x020004EB RID: 1259
+	// Token: 0x020005A6 RID: 1446
 	public struct Origin
 	{
-		// Token: 0x06002AEF RID: 10991 RVA: 0x000AB8AC File Offset: 0x000A9AAC
+		// Token: 0x06002EA1 RID: 11937 RVA: 0x000B3644 File Offset: 0x000B1844
 		public void Target(ref Vector3 target, float moveSpeed)
 		{
 			if (!this.value.clock.once)
@@ -46,7 +46,7 @@ namespace Facepunch.Procedural
 			}
 		}
 
-		// Token: 0x06002AF0 RID: 10992 RVA: 0x000ABAE8 File Offset: 0x000A9CE8
+		// Token: 0x06002EA2 RID: 11938 RVA: 0x000B3880 File Offset: 0x000B1A80
 		public Integration Advance(ulong millis)
 		{
 			Integration integration = this.value.clock.IntegrateTime(millis);
@@ -68,11 +68,11 @@ namespace Facepunch.Procedural
 			return integration;
 		}
 
-		// Token: 0x0400177D RID: 6013
+		// Token: 0x0400193A RID: 6458
 		[NonSerialized]
 		public Integrated<Vector3> value;
 
-		// Token: 0x0400177E RID: 6014
+		// Token: 0x0400193B RID: 6459
 		[NonSerialized]
 		public Vector3 delta;
 	}

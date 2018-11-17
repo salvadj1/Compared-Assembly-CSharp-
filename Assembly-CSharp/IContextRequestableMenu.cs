@@ -1,7 +1,7 @@
 ﻿using System;
 using Facepunch;
 
-// Token: 0x0200046D RID: 1133
-public interface IContextRequestableMenu : IContextRequestable, IComponentInterface<IContextRequestable, MonoBehaviour, Contextual>, IComponentInterface<IContextRequestable, MonoBehaviour>, IComponentInterface<IContextRequestable>
+// Token: 0x02000523 RID: 1315
+public interface IContextRequestableMenu : global::IContextRequestable, global::IComponentInterface<global::IContextRequestable, MonoBehaviour, global::Contextual>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour>, global::IComponentInterface<global::IContextRequestable>
 {
 }

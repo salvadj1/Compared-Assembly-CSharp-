@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200082B RID: 2091
+// Token: 0x02000920 RID: 2336
 [Serializable]
 public class TOD_AtmosphereParameters
 {
-	// Token: 0x06004A67 RID: 19047 RVA: 0x00142BF4 File Offset: 0x00140DF4
+	// Token: 0x06004F22 RID: 20258 RVA: 0x0014CB58 File Offset: 0x0014AD58
 	public void CheckRange()
 	{
 		this.MieMultiplier = Mathf.Max(0f, this.MieMultiplier);
@@ -17,27 +17,27 @@ public class TOD_AtmosphereParameters
 		this.Fogginess = Mathf.Clamp01(this.Fogginess);
 	}
 
-	// Token: 0x04002B23 RID: 11043
+	// Token: 0x04002D71 RID: 11633
 	public Color ScatteringColor = Color.white;
 
-	// Token: 0x04002B24 RID: 11044
+	// Token: 0x04002D72 RID: 11634
 	public float RayleighMultiplier = 1f;
 
-	// Token: 0x04002B25 RID: 11045
+	// Token: 0x04002D73 RID: 11635
 	public float MieMultiplier = 1f;
 
-	// Token: 0x04002B26 RID: 11046
+	// Token: 0x04002D74 RID: 11636
 	public float Brightness = 1f;
 
-	// Token: 0x04002B27 RID: 11047
+	// Token: 0x04002D75 RID: 11637
 	public float Contrast = 1f;
 
-	// Token: 0x04002B28 RID: 11048
+	// Token: 0x04002D76 RID: 11638
 	public float Directionality = 0.5f;
 
-	// Token: 0x04002B29 RID: 11049
+	// Token: 0x04002D77 RID: 11639
 	public float Haziness = 0.5f;
 
-	// Token: 0x04002B2A RID: 11050
+	// Token: 0x04002D78 RID: 11640
 	public float Fogginess;
 }

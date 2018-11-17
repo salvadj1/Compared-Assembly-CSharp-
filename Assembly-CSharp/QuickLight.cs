@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004EC RID: 1260
+// Token: 0x020005A7 RID: 1447
 public class QuickLight : MonoBehaviour
 {
-	// Token: 0x06002AF2 RID: 10994 RVA: 0x000ABC04 File Offset: 0x000A9E04
+	// Token: 0x06002EA4 RID: 11940 RVA: 0x000B399C File Offset: 0x000B1B9C
 	public void Update()
 	{
 		base.light.range -= Time.deltaTime / this.duration;
@@ -15,9 +15,9 @@ public class QuickLight : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400177F RID: 6015
+	// Token: 0x0400193C RID: 6460
 	public float range = 1f;
 
-	// Token: 0x04001780 RID: 6016
+	// Token: 0x0400193D RID: 6461
 	public float duration = 0.25f;
 }

@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020007FC RID: 2044
+// Token: 0x020008EE RID: 2286
 [AddComponentMenu("NGUI/UI/Root")]
 [ExecuteInEditMode]
 public class UIRoot : MonoBehaviour
 {
-	// Token: 0x06004966 RID: 18790 RVA: 0x0012DD18 File Offset: 0x0012BF18
+	// Token: 0x06004E15 RID: 19989 RVA: 0x00137C7C File Offset: 0x00135E7C
 	private void Awake()
 	{
-		UIRoot.mRoots.Add(this);
+		global::UIRoot.mRoots.Add(this);
 	}
 
-	// Token: 0x06004967 RID: 18791 RVA: 0x0012DD28 File Offset: 0x0012BF28
+	// Token: 0x06004E16 RID: 19990 RVA: 0x00137C8C File Offset: 0x00135E8C
 	private void OnDestroy()
 	{
-		UIRoot.mRoots.Remove(this);
+		global::UIRoot.mRoots.Remove(this);
 	}
 
-	// Token: 0x06004968 RID: 18792 RVA: 0x0012DD38 File Offset: 0x0012BF38
+	// Token: 0x06004E17 RID: 19991 RVA: 0x00137C9C File Offset: 0x00135E9C
 	private void Start()
 	{
 		this.mTrans = base.transform;
-		UIOrthoCamera componentInChildren = base.GetComponentInChildren<UIOrthoCamera>();
+		global::UIOrthoCamera componentInChildren = base.GetComponentInChildren<global::UIOrthoCamera>();
 		if (componentInChildren != null)
 		{
 			Debug.LogWarning("UIRoot should not be active at the same time as UIOrthoCamera. Disabling UIOrthoCamera.", componentInChildren);
@@ -36,7 +36,7 @@ public class UIRoot : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004969 RID: 18793 RVA: 0x0012DD9C File Offset: 0x0012BF9C
+	// Token: 0x06004E18 RID: 19992 RVA: 0x00137D00 File Offset: 0x00135F00
 	private void Update()
 	{
 		this.manualHeight = Mathf.Max(2, (!this.automatic) ? this.manualHeight : Screen.height);
@@ -48,14 +48,14 @@ public class UIRoot : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600496A RID: 18794 RVA: 0x0012DE48 File Offset: 0x0012C048
+	// Token: 0x06004E19 RID: 19993 RVA: 0x00137DAC File Offset: 0x00135FAC
 	public static void Broadcast(string funcName)
 	{
 		int i = 0;
-		int count = UIRoot.mRoots.Count;
+		int count = global::UIRoot.mRoots.Count;
 		while (i < count)
 		{
-			UIRoot uiroot = UIRoot.mRoots[i];
+			global::UIRoot uiroot = global::UIRoot.mRoots[i];
 			if (uiroot != null)
 			{
 				uiroot.BroadcastMessage(funcName, 1);
@@ -64,7 +64,7 @@ public class UIRoot : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600496B RID: 18795 RVA: 0x0012DE94 File Offset: 0x0012C094
+	// Token: 0x06004E1A RID: 19994 RVA: 0x00137DF8 File Offset: 0x00135FF8
 	public static void Broadcast(string funcName, object param)
 	{
 		if (param == null)
@@ -74,10 +74,10 @@ public class UIRoot : MonoBehaviour
 		else
 		{
 			int i = 0;
-			int count = UIRoot.mRoots.Count;
+			int count = global::UIRoot.mRoots.Count;
 			while (i < count)
 			{
-				UIRoot uiroot = UIRoot.mRoots[i];
+				global::UIRoot uiroot = global::UIRoot.mRoots[i];
 				if (uiroot != null)
 				{
 					uiroot.BroadcastMessage(funcName, param, 1);
@@ -87,15 +87,15 @@ public class UIRoot : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400297D RID: 10621
-	private static List<UIRoot> mRoots = new List<UIRoot>();
+	// Token: 0x04002BCB RID: 11211
+	private static List<global::UIRoot> mRoots = new List<global::UIRoot>();
 
-	// Token: 0x0400297E RID: 10622
+	// Token: 0x04002BCC RID: 11212
 	public bool automatic = true;
 
-	// Token: 0x0400297F RID: 10623
+	// Token: 0x04002BCD RID: 11213
 	public int manualHeight = 800;
 
-	// Token: 0x04002980 RID: 10624
+	// Token: 0x04002BCE RID: 11214
 	private Transform mTrans;
 }

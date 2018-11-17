@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000114 RID: 276
+// Token: 0x02000133 RID: 307
 public struct CharacterStateInterpolatorData
 {
-	// Token: 0x06000793 RID: 1939 RVA: 0x000207C0 File Offset: 0x0001E9C0
-	public static void Lerp(ref CharacterStateInterpolatorData a, ref CharacterStateInterpolatorData b, float t, out CharacterStateInterpolatorData result)
+	// Token: 0x06000865 RID: 2149 RVA: 0x00023394 File Offset: 0x00021594
+	public static void Lerp(ref global::CharacterStateInterpolatorData a, ref global::CharacterStateInterpolatorData b, float t, out global::CharacterStateInterpolatorData result)
 	{
 		if (t == 0f)
 		{
@@ -21,7 +21,7 @@ public struct CharacterStateInterpolatorData
 			result.origin.x = a.origin.x * num + b.origin.x * t;
 			result.origin.y = a.origin.y * num + b.origin.y * t;
 			result.origin.z = a.origin.z * num + b.origin.z * t;
-			result.eyesAngles = default(Angle2);
+			result.eyesAngles = default(global::Angle2);
 			result.eyesAngles.yaw = a.eyesAngles.yaw + Mathf.DeltaAngle(a.eyesAngles.yaw, b.eyesAngles.yaw) * t;
 			result.eyesAngles.pitch = Mathf.DeltaAngle(0f, a.eyesAngles.pitch + Mathf.DeltaAngle(a.eyesAngles.pitch, b.eyesAngles.pitch) * t);
 			if (t > 1f)
@@ -44,12 +44,12 @@ public struct CharacterStateInterpolatorData
 		}
 	}
 
-	// Token: 0x04000561 RID: 1377
+	// Token: 0x0400062C RID: 1580
 	public Vector3 origin;
 
-	// Token: 0x04000562 RID: 1378
-	public Angle2 eyesAngles;
+	// Token: 0x0400062D RID: 1581
+	public global::Angle2 eyesAngles;
 
-	// Token: 0x04000563 RID: 1379
-	public CharacterStateFlags state;
+	// Token: 0x0400062E RID: 1582
+	public global::CharacterStateFlags state;
 }

@@ -1,20 +1,20 @@
 ﻿using System;
 
-// Token: 0x02000153 RID: 339
+// Token: 0x0200017D RID: 381
 public enum DamageTypeIndex
 {
-	// Token: 0x040006A9 RID: 1705
+	// Token: 0x040007B8 RID: 1976
 	damage_generic,
-	// Token: 0x040006AA RID: 1706
+	// Token: 0x040007B9 RID: 1977
 	damage_bullet,
-	// Token: 0x040006AB RID: 1707
+	// Token: 0x040007BA RID: 1978
 	damage_melee,
-	// Token: 0x040006AC RID: 1708
+	// Token: 0x040007BB RID: 1979
 	damage_explosion,
-	// Token: 0x040006AD RID: 1709
+	// Token: 0x040007BC RID: 1980
 	damage_radiation,
-	// Token: 0x040006AE RID: 1710
+	// Token: 0x040007BD RID: 1981
 	damage_cold,
-	// Token: 0x040006AF RID: 1711
+	// Token: 0x040007BE RID: 1982
 	damage_last
 }

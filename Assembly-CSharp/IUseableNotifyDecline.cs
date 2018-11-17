@@ -1,9 +1,9 @@
 ﻿using System;
 using Facepunch;
 
-// Token: 0x020001F6 RID: 502
-public interface IUseableNotifyDecline : IUseable, IComponentInterface<IUseable, MonoBehaviour, Useable>, IComponentInterface<IUseable, MonoBehaviour>, IComponentInterface<IUseable>
+// Token: 0x02000229 RID: 553
+public interface IUseableNotifyDecline : global::IUseable, global::IComponentInterface<global::IUseable, MonoBehaviour, global::Useable>, global::IComponentInterface<global::IUseable, MonoBehaviour>, global::IComponentInterface<global::IUseable>
 {
-	// Token: 0x06000DA5 RID: 3493
-	void OnUseDeclined(Character user, UseResponse response, UseEnterRequest request);
+	// Token: 0x06000EF9 RID: 3833
+	void OnUseDeclined(global::Character user, global::UseResponse response, global::UseEnterRequest request);
 }

@@ -2,23 +2,23 @@
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x02000801 RID: 2049
+// Token: 0x020008F3 RID: 2291
 [ExecuteInEditMode]
 [AddComponentMenu("NGUI/UI/Sprite (Basic)")]
-public class UISprite : UIWidget
+public class UISprite : global::UIWidget
 {
-	// Token: 0x0600499B RID: 18843 RVA: 0x00138D70 File Offset: 0x00136F70
-	public UISprite() : base(UIWidget.WidgetFlags.CustomPivotOffset | UIWidget.WidgetFlags.CustomMaterialGet)
+	// Token: 0x06004E4A RID: 20042 RVA: 0x00142CD4 File Offset: 0x00140ED4
+	public UISprite() : base(global::UIWidget.WidgetFlags.CustomPivotOffset | global::UIWidget.WidgetFlags.CustomMaterialGet)
 	{
 	}
 
-	// Token: 0x0600499C RID: 18844 RVA: 0x00138D84 File Offset: 0x00136F84
-	protected UISprite(UIWidget.WidgetFlags additionalFlags) : base(UIWidget.WidgetFlags.CustomPivotOffset | UIWidget.WidgetFlags.CustomMaterialGet | additionalFlags)
+	// Token: 0x06004E4B RID: 20043 RVA: 0x00142CE8 File Offset: 0x00140EE8
+	protected UISprite(global::UIWidget.WidgetFlags additionalFlags) : base(global::UIWidget.WidgetFlags.CustomPivotOffset | global::UIWidget.WidgetFlags.CustomMaterialGet | additionalFlags)
 	{
 	}
 
-	// Token: 0x17000E6A RID: 3690
-	// (get) Token: 0x0600499D RID: 18845 RVA: 0x00138D9C File Offset: 0x00136F9C
+	// Token: 0x17000F04 RID: 3844
+	// (get) Token: 0x06004E4C RID: 20044 RVA: 0x00142D00 File Offset: 0x00140F00
 	public Rect outerUV
 	{
 		get
@@ -28,10 +28,10 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x17000E6B RID: 3691
-	// (get) Token: 0x0600499E RID: 18846 RVA: 0x00138DAC File Offset: 0x00136FAC
-	// (set) Token: 0x0600499F RID: 18847 RVA: 0x00138DB4 File Offset: 0x00136FB4
-	public UIAtlas atlas
+	// Token: 0x17000F05 RID: 3845
+	// (get) Token: 0x06004E4D RID: 20045 RVA: 0x00142D10 File Offset: 0x00140F10
+	// (set) Token: 0x06004E4E RID: 20046 RVA: 0x00142D18 File Offset: 0x00140F18
+	public global::UIAtlas atlas
 	{
 		get
 		{
@@ -44,7 +44,7 @@ public class UISprite : UIWidget
 				this.mAtlas = value;
 				this.mSpriteSet = false;
 				this.mSprite = null;
-				this.material = ((!(this.mAtlas != null)) ? null : ((UIMaterial)this.mAtlas.spriteMaterial));
+				this.material = ((!(this.mAtlas != null)) ? null : ((global::UIMaterial)this.mAtlas.spriteMaterial));
 				if (string.IsNullOrEmpty(this.mSpriteName) && this.mAtlas != null && this.mAtlas.spriteList.Count > 0)
 				{
 					this.sprite = this.mAtlas.spriteList[0];
@@ -62,9 +62,9 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x17000E6C RID: 3692
-	// (get) Token: 0x060049A0 RID: 18848 RVA: 0x00138EAC File Offset: 0x001370AC
-	// (set) Token: 0x060049A1 RID: 18849 RVA: 0x00138EB4 File Offset: 0x001370B4
+	// Token: 0x17000F06 RID: 3846
+	// (get) Token: 0x06004E4F RID: 20047 RVA: 0x00142E10 File Offset: 0x00141010
+	// (set) Token: 0x06004E50 RID: 20048 RVA: 0x00142E18 File Offset: 0x00141018
 	public string spriteName
 	{
 		get
@@ -96,10 +96,10 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x17000E6D RID: 3693
-	// (get) Token: 0x060049A2 RID: 18850 RVA: 0x00138F34 File Offset: 0x00137134
-	// (set) Token: 0x060049A3 RID: 18851 RVA: 0x00139008 File Offset: 0x00137208
-	public UIAtlas.Sprite sprite
+	// Token: 0x17000F07 RID: 3847
+	// (get) Token: 0x06004E51 RID: 20049 RVA: 0x00142E98 File Offset: 0x00141098
+	// (set) Token: 0x06004E52 RID: 20050 RVA: 0x00142F6C File Offset: 0x0014116C
+	public global::UIAtlas.Sprite sprite
 	{
 		get
 		{
@@ -120,7 +120,7 @@ public class UISprite : UIWidget
 				}
 				if (this.mSprite != null)
 				{
-					this.material = (UIMaterial)this.mAtlas.spriteMaterial;
+					this.material = (global::UIMaterial)this.mAtlas.spriteMaterial;
 				}
 			}
 			return this.mSprite;
@@ -129,12 +129,12 @@ public class UISprite : UIWidget
 		{
 			this.mSprite = value;
 			this.mSpriteSet = true;
-			this.material = ((this.mSprite == null || !(this.mAtlas != null)) ? null : ((UIMaterial)this.mAtlas.spriteMaterial));
+			this.material = ((this.mSprite == null || !(this.mAtlas != null)) ? null : ((global::UIMaterial)this.mAtlas.spriteMaterial));
 		}
 	}
 
-	// Token: 0x17000E6E RID: 3694
-	// (get) Token: 0x060049A4 RID: 18852 RVA: 0x0013905C File Offset: 0x0013725C
+	// Token: 0x17000F08 RID: 3848
+	// (get) Token: 0x06004E53 RID: 20051 RVA: 0x00142FC0 File Offset: 0x001411C0
 	public new Vector2 pivotOffset
 	{
 		get
@@ -142,12 +142,12 @@ public class UISprite : UIWidget
 			Vector2 zero = Vector2.zero;
 			if (this.sprite != null)
 			{
-				UIWidget.Pivot pivot = base.pivot;
-				if (pivot == UIWidget.Pivot.Top || pivot == UIWidget.Pivot.Center || pivot == UIWidget.Pivot.Bottom)
+				global::UIWidget.Pivot pivot = base.pivot;
+				if (pivot == global::UIWidget.Pivot.Top || pivot == global::UIWidget.Pivot.Center || pivot == global::UIWidget.Pivot.Bottom)
 				{
 					zero.x = (-1f - this.mSprite.paddingRight + this.mSprite.paddingLeft) * 0.5f;
 				}
-				else if (pivot == UIWidget.Pivot.TopRight || pivot == UIWidget.Pivot.Right || pivot == UIWidget.Pivot.BottomRight)
+				else if (pivot == global::UIWidget.Pivot.TopRight || pivot == global::UIWidget.Pivot.Right || pivot == global::UIWidget.Pivot.BottomRight)
 				{
 					zero.x = -1f - this.mSprite.paddingRight;
 				}
@@ -155,11 +155,11 @@ public class UISprite : UIWidget
 				{
 					zero.x = this.mSprite.paddingLeft;
 				}
-				if (pivot == UIWidget.Pivot.Left || pivot == UIWidget.Pivot.Center || pivot == UIWidget.Pivot.Right)
+				if (pivot == global::UIWidget.Pivot.Left || pivot == global::UIWidget.Pivot.Center || pivot == global::UIWidget.Pivot.Right)
 				{
 					zero.y = (1f + this.mSprite.paddingBottom - this.mSprite.paddingTop) * 0.5f;
 				}
-				else if (pivot == UIWidget.Pivot.BottomLeft || pivot == UIWidget.Pivot.Bottom || pivot == UIWidget.Pivot.BottomRight)
+				else if (pivot == global::UIWidget.Pivot.BottomLeft || pivot == global::UIWidget.Pivot.Bottom || pivot == global::UIWidget.Pivot.BottomRight)
 				{
 					zero.y = 1f + this.mSprite.paddingBottom;
 				}
@@ -172,17 +172,17 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x17000E6F RID: 3695
-	// (get) Token: 0x060049A5 RID: 18853 RVA: 0x00139194 File Offset: 0x00137394
-	// (set) Token: 0x060049A6 RID: 18854 RVA: 0x00139200 File Offset: 0x00137400
-	public new UIMaterial material
+	// Token: 0x17000F09 RID: 3849
+	// (get) Token: 0x06004E54 RID: 20052 RVA: 0x001430F8 File Offset: 0x001412F8
+	// (set) Token: 0x06004E55 RID: 20053 RVA: 0x00143164 File Offset: 0x00141364
+	public new global::UIMaterial material
 	{
 		get
 		{
-			UIMaterial uimaterial = base.baseMaterial;
+			global::UIMaterial uimaterial = base.baseMaterial;
 			if (uimaterial == null)
 			{
-				uimaterial = ((!(this.mAtlas != null)) ? null : ((UIMaterial)this.mAtlas.spriteMaterial));
+				uimaterial = ((!(this.mAtlas != null)) ? null : ((global::UIMaterial)this.mAtlas.spriteMaterial));
 				this.mSprite = null;
 				base.baseMaterial = uimaterial;
 				if (uimaterial != null)
@@ -198,9 +198,9 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x17000E70 RID: 3696
-	// (get) Token: 0x060049A7 RID: 18855 RVA: 0x0013920C File Offset: 0x0013740C
-	protected override UIMaterial customMaterial
+	// Token: 0x17000F0A RID: 3850
+	// (get) Token: 0x06004E56 RID: 20054 RVA: 0x00143170 File Offset: 0x00141370
+	protected override global::UIMaterial customMaterial
 	{
 		get
 		{
@@ -208,13 +208,13 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x17000E71 RID: 3697
-	// (get) Token: 0x060049A8 RID: 18856 RVA: 0x00139214 File Offset: 0x00137414
+	// Token: 0x17000F0B RID: 3851
+	// (get) Token: 0x06004E57 RID: 20055 RVA: 0x00143178 File Offset: 0x00141378
 	public Vector4 border
 	{
 		get
 		{
-			if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.CustomBorder) == 16)
+			if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.CustomBorder) == 16)
 			{
 				return this.customBorder;
 			}
@@ -222,8 +222,8 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x17000E72 RID: 3698
-	// (get) Token: 0x060049A9 RID: 18857 RVA: 0x00139234 File Offset: 0x00137434
+	// Token: 0x17000F0C RID: 3852
+	// (get) Token: 0x06004E58 RID: 20056 RVA: 0x00143198 File Offset: 0x00141398
 	protected virtual Vector4 customBorder
 	{
 		get
@@ -232,7 +232,7 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x060049AA RID: 18858 RVA: 0x0013923C File Offset: 0x0013743C
+	// Token: 0x06004E59 RID: 20057 RVA: 0x001431A0 File Offset: 0x001413A0
 	public virtual void UpdateUVs(bool force)
 	{
 		if (this.sprite != null && (force || this.mOuter != this.mSprite.outer))
@@ -242,16 +242,16 @@ public class UISprite : UIWidget
 			{
 				this.mOuter = this.mSprite.outer;
 				this.mOuterUV = this.mOuter;
-				if (this.mAtlas.coordinates == UIAtlas.Coordinates.Pixels)
+				if (this.mAtlas.coordinates == global::UIAtlas.Coordinates.Pixels)
 				{
-					this.mOuterUV = NGUIMath.ConvertToTexCoords(this.mOuterUV, mainTexture.width, mainTexture.height);
+					this.mOuterUV = global::NGUIMath.ConvertToTexCoords(this.mOuterUV, mainTexture.width, mainTexture.height);
 				}
 				base.ChangedAuto();
 			}
 		}
 	}
 
-	// Token: 0x060049AB RID: 18859 RVA: 0x001392D8 File Offset: 0x001374D8
+	// Token: 0x06004E5A RID: 20058 RVA: 0x0014323C File Offset: 0x0014143C
 	public override void MakePixelPerfect()
 	{
 		if (this.sprite == null)
@@ -262,7 +262,7 @@ public class UISprite : UIWidget
 		Vector3 localScale = base.cachedTransform.localScale;
 		if (mainTexture != null)
 		{
-			Rect rect = NGUIMath.ConvertToPixels(this.outerUV, mainTexture.width, mainTexture.height, true);
+			Rect rect = global::NGUIMath.ConvertToPixels(this.outerUV, mainTexture.width, mainTexture.height, true);
 			float pixelSize = this.atlas.pixelSize;
 			localScale.x = (float)Mathf.RoundToInt(rect.width * pixelSize);
 			localScale.y = (float)Mathf.RoundToInt(rect.height * pixelSize);
@@ -273,7 +273,7 @@ public class UISprite : UIWidget
 		int num2 = Mathf.RoundToInt(localScale.y * (1f + this.mSprite.paddingTop + this.mSprite.paddingBottom));
 		Vector3 localPosition = base.cachedTransform.localPosition;
 		localPosition.z = (float)Mathf.RoundToInt(localPosition.z);
-		if (num % 2 == 1 && (base.pivot == UIWidget.Pivot.Top || base.pivot == UIWidget.Pivot.Center || base.pivot == UIWidget.Pivot.Bottom))
+		if (num % 2 == 1 && (base.pivot == global::UIWidget.Pivot.Top || base.pivot == global::UIWidget.Pivot.Center || base.pivot == global::UIWidget.Pivot.Bottom))
 		{
 			localPosition.x = Mathf.Floor(localPosition.x) + 0.5f;
 		}
@@ -281,7 +281,7 @@ public class UISprite : UIWidget
 		{
 			localPosition.x = Mathf.Round(localPosition.x);
 		}
-		if (num2 % 2 == 1 && (base.pivot == UIWidget.Pivot.Left || base.pivot == UIWidget.Pivot.Center || base.pivot == UIWidget.Pivot.Right))
+		if (num2 % 2 == 1 && (base.pivot == global::UIWidget.Pivot.Left || base.pivot == global::UIWidget.Pivot.Center || base.pivot == global::UIWidget.Pivot.Right))
 		{
 			localPosition.y = Mathf.Ceil(localPosition.y) - 0.5f;
 		}
@@ -292,7 +292,7 @@ public class UISprite : UIWidget
 		base.cachedTransform.localPosition = localPosition;
 	}
 
-	// Token: 0x060049AC RID: 18860 RVA: 0x001394C0 File Offset: 0x001376C0
+	// Token: 0x06004E5B RID: 20059 RVA: 0x00143424 File Offset: 0x00141624
 	protected override void OnStart()
 	{
 		if (this.mAtlas != null)
@@ -301,7 +301,7 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x060049AD RID: 18861 RVA: 0x001394DC File Offset: 0x001376DC
+	// Token: 0x06004E5C RID: 20060 RVA: 0x00143440 File Offset: 0x00141640
 	public override bool OnUpdate()
 	{
 		if (this.mLastName != this.mSpriteName)
@@ -316,18 +316,18 @@ public class UISprite : UIWidget
 		return false;
 	}
 
-	// Token: 0x060049AE RID: 18862 RVA: 0x0013952C File Offset: 0x0013772C
-	public override void OnFill(MeshBuffer m)
+	// Token: 0x06004E5D RID: 20061 RVA: 0x00143490 File Offset: 0x00141690
+	public override void OnFill(NGUI.Meshing.MeshBuffer m)
 	{
 		m.FastQuad(this.mOuterUV, base.color);
 	}
 
-	// Token: 0x060049AF RID: 18863 RVA: 0x00139544 File Offset: 0x00137744
-	protected override void GetCustomVector2s(int start, int end, UIWidget.WidgetFlags[] flags, Vector2[] v)
+	// Token: 0x06004E5E RID: 20062 RVA: 0x001434A8 File Offset: 0x001416A8
+	protected override void GetCustomVector2s(int start, int end, global::UIWidget.WidgetFlags[] flags, Vector2[] v)
 	{
 		for (int i = start; i < end; i++)
 		{
-			if (flags[i] == UIWidget.WidgetFlags.CustomPivotOffset)
+			if (flags[i] == global::UIWidget.WidgetFlags.CustomPivotOffset)
 			{
 				v[i] = this.pivotOffset;
 			}
@@ -338,31 +338,31 @@ public class UISprite : UIWidget
 		}
 	}
 
-	// Token: 0x04002998 RID: 10648
-	private const UIWidget.WidgetFlags kRequiredFlags = UIWidget.WidgetFlags.CustomPivotOffset | UIWidget.WidgetFlags.CustomMaterialGet;
+	// Token: 0x04002BE6 RID: 11238
+	private const global::UIWidget.WidgetFlags kRequiredFlags = global::UIWidget.WidgetFlags.CustomPivotOffset | global::UIWidget.WidgetFlags.CustomMaterialGet;
 
-	// Token: 0x04002999 RID: 10649
+	// Token: 0x04002BE7 RID: 11239
 	[HideInInspector]
 	[SerializeField]
-	private UIAtlas mAtlas;
+	private global::UIAtlas mAtlas;
 
-	// Token: 0x0400299A RID: 10650
-	[SerializeField]
+	// Token: 0x04002BE8 RID: 11240
 	[HideInInspector]
+	[SerializeField]
 	private string mSpriteName;
 
-	// Token: 0x0400299B RID: 10651
-	protected UIAtlas.Sprite mSprite;
+	// Token: 0x04002BE9 RID: 11241
+	protected global::UIAtlas.Sprite mSprite;
 
-	// Token: 0x0400299C RID: 10652
+	// Token: 0x04002BEA RID: 11242
 	protected Rect mOuter;
 
-	// Token: 0x0400299D RID: 10653
+	// Token: 0x04002BEB RID: 11243
 	protected Rect mOuterUV;
 
-	// Token: 0x0400299E RID: 10654
+	// Token: 0x04002BEC RID: 11244
 	private bool mSpriteSet;
 
-	// Token: 0x0400299F RID: 10655
+	// Token: 0x04002BED RID: 11245
 	private string mLastName = string.Empty;
 }

@@ -2,11 +2,11 @@
 using Facepunch.Attributes;
 using UnityEngine;
 
-// Token: 0x020003D5 RID: 981
-public sealed class NGCPrefabFieldAttribute : ObjectLookupFieldFixedTypeAttribute
+// Token: 0x02000482 RID: 1154
+public sealed class NGCPrefabFieldAttribute : Facepunch.Attributes.ObjectLookupFieldFixedTypeAttribute
 {
-	// Token: 0x0600249A RID: 9370 RVA: 0x0008BDB0 File Offset: 0x00089FB0
-	public NGCPrefabFieldAttribute() : base(PrefabLookupKinds.NGC, typeof(GameObject), SearchMode.MainAsset, null)
+	// Token: 0x060027FC RID: 10236 RVA: 0x000911AC File Offset: 0x0008F3AC
+	public NGCPrefabFieldAttribute() : base(Facepunch.Attributes.PrefabLookupKinds.NGC, typeof(GameObject), Facepunch.Attributes.SearchMode.MainAsset, null)
 	{
 	}
 }

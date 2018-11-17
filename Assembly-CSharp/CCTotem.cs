@@ -5,23 +5,23 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x0200028B RID: 651
+// Token: 0x020002C2 RID: 706
 public abstract class CCTotem : MonoBehaviour
 {
-	// Token: 0x06001783 RID: 6019 RVA: 0x0005B360 File Offset: 0x00059560
+	// Token: 0x060018EB RID: 6379 RVA: 0x0005F8B4 File Offset: 0x0005DAB4
 	internal CCTotem()
 	{
 	}
 
-	// Token: 0x06001784 RID: 6020 RVA: 0x0005B368 File Offset: 0x00059568
+	// Token: 0x060018EC RID: 6380 RVA: 0x0005F8BC File Offset: 0x0005DABC
 	private static string VS(Vector3 v)
 	{
 		return string.Format("[{0},{1},{2}]", v.x, v.y, v.z);
 	}
 
-	// Token: 0x170006D2 RID: 1746
-	// (get) Token: 0x06001785 RID: 6021 RVA: 0x0005B3A4 File Offset: 0x000595A4
-	protected internal CCTotem.TotemicObject totemicObject
+	// Token: 0x1700071E RID: 1822
+	// (get) Token: 0x060018ED RID: 6381 RVA: 0x0005F8F8 File Offset: 0x0005DAF8
+	protected internal global::CCTotem.TotemicObject totemicObject
 	{
 		get
 		{
@@ -29,12 +29,12 @@ public abstract class CCTotem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006D3 RID: 1747
-	// (get) Token: 0x06001786 RID: 6022
-	internal abstract CCTotem.TotemicObject _Object { get; }
+	// Token: 0x1700071F RID: 1823
+	// (get) Token: 0x060018EE RID: 6382
+	internal abstract global::CCTotem.TotemicObject _Object { get; }
 
-	// Token: 0x06001787 RID: 6023 RVA: 0x0005B3AC File Offset: 0x000595AC
-	private static void DestroyCCDesc(CCTotemPole ScriptOwner, ref CCDesc CCDesc)
+	// Token: 0x060018EF RID: 6383 RVA: 0x0005F900 File Offset: 0x0005DB00
+	private static void DestroyCCDesc(global::CCTotemPole ScriptOwner, ref global::CCDesc CCDesc)
 	{
 		if (ScriptOwner)
 		{
@@ -42,7 +42,7 @@ public abstract class CCTotem : MonoBehaviour
 		}
 		else
 		{
-			CCDesc ccdesc = CCDesc;
+			global::CCDesc ccdesc = CCDesc;
 			CCDesc = null;
 			if (ccdesc)
 			{
@@ -51,26 +51,26 @@ public abstract class CCTotem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000C4D RID: 3149
+	// Token: 0x04000D78 RID: 3448
 	protected internal const int kMaxTotemicFiguresPerTotemPole = 8;
 
-	// Token: 0x04000C4E RID: 3150
+	// Token: 0x04000D79 RID: 3449
 	protected internal const CollisionFlags kCF_Sides = 1;
 
-	// Token: 0x04000C4F RID: 3151
+	// Token: 0x04000D7A RID: 3450
 	protected internal const CollisionFlags kCF_Above = 2;
 
-	// Token: 0x04000C50 RID: 3152
+	// Token: 0x04000D7B RID: 3451
 	protected internal const CollisionFlags kCF_Below = 4;
 
-	// Token: 0x04000C51 RID: 3153
+	// Token: 0x04000D7C RID: 3452
 	protected internal const CollisionFlags kCF_None = 0;
 
-	// Token: 0x0200028C RID: 652
+	// Token: 0x020002C3 RID: 707
 	protected internal struct Configuration
 	{
-		// Token: 0x06001788 RID: 6024 RVA: 0x0005B3EC File Offset: 0x000595EC
-		public Configuration(ref CCTotem.Initialization totem)
+		// Token: 0x060018F0 RID: 6384 RVA: 0x0005F940 File Offset: 0x0005DB40
+		public Configuration(ref global::CCTotem.Initialization totem)
 		{
 			if (!totem.figurePrefab)
 			{
@@ -92,7 +92,7 @@ public abstract class CCTotem : MonoBehaviour
 			{
 				throw new ArgumentException("bottomBufferPercent must not be less than zero", "totem");
 			}
-			CCDesc figurePrefab = totem.figurePrefab;
+			global::CCDesc figurePrefab = totem.figurePrefab;
 			this.figureSkinWidth = figurePrefab.skinWidth;
 			this.figure2SkinWidth = this.figureSkinWidth + this.figureSkinWidth;
 			this.figureRadius = figurePrefab.radius;
@@ -168,110 +168,110 @@ public abstract class CCTotem : MonoBehaviour
 			this.figureOriginOffsetTop = new Vector3(this.figureOriginOffsetCenter.x, 0f - (center.y + this.figureSkinnedHeight / 2f), this.figureOriginOffsetCenter.z);
 		}
 
-		// Token: 0x06001789 RID: 6025 RVA: 0x0005B8D8 File Offset: 0x00059AD8
+		// Token: 0x060018F1 RID: 6385 RVA: 0x0005FE2C File Offset: 0x0005E02C
 		public override string ToString()
 		{
-			return CCTotem.ToStringHelper<CCTotem.Configuration>.GetString(this);
+			return global::CCTotem.ToStringHelper<global::CCTotem.Configuration>.GetString(this);
 		}
 
-		// Token: 0x04000C52 RID: 3154
-		public readonly CCTotem.Initialization totem;
+		// Token: 0x04000D7D RID: 3453
+		public readonly global::CCTotem.Initialization totem;
 
-		// Token: 0x04000C53 RID: 3155
+		// Token: 0x04000D7E RID: 3454
 		public readonly float totemMinHeight;
 
-		// Token: 0x04000C54 RID: 3156
+		// Token: 0x04000D7F RID: 3455
 		public readonly float totemMaxHeight;
 
-		// Token: 0x04000C55 RID: 3157
+		// Token: 0x04000D80 RID: 3456
 		public readonly float totemBottomBufferUnits;
 
-		// Token: 0x04000C56 RID: 3158
+		// Token: 0x04000D81 RID: 3457
 		public readonly float figureSkinWidth;
 
-		// Token: 0x04000C57 RID: 3159
+		// Token: 0x04000D82 RID: 3458
 		public readonly float figure2SkinWidth;
 
-		// Token: 0x04000C58 RID: 3160
+		// Token: 0x04000D83 RID: 3459
 		public readonly float figureRadius;
 
-		// Token: 0x04000C59 RID: 3161
+		// Token: 0x04000D84 RID: 3460
 		public readonly float figureSkinnedRadius;
 
-		// Token: 0x04000C5A RID: 3162
+		// Token: 0x04000D85 RID: 3461
 		public readonly float figureDiameter;
 
-		// Token: 0x04000C5B RID: 3163
+		// Token: 0x04000D86 RID: 3462
 		public readonly float figureSkinnedDiameter;
 
-		// Token: 0x04000C5C RID: 3164
+		// Token: 0x04000D87 RID: 3463
 		public readonly float figureHeight;
 
-		// Token: 0x04000C5D RID: 3165
+		// Token: 0x04000D88 RID: 3464
 		public readonly float figureSkinnedHeight;
 
-		// Token: 0x04000C5E RID: 3166
+		// Token: 0x04000D89 RID: 3465
 		public readonly float figureSlideHeight;
 
-		// Token: 0x04000C5F RID: 3167
+		// Token: 0x04000D8A RID: 3466
 		public readonly float figureFixedHeight;
 
-		// Token: 0x04000C60 RID: 3168
+		// Token: 0x04000D8B RID: 3467
 		public readonly float poleTopBufferAmount;
 
-		// Token: 0x04000C61 RID: 3169
+		// Token: 0x04000D8C RID: 3468
 		public readonly float poleBottomBufferAmount;
 
-		// Token: 0x04000C62 RID: 3170
+		// Token: 0x04000D8D RID: 3469
 		public readonly float poleBottomBufferHeight;
 
-		// Token: 0x04000C63 RID: 3171
+		// Token: 0x04000D8E RID: 3470
 		public readonly float poleBottomBufferUnitSize;
 
-		// Token: 0x04000C64 RID: 3172
+		// Token: 0x04000D8F RID: 3471
 		public readonly float poleMostContractedHeightPossible;
 
-		// Token: 0x04000C65 RID: 3173
+		// Token: 0x04000D90 RID: 3472
 		public readonly float poleMostExpandedHeightPossible;
 
-		// Token: 0x04000C66 RID: 3174
+		// Token: 0x04000D91 RID: 3473
 		public readonly float poleContractedHeight;
 
-		// Token: 0x04000C67 RID: 3175
+		// Token: 0x04000D92 RID: 3474
 		public readonly float poleContractedHeightFromMostContractedHeightPossible;
 
-		// Token: 0x04000C68 RID: 3176
+		// Token: 0x04000D93 RID: 3475
 		public readonly float poleExpandedHeight;
 
-		// Token: 0x04000C69 RID: 3177
+		// Token: 0x04000D94 RID: 3476
 		public readonly float poleExpandedHeightFromMostContractedHeightPossible;
 
-		// Token: 0x04000C6A RID: 3178
+		// Token: 0x04000D95 RID: 3477
 		public readonly float poleFixedLength;
 
-		// Token: 0x04000C6B RID: 3179
+		// Token: 0x04000D96 RID: 3478
 		public readonly float poleExpansionLength;
 
-		// Token: 0x04000C6C RID: 3180
+		// Token: 0x04000D97 RID: 3479
 		public readonly int numRequiredTotemicFigures;
 
-		// Token: 0x04000C6D RID: 3181
+		// Token: 0x04000D98 RID: 3480
 		public readonly int numSlidingTotemicFigures;
 
-		// Token: 0x04000C6E RID: 3182
+		// Token: 0x04000D99 RID: 3481
 		public readonly Vector3 figureOriginOffsetBottom;
 
-		// Token: 0x04000C6F RID: 3183
+		// Token: 0x04000D9A RID: 3482
 		public readonly Vector3 figureOriginOffsetTop;
 
-		// Token: 0x04000C70 RID: 3184
+		// Token: 0x04000D9B RID: 3483
 		public readonly Vector3 figureOriginOffsetCenter;
 	}
 
-	// Token: 0x0200028D RID: 653
+	// Token: 0x020002C4 RID: 708
 	protected internal struct Contraction
 	{
-		// Token: 0x0600178A RID: 6026 RVA: 0x0005B8EC File Offset: 0x00059AEC
+		// Token: 0x060018F2 RID: 6386 RVA: 0x0005FE40 File Offset: 0x0005E040
 		private Contraction(float Contracted, float Expanded, float Range, float InverseRange)
 		{
 			this.Contracted = Contracted;
@@ -280,70 +280,70 @@ public abstract class CCTotem : MonoBehaviour
 			this.InverseRange = InverseRange;
 		}
 
-		// Token: 0x0600178B RID: 6027 RVA: 0x0005B90C File Offset: 0x00059B0C
-		public CCTotem.Expansion ExpansionForValue(float Value)
+		// Token: 0x060018F3 RID: 6387 RVA: 0x0005FE60 File Offset: 0x0005E060
+		public global::CCTotem.Expansion ExpansionForValue(float Value)
 		{
-			CCTotem.Expansion result;
+			global::CCTotem.Expansion result;
 			if (Value <= this.Contracted)
 			{
-				result = new CCTotem.Expansion(this.Contracted, 0f, 0f);
+				result = new global::CCTotem.Expansion(this.Contracted, 0f, 0f);
 			}
 			else if (Value >= this.Expanded)
 			{
-				result = new CCTotem.Expansion(this.Expanded, 1f, this.Range);
+				result = new global::CCTotem.Expansion(this.Expanded, 1f, this.Range);
 			}
 			else
 			{
 				float num = Value - this.Contracted;
 				float fractionExpanded = num / this.Range;
-				result = new CCTotem.Expansion(Value, fractionExpanded, num);
+				result = new global::CCTotem.Expansion(Value, fractionExpanded, num);
 			}
 			return result;
 		}
 
-		// Token: 0x0600178C RID: 6028 RVA: 0x0005B988 File Offset: 0x00059B88
-		public CCTotem.Expansion ExpansionForFraction(float FractionExpanded)
+		// Token: 0x060018F4 RID: 6388 RVA: 0x0005FEDC File Offset: 0x0005E0DC
+		public global::CCTotem.Expansion ExpansionForFraction(float FractionExpanded)
 		{
-			CCTotem.Expansion result;
+			global::CCTotem.Expansion result;
 			if (FractionExpanded <= 0f)
 			{
-				result = new CCTotem.Expansion(this.Contracted, 0f, 0f);
+				result = new global::CCTotem.Expansion(this.Contracted, 0f, 0f);
 			}
 			else if (FractionExpanded >= 1f)
 			{
-				result = new CCTotem.Expansion(this.Expanded, 1f, this.Range);
+				result = new global::CCTotem.Expansion(this.Expanded, 1f, this.Range);
 			}
 			else
 			{
 				float num = FractionExpanded * this.Range;
 				float value = this.Contracted + num;
-				result = new CCTotem.Expansion(value, FractionExpanded, num);
+				result = new global::CCTotem.Expansion(value, FractionExpanded, num);
 			}
 			return result;
 		}
 
-		// Token: 0x0600178D RID: 6029 RVA: 0x0005BA04 File Offset: 0x00059C04
-		public CCTotem.Expansion ExpansionForAmount(float Amount)
+		// Token: 0x060018F5 RID: 6389 RVA: 0x0005FF58 File Offset: 0x0005E158
+		public global::CCTotem.Expansion ExpansionForAmount(float Amount)
 		{
-			CCTotem.Expansion result;
+			global::CCTotem.Expansion result;
 			if (Amount <= 0f)
 			{
-				result = new CCTotem.Expansion(this.Contracted, 0f, 0f);
+				result = new global::CCTotem.Expansion(this.Contracted, 0f, 0f);
 			}
 			else if (Amount >= this.Range)
 			{
-				result = new CCTotem.Expansion(this.Expanded, 1f, this.Range);
+				result = new global::CCTotem.Expansion(this.Expanded, 1f, this.Range);
 			}
 			else
 			{
 				float fractionExpanded = Amount / this.Range;
 				float value = this.Contracted + Amount;
-				result = new CCTotem.Expansion(value, fractionExpanded, Amount);
+				result = new global::CCTotem.Expansion(value, fractionExpanded, Amount);
 			}
 			return result;
 		}
 
-		// Token: 0x0600178E RID: 6030 RVA: 0x0005BA80 File Offset: 0x00059C80
+		// Token: 0x060018F6 RID: 6390 RVA: 0x0005FFD4 File Offset: 0x0005E1D4
 		public override string ToString()
 		{
 			return string.Format("{{Contracted={0},Expanded={1},Range={2},InverseRange={3}}}", new object[]
@@ -355,35 +355,35 @@ public abstract class CCTotem : MonoBehaviour
 			});
 		}
 
-		// Token: 0x0600178F RID: 6031 RVA: 0x0005BAD8 File Offset: 0x00059CD8
-		public static CCTotem.Contraction Define(float Contracted, float Expanded)
+		// Token: 0x060018F7 RID: 6391 RVA: 0x0006002C File Offset: 0x0005E22C
+		public static global::CCTotem.Contraction Define(float Contracted, float Expanded)
 		{
 			if (Mathf.Approximately(Contracted, Expanded))
 			{
 				throw new ArgumentOutOfRangeException("Contracted", "approximately equal to Expanded");
 			}
 			float num = Expanded - Contracted;
-			return new CCTotem.Contraction(Contracted, Expanded, num, (float)(1.0 / (double)num));
+			return new global::CCTotem.Contraction(Contracted, Expanded, num, (float)(1.0 / (double)num));
 		}
 
-		// Token: 0x04000C71 RID: 3185
+		// Token: 0x04000D9C RID: 3484
 		public readonly float Contracted;
 
-		// Token: 0x04000C72 RID: 3186
+		// Token: 0x04000D9D RID: 3485
 		public readonly float Expanded;
 
-		// Token: 0x04000C73 RID: 3187
+		// Token: 0x04000D9E RID: 3486
 		public readonly float Range;
 
-		// Token: 0x04000C74 RID: 3188
+		// Token: 0x04000D9F RID: 3487
 		public readonly float InverseRange;
 	}
 
-	// Token: 0x0200028E RID: 654
+	// Token: 0x020002C5 RID: 709
 	protected internal struct Direction
 	{
-		// Token: 0x06001790 RID: 6032 RVA: 0x0005BB1C File Offset: 0x00059D1C
-		public Direction(CCTotem.TotemicFigure TotemicFigure)
+		// Token: 0x060018F8 RID: 6392 RVA: 0x00060070 File Offset: 0x0005E270
+		public Direction(global::CCTotem.TotemicFigure TotemicFigure)
 		{
 			if (object.ReferenceEquals(TotemicFigure, null))
 			{
@@ -393,56 +393,56 @@ public abstract class CCTotem : MonoBehaviour
 			this.Exists = true;
 		}
 
-		// Token: 0x170006D4 RID: 1748
-		// (get) Token: 0x06001791 RID: 6033 RVA: 0x0005BB44 File Offset: 0x00059D44
-		public static CCTotem.Direction None
+		// Token: 0x17000720 RID: 1824
+		// (get) Token: 0x060018F9 RID: 6393 RVA: 0x00060098 File Offset: 0x0005E298
+		public static global::CCTotem.Direction None
 		{
 			get
 			{
-				return default(CCTotem.Direction);
+				return default(global::CCTotem.Direction);
 			}
 		}
 
-		// Token: 0x06001792 RID: 6034 RVA: 0x0005BB5C File Offset: 0x00059D5C
+		// Token: 0x060018FA RID: 6394 RVA: 0x000600B0 File Offset: 0x0005E2B0
 		public override string ToString()
 		{
 			return (!this.Exists) ? "{Does Not Exist}" : string.Format("{{TotemicFigure={0}}}", this.TotemicFigure);
 		}
 
-		// Token: 0x04000C75 RID: 3189
+		// Token: 0x04000DA0 RID: 3488
 		public readonly bool Exists;
 
-		// Token: 0x04000C76 RID: 3190
-		public readonly CCTotem.TotemicFigure TotemicFigure;
+		// Token: 0x04000DA1 RID: 3489
+		public readonly global::CCTotem.TotemicFigure TotemicFigure;
 	}
 
-	// Token: 0x0200028F RID: 655
+	// Token: 0x020002C6 RID: 710
 	protected internal struct Ends<T>
 	{
-		// Token: 0x06001793 RID: 6035 RVA: 0x0005BB84 File Offset: 0x00059D84
+		// Token: 0x060018FB RID: 6395 RVA: 0x000600D8 File Offset: 0x0005E2D8
 		public Ends(T Bottom, T Top)
 		{
 			this.Bottom = Bottom;
 			this.Top = Top;
 		}
 
-		// Token: 0x06001794 RID: 6036 RVA: 0x0005BB94 File Offset: 0x00059D94
+		// Token: 0x060018FC RID: 6396 RVA: 0x000600E8 File Offset: 0x0005E2E8
 		public override string ToString()
 		{
 			return string.Format("{{Bottom={0},Top={1}}}", this.Bottom, this.Top);
 		}
 
-		// Token: 0x04000C77 RID: 3191
+		// Token: 0x04000DA2 RID: 3490
 		public T Bottom;
 
-		// Token: 0x04000C78 RID: 3192
+		// Token: 0x04000DA3 RID: 3491
 		public T Top;
 	}
 
-	// Token: 0x02000290 RID: 656
+	// Token: 0x020002C7 RID: 711
 	protected internal struct Expansion
 	{
-		// Token: 0x06001795 RID: 6037 RVA: 0x0005BBC4 File Offset: 0x00059DC4
+		// Token: 0x060018FD RID: 6397 RVA: 0x00060118 File Offset: 0x0005E318
 		internal Expansion(float Value, float FractionExpanded, float Amount)
 		{
 			this.Value = Value;
@@ -450,27 +450,27 @@ public abstract class CCTotem : MonoBehaviour
 			this.Amount = Amount;
 		}
 
-		// Token: 0x06001796 RID: 6038 RVA: 0x0005BBDC File Offset: 0x00059DDC
+		// Token: 0x060018FE RID: 6398 RVA: 0x00060130 File Offset: 0x0005E330
 		public override string ToString()
 		{
 			return string.Format("{{Value={0},FractionExpanded={1},Amount={2}}}", this.Value, this.FractionExpanded, this.Amount);
 		}
 
-		// Token: 0x04000C79 RID: 3193
+		// Token: 0x04000DA4 RID: 3492
 		public readonly float Value;
 
-		// Token: 0x04000C7A RID: 3194
+		// Token: 0x04000DA5 RID: 3493
 		public readonly float FractionExpanded;
 
-		// Token: 0x04000C7B RID: 3195
+		// Token: 0x04000DA6 RID: 3494
 		public readonly float Amount;
 	}
 
-	// Token: 0x02000291 RID: 657
+	// Token: 0x020002C8 RID: 712
 	protected internal struct Initialization
 	{
-		// Token: 0x06001797 RID: 6039 RVA: 0x0005BC0C File Offset: 0x00059E0C
-		public Initialization(CCTotemPole totemPole, CCDesc figurePrefab, float minHeight, float maxHeight, float initialHeight, float bottomBufferUnits)
+		// Token: 0x060018FF RID: 6399 RVA: 0x00060160 File Offset: 0x0005E360
+		public Initialization(global::CCTotemPole totemPole, global::CCDesc figurePrefab, float minHeight, float maxHeight, float initialHeight, float bottomBufferUnits)
 		{
 			this.totemPole = totemPole;
 			this.figurePrefab = figurePrefab;
@@ -481,38 +481,38 @@ public abstract class CCTotem : MonoBehaviour
 			this.nonDefault = true;
 		}
 
-		// Token: 0x06001798 RID: 6040 RVA: 0x0005BC50 File Offset: 0x00059E50
+		// Token: 0x06001900 RID: 6400 RVA: 0x000601A4 File Offset: 0x0005E3A4
 		public override string ToString()
 		{
-			return CCTotem.ToStringHelper<CCTotem.Initialization>.GetString(this);
+			return global::CCTotem.ToStringHelper<global::CCTotem.Initialization>.GetString(this);
 		}
 
-		// Token: 0x04000C7C RID: 3196
-		public readonly CCTotemPole totemPole;
+		// Token: 0x04000DA7 RID: 3495
+		public readonly global::CCTotemPole totemPole;
 
-		// Token: 0x04000C7D RID: 3197
-		public readonly CCDesc figurePrefab;
+		// Token: 0x04000DA8 RID: 3496
+		public readonly global::CCDesc figurePrefab;
 
-		// Token: 0x04000C7E RID: 3198
+		// Token: 0x04000DA9 RID: 3497
 		public readonly float minHeight;
 
-		// Token: 0x04000C7F RID: 3199
+		// Token: 0x04000DAA RID: 3498
 		public readonly float maxHeight;
 
-		// Token: 0x04000C80 RID: 3200
+		// Token: 0x04000DAB RID: 3499
 		public readonly float initialHeight;
 
-		// Token: 0x04000C81 RID: 3201
+		// Token: 0x04000DAC RID: 3500
 		public readonly float bottomBufferUnits;
 
-		// Token: 0x04000C82 RID: 3202
+		// Token: 0x04000DAD RID: 3501
 		public readonly bool nonDefault;
 	}
 
-	// Token: 0x02000292 RID: 658
+	// Token: 0x020002C9 RID: 713
 	public struct PositionPlacement
 	{
-		// Token: 0x06001799 RID: 6041 RVA: 0x0005BC64 File Offset: 0x00059E64
+		// Token: 0x06001901 RID: 6401 RVA: 0x000601B8 File Offset: 0x0005E3B8
 		public PositionPlacement(Vector3 Bottom, Vector3 Top, Vector3 ColliderPosition, float OriginalHeight)
 		{
 			this.bottom = Bottom;
@@ -525,67 +525,67 @@ public abstract class CCTotem : MonoBehaviour
 			this.originalTop.z = Bottom.z;
 		}
 
-		// Token: 0x04000C83 RID: 3203
+		// Token: 0x04000DAE RID: 3502
 		public Vector3 bottom;
 
-		// Token: 0x04000C84 RID: 3204
+		// Token: 0x04000DAF RID: 3503
 		public Vector3 top;
 
-		// Token: 0x04000C85 RID: 3205
+		// Token: 0x04000DB0 RID: 3504
 		public Vector3 colliderCenter;
 
-		// Token: 0x04000C86 RID: 3206
+		// Token: 0x04000DB1 RID: 3505
 		public float height;
 
-		// Token: 0x04000C87 RID: 3207
+		// Token: 0x04000DB2 RID: 3506
 		public float originalHeight;
 
-		// Token: 0x04000C88 RID: 3208
+		// Token: 0x04000DB3 RID: 3507
 		public Vector3 originalTop;
 	}
 
-	// Token: 0x02000293 RID: 659
+	// Token: 0x020002CA RID: 714
 	protected internal struct Route
 	{
-		// Token: 0x0600179A RID: 6042 RVA: 0x0005BCDC File Offset: 0x00059EDC
-		public Route(CCTotem.Direction Up, CCTotem.Direction At, CCTotem.Direction Down)
+		// Token: 0x06001902 RID: 6402 RVA: 0x00060230 File Offset: 0x0005E430
+		public Route(global::CCTotem.Direction Up, global::CCTotem.Direction At, global::CCTotem.Direction Down)
 		{
 			this.Up = Up;
 			this.At = At;
 			this.Down = Down;
 		}
 
-		// Token: 0x0600179B RID: 6043 RVA: 0x0005BCF4 File Offset: 0x00059EF4
-		public unsafe bool GetUp(out CCTotem.Route route)
+		// Token: 0x06001903 RID: 6403 RVA: 0x00060248 File Offset: 0x0005E448
+		public unsafe bool GetUp(out global::CCTotem.Route route)
 		{
 			if (this.Up.Exists)
 			{
 				route = *this.Up.TotemicFigure;
 				return true;
 			}
-			route = new CCTotem.Route(CCTotem.Direction.None, CCTotem.Direction.None, this.At);
+			route = new global::CCTotem.Route(global::CCTotem.Direction.None, global::CCTotem.Direction.None, this.At);
 			return false;
 		}
 
-		// Token: 0x0600179C RID: 6044 RVA: 0x0005BD48 File Offset: 0x00059F48
-		public unsafe bool GetDown(out CCTotem.Route route)
+		// Token: 0x06001904 RID: 6404 RVA: 0x0006029C File Offset: 0x0005E49C
+		public unsafe bool GetDown(out global::CCTotem.Route route)
 		{
 			if (this.Down.Exists)
 			{
 				route = *this.Down.TotemicFigure;
 				return true;
 			}
-			route = new CCTotem.Route(this.At, CCTotem.Direction.None, CCTotem.Direction.None);
+			route = new global::CCTotem.Route(this.At, global::CCTotem.Direction.None, global::CCTotem.Direction.None);
 			return false;
 		}
 
-		// Token: 0x170006D5 RID: 1749
-		// (get) Token: 0x0600179D RID: 6045 RVA: 0x0005BD9C File Offset: 0x00059F9C
-		public IEnumerable<CCTotem.TotemicFigure> EnumerateUpInclusive
+		// Token: 0x17000721 RID: 1825
+		// (get) Token: 0x06001905 RID: 6405 RVA: 0x000602F0 File Offset: 0x0005E4F0
+		public IEnumerable<global::CCTotem.TotemicFigure> EnumerateUpInclusive
 		{
 			get
 			{
-				CCTotem.Route it = ref this;
+				global::CCTotem.Route it = ref this;
 				while (it.At.Exists)
 				{
 					yield return it.At.TotemicFigure;
@@ -595,13 +595,13 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006D6 RID: 1750
-		// (get) Token: 0x0600179E RID: 6046 RVA: 0x0005BDC4 File Offset: 0x00059FC4
-		public IEnumerable<CCTotem.TotemicFigure> EnumerateUp
+		// Token: 0x17000722 RID: 1826
+		// (get) Token: 0x06001906 RID: 6406 RVA: 0x00060318 File Offset: 0x0005E518
+		public IEnumerable<global::CCTotem.TotemicFigure> EnumerateUp
 		{
 			get
 			{
-				CCTotem.Route it;
+				global::CCTotem.Route it;
 				if (this.GetUp(out it))
 				{
 					while (it.At.Exists)
@@ -614,13 +614,13 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006D7 RID: 1751
-		// (get) Token: 0x0600179F RID: 6047 RVA: 0x0005BDEC File Offset: 0x00059FEC
-		public IEnumerable<CCTotem.TotemicFigure> EnumerateDownInclusive
+		// Token: 0x17000723 RID: 1827
+		// (get) Token: 0x06001907 RID: 6407 RVA: 0x00060340 File Offset: 0x0005E540
+		public IEnumerable<global::CCTotem.TotemicFigure> EnumerateDownInclusive
 		{
 			get
 			{
-				CCTotem.Route it = ref this;
+				global::CCTotem.Route it = ref this;
 				while (it.At.Exists)
 				{
 					yield return it.At.TotemicFigure;
@@ -630,13 +630,13 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006D8 RID: 1752
-		// (get) Token: 0x060017A0 RID: 6048 RVA: 0x0005BE14 File Offset: 0x0005A014
-		public IEnumerable<CCTotem.TotemicFigure> EnumerateDown
+		// Token: 0x17000724 RID: 1828
+		// (get) Token: 0x06001908 RID: 6408 RVA: 0x00060368 File Offset: 0x0005E568
+		public IEnumerable<global::CCTotem.TotemicFigure> EnumerateDown
 		{
 			get
 			{
-				CCTotem.Route it;
+				global::CCTotem.Route it;
 				if (this.GetUp(out it))
 				{
 					while (it.At.Exists)
@@ -649,33 +649,33 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060017A1 RID: 6049 RVA: 0x0005BE3C File Offset: 0x0005A03C
+		// Token: 0x06001909 RID: 6409 RVA: 0x00060390 File Offset: 0x0005E590
 		public override string ToString()
 		{
 			return string.Format("{{Up={0},At={1},Down={2}}}", this.Up, this.At, this.Down);
 		}
 
-		// Token: 0x04000C89 RID: 3209
-		public readonly CCTotem.Direction Up;
+		// Token: 0x04000DB4 RID: 3508
+		public readonly global::CCTotem.Direction Up;
 
-		// Token: 0x04000C8A RID: 3210
-		public readonly CCTotem.Direction At;
+		// Token: 0x04000DB5 RID: 3509
+		public readonly global::CCTotem.Direction At;
 
-		// Token: 0x04000C8B RID: 3211
-		public readonly CCTotem.Direction Down;
+		// Token: 0x04000DB6 RID: 3510
+		public readonly global::CCTotem.Direction Down;
 	}
 
-	// Token: 0x02000294 RID: 660
+	// Token: 0x020002CF RID: 719
 	public abstract class TotemicObject
 	{
-		// Token: 0x060017A2 RID: 6050 RVA: 0x0005BE6C File Offset: 0x0005A06C
+		// Token: 0x0600192A RID: 6442 RVA: 0x000607E0 File Offset: 0x0005E9E0
 		internal TotemicObject()
 		{
 		}
 
-		// Token: 0x170006D9 RID: 1753
-		// (get) Token: 0x060017A3 RID: 6051 RVA: 0x0005BE74 File Offset: 0x0005A074
-		protected internal CCTotem Script
+		// Token: 0x1700072D RID: 1837
+		// (get) Token: 0x0600192B RID: 6443 RVA: 0x000607E8 File Offset: 0x0005E9E8
+		protected internal global::CCTotem Script
 		{
 			get
 			{
@@ -683,22 +683,22 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006DA RID: 1754
-		// (get) Token: 0x060017A4 RID: 6052
-		internal abstract CCTotem _Script { get; }
+		// Token: 0x1700072E RID: 1838
+		// (get) Token: 0x0600192C RID: 6444
+		internal abstract global::CCTotem _Script { get; }
 	}
 
-	// Token: 0x02000295 RID: 661
-	public abstract class TotemicObject<CCTotemScript> : CCTotem.TotemicObject where CCTotemScript : CCTotem, new()
+	// Token: 0x020002D0 RID: 720
+	public abstract class TotemicObject<CCTotemScript> : global::CCTotem.TotemicObject where CCTotemScript : global::CCTotem, new()
 	{
-		// Token: 0x060017A5 RID: 6053 RVA: 0x0005BE7C File Offset: 0x0005A07C
+		// Token: 0x0600192D RID: 6445 RVA: 0x000607F0 File Offset: 0x0005E9F0
 		internal TotemicObject()
 		{
 		}
 
-		// Token: 0x170006DB RID: 1755
-		// (get) Token: 0x060017A6 RID: 6054 RVA: 0x0005BE84 File Offset: 0x0005A084
-		internal sealed override CCTotem _Script
+		// Token: 0x1700072F RID: 1839
+		// (get) Token: 0x0600192E RID: 6446 RVA: 0x000607F8 File Offset: 0x0005E9F8
+		internal sealed override global::CCTotem _Script
 		{
 			get
 			{
@@ -706,29 +706,29 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04000C8C RID: 3212
+		// Token: 0x04000DC7 RID: 3527
 		protected internal new CCTotemScript Script;
 	}
 
-	// Token: 0x02000296 RID: 662
-	public abstract class TotemicObject<CCTotemScript, TTotemicObject> : CCTotem.TotemicObject<CCTotemScript> where CCTotemScript : CCTotem<TTotemicObject, CCTotemScript>, new() where TTotemicObject : CCTotem.TotemicObject<CCTotemScript, TTotemicObject>, new()
+	// Token: 0x020002D1 RID: 721
+	public abstract class TotemicObject<CCTotemScript, TTotemicObject> : global::CCTotem.TotemicObject<CCTotemScript> where CCTotemScript : global::CCTotem<TTotemicObject, CCTotemScript>, new() where TTotemicObject : global::CCTotem.TotemicObject<CCTotemScript, TTotemicObject>, new()
 	{
-		// Token: 0x060017A7 RID: 6055 RVA: 0x0005BE94 File Offset: 0x0005A094
+		// Token: 0x0600192F RID: 6447 RVA: 0x00060808 File Offset: 0x0005EA08
 		internal TotemicObject()
 		{
 		}
 
-		// Token: 0x060017A8 RID: 6056
+		// Token: 0x06001930 RID: 6448
 		internal abstract void OnScriptDestroy(CCTotemScript Script);
 
-		// Token: 0x060017A9 RID: 6057
+		// Token: 0x06001931 RID: 6449
 		internal abstract void AssignedToScript(CCTotemScript Script);
 	}
 
-	// Token: 0x02000297 RID: 663
+	// Token: 0x020002D2 RID: 722
 	private static class ToStringHelper<T> where T : struct
 	{
-		// Token: 0x060017AA RID: 6058 RVA: 0x0005BE9C File Offset: 0x0005A09C
+		// Token: 0x06001932 RID: 6450 RVA: 0x00060810 File Offset: 0x0005EA10
 		static ToStringHelper()
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -736,7 +736,7 @@ public abstract class CCTotem : MonoBehaviour
 			{
 				stringWriter.Write("{{");
 				bool flag = true;
-				for (int i = 0; i < CCTotem.ToStringHelper<T>.allFields.Length; i++)
+				for (int i = 0; i < global::CCTotem.ToStringHelper<T>.allFields.Length; i++)
 				{
 					if (flag)
 					{
@@ -746,50 +746,50 @@ public abstract class CCTotem : MonoBehaviour
 					{
 						stringWriter.Write(", ");
 					}
-					stringWriter.Write("{0}={{{1}}}", CCTotem.ToStringHelper<T>.allFields[i].Name, i);
+					stringWriter.Write("{0}={{{1}}}", global::CCTotem.ToStringHelper<T>.allFields[i].Name, i);
 				}
 				stringWriter.Write("}}");
 			}
-			CCTotem.ToStringHelper<T>.formatterString = stringBuilder.ToString();
+			global::CCTotem.ToStringHelper<T>.formatterString = stringBuilder.ToString();
 		}
 
-		// Token: 0x060017AB RID: 6059 RVA: 0x0005BF7C File Offset: 0x0005A17C
+		// Token: 0x06001933 RID: 6451 RVA: 0x000608F0 File Offset: 0x0005EAF0
 		public static string GetString(object boxed)
 		{
 			string result;
 			try
 			{
-				for (int i = 0; i < CCTotem.ToStringHelper<T>.allFields.Length; i++)
+				for (int i = 0; i < global::CCTotem.ToStringHelper<T>.allFields.Length; i++)
 				{
-					CCTotem.ToStringHelper<T>.valueHolders[i] = CCTotem.ToStringHelper<T>.allFields[i].GetValue(boxed);
+					global::CCTotem.ToStringHelper<T>.valueHolders[i] = global::CCTotem.ToStringHelper<T>.allFields[i].GetValue(boxed);
 				}
-				result = string.Format(CCTotem.ToStringHelper<T>.formatterString, CCTotem.ToStringHelper<T>.valueHolders);
+				result = string.Format(global::CCTotem.ToStringHelper<T>.formatterString, global::CCTotem.ToStringHelper<T>.valueHolders);
 			}
 			finally
 			{
-				for (int j = 0; j < CCTotem.ToStringHelper<T>.allFields.Length; j++)
+				for (int j = 0; j < global::CCTotem.ToStringHelper<T>.allFields.Length; j++)
 				{
-					CCTotem.ToStringHelper<T>.valueHolders[j] = null;
+					global::CCTotem.ToStringHelper<T>.valueHolders[j] = null;
 				}
 			}
 			return result;
 		}
 
-		// Token: 0x04000C8D RID: 3213
+		// Token: 0x04000DC8 RID: 3528
 		private static readonly FieldInfo[] allFields = typeof(T).GetFields();
 
-		// Token: 0x04000C8E RID: 3214
-		private static readonly object[] valueHolders = new object[CCTotem.ToStringHelper<T>.allFields.Length];
+		// Token: 0x04000DC9 RID: 3529
+		private static readonly object[] valueHolders = new object[global::CCTotem.ToStringHelper<T>.allFields.Length];
 
-		// Token: 0x04000C8F RID: 3215
+		// Token: 0x04000DCA RID: 3530
 		private static readonly string formatterString;
 	}
 
-	// Token: 0x02000298 RID: 664
+	// Token: 0x020002D3 RID: 723
 	public struct MoveInfo
 	{
-		// Token: 0x060017AC RID: 6060 RVA: 0x0005C010 File Offset: 0x0005A210
-		public MoveInfo(CollisionFlags CollisionFlags, CollisionFlags WorkingCollisionFlags, float WantedHeight, Vector3 BottomMovement, Vector3 TopMovement, CCTotem.PositionPlacement PositionPlacement)
+		// Token: 0x06001934 RID: 6452 RVA: 0x00060984 File Offset: 0x0005EB84
+		public MoveInfo(CollisionFlags CollisionFlags, CollisionFlags WorkingCollisionFlags, float WantedHeight, Vector3 BottomMovement, Vector3 TopMovement, global::CCTotem.PositionPlacement PositionPlacement)
 		{
 			this.CollisionFlags = CollisionFlags;
 			this.WorkingCollisionFlags = WorkingCollisionFlags;
@@ -799,52 +799,52 @@ public abstract class CCTotem : MonoBehaviour
 			this.PositionPlacement = PositionPlacement;
 		}
 
-		// Token: 0x04000C90 RID: 3216
+		// Token: 0x04000DCB RID: 3531
 		public readonly CollisionFlags CollisionFlags;
 
-		// Token: 0x04000C91 RID: 3217
+		// Token: 0x04000DCC RID: 3532
 		public readonly CollisionFlags WorkingCollisionFlags;
 
-		// Token: 0x04000C92 RID: 3218
+		// Token: 0x04000DCD RID: 3533
 		public readonly float WantedHeight;
 
-		// Token: 0x04000C93 RID: 3219
+		// Token: 0x04000DCE RID: 3534
 		public readonly Vector3 BottomMovement;
 
-		// Token: 0x04000C94 RID: 3220
+		// Token: 0x04000DCF RID: 3535
 		public readonly Vector3 TopMovement;
 
-		// Token: 0x04000C95 RID: 3221
-		public readonly CCTotem.PositionPlacement PositionPlacement;
+		// Token: 0x04000DD0 RID: 3536
+		public readonly global::CCTotem.PositionPlacement PositionPlacement;
 	}
 
-	// Token: 0x02000299 RID: 665
-	public sealed class TotemPole : CCTotem.TotemicObject<CCTotemPole, CCTotem.TotemPole>
+	// Token: 0x020002D4 RID: 724
+	public sealed class TotemPole : global::CCTotem.TotemicObject<global::CCTotemPole, global::CCTotem.TotemPole>
 	{
-		// Token: 0x060017AD RID: 6061 RVA: 0x0005C040 File Offset: 0x0005A240
+		// Token: 0x06001935 RID: 6453 RVA: 0x000609B4 File Offset: 0x0005EBB4
 		[Obsolete("Infrastructure", true)]
 		public TotemPole()
 		{
 			throw new NotSupportedException();
 		}
 
-		// Token: 0x060017AE RID: 6062 RVA: 0x0005C050 File Offset: 0x0005A250
-		internal TotemPole(ref CCTotem.Configuration TotemConfiguration)
+		// Token: 0x06001936 RID: 6454 RVA: 0x000609C4 File Offset: 0x0005EBC4
+		internal TotemPole(ref global::CCTotem.Configuration TotemConfiguration)
 		{
 			this.Configuration = TotemConfiguration;
-			this.TotemicFigures = new CCTotem.TotemicFigure[8];
-			this.TotemicFigureEnds = CCTotem.TotemicFigure.CreateAllTotemicFigures(this);
-			this.Contraction = CCTotem.Contraction.Define(this.Configuration.poleContractedHeight, this.Configuration.poleExpandedHeight);
+			this.TotemicFigures = new global::CCTotem.TotemicFigure[8];
+			this.TotemicFigureEnds = global::CCTotem.TotemicFigure.CreateAllTotemicFigures(this);
+			this.Contraction = global::CCTotem.Contraction.Define(this.Configuration.poleContractedHeight, this.Configuration.poleExpandedHeight);
 		}
 
-		// Token: 0x060017AF RID: 6063 RVA: 0x0005C0A8 File Offset: 0x0005A2A8
-		internal override void AssignedToScript(CCTotemPole Script)
+		// Token: 0x06001937 RID: 6455 RVA: 0x00060A1C File Offset: 0x0005EC1C
+		internal override void AssignedToScript(global::CCTotemPole Script)
 		{
 			this.Script = Script;
 		}
 
-		// Token: 0x060017B0 RID: 6064 RVA: 0x0005C0B4 File Offset: 0x0005A2B4
-		internal override void OnScriptDestroy(CCTotemPole Script)
+		// Token: 0x06001938 RID: 6456 RVA: 0x00060A28 File Offset: 0x0005EC28
+		internal override void OnScriptDestroy(global::CCTotemPole Script)
 		{
 			if (object.ReferenceEquals(this.Script, Script))
 			{
@@ -852,14 +852,14 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060017B1 RID: 6065 RVA: 0x0005C0D0 File Offset: 0x0005A2D0
+		// Token: 0x06001939 RID: 6457 RVA: 0x00060A44 File Offset: 0x0005EC44
 		private void DeleteAllFiguresAndClearScript()
 		{
-			CCTotemPole script = this.Script;
+			global::CCTotemPole script = this.Script;
 			this.Script = null;
 			for (int i = this.Configuration.numRequiredTotemicFigures - 1; i >= 0; i--)
 			{
-				CCTotem.TotemicFigure totemicFigure = this.TotemicFigures[i];
+				global::CCTotem.TotemicFigure totemicFigure = this.TotemicFigures[i];
 				if (!object.ReferenceEquals(totemicFigure, null))
 				{
 					if (totemicFigure.TotemPole == this)
@@ -872,17 +872,17 @@ public abstract class CCTotem : MonoBehaviour
 					}
 				}
 			}
-			CCTotem.DestroyCCDesc(script, ref this.CCDesc);
+			global::CCTotem.DestroyCCDesc(script, ref this.CCDesc);
 			if (script && object.ReferenceEquals(script.totemicObject, this))
 			{
 				script.totemicObject = null;
 			}
 		}
 
-		// Token: 0x060017B2 RID: 6066 RVA: 0x0005C178 File Offset: 0x0005A378
-		private CCDesc InstantiateCCDesc(Vector3 worldBottom, string name)
+		// Token: 0x0600193A RID: 6458 RVA: 0x00060AEC File Offset: 0x0005ECEC
+		private global::CCDesc InstantiateCCDesc(Vector3 worldBottom, string name)
 		{
-			CCDesc ccdesc = (CCDesc)Object.Instantiate(this.Configuration.totem.figurePrefab, worldBottom, Quaternion.identity);
+			global::CCDesc ccdesc = (global::CCDesc)Object.Instantiate(this.Configuration.totem.figurePrefab, worldBottom, Quaternion.identity);
 			if (!string.IsNullOrEmpty(name))
 			{
 				ccdesc.name = name;
@@ -892,12 +892,12 @@ public abstract class CCTotem : MonoBehaviour
 			return ccdesc;
 		}
 
-		// Token: 0x060017B3 RID: 6067 RVA: 0x0005C1D4 File Offset: 0x0005A3D4
-		private CCTotemicFigure InstantiateTotemicFigure(Vector3 worldBottom, CCTotem.TotemicFigure target)
+		// Token: 0x0600193B RID: 6459 RVA: 0x00060B48 File Offset: 0x0005ED48
+		private global::CCTotemicFigure InstantiateTotemicFigure(Vector3 worldBottom, global::CCTotem.TotemicFigure target)
 		{
 			worldBottom.y += target.TotemContractionBottom.ExpansionForFraction(this.Expansion.FractionExpanded).Value;
 			target.CCDesc = this.InstantiateCCDesc(worldBottom, string.Format("__TotemicFigure{0}", target.BottomUpIndex));
-			CCTotemicFigure cctotemicFigure = target.CCDesc.gameObject.AddComponent<CCTotemicFigure>();
+			global::CCTotemicFigure cctotemicFigure = target.CCDesc.gameObject.AddComponent<global::CCTotemicFigure>();
 			cctotemicFigure.AssignTotemicObject(target);
 			if (this.Script)
 			{
@@ -906,7 +906,7 @@ public abstract class CCTotem : MonoBehaviour
 			return cctotemicFigure;
 		}
 
-		// Token: 0x060017B4 RID: 6068 RVA: 0x0005C270 File Offset: 0x0005A470
+		// Token: 0x0600193C RID: 6460 RVA: 0x00060BE4 File Offset: 0x0005EDE4
 		public void Create()
 		{
 			float initialHeight = this.Configuration.totem.initialHeight;
@@ -926,9 +926,9 @@ public abstract class CCTotem : MonoBehaviour
 			this.CCDesc.ModifyHeight(this.Point.Top.y - this.Point.Bottom.y, false);
 		}
 
-		// Token: 0x170006DC RID: 1756
-		// (get) Token: 0x060017B5 RID: 6069 RVA: 0x0005C39C File Offset: 0x0005A59C
-		private CCDesc CCDescOrPrefab
+		// Token: 0x17000730 RID: 1840
+		// (get) Token: 0x0600193D RID: 6461 RVA: 0x00060D10 File Offset: 0x0005EF10
+		private global::CCDesc CCDescOrPrefab
 		{
 			get
 			{
@@ -936,8 +936,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006DD RID: 1757
-		// (get) Token: 0x060017B6 RID: 6070 RVA: 0x0005C3DC File Offset: 0x0005A5DC
+		// Token: 0x17000731 RID: 1841
+		// (get) Token: 0x0600193E RID: 6462 RVA: 0x00060D50 File Offset: 0x0005EF50
 		public bool isGrounded
 		{
 			get
@@ -946,8 +946,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006DE RID: 1758
-		// (get) Token: 0x060017B7 RID: 6071 RVA: 0x0005C3E4 File Offset: 0x0005A5E4
+		// Token: 0x17000732 RID: 1842
+		// (get) Token: 0x0600193F RID: 6463 RVA: 0x00060D58 File Offset: 0x0005EF58
 		public Vector3 velocity
 		{
 			get
@@ -956,8 +956,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006DF RID: 1759
-		// (get) Token: 0x060017B8 RID: 6072 RVA: 0x0005C40C File Offset: 0x0005A60C
+		// Token: 0x17000733 RID: 1843
+		// (get) Token: 0x06001940 RID: 6464 RVA: 0x00060D80 File Offset: 0x0005EF80
 		public CollisionFlags collisionFlags
 		{
 			get
@@ -966,8 +966,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E0 RID: 1760
-		// (get) Token: 0x060017B9 RID: 6073 RVA: 0x0005C430 File Offset: 0x0005A630
+		// Token: 0x17000734 RID: 1844
+		// (get) Token: 0x06001941 RID: 6465 RVA: 0x00060DA4 File Offset: 0x0005EFA4
 		public float stepOffset
 		{
 			get
@@ -976,8 +976,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E1 RID: 1761
-		// (get) Token: 0x060017BA RID: 6074 RVA: 0x0005C440 File Offset: 0x0005A640
+		// Token: 0x17000735 RID: 1845
+		// (get) Token: 0x06001942 RID: 6466 RVA: 0x00060DB4 File Offset: 0x0005EFB4
 		public float slopeLimit
 		{
 			get
@@ -986,8 +986,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E2 RID: 1762
-		// (get) Token: 0x060017BB RID: 6075 RVA: 0x0005C450 File Offset: 0x0005A650
+		// Token: 0x17000736 RID: 1846
+		// (get) Token: 0x06001943 RID: 6467 RVA: 0x00060DC4 File Offset: 0x0005EFC4
 		public float height
 		{
 			get
@@ -996,8 +996,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E3 RID: 1763
-		// (get) Token: 0x060017BC RID: 6076 RVA: 0x0005C460 File Offset: 0x0005A660
+		// Token: 0x17000737 RID: 1847
+		// (get) Token: 0x06001944 RID: 6468 RVA: 0x00060DD4 File Offset: 0x0005EFD4
 		public float radius
 		{
 			get
@@ -1006,8 +1006,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E4 RID: 1764
-		// (get) Token: 0x060017BD RID: 6077 RVA: 0x0005C470 File Offset: 0x0005A670
+		// Token: 0x17000738 RID: 1848
+		// (get) Token: 0x06001945 RID: 6469 RVA: 0x00060DE4 File Offset: 0x0005EFE4
 		public Vector3 center
 		{
 			get
@@ -1016,10 +1016,10 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060017BE RID: 6078 RVA: 0x0005C480 File Offset: 0x0005A680
-		public CCTotem.MoveInfo Move(Vector3 motion, float height)
+		// Token: 0x06001946 RID: 6470 RVA: 0x00060DF4 File Offset: 0x0005EFF4
+		public global::CCTotem.MoveInfo Move(Vector3 motion, float height)
 		{
-			CCTotem.Expansion expansion = this.Contraction.ExpansionForValue(height);
+			global::CCTotem.Expansion expansion = this.Contraction.ExpansionForValue(height);
 			height = expansion.Value;
 			CollisionFlags collisionFlags = this.TotemicFigureEnds.Bottom.MoveSweep(motion) & this.TotemicFigureEnds.Bottom.CollisionFlagsMask;
 			this.grounded = this.TotemicFigureEnds.Bottom.CCDesc.isGrounded;
@@ -1050,7 +1050,7 @@ public abstract class CCTotem : MonoBehaviour
 				expansion = this.Contraction.ExpansionForValue(topOrigin.y - this.Point.Bottom.y);
 				for (int k = this.Configuration.numRequiredTotemicFigures - 2; k > 0; k--)
 				{
-					CCTotem.TotemicFigure totemicFigure = this.TotemicFigures[k];
+					global::CCTotem.TotemicFigure totemicFigure = this.TotemicFigures[k];
 					Vector3 bottom = this.Point.Bottom;
 					bottom.y += totemicFigure.TotemContractionBottom.ExpansionForFraction(expansion.FractionExpanded).Value;
 					collisionFlags |= (totemicFigure.MoveWorldBottomTo(bottom) & totemicFigure.CollisionFlagsMask);
@@ -1062,7 +1062,7 @@ public abstract class CCTotem : MonoBehaviour
 			Vector3 worldSkinnedBottom = this.CCDesc.worldSkinnedBottom;
 			Vector3 worldSkinnedTop = this.CCDesc.worldSkinnedTop;
 			Vector3 vector = this.TotemicFigures[0].BottomOrigin - worldSkinnedBottom;
-			CCDesc.HeightModification heightModification = this.CCDesc.ModifyHeight(this.Expansion.Value, false);
+			global::CCDesc.HeightModification heightModification = this.CCDesc.ModifyHeight(this.Expansion.Value, false);
 			CollisionFlags collisionFlags2 = this.CCDesc.Move(vector);
 			Vector3 worldSkinnedBottom2 = this.CCDesc.worldSkinnedBottom;
 			Vector3 vector2 = worldSkinnedBottom2 - worldSkinnedBottom;
@@ -1076,62 +1076,62 @@ public abstract class CCTotem : MonoBehaviour
 				this.Point.Bottom = this.TotemicFigures[0].BottomOrigin;
 				this.Point.Top = this.TotemicFigureEnds.Top.TopOrigin;
 				this.Expansion = this.Contraction.ExpansionForValue(this.Point.Top.y - this.Point.Bottom.y);
-				CCDesc.HeightModification heightModification2 = this.CCDesc.ModifyHeight(this.Expansion.Value, false);
+				global::CCDesc.HeightModification heightModification2 = this.CCDesc.ModifyHeight(this.Expansion.Value, false);
 				worldSkinnedBottom2 = this.CCDesc.worldSkinnedBottom;
 				vector2 = worldSkinnedBottom2 - worldSkinnedBottom;
 			}
 			Vector3 worldSkinnedTop2 = this.CCDesc.worldSkinnedTop;
 			Vector3 topMovement = worldSkinnedTop2 - worldSkinnedTop;
-			CCTotem.PositionPlacement positionPlacement = new CCTotem.PositionPlacement(worldSkinnedBottom2, worldSkinnedTop2, this.CCDesc.transform.position, this.Configuration.poleExpandedHeight);
-			return new CCTotem.MoveInfo(collisionFlags2, collisionFlags, height, vector2, topMovement, positionPlacement);
+			global::CCTotem.PositionPlacement positionPlacement = new global::CCTotem.PositionPlacement(worldSkinnedBottom2, worldSkinnedTop2, this.CCDesc.transform.position, this.Configuration.poleExpandedHeight);
+			return new global::CCTotem.MoveInfo(collisionFlags2, collisionFlags, height, vector2, topMovement, positionPlacement);
 		}
 
-		// Token: 0x04000C96 RID: 3222
+		// Token: 0x04000DD1 RID: 3537
 		private const int kCrouch_NotModified = 0;
 
-		// Token: 0x04000C97 RID: 3223
+		// Token: 0x04000DD2 RID: 3538
 		private const int kCrouch_MovingDown = -1;
 
-		// Token: 0x04000C98 RID: 3224
+		// Token: 0x04000DD3 RID: 3539
 		private const int kCrouch_MovingUp = 1;
 
-		// Token: 0x04000C99 RID: 3225
-		internal readonly CCTotem.Configuration Configuration;
+		// Token: 0x04000DD4 RID: 3540
+		internal readonly global::CCTotem.Configuration Configuration;
 
-		// Token: 0x04000C9A RID: 3226
-		internal readonly CCTotem.TotemicFigure[] TotemicFigures;
+		// Token: 0x04000DD5 RID: 3541
+		internal readonly global::CCTotem.TotemicFigure[] TotemicFigures;
 
-		// Token: 0x04000C9B RID: 3227
-		internal readonly CCTotem.Ends<CCTotem.TotemicFigure> TotemicFigureEnds;
+		// Token: 0x04000DD6 RID: 3542
+		internal readonly global::CCTotem.Ends<global::CCTotem.TotemicFigure> TotemicFigureEnds;
 
-		// Token: 0x04000C9C RID: 3228
-		internal readonly CCTotem.Contraction Contraction;
+		// Token: 0x04000DD7 RID: 3543
+		internal readonly global::CCTotem.Contraction Contraction;
 
-		// Token: 0x04000C9D RID: 3229
-		internal CCTotem.Ends<Vector3> Point;
+		// Token: 0x04000DD8 RID: 3544
+		internal global::CCTotem.Ends<Vector3> Point;
 
-		// Token: 0x04000C9E RID: 3230
-		internal CCTotem.Expansion Expansion;
+		// Token: 0x04000DD9 RID: 3545
+		internal global::CCTotem.Expansion Expansion;
 
-		// Token: 0x04000C9F RID: 3231
-		internal CCDesc CCDesc;
+		// Token: 0x04000DDA RID: 3546
+		internal global::CCDesc CCDesc;
 
-		// Token: 0x04000CA0 RID: 3232
+		// Token: 0x04000DDB RID: 3547
 		private bool grounded;
 	}
 
-	// Token: 0x0200029A RID: 666
-	public sealed class TotemicFigure : CCTotem.TotemicObject<CCTotemicFigure, CCTotem.TotemicFigure>
+	// Token: 0x020002D5 RID: 725
+	public sealed class TotemicFigure : global::CCTotem.TotemicObject<global::CCTotemicFigure, global::CCTotem.TotemicFigure>
 	{
-		// Token: 0x060017BF RID: 6079 RVA: 0x0005C960 File Offset: 0x0005AB60
+		// Token: 0x06001947 RID: 6471 RVA: 0x000612D4 File Offset: 0x0005F4D4
 		[Obsolete("Infrastructure", true)]
 		public TotemicFigure()
 		{
 			throw new NotSupportedException();
 		}
 
-		// Token: 0x060017C0 RID: 6080 RVA: 0x0005C970 File Offset: 0x0005AB70
-		private TotemicFigure(CCTotem.TotemPole TotemPole, int BottomUpIndex)
+		// Token: 0x06001948 RID: 6472 RVA: 0x000612E4 File Offset: 0x0005F4E4
+		private TotemicFigure(global::CCTotem.TotemPole TotemPole, int BottomUpIndex)
 		{
 			this.TotemPole = TotemPole;
 			this.BottomUpIndex = BottomUpIndex;
@@ -1148,49 +1148,49 @@ public abstract class CCTotem : MonoBehaviour
 			this.TotemPole.TotemicFigures[this.BottomUpIndex] = this;
 		}
 
-		// Token: 0x060017C1 RID: 6081 RVA: 0x0005C9FC File Offset: 0x0005ABFC
-		private TotemicFigure(CCTotem.Direction Down) : this(Down.TotemicFigure.TotemPole, Down.TotemicFigure.BottomUpIndex + 1)
+		// Token: 0x06001949 RID: 6473 RVA: 0x00061370 File Offset: 0x0005F570
+		private TotemicFigure(global::CCTotem.Direction Down) : this(Down.TotemicFigure.TotemPole, Down.TotemicFigure.BottomUpIndex + 1)
 		{
 			float num = (float)this.BottomUpIndex / (float)this.TotemPole.Configuration.numSlidingTotemicFigures;
 			float num2 = (this.TotemPole.Configuration.numSlidingTotemicFigures != 1) ? ((float)(this.BottomUpIndex - 1) / (float)(this.TotemPole.Configuration.numSlidingTotemicFigures - 1)) : num;
 			float num3 = Mathf.Lerp(this.TotemPole.Configuration.poleBottomBufferAmount, this.TotemPole.Configuration.poleContractedHeight - this.TotemPole.Configuration.figureSkinnedHeight, num2);
 			float num4 = Mathf.Lerp(this.TotemPole.Configuration.poleBottomBufferAmount, this.TotemPole.Configuration.poleExpandedHeight - this.TotemPole.Configuration.figureSkinnedHeight, num);
-			this.TotemContractionBottom = CCTotem.Contraction.Define(num3, num4);
-			this.TotemContractionTop = CCTotem.Contraction.Define(num3 + this.TotemPole.Configuration.figureSkinnedHeight, num4 + this.TotemPole.Configuration.figureSkinnedHeight);
-			CCTotem.Direction direction = new CCTotem.Direction(this);
-			CCTotem.Direction none;
+			this.TotemContractionBottom = global::CCTotem.Contraction.Define(num3, num4);
+			this.TotemContractionTop = global::CCTotem.Contraction.Define(num3 + this.TotemPole.Configuration.figureSkinnedHeight, num4 + this.TotemPole.Configuration.figureSkinnedHeight);
+			global::CCTotem.Direction direction = new global::CCTotem.Direction(this);
+			global::CCTotem.Direction none;
 			if (this.BottomUpIndex < this.TotemPole.Configuration.numRequiredTotemicFigures - 1)
 			{
-				none = new CCTotem.Direction(new CCTotem.TotemicFigure(direction));
+				none = new global::CCTotem.Direction(new global::CCTotem.TotemicFigure(direction));
 			}
 			else
 			{
-				none = CCTotem.Direction.None;
+				none = global::CCTotem.Direction.None;
 			}
-			this.TotemicRoute = new CCTotem.Route(Down, direction, none);
+			this.TotemicRoute = new global::CCTotem.Route(Down, direction, none);
 		}
 
-		// Token: 0x060017C2 RID: 6082 RVA: 0x0005CB78 File Offset: 0x0005AD78
-		private TotemicFigure(CCTotem.TotemPole TotemPole) : this(TotemPole, 0)
+		// Token: 0x0600194A RID: 6474 RVA: 0x000614EC File Offset: 0x0005F6EC
+		private TotemicFigure(global::CCTotem.TotemPole TotemPole) : this(TotemPole, 0)
 		{
-			CCTotem.Direction direction = new CCTotem.Direction(this);
-			this.TotemicRoute = new CCTotem.Route(CCTotem.Direction.None, direction, new CCTotem.Direction(new CCTotem.TotemicFigure(direction)));
+			global::CCTotem.Direction direction = new global::CCTotem.Direction(this);
+			this.TotemicRoute = new global::CCTotem.Route(global::CCTotem.Direction.None, direction, new global::CCTotem.Direction(new global::CCTotem.TotemicFigure(direction)));
 		}
 
-		// Token: 0x060017C3 RID: 6083 RVA: 0x0005CBB4 File Offset: 0x0005ADB4
-		internal static CCTotem.Ends<CCTotem.TotemicFigure> CreateAllTotemicFigures(CCTotem.TotemPole TotemPole)
+		// Token: 0x0600194B RID: 6475 RVA: 0x00061528 File Offset: 0x0005F728
+		internal static global::CCTotem.Ends<global::CCTotem.TotemicFigure> CreateAllTotemicFigures(global::CCTotem.TotemPole TotemPole)
 		{
 			if (!object.ReferenceEquals(TotemPole.TotemicFigures[0], null))
 			{
 				throw new ArgumentException("The totem pole already has totemic figures", "TotemPole");
 			}
-			CCTotem.TotemicFigure bottom = new CCTotem.TotemicFigure(TotemPole);
-			CCTotem.TotemicFigure top = TotemPole.TotemicFigures[TotemPole.Configuration.numRequiredTotemicFigures - 1];
-			return new CCTotem.Ends<CCTotem.TotemicFigure>(bottom, top);
+			global::CCTotem.TotemicFigure bottom = new global::CCTotem.TotemicFigure(TotemPole);
+			global::CCTotem.TotemicFigure top = TotemPole.TotemicFigures[TotemPole.Configuration.numRequiredTotemicFigures - 1];
+			return new global::CCTotem.Ends<global::CCTotem.TotemicFigure>(bottom, top);
 		}
 
-		// Token: 0x060017C4 RID: 6084 RVA: 0x0005CC0C File Offset: 0x0005AE0C
-		internal override void OnScriptDestroy(CCTotemicFigure Script)
+		// Token: 0x0600194C RID: 6476 RVA: 0x00061580 File Offset: 0x0005F780
+		internal override void OnScriptDestroy(global::CCTotemicFigure Script)
 		{
 			if (object.ReferenceEquals(this.Script, Script))
 			{
@@ -1202,22 +1202,22 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060017C5 RID: 6085 RVA: 0x0005CC4C File Offset: 0x0005AE4C
-		internal override void AssignedToScript(CCTotemicFigure Script)
+		// Token: 0x0600194D RID: 6477 RVA: 0x000615C0 File Offset: 0x0005F7C0
+		internal override void AssignedToScript(global::CCTotemicFigure Script)
 		{
 			this.Script = Script;
 		}
 
-		// Token: 0x060017C6 RID: 6086 RVA: 0x0005CC58 File Offset: 0x0005AE58
-		internal void Delete(CCTotemPole OwnerScript)
+		// Token: 0x0600194E RID: 6478 RVA: 0x000615CC File Offset: 0x0005F7CC
+		internal void Delete(global::CCTotemPole OwnerScript)
 		{
-			CCTotemicFigure script = this.Script;
+			global::CCTotemicFigure script = this.Script;
 			this.Script = null;
 			if (script && object.ReferenceEquals(script.totemicObject, this))
 			{
 				script.totemicObject = null;
 			}
-			CCTotem.DestroyCCDesc(OwnerScript, ref this.CCDesc);
+			global::CCTotem.DestroyCCDesc(OwnerScript, ref this.CCDesc);
 			if (script)
 			{
 				Object.Destroy(script.gameObject);
@@ -1228,7 +1228,7 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060017C7 RID: 6087 RVA: 0x0005CCE8 File Offset: 0x0005AEE8
+		// Token: 0x0600194F RID: 6479 RVA: 0x0006165C File Offset: 0x0005F85C
 		public override string ToString()
 		{
 			return string.Format("{{Index={0},ContractionBottom={1},ContractionTop={2},Script={3}}}", new object[]
@@ -1240,8 +1240,8 @@ public abstract class CCTotem : MonoBehaviour
 			});
 		}
 
-		// Token: 0x170006E5 RID: 1765
-		// (get) Token: 0x060017C8 RID: 6088 RVA: 0x0005CD38 File Offset: 0x0005AF38
+		// Token: 0x17000739 RID: 1849
+		// (get) Token: 0x06001950 RID: 6480 RVA: 0x000616AC File Offset: 0x0005F8AC
 		public Vector3 BottomOrigin
 		{
 			get
@@ -1250,8 +1250,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E6 RID: 1766
-		// (get) Token: 0x060017C9 RID: 6089 RVA: 0x0005CD48 File Offset: 0x0005AF48
+		// Token: 0x1700073A RID: 1850
+		// (get) Token: 0x06001951 RID: 6481 RVA: 0x000616BC File Offset: 0x0005F8BC
 		public Vector3 CenterOrigin
 		{
 			get
@@ -1260,8 +1260,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E7 RID: 1767
-		// (get) Token: 0x060017CA RID: 6090 RVA: 0x0005CD58 File Offset: 0x0005AF58
+		// Token: 0x1700073B RID: 1851
+		// (get) Token: 0x06001952 RID: 6482 RVA: 0x000616CC File Offset: 0x0005F8CC
 		public Vector3 TopOrigin
 		{
 			get
@@ -1270,8 +1270,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E8 RID: 1768
-		// (get) Token: 0x060017CB RID: 6091 RVA: 0x0005CD68 File Offset: 0x0005AF68
+		// Token: 0x1700073C RID: 1852
+		// (get) Token: 0x06001953 RID: 6483 RVA: 0x000616DC File Offset: 0x0005F8DC
 		public Vector3 SlideBottomOrigin
 		{
 			get
@@ -1280,8 +1280,8 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x170006E9 RID: 1769
-		// (get) Token: 0x060017CC RID: 6092 RVA: 0x0005CDBC File Offset: 0x0005AFBC
+		// Token: 0x1700073D RID: 1853
+		// (get) Token: 0x06001954 RID: 6484 RVA: 0x00061730 File Offset: 0x0005F930
 		public Vector3 SlideTopOrigin
 		{
 			get
@@ -1290,25 +1290,25 @@ public abstract class CCTotem : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060017CD RID: 6093 RVA: 0x0005CE10 File Offset: 0x0005B010
+		// Token: 0x06001955 RID: 6485 RVA: 0x00061784 File Offset: 0x0005F984
 		public CollisionFlags MoveWorldBottomTo(Vector3 targetBottom)
 		{
 			return this.MoveWorld(targetBottom - this.BottomOrigin);
 		}
 
-		// Token: 0x060017CE RID: 6094 RVA: 0x0005CE24 File Offset: 0x0005B024
+		// Token: 0x06001956 RID: 6486 RVA: 0x00061798 File Offset: 0x0005F998
 		public CollisionFlags MoveWorldTopTo(Vector3 targetTop)
 		{
 			return this.MoveWorld(targetTop - this.TopOrigin);
 		}
 
-		// Token: 0x060017CF RID: 6095 RVA: 0x0005CE38 File Offset: 0x0005B038
+		// Token: 0x06001957 RID: 6487 RVA: 0x000617AC File Offset: 0x0005F9AC
 		public CollisionFlags MoveWorld(Vector3 motion)
 		{
 			return this.CCDesc.Move(motion);
 		}
 
-		// Token: 0x060017D0 RID: 6096 RVA: 0x0005CE48 File Offset: 0x0005B048
+		// Token: 0x06001958 RID: 6488 RVA: 0x000617BC File Offset: 0x0005F9BC
 		public CollisionFlags MoveSweep(Vector3 motion)
 		{
 			this.PreSweepBottom = this.BottomOrigin;
@@ -1318,45 +1318,45 @@ public abstract class CCTotem : MonoBehaviour
 			return result;
 		}
 
-		// Token: 0x04000CA1 RID: 3233
-		public CCDesc CCDesc;
+		// Token: 0x04000DDC RID: 3548
+		public global::CCDesc CCDesc;
 
-		// Token: 0x04000CA2 RID: 3234
-		internal readonly CCTotem.TotemPole TotemPole;
+		// Token: 0x04000DDD RID: 3549
+		internal readonly global::CCTotem.TotemPole TotemPole;
 
-		// Token: 0x04000CA3 RID: 3235
+		// Token: 0x04000DDE RID: 3550
 		internal readonly int BottomUpIndex;
 
-		// Token: 0x04000CA4 RID: 3236
+		// Token: 0x04000DDF RID: 3551
 		internal readonly int TopDownIndex;
 
-		// Token: 0x04000CA5 RID: 3237
+		// Token: 0x04000DE0 RID: 3552
 		internal readonly CollisionFlags CollisionFlagsMask;
 
-		// Token: 0x04000CA6 RID: 3238
-		internal readonly CCTotem.Route TotemicRoute;
+		// Token: 0x04000DE1 RID: 3553
+		internal readonly global::CCTotem.Route TotemicRoute;
 
-		// Token: 0x04000CA7 RID: 3239
-		internal readonly CCTotem.Contraction TotemContractionTop;
+		// Token: 0x04000DE2 RID: 3554
+		internal readonly global::CCTotem.Contraction TotemContractionTop;
 
-		// Token: 0x04000CA8 RID: 3240
-		internal readonly CCTotem.Contraction TotemContractionBottom;
+		// Token: 0x04000DE3 RID: 3555
+		internal readonly global::CCTotem.Contraction TotemContractionBottom;
 
-		// Token: 0x04000CA9 RID: 3241
+		// Token: 0x04000DE4 RID: 3556
 		public Vector3 PreSweepBottom;
 
-		// Token: 0x04000CAA RID: 3242
+		// Token: 0x04000DE5 RID: 3557
 		public Vector3 PostSweepBottom;
 
-		// Token: 0x04000CAB RID: 3243
+		// Token: 0x04000DE6 RID: 3558
 		public Vector3 SweepMovement;
 	}
 
-	// Token: 0x0200086A RID: 2154
-	// (Invoke) Token: 0x06004B80 RID: 19328
-	public delegate void PositionBinder(ref CCTotem.PositionPlacement binding, object Tag);
+	// Token: 0x020002D6 RID: 726
+	// (Invoke) Token: 0x0600195A RID: 6490
+	public delegate void PositionBinder(ref global::CCTotem.PositionPlacement binding, object Tag);
 
-	// Token: 0x0200086B RID: 2155
-	// (Invoke) Token: 0x06004B84 RID: 19332
-	public delegate void ConfigurationBinder(bool Bind, CCDesc CCDesc, object Tag);
+	// Token: 0x020002D7 RID: 727
+	// (Invoke) Token: 0x0600195E RID: 6494
+	public delegate void ConfigurationBinder(bool Bind, global::CCDesc CCDesc, object Tag);
 }

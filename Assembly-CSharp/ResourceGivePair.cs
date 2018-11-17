@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004B7 RID: 1207
+// Token: 0x02000572 RID: 1394
 [Serializable]
 public class ResourceGivePair
 {
-	// Token: 0x17000967 RID: 2407
-	// (get) Token: 0x06002A37 RID: 10807 RVA: 0x000A57A0 File Offset: 0x000A39A0
-	public ItemDataBlock ResourceItemDataBlock
+	// Token: 0x170009D7 RID: 2519
+	// (get) Token: 0x06002DE9 RID: 11753 RVA: 0x000AD538 File Offset: 0x000AB738
+	public global::ItemDataBlock ResourceItemDataBlock
 	{
 		get
 		{
@@ -16,51 +16,51 @@ public class ResourceGivePair
 				this._resourceItemDatablock = this.ResourceItemName;
 				this._setResourceItemDatablock = true;
 			}
-			return (ItemDataBlock)this._resourceItemDatablock.datablock;
+			return (global::ItemDataBlock)this._resourceItemDatablock.datablock;
 		}
 	}
 
-	// Token: 0x06002A38 RID: 10808 RVA: 0x000A57D8 File Offset: 0x000A39D8
+	// Token: 0x06002DEA RID: 11754 RVA: 0x000AD570 File Offset: 0x000AB770
 	public void CalcAmount()
 	{
 		this.realAmount = Random.Range(this.amountMin, this.amountMax + 1);
 	}
 
-	// Token: 0x06002A39 RID: 10809 RVA: 0x000A57F4 File Offset: 0x000A39F4
+	// Token: 0x06002DEB RID: 11755 RVA: 0x000AD58C File Offset: 0x000AB78C
 	public bool AnyLeft()
 	{
 		return this.realAmount > 0;
 	}
 
-	// Token: 0x06002A3A RID: 10810 RVA: 0x000A5800 File Offset: 0x000A3A00
+	// Token: 0x06002DEC RID: 11756 RVA: 0x000AD598 File Offset: 0x000AB798
 	public int AmountLeft()
 	{
 		return this.realAmount;
 	}
 
-	// Token: 0x06002A3B RID: 10811 RVA: 0x000A5808 File Offset: 0x000A3A08
+	// Token: 0x06002DED RID: 11757 RVA: 0x000AD5A0 File Offset: 0x000AB7A0
 	public void Subtract(int amount)
 	{
 		this.realAmount -= amount;
 	}
 
-	// Token: 0x04001630 RID: 5680
+	// Token: 0x040017ED RID: 6125
 	[NonSerialized]
-	private Datablock.Ident _resourceItemDatablock;
+	private global::Datablock.Ident _resourceItemDatablock;
 
-	// Token: 0x04001631 RID: 5681
+	// Token: 0x040017EE RID: 6126
 	[NonSerialized]
 	private bool _setResourceItemDatablock;
 
-	// Token: 0x04001632 RID: 5682
+	// Token: 0x040017EF RID: 6127
 	public string ResourceItemName = string.Empty;
 
-	// Token: 0x04001633 RID: 5683
+	// Token: 0x040017F0 RID: 6128
 	public int amountMin;
 
-	// Token: 0x04001634 RID: 5684
+	// Token: 0x040017F1 RID: 6129
 	public int amountMax;
 
-	// Token: 0x04001635 RID: 5685
+	// Token: 0x040017F2 RID: 6130
 	private int realAmount;
 }

@@ -4,20 +4,20 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200042E RID: 1070
-public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
+// Token: 0x020004E4 RID: 1252
+public class BasicWildLifeAI : NetBehaviour, global::IInterpTimedEventReceiver
 {
-	// Token: 0x060027A9 RID: 10153 RVA: 0x0009AC40 File Offset: 0x00098E40
-	void IInterpTimedEventReceiver.OnInterpTimedEvent()
+	// Token: 0x06002B39 RID: 11065 RVA: 0x000A0BC0 File Offset: 0x0009EDC0
+	void global::IInterpTimedEventReceiver.OnInterpTimedEvent()
 	{
 		if (!this.OnInterpTimedEvent())
 		{
-			InterpTimedEvent.MarkUnhandled();
+			global::InterpTimedEvent.MarkUnhandled();
 		}
 	}
 
-	// Token: 0x17000917 RID: 2327
-	// (get) Token: 0x060027AA RID: 10154 RVA: 0x0009AC60 File Offset: 0x00098E60
+	// Token: 0x1700097F RID: 2431
+	// (get) Token: 0x06002B3A RID: 11066 RVA: 0x000A0BE0 File Offset: 0x0009EDE0
 	public Transform transform
 	{
 		get
@@ -26,19 +26,19 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		}
 	}
 
-	// Token: 0x060027AB RID: 10155 RVA: 0x0009AC68 File Offset: 0x00098E68
+	// Token: 0x06002B3B RID: 11067 RVA: 0x000A0BE8 File Offset: 0x0009EDE8
 	protected float GetWalkAnimScalar()
 	{
 		return this.walkAnimScalar;
 	}
 
-	// Token: 0x060027AC RID: 10156 RVA: 0x0009AC70 File Offset: 0x00098E70
+	// Token: 0x06002B3C RID: 11068 RVA: 0x000A0BF0 File Offset: 0x0009EDF0
 	protected float GetRunAnimScalar()
 	{
 		return this.runAnimScalar;
 	}
 
-	// Token: 0x060027AD RID: 10157 RVA: 0x0009AC78 File Offset: 0x00098E78
+	// Token: 0x06002B3D RID: 11069 RVA: 0x000A0BF8 File Offset: 0x0009EDF8
 	protected float GetMoveSpeedForAnim()
 	{
 		Vector3 vector;
@@ -46,13 +46,13 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		return vector.magnitude;
 	}
 
-	// Token: 0x060027AE RID: 10158 RVA: 0x0009AC9C File Offset: 0x00098E9C
+	// Token: 0x06002B3E RID: 11070 RVA: 0x000A0C1C File Offset: 0x0009EE1C
 	public virtual string GetDeathAnim()
 	{
 		return "death";
 	}
 
-	// Token: 0x060027AF RID: 10159 RVA: 0x0009ACA4 File Offset: 0x00098EA4
+	// Token: 0x06002B3F RID: 11071 RVA: 0x000A0C24 File Offset: 0x0009EE24
 	protected void DoClientDeath()
 	{
 		base.animation[this.GetDeathAnim()].wrapMode = 8;
@@ -60,14 +60,14 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		this._takeDamage.health = 0f;
 	}
 
-	// Token: 0x060027B0 RID: 10160 RVA: 0x0009ACF0 File Offset: 0x00098EF0
-	protected void OnClientDeath(ref Vector3 deathPosition, NetworkViewID attackerNetViewID, ref NetworkMessageInfo info)
+	// Token: 0x06002B40 RID: 11072 RVA: 0x000A0C70 File Offset: 0x0009EE70
+	protected void OnClientDeath(ref Vector3 deathPosition, uLink.NetworkViewID attackerNetViewID, ref uLink.NetworkMessageInfo info)
 	{
 		Vector3 vector;
 		Vector3 up;
-		TransformHelpers.GetGroundInfo(deathPosition + new Vector3(0f, 0.25f, 0f), 10f, out vector, out up);
+		global::TransformHelpers.GetGroundInfo(deathPosition + new Vector3(0f, 0.25f, 0f), 10f, out vector, out up);
 		deathPosition = vector;
-		Quaternion rot = TransformHelpers.LookRotationForcedUp(this._myTransform.rotation * Vector3.forward, up);
+		Quaternion rot = global::TransformHelpers.LookRotationForcedUp(this._myTransform.rotation * Vector3.forward, up);
 		this._interp.SetGoals(deathPosition, rot, info.timestamp);
 		if (attackerNetViewID.isMine)
 		{
@@ -75,18 +75,18 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		}
 		else
 		{
-			InterpTimedEvent.Queue(this, "DEATH", ref info);
+			global::InterpTimedEvent.Queue(this, "DEATH", ref info);
 		}
 	}
 
-	// Token: 0x060027B1 RID: 10161 RVA: 0x0009AD8C File Offset: 0x00098F8C
-	protected void OnNetworkUpdate(ref Vector3 origin, ref Quaternion rotation, ref NetworkMessageInfo info)
+	// Token: 0x06002B41 RID: 11073 RVA: 0x000A0D0C File Offset: 0x0009EF0C
+	protected void OnNetworkUpdate(ref Vector3 origin, ref Quaternion rotation, ref uLink.NetworkMessageInfo info)
 	{
 		this._wildMove.ProcessNetworkUpdate(ref origin, ref rotation);
 		this._interp.SetGoals(origin, rotation, info.timestamp);
 	}
 
-	// Token: 0x060027B2 RID: 10162 RVA: 0x0009ADC4 File Offset: 0x00098FC4
+	// Token: 0x06002B42 RID: 11074 RVA: 0x000A0D44 File Offset: 0x0009EF44
 	protected virtual bool PlaySnd(int type)
 	{
 		AudioClip audioClip = null;
@@ -134,45 +134,45 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		return true;
 	}
 
-	// Token: 0x060027B3 RID: 10163 RVA: 0x0009AEEC File Offset: 0x000990EC
+	// Token: 0x06002B43 RID: 11075 RVA: 0x000A0E6C File Offset: 0x0009F06C
 	protected void Awake()
 	{
 		this._myTransform = base.transform;
-		this._takeDamage = base.GetComponent<TakeDamage>();
-		this._wildMove = base.GetComponent<BaseAIMovement>();
-		this._interp = base.GetComponent<TransformInterpolator>();
-		Object.Destroy(base.GetComponent<BasicWildLifeMovement>());
-		Object.Destroy(base.GetComponent<VisNode>());
+		this._takeDamage = base.GetComponent<global::TakeDamage>();
+		this._wildMove = base.GetComponent<global::BaseAIMovement>();
+		this._interp = base.GetComponent<global::TransformInterpolator>();
+		Object.Destroy(base.GetComponent<global::BasicWildLifeMovement>());
+		Object.Destroy(base.GetComponent<global::VisNode>());
 		this._takeDamage.enabled = false;
 	}
 
-	// Token: 0x060027B4 RID: 10164 RVA: 0x0009AF4C File Offset: 0x0009914C
-	protected void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06002B44 RID: 11076 RVA: 0x000A0ECC File Offset: 0x0009F0CC
+	protected void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		this._interp.running = true;
 	}
 
-	// Token: 0x060027B5 RID: 10165 RVA: 0x0009AF5C File Offset: 0x0009915C
+	// Token: 0x06002B45 RID: 11077 RVA: 0x000A0EDC File Offset: 0x0009F0DC
 	protected void OnDestroy()
 	{
-		InterpTimedEvent.Remove(this);
+		global::InterpTimedEvent.Remove(this);
 	}
 
-	// Token: 0x060027B6 RID: 10166 RVA: 0x0009AF64 File Offset: 0x00099164
+	// Token: 0x06002B46 RID: 11078 RVA: 0x000A0EE4 File Offset: 0x0009F0E4
 	[RPC]
-	protected void GetNetworkUpdate(Vector3 pos, Angle2 rot, NetworkMessageInfo info)
+	protected void GetNetworkUpdate(Vector3 pos, global::Angle2 rot, uLink.NetworkMessageInfo info)
 	{
 		Quaternion quaternion = (Quaternion)rot;
 		this.OnNetworkUpdate(ref pos, ref quaternion, ref info);
 	}
 
-	// Token: 0x060027B7 RID: 10167 RVA: 0x0009AF84 File Offset: 0x00099184
+	// Token: 0x06002B47 RID: 11079 RVA: 0x000A0F04 File Offset: 0x0009F104
 	[RPC]
-	protected void Snd(byte type, NetworkMessageInfo info)
+	protected void Snd(byte type, uLink.NetworkMessageInfo info)
 	{
 		try
 		{
-			InterpTimedEvent.Queue(this, "SOUND", ref info, new object[]
+			global::InterpTimedEvent.Queue(this, "SOUND", ref info, new object[]
 			{
 				(int)type
 			});
@@ -181,11 +181,11 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		{
 			Debug.LogException(ex);
 			Debug.LogWarning("Running emergency dump because of previous exception in Snd", this);
-			InterpTimedEvent.EMERGENCY_DUMP(true);
+			global::InterpTimedEvent.EMERGENCY_DUMP(true);
 		}
 	}
 
-	// Token: 0x060027B8 RID: 10168 RVA: 0x0009AFEC File Offset: 0x000991EC
+	// Token: 0x06002B48 RID: 11080 RVA: 0x000A0F6C File Offset: 0x0009F16C
 	[RPC]
 	protected void ClientHealthChange(float newHealth)
 	{
@@ -195,22 +195,22 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		this._takeDamage.health = newHealth;
 	}
 
-	// Token: 0x060027B9 RID: 10169 RVA: 0x0009B00C File Offset: 0x0009920C
+	// Token: 0x06002B49 RID: 11081 RVA: 0x000A0F8C File Offset: 0x0009F18C
 	[RPC]
-	protected void ClientDeath(Vector3 deadPos, NetworkViewID attackerID, NetworkMessageInfo info)
+	protected void ClientDeath(Vector3 deadPos, uLink.NetworkViewID attackerID, uLink.NetworkMessageInfo info)
 	{
 		this.OnClientDeath(ref deadPos, attackerID, ref info);
 	}
 
-	// Token: 0x060027BA RID: 10170 RVA: 0x0009B01C File Offset: 0x0009921C
+	// Token: 0x06002B4A RID: 11082 RVA: 0x000A0F9C File Offset: 0x0009F19C
 	protected virtual bool OnInterpTimedEvent()
 	{
-		string tag = InterpTimedEvent.Tag;
+		string tag = global::InterpTimedEvent.Tag;
 		if (tag != null)
 		{
-			if (BasicWildLifeAI.<>f__switch$map7 == null)
+			if (global::BasicWildLifeAI.<>f__switch$map7 == null)
 			{
-				BasicWildLifeAI.<>f__switch$map7 = new Dictionary<string, int>(2)
+				global::BasicWildLifeAI.<>f__switch$map7 = new Dictionary<string, int>(2)
 				{
 					{
 						"DEATH",
@@ -223,7 +223,7 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 				};
 			}
 			int num;
-			if (BasicWildLifeAI.<>f__switch$map7.TryGetValue(tag, out num))
+			if (global::BasicWildLifeAI.<>f__switch$map7.TryGetValue(tag, out num))
 			{
 				if (num == 0)
 				{
@@ -232,7 +232,7 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 				}
 				if (num == 1)
 				{
-					this.PlaySnd(InterpTimedEvent.Argument<int>(0));
+					this.PlaySnd(global::InterpTimedEvent.Argument<int>(0));
 					return true;
 				}
 			}
@@ -240,80 +240,80 @@ public class BasicWildLifeAI : NetBehaviour, IInterpTimedEventReceiver
 		return false;
 	}
 
-	// Token: 0x04001384 RID: 4996
+	// Token: 0x04001507 RID: 5383
 	private const string RPCName_GetNetworkUpdate = "GetNetworkUpdate";
 
-	// Token: 0x04001385 RID: 4997
+	// Token: 0x04001508 RID: 5384
 	private const string RPCName_Snd = "Snd";
 
-	// Token: 0x04001386 RID: 4998
+	// Token: 0x04001509 RID: 5385
 	private const string RPCName_ClientHealthChange = "ClientHealthChange";
 
-	// Token: 0x04001387 RID: 4999
+	// Token: 0x0400150A RID: 5386
 	private const string RPCName_ClientDeath = "ClientDeath";
 
-	// Token: 0x04001388 RID: 5000
+	// Token: 0x0400150B RID: 5387
 	public bool afraidOfFootsteps = true;
 
-	// Token: 0x04001389 RID: 5001
+	// Token: 0x0400150C RID: 5388
 	public bool afraidOfDanger = true;
 
-	// Token: 0x0400138A RID: 5002
+	// Token: 0x0400150D RID: 5389
 	[SerializeField]
-	protected AudioClipArray idleSounds;
+	protected global::AudioClipArray idleSounds;
 
-	// Token: 0x0400138B RID: 5003
+	// Token: 0x0400150E RID: 5390
 	[SerializeField]
-	protected AudioClipArray fleeStartSounds;
+	protected global::AudioClipArray fleeStartSounds;
 
-	// Token: 0x0400138C RID: 5004
+	// Token: 0x0400150F RID: 5391
 	[SerializeField]
-	protected AudioClipArray deathSounds;
+	protected global::AudioClipArray deathSounds;
 
-	// Token: 0x0400138D RID: 5005
+	// Token: 0x04001510 RID: 5392
 	[SerializeField]
 	protected float walkSpeed = 1f;
 
-	// Token: 0x0400138E RID: 5006
+	// Token: 0x04001511 RID: 5393
 	[SerializeField]
 	protected float runSpeed = 3f;
 
-	// Token: 0x0400138F RID: 5007
+	// Token: 0x04001512 RID: 5394
 	[SerializeField]
 	protected float walkAnimScalar = 1f;
 
-	// Token: 0x04001390 RID: 5008
+	// Token: 0x04001513 RID: 5395
 	[SerializeField]
 	protected float runAnimScalar = 1f;
 
-	// Token: 0x04001391 RID: 5009
+	// Token: 0x04001514 RID: 5396
 	protected Transform _myTransform;
 
-	// Token: 0x04001392 RID: 5010
-	protected TakeDamage _takeDamage;
+	// Token: 0x04001515 RID: 5397
+	protected global::TakeDamage _takeDamage;
 
-	// Token: 0x04001393 RID: 5011
-	protected BaseAIMovement _wildMove;
+	// Token: 0x04001516 RID: 5398
+	protected global::BaseAIMovement _wildMove;
 
-	// Token: 0x04001394 RID: 5012
-	protected TransformInterpolator _interp;
+	// Token: 0x04001517 RID: 5399
+	protected global::TransformInterpolator _interp;
 
-	// Token: 0x0200042F RID: 1071
+	// Token: 0x020004E5 RID: 1253
 	public enum AISound : byte
 	{
-		// Token: 0x04001397 RID: 5015
+		// Token: 0x0400151A RID: 5402
 		Idle,
-		// Token: 0x04001398 RID: 5016
+		// Token: 0x0400151B RID: 5403
 		Warn,
-		// Token: 0x04001399 RID: 5017
+		// Token: 0x0400151C RID: 5404
 		Attack,
-		// Token: 0x0400139A RID: 5018
+		// Token: 0x0400151D RID: 5405
 		Afraid,
-		// Token: 0x0400139B RID: 5019
+		// Token: 0x0400151E RID: 5406
 		Death,
-		// Token: 0x0400139C RID: 5020
+		// Token: 0x0400151F RID: 5407
 		Chase,
-		// Token: 0x0400139D RID: 5021
+		// Token: 0x04001520 RID: 5408
 		ChaseClose
 	}
 }

@@ -3,11 +3,11 @@ using System.Collections;
 using EasyRoads3D;
 using UnityEngine;
 
-// Token: 0x0200074B RID: 1867
+// Token: 0x0200082D RID: 2093
 [ExecuteInEditMode]
 public class MarkerScript : MonoBehaviour
 {
-	// Token: 0x06004423 RID: 17443 RVA: 0x00107FBC File Offset: 0x001061BC
+	// Token: 0x06004884 RID: 18564 RVA: 0x0011193C File Offset: 0x0010FB3C
 	private void Start()
 	{
 		foreach (object obj in base.transform)
@@ -17,7 +17,7 @@ public class MarkerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004424 RID: 17444 RVA: 0x0010802C File Offset: 0x0010622C
+	// Token: 0x06004885 RID: 18565 RVA: 0x001119AC File Offset: 0x0010FBAC
 	private void OnDrawGizmos()
 	{
 		if (this.objectScript != null)
@@ -51,10 +51,10 @@ public class MarkerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004425 RID: 17445 RVA: 0x00108170 File Offset: 0x00106370
+	// Token: 0x06004886 RID: 18566 RVA: 0x00111AF0 File Offset: 0x0010FCF0
 	private void SetObjectScript()
 	{
-		this.objectScript = base.transform.parent.parent.GetComponent<RoadObjectScript>();
+		this.objectScript = base.transform.parent.parent.GetComponent<global::RoadObjectScript>();
 		if (this.objectScript.OOQQCODOCD == null)
 		{
 			ArrayList arrayList = ODODDCCOQO.OCDCQOOODO(false);
@@ -62,7 +62,7 @@ public class MarkerScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004426 RID: 17446 RVA: 0x001081C8 File Offset: 0x001063C8
+	// Token: 0x06004887 RID: 18567 RVA: 0x00111B48 File Offset: 0x0010FD48
 	public void LeftIndent(float change, float perc)
 	{
 		this.ri += change * perc;
@@ -73,7 +73,7 @@ public class MarkerScript : MonoBehaviour
 		this.OOQOQQOO = this.ri;
 	}
 
-	// Token: 0x06004427 RID: 17447 RVA: 0x00108218 File Offset: 0x00106418
+	// Token: 0x06004888 RID: 18568 RVA: 0x00111B98 File Offset: 0x0010FD98
 	public void RightIndent(float change, float perc)
 	{
 		this.li += change * perc;
@@ -84,7 +84,7 @@ public class MarkerScript : MonoBehaviour
 		this.ODODQQOO = this.li;
 	}
 
-	// Token: 0x06004428 RID: 17448 RVA: 0x00108268 File Offset: 0x00106468
+	// Token: 0x06004889 RID: 18569 RVA: 0x00111BE8 File Offset: 0x0010FDE8
 	public void LeftSurrounding(float change, float perc)
 	{
 		this.rs += change * perc;
@@ -95,7 +95,7 @@ public class MarkerScript : MonoBehaviour
 		this.ODOQQOOO = this.rs;
 	}
 
-	// Token: 0x06004429 RID: 17449 RVA: 0x001082B8 File Offset: 0x001064B8
+	// Token: 0x0600488A RID: 18570 RVA: 0x00111C38 File Offset: 0x0010FE38
 	public void RightSurrounding(float change, float perc)
 	{
 		this.ls += change * perc;
@@ -106,7 +106,7 @@ public class MarkerScript : MonoBehaviour
 		this.DODOQQOO = this.ls;
 	}
 
-	// Token: 0x0600442A RID: 17450 RVA: 0x00108308 File Offset: 0x00106508
+	// Token: 0x0600488B RID: 18571 RVA: 0x00111C88 File Offset: 0x0010FE88
 	public void LeftTilting(float change, float perc)
 	{
 		this.rt += change * perc;
@@ -117,7 +117,7 @@ public class MarkerScript : MonoBehaviour
 		this.ODDQODOO = this.rt;
 	}
 
-	// Token: 0x0600442B RID: 17451 RVA: 0x00108344 File Offset: 0x00106544
+	// Token: 0x0600488C RID: 18572 RVA: 0x00111CC4 File Offset: 0x0010FEC4
 	public void RightTilting(float change, float perc)
 	{
 		this.lt += change * perc;
@@ -128,7 +128,7 @@ public class MarkerScript : MonoBehaviour
 		this.ODDOQOQQ = this.lt;
 	}
 
-	// Token: 0x0600442C RID: 17452 RVA: 0x00108380 File Offset: 0x00106580
+	// Token: 0x0600488D RID: 18573 RVA: 0x00111D00 File Offset: 0x0010FF00
 	public void FloorDepth(float change, float perc)
 	{
 		this.floorDepth += change * perc;
@@ -139,7 +139,7 @@ public class MarkerScript : MonoBehaviour
 		this.oldFloorDepth = this.floorDepth;
 	}
 
-	// Token: 0x0600442D RID: 17453 RVA: 0x001083BC File Offset: 0x001065BC
+	// Token: 0x0600488E RID: 18574 RVA: 0x00111D3C File Offset: 0x0010FF3C
 	public bool InSelected()
 	{
 		for (int i = 0; i < this.objectScript.OCQOCOCQQOs.Length; i++)
@@ -152,171 +152,171 @@ public class MarkerScript : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x040023CD RID: 9165
+	// Token: 0x04002604 RID: 9732
 	public float tension = 0.5f;
 
-	// Token: 0x040023CE RID: 9166
+	// Token: 0x04002605 RID: 9733
 	public float ri;
 
-	// Token: 0x040023CF RID: 9167
+	// Token: 0x04002606 RID: 9734
 	public float OOQOQQOO;
 
-	// Token: 0x040023D0 RID: 9168
+	// Token: 0x04002607 RID: 9735
 	public float li;
 
-	// Token: 0x040023D1 RID: 9169
+	// Token: 0x04002608 RID: 9736
 	public float ODODQQOO;
 
-	// Token: 0x040023D2 RID: 9170
+	// Token: 0x04002609 RID: 9737
 	public float rs;
 
-	// Token: 0x040023D3 RID: 9171
+	// Token: 0x0400260A RID: 9738
 	public float ODOQQOOO;
 
-	// Token: 0x040023D4 RID: 9172
+	// Token: 0x0400260B RID: 9739
 	public float ls;
 
-	// Token: 0x040023D5 RID: 9173
+	// Token: 0x0400260C RID: 9740
 	public float DODOQQOO;
 
-	// Token: 0x040023D6 RID: 9174
+	// Token: 0x0400260D RID: 9741
 	public float rt;
 
-	// Token: 0x040023D7 RID: 9175
+	// Token: 0x0400260E RID: 9742
 	public float ODDQODOO;
 
-	// Token: 0x040023D8 RID: 9176
+	// Token: 0x0400260F RID: 9743
 	public float lt;
 
-	// Token: 0x040023D9 RID: 9177
+	// Token: 0x04002610 RID: 9744
 	public float ODDOQOQQ;
 
-	// Token: 0x040023DA RID: 9178
+	// Token: 0x04002611 RID: 9745
 	public bool OCCCCODCOD;
 
-	// Token: 0x040023DB RID: 9179
+	// Token: 0x04002612 RID: 9746
 	public bool ODQDOQOO;
 
-	// Token: 0x040023DC RID: 9180
+	// Token: 0x04002613 RID: 9747
 	public float OQCQOQQDCQ;
 
-	// Token: 0x040023DD RID: 9181
+	// Token: 0x04002614 RID: 9748
 	public float ODOOQQOO;
 
-	// Token: 0x040023DE RID: 9182
+	// Token: 0x04002615 RID: 9749
 	public Transform[] OCQOCOCQQOs;
 
-	// Token: 0x040023DF RID: 9183
+	// Token: 0x04002616 RID: 9750
 	public float[] trperc;
 
-	// Token: 0x040023E0 RID: 9184
+	// Token: 0x04002617 RID: 9751
 	public Vector3 oldPos = Vector3.zero;
 
-	// Token: 0x040023E1 RID: 9185
+	// Token: 0x04002618 RID: 9752
 	public bool autoUpdate;
 
-	// Token: 0x040023E2 RID: 9186
+	// Token: 0x04002619 RID: 9753
 	public bool changed;
 
-	// Token: 0x040023E3 RID: 9187
+	// Token: 0x0400261A RID: 9754
 	public Transform surface;
 
-	// Token: 0x040023E4 RID: 9188
+	// Token: 0x0400261B RID: 9755
 	public bool OOCCDCOQCQ;
 
-	// Token: 0x040023E5 RID: 9189
+	// Token: 0x0400261C RID: 9756
 	private Vector3 position;
 
-	// Token: 0x040023E6 RID: 9190
+	// Token: 0x0400261D RID: 9757
 	private bool updated;
 
-	// Token: 0x040023E7 RID: 9191
+	// Token: 0x0400261E RID: 9758
 	private int frameCount;
 
-	// Token: 0x040023E8 RID: 9192
+	// Token: 0x0400261F RID: 9759
 	private float currentstamp;
 
-	// Token: 0x040023E9 RID: 9193
+	// Token: 0x04002620 RID: 9760
 	private float newstamp;
 
-	// Token: 0x040023EA RID: 9194
+	// Token: 0x04002621 RID: 9761
 	private bool mousedown;
 
-	// Token: 0x040023EB RID: 9195
+	// Token: 0x04002622 RID: 9762
 	private Vector3 lookAtPoint;
 
-	// Token: 0x040023EC RID: 9196
+	// Token: 0x04002623 RID: 9763
 	public bool bridgeObject;
 
-	// Token: 0x040023ED RID: 9197
+	// Token: 0x04002624 RID: 9764
 	public bool distHeights;
 
-	// Token: 0x040023EE RID: 9198
-	public RoadObjectScript objectScript;
+	// Token: 0x04002625 RID: 9765
+	public global::RoadObjectScript objectScript;
 
-	// Token: 0x040023EF RID: 9199
+	// Token: 0x04002626 RID: 9766
 	public ArrayList OQODQQDO = new ArrayList();
 
-	// Token: 0x040023F0 RID: 9200
+	// Token: 0x04002627 RID: 9767
 	public ArrayList ODOQQQDO = new ArrayList();
 
-	// Token: 0x040023F1 RID: 9201
+	// Token: 0x04002628 RID: 9768
 	public ArrayList OQQODQQOO = new ArrayList();
 
-	// Token: 0x040023F2 RID: 9202
+	// Token: 0x04002629 RID: 9769
 	public ArrayList ODDOQQOO = new ArrayList();
 
-	// Token: 0x040023F3 RID: 9203
+	// Token: 0x0400262A RID: 9770
 	public ArrayList ODDDDQOO = new ArrayList();
 
-	// Token: 0x040023F4 RID: 9204
+	// Token: 0x0400262B RID: 9771
 	public ArrayList DQQOQQOO = new ArrayList();
 
-	// Token: 0x040023F5 RID: 9205
+	// Token: 0x0400262C RID: 9772
 	public string[] ODDOOQDO;
 
-	// Token: 0x040023F6 RID: 9206
+	// Token: 0x0400262D RID: 9773
 	public bool[] ODDGDOOO;
 
-	// Token: 0x040023F7 RID: 9207
+	// Token: 0x0400262E RID: 9774
 	public bool[] ODDQOOO;
 
-	// Token: 0x040023F8 RID: 9208
+	// Token: 0x0400262F RID: 9775
 	public float[] ODDQOODO;
 
-	// Token: 0x040023F9 RID: 9209
+	// Token: 0x04002630 RID: 9776
 	public float[] ODOQODOO;
 
-	// Token: 0x040023FA RID: 9210
+	// Token: 0x04002631 RID: 9777
 	public float[] ODDOQDO;
 
-	// Token: 0x040023FB RID: 9211
+	// Token: 0x04002632 RID: 9778
 	public int markerNum;
 
-	// Token: 0x040023FC RID: 9212
+	// Token: 0x04002633 RID: 9779
 	public string distance = "0";
 
-	// Token: 0x040023FD RID: 9213
+	// Token: 0x04002634 RID: 9780
 	public string OQOQODQCQC = "0";
 
-	// Token: 0x040023FE RID: 9214
+	// Token: 0x04002635 RID: 9781
 	public string OODDQCQQDD = "0";
 
-	// Token: 0x040023FF RID: 9215
+	// Token: 0x04002636 RID: 9782
 	public bool newSegment;
 
-	// Token: 0x04002400 RID: 9216
+	// Token: 0x04002637 RID: 9783
 	public float floorDepth = 2f;
 
-	// Token: 0x04002401 RID: 9217
+	// Token: 0x04002638 RID: 9784
 	public float oldFloorDepth = 2f;
 
-	// Token: 0x04002402 RID: 9218
+	// Token: 0x04002639 RID: 9785
 	public float waterLevel = 0.5f;
 
-	// Token: 0x04002403 RID: 9219
+	// Token: 0x0400263A RID: 9786
 	public bool lockWaterLevel = true;
 
-	// Token: 0x04002404 RID: 9220
+	// Token: 0x0400263B RID: 9787
 	public bool sharpCorner;
 }

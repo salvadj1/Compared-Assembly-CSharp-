@@ -5,81 +5,81 @@ using Facepunch.MeshBatch;
 using Facepunch.MeshBatch.Extensions;
 using UnityEngine;
 
-// Token: 0x020004D3 RID: 1235
+// Token: 0x0200058E RID: 1422
 public static class ExplosionHelper
 {
-	// Token: 0x06002AA4 RID: 10916 RVA: 0x000A9E80 File Offset: 0x000A8080
-	public static ExplosionHelper.Surface[] OverlapExplosion(Vector3 point, float explosionRadius, int findLayerMask = -1, int occludingLayerMask = -1, IDMain ignore = null)
+	// Token: 0x06002E56 RID: 11862 RVA: 0x000B1C18 File Offset: 0x000AFE18
+	public static global::ExplosionHelper.Surface[] OverlapExplosion(Vector3 point, float explosionRadius, int findLayerMask = -1, int occludingLayerMask = -1, IDMain ignore = null)
 	{
-		ExplosionHelper.Point point2 = new ExplosionHelper.Point(point, explosionRadius, findLayerMask, occludingLayerMask, ignore);
+		global::ExplosionHelper.Point point2 = new global::ExplosionHelper.Point(point, explosionRadius, findLayerMask, occludingLayerMask, ignore);
 		return point2.ToArray();
 	}
 
-	// Token: 0x06002AA5 RID: 10917 RVA: 0x000A9EA4 File Offset: 0x000A80A4
-	public static ExplosionHelper.Surface[] OverlapExplosionSorted(Vector3 point, float explosionRadius, int findLayerMask = -1, int occludingLayerMask = -1, IDMain ignore = null)
+	// Token: 0x06002E57 RID: 11863 RVA: 0x000B1C3C File Offset: 0x000AFE3C
+	public static global::ExplosionHelper.Surface[] OverlapExplosionSorted(Vector3 point, float explosionRadius, int findLayerMask = -1, int occludingLayerMask = -1, IDMain ignore = null)
 	{
-		ExplosionHelper.Surface[] array = ExplosionHelper.OverlapExplosion(point, explosionRadius, findLayerMask, occludingLayerMask, ignore);
+		global::ExplosionHelper.Surface[] array = global::ExplosionHelper.OverlapExplosion(point, explosionRadius, findLayerMask, occludingLayerMask, ignore);
 		if (array.Length > 1)
 		{
-			Array.Sort<ExplosionHelper.Surface>(array);
+			Array.Sort<global::ExplosionHelper.Surface>(array);
 		}
 		return array;
 	}
 
-	// Token: 0x06002AA6 RID: 10918 RVA: 0x000A9ED0 File Offset: 0x000A80D0
-	public static ExplosionHelper.Surface[] OverlapExplosionUnique(Vector3 point, float explosionRadius, int findLayerMask = -1, int occludingLayerMask = -1, IDMain ignore = null)
+	// Token: 0x06002E58 RID: 11864 RVA: 0x000B1C68 File Offset: 0x000AFE68
+	public static global::ExplosionHelper.Surface[] OverlapExplosionUnique(Vector3 point, float explosionRadius, int findLayerMask = -1, int occludingLayerMask = -1, IDMain ignore = null)
 	{
-		ExplosionHelper.Surface[] array = ExplosionHelper.OverlapExplosion(point, explosionRadius, findLayerMask, occludingLayerMask, ignore);
+		global::ExplosionHelper.Surface[] array = global::ExplosionHelper.OverlapExplosion(point, explosionRadius, findLayerMask, occludingLayerMask, ignore);
 		int num = array.Length;
 		if (num > 1)
 		{
-			Array.Sort<ExplosionHelper.Surface>(array);
-			if (ExplosionHelper.Unique.Filter(array, ref num))
+			Array.Sort<global::ExplosionHelper.Surface>(array);
+			if (global::ExplosionHelper.Unique.Filter(array, ref num))
 			{
-				Array.Resize<ExplosionHelper.Surface>(ref array, num);
+				Array.Resize<global::ExplosionHelper.Surface>(ref array, num);
 			}
 		}
 		return array;
 	}
 
-	// Token: 0x04001727 RID: 5927
+	// Token: 0x040018E4 RID: 6372
 	private const float kMaxZero = 1E-05f;
 
-	// Token: 0x020004D4 RID: 1236
-	public struct Surface : IEquatable<ExplosionHelper.Surface>, IComparable<ExplosionHelper.Surface>
+	// Token: 0x0200058F RID: 1423
+	public struct Surface : IEquatable<global::ExplosionHelper.Surface>, IComparable<global::ExplosionHelper.Surface>
 	{
-		// Token: 0x06002AA7 RID: 10919 RVA: 0x000A9F10 File Offset: 0x000A8110
+		// Token: 0x06002E59 RID: 11865 RVA: 0x000B1CA8 File Offset: 0x000AFEA8
 		public override bool Equals(object obj)
 		{
-			return obj is ExplosionHelper.Surface && this.Equals((ExplosionHelper.Surface)obj);
+			return obj is global::ExplosionHelper.Surface && this.Equals((global::ExplosionHelper.Surface)obj);
 		}
 
-		// Token: 0x06002AA8 RID: 10920 RVA: 0x000A9F2C File Offset: 0x000A812C
-		public bool Equals(ExplosionHelper.Surface surface)
+		// Token: 0x06002E5A RID: 11866 RVA: 0x000B1CC4 File Offset: 0x000AFEC4
+		public bool Equals(global::ExplosionHelper.Surface surface)
 		{
 			return this.blocked == surface.blocked && this.bounds == surface.bounds && this.idBase == surface.idBase && this.idMain == surface.idMain && this.work.Equals(ref surface.work);
 		}
 
-		// Token: 0x06002AA9 RID: 10921 RVA: 0x000A9FA8 File Offset: 0x000A81A8
-		public bool Equals(ref ExplosionHelper.Surface surface)
+		// Token: 0x06002E5B RID: 11867 RVA: 0x000B1D40 File Offset: 0x000AFF40
+		public bool Equals(ref global::ExplosionHelper.Surface surface)
 		{
 			return this.blocked == surface.blocked && this.bounds == surface.bounds && this.idBase == surface.idBase && this.idMain == surface.idMain && this.work.Equals(ref surface.work);
 		}
 
-		// Token: 0x06002AAA RID: 10922 RVA: 0x000AA01C File Offset: 0x000A821C
+		// Token: 0x06002E5C RID: 11868 RVA: 0x000B1DB4 File Offset: 0x000AFFB4
 		public override string ToString()
 		{
 			return "Surface";
 		}
 
-		// Token: 0x06002AAB RID: 10923 RVA: 0x000AA024 File Offset: 0x000A8224
+		// Token: 0x06002E5D RID: 11869 RVA: 0x000B1DBC File Offset: 0x000AFFBC
 		public override int GetHashCode()
 		{
 			return this.bounds.GetHashCode() ^ ((!this.idBase) ? 0 : this.idBase.GetHashCode());
 		}
 
-		// Token: 0x06002AAC RID: 10924 RVA: 0x000AA060 File Offset: 0x000A8260
-		public int CompareTo(ExplosionHelper.Surface other)
+		// Token: 0x06002E5E RID: 11870 RVA: 0x000B1DF8 File Offset: 0x000AFFF8
+		public int CompareTo(global::ExplosionHelper.Surface other)
 		{
 			int num = this.blocked.CompareTo(other.blocked);
 			if (num == 0)
@@ -97,66 +97,66 @@ public static class ExplosionHelper
 			return num;
 		}
 
-		// Token: 0x04001728 RID: 5928
+		// Token: 0x040018E5 RID: 6373
 		public IDBase idBase;
 
-		// Token: 0x04001729 RID: 5929
+		// Token: 0x040018E6 RID: 6374
 		public IDMain idMain;
 
-		// Token: 0x0400172A RID: 5930
+		// Token: 0x040018E7 RID: 6375
 		public Bounds bounds;
 
-		// Token: 0x0400172B RID: 5931
-		public ExplosionHelper.Work work;
+		// Token: 0x040018E8 RID: 6376
+		public global::ExplosionHelper.Work work;
 
-		// Token: 0x0400172C RID: 5932
+		// Token: 0x040018E9 RID: 6377
 		public bool blocked;
 	}
 
-	// Token: 0x020004D5 RID: 1237
+	// Token: 0x02000590 RID: 1424
 	public struct Work
 	{
-		// Token: 0x06002AAD RID: 10925 RVA: 0x000AA0EC File Offset: 0x000A82EC
-		public bool Equals(ref ExplosionHelper.Work w)
+		// Token: 0x06002E5F RID: 11871 RVA: 0x000B1E84 File Offset: 0x000B0084
+		public bool Equals(ref global::ExplosionHelper.Work w)
 		{
 			return this.squareDistanceToCenter == w.squareDistanceToCenter && this.boundsSquareDistance == w.boundsSquareDistance && this.boundsExtentSquareMagnitude == w.boundsExtentSquareMagnitude && this.distanceToCenter == w.distanceToCenter && ((!this.rayTest) ? (!w.rayTest) : (w.rayTest && this.squareRayDistance == w.squareRayDistance && this.rayDistance == w.rayDistance && this.rayDir == w.rayDir)) && this.center == w.center && this.boundsExtent == w.boundsExtent;
 		}
 
-		// Token: 0x0400172D RID: 5933
+		// Token: 0x040018EA RID: 6378
 		public Vector3 center;
 
-		// Token: 0x0400172E RID: 5934
+		// Token: 0x040018EB RID: 6379
 		public Vector3 rayDir;
 
-		// Token: 0x0400172F RID: 5935
+		// Token: 0x040018EC RID: 6380
 		public Vector3 boundsExtent;
 
-		// Token: 0x04001730 RID: 5936
+		// Token: 0x040018ED RID: 6381
 		public float boundsExtentSquareMagnitude;
 
-		// Token: 0x04001731 RID: 5937
+		// Token: 0x040018EE RID: 6382
 		public float boundsSquareDistance;
 
-		// Token: 0x04001732 RID: 5938
+		// Token: 0x040018EF RID: 6383
 		public float distanceToCenter;
 
-		// Token: 0x04001733 RID: 5939
+		// Token: 0x040018F0 RID: 6384
 		public float squareDistanceToCenter;
 
-		// Token: 0x04001734 RID: 5940
+		// Token: 0x040018F1 RID: 6385
 		public float rayDistance;
 
-		// Token: 0x04001735 RID: 5941
+		// Token: 0x040018F2 RID: 6386
 		public float squareRayDistance;
 
-		// Token: 0x04001736 RID: 5942
+		// Token: 0x040018F3 RID: 6387
 		public bool rayTest;
 	}
 
-	// Token: 0x020004D6 RID: 1238
-	public struct Point : IEnumerable, IEnumerable<ExplosionHelper.Surface>
+	// Token: 0x02000591 RID: 1425
+	public struct Point : IEnumerable, IEnumerable<global::ExplosionHelper.Surface>
 	{
-		// Token: 0x06002AAE RID: 10926 RVA: 0x000AA1C8 File Offset: 0x000A83C8
+		// Token: 0x06002E60 RID: 11872 RVA: 0x000B1F60 File Offset: 0x000B0160
 		public Point(Vector3 point, float blastRadius, int overlapLayerMask, int raycastLayerMask, IDMain skip)
 		{
 			this.point = point;
@@ -166,20 +166,20 @@ public static class ExplosionHelper
 			this.skip = skip;
 		}
 
-		// Token: 0x06002AAF RID: 10927 RVA: 0x000AA1F0 File Offset: 0x000A83F0
-		IEnumerator<ExplosionHelper.Surface> IEnumerable<ExplosionHelper.Surface>.GetEnumerator()
+		// Token: 0x06002E61 RID: 11873 RVA: 0x000B1F88 File Offset: 0x000B0188
+		IEnumerator<global::ExplosionHelper.Surface> IEnumerable<global::ExplosionHelper.Surface>.GetEnumerator()
 		{
 			return this.GetEnumerator();
 		}
 
-		// Token: 0x06002AB0 RID: 10928 RVA: 0x000AA200 File Offset: 0x000A8400
+		// Token: 0x06002E62 RID: 11874 RVA: 0x000B1F98 File Offset: 0x000B0198
 		IEnumerator IEnumerable.GetEnumerator()
 		{
 			return this.GetEnumerator();
 		}
 
-		// Token: 0x06002AB1 RID: 10929 RVA: 0x000AA210 File Offset: 0x000A8410
-		private bool BoundsWork(ref Bounds bounds, ref ExplosionHelper.Work w)
+		// Token: 0x06002E63 RID: 11875 RVA: 0x000B1FA8 File Offset: 0x000B01A8
+		private bool BoundsWork(ref Bounds bounds, ref global::ExplosionHelper.Work w)
 		{
 			w.boundsSquareDistance = bounds.SqrDistance(this.point);
 			if (w.boundsSquareDistance > this.blastRadius * this.blastRadius)
@@ -237,14 +237,14 @@ public static class ExplosionHelper
 			return true;
 		}
 
-		// Token: 0x06002AB2 RID: 10930 RVA: 0x000AA55C File Offset: 0x000A875C
-		private bool SurfaceForMeshBatchInstance(MeshBatchInstance instance, ref ExplosionHelper.Surface surface)
+		// Token: 0x06002E64 RID: 11876 RVA: 0x000B22F4 File Offset: 0x000B04F4
+		private bool SurfaceForMeshBatchInstance(MeshBatchInstance instance, ref global::ExplosionHelper.Surface surface)
 		{
 			surface.idBase = instance;
 			surface.idMain = surface.idBase.idMain;
 			if (!surface.idMain || surface.idMain == this.skip)
 			{
-				surface = default(ExplosionHelper.Surface);
+				surface = default(global::ExplosionHelper.Surface);
 				return false;
 			}
 			surface.bounds = instance.physicalBounds;
@@ -254,7 +254,7 @@ public static class ExplosionHelper
 				{
 					bool flag;
 					MeshBatchInstance meshBatchInstance;
-					if (this.raycastLayerMask != 0 && MeshBatchPhysics.Raycast(this.point, surface.work.rayDir, surface.work.rayDistance, this.raycastLayerMask, ref flag, ref meshBatchInstance))
+					if (this.raycastLayerMask != 0 && Facepunch.MeshBatch.MeshBatchPhysics.Raycast(this.point, surface.work.rayDir, surface.work.rayDistance, this.raycastLayerMask, ref flag, ref meshBatchInstance))
 					{
 						if (flag && meshBatchInstance == instance)
 						{
@@ -276,28 +276,28 @@ public static class ExplosionHelper
 				}
 				return true;
 			}
-			surface = default(ExplosionHelper.Surface);
+			surface = default(global::ExplosionHelper.Surface);
 			return false;
 		}
 
-		// Token: 0x06002AB3 RID: 10931 RVA: 0x000AA678 File Offset: 0x000A8878
-		private bool SurfaceForCollider(Collider collider, ref ExplosionHelper.Surface surface)
+		// Token: 0x06002E65 RID: 11877 RVA: 0x000B2410 File Offset: 0x000B0610
+		private bool SurfaceForCollider(Collider collider, ref global::ExplosionHelper.Surface surface)
 		{
 			if (!collider.enabled)
 			{
-				surface = default(ExplosionHelper.Surface);
+				surface = default(global::ExplosionHelper.Surface);
 				return false;
 			}
 			surface.idBase = IDBase.Get(collider);
 			if (!surface.idBase)
 			{
-				surface = default(ExplosionHelper.Surface);
+				surface = default(global::ExplosionHelper.Surface);
 				return false;
 			}
 			surface.idMain = surface.idBase.idMain;
 			if (!surface.idMain || surface.idMain == this.skip)
 			{
-				surface = default(ExplosionHelper.Surface);
+				surface = default(global::ExplosionHelper.Surface);
 				return false;
 			}
 			surface.bounds = collider.bounds;
@@ -313,39 +313,39 @@ public static class ExplosionHelper
 			return false;
 		}
 
-		// Token: 0x06002AB4 RID: 10932 RVA: 0x000AA7C8 File Offset: 0x000A89C8
-		public ExplosionHelper.Point.Enumerator GetEnumerator()
+		// Token: 0x06002E66 RID: 11878 RVA: 0x000B2560 File Offset: 0x000B0760
+		public global::ExplosionHelper.Point.Enumerator GetEnumerator()
 		{
-			return new ExplosionHelper.Point.Enumerator(ref this, false);
+			return new global::ExplosionHelper.Point.Enumerator(ref this, false);
 		}
 
-		// Token: 0x06002AB5 RID: 10933 RVA: 0x000AA7D4 File Offset: 0x000A89D4
-		public ExplosionHelper.Surface[] ToArray()
+		// Token: 0x06002E67 RID: 11879 RVA: 0x000B256C File Offset: 0x000B076C
+		public global::ExplosionHelper.Surface[] ToArray()
 		{
-			ExplosionHelper.Point.Enumerator enumerator = new ExplosionHelper.Point.Enumerator(ref this, true);
-			return ExplosionHelper.Point.EnumeratorToArray.Build(ref enumerator);
+			global::ExplosionHelper.Point.Enumerator enumerator = new global::ExplosionHelper.Point.Enumerator(ref this, true);
+			return global::ExplosionHelper.Point.EnumeratorToArray.Build(ref enumerator);
 		}
 
-		// Token: 0x04001737 RID: 5943
+		// Token: 0x040018F4 RID: 6388
 		public readonly Vector3 point;
 
-		// Token: 0x04001738 RID: 5944
+		// Token: 0x040018F5 RID: 6389
 		public readonly float blastRadius;
 
-		// Token: 0x04001739 RID: 5945
+		// Token: 0x040018F6 RID: 6390
 		public readonly int overlapLayerMask;
 
-		// Token: 0x0400173A RID: 5946
+		// Token: 0x040018F7 RID: 6391
 		public readonly int raycastLayerMask;
 
-		// Token: 0x0400173B RID: 5947
+		// Token: 0x040018F8 RID: 6392
 		public readonly IDMain skip;
 
-		// Token: 0x020004D7 RID: 1239
-		public struct Enumerator : IDisposable, IEnumerator, IEnumerator<ExplosionHelper.Surface>
+		// Token: 0x02000592 RID: 1426
+		public struct Enumerator : IDisposable, IEnumerator, IEnumerator<global::ExplosionHelper.Surface>
 		{
-			// Token: 0x06002AB6 RID: 10934 RVA: 0x000AA7F4 File Offset: 0x000A89F4
-			internal Enumerator(ref ExplosionHelper.Point point, bool immediate)
+			// Token: 0x06002E68 RID: 11880 RVA: 0x000B258C File Offset: 0x000B078C
+			internal Enumerator(ref global::ExplosionHelper.Point point, bool immediate)
 			{
 				this._immediate = immediate;
 				this.IN = point;
@@ -354,11 +354,11 @@ public static class ExplosionHelper
 				this.overlapEnumerator = null;
 				this.output = null;
 				this.overlap = null;
-				this.current = default(ExplosionHelper.Surface);
+				this.current = default(global::ExplosionHelper.Surface);
 			}
 
-			// Token: 0x1700097A RID: 2426
-			// (get) Token: 0x06002AB7 RID: 10935 RVA: 0x000AA848 File Offset: 0x000A8A48
+			// Token: 0x170009EA RID: 2538
+			// (get) Token: 0x06002E69 RID: 11881 RVA: 0x000B25E0 File Offset: 0x000B07E0
 			object IEnumerator.Current
 			{
 				get
@@ -367,9 +367,9 @@ public static class ExplosionHelper
 				}
 			}
 
-			// Token: 0x1700097B RID: 2427
-			// (get) Token: 0x06002AB8 RID: 10936 RVA: 0x000AA858 File Offset: 0x000A8A58
-			public ExplosionHelper.Surface Current
+			// Token: 0x170009EB RID: 2539
+			// (get) Token: 0x06002E6A RID: 11882 RVA: 0x000B25F0 File Offset: 0x000B07F0
+			public global::ExplosionHelper.Surface Current
 			{
 				get
 				{
@@ -377,7 +377,7 @@ public static class ExplosionHelper
 				}
 			}
 
-			// Token: 0x06002AB9 RID: 10937 RVA: 0x000AA860 File Offset: 0x000A8A60
+			// Token: 0x06002E6B RID: 11883 RVA: 0x000B25F8 File Offset: 0x000B07F8
 			public bool MoveNext()
 			{
 				for (;;)
@@ -409,7 +409,7 @@ public static class ExplosionHelper
 					{
 						if (this._immediate || this.overlap[this.colliderIndex])
 						{
-							if (MeshBatchExtenders.GetMeshBatchPhysicalOutput<MeshBatchPhysicalOutput>(this.overlap[this.colliderIndex], ref this.output))
+							if (MeshBatchExtenders.GetMeshBatchPhysicalOutput<Facepunch.MeshBatch.MeshBatchPhysicalOutput>(this.overlap[this.colliderIndex], ref this.output))
 							{
 								this.inInstanceEnumerator = true;
 								this.overlapEnumerator = this.output.EnumerateOverlapSphereInstances(this.IN.point, this.IN.blastRadius).GetEnumerator();
@@ -427,11 +427,11 @@ public static class ExplosionHelper
 				return true;
 				Block_8:
 				this.colliderIndex = this.overlap.Length;
-				this.current = default(ExplosionHelper.Surface);
+				this.current = default(global::ExplosionHelper.Surface);
 				return false;
 			}
 
-			// Token: 0x06002ABA RID: 10938 RVA: 0x000AAA30 File Offset: 0x000A8C30
+			// Token: 0x06002E6C RID: 11884 RVA: 0x000B27C8 File Offset: 0x000B09C8
 			public void Dispose()
 			{
 				this.colliderIndex = -1;
@@ -443,63 +443,63 @@ public static class ExplosionHelper
 				this.overlapEnumerator = null;
 				this.output = null;
 				this.overlap = null;
-				this.current = default(ExplosionHelper.Surface);
+				this.current = default(global::ExplosionHelper.Surface);
 			}
 
-			// Token: 0x06002ABB RID: 10939 RVA: 0x000AAA88 File Offset: 0x000A8C88
+			// Token: 0x06002E6D RID: 11885 RVA: 0x000B2820 File Offset: 0x000B0A20
 			public void Reset()
 			{
 				this.Dispose();
 			}
 
-			// Token: 0x0400173C RID: 5948
-			private readonly ExplosionHelper.Point IN;
+			// Token: 0x040018F9 RID: 6393
+			private readonly global::ExplosionHelper.Point IN;
 
-			// Token: 0x0400173D RID: 5949
+			// Token: 0x040018FA RID: 6394
 			private int colliderIndex;
 
-			// Token: 0x0400173E RID: 5950
+			// Token: 0x040018FB RID: 6395
 			private bool inInstanceEnumerator;
 
-			// Token: 0x0400173F RID: 5951
-			private MeshBatchPhysicalOutput output;
+			// Token: 0x040018FC RID: 6396
+			private Facepunch.MeshBatch.MeshBatchPhysicalOutput output;
 
-			// Token: 0x04001740 RID: 5952
+			// Token: 0x040018FD RID: 6397
 			private IEnumerator<MeshBatchInstance> overlapEnumerator;
 
-			// Token: 0x04001741 RID: 5953
+			// Token: 0x040018FE RID: 6398
 			private Collider[] overlap;
 
-			// Token: 0x04001742 RID: 5954
-			public ExplosionHelper.Surface current;
+			// Token: 0x040018FF RID: 6399
+			public global::ExplosionHelper.Surface current;
 
-			// Token: 0x04001743 RID: 5955
+			// Token: 0x04001900 RID: 6400
 			private readonly bool _immediate;
 		}
 
-		// Token: 0x020004D8 RID: 1240
+		// Token: 0x02000593 RID: 1427
 		private struct EnumeratorToArray
 		{
-			// Token: 0x06002ABC RID: 10940 RVA: 0x000AAA90 File Offset: 0x000A8C90
+			// Token: 0x06002E6E RID: 11886 RVA: 0x000B2828 File Offset: 0x000B0A28
 			private void RecurseInStackHeapToArray()
 			{
 				if (this.enumerator.MoveNext())
 				{
-					ExplosionHelper.Surface current = this.enumerator.current;
+					global::ExplosionHelper.Surface current = this.enumerator.current;
 					this.length++;
 					this.RecurseInStackHeapToArray();
 					this.array[--this.length] = current;
 				}
 				else
 				{
-					this.array = new ExplosionHelper.Surface[this.length];
+					this.array = new global::ExplosionHelper.Surface[this.length];
 				}
 			}
 
-			// Token: 0x06002ABD RID: 10941 RVA: 0x000AAB08 File Offset: 0x000A8D08
-			public static ExplosionHelper.Surface[] Build(ref ExplosionHelper.Point.Enumerator point_enumerator)
+			// Token: 0x06002E6F RID: 11887 RVA: 0x000B28A0 File Offset: 0x000B0AA0
+			public static global::ExplosionHelper.Surface[] Build(ref global::ExplosionHelper.Point.Enumerator point_enumerator)
 			{
-				ExplosionHelper.Point.EnumeratorToArray enumeratorToArray;
+				global::ExplosionHelper.Point.EnumeratorToArray enumeratorToArray;
 				enumeratorToArray.enumerator = point_enumerator;
 				enumeratorToArray.length = 0;
 				enumeratorToArray.array = null;
@@ -507,22 +507,22 @@ public static class ExplosionHelper
 				return enumeratorToArray.array;
 			}
 
-			// Token: 0x04001744 RID: 5956
-			private ExplosionHelper.Point.Enumerator enumerator;
+			// Token: 0x04001901 RID: 6401
+			private global::ExplosionHelper.Point.Enumerator enumerator;
 
-			// Token: 0x04001745 RID: 5957
-			private ExplosionHelper.Surface[] array;
+			// Token: 0x04001902 RID: 6402
+			private global::ExplosionHelper.Surface[] array;
 
-			// Token: 0x04001746 RID: 5958
+			// Token: 0x04001903 RID: 6403
 			private int length;
 		}
 	}
 
-	// Token: 0x020004D9 RID: 1241
+	// Token: 0x02000594 RID: 1428
 	private static class Unique
 	{
-		// Token: 0x06002ABF RID: 10943 RVA: 0x000AAB4C File Offset: 0x000A8D4C
-		public static bool Filter(ExplosionHelper.Surface[] array, ref int length)
+		// Token: 0x06002E71 RID: 11889 RVA: 0x000B28E4 File Offset: 0x000B0AE4
+		public static bool Filter(global::ExplosionHelper.Surface[] array, ref int length)
 		{
 			int num = array.Length;
 			try
@@ -530,13 +530,13 @@ public static class ExplosionHelper
 				for (int i = 0; i < num; i++)
 				{
 					IDMain idMain = array[i].idMain;
-					if (idMain && !ExplosionHelper.Unique.Set.Add(idMain))
+					if (idMain && !global::ExplosionHelper.Unique.Set.Add(idMain))
 					{
 						int num2 = i;
 						while (++i < num)
 						{
 							idMain = array[i].idMain;
-							if (!array[i].idMain || ExplosionHelper.Unique.Set.Add(idMain))
+							if (!array[i].idMain || global::ExplosionHelper.Unique.Set.Add(idMain))
 							{
 								array[num2++] = array[i];
 							}
@@ -548,12 +548,12 @@ public static class ExplosionHelper
 			}
 			finally
 			{
-				ExplosionHelper.Unique.Set.Clear();
+				global::ExplosionHelper.Unique.Set.Clear();
 			}
 			return false;
 		}
 
-		// Token: 0x04001747 RID: 5959
+		// Token: 0x04001904 RID: 6404
 		private static readonly HashSet<IDMain> Set = new HashSet<IDMain>();
 	}
 }

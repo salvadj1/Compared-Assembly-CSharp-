@@ -2,28 +2,28 @@
 
 namespace Facepunch.Load
 {
-	// Token: 0x0200026B RID: 619
+	// Token: 0x0200029F RID: 671
 	public abstract class Stream : IDisposable
 	{
-		// Token: 0x060016A4 RID: 5796
+		// Token: 0x060017FE RID: 6142
 		public abstract void Dispose();
 
-		// Token: 0x0200026C RID: 620
+		// Token: 0x020002A0 RID: 672
 		protected static class Property
 		{
-			// Token: 0x04000B7D RID: 2941
+			// Token: 0x04000CA3 RID: 3235
 			public const string Path = "filename";
 
-			// Token: 0x04000B7E RID: 2942
+			// Token: 0x04000CA4 RID: 3236
 			public const string TypeOfAssets = "type";
 
-			// Token: 0x04000B7F RID: 2943
+			// Token: 0x04000CA5 RID: 3237
 			public const string ContentType = "content";
 
-			// Token: 0x04000B80 RID: 2944
+			// Token: 0x04000CA6 RID: 3238
 			public const string ByteLength = "size";
 
-			// Token: 0x04000B81 RID: 2945
+			// Token: 0x04000CA7 RID: 3239
 			public const string RelativeOrAbsoluteURL = "url";
 		}
 	}

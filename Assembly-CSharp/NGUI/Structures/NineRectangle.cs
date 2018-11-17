@@ -5,13 +5,13 @@ using UnityEngine;
 
 namespace NGUI.Structures
 {
-	// Token: 0x02000800 RID: 2048
+	// Token: 0x020008F2 RID: 2290
 	[StructLayout(LayoutKind.Explicit)]
 	public struct NineRectangle
 	{
-		// Token: 0x17000E5C RID: 3676
-		// (get) Token: 0x0600497A RID: 18810 RVA: 0x0012E27C File Offset: 0x0012C47C
-		// (set) Token: 0x0600497B RID: 18811 RVA: 0x0012E2B0 File Offset: 0x0012C4B0
+		// Token: 0x17000EF6 RID: 3830
+		// (get) Token: 0x06004E29 RID: 20009 RVA: 0x001381E0 File Offset: 0x001363E0
+		// (set) Token: 0x06004E2A RID: 20010 RVA: 0x00138214 File Offset: 0x00136414
 		public Vector2 xy
 		{
 			get
@@ -28,9 +28,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E5D RID: 3677
-		// (get) Token: 0x0600497C RID: 18812 RVA: 0x0012E2E4 File Offset: 0x0012C4E4
-		// (set) Token: 0x0600497D RID: 18813 RVA: 0x0012E318 File Offset: 0x0012C518
+		// Token: 0x17000EF7 RID: 3831
+		// (get) Token: 0x06004E2B RID: 20011 RVA: 0x00138248 File Offset: 0x00136448
+		// (set) Token: 0x06004E2C RID: 20012 RVA: 0x0013827C File Offset: 0x0013647C
 		public Vector2 xz
 		{
 			get
@@ -47,9 +47,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E5E RID: 3678
-		// (get) Token: 0x0600497E RID: 18814 RVA: 0x0012E34C File Offset: 0x0012C54C
-		// (set) Token: 0x0600497F RID: 18815 RVA: 0x0012E380 File Offset: 0x0012C580
+		// Token: 0x17000EF8 RID: 3832
+		// (get) Token: 0x06004E2D RID: 20013 RVA: 0x001382B0 File Offset: 0x001364B0
+		// (set) Token: 0x06004E2E RID: 20014 RVA: 0x001382E4 File Offset: 0x001364E4
 		public Vector2 xw
 		{
 			get
@@ -66,9 +66,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E5F RID: 3679
-		// (get) Token: 0x06004980 RID: 18816 RVA: 0x0012E3B4 File Offset: 0x0012C5B4
-		// (set) Token: 0x06004981 RID: 18817 RVA: 0x0012E3E8 File Offset: 0x0012C5E8
+		// Token: 0x17000EF9 RID: 3833
+		// (get) Token: 0x06004E2F RID: 20015 RVA: 0x00138318 File Offset: 0x00136518
+		// (set) Token: 0x06004E30 RID: 20016 RVA: 0x0013834C File Offset: 0x0013654C
 		public Vector2 yx
 		{
 			get
@@ -85,9 +85,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E60 RID: 3680
-		// (get) Token: 0x06004982 RID: 18818 RVA: 0x0012E41C File Offset: 0x0012C61C
-		// (set) Token: 0x06004983 RID: 18819 RVA: 0x0012E450 File Offset: 0x0012C650
+		// Token: 0x17000EFA RID: 3834
+		// (get) Token: 0x06004E31 RID: 20017 RVA: 0x00138380 File Offset: 0x00136580
+		// (set) Token: 0x06004E32 RID: 20018 RVA: 0x001383B4 File Offset: 0x001365B4
 		public Vector2 yz
 		{
 			get
@@ -104,9 +104,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E61 RID: 3681
-		// (get) Token: 0x06004984 RID: 18820 RVA: 0x0012E484 File Offset: 0x0012C684
-		// (set) Token: 0x06004985 RID: 18821 RVA: 0x0012E4B8 File Offset: 0x0012C6B8
+		// Token: 0x17000EFB RID: 3835
+		// (get) Token: 0x06004E33 RID: 20019 RVA: 0x001383E8 File Offset: 0x001365E8
+		// (set) Token: 0x06004E34 RID: 20020 RVA: 0x0013841C File Offset: 0x0013661C
 		public Vector2 yw
 		{
 			get
@@ -123,9 +123,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E62 RID: 3682
-		// (get) Token: 0x06004986 RID: 18822 RVA: 0x0012E4EC File Offset: 0x0012C6EC
-		// (set) Token: 0x06004987 RID: 18823 RVA: 0x0012E520 File Offset: 0x0012C720
+		// Token: 0x17000EFC RID: 3836
+		// (get) Token: 0x06004E35 RID: 20021 RVA: 0x00138450 File Offset: 0x00136650
+		// (set) Token: 0x06004E36 RID: 20022 RVA: 0x00138484 File Offset: 0x00136684
 		public Vector2 zx
 		{
 			get
@@ -142,9 +142,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E63 RID: 3683
-		// (get) Token: 0x06004988 RID: 18824 RVA: 0x0012E554 File Offset: 0x0012C754
-		// (set) Token: 0x06004989 RID: 18825 RVA: 0x0012E588 File Offset: 0x0012C788
+		// Token: 0x17000EFD RID: 3837
+		// (get) Token: 0x06004E37 RID: 20023 RVA: 0x001384B8 File Offset: 0x001366B8
+		// (set) Token: 0x06004E38 RID: 20024 RVA: 0x001384EC File Offset: 0x001366EC
 		public Vector2 zy
 		{
 			get
@@ -161,9 +161,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E64 RID: 3684
-		// (get) Token: 0x0600498A RID: 18826 RVA: 0x0012E5BC File Offset: 0x0012C7BC
-		// (set) Token: 0x0600498B RID: 18827 RVA: 0x0012E5F0 File Offset: 0x0012C7F0
+		// Token: 0x17000EFE RID: 3838
+		// (get) Token: 0x06004E39 RID: 20025 RVA: 0x00138520 File Offset: 0x00136720
+		// (set) Token: 0x06004E3A RID: 20026 RVA: 0x00138554 File Offset: 0x00136754
 		public Vector2 zw
 		{
 			get
@@ -180,9 +180,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E65 RID: 3685
-		// (get) Token: 0x0600498C RID: 18828 RVA: 0x0012E624 File Offset: 0x0012C824
-		// (set) Token: 0x0600498D RID: 18829 RVA: 0x0012E658 File Offset: 0x0012C858
+		// Token: 0x17000EFF RID: 3839
+		// (get) Token: 0x06004E3B RID: 20027 RVA: 0x00138588 File Offset: 0x00136788
+		// (set) Token: 0x06004E3C RID: 20028 RVA: 0x001385BC File Offset: 0x001367BC
 		public Vector2 wx
 		{
 			get
@@ -199,9 +199,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E66 RID: 3686
-		// (get) Token: 0x0600498E RID: 18830 RVA: 0x0012E68C File Offset: 0x0012C88C
-		// (set) Token: 0x0600498F RID: 18831 RVA: 0x0012E6C0 File Offset: 0x0012C8C0
+		// Token: 0x17000F00 RID: 3840
+		// (get) Token: 0x06004E3D RID: 20029 RVA: 0x001385F0 File Offset: 0x001367F0
+		// (set) Token: 0x06004E3E RID: 20030 RVA: 0x00138624 File Offset: 0x00136824
 		public Vector2 wy
 		{
 			get
@@ -218,9 +218,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E67 RID: 3687
-		// (get) Token: 0x06004990 RID: 18832 RVA: 0x0012E6F4 File Offset: 0x0012C8F4
-		// (set) Token: 0x06004991 RID: 18833 RVA: 0x0012E728 File Offset: 0x0012C928
+		// Token: 0x17000F01 RID: 3841
+		// (get) Token: 0x06004E3F RID: 20031 RVA: 0x00138658 File Offset: 0x00136858
+		// (set) Token: 0x06004E40 RID: 20032 RVA: 0x0013868C File Offset: 0x0013688C
 		public Vector2 wz
 		{
 			get
@@ -237,7 +237,7 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E68 RID: 3688
+		// Token: 0x17000F02 RID: 3842
 		public Vector2 this[int i]
 		{
 			get
@@ -258,7 +258,7 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E69 RID: 3689
+		// Token: 0x17000F03 RID: 3843
 		public float this[int i, int a]
 		{
 			get
@@ -279,8 +279,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x06004994 RID: 18836 RVA: 0x0012E80C File Offset: 0x0012CA0C
-		public static void Calculate(UIWidget.Pivot pivot, float pixelSize, Texture tex, ref Vector4 minMaxX, ref Vector4 minMaxY, ref Vector2 scale, out NineRectangle nqV, out NineRectangle nqT)
+		// Token: 0x06004E43 RID: 20035 RVA: 0x00138770 File Offset: 0x00136970
+		public static void Calculate(global::UIWidget.Pivot pivot, float pixelSize, Texture tex, ref Vector4 minMaxX, ref Vector4 minMaxY, ref Vector2 scale, out NineRectangle nqV, out NineRectangle nqT)
 		{
 			if (tex && pixelSize != 0f)
 			{
@@ -317,11 +317,11 @@ namespace NGUI.Structures
 				float num7;
 				switch (pivot)
 				{
-				case UIWidget.Pivot.TopRight:
-				case UIWidget.Pivot.Right:
+				case global::UIWidget.Pivot.TopRight:
+				case global::UIWidget.Pivot.Right:
 					break;
 				default:
-					if (pivot != UIWidget.Pivot.BottomRight)
+					if (pivot != global::UIWidget.Pivot.BottomRight)
 					{
 						nqV.xx.x = 0f;
 						nqV.yy.x = vector.x;
@@ -353,9 +353,9 @@ namespace NGUI.Structures
 				IL_320:
 				switch (pivot)
 				{
-				case UIWidget.Pivot.BottomLeft:
-				case UIWidget.Pivot.Bottom:
-				case UIWidget.Pivot.BottomRight:
+				case global::UIWidget.Pivot.BottomLeft:
+				case global::UIWidget.Pivot.Bottom:
+				case global::UIWidget.Pivot.BottomRight:
 					num7 = -1f - vector2.y + vector.y;
 					if (num7 <= 0f)
 					{
@@ -403,8 +403,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x06004995 RID: 18837 RVA: 0x0012EE90 File Offset: 0x0012D090
-		public static void Fill9(ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, MeshBuffer m)
+		// Token: 0x06004E44 RID: 20036 RVA: 0x00138DF4 File Offset: 0x00136FF4
+		public static void Fill9(ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, NGUI.Meshing.MeshBuffer m)
 		{
 			if (nqV.xx.x == nqV.yy.x)
 			{
@@ -445,8 +445,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x06004996 RID: 18838 RVA: 0x0012EFC0 File Offset: 0x0012D1C0
-		private static void FillColumn1(ref NineRectangle nqV, ref NineRectangle nqT, int columnStart, ref Color color, MeshBuffer m)
+		// Token: 0x06004E45 RID: 20037 RVA: 0x00138F24 File Offset: 0x00137124
+		private static void FillColumn1(ref NineRectangle nqV, ref NineRectangle nqT, int columnStart, ref Color color, NGUI.Meshing.MeshBuffer m)
 		{
 			if (nqV.xx.y == nqV.yy.y)
 			{
@@ -485,7 +485,7 @@ namespace NGUI.Structures
 				}
 				else
 				{
-					int num = m.Alloc(PrimitiveKind.Grid1x2, 0f, color);
+					int num = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid1x2, 0f, color);
 					switch (columnStart)
 					{
 					case 0:
@@ -607,7 +607,7 @@ namespace NGUI.Structures
 			}
 			else if (nqV.zz.y == nqV.ww.y)
 			{
-				int num2 = m.Alloc(PrimitiveKind.Grid1x2, 0f, color);
+				int num2 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid1x2, 0f, color);
 				switch (columnStart)
 				{
 				case 0:
@@ -692,7 +692,7 @@ namespace NGUI.Structures
 			}
 			else
 			{
-				int num3 = m.Alloc(PrimitiveKind.Grid1x2, 0f, color);
+				int num3 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid1x2, 0f, color);
 				switch (columnStart)
 				{
 				case 0:
@@ -801,8 +801,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x06004997 RID: 18839 RVA: 0x001310A4 File Offset: 0x0012F2A4
-		private static void FillColumn2(ref NineRectangle nqV, ref NineRectangle nqT, int columnStart, ref Color color, MeshBuffer m)
+		// Token: 0x06004E46 RID: 20038 RVA: 0x0013B008 File Offset: 0x00139208
+		private static void FillColumn2(ref NineRectangle nqV, ref NineRectangle nqT, int columnStart, ref Color color, NGUI.Meshing.MeshBuffer m)
 		{
 			if (nqV.xx.y == nqV.yy.y)
 			{
@@ -814,7 +814,7 @@ namespace NGUI.Structures
 						{
 						case 0:
 						{
-							int num = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+							int num = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 							m.v[num].x = nqV.xx.x;
 							m.v[num].y = nqV.zz.y;
 							m.v[num].u = nqT.xx.x;
@@ -843,7 +843,7 @@ namespace NGUI.Structures
 						}
 						case 1:
 						{
-							int num = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+							int num = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 							m.v[num].x = nqV.yy.x;
 							m.v[num].y = nqV.zz.y;
 							m.v[num].u = nqT.yy.x;
@@ -883,7 +883,7 @@ namespace NGUI.Structures
 					{
 					case 0:
 					{
-						int num2 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						int num2 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num2].x = nqV.xx.x;
 						m.v[num2].y = nqV.yy.y;
 						m.v[num2].u = nqT.xx.x;
@@ -912,7 +912,7 @@ namespace NGUI.Structures
 					}
 					case 1:
 					{
-						int num2 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						int num2 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num2].x = nqV.yy.x;
 						m.v[num2].y = nqV.yy.y;
 						m.v[num2].u = nqT.yy.x;
@@ -951,7 +951,7 @@ namespace NGUI.Structures
 					{
 					case 0:
 					{
-						int num3 = m.Alloc(PrimitiveKind.Grid2x2, 0f, color);
+						int num3 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x2, 0f, color);
 						m.v[num3].x = nqV.xx.x;
 						m.v[num3].y = nqV.yy.y;
 						m.v[num3].u = nqT.xx.x;
@@ -992,7 +992,7 @@ namespace NGUI.Structures
 					}
 					case 1:
 					{
-						int num3 = m.Alloc(PrimitiveKind.Grid2x2, 0f, color);
+						int num3 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x2, 0f, color);
 						m.v[num3].x = nqV.yy.x;
 						m.v[num3].y = nqV.yy.y;
 						m.v[num3].u = nqT.yy.x;
@@ -1033,7 +1033,7 @@ namespace NGUI.Structures
 					}
 					case 2:
 					{
-						int num3 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						int num3 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num3].x = nqV.xx.x;
 						m.v[num3].y = nqV.yy.y;
 						m.v[num3].u = nqT.xx.x;
@@ -1058,7 +1058,7 @@ namespace NGUI.Structures
 						m.v[num3 + 5].y = nqV.ww.y;
 						m.v[num3 + 5].u = nqT.zz.x;
 						m.v[num3 + 5].v = nqT.ww.y;
-						num3 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						num3 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num3].x = nqV.zz.x;
 						m.v[num3].y = nqV.yy.y;
 						m.v[num3].u = nqT.zz.x;
@@ -1096,7 +1096,7 @@ namespace NGUI.Structures
 					{
 					case 0:
 					{
-						int num4 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						int num4 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num4].x = nqV.xx.x;
 						m.v[num4].y = nqV.xx.y;
 						m.v[num4].u = nqT.xx.x;
@@ -1125,7 +1125,7 @@ namespace NGUI.Structures
 					}
 					case 1:
 					{
-						int num4 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						int num4 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num4].x = nqV.yy.x;
 						m.v[num4].y = nqV.xx.y;
 						m.v[num4].u = nqT.yy.x;
@@ -1164,7 +1164,7 @@ namespace NGUI.Structures
 					{
 					case 0:
 					{
-						int num5 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						int num5 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num5].x = nqV.xx.x;
 						m.v[num5].y = nqV.xx.y;
 						m.v[num5].u = nqT.xx.x;
@@ -1189,7 +1189,7 @@ namespace NGUI.Structures
 						m.v[num5 + 5].y = nqV.yy.y;
 						m.v[num5 + 5].u = nqT.zz.x;
 						m.v[num5 + 5].v = nqT.yy.y;
-						num5 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						num5 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num5].x = nqV.xx.x;
 						m.v[num5].y = nqV.zz.y;
 						m.v[num5].u = nqT.xx.x;
@@ -1218,7 +1218,7 @@ namespace NGUI.Structures
 					}
 					case 1:
 					{
-						int num5 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						int num5 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num5].x = nqV.yy.x;
 						m.v[num5].y = nqV.xx.y;
 						m.v[num5].u = nqT.yy.x;
@@ -1243,7 +1243,7 @@ namespace NGUI.Structures
 						m.v[num5 + 5].y = nqV.yy.y;
 						m.v[num5 + 5].u = nqT.ww.x;
 						m.v[num5 + 5].v = nqT.yy.y;
-						num5 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+						num5 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 						m.v[num5].x = nqV.yy.x;
 						m.v[num5].y = nqV.zz.y;
 						m.v[num5].u = nqT.yy.x;
@@ -1285,7 +1285,7 @@ namespace NGUI.Structures
 				{
 				case 0:
 				{
-					int num6 = m.Alloc(PrimitiveKind.Grid2x2, 0f, color);
+					int num6 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x2, 0f, color);
 					m.v[num6].x = nqV.xx.x;
 					m.v[num6].y = nqV.xx.y;
 					m.v[num6].u = nqT.xx.x;
@@ -1326,7 +1326,7 @@ namespace NGUI.Structures
 				}
 				case 1:
 				{
-					int num6 = m.Alloc(PrimitiveKind.Grid2x2, 0f, color);
+					int num6 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x2, 0f, color);
 					m.v[num6].x = nqV.yy.x;
 					m.v[num6].y = nqV.xx.y;
 					m.v[num6].u = nqT.yy.x;
@@ -1367,7 +1367,7 @@ namespace NGUI.Structures
 				}
 				case 2:
 				{
-					int num6 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+					int num6 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 					m.v[num6].x = nqV.xx.x;
 					m.v[num6].y = nqV.xx.y;
 					m.v[num6].u = nqT.xx.x;
@@ -1392,7 +1392,7 @@ namespace NGUI.Structures
 					m.v[num6 + 5].y = nqV.zz.y;
 					m.v[num6 + 5].u = nqT.zz.x;
 					m.v[num6 + 5].v = nqT.zz.y;
-					num6 = m.Alloc(PrimitiveKind.Grid2x1, 0f, color);
+					num6 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x1, 0f, color);
 					m.v[num6].x = nqV.zz.x;
 					m.v[num6].y = nqV.xx.y;
 					m.v[num6].u = nqT.zz.x;
@@ -1427,7 +1427,7 @@ namespace NGUI.Structures
 				{
 				case 0:
 				{
-					int num7 = m.Alloc(PrimitiveKind.Grid2x3, 0f, color);
+					int num7 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x3, 0f, color);
 					m.v[num7].x = nqV.xx.x;
 					m.v[num7].y = nqV.xx.y;
 					m.v[num7].u = nqT.xx.x;
@@ -1480,7 +1480,7 @@ namespace NGUI.Structures
 				}
 				case 1:
 				{
-					int num7 = m.Alloc(PrimitiveKind.Grid2x3, 0f, color);
+					int num7 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid2x3, 0f, color);
 					m.v[num7].x = nqV.yy.x;
 					m.v[num7].y = nqV.xx.y;
 					m.v[num7].u = nqT.yy.x;
@@ -1533,7 +1533,7 @@ namespace NGUI.Structures
 				}
 				case 2:
 				{
-					int num7 = m.Alloc(PrimitiveKind.Grid1x3, 0f, color);
+					int num7 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid1x3, 0f, color);
 					m.v[num7].x = nqV.xx.x;
 					m.v[num7].y = nqV.xx.y;
 					m.v[num7].u = nqT.xx.x;
@@ -1566,7 +1566,7 @@ namespace NGUI.Structures
 					m.v[num7 + 7].y = nqV.ww.y;
 					m.v[num7 + 7].u = nqT.yy.x;
 					m.v[num7 + 7].v = nqT.ww.y;
-					num7 = m.Alloc(PrimitiveKind.Grid1x3, 0f, color);
+					num7 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid1x3, 0f, color);
 					m.v[num7].x = nqV.zz.x;
 					m.v[num7].y = nqV.xx.y;
 					m.v[num7].u = nqT.zz.x;
@@ -1605,8 +1605,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x06004998 RID: 18840 RVA: 0x00136418 File Offset: 0x00134618
-		private static void FillColumn3(ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, MeshBuffer m)
+		// Token: 0x06004E47 RID: 20039 RVA: 0x0014037C File Offset: 0x0013E57C
+		private static void FillColumn3(ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, NGUI.Meshing.MeshBuffer m)
 		{
 			if (nqV.xx.y == nqV.yy.y)
 			{
@@ -1614,7 +1614,7 @@ namespace NGUI.Structures
 				{
 					if (nqV.zz.y != nqV.ww.y)
 					{
-						int num = m.Alloc(PrimitiveKind.Grid3x1, 0f, color);
+						int num = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x1, 0f, color);
 						m.v[num].x = nqV.xx.x;
 						m.v[num].y = nqV.zz.y;
 						m.v[num].u = nqT.xx.x;
@@ -1651,7 +1651,7 @@ namespace NGUI.Structures
 				}
 				else if (nqV.zz.y == nqV.ww.y)
 				{
-					int num2 = m.Alloc(PrimitiveKind.Grid3x1, 0f, color);
+					int num2 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x1, 0f, color);
 					m.v[num2].x = nqV.xx.x;
 					m.v[num2].y = nqV.yy.y;
 					m.v[num2].u = nqT.xx.x;
@@ -1687,7 +1687,7 @@ namespace NGUI.Structures
 				}
 				else
 				{
-					int num3 = m.Alloc(PrimitiveKind.Grid3x2, 0f, color);
+					int num3 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x2, 0f, color);
 					m.v[num3].x = nqV.xx.x;
 					m.v[num3].y = nqV.yy.y;
 					m.v[num3].u = nqT.xx.x;
@@ -1742,7 +1742,7 @@ namespace NGUI.Structures
 			{
 				if (nqV.zz.y == nqV.ww.y)
 				{
-					int num4 = m.Alloc(PrimitiveKind.Grid3x1, 0f, color);
+					int num4 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x1, 0f, color);
 					m.v[num4].x = nqV.xx.x;
 					m.v[num4].y = nqV.xx.y;
 					m.v[num4].u = nqT.xx.x;
@@ -1778,7 +1778,7 @@ namespace NGUI.Structures
 				}
 				else
 				{
-					int num5 = m.Alloc(PrimitiveKind.Grid3x1, 0f, color);
+					int num5 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x1, 0f, color);
 					m.v[num5].x = nqV.xx.x;
 					m.v[num5].y = nqV.xx.y;
 					m.v[num5].u = nqT.xx.x;
@@ -1811,7 +1811,7 @@ namespace NGUI.Structures
 					m.v[num5 + 7].y = nqV.yy.y;
 					m.v[num5 + 7].u = nqT.ww.x;
 					m.v[num5 + 7].v = nqT.yy.y;
-					num5 = m.Alloc(PrimitiveKind.Grid3x1, 0f, color);
+					num5 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x1, 0f, color);
 					m.v[num5].x = nqV.xx.x;
 					m.v[num5].y = nqV.zz.y;
 					m.v[num5].u = nqT.xx.x;
@@ -1848,7 +1848,7 @@ namespace NGUI.Structures
 			}
 			else if (nqV.zz.y == nqV.ww.y)
 			{
-				int num6 = m.Alloc(PrimitiveKind.Grid3x2, 0f, color);
+				int num6 = m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x2, 0f, color);
 				m.v[num6].x = nqV.xx.x;
 				m.v[num6].y = nqV.xx.y;
 				m.v[num6].u = nqT.xx.x;
@@ -1900,18 +1900,18 @@ namespace NGUI.Structures
 			}
 			else
 			{
-				NineRectangle.Commit3x3(m.Alloc(PrimitiveKind.Grid3x3), ref nqV, ref nqT, ref color, m);
+				NineRectangle.Commit3x3(m.Alloc(NGUI.Meshing.PrimitiveKind.Grid3x3), ref nqV, ref nqT, ref color, m);
 			}
 		}
 
-		// Token: 0x06004999 RID: 18841 RVA: 0x001383EC File Offset: 0x001365EC
-		public static void Fill8(ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, MeshBuffer m)
+		// Token: 0x06004E48 RID: 20040 RVA: 0x00142350 File Offset: 0x00140550
+		public static void Fill8(ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, NGUI.Meshing.MeshBuffer m)
 		{
-			NineRectangle.Commit3x3(m.Alloc(PrimitiveKind.Hole3x3), ref nqV, ref nqT, ref color, m);
+			NineRectangle.Commit3x3(m.Alloc(NGUI.Meshing.PrimitiveKind.Hole3x3), ref nqV, ref nqT, ref color, m);
 		}
 
-		// Token: 0x0600499A RID: 18842 RVA: 0x00138400 File Offset: 0x00136600
-		private static void Commit3x3(int start, ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, MeshBuffer m)
+		// Token: 0x06004E49 RID: 20041 RVA: 0x00142364 File Offset: 0x00140564
+		private static void Commit3x3(int start, ref NineRectangle nqV, ref NineRectangle nqT, ref Color color, NGUI.Meshing.MeshBuffer m)
 		{
 			m.v[start].x = nqV.xx.x;
 			m.v[start].y = nqV.xx.y;
@@ -1987,46 +1987,46 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x0400298B RID: 10635
-		private const PrimitiveKind GRID_3ROWS_3COLUMNS = PrimitiveKind.Grid3x3;
+		// Token: 0x04002BD9 RID: 11225
+		private const NGUI.Meshing.PrimitiveKind GRID_3ROWS_3COLUMNS = NGUI.Meshing.PrimitiveKind.Grid3x3;
 
-		// Token: 0x0400298C RID: 10636
-		private const PrimitiveKind GRID_3ROWS_2COLUMNS = PrimitiveKind.Grid2x3;
+		// Token: 0x04002BDA RID: 11226
+		private const NGUI.Meshing.PrimitiveKind GRID_3ROWS_2COLUMNS = NGUI.Meshing.PrimitiveKind.Grid2x3;
 
-		// Token: 0x0400298D RID: 10637
-		private const PrimitiveKind GRID_3ROWS_1COLUMNS = PrimitiveKind.Grid1x3;
+		// Token: 0x04002BDB RID: 11227
+		private const NGUI.Meshing.PrimitiveKind GRID_3ROWS_1COLUMNS = NGUI.Meshing.PrimitiveKind.Grid1x3;
 
-		// Token: 0x0400298E RID: 10638
-		private const PrimitiveKind GRID_2ROWS_3COLUMNS = PrimitiveKind.Grid3x2;
+		// Token: 0x04002BDC RID: 11228
+		private const NGUI.Meshing.PrimitiveKind GRID_2ROWS_3COLUMNS = NGUI.Meshing.PrimitiveKind.Grid3x2;
 
-		// Token: 0x0400298F RID: 10639
-		private const PrimitiveKind GRID_2ROWS_2COLUMNS = PrimitiveKind.Grid2x2;
+		// Token: 0x04002BDD RID: 11229
+		private const NGUI.Meshing.PrimitiveKind GRID_2ROWS_2COLUMNS = NGUI.Meshing.PrimitiveKind.Grid2x2;
 
-		// Token: 0x04002990 RID: 10640
-		private const PrimitiveKind GRID_2ROWS_1COLUMNS = PrimitiveKind.Grid1x2;
+		// Token: 0x04002BDE RID: 11230
+		private const NGUI.Meshing.PrimitiveKind GRID_2ROWS_1COLUMNS = NGUI.Meshing.PrimitiveKind.Grid1x2;
 
-		// Token: 0x04002991 RID: 10641
-		private const PrimitiveKind GRID_1ROWS_3COLUMNS = PrimitiveKind.Grid3x1;
+		// Token: 0x04002BDF RID: 11231
+		private const NGUI.Meshing.PrimitiveKind GRID_1ROWS_3COLUMNS = NGUI.Meshing.PrimitiveKind.Grid3x1;
 
-		// Token: 0x04002992 RID: 10642
-		private const PrimitiveKind GRID_1ROWS_2COLUMNS = PrimitiveKind.Grid2x1;
+		// Token: 0x04002BE0 RID: 11232
+		private const NGUI.Meshing.PrimitiveKind GRID_1ROWS_2COLUMNS = NGUI.Meshing.PrimitiveKind.Grid2x1;
 
-		// Token: 0x04002993 RID: 10643
-		private const PrimitiveKind GRID_1ROWS_1COLUMNS = PrimitiveKind.Quad;
+		// Token: 0x04002BE1 RID: 11233
+		private const NGUI.Meshing.PrimitiveKind GRID_1ROWS_1COLUMNS = NGUI.Meshing.PrimitiveKind.Quad;
 
-		// Token: 0x04002994 RID: 10644
+		// Token: 0x04002BE2 RID: 11234
 		[FieldOffset(0)]
 		public Vector2 xx;
 
-		// Token: 0x04002995 RID: 10645
+		// Token: 0x04002BE3 RID: 11235
 		[FieldOffset(8)]
 		public Vector2 yy;
 
-		// Token: 0x04002996 RID: 10646
+		// Token: 0x04002BE4 RID: 11236
 		[FieldOffset(16)]
 		public Vector2 zz;
 
-		// Token: 0x04002997 RID: 10647
+		// Token: 0x04002BE5 RID: 11237
 		[FieldOffset(24)]
 		public Vector2 ww;
 	}

@@ -3,16 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000375 RID: 885
-public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumerable<T, ODBForwardEnumerator<T>> where T : Object
+// Token: 0x02000422 RID: 1058
+public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, global::ODBEnumerable<T, global::ODBForwardEnumerator<T>> where T : Object
 {
-	// Token: 0x06002184 RID: 8580 RVA: 0x000829D8 File Offset: 0x00080BD8
+	// Token: 0x060024E6 RID: 9446 RVA: 0x00087DD4 File Offset: 0x00085FD4
 	protected ODBList()
 	{
-		this.hashSet = new HSet<T>();
+		this.hashSet = new global::HSet<T>();
 	}
 
-	// Token: 0x06002185 RID: 8581 RVA: 0x000829EC File Offset: 0x00080BEC
+	// Token: 0x060024E7 RID: 9447 RVA: 0x00087DE8 File Offset: 0x00085FE8
 	protected ODBList(IEnumerable<T> collection) : this()
 	{
 		foreach (T item in collection)
@@ -21,39 +21,39 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 	}
 
-	// Token: 0x06002186 RID: 8582 RVA: 0x00082A54 File Offset: 0x00080C54
+	// Token: 0x060024E8 RID: 9448 RVA: 0x00087E50 File Offset: 0x00086050
 	protected ODBList(bool isReadOnly) : this()
 	{
 		this.isReadOnly = isReadOnly;
 	}
 
-	// Token: 0x06002187 RID: 8583 RVA: 0x00082A64 File Offset: 0x00080C64
+	// Token: 0x060024E9 RID: 9449 RVA: 0x00087E60 File Offset: 0x00086060
 	protected ODBList(bool isReadOnly, IEnumerable<T> collection) : this(collection)
 	{
 		this.isReadOnly = isReadOnly;
 	}
 
-	// Token: 0x06002188 RID: 8584 RVA: 0x00082A74 File Offset: 0x00080C74
+	// Token: 0x060024EA RID: 9450 RVA: 0x00087E70 File Offset: 0x00086070
 	IEnumerator<T> IEnumerable<T>.GetEnumerator()
 	{
-		ODBForwardEnumerator<T> enumerator = this.GetEnumerator();
-		return ODBCachedEnumerator<T, ODBForwardEnumerator<T>>.Cache(ref enumerator);
+		global::ODBForwardEnumerator<T> enumerator = this.GetEnumerator();
+		return global::ODBCachedEnumerator<T, global::ODBForwardEnumerator<T>>.Cache(ref enumerator);
 	}
 
-	// Token: 0x06002189 RID: 8585 RVA: 0x00082A90 File Offset: 0x00080C90
+	// Token: 0x060024EB RID: 9451 RVA: 0x00087E8C File Offset: 0x0008608C
 	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return this.GetEnumerator();
 	}
 
-	// Token: 0x0600218A RID: 8586 RVA: 0x00082AA0 File Offset: 0x00080CA0
+	// Token: 0x060024EC RID: 9452 RVA: 0x00087E9C File Offset: 0x0008609C
 	void ICollection<T>.CopyTo(T[] array, int arrayIndex)
 	{
 		this.CopyTo(array, arrayIndex);
 	}
 
-	// Token: 0x17000835 RID: 2101
-	// (get) Token: 0x0600218B RID: 8587 RVA: 0x00082AAC File Offset: 0x00080CAC
+	// Token: 0x17000893 RID: 2195
+	// (get) Token: 0x060024ED RID: 9453 RVA: 0x00087EA8 File Offset: 0x000860A8
 	int ICollection<T>.Count
 	{
 		get
@@ -62,8 +62,8 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 	}
 
-	// Token: 0x17000836 RID: 2102
-	// (get) Token: 0x0600218C RID: 8588 RVA: 0x00082AB4 File Offset: 0x00080CB4
+	// Token: 0x17000894 RID: 2196
+	// (get) Token: 0x060024EE RID: 9454 RVA: 0x00087EB0 File Offset: 0x000860B0
 	bool ICollection<T>.IsReadOnly
 	{
 		get
@@ -72,7 +72,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 	}
 
-	// Token: 0x0600218D RID: 8589 RVA: 0x00082ABC File Offset: 0x00080CBC
+	// Token: 0x060024EF RID: 9455 RVA: 0x00087EB8 File Offset: 0x000860B8
 	void ICollection<T>.Add(T item)
 	{
 		if (this.isReadOnly)
@@ -85,7 +85,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 	}
 
-	// Token: 0x0600218E RID: 8590 RVA: 0x00082AFC File Offset: 0x00080CFC
+	// Token: 0x060024F0 RID: 9456 RVA: 0x00087EF8 File Offset: 0x000860F8
 	bool ICollection<T>.Remove(T item)
 	{
 		if (this.isReadOnly)
@@ -95,7 +95,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		return this.DoRemove(item);
 	}
 
-	// Token: 0x0600218F RID: 8591 RVA: 0x00082B1C File Offset: 0x00080D1C
+	// Token: 0x060024F1 RID: 9457 RVA: 0x00087F18 File Offset: 0x00086118
 	void ICollection<T>.Clear()
 	{
 		if (this.isReadOnly)
@@ -105,58 +105,58 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		this.DoClear();
 	}
 
-	// Token: 0x17000837 RID: 2103
-	// (get) Token: 0x06002190 RID: 8592 RVA: 0x00082B3C File Offset: 0x00080D3C
-	public ODBForwardEnumerable<T> forward
+	// Token: 0x17000895 RID: 2197
+	// (get) Token: 0x060024F2 RID: 9458 RVA: 0x00087F38 File Offset: 0x00086138
+	public global::ODBForwardEnumerable<T> forward
 	{
 		get
 		{
-			return new ODBForwardEnumerable<T>(this);
+			return new global::ODBForwardEnumerable<T>(this);
 		}
 	}
 
-	// Token: 0x17000838 RID: 2104
-	// (get) Token: 0x06002191 RID: 8593 RVA: 0x00082B44 File Offset: 0x00080D44
-	public ODBReverseEnumerable<T> reverse
+	// Token: 0x17000896 RID: 2198
+	// (get) Token: 0x060024F3 RID: 9459 RVA: 0x00087F40 File Offset: 0x00086140
+	public global::ODBReverseEnumerable<T> reverse
 	{
 		get
 		{
-			return new ODBReverseEnumerable<T>(this);
+			return new global::ODBReverseEnumerable<T>(this);
 		}
 	}
 
-	// Token: 0x06002192 RID: 8594 RVA: 0x00082B4C File Offset: 0x00080D4C
+	// Token: 0x060024F4 RID: 9460 RVA: 0x00087F48 File Offset: 0x00086148
 	public bool Contains(T item)
 	{
 		return this.any && this.hashSet.Contains(item);
 	}
 
-	// Token: 0x06002193 RID: 8595 RVA: 0x00082B68 File Offset: 0x00080D68
-	public bool Contains(ODBNode<T> item)
+	// Token: 0x060024F5 RID: 9461 RVA: 0x00087F64 File Offset: 0x00086164
+	public bool Contains(global::ODBNode<T> item)
 	{
 		return this.any && item.list == this;
 	}
 
-	// Token: 0x06002194 RID: 8596 RVA: 0x00082B84 File Offset: 0x00080D84
+	// Token: 0x060024F6 RID: 9462 RVA: 0x00087F80 File Offset: 0x00086180
 	public int CopyTo(T[] array)
 	{
 		return this.CopyTo(array, 0, this.count);
 	}
 
-	// Token: 0x06002195 RID: 8597 RVA: 0x00082B94 File Offset: 0x00080D94
+	// Token: 0x060024F7 RID: 9463 RVA: 0x00087F90 File Offset: 0x00086190
 	public int CopyTo(T[] array, int arrayIndex)
 	{
 		return this.CopyTo(array, arrayIndex, this.count);
 	}
 
-	// Token: 0x06002196 RID: 8598 RVA: 0x00082BA4 File Offset: 0x00080DA4
+	// Token: 0x060024F8 RID: 9464 RVA: 0x00087FA0 File Offset: 0x000861A0
 	public int CopyTo(T[] array, int arrayIndex, int count)
 	{
 		if (!this.any)
 		{
 			return 0;
 		}
-		ODBNode<T> item = this.first.item;
+		global::ODBNode<T> item = this.first.item;
 		int num = -1;
 		if (count > this.count)
 		{
@@ -170,7 +170,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		return num;
 	}
 
-	// Token: 0x06002197 RID: 8599 RVA: 0x00082C10 File Offset: 0x00080E10
+	// Token: 0x060024F9 RID: 9465 RVA: 0x0008800C File Offset: 0x0008620C
 	public T[] ToArray()
 	{
 		T[] array = new T[this.count];
@@ -178,19 +178,19 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		return array;
 	}
 
-	// Token: 0x06002198 RID: 8600 RVA: 0x00082C3C File Offset: 0x00080E3C
-	public ODBForwardEnumerator<T> GetEnumerator()
+	// Token: 0x060024FA RID: 9466 RVA: 0x00088038 File Offset: 0x00086238
+	public global::ODBForwardEnumerator<T> GetEnumerator()
 	{
-		return new ODBForwardEnumerator<T>(this);
+		return new global::ODBForwardEnumerator<T>(this);
 	}
 
-	// Token: 0x06002199 RID: 8601 RVA: 0x00082C44 File Offset: 0x00080E44
+	// Token: 0x060024FB RID: 9467 RVA: 0x00088040 File Offset: 0x00086240
 	public IEnumerable<T> ToGeneric()
 	{
 		return this;
 	}
 
-	// Token: 0x0600219A RID: 8602 RVA: 0x00082C48 File Offset: 0x00080E48
+	// Token: 0x060024FC RID: 9468 RVA: 0x00088044 File Offset: 0x00086244
 	protected bool DoAdd(T item)
 	{
 		if (!item)
@@ -199,14 +199,14 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 		if (this.hashSet.Add(item))
 		{
-			ODBNode<T>.New(this, item);
+			global::ODBNode<T>.New(this, item);
 			return true;
 		}
 		return false;
 	}
 
-	// Token: 0x0600219B RID: 8603 RVA: 0x00082C84 File Offset: 0x00080E84
-	protected bool DoAdd(T item, out ODBNode<T> node)
+	// Token: 0x060024FD RID: 9469 RVA: 0x00088080 File Offset: 0x00086280
+	protected bool DoAdd(T item, out global::ODBNode<T> node)
 	{
 		if (!item)
 		{
@@ -214,15 +214,15 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 		if (this.hashSet.Add(item))
 		{
-			node = ODBNode<T>.New(this, item);
+			node = global::ODBNode<T>.New(this, item);
 			return true;
 		}
 		node = null;
 		return false;
 	}
 
-	// Token: 0x0600219C RID: 8604 RVA: 0x00082CC4 File Offset: 0x00080EC4
-	protected bool DoRemove(ref ODBNode<T> node)
+	// Token: 0x060024FE RID: 9470 RVA: 0x000880C0 File Offset: 0x000862C0
+	protected bool DoRemove(ref global::ODBNode<T> node)
 	{
 		if (this.any && node.list == this)
 		{
@@ -234,7 +234,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		return false;
 	}
 
-	// Token: 0x0600219D RID: 8605 RVA: 0x00082D0C File Offset: 0x00080F0C
+	// Token: 0x060024FF RID: 9471 RVA: 0x00088108 File Offset: 0x00086308
 	protected bool DoRemove(T item)
 	{
 		if (this.any && this.hashSet.Remove(item))
@@ -245,7 +245,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		return false;
 	}
 
-	// Token: 0x0600219E RID: 8606 RVA: 0x00082D3C File Offset: 0x00080F3C
+	// Token: 0x06002500 RID: 9472 RVA: 0x00088138 File Offset: 0x00086338
 	protected void DoClear()
 	{
 		if (this.any)
@@ -259,28 +259,28 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 	}
 
-	// Token: 0x0600219F RID: 8607 RVA: 0x00082D70 File Offset: 0x00080F70
-	protected void DoUnionWith(ODBList<T> list)
+	// Token: 0x06002501 RID: 9473 RVA: 0x0008816C File Offset: 0x0008636C
+	protected void DoUnionWith(global::ODBList<T> list)
 	{
 		if (!list.any || list == this)
 		{
 			return;
 		}
-		ODBSibling<T> n = list.first;
+		global::ODBSibling<T> n = list.first;
 		do
 		{
 			T self = n.item.self;
 			n = n.item.n;
 			if (this.hashSet.Add(self))
 			{
-				ODBNode<T>.New(this, self);
+				global::ODBNode<T>.New(this, self);
 			}
 		}
 		while (n.has);
 	}
 
-	// Token: 0x060021A0 RID: 8608 RVA: 0x00082DD8 File Offset: 0x00080FD8
-	protected void DoExceptWith(ODBList<T> list)
+	// Token: 0x06002502 RID: 9474 RVA: 0x000881D4 File Offset: 0x000863D4
+	protected void DoExceptWith(global::ODBList<T> list)
 	{
 		if (!this.any || !list.any)
 		{
@@ -292,7 +292,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 		else
 		{
-			ODBSibling<T> n = list.first;
+			global::ODBSibling<T> n = list.first;
 			do
 			{
 				T self = n.item.self;
@@ -306,8 +306,8 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 	}
 
-	// Token: 0x060021A1 RID: 8609 RVA: 0x00082E58 File Offset: 0x00081058
-	protected void DoSymmetricExceptWith(ODBList<T> list)
+	// Token: 0x06002503 RID: 9475 RVA: 0x00088254 File Offset: 0x00086454
+	protected void DoSymmetricExceptWith(global::ODBList<T> list)
 	{
 		if (this.any)
 		{
@@ -319,7 +319,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 				}
 				else
 				{
-					ODBSibling<T> n = list.first;
+					global::ODBSibling<T> n = list.first;
 					do
 					{
 						T self = n.item.self;
@@ -331,7 +331,7 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 						else
 						{
 							this.hashSet.Add(self);
-							ODBNode<T>.New(this, self);
+							global::ODBNode<T>.New(this, self);
 						}
 					}
 					while (n.has);
@@ -340,20 +340,20 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 		else if (list.any)
 		{
-			ODBSibling<T> n2 = list.first;
+			global::ODBSibling<T> n2 = list.first;
 			do
 			{
 				T self2 = n2.item.self;
 				n2 = n2.item.n;
 				this.hashSet.Add(self2);
-				ODBNode<T>.New(this, self2);
+				global::ODBNode<T>.New(this, self2);
 			}
 			while (n2.has);
 		}
 	}
 
-	// Token: 0x060021A2 RID: 8610 RVA: 0x00082F44 File Offset: 0x00081144
-	protected void DoIntersectWith(ODBList<T> list)
+	// Token: 0x06002504 RID: 9476 RVA: 0x00088340 File Offset: 0x00086540
+	protected void DoIntersectWith(global::ODBList<T> list)
 	{
 		if (this.any)
 		{
@@ -372,10 +372,10 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 					}
 					else
 					{
-						ODBSibling<T> n = this.first;
+						global::ODBSibling<T> n = this.first;
 						do
 						{
-							ODBNode<T> item = n.item;
+							global::ODBNode<T> item = n.item;
 							n = n.item.n;
 							if (!this.hashSet.Contains(item.self))
 							{
@@ -397,10 +397,10 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		}
 	}
 
-	// Token: 0x060021A3 RID: 8611 RVA: 0x00083018 File Offset: 0x00081218
-	protected ODBNode<T> KnownFind(T item)
+	// Token: 0x06002505 RID: 9477 RVA: 0x00088414 File Offset: 0x00086614
+	protected global::ODBNode<T> KnownFind(T item)
 	{
-		ODBSibling<T> n = this.first;
+		global::ODBSibling<T> n = this.first;
 		for (;;)
 		{
 			T self = n.item.self;
@@ -419,81 +419,81 @@ public class ODBList<T> : IEnumerable, IEnumerable<T>, ICollection<T>, ODBEnumer
 		throw new ArgumentException("item was not found", "item");
 	}
 
-	// Token: 0x060021A4 RID: 8612 RVA: 0x00083080 File Offset: 0x00081280
-	public RecycleList<T> UnionList(ODBList<T> list)
+	// Token: 0x06002506 RID: 9478 RVA: 0x0008847C File Offset: 0x0008667C
+	public global::RecycleList<T> UnionList(global::ODBList<T> list)
 	{
 		return this.hashSet.UnionList(list.hashSet);
 	}
 
-	// Token: 0x060021A5 RID: 8613 RVA: 0x00083094 File Offset: 0x00081294
-	public RecycleList<T> UnionList(IEnumerable<T> e)
+	// Token: 0x06002507 RID: 9479 RVA: 0x00088490 File Offset: 0x00086690
+	public global::RecycleList<T> UnionList(IEnumerable<T> e)
 	{
 		return this.hashSet.UnionList(e);
 	}
 
-	// Token: 0x060021A6 RID: 8614 RVA: 0x000830A4 File Offset: 0x000812A4
-	public RecycleList<T> IntersectList(ODBList<T> list)
+	// Token: 0x06002508 RID: 9480 RVA: 0x000884A0 File Offset: 0x000866A0
+	public global::RecycleList<T> IntersectList(global::ODBList<T> list)
 	{
 		return this.hashSet.IntersectList(list.hashSet);
 	}
 
-	// Token: 0x060021A7 RID: 8615 RVA: 0x000830B8 File Offset: 0x000812B8
-	public RecycleList<T> IntersectList(IEnumerable<T> e)
+	// Token: 0x06002509 RID: 9481 RVA: 0x000884B4 File Offset: 0x000866B4
+	public global::RecycleList<T> IntersectList(IEnumerable<T> e)
 	{
 		return this.hashSet.IntersectList(e);
 	}
 
-	// Token: 0x060021A8 RID: 8616 RVA: 0x000830C8 File Offset: 0x000812C8
-	public RecycleList<T> ExceptList(ODBList<T> list)
+	// Token: 0x0600250A RID: 9482 RVA: 0x000884C4 File Offset: 0x000866C4
+	public global::RecycleList<T> ExceptList(global::ODBList<T> list)
 	{
 		return this.hashSet.ExceptList(list.hashSet);
 	}
 
-	// Token: 0x060021A9 RID: 8617 RVA: 0x000830DC File Offset: 0x000812DC
-	public RecycleList<T> ExceptList(IEnumerable<T> e)
+	// Token: 0x0600250B RID: 9483 RVA: 0x000884D8 File Offset: 0x000866D8
+	public global::RecycleList<T> ExceptList(IEnumerable<T> e)
 	{
 		return this.hashSet.ExceptList(e);
 	}
 
-	// Token: 0x060021AA RID: 8618 RVA: 0x000830EC File Offset: 0x000812EC
-	public RecycleList<T> SymmetricExceptList(ODBList<T> list)
+	// Token: 0x0600250C RID: 9484 RVA: 0x000884E8 File Offset: 0x000866E8
+	public global::RecycleList<T> SymmetricExceptList(global::ODBList<T> list)
 	{
 		return this.hashSet.SymmetricExceptList(list.hashSet);
 	}
 
-	// Token: 0x060021AB RID: 8619 RVA: 0x00083100 File Offset: 0x00081300
-	public RecycleList<T> SymmetricExceptList(IEnumerable<T> e)
+	// Token: 0x0600250D RID: 9485 RVA: 0x000884FC File Offset: 0x000866FC
+	public global::RecycleList<T> SymmetricExceptList(IEnumerable<T> e)
 	{
 		return this.hashSet.SymmetricExceptList(e);
 	}
 
-	// Token: 0x060021AC RID: 8620 RVA: 0x00083110 File Offset: 0x00081310
-	public RecycleList<T> OperList(HSetOper oper, ODBList<T> list)
+	// Token: 0x0600250E RID: 9486 RVA: 0x0008850C File Offset: 0x0008670C
+	public global::RecycleList<T> OperList(global::HSetOper oper, global::ODBList<T> list)
 	{
 		return this.hashSet.OperList(oper, list.hashSet);
 	}
 
-	// Token: 0x060021AD RID: 8621 RVA: 0x00083124 File Offset: 0x00081324
-	public RecycleList<T> OperList(HSetOper oper, IEnumerable<T> collection)
+	// Token: 0x0600250F RID: 9487 RVA: 0x00088520 File Offset: 0x00086720
+	public global::RecycleList<T> OperList(global::HSetOper oper, IEnumerable<T> collection)
 	{
 		return this.hashSet.OperList(oper, collection);
 	}
 
-	// Token: 0x04000FB4 RID: 4020
-	protected readonly HSet<T> hashSet;
+	// Token: 0x0400111A RID: 4378
+	protected readonly global::HSet<T> hashSet;
 
-	// Token: 0x04000FB5 RID: 4021
-	public ODBSibling<T> first;
+	// Token: 0x0400111B RID: 4379
+	public global::ODBSibling<T> first;
 
-	// Token: 0x04000FB6 RID: 4022
-	public ODBSibling<T> last;
+	// Token: 0x0400111C RID: 4380
+	public global::ODBSibling<T> last;
 
-	// Token: 0x04000FB7 RID: 4023
+	// Token: 0x0400111D RID: 4381
 	public int count;
 
-	// Token: 0x04000FB8 RID: 4024
+	// Token: 0x0400111E RID: 4382
 	public bool any;
 
-	// Token: 0x04000FB9 RID: 4025
+	// Token: 0x0400111F RID: 4383
 	private readonly bool isReadOnly;
 }

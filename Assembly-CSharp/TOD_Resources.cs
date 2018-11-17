@@ -1,69 +1,69 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000833 RID: 2099
+// Token: 0x02000928 RID: 2344
 public class TOD_Resources : MonoBehaviour
 {
-	// Token: 0x04002B53 RID: 11091
+	// Token: 0x04002DA1 RID: 11681
 	public Mesh Quad;
 
-	// Token: 0x04002B54 RID: 11092
+	// Token: 0x04002DA2 RID: 11682
 	public Mesh SphereHigh;
 
-	// Token: 0x04002B55 RID: 11093
+	// Token: 0x04002DA3 RID: 11683
 	public Mesh SphereMedium;
 
-	// Token: 0x04002B56 RID: 11094
+	// Token: 0x04002DA4 RID: 11684
 	public Mesh SphereLow;
 
-	// Token: 0x04002B57 RID: 11095
+	// Token: 0x04002DA5 RID: 11685
 	public Mesh IcosphereHigh;
 
-	// Token: 0x04002B58 RID: 11096
+	// Token: 0x04002DA6 RID: 11686
 	public Mesh IcosphereMedium;
 
-	// Token: 0x04002B59 RID: 11097
+	// Token: 0x04002DA7 RID: 11687
 	public Mesh IcosphereLow;
 
-	// Token: 0x04002B5A RID: 11098
+	// Token: 0x04002DA8 RID: 11688
 	public Mesh HalfIcosphereHigh;
 
-	// Token: 0x04002B5B RID: 11099
+	// Token: 0x04002DA9 RID: 11689
 	public Mesh HalfIcosphereMedium;
 
-	// Token: 0x04002B5C RID: 11100
+	// Token: 0x04002DAA RID: 11690
 	public Mesh HalfIcosphereLow;
 
-	// Token: 0x04002B5D RID: 11101
+	// Token: 0x04002DAB RID: 11691
 	public Material CloudMaterialBumped;
 
-	// Token: 0x04002B5E RID: 11102
+	// Token: 0x04002DAC RID: 11692
 	public Material CloudMaterialDensity;
 
-	// Token: 0x04002B5F RID: 11103
+	// Token: 0x04002DAD RID: 11693
 	public Material CloudMaterialFastest;
 
-	// Token: 0x04002B60 RID: 11104
+	// Token: 0x04002DAE RID: 11694
 	public Material ShadowMaterialBumped;
 
-	// Token: 0x04002B61 RID: 11105
+	// Token: 0x04002DAF RID: 11695
 	public Material ShadowMaterialDensity;
 
-	// Token: 0x04002B62 RID: 11106
+	// Token: 0x04002DB0 RID: 11696
 	public Material ShadowMaterialFastest;
 
-	// Token: 0x04002B63 RID: 11107
+	// Token: 0x04002DB1 RID: 11697
 	public Material SpaceMaterial;
 
-	// Token: 0x04002B64 RID: 11108
+	// Token: 0x04002DB2 RID: 11698
 	public Material AtmosphereMaterial;
 
-	// Token: 0x04002B65 RID: 11109
+	// Token: 0x04002DB3 RID: 11699
 	public Material SunMaterial;
 
-	// Token: 0x04002B66 RID: 11110
+	// Token: 0x04002DB4 RID: 11700
 	public Material MoonMaterial;
 
-	// Token: 0x04002B67 RID: 11111
+	// Token: 0x04002DB5 RID: 11701
 	public Material ClearMaterial;
 }

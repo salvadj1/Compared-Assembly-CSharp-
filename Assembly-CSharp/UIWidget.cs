@@ -3,31 +3,31 @@ using System.Collections.Generic;
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x020007AA RID: 1962
+// Token: 0x02000895 RID: 2197
 public abstract class UIWidget : MonoBehaviour
 {
-	// Token: 0x060046DF RID: 18143 RVA: 0x0011CDC8 File Offset: 0x0011AFC8
-	protected UIWidget(UIWidget.WidgetFlags flags)
+	// Token: 0x06004B64 RID: 19300 RVA: 0x00126748 File Offset: 0x00124948
+	protected UIWidget(global::UIWidget.WidgetFlags flags)
 	{
 		this.widgetFlags = flags;
 	}
 
-	// Token: 0x060046E1 RID: 18145 RVA: 0x0011CE58 File Offset: 0x0011B058
+	// Token: 0x06004B66 RID: 19302 RVA: 0x001267D8 File Offset: 0x001249D8
 	public static void GlobalUpdate()
 	{
-		UIWidget.Global.WidgetUpdate();
+		global::UIWidget.Global.WidgetUpdate();
 	}
 
-	// Token: 0x060046E2 RID: 18146 RVA: 0x0011CE60 File Offset: 0x0011B060
+	// Token: 0x06004B67 RID: 19303 RVA: 0x001267E0 File Offset: 0x001249E0
 	public void MarkAsChangedForced()
 	{
 		this.MarkAsChanged();
 		this.mForcedChanged = true;
 	}
 
-	// Token: 0x17000DA8 RID: 3496
-	// (get) Token: 0x060046E3 RID: 18147 RVA: 0x0011CE70 File Offset: 0x0011B070
-	// (set) Token: 0x060046E4 RID: 18148 RVA: 0x0011CE78 File Offset: 0x0011B078
+	// Token: 0x17000E38 RID: 3640
+	// (get) Token: 0x06004B68 RID: 19304 RVA: 0x001267F0 File Offset: 0x001249F0
+	// (set) Token: 0x06004B69 RID: 19305 RVA: 0x001267F8 File Offset: 0x001249F8
 	public bool alphaUnchecked
 	{
 		get
@@ -41,7 +41,7 @@ public abstract class UIWidget : MonoBehaviour
 				if (!this.mAlphaUnchecked)
 				{
 					this.mAlphaUnchecked = true;
-					if (NGUITools.ZeroAlpha(this.mColor.a))
+					if (global::NGUITools.ZeroAlpha(this.mColor.a))
 					{
 						this.mChangedCall = true;
 					}
@@ -50,7 +50,7 @@ public abstract class UIWidget : MonoBehaviour
 			else if (this.mAlphaUnchecked)
 			{
 				this.mAlphaUnchecked = false;
-				if (NGUITools.ZeroAlpha(this.mColor.a))
+				if (global::NGUITools.ZeroAlpha(this.mColor.a))
 				{
 					this.mChangedCall = true;
 				}
@@ -58,8 +58,8 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DA9 RID: 3497
-	// (get) Token: 0x060046E5 RID: 18149 RVA: 0x0011CEEC File Offset: 0x0011B0EC
+	// Token: 0x17000E39 RID: 3641
+	// (get) Token: 0x06004B6A RID: 19306 RVA: 0x0012686C File Offset: 0x00124A6C
 	public bool changesQueued
 	{
 		get
@@ -68,30 +68,30 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060046E6 RID: 18150 RVA: 0x0011CF04 File Offset: 0x0011B104
+	// Token: 0x06004B6B RID: 19307 RVA: 0x00126884 File Offset: 0x00124A84
 	protected void ChangedAuto()
 	{
 		this.mChangedCall = true;
 	}
 
-	// Token: 0x17000DAA RID: 3498
-	// (get) Token: 0x060046E7 RID: 18151 RVA: 0x0011CF10 File Offset: 0x0011B110
-	private UIGeometry mGeom
+	// Token: 0x17000E3A RID: 3642
+	// (get) Token: 0x06004B6C RID: 19308 RVA: 0x00126890 File Offset: 0x00124A90
+	private global::UIGeometry mGeom
 	{
 		get
 		{
-			UIGeometry result;
+			global::UIGeometry result;
 			if ((result = this.__mGeom) == null)
 			{
-				result = (this.__mGeom = new UIGeometry());
+				result = (this.__mGeom = new global::UIGeometry());
 			}
 			return result;
 		}
 	}
 
-	// Token: 0x17000DAB RID: 3499
-	// (get) Token: 0x060046E8 RID: 18152 RVA: 0x0011CF38 File Offset: 0x0011B138
-	// (set) Token: 0x060046E9 RID: 18153 RVA: 0x0011CF40 File Offset: 0x0011B140
+	// Token: 0x17000E3B RID: 3643
+	// (get) Token: 0x06004B6D RID: 19309 RVA: 0x001268B8 File Offset: 0x00124AB8
+	// (set) Token: 0x06004B6E RID: 19310 RVA: 0x001268C0 File Offset: 0x00124AC0
 	public Color color
 	{
 		get
@@ -108,9 +108,9 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DAC RID: 3500
-	// (get) Token: 0x060046EA RID: 18154 RVA: 0x0011CF64 File Offset: 0x0011B164
-	// (set) Token: 0x060046EB RID: 18155 RVA: 0x0011CF74 File Offset: 0x0011B174
+	// Token: 0x17000E3C RID: 3644
+	// (get) Token: 0x06004B6F RID: 19311 RVA: 0x001268E4 File Offset: 0x00124AE4
+	// (set) Token: 0x06004B70 RID: 19312 RVA: 0x001268F4 File Offset: 0x00124AF4
 	public float alpha
 	{
 		get
@@ -125,10 +125,10 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DAD RID: 3501
-	// (get) Token: 0x060046EC RID: 18156 RVA: 0x0011CF98 File Offset: 0x0011B198
-	// (set) Token: 0x060046ED RID: 18157 RVA: 0x0011CFA0 File Offset: 0x0011B1A0
-	public UIWidget.Pivot pivot
+	// Token: 0x17000E3D RID: 3645
+	// (get) Token: 0x06004B71 RID: 19313 RVA: 0x00126918 File Offset: 0x00124B18
+	// (set) Token: 0x06004B72 RID: 19314 RVA: 0x00126920 File Offset: 0x00124B20
+	public global::UIWidget.Pivot pivot
 	{
 		get
 		{
@@ -144,9 +144,9 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DAE RID: 3502
-	// (get) Token: 0x060046EE RID: 18158 RVA: 0x0011CFBC File Offset: 0x0011B1BC
-	// (set) Token: 0x060046EF RID: 18159 RVA: 0x0011CFC4 File Offset: 0x0011B1C4
+	// Token: 0x17000E3E RID: 3646
+	// (get) Token: 0x06004B73 RID: 19315 RVA: 0x0012693C File Offset: 0x00124B3C
+	// (set) Token: 0x06004B74 RID: 19316 RVA: 0x00126944 File Offset: 0x00124B44
 	public int depth
 	{
 		get
@@ -166,8 +166,8 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DAF RID: 3503
-	// (get) Token: 0x060046F0 RID: 18160 RVA: 0x0011D008 File Offset: 0x0011B208
+	// Token: 0x17000E3F RID: 3647
+	// (get) Token: 0x06004B75 RID: 19317 RVA: 0x00126988 File Offset: 0x00124B88
 	public Transform cachedTransform
 	{
 		get
@@ -181,14 +181,14 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DB0 RID: 3504
-	// (get) Token: 0x060046F1 RID: 18161 RVA: 0x0011D03C File Offset: 0x0011B23C
-	// (set) Token: 0x060046F2 RID: 18162 RVA: 0x0011D05C File Offset: 0x0011B25C
-	public UIMaterial material
+	// Token: 0x17000E40 RID: 3648
+	// (get) Token: 0x06004B76 RID: 19318 RVA: 0x001269BC File Offset: 0x00124BBC
+	// (set) Token: 0x06004B77 RID: 19319 RVA: 0x001269DC File Offset: 0x00124BDC
+	public global::UIMaterial material
 	{
 		get
 		{
-			if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.CustomMaterialGet) == 4)
+			if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.CustomMaterialGet) == 4)
 			{
 				return this.customMaterial;
 			}
@@ -196,7 +196,7 @@ public abstract class UIWidget : MonoBehaviour
 		}
 		set
 		{
-			if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.CustomMaterialSet) == 8)
+			if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.CustomMaterialSet) == 8)
 			{
 				this.customMaterial = value;
 			}
@@ -207,18 +207,18 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DB1 RID: 3505
-	// (get) Token: 0x060046F3 RID: 18163 RVA: 0x0011D08C File Offset: 0x0011B28C
-	// (set) Token: 0x060046F4 RID: 18164 RVA: 0x0011D09C File Offset: 0x0011B29C
-	protected UIMaterial baseMaterial
+	// Token: 0x17000E41 RID: 3649
+	// (get) Token: 0x06004B78 RID: 19320 RVA: 0x00126A0C File Offset: 0x00124C0C
+	// (set) Token: 0x06004B79 RID: 19321 RVA: 0x00126A1C File Offset: 0x00124C1C
+	protected global::UIMaterial baseMaterial
 	{
 		get
 		{
-			return (UIMaterial)this.mMat;
+			return (global::UIMaterial)this.mMat;
 		}
 		set
 		{
-			UIMaterial uimaterial = (UIMaterial)this.mMat;
+			global::UIMaterial uimaterial = (global::UIMaterial)this.mMat;
 			if (uimaterial != value)
 			{
 				if (uimaterial != null && this.mPanel != null)
@@ -236,7 +236,7 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060046F5 RID: 18165 RVA: 0x0011D11C File Offset: 0x0011B31C
+	// Token: 0x06004B7A RID: 19322 RVA: 0x00126A9C File Offset: 0x00124C9C
 	public void ForceReloadMaterial()
 	{
 		if (this.mMat)
@@ -254,10 +254,10 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DB2 RID: 3506
-	// (get) Token: 0x060046F6 RID: 18166 RVA: 0x0011D17C File Offset: 0x0011B37C
-	// (set) Token: 0x060046F7 RID: 18167 RVA: 0x0011D184 File Offset: 0x0011B384
-	protected virtual UIMaterial customMaterial
+	// Token: 0x17000E42 RID: 3650
+	// (get) Token: 0x06004B7B RID: 19323 RVA: 0x00126AFC File Offset: 0x00124CFC
+	// (set) Token: 0x06004B7C RID: 19324 RVA: 0x00126B04 File Offset: 0x00124D04
+	protected virtual global::UIMaterial customMaterial
 	{
 		get
 		{
@@ -269,15 +269,15 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DB3 RID: 3507
-	// (get) Token: 0x060046F8 RID: 18168 RVA: 0x0011D18C File Offset: 0x0011B38C
+	// Token: 0x17000E43 RID: 3651
+	// (get) Token: 0x06004B7D RID: 19325 RVA: 0x00126B0C File Offset: 0x00124D0C
 	public Texture mainTexture
 	{
 		get
 		{
 			if (!this.mTex)
 			{
-				UIMaterial material = this.material;
+				global::UIMaterial material = this.material;
 				if (material != null)
 				{
 					this.mTex = material.mainTexture;
@@ -287,10 +287,10 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DB4 RID: 3508
-	// (get) Token: 0x060046F9 RID: 18169 RVA: 0x0011D1D0 File Offset: 0x0011B3D0
-	// (set) Token: 0x060046FA RID: 18170 RVA: 0x0011D1F0 File Offset: 0x0011B3F0
-	public UIPanel panel
+	// Token: 0x17000E44 RID: 3652
+	// (get) Token: 0x06004B7E RID: 19326 RVA: 0x00126B50 File Offset: 0x00124D50
+	// (set) Token: 0x06004B7F RID: 19327 RVA: 0x00126B70 File Offset: 0x00124D70
+	public global::UIPanel panel
 	{
 		get
 		{
@@ -306,9 +306,9 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DB5 RID: 3509
-	// (get) Token: 0x060046FB RID: 18171 RVA: 0x0011D1FC File Offset: 0x0011B3FC
-	// (set) Token: 0x060046FC RID: 18172 RVA: 0x0011D204 File Offset: 0x0011B404
+	// Token: 0x17000E45 RID: 3653
+	// (get) Token: 0x06004B80 RID: 19328 RVA: 0x00126B7C File Offset: 0x00124D7C
+	// (set) Token: 0x06004B81 RID: 19329 RVA: 0x00126B84 File Offset: 0x00124D84
 	public int visibleFlag
 	{
 		get
@@ -321,8 +321,8 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060046FD RID: 18173 RVA: 0x0011D210 File Offset: 0x0011B410
-	public static int CompareFunc(UIWidget left, UIWidget right)
+	// Token: 0x06004B82 RID: 19330 RVA: 0x00126B90 File Offset: 0x00124D90
+	public static int CompareFunc(global::UIWidget left, global::UIWidget right)
 	{
 		if (left.mDepth > right.mDepth)
 		{
@@ -335,7 +335,7 @@ public abstract class UIWidget : MonoBehaviour
 		return 0;
 	}
 
-	// Token: 0x060046FE RID: 18174 RVA: 0x0011D23C File Offset: 0x0011B43C
+	// Token: 0x06004B83 RID: 19331 RVA: 0x00126BBC File Offset: 0x00124DBC
 	public virtual void MarkAsChanged()
 	{
 		this.mChangedCall = true;
@@ -346,12 +346,12 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060046FF RID: 18175 RVA: 0x0011D2AC File Offset: 0x0011B4AC
+	// Token: 0x06004B84 RID: 19332 RVA: 0x00126C2C File Offset: 0x00124E2C
 	private void CreatePanel()
 	{
 		if (!this.mPanel && base.enabled && base.gameObject.activeInHierarchy && this.material != null)
 		{
-			this.mPanel = UIPanel.Find(this.cachedTransform);
+			this.mPanel = global::UIPanel.Find(this.cachedTransform);
 			if (this.mPanel != null)
 			{
 				this.CheckLayer();
@@ -361,7 +361,7 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004700 RID: 18176 RVA: 0x0011D330 File Offset: 0x0011B530
+	// Token: 0x06004B85 RID: 19333 RVA: 0x00126CB0 File Offset: 0x00124EB0
 	private void CheckLayer()
 	{
 		if (this.mPanel != null && this.mPanel.gameObject.layer != base.gameObject.layer)
@@ -371,7 +371,7 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004701 RID: 18177 RVA: 0x0011D394 File Offset: 0x0011B594
+	// Token: 0x06004B86 RID: 19334 RVA: 0x00126D14 File Offset: 0x00124F14
 	private void CheckParent()
 	{
 		if (this.mPanel != null)
@@ -393,7 +393,7 @@ public abstract class UIWidget : MonoBehaviour
 			}
 			if (!flag)
 			{
-				if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.KeepsMaterial) != 64)
+				if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.KeepsMaterial) != 64)
 				{
 					this.material = null;
 				}
@@ -403,19 +403,19 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004702 RID: 18178 RVA: 0x0011D438 File Offset: 0x0011B638
+	// Token: 0x06004B87 RID: 19335 RVA: 0x00126DB8 File Offset: 0x00124FB8
 	protected void Awake()
 	{
 		this.mPlayMode = Application.isPlaying;
-		UIWidget.Global.RegisterWidget(this);
+		global::UIWidget.Global.RegisterWidget(this);
 	}
 
-	// Token: 0x06004703 RID: 18179 RVA: 0x0011D44C File Offset: 0x0011B64C
+	// Token: 0x06004B88 RID: 19336 RVA: 0x00126DCC File Offset: 0x00124FCC
 	private void OnEnable()
 	{
-		UIWidget.Global.WidgetEnabled(this);
+		global::UIWidget.Global.WidgetEnabled(this);
 		this.mChangedCall = true;
-		if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.KeepsMaterial) != 64)
+		if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.KeepsMaterial) != 64)
 		{
 			this.mMat = null;
 			this.mTex = null;
@@ -426,14 +426,14 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004704 RID: 18180 RVA: 0x0011D4BC File Offset: 0x0011B6BC
+	// Token: 0x06004B89 RID: 19337 RVA: 0x00126E3C File Offset: 0x0012503C
 	private void Start()
 	{
 		this.OnStart();
 		this.CreatePanel();
 	}
 
-	// Token: 0x06004705 RID: 18181 RVA: 0x0011D4CC File Offset: 0x0011B6CC
+	// Token: 0x06004B8A RID: 19338 RVA: 0x00126E4C File Offset: 0x0012504C
 	private void DefaultUpdate()
 	{
 		if (!this.mPanel)
@@ -448,11 +448,11 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004706 RID: 18182 RVA: 0x0011D524 File Offset: 0x0011B724
+	// Token: 0x06004B8B RID: 19339 RVA: 0x00126EA4 File Offset: 0x001250A4
 	private void OnDisable()
 	{
-		UIWidget.Global.WidgetDisabled(this);
-		if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.KeepsMaterial) != 64)
+		global::UIWidget.Global.WidgetDisabled(this);
+		if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.KeepsMaterial) != 64)
 		{
 			this.material = null;
 		}
@@ -463,10 +463,10 @@ public abstract class UIWidget : MonoBehaviour
 		this.mPanel = null;
 	}
 
-	// Token: 0x06004707 RID: 18183 RVA: 0x0011D578 File Offset: 0x0011B778
+	// Token: 0x06004B8C RID: 19340 RVA: 0x00126EF8 File Offset: 0x001250F8
 	private void OnDestroy()
 	{
-		UIWidget.Global.UnregisterWidget(this);
+		global::UIWidget.Global.UnregisterWidget(this);
 		if (this.mPanel != null)
 		{
 			this.mPanel.RemoveWidget(this);
@@ -475,20 +475,20 @@ public abstract class UIWidget : MonoBehaviour
 		this.__mGeom = null;
 	}
 
-	// Token: 0x06004708 RID: 18184 RVA: 0x0011D5AC File Offset: 0x0011B7AC
+	// Token: 0x06004B8D RID: 19341 RVA: 0x00126F2C File Offset: 0x0012512C
 	public bool UpdateGeometry(ref Matrix4x4 worldToPanel, bool parentMoved, bool generateNormals)
 	{
 		if (!this.material)
 		{
 			return false;
 		}
-		UIGeometry mGeom = this.mGeom;
+		global::UIGeometry mGeom = this.mGeom;
 		if (this.OnUpdate() || this.mChangedCall || this.mForcedChanged)
 		{
 			this.mChangedCall = false;
 			this.mForcedChanged = false;
 			mGeom.Clear();
-			if (this.mAlphaUnchecked || !NGUITools.ZeroAlpha(this.mColor.a))
+			if (this.mAlphaUnchecked || !global::NGUITools.ZeroAlpha(this.mColor.a))
 			{
 				this.OnFill(mGeom.meshBuffer);
 			}
@@ -496,29 +496,29 @@ public abstract class UIWidget : MonoBehaviour
 			{
 				Vector2 vector;
 				Vector2 vector2;
-				switch ((byte)(this.widgetFlags & (UIWidget.WidgetFlags.CustomPivotOffset | UIWidget.WidgetFlags.CustomRelativeSize)))
+				switch ((byte)(this.widgetFlags & (global::UIWidget.WidgetFlags.CustomPivotOffset | global::UIWidget.WidgetFlags.CustomRelativeSize)))
 				{
 				case 1:
-					UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomPivotOffset;
-					this.GetCustomVector2s(0, 1, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-					vector = UIWidget.tempVector2s[0];
+					global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomPivotOffset;
+					this.GetCustomVector2s(0, 1, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+					vector = global::UIWidget.tempVector2s[0];
 					vector2.x = (vector2.y = 1f);
 					break;
 				case 2:
-					UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomRelativeSize;
-					this.GetCustomVector2s(0, 1, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-					vector2 = UIWidget.tempVector2s[0];
-					vector = UIWidget.DefaultPivot(this.mPivot);
+					global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomRelativeSize;
+					this.GetCustomVector2s(0, 1, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+					vector2 = global::UIWidget.tempVector2s[0];
+					vector = global::UIWidget.DefaultPivot(this.mPivot);
 					break;
 				case 3:
-					UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomPivotOffset;
-					UIWidget.tempWidgetFlags[1] = UIWidget.WidgetFlags.CustomRelativeSize;
-					this.GetCustomVector2s(0, 2, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-					vector = UIWidget.tempVector2s[0];
-					vector2 = UIWidget.tempVector2s[1];
+					global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomPivotOffset;
+					global::UIWidget.tempWidgetFlags[1] = global::UIWidget.WidgetFlags.CustomRelativeSize;
+					this.GetCustomVector2s(0, 2, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+					vector = global::UIWidget.tempVector2s[0];
+					vector2 = global::UIWidget.tempVector2s[1];
 					break;
 				default:
-					vector = UIWidget.DefaultPivot(this.mPivot);
+					vector = global::UIWidget.DefaultPivot(this.mPivot);
 					vector2.x = (vector2.y = 1f);
 					break;
 				}
@@ -539,13 +539,13 @@ public abstract class UIWidget : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06004709 RID: 18185 RVA: 0x0011D7E8 File Offset: 0x0011B9E8
-	public void WriteToBuffers(MeshBuffer m)
+	// Token: 0x06004B8E RID: 19342 RVA: 0x00127168 File Offset: 0x00125368
+	public void WriteToBuffers(NGUI.Meshing.MeshBuffer m)
 	{
 		this.mGeom.WriteToBuffers(m);
 	}
 
-	// Token: 0x0600470A RID: 18186 RVA: 0x0011D7F8 File Offset: 0x0011B9F8
+	// Token: 0x06004B8F RID: 19343 RVA: 0x00127178 File Offset: 0x00125378
 	public virtual void MakePixelPerfect()
 	{
 		Vector3 localScale = this.cachedTransform.localScale;
@@ -556,7 +556,7 @@ public abstract class UIWidget : MonoBehaviour
 		localScale.z = 1f;
 		Vector3 localPosition = this.cachedTransform.localPosition;
 		localPosition.z = (float)Mathf.RoundToInt(localPosition.z);
-		if (num % 2 == 1 && (this.pivot == UIWidget.Pivot.Top || this.pivot == UIWidget.Pivot.Center || this.pivot == UIWidget.Pivot.Bottom))
+		if (num % 2 == 1 && (this.pivot == global::UIWidget.Pivot.Top || this.pivot == global::UIWidget.Pivot.Center || this.pivot == global::UIWidget.Pivot.Bottom))
 		{
 			localPosition.x = Mathf.Floor(localPosition.x) + 0.5f;
 		}
@@ -564,7 +564,7 @@ public abstract class UIWidget : MonoBehaviour
 		{
 			localPosition.x = Mathf.Round(localPosition.x);
 		}
-		if (num2 % 2 == 1 && (this.pivot == UIWidget.Pivot.Left || this.pivot == UIWidget.Pivot.Center || this.pivot == UIWidget.Pivot.Right))
+		if (num2 % 2 == 1 && (this.pivot == global::UIWidget.Pivot.Left || this.pivot == global::UIWidget.Pivot.Center || this.pivot == global::UIWidget.Pivot.Right))
 		{
 			localPosition.y = Mathf.Ceil(localPosition.y) - 0.5f;
 		}
@@ -576,45 +576,45 @@ public abstract class UIWidget : MonoBehaviour
 		this.cachedTransform.localScale = localScale;
 	}
 
-	// Token: 0x0600470B RID: 18187 RVA: 0x0011D940 File Offset: 0x0011BB40
-	protected static Vector2 DefaultPivot(UIWidget.Pivot pivot)
+	// Token: 0x06004B90 RID: 19344 RVA: 0x001272C0 File Offset: 0x001254C0
+	protected static Vector2 DefaultPivot(global::UIWidget.Pivot pivot)
 	{
 		Vector2 result;
 		switch (pivot)
 		{
-		case UIWidget.Pivot.TopLeft:
+		case global::UIWidget.Pivot.TopLeft:
 			result.x = 0f;
 			result.y = 0f;
 			break;
-		case UIWidget.Pivot.Top:
+		case global::UIWidget.Pivot.Top:
 			result.y = -0.5f;
 			result.x = -1f;
 			break;
-		case UIWidget.Pivot.TopRight:
+		case global::UIWidget.Pivot.TopRight:
 			result.y = 0f;
 			result.x = -1f;
 			break;
-		case UIWidget.Pivot.Left:
+		case global::UIWidget.Pivot.Left:
 			result.x = 0f;
 			result.y = 0.5f;
 			break;
-		case UIWidget.Pivot.Center:
+		case global::UIWidget.Pivot.Center:
 			result.x = -0.5f;
 			result.y = 0.5f;
 			break;
-		case UIWidget.Pivot.Right:
+		case global::UIWidget.Pivot.Right:
 			result.x = -1f;
 			result.y = 0.5f;
 			break;
-		case UIWidget.Pivot.BottomLeft:
+		case global::UIWidget.Pivot.BottomLeft:
 			result.x = 0f;
 			result.y = 1f;
 			break;
-		case UIWidget.Pivot.Bottom:
+		case global::UIWidget.Pivot.Bottom:
 			result.x = -0.5f;
 			result.y = 1f;
 			break;
-		case UIWidget.Pivot.BottomRight:
+		case global::UIWidget.Pivot.BottomRight:
 			result.x = -1f;
 			result.y = 1f;
 			break;
@@ -624,24 +624,24 @@ public abstract class UIWidget : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x17000DB6 RID: 3510
-	// (get) Token: 0x0600470C RID: 18188 RVA: 0x0011DA8C File Offset: 0x0011BC8C
+	// Token: 0x17000E46 RID: 3654
+	// (get) Token: 0x06004B91 RID: 19345 RVA: 0x0012740C File Offset: 0x0012560C
 	public Vector2 pivotOffset
 	{
 		get
 		{
-			if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.CustomPivotOffset) == 1)
+			if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.CustomPivotOffset) == 1)
 			{
-				UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomPivotOffset;
-				this.GetCustomVector2s(0, 1, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-				return UIWidget.tempVector2s[0];
+				global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomPivotOffset;
+				this.GetCustomVector2s(0, 1, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+				return global::UIWidget.tempVector2s[0];
 			}
-			return UIWidget.DefaultPivot(this.mPivot);
+			return global::UIWidget.DefaultPivot(this.mPivot);
 		}
 	}
 
-	// Token: 0x17000DB7 RID: 3511
-	// (get) Token: 0x0600470D RID: 18189 RVA: 0x0011DAE0 File Offset: 0x0011BCE0
+	// Token: 0x17000E47 RID: 3655
+	// (get) Token: 0x06004B92 RID: 19346 RVA: 0x00127460 File Offset: 0x00125660
 	[Obsolete("Use 'relativeSize' instead")]
 	public Vector2 visibleSize
 	{
@@ -651,210 +651,210 @@ public abstract class UIWidget : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600470E RID: 18190 RVA: 0x0011DAE8 File Offset: 0x0011BCE8
-	protected virtual void GetCustomVector2s(int start, int end, UIWidget.WidgetFlags[] flags, Vector2[] v)
+	// Token: 0x06004B93 RID: 19347 RVA: 0x00127468 File Offset: 0x00125668
+	protected virtual void GetCustomVector2s(int start, int end, global::UIWidget.WidgetFlags[] flags, Vector2[] v)
 	{
 		throw new NotSupportedException("Only call base.GetCustomVector2s when its something not supported by your implementation, otherwise the custructor for your class is incorrect in its usage.");
 	}
 
-	// Token: 0x17000DB8 RID: 3512
-	// (get) Token: 0x0600470F RID: 18191 RVA: 0x0011DAF4 File Offset: 0x0011BCF4
+	// Token: 0x17000E48 RID: 3656
+	// (get) Token: 0x06004B94 RID: 19348 RVA: 0x00127474 File Offset: 0x00125674
 	public Vector2 relativeSize
 	{
 		get
 		{
-			if ((byte)(this.widgetFlags & UIWidget.WidgetFlags.CustomRelativeSize) == 2)
+			if ((byte)(this.widgetFlags & global::UIWidget.WidgetFlags.CustomRelativeSize) == 2)
 			{
-				UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomRelativeSize;
-				this.GetCustomVector2s(0, 1, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-				return UIWidget.tempVector2s[0];
+				global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomRelativeSize;
+				this.GetCustomVector2s(0, 1, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+				return global::UIWidget.tempVector2s[0];
 			}
 			return Vector2.one;
 		}
 	}
 
-	// Token: 0x17000DB9 RID: 3513
-	// (get) Token: 0x06004710 RID: 18192 RVA: 0x0011DB40 File Offset: 0x0011BD40
+	// Token: 0x17000E49 RID: 3657
+	// (get) Token: 0x06004B95 RID: 19349 RVA: 0x001274C0 File Offset: 0x001256C0
 	public bool keepMaterial
 	{
 		get
 		{
-			return (byte)(this.widgetFlags & UIWidget.WidgetFlags.KeepsMaterial) == 64;
+			return (byte)(this.widgetFlags & global::UIWidget.WidgetFlags.KeepsMaterial) == 64;
 		}
 	}
 
-	// Token: 0x06004711 RID: 18193 RVA: 0x0011DB50 File Offset: 0x0011BD50
+	// Token: 0x06004B96 RID: 19350 RVA: 0x001274D0 File Offset: 0x001256D0
 	protected virtual void OnStart()
 	{
 	}
 
-	// Token: 0x06004712 RID: 18194 RVA: 0x0011DB54 File Offset: 0x0011BD54
+	// Token: 0x06004B97 RID: 19351 RVA: 0x001274D4 File Offset: 0x001256D4
 	public virtual bool OnUpdate()
 	{
 		return false;
 	}
 
-	// Token: 0x06004713 RID: 18195
-	public abstract void OnFill(MeshBuffer m);
+	// Token: 0x06004B98 RID: 19352
+	public abstract void OnFill(NGUI.Meshing.MeshBuffer m);
 
-	// Token: 0x06004714 RID: 18196 RVA: 0x0011DB58 File Offset: 0x0011BD58
+	// Token: 0x06004B99 RID: 19353 RVA: 0x001274D8 File Offset: 0x001256D8
 	public void GetPivotOffsetAndRelativeSize(out Vector2 pivotOffset, out Vector2 relativeSize)
 	{
-		switch ((byte)(this.widgetFlags & (UIWidget.WidgetFlags.CustomPivotOffset | UIWidget.WidgetFlags.CustomRelativeSize)))
+		switch ((byte)(this.widgetFlags & (global::UIWidget.WidgetFlags.CustomPivotOffset | global::UIWidget.WidgetFlags.CustomRelativeSize)))
 		{
 		case 1:
-			UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomPivotOffset;
-			this.GetCustomVector2s(0, 1, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-			pivotOffset = UIWidget.tempVector2s[0];
+			global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomPivotOffset;
+			this.GetCustomVector2s(0, 1, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+			pivotOffset = global::UIWidget.tempVector2s[0];
 			relativeSize.x = (relativeSize.y = 1f);
 			break;
 		case 2:
-			UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomRelativeSize;
-			this.GetCustomVector2s(0, 1, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-			relativeSize = UIWidget.tempVector2s[0];
-			pivotOffset = UIWidget.DefaultPivot(this.mPivot);
+			global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomRelativeSize;
+			this.GetCustomVector2s(0, 1, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+			relativeSize = global::UIWidget.tempVector2s[0];
+			pivotOffset = global::UIWidget.DefaultPivot(this.mPivot);
 			break;
 		case 3:
-			UIWidget.tempWidgetFlags[0] = UIWidget.WidgetFlags.CustomPivotOffset;
-			UIWidget.tempWidgetFlags[1] = UIWidget.WidgetFlags.CustomRelativeSize;
-			this.GetCustomVector2s(0, 2, UIWidget.tempWidgetFlags, UIWidget.tempVector2s);
-			pivotOffset = UIWidget.tempVector2s[0];
-			relativeSize = UIWidget.tempVector2s[1];
+			global::UIWidget.tempWidgetFlags[0] = global::UIWidget.WidgetFlags.CustomPivotOffset;
+			global::UIWidget.tempWidgetFlags[1] = global::UIWidget.WidgetFlags.CustomRelativeSize;
+			this.GetCustomVector2s(0, 2, global::UIWidget.tempWidgetFlags, global::UIWidget.tempVector2s);
+			pivotOffset = global::UIWidget.tempVector2s[0];
+			relativeSize = global::UIWidget.tempVector2s[1];
 			break;
 		default:
-			pivotOffset = UIWidget.DefaultPivot(this.mPivot);
+			pivotOffset = global::UIWidget.DefaultPivot(this.mPivot);
 			relativeSize.x = (relativeSize.y = 1f);
 			break;
 		}
 	}
 
-	// Token: 0x040026FC RID: 9980
-	[HideInInspector]
+	// Token: 0x04002933 RID: 10547
 	[SerializeField]
+	[HideInInspector]
 	private Material mMat;
 
-	// Token: 0x040026FD RID: 9981
+	// Token: 0x04002934 RID: 10548
 	[SerializeField]
 	[HideInInspector]
 	private Color mColor = Color.white;
 
-	// Token: 0x040026FE RID: 9982
-	[SerializeField]
+	// Token: 0x04002935 RID: 10549
 	[HideInInspector]
-	private UIWidget.Pivot mPivot = UIWidget.Pivot.Center;
+	[SerializeField]
+	private global::UIWidget.Pivot mPivot = global::UIWidget.Pivot.Center;
 
-	// Token: 0x040026FF RID: 9983
+	// Token: 0x04002936 RID: 10550
 	[HideInInspector]
 	[SerializeField]
 	private int mDepth;
 
-	// Token: 0x04002700 RID: 9984
-	[HideInInspector]
+	// Token: 0x04002937 RID: 10551
 	[SerializeField]
+	[HideInInspector]
 	private bool mAlphaUnchecked;
 
-	// Token: 0x04002701 RID: 9985
+	// Token: 0x04002938 RID: 10552
 	[NonSerialized]
 	private bool mForcedChanged;
 
-	// Token: 0x04002702 RID: 9986
+	// Token: 0x04002939 RID: 10553
 	private Transform mTrans;
 
-	// Token: 0x04002703 RID: 9987
+	// Token: 0x0400293A RID: 10554
 	private Texture mTex;
 
-	// Token: 0x04002704 RID: 9988
-	private UIPanel mPanel;
+	// Token: 0x0400293B RID: 10555
+	private global::UIPanel mPanel;
 
-	// Token: 0x04002705 RID: 9989
+	// Token: 0x0400293C RID: 10556
 	private bool mChangedCall = true;
 
-	// Token: 0x04002706 RID: 9990
+	// Token: 0x0400293D RID: 10557
 	protected bool mPlayMode = true;
 
-	// Token: 0x04002707 RID: 9991
+	// Token: 0x0400293E RID: 10558
 	private bool gotCachedTransform;
 
-	// Token: 0x04002708 RID: 9992
+	// Token: 0x0400293F RID: 10559
 	[NonSerialized]
-	protected readonly UIWidget.WidgetFlags widgetFlags;
+	protected readonly global::UIWidget.WidgetFlags widgetFlags;
 
-	// Token: 0x04002709 RID: 9993
+	// Token: 0x04002940 RID: 10560
 	private Vector3 mDiffPos;
 
-	// Token: 0x0400270A RID: 9994
+	// Token: 0x04002941 RID: 10561
 	private Quaternion mDiffRot;
 
-	// Token: 0x0400270B RID: 9995
+	// Token: 0x04002942 RID: 10562
 	private Vector3 mDiffScale;
 
-	// Token: 0x0400270C RID: 9996
+	// Token: 0x04002943 RID: 10563
 	private int mVisibleFlag = -1;
 
-	// Token: 0x0400270D RID: 9997
+	// Token: 0x04002944 RID: 10564
 	private int globalIndex = -1;
 
-	// Token: 0x0400270E RID: 9998
-	private UIGeometry __mGeom;
+	// Token: 0x04002945 RID: 10565
+	private global::UIGeometry __mGeom;
 
-	// Token: 0x0400270F RID: 9999
+	// Token: 0x04002946 RID: 10566
 	private static Vector2[] tempVector2s = new Vector2[]
 	{
 		default(Vector2),
 		default(Vector2)
 	};
 
-	// Token: 0x04002710 RID: 10000
-	private static UIWidget.WidgetFlags[] tempWidgetFlags = new UIWidget.WidgetFlags[2];
+	// Token: 0x04002947 RID: 10567
+	private static global::UIWidget.WidgetFlags[] tempWidgetFlags = new global::UIWidget.WidgetFlags[2];
 
-	// Token: 0x020007AB RID: 1963
+	// Token: 0x02000896 RID: 2198
 	[Flags]
 	protected enum WidgetFlags : byte
 	{
-		// Token: 0x04002712 RID: 10002
+		// Token: 0x04002949 RID: 10569
 		CustomPivotOffset = 1,
-		// Token: 0x04002713 RID: 10003
+		// Token: 0x0400294A RID: 10570
 		CustomRelativeSize = 2,
-		// Token: 0x04002714 RID: 10004
+		// Token: 0x0400294B RID: 10571
 		CustomMaterialGet = 4,
-		// Token: 0x04002715 RID: 10005
+		// Token: 0x0400294C RID: 10572
 		CustomMaterialSet = 8,
-		// Token: 0x04002716 RID: 10006
+		// Token: 0x0400294D RID: 10573
 		CustomBorder = 16,
-		// Token: 0x04002717 RID: 10007
+		// Token: 0x0400294E RID: 10574
 		KeepsMaterial = 64,
-		// Token: 0x04002718 RID: 10008
+		// Token: 0x0400294F RID: 10575
 		Reserved = 128
 	}
 
-	// Token: 0x020007AC RID: 1964
+	// Token: 0x02000897 RID: 2199
 	public enum Pivot
 	{
-		// Token: 0x0400271A RID: 10010
+		// Token: 0x04002951 RID: 10577
 		TopLeft,
-		// Token: 0x0400271B RID: 10011
+		// Token: 0x04002952 RID: 10578
 		Top,
-		// Token: 0x0400271C RID: 10012
+		// Token: 0x04002953 RID: 10579
 		TopRight,
-		// Token: 0x0400271D RID: 10013
+		// Token: 0x04002954 RID: 10580
 		Left,
-		// Token: 0x0400271E RID: 10014
+		// Token: 0x04002955 RID: 10581
 		Center,
-		// Token: 0x0400271F RID: 10015
+		// Token: 0x04002956 RID: 10582
 		Right,
-		// Token: 0x04002720 RID: 10016
+		// Token: 0x04002957 RID: 10583
 		BottomLeft,
-		// Token: 0x04002721 RID: 10017
+		// Token: 0x04002958 RID: 10584
 		Bottom,
-		// Token: 0x04002722 RID: 10018
+		// Token: 0x04002959 RID: 10585
 		BottomRight
 	}
 
-	// Token: 0x020007AD RID: 1965
+	// Token: 0x02000898 RID: 2200
 	private static class Global
 	{
-		// Token: 0x17000DBA RID: 3514
-		// (get) Token: 0x06004715 RID: 18197 RVA: 0x0011DC94 File Offset: 0x0011BE94
+		// Token: 0x17000E4A RID: 3658
+		// (get) Token: 0x06004B9A RID: 19354 RVA: 0x00127614 File Offset: 0x00125814
 		private static bool noGlobal
 		{
 			get
@@ -863,73 +863,73 @@ public abstract class UIWidget : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06004716 RID: 18198 RVA: 0x0011DCA0 File Offset: 0x0011BEA0
-		public static void RegisterWidget(UIWidget widget)
+		// Token: 0x06004B9B RID: 19355 RVA: 0x00127620 File Offset: 0x00125820
+		public static void RegisterWidget(global::UIWidget widget)
 		{
-			if (UIWidget.Global.noGlobal)
+			if (global::UIWidget.Global.noGlobal)
 			{
 				return;
 			}
-			UIGlobal.EnsureGlobal();
+			global::UIGlobal.EnsureGlobal();
 			if (widget.globalIndex == -1)
 			{
-				widget.globalIndex = UIWidget.Global.g.allWidgets.Count;
-				UIWidget.Global.g.allWidgets.Add(widget);
+				widget.globalIndex = global::UIWidget.Global.g.allWidgets.Count;
+				global::UIWidget.Global.g.allWidgets.Add(widget);
 			}
 		}
 
-		// Token: 0x06004717 RID: 18199 RVA: 0x0011DCDC File Offset: 0x0011BEDC
-		public static void UnregisterWidget(UIWidget widget)
+		// Token: 0x06004B9C RID: 19356 RVA: 0x0012765C File Offset: 0x0012585C
+		public static void UnregisterWidget(global::UIWidget widget)
 		{
-			if (UIWidget.Global.noGlobal)
+			if (global::UIWidget.Global.noGlobal)
 			{
 				return;
 			}
 			if (widget.globalIndex != -1)
 			{
-				UIWidget.Global.g.allWidgets.RemoveAt(widget.globalIndex);
+				global::UIWidget.Global.g.allWidgets.RemoveAt(widget.globalIndex);
 				int i = widget.globalIndex;
-				int count = UIWidget.Global.g.allWidgets.Count;
+				int count = global::UIWidget.Global.g.allWidgets.Count;
 				while (i < count)
 				{
-					UIWidget.Global.g.allWidgets[i].globalIndex = i;
+					global::UIWidget.Global.g.allWidgets[i].globalIndex = i;
 					i++;
 				}
 				widget.globalIndex = -1;
 			}
 		}
 
-		// Token: 0x06004718 RID: 18200 RVA: 0x0011DD4C File Offset: 0x0011BF4C
-		public static void WidgetEnabled(UIWidget widget)
+		// Token: 0x06004B9D RID: 19357 RVA: 0x001276CC File Offset: 0x001258CC
+		public static void WidgetEnabled(global::UIWidget widget)
 		{
-			if (UIWidget.Global.noGlobal)
+			if (global::UIWidget.Global.noGlobal)
 			{
 				return;
 			}
-			UIWidget.Global.g.enabledWidgets.Add(widget);
+			global::UIWidget.Global.g.enabledWidgets.Add(widget);
 		}
 
-		// Token: 0x06004719 RID: 18201 RVA: 0x0011DD68 File Offset: 0x0011BF68
-		public static void WidgetDisabled(UIWidget widget)
+		// Token: 0x06004B9E RID: 19358 RVA: 0x001276E8 File Offset: 0x001258E8
+		public static void WidgetDisabled(global::UIWidget widget)
 		{
-			if (UIWidget.Global.noGlobal)
+			if (global::UIWidget.Global.noGlobal)
 			{
 				return;
 			}
-			UIWidget.Global.g.enabledWidgets.Remove(widget);
+			global::UIWidget.Global.g.enabledWidgets.Remove(widget);
 		}
 
-		// Token: 0x0600471A RID: 18202 RVA: 0x0011DD84 File Offset: 0x0011BF84
+		// Token: 0x06004B9F RID: 19359 RVA: 0x00127704 File Offset: 0x00125904
 		public static void WidgetUpdate()
 		{
-			if (UIWidget.Global.noGlobal)
+			if (global::UIWidget.Global.noGlobal)
 			{
 				return;
 			}
 			try
 			{
-				UIWidget.Global.g.enableWidgetsSwap.AddRange(UIWidget.Global.g.enabledWidgets);
-				foreach (UIWidget uiwidget in UIWidget.Global.g.enableWidgetsSwap)
+				global::UIWidget.Global.g.enableWidgetsSwap.AddRange(global::UIWidget.Global.g.enabledWidgets);
+				foreach (global::UIWidget uiwidget in global::UIWidget.Global.g.enableWidgetsSwap)
 				{
 					if (uiwidget && uiwidget.enabled)
 					{
@@ -939,27 +939,27 @@ public abstract class UIWidget : MonoBehaviour
 			}
 			finally
 			{
-				UIWidget.Global.g.enableWidgetsSwap.Clear();
+				global::UIWidget.Global.g.enableWidgetsSwap.Clear();
 			}
 		}
 
-		// Token: 0x020007AE RID: 1966
+		// Token: 0x02000899 RID: 2201
 		public static class g
 		{
-			// Token: 0x0600471B RID: 18203 RVA: 0x0011DE40 File Offset: 0x0011C040
+			// Token: 0x06004BA0 RID: 19360 RVA: 0x001277C0 File Offset: 0x001259C0
 			static g()
 			{
-				UIGlobal.EnsureGlobal();
+				global::UIGlobal.EnsureGlobal();
 			}
 
-			// Token: 0x04002723 RID: 10019
-			public static List<UIWidget> allWidgets = new List<UIWidget>();
+			// Token: 0x0400295A RID: 10586
+			public static List<global::UIWidget> allWidgets = new List<global::UIWidget>();
 
-			// Token: 0x04002724 RID: 10020
-			public static HashSet<UIWidget> enabledWidgets = new HashSet<UIWidget>();
+			// Token: 0x0400295B RID: 10587
+			public static HashSet<global::UIWidget> enabledWidgets = new HashSet<global::UIWidget>();
 
-			// Token: 0x04002725 RID: 10021
-			public static List<UIWidget> enableWidgetsSwap = new List<UIWidget>();
+			// Token: 0x0400295C RID: 10588
+			public static List<global::UIWidget> enableWidgetsSwap = new List<global::UIWidget>();
 		}
 	}
 }

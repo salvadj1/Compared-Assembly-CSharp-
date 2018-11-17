@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005E3 RID: 1507
-public abstract class ResourceTypeItem<T> : InventoryItem<T> where T : ResourceTypeItemDataBlock
+// Token: 0x020006A1 RID: 1697
+public abstract class ResourceTypeItem<T> : global::InventoryItem<T> where T : global::ResourceTypeItemDataBlock
 {
-	// Token: 0x06003612 RID: 13842 RVA: 0x000C394C File Offset: 0x000C1B4C
+	// Token: 0x060039DA RID: 14810 RVA: 0x000CBBA8 File Offset: 0x000C9DA8
 	protected ResourceTypeItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x17000ABD RID: 2749
-	// (get) Token: 0x06003613 RID: 13843 RVA: 0x000C3958 File Offset: 0x000C1B58
+	// Token: 0x17000B33 RID: 2867
+	// (get) Token: 0x060039DB RID: 14811 RVA: 0x000CBBB4 File Offset: 0x000C9DB4
 	public bool flammable
 	{
 		get
@@ -19,8 +19,8 @@ public abstract class ResourceTypeItem<T> : InventoryItem<T> where T : ResourceT
 		}
 	}
 
-	// Token: 0x06003614 RID: 13844 RVA: 0x000C396C File Offset: 0x000C1B6C
-	public bool GetCookableInfo(out int consumeCount, out ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp)
+	// Token: 0x060039DC RID: 14812 RVA: 0x000CBBC8 File Offset: 0x000C9DC8
+	public bool GetCookableInfo(out int consumeCount, out global::ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp)
 	{
 		burnTemp = 999999999;
 		cookTempMin = this.datablock.cookHeatRequirement;
@@ -40,6 +40,6 @@ public abstract class ResourceTypeItem<T> : InventoryItem<T> where T : ResourceT
 		return true;
 	}
 
-	// Token: 0x04001AA0 RID: 6816
+	// Token: 0x04001C71 RID: 7281
 	protected float _lastUseTime;
 }

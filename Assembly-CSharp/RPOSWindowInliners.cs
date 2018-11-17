@@ -1,20 +1,20 @@
 ﻿using System;
 
-// Token: 0x02000421 RID: 1057
+// Token: 0x020004D6 RID: 1238
 public static class RPOSWindowInliners
 {
-	// Token: 0x0600274D RID: 10061 RVA: 0x00099254 File Offset: 0x00097454
-	public static TRPOSWindow EnsureAwake<TRPOSWindow>(this TRPOSWindow window) where TRPOSWindow : RPOSWindow
+	// Token: 0x06002AD7 RID: 10967 RVA: 0x0009F118 File Offset: 0x0009D318
+	public static TRPOSWindow EnsureAwake<TRPOSWindow>(this TRPOSWindow window) where TRPOSWindow : global::RPOSWindow
 	{
 		if (window)
 		{
-			RPOSWindow.EnsureAwake(window);
+			global::RPOSWindow.EnsureAwake(window);
 		}
 		return window;
 	}
 
-	// Token: 0x0600274E RID: 10062 RVA: 0x00099274 File Offset: 0x00097474
-	public static bool IsRegistered(this RPOSWindow window)
+	// Token: 0x06002AD8 RID: 10968 RVA: 0x0009F138 File Offset: 0x0009D338
+	public static bool IsRegistered(this global::RPOSWindow window)
 	{
 		return window && window.ready;
 	}

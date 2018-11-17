@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005E0 RID: 1504
-public interface IResearchToolItem : IInventoryItem, IToolItem
+// Token: 0x0200069E RID: 1694
+public interface IResearchToolItem : global::IInventoryItem, global::IToolItem
 {
 }

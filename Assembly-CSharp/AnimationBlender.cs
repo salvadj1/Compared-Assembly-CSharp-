@@ -2,49 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200023F RID: 575
+// Token: 0x02000272 RID: 626
 public static class AnimationBlender
 {
-	// Token: 0x060015A7 RID: 5543 RVA: 0x00050A88 File Offset: 0x0004EC88
-	private static void ZeroWeight(ref AnimationBlender.WeightUnit weight)
+	// Token: 0x060016FB RID: 5883 RVA: 0x00054E30 File Offset: 0x00053030
+	private static void ZeroWeight(ref global::AnimationBlender.WeightUnit weight)
 	{
 		weight.raw = (weight.scaled = (weight.normalized = 0f));
 	}
 
-	// Token: 0x060015A8 RID: 5544 RVA: 0x00050AB4 File Offset: 0x0004ECB4
-	private static void OneWeight(ref AnimationBlender.WeightUnit weight)
+	// Token: 0x060016FC RID: 5884 RVA: 0x00054E5C File Offset: 0x0005305C
+	private static void OneWeight(ref global::AnimationBlender.WeightUnit weight)
 	{
 		weight.raw = (weight.scaled = (weight.normalized = 1f));
 	}
 
-	// Token: 0x060015A9 RID: 5545 RVA: 0x00050AE0 File Offset: 0x0004ECE0
-	private static void OneWeightScale(ref AnimationBlender.WeightUnit weight)
+	// Token: 0x060016FD RID: 5885 RVA: 0x00054E88 File Offset: 0x00053088
+	private static void OneWeightScale(ref global::AnimationBlender.WeightUnit weight)
 	{
 		weight.scaled = (weight.normalized = 1f);
 	}
 
-	// Token: 0x060015AA RID: 5546 RVA: 0x00050B04 File Offset: 0x0004ED04
-	private static void SetWeight(ref AnimationBlender.WeightUnit weight)
+	// Token: 0x060016FE RID: 5886 RVA: 0x00054EAC File Offset: 0x000530AC
+	private static void SetWeight(ref global::AnimationBlender.WeightUnit weight)
 	{
 		weight.scaled = weight.raw;
 		weight.normalized = 1f;
 	}
 
-	// Token: 0x060015AB RID: 5547 RVA: 0x00050B20 File Offset: 0x0004ED20
-	private static AnimationBlender.Weighted<T>[] WeightArray<T>(int size)
+	// Token: 0x060016FF RID: 5887 RVA: 0x00054EC8 File Offset: 0x000530C8
+	private static global::AnimationBlender.Weighted<T>[] WeightArray<T>(int size)
 	{
-		return new AnimationBlender.Weighted<T>[size];
+		return new global::AnimationBlender.Weighted<T>[size];
 	}
 
-	// Token: 0x060015AC RID: 5548 RVA: 0x00050B38 File Offset: 0x0004ED38
-	private static AnimationBlender.Weighted<T>[] WeightArray<T>(T[] source)
+	// Token: 0x06001700 RID: 5888 RVA: 0x00054EE0 File Offset: 0x000530E0
+	private static global::AnimationBlender.Weighted<T>[] WeightArray<T>(T[] source)
 	{
 		if (object.ReferenceEquals(source, null))
 		{
 			return null;
 		}
 		int num = source.Length;
-		AnimationBlender.Weighted<T>[] array = AnimationBlender.WeightArray<T>(num);
+		global::AnimationBlender.Weighted<T>[] array = global::AnimationBlender.WeightArray<T>(num);
 		for (int i = 0; i < num; i++)
 		{
 			array[i].value = source[i];
@@ -52,8 +52,8 @@ public static class AnimationBlender
 		return array;
 	}
 
-	// Token: 0x060015AD RID: 5549 RVA: 0x00050B84 File Offset: 0x0004ED84
-	private static bool WeightOf<T>(AnimationBlender.Weighted<T>[] items, int[] index, out AnimationBlender.WeightResult result)
+	// Token: 0x06001701 RID: 5889 RVA: 0x00054F2C File Offset: 0x0005312C
+	private static bool WeightOf<T>(global::AnimationBlender.Weighted<T>[] items, int[] index, out global::AnimationBlender.WeightResult result)
 	{
 		float num = 0f;
 		float num2 = 0f;
@@ -66,7 +66,7 @@ public static class AnimationBlender
 			float num6;
 			if ((num6 = items[index[i]].weight.raw) <= 0f)
 			{
-				AnimationBlender.ZeroWeight(ref items[index[i]].weight);
+				global::AnimationBlender.ZeroWeight(ref items[index[i]].weight);
 				int num7 = index[num5];
 				index[num5--] = index[i];
 				index[i] = num7;
@@ -77,11 +77,11 @@ public static class AnimationBlender
 				if (num6 >= 1f)
 				{
 					num6 = 1f;
-					AnimationBlender.OneWeight(ref items[index[i]].weight);
+					global::AnimationBlender.OneWeight(ref items[index[i]].weight);
 				}
 				else
 				{
-					AnimationBlender.SetWeight(ref items[index[i]].weight);
+					global::AnimationBlender.SetWeight(ref items[index[i]].weight);
 				}
 				num += num6;
 				if (num6 > num2)
@@ -108,7 +108,7 @@ public static class AnimationBlender
 			{
 				num8 = 1f;
 				num9 = 1f;
-				AnimationBlender.OneWeightScale(ref items[index[0]].weight);
+				global::AnimationBlender.OneWeightScale(ref items[index[0]].weight);
 			}
 			else
 			{
@@ -148,7 +148,7 @@ public static class AnimationBlender
 		return result2;
 	}
 
-	// Token: 0x060015AE RID: 5550 RVA: 0x00050D98 File Offset: 0x0004EF98
+	// Token: 0x06001702 RID: 5890 RVA: 0x00055140 File Offset: 0x00053340
 	private static int GetClear(ref int value)
 	{
 		int result = value;
@@ -156,67 +156,67 @@ public static class AnimationBlender
 		return result;
 	}
 
-	// Token: 0x060015AF RID: 5551 RVA: 0x00050DAC File Offset: 0x0004EFAC
+	// Token: 0x06001703 RID: 5891 RVA: 0x00055154 File Offset: 0x00053354
 	private static void ArrayResize<T>(ref T[] array, int size)
 	{
 		Array.Resize<T>(ref array, size);
 	}
 
-	// Token: 0x060015B0 RID: 5552 RVA: 0x00050DB8 File Offset: 0x0004EFB8
-	private static AnimationBlender.opt<T> to_opt<T>(T? nullable) where T : struct
+	// Token: 0x06001704 RID: 5892 RVA: 0x00055160 File Offset: 0x00053360
+	private static global::AnimationBlender.opt<T> to_opt<T>(T? nullable) where T : struct
 	{
-		return (nullable != null) ? nullable.Value : AnimationBlender.opt<T>.none;
+		return (nullable != null) ? nullable.Value : global::AnimationBlender.opt<T>.none;
 	}
 
-	// Token: 0x060015B1 RID: 5553 RVA: 0x00050DE8 File Offset: 0x0004EFE8
-	public static AnimationBlender.ChannelConfig Alias(this AnimationBlender.ChannelField Field, string Name)
+	// Token: 0x06001705 RID: 5893 RVA: 0x00055190 File Offset: 0x00053390
+	public static global::AnimationBlender.ChannelConfig Alias(this global::AnimationBlender.ChannelField Field, string Name)
 	{
-		return new AnimationBlender.ChannelConfig(Name, Field);
+		return new global::AnimationBlender.ChannelConfig(Name, Field);
 	}
 
-	// Token: 0x060015B2 RID: 5554 RVA: 0x00050DF4 File Offset: 0x0004EFF4
-	public static AnimationBlender.ChannelConfig[] Alias(this AnimationBlender.ChannelField Field, AnimationBlender.ChannelConfig[] Array, int Index, string Name)
+	// Token: 0x06001706 RID: 5894 RVA: 0x0005519C File Offset: 0x0005339C
+	public static global::AnimationBlender.ChannelConfig[] Alias(this global::AnimationBlender.ChannelField Field, global::AnimationBlender.ChannelConfig[] Array, int Index, string Name)
 	{
 		Array[Index] = Field.Alias(Name);
 		return Array;
 	}
 
-	// Token: 0x060015B3 RID: 5555 RVA: 0x00050E0C File Offset: 0x0004F00C
-	public static AnimationBlender.ChannelConfig[] Define(this AnimationBlender.ChannelConfig[] Array, int Index, string Name, AnimationBlender.ChannelField Field)
+	// Token: 0x06001707 RID: 5895 RVA: 0x000551B4 File Offset: 0x000533B4
+	public static global::AnimationBlender.ChannelConfig[] Define(this global::AnimationBlender.ChannelConfig[] Array, int Index, string Name, global::AnimationBlender.ChannelField Field)
 	{
 		return Field.Alias(Array, Index, Name);
 	}
 
-	// Token: 0x060015B4 RID: 5556 RVA: 0x00050E18 File Offset: 0x0004F018
-	public static AnimationBlender.MixerConfig Alias(this AnimationBlender.ResidualField ResidualField, Animation Animation, params AnimationBlender.ChannelConfig[] ChannelAliases)
+	// Token: 0x06001708 RID: 5896 RVA: 0x000551C0 File Offset: 0x000533C0
+	public static global::AnimationBlender.MixerConfig Alias(this global::AnimationBlender.ResidualField ResidualField, Animation Animation, params global::AnimationBlender.ChannelConfig[] ChannelAliases)
 	{
-		return new AnimationBlender.MixerConfig(Animation, ResidualField, ChannelAliases);
+		return new global::AnimationBlender.MixerConfig(Animation, ResidualField, ChannelAliases);
 	}
 
-	// Token: 0x060015B5 RID: 5557 RVA: 0x00050E24 File Offset: 0x0004F024
-	public static AnimationBlender.MixerConfig Alias(this AnimationBlender.ResidualField ResidualField, Animation Animation, int ChannelCount)
+	// Token: 0x06001709 RID: 5897 RVA: 0x000551CC File Offset: 0x000533CC
+	public static global::AnimationBlender.MixerConfig Alias(this global::AnimationBlender.ResidualField ResidualField, Animation Animation, int ChannelCount)
 	{
-		return new AnimationBlender.MixerConfig(Animation, ResidualField, new AnimationBlender.ChannelConfig[ChannelCount]);
+		return new global::AnimationBlender.MixerConfig(Animation, ResidualField, new global::AnimationBlender.ChannelConfig[ChannelCount]);
 	}
 
-	// Token: 0x060015B6 RID: 5558 RVA: 0x00050E34 File Offset: 0x0004F034
-	public static AnimationBlender.Mixer Create(this AnimationBlender.MixerConfig Config)
+	// Token: 0x0600170A RID: 5898 RVA: 0x000551DC File Offset: 0x000533DC
+	public static global::AnimationBlender.Mixer Create(this global::AnimationBlender.MixerConfig Config)
 	{
-		return new AnimationBlender.Mixer(Config);
+		return new global::AnimationBlender.Mixer(Config);
 	}
 
-	// Token: 0x02000240 RID: 576
+	// Token: 0x02000273 RID: 627
 	private struct Channel
 	{
-		// Token: 0x060015B7 RID: 5559 RVA: 0x00050E3C File Offset: 0x0004F03C
-		public Channel(int index, int animationIndex, string name, AnimationBlender.ChannelField field)
+		// Token: 0x0600170B RID: 5899 RVA: 0x000551E4 File Offset: 0x000533E4
+		public Channel(int index, int animationIndex, string name, global::AnimationBlender.ChannelField field)
 		{
 			this.index = index;
 			this.animationIndex = animationIndex;
 			this.name = name;
 			this.field = field;
-			this.induce = new AnimationBlender.ChannelCurve(field.inCurveInfo, default(AnimationBlender.State), default(AnimationBlender.Influence), field, true);
-			this.reduce = new AnimationBlender.ChannelCurve(field.outCurveInfo, default(AnimationBlender.State), default(AnimationBlender.Influence), field, false);
+			this.induce = new global::AnimationBlender.ChannelCurve(field.inCurveInfo, default(global::AnimationBlender.State), default(global::AnimationBlender.Influence), field, true);
+			this.reduce = new global::AnimationBlender.ChannelCurve(field.outCurveInfo, default(global::AnimationBlender.State), default(global::AnimationBlender.Influence), field, false);
 			this.active = false;
 			this.wasActive = false;
 			this.startedTransition = false;
@@ -226,8 +226,8 @@ public static class AnimationBlender
 			this.playbackRate = field.playbackRate;
 		}
 
-		// Token: 0x060015B8 RID: 5560 RVA: 0x00050F3C File Offset: 0x0004F13C
-		private bool StartTransition(ref AnimationBlender.ChannelCurve from, ref AnimationBlender.ChannelCurve to, ref float dt, bool startNow)
+		// Token: 0x0600170C RID: 5900 RVA: 0x000552E4 File Offset: 0x000534E4
+		private bool StartTransition(ref global::AnimationBlender.ChannelCurve from, ref global::AnimationBlender.ChannelCurve to, ref float dt, bool startNow)
 		{
 			if (to.state.delay == 0f && startNow)
 			{
@@ -256,8 +256,8 @@ public static class AnimationBlender
 			return true;
 		}
 
-		// Token: 0x060015B9 RID: 5561 RVA: 0x00051094 File Offset: 0x0004F294
-		private float Step(bool transitioning, ref AnimationBlender.ChannelCurve from, ref AnimationBlender.ChannelCurve to, ref float dt)
+		// Token: 0x0600170D RID: 5901 RVA: 0x0005543C File Offset: 0x0005363C
+		private float Step(bool transitioning, ref global::AnimationBlender.ChannelCurve from, ref global::AnimationBlender.ChannelCurve to, ref float dt)
 		{
 			if (transitioning && to.state.delay > 0f)
 			{
@@ -326,7 +326,7 @@ public static class AnimationBlender
 				else if (to.state.percent >= 1f && to.influence.active)
 				{
 					to.influence.active = false;
-					from.state = default(AnimationBlender.State);
+					from.state = default(global::AnimationBlender.State);
 				}
 			}
 			if (to.induces)
@@ -348,7 +348,7 @@ public static class AnimationBlender
 			return to.state.value;
 		}
 
-		// Token: 0x060015BA RID: 5562 RVA: 0x00051424 File Offset: 0x0004F624
+		// Token: 0x0600170E RID: 5902 RVA: 0x000557CC File Offset: 0x000539CC
 		public float Update(float dt)
 		{
 			bool flag = this.active != this.wasActive;
@@ -378,64 +378,64 @@ public static class AnimationBlender
 			return this.Step(flag, ref this.induce, ref this.reduce, ref dt);
 		}
 
-		// Token: 0x04000A9C RID: 2716
+		// Token: 0x04000BBF RID: 3007
 		[NonSerialized]
-		public AnimationBlender.ChannelField field;
+		public global::AnimationBlender.ChannelField field;
 
-		// Token: 0x04000A9D RID: 2717
+		// Token: 0x04000BC0 RID: 3008
 		[NonSerialized]
 		public string name;
 
-		// Token: 0x04000A9E RID: 2718
+		// Token: 0x04000BC1 RID: 3009
 		[NonSerialized]
 		public bool active;
 
-		// Token: 0x04000A9F RID: 2719
+		// Token: 0x04000BC2 RID: 3010
 		[NonSerialized]
 		public bool valid;
 
-		// Token: 0x04000AA0 RID: 2720
+		// Token: 0x04000BC3 RID: 3011
 		[NonSerialized]
 		public bool wasActive;
 
-		// Token: 0x04000AA1 RID: 2721
+		// Token: 0x04000BC4 RID: 3012
 		[NonSerialized]
 		public bool startedTransition;
 
-		// Token: 0x04000AA2 RID: 2722
+		// Token: 0x04000BC5 RID: 3013
 		[NonSerialized]
-		public AnimationBlender.ChannelCurve induce;
+		public global::AnimationBlender.ChannelCurve induce;
 
-		// Token: 0x04000AA3 RID: 2723
+		// Token: 0x04000BC6 RID: 3014
 		[NonSerialized]
-		public AnimationBlender.ChannelCurve reduce;
+		public global::AnimationBlender.ChannelCurve reduce;
 
-		// Token: 0x04000AA4 RID: 2724
+		// Token: 0x04000BC7 RID: 3015
 		[NonSerialized]
 		public int index;
 
-		// Token: 0x04000AA5 RID: 2725
+		// Token: 0x04000BC8 RID: 3016
 		[NonSerialized]
 		public int animationIndex;
 
-		// Token: 0x04000AA6 RID: 2726
+		// Token: 0x04000BC9 RID: 3017
 		[NonSerialized]
 		public float maxBlend;
 
-		// Token: 0x04000AA7 RID: 2727
+		// Token: 0x04000BCA RID: 3018
 		[NonSerialized]
 		public float playbackRate;
 
-		// Token: 0x04000AA8 RID: 2728
+		// Token: 0x04000BCB RID: 3019
 		[NonSerialized]
 		public float startTime;
 	}
 
-	// Token: 0x02000241 RID: 577
+	// Token: 0x02000274 RID: 628
 	private struct ChannelCurve
 	{
-		// Token: 0x060015BB RID: 5563 RVA: 0x000514F0 File Offset: 0x0004F6F0
-		public ChannelCurve(AnimationBlender.CurveInfo info, AnimationBlender.State state, AnimationBlender.Influence influence, AnimationBlender.ChannelField field, bool induces)
+		// Token: 0x0600170F RID: 5903 RVA: 0x00055898 File Offset: 0x00053A98
+		public ChannelCurve(global::AnimationBlender.CurveInfo info, global::AnimationBlender.State state, global::AnimationBlender.Influence influence, global::AnimationBlender.ChannelField field, bool induces)
 		{
 			this.info = info;
 			this.state = state;
@@ -444,165 +444,165 @@ public static class AnimationBlender
 			this.delayDuration = ((!induces) ? field.outDelay : field.inDelay);
 		}
 
-		// Token: 0x04000AA9 RID: 2729
+		// Token: 0x04000BCC RID: 3020
 		[NonSerialized]
-		public AnimationBlender.CurveInfo info;
+		public global::AnimationBlender.CurveInfo info;
 
-		// Token: 0x04000AAA RID: 2730
+		// Token: 0x04000BCD RID: 3021
 		[NonSerialized]
-		public AnimationBlender.State state;
+		public global::AnimationBlender.State state;
 
-		// Token: 0x04000AAB RID: 2731
+		// Token: 0x04000BCE RID: 3022
 		[NonSerialized]
-		public AnimationBlender.Influence influence;
+		public global::AnimationBlender.Influence influence;
 
-		// Token: 0x04000AAC RID: 2732
+		// Token: 0x04000BCF RID: 3023
 		[NonSerialized]
 		public float delayDuration;
 
-		// Token: 0x04000AAD RID: 2733
+		// Token: 0x04000BD0 RID: 3024
 		[NonSerialized]
 		public bool induces;
 	}
 
-	// Token: 0x02000242 RID: 578
+	// Token: 0x02000275 RID: 629
 	private struct Influence
 	{
-		// Token: 0x04000AAE RID: 2734
+		// Token: 0x04000BD1 RID: 3025
 		[NonSerialized]
 		public bool active;
 
-		// Token: 0x04000AAF RID: 2735
+		// Token: 0x04000BD2 RID: 3026
 		[NonSerialized]
 		public float value;
 
-		// Token: 0x04000AB0 RID: 2736
+		// Token: 0x04000BD3 RID: 3027
 		[NonSerialized]
 		public float percent;
 
-		// Token: 0x04000AB1 RID: 2737
+		// Token: 0x04000BD4 RID: 3028
 		[NonSerialized]
 		public float timeleft;
 
-		// Token: 0x04000AB2 RID: 2738
+		// Token: 0x04000BD5 RID: 3029
 		[NonSerialized]
 		public float duration;
 	}
 
-	// Token: 0x02000243 RID: 579
+	// Token: 0x02000276 RID: 630
 	private struct State
 	{
-		// Token: 0x04000AB3 RID: 2739
+		// Token: 0x04000BD6 RID: 3030
 		[NonSerialized]
 		public bool active;
 
-		// Token: 0x04000AB4 RID: 2740
+		// Token: 0x04000BD7 RID: 3031
 		[NonSerialized]
 		public float time;
 
-		// Token: 0x04000AB5 RID: 2741
+		// Token: 0x04000BD8 RID: 3032
 		[NonSerialized]
 		public float percent;
 
-		// Token: 0x04000AB6 RID: 2742
+		// Token: 0x04000BD9 RID: 3033
 		[NonSerialized]
 		public float delay;
 
-		// Token: 0x04000AB7 RID: 2743
+		// Token: 0x04000BDA RID: 3034
 		[NonSerialized]
 		public float value;
 	}
 
-	// Token: 0x02000244 RID: 580
+	// Token: 0x02000277 RID: 631
 	private struct Tracker
 	{
-		// Token: 0x04000AB8 RID: 2744
+		// Token: 0x04000BDB RID: 3035
 		[NonSerialized]
 		public AnimationClip clip;
 
-		// Token: 0x04000AB9 RID: 2745
+		// Token: 0x04000BDC RID: 3036
 		[NonSerialized]
 		public AnimationState state;
 
-		// Token: 0x04000ABA RID: 2746
+		// Token: 0x04000BDD RID: 3037
 		[NonSerialized]
 		public int[] channels;
 
-		// Token: 0x04000ABB RID: 2747
+		// Token: 0x04000BDE RID: 3038
 		[NonSerialized]
 		public int channelCount;
 
-		// Token: 0x04000ABC RID: 2748
+		// Token: 0x04000BDF RID: 3039
 		[NonSerialized]
-		public AnimationBlender.WeightResult channelWeight;
+		public global::AnimationBlender.WeightResult channelWeight;
 
-		// Token: 0x04000ABD RID: 2749
+		// Token: 0x04000BE0 RID: 3040
 		[NonSerialized]
 		public float playbackRate;
 
-		// Token: 0x04000ABE RID: 2750
+		// Token: 0x04000BE1 RID: 3041
 		[NonSerialized]
 		public float blendFraction;
 
-		// Token: 0x04000ABF RID: 2751
+		// Token: 0x04000BE2 RID: 3042
 		[NonSerialized]
 		public float startTime;
 
-		// Token: 0x04000AC0 RID: 2752
+		// Token: 0x04000BE3 RID: 3043
 		[NonSerialized]
 		public bool enabled;
 
-		// Token: 0x04000AC1 RID: 2753
+		// Token: 0x04000BE4 RID: 3044
 		[NonSerialized]
 		public bool wasEnabled;
 	}
 
-	// Token: 0x02000245 RID: 581
+	// Token: 0x02000278 RID: 632
 	private struct TrackerBlender
 	{
-		// Token: 0x060015BC RID: 5564 RVA: 0x00051530 File Offset: 0x0004F730
+		// Token: 0x06001710 RID: 5904 RVA: 0x000558D8 File Offset: 0x00053AD8
 		public TrackerBlender(int count)
 		{
 			this.trackers = new int[count];
 			this.trackerCount = count;
-			this.trackerWeight = default(AnimationBlender.WeightResult);
+			this.trackerWeight = default(global::AnimationBlender.WeightResult);
 			for (int i = 0; i < count; i++)
 			{
 				this.trackers[i] = i;
 			}
 		}
 
-		// Token: 0x04000AC2 RID: 2754
+		// Token: 0x04000BE5 RID: 3045
 		[NonSerialized]
 		public int[] trackers;
 
-		// Token: 0x04000AC3 RID: 2755
+		// Token: 0x04000BE6 RID: 3046
 		[NonSerialized]
 		public int trackerCount;
 
-		// Token: 0x04000AC4 RID: 2756
+		// Token: 0x04000BE7 RID: 3047
 		[NonSerialized]
-		public AnimationBlender.WeightResult trackerWeight;
+		public global::AnimationBlender.WeightResult trackerWeight;
 	}
 
-	// Token: 0x02000246 RID: 582
+	// Token: 0x02000279 RID: 633
 	private struct opt<T>
 	{
-		// Token: 0x060015BD RID: 5565 RVA: 0x0005157C File Offset: 0x0004F77C
+		// Token: 0x06001711 RID: 5905 RVA: 0x00055924 File Offset: 0x00053B24
 		private opt(T value, bool defined)
 		{
 			this.value = value;
 			this.defined = defined;
 		}
 
-		// Token: 0x060015BF RID: 5567 RVA: 0x000515A8 File Offset: 0x0004F7A8
+		// Token: 0x06001713 RID: 5907 RVA: 0x00055950 File Offset: 0x00053B50
 		public bool check(out T value)
 		{
 			value = this.value;
 			return this.defined;
 		}
 
-		// Token: 0x17000640 RID: 1600
+		// Token: 0x17000688 RID: 1672
 		public T this[T fallback]
 		{
 			get
@@ -611,29 +611,29 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015C1 RID: 5569 RVA: 0x000515D8 File Offset: 0x0004F7D8
-		public static implicit operator AnimationBlender.opt<T>(T value)
+		// Token: 0x06001715 RID: 5909 RVA: 0x00055980 File Offset: 0x00053B80
+		public static implicit operator global::AnimationBlender.opt<T>(T value)
 		{
-			return new AnimationBlender.opt<T>(value, true);
+			return new global::AnimationBlender.opt<T>(value, true);
 		}
 
-		// Token: 0x04000AC5 RID: 2757
+		// Token: 0x04000BE8 RID: 3048
 		[NonSerialized]
 		public readonly T value;
 
-		// Token: 0x04000AC6 RID: 2758
+		// Token: 0x04000BE9 RID: 3049
 		[NonSerialized]
 		public readonly bool defined;
 
-		// Token: 0x04000AC7 RID: 2759
-		public static readonly AnimationBlender.opt<T> none = default(AnimationBlender.opt<T>);
+		// Token: 0x04000BEA RID: 3050
+		public static readonly global::AnimationBlender.opt<T> none = default(global::AnimationBlender.opt<T>);
 	}
 
-	// Token: 0x02000247 RID: 583
+	// Token: 0x0200027A RID: 634
 	private struct WeightUnit
 	{
-		// Token: 0x17000641 RID: 1601
-		// (get) Token: 0x060015C2 RID: 5570 RVA: 0x000515E4 File Offset: 0x0004F7E4
+		// Token: 0x17000689 RID: 1673
+		// (get) Token: 0x06001716 RID: 5910 RVA: 0x0005598C File Offset: 0x00053B8C
 		public bool any
 		{
 			get
@@ -642,62 +642,62 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015C3 RID: 5571 RVA: 0x000515F4 File Offset: 0x0004F7F4
+		// Token: 0x06001717 RID: 5911 RVA: 0x0005599C File Offset: 0x00053B9C
 		public float SetScaledRecip(float recip)
 		{
 			return this.normalized = (this.scaled = this.raw * recip);
 		}
 
-		// Token: 0x060015C4 RID: 5572 RVA: 0x0005161C File Offset: 0x0004F81C
+		// Token: 0x06001718 RID: 5912 RVA: 0x000559C4 File Offset: 0x00053BC4
 		public float SetNormalizedRecip(float recip)
 		{
 			return this.normalized = this.scaled * recip;
 		}
 
-		// Token: 0x04000AC8 RID: 2760
+		// Token: 0x04000BEB RID: 3051
 		[NonSerialized]
 		public float raw;
 
-		// Token: 0x04000AC9 RID: 2761
+		// Token: 0x04000BEC RID: 3052
 		[NonSerialized]
 		public float scaled;
 
-		// Token: 0x04000ACA RID: 2762
+		// Token: 0x04000BED RID: 3053
 		[NonSerialized]
 		public float normalized;
 	}
 
-	// Token: 0x02000248 RID: 584
+	// Token: 0x0200027B RID: 635
 	private struct WeightResult
 	{
-		// Token: 0x04000ACB RID: 2763
+		// Token: 0x04000BEE RID: 3054
 		[NonSerialized]
 		public int count;
 
-		// Token: 0x04000ACC RID: 2764
+		// Token: 0x04000BEF RID: 3055
 		[NonSerialized]
 		public int winner;
 
-		// Token: 0x04000ACD RID: 2765
-		public AnimationBlender.WeightUnit sum;
+		// Token: 0x04000BF0 RID: 3056
+		public global::AnimationBlender.WeightUnit sum;
 	}
 
-	// Token: 0x02000249 RID: 585
+	// Token: 0x0200027C RID: 636
 	private struct Weighted<T>
 	{
-		// Token: 0x04000ACE RID: 2766
+		// Token: 0x04000BF1 RID: 3057
 		[NonSerialized]
-		public AnimationBlender.WeightUnit weight;
+		public global::AnimationBlender.WeightUnit weight;
 
-		// Token: 0x04000ACF RID: 2767
+		// Token: 0x04000BF2 RID: 3058
 		[NonSerialized]
 		public T value;
 	}
 
-	// Token: 0x0200024A RID: 586
+	// Token: 0x0200027D RID: 637
 	public struct CurveInfo
 	{
-		// Token: 0x060015C5 RID: 5573 RVA: 0x0005163C File Offset: 0x0004F83C
+		// Token: 0x06001719 RID: 5913 RVA: 0x000559E4 File Offset: 0x00053BE4
 		public CurveInfo(AnimationCurve curve)
 		{
 			this.curve = curve;
@@ -721,148 +721,148 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015C6 RID: 5574 RVA: 0x00051768 File Offset: 0x0004F968
+		// Token: 0x0600171A RID: 5914 RVA: 0x00055B10 File Offset: 0x00053D10
 		public float TimeToPercentClamped(float time)
 		{
 			return (time < this.end) ? ((time > this.start) ? ((time - this.start) / this.duration) : 1f) : 1f;
 		}
 
-		// Token: 0x060015C7 RID: 5575 RVA: 0x000517A8 File Offset: 0x0004F9A8
+		// Token: 0x0600171B RID: 5915 RVA: 0x00055B50 File Offset: 0x00053D50
 		public float TimeToPercent(float time)
 		{
 			return (time - this.start) / this.duration;
 		}
 
-		// Token: 0x060015C8 RID: 5576 RVA: 0x000517BC File Offset: 0x0004F9BC
+		// Token: 0x0600171C RID: 5916 RVA: 0x00055B64 File Offset: 0x00053D64
 		public float PercentToTimeClamped(float percent)
 		{
 			return (percent > 0f) ? ((percent < 1f) ? (this.start + this.duration * percent) : this.end) : this.start;
 		}
 
-		// Token: 0x060015C9 RID: 5577 RVA: 0x000517FC File Offset: 0x0004F9FC
+		// Token: 0x0600171D RID: 5917 RVA: 0x00055BA4 File Offset: 0x00053DA4
 		public float PercentToTime(float percent)
 		{
 			return this.start + this.duration * percent;
 		}
 
-		// Token: 0x060015CA RID: 5578 RVA: 0x00051810 File Offset: 0x0004FA10
+		// Token: 0x0600171E RID: 5918 RVA: 0x00055BB8 File Offset: 0x00053DB8
 		public float TimeClamp(float time)
 		{
 			return (time < this.end) ? ((time > this.start) ? time : this.start) : this.end;
 		}
 
-		// Token: 0x060015CB RID: 5579 RVA: 0x00051844 File Offset: 0x0004FA44
+		// Token: 0x0600171F RID: 5919 RVA: 0x00055BEC File Offset: 0x00053DEC
 		public float PercentClamp(float percent)
 		{
 			return (percent > 0f) ? ((percent < 1f) ? percent : 1f) : 0f;
 		}
 
-		// Token: 0x060015CC RID: 5580 RVA: 0x00051874 File Offset: 0x0004FA74
+		// Token: 0x06001720 RID: 5920 RVA: 0x00055C1C File Offset: 0x00053E1C
 		public float SampleTime(float time)
 		{
 			return this.curve.Evaluate(time);
 		}
 
-		// Token: 0x060015CD RID: 5581 RVA: 0x00051884 File Offset: 0x0004FA84
+		// Token: 0x06001721 RID: 5921 RVA: 0x00055C2C File Offset: 0x00053E2C
 		public float SamplePercent(float percent)
 		{
 			return this.SampleTime(this.PercentToTime(percent));
 		}
 
-		// Token: 0x060015CE RID: 5582 RVA: 0x00051894 File Offset: 0x0004FA94
+		// Token: 0x06001722 RID: 5922 RVA: 0x00055C3C File Offset: 0x00053E3C
 		public float SampleTimeClamped(float time)
 		{
 			return this.SampleTime(this.TimeClamp(time));
 		}
 
-		// Token: 0x060015CF RID: 5583 RVA: 0x000518A4 File Offset: 0x0004FAA4
+		// Token: 0x06001723 RID: 5923 RVA: 0x00055C4C File Offset: 0x00053E4C
 		public float SamplePercentClamped(float percent)
 		{
 			return this.SamplePercent(this.PercentToTimeClamped(percent));
 		}
 
-		// Token: 0x04000AD0 RID: 2768
+		// Token: 0x04000BF3 RID: 3059
 		[NonSerialized]
 		public AnimationCurve curve;
 
-		// Token: 0x04000AD1 RID: 2769
+		// Token: 0x04000BF4 RID: 3060
 		[NonSerialized]
 		public int length;
 
-		// Token: 0x04000AD2 RID: 2770
+		// Token: 0x04000BF5 RID: 3061
 		[NonSerialized]
 		public float start;
 
-		// Token: 0x04000AD3 RID: 2771
+		// Token: 0x04000BF6 RID: 3062
 		[NonSerialized]
 		public float firstTime;
 
-		// Token: 0x04000AD4 RID: 2772
+		// Token: 0x04000BF7 RID: 3063
 		[NonSerialized]
 		public float end;
 
-		// Token: 0x04000AD5 RID: 2773
+		// Token: 0x04000BF8 RID: 3064
 		[NonSerialized]
 		public float lastTime;
 
-		// Token: 0x04000AD6 RID: 2774
+		// Token: 0x04000BF9 RID: 3065
 		[NonSerialized]
 		public float duration;
 
-		// Token: 0x04000AD7 RID: 2775
+		// Token: 0x04000BFA RID: 3066
 		[NonSerialized]
 		public float percentRate;
 	}
 
-	// Token: 0x0200024B RID: 587
+	// Token: 0x0200027E RID: 638
 	public struct MixerConfig
 	{
-		// Token: 0x060015D0 RID: 5584 RVA: 0x000518B4 File Offset: 0x0004FAB4
-		public MixerConfig(Animation animation, AnimationBlender.ResidualField residual, params AnimationBlender.ChannelConfig[] channels)
+		// Token: 0x06001724 RID: 5924 RVA: 0x00055C5C File Offset: 0x00053E5C
+		public MixerConfig(Animation animation, global::AnimationBlender.ResidualField residual, params global::AnimationBlender.ChannelConfig[] channels)
 		{
 			this.animation = animation;
 			this.residual = residual;
 			this.channels = channels;
 		}
 
-		// Token: 0x04000AD8 RID: 2776
+		// Token: 0x04000BFB RID: 3067
 		[NonSerialized]
 		public readonly Animation animation;
 
-		// Token: 0x04000AD9 RID: 2777
+		// Token: 0x04000BFC RID: 3068
 		[NonSerialized]
-		public readonly AnimationBlender.ResidualField residual;
+		public readonly global::AnimationBlender.ResidualField residual;
 
-		// Token: 0x04000ADA RID: 2778
+		// Token: 0x04000BFD RID: 3069
 		[NonSerialized]
-		public readonly AnimationBlender.ChannelConfig[] channels;
+		public readonly global::AnimationBlender.ChannelConfig[] channels;
 	}
 
-	// Token: 0x0200024C RID: 588
+	// Token: 0x0200027F RID: 639
 	public struct ChannelConfig
 	{
-		// Token: 0x060015D1 RID: 5585 RVA: 0x000518CC File Offset: 0x0004FACC
-		public ChannelConfig(string name, AnimationBlender.ChannelField field)
+		// Token: 0x06001725 RID: 5925 RVA: 0x00055C74 File Offset: 0x00053E74
+		public ChannelConfig(string name, global::AnimationBlender.ChannelField field)
 		{
 			this.name = name;
 			this.field = field;
 		}
 
-		// Token: 0x04000ADB RID: 2779
+		// Token: 0x04000BFE RID: 3070
 		[NonSerialized]
 		public readonly string name;
 
-		// Token: 0x04000ADC RID: 2780
+		// Token: 0x04000BFF RID: 3071
 		[NonSerialized]
-		public readonly AnimationBlender.ChannelField field;
+		public readonly global::AnimationBlender.ChannelField field;
 	}
 
-	// Token: 0x0200024D RID: 589
+	// Token: 0x02000280 RID: 640
 	[Serializable]
 	public class Field
 	{
-		// Token: 0x17000642 RID: 1602
-		// (get) Token: 0x060015D3 RID: 5587 RVA: 0x000518E4 File Offset: 0x0004FAE4
+		// Token: 0x1700068A RID: 1674
+		// (get) Token: 0x06001727 RID: 5927 RVA: 0x00055C8C File Offset: 0x00053E8C
 		public bool defined
 		{
 			get
@@ -871,24 +871,24 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x04000ADD RID: 2781
+		// Token: 0x04000C00 RID: 3072
 		[SerializeField]
 		public string clipName;
 
-		// Token: 0x04000ADE RID: 2782
+		// Token: 0x04000C01 RID: 3073
 		[SerializeField]
 		public float startFrame;
 
-		// Token: 0x04000ADF RID: 2783
+		// Token: 0x04000C02 RID: 3074
 		[SerializeField]
 		public float playbackRate;
 	}
 
-	// Token: 0x0200024E RID: 590
+	// Token: 0x02000281 RID: 641
 	[Serializable]
-	public sealed class ResidualField : AnimationBlender.Field
+	public sealed class ResidualField : global::AnimationBlender.Field
 	{
-		// Token: 0x060015D4 RID: 5588 RVA: 0x000518F4 File Offset: 0x0004FAF4
+		// Token: 0x06001728 RID: 5928 RVA: 0x00055C9C File Offset: 0x00053E9C
 		public ResidualField()
 		{
 			this.clipName = string.Empty;
@@ -897,42 +897,42 @@ public static class AnimationBlender
 			this.channelBlend = (this.residualBlend = 0);
 		}
 
-		// Token: 0x17000643 RID: 1603
-		// (get) Token: 0x060015D5 RID: 5589 RVA: 0x00051934 File Offset: 0x0004FB34
-		public AnimationBlender.CurveInfo introCurveInfo
+		// Token: 0x1700068B RID: 1675
+		// (get) Token: 0x06001729 RID: 5929 RVA: 0x00055CDC File Offset: 0x00053EDC
+		public global::AnimationBlender.CurveInfo introCurveInfo
 		{
 			get
 			{
-				return new AnimationBlender.CurveInfo(this.introCurve);
+				return new global::AnimationBlender.CurveInfo(this.introCurve);
 			}
 		}
 
-		// Token: 0x04000AE0 RID: 2784
+		// Token: 0x04000C03 RID: 3075
 		[SerializeField]
 		public AnimationCurve introCurve;
 
-		// Token: 0x04000AE1 RID: 2785
+		// Token: 0x04000C04 RID: 3076
 		[SerializeField]
 		public AnimationBlendMode residualBlend;
 
-		// Token: 0x04000AE2 RID: 2786
+		// Token: 0x04000C05 RID: 3077
 		[SerializeField]
 		public AnimationBlendMode channelBlend;
 
-		// Token: 0x04000AE3 RID: 2787
+		// Token: 0x04000C06 RID: 3078
 		[SerializeField]
 		public int animLayer;
 
-		// Token: 0x04000AE4 RID: 2788
+		// Token: 0x04000C07 RID: 3079
 		[SerializeField]
 		public bool changeAnimLayer;
 	}
 
-	// Token: 0x0200024F RID: 591
+	// Token: 0x02000282 RID: 642
 	[Serializable]
-	public sealed class ChannelField : AnimationBlender.Field
+	public sealed class ChannelField : global::AnimationBlender.Field
 	{
-		// Token: 0x060015D6 RID: 5590 RVA: 0x00051944 File Offset: 0x0004FB44
+		// Token: 0x0600172A RID: 5930 RVA: 0x00055CEC File Offset: 0x00053EEC
 		public ChannelField()
 		{
 			this.clipName = string.Empty;
@@ -941,56 +941,56 @@ public static class AnimationBlender
 			this.outCurve = AnimationCurve.Linear(0f, 1f, 1f, 0f);
 		}
 
-		// Token: 0x17000644 RID: 1604
-		// (get) Token: 0x060015D7 RID: 5591 RVA: 0x000519AC File Offset: 0x0004FBAC
-		public AnimationBlender.CurveInfo inCurveInfo
+		// Token: 0x1700068C RID: 1676
+		// (get) Token: 0x0600172B RID: 5931 RVA: 0x00055D54 File Offset: 0x00053F54
+		public global::AnimationBlender.CurveInfo inCurveInfo
 		{
 			get
 			{
-				return new AnimationBlender.CurveInfo(this.inCurve);
+				return new global::AnimationBlender.CurveInfo(this.inCurve);
 			}
 		}
 
-		// Token: 0x17000645 RID: 1605
-		// (get) Token: 0x060015D8 RID: 5592 RVA: 0x000519BC File Offset: 0x0004FBBC
-		public AnimationBlender.CurveInfo outCurveInfo
+		// Token: 0x1700068D RID: 1677
+		// (get) Token: 0x0600172C RID: 5932 RVA: 0x00055D64 File Offset: 0x00053F64
+		public global::AnimationBlender.CurveInfo outCurveInfo
 		{
 			get
 			{
-				return new AnimationBlender.CurveInfo(this.outCurve);
+				return new global::AnimationBlender.CurveInfo(this.outCurve);
 			}
 		}
 
-		// Token: 0x04000AE5 RID: 2789
+		// Token: 0x04000C08 RID: 3080
 		[SerializeField]
 		public float inDelay;
 
-		// Token: 0x04000AE6 RID: 2790
+		// Token: 0x04000C09 RID: 3081
 		[SerializeField]
 		public float outDelay;
 
-		// Token: 0x04000AE7 RID: 2791
+		// Token: 0x04000C0A RID: 3082
 		[SerializeField]
 		public float residualBlend;
 
-		// Token: 0x04000AE8 RID: 2792
+		// Token: 0x04000C0B RID: 3083
 		[SerializeField]
 		public bool blockedByAnimation;
 
-		// Token: 0x04000AE9 RID: 2793
+		// Token: 0x04000C0C RID: 3084
 		[SerializeField]
 		public AnimationCurve inCurve;
 
-		// Token: 0x04000AEA RID: 2794
+		// Token: 0x04000C0D RID: 3085
 		[SerializeField]
 		public AnimationCurve outCurve;
 	}
 
-	// Token: 0x02000250 RID: 592
+	// Token: 0x02000283 RID: 643
 	public sealed class Mixer
 	{
-		// Token: 0x060015D9 RID: 5593 RVA: 0x000519CC File Offset: 0x0004FBCC
-		public Mixer(AnimationBlender.MixerConfig config)
+		// Token: 0x0600172D RID: 5933 RVA: 0x00055D74 File Offset: 0x00053F74
+		public Mixer(global::AnimationBlender.MixerConfig config)
 		{
 			if (!config.animation)
 			{
@@ -999,17 +999,17 @@ public static class AnimationBlender
 			this.animation = config.animation;
 			this.residualField = config.residual;
 			this.hasResidual = (!object.ReferenceEquals(config.residual, null) && config.residual.defined && this.animation.GetClip(config.residual.clipName));
-			this.oneShotBlendIn = ((!this.hasResidual || object.ReferenceEquals(config.residual.introCurve, null)) ? default(AnimationBlender.CurveInfo) : config.residual.introCurveInfo);
+			this.oneShotBlendIn = ((!this.hasResidual || object.ReferenceEquals(config.residual.introCurve, null)) ? default(global::AnimationBlender.CurveInfo) : config.residual.introCurveInfo);
 			this.hasOneShotBlendIn = (this.oneShotBlendIn.duration > 0f);
 			this.residualState = ((!this.hasResidual) ? null : this.animation[config.residual.clipName]);
 			this.channelCount = config.channels.Length;
-			this.channels = new AnimationBlender.Weighted<AnimationBlender.Channel>[this.channelCount];
-			this.trackers = new AnimationBlender.Weighted<AnimationBlender.Tracker>[this.channelCount];
+			this.channels = new global::AnimationBlender.Weighted<global::AnimationBlender.Channel>[this.channelCount];
+			this.trackers = new global::AnimationBlender.Weighted<global::AnimationBlender.Tracker>[this.channelCount];
 			this.trackerCount = 0;
 			this.nameToChannel = new Dictionary<string, int>(this.channelCount);
 			for (int i = 0; i < this.channelCount; i++)
 			{
-				AnimationBlender.ChannelField field = config.channels[i].field;
+				global::AnimationBlender.ChannelField field = config.channels[i].field;
 				string name = config.channels[i].name;
 				this.nameToChannel.Add(name, i);
 				int num = -1;
@@ -1028,40 +1028,40 @@ public static class AnimationBlender
 						}
 						else if (flag = (this.trackers[num].value.clip == clip))
 						{
-							AnimationBlender.Weighted<AnimationBlender.Tracker>[] array = this.trackers;
+							global::AnimationBlender.Weighted<global::AnimationBlender.Tracker>[] array = this.trackers;
 							int num2 = num;
 							array[num2].value.channelCount = array[num2].value.channelCount + 1;
 						}
 					}
 					this.definedChannelCount++;
 				}
-				this.channels[i].value = new AnimationBlender.Channel(i, num, name, field);
+				this.channels[i].value = new global::AnimationBlender.Channel(i, num, name, field);
 			}
 			for (int j = 0; j < this.trackerCount; j++)
 			{
-				this.trackers[j].value.channels = new int[AnimationBlender.GetClear(ref this.trackers[j].value.channelCount)];
+				this.trackers[j].value.channels = new int[global::AnimationBlender.GetClear(ref this.trackers[j].value.channelCount)];
 			}
-			this.definedChannels = new int[AnimationBlender.GetClear(ref this.definedChannelCount)];
+			this.definedChannels = new int[global::AnimationBlender.GetClear(ref this.definedChannelCount)];
 			for (int k = 0; k < this.channelCount; k++)
 			{
 				if (this.channels[k].value.animationIndex != -1)
 				{
 					int[] array2 = this.trackers[this.channels[k].value.animationIndex].value.channels;
-					AnimationBlender.Weighted<AnimationBlender.Tracker>[] array3 = this.trackers;
+					global::AnimationBlender.Weighted<global::AnimationBlender.Tracker>[] array3 = this.trackers;
 					int animationIndex = this.channels[k].value.animationIndex;
 					int num3;
 					array3[animationIndex].value.channelCount = (num3 = array3[animationIndex].value.channelCount) + 1;
 					array2[num3] = (this.definedChannels[this.definedChannelCount++] = k);
 				}
 			}
-			AnimationBlender.ArrayResize<AnimationBlender.Weighted<AnimationBlender.Tracker>>(ref this.trackers, this.trackerCount);
-			AnimationBlender.ArrayResize<AnimationBlender.Weighted<AnimationBlender.Channel>>(ref this.channels, this.channelCount);
-			AnimationBlender.ArrayResize<int>(ref this.definedChannels, this.definedChannelCount);
+			global::AnimationBlender.ArrayResize<global::AnimationBlender.Weighted<global::AnimationBlender.Tracker>>(ref this.trackers, this.trackerCount);
+			global::AnimationBlender.ArrayResize<global::AnimationBlender.Weighted<global::AnimationBlender.Channel>>(ref this.channels, this.channelCount);
+			global::AnimationBlender.ArrayResize<int>(ref this.definedChannels, this.definedChannelCount);
 			for (int l = 0; l < this.trackerCount; l++)
 			{
-				AnimationBlender.ArrayResize<int>(ref this.trackers[l].value.channels, this.trackers[l].value.channelCount);
+				global::AnimationBlender.ArrayResize<int>(ref this.trackers[l].value.channels, this.trackers[l].value.channelCount);
 			}
-			this.blender = new AnimationBlender.TrackerBlender(this.trackerCount);
+			this.blender = new global::AnimationBlender.TrackerBlender(this.trackerCount);
 			if (this.hasResidual)
 			{
 				if (this.residualField.changeAnimLayer)
@@ -1081,8 +1081,8 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x17000646 RID: 1606
-		// (get) Token: 0x060015DA RID: 5594 RVA: 0x00051F48 File Offset: 0x00050148
+		// Token: 0x1700068E RID: 1678
+		// (get) Token: 0x0600172E RID: 5934 RVA: 0x000562F0 File Offset: 0x000544F0
 		public bool isPlayingManualAnimation
 		{
 			get
@@ -1091,8 +1091,8 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015DB RID: 5595 RVA: 0x00051F54 File Offset: 0x00050154
-		private bool PlayQueuedDirect(string animationName, AnimationBlender.opt<QueueMode> queueMode, AnimationBlender.opt<PlayMode> playMode)
+		// Token: 0x0600172F RID: 5935 RVA: 0x000562FC File Offset: 0x000544FC
+		private bool PlayQueuedDirect(string animationName, global::AnimationBlender.opt<QueueMode> queueMode, global::AnimationBlender.opt<PlayMode> playMode)
 		{
 			PlayMode playMode2;
 			if (playMode.check(out playMode2))
@@ -1107,8 +1107,8 @@ public static class AnimationBlender
 			return this.animation.PlayQueued(animationName);
 		}
 
-		// Token: 0x060015DC RID: 5596 RVA: 0x00051FBC File Offset: 0x000501BC
-		private bool PlayDirect(string animationName, AnimationBlender.opt<PlayMode> playMode)
+		// Token: 0x06001730 RID: 5936 RVA: 0x00056364 File Offset: 0x00054564
+		private bool PlayDirect(string animationName, global::AnimationBlender.opt<PlayMode> playMode)
 		{
 			PlayMode playMode2;
 			if (playMode.check(out playMode2))
@@ -1118,8 +1118,8 @@ public static class AnimationBlender
 			return this.animation.Play(animationName);
 		}
 
-		// Token: 0x060015DD RID: 5597 RVA: 0x00051FF4 File Offset: 0x000501F4
-		private void CrossFadeDirect(string animationName, AnimationBlender.opt<float> fadeLength, AnimationBlender.opt<PlayMode> playMode)
+		// Token: 0x06001731 RID: 5937 RVA: 0x0005639C File Offset: 0x0005459C
+		private void CrossFadeDirect(string animationName, global::AnimationBlender.opt<float> fadeLength, global::AnimationBlender.opt<PlayMode> playMode)
 		{
 			if (playMode.defined)
 			{
@@ -1135,7 +1135,7 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015DE RID: 5598 RVA: 0x00052064 File Offset: 0x00050264
+		// Token: 0x06001732 RID: 5938 RVA: 0x0005640C File Offset: 0x0005460C
 		private void StopBlendingNow()
 		{
 			for (int i = 0; i < this.trackerCount; i++)
@@ -1144,8 +1144,8 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015DF RID: 5599 RVA: 0x000520A4 File Offset: 0x000502A4
-		private bool PlayQueuedOpt(string animationName, AnimationBlender.opt<QueueMode> queueMode, AnimationBlender.opt<PlayMode> playMode)
+		// Token: 0x06001733 RID: 5939 RVA: 0x0005644C File Offset: 0x0005464C
+		private bool PlayQueuedOpt(string animationName, global::AnimationBlender.opt<QueueMode> queueMode, global::AnimationBlender.opt<PlayMode> playMode)
 		{
 			if (string.IsNullOrEmpty(animationName) || !this.PlayQueuedDirect(animationName, queueMode, playMode))
 			{
@@ -1170,8 +1170,8 @@ public static class AnimationBlender
 			return true;
 		}
 
-		// Token: 0x060015E0 RID: 5600 RVA: 0x00052138 File Offset: 0x00050338
-		private bool PlayOpt(string animationName, AnimationBlender.opt<PlayMode> playMode, AnimationBlender.opt<float> speed, AnimationBlender.opt<float> startTime)
+		// Token: 0x06001734 RID: 5940 RVA: 0x000564E0 File Offset: 0x000546E0
+		private bool PlayOpt(string animationName, global::AnimationBlender.opt<PlayMode> playMode, global::AnimationBlender.opt<float> speed, global::AnimationBlender.opt<float> startTime)
 		{
 			AnimationState animationState;
 			if (string.IsNullOrEmpty(animationName) || (animationState = this.animation[animationName]) == null)
@@ -1210,8 +1210,8 @@ public static class AnimationBlender
 			return true;
 		}
 
-		// Token: 0x060015E1 RID: 5601 RVA: 0x00052204 File Offset: 0x00050404
-		private bool CrossFadeOpt(string animationName, AnimationBlender.opt<float> fadeLength, AnimationBlender.opt<PlayMode> playMode, AnimationBlender.opt<float> speed, AnimationBlender.opt<float> startTime)
+		// Token: 0x06001735 RID: 5941 RVA: 0x000565AC File Offset: 0x000547AC
+		private bool CrossFadeOpt(string animationName, global::AnimationBlender.opt<float> fadeLength, global::AnimationBlender.opt<PlayMode> playMode, global::AnimationBlender.opt<float> speed, global::AnimationBlender.opt<float> startTime)
 		{
 			AnimationState animationState;
 			if (string.IsNullOrEmpty(animationName) || (animationState = this.animation[animationName]) == null)
@@ -1233,7 +1233,7 @@ public static class AnimationBlender
 			return true;
 		}
 
-		// Token: 0x060015E2 RID: 5602 RVA: 0x0005228C File Offset: 0x0005048C
+		// Token: 0x06001736 RID: 5942 RVA: 0x00056634 File Offset: 0x00054834
 		private bool ManualAnimationsPlaying(bool ClearWhenNone)
 		{
 			if (!this.playingOneShot)
@@ -1256,8 +1256,8 @@ public static class AnimationBlender
 			return true;
 		}
 
-		// Token: 0x060015E3 RID: 5603 RVA: 0x00052308 File Offset: 0x00050508
-		private void UpdateChannel(ref AnimationBlender.Weighted<AnimationBlender.Channel> channel, float dt)
+		// Token: 0x06001737 RID: 5943 RVA: 0x000566B0 File Offset: 0x000548B0
+		private void UpdateChannel(ref global::AnimationBlender.Weighted<global::AnimationBlender.Channel> channel, float dt)
 		{
 			bool flag;
 			if (flag = (channel.value.field.blockedByAnimation && this.animationBlocking && channel.value.active))
@@ -1271,14 +1271,14 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015E4 RID: 5604 RVA: 0x00052380 File Offset: 0x00050580
-		private void UpdateTracker(ref AnimationBlender.Weighted<AnimationBlender.Tracker> tracker, float dt)
+		// Token: 0x06001738 RID: 5944 RVA: 0x00056728 File Offset: 0x00054928
+		private void UpdateTracker(ref global::AnimationBlender.Weighted<global::AnimationBlender.Tracker> tracker, float dt)
 		{
 			for (int i = 0; i < tracker.value.channelCount; i++)
 			{
 				this.UpdateChannel(ref this.channels[tracker.value.channels[i]], dt);
 			}
-			if (tracker.value.enabled = AnimationBlender.WeightOf<AnimationBlender.Channel>(this.channels, tracker.value.channels, out tracker.value.channelWeight))
+			if (tracker.value.enabled = global::AnimationBlender.WeightOf<global::AnimationBlender.Channel>(this.channels, tracker.value.channels, out tracker.value.channelWeight))
 			{
 				tracker.value.startTime = this.channels[tracker.value.channels[tracker.value.channelWeight.winner]].value.startTime;
 				float num = 0f;
@@ -1295,14 +1295,14 @@ public static class AnimationBlender
 			tracker.weight.raw = tracker.value.channelWeight.sum.raw;
 		}
 
-		// Token: 0x060015E5 RID: 5605 RVA: 0x00052518 File Offset: 0x00050718
-		private bool UpdateBlender(ref AnimationBlender.TrackerBlender blender, float dt, float externalBlend, out float residualBlend)
+		// Token: 0x06001739 RID: 5945 RVA: 0x000568C0 File Offset: 0x00054AC0
+		private bool UpdateBlender(ref global::AnimationBlender.TrackerBlender blender, float dt, float externalBlend, out float residualBlend)
 		{
 			for (int i = 0; i < this.trackerCount; i++)
 			{
 				this.UpdateTracker(ref this.trackers[blender.trackers[i]], dt);
 			}
-			bool flag = AnimationBlender.WeightOf<AnimationBlender.Tracker>(this.trackers, blender.trackers, out blender.trackerWeight);
+			bool flag = global::AnimationBlender.WeightOf<global::AnimationBlender.Tracker>(this.trackers, blender.trackers, out blender.trackerWeight);
 			for (int j = blender.trackerWeight.count; j < blender.trackerCount; j++)
 			{
 				this.DisableTracker(ref this.trackers[blender.trackers[j]].value);
@@ -1315,8 +1315,8 @@ public static class AnimationBlender
 			return (residualBlend = (1f - num) * externalBlend) > 0f;
 		}
 
-		// Token: 0x060015E6 RID: 5606 RVA: 0x0005260C File Offset: 0x0005080C
-		private void DisableTracker(ref AnimationBlender.Tracker tracker)
+		// Token: 0x0600173A RID: 5946 RVA: 0x000569B4 File Offset: 0x00054BB4
+		private void DisableTracker(ref global::AnimationBlender.Tracker tracker)
 		{
 			if (!tracker.wasEnabled)
 			{
@@ -1326,8 +1326,8 @@ public static class AnimationBlender
 			tracker.state.weight = 0f;
 		}
 
-		// Token: 0x060015E7 RID: 5607 RVA: 0x0005264C File Offset: 0x0005084C
-		private float BindTracker(ref AnimationBlender.Weighted<AnimationBlender.Tracker> tracker, float externalBlend)
+		// Token: 0x0600173B RID: 5947 RVA: 0x000569F4 File Offset: 0x00054BF4
+		private float BindTracker(ref global::AnimationBlender.Weighted<global::AnimationBlender.Tracker> tracker, float externalBlend)
 		{
 			float num = tracker.weight.normalized;
 			if (this.hasResidual)
@@ -1355,19 +1355,19 @@ public static class AnimationBlender
 			return num;
 		}
 
-		// Token: 0x060015E8 RID: 5608 RVA: 0x0005275C File Offset: 0x0005095C
+		// Token: 0x0600173C RID: 5948 RVA: 0x00056B04 File Offset: 0x00054D04
 		public void SetActive(int channel, bool value)
 		{
 			this.channels[channel].value.active = value;
 		}
 
-		// Token: 0x060015E9 RID: 5609 RVA: 0x00052778 File Offset: 0x00050978
+		// Token: 0x0600173D RID: 5949 RVA: 0x00056B20 File Offset: 0x00054D20
 		public void SetActive(string channel, bool value)
 		{
 			this.SetActive(this.nameToChannel[channel], value);
 		}
 
-		// Token: 0x060015EA RID: 5610 RVA: 0x00052790 File Offset: 0x00050990
+		// Token: 0x0600173E RID: 5950 RVA: 0x00056B38 File Offset: 0x00054D38
 		public void SetSolo(int channel)
 		{
 			for (int i = 0; i < this.channelCount; i++)
@@ -1376,13 +1376,13 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015EB RID: 5611 RVA: 0x000527C0 File Offset: 0x000509C0
+		// Token: 0x0600173F RID: 5951 RVA: 0x00056B68 File Offset: 0x00054D68
 		public void SetSolo(string channel)
 		{
 			this.SetSolo(this.nameToChannel[channel]);
 		}
 
-		// Token: 0x060015EC RID: 5612 RVA: 0x000527D4 File Offset: 0x000509D4
+		// Token: 0x06001740 RID: 5952 RVA: 0x00056B7C File Offset: 0x00054D7C
 		public void SetSolo(int channel, bool muteall)
 		{
 			if (muteall)
@@ -1398,13 +1398,13 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x060015ED RID: 5613 RVA: 0x00052814 File Offset: 0x00050A14
+		// Token: 0x06001741 RID: 5953 RVA: 0x00056BBC File Offset: 0x00054DBC
 		public void SetSolo(string channel, bool muteall)
 		{
 			this.SetSolo(this.nameToChannel[channel], muteall);
 		}
 
-		// Token: 0x060015EE RID: 5614 RVA: 0x0005282C File Offset: 0x00050A2C
+		// Token: 0x06001742 RID: 5954 RVA: 0x00056BD4 File Offset: 0x00054DD4
 		public bool SetOneShotAnimation(AnimationState animationState)
 		{
 			if (animationState == null)
@@ -1415,115 +1415,115 @@ public static class AnimationBlender
 			return this.playingOneShot = true;
 		}
 
-		// Token: 0x060015EF RID: 5615 RVA: 0x00052858 File Offset: 0x00050A58
+		// Token: 0x06001743 RID: 5955 RVA: 0x00056C00 File Offset: 0x00054E00
 		public bool SetOneShotAnimation(string animationName)
 		{
 			return !string.IsNullOrEmpty(animationName) && this.SetOneShotAnimation(this.animation[animationName]);
 		}
 
-		// Token: 0x060015F0 RID: 5616 RVA: 0x00052888 File Offset: 0x00050A88
+		// Token: 0x06001744 RID: 5956 RVA: 0x00056C30 File Offset: 0x00054E30
 		public bool Play(string animationName)
 		{
-			return this.PlayOpt(animationName, AnimationBlender.opt<PlayMode>.none, AnimationBlender.opt<float>.none, AnimationBlender.opt<float>.none);
+			return this.PlayOpt(animationName, global::AnimationBlender.opt<PlayMode>.none, global::AnimationBlender.opt<float>.none, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015F1 RID: 5617 RVA: 0x000528A0 File Offset: 0x00050AA0
+		// Token: 0x06001745 RID: 5957 RVA: 0x00056C48 File Offset: 0x00054E48
 		public bool Play(string animationName, PlayMode playMode)
 		{
-			return this.PlayOpt(animationName, playMode, AnimationBlender.opt<float>.none, AnimationBlender.opt<float>.none);
+			return this.PlayOpt(animationName, playMode, global::AnimationBlender.opt<float>.none, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015F2 RID: 5618 RVA: 0x000528BC File Offset: 0x00050ABC
+		// Token: 0x06001746 RID: 5958 RVA: 0x00056C64 File Offset: 0x00054E64
 		public bool Play(string animationName, PlayMode playMode, float speed)
 		{
-			return this.PlayOpt(animationName, playMode, speed, AnimationBlender.opt<float>.none);
+			return this.PlayOpt(animationName, playMode, speed, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015F3 RID: 5619 RVA: 0x000528D8 File Offset: 0x00050AD8
+		// Token: 0x06001747 RID: 5959 RVA: 0x00056C80 File Offset: 0x00054E80
 		public bool Play(string animationName, PlayMode playMode, float speed, float startTime)
 		{
 			return this.PlayOpt(animationName, playMode, speed, startTime);
 		}
 
-		// Token: 0x060015F4 RID: 5620 RVA: 0x00052900 File Offset: 0x00050B00
+		// Token: 0x06001748 RID: 5960 RVA: 0x00056CA8 File Offset: 0x00054EA8
 		public bool Play(string animationName, PlayMode playMode, float? speed, float startTime)
 		{
-			return this.PlayOpt(animationName, playMode, AnimationBlender.to_opt<float>(speed), startTime);
+			return this.PlayOpt(animationName, playMode, global::AnimationBlender.to_opt<float>(speed), startTime);
 		}
 
-		// Token: 0x060015F5 RID: 5621 RVA: 0x00052928 File Offset: 0x00050B28
+		// Token: 0x06001749 RID: 5961 RVA: 0x00056CD0 File Offset: 0x00054ED0
 		public bool Play(string animationName, float speed)
 		{
-			return this.PlayOpt(animationName, AnimationBlender.opt<PlayMode>.none, speed, AnimationBlender.opt<float>.none);
+			return this.PlayOpt(animationName, global::AnimationBlender.opt<PlayMode>.none, speed, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015F6 RID: 5622 RVA: 0x00052944 File Offset: 0x00050B44
+		// Token: 0x0600174A RID: 5962 RVA: 0x00056CEC File Offset: 0x00054EEC
 		public bool Play(string animationName, float speed, float startTime)
 		{
-			return this.PlayOpt(animationName, AnimationBlender.opt<PlayMode>.none, speed, startTime);
+			return this.PlayOpt(animationName, global::AnimationBlender.opt<PlayMode>.none, speed, startTime);
 		}
 
-		// Token: 0x060015F7 RID: 5623 RVA: 0x00052960 File Offset: 0x00050B60
+		// Token: 0x0600174B RID: 5963 RVA: 0x00056D08 File Offset: 0x00054F08
 		public bool Play(string animationName, float? speed, float startTime)
 		{
-			return this.PlayOpt(animationName, AnimationBlender.opt<PlayMode>.none, AnimationBlender.to_opt<float>(speed), startTime);
+			return this.PlayOpt(animationName, global::AnimationBlender.opt<PlayMode>.none, global::AnimationBlender.to_opt<float>(speed), startTime);
 		}
 
-		// Token: 0x060015F8 RID: 5624 RVA: 0x0005297C File Offset: 0x00050B7C
+		// Token: 0x0600174C RID: 5964 RVA: 0x00056D24 File Offset: 0x00054F24
 		public bool PlayQueued(string animationName)
 		{
-			return this.PlayQueuedOpt(animationName, AnimationBlender.opt<QueueMode>.none, AnimationBlender.opt<PlayMode>.none);
+			return this.PlayQueuedOpt(animationName, global::AnimationBlender.opt<QueueMode>.none, global::AnimationBlender.opt<PlayMode>.none);
 		}
 
-		// Token: 0x060015F9 RID: 5625 RVA: 0x00052990 File Offset: 0x00050B90
+		// Token: 0x0600174D RID: 5965 RVA: 0x00056D38 File Offset: 0x00054F38
 		public bool PlayQueued(string animationName, QueueMode queueMode)
 		{
-			return this.PlayQueuedOpt(animationName, queueMode, AnimationBlender.opt<PlayMode>.none);
+			return this.PlayQueuedOpt(animationName, queueMode, global::AnimationBlender.opt<PlayMode>.none);
 		}
 
-		// Token: 0x060015FA RID: 5626 RVA: 0x000529A4 File Offset: 0x00050BA4
+		// Token: 0x0600174E RID: 5966 RVA: 0x00056D4C File Offset: 0x00054F4C
 		public bool PlayQueued(string animationName, QueueMode queueMode, PlayMode playMode)
 		{
 			return this.PlayQueuedOpt(animationName, queueMode, playMode);
 		}
 
-		// Token: 0x060015FB RID: 5627 RVA: 0x000529BC File Offset: 0x00050BBC
+		// Token: 0x0600174F RID: 5967 RVA: 0x00056D64 File Offset: 0x00054F64
 		public bool CrossFade(string animationName)
 		{
-			return this.CrossFadeOpt(animationName, AnimationBlender.opt<float>.none, AnimationBlender.opt<PlayMode>.none, AnimationBlender.opt<float>.none, AnimationBlender.opt<float>.none);
+			return this.CrossFadeOpt(animationName, global::AnimationBlender.opt<float>.none, global::AnimationBlender.opt<PlayMode>.none, global::AnimationBlender.opt<float>.none, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015FC RID: 5628 RVA: 0x000529DC File Offset: 0x00050BDC
+		// Token: 0x06001750 RID: 5968 RVA: 0x00056D84 File Offset: 0x00054F84
 		public bool CrossFade(string animationName, float fadeLen)
 		{
-			return this.CrossFadeOpt(animationName, fadeLen, AnimationBlender.opt<PlayMode>.none, AnimationBlender.opt<float>.none, AnimationBlender.opt<float>.none);
+			return this.CrossFadeOpt(animationName, fadeLen, global::AnimationBlender.opt<PlayMode>.none, global::AnimationBlender.opt<float>.none, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015FD RID: 5629 RVA: 0x000529FC File Offset: 0x00050BFC
+		// Token: 0x06001751 RID: 5969 RVA: 0x00056DA4 File Offset: 0x00054FA4
 		public bool CrossFade(string animationName, float fadeLen, PlayMode playMode)
 		{
-			return this.CrossFadeOpt(animationName, fadeLen, playMode, AnimationBlender.opt<float>.none, AnimationBlender.opt<float>.none);
+			return this.CrossFadeOpt(animationName, fadeLen, playMode, global::AnimationBlender.opt<float>.none, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015FE RID: 5630 RVA: 0x00052A28 File Offset: 0x00050C28
+		// Token: 0x06001752 RID: 5970 RVA: 0x00056DD0 File Offset: 0x00054FD0
 		public bool CrossFade(string animationName, float fadeLen, PlayMode playMode, float speed)
 		{
-			return this.CrossFadeOpt(animationName, fadeLen, playMode, speed, AnimationBlender.opt<float>.none);
+			return this.CrossFadeOpt(animationName, fadeLen, playMode, speed, global::AnimationBlender.opt<float>.none);
 		}
 
-		// Token: 0x060015FF RID: 5631 RVA: 0x00052A54 File Offset: 0x00050C54
+		// Token: 0x06001753 RID: 5971 RVA: 0x00056DFC File Offset: 0x00054FFC
 		public bool CrossFade(string animationName, float fadeLen, PlayMode playMode, float speed, float startTime)
 		{
 			return this.CrossFadeOpt(animationName, fadeLen, playMode, speed, startTime);
 		}
 
-		// Token: 0x06001600 RID: 5632 RVA: 0x00052A84 File Offset: 0x00050C84
+		// Token: 0x06001754 RID: 5972 RVA: 0x00056E2C File Offset: 0x0005502C
 		public bool CrossFade(string animationName, float fadeLen, PlayMode playMode, float? speed, float startTime)
 		{
-			return this.CrossFadeOpt(animationName, fadeLen, playMode, AnimationBlender.to_opt<float>(speed), startTime);
+			return this.CrossFadeOpt(animationName, fadeLen, playMode, global::AnimationBlender.to_opt<float>(speed), startTime);
 		}
 
-		// Token: 0x06001601 RID: 5633 RVA: 0x00052AB4 File Offset: 0x00050CB4
+		// Token: 0x06001755 RID: 5973 RVA: 0x00056E5C File Offset: 0x0005505C
 		public void Update(float blend, float dt)
 		{
 			if (this.playingOneShot)
@@ -1593,169 +1593,169 @@ public static class AnimationBlender
 			}
 		}
 
-		// Token: 0x06001602 RID: 5634 RVA: 0x00052CC8 File Offset: 0x00050EC8
+		// Token: 0x06001756 RID: 5974 RVA: 0x00057070 File Offset: 0x00055270
 		public void Debug(Rect rect, string name)
 		{
-			AnimationBlender.Mixer.DbgGUI.TableStart(rect);
+			global::AnimationBlender.Mixer.DbgGUI.TableStart(rect);
 			for (int i = 0; i < this.channels.Length; i++)
 			{
 				if (this.channels[i].weight.any)
 				{
-					AnimationBlender.Mixer.DbgGUI.Label(this.channels[i].value.name);
+					global::AnimationBlender.Mixer.DbgGUI.Label(this.channels[i].value.name);
 				}
 			}
 			for (int j = 0; j < this.trackers.Length; j++)
 			{
 				if (this.trackers[j].value.enabled)
 				{
-					AnimationBlender.Mixer.DbgGUI.Label(this.trackers[j].value.state.name);
+					global::AnimationBlender.Mixer.DbgGUI.Label(this.trackers[j].value.state.name);
 				}
 			}
 			if (this.hasResidual)
 			{
-				AnimationBlender.Mixer.DbgGUI.Label(this.residualState.name);
+				global::AnimationBlender.Mixer.DbgGUI.Label(this.residualState.name);
 			}
-			AnimationBlender.Mixer.DbgGUI.ColumnNext();
+			global::AnimationBlender.Mixer.DbgGUI.ColumnNext();
 			for (int k = 0; k < this.channels.Length; k++)
 			{
 				if (this.channels[k].weight.any)
 				{
-					AnimationBlender.Mixer.DbgGUI.Fract(this.channels[k].weight.normalized);
+					global::AnimationBlender.Mixer.DbgGUI.Fract(this.channels[k].weight.normalized);
 				}
 			}
 			for (int l = 0; l < this.trackers.Length; l++)
 			{
 				if (this.trackers[l].value.enabled)
 				{
-					AnimationBlender.Mixer.DbgGUI.Fract(this.trackers[l].weight.normalized);
+					global::AnimationBlender.Mixer.DbgGUI.Fract(this.trackers[l].weight.normalized);
 				}
 			}
 			if (this.hasResidual)
 			{
-				AnimationBlender.Mixer.DbgGUI.Fract(this.residualState.weight);
+				global::AnimationBlender.Mixer.DbgGUI.Fract(this.residualState.weight);
 			}
-			AnimationBlender.Mixer.DbgGUI.TableEnd();
+			global::AnimationBlender.Mixer.DbgGUI.TableEnd();
 		}
 
-		// Token: 0x04000AEB RID: 2795
+		// Token: 0x04000C0E RID: 3086
 		[NonSerialized]
 		private Animation animation;
 
-		// Token: 0x04000AEC RID: 2796
+		// Token: 0x04000C0F RID: 3087
 		[NonSerialized]
-		private AnimationBlender.ResidualField residualField;
+		private global::AnimationBlender.ResidualField residualField;
 
-		// Token: 0x04000AED RID: 2797
+		// Token: 0x04000C10 RID: 3088
 		[NonSerialized]
 		private AnimationState residualState;
 
-		// Token: 0x04000AEE RID: 2798
+		// Token: 0x04000C11 RID: 3089
 		[NonSerialized]
 		private AnimationBlendMode residualBlendMode;
 
-		// Token: 0x04000AEF RID: 2799
+		// Token: 0x04000C12 RID: 3090
 		[NonSerialized]
 		private AnimationBlendMode channelBlendMode;
 
-		// Token: 0x04000AF0 RID: 2800
+		// Token: 0x04000C13 RID: 3091
 		[NonSerialized]
 		private AnimationState oneShotAnimation;
 
-		// Token: 0x04000AF1 RID: 2801
+		// Token: 0x04000C14 RID: 3092
 		[NonSerialized]
 		private bool playingOneShot;
 
-		// Token: 0x04000AF2 RID: 2802
+		// Token: 0x04000C15 RID: 3093
 		[NonSerialized]
 		private bool animationBlocking;
 
-		// Token: 0x04000AF3 RID: 2803
+		// Token: 0x04000C16 RID: 3094
 		[NonSerialized]
 		private int trackerCount;
 
-		// Token: 0x04000AF4 RID: 2804
+		// Token: 0x04000C17 RID: 3095
 		[NonSerialized]
 		private int channelCount;
 
-		// Token: 0x04000AF5 RID: 2805
+		// Token: 0x04000C18 RID: 3096
 		[NonSerialized]
 		private int definedChannelCount;
 
-		// Token: 0x04000AF6 RID: 2806
+		// Token: 0x04000C19 RID: 3097
 		[NonSerialized]
 		private int[] definedChannels;
 
-		// Token: 0x04000AF7 RID: 2807
+		// Token: 0x04000C1A RID: 3098
 		[NonSerialized]
-		private AnimationBlender.TrackerBlender blender;
+		private global::AnimationBlender.TrackerBlender blender;
 
-		// Token: 0x04000AF8 RID: 2808
+		// Token: 0x04000C1B RID: 3099
 		[NonSerialized]
-		private AnimationBlender.Weighted<AnimationBlender.Channel>[] channels;
+		private global::AnimationBlender.Weighted<global::AnimationBlender.Channel>[] channels;
 
-		// Token: 0x04000AF9 RID: 2809
+		// Token: 0x04000C1C RID: 3100
 		[NonSerialized]
-		private AnimationBlender.Weighted<AnimationBlender.Tracker>[] trackers;
+		private global::AnimationBlender.Weighted<global::AnimationBlender.Tracker>[] trackers;
 
-		// Token: 0x04000AFA RID: 2810
+		// Token: 0x04000C1D RID: 3101
 		[NonSerialized]
 		private Dictionary<string, int> nameToChannel;
 
-		// Token: 0x04000AFB RID: 2811
+		// Token: 0x04000C1E RID: 3102
 		[NonSerialized]
-		private AnimationBlender.CurveInfo oneShotBlendIn;
+		private global::AnimationBlender.CurveInfo oneShotBlendIn;
 
-		// Token: 0x04000AFC RID: 2812
+		// Token: 0x04000C1F RID: 3103
 		[NonSerialized]
 		private bool hasOneShotBlendIn;
 
-		// Token: 0x04000AFD RID: 2813
+		// Token: 0x04000C20 RID: 3104
 		[NonSerialized]
 		private Queue<string> queuedAnimations = new Queue<string>();
 
-		// Token: 0x04000AFE RID: 2814
+		// Token: 0x04000C21 RID: 3105
 		[NonSerialized]
 		private float oneShotBlendInTime;
 
-		// Token: 0x04000AFF RID: 2815
+		// Token: 0x04000C22 RID: 3106
 		[NonSerialized]
 		private float sumWeight;
 
-		// Token: 0x04000B00 RID: 2816
+		// Token: 0x04000C23 RID: 3107
 		[NonSerialized]
 		private bool hasResidual;
 
-		// Token: 0x02000251 RID: 593
+		// Token: 0x02000284 RID: 644
 		private static class DbgGUI
 		{
-			// Token: 0x06001604 RID: 5636 RVA: 0x00052EB0 File Offset: 0x000510B0
+			// Token: 0x06001758 RID: 5976 RVA: 0x00057258 File Offset: 0x00055458
 			public static void Label(string str)
 			{
-				GUILayout.Label(str, AnimationBlender.Mixer.DbgGUI.Cell);
+				GUILayout.Label(str, global::AnimationBlender.Mixer.DbgGUI.Cell);
 			}
 
-			// Token: 0x06001605 RID: 5637 RVA: 0x00052EC0 File Offset: 0x000510C0
+			// Token: 0x06001759 RID: 5977 RVA: 0x00057268 File Offset: 0x00055468
 			public static void Fract(float frac)
 			{
-				GUILayout.HorizontalSlider(frac, 0f, 1f, AnimationBlender.Mixer.DbgGUI.Cell);
+				GUILayout.HorizontalSlider(frac, 0f, 1f, global::AnimationBlender.Mixer.DbgGUI.Cell);
 			}
 
-			// Token: 0x06001606 RID: 5638 RVA: 0x00052ED8 File Offset: 0x000510D8
+			// Token: 0x0600175A RID: 5978 RVA: 0x00057280 File Offset: 0x00055480
 			public static void ColumnNext()
 			{
 				GUILayout.EndVertical();
-				GUILayout.BeginVertical(AnimationBlender.Mixer.DbgGUI.OtherColumn);
+				GUILayout.BeginVertical(global::AnimationBlender.Mixer.DbgGUI.OtherColumn);
 			}
 
-			// Token: 0x06001607 RID: 5639 RVA: 0x00052EEC File Offset: 0x000510EC
+			// Token: 0x0600175B RID: 5979 RVA: 0x00057294 File Offset: 0x00055494
 			public static void TableStart(Rect rect)
 			{
 				GUILayout.BeginArea(rect);
 				GUILayout.BeginHorizontal(new GUILayoutOption[0]);
-				GUILayout.BeginVertical(AnimationBlender.Mixer.DbgGUI.FirstColumn);
+				GUILayout.BeginVertical(global::AnimationBlender.Mixer.DbgGUI.FirstColumn);
 			}
 
-			// Token: 0x06001608 RID: 5640 RVA: 0x00052F0C File Offset: 0x0005110C
+			// Token: 0x0600175C RID: 5980 RVA: 0x000572B4 File Offset: 0x000554B4
 			public static void TableEnd()
 			{
 				GUILayout.EndVertical();
@@ -1763,19 +1763,19 @@ public static class AnimationBlender
 				GUILayout.EndArea();
 			}
 
-			// Token: 0x04000B01 RID: 2817
+			// Token: 0x04000C24 RID: 3108
 			private static readonly GUILayoutOption[] Cell = new GUILayoutOption[]
 			{
 				GUILayout.Height(18f)
 			};
 
-			// Token: 0x04000B02 RID: 2818
+			// Token: 0x04000C25 RID: 3109
 			private static readonly GUILayoutOption[] FirstColumn = new GUILayoutOption[]
 			{
 				GUILayout.Width(128f)
 			};
 
-			// Token: 0x04000B03 RID: 2819
+			// Token: 0x04000C26 RID: 3110
 			private static readonly GUILayoutOption[] OtherColumn = new GUILayoutOption[]
 			{
 				GUILayout.ExpandWidth(true)

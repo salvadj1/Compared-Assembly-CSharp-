@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006E6 RID: 1766
+// Token: 0x020007B8 RID: 1976
 [AddComponentMenu("Daikon Forge/User Interface/Containers/Panel")]
 [ExecuteInEditMode]
 [Serializable]
-public class dfPanel : dfControl
+public class dfPanel : global::dfControl
 {
-	// Token: 0x17000C5B RID: 3163
-	// (get) Token: 0x06003F1A RID: 16154 RVA: 0x000EFA78 File Offset: 0x000EDC78
-	// (set) Token: 0x06003F1B RID: 16155 RVA: 0x000EFAC0 File Offset: 0x000EDCC0
-	public dfAtlas Atlas
+	// Token: 0x17000CDF RID: 3295
+	// (get) Token: 0x06004336 RID: 17206 RVA: 0x000F867C File Offset: 0x000F687C
+	// (set) Token: 0x06004337 RID: 17207 RVA: 0x000F86C4 File Offset: 0x000F68C4
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -26,7 +26,7 @@ public class dfPanel : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -34,9 +34,9 @@ public class dfPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C5C RID: 3164
-	// (get) Token: 0x06003F1C RID: 16156 RVA: 0x000EFAE0 File Offset: 0x000EDCE0
-	// (set) Token: 0x06003F1D RID: 16157 RVA: 0x000EFAE8 File Offset: 0x000EDCE8
+	// Token: 0x17000CE0 RID: 3296
+	// (get) Token: 0x06004338 RID: 17208 RVA: 0x000F86E4 File Offset: 0x000F68E4
+	// (set) Token: 0x06004339 RID: 17209 RVA: 0x000F86EC File Offset: 0x000F68EC
 	public string BackgroundSprite
 	{
 		get
@@ -54,9 +54,9 @@ public class dfPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C5D RID: 3165
-	// (get) Token: 0x06003F1E RID: 16158 RVA: 0x000EFB14 File Offset: 0x000EDD14
-	// (set) Token: 0x06003F1F RID: 16159 RVA: 0x000EFB1C File Offset: 0x000EDD1C
+	// Token: 0x17000CE1 RID: 3297
+	// (get) Token: 0x0600433A RID: 17210 RVA: 0x000F8718 File Offset: 0x000F6918
+	// (set) Token: 0x0600433B RID: 17211 RVA: 0x000F8720 File Offset: 0x000F6920
 	public Color32 BackgroundColor
 	{
 		get
@@ -73,9 +73,9 @@ public class dfPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C5E RID: 3166
-	// (get) Token: 0x06003F20 RID: 16160 RVA: 0x000EFB54 File Offset: 0x000EDD54
-	// (set) Token: 0x06003F21 RID: 16161 RVA: 0x000EFB74 File Offset: 0x000EDD74
+	// Token: 0x17000CE2 RID: 3298
+	// (get) Token: 0x0600433C RID: 17212 RVA: 0x000F8758 File Offset: 0x000F6958
+	// (set) Token: 0x0600433D RID: 17213 RVA: 0x000F8778 File Offset: 0x000F6978
 	public RectOffset Padding
 	{
 		get
@@ -97,14 +97,14 @@ public class dfPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003F22 RID: 16162 RVA: 0x000EFBA8 File Offset: 0x000EDDA8
+	// Token: 0x0600433E RID: 17214 RVA: 0x000F87AC File Offset: 0x000F69AC
 	protected internal override void OnLocalize()
 	{
 		base.OnLocalize();
 		this.BackgroundSprite = base.getLocalizedValue(this.backgroundSprite);
 	}
 
-	// Token: 0x06003F23 RID: 16163 RVA: 0x000EFBC4 File Offset: 0x000EDDC4
+	// Token: 0x0600433F RID: 17215 RVA: 0x000F87C8 File Offset: 0x000F69C8
 	protected internal override Plane[] GetClippingPlanes()
 	{
 		if (!base.ClipChildren)
@@ -130,7 +130,7 @@ public class dfPanel : dfControl
 		};
 	}
 
-	// Token: 0x06003F24 RID: 16164 RVA: 0x000EFD90 File Offset: 0x000EDF90
+	// Token: 0x06004340 RID: 17216 RVA: 0x000F8994 File Offset: 0x000F6B94
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -143,21 +143,21 @@ public class dfPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003F25 RID: 16165 RVA: 0x000EFDF4 File Offset: 0x000EDFF4
+	// Token: 0x06004341 RID: 17217 RVA: 0x000F89F8 File Offset: 0x000F6BF8
 	protected override void OnRebuildRenderData()
 	{
 		if (this.Atlas == null || string.IsNullOrEmpty(this.backgroundSprite))
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
 		if (itemInfo == null)
 		{
 			return;
 		}
 		this.renderData.Material = this.Atlas.Material;
 		Color32 color = base.ApplyOpacity(this.BackgroundColor);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -169,15 +169,15 @@ public class dfPanel : dfControl
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x06003F26 RID: 16166 RVA: 0x000EFF0C File Offset: 0x000EE10C
+	// Token: 0x06004342 RID: 17218 RVA: 0x000F8B10 File Offset: 0x000F6D10
 	public void FitToContents()
 	{
 		if (this.controls.Count == 0)
@@ -187,14 +187,14 @@ public class dfPanel : dfControl
 		Vector2 vector = Vector2.zero;
 		for (int i = 0; i < this.controls.Count; i++)
 		{
-			dfControl dfControl = this.controls[i];
+			global::dfControl dfControl = this.controls[i];
 			Vector2 vector2 = dfControl.RelativePosition + dfControl.Size;
 			vector = Vector2.Max(vector, vector2);
 		}
 		base.Size = vector + new Vector2((float)this.padding.right, (float)this.padding.bottom);
 	}
 
-	// Token: 0x06003F27 RID: 16167 RVA: 0x000EFFA4 File Offset: 0x000EE1A4
+	// Token: 0x06004343 RID: 17219 RVA: 0x000F8BA8 File Offset: 0x000F6DA8
 	public void CenterChildControls()
 	{
 		if (this.controls.Count == 0)
@@ -205,7 +205,7 @@ public class dfPanel : dfControl
 		Vector2 vector2 = Vector2.one * float.MinValue;
 		for (int i = 0; i < this.controls.Count; i++)
 		{
-			dfControl dfControl = this.controls[i];
+			global::dfControl dfControl = this.controls[i];
 			Vector2 vector3 = dfControl.RelativePosition;
 			Vector2 vector4 = vector3 + dfControl.Size;
 			vector = Vector2.Min(vector, vector3);
@@ -215,24 +215,24 @@ public class dfPanel : dfControl
 		Vector2 vector6 = (base.Size - vector5) * 0.5f;
 		for (int j = 0; j < this.controls.Count; j++)
 		{
-			dfControl dfControl2 = this.controls[j];
+			global::dfControl dfControl2 = this.controls[j];
 			dfControl2.RelativePosition = dfControl2.RelativePosition - vector + vector6;
 		}
 	}
 
-	// Token: 0x040021BD RID: 8637
+	// Token: 0x040023C6 RID: 9158
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x040021BE RID: 8638
+	// Token: 0x040023C7 RID: 9159
 	[SerializeField]
 	protected string backgroundSprite;
 
-	// Token: 0x040021BF RID: 8639
+	// Token: 0x040023C8 RID: 9160
 	[SerializeField]
 	protected Color32 backgroundColor = UnityEngine.Color.white;
 
-	// Token: 0x040021C0 RID: 8640
+	// Token: 0x040023C9 RID: 9161
 	[SerializeField]
 	protected RectOffset padding = new RectOffset();
 }

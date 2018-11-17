@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005B4 RID: 1460
-public interface IBasicHealthKit : IInventoryItem
+// Token: 0x02000672 RID: 1650
+public interface IBasicHealthKit : global::IInventoryItem
 {
 }

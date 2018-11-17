@@ -3,18 +3,18 @@ using Facepunch.Movement;
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x020000A8 RID: 168
-public class PlayerAnimation : IDLocalCharacter
+// Token: 0x020000BB RID: 187
+public class PlayerAnimation : global::IDLocalCharacter
 {
-	// Token: 0x1700008E RID: 142
-	// (get) Token: 0x060003A1 RID: 929 RVA: 0x000129C8 File Offset: 0x00010BC8
-	public Socket.LocalSpace itemAttachment
+	// Token: 0x170000A6 RID: 166
+	// (get) Token: 0x06000419 RID: 1049 RVA: 0x000141B8 File Offset: 0x000123B8
+	public global::Socket.LocalSpace itemAttachment
 	{
 		get
 		{
 			if (!this._madeItemAttachment && base.idMain)
 			{
-				Socket.ConfigBodyPart socket = base.GetTrait<CharacterItemAttachmentTrait>().socket;
+				global::Socket.ConfigBodyPart socket = base.GetTrait<global::CharacterItemAttachmentTrait>().socket;
 				if (socket == null)
 				{
 					return null;
@@ -25,7 +25,7 @@ public class PlayerAnimation : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x060003A2 RID: 930 RVA: 0x00012A28 File Offset: 0x00010C28
+	// Token: 0x0600041A RID: 1050 RVA: 0x00014218 File Offset: 0x00012418
 	private void OnDrawGizmosSelected()
 	{
 		if (this._itemAttachmentSocket != null)
@@ -34,80 +34,80 @@ public class PlayerAnimation : IDLocalCharacter
 		}
 		else
 		{
-			Socket.ConfigBodyPart socket = base.GetTrait<CharacterItemAttachmentTrait>().socket;
+			global::Socket.ConfigBodyPart socket = base.GetTrait<global::CharacterItemAttachmentTrait>().socket;
 			if (socket != null)
 			{
 				try
 				{
-					if (socket.Extract(ref PlayerAnimation.EditorHelper.tempSocketForGizmos, base.GetComponentInChildren<HitBoxSystem>()))
+					if (socket.Extract(ref global::PlayerAnimation.EditorHelper.tempSocketForGizmos, base.GetComponentInChildren<global::HitBoxSystem>()))
 					{
-						PlayerAnimation.EditorHelper.tempSocketForGizmos.DrawGizmos("itemAttachment");
+						global::PlayerAnimation.EditorHelper.tempSocketForGizmos.DrawGizmos("itemAttachment");
 					}
 				}
 				finally
 				{
-					if (PlayerAnimation.EditorHelper.tempSocketForGizmos != null)
+					if (global::PlayerAnimation.EditorHelper.tempSocketForGizmos != null)
 					{
-						PlayerAnimation.EditorHelper.tempSocketForGizmos.parent = null;
+						global::PlayerAnimation.EditorHelper.tempSocketForGizmos.parent = null;
 					}
 				}
 			}
 		}
 	}
 
-	// Token: 0x060003A3 RID: 931 RVA: 0x00012AC4 File Offset: 0x00010CC4
+	// Token: 0x0600041B RID: 1051 RVA: 0x000142B4 File Offset: 0x000124B4
 	[ContextMenu("Rebind Item Attachment")]
 	private void RebindItemAttachment()
 	{
 		if (this._itemAttachmentSocket != null)
 		{
-			this._itemAttachmentSocket.eulerRotate = base.GetTrait<CharacterItemAttachmentTrait>().socket.eulerRotate;
-			this._itemAttachmentSocket.offset = base.GetTrait<CharacterItemAttachmentTrait>().socket.offset;
+			this._itemAttachmentSocket.eulerRotate = base.GetTrait<global::CharacterItemAttachmentTrait>().socket.eulerRotate;
+			this._itemAttachmentSocket.offset = base.GetTrait<global::CharacterItemAttachmentTrait>().socket.offset;
 		}
 	}
 
-	// Token: 0x060003A4 RID: 932 RVA: 0x00012B14 File Offset: 0x00010D14
+	// Token: 0x0600041C RID: 1052 RVA: 0x00014304 File Offset: 0x00012504
 	private void Awake()
 	{
 		if (!this.animation && !(this.animation = base.animation))
 		{
 			Debug.LogError("There must be a animation component defined!", this);
 		}
-		this.animationTrait = base.GetTrait<CharacterAnimationTrait>();
+		this.animationTrait = base.GetTrait<global::CharacterAnimationTrait>();
 		if (!this.animationTrait.movementAnimationSetup.CreateSampler(this.animation, ref this.movement))
 		{
 			Debug.LogError("Failed to make movement sampler", this);
 		}
 	}
 
-	// Token: 0x060003A5 RID: 933 RVA: 0x00012B90 File Offset: 0x00010D90
+	// Token: 0x0600041D RID: 1053 RVA: 0x00014380 File Offset: 0x00012580
 	private void OnDestroy()
 	{
 		this.movement = null;
 	}
 
-	// Token: 0x060003A6 RID: 934 RVA: 0x00012B9C File Offset: 0x00010D9C
+	// Token: 0x0600041E RID: 1054 RVA: 0x0001438C File Offset: 0x0001258C
 	private void Start()
 	{
-		Character idMain = base.idMain;
+		global::Character idMain = base.idMain;
 		this.lastPos = ((!idMain) ? base.transform.position : idMain.origin);
 		this.lastPosPrecise.f = this.lastPos;
 	}
 
-	// Token: 0x060003A7 RID: 935 RVA: 0x00012BE8 File Offset: 0x00010DE8
+	// Token: 0x0600041F RID: 1055 RVA: 0x000143D8 File Offset: 0x000125D8
 	private void Update()
 	{
 		this.CalculateVelocity();
-		Character idMain = base.idMain;
+		global::Character idMain = base.idMain;
 		bool flag = idMain;
-		CharacterStateFlags characterStateFlags;
+		global::CharacterStateFlags characterStateFlags;
 		if (flag)
 		{
 			characterStateFlags = idMain.stateFlags;
 		}
 		else
 		{
-			characterStateFlags = default(CharacterStateFlags);
+			characterStateFlags = default(global::CharacterStateFlags);
 		}
 		bool flag2 = !characterStateFlags.grounded;
 		bool focus = characterStateFlags.focus;
@@ -219,11 +219,11 @@ public class PlayerAnimation : IDLocalCharacter
 		this.movement.SetWeights(this.animation, ref weights, ref this.times, num6);
 	}
 
-	// Token: 0x060003A8 RID: 936 RVA: 0x00013054 File Offset: 0x00011254
+	// Token: 0x06000420 RID: 1056 RVA: 0x00014844 File Offset: 0x00012A44
 	private void CalculateVelocity()
 	{
 		double num = (double)Time.time - (double)this.lastVelocityCalc;
-		Character idMain = base.idMain;
+		global::Character idMain = base.idMain;
 		Vector3 vector = (!idMain) ? base.transform.position : idMain.origin;
 		Vector3G vector3G;
 		vector3G..ctor(ref vector);
@@ -276,7 +276,7 @@ public class PlayerAnimation : IDLocalCharacter
 		this.localVelocity = this.localVelocityPrecise.f;
 	}
 
-	// Token: 0x060003A9 RID: 937 RVA: 0x0001338C File Offset: 0x0001158C
+	// Token: 0x06000421 RID: 1057 RVA: 0x00014B7C File Offset: 0x00012D7C
 	public bool PlayAnimation(GroupEvent GroupEvent, float animationSpeed, float animationTime)
 	{
 		if (this.movement == null)
@@ -316,128 +316,128 @@ public class PlayerAnimation : IDLocalCharacter
 		return false;
 	}
 
-	// Token: 0x060003AA RID: 938 RVA: 0x00013450 File Offset: 0x00011650
+	// Token: 0x06000422 RID: 1058 RVA: 0x00014C40 File Offset: 0x00012E40
 	public bool PlayAnimation(GroupEvent GroupEvent, float animationSpeed)
 	{
 		return this.PlayAnimation(GroupEvent, animationSpeed, 0f);
 	}
 
-	// Token: 0x060003AB RID: 939 RVA: 0x00013460 File Offset: 0x00011660
+	// Token: 0x06000423 RID: 1059 RVA: 0x00014C50 File Offset: 0x00012E50
 	public bool PlayAnimation(GroupEvent GroupEvent)
 	{
 		return this.PlayAnimation(GroupEvent, 1f, 0f);
 	}
 
-	// Token: 0x04000315 RID: 789
+	// Token: 0x04000380 RID: 896
 	public const double MIN_ANIM_SPEED = 0.05;
 
-	// Token: 0x04000316 RID: 790
+	// Token: 0x04000381 RID: 897
 	[PrefetchComponent]
 	public Animation animation;
 
-	// Token: 0x04000317 RID: 791
+	// Token: 0x04000382 RID: 898
 	[PrefetchComponent]
-	public InventoryHolder itemHolder;
+	public global::InventoryHolder itemHolder;
 
-	// Token: 0x04000318 RID: 792
+	// Token: 0x04000383 RID: 899
 	private Transform characterTransform;
 
-	// Token: 0x04000319 RID: 793
+	// Token: 0x04000384 RID: 900
 	private Vector3 localVelocity;
 
-	// Token: 0x0400031A RID: 794
+	// Token: 0x04000385 RID: 901
 	private Vector3 lastPos;
 
-	// Token: 0x0400031B RID: 795
+	// Token: 0x04000386 RID: 902
 	private Vector2 movementNormal;
 
-	// Token: 0x0400031C RID: 796
+	// Token: 0x04000387 RID: 903
 	private Vector4 times;
 
-	// Token: 0x0400031D RID: 797
+	// Token: 0x04000388 RID: 904
 	private Weights lastHeadingWeights;
 
-	// Token: 0x0400031E RID: 798
+	// Token: 0x04000389 RID: 905
 	private Weights baseDecay;
 
-	// Token: 0x0400031F RID: 799
+	// Token: 0x0400038A RID: 906
 	private Vector3G localVelocityPrecise;
 
-	// Token: 0x04000320 RID: 800
+	// Token: 0x0400038B RID: 907
 	private Vector3G lastPosPrecise;
 
-	// Token: 0x04000321 RID: 801
+	// Token: 0x0400038C RID: 908
 	private Vector2G movementNormalPrecise;
 
-	// Token: 0x04000322 RID: 802
+	// Token: 0x0400038D RID: 909
 	private double speedPrecise;
 
-	// Token: 0x04000323 RID: 803
+	// Token: 0x0400038E RID: 910
 	private double anglePrecise;
 
-	// Token: 0x04000324 RID: 804
+	// Token: 0x0400038F RID: 911
 	private double lastAngleSpeedPrecise;
 
-	// Token: 0x04000325 RID: 805
+	// Token: 0x04000390 RID: 912
 	private float speed;
 
-	// Token: 0x04000326 RID: 806
+	// Token: 0x04000391 RID: 913
 	private float angle;
 
-	// Token: 0x04000327 RID: 807
+	// Token: 0x04000392 RID: 914
 	private float positionTime;
 
-	// Token: 0x04000328 RID: 808
+	// Token: 0x04000393 RID: 915
 	private float lastUnitScale;
 
-	// Token: 0x04000329 RID: 809
+	// Token: 0x04000394 RID: 916
 	private float lastVelocityCalc;
 
-	// Token: 0x0400032A RID: 810
+	// Token: 0x04000395 RID: 917
 	private Sampler movement;
 
-	// Token: 0x0400032B RID: 811
+	// Token: 0x04000396 RID: 918
 	private bool wasAirborne;
 
-	// Token: 0x0400032C RID: 812
+	// Token: 0x04000397 RID: 919
 	private bool decaying;
 
-	// Token: 0x0400032D RID: 813
+	// Token: 0x04000398 RID: 920
 	private Configuration configuration;
 
-	// Token: 0x0400032E RID: 814
+	// Token: 0x04000399 RID: 921
 	[NonSerialized]
 	private string idealGroupName;
 
-	// Token: 0x0400032F RID: 815
+	// Token: 0x0400039A RID: 922
 	[NonSerialized]
 	private string usingGroupName;
 
-	// Token: 0x04000330 RID: 816
+	// Token: 0x0400039B RID: 923
 	[NonSerialized]
 	private int usingGroupIndex;
 
-	// Token: 0x04000331 RID: 817
+	// Token: 0x0400039C RID: 924
 	[NonSerialized]
-	private CharacterAnimationTrait animationTrait;
+	private global::CharacterAnimationTrait animationTrait;
 
-	// Token: 0x04000332 RID: 818
+	// Token: 0x0400039D RID: 925
 	private bool _madeItemAttachment;
 
-	// Token: 0x04000333 RID: 819
+	// Token: 0x0400039E RID: 926
 	private int group_unarmed;
 
-	// Token: 0x04000334 RID: 820
+	// Token: 0x0400039F RID: 927
 	private int group_armed = 1;
 
-	// Token: 0x04000335 RID: 821
+	// Token: 0x040003A0 RID: 928
 	[NonSerialized]
-	private Socket.LocalSpace _itemAttachmentSocket;
+	private global::Socket.LocalSpace _itemAttachmentSocket;
 
-	// Token: 0x020000A9 RID: 169
+	// Token: 0x020000BC RID: 188
 	private static class EditorHelper
 	{
-		// Token: 0x04000336 RID: 822
-		public static Socket.LocalSpace tempSocketForGizmos;
+		// Token: 0x040003A1 RID: 929
+		public static global::Socket.LocalSpace tempSocketForGizmos;
 	}
 }

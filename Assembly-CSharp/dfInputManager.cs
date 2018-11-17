@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// Token: 0x020006D1 RID: 1745
+// Token: 0x020007A0 RID: 1952
 [AddComponentMenu("Daikon Forge/User Interface/Input Manager")]
 [Serializable]
 public class dfInputManager : MonoBehaviour
 {
-	// Token: 0x17000C06 RID: 3078
-	// (get) Token: 0x06003D9D RID: 15773 RVA: 0x000E89D4 File Offset: 0x000E6BD4
-	public static dfControl ControlUnderMouse
+	// Token: 0x17000C8A RID: 3210
+	// (get) Token: 0x060041B4 RID: 16820 RVA: 0x000F1578 File Offset: 0x000EF778
+	public static global::dfControl ControlUnderMouse
 	{
 		get
 		{
-			return dfInputManager.controlUnderMouse;
+			return global::dfInputManager.controlUnderMouse;
 		}
 	}
 
-	// Token: 0x17000C07 RID: 3079
-	// (get) Token: 0x06003D9E RID: 15774 RVA: 0x000E89DC File Offset: 0x000E6BDC
-	// (set) Token: 0x06003D9F RID: 15775 RVA: 0x000E89E4 File Offset: 0x000E6BE4
+	// Token: 0x17000C8B RID: 3211
+	// (get) Token: 0x060041B5 RID: 16821 RVA: 0x000F1580 File Offset: 0x000EF780
+	// (set) Token: 0x060041B6 RID: 16822 RVA: 0x000F1588 File Offset: 0x000EF788
 	public Camera RenderCamera
 	{
 		get
@@ -33,9 +33,9 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C08 RID: 3080
-	// (get) Token: 0x06003DA0 RID: 15776 RVA: 0x000E89F0 File Offset: 0x000E6BF0
-	// (set) Token: 0x06003DA1 RID: 15777 RVA: 0x000E89F8 File Offset: 0x000E6BF8
+	// Token: 0x17000C8C RID: 3212
+	// (get) Token: 0x060041B7 RID: 16823 RVA: 0x000F1594 File Offset: 0x000EF794
+	// (set) Token: 0x060041B8 RID: 16824 RVA: 0x000F159C File Offset: 0x000EF79C
 	public bool UseTouch
 	{
 		get
@@ -48,9 +48,9 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C09 RID: 3081
-	// (get) Token: 0x06003DA2 RID: 15778 RVA: 0x000E8A04 File Offset: 0x000E6C04
-	// (set) Token: 0x06003DA3 RID: 15779 RVA: 0x000E8A0C File Offset: 0x000E6C0C
+	// Token: 0x17000C8D RID: 3213
+	// (get) Token: 0x060041B9 RID: 16825 RVA: 0x000F15A8 File Offset: 0x000EF7A8
+	// (set) Token: 0x060041BA RID: 16826 RVA: 0x000F15B0 File Offset: 0x000EF7B0
 	public int TouchClickRadius
 	{
 		get
@@ -63,9 +63,9 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C0A RID: 3082
-	// (get) Token: 0x06003DA4 RID: 15780 RVA: 0x000E8A1C File Offset: 0x000E6C1C
-	// (set) Token: 0x06003DA5 RID: 15781 RVA: 0x000E8A24 File Offset: 0x000E6C24
+	// Token: 0x17000C8E RID: 3214
+	// (get) Token: 0x060041BB RID: 16827 RVA: 0x000F15C0 File Offset: 0x000EF7C0
+	// (set) Token: 0x060041BC RID: 16828 RVA: 0x000F15C8 File Offset: 0x000EF7C8
 	public bool UseJoystick
 	{
 		get
@@ -78,9 +78,9 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C0B RID: 3083
-	// (get) Token: 0x06003DA6 RID: 15782 RVA: 0x000E8A30 File Offset: 0x000E6C30
-	// (set) Token: 0x06003DA7 RID: 15783 RVA: 0x000E8A38 File Offset: 0x000E6C38
+	// Token: 0x17000C8F RID: 3215
+	// (get) Token: 0x060041BD RID: 16829 RVA: 0x000F15D4 File Offset: 0x000EF7D4
+	// (set) Token: 0x060041BE RID: 16830 RVA: 0x000F15DC File Offset: 0x000EF7DC
 	public KeyCode JoystickClickButton
 	{
 		get
@@ -93,9 +93,9 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C0C RID: 3084
-	// (get) Token: 0x06003DA8 RID: 15784 RVA: 0x000E8A44 File Offset: 0x000E6C44
-	// (set) Token: 0x06003DA9 RID: 15785 RVA: 0x000E8A4C File Offset: 0x000E6C4C
+	// Token: 0x17000C90 RID: 3216
+	// (get) Token: 0x060041BF RID: 16831 RVA: 0x000F15E8 File Offset: 0x000EF7E8
+	// (set) Token: 0x060041C0 RID: 16832 RVA: 0x000F15F0 File Offset: 0x000EF7F0
 	public string HorizontalAxis
 	{
 		get
@@ -108,9 +108,9 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C0D RID: 3085
-	// (get) Token: 0x06003DAA RID: 15786 RVA: 0x000E8A58 File Offset: 0x000E6C58
-	// (set) Token: 0x06003DAB RID: 15787 RVA: 0x000E8A60 File Offset: 0x000E6C60
+	// Token: 0x17000C91 RID: 3217
+	// (get) Token: 0x060041C1 RID: 16833 RVA: 0x000F15FC File Offset: 0x000EF7FC
+	// (set) Token: 0x060041C2 RID: 16834 RVA: 0x000F1604 File Offset: 0x000EF804
 	public string VerticalAxis
 	{
 		get
@@ -123,10 +123,10 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C0E RID: 3086
-	// (get) Token: 0x06003DAC RID: 15788 RVA: 0x000E8A6C File Offset: 0x000E6C6C
-	// (set) Token: 0x06003DAD RID: 15789 RVA: 0x000E8A74 File Offset: 0x000E6C74
-	public IInputAdapter Adapter
+	// Token: 0x17000C92 RID: 3218
+	// (get) Token: 0x060041C3 RID: 16835 RVA: 0x000F1610 File Offset: 0x000EF810
+	// (set) Token: 0x060041C4 RID: 16836 RVA: 0x000F1618 File Offset: 0x000EF818
+	public global::IInputAdapter Adapter
 	{
 		get
 		{
@@ -134,13 +134,13 @@ public class dfInputManager : MonoBehaviour
 		}
 		set
 		{
-			this.adapter = (value ?? new dfInputManager.DefaultInput());
+			this.adapter = (value ?? new global::dfInputManager.DefaultInput());
 		}
 	}
 
-	// Token: 0x17000C0F RID: 3087
-	// (get) Token: 0x06003DAE RID: 15790 RVA: 0x000E8A8C File Offset: 0x000E6C8C
-	// (set) Token: 0x06003DAF RID: 15791 RVA: 0x000E8A94 File Offset: 0x000E6C94
+	// Token: 0x17000C93 RID: 3219
+	// (get) Token: 0x060041C5 RID: 16837 RVA: 0x000F1630 File Offset: 0x000EF830
+	// (set) Token: 0x060041C6 RID: 16838 RVA: 0x000F1638 File Offset: 0x000EF838
 	public bool RetainFocus
 	{
 		get
@@ -153,37 +153,37 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003DB0 RID: 15792 RVA: 0x000E8AA0 File Offset: 0x000E6CA0
+	// Token: 0x060041C7 RID: 16839 RVA: 0x000F1644 File Offset: 0x000EF844
 	public void Awake()
 	{
 	}
 
-	// Token: 0x06003DB1 RID: 15793 RVA: 0x000E8AA4 File Offset: 0x000E6CA4
+	// Token: 0x060041C8 RID: 16840 RVA: 0x000F1648 File Offset: 0x000EF848
 	public void Start()
 	{
 	}
 
-	// Token: 0x06003DB2 RID: 15794 RVA: 0x000E8AA8 File Offset: 0x000E6CA8
+	// Token: 0x060041C9 RID: 16841 RVA: 0x000F164C File Offset: 0x000EF84C
 	public void OnEnable()
 	{
-		this.mouseHandler = new dfInputManager.MouseInputManager();
+		this.mouseHandler = new global::dfInputManager.MouseInputManager();
 		if (this.adapter == null)
 		{
 			Component component = (from c in base.GetComponents(typeof(MonoBehaviour))
-			where typeof(IInputAdapter).IsAssignableFrom(c.GetType())
+			where typeof(global::IInputAdapter).IsAssignableFrom(c.GetType())
 			select c).FirstOrDefault<Component>();
-			this.adapter = (((IInputAdapter)component) ?? new dfInputManager.DefaultInput());
+			this.adapter = (((global::IInputAdapter)component) ?? new global::dfInputManager.DefaultInput());
 		}
 	}
 
-	// Token: 0x06003DB3 RID: 15795 RVA: 0x000E8B1C File Offset: 0x000E6D1C
+	// Token: 0x060041CA RID: 16842 RVA: 0x000F16C0 File Offset: 0x000EF8C0
 	public void Update()
 	{
 		if (!Application.isPlaying)
 		{
 			return;
 		}
-		dfControl activeControl = dfGUIManager.ActiveControl;
+		global::dfControl activeControl = global::dfGUIManager.ActiveControl;
 		this.processMouseInput();
 		if (activeControl == null)
 		{
@@ -195,9 +195,9 @@ public class dfInputManager : MonoBehaviour
 		}
 		if (this.useJoystick)
 		{
-			for (int i = 0; i < dfInputManager.wasd.Length; i++)
+			for (int i = 0; i < global::dfInputManager.wasd.Length; i++)
 			{
-				if (Input.GetKey(dfInputManager.wasd[i]) || Input.GetKeyDown(dfInputManager.wasd[i]) || Input.GetKeyUp(dfInputManager.wasd[i]))
+				if (Input.GetKey(global::dfInputManager.wasd[i]) || Input.GetKeyDown(global::dfInputManager.wasd[i]) || Input.GetKeyUp(global::dfInputManager.wasd[i]))
 				{
 					return;
 				}
@@ -206,7 +206,7 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003DB4 RID: 15796 RVA: 0x000E8BB8 File Offset: 0x000E6DB8
+	// Token: 0x060041CB RID: 16843 RVA: 0x000F175C File Offset: 0x000EF95C
 	public void OnGUI()
 	{
 		Event current = Event.current;
@@ -221,12 +221,12 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003DB5 RID: 15797 RVA: 0x000E8C04 File Offset: 0x000E6E04
+	// Token: 0x060041CC RID: 16844 RVA: 0x000F17A8 File Offset: 0x000EF9A8
 	private void processJoystick()
 	{
 		try
 		{
-			dfControl activeControl = dfGUIManager.ActiveControl;
+			global::dfControl activeControl = global::dfGUIManager.ActiveControl;
 			if (!(activeControl == null) && activeControl.transform.IsChildOf(base.transform))
 			{
 				float axis = this.adapter.GetAxis(this.horizontalAxis);
@@ -241,13 +241,13 @@ public class dfInputManager : MonoBehaviour
 					{
 						this.lastAxisCheck = Time.realtimeSinceStartup;
 						KeyCode key = (axis <= 0f) ? 276 : 275;
-						activeControl.OnKeyDown(new dfKeyEventArgs(activeControl, key, false, false, false));
+						activeControl.OnKeyDown(new global::dfKeyEventArgs(activeControl, key, false, false, false));
 					}
 					if (Mathf.Abs(axis2) >= 0.5f)
 					{
 						this.lastAxisCheck = Time.realtimeSinceStartup;
 						KeyCode key2 = (axis2 <= 0f) ? 274 : 273;
-						activeControl.OnKeyDown(new dfKeyEventArgs(activeControl, key2, false, false, false));
+						activeControl.OnKeyDown(new global::dfKeyEventArgs(activeControl, key2, false, false, false));
 					}
 				}
 				if (this.joystickClickButton != null)
@@ -258,7 +258,7 @@ public class dfInputManager : MonoBehaviour
 						Vector3 center = activeControl.GetCenter();
 						Camera camera = activeControl.GetCamera();
 						Ray ray = camera.ScreenPointToRay(camera.WorldToScreenPoint(center));
-						dfMouseEventArgs args = new dfMouseEventArgs(activeControl, dfMouseButtons.Left, 0, ray, center, 0f);
+						global::dfMouseEventArgs args = new global::dfMouseEventArgs(activeControl, global::dfMouseButtons.Left, 0, ray, center, 0f);
 						activeControl.OnMouseDown(args);
 						this.buttonDownTarget = activeControl;
 					}
@@ -272,7 +272,7 @@ public class dfInputManager : MonoBehaviour
 						Vector3 center2 = activeControl.GetCenter();
 						Camera camera2 = activeControl.GetCamera();
 						Ray ray2 = camera2.ScreenPointToRay(camera2.WorldToScreenPoint(center2));
-						dfMouseEventArgs args2 = new dfMouseEventArgs(activeControl, dfMouseButtons.Left, 0, ray2, center2, 0f);
+						global::dfMouseEventArgs args2 = new global::dfMouseEventArgs(activeControl, global::dfMouseButtons.Left, 0, ray2, center2, 0f);
 						activeControl.OnMouseUp(args2);
 						this.buttonDownTarget = null;
 					}
@@ -282,7 +282,7 @@ public class dfInputManager : MonoBehaviour
 					bool keyDown2 = this.adapter.GetKeyDown(keyCode);
 					if (keyDown2)
 					{
-						activeControl.OnKeyDown(new dfKeyEventArgs(activeControl, keyCode, false, false, false));
+						activeControl.OnKeyDown(new global::dfKeyEventArgs(activeControl, keyCode, false, false, false));
 					}
 				}
 			}
@@ -294,10 +294,10 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003DB6 RID: 15798 RVA: 0x000E8EA4 File Offset: 0x000E70A4
+	// Token: 0x060041CD RID: 16845 RVA: 0x000F1A48 File Offset: 0x000EFC48
 	private void processKeyEvent(EventType eventType, KeyCode keyCode, EventModifiers modifiers)
 	{
-		dfControl activeControl = dfGUIManager.ActiveControl;
+		global::dfControl activeControl = global::dfGUIManager.ActiveControl;
 		if (activeControl == null || !activeControl.IsEnabled || !activeControl.transform.IsChildOf(base.transform))
 		{
 			return;
@@ -305,7 +305,7 @@ public class dfInputManager : MonoBehaviour
 		bool control = (modifiers & 2) == 2;
 		bool flag = (modifiers & 1) == 1;
 		bool alt = (modifiers & 4) == 4;
-		dfKeyEventArgs dfKeyEventArgs = new dfKeyEventArgs(activeControl, keyCode, control, flag, alt);
+		global::dfKeyEventArgs dfKeyEventArgs = new global::dfKeyEventArgs(activeControl, keyCode, control, flag, alt);
 		if (keyCode >= 32 && keyCode <= 122)
 		{
 			char c = keyCode;
@@ -325,10 +325,10 @@ public class dfInputManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003DB7 RID: 15799 RVA: 0x000E8F74 File Offset: 0x000E7174
+	// Token: 0x060041CE RID: 16846 RVA: 0x000F1B18 File Offset: 0x000EFD18
 	private bool processKeyboard()
 	{
-		dfControl activeControl = dfGUIManager.ActiveControl;
+		global::dfControl activeControl = global::dfGUIManager.ActiveControl;
 		if (activeControl == null || string.IsNullOrEmpty(Input.inputString) || !activeControl.transform.IsChildOf(base.transform))
 		{
 			return false;
@@ -338,7 +338,7 @@ public class dfInputManager : MonoBehaviour
 			if (c != '\b' && c != '\n')
 			{
 				KeyCode key = c;
-				activeControl.OnKeyPress(new dfKeyEventArgs(activeControl, key, false, false, false)
+				activeControl.OnKeyPress(new global::dfKeyEventArgs(activeControl, key, false, false, false)
 				{
 					Character = c
 				});
@@ -347,41 +347,41 @@ public class dfInputManager : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06003DB8 RID: 15800 RVA: 0x000E9014 File Offset: 0x000E7214
+	// Token: 0x060041CF RID: 16847 RVA: 0x000F1BB8 File Offset: 0x000EFDB8
 	private void processMouseInput()
 	{
 		Vector2 mousePosition = this.adapter.GetMousePosition();
 		Ray ray = this.renderCamera.ScreenPointToRay(mousePosition);
 		float num = this.renderCamera.farClipPlane - this.renderCamera.nearClipPlane;
 		RaycastHit[] array = Physics.RaycastAll(ray, num, this.renderCamera.cullingMask);
-		Array.Sort<RaycastHit>(array, new Comparison<RaycastHit>(dfInputManager.raycastHitSorter));
-		dfInputManager.controlUnderMouse = this.clipCast(array);
-		this.mouseHandler.ProcessInput(this.adapter, ray, dfInputManager.controlUnderMouse, this.retainFocus);
+		Array.Sort<RaycastHit>(array, new Comparison<RaycastHit>(global::dfInputManager.raycastHitSorter));
+		global::dfInputManager.controlUnderMouse = this.clipCast(array);
+		this.mouseHandler.ProcessInput(this.adapter, ray, global::dfInputManager.controlUnderMouse, this.retainFocus);
 	}
 
-	// Token: 0x06003DB9 RID: 15801 RVA: 0x000E90A8 File Offset: 0x000E72A8
+	// Token: 0x060041D0 RID: 16848 RVA: 0x000F1C4C File Offset: 0x000EFE4C
 	internal static int raycastHitSorter(RaycastHit lhs, RaycastHit rhs)
 	{
 		return lhs.distance.CompareTo(rhs.distance);
 	}
 
-	// Token: 0x06003DBA RID: 15802 RVA: 0x000E90CC File Offset: 0x000E72CC
-	internal dfControl clipCast(RaycastHit[] hits)
+	// Token: 0x060041D1 RID: 16849 RVA: 0x000F1C70 File Offset: 0x000EFE70
+	internal global::dfControl clipCast(RaycastHit[] hits)
 	{
 		if (hits == null || hits.Length == 0)
 		{
 			return null;
 		}
-		dfControl dfControl = null;
-		dfControl modalControl = dfGUIManager.GetModalControl();
+		global::dfControl dfControl = null;
+		global::dfControl modalControl = global::dfGUIManager.GetModalControl();
 		for (int i = hits.Length - 1; i >= 0; i--)
 		{
 			RaycastHit hit = hits[i];
-			dfControl component = hit.transform.GetComponent<dfControl>();
-			bool flag = component == null || (modalControl != null && !component.transform.IsChildOf(modalControl.transform)) || !component.enabled || dfInputManager.combinedOpacity(component) <= 0.01f || !component.IsEnabled || !component.IsVisible || !component.transform.IsChildOf(base.transform);
+			global::dfControl component = hit.transform.GetComponent<global::dfControl>();
+			bool flag = component == null || (modalControl != null && !component.transform.IsChildOf(modalControl.transform)) || !component.enabled || global::dfInputManager.combinedOpacity(component) <= 0.01f || !component.IsEnabled || !component.IsVisible || !component.transform.IsChildOf(base.transform);
 			if (!flag)
 			{
-				if (dfInputManager.isInsideClippingRegion(hit, component) && (dfControl == null || component.RenderOrder > dfControl.RenderOrder))
+				if (global::dfInputManager.isInsideClippingRegion(hit, component) && (dfControl == null || component.RenderOrder > dfControl.RenderOrder))
 				{
 					dfControl = component;
 				}
@@ -390,8 +390,8 @@ public class dfInputManager : MonoBehaviour
 		return dfControl;
 	}
 
-	// Token: 0x06003DBB RID: 15803 RVA: 0x000E91DC File Offset: 0x000E73DC
-	internal static bool isInsideClippingRegion(RaycastHit hit, dfControl control)
+	// Token: 0x060041D2 RID: 16850 RVA: 0x000F1D80 File Offset: 0x000EFF80
+	internal static bool isInsideClippingRegion(RaycastHit hit, global::dfControl control)
 	{
 		Vector3 point = hit.point;
 		while (control != null)
@@ -412,8 +412,8 @@ public class dfInputManager : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06003DBC RID: 15804 RVA: 0x000E925C File Offset: 0x000E745C
-	private static float combinedOpacity(dfControl control)
+	// Token: 0x060041D3 RID: 16851 RVA: 0x000F1E00 File Offset: 0x000F0000
+	private static float combinedOpacity(global::dfControl control)
 	{
 		float num = 1f;
 		while (control != null)
@@ -424,7 +424,7 @@ public class dfInputManager : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x04002070 RID: 8304
+	// Token: 0x04002275 RID: 8821
 	private static KeyCode[] wasd = new KeyCode[]
 	{
 		119,
@@ -437,73 +437,73 @@ public class dfInputManager : MonoBehaviour
 		274
 	};
 
-	// Token: 0x04002071 RID: 8305
-	private static dfControl controlUnderMouse = null;
+	// Token: 0x04002276 RID: 8822
+	private static global::dfControl controlUnderMouse = null;
 
-	// Token: 0x04002072 RID: 8306
+	// Token: 0x04002277 RID: 8823
 	[SerializeField]
 	protected Camera renderCamera;
 
-	// Token: 0x04002073 RID: 8307
+	// Token: 0x04002278 RID: 8824
 	[SerializeField]
 	protected bool useTouch = true;
 
-	// Token: 0x04002074 RID: 8308
+	// Token: 0x04002279 RID: 8825
 	[SerializeField]
 	protected bool useJoystick;
 
-	// Token: 0x04002075 RID: 8309
+	// Token: 0x0400227A RID: 8826
 	[SerializeField]
 	protected KeyCode joystickClickButton = 351;
 
-	// Token: 0x04002076 RID: 8310
+	// Token: 0x0400227B RID: 8827
 	[SerializeField]
 	protected string horizontalAxis = "Horizontal";
 
-	// Token: 0x04002077 RID: 8311
+	// Token: 0x0400227C RID: 8828
 	[SerializeField]
 	protected string verticalAxis = "Vertical";
 
-	// Token: 0x04002078 RID: 8312
+	// Token: 0x0400227D RID: 8829
 	[SerializeField]
 	protected float axisPollingInterval = 0.15f;
 
-	// Token: 0x04002079 RID: 8313
+	// Token: 0x0400227E RID: 8830
 	[SerializeField]
 	protected bool retainFocus;
 
-	// Token: 0x0400207A RID: 8314
+	// Token: 0x0400227F RID: 8831
 	[SerializeField]
 	protected int touchClickRadius = 20;
 
-	// Token: 0x0400207B RID: 8315
-	private dfControl buttonDownTarget;
+	// Token: 0x04002280 RID: 8832
+	private global::dfControl buttonDownTarget;
 
-	// Token: 0x0400207C RID: 8316
-	private dfInputManager.MouseInputManager mouseHandler;
+	// Token: 0x04002281 RID: 8833
+	private global::dfInputManager.MouseInputManager mouseHandler;
 
-	// Token: 0x0400207D RID: 8317
-	private IInputAdapter adapter;
+	// Token: 0x04002282 RID: 8834
+	private global::IInputAdapter adapter;
 
-	// Token: 0x0400207E RID: 8318
+	// Token: 0x04002283 RID: 8835
 	private float lastAxisCheck;
 
-	// Token: 0x020006D2 RID: 1746
+	// Token: 0x020007A1 RID: 1953
 	private class TouchInputManager
 	{
-		// Token: 0x06003DBE RID: 15806 RVA: 0x000E92AC File Offset: 0x000E74AC
+		// Token: 0x060041D5 RID: 16853 RVA: 0x000F1E50 File Offset: 0x000F0050
 		private TouchInputManager()
 		{
 		}
 
-		// Token: 0x06003DBF RID: 15807 RVA: 0x000E92CC File Offset: 0x000E74CC
-		public TouchInputManager(dfInputManager manager)
+		// Token: 0x060041D6 RID: 16854 RVA: 0x000F1E70 File Offset: 0x000F0070
+		public TouchInputManager(global::dfInputManager manager)
 		{
 			this.manager = manager;
 		}
 
-		// Token: 0x06003DC0 RID: 15808 RVA: 0x000E92F4 File Offset: 0x000E74F4
-		internal void Process(Transform transform, Camera renderCamera, dfList<Touch> touches, bool retainFocus)
+		// Token: 0x060041D7 RID: 16855 RVA: 0x000F1E98 File Offset: 0x000F0098
+		internal void Process(Transform transform, Camera renderCamera, global::dfList<Touch> touches, bool retainFocus)
 		{
 			for (int i = 0; i < touches.Count; i++)
 			{
@@ -511,8 +511,8 @@ public class dfInputManager : MonoBehaviour
 				Ray ray = renderCamera.ScreenPointToRay(touch.position);
 				float num = renderCamera.farClipPlane - renderCamera.nearClipPlane;
 				RaycastHit[] hits = Physics.RaycastAll(ray, num, renderCamera.cullingMask);
-				dfInputManager.controlUnderMouse = this.clipCast(transform, hits);
-				if (dfInputManager.controlUnderMouse == null && touch.phase == null)
+				global::dfInputManager.controlUnderMouse = this.clipCast(transform, hits);
+				if (global::dfInputManager.controlUnderMouse == null && touch.phase == null)
 				{
 					this.untracked.Add(touch.fingerId);
 				}
@@ -525,8 +525,8 @@ public class dfInputManager : MonoBehaviour
 				}
 				else
 				{
-					dfInputManager.TouchInputManager.TouchRaycast info = new dfInputManager.TouchInputManager.TouchRaycast(dfInputManager.controlUnderMouse, touch, ray);
-					dfInputManager.TouchInputManager.ControlTouchTracker controlTouchTracker = this.tracked.FirstOrDefault((dfInputManager.TouchInputManager.ControlTouchTracker x) => x.IsTrackingFinger(info.FingerID));
+					global::dfInputManager.TouchInputManager.TouchRaycast info = new global::dfInputManager.TouchInputManager.TouchRaycast(global::dfInputManager.controlUnderMouse, touch, ray);
+					global::dfInputManager.TouchInputManager.ControlTouchTracker controlTouchTracker = this.tracked.FirstOrDefault((global::dfInputManager.TouchInputManager.ControlTouchTracker x) => x.IsTrackingFinger(info.FingerID));
 					if (controlTouchTracker != null)
 					{
 						controlTouchTracker.Process(info);
@@ -542,15 +542,15 @@ public class dfInputManager : MonoBehaviour
 								break;
 							}
 						}
-						if (!flag && dfInputManager.controlUnderMouse != null)
+						if (!flag && global::dfInputManager.controlUnderMouse != null)
 						{
-							if (!this.tracked.Any((dfInputManager.TouchInputManager.ControlTouchTracker x) => x.control == dfInputManager.controlUnderMouse))
+							if (!this.tracked.Any((global::dfInputManager.TouchInputManager.ControlTouchTracker x) => x.control == global::dfInputManager.controlUnderMouse))
 							{
-								if (dfInputManager.controlUnderMouse == null)
+								if (global::dfInputManager.controlUnderMouse == null)
 								{
 									Debug.Log("Tracking touch with no control: " + touch.fingerId);
 								}
-								dfInputManager.TouchInputManager.ControlTouchTracker controlTouchTracker2 = new dfInputManager.TouchInputManager.ControlTouchTracker(this.manager, dfInputManager.controlUnderMouse);
+								global::dfInputManager.TouchInputManager.ControlTouchTracker controlTouchTracker2 = new global::dfInputManager.TouchInputManager.ControlTouchTracker(this.manager, global::dfInputManager.controlUnderMouse);
 								this.tracked.Add(controlTouchTracker2);
 								controlTouchTracker2.Process(info);
 							}
@@ -560,19 +560,19 @@ public class dfInputManager : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06003DC1 RID: 15809 RVA: 0x000E9504 File Offset: 0x000E7704
-		private dfControl clipCast(Transform transform, RaycastHit[] hits)
+		// Token: 0x060041D8 RID: 16856 RVA: 0x000F20A8 File Offset: 0x000F02A8
+		private global::dfControl clipCast(Transform transform, RaycastHit[] hits)
 		{
 			if (hits == null || hits.Length == 0)
 			{
 				return null;
 			}
-			dfControl dfControl = null;
-			dfControl modalControl = dfGUIManager.GetModalControl();
+			global::dfControl dfControl = null;
+			global::dfControl modalControl = global::dfGUIManager.GetModalControl();
 			for (int i = hits.Length - 1; i >= 0; i--)
 			{
 				RaycastHit hit = hits[i];
-				dfControl component = hit.transform.GetComponent<dfControl>();
+				global::dfControl component = hit.transform.GetComponent<global::dfControl>();
 				bool flag = component == null || (modalControl != null && !component.transform.IsChildOf(modalControl.transform)) || !component.enabled || component.Opacity < 0.01f || !component.IsEnabled || !component.IsVisible || !component.transform.IsChildOf(transform);
 				if (!flag)
 				{
@@ -585,8 +585,8 @@ public class dfInputManager : MonoBehaviour
 			return dfControl;
 		}
 
-		// Token: 0x06003DC2 RID: 15810 RVA: 0x000E9610 File Offset: 0x000E7810
-		private bool isInsideClippingRegion(RaycastHit hit, dfControl control)
+		// Token: 0x060041D9 RID: 16857 RVA: 0x000F21B4 File Offset: 0x000F03B4
+		private bool isInsideClippingRegion(RaycastHit hit, global::dfControl control)
 		{
 			Vector3 point = hit.point;
 			while (control != null)
@@ -607,37 +607,37 @@ public class dfInputManager : MonoBehaviour
 			return true;
 		}
 
-		// Token: 0x04002080 RID: 8320
-		private List<dfInputManager.TouchInputManager.ControlTouchTracker> tracked = new List<dfInputManager.TouchInputManager.ControlTouchTracker>();
+		// Token: 0x04002285 RID: 8837
+		private List<global::dfInputManager.TouchInputManager.ControlTouchTracker> tracked = new List<global::dfInputManager.TouchInputManager.ControlTouchTracker>();
 
-		// Token: 0x04002081 RID: 8321
+		// Token: 0x04002286 RID: 8838
 		private List<int> untracked = new List<int>();
 
-		// Token: 0x04002082 RID: 8322
-		private dfInputManager manager;
+		// Token: 0x04002287 RID: 8839
+		private global::dfInputManager manager;
 
-		// Token: 0x020006D3 RID: 1747
+		// Token: 0x020007A2 RID: 1954
 		private class ControlTouchTracker
 		{
-			// Token: 0x06003DC4 RID: 15812 RVA: 0x000E96A4 File Offset: 0x000E78A4
-			public ControlTouchTracker(dfInputManager manager, dfControl control)
+			// Token: 0x060041DB RID: 16859 RVA: 0x000F2248 File Offset: 0x000F0448
+			public ControlTouchTracker(global::dfInputManager manager, global::dfControl control)
 			{
 				this.manager = manager;
 				this.control = control;
 			}
 
-			// Token: 0x17000C10 RID: 3088
-			// (get) Token: 0x06003DC5 RID: 15813 RVA: 0x000E96DC File Offset: 0x000E78DC
+			// Token: 0x17000C94 RID: 3220
+			// (get) Token: 0x060041DC RID: 16860 RVA: 0x000F2280 File Offset: 0x000F0480
 			public bool IsDragging
 			{
 				get
 				{
-					return this.dragState == dfDragDropState.Dragging;
+					return this.dragState == global::dfDragDropState.Dragging;
 				}
 			}
 
-			// Token: 0x17000C11 RID: 3089
-			// (get) Token: 0x06003DC6 RID: 15814 RVA: 0x000E96E8 File Offset: 0x000E78E8
+			// Token: 0x17000C95 RID: 3221
+			// (get) Token: 0x060041DD RID: 16861 RVA: 0x000F228C File Offset: 0x000F048C
 			public int TouchCount
 			{
 				get
@@ -646,14 +646,14 @@ public class dfInputManager : MonoBehaviour
 				}
 			}
 
-			// Token: 0x06003DC7 RID: 15815 RVA: 0x000E96F8 File Offset: 0x000E78F8
+			// Token: 0x060041DE RID: 16862 RVA: 0x000F229C File Offset: 0x000F049C
 			public bool IsTrackingFinger(int fingerID)
 			{
 				return this.touches.ContainsKey(fingerID);
 			}
 
-			// Token: 0x06003DC8 RID: 15816 RVA: 0x000E9708 File Offset: 0x000E7908
-			public bool Process(dfInputManager.TouchInputManager.TouchRaycast info)
+			// Token: 0x060041DF RID: 16863 RVA: 0x000F22AC File Offset: 0x000F04AC
+			public bool Process(global::dfInputManager.TouchInputManager.TouchRaycast info)
 			{
 				if (this.IsDragging)
 				{
@@ -667,8 +667,8 @@ public class dfInputManager : MonoBehaviour
 					}
 					if (info.Phase == 4)
 					{
-						this.control.OnDragEnd(new dfDragEventArgs(this.control, dfDragDropState.Cancelled, this.dragData, info.ray, info.position));
-						this.dragState = dfDragDropState.None;
+						this.control.OnDragEnd(new global::dfDragEventArgs(this.control, global::dfDragDropState.Cancelled, this.dragData, info.ray, info.position));
+						this.dragState = global::dfDragDropState.None;
 						this.touches.Clear();
 						this.capture.Clear();
 						return true;
@@ -679,22 +679,22 @@ public class dfInputManager : MonoBehaviour
 					}
 					if (info.control == null || info.control == this.control)
 					{
-						this.control.OnDragEnd(new dfDragEventArgs(this.control, dfDragDropState.CancelledNoTarget, this.dragData, info.ray, info.position));
-						this.dragState = dfDragDropState.None;
+						this.control.OnDragEnd(new global::dfDragEventArgs(this.control, global::dfDragDropState.CancelledNoTarget, this.dragData, info.ray, info.position));
+						this.dragState = global::dfDragDropState.None;
 						this.touches.Clear();
 						this.capture.Clear();
 						return true;
 					}
-					dfDragEventArgs dfDragEventArgs = new dfDragEventArgs(info.control, dfDragDropState.Dragging, this.dragData, info.ray, info.position);
+					global::dfDragEventArgs dfDragEventArgs = new global::dfDragEventArgs(info.control, global::dfDragDropState.Dragging, this.dragData, info.ray, info.position);
 					info.control.OnDragDrop(dfDragEventArgs);
-					if (!dfDragEventArgs.Used || dfDragEventArgs.State != dfDragDropState.Dropped)
+					if (!dfDragEventArgs.Used || dfDragEventArgs.State != global::dfDragDropState.Dropped)
 					{
-						dfDragEventArgs.State = dfDragDropState.Cancelled;
+						dfDragEventArgs.State = global::dfDragDropState.Cancelled;
 					}
-					dfDragEventArgs dfDragEventArgs2 = new dfDragEventArgs(this.control, dfDragEventArgs.State, this.dragData, info.ray, info.position);
+					global::dfDragEventArgs dfDragEventArgs2 = new global::dfDragEventArgs(this.control, dfDragEventArgs.State, this.dragData, info.ray, info.position);
 					dfDragEventArgs2.Target = info.control;
 					this.control.OnDragEnd(dfDragEventArgs2);
-					this.dragState = dfDragDropState.None;
+					this.dragState = global::dfDragDropState.None;
 					this.touches.Clear();
 					this.capture.Clear();
 					return true;
@@ -721,7 +721,7 @@ public class dfInputManager : MonoBehaviour
 						this.control.OnMouseUp(info);
 						this.control.OnMouseLeave(info);
 						List<Touch> activeTouches = this.getActiveTouches();
-						dfTouchEventArgs args = new dfTouchEventArgs(this.control, activeTouches, info.ray);
+						global::dfTouchEventArgs args = new global::dfTouchEventArgs(this.control, activeTouches, info.ray);
 						this.control.OnMultiTouch(args);
 					}
 					return true;
@@ -730,7 +730,7 @@ public class dfInputManager : MonoBehaviour
 				{
 					if (info.Phase == 4 || info.Phase == 3)
 					{
-						dfInputManager.TouchInputManager.TouchRaycast touch = this.touches[info.FingerID];
+						global::dfInputManager.TouchInputManager.TouchRaycast touch = this.touches[info.FingerID];
 						this.touches.Remove(info.FingerID);
 						if (this.touches.Count == 0)
 						{
@@ -756,7 +756,7 @@ public class dfInputManager : MonoBehaviour
 						this.capture.Remove(info.FingerID);
 						if (this.touches.Count == 1)
 						{
-							dfTouchEventArgs args2 = this.touches.Values.First<dfInputManager.TouchInputManager.TouchRaycast>();
+							global::dfTouchEventArgs args2 = this.touches.Values.First<global::dfInputManager.TouchInputManager.TouchRaycast>();
 							this.control.OnMouseEnter(args2);
 							this.control.OnMouseDown(args2);
 							return true;
@@ -765,7 +765,7 @@ public class dfInputManager : MonoBehaviour
 					if (this.touches.Count > 1)
 					{
 						List<Touch> activeTouches2 = this.getActiveTouches();
-						dfTouchEventArgs args3 = new dfTouchEventArgs(this.control, activeTouches2, info.ray);
+						global::dfTouchEventArgs args3 = new global::dfTouchEventArgs(this.control, activeTouches2, info.ray);
 						this.control.OnMultiTouch(args3);
 						return true;
 					}
@@ -780,18 +780,18 @@ public class dfInputManager : MonoBehaviour
 					}
 					else
 					{
-						bool flag = this.capture.Contains(info.FingerID) && this.dragState == dfDragDropState.None && info.Phase == 1;
+						bool flag = this.capture.Contains(info.FingerID) && this.dragState == global::dfDragDropState.None && info.Phase == 1;
 						if (flag)
 						{
-							dfDragEventArgs dfDragEventArgs3 = info;
+							global::dfDragEventArgs dfDragEventArgs3 = info;
 							this.control.OnDragStart(dfDragEventArgs3);
-							if (dfDragEventArgs3.State == dfDragDropState.Dragging && dfDragEventArgs3.Used)
+							if (dfDragEventArgs3.State == global::dfDragDropState.Dragging && dfDragEventArgs3.Used)
 							{
-								this.dragState = dfDragDropState.Dragging;
+								this.dragState = global::dfDragDropState.Dragging;
 								this.dragData = dfDragEventArgs3.Data;
 								return true;
 							}
-							this.dragState = dfDragDropState.Denied;
+							this.dragState = global::dfDragDropState.Denied;
 						}
 						if (info.control != this.control && !this.capture.Contains(info.FingerID))
 						{
@@ -805,8 +805,8 @@ public class dfInputManager : MonoBehaviour
 				}
 			}
 
-			// Token: 0x06003DC9 RID: 15817 RVA: 0x000E9C50 File Offset: 0x000E7E50
-			private bool canFireClickEvent(dfInputManager.TouchInputManager.TouchRaycast info, dfInputManager.TouchInputManager.TouchRaycast touch)
+			// Token: 0x060041E0 RID: 16864 RVA: 0x000F27F4 File Offset: 0x000F09F4
+			private bool canFireClickEvent(global::dfInputManager.TouchInputManager.TouchRaycast info, global::dfInputManager.TouchInputManager.TouchRaycast touch)
 			{
 				if (this.manager.TouchClickRadius <= 0)
 				{
@@ -816,10 +816,10 @@ public class dfInputManager : MonoBehaviour
 				return num < (float)this.manager.TouchClickRadius;
 			}
 
-			// Token: 0x06003DCA RID: 15818 RVA: 0x000E9C94 File Offset: 0x000E7E94
+			// Token: 0x060041E1 RID: 16865 RVA: 0x000F2838 File Offset: 0x000F0A38
 			private List<Touch> getActiveTouches()
 			{
-				dfInputManager.TouchInputManager.ControlTouchTracker.<getActiveTouches>c__AnonStorey57 <getActiveTouches>c__AnonStorey = new dfInputManager.TouchInputManager.ControlTouchTracker.<getActiveTouches>c__AnonStorey57();
+				global::dfInputManager.TouchInputManager.ControlTouchTracker.<getActiveTouches>c__AnonStorey56 <getActiveTouches>c__AnonStorey = new global::dfInputManager.TouchInputManager.ControlTouchTracker.<getActiveTouches>c__AnonStorey56();
 				Touch[] source = Input.touches;
 				<getActiveTouches>c__AnonStorey.result = (from x in this.touches
 				select x.Value.touch).ToList<Touch>();
@@ -831,30 +831,30 @@ public class dfInputManager : MonoBehaviour
 				return <getActiveTouches>c__AnonStorey.result;
 			}
 
-			// Token: 0x04002084 RID: 8324
-			public dfControl control;
+			// Token: 0x04002289 RID: 8841
+			public global::dfControl control;
 
-			// Token: 0x04002085 RID: 8325
-			public Dictionary<int, dfInputManager.TouchInputManager.TouchRaycast> touches = new Dictionary<int, dfInputManager.TouchInputManager.TouchRaycast>();
+			// Token: 0x0400228A RID: 8842
+			public Dictionary<int, global::dfInputManager.TouchInputManager.TouchRaycast> touches = new Dictionary<int, global::dfInputManager.TouchInputManager.TouchRaycast>();
 
-			// Token: 0x04002086 RID: 8326
+			// Token: 0x0400228B RID: 8843
 			public List<int> capture = new List<int>();
 
-			// Token: 0x04002087 RID: 8327
-			private dfInputManager manager;
+			// Token: 0x0400228C RID: 8844
+			private global::dfInputManager manager;
 
-			// Token: 0x04002088 RID: 8328
-			private dfDragDropState dragState;
+			// Token: 0x0400228D RID: 8845
+			private global::dfDragDropState dragState;
 
-			// Token: 0x04002089 RID: 8329
+			// Token: 0x0400228E RID: 8846
 			private object dragData;
 		}
 
-		// Token: 0x020006D4 RID: 1748
+		// Token: 0x020007A5 RID: 1957
 		private class TouchRaycast
 		{
-			// Token: 0x06003DCC RID: 15820 RVA: 0x000E9D58 File Offset: 0x000E7F58
-			public TouchRaycast(dfControl control, Touch touch, Ray ray)
+			// Token: 0x060041E6 RID: 16870 RVA: 0x000F2940 File Offset: 0x000F0B40
+			public TouchRaycast(global::dfControl control, Touch touch, Ray ray)
 			{
 				this.control = control;
 				this.touch = touch;
@@ -862,8 +862,8 @@ public class dfInputManager : MonoBehaviour
 				this.position = touch.position;
 			}
 
-			// Token: 0x17000C12 RID: 3090
-			// (get) Token: 0x06003DCD RID: 15821 RVA: 0x000E9D90 File Offset: 0x000E7F90
+			// Token: 0x17000C96 RID: 3222
+			// (get) Token: 0x060041E7 RID: 16871 RVA: 0x000F2978 File Offset: 0x000F0B78
 			public int FingerID
 			{
 				get
@@ -872,8 +872,8 @@ public class dfInputManager : MonoBehaviour
 				}
 			}
 
-			// Token: 0x17000C13 RID: 3091
-			// (get) Token: 0x06003DCE RID: 15822 RVA: 0x000E9DA0 File Offset: 0x000E7FA0
+			// Token: 0x17000C97 RID: 3223
+			// (get) Token: 0x060041E8 RID: 16872 RVA: 0x000F2988 File Offset: 0x000F0B88
 			public TouchPhase Phase
 			{
 				get
@@ -882,43 +882,43 @@ public class dfInputManager : MonoBehaviour
 				}
 			}
 
-			// Token: 0x06003DCF RID: 15823 RVA: 0x000E9DB0 File Offset: 0x000E7FB0
-			public static implicit operator dfTouchEventArgs(dfInputManager.TouchInputManager.TouchRaycast touch)
+			// Token: 0x060041E9 RID: 16873 RVA: 0x000F2998 File Offset: 0x000F0B98
+			public static implicit operator global::dfTouchEventArgs(global::dfInputManager.TouchInputManager.TouchRaycast touch)
 			{
-				return new dfTouchEventArgs(touch.control, touch.touch, touch.ray);
+				return new global::dfTouchEventArgs(touch.control, touch.touch, touch.ray);
 			}
 
-			// Token: 0x06003DD0 RID: 15824 RVA: 0x000E9DD8 File Offset: 0x000E7FD8
-			public static implicit operator dfDragEventArgs(dfInputManager.TouchInputManager.TouchRaycast touch)
+			// Token: 0x060041EA RID: 16874 RVA: 0x000F29C0 File Offset: 0x000F0BC0
+			public static implicit operator global::dfDragEventArgs(global::dfInputManager.TouchInputManager.TouchRaycast touch)
 			{
-				return new dfDragEventArgs(touch.control, dfDragDropState.None, null, touch.ray, touch.position);
+				return new global::dfDragEventArgs(touch.control, global::dfDragDropState.None, null, touch.ray, touch.position);
 			}
 
-			// Token: 0x0400208B RID: 8331
-			public dfControl control;
+			// Token: 0x04002293 RID: 8851
+			public global::dfControl control;
 
-			// Token: 0x0400208C RID: 8332
+			// Token: 0x04002294 RID: 8852
 			public Touch touch;
 
-			// Token: 0x0400208D RID: 8333
+			// Token: 0x04002295 RID: 8853
 			public Ray ray;
 
-			// Token: 0x0400208E RID: 8334
+			// Token: 0x04002296 RID: 8854
 			public Vector2 position;
 		}
 	}
 
-	// Token: 0x020006D5 RID: 1749
+	// Token: 0x020007A7 RID: 1959
 	private class MouseInputManager
 	{
-		// Token: 0x06003DD2 RID: 15826 RVA: 0x000E9E34 File Offset: 0x000E8034
-		public void ProcessInput(IInputAdapter adapter, Ray ray, dfControl control, bool retainFocusSetting)
+		// Token: 0x060041EE RID: 16878 RVA: 0x000F2A38 File Offset: 0x000F0C38
+		public void ProcessInput(global::IInputAdapter adapter, Ray ray, global::dfControl control, bool retainFocusSetting)
 		{
 			Vector2 mousePosition = adapter.GetMousePosition();
-			this.buttonsDown = dfMouseButtons.None;
-			this.buttonsReleased = dfMouseButtons.None;
-			this.buttonsPressed = dfMouseButtons.None;
-			dfInputManager.MouseInputManager.getMouseButtonInfo(adapter, ref this.buttonsDown, ref this.buttonsReleased, ref this.buttonsPressed);
+			this.buttonsDown = global::dfMouseButtons.None;
+			this.buttonsReleased = global::dfMouseButtons.None;
+			this.buttonsPressed = global::dfMouseButtons.None;
+			global::dfInputManager.MouseInputManager.getMouseButtonInfo(adapter, ref this.buttonsDown, ref this.buttonsReleased, ref this.buttonsPressed);
 			float num = adapter.GetAxis("Mouse ScrollWheel");
 			if (!Mathf.Approximately(num, 0f))
 			{
@@ -926,29 +926,29 @@ public class dfInputManager : MonoBehaviour
 			}
 			this.mouseMoveDelta = mousePosition - this.lastPosition;
 			this.lastPosition = mousePosition;
-			if (this.dragState == dfDragDropState.Dragging)
+			if (this.dragState == global::dfDragDropState.Dragging)
 			{
-				if (this.buttonsReleased != dfMouseButtons.None)
+				if (this.buttonsReleased != global::dfMouseButtons.None)
 				{
 					if (control != null && control != this.activeControl)
 					{
-						dfDragEventArgs dfDragEventArgs = new dfDragEventArgs(control, dfDragDropState.Dragging, this.dragData, ray, mousePosition);
+						global::dfDragEventArgs dfDragEventArgs = new global::dfDragEventArgs(control, global::dfDragDropState.Dragging, this.dragData, ray, mousePosition);
 						control.OnDragDrop(dfDragEventArgs);
-						if (!dfDragEventArgs.Used || dfDragEventArgs.State == dfDragDropState.Dragging)
+						if (!dfDragEventArgs.Used || dfDragEventArgs.State == global::dfDragDropState.Dragging)
 						{
-							dfDragEventArgs.State = dfDragDropState.Cancelled;
+							dfDragEventArgs.State = global::dfDragDropState.Cancelled;
 						}
-						dfDragEventArgs = new dfDragEventArgs(this.activeControl, dfDragEventArgs.State, dfDragEventArgs.Data, ray, mousePosition);
+						dfDragEventArgs = new global::dfDragEventArgs(this.activeControl, dfDragEventArgs.State, dfDragEventArgs.Data, ray, mousePosition);
 						dfDragEventArgs.Target = control;
 						this.activeControl.OnDragEnd(dfDragEventArgs);
 					}
 					else
 					{
-						dfDragDropState state = (!(control == null)) ? dfDragDropState.Cancelled : dfDragDropState.CancelledNoTarget;
-						dfDragEventArgs args = new dfDragEventArgs(this.activeControl, state, this.dragData, ray, mousePosition);
+						global::dfDragDropState state = (!(control == null)) ? global::dfDragDropState.Cancelled : global::dfDragDropState.CancelledNoTarget;
+						global::dfDragEventArgs args = new global::dfDragEventArgs(this.activeControl, state, this.dragData, ray, mousePosition);
 						this.activeControl.OnDragEnd(args);
 					}
-					this.dragState = dfDragDropState.None;
+					this.dragState = global::dfDragDropState.None;
 					this.lastDragControl = null;
 					this.activeControl = null;
 					this.lastClickTime = 0f;
@@ -964,12 +964,12 @@ public class dfInputManager : MonoBehaviour
 				{
 					if (this.lastDragControl != null)
 					{
-						dfDragEventArgs args2 = new dfDragEventArgs(this.lastDragControl, this.dragState, this.dragData, ray, mousePosition);
+						global::dfDragEventArgs args2 = new global::dfDragEventArgs(this.lastDragControl, this.dragState, this.dragData, ray, mousePosition);
 						this.lastDragControl.OnDragLeave(args2);
 					}
 					if (control != null)
 					{
-						dfDragEventArgs args3 = new dfDragEventArgs(control, this.dragState, this.dragData, ray, mousePosition);
+						global::dfDragEventArgs args3 = new global::dfDragEventArgs(control, this.dragState, this.dragData, ray, mousePosition);
 						control.OnDragEnter(args3);
 					}
 					this.lastDragControl = control;
@@ -977,12 +977,12 @@ public class dfInputManager : MonoBehaviour
 				}
 				if (control != null && Vector2.Distance(mousePosition, this.lastPosition) > 1f)
 				{
-					dfDragEventArgs args4 = new dfDragEventArgs(control, this.dragState, this.dragData, ray, mousePosition);
+					global::dfDragEventArgs args4 = new global::dfDragEventArgs(control, this.dragState, this.dragData, ray, mousePosition);
 					control.OnDragOver(args4);
 				}
 				return;
 			}
-			else if (this.buttonsReleased != dfMouseButtons.None)
+			else if (this.buttonsReleased != global::dfMouseButtons.None)
 			{
 				this.lastHoverTime = Time.realtimeSinceStartup + 0.25f;
 				if (this.activeControl == null)
@@ -990,21 +990,21 @@ public class dfInputManager : MonoBehaviour
 					this.setActive(control, mousePosition, ray);
 					return;
 				}
-				if (this.activeControl == control && this.buttonsDown == dfMouseButtons.None)
+				if (this.activeControl == control && this.buttonsDown == global::dfMouseButtons.None)
 				{
 					if (Time.realtimeSinceStartup - this.lastClickTime < 0.25f)
 					{
 						this.lastClickTime = 0f;
-						this.activeControl.OnDoubleClick(new dfMouseEventArgs(this.activeControl, this.buttonsReleased, 1, ray, mousePosition, num));
+						this.activeControl.OnDoubleClick(new global::dfMouseEventArgs(this.activeControl, this.buttonsReleased, 1, ray, mousePosition, num));
 					}
 					else
 					{
 						this.lastClickTime = Time.realtimeSinceStartup;
-						this.activeControl.OnClick(new dfMouseEventArgs(this.activeControl, this.buttonsReleased, 1, ray, mousePosition, num));
+						this.activeControl.OnClick(new global::dfMouseEventArgs(this.activeControl, this.buttonsReleased, 1, ray, mousePosition, num));
 					}
 				}
-				this.activeControl.OnMouseUp(new dfMouseEventArgs(this.activeControl, this.buttonsReleased, 0, ray, mousePosition, num));
-				if (this.buttonsDown == dfMouseButtons.None && this.activeControl != control)
+				this.activeControl.OnMouseUp(new global::dfMouseEventArgs(this.activeControl, this.buttonsReleased, 0, ray, mousePosition, num));
+				if (this.buttonsDown == global::dfMouseButtons.None && this.activeControl != control)
 				{
 					this.setActive(null, mousePosition, ray);
 				}
@@ -1012,23 +1012,23 @@ public class dfInputManager : MonoBehaviour
 			}
 			else
 			{
-				if (this.buttonsPressed != dfMouseButtons.None)
+				if (this.buttonsPressed != global::dfMouseButtons.None)
 				{
 					this.lastHoverTime = Time.realtimeSinceStartup + 0.25f;
 					if (this.activeControl != null)
 					{
-						this.activeControl.OnMouseDown(new dfMouseEventArgs(this.activeControl, this.buttonsPressed, 0, ray, mousePosition, num));
+						this.activeControl.OnMouseDown(new global::dfMouseEventArgs(this.activeControl, this.buttonsPressed, 0, ray, mousePosition, num));
 					}
 					else
 					{
 						this.setActive(control, mousePosition, ray);
 						if (control != null)
 						{
-							control.OnMouseDown(new dfMouseEventArgs(control, this.buttonsPressed, 0, ray, mousePosition, num));
+							control.OnMouseDown(new global::dfMouseEventArgs(control, this.buttonsPressed, 0, ray, mousePosition, num));
 						}
 						else if (!retainFocusSetting)
 						{
-							dfControl dfControl = dfGUIManager.ActiveControl;
+							global::dfControl dfControl = global::dfGUIManager.ActiveControl;
 							if (dfControl != null)
 							{
 								dfControl.Unfocus();
@@ -1039,15 +1039,15 @@ public class dfInputManager : MonoBehaviour
 				}
 				if (this.activeControl != null && this.activeControl == control && this.mouseMoveDelta.magnitude == 0f && Time.realtimeSinceStartup - this.lastHoverTime > 0.1f)
 				{
-					this.activeControl.OnMouseHover(new dfMouseEventArgs(this.activeControl, this.buttonsDown, 0, ray, mousePosition, num));
+					this.activeControl.OnMouseHover(new global::dfMouseEventArgs(this.activeControl, this.buttonsDown, 0, ray, mousePosition, num));
 					this.lastHoverTime = Time.realtimeSinceStartup;
 				}
-				if (this.buttonsDown == dfMouseButtons.None)
+				if (this.buttonsDown == global::dfMouseButtons.None)
 				{
 					if (num != 0f && control != null)
 					{
 						this.setActive(control, mousePosition, ray);
-						control.OnMouseWheel(new dfMouseEventArgs(control, this.buttonsDown, 0, ray, mousePosition, num));
+						control.OnMouseWheel(new global::dfMouseEventArgs(control, this.buttonsDown, 0, ray, mousePosition, num));
 						return;
 					}
 					this.setActive(control, mousePosition, ray);
@@ -1057,25 +1057,25 @@ public class dfInputManager : MonoBehaviour
 					if (!(control != null) || control.RenderOrder > this.activeControl.RenderOrder)
 					{
 					}
-					if (this.mouseMoveDelta.magnitude >= 2f && (this.buttonsDown & (dfMouseButtons.Left | dfMouseButtons.Right)) != dfMouseButtons.None && this.dragState != dfDragDropState.Denied)
+					if (this.mouseMoveDelta.magnitude >= 2f && (this.buttonsDown & (global::dfMouseButtons.Left | global::dfMouseButtons.Right)) != global::dfMouseButtons.None && this.dragState != global::dfDragDropState.Denied)
 					{
-						dfDragEventArgs dfDragEventArgs2 = new dfDragEventArgs(this.activeControl)
+						global::dfDragEventArgs dfDragEventArgs2 = new global::dfDragEventArgs(this.activeControl)
 						{
 							Position = mousePosition
 						};
 						this.activeControl.OnDragStart(dfDragEventArgs2);
-						if (dfDragEventArgs2.State == dfDragDropState.Dragging)
+						if (dfDragEventArgs2.State == global::dfDragDropState.Dragging)
 						{
-							this.dragState = dfDragDropState.Dragging;
+							this.dragState = global::dfDragDropState.Dragging;
 							this.dragData = dfDragEventArgs2.Data;
 							return;
 						}
-						this.dragState = dfDragDropState.Denied;
+						this.dragState = global::dfDragDropState.Denied;
 					}
 				}
 				if (this.activeControl != null && this.mouseMoveDelta.magnitude >= 1f)
 				{
-					dfMouseEventArgs args5 = new dfMouseEventArgs(this.activeControl, this.buttonsDown, 0, ray, mousePosition, num)
+					global::dfMouseEventArgs args5 = new global::dfMouseEventArgs(this.activeControl, this.buttonsDown, 0, ray, mousePosition, num)
 					{
 						MoveDelta = this.mouseMoveDelta
 					};
@@ -1085,32 +1085,32 @@ public class dfInputManager : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06003DD3 RID: 15827 RVA: 0x000EA420 File Offset: 0x000E8620
-		private static void getMouseButtonInfo(IInputAdapter adapter, ref dfMouseButtons buttonsDown, ref dfMouseButtons buttonsReleased, ref dfMouseButtons buttonsPressed)
+		// Token: 0x060041EF RID: 16879 RVA: 0x000F3024 File Offset: 0x000F1224
+		private static void getMouseButtonInfo(global::IInputAdapter adapter, ref global::dfMouseButtons buttonsDown, ref global::dfMouseButtons buttonsReleased, ref global::dfMouseButtons buttonsPressed)
 		{
 			for (int i = 0; i < 3; i++)
 			{
 				if (adapter.GetMouseButton(i))
 				{
-					buttonsDown |= (dfMouseButtons)(1 << i);
+					buttonsDown |= (global::dfMouseButtons)(1 << i);
 				}
 				if (adapter.GetMouseButtonUp(i))
 				{
-					buttonsReleased |= (dfMouseButtons)(1 << i);
+					buttonsReleased |= (global::dfMouseButtons)(1 << i);
 				}
 				if (adapter.GetMouseButtonDown(i))
 				{
-					buttonsPressed |= (dfMouseButtons)(1 << i);
+					buttonsPressed |= (global::dfMouseButtons)(1 << i);
 				}
 			}
 		}
 
-		// Token: 0x06003DD4 RID: 15828 RVA: 0x000EA484 File Offset: 0x000E8684
-		private void setActive(dfControl control, Vector2 position, Ray ray)
+		// Token: 0x060041F0 RID: 16880 RVA: 0x000F3088 File Offset: 0x000F1288
+		private void setActive(global::dfControl control, Vector2 position, Ray ray)
 		{
 			if (this.activeControl != null && this.activeControl != control)
 			{
-				this.activeControl.OnMouseLeave(new dfMouseEventArgs(this.activeControl)
+				this.activeControl.OnMouseLeave(new global::dfMouseEventArgs(this.activeControl)
 				{
 					Position = position,
 					Ray = ray
@@ -1120,7 +1120,7 @@ public class dfInputManager : MonoBehaviour
 			{
 				this.lastClickTime = 0f;
 				this.lastHoverTime = Time.realtimeSinceStartup + 0.25f;
-				control.OnMouseEnter(new dfMouseEventArgs(control)
+				control.OnMouseEnter(new global::dfMouseEventArgs(control)
 				{
 					Position = position,
 					Ray = ray
@@ -1128,98 +1128,98 @@ public class dfInputManager : MonoBehaviour
 			}
 			this.activeControl = control;
 			this.lastPosition = position;
-			this.dragState = dfDragDropState.None;
+			this.dragState = global::dfDragDropState.None;
 		}
 
-		// Token: 0x0400208F RID: 8335
+		// Token: 0x04002298 RID: 8856
 		private const string scrollAxisName = "Mouse ScrollWheel";
 
-		// Token: 0x04002090 RID: 8336
+		// Token: 0x04002299 RID: 8857
 		private const float DOUBLECLICK_TIME = 0.25f;
 
-		// Token: 0x04002091 RID: 8337
+		// Token: 0x0400229A RID: 8858
 		private const int DRAG_START_DELTA = 2;
 
-		// Token: 0x04002092 RID: 8338
+		// Token: 0x0400229B RID: 8859
 		private const float HOVER_NOTIFICATION_FREQUENCY = 0.1f;
 
-		// Token: 0x04002093 RID: 8339
+		// Token: 0x0400229C RID: 8860
 		private const float HOVER_NOTIFICATION_BEGIN = 0.25f;
 
-		// Token: 0x04002094 RID: 8340
-		private dfControl activeControl;
+		// Token: 0x0400229D RID: 8861
+		private global::dfControl activeControl;
 
-		// Token: 0x04002095 RID: 8341
+		// Token: 0x0400229E RID: 8862
 		private Vector2 lastPosition = Vector2.one * -2.14748365E+09f;
 
-		// Token: 0x04002096 RID: 8342
+		// Token: 0x0400229F RID: 8863
 		private Vector2 mouseMoveDelta = Vector2.zero;
 
-		// Token: 0x04002097 RID: 8343
+		// Token: 0x040022A0 RID: 8864
 		private float lastClickTime;
 
-		// Token: 0x04002098 RID: 8344
+		// Token: 0x040022A1 RID: 8865
 		private float lastHoverTime;
 
-		// Token: 0x04002099 RID: 8345
-		private dfDragDropState dragState;
+		// Token: 0x040022A2 RID: 8866
+		private global::dfDragDropState dragState;
 
-		// Token: 0x0400209A RID: 8346
+		// Token: 0x040022A3 RID: 8867
 		private object dragData;
 
-		// Token: 0x0400209B RID: 8347
-		private dfControl lastDragControl;
+		// Token: 0x040022A4 RID: 8868
+		private global::dfControl lastDragControl;
 
-		// Token: 0x0400209C RID: 8348
-		private dfMouseButtons buttonsDown;
+		// Token: 0x040022A5 RID: 8869
+		private global::dfMouseButtons buttonsDown;
 
-		// Token: 0x0400209D RID: 8349
-		private dfMouseButtons buttonsReleased;
+		// Token: 0x040022A6 RID: 8870
+		private global::dfMouseButtons buttonsReleased;
 
-		// Token: 0x0400209E RID: 8350
-		private dfMouseButtons buttonsPressed;
+		// Token: 0x040022A7 RID: 8871
+		private global::dfMouseButtons buttonsPressed;
 	}
 
-	// Token: 0x020006D6 RID: 1750
-	private class DefaultInput : IInputAdapter
+	// Token: 0x020007A8 RID: 1960
+	private class DefaultInput : global::IInputAdapter
 	{
-		// Token: 0x06003DD6 RID: 15830 RVA: 0x000EA54C File Offset: 0x000E874C
+		// Token: 0x060041F2 RID: 16882 RVA: 0x000F3150 File Offset: 0x000F1350
 		public bool GetKeyDown(KeyCode key)
 		{
 			return Input.GetKeyDown(key);
 		}
 
-		// Token: 0x06003DD7 RID: 15831 RVA: 0x000EA554 File Offset: 0x000E8754
+		// Token: 0x060041F3 RID: 16883 RVA: 0x000F3158 File Offset: 0x000F1358
 		public bool GetKeyUp(KeyCode key)
 		{
 			return Input.GetKeyUp(key);
 		}
 
-		// Token: 0x06003DD8 RID: 15832 RVA: 0x000EA55C File Offset: 0x000E875C
+		// Token: 0x060041F4 RID: 16884 RVA: 0x000F3160 File Offset: 0x000F1360
 		public float GetAxis(string axisName)
 		{
 			return Input.GetAxis(axisName);
 		}
 
-		// Token: 0x06003DD9 RID: 15833 RVA: 0x000EA564 File Offset: 0x000E8764
+		// Token: 0x060041F5 RID: 16885 RVA: 0x000F3168 File Offset: 0x000F1368
 		public Vector2 GetMousePosition()
 		{
 			return Input.mousePosition;
 		}
 
-		// Token: 0x06003DDA RID: 15834 RVA: 0x000EA570 File Offset: 0x000E8770
+		// Token: 0x060041F6 RID: 16886 RVA: 0x000F3174 File Offset: 0x000F1374
 		public bool GetMouseButton(int button)
 		{
 			return Input.GetMouseButton(button);
 		}
 
-		// Token: 0x06003DDB RID: 15835 RVA: 0x000EA578 File Offset: 0x000E8778
+		// Token: 0x060041F7 RID: 16887 RVA: 0x000F317C File Offset: 0x000F137C
 		public bool GetMouseButtonDown(int button)
 		{
 			return Input.GetMouseButtonDown(button);
 		}
 
-		// Token: 0x06003DDC RID: 15836 RVA: 0x000EA580 File Offset: 0x000E8780
+		// Token: 0x060041F8 RID: 16888 RVA: 0x000F3184 File Offset: 0x000F1384
 		public bool GetMouseButtonUp(int button)
 		{
 			return Input.GetMouseButtonUp(button);

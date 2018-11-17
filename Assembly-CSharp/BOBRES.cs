@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x02000254 RID: 596
+// Token: 0x02000287 RID: 647
 public enum BOBRES : sbyte
 {
-	// Token: 0x04000B20 RID: 2848
+	// Token: 0x04000C43 RID: 3139
 	CONTINUE,
-	// Token: 0x04000B21 RID: 2849
+	// Token: 0x04000C44 RID: 3140
 	EXIT,
-	// Token: 0x04000B22 RID: 2850
+	// Token: 0x04000C45 RID: 3141
 	ERROR
 }

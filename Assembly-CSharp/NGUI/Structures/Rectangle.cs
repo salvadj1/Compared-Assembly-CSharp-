@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace NGUI.Structures
 {
-	// Token: 0x020007FE RID: 2046
+	// Token: 0x020008F0 RID: 2288
 	public struct Rectangle
 	{
-		// Token: 0x17000E55 RID: 3669
-		// (get) Token: 0x06004970 RID: 18800 RVA: 0x0012DFE0 File Offset: 0x0012C1E0
-		// (set) Token: 0x06004971 RID: 18801 RVA: 0x0012E014 File Offset: 0x0012C214
+		// Token: 0x17000EEF RID: 3823
+		// (get) Token: 0x06004E1F RID: 19999 RVA: 0x00137F44 File Offset: 0x00136144
+		// (set) Token: 0x06004E20 RID: 20000 RVA: 0x00137F78 File Offset: 0x00136178
 		public Vector2 b
 		{
 			get
@@ -25,9 +25,9 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E56 RID: 3670
-		// (get) Token: 0x06004972 RID: 18802 RVA: 0x0012E048 File Offset: 0x0012C248
-		// (set) Token: 0x06004973 RID: 18803 RVA: 0x0012E07C File Offset: 0x0012C27C
+		// Token: 0x17000EF0 RID: 3824
+		// (get) Token: 0x06004E21 RID: 20001 RVA: 0x00137FAC File Offset: 0x001361AC
+		// (set) Token: 0x06004E22 RID: 20002 RVA: 0x00137FE0 File Offset: 0x001361E0
 		public Vector2 c
 		{
 			get
@@ -44,8 +44,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E57 RID: 3671
-		// (get) Token: 0x06004974 RID: 18804 RVA: 0x0012E0B0 File Offset: 0x0012C2B0
+		// Token: 0x17000EF1 RID: 3825
+		// (get) Token: 0x06004E23 RID: 20003 RVA: 0x00138014 File Offset: 0x00136214
 		public Vector2 dim
 		{
 			get
@@ -57,8 +57,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E58 RID: 3672
-		// (get) Token: 0x06004975 RID: 18805 RVA: 0x0012E0FC File Offset: 0x0012C2FC
+		// Token: 0x17000EF2 RID: 3826
+		// (get) Token: 0x06004E24 RID: 20004 RVA: 0x00138060 File Offset: 0x00136260
 		public Vector2 center
 		{
 			get
@@ -70,8 +70,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E59 RID: 3673
-		// (get) Token: 0x06004976 RID: 18806 RVA: 0x0012E16C File Offset: 0x0012C36C
+		// Token: 0x17000EF3 RID: 3827
+		// (get) Token: 0x06004E25 RID: 20005 RVA: 0x001380D0 File Offset: 0x001362D0
 		public float height
 		{
 			get
@@ -80,8 +80,8 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E5A RID: 3674
-		// (get) Token: 0x06004977 RID: 18807 RVA: 0x0012E188 File Offset: 0x0012C388
+		// Token: 0x17000EF4 RID: 3828
+		// (get) Token: 0x06004E26 RID: 20006 RVA: 0x001380EC File Offset: 0x001362EC
 		public float width
 		{
 			get
@@ -90,7 +90,7 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x17000E5B RID: 3675
+		// Token: 0x17000EF5 RID: 3829
 		public Vector2 this[int i]
 		{
 			get
@@ -121,16 +121,16 @@ namespace NGUI.Structures
 			}
 		}
 
-		// Token: 0x04002981 RID: 10625
+		// Token: 0x04002BCF RID: 11215
 		public const int size = 16;
 
-		// Token: 0x04002982 RID: 10626
+		// Token: 0x04002BD0 RID: 11216
 		public const int halfSize = 8;
 
-		// Token: 0x04002983 RID: 10627
+		// Token: 0x04002BD1 RID: 11217
 		public Vector2 a;
 
-		// Token: 0x04002984 RID: 10628
+		// Token: 0x04002BD2 RID: 11218
 		public Vector2 d;
 	}
 }

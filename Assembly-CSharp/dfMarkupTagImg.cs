@@ -1,24 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200072E RID: 1838
-[dfMarkupTagInfo("img")]
-public class dfMarkupTagImg : dfMarkupTag
+// Token: 0x0200080A RID: 2058
+[global::dfMarkupTagInfo("img")]
+public class dfMarkupTagImg : global::dfMarkupTag
 {
-	// Token: 0x06004305 RID: 17157 RVA: 0x00104860 File Offset: 0x00102A60
+	// Token: 0x06004749 RID: 18249 RVA: 0x0010DB70 File Offset: 0x0010BD70
 	public dfMarkupTagImg() : base("img")
 	{
 		this.IsClosedTag = true;
 	}
 
-	// Token: 0x06004306 RID: 17158 RVA: 0x00104874 File Offset: 0x00102A74
-	public dfMarkupTagImg(dfMarkupTag original) : base(original)
+	// Token: 0x0600474A RID: 18250 RVA: 0x0010DB84 File Offset: 0x0010BD84
+	public dfMarkupTagImg(global::dfMarkupTag original) : base(original)
 	{
 		this.IsClosedTag = true;
 	}
 
-	// Token: 0x06004307 RID: 17159 RVA: 0x00104884 File Offset: 0x00102A84
-	protected override void _PerformLayoutImpl(dfMarkupBox container, dfMarkupStyle style)
+	// Token: 0x0600474B RID: 18251 RVA: 0x0010DB94 File Offset: 0x0010BD94
+	protected override void _PerformLayoutImpl(global::dfMarkupBox container, global::dfMarkupStyle style)
 	{
 		if (base.Owner == null)
 		{
@@ -26,7 +26,7 @@ public class dfMarkupTagImg : dfMarkupTag
 			return;
 		}
 		style = this.applyStyleAttributes(style);
-		dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
+		global::dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
 		{
 			"src"
 		});
@@ -35,27 +35,27 @@ public class dfMarkupTagImg : dfMarkupTag
 			return;
 		}
 		string value = dfMarkupAttribute.Value;
-		dfMarkupBox dfMarkupBox = this.createImageBox(base.Owner.Atlas, value, style);
+		global::dfMarkupBox dfMarkupBox = this.createImageBox(base.Owner.Atlas, value, style);
 		if (dfMarkupBox == null)
 		{
 			return;
 		}
 		Vector2 size = Vector2.zero;
-		dfMarkupAttribute dfMarkupAttribute2 = base.findAttribute(new string[]
+		global::dfMarkupAttribute dfMarkupAttribute2 = base.findAttribute(new string[]
 		{
 			"height"
 		});
 		if (dfMarkupAttribute2 != null)
 		{
-			size.y = (float)dfMarkupStyle.ParseSize(dfMarkupAttribute2.Value, (int)dfMarkupBox.Size.y);
+			size.y = (float)global::dfMarkupStyle.ParseSize(dfMarkupAttribute2.Value, (int)dfMarkupBox.Size.y);
 		}
-		dfMarkupAttribute dfMarkupAttribute3 = base.findAttribute(new string[]
+		global::dfMarkupAttribute dfMarkupAttribute3 = base.findAttribute(new string[]
 		{
 			"width"
 		});
 		if (dfMarkupAttribute3 != null)
 		{
-			size.x = (float)dfMarkupStyle.ParseSize(dfMarkupAttribute3.Value, (int)dfMarkupBox.Size.x);
+			size.x = (float)global::dfMarkupStyle.ParseSize(dfMarkupAttribute3.Value, (int)dfMarkupBox.Size.x);
 		}
 		if (size.sqrMagnitude <= 1.401298E-45f)
 		{
@@ -74,32 +74,32 @@ public class dfMarkupTagImg : dfMarkupTag
 		container.AddChild(dfMarkupBox);
 	}
 
-	// Token: 0x06004308 RID: 17160 RVA: 0x00104A28 File Offset: 0x00102C28
-	private dfMarkupStyle applyStyleAttributes(dfMarkupStyle style)
+	// Token: 0x0600474C RID: 18252 RVA: 0x0010DD38 File Offset: 0x0010BF38
+	private global::dfMarkupStyle applyStyleAttributes(global::dfMarkupStyle style)
 	{
-		dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
+		global::dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
 		{
 			"valign"
 		});
 		if (dfMarkupAttribute != null)
 		{
-			style.VerticalAlign = dfMarkupStyle.ParseVerticalAlignment(dfMarkupAttribute.Value);
+			style.VerticalAlign = global::dfMarkupStyle.ParseVerticalAlignment(dfMarkupAttribute.Value);
 		}
-		dfMarkupAttribute dfMarkupAttribute2 = base.findAttribute(new string[]
+		global::dfMarkupAttribute dfMarkupAttribute2 = base.findAttribute(new string[]
 		{
 			"color"
 		});
 		if (dfMarkupAttribute2 != null)
 		{
-			Color color = dfMarkupStyle.ParseColor(dfMarkupAttribute2.Value, base.Owner.Color);
+			Color color = global::dfMarkupStyle.ParseColor(dfMarkupAttribute2.Value, base.Owner.Color);
 			color.a = style.Opacity;
 			style.Color = color;
 		}
 		return style;
 	}
 
-	// Token: 0x06004309 RID: 17161 RVA: 0x00104AB0 File Offset: 0x00102CB0
-	private dfMarkupBox createImageBox(dfAtlas atlas, string source, dfMarkupStyle style)
+	// Token: 0x0600474D RID: 18253 RVA: 0x0010DDC0 File Offset: 0x0010BFC0
+	private global::dfMarkupBox createImageBox(global::dfAtlas atlas, string source, global::dfMarkupStyle style)
 	{
 		if (source.ToLowerInvariant().StartsWith("http://"))
 		{
@@ -107,14 +107,14 @@ public class dfMarkupTagImg : dfMarkupTag
 		}
 		if (atlas != null && atlas[source] != null)
 		{
-			dfMarkupBoxSprite dfMarkupBoxSprite = new dfMarkupBoxSprite(this, dfMarkupDisplayType.inline, style);
+			global::dfMarkupBoxSprite dfMarkupBoxSprite = new global::dfMarkupBoxSprite(this, global::dfMarkupDisplayType.inline, style);
 			dfMarkupBoxSprite.LoadImage(atlas, source);
 			return dfMarkupBoxSprite;
 		}
-		Texture texture = dfMarkupImageCache.Load(source);
+		Texture texture = global::dfMarkupImageCache.Load(source);
 		if (texture != null)
 		{
-			dfMarkupBoxTexture dfMarkupBoxTexture = new dfMarkupBoxTexture(this, dfMarkupDisplayType.inline, style);
+			global::dfMarkupBoxTexture dfMarkupBoxTexture = new global::dfMarkupBoxTexture(this, global::dfMarkupDisplayType.inline, style);
 			dfMarkupBoxTexture.LoadTexture(texture);
 			return dfMarkupBoxTexture;
 		}

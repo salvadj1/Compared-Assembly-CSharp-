@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006FF RID: 1791
-[AddComponentMenu("Daikon Forge/User Interface/Sprite/Texture")]
+// Token: 0x020007D2 RID: 2002
 [ExecuteInEditMode]
+[AddComponentMenu("Daikon Forge/User Interface/Sprite/Texture")]
 [Serializable]
-public class dfTextureSprite : dfControl
+public class dfTextureSprite : global::dfControl
 {
 	// Token: 0x1400005A RID: 90
-	// (add) Token: 0x06004143 RID: 16707 RVA: 0x000FB640 File Offset: 0x000F9840
-	// (remove) Token: 0x06004144 RID: 16708 RVA: 0x000FB65C File Offset: 0x000F985C
-	public event PropertyChangedEventHandler<Texture2D> TextureChanged;
+	// (add) Token: 0x06004565 RID: 17765 RVA: 0x0010432C File Offset: 0x0010252C
+	// (remove) Token: 0x06004566 RID: 17766 RVA: 0x00104348 File Offset: 0x00102548
+	public event global::PropertyChangedEventHandler<Texture2D> TextureChanged;
 
-	// Token: 0x17000CD9 RID: 3289
-	// (get) Token: 0x06004145 RID: 16709 RVA: 0x000FB678 File Offset: 0x000F9878
-	// (set) Token: 0x06004146 RID: 16710 RVA: 0x000FB680 File Offset: 0x000F9880
+	// Token: 0x17000D5F RID: 3423
+	// (get) Token: 0x06004567 RID: 17767 RVA: 0x00104364 File Offset: 0x00102564
+	// (set) Token: 0x06004568 RID: 17768 RVA: 0x0010436C File Offset: 0x0010256C
 	public Texture2D Texture
 	{
 		get
@@ -36,9 +36,9 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CDA RID: 3290
-	// (get) Token: 0x06004147 RID: 16711 RVA: 0x000FB6EC File Offset: 0x000F98EC
-	// (set) Token: 0x06004148 RID: 16712 RVA: 0x000FB6F4 File Offset: 0x000F98F4
+	// Token: 0x17000D60 RID: 3424
+	// (get) Token: 0x06004569 RID: 17769 RVA: 0x001043D8 File Offset: 0x001025D8
+	// (set) Token: 0x0600456A RID: 17770 RVA: 0x001043E0 File Offset: 0x001025E0
 	public Material Material
 	{
 		get
@@ -57,10 +57,10 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CDB RID: 3291
-	// (get) Token: 0x06004149 RID: 16713 RVA: 0x000FB724 File Offset: 0x000F9924
-	// (set) Token: 0x0600414A RID: 16714 RVA: 0x000FB72C File Offset: 0x000F992C
-	public dfSpriteFlip Flip
+	// Token: 0x17000D61 RID: 3425
+	// (get) Token: 0x0600456B RID: 17771 RVA: 0x00104410 File Offset: 0x00102610
+	// (set) Token: 0x0600456C RID: 17772 RVA: 0x00104418 File Offset: 0x00102618
+	public global::dfSpriteFlip Flip
 	{
 		get
 		{
@@ -76,10 +76,10 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CDC RID: 3292
-	// (get) Token: 0x0600414B RID: 16715 RVA: 0x000FB748 File Offset: 0x000F9948
-	// (set) Token: 0x0600414C RID: 16716 RVA: 0x000FB750 File Offset: 0x000F9950
-	public dfFillDirection FillDirection
+	// Token: 0x17000D62 RID: 3426
+	// (get) Token: 0x0600456D RID: 17773 RVA: 0x00104434 File Offset: 0x00102634
+	// (set) Token: 0x0600456E RID: 17774 RVA: 0x0010443C File Offset: 0x0010263C
+	public global::dfFillDirection FillDirection
 	{
 		get
 		{
@@ -95,9 +95,9 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CDD RID: 3293
-	// (get) Token: 0x0600414D RID: 16717 RVA: 0x000FB76C File Offset: 0x000F996C
-	// (set) Token: 0x0600414E RID: 16718 RVA: 0x000FB774 File Offset: 0x000F9974
+	// Token: 0x17000D63 RID: 3427
+	// (get) Token: 0x0600456F RID: 17775 RVA: 0x00104458 File Offset: 0x00102658
+	// (set) Token: 0x06004570 RID: 17776 RVA: 0x00104460 File Offset: 0x00102660
 	public float FillAmount
 	{
 		get
@@ -114,9 +114,9 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CDE RID: 3294
-	// (get) Token: 0x0600414F RID: 16719 RVA: 0x000FB7B4 File Offset: 0x000F99B4
-	// (set) Token: 0x06004150 RID: 16720 RVA: 0x000FB7BC File Offset: 0x000F99BC
+	// Token: 0x17000D64 RID: 3428
+	// (get) Token: 0x06004571 RID: 17777 RVA: 0x001044A0 File Offset: 0x001026A0
+	// (set) Token: 0x06004572 RID: 17778 RVA: 0x001044A8 File Offset: 0x001026A8
 	public bool InvertFill
 	{
 		get
@@ -133,8 +133,8 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CDF RID: 3295
-	// (get) Token: 0x06004151 RID: 16721 RVA: 0x000FB7D8 File Offset: 0x000F99D8
+	// Token: 0x17000D65 RID: 3429
+	// (get) Token: 0x06004573 RID: 17779 RVA: 0x001044C4 File Offset: 0x001026C4
 	public Material RenderMaterial
 	{
 		get
@@ -143,14 +143,14 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004152 RID: 16722 RVA: 0x000FB7E0 File Offset: 0x000F99E0
+	// Token: 0x06004574 RID: 17780 RVA: 0x001044CC File Offset: 0x001026CC
 	public override void OnEnable()
 	{
 		base.OnEnable();
 		this.renderMaterial = null;
 	}
 
-	// Token: 0x06004153 RID: 16723 RVA: 0x000FB7F0 File Offset: 0x000F99F0
+	// Token: 0x06004575 RID: 17781 RVA: 0x001044DC File Offset: 0x001026DC
 	public override void OnDestroy()
 	{
 		base.OnDestroy();
@@ -161,7 +161,7 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004154 RID: 16724 RVA: 0x000FB81C File Offset: 0x000F9A1C
+	// Token: 0x06004576 RID: 17782 RVA: 0x00104508 File Offset: 0x00102708
 	public override void OnDisable()
 	{
 		base.OnDisable();
@@ -173,7 +173,7 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004155 RID: 16725 RVA: 0x000FB864 File Offset: 0x000F9A64
+	// Token: 0x06004577 RID: 17783 RVA: 0x00104550 File Offset: 0x00102750
 	protected override void OnRebuildRenderData()
 	{
 		base.OnRebuildRenderData();
@@ -206,7 +206,7 @@ public class dfTextureSprite : dfControl
 		this.renderData.Vertices.Add(new Vector3(num4, num3, 0f) + vector);
 		this.renderData.Vertices.Add(new Vector3(num4, num5, 0f) + vector);
 		this.renderData.Vertices.Add(new Vector3(num2, num5, 0f) + vector);
-		this.renderData.Triangles.AddRange(dfTextureSprite.TRIANGLE_INDICES);
+		this.renderData.Triangles.AddRange(global::dfTextureSprite.TRIANGLE_INDICES);
 		this.rebuildUV(this.renderData);
 		Color32 item = base.ApplyOpacity(this.color);
 		this.renderData.Colors.Add(item);
@@ -219,7 +219,7 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004156 RID: 16726 RVA: 0x000FBA80 File Offset: 0x000F9C80
+	// Token: 0x06004578 RID: 17784 RVA: 0x0010476C File Offset: 0x0010296C
 	private void disposeCreatedMaterial()
 	{
 		if (this.createdRuntimeMaterial)
@@ -230,16 +230,16 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004157 RID: 16727 RVA: 0x000FBAB4 File Offset: 0x000F9CB4
-	private void rebuildUV(dfRenderData renderData)
+	// Token: 0x06004579 RID: 17785 RVA: 0x001047A0 File Offset: 0x001029A0
+	private void rebuildUV(global::dfRenderData renderData)
 	{
-		dfList<Vector2> uv = renderData.UV;
+		global::dfList<Vector2> uv = renderData.UV;
 		uv.Add(new Vector2(0f, 1f));
 		uv.Add(new Vector2(1f, 1f));
 		uv.Add(new Vector2(1f, 0f));
 		uv.Add(new Vector2(0f, 0f));
 		Vector2 value = Vector2.zero;
-		if (this.flip.IsSet(dfSpriteFlip.FlipHorizontal))
+		if (this.flip.IsSet(global::dfSpriteFlip.FlipHorizontal))
 		{
 			value = uv[1];
 			uv[1] = uv[0];
@@ -248,7 +248,7 @@ public class dfTextureSprite : dfControl
 			uv[3] = uv[2];
 			uv[2] = value;
 		}
-		if (this.flip.IsSet(dfSpriteFlip.FlipVertical))
+		if (this.flip.IsSet(global::dfSpriteFlip.FlipVertical))
 		{
 			value = uv[0];
 			uv[0] = uv[3];
@@ -259,18 +259,18 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004158 RID: 16728 RVA: 0x000FBBBC File Offset: 0x000F9DBC
-	private void doFill(dfRenderData renderData)
+	// Token: 0x0600457A RID: 17786 RVA: 0x001048A8 File Offset: 0x00102AA8
+	private void doFill(global::dfRenderData renderData)
 	{
-		dfList<Vector3> vertices = renderData.Vertices;
-		dfList<Vector2> uv = renderData.UV;
+		global::dfList<Vector3> vertices = renderData.Vertices;
+		global::dfList<Vector2> uv = renderData.UV;
 		int index = 0;
 		int index2 = 1;
 		int index3 = 3;
 		int index4 = 2;
 		if (this.invertFill)
 		{
-			if (this.fillDirection == dfFillDirection.Horizontal)
+			if (this.fillDirection == global::dfFillDirection.Horizontal)
 			{
 				index = 1;
 				index2 = 0;
@@ -285,7 +285,7 @@ public class dfTextureSprite : dfControl
 				index4 = 1;
 			}
 		}
-		if (this.fillDirection == dfFillDirection.Horizontal)
+		if (this.fillDirection == global::dfFillDirection.Horizontal)
 		{
 			vertices[index2] = Vector3.Lerp(vertices[index2], vertices[index], 1f - this.fillAmount);
 			vertices[index4] = Vector3.Lerp(vertices[index4], vertices[index3], 1f - this.fillAmount);
@@ -301,7 +301,7 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004159 RID: 16729 RVA: 0x000FBD60 File Offset: 0x000F9F60
+	// Token: 0x0600457B RID: 17787 RVA: 0x00104A4C File Offset: 0x00102C4C
 	protected internal virtual void OnTextureChanged(Texture2D value)
 	{
 		base.SignalHierarchy("OnTextureChanged", new object[]
@@ -314,7 +314,7 @@ public class dfTextureSprite : dfControl
 		}
 	}
 
-	// Token: 0x0600415A RID: 16730 RVA: 0x000FBD9C File Offset: 0x000F9F9C
+	// Token: 0x0600457C RID: 17788 RVA: 0x00104A88 File Offset: 0x00102C88
 	private void ensureMaterial()
 	{
 		if (this.material != null || this.texture == null)
@@ -336,7 +336,7 @@ public class dfTextureSprite : dfControl
 		this.createdRuntimeMaterial = true;
 	}
 
-	// Token: 0x0400227B RID: 8827
+	// Token: 0x04002487 RID: 9351
 	private static int[] TRIANGLE_INDICES = new int[]
 	{
 		0,
@@ -347,33 +347,33 @@ public class dfTextureSprite : dfControl
 		2
 	};
 
-	// Token: 0x0400227C RID: 8828
+	// Token: 0x04002488 RID: 9352
 	[SerializeField]
 	protected Texture2D texture;
 
-	// Token: 0x0400227D RID: 8829
+	// Token: 0x04002489 RID: 9353
 	[SerializeField]
 	protected Material material;
 
-	// Token: 0x0400227E RID: 8830
+	// Token: 0x0400248A RID: 9354
 	[SerializeField]
-	protected dfSpriteFlip flip;
+	protected global::dfSpriteFlip flip;
 
-	// Token: 0x0400227F RID: 8831
+	// Token: 0x0400248B RID: 9355
 	[SerializeField]
-	protected dfFillDirection fillDirection;
+	protected global::dfFillDirection fillDirection;
 
-	// Token: 0x04002280 RID: 8832
+	// Token: 0x0400248C RID: 9356
 	[SerializeField]
 	protected float fillAmount = 1f;
 
-	// Token: 0x04002281 RID: 8833
+	// Token: 0x0400248D RID: 9357
 	[SerializeField]
 	protected bool invertFill;
 
-	// Token: 0x04002282 RID: 8834
+	// Token: 0x0400248E RID: 9358
 	private bool createdRuntimeMaterial;
 
-	// Token: 0x04002283 RID: 8835
+	// Token: 0x0400248F RID: 9359
 	private Material renderMaterial;
 }

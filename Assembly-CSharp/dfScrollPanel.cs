@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006EE RID: 1774
+// Token: 0x020007C0 RID: 1984
 [AddComponentMenu("Daikon Forge/User Interface/Containers/Scrollable Panel")]
 [ExecuteInEditMode]
 [Serializable]
-public class dfScrollPanel : dfControl
+public class dfScrollPanel : global::dfControl
 {
 	// Token: 0x1400004F RID: 79
-	// (add) Token: 0x06003F96 RID: 16278 RVA: 0x000F2304 File Offset: 0x000F0504
-	// (remove) Token: 0x06003F97 RID: 16279 RVA: 0x000F2320 File Offset: 0x000F0520
-	public event PropertyChangedEventHandler<Vector2> ScrollPositionChanged;
+	// (add) Token: 0x060043B2 RID: 17330 RVA: 0x000FAF08 File Offset: 0x000F9108
+	// (remove) Token: 0x060043B3 RID: 17331 RVA: 0x000FAF24 File Offset: 0x000F9124
+	public event global::PropertyChangedEventHandler<Vector2> ScrollPositionChanged;
 
-	// Token: 0x17000C7C RID: 3196
-	// (get) Token: 0x06003F98 RID: 16280 RVA: 0x000F233C File Offset: 0x000F053C
-	// (set) Token: 0x06003F99 RID: 16281 RVA: 0x000F2344 File Offset: 0x000F0544
+	// Token: 0x17000D00 RID: 3328
+	// (get) Token: 0x060043B4 RID: 17332 RVA: 0x000FAF40 File Offset: 0x000F9140
+	// (set) Token: 0x060043B5 RID: 17333 RVA: 0x000FAF48 File Offset: 0x000F9148
 	public bool UseScrollMomentum
 	{
 		get
@@ -28,9 +28,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C7D RID: 3197
-	// (get) Token: 0x06003F9A RID: 16282 RVA: 0x000F2358 File Offset: 0x000F0558
-	// (set) Token: 0x06003F9B RID: 16283 RVA: 0x000F2360 File Offset: 0x000F0560
+	// Token: 0x17000D01 RID: 3329
+	// (get) Token: 0x060043B6 RID: 17334 RVA: 0x000FAF5C File Offset: 0x000F915C
+	// (set) Token: 0x060043B7 RID: 17335 RVA: 0x000FAF64 File Offset: 0x000F9164
 	public bool ScrollWithArrowKeys
 	{
 		get
@@ -43,16 +43,16 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C7E RID: 3198
-	// (get) Token: 0x06003F9C RID: 16284 RVA: 0x000F236C File Offset: 0x000F056C
-	// (set) Token: 0x06003F9D RID: 16285 RVA: 0x000F23B4 File Offset: 0x000F05B4
-	public dfAtlas Atlas
+	// Token: 0x17000D02 RID: 3330
+	// (get) Token: 0x060043B8 RID: 17336 RVA: 0x000FAF70 File Offset: 0x000F9170
+	// (set) Token: 0x060043B9 RID: 17337 RVA: 0x000FAFB8 File Offset: 0x000F91B8
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -62,7 +62,7 @@ public class dfScrollPanel : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -70,9 +70,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C7F RID: 3199
-	// (get) Token: 0x06003F9E RID: 16286 RVA: 0x000F23D4 File Offset: 0x000F05D4
-	// (set) Token: 0x06003F9F RID: 16287 RVA: 0x000F23DC File Offset: 0x000F05DC
+	// Token: 0x17000D03 RID: 3331
+	// (get) Token: 0x060043BA RID: 17338 RVA: 0x000FAFD8 File Offset: 0x000F91D8
+	// (set) Token: 0x060043BB RID: 17339 RVA: 0x000FAFE0 File Offset: 0x000F91E0
 	public string BackgroundSprite
 	{
 		get
@@ -89,9 +89,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C80 RID: 3200
-	// (get) Token: 0x06003FA0 RID: 16288 RVA: 0x000F23FC File Offset: 0x000F05FC
-	// (set) Token: 0x06003FA1 RID: 16289 RVA: 0x000F2404 File Offset: 0x000F0604
+	// Token: 0x17000D04 RID: 3332
+	// (get) Token: 0x060043BC RID: 17340 RVA: 0x000FB000 File Offset: 0x000F9200
+	// (set) Token: 0x060043BD RID: 17341 RVA: 0x000FB008 File Offset: 0x000F9208
 	public Color32 BackgroundColor
 	{
 		get
@@ -108,9 +108,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C81 RID: 3201
-	// (get) Token: 0x06003FA2 RID: 16290 RVA: 0x000F243C File Offset: 0x000F063C
-	// (set) Token: 0x06003FA3 RID: 16291 RVA: 0x000F2444 File Offset: 0x000F0644
+	// Token: 0x17000D05 RID: 3333
+	// (get) Token: 0x060043BE RID: 17342 RVA: 0x000FB040 File Offset: 0x000F9240
+	// (set) Token: 0x060043BF RID: 17343 RVA: 0x000FB048 File Offset: 0x000F9248
 	public bool AutoReset
 	{
 		get
@@ -130,9 +130,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C82 RID: 3202
-	// (get) Token: 0x06003FA4 RID: 16292 RVA: 0x000F2468 File Offset: 0x000F0668
-	// (set) Token: 0x06003FA5 RID: 16293 RVA: 0x000F2488 File Offset: 0x000F0688
+	// Token: 0x17000D06 RID: 3334
+	// (get) Token: 0x060043C0 RID: 17344 RVA: 0x000FB06C File Offset: 0x000F926C
+	// (set) Token: 0x060043C1 RID: 17345 RVA: 0x000FB08C File Offset: 0x000F928C
 	public RectOffset ScrollPadding
 	{
 		get
@@ -154,9 +154,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C83 RID: 3203
-	// (get) Token: 0x06003FA6 RID: 16294 RVA: 0x000F24BC File Offset: 0x000F06BC
-	// (set) Token: 0x06003FA7 RID: 16295 RVA: 0x000F24C4 File Offset: 0x000F06C4
+	// Token: 0x17000D07 RID: 3335
+	// (get) Token: 0x060043C2 RID: 17346 RVA: 0x000FB0C0 File Offset: 0x000F92C0
+	// (set) Token: 0x060043C3 RID: 17347 RVA: 0x000FB0C8 File Offset: 0x000F92C8
 	public bool AutoLayout
 	{
 		get
@@ -173,9 +173,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C84 RID: 3204
-	// (get) Token: 0x06003FA8 RID: 16296 RVA: 0x000F24E0 File Offset: 0x000F06E0
-	// (set) Token: 0x06003FA9 RID: 16297 RVA: 0x000F24E8 File Offset: 0x000F06E8
+	// Token: 0x17000D08 RID: 3336
+	// (get) Token: 0x060043C4 RID: 17348 RVA: 0x000FB0E4 File Offset: 0x000F92E4
+	// (set) Token: 0x060043C5 RID: 17349 RVA: 0x000FB0EC File Offset: 0x000F92EC
 	public bool WrapLayout
 	{
 		get
@@ -192,10 +192,10 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C85 RID: 3205
-	// (get) Token: 0x06003FAA RID: 16298 RVA: 0x000F2504 File Offset: 0x000F0704
-	// (set) Token: 0x06003FAB RID: 16299 RVA: 0x000F250C File Offset: 0x000F070C
-	public dfScrollPanel.LayoutDirection FlowDirection
+	// Token: 0x17000D09 RID: 3337
+	// (get) Token: 0x060043C6 RID: 17350 RVA: 0x000FB108 File Offset: 0x000F9308
+	// (set) Token: 0x060043C7 RID: 17351 RVA: 0x000FB110 File Offset: 0x000F9310
+	public global::dfScrollPanel.LayoutDirection FlowDirection
 	{
 		get
 		{
@@ -211,9 +211,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C86 RID: 3206
-	// (get) Token: 0x06003FAC RID: 16300 RVA: 0x000F2528 File Offset: 0x000F0728
-	// (set) Token: 0x06003FAD RID: 16301 RVA: 0x000F2548 File Offset: 0x000F0748
+	// Token: 0x17000D0A RID: 3338
+	// (get) Token: 0x060043C8 RID: 17352 RVA: 0x000FB12C File Offset: 0x000F932C
+	// (set) Token: 0x060043C9 RID: 17353 RVA: 0x000FB14C File Offset: 0x000F934C
 	public RectOffset FlowPadding
 	{
 		get
@@ -235,9 +235,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C87 RID: 3207
-	// (get) Token: 0x06003FAE RID: 16302 RVA: 0x000F257C File Offset: 0x000F077C
-	// (set) Token: 0x06003FAF RID: 16303 RVA: 0x000F2584 File Offset: 0x000F0784
+	// Token: 0x17000D0B RID: 3339
+	// (get) Token: 0x060043CA RID: 17354 RVA: 0x000FB180 File Offset: 0x000F9380
+	// (set) Token: 0x060043CB RID: 17355 RVA: 0x000FB188 File Offset: 0x000F9388
 	public Vector2 ScrollPosition
 	{
 		get
@@ -263,9 +263,9 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C88 RID: 3208
-	// (get) Token: 0x06003FB0 RID: 16304 RVA: 0x000F2640 File Offset: 0x000F0840
-	// (set) Token: 0x06003FB1 RID: 16305 RVA: 0x000F2648 File Offset: 0x000F0848
+	// Token: 0x17000D0C RID: 3340
+	// (get) Token: 0x060043CC RID: 17356 RVA: 0x000FB244 File Offset: 0x000F9444
+	// (set) Token: 0x060043CD RID: 17357 RVA: 0x000FB24C File Offset: 0x000F944C
 	public int ScrollWheelAmount
 	{
 		get
@@ -278,10 +278,10 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C89 RID: 3209
-	// (get) Token: 0x06003FB2 RID: 16306 RVA: 0x000F2654 File Offset: 0x000F0854
-	// (set) Token: 0x06003FB3 RID: 16307 RVA: 0x000F265C File Offset: 0x000F085C
-	public dfScrollbar HorzScrollbar
+	// Token: 0x17000D0D RID: 3341
+	// (get) Token: 0x060043CE RID: 17358 RVA: 0x000FB258 File Offset: 0x000F9458
+	// (set) Token: 0x060043CF RID: 17359 RVA: 0x000FB260 File Offset: 0x000F9460
+	public global::dfScrollbar HorzScrollbar
 	{
 		get
 		{
@@ -294,10 +294,10 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C8A RID: 3210
-	// (get) Token: 0x06003FB4 RID: 16308 RVA: 0x000F266C File Offset: 0x000F086C
-	// (set) Token: 0x06003FB5 RID: 16309 RVA: 0x000F2674 File Offset: 0x000F0874
-	public dfScrollbar VertScrollbar
+	// Token: 0x17000D0E RID: 3342
+	// (get) Token: 0x060043D0 RID: 17360 RVA: 0x000FB270 File Offset: 0x000F9470
+	// (set) Token: 0x060043D1 RID: 17361 RVA: 0x000FB278 File Offset: 0x000F9478
+	public global::dfScrollbar VertScrollbar
 	{
 		get
 		{
@@ -310,10 +310,10 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x17000C8B RID: 3211
-	// (get) Token: 0x06003FB6 RID: 16310 RVA: 0x000F2684 File Offset: 0x000F0884
-	// (set) Token: 0x06003FB7 RID: 16311 RVA: 0x000F268C File Offset: 0x000F088C
-	public dfControlOrientation WheelScrollDirection
+	// Token: 0x17000D0F RID: 3343
+	// (get) Token: 0x060043D2 RID: 17362 RVA: 0x000FB288 File Offset: 0x000F9488
+	// (set) Token: 0x060043D3 RID: 17363 RVA: 0x000FB290 File Offset: 0x000F9490
+	public global::dfControlOrientation WheelScrollDirection
 	{
 		get
 		{
@@ -325,7 +325,7 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FB8 RID: 16312 RVA: 0x000F2698 File Offset: 0x000F0898
+	// Token: 0x060043D4 RID: 17364 RVA: 0x000FB29C File Offset: 0x000F949C
 	protected internal override Plane[] GetClippingPlanes()
 	{
 		if (!base.ClipChildren)
@@ -351,8 +351,8 @@ public class dfScrollPanel : dfControl
 		};
 	}
 
-	// Token: 0x17000C8C RID: 3212
-	// (get) Token: 0x06003FB9 RID: 16313 RVA: 0x000F2864 File Offset: 0x000F0A64
+	// Token: 0x17000D10 RID: 3344
+	// (get) Token: 0x060043D5 RID: 17365 RVA: 0x000FB468 File Offset: 0x000F9668
 	public override bool CanFocus
 	{
 		get
@@ -361,7 +361,7 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FBA RID: 16314 RVA: 0x000F2884 File Offset: 0x000F0A84
+	// Token: 0x060043D6 RID: 17366 RVA: 0x000FB488 File Offset: 0x000F9688
 	public override void OnDestroy()
 	{
 		if (this.horzScroll != null)
@@ -376,7 +376,7 @@ public class dfScrollPanel : dfControl
 		this.vertScroll = null;
 	}
 
-	// Token: 0x06003FBB RID: 16315 RVA: 0x000F28F0 File Offset: 0x000F0AF0
+	// Token: 0x060043D7 RID: 17367 RVA: 0x000FB4F4 File Offset: 0x000F96F4
 	public override void Update()
 	{
 		base.Update();
@@ -392,7 +392,7 @@ public class dfScrollPanel : dfControl
 		this.scrollMomentum *= 0.95f - Time.deltaTime;
 	}
 
-	// Token: 0x06003FBC RID: 16316 RVA: 0x000F2990 File Offset: 0x000F0B90
+	// Token: 0x060043D8 RID: 17368 RVA: 0x000FB594 File Offset: 0x000F9794
 	public override void LateUpdate()
 	{
 		base.LateUpdate();
@@ -407,7 +407,7 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FBD RID: 16317 RVA: 0x000F29E4 File Offset: 0x000F0BE4
+	// Token: 0x060043D9 RID: 17369 RVA: 0x000FB5E8 File Offset: 0x000F97E8
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -425,7 +425,7 @@ public class dfScrollPanel : dfControl
 		this.updateScrollbars();
 	}
 
-	// Token: 0x06003FBE RID: 16318 RVA: 0x000F2A60 File Offset: 0x000F0C60
+	// Token: 0x060043DA RID: 17370 RVA: 0x000FB664 File Offset: 0x000F9864
 	protected internal override void OnIsVisibleChanged()
 	{
 		base.OnIsVisibleChanged();
@@ -436,7 +436,7 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FBF RID: 16319 RVA: 0x000F2A98 File Offset: 0x000F0C98
+	// Token: 0x060043DB RID: 17371 RVA: 0x000FB69C File Offset: 0x000F989C
 	protected internal override void OnSizeChanged()
 	{
 		base.OnSizeChanged();
@@ -455,15 +455,15 @@ public class dfScrollPanel : dfControl
 		this.updateScrollbars();
 	}
 
-	// Token: 0x06003FC0 RID: 16320 RVA: 0x000F2B44 File Offset: 0x000F0D44
+	// Token: 0x060043DC RID: 17372 RVA: 0x000FB748 File Offset: 0x000F9948
 	protected internal override void OnResolutionChanged(Vector2 previousResolution, Vector2 currentResolution)
 	{
 		base.OnResolutionChanged(previousResolution, currentResolution);
 		this.resetNeeded = true;
 	}
 
-	// Token: 0x06003FC1 RID: 16321 RVA: 0x000F2B58 File Offset: 0x000F0D58
-	protected internal override void OnGotFocus(dfFocusEventArgs args)
+	// Token: 0x060043DD RID: 17373 RVA: 0x000FB75C File Offset: 0x000F995C
+	protected internal override void OnGotFocus(global::dfFocusEventArgs args)
 	{
 		if (args.Source != this)
 		{
@@ -472,8 +472,8 @@ public class dfScrollPanel : dfControl
 		base.OnGotFocus(args);
 	}
 
-	// Token: 0x06003FC2 RID: 16322 RVA: 0x000F2B8C File Offset: 0x000F0D8C
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x060043DE RID: 17374 RVA: 0x000FB790 File Offset: 0x000F9990
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
 		if (!this.scrollWithArrowKeys || args.Used)
 		{
@@ -505,23 +505,23 @@ public class dfScrollPanel : dfControl
 		base.OnKeyDown(args);
 	}
 
-	// Token: 0x06003FC3 RID: 16323 RVA: 0x000F2CE8 File Offset: 0x000F0EE8
-	protected internal override void OnMouseEnter(dfMouseEventArgs args)
+	// Token: 0x060043DF RID: 17375 RVA: 0x000FB8EC File Offset: 0x000F9AEC
+	protected internal override void OnMouseEnter(global::dfMouseEventArgs args)
 	{
 		base.OnMouseEnter(args);
 		this.touchStartPosition = args.Position;
 	}
 
-	// Token: 0x06003FC4 RID: 16324 RVA: 0x000F2D00 File Offset: 0x000F0F00
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x060043E0 RID: 17376 RVA: 0x000FB904 File Offset: 0x000F9B04
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
 		base.OnMouseDown(args);
 		this.touchStartPosition = args.Position;
 		this.isMouseDown = true;
 	}
 
-	// Token: 0x06003FC5 RID: 16325 RVA: 0x000F2D1C File Offset: 0x000F0F1C
-	internal override void OnDragStart(dfDragEventArgs args)
+	// Token: 0x060043E1 RID: 17377 RVA: 0x000FB920 File Offset: 0x000F9B20
+	internal override void OnDragStart(global::dfDragEventArgs args)
 	{
 		base.OnDragStart(args);
 		if (args.Used)
@@ -530,17 +530,17 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FC6 RID: 16326 RVA: 0x000F2D38 File Offset: 0x000F0F38
-	protected internal override void OnMouseUp(dfMouseEventArgs args)
+	// Token: 0x060043E2 RID: 17378 RVA: 0x000FB93C File Offset: 0x000F9B3C
+	protected internal override void OnMouseUp(global::dfMouseEventArgs args)
 	{
 		base.OnMouseUp(args);
 		this.isMouseDown = false;
 	}
 
-	// Token: 0x06003FC7 RID: 16327 RVA: 0x000F2D48 File Offset: 0x000F0F48
-	protected internal override void OnMouseMove(dfMouseEventArgs args)
+	// Token: 0x060043E3 RID: 17379 RVA: 0x000FB94C File Offset: 0x000F9B4C
+	protected internal override void OnMouseMove(global::dfMouseEventArgs args)
 	{
-		if ((args is dfTouchEventArgs || this.isMouseDown) && !args.Used && (args.Position - this.touchStartPosition).magnitude > 5f)
+		if ((args is global::dfTouchEventArgs || this.isMouseDown) && !args.Used && (args.Position - this.touchStartPosition).magnitude > 5f)
 		{
 			Vector2 vector = args.MoveDelta.Scale(-1f, 1f);
 			this.ScrollPosition += vector;
@@ -550,15 +550,15 @@ public class dfScrollPanel : dfControl
 		base.OnMouseMove(args);
 	}
 
-	// Token: 0x06003FC8 RID: 16328 RVA: 0x000F2DEC File Offset: 0x000F0FEC
-	protected internal override void OnMouseWheel(dfMouseEventArgs args)
+	// Token: 0x060043E4 RID: 17380 RVA: 0x000FB9F0 File Offset: 0x000F9BF0
+	protected internal override void OnMouseWheel(global::dfMouseEventArgs args)
 	{
 		try
 		{
 			if (!args.Used)
 			{
-				float num = (this.wheelDirection != dfControlOrientation.Horizontal) ? ((!(this.vertScroll != null)) ? ((float)this.scrollWheelAmount) : this.vertScroll.IncrementAmount) : ((!(this.horzScroll != null)) ? ((float)this.scrollWheelAmount) : this.horzScroll.IncrementAmount);
-				if (this.wheelDirection == dfControlOrientation.Horizontal)
+				float num = (this.wheelDirection != global::dfControlOrientation.Horizontal) ? ((!(this.vertScroll != null)) ? ((float)this.scrollWheelAmount) : this.vertScroll.IncrementAmount) : ((!(this.horzScroll != null)) ? ((float)this.scrollWheelAmount) : this.horzScroll.IncrementAmount);
+				if (this.wheelDirection == global::dfControlOrientation.Horizontal)
 				{
 					this.ScrollPosition = new Vector2(this.scrollPosition.x - num * args.WheelDelta, this.scrollPosition.y);
 					this.scrollMomentum = new Vector2(-num * args.WheelDelta, 0f);
@@ -581,8 +581,8 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FC9 RID: 16329 RVA: 0x000F2F48 File Offset: 0x000F1148
-	protected internal override void OnControlAdded(dfControl child)
+	// Token: 0x060043E5 RID: 17381 RVA: 0x000FBB4C File Offset: 0x000F9D4C
+	protected internal override void OnControlAdded(global::dfControl child)
 	{
 		base.OnControlAdded(child);
 		this.attachEvents(child);
@@ -592,8 +592,8 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FCA RID: 16330 RVA: 0x000F2F6C File Offset: 0x000F116C
-	protected internal override void OnControlRemoved(dfControl child)
+	// Token: 0x060043E6 RID: 17382 RVA: 0x000FBB70 File Offset: 0x000F9D70
+	protected internal override void OnControlRemoved(global::dfControl child)
 	{
 		base.OnControlRemoved(child);
 		if (child != null)
@@ -610,21 +610,21 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FCB RID: 16331 RVA: 0x000F2FB0 File Offset: 0x000F11B0
+	// Token: 0x060043E7 RID: 17383 RVA: 0x000FBBB4 File Offset: 0x000F9DB4
 	protected override void OnRebuildRenderData()
 	{
 		if (this.Atlas == null || string.IsNullOrEmpty(this.backgroundSprite))
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
 		if (itemInfo == null)
 		{
 			return;
 		}
 		this.renderData.Material = this.Atlas.Material;
 		Color32 color = base.ApplyOpacity(this.BackgroundColor);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -636,15 +636,15 @@ public class dfScrollPanel : dfControl
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x06003FCC RID: 16332 RVA: 0x000F30C8 File Offset: 0x000F12C8
+	// Token: 0x060043E8 RID: 17384 RVA: 0x000FBCCC File Offset: 0x000F9ECC
 	protected internal void OnScrollPositionChanged()
 	{
 		this.Invalidate();
@@ -658,7 +658,7 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FCD RID: 16333 RVA: 0x000F3118 File Offset: 0x000F1318
+	// Token: 0x060043E9 RID: 17385 RVA: 0x000FBD1C File Offset: 0x000F9F1C
 	public void FitToContents()
 	{
 		if (this.controls.Count == 0)
@@ -668,14 +668,14 @@ public class dfScrollPanel : dfControl
 		Vector2 vector = Vector2.zero;
 		for (int i = 0; i < this.controls.Count; i++)
 		{
-			dfControl dfControl = this.controls[i];
+			global::dfControl dfControl = this.controls[i];
 			Vector2 vector2 = dfControl.RelativePosition + dfControl.Size;
 			vector = Vector2.Max(vector, vector2);
 		}
 		base.Size = vector + new Vector2((float)this.scrollPadding.right, (float)this.scrollPadding.bottom);
 	}
 
-	// Token: 0x06003FCE RID: 16334 RVA: 0x000F31B0 File Offset: 0x000F13B0
+	// Token: 0x060043EA RID: 17386 RVA: 0x000FBDB4 File Offset: 0x000F9FB4
 	public void CenterChildControls()
 	{
 		if (this.controls.Count == 0)
@@ -686,7 +686,7 @@ public class dfScrollPanel : dfControl
 		Vector2 vector2 = Vector2.one * float.MinValue;
 		for (int i = 0; i < this.controls.Count; i++)
 		{
-			dfControl dfControl = this.controls[i];
+			global::dfControl dfControl = this.controls[i];
 			Vector2 vector3 = dfControl.RelativePosition;
 			Vector2 vector4 = vector3 + dfControl.Size;
 			vector = Vector2.Min(vector, vector3);
@@ -696,37 +696,37 @@ public class dfScrollPanel : dfControl
 		Vector2 vector6 = (base.Size - vector5) * 0.5f;
 		for (int j = 0; j < this.controls.Count; j++)
 		{
-			dfControl dfControl2 = this.controls[j];
+			global::dfControl dfControl2 = this.controls[j];
 			dfControl2.RelativePosition = dfControl2.RelativePosition - vector + vector6;
 		}
 	}
 
-	// Token: 0x06003FCF RID: 16335 RVA: 0x000F32BC File Offset: 0x000F14BC
+	// Token: 0x060043EB RID: 17387 RVA: 0x000FBEC0 File Offset: 0x000FA0C0
 	public void ScrollToTop()
 	{
 		this.ScrollPosition = new Vector2(this.scrollPosition.x, 0f);
 	}
 
-	// Token: 0x06003FD0 RID: 16336 RVA: 0x000F32DC File Offset: 0x000F14DC
+	// Token: 0x060043EC RID: 17388 RVA: 0x000FBEE0 File Offset: 0x000FA0E0
 	public void ScrollToBottom()
 	{
 		this.ScrollPosition = new Vector2(this.scrollPosition.x, 2.14748365E+09f);
 	}
 
-	// Token: 0x06003FD1 RID: 16337 RVA: 0x000F32FC File Offset: 0x000F14FC
+	// Token: 0x060043ED RID: 17389 RVA: 0x000FBF00 File Offset: 0x000FA100
 	public void ScrollToLeft()
 	{
 		this.ScrollPosition = new Vector2(0f, this.scrollPosition.y);
 	}
 
-	// Token: 0x06003FD2 RID: 16338 RVA: 0x000F331C File Offset: 0x000F151C
+	// Token: 0x060043EE RID: 17390 RVA: 0x000FBF20 File Offset: 0x000FA120
 	public void ScrollToRight()
 	{
 		this.ScrollPosition = new Vector2(2.14748365E+09f, this.scrollPosition.y);
 	}
 
-	// Token: 0x06003FD3 RID: 16339 RVA: 0x000F333C File Offset: 0x000F153C
-	public void ScrollIntoView(dfControl control)
+	// Token: 0x060043EF RID: 17391 RVA: 0x000FBF40 File Offset: 0x000FA140
+	public void ScrollIntoView(global::dfControl control)
 	{
 		Rect rect = new Rect(this.scrollPosition.x + (float)this.scrollPadding.left, this.scrollPosition.y + (float)this.scrollPadding.top, this.size.x - (float)this.scrollPadding.horizontal, this.size.y - (float)this.scrollPadding.vertical).RoundToInt();
 		Vector3 vector = control.RelativePosition;
@@ -762,7 +762,7 @@ public class dfScrollPanel : dfControl
 		this.scrollMomentum = Vector2.zero;
 	}
 
-	// Token: 0x06003FD4 RID: 16340 RVA: 0x000F3548 File Offset: 0x000F1748
+	// Token: 0x060043F0 RID: 17392 RVA: 0x000FC14C File Offset: 0x000FA34C
 	public void Reset()
 	{
 		try
@@ -795,7 +795,7 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FD5 RID: 16341 RVA: 0x000F3644 File Offset: 0x000F1844
+	// Token: 0x060043F1 RID: 17393 RVA: 0x000FC248 File Offset: 0x000FA448
 	[HideInInspector]
 	private void AutoArrange()
 	{
@@ -810,14 +810,14 @@ public class dfScrollPanel : dfControl
 			float num4 = 0f;
 			for (int i = 0; i < this.controls.Count; i++)
 			{
-				dfControl dfControl = this.controls[i];
+				global::dfControl dfControl = this.controls[i];
 				if (dfControl.IsVisible && dfControl.enabled && dfControl.gameObject.activeSelf)
 				{
 					if (!(dfControl == this.horzScroll) && !(dfControl == this.vertScroll))
 					{
 						if (this.wrapLayout)
 						{
-							if (this.flowDirection == dfScrollPanel.LayoutDirection.Horizontal)
+							if (this.flowDirection == global::dfScrollPanel.LayoutDirection.Horizontal)
 							{
 								if (num + dfControl.Width >= this.size.x - (float)this.scrollPadding.right)
 								{
@@ -840,7 +840,7 @@ public class dfScrollPanel : dfControl
 						float num6 = dfControl.Height + (float)this.flowPadding.vertical;
 						num3 = Mathf.Max(num5, num3);
 						num4 = Mathf.Max(num6, num4);
-						if (this.flowDirection == dfScrollPanel.LayoutDirection.Horizontal)
+						if (this.flowDirection == global::dfScrollPanel.LayoutDirection.Horizontal)
 						{
 							num += num5;
 						}
@@ -859,7 +859,7 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FD6 RID: 16342 RVA: 0x000F38B0 File Offset: 0x000F1AB0
+	// Token: 0x060043F2 RID: 17394 RVA: 0x000FC4B4 File Offset: 0x000FA6B4
 	[HideInInspector]
 	private void initialize()
 	{
@@ -888,19 +888,19 @@ public class dfScrollPanel : dfControl
 		this.updateScrollbars();
 	}
 
-	// Token: 0x06003FD7 RID: 16343 RVA: 0x000F3968 File Offset: 0x000F1B68
-	private void vertScroll_ValueChanged(dfControl control, float value)
+	// Token: 0x060043F3 RID: 17395 RVA: 0x000FC56C File Offset: 0x000FA76C
+	private void vertScroll_ValueChanged(global::dfControl control, float value)
 	{
 		this.ScrollPosition = new Vector2(this.scrollPosition.x, value);
 	}
 
-	// Token: 0x06003FD8 RID: 16344 RVA: 0x000F3984 File Offset: 0x000F1B84
-	private void horzScroll_ValueChanged(dfControl control, float value)
+	// Token: 0x060043F4 RID: 17396 RVA: 0x000FC588 File Offset: 0x000FA788
+	private void horzScroll_ValueChanged(global::dfControl control, float value)
 	{
 		this.ScrollPosition = new Vector2(value, this.ScrollPosition.y);
 	}
 
-	// Token: 0x06003FD9 RID: 16345 RVA: 0x000F39AC File Offset: 0x000F1BAC
+	// Token: 0x060043F5 RID: 17397 RVA: 0x000FC5B0 File Offset: 0x000FA7B0
 	private void scrollChildControls(Vector3 delta)
 	{
 		try
@@ -909,7 +909,7 @@ public class dfScrollPanel : dfControl
 			delta = delta.Scale(1f, -1f, 1f);
 			for (int i = 0; i < this.controls.Count; i++)
 			{
-				dfControl dfControl = this.controls[i];
+				global::dfControl dfControl = this.controls[i];
 				dfControl.Position = (dfControl.Position - delta).RoundToInt();
 			}
 		}
@@ -919,14 +919,14 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FDA RID: 16346 RVA: 0x000F3A40 File Offset: 0x000F1C40
+	// Token: 0x060043F6 RID: 17398 RVA: 0x000FC644 File Offset: 0x000FA844
 	private Vector2 calculateMinChildPosition()
 	{
 		float num = float.MaxValue;
 		float num2 = float.MaxValue;
 		for (int i = 0; i < this.controls.Count; i++)
 		{
-			dfControl dfControl = this.controls[i];
+			global::dfControl dfControl = this.controls[i];
 			if (dfControl.enabled && dfControl.gameObject.activeSelf)
 			{
 				Vector3 vector = dfControl.RelativePosition.FloorToInt();
@@ -937,7 +937,7 @@ public class dfScrollPanel : dfControl
 		return new Vector2(num, num2);
 	}
 
-	// Token: 0x06003FDB RID: 16347 RVA: 0x000F3AD4 File Offset: 0x000F1CD4
+	// Token: 0x060043F7 RID: 17399 RVA: 0x000FC6D8 File Offset: 0x000FA8D8
 	private Vector2 calculateViewSize()
 	{
 		Vector2 vector = new Vector2((float)this.scrollPadding.horizontal, (float)this.scrollPadding.vertical).RoundToInt();
@@ -950,7 +950,7 @@ public class dfScrollPanel : dfControl
 		Vector2 vector4 = Vector2.one * float.MinValue;
 		for (int i = 0; i < this.controls.Count; i++)
 		{
-			dfControl dfControl = this.controls[i];
+			global::dfControl dfControl = this.controls[i];
 			if (!Application.isPlaying || dfControl.IsVisible)
 			{
 				Vector2 vector5 = dfControl.RelativePosition.RoundToInt();
@@ -963,7 +963,7 @@ public class dfScrollPanel : dfControl
 		return vector4 - vector3;
 	}
 
-	// Token: 0x06003FDC RID: 16348 RVA: 0x000F3BE8 File Offset: 0x000F1DE8
+	// Token: 0x060043F8 RID: 17400 RVA: 0x000FC7EC File Offset: 0x000FA9EC
 	[HideInInspector]
 	private void updateScrollbars()
 	{
@@ -985,8 +985,8 @@ public class dfScrollPanel : dfControl
 		}
 	}
 
-	// Token: 0x06003FDD RID: 16349 RVA: 0x000F3CF0 File Offset: 0x000F1EF0
-	private void attachEvents(dfControl control)
+	// Token: 0x060043F9 RID: 17401 RVA: 0x000FC8F4 File Offset: 0x000FAAF4
+	private void attachEvents(global::dfControl control)
 	{
 		control.IsVisibleChanged += this.childIsVisibleChanged;
 		control.PositionChanged += this.childControlInvalidated;
@@ -994,8 +994,8 @@ public class dfScrollPanel : dfControl
 		control.ZOrderChanged += this.childOrderChanged;
 	}
 
-	// Token: 0x06003FDE RID: 16350 RVA: 0x000F3D48 File Offset: 0x000F1F48
-	private void detachEvents(dfControl control)
+	// Token: 0x060043FA RID: 17402 RVA: 0x000FC94C File Offset: 0x000FAB4C
+	private void detachEvents(global::dfControl control)
 	{
 		control.IsVisibleChanged -= this.childIsVisibleChanged;
 		control.PositionChanged -= this.childControlInvalidated;
@@ -1003,25 +1003,25 @@ public class dfScrollPanel : dfControl
 		control.ZOrderChanged -= this.childOrderChanged;
 	}
 
-	// Token: 0x06003FDF RID: 16351 RVA: 0x000F3DA0 File Offset: 0x000F1FA0
-	private void childOrderChanged(dfControl control, int value)
+	// Token: 0x060043FB RID: 17403 RVA: 0x000FC9A4 File Offset: 0x000FABA4
+	private void childOrderChanged(global::dfControl control, int value)
 	{
 		this.onChildControlInvalidatedLayout();
 	}
 
-	// Token: 0x06003FE0 RID: 16352 RVA: 0x000F3DA8 File Offset: 0x000F1FA8
-	private void childIsVisibleChanged(dfControl control, bool value)
+	// Token: 0x060043FC RID: 17404 RVA: 0x000FC9AC File Offset: 0x000FABAC
+	private void childIsVisibleChanged(global::dfControl control, bool value)
 	{
 		this.onChildControlInvalidatedLayout();
 	}
 
-	// Token: 0x06003FE1 RID: 16353 RVA: 0x000F3DB0 File Offset: 0x000F1FB0
-	private void childControlInvalidated(dfControl control, Vector2 value)
+	// Token: 0x060043FD RID: 17405 RVA: 0x000FC9B4 File Offset: 0x000FABB4
+	private void childControlInvalidated(global::dfControl control, Vector2 value)
 	{
 		this.onChildControlInvalidatedLayout();
 	}
 
-	// Token: 0x06003FE2 RID: 16354 RVA: 0x000F3DB8 File Offset: 0x000F1FB8
+	// Token: 0x060043FE RID: 17406 RVA: 0x000FC9BC File Offset: 0x000FABBC
 	[HideInInspector]
 	private void onChildControlInvalidatedLayout()
 	{
@@ -1037,94 +1037,94 @@ public class dfScrollPanel : dfControl
 		this.Invalidate();
 	}
 
-	// Token: 0x040021ED RID: 8685
+	// Token: 0x040023F6 RID: 9206
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x040021EE RID: 8686
+	// Token: 0x040023F7 RID: 9207
 	[SerializeField]
 	protected string backgroundSprite;
 
-	// Token: 0x040021EF RID: 8687
+	// Token: 0x040023F8 RID: 9208
 	[SerializeField]
 	protected Color32 backgroundColor = UnityEngine.Color.white;
 
-	// Token: 0x040021F0 RID: 8688
+	// Token: 0x040023F9 RID: 9209
 	[SerializeField]
 	protected bool autoReset = true;
 
-	// Token: 0x040021F1 RID: 8689
+	// Token: 0x040023FA RID: 9210
 	[SerializeField]
 	protected bool autoLayout;
 
-	// Token: 0x040021F2 RID: 8690
+	// Token: 0x040023FB RID: 9211
 	[SerializeField]
 	protected RectOffset scrollPadding = new RectOffset();
 
-	// Token: 0x040021F3 RID: 8691
+	// Token: 0x040023FC RID: 9212
 	[SerializeField]
 	protected RectOffset flowPadding = new RectOffset();
 
-	// Token: 0x040021F4 RID: 8692
+	// Token: 0x040023FD RID: 9213
 	[SerializeField]
-	protected dfScrollPanel.LayoutDirection flowDirection;
+	protected global::dfScrollPanel.LayoutDirection flowDirection;
 
-	// Token: 0x040021F5 RID: 8693
+	// Token: 0x040023FE RID: 9214
 	[SerializeField]
 	protected bool wrapLayout;
 
-	// Token: 0x040021F6 RID: 8694
+	// Token: 0x040023FF RID: 9215
 	[SerializeField]
 	protected Vector2 scrollPosition = Vector2.zero;
 
-	// Token: 0x040021F7 RID: 8695
+	// Token: 0x04002400 RID: 9216
 	[SerializeField]
 	protected int scrollWheelAmount = 10;
 
-	// Token: 0x040021F8 RID: 8696
+	// Token: 0x04002401 RID: 9217
 	[SerializeField]
-	protected dfScrollbar horzScroll;
+	protected global::dfScrollbar horzScroll;
 
-	// Token: 0x040021F9 RID: 8697
+	// Token: 0x04002402 RID: 9218
 	[SerializeField]
-	protected dfScrollbar vertScroll;
+	protected global::dfScrollbar vertScroll;
 
-	// Token: 0x040021FA RID: 8698
+	// Token: 0x04002403 RID: 9219
 	[SerializeField]
-	protected dfControlOrientation wheelDirection;
+	protected global::dfControlOrientation wheelDirection;
 
-	// Token: 0x040021FB RID: 8699
+	// Token: 0x04002404 RID: 9220
 	[SerializeField]
 	protected bool scrollWithArrowKeys;
 
-	// Token: 0x040021FC RID: 8700
+	// Token: 0x04002405 RID: 9221
 	[SerializeField]
 	protected bool useScrollMomentum;
 
-	// Token: 0x040021FD RID: 8701
+	// Token: 0x04002406 RID: 9222
 	private bool initialized;
 
-	// Token: 0x040021FE RID: 8702
+	// Token: 0x04002407 RID: 9223
 	private bool resetNeeded;
 
-	// Token: 0x040021FF RID: 8703
+	// Token: 0x04002408 RID: 9224
 	private bool scrolling;
 
-	// Token: 0x04002200 RID: 8704
+	// Token: 0x04002409 RID: 9225
 	private bool isMouseDown;
 
-	// Token: 0x04002201 RID: 8705
+	// Token: 0x0400240A RID: 9226
 	private Vector2 touchStartPosition = Vector2.zero;
 
-	// Token: 0x04002202 RID: 8706
+	// Token: 0x0400240B RID: 9227
 	private Vector2 scrollMomentum = Vector2.zero;
 
-	// Token: 0x020006EF RID: 1775
+	// Token: 0x020007C1 RID: 1985
 	public enum LayoutDirection
 	{
-		// Token: 0x04002205 RID: 8709
+		// Token: 0x0400240E RID: 9230
 		Horizontal,
-		// Token: 0x04002206 RID: 8710
+		// Token: 0x0400240F RID: 9231
 		Vertical
 	}
 }

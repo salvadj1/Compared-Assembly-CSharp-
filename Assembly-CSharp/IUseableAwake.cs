@@ -1,8 +1,8 @@
 ﻿using System;
 
-// Token: 0x020001F3 RID: 499
+// Token: 0x02000226 RID: 550
 public interface IUseableAwake
 {
-	// Token: 0x06000DA3 RID: 3491
-	void OnUseableAwake(Useable usable);
+	// Token: 0x06000EF7 RID: 3831
+	void OnUseableAwake(global::Useable usable);
 }

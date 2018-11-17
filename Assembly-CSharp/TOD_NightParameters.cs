@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200082E RID: 2094
+// Token: 0x02000923 RID: 2339
 [Serializable]
 public class TOD_NightParameters
 {
-	// Token: 0x06004A6D RID: 19053 RVA: 0x00142EEC File Offset: 0x001410EC
+	// Token: 0x06004F28 RID: 20264 RVA: 0x0014CE50 File Offset: 0x0014B050
 	public void CheckRange()
 	{
 		this.MoonLightIntensity = Mathf.Max(0f, this.MoonLightIntensity);
@@ -16,33 +16,33 @@ public class TOD_NightParameters
 		this.CloudMultiplier = Mathf.Clamp01(this.CloudMultiplier);
 	}
 
-	// Token: 0x04002B37 RID: 11063
+	// Token: 0x04002D85 RID: 11653
 	public Color AdditiveColor = Color.black;
 
-	// Token: 0x04002B38 RID: 11064
+	// Token: 0x04002D86 RID: 11654
 	public Color MoonMeshColor = new Color32(byte.MaxValue, 233, 200, byte.MaxValue);
 
-	// Token: 0x04002B39 RID: 11065
+	// Token: 0x04002D87 RID: 11655
 	public Color MoonLightColor = new Color32(181, 204, byte.MaxValue, byte.MaxValue);
 
-	// Token: 0x04002B3A RID: 11066
+	// Token: 0x04002D88 RID: 11656
 	public Color MoonHaloColor = new Color32(81, 104, 155, byte.MaxValue);
 
-	// Token: 0x04002B3B RID: 11067
+	// Token: 0x04002D89 RID: 11657
 	public float MoonMeshSize = 1f;
 
-	// Token: 0x04002B3C RID: 11068
+	// Token: 0x04002D8A RID: 11658
 	public float MoonLightIntensity = 0.1f;
 
-	// Token: 0x04002B3D RID: 11069
+	// Token: 0x04002D8B RID: 11659
 	public float AmbientIntensity = 0.2f;
 
-	// Token: 0x04002B3E RID: 11070
+	// Token: 0x04002D8C RID: 11660
 	public float ShadowStrength = 1f;
 
-	// Token: 0x04002B3F RID: 11071
+	// Token: 0x04002D8D RID: 11661
 	public float SkyMultiplier = 0.1f;
 
-	// Token: 0x04002B40 RID: 11072
+	// Token: 0x04002D8E RID: 11662
 	public float CloudMultiplier = 0.2f;
 }

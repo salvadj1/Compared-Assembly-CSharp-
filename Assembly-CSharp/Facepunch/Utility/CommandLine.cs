@@ -3,17 +3,17 @@ using System.Collections.Generic;
 
 namespace Facepunch.Utility
 {
-	// Token: 0x02000192 RID: 402
+	// Token: 0x020001C0 RID: 448
 	public static class CommandLine
 	{
-		// Token: 0x06000BF1 RID: 3057 RVA: 0x0002FCF0 File Offset: 0x0002DEF0
+		// Token: 0x06000D29 RID: 3369 RVA: 0x00033BDC File Offset: 0x00031DDC
 		public static void Force(string val)
 		{
 			CommandLine.commandline = val;
 			CommandLine.initialized = false;
 		}
 
-		// Token: 0x06000BF2 RID: 3058 RVA: 0x0002FD00 File Offset: 0x0002DF00
+		// Token: 0x06000D2A RID: 3370 RVA: 0x00033BEC File Offset: 0x00031DEC
 		private static void Initalize()
 		{
 			if (CommandLine.initialized)
@@ -63,13 +63,13 @@ namespace Facepunch.Utility
 			}
 		}
 
-		// Token: 0x06000BF3 RID: 3059 RVA: 0x0002FE90 File Offset: 0x0002E090
+		// Token: 0x06000D2B RID: 3371 RVA: 0x00033D7C File Offset: 0x00031F7C
 		public static bool HasSwitch(string strName)
 		{
 			return CommandLine.switches.ContainsKey(strName);
 		}
 
-		// Token: 0x06000BF4 RID: 3060 RVA: 0x0002FEA0 File Offset: 0x0002E0A0
+		// Token: 0x06000D2C RID: 3372 RVA: 0x00033D8C File Offset: 0x00031F8C
 		public static string GetSwitch(string strName, string strDefault)
 		{
 			CommandLine.Initalize();
@@ -81,7 +81,7 @@ namespace Facepunch.Utility
 			return empty;
 		}
 
-		// Token: 0x06000BF5 RID: 3061 RVA: 0x0002FED0 File Offset: 0x0002E0D0
+		// Token: 0x06000D2D RID: 3373 RVA: 0x00033DBC File Offset: 0x00031FBC
 		public static int GetSwitchInt(string strName, int iDefault)
 		{
 			CommandLine.Initalize();
@@ -98,13 +98,13 @@ namespace Facepunch.Utility
 			return result;
 		}
 
-		// Token: 0x04000760 RID: 1888
+		// Token: 0x04000874 RID: 2164
 		private static bool initialized = false;
 
-		// Token: 0x04000761 RID: 1889
+		// Token: 0x04000875 RID: 2165
 		private static string commandline = string.Empty;
 
-		// Token: 0x04000762 RID: 1890
+		// Token: 0x04000876 RID: 2166
 		private static Dictionary<string, string> switches = new Dictionary<string, string>();
 	}
 }

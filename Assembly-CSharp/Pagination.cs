@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200040A RID: 1034
+// Token: 0x020004BE RID: 1214
 public class Pagination : MonoBehaviour
 {
 	// Token: 0x14000017 RID: 23
-	// (add) Token: 0x060025DF RID: 9695 RVA: 0x000920A8 File Offset: 0x000902A8
-	// (remove) Token: 0x060025E0 RID: 9696 RVA: 0x000920C4 File Offset: 0x000902C4
-	public event Pagination.SwitchToPage OnPageSwitch;
+	// (add) Token: 0x06002965 RID: 10597 RVA: 0x00097F6C File Offset: 0x0009616C
+	// (remove) Token: 0x06002966 RID: 10598 RVA: 0x00097F88 File Offset: 0x00096188
+	public event global::Pagination.SwitchToPage OnPageSwitch;
 
-	// Token: 0x060025E1 RID: 9697 RVA: 0x000920E0 File Offset: 0x000902E0
+	// Token: 0x06002967 RID: 10599 RVA: 0x00097FA4 File Offset: 0x000961A4
 	public void Setup(int iPages, int iCurrentPage)
 	{
 		if (this.pageCount == iPages && this.pageCurrent == iCurrentPage)
@@ -18,8 +18,8 @@ public class Pagination : MonoBehaviour
 		}
 		this.pageCount = iPages;
 		this.pageCurrent = iCurrentPage;
-		dfControl[] componentsInChildren = base.gameObject.GetComponentsInChildren<dfControl>();
-		foreach (dfControl dfControl in componentsInChildren)
+		global::dfControl[] componentsInChildren = base.gameObject.GetComponentsInChildren<global::dfControl>();
+		foreach (global::dfControl dfControl in componentsInChildren)
 		{
 			if (!(dfControl.gameObject == base.gameObject))
 			{
@@ -30,7 +30,7 @@ public class Pagination : MonoBehaviour
 		{
 			return;
 		}
-		dfControl component = base.GetComponent<dfControl>();
+		global::dfControl component = base.GetComponent<global::dfControl>();
 		bool flag = true;
 		Vector3 position;
 		position..ctor(0f, 0f, 0f);
@@ -47,7 +47,7 @@ public class Pagination : MonoBehaviour
 			else
 			{
 				GameObject gameObject = (GameObject)Object.Instantiate(this.clickableButton);
-				dfButton component2 = gameObject.GetComponent<dfButton>();
+				global::dfButton component2 = gameObject.GetComponent<global::dfButton>();
 				component.AddControl(component2);
 				component2.Tooltip = j.ToString();
 				component2.MouseDown += this.OnButtonClicked;
@@ -65,23 +65,23 @@ public class Pagination : MonoBehaviour
 		component.Width = position.x;
 	}
 
-	// Token: 0x060025E2 RID: 9698 RVA: 0x000922A8 File Offset: 0x000904A8
+	// Token: 0x06002968 RID: 10600 RVA: 0x0009816C File Offset: 0x0009636C
 	public void DropSpacer(ref Vector3 vPos)
 	{
 		if (!this.spacerLabel)
 		{
 			return;
 		}
-		dfControl component = base.GetComponent<dfControl>();
+		global::dfControl component = base.GetComponent<global::dfControl>();
 		GameObject gameObject = (GameObject)Object.Instantiate(this.spacerLabel);
-		dfControl component2 = gameObject.GetComponent<dfControl>();
+		global::dfControl component2 = gameObject.GetComponent<global::dfControl>();
 		component.AddControl(component2);
 		component2.Position = vPos;
 		vPos.x += component2.Width + 5f;
 	}
 
-	// Token: 0x060025E3 RID: 9699 RVA: 0x00092314 File Offset: 0x00090514
-	public void OnButtonClicked(dfControl control, dfMouseEventArgs mouseEvent)
+	// Token: 0x06002969 RID: 10601 RVA: 0x000981D8 File Offset: 0x000963D8
+	public void OnButtonClicked(global::dfControl control, global::dfMouseEventArgs mouseEvent)
 	{
 		int num = int.Parse(control.Tooltip);
 		this.Setup(this.pageCount, num);
@@ -91,22 +91,22 @@ public class Pagination : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001276 RID: 4726
+	// Token: 0x040013F6 RID: 5110
 	public GameObject clickableButton;
 
-	// Token: 0x04001277 RID: 4727
+	// Token: 0x040013F7 RID: 5111
 	public GameObject spacerLabel;
 
-	// Token: 0x04001278 RID: 4728
+	// Token: 0x040013F8 RID: 5112
 	public int buttonGroups = 2;
 
-	// Token: 0x04001279 RID: 4729
+	// Token: 0x040013F9 RID: 5113
 	protected int pageCount;
 
-	// Token: 0x0400127A RID: 4730
+	// Token: 0x040013FA RID: 5114
 	protected int pageCurrent;
 
-	// Token: 0x020008D9 RID: 2265
-	// (Invoke) Token: 0x06004D3C RID: 19772
+	// Token: 0x020004BF RID: 1215
+	// (Invoke) Token: 0x0600296B RID: 10603
 	public delegate void SwitchToPage(int iPage);
 }

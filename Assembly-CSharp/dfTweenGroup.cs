@@ -4,34 +4,34 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// Token: 0x02000743 RID: 1859
+// Token: 0x02000823 RID: 2083
 [AddComponentMenu("Daikon Forge/Tweens/Group")]
 [Serializable]
-public class dfTweenGroup : dfTweenPlayableBase
+public class dfTweenGroup : global::dfTweenPlayableBase
 {
 	// Token: 0x1400006B RID: 107
-	// (add) Token: 0x060043F2 RID: 17394 RVA: 0x00107880 File Offset: 0x00105A80
-	// (remove) Token: 0x060043F3 RID: 17395 RVA: 0x0010789C File Offset: 0x00105A9C
-	public event TweenNotification TweenStarted;
+	// (add) Token: 0x06004846 RID: 18502 RVA: 0x00110F60 File Offset: 0x0010F160
+	// (remove) Token: 0x06004847 RID: 18503 RVA: 0x00110F7C File Offset: 0x0010F17C
+	public event global::TweenNotification TweenStarted;
 
 	// Token: 0x1400006C RID: 108
-	// (add) Token: 0x060043F4 RID: 17396 RVA: 0x001078B8 File Offset: 0x00105AB8
-	// (remove) Token: 0x060043F5 RID: 17397 RVA: 0x001078D4 File Offset: 0x00105AD4
-	public event TweenNotification TweenStopped;
+	// (add) Token: 0x06004848 RID: 18504 RVA: 0x00110F98 File Offset: 0x0010F198
+	// (remove) Token: 0x06004849 RID: 18505 RVA: 0x00110FB4 File Offset: 0x0010F1B4
+	public event global::TweenNotification TweenStopped;
 
 	// Token: 0x1400006D RID: 109
-	// (add) Token: 0x060043F6 RID: 17398 RVA: 0x001078F0 File Offset: 0x00105AF0
-	// (remove) Token: 0x060043F7 RID: 17399 RVA: 0x0010790C File Offset: 0x00105B0C
-	public event TweenNotification TweenReset;
+	// (add) Token: 0x0600484A RID: 18506 RVA: 0x00110FD0 File Offset: 0x0010F1D0
+	// (remove) Token: 0x0600484B RID: 18507 RVA: 0x00110FEC File Offset: 0x0010F1EC
+	public event global::TweenNotification TweenReset;
 
 	// Token: 0x1400006E RID: 110
-	// (add) Token: 0x060043F8 RID: 17400 RVA: 0x00107928 File Offset: 0x00105B28
-	// (remove) Token: 0x060043F9 RID: 17401 RVA: 0x00107944 File Offset: 0x00105B44
-	public event TweenNotification TweenCompleted;
+	// (add) Token: 0x0600484C RID: 18508 RVA: 0x00111008 File Offset: 0x0010F208
+	// (remove) Token: 0x0600484D RID: 18509 RVA: 0x00111024 File Offset: 0x0010F224
+	public event global::TweenNotification TweenCompleted;
 
-	// Token: 0x17000D4A RID: 3402
-	// (get) Token: 0x060043FA RID: 17402 RVA: 0x00107960 File Offset: 0x00105B60
-	// (set) Token: 0x060043FB RID: 17403 RVA: 0x00107968 File Offset: 0x00105B68
+	// Token: 0x17000DD6 RID: 3542
+	// (get) Token: 0x0600484E RID: 18510 RVA: 0x00111040 File Offset: 0x0010F240
+	// (set) Token: 0x0600484F RID: 18511 RVA: 0x00111048 File Offset: 0x0010F248
 	public override string TweenName
 	{
 		get
@@ -44,8 +44,8 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000D4B RID: 3403
-	// (get) Token: 0x060043FC RID: 17404 RVA: 0x00107974 File Offset: 0x00105B74
+	// Token: 0x17000DD7 RID: 3543
+	// (get) Token: 0x06004850 RID: 18512 RVA: 0x00111054 File Offset: 0x0010F254
 	public override bool IsPlaying
 	{
 		get
@@ -64,12 +64,12 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x060043FD RID: 17405 RVA: 0x001079E8 File Offset: 0x00105BE8
+	// Token: 0x06004851 RID: 18513 RVA: 0x001110C8 File Offset: 0x0010F2C8
 	private void Update()
 	{
 	}
 
-	// Token: 0x060043FE RID: 17406 RVA: 0x001079EC File Offset: 0x00105BEC
+	// Token: 0x06004852 RID: 18514 RVA: 0x001110CC File Offset: 0x0010F2CC
 	public void EnableTween(string TweenName)
 	{
 		for (int i = 0; i < this.Tweens.Count; i++)
@@ -85,7 +85,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x060043FF RID: 17407 RVA: 0x00107A64 File Offset: 0x00105C64
+	// Token: 0x06004853 RID: 18515 RVA: 0x00111144 File Offset: 0x0010F344
 	public void DisableTween(string TweenName)
 	{
 		for (int i = 0; i < this.Tweens.Count; i++)
@@ -101,7 +101,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004400 RID: 17408 RVA: 0x00107ADC File Offset: 0x00105CDC
+	// Token: 0x06004854 RID: 18516 RVA: 0x001111BC File Offset: 0x0010F3BC
 	public override void Play()
 	{
 		if (this.IsPlaying)
@@ -109,7 +109,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 			this.Stop();
 		}
 		this.onStarted();
-		if (this.Mode == dfTweenGroup.TweenGroupMode.Concurrent)
+		if (this.Mode == global::dfTweenGroup.TweenGroupMode.Concurrent)
 		{
 			base.StartCoroutine(this.runConcurrent());
 		}
@@ -119,7 +119,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004401 RID: 17409 RVA: 0x00107B2C File Offset: 0x00105D2C
+	// Token: 0x06004855 RID: 18517 RVA: 0x0011120C File Offset: 0x0010F40C
 	public override void Stop()
 	{
 		if (!this.IsPlaying)
@@ -137,7 +137,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		this.onStopped();
 	}
 
-	// Token: 0x06004402 RID: 17410 RVA: 0x00107B9C File Offset: 0x00105D9C
+	// Token: 0x06004856 RID: 18518 RVA: 0x0011127C File Offset: 0x0010F47C
 	public override void Reset()
 	{
 		if (!this.IsPlaying)
@@ -155,7 +155,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		this.onReset();
 	}
 
-	// Token: 0x06004403 RID: 17411 RVA: 0x00107C0C File Offset: 0x00105E0C
+	// Token: 0x06004857 RID: 18519 RVA: 0x001112EC File Offset: 0x0010F4EC
 	[HideInInspector]
 	private IEnumerator runSequence()
 	{
@@ -163,7 +163,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		{
 			if (!(this.Tweens[i] == null) && this.Tweens[i].enabled)
 			{
-				dfTweenPlayableBase tween = this.Tweens[i];
+				global::dfTweenPlayableBase tween = this.Tweens[i];
 				tween.Play();
 				while (tween.IsPlaying)
 				{
@@ -175,7 +175,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		yield break;
 	}
 
-	// Token: 0x06004404 RID: 17412 RVA: 0x00107C28 File Offset: 0x00105E28
+	// Token: 0x06004858 RID: 18520 RVA: 0x00111308 File Offset: 0x0010F508
 	[HideInInspector]
 	private IEnumerator runConcurrent()
 	{
@@ -190,12 +190,12 @@ public class dfTweenGroup : dfTweenPlayableBase
 		{
 			yield return null;
 		}
-		while (this.Tweens.Any((dfTweenPlayableBase tween) => tween != null && tween.IsPlaying));
+		while (this.Tweens.Any((global::dfTweenPlayableBase tween) => tween != null && tween.IsPlaying));
 		this.onCompleted();
 		yield break;
 	}
 
-	// Token: 0x06004405 RID: 17413 RVA: 0x00107C44 File Offset: 0x00105E44
+	// Token: 0x06004859 RID: 18521 RVA: 0x00111324 File Offset: 0x0010F524
 	protected internal void onStarted()
 	{
 		base.SendMessage("TweenStarted", this, 1);
@@ -205,7 +205,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004406 RID: 17414 RVA: 0x00107C6C File Offset: 0x00105E6C
+	// Token: 0x0600485A RID: 18522 RVA: 0x0011134C File Offset: 0x0010F54C
 	protected internal void onStopped()
 	{
 		base.SendMessage("TweenStopped", this, 1);
@@ -215,7 +215,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004407 RID: 17415 RVA: 0x00107C94 File Offset: 0x00105E94
+	// Token: 0x0600485B RID: 18523 RVA: 0x00111374 File Offset: 0x0010F574
 	protected internal void onReset()
 	{
 		base.SendMessage("TweenReset", this, 1);
@@ -225,7 +225,7 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004408 RID: 17416 RVA: 0x00107CBC File Offset: 0x00105EBC
+	// Token: 0x0600485C RID: 18524 RVA: 0x0011139C File Offset: 0x0010F59C
 	protected internal void onCompleted()
 	{
 		base.SendMessage("TweenCompleted", this, 1);
@@ -235,22 +235,22 @@ public class dfTweenGroup : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x040023C2 RID: 9154
+	// Token: 0x040025EF RID: 9711
 	[SerializeField]
 	protected string groupName = string.Empty;
 
-	// Token: 0x040023C3 RID: 9155
-	public List<dfTweenPlayableBase> Tweens = new List<dfTweenPlayableBase>();
+	// Token: 0x040025F0 RID: 9712
+	public List<global::dfTweenPlayableBase> Tweens = new List<global::dfTweenPlayableBase>();
 
-	// Token: 0x040023C4 RID: 9156
-	public dfTweenGroup.TweenGroupMode Mode;
+	// Token: 0x040025F1 RID: 9713
+	public global::dfTweenGroup.TweenGroupMode Mode;
 
-	// Token: 0x02000744 RID: 1860
+	// Token: 0x02000824 RID: 2084
 	public enum TweenGroupMode
 	{
-		// Token: 0x040023CA RID: 9162
+		// Token: 0x040025F7 RID: 9719
 		Concurrent,
-		// Token: 0x040023CB RID: 9163
+		// Token: 0x040025F8 RID: 9720
 		Sequence
 	}
 }

@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000059 RID: 89
+// Token: 0x0200006B RID: 107
 [Serializable]
 internal class TreeUnpackGroup
 {
-	// Token: 0x040001C6 RID: 454
+	// Token: 0x04000228 RID: 552
 	public Mesh[] meshes;
 
-	// Token: 0x040001C7 RID: 455
+	// Token: 0x04000229 RID: 553
 	public string tag;
 
-	// Token: 0x040001C8 RID: 456
+	// Token: 0x0400022A RID: 554
 	public bool spherical;
 
-	// Token: 0x040001C9 RID: 457
+	// Token: 0x0400022B RID: 555
 	public int layer;
 }

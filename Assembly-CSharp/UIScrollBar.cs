@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200077B RID: 1915
-[ExecuteInEditMode]
+// Token: 0x0200085E RID: 2142
 [AddComponentMenu("NGUI/Interaction/Scroll Bar")]
+[ExecuteInEditMode]
 public class UIScrollBar : MonoBehaviour
 {
-	// Token: 0x17000D7E RID: 3454
-	// (get) Token: 0x06004571 RID: 17777 RVA: 0x00112310 File Offset: 0x00110510
+	// Token: 0x17000E0E RID: 3598
+	// (get) Token: 0x060049D6 RID: 18902 RVA: 0x0011BC90 File Offset: 0x00119E90
 	public Transform cachedTransform
 	{
 		get
@@ -20,24 +20,24 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D7F RID: 3455
-	// (get) Token: 0x06004572 RID: 17778 RVA: 0x00112338 File Offset: 0x00110538
+	// Token: 0x17000E0F RID: 3599
+	// (get) Token: 0x060049D7 RID: 18903 RVA: 0x0011BCB8 File Offset: 0x00119EB8
 	public Camera cachedCamera
 	{
 		get
 		{
 			if (this.mCam == null)
 			{
-				this.mCam = NGUITools.FindCameraForLayer(base.gameObject.layer);
+				this.mCam = global::NGUITools.FindCameraForLayer(base.gameObject.layer);
 			}
 			return this.mCam;
 		}
 	}
 
-	// Token: 0x17000D80 RID: 3456
-	// (get) Token: 0x06004573 RID: 17779 RVA: 0x00112368 File Offset: 0x00110568
-	// (set) Token: 0x06004574 RID: 17780 RVA: 0x00112370 File Offset: 0x00110570
-	public UISprite background
+	// Token: 0x17000E10 RID: 3600
+	// (get) Token: 0x060049D8 RID: 18904 RVA: 0x0011BCE8 File Offset: 0x00119EE8
+	// (set) Token: 0x060049D9 RID: 18905 RVA: 0x0011BCF0 File Offset: 0x00119EF0
+	public global::UISprite background
 	{
 		get
 		{
@@ -53,10 +53,10 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D81 RID: 3457
-	// (get) Token: 0x06004575 RID: 17781 RVA: 0x00112394 File Offset: 0x00110594
-	// (set) Token: 0x06004576 RID: 17782 RVA: 0x0011239C File Offset: 0x0011059C
-	public UISprite foreground
+	// Token: 0x17000E11 RID: 3601
+	// (get) Token: 0x060049DA RID: 18906 RVA: 0x0011BD14 File Offset: 0x00119F14
+	// (set) Token: 0x060049DB RID: 18907 RVA: 0x0011BD1C File Offset: 0x00119F1C
+	public global::UISprite foreground
 	{
 		get
 		{
@@ -72,10 +72,10 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D82 RID: 3458
-	// (get) Token: 0x06004577 RID: 17783 RVA: 0x001123C0 File Offset: 0x001105C0
-	// (set) Token: 0x06004578 RID: 17784 RVA: 0x001123C8 File Offset: 0x001105C8
-	public UIScrollBar.Direction direction
+	// Token: 0x17000E12 RID: 3602
+	// (get) Token: 0x060049DC RID: 18908 RVA: 0x0011BD40 File Offset: 0x00119F40
+	// (set) Token: 0x060049DD RID: 18909 RVA: 0x0011BD48 File Offset: 0x00119F48
+	public global::UIScrollBar.Direction direction
 	{
 		get
 		{
@@ -91,7 +91,7 @@ public class UIScrollBar : MonoBehaviour
 				{
 					Transform cachedTransform = this.mBG.cachedTransform;
 					Vector3 localScale = cachedTransform.localScale;
-					if ((this.mDir == UIScrollBar.Direction.Vertical && localScale.x > localScale.y) || (this.mDir == UIScrollBar.Direction.Horizontal && localScale.x < localScale.y))
+					if ((this.mDir == global::UIScrollBar.Direction.Vertical && localScale.x > localScale.y) || (this.mDir == global::UIScrollBar.Direction.Horizontal && localScale.x < localScale.y))
 					{
 						float x = localScale.x;
 						localScale.x = localScale.y;
@@ -100,11 +100,11 @@ public class UIScrollBar : MonoBehaviour
 						this.ForceUpdate();
 						if (this.mBG.collider != null)
 						{
-							NGUITools.AddWidgetHotSpot(this.mBG.gameObject);
+							global::NGUITools.AddWidgetHotSpot(this.mBG.gameObject);
 						}
 						if (this.mFG.collider != null)
 						{
-							NGUITools.AddWidgetHotSpot(this.mFG.gameObject);
+							global::NGUITools.AddWidgetHotSpot(this.mFG.gameObject);
 						}
 					}
 				}
@@ -112,9 +112,9 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D83 RID: 3459
-	// (get) Token: 0x06004579 RID: 17785 RVA: 0x001124CC File Offset: 0x001106CC
-	// (set) Token: 0x0600457A RID: 17786 RVA: 0x001124D4 File Offset: 0x001106D4
+	// Token: 0x17000E13 RID: 3603
+	// (get) Token: 0x060049DE RID: 18910 RVA: 0x0011BE4C File Offset: 0x0011A04C
+	// (set) Token: 0x060049DF RID: 18911 RVA: 0x0011BE54 File Offset: 0x0011A054
 	public bool inverted
 	{
 		get
@@ -131,9 +131,9 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D84 RID: 3460
-	// (get) Token: 0x0600457B RID: 17787 RVA: 0x001124F0 File Offset: 0x001106F0
-	// (set) Token: 0x0600457C RID: 17788 RVA: 0x001124F8 File Offset: 0x001106F8
+	// Token: 0x17000E14 RID: 3604
+	// (get) Token: 0x060049E0 RID: 18912 RVA: 0x0011BE70 File Offset: 0x0011A070
+	// (set) Token: 0x060049E1 RID: 18913 RVA: 0x0011BE78 File Offset: 0x0011A078
 	public float scrollValue
 	{
 		get
@@ -155,9 +155,9 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D85 RID: 3461
-	// (get) Token: 0x0600457D RID: 17789 RVA: 0x00112540 File Offset: 0x00110740
-	// (set) Token: 0x0600457E RID: 17790 RVA: 0x00112548 File Offset: 0x00110748
+	// Token: 0x17000E15 RID: 3605
+	// (get) Token: 0x060049E2 RID: 18914 RVA: 0x0011BEC0 File Offset: 0x0011A0C0
+	// (set) Token: 0x060049E3 RID: 18915 RVA: 0x0011BEC8 File Offset: 0x0011A0C8
 	public float barSize
 	{
 		get
@@ -179,9 +179,9 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000D86 RID: 3462
-	// (get) Token: 0x0600457F RID: 17791 RVA: 0x00112590 File Offset: 0x00110790
-	// (set) Token: 0x06004580 RID: 17792 RVA: 0x001125DC File Offset: 0x001107DC
+	// Token: 0x17000E16 RID: 3606
+	// (get) Token: 0x060049E4 RID: 18916 RVA: 0x0011BF10 File Offset: 0x0011A110
+	// (set) Token: 0x060049E5 RID: 18917 RVA: 0x0011BF5C File Offset: 0x0011A15C
 	public float alpha
 	{
 		get
@@ -201,26 +201,26 @@ public class UIScrollBar : MonoBehaviour
 			if (this.mFG != null)
 			{
 				this.mFG.alpha = value;
-				this.mFG.gameObject.SetActive(!NGUITools.ZeroAlpha(this.mFG.alpha));
+				this.mFG.gameObject.SetActive(!global::NGUITools.ZeroAlpha(this.mFG.alpha));
 			}
 			if (this.mBG != null)
 			{
 				this.mBG.alpha = value;
-				this.mBG.gameObject.SetActive(!NGUITools.ZeroAlpha(this.mFG.alpha));
+				this.mBG.gameObject.SetActive(!global::NGUITools.ZeroAlpha(this.mFG.alpha));
 			}
 		}
 	}
 
-	// Token: 0x06004581 RID: 17793 RVA: 0x0011266C File Offset: 0x0011086C
+	// Token: 0x060049E6 RID: 18918 RVA: 0x0011BFEC File Offset: 0x0011A1EC
 	private void CenterOnPos(Vector2 localPos)
 	{
 		if (this.mBG == null || this.mFG == null)
 		{
 			return;
 		}
-		AABBox aabbox = NGUIMath.CalculateRelativeInnerBounds(this.cachedTransform, this.mBG);
-		AABBox aabbox2 = NGUIMath.CalculateRelativeInnerBounds(this.cachedTransform, this.mFG);
-		if (this.mDir == UIScrollBar.Direction.Horizontal)
+		global::AABBox aabbox = global::NGUIMath.CalculateRelativeInnerBounds(this.cachedTransform, this.mBG);
+		global::AABBox aabbox2 = global::NGUIMath.CalculateRelativeInnerBounds(this.cachedTransform, this.mFG);
+		if (this.mDir == global::UIScrollBar.Direction.Horizontal)
 		{
 			float num = aabbox.size.x - aabbox2.size.x;
 			float num2 = num * 0.5f;
@@ -238,7 +238,7 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004582 RID: 17794 RVA: 0x001127E0 File Offset: 0x001109E0
+	// Token: 0x060049E7 RID: 18919 RVA: 0x0011C160 File Offset: 0x0011A360
 	private void Reposition(Vector2 screenPos)
 	{
 		Transform cachedTransform = this.cachedTransform;
@@ -253,61 +253,61 @@ public class UIScrollBar : MonoBehaviour
 		this.CenterOnPos(cachedTransform.InverseTransformPoint(ray.GetPoint(num)));
 	}
 
-	// Token: 0x06004583 RID: 17795 RVA: 0x0011284C File Offset: 0x00110A4C
+	// Token: 0x060049E8 RID: 18920 RVA: 0x0011C1CC File Offset: 0x0011A3CC
 	private void OnPressBackground(GameObject go, bool isPressed)
 	{
-		this.mCam = UICamera.currentCamera;
-		this.Reposition(UICamera.lastTouchPosition);
+		this.mCam = global::UICamera.currentCamera;
+		this.Reposition(global::UICamera.lastTouchPosition);
 	}
 
-	// Token: 0x06004584 RID: 17796 RVA: 0x00112864 File Offset: 0x00110A64
+	// Token: 0x060049E9 RID: 18921 RVA: 0x0011C1E4 File Offset: 0x0011A3E4
 	private void OnDragBackground(GameObject go, Vector2 delta)
 	{
-		this.mCam = UICamera.currentCamera;
-		this.Reposition(UICamera.lastTouchPosition);
+		this.mCam = global::UICamera.currentCamera;
+		this.Reposition(global::UICamera.lastTouchPosition);
 	}
 
-	// Token: 0x06004585 RID: 17797 RVA: 0x0011287C File Offset: 0x00110A7C
+	// Token: 0x060049EA RID: 18922 RVA: 0x0011C1FC File Offset: 0x0011A3FC
 	private void OnPressForeground(GameObject go, bool isPressed)
 	{
 		if (isPressed)
 		{
-			this.mCam = UICamera.currentCamera;
-			AABBox aabbox = NGUIMath.CalculateAbsoluteWidgetBounds(this.mFG.cachedTransform);
+			this.mCam = global::UICamera.currentCamera;
+			global::AABBox aabbox = global::NGUIMath.CalculateAbsoluteWidgetBounds(this.mFG.cachedTransform);
 			this.mScreenPos = this.mCam.WorldToScreenPoint(aabbox.center);
 		}
 	}
 
-	// Token: 0x06004586 RID: 17798 RVA: 0x001128C8 File Offset: 0x00110AC8
+	// Token: 0x060049EB RID: 18923 RVA: 0x0011C248 File Offset: 0x0011A448
 	private void OnDragForeground(GameObject go, Vector2 delta)
 	{
-		this.mCam = UICamera.currentCamera;
-		this.Reposition(this.mScreenPos + UICamera.currentTouch.totalDelta);
+		this.mCam = global::UICamera.currentCamera;
+		this.Reposition(this.mScreenPos + global::UICamera.currentTouch.totalDelta);
 	}
 
-	// Token: 0x06004587 RID: 17799 RVA: 0x001128FC File Offset: 0x00110AFC
+	// Token: 0x060049EC RID: 18924 RVA: 0x0011C27C File Offset: 0x0011A47C
 	private void Start()
 	{
-		if (this.background != null && NGUITools.HasMeansOfClicking(this.background))
+		if (this.background != null && global::NGUITools.HasMeansOfClicking(this.background))
 		{
-			UIEventListener uieventListener = UIEventListener.Get(this.background.gameObject);
-			UIEventListener uieventListener2 = uieventListener;
-			uieventListener2.onPress = (UIEventListener.BoolDelegate)Delegate.Combine(uieventListener2.onPress, new UIEventListener.BoolDelegate(this.OnPressBackground));
-			UIEventListener uieventListener3 = uieventListener;
-			uieventListener3.onDrag = (UIEventListener.VectorDelegate)Delegate.Combine(uieventListener3.onDrag, new UIEventListener.VectorDelegate(this.OnDragBackground));
+			global::UIEventListener uieventListener = global::UIEventListener.Get(this.background.gameObject);
+			global::UIEventListener uieventListener2 = uieventListener;
+			uieventListener2.onPress = (global::UIEventListener.BoolDelegate)Delegate.Combine(uieventListener2.onPress, new global::UIEventListener.BoolDelegate(this.OnPressBackground));
+			global::UIEventListener uieventListener3 = uieventListener;
+			uieventListener3.onDrag = (global::UIEventListener.VectorDelegate)Delegate.Combine(uieventListener3.onDrag, new global::UIEventListener.VectorDelegate(this.OnDragBackground));
 		}
-		if (this.foreground != null && NGUITools.HasMeansOfClicking(this.foreground))
+		if (this.foreground != null && global::NGUITools.HasMeansOfClicking(this.foreground))
 		{
-			UIEventListener uieventListener4 = UIEventListener.Get(this.foreground.gameObject);
-			UIEventListener uieventListener5 = uieventListener4;
-			uieventListener5.onPress = (UIEventListener.BoolDelegate)Delegate.Combine(uieventListener5.onPress, new UIEventListener.BoolDelegate(this.OnPressForeground));
-			UIEventListener uieventListener6 = uieventListener4;
-			uieventListener6.onDrag = (UIEventListener.VectorDelegate)Delegate.Combine(uieventListener6.onDrag, new UIEventListener.VectorDelegate(this.OnDragForeground));
+			global::UIEventListener uieventListener4 = global::UIEventListener.Get(this.foreground.gameObject);
+			global::UIEventListener uieventListener5 = uieventListener4;
+			uieventListener5.onPress = (global::UIEventListener.BoolDelegate)Delegate.Combine(uieventListener5.onPress, new global::UIEventListener.BoolDelegate(this.OnPressForeground));
+			global::UIEventListener uieventListener6 = uieventListener4;
+			uieventListener6.onDrag = (global::UIEventListener.VectorDelegate)Delegate.Combine(uieventListener6.onDrag, new global::UIEventListener.VectorDelegate(this.OnDragForeground));
 		}
 		this.ForceUpdate();
 	}
 
-	// Token: 0x06004588 RID: 17800 RVA: 0x001129FC File Offset: 0x00110BFC
+	// Token: 0x060049ED RID: 18925 RVA: 0x0011C37C File Offset: 0x0011A57C
 	private void Update()
 	{
 		if (this.mIsDirty)
@@ -316,7 +316,7 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004589 RID: 17801 RVA: 0x00112A10 File Offset: 0x00110C10
+	// Token: 0x060049EE RID: 18926 RVA: 0x0011C390 File Offset: 0x0011A590
 	public void ForceUpdate()
 	{
 		this.mIsDirty = false;
@@ -329,12 +329,12 @@ public class UIScrollBar : MonoBehaviour
 			Vector2 vector;
 			vector..ctor(Mathf.Max(0f, this.mBG.cachedTransform.localScale.x - border.x - border.z), Mathf.Max(0f, this.mBG.cachedTransform.localScale.y - border.y - border.w));
 			float num = (!this.mInverted) ? this.mScroll : (1f - this.mScroll);
-			if (this.mDir == UIScrollBar.Direction.Horizontal)
+			if (this.mDir == global::UIScrollBar.Direction.Horizontal)
 			{
 				Vector2 vector2;
 				vector2..ctor(vector.x * this.mSize, vector.y);
-				this.mFG.pivot = UIWidget.Pivot.Left;
-				this.mBG.pivot = UIWidget.Pivot.Left;
+				this.mFG.pivot = global::UIWidget.Pivot.Left;
+				this.mBG.pivot = global::UIWidget.Pivot.Left;
 				this.mBG.cachedTransform.localPosition = Vector3.zero;
 				this.mFG.cachedTransform.localPosition = new Vector3(border.x - border2.x + (vector.x - vector2.x) * num, 0f, 0f);
 				this.mFG.cachedTransform.localScale = new Vector3(vector2.x + border2.x + border2.z, vector2.y + border2.y + border2.w, 1f);
@@ -347,8 +347,8 @@ public class UIScrollBar : MonoBehaviour
 			{
 				Vector2 vector3;
 				vector3..ctor(vector.x, vector.y * this.mSize);
-				this.mFG.pivot = UIWidget.Pivot.Top;
-				this.mBG.pivot = UIWidget.Pivot.Top;
+				this.mFG.pivot = global::UIWidget.Pivot.Top;
+				this.mBG.pivot = global::UIWidget.Pivot.Top;
 				this.mBG.cachedTransform.localPosition = Vector3.zero;
 				this.mFG.cachedTransform.localPosition = new Vector3(0f, -border.y + border2.y - (vector.y - vector3.y) * num, 0f);
 				this.mFG.cachedTransform.localScale = new Vector3(vector3.x + border2.x + border2.z, vector3.y + border2.y + border2.w, 1f);
@@ -360,61 +360,61 @@ public class UIScrollBar : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040025D8 RID: 9688
-	[HideInInspector]
-	[SerializeField]
-	private UISprite mBG;
-
-	// Token: 0x040025D9 RID: 9689
+	// Token: 0x0400280F RID: 10255
 	[SerializeField]
 	[HideInInspector]
-	private UISprite mFG;
+	private global::UISprite mBG;
 
-	// Token: 0x040025DA RID: 9690
+	// Token: 0x04002810 RID: 10256
 	[HideInInspector]
 	[SerializeField]
-	private UIScrollBar.Direction mDir;
+	private global::UISprite mFG;
 
-	// Token: 0x040025DB RID: 9691
+	// Token: 0x04002811 RID: 10257
+	[HideInInspector]
+	[SerializeField]
+	private global::UIScrollBar.Direction mDir;
+
+	// Token: 0x04002812 RID: 10258
 	[SerializeField]
 	[HideInInspector]
 	private bool mInverted;
 
-	// Token: 0x040025DC RID: 9692
-	[HideInInspector]
+	// Token: 0x04002813 RID: 10259
 	[SerializeField]
+	[HideInInspector]
 	private float mScroll;
 
-	// Token: 0x040025DD RID: 9693
-	[HideInInspector]
+	// Token: 0x04002814 RID: 10260
 	[SerializeField]
+	[HideInInspector]
 	private float mSize = 1f;
 
-	// Token: 0x040025DE RID: 9694
+	// Token: 0x04002815 RID: 10261
 	private Transform mTrans;
 
-	// Token: 0x040025DF RID: 9695
+	// Token: 0x04002816 RID: 10262
 	private bool mIsDirty;
 
-	// Token: 0x040025E0 RID: 9696
+	// Token: 0x04002817 RID: 10263
 	private Camera mCam;
 
-	// Token: 0x040025E1 RID: 9697
+	// Token: 0x04002818 RID: 10264
 	private Vector2 mScreenPos = Vector2.zero;
 
-	// Token: 0x040025E2 RID: 9698
-	public UIScrollBar.OnScrollBarChange onChange;
+	// Token: 0x04002819 RID: 10265
+	public global::UIScrollBar.OnScrollBarChange onChange;
 
-	// Token: 0x0200077C RID: 1916
+	// Token: 0x0200085F RID: 2143
 	public enum Direction
 	{
-		// Token: 0x040025E4 RID: 9700
+		// Token: 0x0400281B RID: 10267
 		Horizontal,
-		// Token: 0x040025E5 RID: 9701
+		// Token: 0x0400281C RID: 10268
 		Vertical
 	}
 
-	// Token: 0x020008E5 RID: 2277
-	// (Invoke) Token: 0x06004D6C RID: 19820
-	public delegate void OnScrollBarChange(UIScrollBar sb);
+	// Token: 0x02000860 RID: 2144
+	// (Invoke) Token: 0x060049F0 RID: 18928
+	public delegate void OnScrollBarChange(global::UIScrollBar sb);
 }

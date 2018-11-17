@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200036D RID: 877
+// Token: 0x0200041A RID: 1050
 public static class ODBGenericEnumerable<T> where T : Object
 {
-	// Token: 0x06002166 RID: 8550 RVA: 0x00082428 File Offset: 0x00080628
-	public static IEnumerable<T> Open<TEnumerator, TEnumerable>(ref TEnumerable enumerable) where TEnumerator : struct, ODBEnumerator<T> where TEnumerable : struct, ODBEnumerable<T, TEnumerator>
+	// Token: 0x060024C8 RID: 9416 RVA: 0x00087824 File Offset: 0x00085A24
+	public static IEnumerable<T> Open<TEnumerator, TEnumerable>(ref TEnumerable enumerable) where TEnumerator : struct, global::ODBEnumerator<T> where TEnumerable : struct, global::ODBEnumerable<T, TEnumerator>
 	{
-		return ODBGenericEnumerable<T, TEnumerator, TEnumerable>.Open(ref enumerable);
+		return global::ODBGenericEnumerable<T, TEnumerator, TEnumerable>.Open(ref enumerable);
 	}
 }

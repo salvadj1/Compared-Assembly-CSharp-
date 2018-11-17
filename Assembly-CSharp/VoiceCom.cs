@@ -3,43 +3,43 @@ using MoPhoGames.USpeak.Interface;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020000B0 RID: 176
-public sealed class VoiceCom : IDLocalCharacter, IVoiceCom, ISpeechDataHandler, IUSpeakTalkController
+// Token: 0x020000C3 RID: 195
+public sealed class VoiceCom : global::IDLocalCharacter, IVoiceCom, MoPhoGames.USpeak.Interface.ISpeechDataHandler, MoPhoGames.USpeak.Interface.IUSpeakTalkController
 {
-	// Token: 0x060003BA RID: 954 RVA: 0x0001378C File Offset: 0x0001198C
-	void IUSpeakTalkController.OnInspectorGUI()
+	// Token: 0x06000432 RID: 1074 RVA: 0x00014F7C File Offset: 0x0001317C
+	void MoPhoGames.USpeak.Interface.IUSpeakTalkController.OnInspectorGUI()
 	{
 	}
 
-	// Token: 0x17000090 RID: 144
-	// (get) Token: 0x060003BB RID: 955 RVA: 0x00013790 File Offset: 0x00011990
-	public USpeaker uspeaker
+	// Token: 0x170000A8 RID: 168
+	// (get) Token: 0x06000433 RID: 1075 RVA: 0x00014F80 File Offset: 0x00013180
+	public global::USpeaker uspeaker
 	{
 		get
 		{
 			if (!this._uspeakerChecked)
 			{
-				this._uspeaker = USpeaker.Get(this);
+				this._uspeaker = global::USpeaker.Get(this);
 				this._uspeakerChecked = true;
 			}
 			return this._uspeaker;
 		}
 	}
 
-	// Token: 0x060003BC RID: 956 RVA: 0x000137C4 File Offset: 0x000119C4
-	private void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06000434 RID: 1076 RVA: 0x00014FB4 File Offset: 0x000131B4
+	private void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		if (!base.networkView.isMine)
 		{
-			this.uspeaker.SpeakerMode = SpeakerMode.Remote;
+			this.uspeaker.SpeakerMode = global::SpeakerMode.Remote;
 		}
 		else
 		{
-			this.uspeaker.SpeakerMode = SpeakerMode.Local;
+			this.uspeaker.SpeakerMode = global::SpeakerMode.Local;
 		}
 	}
 
-	// Token: 0x060003BD RID: 957 RVA: 0x00013800 File Offset: 0x00011A00
+	// Token: 0x06000435 RID: 1077 RVA: 0x00014FF0 File Offset: 0x000131F0
 	public void USpeakOnSerializeAudio(byte[] data)
 	{
 		base.networkView.RPC("clientspeak", 0, new object[]
@@ -49,19 +49,19 @@ public sealed class VoiceCom : IDLocalCharacter, IVoiceCom, ISpeechDataHandler, 
 		});
 	}
 
-	// Token: 0x060003BE RID: 958 RVA: 0x00013838 File Offset: 0x00011A38
+	// Token: 0x06000436 RID: 1078 RVA: 0x00015028 File Offset: 0x00013228
 	public void USpeakInitializeSettings(int data)
 	{
 		this.setupData = data;
 	}
 
-	// Token: 0x060003BF RID: 959 RVA: 0x00013844 File Offset: 0x00011A44
+	// Token: 0x06000437 RID: 1079 RVA: 0x00015034 File Offset: 0x00013234
 	[RPC]
 	private void clientspeak(int setupData, byte[] data)
 	{
 	}
 
-	// Token: 0x060003C0 RID: 960 RVA: 0x00013848 File Offset: 0x00011A48
+	// Token: 0x06000438 RID: 1080 RVA: 0x00015038 File Offset: 0x00013238
 	[RPC]
 	private void voiceplay(float hearDistance, int setupData, byte[] data)
 	{
@@ -74,7 +74,7 @@ public sealed class VoiceCom : IDLocalCharacter, IVoiceCom, ISpeechDataHandler, 
 		{
 			return;
 		}
-		USpeaker uspeaker = this.uspeaker;
+		global::USpeaker uspeaker = this.uspeaker;
 		if (!uspeaker)
 		{
 			Debug.LogWarning("voiceplayback:" + base.gameObject + " didn't have a USpeaker!?");
@@ -101,34 +101,34 @@ public sealed class VoiceCom : IDLocalCharacter, IVoiceCom, ISpeechDataHandler, 
 		}
 	}
 
-	// Token: 0x060003C1 RID: 961 RVA: 0x00013938 File Offset: 0x00011B38
+	// Token: 0x06000439 RID: 1081 RVA: 0x00015128 File Offset: 0x00013328
 	[RPC]
 	private void init(int data)
 	{
 		this.uspeaker.InitializeSettings(data);
 	}
 
-	// Token: 0x060003C2 RID: 962 RVA: 0x00013948 File Offset: 0x00011B48
+	// Token: 0x0600043A RID: 1082 RVA: 0x00015138 File Offset: 0x00013338
 	public bool ShouldSend()
 	{
-		Character idMain = base.idMain;
-		return idMain && idMain.alive && GameInput.GetButton("Voice").IsDown();
+		global::Character idMain = base.idMain;
+		return idMain && idMain.alive && global::GameInput.GetButton("Voice").IsDown();
 	}
 
-	// Token: 0x060003C3 RID: 963 RVA: 0x00013984 File Offset: 0x00011B84
+	// Token: 0x0600043B RID: 1083 RVA: 0x00015174 File Offset: 0x00013374
 	public static float GetVolume()
 	{
 		return 0f;
 	}
 
-	// Token: 0x0400034C RID: 844
+	// Token: 0x040003B7 RID: 951
 	private int setupData;
 
-	// Token: 0x0400034D RID: 845
+	// Token: 0x040003B8 RID: 952
 	[NonSerialized]
-	private USpeaker _uspeaker;
+	private global::USpeaker _uspeaker;
 
-	// Token: 0x0400034E RID: 846
+	// Token: 0x040003B9 RID: 953
 	[NonSerialized]
 	private bool _uspeakerChecked;
 }

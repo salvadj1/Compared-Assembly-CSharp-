@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005C6 RID: 1478
-public interface IGunpowderItem : IInventoryItem
+// Token: 0x02000684 RID: 1668
+public interface IGunpowderItem : global::IInventoryItem
 {
 }

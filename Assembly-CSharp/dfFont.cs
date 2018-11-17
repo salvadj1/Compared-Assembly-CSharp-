@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 
-// Token: 0x020006C3 RID: 1731
+// Token: 0x0200078E RID: 1934
 [AddComponentMenu("Daikon Forge/User Interface/Font Definition")]
 [Serializable]
-public class dfFont : dfFontBase
+public class dfFont : global::dfFontBase
 {
-	// Token: 0x17000BC5 RID: 3013
-	// (get) Token: 0x06003CA2 RID: 15522 RVA: 0x000E4214 File Offset: 0x000E2414
-	public List<dfFont.GlyphDefinition> Glyphs
+	// Token: 0x17000C49 RID: 3145
+	// (get) Token: 0x060040AC RID: 16556 RVA: 0x000ECD58 File Offset: 0x000EAF58
+	public List<global::dfFont.GlyphDefinition> Glyphs
 	{
 		get
 		{
@@ -18,9 +18,9 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BC6 RID: 3014
-	// (get) Token: 0x06003CA3 RID: 15523 RVA: 0x000E421C File Offset: 0x000E241C
-	public List<dfFont.GlyphKerning> KerningInfo
+	// Token: 0x17000C4A RID: 3146
+	// (get) Token: 0x060040AD RID: 16557 RVA: 0x000ECD60 File Offset: 0x000EAF60
+	public List<global::dfFont.GlyphKerning> KerningInfo
 	{
 		get
 		{
@@ -28,10 +28,10 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BC7 RID: 3015
-	// (get) Token: 0x06003CA4 RID: 15524 RVA: 0x000E4224 File Offset: 0x000E2424
-	// (set) Token: 0x06003CA5 RID: 15525 RVA: 0x000E422C File Offset: 0x000E242C
-	public dfAtlas Atlas
+	// Token: 0x17000C4B RID: 3147
+	// (get) Token: 0x060040AE RID: 16558 RVA: 0x000ECD68 File Offset: 0x000EAF68
+	// (set) Token: 0x060040AF RID: 16559 RVA: 0x000ECD70 File Offset: 0x000EAF70
+	public global::dfAtlas Atlas
 	{
 		get
 		{
@@ -47,9 +47,9 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BC8 RID: 3016
-	// (get) Token: 0x06003CA6 RID: 15526 RVA: 0x000E4250 File Offset: 0x000E2450
-	// (set) Token: 0x06003CA7 RID: 15527 RVA: 0x000E4260 File Offset: 0x000E2460
+	// Token: 0x17000C4C RID: 3148
+	// (get) Token: 0x060040B0 RID: 16560 RVA: 0x000ECD94 File Offset: 0x000EAF94
+	// (set) Token: 0x060040B1 RID: 16561 RVA: 0x000ECDA4 File Offset: 0x000EAFA4
 	public override Material Material
 	{
 		get
@@ -62,8 +62,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BC9 RID: 3017
-	// (get) Token: 0x06003CA8 RID: 15528 RVA: 0x000E4268 File Offset: 0x000E2468
+	// Token: 0x17000C4D RID: 3149
+	// (get) Token: 0x060040B2 RID: 16562 RVA: 0x000ECDAC File Offset: 0x000EAFAC
 	public override Texture Texture
 	{
 		get
@@ -72,9 +72,9 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BCA RID: 3018
-	// (get) Token: 0x06003CA9 RID: 15529 RVA: 0x000E4278 File Offset: 0x000E2478
-	// (set) Token: 0x06003CAA RID: 15530 RVA: 0x000E4280 File Offset: 0x000E2480
+	// Token: 0x17000C4E RID: 3150
+	// (get) Token: 0x060040B3 RID: 16563 RVA: 0x000ECDBC File Offset: 0x000EAFBC
+	// (set) Token: 0x060040B4 RID: 16564 RVA: 0x000ECDC4 File Offset: 0x000EAFC4
 	public string Sprite
 	{
 		get
@@ -91,8 +91,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BCB RID: 3019
-	// (get) Token: 0x06003CAB RID: 15531 RVA: 0x000E42A4 File Offset: 0x000E24A4
+	// Token: 0x17000C4F RID: 3151
+	// (get) Token: 0x060040B5 RID: 16565 RVA: 0x000ECDE8 File Offset: 0x000EAFE8
 	public override bool IsValid
 	{
 		get
@@ -101,8 +101,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BCC RID: 3020
-	// (get) Token: 0x06003CAC RID: 15532 RVA: 0x000E42E4 File Offset: 0x000E24E4
+	// Token: 0x17000C50 RID: 3152
+	// (get) Token: 0x060040B6 RID: 16566 RVA: 0x000ECE28 File Offset: 0x000EB028
 	public string FontFace
 	{
 		get
@@ -111,9 +111,9 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BCD RID: 3021
-	// (get) Token: 0x06003CAD RID: 15533 RVA: 0x000E42EC File Offset: 0x000E24EC
-	// (set) Token: 0x06003CAE RID: 15534 RVA: 0x000E42F4 File Offset: 0x000E24F4
+	// Token: 0x17000C51 RID: 3153
+	// (get) Token: 0x060040B7 RID: 16567 RVA: 0x000ECE30 File Offset: 0x000EB030
+	// (set) Token: 0x060040B8 RID: 16568 RVA: 0x000ECE38 File Offset: 0x000EB038
 	public override int FontSize
 	{
 		get
@@ -126,9 +126,9 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BCE RID: 3022
-	// (get) Token: 0x06003CAF RID: 15535 RVA: 0x000E42FC File Offset: 0x000E24FC
-	// (set) Token: 0x06003CB0 RID: 15536 RVA: 0x000E4304 File Offset: 0x000E2504
+	// Token: 0x17000C52 RID: 3154
+	// (get) Token: 0x060040B9 RID: 16569 RVA: 0x000ECE40 File Offset: 0x000EB040
+	// (set) Token: 0x060040BA RID: 16570 RVA: 0x000ECE48 File Offset: 0x000EB048
 	public override int LineHeight
 	{
 		get
@@ -141,8 +141,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BCF RID: 3023
-	// (get) Token: 0x06003CB1 RID: 15537 RVA: 0x000E430C File Offset: 0x000E250C
+	// Token: 0x17000C53 RID: 3155
+	// (get) Token: 0x060040BB RID: 16571 RVA: 0x000ECE50 File Offset: 0x000EB050
 	public bool Bold
 	{
 		get
@@ -151,8 +151,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BD0 RID: 3024
-	// (get) Token: 0x06003CB2 RID: 15538 RVA: 0x000E4314 File Offset: 0x000E2514
+	// Token: 0x17000C54 RID: 3156
+	// (get) Token: 0x060040BC RID: 16572 RVA: 0x000ECE58 File Offset: 0x000EB058
 	public bool Italic
 	{
 		get
@@ -161,8 +161,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BD1 RID: 3025
-	// (get) Token: 0x06003CB3 RID: 15539 RVA: 0x000E431C File Offset: 0x000E251C
+	// Token: 0x17000C55 RID: 3157
+	// (get) Token: 0x060040BD RID: 16573 RVA: 0x000ECE60 File Offset: 0x000EB060
 	public int[] Padding
 	{
 		get
@@ -171,8 +171,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BD2 RID: 3026
-	// (get) Token: 0x06003CB4 RID: 15540 RVA: 0x000E4324 File Offset: 0x000E2524
+	// Token: 0x17000C56 RID: 3158
+	// (get) Token: 0x060040BE RID: 16574 RVA: 0x000ECE68 File Offset: 0x000EB068
 	public int[] Spacing
 	{
 		get
@@ -181,8 +181,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BD3 RID: 3027
-	// (get) Token: 0x06003CB5 RID: 15541 RVA: 0x000E432C File Offset: 0x000E252C
+	// Token: 0x17000C57 RID: 3159
+	// (get) Token: 0x060040BF RID: 16575 RVA: 0x000ECE70 File Offset: 0x000EB070
 	public int Outline
 	{
 		get
@@ -191,8 +191,8 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x17000BD4 RID: 3028
-	// (get) Token: 0x06003CB6 RID: 15542 RVA: 0x000E4334 File Offset: 0x000E2534
+	// Token: 0x17000C58 RID: 3160
+	// (get) Token: 0x060040C0 RID: 16576 RVA: 0x000ECE78 File Offset: 0x000EB078
 	public int Count
 	{
 		get
@@ -201,22 +201,22 @@ public class dfFont : dfFontBase
 		}
 	}
 
-	// Token: 0x06003CB7 RID: 15543 RVA: 0x000E4344 File Offset: 0x000E2544
+	// Token: 0x060040C1 RID: 16577 RVA: 0x000ECE88 File Offset: 0x000EB088
 	public void OnEnable()
 	{
 		this.glyphMap = null;
 	}
 
-	// Token: 0x06003CB8 RID: 15544 RVA: 0x000E4350 File Offset: 0x000E2550
-	public override dfFontRendererBase ObtainRenderer()
+	// Token: 0x060040C2 RID: 16578 RVA: 0x000ECE94 File Offset: 0x000EB094
+	public override global::dfFontRendererBase ObtainRenderer()
 	{
-		return dfFont.BitmappedFontRenderer.Obtain(this);
+		return global::dfFont.BitmappedFontRenderer.Obtain(this);
 	}
 
-	// Token: 0x06003CB9 RID: 15545 RVA: 0x000E4358 File Offset: 0x000E2558
+	// Token: 0x060040C3 RID: 16579 RVA: 0x000ECE9C File Offset: 0x000EB09C
 	public void AddKerning(int first, int second, int amount)
 	{
-		this.kerning.Add(new dfFont.GlyphKerning
+		this.kerning.Add(new global::dfFont.GlyphKerning
 		{
 			first = first,
 			second = second,
@@ -224,7 +224,7 @@ public class dfFont : dfFontBase
 		});
 	}
 
-	// Token: 0x06003CBA RID: 15546 RVA: 0x000E438C File Offset: 0x000E258C
+	// Token: 0x060040C4 RID: 16580 RVA: 0x000ECED0 File Offset: 0x000EB0D0
 	public int GetKerning(char previousChar, char currentChar)
 	{
 		int result;
@@ -234,7 +234,7 @@ public class dfFont : dfFontBase
 			{
 				this.buildKerningMap();
 			}
-			dfFont.GlyphKerningList glyphKerningList = null;
+			global::dfFont.GlyphKerningList glyphKerningList = null;
 			if (!this.kerningMap.TryGetValue((int)previousChar, out glyphKerningList))
 			{
 				result = 0;
@@ -250,119 +250,119 @@ public class dfFont : dfFontBase
 		return result;
 	}
 
-	// Token: 0x06003CBB RID: 15547 RVA: 0x000E43F8 File Offset: 0x000E25F8
+	// Token: 0x060040C5 RID: 16581 RVA: 0x000ECF3C File Offset: 0x000EB13C
 	private void buildKerningMap()
 	{
-		Dictionary<int, dfFont.GlyphKerningList> dictionary = this.kerningMap = new Dictionary<int, dfFont.GlyphKerningList>();
+		Dictionary<int, global::dfFont.GlyphKerningList> dictionary = this.kerningMap = new Dictionary<int, global::dfFont.GlyphKerningList>();
 		for (int i = 0; i < this.kerning.Count; i++)
 		{
-			dfFont.GlyphKerning glyphKerning = this.kerning[i];
+			global::dfFont.GlyphKerning glyphKerning = this.kerning[i];
 			if (!dictionary.ContainsKey(glyphKerning.first))
 			{
-				dictionary[glyphKerning.first] = new dfFont.GlyphKerningList();
+				dictionary[glyphKerning.first] = new global::dfFont.GlyphKerningList();
 			}
-			dfFont.GlyphKerningList glyphKerningList = dictionary[glyphKerning.first];
+			global::dfFont.GlyphKerningList glyphKerningList = dictionary[glyphKerning.first];
 			glyphKerningList.Add(glyphKerning);
 		}
 	}
 
-	// Token: 0x06003CBC RID: 15548 RVA: 0x000E4478 File Offset: 0x000E2678
-	public dfFont.GlyphDefinition GetGlyph(char id)
+	// Token: 0x060040C6 RID: 16582 RVA: 0x000ECFBC File Offset: 0x000EB1BC
+	public global::dfFont.GlyphDefinition GetGlyph(char id)
 	{
 		if (this.glyphMap == null)
 		{
-			this.glyphMap = new Dictionary<int, dfFont.GlyphDefinition>();
+			this.glyphMap = new Dictionary<int, global::dfFont.GlyphDefinition>();
 			for (int i = 0; i < this.glyphs.Count; i++)
 			{
-				dfFont.GlyphDefinition glyphDefinition = this.glyphs[i];
+				global::dfFont.GlyphDefinition glyphDefinition = this.glyphs[i];
 				this.glyphMap[glyphDefinition.id] = glyphDefinition;
 			}
 		}
-		dfFont.GlyphDefinition result = null;
+		global::dfFont.GlyphDefinition result = null;
 		this.glyphMap.TryGetValue((int)id, out result);
 		return result;
 	}
 
-	// Token: 0x04001FFA RID: 8186
+	// Token: 0x040021FB RID: 8699
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x04001FFB RID: 8187
+	// Token: 0x040021FC RID: 8700
 	[SerializeField]
 	protected string sprite;
 
-	// Token: 0x04001FFC RID: 8188
+	// Token: 0x040021FD RID: 8701
 	[SerializeField]
 	protected string face = string.Empty;
 
-	// Token: 0x04001FFD RID: 8189
+	// Token: 0x040021FE RID: 8702
 	[SerializeField]
 	protected int size;
 
-	// Token: 0x04001FFE RID: 8190
+	// Token: 0x040021FF RID: 8703
 	[SerializeField]
 	protected bool bold;
 
-	// Token: 0x04001FFF RID: 8191
+	// Token: 0x04002200 RID: 8704
 	[SerializeField]
 	protected bool italic;
 
-	// Token: 0x04002000 RID: 8192
+	// Token: 0x04002201 RID: 8705
 	[SerializeField]
 	protected string charset;
 
-	// Token: 0x04002001 RID: 8193
+	// Token: 0x04002202 RID: 8706
 	[SerializeField]
 	protected int stretchH;
 
-	// Token: 0x04002002 RID: 8194
+	// Token: 0x04002203 RID: 8707
 	[SerializeField]
 	protected bool smooth;
 
-	// Token: 0x04002003 RID: 8195
+	// Token: 0x04002204 RID: 8708
 	[SerializeField]
 	protected int aa;
 
-	// Token: 0x04002004 RID: 8196
+	// Token: 0x04002205 RID: 8709
 	[SerializeField]
 	protected int[] padding;
 
-	// Token: 0x04002005 RID: 8197
+	// Token: 0x04002206 RID: 8710
 	[SerializeField]
 	protected int[] spacing;
 
-	// Token: 0x04002006 RID: 8198
+	// Token: 0x04002207 RID: 8711
 	[SerializeField]
 	protected int outline;
 
-	// Token: 0x04002007 RID: 8199
+	// Token: 0x04002208 RID: 8712
 	[SerializeField]
 	protected int lineHeight;
 
-	// Token: 0x04002008 RID: 8200
+	// Token: 0x04002209 RID: 8713
 	[SerializeField]
-	private List<dfFont.GlyphDefinition> glyphs = new List<dfFont.GlyphDefinition>();
+	private List<global::dfFont.GlyphDefinition> glyphs = new List<global::dfFont.GlyphDefinition>();
 
-	// Token: 0x04002009 RID: 8201
+	// Token: 0x0400220A RID: 8714
 	[SerializeField]
-	protected List<dfFont.GlyphKerning> kerning = new List<dfFont.GlyphKerning>();
+	protected List<global::dfFont.GlyphKerning> kerning = new List<global::dfFont.GlyphKerning>();
 
-	// Token: 0x0400200A RID: 8202
-	private Dictionary<int, dfFont.GlyphDefinition> glyphMap;
+	// Token: 0x0400220B RID: 8715
+	private Dictionary<int, global::dfFont.GlyphDefinition> glyphMap;
 
-	// Token: 0x0400200B RID: 8203
-	private Dictionary<int, dfFont.GlyphKerningList> kerningMap;
+	// Token: 0x0400220C RID: 8716
+	private Dictionary<int, global::dfFont.GlyphKerningList> kerningMap;
 
-	// Token: 0x020006C4 RID: 1732
+	// Token: 0x0200078F RID: 1935
 	private class GlyphKerningList
 	{
-		// Token: 0x06003CBE RID: 15550 RVA: 0x000E44FC File Offset: 0x000E26FC
-		public void Add(dfFont.GlyphKerning kerning)
+		// Token: 0x060040C8 RID: 16584 RVA: 0x000ED040 File Offset: 0x000EB240
+		public void Add(global::dfFont.GlyphKerning kerning)
 		{
 			this.list[kerning.second] = kerning.amount;
 		}
 
-		// Token: 0x06003CBF RID: 15551 RVA: 0x000E4518 File Offset: 0x000E2718
+		// Token: 0x060040C9 RID: 16585 RVA: 0x000ED05C File Offset: 0x000EB25C
 		public int GetKerning(int firstCharacter, int secondCharacter)
 		{
 			int result = 0;
@@ -370,16 +370,16 @@ public class dfFont : dfFontBase
 			return result;
 		}
 
-		// Token: 0x0400200C RID: 8204
+		// Token: 0x0400220D RID: 8717
 		private Dictionary<int, int> list = new Dictionary<int, int>();
 	}
 
-	// Token: 0x020006C5 RID: 1733
+	// Token: 0x02000790 RID: 1936
 	[Serializable]
-	public class GlyphKerning : IComparable<dfFont.GlyphKerning>
+	public class GlyphKerning : IComparable<global::dfFont.GlyphKerning>
 	{
-		// Token: 0x06003CC1 RID: 15553 RVA: 0x000E4540 File Offset: 0x000E2740
-		public int CompareTo(dfFont.GlyphKerning other)
+		// Token: 0x060040CB RID: 16587 RVA: 0x000ED084 File Offset: 0x000EB284
+		public int CompareTo(global::dfFont.GlyphKerning other)
 		{
 			if (this.first == other.first)
 			{
@@ -388,73 +388,73 @@ public class dfFont : dfFontBase
 			return this.first.CompareTo(other.first);
 		}
 
-		// Token: 0x0400200D RID: 8205
+		// Token: 0x0400220E RID: 8718
 		public int first;
 
-		// Token: 0x0400200E RID: 8206
+		// Token: 0x0400220F RID: 8719
 		public int second;
 
-		// Token: 0x0400200F RID: 8207
+		// Token: 0x04002210 RID: 8720
 		public int amount;
 	}
 
-	// Token: 0x020006C6 RID: 1734
+	// Token: 0x02000791 RID: 1937
 	[Serializable]
-	public class GlyphDefinition : IComparable<dfFont.GlyphDefinition>
+	public class GlyphDefinition : IComparable<global::dfFont.GlyphDefinition>
 	{
-		// Token: 0x06003CC3 RID: 15555 RVA: 0x000E458C File Offset: 0x000E278C
-		public int CompareTo(dfFont.GlyphDefinition other)
+		// Token: 0x060040CD RID: 16589 RVA: 0x000ED0D0 File Offset: 0x000EB2D0
+		public int CompareTo(global::dfFont.GlyphDefinition other)
 		{
 			return this.id.CompareTo(other.id);
 		}
 
-		// Token: 0x04002010 RID: 8208
+		// Token: 0x04002211 RID: 8721
 		[SerializeField]
 		public int id;
 
-		// Token: 0x04002011 RID: 8209
+		// Token: 0x04002212 RID: 8722
 		[SerializeField]
 		public int x;
 
-		// Token: 0x04002012 RID: 8210
+		// Token: 0x04002213 RID: 8723
 		[SerializeField]
 		public int y;
 
-		// Token: 0x04002013 RID: 8211
+		// Token: 0x04002214 RID: 8724
 		[SerializeField]
 		public int width;
 
-		// Token: 0x04002014 RID: 8212
+		// Token: 0x04002215 RID: 8725
 		[SerializeField]
 		public int height;
 
-		// Token: 0x04002015 RID: 8213
+		// Token: 0x04002216 RID: 8726
 		[SerializeField]
 		public int xoffset;
 
-		// Token: 0x04002016 RID: 8214
+		// Token: 0x04002217 RID: 8727
 		[SerializeField]
 		public int yoffset;
 
-		// Token: 0x04002017 RID: 8215
+		// Token: 0x04002218 RID: 8728
 		[SerializeField]
 		public int xadvance;
 
-		// Token: 0x04002018 RID: 8216
+		// Token: 0x04002219 RID: 8729
 		[SerializeField]
 		public bool rotated;
 	}
 
-	// Token: 0x020006C7 RID: 1735
-	public class BitmappedFontRenderer : dfFontRendererBase
+	// Token: 0x02000792 RID: 1938
+	public class BitmappedFontRenderer : global::dfFontRendererBase
 	{
-		// Token: 0x06003CC4 RID: 15556 RVA: 0x000E45A0 File Offset: 0x000E27A0
+		// Token: 0x060040CE RID: 16590 RVA: 0x000ED0E4 File Offset: 0x000EB2E4
 		internal BitmappedFontRenderer()
 		{
 		}
 
-		// Token: 0x17000BD5 RID: 3029
-		// (get) Token: 0x06003CC6 RID: 15558 RVA: 0x000E4658 File Offset: 0x000E2858
+		// Token: 0x17000C59 RID: 3161
+		// (get) Token: 0x060040D0 RID: 16592 RVA: 0x000ED19C File Offset: 0x000EB39C
 		public int LineCount
 		{
 			get
@@ -463,16 +463,16 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CC7 RID: 15559 RVA: 0x000E4668 File Offset: 0x000E2868
-		public static dfFontRendererBase Obtain(dfFont font)
+		// Token: 0x060040D1 RID: 16593 RVA: 0x000ED1AC File Offset: 0x000EB3AC
+		public static global::dfFontRendererBase Obtain(global::dfFont font)
 		{
-			dfFont.BitmappedFontRenderer bitmappedFontRenderer = (dfFont.BitmappedFontRenderer.objectPool.Count <= 0) ? new dfFont.BitmappedFontRenderer() : dfFont.BitmappedFontRenderer.objectPool.Dequeue();
+			global::dfFont.BitmappedFontRenderer bitmappedFontRenderer = (global::dfFont.BitmappedFontRenderer.objectPool.Count <= 0) ? new global::dfFont.BitmappedFontRenderer() : global::dfFont.BitmappedFontRenderer.objectPool.Dequeue();
 			bitmappedFontRenderer.Reset();
 			bitmappedFontRenderer.Font = font;
 			return bitmappedFontRenderer;
 		}
 
-		// Token: 0x06003CC8 RID: 15560 RVA: 0x000E46A8 File Offset: 0x000E28A8
+		// Token: 0x060040D2 RID: 16594 RVA: 0x000ED1EC File Offset: 0x000EB3EC
 		public override void Release()
 		{
 			this.Reset();
@@ -482,29 +482,29 @@ public class dfFont : dfFontBase
 				this.lines.Release();
 				this.lines = null;
 			}
-			dfFont.LineRenderInfo.ResetPool();
+			global::dfFont.LineRenderInfo.ResetPool();
 			base.BottomColor = null;
-			dfFont.BitmappedFontRenderer.objectPool.Enqueue(this);
+			global::dfFont.BitmappedFontRenderer.objectPool.Enqueue(this);
 		}
 
-		// Token: 0x06003CC9 RID: 15561 RVA: 0x000E4700 File Offset: 0x000E2900
+		// Token: 0x060040D3 RID: 16595 RVA: 0x000ED244 File Offset: 0x000EB444
 		public override float[] GetCharacterWidths(string text)
 		{
 			float num = 0f;
 			return this.GetCharacterWidths(text, 0, text.Length - 1, out num);
 		}
 
-		// Token: 0x06003CCA RID: 15562 RVA: 0x000E4728 File Offset: 0x000E2928
+		// Token: 0x060040D4 RID: 16596 RVA: 0x000ED26C File Offset: 0x000EB46C
 		public float[] GetCharacterWidths(string text, int startIndex, int endIndex, out float totalWidth)
 		{
 			totalWidth = 0f;
-			dfFont dfFont = (dfFont)base.Font;
+			global::dfFont dfFont = (global::dfFont)base.Font;
 			float[] array = new float[text.Length];
 			float num = base.TextScale * base.PixelRatio;
 			float num2 = (float)base.CharacterSpacing * num;
 			for (int i = startIndex; i <= endIndex; i++)
 			{
-				dfFont.GlyphDefinition glyph = dfFont.GetGlyph(text[i]);
+				global::dfFont.GlyphDefinition glyph = dfFont.GetGlyph(text[i]);
 				if (glyph != null)
 				{
 					if (i > 0)
@@ -520,11 +520,11 @@ public class dfFont : dfFontBase
 			return array;
 		}
 
-		// Token: 0x06003CCB RID: 15563 RVA: 0x000E47DC File Offset: 0x000E29DC
+		// Token: 0x060040D5 RID: 16597 RVA: 0x000ED320 File Offset: 0x000EB520
 		public override Vector2 MeasureString(string text)
 		{
 			this.tokenize(text);
-			dfList<dfFont.LineRenderInfo> dfList = this.calculateLinebreaks();
+			global::dfList<global::dfFont.LineRenderInfo> dfList = this.calculateLinebreaks();
 			int num = 0;
 			int num2 = 0;
 			for (int i = 0; i < dfList.Count; i++)
@@ -535,22 +535,22 @@ public class dfFont : dfFontBase
 			return new Vector2((float)num, (float)num2) * base.TextScale;
 		}
 
-		// Token: 0x06003CCC RID: 15564 RVA: 0x000E484C File Offset: 0x000E2A4C
-		public override void Render(string text, dfRenderData destination)
+		// Token: 0x060040D6 RID: 16598 RVA: 0x000ED390 File Offset: 0x000EB590
+		public override void Render(string text, global::dfRenderData destination)
 		{
-			dfFont.BitmappedFontRenderer.textColors.Clear();
-			dfFont.BitmappedFontRenderer.textColors.Push(Color.white);
+			global::dfFont.BitmappedFontRenderer.textColors.Clear();
+			global::dfFont.BitmappedFontRenderer.textColors.Push(Color.white);
 			this.tokenize(text);
-			dfList<dfFont.LineRenderInfo> dfList = this.calculateLinebreaks();
+			global::dfList<global::dfFont.LineRenderInfo> dfList = this.calculateLinebreaks();
 			int num = 0;
 			int num2 = 0;
 			Vector3 vectorOffset = base.VectorOffset;
 			float num3 = base.TextScale * base.PixelRatio;
 			for (int i = 0; i < dfList.Count; i++)
 			{
-				dfFont.LineRenderInfo lineRenderInfo = dfList[i];
+				global::dfFont.LineRenderInfo lineRenderInfo = dfList[i];
 				int count = destination.Vertices.Count;
-				this.renderLine(dfList[i], dfFont.BitmappedFontRenderer.textColors, vectorOffset, destination);
+				this.renderLine(dfList[i], global::dfFont.BitmappedFontRenderer.textColors, vectorOffset, destination);
 				vectorOffset.y -= (float)base.Font.LineHeight * num3;
 				num = Mathf.Max((int)lineRenderInfo.lineWidth, num);
 				num2 += (int)lineRenderInfo.lineHeight;
@@ -566,20 +566,20 @@ public class dfFont : dfFontBase
 			base.RenderedSize = new Vector2(Mathf.Min(base.MaxSize.x, (float)num), Mathf.Min(base.MaxSize.y, (float)num2)) * base.TextScale;
 		}
 
-		// Token: 0x06003CCD RID: 15565 RVA: 0x000E49B4 File Offset: 0x000E2BB4
-		private void renderLine(dfFont.LineRenderInfo line, Stack<Color32> colors, Vector3 position, dfRenderData destination)
+		// Token: 0x060040D7 RID: 16599 RVA: 0x000ED4F8 File Offset: 0x000EB6F8
+		private void renderLine(global::dfFont.LineRenderInfo line, Stack<Color32> colors, Vector3 position, global::dfRenderData destination)
 		{
 			float num = base.TextScale * base.PixelRatio;
 			position.x += (float)this.calculateLineAlignment(line) * num;
 			for (int i = line.startOffset; i <= line.endOffset; i++)
 			{
-				dfMarkupToken dfMarkupToken = this.tokens[i];
-				dfMarkupTokenType tokenType = dfMarkupToken.TokenType;
-				if (tokenType == dfMarkupTokenType.Text)
+				global::dfMarkupToken dfMarkupToken = this.tokens[i];
+				global::dfMarkupTokenType tokenType = dfMarkupToken.TokenType;
+				if (tokenType == global::dfMarkupTokenType.Text)
 				{
 					this.renderText(dfMarkupToken, colors.Peek(), position, destination);
 				}
-				else if (tokenType == dfMarkupTokenType.StartTag)
+				else if (tokenType == global::dfMarkupTokenType.StartTag)
 				{
 					if (dfMarkupToken.Matches("sprite"))
 					{
@@ -590,7 +590,7 @@ public class dfFont : dfFontBase
 						colors.Push(this.parseColor(dfMarkupToken));
 					}
 				}
-				else if (tokenType == dfMarkupTokenType.EndTag && dfMarkupToken.Matches("color") && colors.Count > 1)
+				else if (tokenType == global::dfMarkupTokenType.EndTag && dfMarkupToken.Matches("color") && colors.Count > 1)
 				{
 					colors.Pop();
 				}
@@ -598,17 +598,17 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CCE RID: 15566 RVA: 0x000E4AC4 File Offset: 0x000E2CC4
-		private void renderText(dfMarkupToken token, Color32 color, Vector3 position, dfRenderData destination)
+		// Token: 0x060040D8 RID: 16600 RVA: 0x000ED608 File Offset: 0x000EB808
+		private void renderText(global::dfMarkupToken token, Color32 color, Vector3 position, global::dfRenderData destination)
 		{
 			try
 			{
-				dfList<Vector3> vertices = destination.Vertices;
-				dfList<int> triangles = destination.Triangles;
-				dfList<Color32> colors = destination.Colors;
-				dfList<Vector2> uv = destination.UV;
-				dfFont dfFont = (dfFont)base.Font;
-				dfAtlas.ItemInfo itemInfo = dfFont.Atlas[dfFont.sprite];
+				global::dfList<Vector3> vertices = destination.Vertices;
+				global::dfList<int> triangles = destination.Triangles;
+				global::dfList<Color32> colors = destination.Colors;
+				global::dfList<Vector2> uv = destination.UV;
+				global::dfFont dfFont = (global::dfFont)base.Font;
+				global::dfAtlas.ItemInfo itemInfo = dfFont.Atlas[dfFont.sprite];
 				Texture texture = dfFont.Texture;
 				float num = 1f / (float)texture.width;
 				float num2 = 1f / (float)texture.height;
@@ -628,7 +628,7 @@ public class dfFont : dfFontBase
 					char c = token[i];
 					if (c != '\0')
 					{
-						dfFont.GlyphDefinition glyph = dfFont.GetGlyph(c);
+						global::dfFont.GlyphDefinition glyph = dfFont.GetGlyph(c);
 						if (glyph != null)
 						{
 							int kerning = dfFont.GetKerning(previousChar, c);
@@ -652,7 +652,7 @@ public class dfFont : dfFontBase
 							float num15 = num13 - (float)glyph.height * num2 + num4;
 							if (base.Shadow)
 							{
-								dfFont.BitmappedFontRenderer.addTriangleIndices(vertices, triangles);
+								global::dfFont.BitmappedFontRenderer.addTriangleIndices(vertices, triangles);
 								Vector3 vector5 = base.ShadowOffset * num5;
 								vertices.Add(vector + vector5);
 								vertices.Add(vector2 + vector5);
@@ -670,10 +670,10 @@ public class dfFont : dfFontBase
 							}
 							if (base.Outline)
 							{
-								for (int j = 0; j < dfFont.BitmappedFontRenderer.OUTLINE_OFFSETS.Length; j++)
+								for (int j = 0; j < global::dfFont.BitmappedFontRenderer.OUTLINE_OFFSETS.Length; j++)
 								{
-									dfFont.BitmappedFontRenderer.addTriangleIndices(vertices, triangles);
-									Vector3 vector6 = dfFont.BitmappedFontRenderer.OUTLINE_OFFSETS[j] * (float)base.OutlineSize * num5;
+									global::dfFont.BitmappedFontRenderer.addTriangleIndices(vertices, triangles);
+									Vector3 vector6 = global::dfFont.BitmappedFontRenderer.OUTLINE_OFFSETS[j] * (float)base.OutlineSize * num5;
 									vertices.Add(vector + vector6);
 									vertices.Add(vector2 + vector6);
 									vertices.Add(vector3 + vector6);
@@ -689,7 +689,7 @@ public class dfFont : dfFontBase
 									uv.Add(new Vector2(num12, num15));
 								}
 							}
-							dfFont.BitmappedFontRenderer.addTriangleIndices(vertices, triangles);
+							global::dfFont.BitmappedFontRenderer.addTriangleIndices(vertices, triangles);
 							vertices.Add(vector);
 							vertices.Add(vector2);
 							vertices.Add(vector3);
@@ -714,18 +714,18 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CCF RID: 15567 RVA: 0x000E4F9C File Offset: 0x000E319C
-		private void renderSprite(dfMarkupToken token, Color32 color, Vector3 position, dfRenderData destination)
+		// Token: 0x060040D9 RID: 16601 RVA: 0x000EDAE0 File Offset: 0x000EBCE0
+		private void renderSprite(global::dfMarkupToken token, Color32 color, Vector3 position, global::dfRenderData destination)
 		{
 			try
 			{
-				dfList<Vector3> vertices = destination.Vertices;
-				dfList<int> triangles = destination.Triangles;
-				dfList<Color32> colors = destination.Colors;
-				dfList<Vector2> uv = destination.UV;
-				dfFont dfFont = (dfFont)base.Font;
+				global::dfList<Vector3> vertices = destination.Vertices;
+				global::dfList<int> triangles = destination.Triangles;
+				global::dfList<Color32> colors = destination.Colors;
+				global::dfList<Vector2> uv = destination.UV;
+				global::dfFont dfFont = (global::dfFont)base.Font;
 				string value = token.GetAttribute(0).Value.Value;
-				dfAtlas.ItemInfo itemInfo = dfFont.Atlas[value];
+				global::dfAtlas.ItemInfo itemInfo = dfFont.Atlas[value];
 				if (!(itemInfo == null))
 				{
 					float num = (float)token.Height * base.TextScale * base.PixelRatio;
@@ -760,8 +760,8 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CD0 RID: 15568 RVA: 0x000E51AC File Offset: 0x000E33AC
-		private Color32 parseColor(dfMarkupToken token)
+		// Token: 0x060040DA RID: 16602 RVA: 0x000EDCF0 File Offset: 0x000EBEF0
+		private Color32 parseColor(global::dfMarkupToken token)
 		{
 			Color color = Color.white;
 			if (token.AttributeCount == 1)
@@ -775,13 +775,13 @@ public class dfFont : dfFontBase
 				}
 				else
 				{
-					color = dfMarkupStyle.ParseColor(value, base.DefaultColor);
+					color = global::dfMarkupStyle.ParseColor(value, base.DefaultColor);
 				}
 			}
 			return this.applyOpacity(color);
 		}
 
-		// Token: 0x06003CD1 RID: 15569 RVA: 0x000E5244 File Offset: 0x000E3444
+		// Token: 0x060040DB RID: 16603 RVA: 0x000EDD88 File Offset: 0x000EBF88
 		private Color32 UIntToColor(uint color)
 		{
 			byte b = (byte)(color >> 24);
@@ -791,10 +791,10 @@ public class dfFont : dfFontBase
 			return new Color32(b2, b3, b4, b);
 		}
 
-		// Token: 0x06003CD2 RID: 15570 RVA: 0x000E5270 File Offset: 0x000E3470
-		private dfList<dfFont.LineRenderInfo> calculateLinebreaks()
+		// Token: 0x060040DC RID: 16604 RVA: 0x000EDDB4 File Offset: 0x000EBFB4
+		private global::dfList<global::dfFont.LineRenderInfo> calculateLinebreaks()
 		{
-			dfList<dfFont.LineRenderInfo> result;
+			global::dfList<global::dfFont.LineRenderInfo> result;
 			try
 			{
 				if (this.lines != null)
@@ -803,7 +803,7 @@ public class dfFont : dfFontBase
 				}
 				else
 				{
-					this.lines = dfList<dfFont.LineRenderInfo>.Obtain();
+					this.lines = global::dfList<global::dfFont.LineRenderInfo>.Obtain();
 					int num = 0;
 					int num2 = 0;
 					int num3 = 0;
@@ -811,36 +811,36 @@ public class dfFont : dfFontBase
 					float num5 = (float)base.Font.LineHeight * base.TextScale;
 					while (num3 < this.tokens.Count && (float)this.lines.Count * num5 < base.MaxSize.y)
 					{
-						dfMarkupToken dfMarkupToken = this.tokens[num3];
-						dfMarkupTokenType tokenType = dfMarkupToken.TokenType;
-						if (tokenType == dfMarkupTokenType.Newline)
+						global::dfMarkupToken dfMarkupToken = this.tokens[num3];
+						global::dfMarkupTokenType tokenType = dfMarkupToken.TokenType;
+						if (tokenType == global::dfMarkupTokenType.Newline)
 						{
-							this.lines.Add(dfFont.LineRenderInfo.Obtain(num2, num3));
+							this.lines.Add(global::dfFont.LineRenderInfo.Obtain(num2, num3));
 							num = (num2 = ++num3);
 							num4 = 0;
 						}
 						else
 						{
 							int num6 = Mathf.CeilToInt((float)dfMarkupToken.Width * base.TextScale);
-							bool flag = base.WordWrap && num > num2 && (tokenType == dfMarkupTokenType.Text || (tokenType == dfMarkupTokenType.StartTag && dfMarkupToken.Matches("sprite")));
+							bool flag = base.WordWrap && num > num2 && (tokenType == global::dfMarkupTokenType.Text || (tokenType == global::dfMarkupTokenType.StartTag && dfMarkupToken.Matches("sprite")));
 							if (flag && (float)(num4 + num6) >= base.MaxSize.x)
 							{
 								if (num > num2)
 								{
-									this.lines.Add(dfFont.LineRenderInfo.Obtain(num2, num - 1));
+									this.lines.Add(global::dfFont.LineRenderInfo.Obtain(num2, num - 1));
 									num3 = (num2 = ++num);
 									num4 = 0;
 								}
 								else
 								{
-									this.lines.Add(dfFont.LineRenderInfo.Obtain(num2, num - 1));
+									this.lines.Add(global::dfFont.LineRenderInfo.Obtain(num2, num - 1));
 									num = (num2 = ++num3);
 									num4 = 0;
 								}
 							}
 							else
 							{
-								if (tokenType == dfMarkupTokenType.Whitespace)
+								if (tokenType == global::dfMarkupTokenType.Whitespace)
 								{
 									num = num3;
 								}
@@ -851,7 +851,7 @@ public class dfFont : dfFontBase
 					}
 					if (num2 < this.tokens.Count)
 					{
-						this.lines.Add(dfFont.LineRenderInfo.Obtain(num2, this.tokens.Count - 1));
+						this.lines.Add(global::dfFont.LineRenderInfo.Obtain(num2, this.tokens.Count - 1));
 					}
 					for (int i = 0; i < this.lines.Count; i++)
 					{
@@ -866,8 +866,8 @@ public class dfFont : dfFontBase
 			return result;
 		}
 
-		// Token: 0x06003CD3 RID: 15571 RVA: 0x000E5498 File Offset: 0x000E3698
-		private int calculateLineAlignment(dfFont.LineRenderInfo line)
+		// Token: 0x060040DD RID: 16605 RVA: 0x000EDFDC File Offset: 0x000EC1DC
+		private int calculateLineAlignment(global::dfFont.LineRenderInfo line)
 		{
 			float lineWidth = line.lineWidth;
 			if (base.TextAlign == null || lineWidth == 0f)
@@ -886,8 +886,8 @@ public class dfFont : dfFontBase
 			return Mathf.Max(0, num);
 		}
 
-		// Token: 0x06003CD4 RID: 15572 RVA: 0x000E5520 File Offset: 0x000E3720
-		private void calculateLineSize(dfFont.LineRenderInfo line)
+		// Token: 0x060040DE RID: 16606 RVA: 0x000EE064 File Offset: 0x000EC264
+		private void calculateLineSize(global::dfFont.LineRenderInfo line)
 		{
 			line.lineHeight = (float)base.Font.LineHeight;
 			int num = 0;
@@ -898,10 +898,10 @@ public class dfFont : dfFontBase
 			line.lineWidth = (float)num;
 		}
 
-		// Token: 0x06003CD5 RID: 15573 RVA: 0x000E557C File Offset: 0x000E377C
-		private List<dfMarkupToken> tokenize(string text)
+		// Token: 0x060040DF RID: 16607 RVA: 0x000EE0C0 File Offset: 0x000EC2C0
+		private List<global::dfMarkupToken> tokenize(string text)
 		{
-			List<dfMarkupToken> result;
+			List<global::dfMarkupToken> result;
 			try
 			{
 				if (this.tokens != null && this.tokens.Count > 0 && this.tokens[0].Source == text)
@@ -912,11 +912,11 @@ public class dfFont : dfFontBase
 				{
 					if (base.ProcessMarkup)
 					{
-						this.tokens = dfMarkupTokenizer.Tokenize(text);
+						this.tokens = global::dfMarkupTokenizer.Tokenize(text);
 					}
 					else
 					{
-						this.tokens = dfPlainTextTokenizer.Tokenize(text);
+						this.tokens = global::dfPlainTextTokenizer.Tokenize(text);
 					}
 					for (int i = 0; i < this.tokens.Count; i++)
 					{
@@ -931,15 +931,15 @@ public class dfFont : dfFontBase
 			return result;
 		}
 
-		// Token: 0x06003CD6 RID: 15574 RVA: 0x000E5654 File Offset: 0x000E3854
-		private void calculateTokenRenderSize(dfMarkupToken token)
+		// Token: 0x060040E0 RID: 16608 RVA: 0x000EE198 File Offset: 0x000EC398
+		private void calculateTokenRenderSize(global::dfMarkupToken token)
 		{
 			try
 			{
-				dfFont dfFont = (dfFont)base.Font;
+				global::dfFont dfFont = (global::dfFont)base.Font;
 				int num = 0;
 				char previousChar = '\0';
-				bool flag = token.TokenType == dfMarkupTokenType.Whitespace || token.TokenType == dfMarkupTokenType.Text;
+				bool flag = token.TokenType == global::dfMarkupTokenType.Whitespace || token.TokenType == global::dfMarkupTokenType.Text;
 				if (flag)
 				{
 					int i = 0;
@@ -952,7 +952,7 @@ public class dfFont : dfFontBase
 						}
 						else
 						{
-							dfFont.GlyphDefinition glyph = dfFont.GetGlyph(c);
+							global::dfFont.GlyphDefinition glyph = dfFont.GetGlyph(c);
 							if (glyph != null)
 							{
 								if (i > 0)
@@ -967,7 +967,7 @@ public class dfFont : dfFontBase
 						previousChar = c;
 					}
 				}
-				else if (token.TokenType == dfMarkupTokenType.StartTag && token.Matches("sprite"))
+				else if (token.TokenType == global::dfMarkupTokenType.StartTag && token.Matches("sprite"))
 				{
 					if (token.AttributeCount < 1)
 					{
@@ -976,7 +976,7 @@ public class dfFont : dfFontBase
 					Texture texture = dfFont.Texture;
 					int lineHeight = dfFont.LineHeight;
 					string value = token.GetAttribute(0).Value.Value;
-					dfAtlas.ItemInfo itemInfo = dfFont.atlas[value];
+					global::dfAtlas.ItemInfo itemInfo = dfFont.atlas[value];
 					if (itemInfo != null)
 					{
 						float num2 = itemInfo.region.width * (float)texture.width / (itemInfo.region.height * (float)texture.height);
@@ -991,7 +991,7 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CD7 RID: 15575 RVA: 0x000E57F8 File Offset: 0x000E39F8
+		// Token: 0x060040E1 RID: 16609 RVA: 0x000EE33C File Offset: 0x000EC53C
 		private float getTabStop(float position)
 		{
 			float num = base.PixelRatio * base.TextScale;
@@ -1012,12 +1012,12 @@ public class dfFont : dfFontBase
 			return position + (float)(base.Font.FontSize * 4) * num;
 		}
 
-		// Token: 0x06003CD8 RID: 15576 RVA: 0x000E589C File Offset: 0x000E3A9C
-		private void clipRight(dfRenderData destination, int startIndex)
+		// Token: 0x060040E2 RID: 16610 RVA: 0x000EE3E0 File Offset: 0x000EC5E0
+		private void clipRight(global::dfRenderData destination, int startIndex)
 		{
 			float num = base.VectorOffset.x + base.MaxSize.x * base.PixelRatio;
-			dfList<Vector3> vertices = destination.Vertices;
-			dfList<Vector2> uv = destination.UV;
+			global::dfList<Vector3> vertices = destination.Vertices;
+			global::dfList<Vector2> uv = destination.UV;
 			for (int i = startIndex; i < vertices.Count; i += 4)
 			{
 				Vector3 value = vertices[i];
@@ -1028,19 +1028,19 @@ public class dfFont : dfFontBase
 				if (value2.x > num)
 				{
 					float num3 = 1f - (num - value2.x + num2) / num2;
-					dfList<Vector3> dfList = vertices;
+					global::dfList<Vector3> dfList = vertices;
 					int index = i;
 					value..ctor(Mathf.Min(value.x, num), value.y, value.z);
 					dfList[index] = value;
-					dfList<Vector3> dfList2 = vertices;
+					global::dfList<Vector3> dfList2 = vertices;
 					int index2 = i + 1;
 					value2..ctor(Mathf.Min(value2.x, num), value2.y, value2.z);
 					dfList2[index2] = value2;
-					dfList<Vector3> dfList3 = vertices;
+					global::dfList<Vector3> dfList3 = vertices;
 					int index3 = i + 2;
 					value3..ctor(Mathf.Min(value3.x, num), value3.y, value3.z);
 					dfList3[index3] = value3;
-					dfList<Vector3> dfList4 = vertices;
+					global::dfList<Vector3> dfList4 = vertices;
 					int index4 = i + 3;
 					value4..ctor(Mathf.Min(value4.x, num), value4.y, value4.z);
 					dfList4[index4] = value4;
@@ -1052,13 +1052,13 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CD9 RID: 15577 RVA: 0x000E5A88 File Offset: 0x000E3C88
-		private void clipBottom(dfRenderData destination, int startIndex)
+		// Token: 0x060040E3 RID: 16611 RVA: 0x000EE5CC File Offset: 0x000EC7CC
+		private void clipBottom(global::dfRenderData destination, int startIndex)
 		{
 			float num = base.VectorOffset.y - base.MaxSize.y * base.PixelRatio;
-			dfList<Vector3> vertices = destination.Vertices;
-			dfList<Vector2> uv = destination.UV;
-			dfList<Color32> colors = destination.Colors;
+			global::dfList<Vector3> vertices = destination.Vertices;
+			global::dfList<Vector2> uv = destination.UV;
+			global::dfList<Color32> colors = destination.Colors;
 			for (int i = startIndex; i < vertices.Count; i += 4)
 			{
 				Vector3 value = vertices[i];
@@ -1069,19 +1069,19 @@ public class dfFont : dfFontBase
 				if (value4.y <= num)
 				{
 					float num3 = 1f - Mathf.Abs(-num + value.y) / num2;
-					dfList<Vector3> dfList = vertices;
+					global::dfList<Vector3> dfList = vertices;
 					int index = i;
 					value..ctor(value.x, Mathf.Max(value.y, num), value2.z);
 					dfList[index] = value;
-					dfList<Vector3> dfList2 = vertices;
+					global::dfList<Vector3> dfList2 = vertices;
 					int index2 = i + 1;
 					value2..ctor(value2.x, Mathf.Max(value2.y, num), value2.z);
 					dfList2[index2] = value2;
-					dfList<Vector3> dfList3 = vertices;
+					global::dfList<Vector3> dfList3 = vertices;
 					int index3 = i + 2;
 					value3..ctor(value3.x, Mathf.Max(value3.y, num), value3.z);
 					dfList3[index3] = value3;
-					dfList<Vector3> dfList4 = vertices;
+					global::dfList<Vector3> dfList4 = vertices;
 					int index4 = i + 3;
 					value4..ctor(value4.x, Mathf.Max(value4.y, num), value4.z);
 					dfList4[index4] = value4;
@@ -1095,40 +1095,40 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CDA RID: 15578 RVA: 0x000E5CC4 File Offset: 0x000E3EC4
+		// Token: 0x060040E4 RID: 16612 RVA: 0x000EE808 File Offset: 0x000ECA08
 		private Color32 applyOpacity(Color32 color)
 		{
 			color.a = (byte)(base.Opacity * 255f);
 			return color;
 		}
 
-		// Token: 0x06003CDB RID: 15579 RVA: 0x000E5CDC File Offset: 0x000E3EDC
-		private static void addTriangleIndices(dfList<Vector3> verts, dfList<int> triangles)
+		// Token: 0x060040E5 RID: 16613 RVA: 0x000EE820 File Offset: 0x000ECA20
+		private static void addTriangleIndices(global::dfList<Vector3> verts, global::dfList<int> triangles)
 		{
 			int count = verts.Count;
-			int[] triangle_INDICES = dfFont.BitmappedFontRenderer.TRIANGLE_INDICES;
+			int[] triangle_INDICES = global::dfFont.BitmappedFontRenderer.TRIANGLE_INDICES;
 			for (int i = 0; i < triangle_INDICES.Length; i++)
 			{
 				triangles.Add(count + triangle_INDICES[i]);
 			}
 		}
 
-		// Token: 0x06003CDC RID: 15580 RVA: 0x000E5D18 File Offset: 0x000E3F18
+		// Token: 0x060040E6 RID: 16614 RVA: 0x000EE85C File Offset: 0x000ECA5C
 		private Color multiplyColors(Color lhs, Color rhs)
 		{
 			return new Color(lhs.r * rhs.r, lhs.g * rhs.g, lhs.b * rhs.b, lhs.a * rhs.a);
 		}
 
-		// Token: 0x06003CDD RID: 15581 RVA: 0x000E5D68 File Offset: 0x000E3F68
-		private dfFont.LineRenderInfo fitSingleLine()
+		// Token: 0x060040E7 RID: 16615 RVA: 0x000EE8AC File Offset: 0x000ECAAC
+		private global::dfFont.LineRenderInfo fitSingleLine()
 		{
-			return dfFont.LineRenderInfo.Obtain(0, 0);
+			return global::dfFont.LineRenderInfo.Obtain(0, 0);
 		}
 
-		// Token: 0x04002019 RID: 8217
-		private static Queue<dfFont.BitmappedFontRenderer> objectPool = new Queue<dfFont.BitmappedFontRenderer>();
+		// Token: 0x0400221A RID: 8730
+		private static Queue<global::dfFont.BitmappedFontRenderer> objectPool = new Queue<global::dfFont.BitmappedFontRenderer>();
 
-		// Token: 0x0400201A RID: 8218
+		// Token: 0x0400221B RID: 8731
 		private static Vector2[] OUTLINE_OFFSETS = new Vector2[]
 		{
 			new Vector2(-1f, -1f),
@@ -1137,7 +1137,7 @@ public class dfFont : dfFontBase
 			new Vector2(1f, 1f)
 		};
 
-		// Token: 0x0400201B RID: 8219
+		// Token: 0x0400221C RID: 8732
 		private static int[] TRIANGLE_INDICES = new int[]
 		{
 			0,
@@ -1148,26 +1148,26 @@ public class dfFont : dfFontBase
 			2
 		};
 
-		// Token: 0x0400201C RID: 8220
+		// Token: 0x0400221D RID: 8733
 		private static Stack<Color32> textColors = new Stack<Color32>();
 
-		// Token: 0x0400201D RID: 8221
-		private dfList<dfFont.LineRenderInfo> lines;
+		// Token: 0x0400221E RID: 8734
+		private global::dfList<global::dfFont.LineRenderInfo> lines;
 
-		// Token: 0x0400201E RID: 8222
-		private List<dfMarkupToken> tokens;
+		// Token: 0x0400221F RID: 8735
+		private List<global::dfMarkupToken> tokens;
 	}
 
-	// Token: 0x020006C8 RID: 1736
+	// Token: 0x02000793 RID: 1939
 	private class LineRenderInfo
 	{
-		// Token: 0x06003CDE RID: 15582 RVA: 0x000E5D80 File Offset: 0x000E3F80
+		// Token: 0x060040E8 RID: 16616 RVA: 0x000EE8C4 File Offset: 0x000ECAC4
 		private LineRenderInfo()
 		{
 		}
 
-		// Token: 0x17000BD6 RID: 3030
-		// (get) Token: 0x06003CE0 RID: 15584 RVA: 0x000E5D9C File Offset: 0x000E3F9C
+		// Token: 0x17000C5A RID: 3162
+		// (get) Token: 0x060040EA RID: 16618 RVA: 0x000EE8E0 File Offset: 0x000ECAE0
 		public int length
 		{
 			get
@@ -1176,42 +1176,42 @@ public class dfFont : dfFontBase
 			}
 		}
 
-		// Token: 0x06003CE1 RID: 15585 RVA: 0x000E5DB0 File Offset: 0x000E3FB0
+		// Token: 0x060040EB RID: 16619 RVA: 0x000EE8F4 File Offset: 0x000ECAF4
 		public static void ResetPool()
 		{
-			dfFont.LineRenderInfo.poolIndex = 0;
+			global::dfFont.LineRenderInfo.poolIndex = 0;
 		}
 
-		// Token: 0x06003CE2 RID: 15586 RVA: 0x000E5DB8 File Offset: 0x000E3FB8
-		public static dfFont.LineRenderInfo Obtain(int start, int end)
+		// Token: 0x060040EC RID: 16620 RVA: 0x000EE8FC File Offset: 0x000ECAFC
+		public static global::dfFont.LineRenderInfo Obtain(int start, int end)
 		{
-			if (dfFont.LineRenderInfo.poolIndex >= dfFont.LineRenderInfo.pool.Count - 1)
+			if (global::dfFont.LineRenderInfo.poolIndex >= global::dfFont.LineRenderInfo.pool.Count - 1)
 			{
-				dfFont.LineRenderInfo.pool.Add(new dfFont.LineRenderInfo());
+				global::dfFont.LineRenderInfo.pool.Add(new global::dfFont.LineRenderInfo());
 			}
-			dfFont.LineRenderInfo lineRenderInfo = dfFont.LineRenderInfo.pool[dfFont.LineRenderInfo.poolIndex++];
+			global::dfFont.LineRenderInfo lineRenderInfo = global::dfFont.LineRenderInfo.pool[global::dfFont.LineRenderInfo.poolIndex++];
 			lineRenderInfo.startOffset = start;
 			lineRenderInfo.endOffset = end;
 			lineRenderInfo.lineHeight = 0f;
 			return lineRenderInfo;
 		}
 
-		// Token: 0x0400201F RID: 8223
+		// Token: 0x04002220 RID: 8736
 		public int startOffset;
 
-		// Token: 0x04002020 RID: 8224
+		// Token: 0x04002221 RID: 8737
 		public int endOffset;
 
-		// Token: 0x04002021 RID: 8225
+		// Token: 0x04002222 RID: 8738
 		public float lineWidth;
 
-		// Token: 0x04002022 RID: 8226
+		// Token: 0x04002223 RID: 8739
 		public float lineHeight;
 
-		// Token: 0x04002023 RID: 8227
-		private static dfList<dfFont.LineRenderInfo> pool = new dfList<dfFont.LineRenderInfo>();
+		// Token: 0x04002224 RID: 8740
+		private static global::dfList<global::dfFont.LineRenderInfo> pool = new global::dfList<global::dfFont.LineRenderInfo>();
 
-		// Token: 0x04002024 RID: 8228
+		// Token: 0x04002225 RID: 8741
 		private static int poolIndex = 0;
 	}
 }

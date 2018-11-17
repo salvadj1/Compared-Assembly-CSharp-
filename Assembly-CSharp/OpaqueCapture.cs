@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004FD RID: 1277
+// Token: 0x020005BA RID: 1466
 public class OpaqueCapture : PostEffectsBase
 {
-	// Token: 0x06002B41 RID: 11073 RVA: 0x000AD91C File Offset: 0x000ABB1C
+	// Token: 0x06002F01 RID: 12033 RVA: 0x000B59B8 File Offset: 0x000B3BB8
 	protected void OnDisable()
 	{
 		this.CleanupCaptureRT();
 	}
 
-	// Token: 0x06002B42 RID: 11074 RVA: 0x000AD924 File Offset: 0x000ABB24
+	// Token: 0x06002F02 RID: 12034 RVA: 0x000B59C0 File Offset: 0x000B3BC0
 	public override bool CheckResources()
 	{
 		this.CheckSupport(false);
@@ -21,7 +21,7 @@ public class OpaqueCapture : PostEffectsBase
 		return this.isSupported;
 	}
 
-	// Token: 0x06002B43 RID: 11075 RVA: 0x000AD948 File Offset: 0x000ABB48
+	// Token: 0x06002F03 RID: 12035 RVA: 0x000B59E4 File Offset: 0x000B3BE4
 	private void CleanupCaptureRT()
 	{
 		if (this.captureRT)
@@ -33,7 +33,7 @@ public class OpaqueCapture : PostEffectsBase
 		this.d = -1;
 	}
 
-	// Token: 0x06002B44 RID: 11076 RVA: 0x000AD988 File Offset: 0x000ABB88
+	// Token: 0x06002F04 RID: 12036 RVA: 0x000B5A24 File Offset: 0x000B3C24
 	[ImageEffectOpaque]
 	protected void OnRenderImage(RenderTexture src, RenderTexture dst)
 	{
@@ -68,18 +68,18 @@ public class OpaqueCapture : PostEffectsBase
 		Graphics.Blit(src, dst);
 	}
 
-	// Token: 0x040017BE RID: 6078
+	// Token: 0x0400198A RID: 6538
 	private RenderTexture captureRT;
 
-	// Token: 0x040017BF RID: 6079
+	// Token: 0x0400198B RID: 6539
 	private int w = -1;
 
-	// Token: 0x040017C0 RID: 6080
+	// Token: 0x0400198C RID: 6540
 	private int h = -1;
 
-	// Token: 0x040017C1 RID: 6081
+	// Token: 0x0400198D RID: 6541
 	private int d = -1;
 
-	// Token: 0x040017C2 RID: 6082
+	// Token: 0x0400198E RID: 6542
 	private RenderTextureFormat fmt;
 }

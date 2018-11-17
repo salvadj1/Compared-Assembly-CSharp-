@@ -1,53 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x020006E2 RID: 1762
+// Token: 0x020007B4 RID: 1972
 public class dfMarkupTokenAttribute
 {
-	// Token: 0x06003EF4 RID: 16116 RVA: 0x000EEB30 File Offset: 0x000ECD30
+	// Token: 0x06004310 RID: 17168 RVA: 0x000F7734 File Offset: 0x000F5934
 	private dfMarkupTokenAttribute()
 	{
 	}
 
-	// Token: 0x06003EF6 RID: 16118 RVA: 0x000EEB4C File Offset: 0x000ECD4C
-	internal static dfMarkupTokenAttribute GetAttribute(int index)
+	// Token: 0x06004312 RID: 17170 RVA: 0x000F7750 File Offset: 0x000F5950
+	internal static global::dfMarkupTokenAttribute GetAttribute(int index)
 	{
-		return dfMarkupTokenAttribute.pool[index];
+		return global::dfMarkupTokenAttribute.pool[index];
 	}
 
-	// Token: 0x06003EF7 RID: 16119 RVA: 0x000EEB5C File Offset: 0x000ECD5C
+	// Token: 0x06004313 RID: 17171 RVA: 0x000F7760 File Offset: 0x000F5960
 	public static void Reset()
 	{
-		dfMarkupTokenAttribute.poolIndex = 0;
+		global::dfMarkupTokenAttribute.poolIndex = 0;
 	}
 
-	// Token: 0x06003EF8 RID: 16120 RVA: 0x000EEB64 File Offset: 0x000ECD64
-	public static dfMarkupTokenAttribute Obtain(dfMarkupToken key, dfMarkupToken value)
+	// Token: 0x06004314 RID: 17172 RVA: 0x000F7768 File Offset: 0x000F5968
+	public static global::dfMarkupTokenAttribute Obtain(global::dfMarkupToken key, global::dfMarkupToken value)
 	{
-		if (dfMarkupTokenAttribute.poolIndex >= dfMarkupTokenAttribute.pool.Count - 1)
+		if (global::dfMarkupTokenAttribute.poolIndex >= global::dfMarkupTokenAttribute.pool.Count - 1)
 		{
-			dfMarkupTokenAttribute.pool.Add(new dfMarkupTokenAttribute());
+			global::dfMarkupTokenAttribute.pool.Add(new global::dfMarkupTokenAttribute());
 		}
-		dfMarkupTokenAttribute dfMarkupTokenAttribute = dfMarkupTokenAttribute.pool[dfMarkupTokenAttribute.poolIndex];
-		dfMarkupTokenAttribute.Index = dfMarkupTokenAttribute.poolIndex;
+		global::dfMarkupTokenAttribute dfMarkupTokenAttribute = global::dfMarkupTokenAttribute.pool[global::dfMarkupTokenAttribute.poolIndex];
+		dfMarkupTokenAttribute.Index = global::dfMarkupTokenAttribute.poolIndex;
 		dfMarkupTokenAttribute.Key = key;
 		dfMarkupTokenAttribute.Value = value;
-		dfMarkupTokenAttribute.poolIndex++;
+		global::dfMarkupTokenAttribute.poolIndex++;
 		return dfMarkupTokenAttribute;
 	}
 
-	// Token: 0x040021AD RID: 8621
+	// Token: 0x040023B6 RID: 9142
 	public int Index;
 
-	// Token: 0x040021AE RID: 8622
-	public dfMarkupToken Key;
+	// Token: 0x040023B7 RID: 9143
+	public global::dfMarkupToken Key;
 
-	// Token: 0x040021AF RID: 8623
-	public dfMarkupToken Value;
+	// Token: 0x040023B8 RID: 9144
+	public global::dfMarkupToken Value;
 
-	// Token: 0x040021B0 RID: 8624
-	private static List<dfMarkupTokenAttribute> pool = new List<dfMarkupTokenAttribute>();
+	// Token: 0x040023B9 RID: 9145
+	private static List<global::dfMarkupTokenAttribute> pool = new List<global::dfMarkupTokenAttribute>();
 
-	// Token: 0x040021B1 RID: 8625
+	// Token: 0x040023BA RID: 9146
 	private static int poolIndex = 0;
 }

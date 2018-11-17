@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x02000789 RID: 1929
+// Token: 0x0200086E RID: 2158
 [Serializable]
 public class BMGlyph
 {
-	// Token: 0x060045C2 RID: 17858 RVA: 0x001145C8 File Offset: 0x001127C8
+	// Token: 0x06004A2F RID: 18991 RVA: 0x0011DF48 File Offset: 0x0011C148
 	public int GetKerning(int previousChar)
 	{
 		if (this.kerning != null)
@@ -14,7 +14,7 @@ public class BMGlyph
 			int count = this.kerning.Count;
 			while (i < count)
 			{
-				BMGlyph.Kerning kerning = this.kerning[i];
+				global::BMGlyph.Kerning kerning = this.kerning[i];
 				if (kerning.previousChar == previousChar)
 				{
 					return kerning.amount;
@@ -25,30 +25,30 @@ public class BMGlyph
 		return 0;
 	}
 
-	// Token: 0x060045C3 RID: 17859 RVA: 0x00114624 File Offset: 0x00112824
+	// Token: 0x06004A30 RID: 18992 RVA: 0x0011DFA4 File Offset: 0x0011C1A4
 	public void SetKerning(int previousChar, int amount)
 	{
 		if (this.kerning == null)
 		{
-			this.kerning = new List<BMGlyph.Kerning>();
+			this.kerning = new List<global::BMGlyph.Kerning>();
 		}
 		for (int i = 0; i < this.kerning.Count; i++)
 		{
 			if (this.kerning[i].previousChar == previousChar)
 			{
-				BMGlyph.Kerning value = this.kerning[i];
+				global::BMGlyph.Kerning value = this.kerning[i];
 				value.amount = amount;
 				this.kerning[i] = value;
 				return;
 			}
 		}
-		BMGlyph.Kerning item = default(BMGlyph.Kerning);
+		global::BMGlyph.Kerning item = default(global::BMGlyph.Kerning);
 		item.previousChar = previousChar;
 		item.amount = amount;
 		this.kerning.Add(item);
 	}
 
-	// Token: 0x060045C4 RID: 17860 RVA: 0x001146C4 File Offset: 0x001128C4
+	// Token: 0x06004A31 RID: 18993 RVA: 0x0011E044 File Offset: 0x0011C244
 	public void Trim(int xMin, int yMin, int xMax, int yMax)
 	{
 		int num = this.x + this.width;
@@ -77,43 +77,43 @@ public class BMGlyph
 		}
 	}
 
-	// Token: 0x04002639 RID: 9785
+	// Token: 0x04002870 RID: 10352
 	public int index;
 
-	// Token: 0x0400263A RID: 9786
+	// Token: 0x04002871 RID: 10353
 	public int x;
 
-	// Token: 0x0400263B RID: 9787
+	// Token: 0x04002872 RID: 10354
 	public int y;
 
-	// Token: 0x0400263C RID: 9788
+	// Token: 0x04002873 RID: 10355
 	public int width;
 
-	// Token: 0x0400263D RID: 9789
+	// Token: 0x04002874 RID: 10356
 	public int height;
 
-	// Token: 0x0400263E RID: 9790
+	// Token: 0x04002875 RID: 10357
 	public int offsetX;
 
-	// Token: 0x0400263F RID: 9791
+	// Token: 0x04002876 RID: 10358
 	public int offsetY;
 
-	// Token: 0x04002640 RID: 9792
+	// Token: 0x04002877 RID: 10359
 	public int advance;
 
-	// Token: 0x04002641 RID: 9793
+	// Token: 0x04002878 RID: 10360
 	public int channel;
 
-	// Token: 0x04002642 RID: 9794
-	public List<BMGlyph.Kerning> kerning;
+	// Token: 0x04002879 RID: 10361
+	public List<global::BMGlyph.Kerning> kerning;
 
-	// Token: 0x0200078A RID: 1930
+	// Token: 0x0200086F RID: 2159
 	public struct Kerning
 	{
-		// Token: 0x04002643 RID: 9795
+		// Token: 0x0400287A RID: 10362
 		public int previousChar;
 
-		// Token: 0x04002644 RID: 9796
+		// Token: 0x0400287B RID: 10363
 		public int amount;
 	}
 }

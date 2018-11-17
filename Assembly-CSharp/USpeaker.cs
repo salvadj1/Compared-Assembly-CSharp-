@@ -7,35 +7,35 @@ using MoPhoGames.USpeak.Core.Utils;
 using MoPhoGames.USpeak.Interface;
 using UnityEngine;
 
-// Token: 0x020000BA RID: 186
+// Token: 0x020000CD RID: 205
 [AddComponentMenu("USpeak/USpeaker")]
 public class USpeaker : MonoBehaviour
 {
-	// Token: 0x17000092 RID: 146
-	// (get) Token: 0x060003E2 RID: 994 RVA: 0x000140D4 File Offset: 0x000122D4
-	// (set) Token: 0x060003E3 RID: 995 RVA: 0x000140E0 File Offset: 0x000122E0
+	// Token: 0x170000AA RID: 170
+	// (get) Token: 0x0600045A RID: 1114 RVA: 0x000158C4 File Offset: 0x00013AC4
+	// (set) Token: 0x0600045B RID: 1115 RVA: 0x000158D0 File Offset: 0x00013AD0
 	[Obsolete("Use USpeaker._3DMode instead")]
 	public bool Is3D
 	{
 		get
 		{
-			return this._3DMode == ThreeDMode.SpeakerPan;
+			return this._3DMode == global::ThreeDMode.SpeakerPan;
 		}
 		set
 		{
 			if (value)
 			{
-				this._3DMode = ThreeDMode.SpeakerPan;
+				this._3DMode = global::ThreeDMode.SpeakerPan;
 			}
 			else
 			{
-				this._3DMode = ThreeDMode.None;
+				this._3DMode = global::ThreeDMode.None;
 			}
 		}
 	}
 
-	// Token: 0x17000093 RID: 147
-	// (get) Token: 0x060003E4 RID: 996 RVA: 0x000140FC File Offset: 0x000122FC
+	// Token: 0x170000AB RID: 171
+	// (get) Token: 0x0600045C RID: 1116 RVA: 0x000158EC File Offset: 0x00013AEC
 	public bool IsTalking
 	{
 		get
@@ -44,14 +44,14 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003E5 RID: 997 RVA: 0x0001410C File Offset: 0x0001230C
+	// Token: 0x0600045D RID: 1117 RVA: 0x000158FC File Offset: 0x00013AFC
 	public bool HasSettings()
 	{
 		return this.settings != null;
 	}
 
-	// Token: 0x17000094 RID: 148
-	// (get) Token: 0x060003E6 RID: 998 RVA: 0x0001411C File Offset: 0x0001231C
+	// Token: 0x170000AC RID: 172
+	// (get) Token: 0x0600045E RID: 1118 RVA: 0x0001590C File Offset: 0x00013B0C
 	private int audioFrequency
 	{
 		get
@@ -60,13 +60,13 @@ public class USpeaker : MonoBehaviour
 			{
 				switch (this.BandwidthMode)
 				{
-				case BandMode.Narrow:
+				case global::BandMode.Narrow:
 					this.recFreq = 8000;
 					break;
-				case BandMode.Wide:
+				case global::BandMode.Wide:
 					this.recFreq = 16000;
 					break;
-				case BandMode.UltraWide:
+				case global::BandMode.UltraWide:
 					this.recFreq = 32000;
 					break;
 				default:
@@ -78,37 +78,37 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003E7 RID: 999 RVA: 0x00014198 File Offset: 0x00012398
+	// Token: 0x0600045F RID: 1119 RVA: 0x00015988 File Offset: 0x00013B88
 	public void SetInputDevice(int deviceID)
 	{
-		USpeaker.InputDeviceID = deviceID;
+		global::USpeaker.InputDeviceID = deviceID;
 	}
 
-	// Token: 0x060003E8 RID: 1000 RVA: 0x000141A0 File Offset: 0x000123A0
-	public static USpeaker Get(Object source)
+	// Token: 0x06000460 RID: 1120 RVA: 0x00015990 File Offset: 0x00013B90
+	public static global::USpeaker Get(Object source)
 	{
 		if (source is GameObject)
 		{
-			return (source as GameObject).GetComponent<USpeaker>();
+			return (source as GameObject).GetComponent<global::USpeaker>();
 		}
 		if (source is Transform)
 		{
-			return (source as Transform).GetComponent<USpeaker>();
+			return (source as Transform).GetComponent<global::USpeaker>();
 		}
 		if (source is Component)
 		{
-			return (source as Component).GetComponent<USpeaker>();
+			return (source as Component).GetComponent<global::USpeaker>();
 		}
 		return null;
 	}
 
-	// Token: 0x060003E9 RID: 1001 RVA: 0x000141F4 File Offset: 0x000123F4
+	// Token: 0x06000461 RID: 1121 RVA: 0x000159E4 File Offset: 0x00013BE4
 	public void GetInputHandler()
 	{
-		this.talkController = (IUSpeakTalkController)this.FindInputHandler();
+		this.talkController = (MoPhoGames.USpeak.Interface.IUSpeakTalkController)this.FindInputHandler();
 	}
 
-	// Token: 0x060003EA RID: 1002 RVA: 0x00014208 File Offset: 0x00012408
+	// Token: 0x06000462 RID: 1122 RVA: 0x000159F8 File Offset: 0x00013BF8
 	public void DrawTalkControllerUI()
 	{
 		if (this.talkController != null)
@@ -121,7 +121,7 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003EB RID: 1003 RVA: 0x00014238 File Offset: 0x00012438
+	// Token: 0x06000463 RID: 1123 RVA: 0x00015A28 File Offset: 0x00013C28
 	public void ReceiveAudio(byte[] data)
 	{
 		if (this.settings == null)
@@ -129,11 +129,11 @@ public class USpeaker : MonoBehaviour
 			Debug.LogWarning("Trying to receive remote audio data without calling InitializeSettings!\nIncoming packet will be ignored");
 			return;
 		}
-		if (USpeaker.MuteAll || this.Mute || (this.SpeakerMode == SpeakerMode.Local && !this.DebugPlayback))
+		if (global::USpeaker.MuteAll || this.Mute || (this.SpeakerMode == global::SpeakerMode.Local && !this.DebugPlayback))
 		{
 			return;
 		}
-		if (this.SpeakerMode == SpeakerMode.Remote)
+		if (this.SpeakerMode == global::SpeakerMode.Remote)
 		{
 			this.talkTimer = 1f;
 		}
@@ -141,16 +141,16 @@ public class USpeaker : MonoBehaviour
 		for (int i = 0; i < data.Length; i += @byte.Length)
 		{
 			int num = BitConverter.ToInt32(data, i);
-			@byte = USpeakPoolUtils.GetByte(num + 6);
+			@byte = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetByte(num + 6);
 			Array.Copy(data, i, @byte, 0, @byte.Length);
-			USpeakFrameContainer uspeakFrameContainer = default(USpeakFrameContainer);
+			MoPhoGames.USpeak.Core.USpeakFrameContainer uspeakFrameContainer = default(MoPhoGames.USpeak.Core.USpeakFrameContainer);
 			uspeakFrameContainer.LoadFrom(@byte);
-			USpeakPoolUtils.Return(@byte);
-			float[] array = USpeakAudioClipCompressor.DecompressAudio(uspeakFrameContainer.encodedData, (int)uspeakFrameContainer.Samples, 1, false, this.settings.bandMode, this.codecMgr.Codecs[this.Codec], USpeaker.RemoteGain);
+			MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.Return(@byte);
+			float[] array = MoPhoGames.USpeak.Core.USpeakAudioClipCompressor.DecompressAudio(uspeakFrameContainer.encodedData, (int)uspeakFrameContainer.Samples, 1, false, this.settings.bandMode, this.codecMgr.Codecs[this.Codec], global::USpeaker.RemoteGain);
 			float num2 = (float)array.Length / (float)this.audioFrequency;
 			this.received += (double)num2;
 			Array.Copy(array, 0, this.receivedData, this.index, array.Length);
-			USpeakPoolUtils.Return(array);
+			MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.Return(array);
 			this.index += array.Length;
 			if (this.index >= base.audio.clip.samples)
 			{
@@ -168,49 +168,49 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003EC RID: 1004 RVA: 0x000143E0 File Offset: 0x000125E0
+	// Token: 0x06000464 RID: 1124 RVA: 0x00015BD0 File Offset: 0x00013DD0
 	public void InitializeSettings(int data)
 	{
 		MonoBehaviour.print("Settings changed");
-		this.settings = new USpeakSettingsData((byte)data);
+		this.settings = new MoPhoGames.USpeak.Core.USpeakSettingsData((byte)data);
 		this.Codec = this.settings.Codec;
 	}
 
-	// Token: 0x060003ED RID: 1005 RVA: 0x00014418 File Offset: 0x00012618
+	// Token: 0x06000465 RID: 1125 RVA: 0x00015C08 File Offset: 0x00013E08
 	private void Awake()
 	{
-		USpeaker.USpeakerList.Add(this);
+		global::USpeaker.USpeakerList.Add(this);
 		if (base.audio == null)
 		{
 			base.gameObject.AddComponent<AudioSource>();
 		}
-		base.audio.clip = AudioClip.Create("vc", this.audioFrequency * 10, 1, this.audioFrequency, this._3DMode == ThreeDMode.Full3D, false);
+		base.audio.clip = AudioClip.Create("vc", this.audioFrequency * 10, 1, this.audioFrequency, this._3DMode == global::ThreeDMode.Full3D, false);
 		base.audio.loop = true;
 		this.receivedData = new float[this.audioFrequency * 10];
-		this.codecMgr = USpeakCodecManager.Instance;
+		this.codecMgr = global::USpeakCodecManager.Instance;
 		this.lastBandMode = this.BandwidthMode;
 		this.lastCodec = this.Codec;
 		this.last3DMode = this._3DMode;
 	}
 
-	// Token: 0x060003EE RID: 1006 RVA: 0x000144CC File Offset: 0x000126CC
+	// Token: 0x06000466 RID: 1126 RVA: 0x00015CBC File Offset: 0x00013EBC
 	private void OnDestroy()
 	{
-		USpeaker.USpeakerList.Remove(this);
+		global::USpeaker.USpeakerList.Remove(this);
 	}
 
-	// Token: 0x060003EF RID: 1007 RVA: 0x000144DC File Offset: 0x000126DC
+	// Token: 0x06000467 RID: 1127 RVA: 0x00015CCC File Offset: 0x00013ECC
 	private IEnumerator Start()
 	{
 		yield return null;
-		this.audioHandler = (ISpeechDataHandler)this.FindSpeechHandler();
-		this.talkController = (IUSpeakTalkController)this.FindInputHandler();
+		this.audioHandler = (MoPhoGames.USpeak.Interface.ISpeechDataHandler)this.FindSpeechHandler();
+		this.talkController = (MoPhoGames.USpeak.Interface.IUSpeakTalkController)this.FindInputHandler();
 		if (this.audioHandler == null)
 		{
 			Debug.LogError("USpeaker requires a component which implements the ISpeechDataHandler interface");
 			yield break;
 		}
-		if (this.SpeakerMode == SpeakerMode.Remote)
+		if (this.SpeakerMode == global::SpeakerMode.Remote)
 		{
 			yield break;
 		}
@@ -232,12 +232,12 @@ public class USpeaker : MonoBehaviour
 		this.UpdateSettings();
 		this.sendt = 1f / this.SendRate;
 		this.recording = Microphone.Start(this.currentDeviceName, false, 21, this.audioFrequency);
-		MonoBehaviour.print(devices[USpeaker.InputDeviceID]);
-		this.currentDeviceName = devices[USpeaker.InputDeviceID];
+		MonoBehaviour.print(devices[global::USpeaker.InputDeviceID]);
+		this.currentDeviceName = devices[global::USpeaker.InputDeviceID];
 		yield break;
 	}
 
-	// Token: 0x060003F0 RID: 1008 RVA: 0x000144F8 File Offset: 0x000126F8
+	// Token: 0x06000468 RID: 1128 RVA: 0x00015CE8 File Offset: 0x00013EE8
 	private void Update()
 	{
 		this.talkTimer -= Time.deltaTime;
@@ -246,10 +246,10 @@ public class USpeaker : MonoBehaviour
 		{
 			this.last3DMode = this._3DMode;
 			this.StopPlaying();
-			base.audio.clip = AudioClip.Create("vc", this.audioFrequency * 10, 1, this.audioFrequency, this._3DMode == ThreeDMode.Full3D, false);
+			base.audio.clip = AudioClip.Create("vc", this.audioFrequency * 10, 1, this.audioFrequency, this._3DMode == global::ThreeDMode.Full3D, false);
 			base.audio.loop = true;
 		}
-		if (this._3DMode == ThreeDMode.SpeakerPan)
+		if (this._3DMode == global::ThreeDMode.SpeakerPan)
 		{
 			Transform transform = Camera.main.transform;
 			Vector3 vector = Vector3.Cross(transform.up, transform.forward);
@@ -281,7 +281,7 @@ public class USpeaker : MonoBehaviour
 				base.audio.Play();
 			}
 		}
-		if (this.SpeakerMode == SpeakerMode.Remote)
+		if (this.SpeakerMode == global::SpeakerMode.Remote)
 		{
 			return;
 		}
@@ -299,9 +299,9 @@ public class USpeaker : MonoBehaviour
 		{
 			return;
 		}
-		if (array[Mathf.Min(USpeaker.InputDeviceID, array.Length - 1)] != this.currentDeviceName)
+		if (array[Mathf.Min(global::USpeaker.InputDeviceID, array.Length - 1)] != this.currentDeviceName)
 		{
-			this.currentDeviceName = array[Mathf.Min(USpeaker.InputDeviceID, array.Length - 1)];
+			this.currentDeviceName = array[Mathf.Min(global::USpeaker.InputDeviceID, array.Length - 1)];
 			MonoBehaviour.print("Using input device: " + this.currentDeviceName);
 			this.recording = Microphone.Start(this.currentDeviceName, false, 21, this.audioFrequency);
 			this.lastReadPos = 0;
@@ -354,7 +354,7 @@ public class USpeaker : MonoBehaviour
 				int num8 = Mathf.FloorToInt((float)(num5 / num6));
 				for (int i = 0; i < num8; i++)
 				{
-					float[] @float = USpeakPoolUtils.GetFloat(num6);
+					float[] @float = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetFloat(num6);
 					this.recording.GetData(@float, num7);
 					bool value;
 					if (flag != null)
@@ -372,7 +372,7 @@ public class USpeaker : MonoBehaviour
 						this.talkTimer = 1f;
 						this.OnAudioAvailable(@float);
 					}
-					USpeakPoolUtils.Return(@float);
+					MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.Return(@float);
 					num7 += num6;
 				}
 				this.lastReadPos = num7;
@@ -383,7 +383,7 @@ public class USpeaker : MonoBehaviour
 		}
 		this.ProcessPendingEncodeBuffer();
 		bool flag3 = true;
-		if (this.SendingMode == SendBehavior.RecordThenSend && this.talkController != null)
+		if (this.SendingMode == global::SendBehavior.RecordThenSend && this.talkController != null)
 		{
 			int value2;
 			if (flag != null)
@@ -403,7 +403,7 @@ public class USpeaker : MonoBehaviour
 		{
 			this.sendTimer = 0f;
 			this.tempSendBytes.Clear();
-			foreach (USpeakFrameContainer uspeakFrameContainer in this.sendBuffer)
+			foreach (MoPhoGames.USpeak.Core.USpeakFrameContainer uspeakFrameContainer in this.sendBuffer)
 			{
 				this.tempSendBytes.AddRange(uspeakFrameContainer.ToByteArray());
 			}
@@ -415,10 +415,10 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003F1 RID: 1009 RVA: 0x00014AE8 File Offset: 0x00012CE8
+	// Token: 0x06000469 RID: 1129 RVA: 0x000162D8 File Offset: 0x000144D8
 	private void RefreshDevices()
 	{
-		if (this.SpeakerMode != SpeakerMode.Local)
+		if (this.SpeakerMode != global::SpeakerMode.Local)
 		{
 			base.CancelInvoke("RefreshDevices");
 		}
@@ -428,7 +428,7 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003F2 RID: 1010 RVA: 0x00014B1C File Offset: 0x00012D1C
+	// Token: 0x0600046A RID: 1130 RVA: 0x0001630C File Offset: 0x0001450C
 	private void StopPlaying()
 	{
 		base.audio.Stop();
@@ -439,26 +439,26 @@ public class USpeaker : MonoBehaviour
 		this.lastTime = 0f;
 	}
 
-	// Token: 0x060003F3 RID: 1011 RVA: 0x00014B74 File Offset: 0x00012D74
+	// Token: 0x0600046B RID: 1131 RVA: 0x00016364 File Offset: 0x00014564
 	private void UpdateSettings()
 	{
 		if (!Application.isPlaying)
 		{
 			return;
 		}
-		this.settings = new USpeakSettingsData();
+		this.settings = new MoPhoGames.USpeak.Core.USpeakSettingsData();
 		this.settings.bandMode = this.BandwidthMode;
 		this.settings.Codec = this.Codec;
 		this.audioHandler.USpeakInitializeSettings((int)this.settings.ToByte());
 	}
 
-	// Token: 0x060003F4 RID: 1012 RVA: 0x00014BD0 File Offset: 0x00012DD0
+	// Token: 0x0600046C RID: 1132 RVA: 0x000163C0 File Offset: 0x000145C0
 	private Component FindSpeechHandler()
 	{
 		Component[] components = base.GetComponents<Component>();
 		foreach (Component component in components)
 		{
-			if (component is ISpeechDataHandler)
+			if (component is MoPhoGames.USpeak.Interface.ISpeechDataHandler)
 			{
 				return component;
 			}
@@ -466,13 +466,13 @@ public class USpeaker : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060003F5 RID: 1013 RVA: 0x00014C0C File Offset: 0x00012E0C
+	// Token: 0x0600046D RID: 1133 RVA: 0x000163FC File Offset: 0x000145FC
 	private Component FindInputHandler()
 	{
 		Component[] components = base.GetComponents<Component>();
 		foreach (Component component in components)
 		{
-			if (component is IUSpeakTalkController)
+			if (component is MoPhoGames.USpeak.Interface.IUSpeakTalkController)
 			{
 				return component;
 			}
@@ -480,21 +480,21 @@ public class USpeaker : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x060003F6 RID: 1014 RVA: 0x00014C48 File Offset: 0x00012E48
+	// Token: 0x0600046E RID: 1134 RVA: 0x00016438 File Offset: 0x00014638
 	private void OnAudioAvailable(float[] pcmData)
 	{
 		if (this.UseVAD && !this.CheckVAD(pcmData))
 		{
 			return;
 		}
-		USpeaker.CurrentVolume = 0f;
+		global::USpeaker.CurrentVolume = 0f;
 		if (pcmData.Length > 0)
 		{
 			foreach (float num in pcmData)
 			{
-				USpeaker.CurrentVolume += Mathf.Abs(num);
+				global::USpeaker.CurrentVolume += Mathf.Abs(num);
 			}
-			USpeaker.CurrentVolume /= (float)pcmData.Length;
+			global::USpeaker.CurrentVolume /= (float)pcmData.Length;
 		}
 		int size = 1280;
 		List<float[]> list = this.SplitArray(pcmData, size);
@@ -504,7 +504,7 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003F7 RID: 1015 RVA: 0x00014D2C File Offset: 0x00012F2C
+	// Token: 0x0600046F RID: 1135 RVA: 0x0001651C File Offset: 0x0001471C
 	private List<float[]> SplitArray(float[] array, int size)
 	{
 		List<float[]> list = new List<float[]>();
@@ -517,7 +517,7 @@ public class USpeaker : MonoBehaviour
 		return list;
 	}
 
-	// Token: 0x060003F8 RID: 1016 RVA: 0x00014D70 File Offset: 0x00012F70
+	// Token: 0x06000470 RID: 1136 RVA: 0x00016560 File Offset: 0x00014760
 	private void ProcessPendingEncodeBuffer()
 	{
 		int num = 10;
@@ -531,18 +531,18 @@ public class USpeaker : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003F9 RID: 1017 RVA: 0x00014DD4 File Offset: 0x00012FD4
+	// Token: 0x06000471 RID: 1137 RVA: 0x000165C4 File Offset: 0x000147C4
 	private void ProcessPendingEncode(float[] pcm)
 	{
 		int num;
-		byte[] encodedData = USpeakAudioClipCompressor.CompressAudioData(pcm, 1, out num, this.lastBandMode, this.codecMgr.Codecs[this.lastCodec], USpeaker.LocalGain);
-		USpeakFrameContainer item = default(USpeakFrameContainer);
+		byte[] encodedData = MoPhoGames.USpeak.Core.USpeakAudioClipCompressor.CompressAudioData(pcm, 1, out num, this.lastBandMode, this.codecMgr.Codecs[this.lastCodec], global::USpeaker.LocalGain);
+		MoPhoGames.USpeak.Core.USpeakFrameContainer item = default(MoPhoGames.USpeak.Core.USpeakFrameContainer);
 		item.Samples = (ushort)num;
 		item.encodedData = encodedData;
 		this.sendBuffer.Add(item);
 	}
 
-	// Token: 0x060003FA RID: 1018 RVA: 0x00014E30 File Offset: 0x00013030
+	// Token: 0x06000472 RID: 1138 RVA: 0x00016620 File Offset: 0x00014820
 	private int CalculateSamplesRead(int readPos)
 	{
 		if (readPos >= this.lastReadPos)
@@ -552,7 +552,7 @@ public class USpeaker : MonoBehaviour
 		return this.audioFrequency * 10 - this.lastReadPos + readPos;
 	}
 
-	// Token: 0x060003FB RID: 1019 RVA: 0x00014E5C File Offset: 0x0001305C
+	// Token: 0x06000473 RID: 1139 RVA: 0x0001664C File Offset: 0x0001484C
 	private float[] normalize(float[] samples, float magnitude)
 	{
 		float[] array = new float[samples.Length];
@@ -563,7 +563,7 @@ public class USpeaker : MonoBehaviour
 		return array;
 	}
 
-	// Token: 0x060003FC RID: 1020 RVA: 0x00014E90 File Offset: 0x00013090
+	// Token: 0x06000474 RID: 1140 RVA: 0x00016680 File Offset: 0x00014880
 	private float amplitude(float[] x)
 	{
 		float num = 0f;
@@ -574,7 +574,7 @@ public class USpeaker : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x060003FD RID: 1021 RVA: 0x00014EC8 File Offset: 0x000130C8
+	// Token: 0x06000475 RID: 1141 RVA: 0x000166B8 File Offset: 0x000148B8
 	private bool CheckVAD(float[] samples)
 	{
 		if (Time.realtimeSinceStartup < this.lastVTime + this.vadHangover)
@@ -594,141 +594,141 @@ public class USpeaker : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x04000367 RID: 871
+	// Token: 0x040003D2 RID: 978
 	public static float CurrentVolume = 0f;
 
-	// Token: 0x04000368 RID: 872
+	// Token: 0x040003D3 RID: 979
 	public static float RemoteGain = 1f;
 
-	// Token: 0x04000369 RID: 873
+	// Token: 0x040003D4 RID: 980
 	public static float LocalGain = 1f;
 
-	// Token: 0x0400036A RID: 874
+	// Token: 0x040003D5 RID: 981
 	public static bool MuteAll = false;
 
-	// Token: 0x0400036B RID: 875
-	public static List<USpeaker> USpeakerList = new List<USpeaker>();
+	// Token: 0x040003D6 RID: 982
+	public static List<global::USpeaker> USpeakerList = new List<global::USpeaker>();
 
-	// Token: 0x0400036C RID: 876
+	// Token: 0x040003D7 RID: 983
 	private static int InputDeviceID = 0;
 
-	// Token: 0x0400036D RID: 877
-	public SpeakerMode SpeakerMode;
+	// Token: 0x040003D8 RID: 984
+	public global::SpeakerMode SpeakerMode;
 
-	// Token: 0x0400036E RID: 878
-	public BandMode BandwidthMode;
+	// Token: 0x040003D9 RID: 985
+	public global::BandMode BandwidthMode;
 
-	// Token: 0x0400036F RID: 879
+	// Token: 0x040003DA RID: 986
 	public float SendRate = 16f;
 
-	// Token: 0x04000370 RID: 880
-	public SendBehavior SendingMode;
+	// Token: 0x040003DB RID: 987
+	public global::SendBehavior SendingMode;
 
-	// Token: 0x04000371 RID: 881
+	// Token: 0x040003DC RID: 988
 	public bool UseVAD;
 
-	// Token: 0x04000372 RID: 882
-	public ThreeDMode _3DMode;
+	// Token: 0x040003DD RID: 989
+	public global::ThreeDMode _3DMode;
 
-	// Token: 0x04000373 RID: 883
+	// Token: 0x040003DE RID: 990
 	public bool DebugPlayback;
 
-	// Token: 0x04000374 RID: 884
+	// Token: 0x040003DF RID: 991
 	public bool AskPermission = true;
 
-	// Token: 0x04000375 RID: 885
+	// Token: 0x040003E0 RID: 992
 	public bool Mute;
 
-	// Token: 0x04000376 RID: 886
+	// Token: 0x040003E1 RID: 993
 	public float SpeakerVolume = 1f;
 
-	// Token: 0x04000377 RID: 887
+	// Token: 0x040003E2 RID: 994
 	public float VolumeThreshold = 0.01f;
 
-	// Token: 0x04000378 RID: 888
+	// Token: 0x040003E3 RID: 995
 	public int Codec;
 
-	// Token: 0x04000379 RID: 889
-	private USpeakCodecManager codecMgr;
+	// Token: 0x040003E4 RID: 996
+	private global::USpeakCodecManager codecMgr;
 
-	// Token: 0x0400037A RID: 890
+	// Token: 0x040003E5 RID: 997
 	private AudioClip recording;
 
-	// Token: 0x0400037B RID: 891
+	// Token: 0x040003E6 RID: 998
 	private int recFreq;
 
-	// Token: 0x0400037C RID: 892
+	// Token: 0x040003E7 RID: 999
 	private int lastReadPos;
 
-	// Token: 0x0400037D RID: 893
+	// Token: 0x040003E8 RID: 1000
 	private float sendTimer;
 
-	// Token: 0x0400037E RID: 894
+	// Token: 0x040003E9 RID: 1001
 	private float sendt = 1f;
 
-	// Token: 0x0400037F RID: 895
-	private List<USpeakFrameContainer> sendBuffer = new List<USpeakFrameContainer>();
+	// Token: 0x040003EA RID: 1002
+	private List<MoPhoGames.USpeak.Core.USpeakFrameContainer> sendBuffer = new List<MoPhoGames.USpeak.Core.USpeakFrameContainer>();
 
-	// Token: 0x04000380 RID: 896
+	// Token: 0x040003EB RID: 1003
 	private List<byte> tempSendBytes = new List<byte>();
 
-	// Token: 0x04000381 RID: 897
-	private ISpeechDataHandler audioHandler;
+	// Token: 0x040003EC RID: 1004
+	private MoPhoGames.USpeak.Interface.ISpeechDataHandler audioHandler;
 
-	// Token: 0x04000382 RID: 898
-	private IUSpeakTalkController talkController;
+	// Token: 0x040003ED RID: 1005
+	private MoPhoGames.USpeak.Interface.IUSpeakTalkController talkController;
 
-	// Token: 0x04000383 RID: 899
+	// Token: 0x040003EE RID: 1006
 	private int overlap;
 
-	// Token: 0x04000384 RID: 900
-	private USpeakSettingsData settings;
+	// Token: 0x040003EF RID: 1007
+	private MoPhoGames.USpeak.Core.USpeakSettingsData settings;
 
-	// Token: 0x04000385 RID: 901
+	// Token: 0x040003F0 RID: 1008
 	private string currentDeviceName = string.Empty;
 
-	// Token: 0x04000386 RID: 902
+	// Token: 0x040003F1 RID: 1009
 	private float talkTimer;
 
-	// Token: 0x04000387 RID: 903
+	// Token: 0x040003F2 RID: 1010
 	private float vadHangover = 0.5f;
 
-	// Token: 0x04000388 RID: 904
+	// Token: 0x040003F3 RID: 1011
 	private float lastVTime;
 
-	// Token: 0x04000389 RID: 905
+	// Token: 0x040003F4 RID: 1012
 	private List<float[]> pendingEncode = new List<float[]>();
 
-	// Token: 0x0400038A RID: 906
+	// Token: 0x040003F5 RID: 1013
 	private double played;
 
-	// Token: 0x0400038B RID: 907
+	// Token: 0x040003F6 RID: 1014
 	private int index;
 
-	// Token: 0x0400038C RID: 908
+	// Token: 0x040003F7 RID: 1015
 	private double received;
 
-	// Token: 0x0400038D RID: 909
+	// Token: 0x040003F8 RID: 1016
 	private float[] receivedData;
 
-	// Token: 0x0400038E RID: 910
+	// Token: 0x040003F9 RID: 1017
 	private float playDelay;
 
-	// Token: 0x0400038F RID: 911
+	// Token: 0x040003FA RID: 1018
 	private bool shouldPlay;
 
-	// Token: 0x04000390 RID: 912
+	// Token: 0x040003FB RID: 1019
 	private float lastTime;
 
-	// Token: 0x04000391 RID: 913
-	private BandMode lastBandMode;
+	// Token: 0x040003FC RID: 1020
+	private global::BandMode lastBandMode;
 
-	// Token: 0x04000392 RID: 914
+	// Token: 0x040003FD RID: 1021
 	private int lastCodec;
 
-	// Token: 0x04000393 RID: 915
-	private ThreeDMode last3DMode;
+	// Token: 0x040003FE RID: 1022
+	private global::ThreeDMode last3DMode;
 
-	// Token: 0x04000394 RID: 916
+	// Token: 0x040003FF RID: 1023
 	private string[] devicesCached;
 }

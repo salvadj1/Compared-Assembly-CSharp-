@@ -1,44 +1,44 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000564 RID: 1380
-public class BulletWeaponImpact : WeaponImpact
+// Token: 0x02000622 RID: 1570
+public class BulletWeaponImpact : global::WeaponImpact
 {
-	// Token: 0x06002FA0 RID: 12192 RVA: 0x000B9424 File Offset: 0x000B7624
-	public BulletWeaponImpact(BulletWeaponDataBlock dataBlock, IBulletWeaponItem item, ItemRepresentation itemRep, Transform hitTransform, Vector3 localHitPoint, Vector3 localHitDirection) : base(dataBlock, item, itemRep)
+	// Token: 0x06003368 RID: 13160 RVA: 0x000C1680 File Offset: 0x000BF880
+	public BulletWeaponImpact(global::BulletWeaponDataBlock dataBlock, global::IBulletWeaponItem item, global::ItemRepresentation itemRep, Transform hitTransform, Vector3 localHitPoint, Vector3 localHitDirection) : base(dataBlock, item, itemRep)
 	{
 		this.hitTransform = hitTransform;
 		this.hitPoint = localHitPoint;
 		this.hitDirection = localHitDirection;
 	}
 
-	// Token: 0x06002FA1 RID: 12193 RVA: 0x000B9448 File Offset: 0x000B7648
-	public BulletWeaponImpact(BulletWeaponDataBlock dataBlock, IBulletWeaponItem item, ItemRepresentation itemRep, Vector3 worldHitPoint, Vector3 worldHitDirection) : this(dataBlock, item, itemRep, null, worldHitPoint, worldHitDirection)
+	// Token: 0x06003369 RID: 13161 RVA: 0x000C16A4 File Offset: 0x000BF8A4
+	public BulletWeaponImpact(global::BulletWeaponDataBlock dataBlock, global::IBulletWeaponItem item, global::ItemRepresentation itemRep, Vector3 worldHitPoint, Vector3 worldHitDirection) : this(dataBlock, item, itemRep, null, worldHitPoint, worldHitDirection)
 	{
 	}
 
-	// Token: 0x17000A22 RID: 2594
-	// (get) Token: 0x06002FA2 RID: 12194 RVA: 0x000B9458 File Offset: 0x000B7658
-	public new BulletWeaponDataBlock dataBlock
-	{
-		get
-		{
-			return (BulletWeaponDataBlock)this.dataBlock;
-		}
-	}
-
-	// Token: 0x17000A23 RID: 2595
-	// (get) Token: 0x06002FA3 RID: 12195 RVA: 0x000B9468 File Offset: 0x000B7668
-	public new IBulletWeaponItem item
+	// Token: 0x17000A98 RID: 2712
+	// (get) Token: 0x0600336A RID: 13162 RVA: 0x000C16B4 File Offset: 0x000BF8B4
+	public new global::BulletWeaponDataBlock dataBlock
 	{
 		get
 		{
-			return this.item as IBulletWeaponItem;
+			return (global::BulletWeaponDataBlock)this.dataBlock;
 		}
 	}
 
-	// Token: 0x17000A24 RID: 2596
-	// (get) Token: 0x06002FA4 RID: 12196 RVA: 0x000B9478 File Offset: 0x000B7678
+	// Token: 0x17000A99 RID: 2713
+	// (get) Token: 0x0600336B RID: 13163 RVA: 0x000C16C4 File Offset: 0x000BF8C4
+	public new global::IBulletWeaponItem item
+	{
+		get
+		{
+			return this.item as global::IBulletWeaponItem;
+		}
+	}
+
+	// Token: 0x17000A9A RID: 2714
+	// (get) Token: 0x0600336C RID: 13164 RVA: 0x000C16D4 File Offset: 0x000BF8D4
 	public Vector3 localPoint
 	{
 		get
@@ -47,8 +47,8 @@ public class BulletWeaponImpact : WeaponImpact
 		}
 	}
 
-	// Token: 0x17000A25 RID: 2597
-	// (get) Token: 0x06002FA5 RID: 12197 RVA: 0x000B94AC File Offset: 0x000B76AC
+	// Token: 0x17000A9B RID: 2715
+	// (get) Token: 0x0600336D RID: 13165 RVA: 0x000C1708 File Offset: 0x000BF908
 	public Vector3 worldPoint
 	{
 		get
@@ -57,8 +57,8 @@ public class BulletWeaponImpact : WeaponImpact
 		}
 	}
 
-	// Token: 0x17000A26 RID: 2598
-	// (get) Token: 0x06002FA6 RID: 12198 RVA: 0x000B94E8 File Offset: 0x000B76E8
+	// Token: 0x17000A9C RID: 2716
+	// (get) Token: 0x0600336E RID: 13166 RVA: 0x000C1744 File Offset: 0x000BF944
 	public Vector3 localDirection
 	{
 		get
@@ -67,8 +67,8 @@ public class BulletWeaponImpact : WeaponImpact
 		}
 	}
 
-	// Token: 0x17000A27 RID: 2599
-	// (get) Token: 0x06002FA7 RID: 12199 RVA: 0x000B9518 File Offset: 0x000B7718
+	// Token: 0x17000A9D RID: 2717
+	// (get) Token: 0x0600336F RID: 13167 RVA: 0x000C1774 File Offset: 0x000BF974
 	public Vector3 worldDirection
 	{
 		get
@@ -77,12 +77,12 @@ public class BulletWeaponImpact : WeaponImpact
 		}
 	}
 
-	// Token: 0x04001951 RID: 6481
+	// Token: 0x04001B22 RID: 6946
 	public readonly Transform hitTransform;
 
-	// Token: 0x04001952 RID: 6482
+	// Token: 0x04001B23 RID: 6947
 	private Vector3 hitPoint;
 
-	// Token: 0x04001953 RID: 6483
+	// Token: 0x04001B24 RID: 6948
 	private Vector3 hitDirection;
 }

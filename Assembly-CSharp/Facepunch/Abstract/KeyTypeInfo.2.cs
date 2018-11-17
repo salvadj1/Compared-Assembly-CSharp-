@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace Facepunch.Abstract
 {
-	// Token: 0x020001D9 RID: 473
-	internal class KeyTypeInfo<Key> where Key : TraitKey
+	// Token: 0x0200020A RID: 522
+	internal class KeyTypeInfo<Key> where Key : global::TraitKey
 	{
-		// Token: 0x06000D11 RID: 3345 RVA: 0x00033280 File Offset: 0x00031480
+		// Token: 0x06000E59 RID: 3673 RVA: 0x00037308 File Offset: 0x00035508
 		private KeyTypeInfo(Type Type, KeyTypeInfo<Key> Base, KeyTypeInfo<Key> Root, int TraitDepth)
 		{
 			this.Type = Type;
@@ -25,8 +25,8 @@ namespace Facepunch.Abstract
 			KeyTypeInfo<Key>.Registration.Add(this);
 		}
 
-		// Token: 0x1700033F RID: 831
-		// (get) Token: 0x06000D12 RID: 3346 RVA: 0x00033300 File Offset: 0x00031500
+		// Token: 0x17000385 RID: 901
+		// (get) Token: 0x06000E5A RID: 3674 RVA: 0x00037388 File Offset: 0x00035588
 		public bool IsBaseTrait
 		{
 			get
@@ -35,7 +35,7 @@ namespace Facepunch.Abstract
 			}
 		}
 
-		// Token: 0x06000D13 RID: 3347 RVA: 0x0003330C File Offset: 0x0003150C
+		// Token: 0x06000E5B RID: 3675 RVA: 0x00037394 File Offset: 0x00035594
 		public static KeyTypeInfo<Key> Find(Type traitType)
 		{
 			if (!typeof(Key).IsAssignableFrom(traitType))
@@ -49,7 +49,7 @@ namespace Facepunch.Abstract
 			return KeyTypeInfo<Key>.Registration.GetUnsafe(traitType);
 		}
 
-		// Token: 0x06000D14 RID: 3348 RVA: 0x00033360 File Offset: 0x00031560
+		// Token: 0x06000E5C RID: 3676 RVA: 0x000373E8 File Offset: 0x000355E8
 		public static bool Find(Type traitType, out KeyTypeInfo<Key> info)
 		{
 			if (typeof(Key).IsAssignableFrom(traitType) && traitType != typeof(Key))
@@ -61,13 +61,13 @@ namespace Facepunch.Abstract
 			return true;
 		}
 
-		// Token: 0x06000D15 RID: 3349 RVA: 0x00033398 File Offset: 0x00031598
+		// Token: 0x06000E5D RID: 3677 RVA: 0x00037420 File Offset: 0x00035620
 		public static KeyTypeInfo<Key> Find<T>() where T : Key
 		{
 			return KeyTypeInfo<Key, T>.Info;
 		}
 
-		// Token: 0x06000D16 RID: 3350 RVA: 0x000333A0 File Offset: 0x000315A0
+		// Token: 0x06000E5E RID: 3678 RVA: 0x00037428 File Offset: 0x00035628
 		public static bool Find<T>(out KeyTypeInfo<Key> info) where T : Key
 		{
 			bool result;
@@ -84,37 +84,37 @@ namespace Facepunch.Abstract
 			return result;
 		}
 
-		// Token: 0x06000D17 RID: 3351 RVA: 0x000333F0 File Offset: 0x000315F0
+		// Token: 0x06000E5F RID: 3679 RVA: 0x00037478 File Offset: 0x00035678
 		public bool IsAssignableFrom(KeyTypeInfo<Key> info)
 		{
 			return info.Root == this.Root && info.TraitDepth >= this.TraitDepth && info.AssignableTo.Contains(this);
 		}
 
-		// Token: 0x0400081C RID: 2076
+		// Token: 0x04000934 RID: 2356
 		public readonly Type Type;
 
-		// Token: 0x0400081D RID: 2077
+		// Token: 0x04000935 RID: 2357
 		public readonly KeyTypeInfo<Key> Base;
 
-		// Token: 0x0400081E RID: 2078
+		// Token: 0x04000936 RID: 2358
 		public readonly KeyTypeInfo<Key> Root;
 
-		// Token: 0x0400081F RID: 2079
+		// Token: 0x04000937 RID: 2359
 		public readonly int TraitDepth;
 
-		// Token: 0x04000820 RID: 2080
+		// Token: 0x04000938 RID: 2360
 		public readonly HashSet<KeyTypeInfo<Key>> AssignableTo;
 
-		// Token: 0x020001DA RID: 474
+		// Token: 0x0200020B RID: 523
 		internal static class Registration
 		{
-			// Token: 0x06000D19 RID: 3353 RVA: 0x00033430 File Offset: 0x00031630
+			// Token: 0x06000E61 RID: 3681 RVA: 0x000374B8 File Offset: 0x000356B8
 			public static void Add(KeyTypeInfo<Key> info)
 			{
 				KeyTypeInfo<Key>.Registration.dict.Add(info.Type, info);
 			}
 
-			// Token: 0x06000D1A RID: 3354 RVA: 0x00033444 File Offset: 0x00031644
+			// Token: 0x06000E62 RID: 3682 RVA: 0x000374CC File Offset: 0x000356CC
 			public static KeyTypeInfo<Key> GetUnsafe(Type type)
 			{
 				KeyTypeInfo<Key> result;
@@ -131,15 +131,15 @@ namespace Facepunch.Abstract
 				return new KeyTypeInfo<Key>(type, @unsafe, @unsafe.Root, @unsafe.TraitDepth + 1);
 			}
 
-			// Token: 0x04000821 RID: 2081
+			// Token: 0x04000939 RID: 2361
 			private static readonly Dictionary<Type, KeyTypeInfo<Key>> dict = new Dictionary<Type, KeyTypeInfo<Key>>();
 		}
 
-		// Token: 0x020001DB RID: 475
+		// Token: 0x0200020C RID: 524
 		public static class Comparison
 		{
-			// Token: 0x17000340 RID: 832
-			// (get) Token: 0x06000D1B RID: 3355 RVA: 0x000334A4 File Offset: 0x000316A4
+			// Token: 0x17000386 RID: 902
+			// (get) Token: 0x06000E63 RID: 3683 RVA: 0x0003752C File Offset: 0x0003572C
 			public static IEqualityComparer<KeyTypeInfo<Key>> EqualityComparer
 			{
 				get
@@ -148,8 +148,8 @@ namespace Facepunch.Abstract
 				}
 			}
 
-			// Token: 0x17000341 RID: 833
-			// (get) Token: 0x06000D1C RID: 3356 RVA: 0x000334AC File Offset: 0x000316AC
+			// Token: 0x17000387 RID: 903
+			// (get) Token: 0x06000E64 RID: 3684 RVA: 0x00037534 File Offset: 0x00035734
 			public static IComparer<KeyTypeInfo<Key>> Comparer
 			{
 				get
@@ -158,38 +158,38 @@ namespace Facepunch.Abstract
 				}
 			}
 
-			// Token: 0x020001DC RID: 476
+			// Token: 0x0200020D RID: 525
 			private class RootEqualityComparer : EqualityComparer<KeyTypeInfo<Key>>
 			{
-				// Token: 0x06000D1D RID: 3357 RVA: 0x000334B4 File Offset: 0x000316B4
+				// Token: 0x06000E65 RID: 3685 RVA: 0x0003753C File Offset: 0x0003573C
 				private RootEqualityComparer()
 				{
 				}
 
-				// Token: 0x06000D1E RID: 3358 RVA: 0x000334BC File Offset: 0x000316BC
+				// Token: 0x06000E66 RID: 3686 RVA: 0x00037544 File Offset: 0x00035744
 				public override bool Equals(KeyTypeInfo<Key> x, KeyTypeInfo<Key> y)
 				{
 					return x.Root == y.Root;
 				}
 
-				// Token: 0x06000D1F RID: 3359 RVA: 0x000334CC File Offset: 0x000316CC
+				// Token: 0x06000E67 RID: 3687 RVA: 0x00037554 File Offset: 0x00035754
 				public override int GetHashCode(KeyTypeInfo<Key> obj)
 				{
 					return obj.Root.Type.GetHashCode();
 				}
 
-				// Token: 0x020001DD RID: 477
+				// Token: 0x0200020E RID: 526
 				public static class Singleton
 				{
-					// Token: 0x04000822 RID: 2082
+					// Token: 0x0400093A RID: 2362
 					public static readonly IEqualityComparer<KeyTypeInfo<Key>> Instance = new KeyTypeInfo<Key>.Comparison.RootEqualityComparer();
 				}
 			}
 
-			// Token: 0x020001DE RID: 478
+			// Token: 0x0200020F RID: 527
 			internal class HierarchyComparer : Comparer<KeyTypeInfo<Key>>
 			{
-				// Token: 0x06000D22 RID: 3362 RVA: 0x000334F4 File Offset: 0x000316F4
+				// Token: 0x06000E6A RID: 3690 RVA: 0x0003757C File Offset: 0x0003577C
 				private static int BaseCompare(KeyTypeInfo<Key> x, KeyTypeInfo<Key> y)
 				{
 					if (x.TraitDepth == 0 || x == y)
@@ -204,7 +204,7 @@ namespace Facepunch.Abstract
 					return num;
 				}
 
-				// Token: 0x06000D23 RID: 3363 RVA: 0x00033540 File Offset: 0x00031740
+				// Token: 0x06000E6B RID: 3691 RVA: 0x000375C8 File Offset: 0x000357C8
 				private int CompareForward(KeyTypeInfo<Key> x, KeyTypeInfo<Key> y)
 				{
 					if (x.Root != y.Root)
@@ -218,25 +218,25 @@ namespace Facepunch.Abstract
 					return x.TraitDepth.CompareTo(y.TraitDepth);
 				}
 
-				// Token: 0x06000D24 RID: 3364 RVA: 0x000335A8 File Offset: 0x000317A8
+				// Token: 0x06000E6C RID: 3692 RVA: 0x00037630 File Offset: 0x00035830
 				public override int Compare(KeyTypeInfo<Key> x, KeyTypeInfo<Key> y)
 				{
 					return -this.CompareForward(x, y);
 				}
 
-				// Token: 0x020001DF RID: 479
+				// Token: 0x02000210 RID: 528
 				public static class Singleton
 				{
-					// Token: 0x04000823 RID: 2083
+					// Token: 0x0400093B RID: 2363
 					public static readonly IComparer<KeyTypeInfo<Key>> Instance = new KeyTypeInfo<Key>.Comparison.HierarchyComparer();
 				}
 			}
 		}
 
-		// Token: 0x020001E0 RID: 480
+		// Token: 0x02000211 RID: 529
 		internal class TraitDictionary
 		{
-			// Token: 0x06000D26 RID: 3366 RVA: 0x000335C0 File Offset: 0x000317C0
+			// Token: 0x06000E6E RID: 3694 RVA: 0x00037648 File Offset: 0x00035848
 			public TraitDictionary(Key[] traitKeys)
 			{
 				if (traitKeys == null || traitKeys.Length == 0)
@@ -256,13 +256,13 @@ namespace Facepunch.Abstract
 				}
 			}
 
-			// Token: 0x06000D27 RID: 3367 RVA: 0x00033654 File Offset: 0x00031854
+			// Token: 0x06000E6F RID: 3695 RVA: 0x000376DC File Offset: 0x000358DC
 			private bool TryGet(KeyTypeInfo<Key> info, out Key key)
 			{
 				return this.rootToKey.TryGetValue(info, out key);
 			}
 
-			// Token: 0x06000D28 RID: 3368 RVA: 0x00033664 File Offset: 0x00031864
+			// Token: 0x06000E70 RID: 3696 RVA: 0x000376EC File Offset: 0x000358EC
 			private bool TryGetSoftCast<T>(KeyTypeInfo<Key> info, out T tkey) where T : Key
 			{
 				Key key;
@@ -275,7 +275,7 @@ namespace Facepunch.Abstract
 				return false;
 			}
 
-			// Token: 0x06000D29 RID: 3369 RVA: 0x000336A4 File Offset: 0x000318A4
+			// Token: 0x06000E71 RID: 3697 RVA: 0x0003772C File Offset: 0x0003592C
 			private bool TryGetHardCast<T>(KeyTypeInfo<Key> info, out T tkey) where T : Key
 			{
 				Key key;
@@ -288,43 +288,43 @@ namespace Facepunch.Abstract
 				return false;
 			}
 
-			// Token: 0x06000D2A RID: 3370 RVA: 0x000336E0 File Offset: 0x000318E0
+			// Token: 0x06000E72 RID: 3698 RVA: 0x00037768 File Offset: 0x00035968
 			public bool TryGet<T>(out Key key) where T : Key
 			{
 				return this.TryGet(KeyTypeInfo<Key, T>.Info, out key);
 			}
 
-			// Token: 0x06000D2B RID: 3371 RVA: 0x000336F0 File Offset: 0x000318F0
+			// Token: 0x06000E73 RID: 3699 RVA: 0x00037778 File Offset: 0x00035978
 			public bool TryGetSoftCast<T>(out T key) where T : Key
 			{
 				return this.TryGetSoftCast<T>(KeyTypeInfo<Key, T>.Info, out key);
 			}
 
-			// Token: 0x06000D2C RID: 3372 RVA: 0x00033700 File Offset: 0x00031900
+			// Token: 0x06000E74 RID: 3700 RVA: 0x00037788 File Offset: 0x00035988
 			public bool TryGetHardCast<T>(out T key) where T : Key
 			{
 				return this.TryGetHardCast<T>(KeyTypeInfo<Key, T>.Info, out key);
 			}
 
-			// Token: 0x06000D2D RID: 3373 RVA: 0x00033710 File Offset: 0x00031910
+			// Token: 0x06000E75 RID: 3701 RVA: 0x00037798 File Offset: 0x00035998
 			public bool TryGet(Type traitType, out Key key)
 			{
 				return this.TryGet(KeyTypeInfo<Key>.Find(traitType), out key);
 			}
 
-			// Token: 0x06000D2E RID: 3374 RVA: 0x00033720 File Offset: 0x00031920
+			// Token: 0x06000E76 RID: 3702 RVA: 0x000377A8 File Offset: 0x000359A8
 			public bool TryGetSoftCast<T>(Type traitType, out T key) where T : Key
 			{
 				return this.TryGetSoftCast<T>(KeyTypeInfo<Key>.Find(traitType), out key);
 			}
 
-			// Token: 0x06000D2F RID: 3375 RVA: 0x00033730 File Offset: 0x00031930
+			// Token: 0x06000E77 RID: 3703 RVA: 0x000377B8 File Offset: 0x000359B8
 			public bool TryGetHardCast<T>(Type traitType, out T key) where T : Key
 			{
 				return this.TryGetHardCast<T>(KeyTypeInfo<Key>.Find(traitType), out key);
 			}
 
-			// Token: 0x06000D30 RID: 3376 RVA: 0x00033740 File Offset: 0x00031940
+			// Token: 0x06000E78 RID: 3704 RVA: 0x000377C8 File Offset: 0x000359C8
 			public Key TryGet<T>() where T : Key
 			{
 				Key result;
@@ -332,7 +332,7 @@ namespace Facepunch.Abstract
 				return result;
 			}
 
-			// Token: 0x06000D31 RID: 3377 RVA: 0x00033758 File Offset: 0x00031958
+			// Token: 0x06000E79 RID: 3705 RVA: 0x000377E0 File Offset: 0x000359E0
 			public T TryGetSoftCast<T>() where T : Key
 			{
 				T result;
@@ -340,7 +340,7 @@ namespace Facepunch.Abstract
 				return result;
 			}
 
-			// Token: 0x06000D32 RID: 3378 RVA: 0x00033770 File Offset: 0x00031970
+			// Token: 0x06000E7A RID: 3706 RVA: 0x000377F8 File Offset: 0x000359F8
 			public T TryGetHardCast<T>() where T : Key
 			{
 				T result;
@@ -348,7 +348,7 @@ namespace Facepunch.Abstract
 				return result;
 			}
 
-			// Token: 0x06000D33 RID: 3379 RVA: 0x00033788 File Offset: 0x00031988
+			// Token: 0x06000E7B RID: 3707 RVA: 0x00037810 File Offset: 0x00035A10
 			public Key TryGet(Type type)
 			{
 				Key result;
@@ -356,7 +356,7 @@ namespace Facepunch.Abstract
 				return result;
 			}
 
-			// Token: 0x06000D34 RID: 3380 RVA: 0x000337A0 File Offset: 0x000319A0
+			// Token: 0x06000E7C RID: 3708 RVA: 0x00037828 File Offset: 0x00035A28
 			public T TryGetSoftCast<T>(Type type) where T : Key
 			{
 				T result;
@@ -364,7 +364,7 @@ namespace Facepunch.Abstract
 				return result;
 			}
 
-			// Token: 0x06000D35 RID: 3381 RVA: 0x000337B8 File Offset: 0x000319B8
+			// Token: 0x06000E7D RID: 3709 RVA: 0x00037840 File Offset: 0x00035A40
 			public T TryGetHardCast<T>(Type type) where T : Key
 			{
 				T result;
@@ -372,61 +372,61 @@ namespace Facepunch.Abstract
 				return result;
 			}
 
-			// Token: 0x06000D36 RID: 3382 RVA: 0x000337D0 File Offset: 0x000319D0
+			// Token: 0x06000E7E RID: 3710 RVA: 0x00037858 File Offset: 0x00035A58
 			private Key Get(KeyTypeInfo<Key> info)
 			{
 				return this.rootToKey[info];
 			}
 
-			// Token: 0x06000D37 RID: 3383 RVA: 0x000337E0 File Offset: 0x000319E0
+			// Token: 0x06000E7F RID: 3711 RVA: 0x00037868 File Offset: 0x00035A68
 			private T GetSoftCast<T>(KeyTypeInfo<Key> info) where T : Key
 			{
 				return this.Get(info) as T;
 			}
 
-			// Token: 0x06000D38 RID: 3384 RVA: 0x000337F8 File Offset: 0x000319F8
+			// Token: 0x06000E80 RID: 3712 RVA: 0x00037880 File Offset: 0x00035A80
 			private T GetHardCast<T>(KeyTypeInfo<Key> info) where T : Key
 			{
 				return (T)((object)this.Get(info));
 			}
 
-			// Token: 0x06000D39 RID: 3385 RVA: 0x0003380C File Offset: 0x00031A0C
+			// Token: 0x06000E81 RID: 3713 RVA: 0x00037894 File Offset: 0x00035A94
 			public Key Get<T>() where T : Key
 			{
 				return this.Get(KeyTypeInfo<Key, T>.Info);
 			}
 
-			// Token: 0x06000D3A RID: 3386 RVA: 0x0003381C File Offset: 0x00031A1C
+			// Token: 0x06000E82 RID: 3714 RVA: 0x000378A4 File Offset: 0x00035AA4
 			public T GetSoftCast<T>() where T : Key
 			{
 				return this.GetSoftCast<T>(KeyTypeInfo<Key, T>.Info);
 			}
 
-			// Token: 0x06000D3B RID: 3387 RVA: 0x0003382C File Offset: 0x00031A2C
+			// Token: 0x06000E83 RID: 3715 RVA: 0x000378B4 File Offset: 0x00035AB4
 			public T GetHardCast<T>() where T : Key
 			{
 				return this.GetHardCast<T>(KeyTypeInfo<Key, T>.Info);
 			}
 
-			// Token: 0x06000D3C RID: 3388 RVA: 0x0003383C File Offset: 0x00031A3C
+			// Token: 0x06000E84 RID: 3716 RVA: 0x000378C4 File Offset: 0x00035AC4
 			public Key Get(Type type)
 			{
 				return this.Get(KeyTypeInfo<Key>.Find(type));
 			}
 
-			// Token: 0x06000D3D RID: 3389 RVA: 0x0003384C File Offset: 0x00031A4C
+			// Token: 0x06000E85 RID: 3717 RVA: 0x000378D4 File Offset: 0x00035AD4
 			public T GetSoftCast<T>(Type type) where T : Key
 			{
 				return this.GetSoftCast<T>(KeyTypeInfo<Key>.Find(type));
 			}
 
-			// Token: 0x06000D3E RID: 3390 RVA: 0x0003385C File Offset: 0x00031A5C
+			// Token: 0x06000E86 RID: 3718 RVA: 0x000378E4 File Offset: 0x00035AE4
 			public T GetHardCast<T>(Type type) where T : Key
 			{
 				return this.GetHardCast<T>(KeyTypeInfo<Key>.Find(type));
 			}
 
-			// Token: 0x06000D3F RID: 3391 RVA: 0x0003386C File Offset: 0x00031A6C
+			// Token: 0x06000E87 RID: 3719 RVA: 0x000378F4 File Offset: 0x00035AF4
 			public void MergeUpon(KeyTypeInfo<Key>.TraitDictionary fillGaps)
 			{
 				foreach (KeyValuePair<KeyTypeInfo<Key>, Key> keyValuePair in this.rootToKey)
@@ -438,7 +438,7 @@ namespace Facepunch.Abstract
 				}
 			}
 
-			// Token: 0x04000824 RID: 2084
+			// Token: 0x0400093C RID: 2364
 			[NonSerialized]
 			private readonly Dictionary<KeyTypeInfo<Key>, Key> rootToKey;
 		}

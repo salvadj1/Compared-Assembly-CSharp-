@@ -2,10 +2,10 @@
 
 namespace Facepunch.Abstract
 {
-	// Token: 0x020001D8 RID: 472
+	// Token: 0x02000209 RID: 521
 	internal static class KeyTypeInfo
 	{
-		// Token: 0x06000D10 RID: 3344 RVA: 0x000331FC File Offset: 0x000313FC
+		// Token: 0x06000E58 RID: 3672 RVA: 0x00037284 File Offset: 0x00035484
 		public static int ForcedDifCompareValue(Type x, Type y)
 		{
 			int num = x.GetHashCode().CompareTo(y.GetHashCode());

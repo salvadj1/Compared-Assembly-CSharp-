@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x020006E4 RID: 1764
+// Token: 0x020007B6 RID: 1974
 public class dfMarkupTokenizer
 {
-	// Token: 0x06003F08 RID: 16136 RVA: 0x000EF214 File Offset: 0x000ED414
-	public static List<dfMarkupToken> Tokenize(string source)
+	// Token: 0x06004324 RID: 17188 RVA: 0x000F7E18 File Offset: 0x000F6018
+	public static List<global::dfMarkupToken> Tokenize(string source)
 	{
-		if (dfMarkupTokenizer.singleton == null)
+		if (global::dfMarkupTokenizer.singleton == null)
 		{
-			dfMarkupTokenizer.singleton = new dfMarkupTokenizer();
+			global::dfMarkupTokenizer.singleton = new global::dfMarkupTokenizer();
 		}
-		return dfMarkupTokenizer.singleton.tokenize(source);
+		return global::dfMarkupTokenizer.singleton.tokenize(source);
 	}
 
-	// Token: 0x06003F09 RID: 16137 RVA: 0x000EF238 File Offset: 0x000ED438
-	private List<dfMarkupToken> tokenize(string source)
+	// Token: 0x06004325 RID: 17189 RVA: 0x000F7E3C File Offset: 0x000F603C
+	private List<global::dfMarkupToken> tokenize(string source)
 	{
 		this.reset();
 		this.source = source;
@@ -25,7 +25,7 @@ public class dfMarkupTokenizer
 			char c = this.Peek(0);
 			if (this.AtTagPosition())
 			{
-				dfMarkupToken dfMarkupToken = this.parseTag();
+				global::dfMarkupToken dfMarkupToken = this.parseTag();
 				if (dfMarkupToken != null)
 				{
 					this.tokens.Add(dfMarkupToken);
@@ -33,7 +33,7 @@ public class dfMarkupTokenizer
 			}
 			else
 			{
-				dfMarkupToken dfMarkupToken2 = null;
+				global::dfMarkupToken dfMarkupToken2 = null;
 				if (char.IsWhiteSpace(c))
 				{
 					if (c != '\r')
@@ -58,15 +58,15 @@ public class dfMarkupTokenizer
 		return this.tokens;
 	}
 
-	// Token: 0x06003F0A RID: 16138 RVA: 0x000EF2F0 File Offset: 0x000ED4F0
+	// Token: 0x06004326 RID: 17190 RVA: 0x000F7EF4 File Offset: 0x000F60F4
 	private void reset()
 	{
-		dfMarkupToken.Reset();
-		dfMarkupTokenAttribute.Reset();
+		global::dfMarkupToken.Reset();
+		global::dfMarkupTokenAttribute.Reset();
 		this.tokens.Clear();
 	}
 
-	// Token: 0x06003F0B RID: 16139 RVA: 0x000EF308 File Offset: 0x000ED508
+	// Token: 0x06004327 RID: 17191 RVA: 0x000F7F0C File Offset: 0x000F610C
 	private bool AtTagPosition()
 	{
 		if (this.Peek(0) != '[')
@@ -81,12 +81,12 @@ public class dfMarkupTokenizer
 		return char.IsLetter(c) && this.isValidTag(this.index + 1, false);
 	}
 
-	// Token: 0x06003F0C RID: 16140 RVA: 0x000EF374 File Offset: 0x000ED574
+	// Token: 0x06004328 RID: 17192 RVA: 0x000F7F78 File Offset: 0x000F6178
 	private bool isValidTag(int index, bool endTag)
 	{
-		for (int i = 0; i < dfMarkupTokenizer.validTags.Count; i++)
+		for (int i = 0; i < global::dfMarkupTokenizer.validTags.Count; i++)
 		{
-			string text = dfMarkupTokenizer.validTags[i];
+			string text = global::dfMarkupTokenizer.validTags[i];
 			bool flag = true;
 			int num = 0;
 			while (num < text.Length - 1 && num + index < this.source.Length - 1)
@@ -114,8 +114,8 @@ public class dfMarkupTokenizer
 		return false;
 	}
 
-	// Token: 0x06003F0D RID: 16141 RVA: 0x000EF448 File Offset: 0x000ED648
-	private dfMarkupToken parseQuotedString()
+	// Token: 0x06004329 RID: 17193 RVA: 0x000F804C File Offset: 0x000F624C
+	private global::dfMarkupToken parseQuotedString()
 	{
 		char c = this.Peek(0);
 		if (c != '"' && c != '\'')
@@ -133,11 +133,11 @@ public class dfMarkupTokenizer
 		{
 			this.Advance(1);
 		}
-		return dfMarkupToken.Obtain(this.source, dfMarkupTokenType.Text, startIndex, num);
+		return global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.Text, startIndex, num);
 	}
 
-	// Token: 0x06003F0E RID: 16142 RVA: 0x000EF4D8 File Offset: 0x000ED6D8
-	private dfMarkupToken parseNonWhitespace()
+	// Token: 0x0600432A RID: 17194 RVA: 0x000F80DC File Offset: 0x000F62DC
+	private global::dfMarkupToken parseNonWhitespace()
 	{
 		int startIndex = this.index;
 		int num = this.index;
@@ -150,18 +150,18 @@ public class dfMarkupTokenizer
 			}
 			num++;
 		}
-		return dfMarkupToken.Obtain(this.source, dfMarkupTokenType.Text, startIndex, num);
+		return global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.Text, startIndex, num);
 	}
 
-	// Token: 0x06003F0F RID: 16143 RVA: 0x000EF548 File Offset: 0x000ED748
-	private dfMarkupToken parseWhitespace()
+	// Token: 0x0600432B RID: 17195 RVA: 0x000F814C File Offset: 0x000F634C
+	private global::dfMarkupToken parseWhitespace()
 	{
 		int num = this.index;
 		int num2 = this.index;
 		if (this.Peek(0) == '\n')
 		{
 			this.Advance(1);
-			return dfMarkupToken.Obtain(this.source, dfMarkupTokenType.Newline, num, num);
+			return global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.Newline, num, num);
 		}
 		while (this.index < this.source.Length)
 		{
@@ -172,11 +172,11 @@ public class dfMarkupTokenizer
 			}
 			num2++;
 		}
-		return dfMarkupToken.Obtain(this.source, dfMarkupTokenType.Whitespace, num, num2);
+		return global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.Whitespace, num, num2);
 	}
 
-	// Token: 0x06003F10 RID: 16144 RVA: 0x000EF5E0 File Offset: 0x000ED7E0
-	private dfMarkupToken parseWord()
+	// Token: 0x0600432C RID: 17196 RVA: 0x000F81E4 File Offset: 0x000F63E4
+	private global::dfMarkupToken parseWord()
 	{
 		if (!char.IsLetter(this.Peek(0)))
 		{
@@ -188,11 +188,11 @@ public class dfMarkupTokenizer
 		{
 			num++;
 		}
-		return dfMarkupToken.Obtain(this.source, dfMarkupTokenType.Text, startIndex, num);
+		return global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.Text, startIndex, num);
 	}
 
-	// Token: 0x06003F11 RID: 16145 RVA: 0x000EF650 File Offset: 0x000ED850
-	private dfMarkupToken parseTag()
+	// Token: 0x0600432D RID: 17197 RVA: 0x000F8254 File Offset: 0x000F6454
+	private global::dfMarkupToken parseTag()
 	{
 		if (this.Peek(0) != '[')
 		{
@@ -215,7 +215,7 @@ public class dfMarkupTokenizer
 		{
 			num++;
 		}
-		dfMarkupToken dfMarkupToken = dfMarkupToken.Obtain(this.source, dfMarkupTokenType.StartTag, startIndex, num);
+		global::dfMarkupToken dfMarkupToken = global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.StartTag, startIndex, num);
 		if (this.index < this.source.Length && this.Peek(0) != ']')
 		{
 			c = this.Peek(0);
@@ -227,7 +227,7 @@ public class dfMarkupTokenizer
 			int num2 = this.index;
 			if (this.Peek(0) == '"')
 			{
-				dfMarkupToken dfMarkupToken2 = this.parseQuotedString();
+				global::dfMarkupToken dfMarkupToken2 = this.parseQuotedString();
 				dfMarkupToken.AddAttribute(dfMarkupToken2, dfMarkupToken2);
 			}
 			else
@@ -236,7 +236,7 @@ public class dfMarkupTokenizer
 				{
 					num2++;
 				}
-				dfMarkupToken dfMarkupToken3 = dfMarkupToken.Obtain(this.source, dfMarkupTokenType.Text, startIndex2, num2);
+				global::dfMarkupToken dfMarkupToken3 = global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.Text, startIndex2, num2);
 				dfMarkupToken.AddAttribute(dfMarkupToken3, dfMarkupToken3);
 			}
 		}
@@ -247,8 +247,8 @@ public class dfMarkupTokenizer
 		return dfMarkupToken;
 	}
 
-	// Token: 0x06003F12 RID: 16146 RVA: 0x000EF7C4 File Offset: 0x000ED9C4
-	private dfMarkupToken parseAttributeValue()
+	// Token: 0x0600432E RID: 17198 RVA: 0x000F83C8 File Offset: 0x000F65C8
+	private global::dfMarkupToken parseAttributeValue()
 	{
 		int startIndex = this.index;
 		int num = this.index;
@@ -261,11 +261,11 @@ public class dfMarkupTokenizer
 			}
 			num++;
 		}
-		return dfMarkupToken.Obtain(this.source, dfMarkupTokenType.Text, startIndex, num);
+		return global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.Text, startIndex, num);
 	}
 
-	// Token: 0x06003F13 RID: 16147 RVA: 0x000EF830 File Offset: 0x000EDA30
-	private dfMarkupToken parseEndTag()
+	// Token: 0x0600432F RID: 17199 RVA: 0x000F8434 File Offset: 0x000F6634
+	private global::dfMarkupToken parseEndTag()
 	{
 		this.Advance(2);
 		int startIndex = this.index;
@@ -278,10 +278,10 @@ public class dfMarkupTokenizer
 		{
 			this.Advance(1);
 		}
-		return dfMarkupToken.Obtain(this.source, dfMarkupTokenType.EndTag, startIndex, num);
+		return global::dfMarkupToken.Obtain(this.source, global::dfMarkupTokenType.EndTag, startIndex, num);
 	}
 
-	// Token: 0x06003F14 RID: 16148 RVA: 0x000EF8AC File Offset: 0x000EDAAC
+	// Token: 0x06004330 RID: 17200 RVA: 0x000F84B0 File Offset: 0x000F66B0
 	private char Peek(int offset = 0)
 	{
 		if (this.index + offset > this.source.Length - 1)
@@ -291,29 +291,29 @@ public class dfMarkupTokenizer
 		return this.source[this.index + offset];
 	}
 
-	// Token: 0x06003F15 RID: 16149 RVA: 0x000EF8E0 File Offset: 0x000EDAE0
+	// Token: 0x06004331 RID: 17201 RVA: 0x000F84E4 File Offset: 0x000F66E4
 	private char Advance(int amount = 1)
 	{
 		this.index += amount;
 		return this.Peek(0);
 	}
 
-	// Token: 0x040021B6 RID: 8630
-	private static dfMarkupTokenizer singleton;
+	// Token: 0x040023BF RID: 9151
+	private static global::dfMarkupTokenizer singleton;
 
-	// Token: 0x040021B7 RID: 8631
+	// Token: 0x040023C0 RID: 9152
 	private static List<string> validTags = new List<string>
 	{
 		"color",
 		"sprite"
 	};
 
-	// Token: 0x040021B8 RID: 8632
-	private List<dfMarkupToken> tokens = new List<dfMarkupToken>();
+	// Token: 0x040023C1 RID: 9153
+	private List<global::dfMarkupToken> tokens = new List<global::dfMarkupToken>();
 
-	// Token: 0x040021B9 RID: 8633
+	// Token: 0x040023C2 RID: 9154
 	private string source;
 
-	// Token: 0x040021BA RID: 8634
+	// Token: 0x040023C3 RID: 9155
 	private int index;
 }

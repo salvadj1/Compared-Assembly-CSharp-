@@ -1,62 +1,62 @@
 ﻿using System;
 
-// Token: 0x020004C9 RID: 1225
+// Token: 0x02000584 RID: 1412
 public enum BobAntiOutputAxes
 {
-	// Token: 0x040016E7 RID: 5863
+	// Token: 0x040018A4 RID: 6308
 	Default,
-	// Token: 0x040016E8 RID: 5864
+	// Token: 0x040018A5 RID: 6309
 	XYZ = 57,
-	// Token: 0x040016E9 RID: 5865
+	// Token: 0x040018A6 RID: 6310
 	XZY = 45,
-	// Token: 0x040016EA RID: 5866
+	// Token: 0x040018A7 RID: 6311
 	YXZ = 54,
-	// Token: 0x040016EB RID: 5867
+	// Token: 0x040018A8 RID: 6312
 	ZXY = 39,
-	// Token: 0x040016EC RID: 5868
+	// Token: 0x040018A9 RID: 6313
 	YZX = 30,
-	// Token: 0x040016ED RID: 5869
+	// Token: 0x040018AA RID: 6314
 	ZYX = 27,
-	// Token: 0x040016EE RID: 5870
+	// Token: 0x040018AB RID: 6315
 	XXY = 37,
-	// Token: 0x040016EF RID: 5871
+	// Token: 0x040018AC RID: 6316
 	XXZ = 53,
-	// Token: 0x040016F0 RID: 5872
+	// Token: 0x040018AD RID: 6317
 	XYX = 25,
-	// Token: 0x040016F1 RID: 5873
+	// Token: 0x040018AE RID: 6318
 	XZX = 29,
-	// Token: 0x040016F2 RID: 5874
+	// Token: 0x040018AF RID: 6319
 	YXX = 22,
-	// Token: 0x040016F3 RID: 5875
+	// Token: 0x040018B0 RID: 6320
 	ZXX,
-	// Token: 0x040016F4 RID: 5876
+	// Token: 0x040018B1 RID: 6321
 	YYX = 26,
-	// Token: 0x040016F5 RID: 5877
+	// Token: 0x040018B2 RID: 6322
 	YYZ = 58,
-	// Token: 0x040016F6 RID: 5878
+	// Token: 0x040018B3 RID: 6323
 	YXY = 38,
-	// Token: 0x040016F7 RID: 5879
+	// Token: 0x040018B4 RID: 6324
 	YZY = 46,
-	// Token: 0x040016F8 RID: 5880
+	// Token: 0x040018B5 RID: 6325
 	XYY = 41,
-	// Token: 0x040016F9 RID: 5881
+	// Token: 0x040018B6 RID: 6326
 	ZYY = 43,
-	// Token: 0x040016FA RID: 5882
+	// Token: 0x040018B7 RID: 6327
 	ZZX = 31,
-	// Token: 0x040016FB RID: 5883
+	// Token: 0x040018B8 RID: 6328
 	ZZY = 47,
-	// Token: 0x040016FC RID: 5884
+	// Token: 0x040018B9 RID: 6329
 	ZXZ = 55,
-	// Token: 0x040016FD RID: 5885
+	// Token: 0x040018BA RID: 6330
 	ZYZ = 59,
-	// Token: 0x040016FE RID: 5886
+	// Token: 0x040018BB RID: 6331
 	XZZ = 61,
-	// Token: 0x040016FF RID: 5887
+	// Token: 0x040018BC RID: 6332
 	YZZ,
-	// Token: 0x04001700 RID: 5888
+	// Token: 0x040018BD RID: 6333
 	XXX = 21,
-	// Token: 0x04001701 RID: 5889
+	// Token: 0x040018BE RID: 6334
 	YYY = 42,
-	// Token: 0x04001702 RID: 5890
+	// Token: 0x040018BF RID: 6335
 	ZZZ = 63
 }

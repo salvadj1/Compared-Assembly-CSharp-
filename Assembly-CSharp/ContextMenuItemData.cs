@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text;
 
-// Token: 0x0200047B RID: 1147
+// Token: 0x02000531 RID: 1329
 internal struct ContextMenuItemData
 {
-	// Token: 0x060028EF RID: 10479 RVA: 0x000A0878 File Offset: 0x0009EA78
+	// Token: 0x06002C7F RID: 11391 RVA: 0x000A67F8 File Offset: 0x000A49F8
 	public ContextMenuItemData(int name, int utf8_length, byte[] utf8_text)
 	{
 		this.name = name;
@@ -12,8 +12,8 @@ internal struct ContextMenuItemData
 		this.utf8_text = utf8_text;
 	}
 
-	// Token: 0x060028F0 RID: 10480 RVA: 0x000A0890 File Offset: 0x0009EA90
-	public ContextMenuItemData(ContextActionPrototype prototype)
+	// Token: 0x06002C80 RID: 11392 RVA: 0x000A6810 File Offset: 0x000A4A10
+	public ContextMenuItemData(global::ContextActionPrototype prototype)
 	{
 		this.name = prototype.name;
 		string text = prototype.text;
@@ -29,12 +29,12 @@ internal struct ContextMenuItemData
 		}
 	}
 
-	// Token: 0x04001505 RID: 5381
+	// Token: 0x04001688 RID: 5768
 	public readonly int name;
 
-	// Token: 0x04001506 RID: 5382
+	// Token: 0x04001689 RID: 5769
 	public readonly int utf8_length;
 
-	// Token: 0x04001507 RID: 5383
+	// Token: 0x0400168A RID: 5770
 	public readonly byte[] utf8_text;
 }

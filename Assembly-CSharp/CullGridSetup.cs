@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x020002A3 RID: 675
+// Token: 0x020002E0 RID: 736
 [Serializable]
 public class CullGridSetup
 {
-	// Token: 0x06001807 RID: 6151 RVA: 0x0005E500 File Offset: 0x0005C700
+	// Token: 0x06001997 RID: 6551 RVA: 0x00062E74 File Offset: 0x00061074
 	public CullGridSetup()
 	{
 		this.cellSquareDimension = 200;
@@ -21,8 +21,8 @@ public class CullGridSetup
 		};
 	}
 
-	// Token: 0x06001808 RID: 6152 RVA: 0x0005E568 File Offset: 0x0005C768
-	protected CullGridSetup(CullGridSetup copyFrom)
+	// Token: 0x06001998 RID: 6552 RVA: 0x00062EDC File Offset: 0x000610DC
+	protected CullGridSetup(global::CullGridSetup copyFrom)
 	{
 		this.cellSquareDimension = copyFrom.cellSquareDimension;
 		this.cellsWide = copyFrom.cellsWide;
@@ -34,7 +34,7 @@ public class CullGridSetup
 		this.gatheringCellsBits = (int[])copyFrom.gatheringCellsBits.Clone();
 	}
 
-	// Token: 0x06001809 RID: 6153 RVA: 0x0005E5E8 File Offset: 0x0005C7E8
+	// Token: 0x06001999 RID: 6553 RVA: 0x00062F5C File Offset: 0x0006115C
 	public bool GetGatheringBit(int x, int y)
 	{
 		if (x >= this.gatheringCellsWide || x < 0)
@@ -51,7 +51,7 @@ public class CullGridSetup
 		return this.gatheringCellsBits == null || this.gatheringCellsBits.Length <= num2 || (this.gatheringCellsBits[num2] & 1 << num3) == 1 << num3;
 	}
 
-	// Token: 0x0600180A RID: 6154 RVA: 0x0005E684 File Offset: 0x0005C884
+	// Token: 0x0600199A RID: 6554 RVA: 0x00062FF8 File Offset: 0x000611F8
 	public void SetGatheringBit(int x, int y, bool v)
 	{
 		if (x >= this.gatheringCellsWide || x < 0)
@@ -104,7 +104,7 @@ public class CullGridSetup
 		}
 	}
 
-	// Token: 0x0600180B RID: 6155 RVA: 0x0005E7F4 File Offset: 0x0005C9F4
+	// Token: 0x0600199B RID: 6555 RVA: 0x00063168 File Offset: 0x00061368
 	public void ToggleGatheringBit(int x, int y)
 	{
 		if (x >= this.gatheringCellsWide || x < 0)
@@ -143,7 +143,7 @@ public class CullGridSetup
 		}
 	}
 
-	// Token: 0x0600180C RID: 6156 RVA: 0x0005E91C File Offset: 0x0005CB1C
+	// Token: 0x0600199C RID: 6556 RVA: 0x00063290 File Offset: 0x00061490
 	public void SetGatheringDimensions(int gatheringCellsWide, int gatheringCellsTall)
 	{
 		if (this.gatheringCellsWide == gatheringCellsWide && this.gatheringCellsTall == gatheringCellsTall)
@@ -155,27 +155,27 @@ public class CullGridSetup
 		this.gatheringCellsCenter = this.gatheringCellsWide / 2 + this.gatheringCellsTall / 2 * this.gatheringCellsWide;
 	}
 
-	// Token: 0x04000CD7 RID: 3287
+	// Token: 0x04000E12 RID: 3602
 	public int cellSquareDimension;
 
-	// Token: 0x04000CD8 RID: 3288
+	// Token: 0x04000E13 RID: 3603
 	public int cellsWide;
 
-	// Token: 0x04000CD9 RID: 3289
+	// Token: 0x04000E14 RID: 3604
 	public int cellsTall;
 
-	// Token: 0x04000CDA RID: 3290
+	// Token: 0x04000E15 RID: 3605
 	public int groupBegin;
 
-	// Token: 0x04000CDB RID: 3291
+	// Token: 0x04000E16 RID: 3606
 	public int gatheringCellsWide;
 
-	// Token: 0x04000CDC RID: 3292
+	// Token: 0x04000E17 RID: 3607
 	public int gatheringCellsTall;
 
-	// Token: 0x04000CDD RID: 3293
+	// Token: 0x04000E18 RID: 3608
 	public int gatheringCellsCenter;
 
-	// Token: 0x04000CDE RID: 3294
+	// Token: 0x04000E19 RID: 3609
 	public int[] gatheringCellsBits;
 }

@@ -3,34 +3,34 @@ using System.Collections.Generic;
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x020007F4 RID: 2036
+// Token: 0x020008E6 RID: 2278
 [AddComponentMenu("NGUI/UI/Label")]
 [ExecuteInEditMode]
-public class UILabel : UIWidget
+public class UILabel : global::UIWidget
 {
-	// Token: 0x060048D5 RID: 18645 RVA: 0x0012A600 File Offset: 0x00128800
-	public UILabel() : base(UIWidget.WidgetFlags.CustomRelativeSize | UIWidget.WidgetFlags.CustomMaterialGet)
+	// Token: 0x06004D84 RID: 19844 RVA: 0x00134564 File Offset: 0x00132764
+	public UILabel() : base(global::UIWidget.WidgetFlags.CustomRelativeSize | global::UIWidget.WidgetFlags.CustomMaterialGet)
 	{
 	}
 
-	// Token: 0x17000E27 RID: 3623
-	// (get) Token: 0x060048D6 RID: 18646 RVA: 0x0012A6AC File Offset: 0x001288AC
-	private List<UITextMarkup> markups
+	// Token: 0x17000EC1 RID: 3777
+	// (get) Token: 0x06004D85 RID: 19845 RVA: 0x00134610 File Offset: 0x00132810
+	private List<global::UITextMarkup> markups
 	{
 		get
 		{
-			List<UITextMarkup> result;
+			List<global::UITextMarkup> result;
 			if ((result = this._markups) == null)
 			{
-				result = (this._markups = new List<UITextMarkup>());
+				result = (this._markups = new List<global::UITextMarkup>());
 			}
 			return result;
 		}
 	}
 
-	// Token: 0x17000E28 RID: 3624
-	// (get) Token: 0x060048D7 RID: 18647 RVA: 0x0012A6D4 File Offset: 0x001288D4
-	// (set) Token: 0x060048D8 RID: 18648 RVA: 0x0012A6DC File Offset: 0x001288DC
+	// Token: 0x17000EC2 RID: 3778
+	// (get) Token: 0x06004D86 RID: 19846 RVA: 0x00134638 File Offset: 0x00132838
+	// (set) Token: 0x06004D87 RID: 19847 RVA: 0x00134640 File Offset: 0x00132840
 	public bool invisibleHack
 	{
 		get
@@ -47,13 +47,13 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x060048D9 RID: 18649 RVA: 0x0012A6F8 File Offset: 0x001288F8
+	// Token: 0x06004D88 RID: 19848 RVA: 0x0013465C File Offset: 0x0013285C
 	private bool PendingChanges()
 	{
 		return this.mShouldBeProcessed || this.mLastText != this.text || this.mInvisibleHack != this.mLastInvisibleHack || this.mLastWidth != this.mMaxLineWidth || this.mLastEncoding != this.mEncoding || this.mLastCount != this.mMaxLineCount || this.mLastPass != this.mPassword || this.mLastShow != this.mShowLastChar || this.mLastEffect != this.mEffectStyle || this.mLastColor != this.mEffectColor;
 	}
 
-	// Token: 0x060048DA RID: 18650 RVA: 0x0012A7B4 File Offset: 0x001289B4
+	// Token: 0x06004D89 RID: 19849 RVA: 0x00134718 File Offset: 0x00132918
 	private void ApplyChanges()
 	{
 		this.mShouldBeProcessed = false;
@@ -68,17 +68,17 @@ public class UILabel : UIWidget
 		this.mLastColor = this.mEffectColor;
 	}
 
-	// Token: 0x060048DB RID: 18651 RVA: 0x0012A834 File Offset: 0x00128A34
+	// Token: 0x06004D8A RID: 19850 RVA: 0x00134798 File Offset: 0x00132998
 	private void ForceChanges()
 	{
 		base.ChangedAuto();
 		this.mShouldBeProcessed = true;
 	}
 
-	// Token: 0x17000E29 RID: 3625
-	// (get) Token: 0x060048DC RID: 18652 RVA: 0x0012A844 File Offset: 0x00128A44
-	// (set) Token: 0x060048DD RID: 18653 RVA: 0x0012A84C File Offset: 0x00128A4C
-	public UIFont font
+	// Token: 0x17000EC3 RID: 3779
+	// (get) Token: 0x06004D8B RID: 19851 RVA: 0x001347A8 File Offset: 0x001329A8
+	// (set) Token: 0x06004D8C RID: 19852 RVA: 0x001347B0 File Offset: 0x001329B0
+	public global::UIFont font
 	{
 		get
 		{
@@ -89,7 +89,7 @@ public class UILabel : UIWidget
 			if (this.mFont != value)
 			{
 				this.mFont = value;
-				base.baseMaterial = ((!(this.mFont != null)) ? null : ((UIMaterial)this.mFont.material));
+				base.baseMaterial = ((!(this.mFont != null)) ? null : ((global::UIMaterial)this.mFont.material));
 				base.ChangedAuto();
 				this.ForceChanges();
 				this.MarkAsChanged();
@@ -97,9 +97,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E2A RID: 3626
-	// (get) Token: 0x060048DE RID: 18654 RVA: 0x0012A8B0 File Offset: 0x00128AB0
-	// (set) Token: 0x060048DF RID: 18655 RVA: 0x0012A8B8 File Offset: 0x00128AB8
+	// Token: 0x17000EC4 RID: 3780
+	// (get) Token: 0x06004D8D RID: 19853 RVA: 0x00134814 File Offset: 0x00132A14
+	// (set) Token: 0x06004D8E RID: 19854 RVA: 0x0013481C File Offset: 0x00132A1C
 	public string text
 	{
 		get
@@ -116,9 +116,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E2B RID: 3627
-	// (get) Token: 0x060048E0 RID: 18656 RVA: 0x0012A8EC File Offset: 0x00128AEC
-	// (set) Token: 0x060048E1 RID: 18657 RVA: 0x0012A8F4 File Offset: 0x00128AF4
+	// Token: 0x17000EC5 RID: 3781
+	// (get) Token: 0x06004D8F RID: 19855 RVA: 0x00134850 File Offset: 0x00132A50
+	// (set) Token: 0x06004D90 RID: 19856 RVA: 0x00134858 File Offset: 0x00132A58
 	public bool supportEncoding
 	{
 		get
@@ -139,9 +139,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E2C RID: 3628
-	// (get) Token: 0x060048E2 RID: 18658 RVA: 0x0012A928 File Offset: 0x00128B28
-	// (set) Token: 0x060048E3 RID: 18659 RVA: 0x0012A930 File Offset: 0x00128B30
+	// Token: 0x17000EC6 RID: 3782
+	// (get) Token: 0x06004D91 RID: 19857 RVA: 0x0013488C File Offset: 0x00132A8C
+	// (set) Token: 0x06004D92 RID: 19858 RVA: 0x00134894 File Offset: 0x00132A94
 	public bool overflowRight
 	{
 		get
@@ -153,14 +153,14 @@ public class UILabel : UIWidget
 			if (this.mOverflowRight != value)
 			{
 				this.mOverflowRight = value;
-				UIWidget.Pivot pivot = base.pivot;
+				global::UIWidget.Pivot pivot = base.pivot;
 				switch (pivot)
 				{
-				case UIWidget.Pivot.TopLeft:
-				case UIWidget.Pivot.Left:
+				case global::UIWidget.Pivot.TopLeft:
+				case global::UIWidget.Pivot.Left:
 					break;
 				default:
-					if (pivot != UIWidget.Pivot.BottomLeft)
+					if (pivot != global::UIWidget.Pivot.BottomLeft)
 					{
 						return;
 					}
@@ -171,10 +171,10 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E2D RID: 3629
-	// (get) Token: 0x060048E4 RID: 18660 RVA: 0x0012A984 File Offset: 0x00128B84
-	// (set) Token: 0x060048E5 RID: 18661 RVA: 0x0012A98C File Offset: 0x00128B8C
-	public UIFont.SymbolStyle symbolStyle
+	// Token: 0x17000EC7 RID: 3783
+	// (get) Token: 0x06004D93 RID: 19859 RVA: 0x001348E8 File Offset: 0x00132AE8
+	// (set) Token: 0x06004D94 RID: 19860 RVA: 0x001348F0 File Offset: 0x00132AF0
+	public global::UIFont.SymbolStyle symbolStyle
 	{
 		get
 		{
@@ -190,9 +190,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E2E RID: 3630
-	// (get) Token: 0x060048E6 RID: 18662 RVA: 0x0012A9A8 File Offset: 0x00128BA8
-	// (set) Token: 0x060048E7 RID: 18663 RVA: 0x0012A9B0 File Offset: 0x00128BB0
+	// Token: 0x17000EC8 RID: 3784
+	// (get) Token: 0x06004D95 RID: 19861 RVA: 0x0013490C File Offset: 0x00132B0C
+	// (set) Token: 0x06004D96 RID: 19862 RVA: 0x00134914 File Offset: 0x00132B14
 	public int lineWidth
 	{
 		get
@@ -209,9 +209,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E2F RID: 3631
-	// (get) Token: 0x060048E8 RID: 18664 RVA: 0x0012A9CC File Offset: 0x00128BCC
-	// (set) Token: 0x060048E9 RID: 18665 RVA: 0x0012A9DC File Offset: 0x00128BDC
+	// Token: 0x17000EC9 RID: 3785
+	// (get) Token: 0x06004D97 RID: 19863 RVA: 0x00134930 File Offset: 0x00132B30
+	// (set) Token: 0x06004D98 RID: 19864 RVA: 0x00134940 File Offset: 0x00132B40
 	public bool multiLine
 	{
 		get
@@ -232,9 +232,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E30 RID: 3632
-	// (get) Token: 0x060048EA RID: 18666 RVA: 0x0012AA24 File Offset: 0x00128C24
-	// (set) Token: 0x060048EB RID: 18667 RVA: 0x0012AA2C File Offset: 0x00128C2C
+	// Token: 0x17000ECA RID: 3786
+	// (get) Token: 0x06004D99 RID: 19865 RVA: 0x00134988 File Offset: 0x00132B88
+	// (set) Token: 0x06004D9A RID: 19866 RVA: 0x00134990 File Offset: 0x00132B90
 	public int maxLineCount
 	{
 		get
@@ -255,9 +255,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E31 RID: 3633
-	// (get) Token: 0x060048EC RID: 18668 RVA: 0x0012AA5C File Offset: 0x00128C5C
-	// (set) Token: 0x060048ED RID: 18669 RVA: 0x0012AA64 File Offset: 0x00128C64
+	// Token: 0x17000ECB RID: 3787
+	// (get) Token: 0x06004D9B RID: 19867 RVA: 0x001349C0 File Offset: 0x00132BC0
+	// (set) Token: 0x06004D9C RID: 19868 RVA: 0x001349C8 File Offset: 0x00132BC8
 	public bool password
 	{
 		get
@@ -276,9 +276,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E32 RID: 3634
-	// (get) Token: 0x060048EE RID: 18670 RVA: 0x0012AA90 File Offset: 0x00128C90
-	// (set) Token: 0x060048EF RID: 18671 RVA: 0x0012AA98 File Offset: 0x00128C98
+	// Token: 0x17000ECC RID: 3788
+	// (get) Token: 0x06004D9D RID: 19869 RVA: 0x001349F4 File Offset: 0x00132BF4
+	// (set) Token: 0x06004D9E RID: 19870 RVA: 0x001349FC File Offset: 0x00132BFC
 	public bool showLastPasswordChar
 	{
 		get
@@ -295,10 +295,10 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E33 RID: 3635
-	// (get) Token: 0x060048F0 RID: 18672 RVA: 0x0012AAB4 File Offset: 0x00128CB4
-	// (set) Token: 0x060048F1 RID: 18673 RVA: 0x0012AABC File Offset: 0x00128CBC
-	public UILabel.Effect effectStyle
+	// Token: 0x17000ECD RID: 3789
+	// (get) Token: 0x06004D9F RID: 19871 RVA: 0x00134A18 File Offset: 0x00132C18
+	// (set) Token: 0x06004DA0 RID: 19872 RVA: 0x00134A20 File Offset: 0x00132C20
+	public global::UILabel.Effect effectStyle
 	{
 		get
 		{
@@ -314,9 +314,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E34 RID: 3636
-	// (get) Token: 0x060048F2 RID: 18674 RVA: 0x0012AAD8 File Offset: 0x00128CD8
-	// (set) Token: 0x060048F3 RID: 18675 RVA: 0x0012AAE0 File Offset: 0x00128CE0
+	// Token: 0x17000ECE RID: 3790
+	// (get) Token: 0x06004DA1 RID: 19873 RVA: 0x00134A3C File Offset: 0x00132C3C
+	// (set) Token: 0x06004DA2 RID: 19874 RVA: 0x00134A44 File Offset: 0x00132C44
 	public Color effectColor
 	{
 		get
@@ -328,7 +328,7 @@ public class UILabel : UIWidget
 			if (this.mEffectColor != value)
 			{
 				this.mEffectColor = value;
-				if (this.mEffectStyle != UILabel.Effect.None)
+				if (this.mEffectStyle != global::UILabel.Effect.None)
 				{
 					this.ForceChanges();
 				}
@@ -336,8 +336,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E35 RID: 3637
-	// (get) Token: 0x060048F4 RID: 18676 RVA: 0x0012AB0C File Offset: 0x00128D0C
+	// Token: 0x17000ECF RID: 3791
+	// (get) Token: 0x06004DA3 RID: 19875 RVA: 0x00134A70 File Offset: 0x00132C70
 	public string processedText
 	{
 		get
@@ -355,9 +355,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E36 RID: 3638
-	// (get) Token: 0x060048F5 RID: 18677 RVA: 0x0012AB64 File Offset: 0x00128D64
-	// (set) Token: 0x060048F6 RID: 18678 RVA: 0x0012AB6C File Offset: 0x00128D6C
+	// Token: 0x17000ED0 RID: 3792
+	// (get) Token: 0x06004DA4 RID: 19876 RVA: 0x00134AC8 File Offset: 0x00132CC8
+	// (set) Token: 0x06004DA5 RID: 19877 RVA: 0x00134AD0 File Offset: 0x00132CD0
 	public Color highlightTextColor
 	{
 		get
@@ -378,9 +378,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E37 RID: 3639
-	// (get) Token: 0x060048F7 RID: 18679 RVA: 0x0012ABD0 File Offset: 0x00128DD0
-	// (set) Token: 0x060048F8 RID: 18680 RVA: 0x0012ABD8 File Offset: 0x00128DD8
+	// Token: 0x17000ED1 RID: 3793
+	// (get) Token: 0x06004DA6 RID: 19878 RVA: 0x00134B34 File Offset: 0x00132D34
+	// (set) Token: 0x06004DA7 RID: 19879 RVA: 0x00134B3C File Offset: 0x00132D3C
 	public Color highlightColor
 	{
 		get
@@ -401,9 +401,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E38 RID: 3640
-	// (get) Token: 0x060048F9 RID: 18681 RVA: 0x0012AC48 File Offset: 0x00128E48
-	// (set) Token: 0x060048FA RID: 18682 RVA: 0x0012AC50 File Offset: 0x00128E50
+	// Token: 0x17000ED2 RID: 3794
+	// (get) Token: 0x06004DA8 RID: 19880 RVA: 0x00134BAC File Offset: 0x00132DAC
+	// (set) Token: 0x06004DA9 RID: 19881 RVA: 0x00134BB4 File Offset: 0x00132DB4
 	public char highlightChar
 	{
 		get
@@ -424,9 +424,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E39 RID: 3641
-	// (get) Token: 0x060048FB RID: 18683 RVA: 0x0012ACA0 File Offset: 0x00128EA0
-	// (set) Token: 0x060048FC RID: 18684 RVA: 0x0012ACA8 File Offset: 0x00128EA8
+	// Token: 0x17000ED3 RID: 3795
+	// (get) Token: 0x06004DAA RID: 19882 RVA: 0x00134C04 File Offset: 0x00132E04
+	// (set) Token: 0x06004DAB RID: 19883 RVA: 0x00134C0C File Offset: 0x00132E0C
 	public float highlightCharSplit
 	{
 		get
@@ -455,9 +455,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E3A RID: 3642
-	// (get) Token: 0x060048FD RID: 18685 RVA: 0x0012AD30 File Offset: 0x00128F30
-	// (set) Token: 0x060048FE RID: 18686 RVA: 0x0012AD38 File Offset: 0x00128F38
+	// Token: 0x17000ED4 RID: 3796
+	// (get) Token: 0x06004DAC RID: 19884 RVA: 0x00134C94 File Offset: 0x00132E94
+	// (set) Token: 0x06004DAD RID: 19885 RVA: 0x00134C9C File Offset: 0x00132E9C
 	public char carratChar
 	{
 		get
@@ -478,8 +478,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E3B RID: 3643
-	// (get) Token: 0x060048FF RID: 18687 RVA: 0x0012AD6C File Offset: 0x00128F6C
+	// Token: 0x17000ED5 RID: 3797
+	// (get) Token: 0x06004DAE RID: 19886 RVA: 0x00134CD0 File Offset: 0x00132ED0
 	public bool hasSelection
 	{
 		get
@@ -488,8 +488,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E3C RID: 3644
-	// (get) Token: 0x06004900 RID: 18688 RVA: 0x0012AD7C File Offset: 0x00128F7C
+	// Token: 0x17000ED6 RID: 3798
+	// (get) Token: 0x06004DAF RID: 19887 RVA: 0x00134CE0 File Offset: 0x00132EE0
 	public bool shouldShowCarrat
 	{
 		get
@@ -498,8 +498,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E3D RID: 3645
-	// (get) Token: 0x06004901 RID: 18689 RVA: 0x0012AD8C File Offset: 0x00128F8C
+	// Token: 0x17000ED7 RID: 3799
+	// (get) Token: 0x06004DB0 RID: 19888 RVA: 0x00134CF0 File Offset: 0x00132EF0
 	public bool drawingCarrat
 	{
 		get
@@ -508,9 +508,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E3E RID: 3646
-	// (get) Token: 0x06004902 RID: 18690 RVA: 0x0012ADA8 File Offset: 0x00128FA8
-	public UITextPosition carratPosition
+	// Token: 0x17000ED8 RID: 3800
+	// (get) Token: 0x06004DB1 RID: 19889 RVA: 0x00134D0C File Offset: 0x00132F0C
+	public global::UITextPosition carratPosition
 	{
 		get
 		{
@@ -518,9 +518,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E3F RID: 3647
-	// (get) Token: 0x06004903 RID: 18691 RVA: 0x0012ADB8 File Offset: 0x00128FB8
-	public UITextPosition selectPosition
+	// Token: 0x17000ED9 RID: 3801
+	// (get) Token: 0x06004DB2 RID: 19890 RVA: 0x00134D1C File Offset: 0x00132F1C
+	public global::UITextPosition selectPosition
 	{
 		get
 		{
@@ -528,8 +528,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E40 RID: 3648
-	// (get) Token: 0x06004904 RID: 18692 RVA: 0x0012ADC8 File Offset: 0x00128FC8
+	// Token: 0x17000EDA RID: 3802
+	// (get) Token: 0x06004DB3 RID: 19891 RVA: 0x00134D2C File Offset: 0x00132F2C
 	private bool highlightWouldBeVisibleIfOn
 	{
 		get
@@ -538,8 +538,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E41 RID: 3649
-	// (get) Token: 0x06004905 RID: 18693 RVA: 0x0012AE0C File Offset: 0x0012900C
+	// Token: 0x17000EDB RID: 3803
+	// (get) Token: 0x06004DB4 RID: 19892 RVA: 0x00134D70 File Offset: 0x00132F70
 	private bool carratWouldBeVisibleIfOn
 	{
 		get
@@ -548,10 +548,10 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E42 RID: 3650
-	// (get) Token: 0x06004906 RID: 18694 RVA: 0x0012AE1C File Offset: 0x0012901C
-	// (set) Token: 0x06004907 RID: 18695 RVA: 0x0012AE24 File Offset: 0x00129024
-	public UITextSelection selection
+	// Token: 0x17000EDC RID: 3804
+	// (get) Token: 0x06004DB5 RID: 19893 RVA: 0x00134D80 File Offset: 0x00132F80
+	// (set) Token: 0x06004DB6 RID: 19894 RVA: 0x00134D88 File Offset: 0x00132F88
+	public global::UITextSelection selection
 	{
 		get
 		{
@@ -559,28 +559,28 @@ public class UILabel : UIWidget
 		}
 		set
 		{
-			UITextSelection.Change changesTo = this.mSelection.GetChangesTo(ref value);
+			global::UITextSelection.Change changesTo = this.mSelection.GetChangesTo(ref value);
 			this.mSelection = value;
 			switch (changesTo)
 			{
-			case UITextSelection.Change.NoneToCarrat:
-			case UITextSelection.Change.CarratMove:
-			case UITextSelection.Change.CarratToNone:
+			case global::UITextSelection.Change.NoneToCarrat:
+			case global::UITextSelection.Change.CarratMove:
+			case global::UITextSelection.Change.CarratToNone:
 				if (this.carratWouldBeVisibleIfOn)
 				{
 					this.ForceChanges();
 				}
 				break;
-			case UITextSelection.Change.CarratToSelection:
-			case UITextSelection.Change.SelectionToCarrat:
+			case global::UITextSelection.Change.CarratToSelection:
+			case global::UITextSelection.Change.SelectionToCarrat:
 				if (this.carratWouldBeVisibleIfOn || this.highlightWouldBeVisibleIfOn)
 				{
 					this.ForceChanges();
 				}
 				break;
-			case UITextSelection.Change.SelectionAdjusted:
-			case UITextSelection.Change.NoneToSelection:
-			case UITextSelection.Change.SelectionToNone:
+			case global::UITextSelection.Change.SelectionAdjusted:
+			case global::UITextSelection.Change.NoneToSelection:
+			case global::UITextSelection.Change.SelectionToNone:
 				if (this.highlightWouldBeVisibleIfOn)
 				{
 					this.ForceChanges();
@@ -590,17 +590,17 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E43 RID: 3651
-	// (get) Token: 0x06004908 RID: 18696 RVA: 0x0012AECC File Offset: 0x001290CC
-	// (set) Token: 0x06004909 RID: 18697 RVA: 0x0012AF1C File Offset: 0x0012911C
-	public new UIMaterial material
+	// Token: 0x17000EDD RID: 3805
+	// (get) Token: 0x06004DB7 RID: 19895 RVA: 0x00134E30 File Offset: 0x00133030
+	// (set) Token: 0x06004DB8 RID: 19896 RVA: 0x00134E80 File Offset: 0x00133080
+	public new global::UIMaterial material
 	{
 		get
 		{
-			UIMaterial uimaterial = base.baseMaterial;
+			global::UIMaterial uimaterial = base.baseMaterial;
 			if (uimaterial == null)
 			{
-				uimaterial = ((!(this.mFont != null)) ? null : ((UIMaterial)this.mFont.material));
+				uimaterial = ((!(this.mFont != null)) ? null : ((global::UIMaterial)this.mFont.material));
 				this.material = uimaterial;
 			}
 			return uimaterial;
@@ -611,9 +611,9 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E44 RID: 3652
-	// (get) Token: 0x0600490A RID: 18698 RVA: 0x0012AF28 File Offset: 0x00129128
-	protected override UIMaterial customMaterial
+	// Token: 0x17000EDE RID: 3806
+	// (get) Token: 0x06004DB9 RID: 19897 RVA: 0x00134E8C File Offset: 0x0013308C
+	protected override global::UIMaterial customMaterial
 	{
 		get
 		{
@@ -621,8 +621,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x17000E45 RID: 3653
-	// (get) Token: 0x0600490B RID: 18699 RVA: 0x0012AF30 File Offset: 0x00129130
+	// Token: 0x17000EDF RID: 3807
+	// (get) Token: 0x06004DBA RID: 19898 RVA: 0x00134E94 File Offset: 0x00133094
 	public new Vector2 relativeSize
 	{
 		get
@@ -639,12 +639,12 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x0600490C RID: 18700 RVA: 0x0012AF78 File Offset: 0x00129178
-	protected override void GetCustomVector2s(int start, int end, UIWidget.WidgetFlags[] flags, Vector2[] v)
+	// Token: 0x06004DBB RID: 19899 RVA: 0x00134EDC File Offset: 0x001330DC
+	protected override void GetCustomVector2s(int start, int end, global::UIWidget.WidgetFlags[] flags, Vector2[] v)
 	{
 		for (int i = 0; i < end; i++)
 		{
-			if (flags[i] == UIWidget.WidgetFlags.CustomRelativeSize)
+			if (flags[i] == global::UIWidget.WidgetFlags.CustomRelativeSize)
 			{
 				v[i] = this.relativeSize;
 			}
@@ -655,7 +655,7 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x0600490D RID: 18701 RVA: 0x0012AFC8 File Offset: 0x001291C8
+	// Token: 0x06004DBC RID: 19900 RVA: 0x00134F2C File Offset: 0x0013312C
 	protected override void OnStart()
 	{
 		if (this.mLineWidth > 0f)
@@ -670,14 +670,14 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x0600490E RID: 18702 RVA: 0x0012B01C File Offset: 0x0012921C
+	// Token: 0x06004DBD RID: 19901 RVA: 0x00134F80 File Offset: 0x00133180
 	public override void MarkAsChanged()
 	{
 		this.ForceChanges();
 		base.MarkAsChanged();
 	}
 
-	// Token: 0x0600490F RID: 18703 RVA: 0x0012B02C File Offset: 0x0012922C
+	// Token: 0x06004DBE RID: 19902 RVA: 0x00134F90 File Offset: 0x00133190
 	private void ProcessText()
 	{
 		base.ChangedAuto();
@@ -687,7 +687,7 @@ public class UILabel : UIWidget
 		this.mProcessedText = this.mText;
 		if (this.mPassword)
 		{
-			this.mProcessedText = this.mFont.WrapText(this.markups, this.mProcessedText, 100000f, 1, false, UIFont.SymbolStyle.None);
+			this.mProcessedText = this.mFont.WrapText(this.markups, this.mProcessedText, 100000f, 1, false, global::UIFont.SymbolStyle.None);
 			string text = string.Empty;
 			if (this.mShowLastChar)
 			{
@@ -729,13 +729,13 @@ public class UILabel : UIWidget
 		this.mSize.y = Mathf.Max(this.mSize.y, 1f);
 		if (a != this.mProcessedText)
 		{
-			this.mSelection = default(UITextSelection);
+			this.mSelection = default(global::UITextSelection);
 		}
 		this.ApplyChanges();
 	}
 
-	// Token: 0x06004910 RID: 18704 RVA: 0x0012B2D4 File Offset: 0x001294D4
-	public int CalculateTextPosition(Space space, Vector3[] points, UITextPosition[] positions)
+	// Token: 0x06004DBF RID: 19903 RVA: 0x00135238 File Offset: 0x00133438
+	public int CalculateTextPosition(Space space, Vector3[] points, global::UITextPosition[] positions)
 	{
 		if (!this.mFont)
 		{
@@ -759,7 +759,7 @@ public class UILabel : UIWidget
 		return num;
 	}
 
-	// Token: 0x06004911 RID: 18705 RVA: 0x0012B354 File Offset: 0x00129554
+	// Token: 0x06004DC0 RID: 19904 RVA: 0x001352B8 File Offset: 0x001334B8
 	public void MakePositionPerfect()
 	{
 		float num = (!(this.font.atlas != null)) ? 1f : this.font.atlas.pixelSize;
@@ -773,11 +773,11 @@ public class UILabel : UIWidget
 			localPosition.x = (float)Mathf.FloorToInt(localPosition.x / num);
 			localPosition.y = (float)Mathf.CeilToInt(localPosition.y / num);
 			localPosition.z = (float)Mathf.RoundToInt(localPosition.z);
-			if (num2 % 2 == 1 && (base.pivot == UIWidget.Pivot.Top || base.pivot == UIWidget.Pivot.Center || base.pivot == UIWidget.Pivot.Bottom))
+			if (num2 % 2 == 1 && (base.pivot == global::UIWidget.Pivot.Top || base.pivot == global::UIWidget.Pivot.Center || base.pivot == global::UIWidget.Pivot.Bottom))
 			{
 				localPosition.x += 0.5f;
 			}
-			if (num3 % 2 == 1 && (base.pivot == UIWidget.Pivot.Left || base.pivot == UIWidget.Pivot.Center || base.pivot == UIWidget.Pivot.Right))
+			if (num3 % 2 == 1 && (base.pivot == global::UIWidget.Pivot.Left || base.pivot == global::UIWidget.Pivot.Center || base.pivot == global::UIWidget.Pivot.Right))
 			{
 				localPosition.y -= 0.5f;
 			}
@@ -790,7 +790,7 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x06004912 RID: 18706 RVA: 0x0012B538 File Offset: 0x00129738
+	// Token: 0x06004DC1 RID: 19905 RVA: 0x0013549C File Offset: 0x0013369C
 	public override void MakePixelPerfect()
 	{
 		if (this.mFont != null)
@@ -809,11 +809,11 @@ public class UILabel : UIWidget
 			localPosition.z = (float)Mathf.RoundToInt(localPosition.z);
 			if (base.cachedTransform.localRotation == Quaternion.identity)
 			{
-				if (num2 % 2 == 1 && (base.pivot == UIWidget.Pivot.Top || base.pivot == UIWidget.Pivot.Center || base.pivot == UIWidget.Pivot.Bottom))
+				if (num2 % 2 == 1 && (base.pivot == global::UIWidget.Pivot.Top || base.pivot == global::UIWidget.Pivot.Center || base.pivot == global::UIWidget.Pivot.Bottom))
 				{
 					localPosition.x += 0.5f;
 				}
-				if (num3 % 2 == 1 && (base.pivot == UIWidget.Pivot.Left || base.pivot == UIWidget.Pivot.Center || base.pivot == UIWidget.Pivot.Right))
+				if (num3 % 2 == 1 && (base.pivot == global::UIWidget.Pivot.Left || base.pivot == global::UIWidget.Pivot.Center || base.pivot == global::UIWidget.Pivot.Right))
 				{
 					localPosition.y -= 0.5f;
 				}
@@ -829,8 +829,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x06004913 RID: 18707 RVA: 0x0012B720 File Offset: 0x00129920
-	public override void OnFill(MeshBuffer m)
+	// Token: 0x06004DC2 RID: 19906 RVA: 0x00135684 File Offset: 0x00133884
+	public override void OnFill(NGUI.Meshing.MeshBuffer m)
 	{
 		if (this.mFont == null)
 		{
@@ -838,38 +838,38 @@ public class UILabel : UIWidget
 		}
 		Color normalColor = (!this.mInvisibleHack) ? base.color : Color.clear;
 		this.MakePositionPerfect();
-		UIWidget.Pivot pivot = base.pivot;
+		global::UIWidget.Pivot pivot = base.pivot;
 		int vSize = m.vSize;
-		if (pivot == UIWidget.Pivot.Left || pivot == UIWidget.Pivot.TopLeft || pivot == UIWidget.Pivot.BottomLeft)
+		if (pivot == global::UIWidget.Pivot.Left || pivot == global::UIWidget.Pivot.TopLeft || pivot == global::UIWidget.Pivot.BottomLeft)
 		{
 			if (this.mOverflowRight)
 			{
-				this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, UIFont.Alignment.LeftOverflowRight, Mathf.RoundToInt(this.relativeSize.x * (float)this.mFont.size), ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
+				this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, global::UIFont.Alignment.LeftOverflowRight, Mathf.RoundToInt(this.relativeSize.x * (float)this.mFont.size), ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
 			}
 			else
 			{
-				this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, UIFont.Alignment.Left, 0, ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
+				this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, global::UIFont.Alignment.Left, 0, ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
 			}
 		}
-		else if (pivot == UIWidget.Pivot.Right || pivot == UIWidget.Pivot.TopRight || pivot == UIWidget.Pivot.BottomRight)
+		else if (pivot == global::UIWidget.Pivot.Right || pivot == global::UIWidget.Pivot.TopRight || pivot == global::UIWidget.Pivot.BottomRight)
 		{
-			this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, UIFont.Alignment.Right, Mathf.RoundToInt(this.relativeSize.x * (float)this.mFont.size), ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
+			this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, global::UIFont.Alignment.Right, Mathf.RoundToInt(this.relativeSize.x * (float)this.mFont.size), ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
 		}
 		else
 		{
-			this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, UIFont.Alignment.Center, Mathf.RoundToInt(this.relativeSize.x * (float)this.mFont.size), ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
+			this.mFont.Print(this.processedText, normalColor, m, this.mEncoding, this.mSymbols, global::UIFont.Alignment.Center, Mathf.RoundToInt(this.relativeSize.x * (float)this.mFont.size), ref this.mSelection, this.mCarratChar, this.mHighlightTextColor, this.mHighlightColor, this.mHighlightChar, this.mHighlightCharSplit);
 		}
 		m.ApplyEffect(base.cachedTransform, vSize, this.effectStyle, this.effectColor, (float)this.mFont.size);
 	}
 
-	// Token: 0x06004914 RID: 18708 RVA: 0x0012B94C File Offset: 0x00129B4C
+	// Token: 0x06004DC3 RID: 19907 RVA: 0x001358B0 File Offset: 0x00133AB0
 	public void UnionProcessedChanges(string newProcessedText)
 	{
 		this.text = newProcessedText;
 	}
 
-	// Token: 0x06004915 RID: 18709 RVA: 0x0012B958 File Offset: 0x00129B58
-	private void ConvertProcessedTextPosition(ref UITextPosition p, ref int markupCount)
+	// Token: 0x06004DC4 RID: 19908 RVA: 0x001358BC File Offset: 0x00133ABC
+	private void ConvertProcessedTextPosition(ref global::UITextPosition p, ref int markupCount)
 	{
 		if (markupCount == -1)
 		{
@@ -879,16 +879,16 @@ public class UILabel : UIWidget
 		{
 			return;
 		}
-		UITextMarkup uitextMarkup = this.markups[0];
+		global::UITextMarkup uitextMarkup = this.markups[0];
 		int num = 0;
 		while (p.position <= uitextMarkup.index)
 		{
 			switch (uitextMarkup.mod)
 			{
-			case UITextMod.End:
+			case global::UITextMod.End:
 				p.deformed = (short)(this.mText.Length - uitextMarkup.index);
 				break;
-			case UITextMod.Removed:
+			case global::UITextMod.Removed:
 				p.deformed += 1;
 				if (++num < markupCount)
 				{
@@ -896,14 +896,14 @@ public class UILabel : UIWidget
 					continue;
 				}
 				break;
-			case UITextMod.Replaced:
+			case global::UITextMod.Replaced:
 				if (++num < markupCount)
 				{
 					uitextMarkup = this.markups[num];
 					continue;
 				}
 				break;
-			case UITextMod.Added:
+			case global::UITextMod.Added:
 				p.deformed -= 1;
 				if (++num < markupCount)
 				{
@@ -923,7 +923,7 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x06004916 RID: 18710 RVA: 0x0012BA9C File Offset: 0x00129C9C
+	// Token: 0x06004DC5 RID: 19909 RVA: 0x00135A00 File Offset: 0x00133C00
 	public void GetProcessedIndices(ref int start, ref int end)
 	{
 		int count = this.markups.Count;
@@ -938,14 +938,14 @@ public class UILabel : UIWidget
 		{
 			switch (this.markups[num3].mod)
 			{
-			case UITextMod.End:
+			case global::UITextMod.End:
 				num2 = this.mProcessedText.Length - 1;
 				return;
-			case UITextMod.Removed:
+			case global::UITextMod.Removed:
 				num--;
 				num2--;
 				break;
-			case UITextMod.Added:
+			case global::UITextMod.Added:
 				num++;
 				num2++;
 				break;
@@ -961,13 +961,13 @@ public class UILabel : UIWidget
 		{
 			switch (this.markups[num3].mod)
 			{
-			case UITextMod.End:
+			case global::UITextMod.End:
 				num2 = this.mProcessedText.Length - 1;
 				return;
-			case UITextMod.Removed:
+			case global::UITextMod.Removed:
 				num2--;
 				break;
-			case UITextMod.Added:
+			case global::UITextMod.Added:
 				num2++;
 				break;
 			}
@@ -980,12 +980,12 @@ public class UILabel : UIWidget
 		end = num2;
 	}
 
-	// Token: 0x06004917 RID: 18711 RVA: 0x0012BBFC File Offset: 0x00129DFC
-	private static void CountLinesGetColumn(string text, int inPos, out int pos, out int lines, out int column, out UITextRegion region)
+	// Token: 0x06004DC6 RID: 19910 RVA: 0x00135B60 File Offset: 0x00133D60
+	private static void CountLinesGetColumn(string text, int inPos, out int pos, out int lines, out int column, out global::UITextRegion region)
 	{
 		if (inPos < 0)
 		{
-			region = UITextRegion.Before;
+			region = global::UITextRegion.Before;
 			pos = 0;
 			lines = 0;
 			column = 0;
@@ -995,23 +995,23 @@ public class UILabel : UIWidget
 			pos = 0;
 			lines = 0;
 			column = 0;
-			region = UITextRegion.Pre;
+			region = global::UITextRegion.Pre;
 		}
 		else
 		{
 			if (inPos > text.Length)
 			{
-				region = UITextRegion.End;
+				region = global::UITextRegion.End;
 				pos = text.Length;
 			}
 			else if (inPos == text.Length)
 			{
-				region = UITextRegion.Past;
+				region = global::UITextRegion.Past;
 				pos = inPos;
 			}
 			else
 			{
-				region = UITextRegion.Inside;
+				region = global::UITextRegion.Inside;
 				pos = inPos;
 			}
 			int num = text.IndexOf('\n', 0, pos);
@@ -1039,8 +1039,8 @@ public class UILabel : UIWidget
 		}
 	}
 
-	// Token: 0x06004918 RID: 18712 RVA: 0x0012BCDC File Offset: 0x00129EDC
-	public UITextPosition ConvertUnprocessedPosition(int position)
+	// Token: 0x06004DC7 RID: 19911 RVA: 0x00135C40 File Offset: 0x00133E40
+	public global::UITextPosition ConvertUnprocessedPosition(int position)
 	{
 		string processedText = this.processedText;
 		int count = this.markups.Count;
@@ -1048,19 +1048,19 @@ public class UILabel : UIWidget
 		if (count > 0)
 		{
 			int num2 = 0;
-			UITextMarkup uitextMarkup = this.markups[num2];
+			global::UITextMarkup uitextMarkup = this.markups[num2];
 			while (uitextMarkup.index <= position)
 			{
 				switch (uitextMarkup.mod)
 				{
-				case UITextMod.End:
+				case global::UITextMod.End:
 					position -= num - uitextMarkup.index;
 					num2 = count;
 					break;
-				case UITextMod.Removed:
+				case global::UITextMod.Removed:
 					position--;
 					break;
-				case UITextMod.Added:
+				case global::UITextMod.Added:
 					position++;
 					break;
 				}
@@ -1071,17 +1071,17 @@ public class UILabel : UIWidget
 				uitextMarkup = this.markups[num2];
 			}
 		}
-		UITextPosition result;
-		UILabel.CountLinesGetColumn(processedText, position, out result.position, out result.line, out result.column, out result.region);
+		global::UITextPosition result;
+		global::UILabel.CountLinesGetColumn(processedText, position, out result.position, out result.line, out result.column, out result.region);
 		result.uniformRegion = result.region;
 		result.deformed = (short)(num - result.position);
 		return result;
 	}
 
-	// Token: 0x06004919 RID: 18713 RVA: 0x0012BDDC File Offset: 0x00129FDC
-	public UITextSelection ConvertUnprocessedSelection(int carratPos, int selectPos)
+	// Token: 0x06004DC8 RID: 19912 RVA: 0x00135D40 File Offset: 0x00133F40
+	public global::UITextSelection ConvertUnprocessedSelection(int carratPos, int selectPos)
 	{
-		UITextSelection result;
+		global::UITextSelection result;
 		result.carratPos = this.ConvertUnprocessedPosition(carratPos);
 		if (carratPos == selectPos)
 		{
@@ -1094,155 +1094,155 @@ public class UILabel : UIWidget
 		return result;
 	}
 
-	// Token: 0x04002924 RID: 10532
-	[HideInInspector]
+	// Token: 0x04002B72 RID: 11122
 	[SerializeField]
-	private UIFont mFont;
+	[HideInInspector]
+	private global::UIFont mFont;
 
-	// Token: 0x04002925 RID: 10533
+	// Token: 0x04002B73 RID: 11123
 	[SerializeField]
 	[HideInInspector]
 	private string mText = string.Empty;
 
-	// Token: 0x04002926 RID: 10534
+	// Token: 0x04002B74 RID: 11124
 	[SerializeField]
 	[HideInInspector]
 	private int mMaxLineWidth;
 
-	// Token: 0x04002927 RID: 10535
-	[HideInInspector]
+	// Token: 0x04002B75 RID: 11125
 	[SerializeField]
+	[HideInInspector]
 	private bool mEncoding = true;
 
-	// Token: 0x04002928 RID: 10536
-	[HideInInspector]
+	// Token: 0x04002B76 RID: 11126
 	[SerializeField]
+	[HideInInspector]
 	private int mMaxLineCount;
 
-	// Token: 0x04002929 RID: 10537
-	[SerializeField]
+	// Token: 0x04002B77 RID: 11127
 	[HideInInspector]
+	[SerializeField]
 	private bool mPassword;
 
-	// Token: 0x0400292A RID: 10538
-	[HideInInspector]
+	// Token: 0x04002B78 RID: 11128
 	[SerializeField]
+	[HideInInspector]
 	private bool mShowLastChar;
 
-	// Token: 0x0400292B RID: 10539
-	[SerializeField]
+	// Token: 0x04002B79 RID: 11129
 	[HideInInspector]
+	[SerializeField]
 	private bool mOverflowRight;
 
-	// Token: 0x0400292C RID: 10540
+	// Token: 0x04002B7A RID: 11130
 	[SerializeField]
 	[HideInInspector]
-	private UILabel.Effect mEffectStyle;
+	private global::UILabel.Effect mEffectStyle;
 
-	// Token: 0x0400292D RID: 10541
-	[SerializeField]
+	// Token: 0x04002B7B RID: 11131
 	[HideInInspector]
+	[SerializeField]
 	private Color mEffectColor = Color.black;
 
-	// Token: 0x0400292E RID: 10542
+	// Token: 0x04002B7C RID: 11132
 	[SerializeField]
 	[HideInInspector]
-	private UIFont.SymbolStyle mSymbols = UIFont.SymbolStyle.Uncolored;
+	private global::UIFont.SymbolStyle mSymbols = global::UIFont.SymbolStyle.Uncolored;
 
-	// Token: 0x0400292F RID: 10543
+	// Token: 0x04002B7D RID: 11133
 	[SerializeField]
 	[HideInInspector]
 	private char mCarratChar = '|';
 
-	// Token: 0x04002930 RID: 10544
-	[SerializeField]
+	// Token: 0x04002B7E RID: 11134
 	[HideInInspector]
+	[SerializeField]
 	private Color mHighlightTextColor = Color.cyan;
 
-	// Token: 0x04002931 RID: 10545
-	[HideInInspector]
+	// Token: 0x04002B7F RID: 11135
 	[SerializeField]
+	[HideInInspector]
 	private Color mHighlightColor = Color.black;
 
-	// Token: 0x04002932 RID: 10546
+	// Token: 0x04002B80 RID: 11136
 	[HideInInspector]
 	[SerializeField]
 	private char mHighlightChar = '|';
 
-	// Token: 0x04002933 RID: 10547
-	[SerializeField]
+	// Token: 0x04002B81 RID: 11137
 	[HideInInspector]
+	[SerializeField]
 	private float mHighlightCharSplit = 0.5f;
 
-	// Token: 0x04002934 RID: 10548
+	// Token: 0x04002B82 RID: 11138
 	[HideInInspector]
 	[SerializeField]
 	private float mLineWidth;
 
-	// Token: 0x04002935 RID: 10549
+	// Token: 0x04002B83 RID: 11139
 	[HideInInspector]
 	[SerializeField]
 	private bool mMultiline = true;
 
-	// Token: 0x04002936 RID: 10550
+	// Token: 0x04002B84 RID: 11140
 	private Vector3? lastQueryPos;
 
-	// Token: 0x04002937 RID: 10551
+	// Token: 0x04002B85 RID: 11141
 	private bool mShouldBeProcessed = true;
 
-	// Token: 0x04002938 RID: 10552
+	// Token: 0x04002B86 RID: 11142
 	private string mProcessedText;
 
-	// Token: 0x04002939 RID: 10553
-	private UITextSelection mSelection;
+	// Token: 0x04002B87 RID: 11143
+	private global::UITextSelection mSelection;
 
-	// Token: 0x0400293A RID: 10554
+	// Token: 0x04002B88 RID: 11144
 	private Vector3 mLastScale = Vector3.one;
 
-	// Token: 0x0400293B RID: 10555
+	// Token: 0x04002B89 RID: 11145
 	private string mLastText = string.Empty;
 
-	// Token: 0x0400293C RID: 10556
+	// Token: 0x04002B8A RID: 11146
 	private int mLastWidth;
 
-	// Token: 0x0400293D RID: 10557
+	// Token: 0x04002B8B RID: 11147
 	private bool mLastEncoding = true;
 
-	// Token: 0x0400293E RID: 10558
+	// Token: 0x04002B8C RID: 11148
 	private int mLastCount;
 
-	// Token: 0x0400293F RID: 10559
+	// Token: 0x04002B8D RID: 11149
 	private bool mLastPass;
 
-	// Token: 0x04002940 RID: 10560
+	// Token: 0x04002B8E RID: 11150
 	private bool mLastShow;
 
-	// Token: 0x04002941 RID: 10561
+	// Token: 0x04002B8F RID: 11151
 	private bool mInvisibleHack;
 
-	// Token: 0x04002942 RID: 10562
+	// Token: 0x04002B90 RID: 11152
 	private bool mLastInvisibleHack;
 
-	// Token: 0x04002943 RID: 10563
-	private UILabel.Effect mLastEffect;
+	// Token: 0x04002B91 RID: 11153
+	private global::UILabel.Effect mLastEffect;
 
-	// Token: 0x04002944 RID: 10564
+	// Token: 0x04002B92 RID: 11154
 	private Color mLastColor = Color.black;
 
-	// Token: 0x04002945 RID: 10565
+	// Token: 0x04002B93 RID: 11155
 	private Vector3 mSize = Vector3.zero;
 
-	// Token: 0x04002946 RID: 10566
-	private List<UITextMarkup> _markups;
+	// Token: 0x04002B94 RID: 11156
+	private List<global::UITextMarkup> _markups;
 
-	// Token: 0x020007F5 RID: 2037
+	// Token: 0x020008E7 RID: 2279
 	public enum Effect
 	{
-		// Token: 0x04002948 RID: 10568
+		// Token: 0x04002B96 RID: 11158
 		None,
-		// Token: 0x04002949 RID: 10569
+		// Token: 0x04002B97 RID: 11159
 		Shadow,
-		// Token: 0x0400294A RID: 10570
+		// Token: 0x04002B98 RID: 11160
 		Outline
 	}
 }

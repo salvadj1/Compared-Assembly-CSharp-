@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006D8 RID: 1752
+// Token: 0x020007AA RID: 1962
 [ExecuteInEditMode]
 [RequireComponent(typeof(BoxCollider))]
 [Serializable]
-public class dfInteractiveBase : dfControl
+public class dfInteractiveBase : global::dfControl
 {
-	// Token: 0x17000C14 RID: 3092
-	// (get) Token: 0x06003DE5 RID: 15845 RVA: 0x000EA590 File Offset: 0x000E8790
-	// (set) Token: 0x06003DE6 RID: 15846 RVA: 0x000EA5D8 File Offset: 0x000E87D8
-	public dfAtlas Atlas
+	// Token: 0x17000C98 RID: 3224
+	// (get) Token: 0x06004201 RID: 16897 RVA: 0x000F3194 File Offset: 0x000F1394
+	// (set) Token: 0x06004202 RID: 16898 RVA: 0x000F31DC File Offset: 0x000F13DC
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -26,7 +26,7 @@ public class dfInteractiveBase : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -34,9 +34,9 @@ public class dfInteractiveBase : dfControl
 		}
 	}
 
-	// Token: 0x17000C15 RID: 3093
-	// (get) Token: 0x06003DE7 RID: 15847 RVA: 0x000EA5F8 File Offset: 0x000E87F8
-	// (set) Token: 0x06003DE8 RID: 15848 RVA: 0x000EA600 File Offset: 0x000E8800
+	// Token: 0x17000C99 RID: 3225
+	// (get) Token: 0x06004203 RID: 16899 RVA: 0x000F31FC File Offset: 0x000F13FC
+	// (set) Token: 0x06004204 RID: 16900 RVA: 0x000F3204 File Offset: 0x000F1404
 	public string BackgroundSprite
 	{
 		get
@@ -54,9 +54,9 @@ public class dfInteractiveBase : dfControl
 		}
 	}
 
-	// Token: 0x17000C16 RID: 3094
-	// (get) Token: 0x06003DE9 RID: 15849 RVA: 0x000EA628 File Offset: 0x000E8828
-	// (set) Token: 0x06003DEA RID: 15850 RVA: 0x000EA630 File Offset: 0x000E8830
+	// Token: 0x17000C9A RID: 3226
+	// (get) Token: 0x06004205 RID: 16901 RVA: 0x000F322C File Offset: 0x000F142C
+	// (set) Token: 0x06004206 RID: 16902 RVA: 0x000F3234 File Offset: 0x000F1434
 	public string DisabledSprite
 	{
 		get
@@ -73,9 +73,9 @@ public class dfInteractiveBase : dfControl
 		}
 	}
 
-	// Token: 0x17000C17 RID: 3095
-	// (get) Token: 0x06003DEB RID: 15851 RVA: 0x000EA650 File Offset: 0x000E8850
-	// (set) Token: 0x06003DEC RID: 15852 RVA: 0x000EA658 File Offset: 0x000E8858
+	// Token: 0x17000C9B RID: 3227
+	// (get) Token: 0x06004207 RID: 16903 RVA: 0x000F3254 File Offset: 0x000F1454
+	// (set) Token: 0x06004208 RID: 16904 RVA: 0x000F325C File Offset: 0x000F145C
 	public string FocusSprite
 	{
 		get
@@ -92,9 +92,9 @@ public class dfInteractiveBase : dfControl
 		}
 	}
 
-	// Token: 0x17000C18 RID: 3096
-	// (get) Token: 0x06003DED RID: 15853 RVA: 0x000EA678 File Offset: 0x000E8878
-	// (set) Token: 0x06003DEE RID: 15854 RVA: 0x000EA680 File Offset: 0x000E8880
+	// Token: 0x17000C9C RID: 3228
+	// (get) Token: 0x06004209 RID: 16905 RVA: 0x000F327C File Offset: 0x000F147C
+	// (set) Token: 0x0600420A RID: 16906 RVA: 0x000F3284 File Offset: 0x000F1484
 	public string HoverSprite
 	{
 		get
@@ -111,8 +111,8 @@ public class dfInteractiveBase : dfControl
 		}
 	}
 
-	// Token: 0x17000C19 RID: 3097
-	// (get) Token: 0x06003DEF RID: 15855 RVA: 0x000EA6A0 File Offset: 0x000E88A0
+	// Token: 0x17000C9D RID: 3229
+	// (get) Token: 0x0600420B RID: 16907 RVA: 0x000F32A4 File Offset: 0x000F14A4
 	public override bool CanFocus
 	{
 		get
@@ -121,38 +121,38 @@ public class dfInteractiveBase : dfControl
 		}
 	}
 
-	// Token: 0x06003DF0 RID: 15856 RVA: 0x000EA6C0 File Offset: 0x000E88C0
-	protected internal override void OnGotFocus(dfFocusEventArgs args)
+	// Token: 0x0600420C RID: 16908 RVA: 0x000F32C4 File Offset: 0x000F14C4
+	protected internal override void OnGotFocus(global::dfFocusEventArgs args)
 	{
 		base.OnGotFocus(args);
 		this.Invalidate();
 	}
 
-	// Token: 0x06003DF1 RID: 15857 RVA: 0x000EA6D0 File Offset: 0x000E88D0
-	protected internal override void OnLostFocus(dfFocusEventArgs args)
+	// Token: 0x0600420D RID: 16909 RVA: 0x000F32D4 File Offset: 0x000F14D4
+	protected internal override void OnLostFocus(global::dfFocusEventArgs args)
 	{
 		base.OnLostFocus(args);
 		this.Invalidate();
 	}
 
-	// Token: 0x06003DF2 RID: 15858 RVA: 0x000EA6E0 File Offset: 0x000E88E0
-	protected internal override void OnMouseEnter(dfMouseEventArgs args)
+	// Token: 0x0600420E RID: 16910 RVA: 0x000F32E4 File Offset: 0x000F14E4
+	protected internal override void OnMouseEnter(global::dfMouseEventArgs args)
 	{
 		base.OnMouseEnter(args);
 		this.Invalidate();
 	}
 
-	// Token: 0x06003DF3 RID: 15859 RVA: 0x000EA6F0 File Offset: 0x000E88F0
-	protected internal override void OnMouseLeave(dfMouseEventArgs args)
+	// Token: 0x0600420F RID: 16911 RVA: 0x000F32F4 File Offset: 0x000F14F4
+	protected internal override void OnMouseLeave(global::dfMouseEventArgs args)
 	{
 		base.OnMouseLeave(args);
 		this.Invalidate();
 	}
 
-	// Token: 0x06003DF4 RID: 15860 RVA: 0x000EA700 File Offset: 0x000E8900
+	// Token: 0x06004210 RID: 16912 RVA: 0x000F3304 File Offset: 0x000F1504
 	public override Vector2 CalculateMinimumSize()
 	{
-		dfAtlas.ItemInfo itemInfo = this.getBackgroundSprite();
+		global::dfAtlas.ItemInfo itemInfo = this.getBackgroundSprite();
 		if (itemInfo == null)
 		{
 			return base.CalculateMinimumSize();
@@ -165,20 +165,20 @@ public class dfInteractiveBase : dfControl
 		return base.CalculateMinimumSize();
 	}
 
-	// Token: 0x06003DF5 RID: 15861 RVA: 0x000EA76C File Offset: 0x000E896C
+	// Token: 0x06004211 RID: 16913 RVA: 0x000F3370 File Offset: 0x000F1570
 	protected internal virtual void renderBackground()
 	{
 		if (this.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.getBackgroundSprite();
+		global::dfAtlas.ItemInfo itemInfo = this.getBackgroundSprite();
 		if (itemInfo == null)
 		{
 			return;
 		}
 		Color32 color = base.ApplyOpacity(this.getActiveColor());
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -190,15 +190,15 @@ public class dfInteractiveBase : dfControl
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x06003DF6 RID: 15862 RVA: 0x000EA850 File Offset: 0x000E8A50
+	// Token: 0x06004212 RID: 16914 RVA: 0x000F3454 File Offset: 0x000F1654
 	protected virtual Color32 getActiveColor()
 	{
 		if (base.IsEnabled)
@@ -212,8 +212,8 @@ public class dfInteractiveBase : dfControl
 		return this.disabledColor;
 	}
 
-	// Token: 0x06003DF7 RID: 15863 RVA: 0x000EA8BC File Offset: 0x000E8ABC
-	protected internal virtual dfAtlas.ItemInfo getBackgroundSprite()
+	// Token: 0x06004213 RID: 16915 RVA: 0x000F34C0 File Offset: 0x000F16C0
+	protected internal virtual global::dfAtlas.ItemInfo getBackgroundSprite()
 	{
 		if (this.Atlas == null)
 		{
@@ -221,7 +221,7 @@ public class dfInteractiveBase : dfControl
 		}
 		if (!base.IsEnabled)
 		{
-			dfAtlas.ItemInfo itemInfo = this.atlas[this.DisabledSprite];
+			global::dfAtlas.ItemInfo itemInfo = this.atlas[this.DisabledSprite];
 			if (itemInfo != null)
 			{
 				return itemInfo;
@@ -234,7 +234,7 @@ public class dfInteractiveBase : dfControl
 			{
 				if (this.isMouseHovering)
 				{
-					dfAtlas.ItemInfo itemInfo2 = this.atlas[this.HoverSprite];
+					global::dfAtlas.ItemInfo itemInfo2 = this.atlas[this.HoverSprite];
 					if (itemInfo2 != null)
 					{
 						return itemInfo2;
@@ -242,7 +242,7 @@ public class dfInteractiveBase : dfControl
 				}
 				return this.Atlas[this.BackgroundSprite];
 			}
-			dfAtlas.ItemInfo itemInfo3 = this.atlas[this.FocusSprite];
+			global::dfAtlas.ItemInfo itemInfo3 = this.atlas[this.FocusSprite];
 			if (itemInfo3 != null)
 			{
 				return itemInfo3;
@@ -251,37 +251,37 @@ public class dfInteractiveBase : dfControl
 		}
 	}
 
-	// Token: 0x06003DF8 RID: 15864 RVA: 0x000EA994 File Offset: 0x000E8B94
+	// Token: 0x06004214 RID: 16916 RVA: 0x000F3598 File Offset: 0x000F1798
 	private void setDefaultSize(string spriteName)
 	{
 		if (this.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[spriteName];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[spriteName];
 		if (this.size == Vector2.zero && itemInfo != null)
 		{
 			base.Size = itemInfo.sizeInPixels;
 		}
 	}
 
-	// Token: 0x0400209F RID: 8351
+	// Token: 0x040022A8 RID: 8872
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x040020A0 RID: 8352
+	// Token: 0x040022A9 RID: 8873
 	[SerializeField]
 	protected string backgroundSprite;
 
-	// Token: 0x040020A1 RID: 8353
+	// Token: 0x040022AA RID: 8874
 	[SerializeField]
 	protected string hoverSprite;
 
-	// Token: 0x040020A2 RID: 8354
+	// Token: 0x040022AB RID: 8875
 	[SerializeField]
 	protected string disabledSprite;
 
-	// Token: 0x040020A3 RID: 8355
+	// Token: 0x040022AC RID: 8876
 	[SerializeField]
 	protected string focusSprite;
 }

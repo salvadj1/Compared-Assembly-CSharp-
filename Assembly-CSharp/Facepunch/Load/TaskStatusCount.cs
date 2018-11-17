@@ -2,11 +2,11 @@
 
 namespace Facepunch.Load
 {
-	// Token: 0x0200026E RID: 622
+	// Token: 0x020002A2 RID: 674
 	public struct TaskStatusCount
 	{
-		// Token: 0x17000676 RID: 1654
-		// (get) Token: 0x060016A6 RID: 5798 RVA: 0x000562BC File Offset: 0x000544BC
+		// Token: 0x170006C0 RID: 1728
+		// (get) Token: 0x06001800 RID: 6144 RVA: 0x0005A704 File Offset: 0x00058904
 		public int Total
 		{
 			get
@@ -15,8 +15,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000677 RID: 1655
-		// (get) Token: 0x060016A7 RID: 5799 RVA: 0x000562D4 File Offset: 0x000544D4
+		// Token: 0x170006C1 RID: 1729
+		// (get) Token: 0x06001801 RID: 6145 RVA: 0x0005A71C File Offset: 0x0005891C
 		public int Remaining
 		{
 			get
@@ -25,8 +25,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000678 RID: 1656
-		// (get) Token: 0x060016A8 RID: 5800 RVA: 0x000562E4 File Offset: 0x000544E4
+		// Token: 0x170006C2 RID: 1730
+		// (get) Token: 0x06001802 RID: 6146 RVA: 0x0005A72C File Offset: 0x0005892C
 		public float PercentComplete
 		{
 			get
@@ -35,8 +35,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000679 RID: 1657
-		// (get) Token: 0x060016A9 RID: 5801 RVA: 0x0005630C File Offset: 0x0005450C
+		// Token: 0x170006C3 RID: 1731
+		// (get) Token: 0x06001803 RID: 6147 RVA: 0x0005A754 File Offset: 0x00058954
 		public float PercentPending
 		{
 			get
@@ -45,8 +45,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700067A RID: 1658
-		// (get) Token: 0x060016AA RID: 5802 RVA: 0x00056334 File Offset: 0x00054534
+		// Token: 0x170006C4 RID: 1732
+		// (get) Token: 0x06001804 RID: 6148 RVA: 0x0005A77C File Offset: 0x0005897C
 		public float PercentDownloading
 		{
 			get
@@ -55,8 +55,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700067B RID: 1659
-		// (get) Token: 0x060016AB RID: 5803 RVA: 0x00056364 File Offset: 0x00054564
+		// Token: 0x170006C5 RID: 1733
+		// (get) Token: 0x06001805 RID: 6149 RVA: 0x0005A7AC File Offset: 0x000589AC
 		public bool CompletelyPending
 		{
 			get
@@ -65,8 +65,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700067C RID: 1660
-		// (get) Token: 0x060016AC RID: 5804 RVA: 0x00056398 File Offset: 0x00054598
+		// Token: 0x170006C6 RID: 1734
+		// (get) Token: 0x06001806 RID: 6150 RVA: 0x0005A7E0 File Offset: 0x000589E0
 		public bool CompletelyDownloading
 		{
 			get
@@ -75,8 +75,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700067D RID: 1661
-		// (get) Token: 0x060016AD RID: 5805 RVA: 0x000563CC File Offset: 0x000545CC
+		// Token: 0x170006C7 RID: 1735
+		// (get) Token: 0x06001807 RID: 6151 RVA: 0x0005A814 File Offset: 0x00058A14
 		public bool CompletelyComplete
 		{
 			get
@@ -85,8 +85,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700067E RID: 1662
-		// (get) Token: 0x060016AE RID: 5806 RVA: 0x00056400 File Offset: 0x00054600
+		// Token: 0x170006C8 RID: 1736
+		// (get) Token: 0x06001808 RID: 6152 RVA: 0x0005A848 File Offset: 0x00058A48
 		public TaskStatus TaskStatus
 		{
 			get
@@ -129,7 +129,7 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700067F RID: 1663
+		// Token: 0x170006C9 RID: 1737
 		public int this[TaskStatus status]
 		{
 			get
@@ -188,28 +188,28 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x04000B86 RID: 2950
+		// Token: 0x04000CAC RID: 3244
 		public int Pending;
 
-		// Token: 0x04000B87 RID: 2951
+		// Token: 0x04000CAD RID: 3245
 		public int Downloading;
 
-		// Token: 0x04000B88 RID: 2952
+		// Token: 0x04000CAE RID: 3246
 		public int Complete;
 
-		// Token: 0x04000B89 RID: 2953
+		// Token: 0x04000CAF RID: 3247
 		public static readonly TaskStatusCount OnePending = new TaskStatusCount
 		{
 			Pending = 1
 		};
 
-		// Token: 0x04000B8A RID: 2954
+		// Token: 0x04000CB0 RID: 3248
 		public static readonly TaskStatusCount OneDownloading = new TaskStatusCount
 		{
 			Downloading = 1
 		};
 
-		// Token: 0x04000B8B RID: 2955
+		// Token: 0x04000CB1 RID: 3249
 		public static readonly TaskStatusCount OneComplete = new TaskStatusCount
 		{
 			Complete = 1

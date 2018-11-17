@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x020007E4 RID: 2020
+// Token: 0x020008D5 RID: 2261
 public struct UITextMarkup
 {
-	// Token: 0x0400289B RID: 10395
+	// Token: 0x04002AE9 RID: 10985
 	public int index;
 
-	// Token: 0x0400289C RID: 10396
+	// Token: 0x04002AEA RID: 10986
 	public char value;
 
-	// Token: 0x0400289D RID: 10397
-	public UITextMod mod;
+	// Token: 0x04002AEB RID: 10987
+	public global::UITextMod mod;
 }

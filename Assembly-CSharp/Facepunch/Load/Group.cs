@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Facepunch.Load
 {
-	// Token: 0x02000261 RID: 609
+	// Token: 0x02000294 RID: 660
 	public class Group : IDownloadTask
 	{
-		// Token: 0x17000647 RID: 1607
-		// (get) Token: 0x06001640 RID: 5696 RVA: 0x00054818 File Offset: 0x00052A18
+		// Token: 0x1700068F RID: 1679
+		// (get) Token: 0x06001794 RID: 6036 RVA: 0x00058BC0 File Offset: 0x00056DC0
 		string IDownloadTask.Name
 		{
 			get
@@ -16,8 +16,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000648 RID: 1608
-		// (get) Token: 0x06001641 RID: 5697 RVA: 0x00054820 File Offset: 0x00052A20
+		// Token: 0x17000690 RID: 1680
+		// (get) Token: 0x06001795 RID: 6037 RVA: 0x00058BC8 File Offset: 0x00056DC8
 		int IDownloadTask.ByteLength
 		{
 			get
@@ -26,8 +26,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000649 RID: 1609
-		// (get) Token: 0x06001642 RID: 5698 RVA: 0x00054828 File Offset: 0x00052A28
+		// Token: 0x17000691 RID: 1681
+		// (get) Token: 0x06001796 RID: 6038 RVA: 0x00058BD0 File Offset: 0x00056DD0
 		public Loader Loader
 		{
 			get
@@ -36,8 +36,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700064A RID: 1610
-		// (get) Token: 0x06001643 RID: 5699 RVA: 0x00054838 File Offset: 0x00052A38
+		// Token: 0x17000692 RID: 1682
+		// (get) Token: 0x06001797 RID: 6039 RVA: 0x00058BE0 File Offset: 0x00056DE0
 		public int ByteLengthDownloaded
 		{
 			get
@@ -51,8 +51,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700064B RID: 1611
-		// (get) Token: 0x06001644 RID: 5700 RVA: 0x00054870 File Offset: 0x00052A70
+		// Token: 0x17000693 RID: 1683
+		// (get) Token: 0x06001798 RID: 6040 RVA: 0x00058C18 File Offset: 0x00056E18
 		public TaskStatus TaskStatus
 		{
 			get
@@ -73,8 +73,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700064C RID: 1612
-		// (get) Token: 0x06001645 RID: 5701 RVA: 0x000548BC File Offset: 0x00052ABC
+		// Token: 0x17000694 RID: 1684
+		// (get) Token: 0x06001799 RID: 6041 RVA: 0x00058C64 File Offset: 0x00056E64
 		public TaskStatusCount TaskStatusCount
 		{
 			get
@@ -92,8 +92,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700064D RID: 1613
-		// (get) Token: 0x06001646 RID: 5702 RVA: 0x00054918 File Offset: 0x00052B18
+		// Token: 0x17000695 RID: 1685
+		// (get) Token: 0x0600179A RID: 6042 RVA: 0x00058CC0 File Offset: 0x00056EC0
 		public string ContextualDescription
 		{
 			get
@@ -135,8 +135,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700064E RID: 1614
-		// (get) Token: 0x06001647 RID: 5703 RVA: 0x00054B0C File Offset: 0x00052D0C
+		// Token: 0x17000696 RID: 1686
+		// (get) Token: 0x0600179B RID: 6043 RVA: 0x00058EB4 File Offset: 0x000570B4
 		public float PercentDone
 		{
 			get
@@ -145,8 +145,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700064F RID: 1615
-		// (get) Token: 0x06001648 RID: 5704 RVA: 0x00054B20 File Offset: 0x00052D20
+		// Token: 0x17000697 RID: 1687
+		// (get) Token: 0x0600179C RID: 6044 RVA: 0x00058EC8 File Offset: 0x000570C8
 		public int Count
 		{
 			get
@@ -155,8 +155,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000650 RID: 1616
-		// (get) Token: 0x06001649 RID: 5705 RVA: 0x00054B2C File Offset: 0x00052D2C
+		// Token: 0x17000698 RID: 1688
+		// (get) Token: 0x0600179D RID: 6045 RVA: 0x00058ED4 File Offset: 0x000570D4
 		public int Done
 		{
 			get
@@ -173,7 +173,7 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x0600164A RID: 5706 RVA: 0x00054B6C File Offset: 0x00052D6C
+		// Token: 0x0600179E RID: 6046 RVA: 0x00058F14 File Offset: 0x00057114
 		public void Initialize()
 		{
 			this.ByteLength = 0;
@@ -199,7 +199,7 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x0600164B RID: 5707 RVA: 0x00054C14 File Offset: 0x00052E14
+		// Token: 0x0600179F RID: 6047 RVA: 0x00058FBC File Offset: 0x000571BC
 		internal void GetArrays(out AssetBundle[] assetBundles, out Item[] items)
 		{
 			items = new Item[this.Jobs.Length];
@@ -211,27 +211,27 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x04000B53 RID: 2899
+		// Token: 0x04000C76 RID: 3190
 		[NonSerialized]
 		public Operation _op;
 
-		// Token: 0x04000B54 RID: 2900
+		// Token: 0x04000C77 RID: 3191
 		[NonSerialized]
 		public Job[] Jobs;
 
-		// Token: 0x04000B55 RID: 2901
+		// Token: 0x04000C78 RID: 3192
 		[NonSerialized]
 		public int ByteLength;
 
-		// Token: 0x04000B56 RID: 2902
+		// Token: 0x04000C79 RID: 3193
 		[NonSerialized]
 		private string jobDesc;
 
-		// Token: 0x04000B57 RID: 2903
+		// Token: 0x04000C7A RID: 3194
 		[NonSerialized]
 		private string lastDescriptiveText;
 
-		// Token: 0x04000B58 RID: 2904
+		// Token: 0x04000C7B RID: 3195
 		[NonSerialized]
 		private TaskStatusCount? lastStatusCount;
 	}

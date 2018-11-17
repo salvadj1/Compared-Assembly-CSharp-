@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x02000209 RID: 521
+	// Token: 0x0200023C RID: 572
 	[DebuggerNonUserCode]
 	public sealed class objectCoords : GeneratedMessage<objectCoords, objectCoords.Builder>
 	{
-		// Token: 0x06001064 RID: 4196 RVA: 0x0003C988 File Offset: 0x0003AB88
+		// Token: 0x060011B8 RID: 4536 RVA: 0x00040D30 File Offset: 0x0003EF30
 		private objectCoords()
 		{
 		}
 
-		// Token: 0x06001065 RID: 4197 RVA: 0x0003C998 File Offset: 0x0003AB98
+		// Token: 0x060011B9 RID: 4537 RVA: 0x00040D40 File Offset: 0x0003EF40
 		static objectCoords()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x06001066 RID: 4198 RVA: 0x0003CA04 File Offset: 0x0003AC04
-		public static Recycler<objectCoords, objectCoords.Builder> Recycler()
+		// Token: 0x060011BA RID: 4538 RVA: 0x00040DAC File Offset: 0x0003EFAC
+		public static RustProto.Helpers.Recycler<objectCoords, objectCoords.Builder> Recycler()
 		{
-			return Recycler<objectCoords, objectCoords.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectCoords, objectCoords.Builder>.Manufacture();
 		}
 
-		// Token: 0x1700045A RID: 1114
-		// (get) Token: 0x06001067 RID: 4199 RVA: 0x0003CA0C File Offset: 0x0003AC0C
+		// Token: 0x170004A2 RID: 1186
+		// (get) Token: 0x060011BB RID: 4539 RVA: 0x00040DB4 File Offset: 0x0003EFB4
 		public static objectCoords DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700045B RID: 1115
-		// (get) Token: 0x06001068 RID: 4200 RVA: 0x0003CA14 File Offset: 0x0003AC14
+		// Token: 0x170004A3 RID: 1187
+		// (get) Token: 0x060011BC RID: 4540 RVA: 0x00040DBC File Offset: 0x0003EFBC
 		public override objectCoords DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700045C RID: 1116
-		// (get) Token: 0x06001069 RID: 4201 RVA: 0x0003CA1C File Offset: 0x0003AC1C
+		// Token: 0x170004A4 RID: 1188
+		// (get) Token: 0x060011BD RID: 4541 RVA: 0x00040DC4 File Offset: 0x0003EFC4
 		protected override objectCoords ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700045D RID: 1117
-		// (get) Token: 0x0600106A RID: 4202 RVA: 0x0003CA20 File Offset: 0x0003AC20
+		// Token: 0x170004A5 RID: 1189
+		// (get) Token: 0x060011BE RID: 4542 RVA: 0x00040DC8 File Offset: 0x0003EFC8
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700045E RID: 1118
-		// (get) Token: 0x0600106B RID: 4203 RVA: 0x0003CA28 File Offset: 0x0003AC28
+		// Token: 0x170004A6 RID: 1190
+		// (get) Token: 0x060011BF RID: 4543 RVA: 0x00040DD0 File Offset: 0x0003EFD0
 		protected override FieldAccessorTable<objectCoords, objectCoords.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700045F RID: 1119
-		// (get) Token: 0x0600106C RID: 4204 RVA: 0x0003CA30 File Offset: 0x0003AC30
+		// Token: 0x170004A7 RID: 1191
+		// (get) Token: 0x060011C0 RID: 4544 RVA: 0x00040DD8 File Offset: 0x0003EFD8
 		public bool HasPos
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000460 RID: 1120
-		// (get) Token: 0x0600106D RID: 4205 RVA: 0x0003CA38 File Offset: 0x0003AC38
+		// Token: 0x170004A8 RID: 1192
+		// (get) Token: 0x060011C1 RID: 4545 RVA: 0x00040DE0 File Offset: 0x0003EFE0
 		public Vector Pos
 		{
 			get
@@ -99,8 +99,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000461 RID: 1121
-		// (get) Token: 0x0600106E RID: 4206 RVA: 0x0003CA4C File Offset: 0x0003AC4C
+		// Token: 0x170004A9 RID: 1193
+		// (get) Token: 0x060011C2 RID: 4546 RVA: 0x00040DF4 File Offset: 0x0003EFF4
 		public bool HasOldPos
 		{
 			get
@@ -109,8 +109,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000462 RID: 1122
-		// (get) Token: 0x0600106F RID: 4207 RVA: 0x0003CA54 File Offset: 0x0003AC54
+		// Token: 0x170004AA RID: 1194
+		// (get) Token: 0x060011C3 RID: 4547 RVA: 0x00040DFC File Offset: 0x0003EFFC
 		public Vector OldPos
 		{
 			get
@@ -119,8 +119,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000463 RID: 1123
-		// (get) Token: 0x06001070 RID: 4208 RVA: 0x0003CA68 File Offset: 0x0003AC68
+		// Token: 0x170004AB RID: 1195
+		// (get) Token: 0x060011C4 RID: 4548 RVA: 0x00040E10 File Offset: 0x0003F010
 		public bool HasRot
 		{
 			get
@@ -129,8 +129,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000464 RID: 1124
-		// (get) Token: 0x06001071 RID: 4209 RVA: 0x0003CA70 File Offset: 0x0003AC70
+		// Token: 0x170004AC RID: 1196
+		// (get) Token: 0x060011C5 RID: 4549 RVA: 0x00040E18 File Offset: 0x0003F018
 		public Quaternion Rot
 		{
 			get
@@ -139,8 +139,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000465 RID: 1125
-		// (get) Token: 0x06001072 RID: 4210 RVA: 0x0003CA84 File Offset: 0x0003AC84
+		// Token: 0x170004AD RID: 1197
+		// (get) Token: 0x060011C6 RID: 4550 RVA: 0x00040E2C File Offset: 0x0003F02C
 		public bool HasOldRot
 		{
 			get
@@ -149,8 +149,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000466 RID: 1126
-		// (get) Token: 0x06001073 RID: 4211 RVA: 0x0003CA8C File Offset: 0x0003AC8C
+		// Token: 0x170004AE RID: 1198
+		// (get) Token: 0x060011C7 RID: 4551 RVA: 0x00040E34 File Offset: 0x0003F034
 		public Quaternion OldRot
 		{
 			get
@@ -159,8 +159,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000467 RID: 1127
-		// (get) Token: 0x06001074 RID: 4212 RVA: 0x0003CAA0 File Offset: 0x0003ACA0
+		// Token: 0x170004AF RID: 1199
+		// (get) Token: 0x060011C8 RID: 4552 RVA: 0x00040E48 File Offset: 0x0003F048
 		public override bool IsInitialized
 		{
 			get
@@ -169,7 +169,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001075 RID: 4213 RVA: 0x0003CAA4 File Offset: 0x0003ACA4
+		// Token: 0x060011C9 RID: 4553 RVA: 0x00040E4C File Offset: 0x0003F04C
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -193,8 +193,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x17000468 RID: 1128
-		// (get) Token: 0x06001076 RID: 4214 RVA: 0x0003CB38 File Offset: 0x0003AD38
+		// Token: 0x170004B0 RID: 1200
+		// (get) Token: 0x060011CA RID: 4554 RVA: 0x00040EE0 File Offset: 0x0003F0E0
 		public override int SerializedSize
 		{
 			get
@@ -227,112 +227,112 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001077 RID: 4215 RVA: 0x0003CBD8 File Offset: 0x0003ADD8
+		// Token: 0x060011CB RID: 4555 RVA: 0x00040F80 File Offset: 0x0003F180
 		public static objectCoords ParseFrom(ByteString data)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001078 RID: 4216 RVA: 0x0003CBEC File Offset: 0x0003ADEC
+		// Token: 0x060011CC RID: 4556 RVA: 0x00040F94 File Offset: 0x0003F194
 		public static objectCoords ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001079 RID: 4217 RVA: 0x0003CC00 File Offset: 0x0003AE00
+		// Token: 0x060011CD RID: 4557 RVA: 0x00040FA8 File Offset: 0x0003F1A8
 		public static objectCoords ParseFrom(byte[] data)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x0600107A RID: 4218 RVA: 0x0003CC14 File Offset: 0x0003AE14
+		// Token: 0x060011CE RID: 4558 RVA: 0x00040FBC File Offset: 0x0003F1BC
 		public static objectCoords ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600107B RID: 4219 RVA: 0x0003CC28 File Offset: 0x0003AE28
+		// Token: 0x060011CF RID: 4559 RVA: 0x00040FD0 File Offset: 0x0003F1D0
 		public static objectCoords ParseFrom(Stream input)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600107C RID: 4220 RVA: 0x0003CC3C File Offset: 0x0003AE3C
+		// Token: 0x060011D0 RID: 4560 RVA: 0x00040FE4 File Offset: 0x0003F1E4
 		public static objectCoords ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600107D RID: 4221 RVA: 0x0003CC50 File Offset: 0x0003AE50
+		// Token: 0x060011D1 RID: 4561 RVA: 0x00040FF8 File Offset: 0x0003F1F8
 		public static objectCoords ParseDelimitedFrom(Stream input)
 		{
 			return objectCoords.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600107E RID: 4222 RVA: 0x0003CC64 File Offset: 0x0003AE64
+		// Token: 0x060011D2 RID: 4562 RVA: 0x0004100C File Offset: 0x0003F20C
 		public static objectCoords ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectCoords.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600107F RID: 4223 RVA: 0x0003CC78 File Offset: 0x0003AE78
+		// Token: 0x060011D3 RID: 4563 RVA: 0x00041020 File Offset: 0x0003F220
 		public static objectCoords ParseFrom(ICodedInputStream input)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001080 RID: 4224 RVA: 0x0003CC8C File Offset: 0x0003AE8C
+		// Token: 0x060011D4 RID: 4564 RVA: 0x00041034 File Offset: 0x0003F234
 		public static objectCoords ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectCoords.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001081 RID: 4225 RVA: 0x0003CCA0 File Offset: 0x0003AEA0
+		// Token: 0x060011D5 RID: 4565 RVA: 0x00041048 File Offset: 0x0003F248
 		private objectCoords MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x06001082 RID: 4226 RVA: 0x0003CCA4 File Offset: 0x0003AEA4
+		// Token: 0x060011D6 RID: 4566 RVA: 0x0004104C File Offset: 0x0003F24C
 		public static objectCoords.Builder CreateBuilder()
 		{
 			return new objectCoords.Builder();
 		}
 
-		// Token: 0x06001083 RID: 4227 RVA: 0x0003CCAC File Offset: 0x0003AEAC
+		// Token: 0x060011D7 RID: 4567 RVA: 0x00041054 File Offset: 0x0003F254
 		public override objectCoords.Builder ToBuilder()
 		{
 			return objectCoords.CreateBuilder(this);
 		}
 
-		// Token: 0x06001084 RID: 4228 RVA: 0x0003CCB4 File Offset: 0x0003AEB4
+		// Token: 0x060011D8 RID: 4568 RVA: 0x0004105C File Offset: 0x0003F25C
 		public override objectCoords.Builder CreateBuilderForType()
 		{
 			return new objectCoords.Builder();
 		}
 
-		// Token: 0x06001085 RID: 4229 RVA: 0x0003CCBC File Offset: 0x0003AEBC
+		// Token: 0x060011D9 RID: 4569 RVA: 0x00041064 File Offset: 0x0003F264
 		public static objectCoords.Builder CreateBuilder(objectCoords prototype)
 		{
 			return new objectCoords.Builder(prototype);
 		}
 
-		// Token: 0x0400092D RID: 2349
+		// Token: 0x04000A50 RID: 2640
 		public const int PosFieldNumber = 1;
 
-		// Token: 0x0400092E RID: 2350
+		// Token: 0x04000A51 RID: 2641
 		public const int OldPosFieldNumber = 2;
 
-		// Token: 0x0400092F RID: 2351
+		// Token: 0x04000A52 RID: 2642
 		public const int RotFieldNumber = 3;
 
-		// Token: 0x04000930 RID: 2352
+		// Token: 0x04000A53 RID: 2643
 		public const int OldRotFieldNumber = 4;
 
-		// Token: 0x04000931 RID: 2353
+		// Token: 0x04000A54 RID: 2644
 		private static readonly objectCoords defaultInstance = new objectCoords().MakeReadOnly();
 
-		// Token: 0x04000932 RID: 2354
+		// Token: 0x04000A55 RID: 2645
 		private static readonly string[] _objectCoordsFieldNames = new string[]
 		{
 			"oldPos",
@@ -341,7 +341,7 @@ namespace RustProto
 			"rot"
 		};
 
-		// Token: 0x04000933 RID: 2355
+		// Token: 0x04000A56 RID: 2646
 		private static readonly uint[] _objectCoordsFieldTags = new uint[]
 		{
 			18u,
@@ -350,53 +350,53 @@ namespace RustProto
 			26u
 		};
 
-		// Token: 0x04000934 RID: 2356
+		// Token: 0x04000A57 RID: 2647
 		private bool hasPos;
 
-		// Token: 0x04000935 RID: 2357
+		// Token: 0x04000A58 RID: 2648
 		private Vector pos_;
 
-		// Token: 0x04000936 RID: 2358
+		// Token: 0x04000A59 RID: 2649
 		private bool hasOldPos;
 
-		// Token: 0x04000937 RID: 2359
+		// Token: 0x04000A5A RID: 2650
 		private Vector oldPos_;
 
-		// Token: 0x04000938 RID: 2360
+		// Token: 0x04000A5B RID: 2651
 		private bool hasRot;
 
-		// Token: 0x04000939 RID: 2361
+		// Token: 0x04000A5C RID: 2652
 		private Quaternion rot_;
 
-		// Token: 0x0400093A RID: 2362
+		// Token: 0x04000A5D RID: 2653
 		private bool hasOldRot;
 
-		// Token: 0x0400093B RID: 2363
+		// Token: 0x04000A5E RID: 2654
 		private Quaternion oldRot_;
 
-		// Token: 0x0400093C RID: 2364
+		// Token: 0x04000A5F RID: 2655
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x0200020A RID: 522
+		// Token: 0x0200023D RID: 573
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectCoords, objectCoords.Builder>
 		{
-			// Token: 0x06001086 RID: 4230 RVA: 0x0003CCC4 File Offset: 0x0003AEC4
+			// Token: 0x060011DA RID: 4570 RVA: 0x0004106C File Offset: 0x0003F26C
 			public Builder()
 			{
 				this.result = objectCoords.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x06001087 RID: 4231 RVA: 0x0003CCE0 File Offset: 0x0003AEE0
+			// Token: 0x060011DB RID: 4571 RVA: 0x00041088 File Offset: 0x0003F288
 			internal Builder(objectCoords cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x17000469 RID: 1129
-			// (get) Token: 0x06001088 RID: 4232 RVA: 0x0003CCF8 File Offset: 0x0003AEF8
+			// Token: 0x170004B1 RID: 1201
+			// (get) Token: 0x060011DC RID: 4572 RVA: 0x000410A0 File Offset: 0x0003F2A0
 			protected override objectCoords.Builder ThisBuilder
 			{
 				get
@@ -405,7 +405,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001089 RID: 4233 RVA: 0x0003CCFC File Offset: 0x0003AEFC
+			// Token: 0x060011DD RID: 4573 RVA: 0x000410A4 File Offset: 0x0003F2A4
 			private objectCoords PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -418,8 +418,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x1700046A RID: 1130
-			// (get) Token: 0x0600108A RID: 4234 RVA: 0x0003CD3C File Offset: 0x0003AF3C
+			// Token: 0x170004B2 RID: 1202
+			// (get) Token: 0x060011DE RID: 4574 RVA: 0x000410E4 File Offset: 0x0003F2E4
 			public override bool IsInitialized
 			{
 				get
@@ -428,8 +428,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700046B RID: 1131
-			// (get) Token: 0x0600108B RID: 4235 RVA: 0x0003CD4C File Offset: 0x0003AF4C
+			// Token: 0x170004B3 RID: 1203
+			// (get) Token: 0x060011DF RID: 4575 RVA: 0x000410F4 File Offset: 0x0003F2F4
 			protected override objectCoords MessageBeingBuilt
 			{
 				get
@@ -438,7 +438,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600108C RID: 4236 RVA: 0x0003CD54 File Offset: 0x0003AF54
+			// Token: 0x060011E0 RID: 4576 RVA: 0x000410FC File Offset: 0x0003F2FC
 			public override objectCoords.Builder Clear()
 			{
 				this.result = objectCoords.DefaultInstance;
@@ -446,7 +446,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600108D RID: 4237 RVA: 0x0003CD6C File Offset: 0x0003AF6C
+			// Token: 0x060011E1 RID: 4577 RVA: 0x00041114 File Offset: 0x0003F314
 			public override objectCoords.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -456,8 +456,8 @@ namespace RustProto
 				return new objectCoords.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x1700046C RID: 1132
-			// (get) Token: 0x0600108E RID: 4238 RVA: 0x0003CD98 File Offset: 0x0003AF98
+			// Token: 0x170004B4 RID: 1204
+			// (get) Token: 0x060011E2 RID: 4578 RVA: 0x00041140 File Offset: 0x0003F340
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -466,8 +466,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700046D RID: 1133
-			// (get) Token: 0x0600108F RID: 4239 RVA: 0x0003CDA0 File Offset: 0x0003AFA0
+			// Token: 0x170004B5 RID: 1205
+			// (get) Token: 0x060011E3 RID: 4579 RVA: 0x00041148 File Offset: 0x0003F348
 			public override objectCoords DefaultInstanceForType
 			{
 				get
@@ -476,7 +476,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001090 RID: 4240 RVA: 0x0003CDA8 File Offset: 0x0003AFA8
+			// Token: 0x060011E4 RID: 4580 RVA: 0x00041150 File Offset: 0x0003F350
 			public override objectCoords BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -487,7 +487,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x06001091 RID: 4241 RVA: 0x0003CDDC File Offset: 0x0003AFDC
+			// Token: 0x060011E5 RID: 4581 RVA: 0x00041184 File Offset: 0x0003F384
 			public override objectCoords.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectCoords)
@@ -498,7 +498,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001092 RID: 4242 RVA: 0x0003CE00 File Offset: 0x0003B000
+			// Token: 0x060011E6 RID: 4582 RVA: 0x000411A8 File Offset: 0x0003F3A8
 			public override objectCoords.Builder MergeFrom(objectCoords other)
 			{
 				if (other == objectCoords.DefaultInstance)
@@ -526,13 +526,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001093 RID: 4243 RVA: 0x0003CE90 File Offset: 0x0003B090
+			// Token: 0x060011E7 RID: 4583 RVA: 0x00041238 File Offset: 0x0003F438
 			public override objectCoords.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x06001094 RID: 4244 RVA: 0x0003CEA0 File Offset: 0x0003B0A0
+			// Token: 0x060011E8 RID: 4584 RVA: 0x00041248 File Offset: 0x0003F448
 			public override objectCoords.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -633,8 +633,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700046E RID: 1134
-			// (get) Token: 0x06001095 RID: 4245 RVA: 0x0003D0B0 File Offset: 0x0003B2B0
+			// Token: 0x170004B6 RID: 1206
+			// (get) Token: 0x060011E9 RID: 4585 RVA: 0x00041458 File Offset: 0x0003F658
 			public bool HasPos
 			{
 				get
@@ -643,9 +643,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700046F RID: 1135
-			// (get) Token: 0x06001096 RID: 4246 RVA: 0x0003D0C0 File Offset: 0x0003B2C0
-			// (set) Token: 0x06001097 RID: 4247 RVA: 0x0003D0D0 File Offset: 0x0003B2D0
+			// Token: 0x170004B7 RID: 1207
+			// (get) Token: 0x060011EA RID: 4586 RVA: 0x00041468 File Offset: 0x0003F668
+			// (set) Token: 0x060011EB RID: 4587 RVA: 0x00041478 File Offset: 0x0003F678
 			public Vector Pos
 			{
 				get
@@ -658,7 +658,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001098 RID: 4248 RVA: 0x0003D0DC File Offset: 0x0003B2DC
+			// Token: 0x060011EC RID: 4588 RVA: 0x00041484 File Offset: 0x0003F684
 			public objectCoords.Builder SetPos(Vector value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -668,7 +668,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001099 RID: 4249 RVA: 0x0003D10C File Offset: 0x0003B30C
+			// Token: 0x060011ED RID: 4589 RVA: 0x000414B4 File Offset: 0x0003F6B4
 			public objectCoords.Builder SetPos(Vector.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -678,7 +678,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600109A RID: 4250 RVA: 0x0003D14C File Offset: 0x0003B34C
+			// Token: 0x060011EE RID: 4590 RVA: 0x000414F4 File Offset: 0x0003F6F4
 			public objectCoords.Builder MergePos(Vector value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -695,7 +695,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600109B RID: 4251 RVA: 0x0003D1D4 File Offset: 0x0003B3D4
+			// Token: 0x060011EF RID: 4591 RVA: 0x0004157C File Offset: 0x0003F77C
 			public objectCoords.Builder ClearPos()
 			{
 				this.PrepareBuilder();
@@ -704,8 +704,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000470 RID: 1136
-			// (get) Token: 0x0600109C RID: 4252 RVA: 0x0003D204 File Offset: 0x0003B404
+			// Token: 0x170004B8 RID: 1208
+			// (get) Token: 0x060011F0 RID: 4592 RVA: 0x000415AC File Offset: 0x0003F7AC
 			public bool HasOldPos
 			{
 				get
@@ -714,9 +714,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000471 RID: 1137
-			// (get) Token: 0x0600109D RID: 4253 RVA: 0x0003D214 File Offset: 0x0003B414
-			// (set) Token: 0x0600109E RID: 4254 RVA: 0x0003D224 File Offset: 0x0003B424
+			// Token: 0x170004B9 RID: 1209
+			// (get) Token: 0x060011F1 RID: 4593 RVA: 0x000415BC File Offset: 0x0003F7BC
+			// (set) Token: 0x060011F2 RID: 4594 RVA: 0x000415CC File Offset: 0x0003F7CC
 			public Vector OldPos
 			{
 				get
@@ -729,7 +729,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600109F RID: 4255 RVA: 0x0003D230 File Offset: 0x0003B430
+			// Token: 0x060011F3 RID: 4595 RVA: 0x000415D8 File Offset: 0x0003F7D8
 			public objectCoords.Builder SetOldPos(Vector value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -739,7 +739,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010A0 RID: 4256 RVA: 0x0003D260 File Offset: 0x0003B460
+			// Token: 0x060011F4 RID: 4596 RVA: 0x00041608 File Offset: 0x0003F808
 			public objectCoords.Builder SetOldPos(Vector.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -749,7 +749,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010A1 RID: 4257 RVA: 0x0003D2A0 File Offset: 0x0003B4A0
+			// Token: 0x060011F5 RID: 4597 RVA: 0x00041648 File Offset: 0x0003F848
 			public objectCoords.Builder MergeOldPos(Vector value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -766,7 +766,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010A2 RID: 4258 RVA: 0x0003D328 File Offset: 0x0003B528
+			// Token: 0x060011F6 RID: 4598 RVA: 0x000416D0 File Offset: 0x0003F8D0
 			public objectCoords.Builder ClearOldPos()
 			{
 				this.PrepareBuilder();
@@ -775,8 +775,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000472 RID: 1138
-			// (get) Token: 0x060010A3 RID: 4259 RVA: 0x0003D358 File Offset: 0x0003B558
+			// Token: 0x170004BA RID: 1210
+			// (get) Token: 0x060011F7 RID: 4599 RVA: 0x00041700 File Offset: 0x0003F900
 			public bool HasRot
 			{
 				get
@@ -785,9 +785,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000473 RID: 1139
-			// (get) Token: 0x060010A4 RID: 4260 RVA: 0x0003D368 File Offset: 0x0003B568
-			// (set) Token: 0x060010A5 RID: 4261 RVA: 0x0003D378 File Offset: 0x0003B578
+			// Token: 0x170004BB RID: 1211
+			// (get) Token: 0x060011F8 RID: 4600 RVA: 0x00041710 File Offset: 0x0003F910
+			// (set) Token: 0x060011F9 RID: 4601 RVA: 0x00041720 File Offset: 0x0003F920
 			public Quaternion Rot
 			{
 				get
@@ -800,7 +800,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010A6 RID: 4262 RVA: 0x0003D384 File Offset: 0x0003B584
+			// Token: 0x060011FA RID: 4602 RVA: 0x0004172C File Offset: 0x0003F92C
 			public objectCoords.Builder SetRot(Quaternion value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -810,7 +810,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010A7 RID: 4263 RVA: 0x0003D3B4 File Offset: 0x0003B5B4
+			// Token: 0x060011FB RID: 4603 RVA: 0x0004175C File Offset: 0x0003F95C
 			public objectCoords.Builder SetRot(Quaternion.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -820,7 +820,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010A8 RID: 4264 RVA: 0x0003D3F4 File Offset: 0x0003B5F4
+			// Token: 0x060011FC RID: 4604 RVA: 0x0004179C File Offset: 0x0003F99C
 			public objectCoords.Builder MergeRot(Quaternion value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -837,7 +837,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010A9 RID: 4265 RVA: 0x0003D47C File Offset: 0x0003B67C
+			// Token: 0x060011FD RID: 4605 RVA: 0x00041824 File Offset: 0x0003FA24
 			public objectCoords.Builder ClearRot()
 			{
 				this.PrepareBuilder();
@@ -846,8 +846,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000474 RID: 1140
-			// (get) Token: 0x060010AA RID: 4266 RVA: 0x0003D4AC File Offset: 0x0003B6AC
+			// Token: 0x170004BC RID: 1212
+			// (get) Token: 0x060011FE RID: 4606 RVA: 0x00041854 File Offset: 0x0003FA54
 			public bool HasOldRot
 			{
 				get
@@ -856,9 +856,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000475 RID: 1141
-			// (get) Token: 0x060010AB RID: 4267 RVA: 0x0003D4BC File Offset: 0x0003B6BC
-			// (set) Token: 0x060010AC RID: 4268 RVA: 0x0003D4CC File Offset: 0x0003B6CC
+			// Token: 0x170004BD RID: 1213
+			// (get) Token: 0x060011FF RID: 4607 RVA: 0x00041864 File Offset: 0x0003FA64
+			// (set) Token: 0x06001200 RID: 4608 RVA: 0x00041874 File Offset: 0x0003FA74
 			public Quaternion OldRot
 			{
 				get
@@ -871,7 +871,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010AD RID: 4269 RVA: 0x0003D4D8 File Offset: 0x0003B6D8
+			// Token: 0x06001201 RID: 4609 RVA: 0x00041880 File Offset: 0x0003FA80
 			public objectCoords.Builder SetOldRot(Quaternion value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -881,7 +881,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010AE RID: 4270 RVA: 0x0003D508 File Offset: 0x0003B708
+			// Token: 0x06001202 RID: 4610 RVA: 0x000418B0 File Offset: 0x0003FAB0
 			public objectCoords.Builder SetOldRot(Quaternion.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -891,7 +891,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010AF RID: 4271 RVA: 0x0003D548 File Offset: 0x0003B748
+			// Token: 0x06001203 RID: 4611 RVA: 0x000418F0 File Offset: 0x0003FAF0
 			public objectCoords.Builder MergeOldRot(Quaternion value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -908,7 +908,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010B0 RID: 4272 RVA: 0x0003D5D0 File Offset: 0x0003B7D0
+			// Token: 0x06001204 RID: 4612 RVA: 0x00041978 File Offset: 0x0003FB78
 			public objectCoords.Builder ClearOldRot()
 			{
 				this.PrepareBuilder();
@@ -917,10 +917,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0400093D RID: 2365
+			// Token: 0x04000A60 RID: 2656
 			private bool resultIsReadOnly;
 
-			// Token: 0x0400093E RID: 2366
+			// Token: 0x04000A61 RID: 2657
 			private objectCoords result;
 		}
 	}

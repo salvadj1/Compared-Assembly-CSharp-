@@ -4,27 +4,27 @@ using System.Runtime.InteropServices;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020002A4 RID: 676
+// Token: 0x020002E1 RID: 737
 public class CullGrid : MonoBehaviour
 {
-	// Token: 0x170006FA RID: 1786
-	// (get) Token: 0x0600180F RID: 6159 RVA: 0x0005E980 File Offset: 0x0005CB80
+	// Token: 0x1700074E RID: 1870
+	// (get) Token: 0x0600199F RID: 6559 RVA: 0x000632F4 File Offset: 0x000614F4
 	public static bool autoPrebindInInstantiate
 	{
 		get
 		{
-			return CullGrid.has_grid && CullGrid.cull_prebinding;
+			return global::CullGrid.has_grid && global::CullGrid.cull_prebinding;
 		}
 	}
 
-	// Token: 0x06001810 RID: 6160 RVA: 0x0005E994 File Offset: 0x0005CB94
+	// Token: 0x060019A0 RID: 6560 RVA: 0x00063308 File Offset: 0x00061508
 	private Vector3 GetCenterSetup(int cell)
 	{
-		CullGridSetup cullGridSetup = this.setup;
+		global::CullGridSetup cullGridSetup = this.setup;
 		return base.transform.position + base.transform.forward * (((float)(cell / cullGridSetup.cellsWide) - ((float)cullGridSetup.cellsTall / 2f - (float)(2 - (cullGridSetup.cellsTall & 1)) / 2f)) * (float)cullGridSetup.cellSquareDimension) + base.transform.right * (((float)(cell % cullGridSetup.cellsWide) - ((float)cullGridSetup.cellsWide / 2f - (float)(2 - (cullGridSetup.cellsWide & 1)) / 2f)) * (float)cullGridSetup.cellSquareDimension);
 	}
 
-	// Token: 0x06001811 RID: 6161 RVA: 0x0005EA40 File Offset: 0x0005CC40
+	// Token: 0x060019A1 RID: 6561 RVA: 0x000633B4 File Offset: 0x000615B4
 	private void DrawGrid(int cell)
 	{
 		if (cell != -1)
@@ -33,170 +33,170 @@ public class CullGrid : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001812 RID: 6162 RVA: 0x0005EA58 File Offset: 0x0005CC58
+	// Token: 0x060019A2 RID: 6562 RVA: 0x000633CC File Offset: 0x000615CC
 	private void DrawGrid(int centerCell, int xOffset, int yOffset)
 	{
 		this.DrawGrid(centerCell + xOffset + this.setup.cellsWide * 2 * yOffset);
 	}
 
-	// Token: 0x06001813 RID: 6163 RVA: 0x0005EA74 File Offset: 0x0005CC74
+	// Token: 0x060019A3 RID: 6563 RVA: 0x000633E8 File Offset: 0x000615E8
 	private void DrawGrid(Vector3 center)
 	{
 		Vector3 vector = base.transform.right * ((float)this.setup.cellSquareDimension / 2f);
 		Vector3 vector2 = base.transform.forward * ((float)this.setup.cellSquareDimension / 2f);
-		CullGrid.DrawQuadRayCastDown(center + vector + vector2, center + vector - vector2, center - vector - vector2, center - vector + vector2);
+		global::CullGrid.DrawQuadRayCastDown(center + vector + vector2, center + vector - vector2, center - vector - vector2, center - vector + vector2);
 	}
 
-	// Token: 0x06001814 RID: 6164 RVA: 0x0005EB00 File Offset: 0x0005CD00
+	// Token: 0x060019A4 RID: 6564 RVA: 0x00063474 File Offset: 0x00061674
 	private void DrawGrid(Vector3 center, float sizeX, float sizeY)
 	{
 		Vector3 vector = base.transform.right * (sizeX / 2f);
 		Vector3 vector2 = base.transform.forward * (sizeY / 2f);
-		CullGrid.DrawQuadRayCastDown(center + vector + vector2, center + vector - vector2, center - vector - vector2, center - vector + vector2);
+		global::CullGrid.DrawQuadRayCastDown(center + vector + vector2, center + vector - vector2, center - vector - vector2, center - vector + vector2);
 	}
 
-	// Token: 0x06001815 RID: 6165 RVA: 0x0005EB78 File Offset: 0x0005CD78
-	private static void RegisterGrid(CullGrid grid)
+	// Token: 0x060019A5 RID: 6565 RVA: 0x000634EC File Offset: 0x000616EC
+	private static void RegisterGrid(global::CullGrid grid)
 	{
 		if (grid)
 		{
-			CullGrid.grid = new CullGrid.CullGridRuntime(grid);
-			CullGrid.has_grid = true;
+			global::CullGrid.grid = new global::CullGrid.CullGridRuntime(grid);
+			global::CullGrid.has_grid = true;
 		}
 	}
 
-	// Token: 0x06001816 RID: 6166 RVA: 0x0005EB98 File Offset: 0x0005CD98
+	// Token: 0x060019A6 RID: 6566 RVA: 0x0006350C File Offset: 0x0006170C
 	private void Awake()
 	{
-		CullGrid.RegisterGrid(this);
+		global::CullGrid.RegisterGrid(this);
 	}
 
-	// Token: 0x06001817 RID: 6167 RVA: 0x0005EBA0 File Offset: 0x0005CDA0
+	// Token: 0x060019A7 RID: 6567 RVA: 0x00063514 File Offset: 0x00061714
 	public static ushort CellFromGroupID(int groupID)
 	{
-		if (groupID < CullGrid.grid.groupBegin || groupID >= CullGrid.grid.groupEnd)
+		if (groupID < global::CullGrid.grid.groupBegin || groupID >= global::CullGrid.grid.groupEnd)
 		{
 			throw new ArgumentOutOfRangeException("groupID", groupID, "groupID < grid.groupBegin || groupID >= grid.groupEnd");
 		}
-		return (ushort)(groupID - CullGrid.grid.groupBegin);
+		return (ushort)(groupID - global::CullGrid.grid.groupBegin);
 	}
 
-	// Token: 0x06001818 RID: 6168 RVA: 0x0005EBF0 File Offset: 0x0005CDF0
+	// Token: 0x060019A8 RID: 6568 RVA: 0x00063564 File Offset: 0x00061764
 	public static ushort CellFromGroupID(int groupID, out ushort x, out ushort y)
 	{
-		ushort num = CullGrid.CellFromGroupID(groupID);
-		x = (ushort)((int)num % CullGrid.grid.cellsWide);
-		y = (ushort)((int)num / CullGrid.grid.cellsWide);
+		ushort num = global::CullGrid.CellFromGroupID(groupID);
+		x = (ushort)((int)num % global::CullGrid.grid.cellsWide);
+		y = (ushort)((int)num / global::CullGrid.grid.cellsWide);
 		return num;
 	}
 
-	// Token: 0x06001819 RID: 6169 RVA: 0x0005EC24 File Offset: 0x0005CE24
+	// Token: 0x060019A9 RID: 6569 RVA: 0x00063598 File Offset: 0x00061798
 	public static int GroupIDFromCell(ushort cell)
 	{
-		if ((int)cell >= CullGrid.grid.numCells)
+		if ((int)cell >= global::CullGrid.grid.numCells)
 		{
 			throw new ArgumentOutOfRangeException("cell", cell, "cell >= grid.numCells");
 		}
-		return CullGrid.grid.groupBegin + (int)cell;
+		return global::CullGrid.grid.groupBegin + (int)cell;
 	}
 
-	// Token: 0x170006FB RID: 1787
-	// (get) Token: 0x0600181A RID: 6170 RVA: 0x0005EC64 File Offset: 0x0005CE64
+	// Token: 0x1700074F RID: 1871
+	// (get) Token: 0x060019AA RID: 6570 RVA: 0x000635D8 File Offset: 0x000617D8
 	public static int Wide
 	{
 		get
 		{
-			return CullGrid.grid.cellsWide;
+			return global::CullGrid.grid.cellsWide;
 		}
 	}
 
-	// Token: 0x170006FC RID: 1788
-	// (get) Token: 0x0600181B RID: 6171 RVA: 0x0005EC70 File Offset: 0x0005CE70
+	// Token: 0x17000750 RID: 1872
+	// (get) Token: 0x060019AB RID: 6571 RVA: 0x000635E4 File Offset: 0x000617E4
 	public static int Tall
 	{
 		get
 		{
-			return CullGrid.grid.cellsTall;
+			return global::CullGrid.grid.cellsTall;
 		}
 	}
 
-	// Token: 0x0600181C RID: 6172 RVA: 0x0005EC7C File Offset: 0x0005CE7C
+	// Token: 0x060019AC RID: 6572 RVA: 0x000635F0 File Offset: 0x000617F0
 	public static bool CellContainsPoint(ushort cell, ref Vector2 flatPoint)
 	{
-		return cell == CullGrid.grid.FlatCell(ref flatPoint);
+		return cell == global::CullGrid.grid.FlatCell(ref flatPoint);
 	}
 
-	// Token: 0x0600181D RID: 6173 RVA: 0x0005EC8C File Offset: 0x0005CE8C
+	// Token: 0x060019AD RID: 6573 RVA: 0x00063600 File Offset: 0x00061800
 	public static bool CellContainsPoint(ushort cell, ref Vector2 flatPoint, out ushort cell_point)
 	{
-		cell_point = CullGrid.grid.FlatCell(ref flatPoint);
+		cell_point = global::CullGrid.grid.FlatCell(ref flatPoint);
 		return cell == cell_point;
 	}
 
-	// Token: 0x0600181E RID: 6174 RVA: 0x0005ECA0 File Offset: 0x0005CEA0
+	// Token: 0x060019AE RID: 6574 RVA: 0x00063614 File Offset: 0x00061814
 	public static bool CellContainsPoint(ushort cell, ref Vector3 worldPoint)
 	{
-		return cell == CullGrid.grid.WorldCell(ref worldPoint);
+		return cell == global::CullGrid.grid.WorldCell(ref worldPoint);
 	}
 
-	// Token: 0x0600181F RID: 6175 RVA: 0x0005ECB0 File Offset: 0x0005CEB0
+	// Token: 0x060019AF RID: 6575 RVA: 0x00063624 File Offset: 0x00061824
 	public static bool CellContainsPoint(ushort cell, ref Vector3 worldPoint, out ushort cell_point)
 	{
-		cell_point = CullGrid.grid.WorldCell(ref worldPoint);
+		cell_point = global::CullGrid.grid.WorldCell(ref worldPoint);
 		return cell_point == cell;
 	}
 
-	// Token: 0x06001820 RID: 6176 RVA: 0x0005ECC4 File Offset: 0x0005CEC4
+	// Token: 0x060019B0 RID: 6576 RVA: 0x00063638 File Offset: 0x00061838
 	public static bool GroupIDContainsPoint(int groupID, ref Vector2 flatPoint, out int groupID_point)
 	{
-		if (groupID < CullGrid.grid.groupBegin || groupID >= CullGrid.grid.groupEnd)
+		if (groupID < global::CullGrid.grid.groupBegin || groupID >= global::CullGrid.grid.groupEnd)
 		{
 			NetworkGroup unassigned = NetworkGroup.unassigned;
 			groupID_point = unassigned.id;
 			return false;
 		}
 		ushort num;
-		if (!CullGrid.CellContainsPoint((ushort)(groupID - CullGrid.grid.groupBegin), ref flatPoint, out num))
+		if (!global::CullGrid.CellContainsPoint((ushort)(groupID - global::CullGrid.grid.groupBegin), ref flatPoint, out num))
 		{
-			groupID_point = (int)num + CullGrid.grid.groupBegin;
+			groupID_point = (int)num + global::CullGrid.grid.groupBegin;
 			return false;
 		}
 		groupID_point = groupID;
 		return true;
 	}
 
-	// Token: 0x06001821 RID: 6177 RVA: 0x0005ED30 File Offset: 0x0005CF30
+	// Token: 0x060019B1 RID: 6577 RVA: 0x000636A4 File Offset: 0x000618A4
 	public static bool GroupIDContainsPoint(int groupID, ref Vector3 worldPoint, out int groupID_point)
 	{
-		if (groupID < CullGrid.grid.groupBegin || groupID >= CullGrid.grid.groupEnd)
+		if (groupID < global::CullGrid.grid.groupBegin || groupID >= global::CullGrid.grid.groupEnd)
 		{
 			NetworkGroup unassigned = NetworkGroup.unassigned;
 			groupID_point = unassigned.id;
 			return false;
 		}
 		ushort cell;
-		if (!CullGrid.CellContainsPoint(CullGrid.CellFromGroupID(groupID), ref worldPoint, out cell))
+		if (!global::CullGrid.CellContainsPoint(global::CullGrid.CellFromGroupID(groupID), ref worldPoint, out cell))
 		{
-			groupID_point = CullGrid.GroupIDFromCell(cell);
+			groupID_point = global::CullGrid.GroupIDFromCell(cell);
 			return false;
 		}
 		groupID_point = groupID;
 		return true;
 	}
 
-	// Token: 0x06001822 RID: 6178 RVA: 0x0005ED90 File Offset: 0x0005CF90
+	// Token: 0x060019B2 RID: 6578 RVA: 0x00063704 File Offset: 0x00061904
 	public static bool GroupIDContainsPoint(int groupID, ref Vector2 flatPoint)
 	{
-		return groupID >= CullGrid.grid.groupBegin && groupID < CullGrid.grid.groupEnd && CullGrid.CellContainsPoint((ushort)(groupID - CullGrid.grid.groupBegin), ref flatPoint);
+		return groupID >= global::CullGrid.grid.groupBegin && groupID < global::CullGrid.grid.groupEnd && global::CullGrid.CellContainsPoint((ushort)(groupID - global::CullGrid.grid.groupBegin), ref flatPoint);
 	}
 
-	// Token: 0x06001823 RID: 6179 RVA: 0x0005EDD4 File Offset: 0x0005CFD4
+	// Token: 0x060019B3 RID: 6579 RVA: 0x00063748 File Offset: 0x00061948
 	public static bool GroupIDContainsPoint(int groupID, ref Vector3 worldPoint)
 	{
-		return groupID >= CullGrid.grid.groupBegin && groupID < CullGrid.grid.groupEnd && CullGrid.CellContainsPoint((ushort)(groupID - CullGrid.grid.groupBegin), ref worldPoint);
+		return groupID >= global::CullGrid.grid.groupBegin && groupID < global::CullGrid.grid.groupEnd && global::CullGrid.CellContainsPoint((ushort)(groupID - global::CullGrid.grid.groupBegin), ref worldPoint);
 	}
 
-	// Token: 0x06001824 RID: 6180 RVA: 0x0005EE18 File Offset: 0x0005D018
+	// Token: 0x060019B4 RID: 6580 RVA: 0x0006378C File Offset: 0x0006198C
 	public static Vector2 Flat(Vector3 triD)
 	{
 		Vector2 result;
@@ -205,43 +205,43 @@ public class CullGrid : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06001825 RID: 6181 RVA: 0x0005EE44 File Offset: 0x0005D044
+	// Token: 0x060019B5 RID: 6581 RVA: 0x000637B8 File Offset: 0x000619B8
 	public static ushort FlatCell(Vector2 flat)
 	{
-		return CullGrid.grid.FlatCell(ref flat);
+		return global::CullGrid.grid.FlatCell(ref flat);
 	}
 
-	// Token: 0x06001826 RID: 6182 RVA: 0x0005EE54 File Offset: 0x0005D054
+	// Token: 0x060019B6 RID: 6582 RVA: 0x000637C8 File Offset: 0x000619C8
 	public static ushort WorldCell(Vector3 world)
 	{
-		return CullGrid.grid.WorldCell(ref world);
+		return global::CullGrid.grid.WorldCell(ref world);
 	}
 
-	// Token: 0x06001827 RID: 6183 RVA: 0x0005EE64 File Offset: 0x0005D064
+	// Token: 0x060019B7 RID: 6583 RVA: 0x000637D8 File Offset: 0x000619D8
 	public static ushort FlatCell(ref Vector2 flat)
 	{
-		return CullGrid.grid.FlatCell(ref flat);
+		return global::CullGrid.grid.FlatCell(ref flat);
 	}
 
-	// Token: 0x06001828 RID: 6184 RVA: 0x0005EE74 File Offset: 0x0005D074
+	// Token: 0x060019B8 RID: 6584 RVA: 0x000637E8 File Offset: 0x000619E8
 	public static ushort WorldCell(ref Vector3 world)
 	{
-		return CullGrid.grid.WorldCell(ref world);
+		return global::CullGrid.grid.WorldCell(ref world);
 	}
 
-	// Token: 0x06001829 RID: 6185 RVA: 0x0005EE84 File Offset: 0x0005D084
+	// Token: 0x060019B9 RID: 6585 RVA: 0x000637F8 File Offset: 0x000619F8
 	public static int FlatGroupID(ref Vector2 flat)
 	{
-		return (int)CullGrid.grid.FlatCell(ref flat) + CullGrid.grid.groupBegin;
+		return (int)global::CullGrid.grid.FlatCell(ref flat) + global::CullGrid.grid.groupBegin;
 	}
 
-	// Token: 0x0600182A RID: 6186 RVA: 0x0005EE9C File Offset: 0x0005D09C
+	// Token: 0x060019BA RID: 6586 RVA: 0x00063810 File Offset: 0x00061A10
 	public static int WorldGroupID(ref Vector3 world)
 	{
-		return (int)CullGrid.grid.WorldCell(ref world) + CullGrid.grid.groupBegin;
+		return (int)global::CullGrid.grid.WorldCell(ref world) + global::CullGrid.grid.groupBegin;
 	}
 
-	// Token: 0x0600182B RID: 6187 RVA: 0x0005EEB4 File Offset: 0x0005D0B4
+	// Token: 0x060019BB RID: 6587 RVA: 0x00063828 File Offset: 0x00061A28
 	private static void RaycastDownVect(ref Vector3 a)
 	{
 		RaycastHit raycastHit;
@@ -251,13 +251,13 @@ public class CullGrid : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600182C RID: 6188 RVA: 0x0005EF10 File Offset: 0x0005D110
+	// Token: 0x060019BC RID: 6588 RVA: 0x00063884 File Offset: 0x00061A84
 	private static void DrawQuadRayCastDown(Vector3 a, Vector3 b, Vector3 c, Vector3 d)
 	{
-		CullGrid.RaycastDownVect(ref a);
-		CullGrid.RaycastDownVect(ref b);
-		CullGrid.RaycastDownVect(ref c);
-		CullGrid.RaycastDownVect(ref d);
+		global::CullGrid.RaycastDownVect(ref a);
+		global::CullGrid.RaycastDownVect(ref b);
+		global::CullGrid.RaycastDownVect(ref c);
+		global::CullGrid.RaycastDownVect(ref d);
 		Gizmos.DrawLine(a, b);
 		Gizmos.DrawLine(b, c);
 		Gizmos.DrawLine(c, d);
@@ -305,310 +305,310 @@ public class CullGrid : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600182D RID: 6189 RVA: 0x0005F078 File Offset: 0x0005D278
+	// Token: 0x060019BD RID: 6589 RVA: 0x000639EC File Offset: 0x00061BEC
 	private void DrawGizmosNow()
 	{
 	}
 
-	// Token: 0x0600182E RID: 6190 RVA: 0x0005F07C File Offset: 0x0005D27C
+	// Token: 0x060019BE RID: 6590 RVA: 0x000639F0 File Offset: 0x00061BF0
 	public static bool IsCellGroupID(int usedGroup)
 	{
-		return CullGrid.has_grid && usedGroup >= CullGrid.grid.groupBegin && usedGroup < CullGrid.grid.groupEnd;
+		return global::CullGrid.has_grid && usedGroup >= global::CullGrid.grid.groupBegin && usedGroup < global::CullGrid.grid.groupEnd;
 	}
 
-	// Token: 0x0600182F RID: 6191 RVA: 0x0005F0B4 File Offset: 0x0005D2B4
+	// Token: 0x060019BF RID: 6591 RVA: 0x00063A28 File Offset: 0x00061C28
 	public static bool IsCellGroup(NetworkGroup group)
 	{
-		return CullGrid.IsCellGroupID(group.id);
+		return global::CullGrid.IsCellGroupID(group.id);
 	}
 
-	// Token: 0x04000CDF RID: 3295
+	// Token: 0x04000E1A RID: 3610
 	private static bool cull_prebinding = true;
 
-	// Token: 0x04000CE0 RID: 3296
+	// Token: 0x04000E1B RID: 3611
 	[SerializeField]
-	private CullGridSetup setup;
+	private global::CullGridSetup setup;
 
-	// Token: 0x04000CE1 RID: 3297
-	private static CullGrid.CullGridRuntime grid;
+	// Token: 0x04000E1C RID: 3612
+	private static global::CullGrid.CullGridRuntime grid;
 
-	// Token: 0x04000CE2 RID: 3298
+	// Token: 0x04000E1D RID: 3613
 	private static bool has_grid;
 
-	// Token: 0x020002A5 RID: 677
+	// Token: 0x020002E2 RID: 738
 	[StructLayout(LayoutKind.Explicit, Size = 2)]
 	public struct CellID
 	{
-		// Token: 0x06001830 RID: 6192 RVA: 0x0005F0C4 File Offset: 0x0005D2C4
+		// Token: 0x060019C0 RID: 6592 RVA: 0x00063A38 File Offset: 0x00061C38
 		public CellID(ushort cellID)
 		{
 			this.id = cellID;
 		}
 
-		// Token: 0x170006FD RID: 1789
-		// (get) Token: 0x06001831 RID: 6193 RVA: 0x0005F0D0 File Offset: 0x0005D2D0
+		// Token: 0x17000751 RID: 1873
+		// (get) Token: 0x060019C1 RID: 6593 RVA: 0x00063A44 File Offset: 0x00061C44
 		public Vector2 flatCenter
 		{
 			get
 			{
 				Vector2 result;
-				CullGrid.grid.GetCenter((int)this.id, out result);
+				global::CullGrid.grid.GetCenter((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x170006FE RID: 1790
-		// (get) Token: 0x06001832 RID: 6194 RVA: 0x0005F0F0 File Offset: 0x0005D2F0
+		// Token: 0x17000752 RID: 1874
+		// (get) Token: 0x060019C2 RID: 6594 RVA: 0x00063A64 File Offset: 0x00061C64
 		public Vector2 flatMax
 		{
 			get
 			{
 				Vector2 result;
-				CullGrid.grid.GetMin((int)this.id, out result);
+				global::CullGrid.grid.GetMin((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x170006FF RID: 1791
-		// (get) Token: 0x06001833 RID: 6195 RVA: 0x0005F110 File Offset: 0x0005D310
+		// Token: 0x17000753 RID: 1875
+		// (get) Token: 0x060019C3 RID: 6595 RVA: 0x00063A84 File Offset: 0x00061C84
 		public Vector2 flatMin
 		{
 			get
 			{
 				Vector2 result;
-				CullGrid.grid.GetMax((int)this.id, out result);
+				global::CullGrid.grid.GetMax((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x17000700 RID: 1792
-		// (get) Token: 0x06001834 RID: 6196 RVA: 0x0005F130 File Offset: 0x0005D330
+		// Token: 0x17000754 RID: 1876
+		// (get) Token: 0x060019C4 RID: 6596 RVA: 0x00063AA4 File Offset: 0x00061CA4
 		public Rect flatRect
 		{
 			get
 			{
 				Rect result;
-				CullGrid.grid.GetRect((int)this.id, out result);
+				global::CullGrid.grid.GetRect((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x17000701 RID: 1793
-		// (get) Token: 0x06001835 RID: 6197 RVA: 0x0005F150 File Offset: 0x0005D350
+		// Token: 0x17000755 RID: 1877
+		// (get) Token: 0x060019C5 RID: 6597 RVA: 0x00063AC4 File Offset: 0x00061CC4
 		public Vector3 worldCenter
 		{
 			get
 			{
 				Vector3 result;
-				CullGrid.grid.GetCenter((int)this.id, out result);
+				global::CullGrid.grid.GetCenter((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x17000702 RID: 1794
-		// (get) Token: 0x06001836 RID: 6198 RVA: 0x0005F170 File Offset: 0x0005D370
+		// Token: 0x17000756 RID: 1878
+		// (get) Token: 0x060019C6 RID: 6598 RVA: 0x00063AE4 File Offset: 0x00061CE4
 		public Vector3 worldMax
 		{
 			get
 			{
 				Vector3 result;
-				CullGrid.grid.GetMin((int)this.id, out result);
+				global::CullGrid.grid.GetMin((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x17000703 RID: 1795
-		// (get) Token: 0x06001837 RID: 6199 RVA: 0x0005F190 File Offset: 0x0005D390
+		// Token: 0x17000757 RID: 1879
+		// (get) Token: 0x060019C7 RID: 6599 RVA: 0x00063B04 File Offset: 0x00061D04
 		public Vector3 worldMin
 		{
 			get
 			{
 				Vector3 result;
-				CullGrid.grid.GetMax((int)this.id, out result);
+				global::CullGrid.grid.GetMax((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x17000704 RID: 1796
-		// (get) Token: 0x06001838 RID: 6200 RVA: 0x0005F1B0 File Offset: 0x0005D3B0
+		// Token: 0x17000758 RID: 1880
+		// (get) Token: 0x060019C8 RID: 6600 RVA: 0x00063B24 File Offset: 0x00061D24
 		public Bounds worldBounds
 		{
 			get
 			{
 				Bounds result;
-				CullGrid.grid.GetBounds((int)this.id, out result);
+				global::CullGrid.grid.GetBounds((int)this.id, out result);
 				return result;
 			}
 		}
 
-		// Token: 0x06001839 RID: 6201 RVA: 0x0005F1D0 File Offset: 0x0005D3D0
+		// Token: 0x060019C9 RID: 6601 RVA: 0x00063B44 File Offset: 0x00061D44
 		public bool ContainsWorldPoint(Vector3 worldPoint)
 		{
-			return CullGrid.grid.Contains((int)this.id, ref worldPoint);
+			return global::CullGrid.grid.Contains((int)this.id, ref worldPoint);
 		}
 
-		// Token: 0x0600183A RID: 6202 RVA: 0x0005F1E4 File Offset: 0x0005D3E4
+		// Token: 0x060019CA RID: 6602 RVA: 0x00063B58 File Offset: 0x00061D58
 		public bool ContainsFlatPoint(Vector2 flatPoint)
 		{
-			return CullGrid.grid.Contains((int)this.id, ref flatPoint);
+			return global::CullGrid.grid.Contains((int)this.id, ref flatPoint);
 		}
 
-		// Token: 0x0600183B RID: 6203 RVA: 0x0005F1F8 File Offset: 0x0005D3F8
+		// Token: 0x060019CB RID: 6603 RVA: 0x00063B6C File Offset: 0x00061D6C
 		public bool ContainsWorldPoint(ref Vector3 worldPoint)
 		{
-			return this.valid && CullGrid.grid.Contains((int)this.id, ref worldPoint);
+			return this.valid && global::CullGrid.grid.Contains((int)this.id, ref worldPoint);
 		}
 
-		// Token: 0x0600183C RID: 6204 RVA: 0x0005F21C File Offset: 0x0005D41C
+		// Token: 0x060019CC RID: 6604 RVA: 0x00063B90 File Offset: 0x00061D90
 		public bool ContainsFlatPoint(ref Vector2 flatPoint)
 		{
-			return this.valid && CullGrid.grid.Contains((int)this.id, ref flatPoint);
+			return this.valid && global::CullGrid.grid.Contains((int)this.id, ref flatPoint);
 		}
 
-		// Token: 0x17000705 RID: 1797
-		// (get) Token: 0x0600183D RID: 6205 RVA: 0x0005F240 File Offset: 0x0005D440
+		// Token: 0x17000759 RID: 1881
+		// (get) Token: 0x060019CD RID: 6605 RVA: 0x00063BB4 File Offset: 0x00061DB4
 		public int column
 		{
 			get
 			{
-				return (!this.valid) ? -1 : ((int)this.id % CullGrid.grid.cellsWide);
+				return (!this.valid) ? -1 : ((int)this.id % global::CullGrid.grid.cellsWide);
 			}
 		}
 
-		// Token: 0x17000706 RID: 1798
-		// (get) Token: 0x0600183E RID: 6206 RVA: 0x0005F270 File Offset: 0x0005D470
+		// Token: 0x1700075A RID: 1882
+		// (get) Token: 0x060019CE RID: 6606 RVA: 0x00063BE4 File Offset: 0x00061DE4
 		public int row
 		{
 			get
 			{
-				return (!this.valid) ? -1 : ((int)this.id / CullGrid.grid.cellsWide);
+				return (!this.valid) ? -1 : ((int)this.id / global::CullGrid.grid.cellsWide);
 			}
 		}
 
-		// Token: 0x0600183F RID: 6207 RVA: 0x0005F2A0 File Offset: 0x0005D4A0
+		// Token: 0x060019CF RID: 6607 RVA: 0x00063C14 File Offset: 0x00061E14
 		private static ushort NextRight(ushort id)
 		{
-			return ((int)id % CullGrid.grid.cellsWide != (int)CullGrid.grid.cellWideLast) ? (id + 1) : ushort.MaxValue;
+			return ((int)id % global::CullGrid.grid.cellsWide != (int)global::CullGrid.grid.cellWideLast) ? (id + 1) : ushort.MaxValue;
 		}
 
-		// Token: 0x06001840 RID: 6208 RVA: 0x0005F2CC File Offset: 0x0005D4CC
+		// Token: 0x060019D0 RID: 6608 RVA: 0x00063C40 File Offset: 0x00061E40
 		private static ushort NextLeft(ushort id)
 		{
-			return ((int)id % CullGrid.grid.cellsWide != 0) ? (id - 1) : ushort.MaxValue;
+			return ((int)id % global::CullGrid.grid.cellsWide != 0) ? (id - 1) : ushort.MaxValue;
 		}
 
-		// Token: 0x06001841 RID: 6209 RVA: 0x0005F2F0 File Offset: 0x0005D4F0
+		// Token: 0x060019D1 RID: 6609 RVA: 0x00063C64 File Offset: 0x00061E64
 		private static ushort NextUp(ushort id)
 		{
-			return ((int)id / CullGrid.grid.cellsWide != (int)CullGrid.grid.cellTallLast) ? ((ushort)((int)id + CullGrid.grid.cellsWide)) : ushort.MaxValue;
+			return ((int)id / global::CullGrid.grid.cellsWide != (int)global::CullGrid.grid.cellTallLast) ? ((ushort)((int)id + global::CullGrid.grid.cellsWide)) : ushort.MaxValue;
 		}
 
-		// Token: 0x06001842 RID: 6210 RVA: 0x0005F330 File Offset: 0x0005D530
+		// Token: 0x060019D2 RID: 6610 RVA: 0x00063CA4 File Offset: 0x00061EA4
 		private static ushort NextDown(ushort id)
 		{
-			return ((int)id / CullGrid.grid.cellsWide != 0) ? ((ushort)((int)id - CullGrid.grid.cellsWide)) : ushort.MaxValue;
+			return ((int)id / global::CullGrid.grid.cellsWide != 0) ? ((ushort)((int)id - global::CullGrid.grid.cellsWide)) : ushort.MaxValue;
 		}
 
-		// Token: 0x17000707 RID: 1799
-		// (get) Token: 0x06001843 RID: 6211 RVA: 0x0005F368 File Offset: 0x0005D568
-		public CullGrid.CellID right
+		// Token: 0x1700075B RID: 1883
+		// (get) Token: 0x060019D3 RID: 6611 RVA: 0x00063CDC File Offset: 0x00061EDC
+		public global::CullGrid.CellID right
 		{
 			get
 			{
-				CullGrid.CellID result;
-				result.id = ((!this.valid) ? ushort.MaxValue : CullGrid.CellID.NextRight(this.id));
+				global::CullGrid.CellID result;
+				result.id = ((!this.valid) ? ushort.MaxValue : global::CullGrid.CellID.NextRight(this.id));
 				return result;
 			}
 		}
 
-		// Token: 0x17000708 RID: 1800
-		// (get) Token: 0x06001844 RID: 6212 RVA: 0x0005F3A0 File Offset: 0x0005D5A0
-		public CullGrid.CellID left
+		// Token: 0x1700075C RID: 1884
+		// (get) Token: 0x060019D4 RID: 6612 RVA: 0x00063D14 File Offset: 0x00061F14
+		public global::CullGrid.CellID left
 		{
 			get
 			{
-				CullGrid.CellID result;
-				result.id = ((!this.valid) ? ushort.MaxValue : CullGrid.CellID.NextLeft(this.id));
+				global::CullGrid.CellID result;
+				result.id = ((!this.valid) ? ushort.MaxValue : global::CullGrid.CellID.NextLeft(this.id));
 				return result;
 			}
 		}
 
-		// Token: 0x17000709 RID: 1801
-		// (get) Token: 0x06001845 RID: 6213 RVA: 0x0005F3D8 File Offset: 0x0005D5D8
-		public CullGrid.CellID up
+		// Token: 0x1700075D RID: 1885
+		// (get) Token: 0x060019D5 RID: 6613 RVA: 0x00063D4C File Offset: 0x00061F4C
+		public global::CullGrid.CellID up
 		{
 			get
 			{
-				CullGrid.CellID result;
-				result.id = ((!this.valid) ? ushort.MaxValue : CullGrid.CellID.NextUp(this.id));
+				global::CullGrid.CellID result;
+				result.id = ((!this.valid) ? ushort.MaxValue : global::CullGrid.CellID.NextUp(this.id));
 				return result;
 			}
 		}
 
-		// Token: 0x1700070A RID: 1802
-		// (get) Token: 0x06001846 RID: 6214 RVA: 0x0005F410 File Offset: 0x0005D610
-		public CullGrid.CellID down
+		// Token: 0x1700075E RID: 1886
+		// (get) Token: 0x060019D6 RID: 6614 RVA: 0x00063D84 File Offset: 0x00061F84
+		public global::CullGrid.CellID down
 		{
 			get
 			{
-				CullGrid.CellID result;
-				result.id = ((!this.valid) ? ushort.MaxValue : CullGrid.CellID.NextDown(this.id));
+				global::CullGrid.CellID result;
+				result.id = ((!this.valid) ? ushort.MaxValue : global::CullGrid.CellID.NextDown(this.id));
 				return result;
 			}
 		}
 
-		// Token: 0x1700070B RID: 1803
-		// (get) Token: 0x06001847 RID: 6215 RVA: 0x0005F448 File Offset: 0x0005D648
+		// Token: 0x1700075F RID: 1887
+		// (get) Token: 0x060019D7 RID: 6615 RVA: 0x00063DBC File Offset: 0x00061FBC
 		public bool mostRight
 		{
 			get
 			{
-				return this.valid && (int)this.id % CullGrid.grid.cellsWide == (int)CullGrid.grid.cellWideLast;
+				return this.valid && (int)this.id % global::CullGrid.grid.cellsWide == (int)global::CullGrid.grid.cellWideLast;
 			}
 		}
 
-		// Token: 0x1700070C RID: 1804
-		// (get) Token: 0x06001848 RID: 6216 RVA: 0x0005F478 File Offset: 0x0005D678
+		// Token: 0x17000760 RID: 1888
+		// (get) Token: 0x060019D8 RID: 6616 RVA: 0x00063DEC File Offset: 0x00061FEC
 		public bool mostLeft
 		{
 			get
 			{
-				return this.valid && (int)this.id % CullGrid.grid.cellsWide == 0;
+				return this.valid && (int)this.id % global::CullGrid.grid.cellsWide == 0;
 			}
 		}
 
-		// Token: 0x1700070D RID: 1805
-		// (get) Token: 0x06001849 RID: 6217 RVA: 0x0005F4A8 File Offset: 0x0005D6A8
+		// Token: 0x17000761 RID: 1889
+		// (get) Token: 0x060019D9 RID: 6617 RVA: 0x00063E1C File Offset: 0x0006201C
 		public bool mostTop
 		{
 			get
 			{
-				return this.valid && (int)this.id / CullGrid.grid.cellsWide == (int)CullGrid.grid.cellTallLast;
+				return this.valid && (int)this.id / global::CullGrid.grid.cellsWide == (int)global::CullGrid.grid.cellTallLast;
 			}
 		}
 
-		// Token: 0x1700070E RID: 1806
-		// (get) Token: 0x0600184A RID: 6218 RVA: 0x0005F4D8 File Offset: 0x0005D6D8
+		// Token: 0x17000762 RID: 1890
+		// (get) Token: 0x060019DA RID: 6618 RVA: 0x00063E4C File Offset: 0x0006204C
 		public bool mostBottom
 		{
 			get
 			{
-				return this.valid && (int)this.id / CullGrid.grid.cellsWide == 0;
+				return this.valid && (int)this.id / global::CullGrid.grid.cellsWide == 0;
 			}
 		}
 
-		// Token: 0x1700070F RID: 1807
-		// (get) Token: 0x0600184B RID: 6219 RVA: 0x0005F508 File Offset: 0x0005D708
+		// Token: 0x17000763 RID: 1891
+		// (get) Token: 0x060019DB RID: 6619 RVA: 0x00063E7C File Offset: 0x0006207C
 		public bool valid
 		{
 			get
 			{
-				return (int)this.id < CullGrid.grid.numCells;
+				return (int)this.id < global::CullGrid.grid.numCells;
 			}
 		}
 
-		// Token: 0x17000710 RID: 1808
-		// (get) Token: 0x0600184C RID: 6220 RVA: 0x0005F51C File Offset: 0x0005D71C
+		// Token: 0x17000764 RID: 1892
+		// (get) Token: 0x060019DC RID: 6620 RVA: 0x00063E90 File Offset: 0x00062090
 		public int groupID
 		{
 			get
@@ -616,7 +616,7 @@ public class CullGrid : MonoBehaviour
 				int result;
 				if (this.valid)
 				{
-					result = CullGrid.GroupIDFromCell(this.id);
+					result = global::CullGrid.GroupIDFromCell(this.id);
 				}
 				else
 				{
@@ -627,29 +627,29 @@ public class CullGrid : MonoBehaviour
 			}
 		}
 
-		// Token: 0x17000711 RID: 1809
-		// (get) Token: 0x0600184D RID: 6221 RVA: 0x0005F554 File Offset: 0x0005D754
+		// Token: 0x17000765 RID: 1893
+		// (get) Token: 0x060019DD RID: 6621 RVA: 0x00063EC8 File Offset: 0x000620C8
 		public NetworkGroup group
 		{
 			get
 			{
-				return (!this.valid) ? NetworkGroup.unassigned : CullGrid.GroupIDFromCell(this.id);
+				return (!this.valid) ? NetworkGroup.unassigned : global::CullGrid.GroupIDFromCell(this.id);
 			}
 		}
 
-		// Token: 0x04000CE3 RID: 3299
+		// Token: 0x04000E1E RID: 3614
 		private const ushort kInvalidID = 65535;
 
-		// Token: 0x04000CE4 RID: 3300
+		// Token: 0x04000E1F RID: 3615
 		[FieldOffset(0)]
 		public ushort id;
 	}
 
-	// Token: 0x020002A6 RID: 678
-	private class CullGridRuntime : CullGridSetup
+	// Token: 0x020002E3 RID: 739
+	private class CullGridRuntime : global::CullGridSetup
 	{
-		// Token: 0x0600184E RID: 6222 RVA: 0x0005F57C File Offset: 0x0005D77C
-		public CullGridRuntime(CullGrid cullGrid) : base(cullGrid.setup)
+		// Token: 0x060019DE RID: 6622 RVA: 0x00063EF0 File Offset: 0x000620F0
+		public CullGridRuntime(global::CullGrid cullGrid) : base(cullGrid.setup)
 		{
 			this.cullGrid = cullGrid;
 			this.transform = cullGrid.transform;
@@ -691,7 +691,7 @@ public class CullGrid : MonoBehaviour
 			this.groupEnd = this.groupBegin + this.numCells;
 		}
 
-		// Token: 0x0600184F RID: 6223 RVA: 0x0005F860 File Offset: 0x0005DA60
+		// Token: 0x060019DF RID: 6623 RVA: 0x000641D4 File Offset: 0x000623D4
 		public void GetCenter(int cell, out Vector3 center)
 		{
 			double num = ((double)(cell % this.cellsWide) - this.halfCellWideMinusHalfTwoMinusOddWide) * (double)this.cellSquareDimension;
@@ -701,7 +701,7 @@ public class CullGrid : MonoBehaviour
 			center.z = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001850 RID: 6224 RVA: 0x0005F8FC File Offset: 0x0005DAFC
+		// Token: 0x060019E0 RID: 6624 RVA: 0x00064270 File Offset: 0x00062470
 		public void GetCenter(int cell, out Vector2 center)
 		{
 			double num = ((double)(cell % this.cellsWide) - this.halfCellWideMinusHalfTwoMinusOddWide) * (double)this.cellSquareDimension;
@@ -710,7 +710,7 @@ public class CullGrid : MonoBehaviour
 			center.y = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001851 RID: 6225 RVA: 0x0005F97C File Offset: 0x0005DB7C
+		// Token: 0x060019E1 RID: 6625 RVA: 0x000642F0 File Offset: 0x000624F0
 		public void GetCenter(int x, int y, out Vector3 center)
 		{
 			double num = ((double)x - this.halfCellWideMinusHalfTwoMinusOddWide) * (double)this.cellSquareDimension;
@@ -720,7 +720,7 @@ public class CullGrid : MonoBehaviour
 			center.z = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001852 RID: 6226 RVA: 0x0005FA0C File Offset: 0x0005DC0C
+		// Token: 0x060019E2 RID: 6626 RVA: 0x00064380 File Offset: 0x00062580
 		public void GetCenter(int x, int y, out Vector2 center)
 		{
 			double num = ((double)x - this.halfCellWideMinusHalfTwoMinusOddWide) * (double)this.cellSquareDimension;
@@ -729,7 +729,7 @@ public class CullGrid : MonoBehaviour
 			center.y = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001853 RID: 6227 RVA: 0x0005FA7C File Offset: 0x0005DC7C
+		// Token: 0x060019E3 RID: 6627 RVA: 0x000643F0 File Offset: 0x000625F0
 		public void GetMin(int cell, out Vector3 min)
 		{
 			double num = ((double)(cell % this.cellsWide) - this.halfCellWideMinusHalfTwoMinusOddWide - 0.5) * (double)this.cellSquareDimension;
@@ -739,7 +739,7 @@ public class CullGrid : MonoBehaviour
 			min.z = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001854 RID: 6228 RVA: 0x0005FB38 File Offset: 0x0005DD38
+		// Token: 0x060019E4 RID: 6628 RVA: 0x000644AC File Offset: 0x000626AC
 		public void GetMin(int cell, out Vector2 min)
 		{
 			double num = ((double)(cell % this.cellsWide) - this.halfCellWideMinusHalfTwoMinusOddWide - 0.5) * (double)this.cellSquareDimension;
@@ -748,7 +748,7 @@ public class CullGrid : MonoBehaviour
 			min.y = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001855 RID: 6229 RVA: 0x0005FBCC File Offset: 0x0005DDCC
+		// Token: 0x060019E5 RID: 6629 RVA: 0x00064540 File Offset: 0x00062740
 		public void GetMin(int x, int y, out Vector3 min)
 		{
 			double num = ((double)x - this.halfCellWideMinusHalfTwoMinusOddWide - 0.5) * (double)this.cellSquareDimension;
@@ -758,7 +758,7 @@ public class CullGrid : MonoBehaviour
 			min.z = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001856 RID: 6230 RVA: 0x0005FC78 File Offset: 0x0005DE78
+		// Token: 0x060019E6 RID: 6630 RVA: 0x000645EC File Offset: 0x000627EC
 		public void GetMin(int x, int y, out Vector2 min)
 		{
 			double num = ((double)x - this.halfCellWideMinusHalfTwoMinusOddWide - 0.5) * (double)this.cellSquareDimension;
@@ -767,31 +767,31 @@ public class CullGrid : MonoBehaviour
 			min.y = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001857 RID: 6231 RVA: 0x0005FCFC File Offset: 0x0005DEFC
+		// Token: 0x060019E7 RID: 6631 RVA: 0x00064670 File Offset: 0x00062870
 		public bool Contains(int cell, ref Vector2 flatPoint)
 		{
 			return cell >= 0 && cell < this.numCells && (int)this.FlatCell(ref flatPoint) == cell;
 		}
 
-		// Token: 0x06001858 RID: 6232 RVA: 0x0005FD2C File Offset: 0x0005DF2C
+		// Token: 0x060019E8 RID: 6632 RVA: 0x000646A0 File Offset: 0x000628A0
 		public bool Contains(int cell, ref Vector3 worldPoint)
 		{
 			return cell >= 0 && cell < this.numCells && (int)this.WorldCell(ref worldPoint) == cell;
 		}
 
-		// Token: 0x06001859 RID: 6233 RVA: 0x0005FD5C File Offset: 0x0005DF5C
+		// Token: 0x060019E9 RID: 6633 RVA: 0x000646D0 File Offset: 0x000628D0
 		public bool Contains(int x, int y, ref Vector2 flatPoint)
 		{
 			return this.Contains(y * this.cellsWide + x, ref flatPoint);
 		}
 
-		// Token: 0x0600185A RID: 6234 RVA: 0x0005FD70 File Offset: 0x0005DF70
+		// Token: 0x060019EA RID: 6634 RVA: 0x000646E4 File Offset: 0x000628E4
 		public bool Contains(int x, int y, ref Vector3 worldPoint)
 		{
 			return this.Contains(y * this.cellsWide + x, ref worldPoint);
 		}
 
-		// Token: 0x0600185B RID: 6235 RVA: 0x0005FD84 File Offset: 0x0005DF84
+		// Token: 0x060019EB RID: 6635 RVA: 0x000646F8 File Offset: 0x000628F8
 		public void GetRect(int x, int y, out Rect rect)
 		{
 			double num = ((double)x - this.halfCellWideMinusHalfTwoMinusOddWide - 0.5) * (double)this.cellSquareDimension;
@@ -829,7 +829,7 @@ public class CullGrid : MonoBehaviour
 			rect..ctor(num7, num9, num8, num10);
 		}
 
-		// Token: 0x0600185C RID: 6236 RVA: 0x0005FEA4 File Offset: 0x0005E0A4
+		// Token: 0x060019EC RID: 6636 RVA: 0x00064818 File Offset: 0x00062A18
 		public void GetBounds(int x, int y, out Bounds bounds)
 		{
 			Vector3 vector;
@@ -837,7 +837,7 @@ public class CullGrid : MonoBehaviour
 			bounds..ctor(vector, new Vector3((float)this.cellSquareDimension, 64000f, (float)this.cellSquareDimension));
 		}
 
-		// Token: 0x0600185D RID: 6237 RVA: 0x0005FEDC File Offset: 0x0005E0DC
+		// Token: 0x060019ED RID: 6637 RVA: 0x00064850 File Offset: 0x00062A50
 		public void GetRect(int cell, out Rect rect)
 		{
 			int num = cell % this.cellsWide;
@@ -877,7 +877,7 @@ public class CullGrid : MonoBehaviour
 			rect..ctor(num9, num11, num10, num12);
 		}
 
-		// Token: 0x0600185E RID: 6238 RVA: 0x00060014 File Offset: 0x0005E214
+		// Token: 0x060019EE RID: 6638 RVA: 0x00064988 File Offset: 0x00062B88
 		public void GetBounds(int cell, out Bounds bounds)
 		{
 			int x = cell % this.cellsWide;
@@ -887,7 +887,7 @@ public class CullGrid : MonoBehaviour
 			bounds..ctor(vector, new Vector3((float)this.cellSquareDimension, 64000f, (float)this.cellSquareDimension));
 		}
 
-		// Token: 0x0600185F RID: 6239 RVA: 0x0006005C File Offset: 0x0005E25C
+		// Token: 0x060019EF RID: 6639 RVA: 0x000649D0 File Offset: 0x00062BD0
 		public void GetMax(int cell, out Vector3 max)
 		{
 			double num = ((double)(cell % this.cellsWide) - this.halfCellWideMinusHalfTwoMinusOddWide + 0.5) * (double)this.cellSquareDimension;
@@ -897,7 +897,7 @@ public class CullGrid : MonoBehaviour
 			max.z = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001860 RID: 6240 RVA: 0x00060118 File Offset: 0x0005E318
+		// Token: 0x060019F0 RID: 6640 RVA: 0x00064A8C File Offset: 0x00062C8C
 		public void GetMax(int cell, out Vector2 max)
 		{
 			double num = ((double)(cell % this.cellsWide) - this.halfCellWideMinusHalfTwoMinusOddWide + 0.5) * (double)this.cellSquareDimension;
@@ -906,7 +906,7 @@ public class CullGrid : MonoBehaviour
 			max.y = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001861 RID: 6241 RVA: 0x000601AC File Offset: 0x0005E3AC
+		// Token: 0x060019F1 RID: 6641 RVA: 0x00064B20 File Offset: 0x00062D20
 		public void GetMax(int x, int y, out Vector3 max)
 		{
 			double num = ((double)x - this.halfCellWideMinusHalfTwoMinusOddWide + 0.5) * (double)this.cellSquareDimension;
@@ -916,7 +916,7 @@ public class CullGrid : MonoBehaviour
 			max.z = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001862 RID: 6242 RVA: 0x00060258 File Offset: 0x0005E458
+		// Token: 0x060019F2 RID: 6642 RVA: 0x00064BCC File Offset: 0x00062DCC
 		public void GetMax(int x, int y, out Vector2 max)
 		{
 			double num = ((double)x - this.halfCellTallMinusHalfTwoMinusOddTall + 0.5) * (double)this.cellSquareDimension;
@@ -925,7 +925,7 @@ public class CullGrid : MonoBehaviour
 			max.y = (float)(this.pz + this.fz * num2 + this.rz * num);
 		}
 
-		// Token: 0x06001863 RID: 6243 RVA: 0x000602DC File Offset: 0x0005E4DC
+		// Token: 0x060019F3 RID: 6643 RVA: 0x00064C50 File Offset: 0x00062E50
 		public ushort FlatCell(ref Vector2 point, out ushort x, out ushort y)
 		{
 			double num = (double)point.x + this.flat_wide_ofs;
@@ -957,7 +957,7 @@ public class CullGrid : MonoBehaviour
 			return (ushort)((int)y * this.cellsWide + (int)x);
 		}
 
-		// Token: 0x06001864 RID: 6244 RVA: 0x00060398 File Offset: 0x0005E598
+		// Token: 0x060019F4 RID: 6644 RVA: 0x00064D0C File Offset: 0x00062F0C
 		public ushort FlatCell(ref Vector2 point)
 		{
 			double num = (double)point.x + this.flat_wide_ofs;
@@ -991,7 +991,7 @@ public class CullGrid : MonoBehaviour
 			return (ushort)(num4 * this.cellsWide + num2);
 		}
 
-		// Token: 0x06001865 RID: 6245 RVA: 0x0006044C File Offset: 0x0005E64C
+		// Token: 0x060019F5 RID: 6645 RVA: 0x00064DC0 File Offset: 0x00062FC0
 		public ushort WorldCell(ref Vector3 point, out ushort x, out ushort y)
 		{
 			double num = (double)point.x + this.flat_wide_ofs;
@@ -1023,7 +1023,7 @@ public class CullGrid : MonoBehaviour
 			return (ushort)((int)y * this.cellsWide + (int)x);
 		}
 
-		// Token: 0x06001866 RID: 6246 RVA: 0x00060508 File Offset: 0x0005E708
+		// Token: 0x060019F6 RID: 6646 RVA: 0x00064E7C File Offset: 0x0006307C
 		public ushort WorldCell(ref Vector3 point)
 		{
 			double num = (double)point.x + this.flat_wide_ofs;
@@ -1057,19 +1057,19 @@ public class CullGrid : MonoBehaviour
 			return (ushort)(num4 * this.cellsWide + num2);
 		}
 
-		// Token: 0x06001867 RID: 6247 RVA: 0x000605BC File Offset: 0x0005E7BC
+		// Token: 0x060019F7 RID: 6647 RVA: 0x00064F30 File Offset: 0x00063130
 		public List<ushort> EnumerateNearbyCells(int cell)
 		{
-			return this.EnumerateNearbyCells(cell, cell % CullGrid.grid.cellsWide, cell / CullGrid.grid.cellsWide);
+			return this.EnumerateNearbyCells(cell, cell % global::CullGrid.grid.cellsWide, cell / global::CullGrid.grid.cellsWide);
 		}
 
-		// Token: 0x06001868 RID: 6248 RVA: 0x000605E0 File Offset: 0x0005E7E0
+		// Token: 0x060019F8 RID: 6648 RVA: 0x00064F54 File Offset: 0x00063154
 		public List<ushort> EnumerateNearbyCells(int x, int y)
 		{
 			return this.EnumerateNearbyCells(y * this.cellsWide + x, x, y);
 		}
 
-		// Token: 0x06001869 RID: 6249 RVA: 0x000605F4 File Offset: 0x0005E7F4
+		// Token: 0x060019F9 RID: 6649 RVA: 0x00064F68 File Offset: 0x00063168
 		public List<ushort> EnumerateNearbyCells(int i, int x, int y)
 		{
 			if (i < 0)
@@ -1115,91 +1115,91 @@ public class CullGrid : MonoBehaviour
 			return list;
 		}
 
-		// Token: 0x04000CE5 RID: 3301
+		// Token: 0x04000E20 RID: 3616
 		private const double kMAX_WORLD_Y = 32000.0;
 
-		// Token: 0x04000CE6 RID: 3302
+		// Token: 0x04000E21 RID: 3617
 		private const double kMIN_WORLD_Y = -32000.0;
 
-		// Token: 0x04000CE7 RID: 3303
+		// Token: 0x04000E22 RID: 3618
 		public int groupEnd;
 
-		// Token: 0x04000CE8 RID: 3304
+		// Token: 0x04000E23 RID: 3619
 		public int numCells;
 
-		// Token: 0x04000CE9 RID: 3305
-		public CullGrid cullGrid;
+		// Token: 0x04000E24 RID: 3620
+		public global::CullGrid cullGrid;
 
-		// Token: 0x04000CEA RID: 3306
+		// Token: 0x04000E25 RID: 3621
 		public Transform transform;
 
-		// Token: 0x04000CEB RID: 3307
+		// Token: 0x04000E26 RID: 3622
 		public double halfCellTall;
 
-		// Token: 0x04000CEC RID: 3308
+		// Token: 0x04000E27 RID: 3623
 		public double halfCellWide;
 
-		// Token: 0x04000CED RID: 3309
+		// Token: 0x04000E28 RID: 3624
 		public int twoMinusOddTall;
 
-		// Token: 0x04000CEE RID: 3310
+		// Token: 0x04000E29 RID: 3625
 		public int twoMinusOddWide;
 
-		// Token: 0x04000CEF RID: 3311
+		// Token: 0x04000E2A RID: 3626
 		public double halfTwoMinusOddTall;
 
-		// Token: 0x04000CF0 RID: 3312
+		// Token: 0x04000E2B RID: 3627
 		public double halfTwoMinusOddWide;
 
-		// Token: 0x04000CF1 RID: 3313
+		// Token: 0x04000E2C RID: 3628
 		public double halfCellTallMinusHalfTwoMinusOddTall;
 
-		// Token: 0x04000CF2 RID: 3314
+		// Token: 0x04000E2D RID: 3629
 		public double halfCellWideMinusHalfTwoMinusOddWide;
 
-		// Token: 0x04000CF3 RID: 3315
+		// Token: 0x04000E2E RID: 3630
 		public double px;
 
-		// Token: 0x04000CF4 RID: 3316
+		// Token: 0x04000E2F RID: 3631
 		public double py;
 
-		// Token: 0x04000CF5 RID: 3317
+		// Token: 0x04000E30 RID: 3632
 		public double pz;
 
-		// Token: 0x04000CF6 RID: 3318
+		// Token: 0x04000E31 RID: 3633
 		public double fx;
 
-		// Token: 0x04000CF7 RID: 3319
+		// Token: 0x04000E32 RID: 3634
 		public double fy;
 
-		// Token: 0x04000CF8 RID: 3320
+		// Token: 0x04000E33 RID: 3635
 		public double fz;
 
-		// Token: 0x04000CF9 RID: 3321
+		// Token: 0x04000E34 RID: 3636
 		public double rx;
 
-		// Token: 0x04000CFA RID: 3322
+		// Token: 0x04000E35 RID: 3637
 		public double ry;
 
-		// Token: 0x04000CFB RID: 3323
+		// Token: 0x04000E36 RID: 3638
 		public double rz;
 
-		// Token: 0x04000CFC RID: 3324
+		// Token: 0x04000E37 RID: 3639
 		public double flat_wide_ofs;
 
-		// Token: 0x04000CFD RID: 3325
+		// Token: 0x04000E38 RID: 3640
 		public double flat_tall_ofs;
 
-		// Token: 0x04000CFE RID: 3326
+		// Token: 0x04000E39 RID: 3641
 		public ushort cellWideLast;
 
-		// Token: 0x04000CFF RID: 3327
+		// Token: 0x04000E3A RID: 3642
 		public ushort cellTallLast;
 
-		// Token: 0x04000D00 RID: 3328
+		// Token: 0x04000E3B RID: 3643
 		public double cellWideLastTimesSquareDimension;
 
-		// Token: 0x04000D01 RID: 3329
+		// Token: 0x04000E3C RID: 3644
 		public double cellTallLastTimesSquareDimension;
 	}
 }

@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200066D RID: 1645
+// Token: 0x02000731 RID: 1841
 public class TimedExplosive : IDLocal
 {
-	// Token: 0x0600391D RID: 14621 RVA: 0x000D2170 File Offset: 0x000D0370
+	// Token: 0x06003D11 RID: 15633 RVA: 0x000DAB50 File Offset: 0x000D8D50
 	private void Awake()
 	{
-		this.testView = base.GetComponent<NGCView>();
+		this.testView = base.GetComponent<global::NGCView>();
 		if (this.tickSound != null)
 		{
 			base.InvokeRepeating("TickSound", 0f, 1f);
 		}
 	}
 
-	// Token: 0x0600391E RID: 14622 RVA: 0x000D21B0 File Offset: 0x000D03B0
+	// Token: 0x06003D12 RID: 15634 RVA: 0x000DAB90 File Offset: 0x000D8D90
 	[RPC]
 	public void ClientExplode()
 	{
@@ -22,33 +22,33 @@ public class TimedExplosive : IDLocal
 		base.CancelInvoke();
 	}
 
-	// Token: 0x0600391F RID: 14623 RVA: 0x000D21E8 File Offset: 0x000D03E8
+	// Token: 0x06003D13 RID: 15635 RVA: 0x000DABC8 File Offset: 0x000D8DC8
 	public void TickSound()
 	{
 		this.tickSound.Play(base.transform.position, 1f, 3f, 20f);
 	}
 
-	// Token: 0x06003920 RID: 14624 RVA: 0x000D221C File Offset: 0x000D041C
+	// Token: 0x06003D14 RID: 15636 RVA: 0x000DABFC File Offset: 0x000D8DFC
 	public void OnDestroy()
 	{
 		base.CancelInvoke();
 	}
 
-	// Token: 0x04001D42 RID: 7490
+	// Token: 0x04001F3A RID: 7994
 	public float fuseLength = 5f;
 
-	// Token: 0x04001D43 RID: 7491
+	// Token: 0x04001F3B RID: 7995
 	public float explosionRadius = 4f;
 
-	// Token: 0x04001D44 RID: 7492
+	// Token: 0x04001F3C RID: 7996
 	public float damage = 100f;
 
-	// Token: 0x04001D45 RID: 7493
+	// Token: 0x04001F3D RID: 7997
 	public GameObject explosionEffect;
 
-	// Token: 0x04001D46 RID: 7494
+	// Token: 0x04001F3E RID: 7998
 	public AudioClip tickSound;
 
-	// Token: 0x04001D47 RID: 7495
-	private NGCView testView;
+	// Token: 0x04001F3F RID: 7999
+	private global::NGCView testView;
 }

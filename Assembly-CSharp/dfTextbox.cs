@@ -4,48 +4,48 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x020006FE RID: 1790
-[ExecuteInEditMode]
+// Token: 0x020007D0 RID: 2000
 [RequireComponent(typeof(BoxCollider))]
 [AddComponentMenu("Daikon Forge/User Interface/Textbox")]
+[ExecuteInEditMode]
 [Serializable]
-public class dfTextbox : dfInteractiveBase, IDFMultiRender
+public class dfTextbox : global::dfInteractiveBase, global::IDFMultiRender
 {
 	// Token: 0x14000055 RID: 85
-	// (add) Token: 0x060040CE RID: 16590 RVA: 0x000F900C File Offset: 0x000F720C
-	// (remove) Token: 0x060040CF RID: 16591 RVA: 0x000F9028 File Offset: 0x000F7228
-	public event PropertyChangedEventHandler<bool> ReadOnlyChanged;
+	// (add) Token: 0x060044EA RID: 17642 RVA: 0x00101C10 File Offset: 0x000FFE10
+	// (remove) Token: 0x060044EB RID: 17643 RVA: 0x00101C2C File Offset: 0x000FFE2C
+	public event global::PropertyChangedEventHandler<bool> ReadOnlyChanged;
 
 	// Token: 0x14000056 RID: 86
-	// (add) Token: 0x060040D0 RID: 16592 RVA: 0x000F9044 File Offset: 0x000F7244
-	// (remove) Token: 0x060040D1 RID: 16593 RVA: 0x000F9060 File Offset: 0x000F7260
-	public event PropertyChangedEventHandler<string> PasswordCharacterChanged;
+	// (add) Token: 0x060044EC RID: 17644 RVA: 0x00101C48 File Offset: 0x000FFE48
+	// (remove) Token: 0x060044ED RID: 17645 RVA: 0x00101C64 File Offset: 0x000FFE64
+	public event global::PropertyChangedEventHandler<string> PasswordCharacterChanged;
 
 	// Token: 0x14000057 RID: 87
-	// (add) Token: 0x060040D2 RID: 16594 RVA: 0x000F907C File Offset: 0x000F727C
-	// (remove) Token: 0x060040D3 RID: 16595 RVA: 0x000F9098 File Offset: 0x000F7298
-	public event PropertyChangedEventHandler<string> TextChanged;
+	// (add) Token: 0x060044EE RID: 17646 RVA: 0x00101C80 File Offset: 0x000FFE80
+	// (remove) Token: 0x060044EF RID: 17647 RVA: 0x00101C9C File Offset: 0x000FFE9C
+	public event global::PropertyChangedEventHandler<string> TextChanged;
 
 	// Token: 0x14000058 RID: 88
-	// (add) Token: 0x060040D4 RID: 16596 RVA: 0x000F90B4 File Offset: 0x000F72B4
-	// (remove) Token: 0x060040D5 RID: 16597 RVA: 0x000F90D0 File Offset: 0x000F72D0
-	public event PropertyChangedEventHandler<string> TextSubmitted;
+	// (add) Token: 0x060044F0 RID: 17648 RVA: 0x00101CB8 File Offset: 0x000FFEB8
+	// (remove) Token: 0x060044F1 RID: 17649 RVA: 0x00101CD4 File Offset: 0x000FFED4
+	public event global::PropertyChangedEventHandler<string> TextSubmitted;
 
 	// Token: 0x14000059 RID: 89
-	// (add) Token: 0x060040D6 RID: 16598 RVA: 0x000F90EC File Offset: 0x000F72EC
-	// (remove) Token: 0x060040D7 RID: 16599 RVA: 0x000F9108 File Offset: 0x000F7308
-	public event PropertyChangedEventHandler<string> TextCancelled;
+	// (add) Token: 0x060044F2 RID: 17650 RVA: 0x00101CF0 File Offset: 0x000FFEF0
+	// (remove) Token: 0x060044F3 RID: 17651 RVA: 0x00101D0C File Offset: 0x000FFF0C
+	public event global::PropertyChangedEventHandler<string> TextCancelled;
 
-	// Token: 0x17000CBD RID: 3261
-	// (get) Token: 0x060040D8 RID: 16600 RVA: 0x000F9124 File Offset: 0x000F7324
-	// (set) Token: 0x060040D9 RID: 16601 RVA: 0x000F9168 File Offset: 0x000F7368
-	public dfFontBase Font
+	// Token: 0x17000D41 RID: 3393
+	// (get) Token: 0x060044F4 RID: 17652 RVA: 0x00101D28 File Offset: 0x000FFF28
+	// (set) Token: 0x060044F5 RID: 17653 RVA: 0x00101D6C File Offset: 0x000FFF6C
+	public global::dfFontBase Font
 	{
 		get
 		{
 			if (this.font == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					this.font = manager.DefaultFont;
@@ -63,9 +63,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CBE RID: 3262
-	// (get) Token: 0x060040DA RID: 16602 RVA: 0x000F9188 File Offset: 0x000F7388
-	// (set) Token: 0x060040DB RID: 16603 RVA: 0x000F9190 File Offset: 0x000F7390
+	// Token: 0x17000D42 RID: 3394
+	// (get) Token: 0x060044F6 RID: 17654 RVA: 0x00101D8C File Offset: 0x000FFF8C
+	// (set) Token: 0x060044F7 RID: 17655 RVA: 0x00101D94 File Offset: 0x000FFF94
 	public int SelectionStart
 	{
 		get
@@ -83,9 +83,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CBF RID: 3263
-	// (get) Token: 0x060040DC RID: 16604 RVA: 0x000F91E4 File Offset: 0x000F73E4
-	// (set) Token: 0x060040DD RID: 16605 RVA: 0x000F91EC File Offset: 0x000F73EC
+	// Token: 0x17000D43 RID: 3395
+	// (get) Token: 0x060044F8 RID: 17656 RVA: 0x00101DE8 File Offset: 0x000FFFE8
+	// (set) Token: 0x060044F9 RID: 17657 RVA: 0x00101DF0 File Offset: 0x000FFFF0
 	public int SelectionEnd
 	{
 		get
@@ -103,8 +103,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC0 RID: 3264
-	// (get) Token: 0x060040DE RID: 16606 RVA: 0x000F9240 File Offset: 0x000F7440
+	// Token: 0x17000D44 RID: 3396
+	// (get) Token: 0x060044FA RID: 17658 RVA: 0x00101E44 File Offset: 0x00100044
 	public int SelectionLength
 	{
 		get
@@ -113,8 +113,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC1 RID: 3265
-	// (get) Token: 0x060040DF RID: 16607 RVA: 0x000F9250 File Offset: 0x000F7450
+	// Token: 0x17000D45 RID: 3397
+	// (get) Token: 0x060044FB RID: 17659 RVA: 0x00101E54 File Offset: 0x00100054
 	public string SelectedText
 	{
 		get
@@ -127,9 +127,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC2 RID: 3266
-	// (get) Token: 0x060040E0 RID: 16608 RVA: 0x000F9288 File Offset: 0x000F7488
-	// (set) Token: 0x060040E1 RID: 16609 RVA: 0x000F9290 File Offset: 0x000F7490
+	// Token: 0x17000D46 RID: 3398
+	// (get) Token: 0x060044FC RID: 17660 RVA: 0x00101E8C File Offset: 0x0010008C
+	// (set) Token: 0x060044FD RID: 17661 RVA: 0x00101E94 File Offset: 0x00100094
 	public bool SelectOnFocus
 	{
 		get
@@ -142,9 +142,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC3 RID: 3267
-	// (get) Token: 0x060040E2 RID: 16610 RVA: 0x000F929C File Offset: 0x000F749C
-	// (set) Token: 0x060040E3 RID: 16611 RVA: 0x000F92BC File Offset: 0x000F74BC
+	// Token: 0x17000D47 RID: 3399
+	// (get) Token: 0x060044FE RID: 17662 RVA: 0x00101EA0 File Offset: 0x001000A0
+	// (set) Token: 0x060044FF RID: 17663 RVA: 0x00101EC0 File Offset: 0x001000C0
 	public RectOffset Padding
 	{
 		get
@@ -166,9 +166,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC4 RID: 3268
-	// (get) Token: 0x060040E4 RID: 16612 RVA: 0x000F92F0 File Offset: 0x000F74F0
-	// (set) Token: 0x060040E5 RID: 16613 RVA: 0x000F92F8 File Offset: 0x000F74F8
+	// Token: 0x17000D48 RID: 3400
+	// (get) Token: 0x06004500 RID: 17664 RVA: 0x00101EF4 File Offset: 0x001000F4
+	// (set) Token: 0x06004501 RID: 17665 RVA: 0x00101EFC File Offset: 0x001000FC
 	public bool IsPasswordField
 	{
 		get
@@ -185,9 +185,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC5 RID: 3269
-	// (get) Token: 0x060040E6 RID: 16614 RVA: 0x000F9314 File Offset: 0x000F7514
-	// (set) Token: 0x060040E7 RID: 16615 RVA: 0x000F931C File Offset: 0x000F751C
+	// Token: 0x17000D49 RID: 3401
+	// (get) Token: 0x06004502 RID: 17666 RVA: 0x00101F18 File Offset: 0x00100118
+	// (set) Token: 0x06004503 RID: 17667 RVA: 0x00101F20 File Offset: 0x00100120
 	public string PasswordCharacter
 	{
 		get
@@ -209,9 +209,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC6 RID: 3270
-	// (get) Token: 0x060040E8 RID: 16616 RVA: 0x000F9364 File Offset: 0x000F7564
-	// (set) Token: 0x060040E9 RID: 16617 RVA: 0x000F936C File Offset: 0x000F756C
+	// Token: 0x17000D4A RID: 3402
+	// (get) Token: 0x06004504 RID: 17668 RVA: 0x00101F68 File Offset: 0x00100168
+	// (set) Token: 0x06004505 RID: 17669 RVA: 0x00101F70 File Offset: 0x00100170
 	public float CursorBlinkTime
 	{
 		get
@@ -224,9 +224,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC7 RID: 3271
-	// (get) Token: 0x060040EA RID: 16618 RVA: 0x000F9378 File Offset: 0x000F7578
-	// (set) Token: 0x060040EB RID: 16619 RVA: 0x000F9380 File Offset: 0x000F7580
+	// Token: 0x17000D4B RID: 3403
+	// (get) Token: 0x06004506 RID: 17670 RVA: 0x00101F7C File Offset: 0x0010017C
+	// (set) Token: 0x06004507 RID: 17671 RVA: 0x00101F84 File Offset: 0x00100184
 	public int CursorWidth
 	{
 		get
@@ -239,9 +239,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC8 RID: 3272
-	// (get) Token: 0x060040EC RID: 16620 RVA: 0x000F938C File Offset: 0x000F758C
-	// (set) Token: 0x060040ED RID: 16621 RVA: 0x000F9394 File Offset: 0x000F7594
+	// Token: 0x17000D4C RID: 3404
+	// (get) Token: 0x06004508 RID: 17672 RVA: 0x00101F90 File Offset: 0x00100190
+	// (set) Token: 0x06004509 RID: 17673 RVA: 0x00101F98 File Offset: 0x00100198
 	public int CursorIndex
 	{
 		get
@@ -256,9 +256,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CC9 RID: 3273
-	// (get) Token: 0x060040EE RID: 16622 RVA: 0x000F93BC File Offset: 0x000F75BC
-	// (set) Token: 0x060040EF RID: 16623 RVA: 0x000F93C4 File Offset: 0x000F75C4
+	// Token: 0x17000D4D RID: 3405
+	// (get) Token: 0x0600450A RID: 17674 RVA: 0x00101FC0 File Offset: 0x001001C0
+	// (set) Token: 0x0600450B RID: 17675 RVA: 0x00101FC8 File Offset: 0x001001C8
 	public bool ReadOnly
 	{
 		get
@@ -276,9 +276,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CCA RID: 3274
-	// (get) Token: 0x060040F0 RID: 16624 RVA: 0x000F93E8 File Offset: 0x000F75E8
-	// (set) Token: 0x060040F1 RID: 16625 RVA: 0x000F93F0 File Offset: 0x000F75F0
+	// Token: 0x17000D4E RID: 3406
+	// (get) Token: 0x0600450C RID: 17676 RVA: 0x00101FEC File Offset: 0x001001EC
+	// (set) Token: 0x0600450D RID: 17677 RVA: 0x00101FF4 File Offset: 0x001001F4
 	public string Text
 	{
 		get
@@ -302,9 +302,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CCB RID: 3275
-	// (get) Token: 0x060040F2 RID: 16626 RVA: 0x000F9464 File Offset: 0x000F7664
-	// (set) Token: 0x060040F3 RID: 16627 RVA: 0x000F946C File Offset: 0x000F766C
+	// Token: 0x17000D4F RID: 3407
+	// (get) Token: 0x0600450E RID: 17678 RVA: 0x00102068 File Offset: 0x00100268
+	// (set) Token: 0x0600450F RID: 17679 RVA: 0x00102070 File Offset: 0x00100270
 	public Color32 TextColor
 	{
 		get
@@ -318,9 +318,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CCC RID: 3276
-	// (get) Token: 0x060040F4 RID: 16628 RVA: 0x000F947C File Offset: 0x000F767C
-	// (set) Token: 0x060040F5 RID: 16629 RVA: 0x000F9484 File Offset: 0x000F7684
+	// Token: 0x17000D50 RID: 3408
+	// (get) Token: 0x06004510 RID: 17680 RVA: 0x00102080 File Offset: 0x00100280
+	// (set) Token: 0x06004511 RID: 17681 RVA: 0x00102088 File Offset: 0x00100288
 	public string SelectionSprite
 	{
 		get
@@ -337,9 +337,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CCD RID: 3277
-	// (get) Token: 0x060040F6 RID: 16630 RVA: 0x000F94A4 File Offset: 0x000F76A4
-	// (set) Token: 0x060040F7 RID: 16631 RVA: 0x000F94AC File Offset: 0x000F76AC
+	// Token: 0x17000D51 RID: 3409
+	// (get) Token: 0x06004512 RID: 17682 RVA: 0x001020A8 File Offset: 0x001002A8
+	// (set) Token: 0x06004513 RID: 17683 RVA: 0x001020B0 File Offset: 0x001002B0
 	public Color32 SelectionBackgroundColor
 	{
 		get
@@ -353,9 +353,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CCE RID: 3278
-	// (get) Token: 0x060040F8 RID: 16632 RVA: 0x000F94BC File Offset: 0x000F76BC
-	// (set) Token: 0x060040F9 RID: 16633 RVA: 0x000F94C4 File Offset: 0x000F76C4
+	// Token: 0x17000D52 RID: 3410
+	// (get) Token: 0x06004514 RID: 17684 RVA: 0x001020C0 File Offset: 0x001002C0
+	// (set) Token: 0x06004515 RID: 17685 RVA: 0x001020C8 File Offset: 0x001002C8
 	public float TextScale
 	{
 		get
@@ -373,10 +373,10 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CCF RID: 3279
-	// (get) Token: 0x060040FA RID: 16634 RVA: 0x000F94F4 File Offset: 0x000F76F4
-	// (set) Token: 0x060040FB RID: 16635 RVA: 0x000F94FC File Offset: 0x000F76FC
-	public dfTextScaleMode TextScaleMode
+	// Token: 0x17000D53 RID: 3411
+	// (get) Token: 0x06004516 RID: 17686 RVA: 0x001020F8 File Offset: 0x001002F8
+	// (set) Token: 0x06004517 RID: 17687 RVA: 0x00102100 File Offset: 0x00100300
+	public global::dfTextScaleMode TextScaleMode
 	{
 		get
 		{
@@ -389,9 +389,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD0 RID: 3280
-	// (get) Token: 0x060040FC RID: 16636 RVA: 0x000F950C File Offset: 0x000F770C
-	// (set) Token: 0x060040FD RID: 16637 RVA: 0x000F9514 File Offset: 0x000F7714
+	// Token: 0x17000D54 RID: 3412
+	// (get) Token: 0x06004518 RID: 17688 RVA: 0x00102110 File Offset: 0x00100310
+	// (set) Token: 0x06004519 RID: 17689 RVA: 0x00102118 File Offset: 0x00100318
 	public int MaxLength
 	{
 		get
@@ -412,9 +412,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD1 RID: 3281
-	// (get) Token: 0x060040FE RID: 16638 RVA: 0x000F9570 File Offset: 0x000F7770
-	// (set) Token: 0x060040FF RID: 16639 RVA: 0x000F9578 File Offset: 0x000F7778
+	// Token: 0x17000D55 RID: 3413
+	// (get) Token: 0x0600451A RID: 17690 RVA: 0x00102174 File Offset: 0x00100374
+	// (set) Token: 0x0600451B RID: 17691 RVA: 0x0010217C File Offset: 0x0010037C
 	public TextAlignment TextAlignment
 	{
 		get
@@ -431,9 +431,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD2 RID: 3282
-	// (get) Token: 0x06004100 RID: 16640 RVA: 0x000F9594 File Offset: 0x000F7794
-	// (set) Token: 0x06004101 RID: 16641 RVA: 0x000F959C File Offset: 0x000F779C
+	// Token: 0x17000D56 RID: 3414
+	// (get) Token: 0x0600451C RID: 17692 RVA: 0x00102198 File Offset: 0x00100398
+	// (set) Token: 0x0600451D RID: 17693 RVA: 0x001021A0 File Offset: 0x001003A0
 	public bool Shadow
 	{
 		get
@@ -450,9 +450,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD3 RID: 3283
-	// (get) Token: 0x06004102 RID: 16642 RVA: 0x000F95B8 File Offset: 0x000F77B8
-	// (set) Token: 0x06004103 RID: 16643 RVA: 0x000F95C0 File Offset: 0x000F77C0
+	// Token: 0x17000D57 RID: 3415
+	// (get) Token: 0x0600451E RID: 17694 RVA: 0x001021BC File Offset: 0x001003BC
+	// (set) Token: 0x0600451F RID: 17695 RVA: 0x001021C4 File Offset: 0x001003C4
 	public Color32 ShadowColor
 	{
 		get
@@ -469,9 +469,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD4 RID: 3284
-	// (get) Token: 0x06004104 RID: 16644 RVA: 0x000F95F8 File Offset: 0x000F77F8
-	// (set) Token: 0x06004105 RID: 16645 RVA: 0x000F9600 File Offset: 0x000F7800
+	// Token: 0x17000D58 RID: 3416
+	// (get) Token: 0x06004520 RID: 17696 RVA: 0x001021FC File Offset: 0x001003FC
+	// (set) Token: 0x06004521 RID: 17697 RVA: 0x00102204 File Offset: 0x00100404
 	public Vector2 ShadowOffset
 	{
 		get
@@ -488,9 +488,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD5 RID: 3285
-	// (get) Token: 0x06004106 RID: 16646 RVA: 0x000F9620 File Offset: 0x000F7820
-	// (set) Token: 0x06004107 RID: 16647 RVA: 0x000F9628 File Offset: 0x000F7828
+	// Token: 0x17000D59 RID: 3417
+	// (get) Token: 0x06004522 RID: 17698 RVA: 0x00102224 File Offset: 0x00100424
+	// (set) Token: 0x06004523 RID: 17699 RVA: 0x0010222C File Offset: 0x0010042C
 	public bool UseMobileKeyboard
 	{
 		get
@@ -503,9 +503,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD6 RID: 3286
-	// (get) Token: 0x06004108 RID: 16648 RVA: 0x000F9634 File Offset: 0x000F7834
-	// (set) Token: 0x06004109 RID: 16649 RVA: 0x000F963C File Offset: 0x000F783C
+	// Token: 0x17000D5A RID: 3418
+	// (get) Token: 0x06004524 RID: 17700 RVA: 0x00102238 File Offset: 0x00100438
+	// (set) Token: 0x06004525 RID: 17701 RVA: 0x00102240 File Offset: 0x00100440
 	public bool MobileAutoCorrect
 	{
 		get
@@ -518,9 +518,9 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD7 RID: 3287
-	// (get) Token: 0x0600410A RID: 16650 RVA: 0x000F9648 File Offset: 0x000F7848
-	// (set) Token: 0x0600410B RID: 16651 RVA: 0x000F9650 File Offset: 0x000F7850
+	// Token: 0x17000D5B RID: 3419
+	// (get) Token: 0x06004526 RID: 17702 RVA: 0x0010224C File Offset: 0x0010044C
+	// (set) Token: 0x06004527 RID: 17703 RVA: 0x00102254 File Offset: 0x00100454
 	public bool HideMobileInputField
 	{
 		get
@@ -533,10 +533,10 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000CD8 RID: 3288
-	// (get) Token: 0x0600410C RID: 16652 RVA: 0x000F965C File Offset: 0x000F785C
-	// (set) Token: 0x0600410D RID: 16653 RVA: 0x000F9664 File Offset: 0x000F7864
-	public dfMobileKeyboardTrigger MobileKeyboardTrigger
+	// Token: 0x17000D5C RID: 3420
+	// (get) Token: 0x06004528 RID: 17704 RVA: 0x00102260 File Offset: 0x00100460
+	// (set) Token: 0x06004529 RID: 17705 RVA: 0x00102268 File Offset: 0x00100468
+	public global::dfMobileKeyboardTrigger MobileKeyboardTrigger
 	{
 		get
 		{
@@ -548,8 +548,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600410E RID: 16654 RVA: 0x000F9670 File Offset: 0x000F7870
-	protected override void OnTabKeyPressed(dfKeyEventArgs args)
+	// Token: 0x0600452A RID: 17706 RVA: 0x00102274 File Offset: 0x00100474
+	protected override void OnTabKeyPressed(global::dfKeyEventArgs args)
 	{
 		if (this.acceptsTab)
 		{
@@ -567,8 +567,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600410F RID: 16655 RVA: 0x000F96B8 File Offset: 0x000F78B8
-	protected internal override void OnKeyPress(dfKeyEventArgs args)
+	// Token: 0x0600452B RID: 17707 RVA: 0x001022BC File Offset: 0x001004BC
+	protected internal override void OnKeyPress(global::dfKeyEventArgs args)
 	{
 		if (this.ReadOnly || char.IsControl(args.Character))
 		{
@@ -583,8 +583,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.processKeyPress(args);
 	}
 
-	// Token: 0x06004110 RID: 16656 RVA: 0x000F9704 File Offset: 0x000F7904
-	private void processKeyPress(dfKeyEventArgs args)
+	// Token: 0x0600452C RID: 17708 RVA: 0x00102308 File Offset: 0x00100508
+	private void processKeyPress(global::dfKeyEventArgs args)
 	{
 		this.deleteSelection();
 		if (this.text.Length < this.MaxLength)
@@ -604,8 +604,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		args.Use();
 	}
 
-	// Token: 0x06004111 RID: 16657 RVA: 0x000F97AC File Offset: 0x000F79AC
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x0600452D RID: 17709 RVA: 0x001023B0 File Offset: 0x001005B0
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
 		if (this.ReadOnly)
 		{
@@ -664,7 +664,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		case 277:
 			if (args.Shift)
 			{
-				string clipBoard = dfClipboardHelper.clipBoard;
+				string clipBoard = global::dfClipboardHelper.clipBoard;
 				if (!string.IsNullOrEmpty(clipBoard))
 				{
 					this.pasteAtCursor(clipBoard);
@@ -706,7 +706,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 				case 118:
 					if (args.Control)
 					{
-						string clipBoard2 = dfClipboardHelper.clipBoard;
+						string clipBoard2 = global::dfClipboardHelper.clipBoard;
 						if (!string.IsNullOrEmpty(clipBoard2))
 						{
 							this.pasteAtCursor(clipBoard2);
@@ -780,7 +780,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		args.Use();
 	}
 
-	// Token: 0x06004112 RID: 16658 RVA: 0x000F9A5C File Offset: 0x000F7C5C
+	// Token: 0x0600452E RID: 17710 RVA: 0x00102660 File Offset: 0x00100860
 	private void selectAll()
 	{
 		this.selectionStart = 0;
@@ -789,24 +789,24 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(0);
 	}
 
-	// Token: 0x06004113 RID: 16659 RVA: 0x000F9A90 File Offset: 0x000F7C90
+	// Token: 0x0600452F RID: 17711 RVA: 0x00102694 File Offset: 0x00100894
 	private void cutSelectionToClipboard()
 	{
 		this.copySelectionToClipboard();
 		this.deleteSelection();
 	}
 
-	// Token: 0x06004114 RID: 16660 RVA: 0x000F9AA0 File Offset: 0x000F7CA0
+	// Token: 0x06004530 RID: 17712 RVA: 0x001026A4 File Offset: 0x001008A4
 	private void copySelectionToClipboard()
 	{
 		if (this.selectionStart == this.selectionEnd)
 		{
 			return;
 		}
-		dfClipboardHelper.clipBoard = this.text.Substring(this.selectionStart, this.selectionEnd - this.selectionStart);
+		global::dfClipboardHelper.clipBoard = this.text.Substring(this.selectionStart, this.selectionEnd - this.selectionStart);
 	}
 
-	// Token: 0x06004115 RID: 16661 RVA: 0x000F9AD8 File Offset: 0x000F7CD8
+	// Token: 0x06004531 RID: 17713 RVA: 0x001026DC File Offset: 0x001008DC
 	private void pasteAtCursor(string clipData)
 	{
 		this.deleteSelection();
@@ -826,7 +826,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x06004116 RID: 16662 RVA: 0x000F9B8C File Offset: 0x000F7D8C
+	// Token: 0x06004532 RID: 17714 RVA: 0x00102790 File Offset: 0x00100990
 	private void selectWordAtIndex(int index)
 	{
 		if (string.IsNullOrEmpty(this.text))
@@ -866,7 +866,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x06004117 RID: 16663 RVA: 0x000F9CA0 File Offset: 0x000F7EA0
+	// Token: 0x06004533 RID: 17715 RVA: 0x001028A4 File Offset: 0x00100AA4
 	private void moveToNextWord()
 	{
 		this.ClearSelection();
@@ -878,7 +878,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(cursorPos);
 	}
 
-	// Token: 0x06004118 RID: 16664 RVA: 0x000F9CE0 File Offset: 0x000F7EE0
+	// Token: 0x06004534 RID: 17716 RVA: 0x001028E4 File Offset: 0x00100AE4
 	private void moveToPreviousWord()
 	{
 		this.ClearSelection();
@@ -890,7 +890,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(cursorPos);
 	}
 
-	// Token: 0x06004119 RID: 16665 RVA: 0x000F9D14 File Offset: 0x000F7F14
+	// Token: 0x06004535 RID: 17717 RVA: 0x00102918 File Offset: 0x00100B18
 	private void deletePreviousChar()
 	{
 		if (this.selectionStart != this.selectionEnd)
@@ -912,7 +912,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x0600411A RID: 16666 RVA: 0x000F9D94 File Offset: 0x000F7F94
+	// Token: 0x06004536 RID: 17718 RVA: 0x00102998 File Offset: 0x00100B98
 	private void deletePreviousWord()
 	{
 		this.ClearSelection();
@@ -931,7 +931,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x0600411B RID: 16667 RVA: 0x000F9DFC File Offset: 0x000F7FFC
+	// Token: 0x06004537 RID: 17719 RVA: 0x00102A00 File Offset: 0x00100C00
 	private void deleteSelection()
 	{
 		if (this.selectionStart == this.selectionEnd)
@@ -945,7 +945,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x0600411C RID: 16668 RVA: 0x000F9E60 File Offset: 0x000F8060
+	// Token: 0x06004538 RID: 17720 RVA: 0x00102A64 File Offset: 0x00100C64
 	private void deleteNextChar()
 	{
 		this.ClearSelection();
@@ -959,7 +959,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x0600411D RID: 16669 RVA: 0x000F9EB8 File Offset: 0x000F80B8
+	// Token: 0x06004539 RID: 17721 RVA: 0x00102ABC File Offset: 0x00100CBC
 	private void deleteNextWord()
 	{
 		this.ClearSelection();
@@ -977,7 +977,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x0600411E RID: 16670 RVA: 0x000F9F34 File Offset: 0x000F8134
+	// Token: 0x0600453A RID: 17722 RVA: 0x00102B38 File Offset: 0x00100D38
 	private void selectToStart()
 	{
 		if (this.cursorIndex == 0)
@@ -996,7 +996,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(0);
 	}
 
-	// Token: 0x0600411F RID: 16671 RVA: 0x000F9F9C File Offset: 0x000F819C
+	// Token: 0x0600453B RID: 17723 RVA: 0x00102BA0 File Offset: 0x00100DA0
 	private void selectToEnd()
 	{
 		if (this.cursorIndex == this.text.Length)
@@ -1015,28 +1015,28 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(this.text.Length);
 	}
 
-	// Token: 0x06004120 RID: 16672 RVA: 0x000FA024 File Offset: 0x000F8224
+	// Token: 0x0600453C RID: 17724 RVA: 0x00102C28 File Offset: 0x00100E28
 	private void moveToEnd()
 	{
 		this.ClearSelection();
 		this.setCursorPos(this.text.Length);
 	}
 
-	// Token: 0x06004121 RID: 16673 RVA: 0x000FA040 File Offset: 0x000F8240
+	// Token: 0x0600453D RID: 17725 RVA: 0x00102C44 File Offset: 0x00100E44
 	private void moveToStart()
 	{
 		this.ClearSelection();
 		this.setCursorPos(0);
 	}
 
-	// Token: 0x06004122 RID: 16674 RVA: 0x000FA050 File Offset: 0x000F8250
+	// Token: 0x0600453E RID: 17726 RVA: 0x00102C54 File Offset: 0x00100E54
 	private void moveToNextChar()
 	{
 		this.ClearSelection();
 		this.setCursorPos(this.cursorIndex + 1);
 	}
 
-	// Token: 0x06004123 RID: 16675 RVA: 0x000FA068 File Offset: 0x000F8268
+	// Token: 0x0600453F RID: 17727 RVA: 0x00102C6C File Offset: 0x00100E6C
 	private void moveSelectionPointRightWord()
 	{
 		if (this.cursorIndex == this.text.Length)
@@ -1060,7 +1060,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(cursorPos);
 	}
 
-	// Token: 0x06004124 RID: 16676 RVA: 0x000FA100 File Offset: 0x000F8300
+	// Token: 0x06004540 RID: 17728 RVA: 0x00102D04 File Offset: 0x00100F04
 	private void moveSelectionPointLeftWord()
 	{
 		if (this.cursorIndex == 0)
@@ -1084,7 +1084,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(cursorPos);
 	}
 
-	// Token: 0x06004125 RID: 16677 RVA: 0x000FA18C File Offset: 0x000F838C
+	// Token: 0x06004541 RID: 17729 RVA: 0x00102D90 File Offset: 0x00100F90
 	private void moveSelectionPointRight()
 	{
 		if (this.cursorIndex == this.text.Length)
@@ -1107,7 +1107,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(this.cursorIndex + 1);
 	}
 
-	// Token: 0x06004126 RID: 16678 RVA: 0x000FA234 File Offset: 0x000F8434
+	// Token: 0x06004542 RID: 17730 RVA: 0x00102E38 File Offset: 0x00101038
 	private void moveSelectionPointLeft()
 	{
 		if (this.cursorIndex == 0)
@@ -1130,14 +1130,14 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.setCursorPos(this.cursorIndex - 1);
 	}
 
-	// Token: 0x06004127 RID: 16679 RVA: 0x000FA2D0 File Offset: 0x000F84D0
+	// Token: 0x06004543 RID: 17731 RVA: 0x00102ED4 File Offset: 0x001010D4
 	private void moveToPreviousChar()
 	{
 		this.ClearSelection();
 		this.setCursorPos(this.cursorIndex - 1);
 	}
 
-	// Token: 0x06004128 RID: 16680 RVA: 0x000FA2E8 File Offset: 0x000F84E8
+	// Token: 0x06004544 RID: 17732 RVA: 0x00102EEC File Offset: 0x001010EC
 	private void setCursorPos(int index)
 	{
 		index = Mathf.Max(0, Mathf.Min(this.text.Length, index));
@@ -1151,7 +1151,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x06004129 RID: 16681 RVA: 0x000FA34C File Offset: 0x000F854C
+	// Token: 0x06004545 RID: 17733 RVA: 0x00102F50 File Offset: 0x00101150
 	private int findPreviousWord(int startIndex)
 	{
 		int i;
@@ -1180,7 +1180,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		return i;
 	}
 
-	// Token: 0x0600412A RID: 16682 RVA: 0x000FA3FC File Offset: 0x000F85FC
+	// Token: 0x06004546 RID: 17734 RVA: 0x00103000 File Offset: 0x00101200
 	private int findNextWord(int startIndex)
 	{
 		int length = this.text.Length;
@@ -1206,7 +1206,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		return i;
 	}
 
-	// Token: 0x0600412B RID: 16683 RVA: 0x000FA4AC File Offset: 0x000F86AC
+	// Token: 0x06004547 RID: 17735 RVA: 0x001030B0 File Offset: 0x001012B0
 	public override void OnEnable()
 	{
 		if (this.padding == null)
@@ -1227,15 +1227,15 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600412C RID: 16684 RVA: 0x000FA558 File Offset: 0x000F8758
+	// Token: 0x06004548 RID: 17736 RVA: 0x0010315C File Offset: 0x0010135C
 	public override void Awake()
 	{
 		base.Awake();
 		this.startSize = base.Size;
 	}
 
-	// Token: 0x0600412D RID: 16685 RVA: 0x000FA56C File Offset: 0x000F876C
-	protected internal override void OnEnterFocus(dfFocusEventArgs args)
+	// Token: 0x06004549 RID: 17737 RVA: 0x00103170 File Offset: 0x00101370
+	protected internal override void OnEnterFocus(global::dfFocusEventArgs args)
 	{
 		base.OnEnterFocus(args);
 		this.undoText = this.Text;
@@ -1256,8 +1256,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.Invalidate();
 	}
 
-	// Token: 0x0600412E RID: 16686 RVA: 0x000FA5F0 File Offset: 0x000F87F0
-	protected internal override void OnLeaveFocus(dfFocusEventArgs args)
+	// Token: 0x0600454A RID: 17738 RVA: 0x001031F4 File Offset: 0x001013F4
+	protected internal override void OnLeaveFocus(global::dfFocusEventArgs args)
 	{
 		base.OnLeaveFocus(args);
 		this.cursorShown = false;
@@ -1266,15 +1266,15 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.whenGotFocus = 0f;
 	}
 
-	// Token: 0x0600412F RID: 16687 RVA: 0x000FA618 File Offset: 0x000F8818
-	protected internal override void OnDoubleClick(dfMouseEventArgs args)
+	// Token: 0x0600454B RID: 17739 RVA: 0x0010321C File Offset: 0x0010141C
+	protected internal override void OnDoubleClick(global::dfMouseEventArgs args)
 	{
 		if (args.Source != this)
 		{
 			base.OnDoubleClick(args);
 			return;
 		}
-		if (!this.ReadOnly && this.HasFocus && args.Buttons.IsSet(dfMouseButtons.Left) && Time.realtimeSinceStartup - this.whenGotFocus > 0.5f)
+		if (!this.ReadOnly && this.HasFocus && args.Buttons.IsSet(global::dfMouseButtons.Left) && Time.realtimeSinceStartup - this.whenGotFocus > 0.5f)
 		{
 			int charIndexOfMouse = this.getCharIndexOfMouse(args);
 			this.selectWordAtIndex(charIndexOfMouse);
@@ -1282,15 +1282,15 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		base.OnDoubleClick(args);
 	}
 
-	// Token: 0x06004130 RID: 16688 RVA: 0x000FA694 File Offset: 0x000F8894
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x0600454C RID: 17740 RVA: 0x00103298 File Offset: 0x00101498
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
 		if (args.Source != this)
 		{
 			base.OnMouseDown(args);
 			return;
 		}
-		bool flag = !this.ReadOnly && args.Buttons.IsSet(dfMouseButtons.Left) && ((!this.HasFocus && !this.SelectOnFocus) || Time.realtimeSinceStartup - this.whenGotFocus > 0.25f);
+		bool flag = !this.ReadOnly && args.Buttons.IsSet(global::dfMouseButtons.Left) && ((!this.HasFocus && !this.SelectOnFocus) || Time.realtimeSinceStartup - this.whenGotFocus > 0.25f);
 		if (flag)
 		{
 			int charIndexOfMouse = this.getCharIndexOfMouse(args);
@@ -1307,15 +1307,15 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		base.OnMouseDown(args);
 	}
 
-	// Token: 0x06004131 RID: 16689 RVA: 0x000FA764 File Offset: 0x000F8964
-	protected internal override void OnMouseMove(dfMouseEventArgs args)
+	// Token: 0x0600454D RID: 17741 RVA: 0x00103368 File Offset: 0x00101568
+	protected internal override void OnMouseMove(global::dfMouseEventArgs args)
 	{
 		if (args.Source != this)
 		{
 			base.OnMouseMove(args);
 			return;
 		}
-		if (!this.ReadOnly && this.HasFocus && args.Buttons.IsSet(dfMouseButtons.Left))
+		if (!this.ReadOnly && this.HasFocus && args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			int charIndexOfMouse = this.getCharIndexOfMouse(args);
 			if (charIndexOfMouse != this.cursorIndex)
@@ -1332,7 +1332,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		base.OnMouseMove(args);
 	}
 
-	// Token: 0x06004132 RID: 16690 RVA: 0x000FA80C File Offset: 0x000F8A0C
+	// Token: 0x0600454E RID: 17742 RVA: 0x00103410 File Offset: 0x00101610
 	protected internal virtual void OnTextChanged()
 	{
 		base.SignalHierarchy("OnTextChanged", new object[]
@@ -1345,7 +1345,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004133 RID: 16691 RVA: 0x000FA854 File Offset: 0x000F8A54
+	// Token: 0x0600454F RID: 17743 RVA: 0x00103458 File Offset: 0x00101658
 	protected internal virtual void OnReadOnlyChanged()
 	{
 		if (this.ReadOnlyChanged != null)
@@ -1354,7 +1354,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004134 RID: 16692 RVA: 0x000FA874 File Offset: 0x000F8A74
+	// Token: 0x06004550 RID: 17744 RVA: 0x00103478 File Offset: 0x00101678
 	protected internal virtual void OnPasswordCharacterChanged()
 	{
 		if (this.PasswordCharacterChanged != null)
@@ -1363,7 +1363,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004135 RID: 16693 RVA: 0x000FA894 File Offset: 0x000F8A94
+	// Token: 0x06004551 RID: 17745 RVA: 0x00103498 File Offset: 0x00101698
 	protected internal virtual void OnSubmit()
 	{
 		base.SignalHierarchy("OnTextSubmitted", new object[]
@@ -1377,7 +1377,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004136 RID: 16694 RVA: 0x000FA8E0 File Offset: 0x000F8AE0
+	// Token: 0x06004552 RID: 17746 RVA: 0x001034E4 File Offset: 0x001016E4
 	protected internal virtual void OnCancel()
 	{
 		this.text = this.undoText;
@@ -1392,7 +1392,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004137 RID: 16695 RVA: 0x000FA938 File Offset: 0x000F8B38
+	// Token: 0x06004553 RID: 17747 RVA: 0x0010353C File Offset: 0x0010173C
 	public void ClearSelection()
 	{
 		this.selectionStart = 0;
@@ -1400,7 +1400,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.mouseSelectionAnchor = 0;
 	}
 
-	// Token: 0x06004138 RID: 16696 RVA: 0x000FA950 File Offset: 0x000F8B50
+	// Token: 0x06004554 RID: 17748 RVA: 0x00103554 File Offset: 0x00101754
 	private IEnumerator doCursorBlink()
 	{
 		if (!Application.isPlaying)
@@ -1418,8 +1418,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		yield break;
 	}
 
-	// Token: 0x06004139 RID: 16697 RVA: 0x000FA96C File Offset: 0x000F8B6C
-	private void renderText(dfRenderData textBuffer)
+	// Token: 0x06004555 RID: 17749 RVA: 0x00103570 File Offset: 0x00101770
+	private void renderText(global::dfRenderData textBuffer)
 	{
 		float num = base.PixelsToUnits();
 		Vector2 vector;
@@ -1429,7 +1429,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		string text = (!this.IsPasswordField || string.IsNullOrEmpty(this.passwordChar)) ? this.text : this.passwordDisplayText();
 		Color32 color = (!base.IsEnabled) ? base.DisabledColor : this.TextColor;
 		float textScaleMultiplier = this.getTextScaleMultiplier();
-		using (dfFontRendererBase dfFontRendererBase = this.font.ObtainRenderer())
+		using (global::dfFontRendererBase dfFontRendererBase = this.font.ObtainRenderer())
 		{
 			dfFontRendererBase.WordWrap = false;
 			dfFontRendererBase.MaxSize = vector;
@@ -1500,27 +1500,27 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600413A RID: 16698 RVA: 0x000FADB0 File Offset: 0x000F8FB0
+	// Token: 0x06004556 RID: 17750 RVA: 0x001039B4 File Offset: 0x00101BB4
 	private float getTextScaleMultiplier()
 	{
-		if (this.textScaleMode == dfTextScaleMode.None || !Application.isPlaying)
+		if (this.textScaleMode == global::dfTextScaleMode.None || !Application.isPlaying)
 		{
 			return 1f;
 		}
-		if (this.textScaleMode == dfTextScaleMode.ScreenResolution)
+		if (this.textScaleMode == global::dfTextScaleMode.ScreenResolution)
 		{
 			return (float)Screen.height / (float)this.manager.FixedHeight;
 		}
 		return base.Size.y / this.startSize.y;
 	}
 
-	// Token: 0x0600413B RID: 16699 RVA: 0x000FAE14 File Offset: 0x000F9014
+	// Token: 0x06004557 RID: 17751 RVA: 0x00103A18 File Offset: 0x00101C18
 	private string passwordDisplayText()
 	{
 		return new string(this.passwordChar[0], this.text.Length);
 	}
 
-	// Token: 0x0600413C RID: 16700 RVA: 0x000FAE34 File Offset: 0x000F9034
+	// Token: 0x06004558 RID: 17752 RVA: 0x00103A38 File Offset: 0x00101C38
 	private void renderSelection(int scrollIndex, float[] charWidths, float leftOffset)
 	{
 		if (string.IsNullOrEmpty(this.SelectionSprite) || base.Atlas == null)
@@ -1590,7 +1590,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.renderData.Colors.Add(item5);
 		this.renderData.Colors.Add(item5);
 		this.renderData.Colors.Add(item5);
-		dfAtlas.ItemInfo itemInfo = base.Atlas[this.SelectionSprite];
+		global::dfAtlas.ItemInfo itemInfo = base.Atlas[this.SelectionSprite];
 		Rect region = itemInfo.region;
 		float num14 = region.width / itemInfo.sizeInPixels.x;
 		float num15 = region.height / itemInfo.sizeInPixels.y;
@@ -1600,7 +1600,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		this.renderData.UV.Add(new Vector2(region.x + num14, region.y + num15));
 	}
 
-	// Token: 0x0600413D RID: 16701 RVA: 0x000FB1C4 File Offset: 0x000F93C4
+	// Token: 0x06004559 RID: 17753 RVA: 0x00103DC8 File Offset: 0x00101FC8
 	private void renderCursor(int startIndex, int cursorIndex, float[] charWidths, float leftOffset)
 	{
 		if (string.IsNullOrEmpty(this.SelectionSprite) || base.Atlas == null)
@@ -1625,10 +1625,10 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		vector3..ctor(num3 + num5, num4 - num6);
 		Vector3 vector4;
 		vector4..ctor(num3, num4 - num6);
-		dfList<Vector3> vertices = this.renderData.Vertices;
-		dfList<int> triangles = this.renderData.Triangles;
-		dfList<Vector2> uv = this.renderData.UV;
-		dfList<Color32> colors = this.renderData.Colors;
+		global::dfList<Vector3> vertices = this.renderData.Vertices;
+		global::dfList<int> triangles = this.renderData.Triangles;
+		global::dfList<Vector2> uv = this.renderData.UV;
+		global::dfList<Color32> colors = this.renderData.Colors;
 		Vector3 vector5 = this.pivot.TransformToUpperLeft(this.size) * num2;
 		this.addQuadIndices(vertices, triangles);
 		vertices.Add(vector + vector5);
@@ -1640,7 +1640,7 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		colors.Add(item);
 		colors.Add(item);
 		colors.Add(item);
-		dfAtlas.ItemInfo itemInfo = base.Atlas[this.SelectionSprite];
+		global::dfAtlas.ItemInfo itemInfo = base.Atlas[this.SelectionSprite];
 		Rect region = itemInfo.region;
 		uv.Add(new Vector2(region.x, region.yMax));
 		uv.Add(new Vector2(region.xMax, region.yMax));
@@ -1648,8 +1648,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		uv.Add(new Vector2(region.x, region.y));
 	}
 
-	// Token: 0x0600413E RID: 16702 RVA: 0x000FB3EC File Offset: 0x000F95EC
-	private void addQuadIndices(dfList<Vector3> verts, dfList<int> triangles)
+	// Token: 0x0600455A RID: 17754 RVA: 0x00103FF0 File Offset: 0x001021F0
+	private void addQuadIndices(global::dfList<Vector3> verts, global::dfList<int> triangles)
 	{
 		int count = verts.Count;
 		int[] array = new int[]
@@ -1667,8 +1667,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600413F RID: 16703 RVA: 0x000FB434 File Offset: 0x000F9634
-	private int getCharIndexOfMouse(dfMouseEventArgs args)
+	// Token: 0x0600455B RID: 17755 RVA: 0x00104038 File Offset: 0x00102238
+	private int getCharIndexOfMouse(global::dfMouseEventArgs args)
 	{
 		Vector2 hitPosition = base.GetHitPosition(args);
 		float num = base.PixelsToUnits();
@@ -1685,8 +1685,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		return num2;
 	}
 
-	// Token: 0x06004140 RID: 16704 RVA: 0x000FB4A4 File Offset: 0x000F96A4
-	public dfList<dfRenderData> RenderMultiple()
+	// Token: 0x0600455C RID: 17756 RVA: 0x001040A8 File Offset: 0x001022A8
+	public global::dfList<global::dfRenderData> RenderMultiple()
 	{
 		if (base.Atlas == null || this.Font == null)
 		{
@@ -1698,8 +1698,8 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		}
 		if (this.renderData == null)
 		{
-			this.renderData = dfRenderData.Obtain();
-			this.textRenderData = dfRenderData.Obtain();
+			this.renderData = global::dfRenderData.Obtain();
+			this.textRenderData = global::dfRenderData.Obtain();
 			this.isControlInvalidated = true;
 		}
 		if (!this.isControlInvalidated)
@@ -1726,142 +1726,142 @@ public class dfTextbox : dfInteractiveBase, IDFMultiRender
 		return this.buffers;
 	}
 
-	// Token: 0x04002250 RID: 8784
+	// Token: 0x04002459 RID: 9305
 	[SerializeField]
-	protected dfFontBase font;
+	protected global::dfFontBase font;
 
-	// Token: 0x04002251 RID: 8785
+	// Token: 0x0400245A RID: 9306
 	[SerializeField]
 	protected bool acceptsTab;
 
-	// Token: 0x04002252 RID: 8786
+	// Token: 0x0400245B RID: 9307
 	[SerializeField]
 	protected bool displayAsPassword;
 
-	// Token: 0x04002253 RID: 8787
+	// Token: 0x0400245C RID: 9308
 	[SerializeField]
 	protected string passwordChar = "*";
 
-	// Token: 0x04002254 RID: 8788
+	// Token: 0x0400245D RID: 9309
 	[SerializeField]
 	protected bool readOnly;
 
-	// Token: 0x04002255 RID: 8789
+	// Token: 0x0400245E RID: 9310
 	[SerializeField]
 	protected string text = string.Empty;
 
-	// Token: 0x04002256 RID: 8790
+	// Token: 0x0400245F RID: 9311
 	[SerializeField]
 	protected Color32 textColor = UnityEngine.Color.white;
 
-	// Token: 0x04002257 RID: 8791
+	// Token: 0x04002460 RID: 9312
 	[SerializeField]
 	protected Color32 selectionBackground = new Color32(0, 105, 210, byte.MaxValue);
 
-	// Token: 0x04002258 RID: 8792
+	// Token: 0x04002461 RID: 9313
 	[SerializeField]
 	protected string selectionSprite = string.Empty;
 
-	// Token: 0x04002259 RID: 8793
+	// Token: 0x04002462 RID: 9314
 	[SerializeField]
 	protected float textScale = 1f;
 
-	// Token: 0x0400225A RID: 8794
+	// Token: 0x04002463 RID: 9315
 	[SerializeField]
-	protected dfTextScaleMode textScaleMode;
+	protected global::dfTextScaleMode textScaleMode;
 
-	// Token: 0x0400225B RID: 8795
+	// Token: 0x04002464 RID: 9316
 	[SerializeField]
 	protected RectOffset padding = new RectOffset();
 
-	// Token: 0x0400225C RID: 8796
+	// Token: 0x04002465 RID: 9317
 	[SerializeField]
 	protected float cursorBlinkTime = 0.45f;
 
-	// Token: 0x0400225D RID: 8797
+	// Token: 0x04002466 RID: 9318
 	[SerializeField]
 	protected int cursorWidth = 1;
 
-	// Token: 0x0400225E RID: 8798
+	// Token: 0x04002467 RID: 9319
 	[SerializeField]
 	protected int maxLength = 1024;
 
-	// Token: 0x0400225F RID: 8799
+	// Token: 0x04002468 RID: 9320
 	[SerializeField]
 	protected bool selectOnFocus;
 
-	// Token: 0x04002260 RID: 8800
+	// Token: 0x04002469 RID: 9321
 	[SerializeField]
 	protected bool shadow;
 
-	// Token: 0x04002261 RID: 8801
+	// Token: 0x0400246A RID: 9322
 	[SerializeField]
 	protected Color32 shadowColor = UnityEngine.Color.black;
 
-	// Token: 0x04002262 RID: 8802
+	// Token: 0x0400246B RID: 9323
 	[SerializeField]
 	protected Vector2 shadowOffset = new Vector2(1f, -1f);
 
-	// Token: 0x04002263 RID: 8803
+	// Token: 0x0400246C RID: 9324
 	[SerializeField]
 	protected bool useMobileKeyboard;
 
-	// Token: 0x04002264 RID: 8804
+	// Token: 0x0400246D RID: 9325
 	[SerializeField]
 	protected int mobileKeyboardType;
 
-	// Token: 0x04002265 RID: 8805
+	// Token: 0x0400246E RID: 9326
 	[SerializeField]
 	protected bool mobileAutoCorrect;
 
-	// Token: 0x04002266 RID: 8806
+	// Token: 0x0400246F RID: 9327
 	[SerializeField]
 	protected bool mobileHideInputField;
 
-	// Token: 0x04002267 RID: 8807
+	// Token: 0x04002470 RID: 9328
 	[SerializeField]
-	protected dfMobileKeyboardTrigger mobileKeyboardTrigger;
+	protected global::dfMobileKeyboardTrigger mobileKeyboardTrigger;
 
-	// Token: 0x04002268 RID: 8808
+	// Token: 0x04002471 RID: 9329
 	[SerializeField]
 	protected TextAlignment textAlign;
 
-	// Token: 0x04002269 RID: 8809
+	// Token: 0x04002472 RID: 9330
 	private Vector2 startSize = Vector2.zero;
 
-	// Token: 0x0400226A RID: 8810
+	// Token: 0x04002473 RID: 9331
 	private int selectionStart;
 
-	// Token: 0x0400226B RID: 8811
+	// Token: 0x04002474 RID: 9332
 	private int selectionEnd;
 
-	// Token: 0x0400226C RID: 8812
+	// Token: 0x04002475 RID: 9333
 	private int mouseSelectionAnchor;
 
-	// Token: 0x0400226D RID: 8813
+	// Token: 0x04002476 RID: 9334
 	private int scrollIndex;
 
-	// Token: 0x0400226E RID: 8814
+	// Token: 0x04002477 RID: 9335
 	private int cursorIndex;
 
-	// Token: 0x0400226F RID: 8815
+	// Token: 0x04002478 RID: 9336
 	private float leftOffset;
 
-	// Token: 0x04002270 RID: 8816
+	// Token: 0x04002479 RID: 9337
 	private bool cursorShown;
 
-	// Token: 0x04002271 RID: 8817
+	// Token: 0x0400247A RID: 9338
 	private float[] charWidths;
 
-	// Token: 0x04002272 RID: 8818
+	// Token: 0x0400247B RID: 9339
 	private float whenGotFocus;
 
-	// Token: 0x04002273 RID: 8819
+	// Token: 0x0400247C RID: 9340
 	private string undoText = string.Empty;
 
-	// Token: 0x04002274 RID: 8820
-	private dfRenderData textRenderData;
+	// Token: 0x0400247D RID: 9341
+	private global::dfRenderData textRenderData;
 
-	// Token: 0x04002275 RID: 8821
-	private dfList<dfRenderData> buffers = dfList<dfRenderData>.Obtain();
+	// Token: 0x0400247E RID: 9342
+	private global::dfList<global::dfRenderData> buffers = global::dfList<global::dfRenderData>.Obtain();
 }

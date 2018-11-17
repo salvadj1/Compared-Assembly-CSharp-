@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200069E RID: 1694
+// Token: 0x02000764 RID: 1892
 [ExecuteInEditMode]
 [AddComponentMenu("Daikon Forge/User Interface/Texture Atlas")]
 [Serializable]
 public class dfAtlas : MonoBehaviour
 {
-	// Token: 0x17000B4F RID: 2895
-	// (get) Token: 0x06003A89 RID: 14985 RVA: 0x000DB690 File Offset: 0x000D9890
+	// Token: 0x17000BD3 RID: 3027
+	// (get) Token: 0x06003E87 RID: 16007 RVA: 0x000E4120 File Offset: 0x000E2320
 	public Texture2D Texture
 	{
 		get
@@ -18,8 +18,8 @@ public class dfAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B50 RID: 2896
-	// (get) Token: 0x06003A8A RID: 14986 RVA: 0x000DB6C4 File Offset: 0x000D98C4
+	// Token: 0x17000BD4 RID: 3028
+	// (get) Token: 0x06003E88 RID: 16008 RVA: 0x000E4154 File Offset: 0x000E2354
 	public int Count
 	{
 		get
@@ -28,9 +28,9 @@ public class dfAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B51 RID: 2897
-	// (get) Token: 0x06003A8B RID: 14987 RVA: 0x000DB700 File Offset: 0x000D9900
-	public List<dfAtlas.ItemInfo> Items
+	// Token: 0x17000BD5 RID: 3029
+	// (get) Token: 0x06003E89 RID: 16009 RVA: 0x000E4190 File Offset: 0x000E2390
+	public List<global::dfAtlas.ItemInfo> Items
 	{
 		get
 		{
@@ -38,9 +38,9 @@ public class dfAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B52 RID: 2898
-	// (get) Token: 0x06003A8C RID: 14988 RVA: 0x000DB72C File Offset: 0x000D992C
-	// (set) Token: 0x06003A8D RID: 14989 RVA: 0x000DB758 File Offset: 0x000D9958
+	// Token: 0x17000BD6 RID: 3030
+	// (get) Token: 0x06003E8A RID: 16010 RVA: 0x000E41BC File Offset: 0x000E23BC
+	// (set) Token: 0x06003E8B RID: 16011 RVA: 0x000E41E8 File Offset: 0x000E23E8
 	public Material Material
 	{
 		get
@@ -60,10 +60,10 @@ public class dfAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B53 RID: 2899
-	// (get) Token: 0x06003A8E RID: 14990 RVA: 0x000DB784 File Offset: 0x000D9984
-	// (set) Token: 0x06003A8F RID: 14991 RVA: 0x000DB78C File Offset: 0x000D998C
-	public dfAtlas Replacement
+	// Token: 0x17000BD7 RID: 3031
+	// (get) Token: 0x06003E8C RID: 16012 RVA: 0x000E4214 File Offset: 0x000E2414
+	// (set) Token: 0x06003E8D RID: 16013 RVA: 0x000E421C File Offset: 0x000E241C
+	public global::dfAtlas Replacement
 	{
 		get
 		{
@@ -75,8 +75,8 @@ public class dfAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B54 RID: 2900
-	public dfAtlas.ItemInfo this[string key]
+	// Token: 0x17000BD8 RID: 3032
+	public global::dfAtlas.ItemInfo this[string key]
 	{
 		get
 		{
@@ -92,7 +92,7 @@ public class dfAtlas : MonoBehaviour
 			{
 				this.RebuildIndexes();
 			}
-			dfAtlas.ItemInfo result = null;
+			global::dfAtlas.ItemInfo result = null;
 			if (this.map.TryGetValue(key, out result))
 			{
 				return result;
@@ -101,27 +101,27 @@ public class dfAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A91 RID: 14993 RVA: 0x000DB800 File Offset: 0x000D9A00
-	internal static bool Equals(dfAtlas lhs, dfAtlas rhs)
+	// Token: 0x06003E8F RID: 16015 RVA: 0x000E4290 File Offset: 0x000E2490
+	internal static bool Equals(global::dfAtlas lhs, global::dfAtlas rhs)
 	{
 		return object.ReferenceEquals(lhs, rhs) || (!(lhs == null) && !(rhs == null) && lhs.material == rhs.material);
 	}
 
-	// Token: 0x06003A92 RID: 14994 RVA: 0x000DB83C File Offset: 0x000D9A3C
-	public void AddItem(dfAtlas.ItemInfo item)
+	// Token: 0x06003E90 RID: 16016 RVA: 0x000E42CC File Offset: 0x000E24CC
+	public void AddItem(global::dfAtlas.ItemInfo item)
 	{
 		this.items.Add(item);
 		this.RebuildIndexes();
 	}
 
-	// Token: 0x06003A93 RID: 14995 RVA: 0x000DB850 File Offset: 0x000D9A50
-	public void AddItems(IEnumerable<dfAtlas.ItemInfo> items)
+	// Token: 0x06003E91 RID: 16017 RVA: 0x000E42E0 File Offset: 0x000E24E0
+	public void AddItems(IEnumerable<global::dfAtlas.ItemInfo> items)
 	{
 		this.items.AddRange(items);
 		this.RebuildIndexes();
 	}
 
-	// Token: 0x06003A94 RID: 14996 RVA: 0x000DB864 File Offset: 0x000D9A64
+	// Token: 0x06003E92 RID: 16018 RVA: 0x000E42F4 File Offset: 0x000E24F4
 	public void Remove(string name)
 	{
 		for (int i = this.items.Count - 1; i >= 0; i--)
@@ -134,12 +134,12 @@ public class dfAtlas : MonoBehaviour
 		this.RebuildIndexes();
 	}
 
-	// Token: 0x06003A95 RID: 14997 RVA: 0x000DB8C0 File Offset: 0x000D9AC0
+	// Token: 0x06003E93 RID: 16019 RVA: 0x000E4350 File Offset: 0x000E2550
 	public void RebuildIndexes()
 	{
 		if (this.map == null)
 		{
-			this.map = new Dictionary<string, dfAtlas.ItemInfo>();
+			this.map = new Dictionary<string, global::dfAtlas.ItemInfo>();
 		}
 		else
 		{
@@ -147,88 +147,88 @@ public class dfAtlas : MonoBehaviour
 		}
 		for (int i = 0; i < this.items.Count; i++)
 		{
-			dfAtlas.ItemInfo itemInfo = this.items[i];
+			global::dfAtlas.ItemInfo itemInfo = this.items[i];
 			this.map[itemInfo.name] = itemInfo;
 		}
 	}
 
-	// Token: 0x04001EF4 RID: 7924
+	// Token: 0x040020F0 RID: 8432
 	[SerializeField]
 	protected Material material;
 
-	// Token: 0x04001EF5 RID: 7925
+	// Token: 0x040020F1 RID: 8433
 	[SerializeField]
-	protected List<dfAtlas.ItemInfo> items = new List<dfAtlas.ItemInfo>();
+	protected List<global::dfAtlas.ItemInfo> items = new List<global::dfAtlas.ItemInfo>();
 
-	// Token: 0x04001EF6 RID: 7926
-	private Dictionary<string, dfAtlas.ItemInfo> map = new Dictionary<string, dfAtlas.ItemInfo>();
+	// Token: 0x040020F2 RID: 8434
+	private Dictionary<string, global::dfAtlas.ItemInfo> map = new Dictionary<string, global::dfAtlas.ItemInfo>();
 
-	// Token: 0x04001EF7 RID: 7927
-	private dfAtlas replacementAtlas;
+	// Token: 0x040020F3 RID: 8435
+	private global::dfAtlas replacementAtlas;
 
-	// Token: 0x0200069F RID: 1695
+	// Token: 0x02000765 RID: 1893
 	[Serializable]
-	public class ItemInfo : IComparable<dfAtlas.ItemInfo>, IEquatable<dfAtlas.ItemInfo>
+	public class ItemInfo : IComparable<global::dfAtlas.ItemInfo>, IEquatable<global::dfAtlas.ItemInfo>
 	{
-		// Token: 0x06003A97 RID: 14999 RVA: 0x000DB95C File Offset: 0x000D9B5C
-		public int CompareTo(dfAtlas.ItemInfo other)
+		// Token: 0x06003E95 RID: 16021 RVA: 0x000E43EC File Offset: 0x000E25EC
+		public int CompareTo(global::dfAtlas.ItemInfo other)
 		{
 			return this.name.CompareTo(other.name);
 		}
 
-		// Token: 0x06003A98 RID: 15000 RVA: 0x000DB970 File Offset: 0x000D9B70
+		// Token: 0x06003E96 RID: 16022 RVA: 0x000E4400 File Offset: 0x000E2600
 		public override int GetHashCode()
 		{
 			return this.name.GetHashCode();
 		}
 
-		// Token: 0x06003A99 RID: 15001 RVA: 0x000DB980 File Offset: 0x000D9B80
+		// Token: 0x06003E97 RID: 16023 RVA: 0x000E4410 File Offset: 0x000E2610
 		public override bool Equals(object obj)
 		{
-			return obj is dfAtlas.ItemInfo && this.name.Equals(((dfAtlas.ItemInfo)obj).name);
+			return obj is global::dfAtlas.ItemInfo && this.name.Equals(((global::dfAtlas.ItemInfo)obj).name);
 		}
 
-		// Token: 0x06003A9A RID: 15002 RVA: 0x000DB9A8 File Offset: 0x000D9BA8
-		public bool Equals(dfAtlas.ItemInfo other)
+		// Token: 0x06003E98 RID: 16024 RVA: 0x000E4438 File Offset: 0x000E2638
+		public bool Equals(global::dfAtlas.ItemInfo other)
 		{
 			return this.name.Equals(other.name);
 		}
 
-		// Token: 0x06003A9B RID: 15003 RVA: 0x000DB9BC File Offset: 0x000D9BBC
-		public static bool operator ==(dfAtlas.ItemInfo lhs, dfAtlas.ItemInfo rhs)
+		// Token: 0x06003E99 RID: 16025 RVA: 0x000E444C File Offset: 0x000E264C
+		public static bool operator ==(global::dfAtlas.ItemInfo lhs, global::dfAtlas.ItemInfo rhs)
 		{
 			return object.ReferenceEquals(lhs, rhs) || (lhs != null && rhs != null && lhs.name.Equals(rhs.name));
 		}
 
-		// Token: 0x06003A9C RID: 15004 RVA: 0x000DB9EC File Offset: 0x000D9BEC
-		public static bool operator !=(dfAtlas.ItemInfo lhs, dfAtlas.ItemInfo rhs)
+		// Token: 0x06003E9A RID: 16026 RVA: 0x000E447C File Offset: 0x000E267C
+		public static bool operator !=(global::dfAtlas.ItemInfo lhs, global::dfAtlas.ItemInfo rhs)
 		{
 			return !(lhs == rhs);
 		}
 
-		// Token: 0x04001EF8 RID: 7928
+		// Token: 0x040020F4 RID: 8436
 		public string name;
 
-		// Token: 0x04001EF9 RID: 7929
+		// Token: 0x040020F5 RID: 8437
 		public Rect region;
 
-		// Token: 0x04001EFA RID: 7930
+		// Token: 0x040020F6 RID: 8438
 		public RectOffset border = new RectOffset();
 
-		// Token: 0x04001EFB RID: 7931
+		// Token: 0x040020F7 RID: 8439
 		public bool rotated;
 
-		// Token: 0x04001EFC RID: 7932
+		// Token: 0x040020F8 RID: 8440
 		public Vector2 sizeInPixels = Vector2.zero;
 
-		// Token: 0x04001EFD RID: 7933
+		// Token: 0x040020F9 RID: 8441
 		[SerializeField]
 		public string textureGUID = string.Empty;
 
-		// Token: 0x04001EFE RID: 7934
+		// Token: 0x040020FA RID: 8442
 		public bool deleted;
 
-		// Token: 0x04001EFF RID: 7935
+		// Token: 0x040020FB RID: 8443
 		[SerializeField]
 		public Texture2D texture;
 	}

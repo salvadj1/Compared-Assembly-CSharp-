@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200060C RID: 1548
+// Token: 0x020006CC RID: 1740
 [RequireComponent(typeof(Camera))]
-public class LazyCam : MonoBehaviour, ICameraFX
+public class LazyCam : MonoBehaviour, global::ICameraFX
 {
-	// Token: 0x06003712 RID: 14098 RVA: 0x000C8058 File Offset: 0x000C6258
-	void ICameraFX.OnViewModelChange(ViewModel viewModel)
+	// Token: 0x06003AEA RID: 15082 RVA: 0x000D0588 File Offset: 0x000CE788
+	void global::ICameraFX.OnViewModelChange(global::ViewModel viewModel)
 	{
 		if (this.hasViewModel && this.viewModel)
 		{
@@ -26,8 +26,8 @@ public class LazyCam : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06003713 RID: 14099 RVA: 0x000C80E0 File Offset: 0x000C62E0
-	void ICameraFX.PreCull()
+	// Token: 0x06003AEB RID: 15083 RVA: 0x000D0610 File Offset: 0x000CE810
+	void global::ICameraFX.PreCull()
 	{
 		this.aim = this.transform.rotation;
 		this.add = (this.sub = Quaternion.identity);
@@ -80,8 +80,8 @@ public class LazyCam : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06003714 RID: 14100 RVA: 0x000C82CC File Offset: 0x000C64CC
-	void ICameraFX.PostRender()
+	// Token: 0x06003AEC RID: 15084 RVA: 0x000D07FC File Offset: 0x000CE9FC
+	void global::ICameraFX.PostRender()
 	{
 		if (this.wasActivelyLazy = this.isActivelyLazy)
 		{
@@ -90,9 +90,9 @@ public class LazyCam : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000AF2 RID: 2802
-	// (get) Token: 0x06003715 RID: 14101 RVA: 0x000C8310 File Offset: 0x000C6510
-	// (set) Token: 0x06003716 RID: 14102 RVA: 0x000C8318 File Offset: 0x000C6518
+	// Token: 0x17000B6C RID: 2924
+	// (get) Token: 0x06003AED RID: 15085 RVA: 0x000D0840 File Offset: 0x000CEA40
+	// (set) Token: 0x06003AEE RID: 15086 RVA: 0x000D0848 File Offset: 0x000CEA48
 	public bool allow
 	{
 		get
@@ -113,8 +113,8 @@ public class LazyCam : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000AF3 RID: 2803
-	// (get) Token: 0x06003717 RID: 14103 RVA: 0x000C8348 File Offset: 0x000C6548
+	// Token: 0x17000B6D RID: 2925
+	// (get) Token: 0x06003AEF RID: 15087 RVA: 0x000D0878 File Offset: 0x000CEA78
 	public Matrix4x4 worldToCameraMatrix
 	{
 		get
@@ -123,8 +123,8 @@ public class LazyCam : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000AF4 RID: 2804
-	// (get) Token: 0x06003718 RID: 14104 RVA: 0x000C836C File Offset: 0x000C656C
+	// Token: 0x17000B6E RID: 2926
+	// (get) Token: 0x06003AF0 RID: 15088 RVA: 0x000D089C File Offset: 0x000CEA9C
 	public Matrix4x4 cameraToWorldMatrix
 	{
 		get
@@ -133,7 +133,7 @@ public class LazyCam : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06003719 RID: 14105 RVA: 0x000C8390 File Offset: 0x000C6590
+	// Token: 0x06003AF1 RID: 15089 RVA: 0x000D08C0 File Offset: 0x000CEAC0
 	private void Awake()
 	{
 		this.transform = base.transform;
@@ -144,76 +144,76 @@ public class LazyCam : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x0600371A RID: 14106 RVA: 0x000C83D0 File Offset: 0x000C65D0
+	// Token: 0x06003AF2 RID: 15090 RVA: 0x000D0900 File Offset: 0x000CEB00
 	private void Start()
 	{
 		this.view = this.transform.rotation;
 	}
 
-	// Token: 0x04001B51 RID: 6993
+	// Token: 0x04001D37 RID: 7479
 	private Quaternion aim;
 
-	// Token: 0x04001B52 RID: 6994
+	// Token: 0x04001D38 RID: 7480
 	private Quaternion view;
 
-	// Token: 0x04001B53 RID: 6995
+	// Token: 0x04001D39 RID: 7481
 	private Quaternion sub;
 
-	// Token: 0x04001B54 RID: 6996
+	// Token: 0x04001D3A RID: 7482
 	private Quaternion add;
 
-	// Token: 0x04001B55 RID: 6997
+	// Token: 0x04001D3B RID: 7483
 	public float maxAngle = 10f;
 
-	// Token: 0x04001B56 RID: 6998
+	// Token: 0x04001D3C RID: 7484
 	public float damp = 0.01f;
 
-	// Token: 0x04001B57 RID: 6999
+	// Token: 0x04001D3D RID: 7485
 	public float targetAngle = 10f;
 
-	// Token: 0x04001B58 RID: 7000
+	// Token: 0x04001D3E RID: 7486
 	public float enableSeconds = 0.1f;
 
-	// Token: 0x04001B59 RID: 7001
+	// Token: 0x04001D3F RID: 7487
 	public float disableSeconds = 0.1f;
 
-	// Token: 0x04001B5A RID: 7002
+	// Token: 0x04001D40 RID: 7488
 	private float enableFraction;
 
-	// Token: 0x04001B5B RID: 7003
+	// Token: 0x04001D41 RID: 7489
 	[NonSerialized]
 	private bool isActivelyLazy;
 
-	// Token: 0x04001B5C RID: 7004
+	// Token: 0x04001D42 RID: 7490
 	[NonSerialized]
 	private bool wasActivelyLazy;
 
-	// Token: 0x04001B5D RID: 7005
+	// Token: 0x04001D43 RID: 7491
 	[NonSerialized]
 	private Matrix4x4 _world2cam;
 
-	// Token: 0x04001B5E RID: 7006
+	// Token: 0x04001D44 RID: 7492
 	[NonSerialized]
 	private Matrix4x4 _cam2world;
 
-	// Token: 0x04001B5F RID: 7007
+	// Token: 0x04001D45 RID: 7493
 	[NonSerialized]
 	private float vel;
 
-	// Token: 0x04001B60 RID: 7008
+	// Token: 0x04001D46 RID: 7494
 	[NonSerialized]
 	private Camera camera;
 
-	// Token: 0x04001B61 RID: 7009
+	// Token: 0x04001D47 RID: 7495
 	[NonSerialized]
 	private Transform transform;
 
-	// Token: 0x04001B62 RID: 7010
+	// Token: 0x04001D48 RID: 7496
 	private bool _allow;
 
-	// Token: 0x04001B63 RID: 7011
-	private ViewModel viewModel;
+	// Token: 0x04001D49 RID: 7497
+	private global::ViewModel viewModel;
 
-	// Token: 0x04001B64 RID: 7012
+	// Token: 0x04001D4A RID: 7498
 	private bool hasViewModel;
 }

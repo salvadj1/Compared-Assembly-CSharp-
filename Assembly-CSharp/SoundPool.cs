@@ -2,51 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020000DA RID: 218
+// Token: 0x020000EE RID: 238
 public static class SoundPool
 {
-	// Token: 0x170000B2 RID: 178
-	// (get) Token: 0x06000484 RID: 1156 RVA: 0x000173D4 File Offset: 0x000155D4
-	// (set) Token: 0x06000485 RID: 1157 RVA: 0x000173DC File Offset: 0x000155DC
+	// Token: 0x170000CC RID: 204
+	// (get) Token: 0x06000502 RID: 1282 RVA: 0x00018D9C File Offset: 0x00016F9C
+	// (set) Token: 0x06000503 RID: 1283 RVA: 0x00018DA4 File Offset: 0x00016FA4
 	internal static bool enabled
 	{
 		get
 		{
-			return SoundPool._enabled;
+			return global::SoundPool._enabled;
 		}
 		set
 		{
 			if (value)
 			{
-				SoundPool._enabled = !SoundPool._quitting;
+				global::SoundPool._enabled = !global::SoundPool._quitting;
 			}
 			else
 			{
-				SoundPool._enabled = false;
+				global::SoundPool._enabled = false;
 			}
 		}
 	}
 
-	// Token: 0x170000B3 RID: 179
-	// (set) Token: 0x06000486 RID: 1158 RVA: 0x000173FC File Offset: 0x000155FC
+	// Token: 0x170000CD RID: 205
+	// (set) Token: 0x06000504 RID: 1284 RVA: 0x00018DC4 File Offset: 0x00016FC4
 	internal static bool quitting
 	{
 		set
 		{
-			if (!SoundPool._quitting && value)
+			if (!global::SoundPool._quitting && value)
 			{
-				SoundPool._quitting = true;
-				SoundPool._enabled = false;
-				SoundPool.Drain();
+				global::SoundPool._quitting = true;
+				global::SoundPool._enabled = false;
+				global::SoundPool.Drain();
 			}
 		}
 	}
 
-	// Token: 0x06000487 RID: 1159 RVA: 0x00017420 File Offset: 0x00015620
-	private static SoundPool.Node NewNode()
+	// Token: 0x06000505 RID: 1285 RVA: 0x00018DE8 File Offset: 0x00016FE8
+	private static global::SoundPool.Node NewNode()
 	{
-		SoundPool.Node node = new SoundPool.Node();
-		GameObject gameObject = new GameObject("zzz-soundpoolnode", SoundPool.goTypes);
+		global::SoundPool.Node node = new global::SoundPool.Node();
+		GameObject gameObject = new GameObject("zzz-soundpoolnode", global::SoundPool.goTypes);
 		gameObject.hideFlags = 8;
 		Object.DontDestroyOnLoad(gameObject);
 		node.audio = gameObject.audio;
@@ -56,40 +56,40 @@ public static class SoundPool
 		return node;
 	}
 
-	// Token: 0x06000488 RID: 1160 RVA: 0x00017484 File Offset: 0x00015684
-	private static SoundPool.Node CreateNode()
+	// Token: 0x06000506 RID: 1286 RVA: 0x00018E4C File Offset: 0x0001704C
+	private static global::SoundPool.Node CreateNode()
 	{
-		if (SoundPool.reserved.first.has)
+		if (global::SoundPool.reserved.first.has)
 		{
-			SoundPool.Node node = SoundPool.reserved.first.node;
+			global::SoundPool.Node node = global::SoundPool.reserved.first.node;
 			node.EnterLimbo();
 			return node;
 		}
-		return SoundPool.NewNode();
+		return global::SoundPool.NewNode();
 	}
 
-	// Token: 0x06000489 RID: 1161 RVA: 0x000174C8 File Offset: 0x000156C8
-	private static Object TARG(ref SoundPool.Settings settings)
+	// Token: 0x06000507 RID: 1287 RVA: 0x00018E90 File Offset: 0x00017090
+	private static Object TARG(ref global::SoundPool.Settings settings)
 	{
 		return (!settings.parent) ? settings.clip : settings.parent;
 	}
 
-	// Token: 0x0600048A RID: 1162 RVA: 0x000174EC File Offset: 0x000156EC
-	private static void Play(ref SoundPool.Settings settings)
+	// Token: 0x06000508 RID: 1288 RVA: 0x00018EB4 File Offset: 0x000170B4
+	private static void Play(ref global::SoundPool.Settings settings)
 	{
-		if (!SoundPool._enabled || settings.volume <= 0f || settings.pitch == 0f || !settings.clip)
+		if (!global::SoundPool._enabled || settings.volume <= 0f || settings.pitch == 0f || !settings.clip)
 		{
 			return;
 		}
 		Transform transform = null;
-		SoundPool.Root root;
-		SoundPool.RootID rootID;
+		global::SoundPool.Root root;
+		global::SoundPool.RootID rootID;
 		bool flag;
 		switch (settings.SelectRoot)
 		{
 		default:
-			root = SoundPool.playing;
-			rootID = SoundPool.RootID.PLAYING;
+			root = global::SoundPool.playing;
+			rootID = global::SoundPool.RootID.PLAYING;
 			flag = false;
 			break;
 		case 1:
@@ -98,8 +98,8 @@ public static class SoundPool
 				return;
 			}
 			transform = Camera.main.transform;
-			root = SoundPool.playingCamera;
-			rootID = SoundPool.RootID.PLAYING_CAMERA;
+			root = global::SoundPool.playingCamera;
+			rootID = global::SoundPool.RootID.PLAYING_CAMERA;
 			flag = false;
 			break;
 		case 2:
@@ -107,8 +107,8 @@ public static class SoundPool
 			{
 				return;
 			}
-			root = SoundPool.playingAttached;
-			rootID = SoundPool.RootID.PLAYING_ATTACHED;
+			root = global::SoundPool.playingAttached;
+			rootID = global::SoundPool.RootID.PLAYING_ATTACHED;
 			flag = false;
 			break;
 		case 5:
@@ -117,8 +117,8 @@ public static class SoundPool
 				return;
 			}
 			transform = Camera.main.transform;
-			root = SoundPool.playingCamera;
-			rootID = SoundPool.RootID.PLAYING_CAMERA;
+			root = global::SoundPool.playingCamera;
+			rootID = global::SoundPool.RootID.PLAYING_CAMERA;
 			flag = true;
 			break;
 		case 6:
@@ -126,8 +126,8 @@ public static class SoundPool
 			{
 				return;
 			}
-			root = SoundPool.playingAttached;
-			rootID = SoundPool.RootID.PLAYING_ATTACHED;
+			root = global::SoundPool.playingAttached;
+			rootID = global::SoundPool.RootID.PLAYING_ATTACHED;
 			flag = true;
 			break;
 		}
@@ -137,10 +137,10 @@ public static class SoundPool
 		Quaternion rotation;
 		if (flag)
 		{
-			SoundPool.RootID rootID2 = rootID;
-			if (rootID2 != SoundPool.RootID.PLAYING_ATTACHED)
+			global::SoundPool.RootID rootID2 = rootID;
+			if (rootID2 != global::SoundPool.RootID.PLAYING_ATTACHED)
 			{
-				if (rootID2 != SoundPool.RootID.PLAYING_CAMERA)
+				if (rootID2 != global::SoundPool.RootID.PLAYING_CAMERA)
 				{
 					return;
 				}
@@ -159,18 +159,18 @@ public static class SoundPool
 		{
 			vector = settings.localPosition;
 			quaternion = settings.localRotation;
-			SoundPool.RootID rootID2 = rootID;
+			global::SoundPool.RootID rootID2 = rootID;
 			switch (rootID2 + 3)
 			{
-			case SoundPool.RootID.LIMBO:
+			case global::SoundPool.RootID.LIMBO:
 				vector2 = settings.parent.TransformPoint(vector);
 				rotation = settings.parent.rotation * quaternion;
 				break;
-			case SoundPool.RootID.RESERVED:
+			case global::SoundPool.RootID.RESERVED:
 				vector2 = transform.TransformPoint(vector);
 				rotation = transform.rotation * quaternion;
 				break;
-			case SoundPool.RootID.DISPOSED:
+			case global::SoundPool.RootID.DISPOSED:
 				vector2 = vector;
 				rotation = quaternion;
 				break;
@@ -204,7 +204,7 @@ public static class SoundPool
 				break;
 			}
 		}
-		SoundPool.Node node = SoundPool.CreateNode();
+		global::SoundPool.Node node = global::SoundPool.CreateNode();
 		if ((int)node.rootID != 0)
 		{
 			Debug.LogWarning("Wasn't Limbo " + node.rootID);
@@ -233,19 +233,19 @@ public static class SoundPool
 		node.audio.Play();
 	}
 
-	// Token: 0x0600048B RID: 1163 RVA: 0x00017918 File Offset: 0x00015B18
+	// Token: 0x06000509 RID: 1289 RVA: 0x000192E0 File Offset: 0x000174E0
 	public static void Pump()
 	{
-		if (SoundPool.firstLeak)
+		if (global::SoundPool.firstLeak)
 		{
-			if (!SoundPool.hadFirstLeak)
+			if (!global::SoundPool.hadFirstLeak)
 			{
 				Debug.LogWarning("SoundPool node leaked for the first time. Though performance should still be good, from now on until application exit there will be extra processing in Pump to clean up game objects of leaked/gc'd nodes. [ie. a mutex is now being locked and unlocked]");
-				SoundPool.hadFirstLeak = true;
+				global::SoundPool.hadFirstLeak = true;
 			}
-			SoundPool.NodeGC.JOIN();
+			global::SoundPool.NodeGC.JOIN();
 		}
-		SoundPool.Dir dir = SoundPool.playingCamera.first;
+		global::SoundPool.Dir dir = global::SoundPool.playingCamera.first;
 		if (dir.has)
 		{
 			Camera main = Camera.main;
@@ -255,7 +255,7 @@ public static class SoundPool
 				Quaternion rotation = transform.rotation;
 				do
 				{
-					SoundPool.Node node = dir.node;
+					global::SoundPool.Node node = dir.node;
 					dir = dir.node.way.next;
 					if (node.audio.isPlaying)
 					{
@@ -273,17 +273,17 @@ public static class SoundPool
 			{
 				do
 				{
-					SoundPool.Node node2 = dir.node;
+					global::SoundPool.Node node2 = dir.node;
 					dir = dir.node.way.next;
 					node2.Reserve();
 				}
 				while (dir.has);
 			}
 		}
-		dir = SoundPool.playingAttached.first;
+		dir = global::SoundPool.playingAttached.first;
 		while (dir.has)
 		{
-			SoundPool.Node node3 = dir.node;
+			global::SoundPool.Node node3 = dir.node;
 			dir = dir.node.way.next;
 			if (node3.audio.isPlaying && node3.parent)
 			{
@@ -295,10 +295,10 @@ public static class SoundPool
 				node3.Reserve();
 			}
 		}
-		dir = SoundPool.playing.first;
+		dir = global::SoundPool.playing.first;
 		while (dir.has)
 		{
-			SoundPool.Node node4 = dir.node;
+			global::SoundPool.Node node4 = dir.node;
 			dir = dir.node.way.next;
 			if (!node4.audio.isPlaying)
 			{
@@ -307,157 +307,157 @@ public static class SoundPool
 		}
 	}
 
-	// Token: 0x0600048C RID: 1164 RVA: 0x00017B24 File Offset: 0x00015D24
+	// Token: 0x0600050A RID: 1290 RVA: 0x000194EC File Offset: 0x000176EC
 	public static void DrainReserves()
 	{
-		SoundPool.Dir dir = SoundPool.reserved.first;
+		global::SoundPool.Dir dir = global::SoundPool.reserved.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Dispose();
 		}
 	}
 
-	// Token: 0x0600048D RID: 1165 RVA: 0x00017B70 File Offset: 0x00015D70
+	// Token: 0x0600050B RID: 1291 RVA: 0x00019538 File Offset: 0x00017738
 	public static void Stop()
 	{
-		SoundPool.Dir dir = SoundPool.playing.first;
+		global::SoundPool.Dir dir = global::SoundPool.playing.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Reserve();
 		}
-		dir = SoundPool.playingAttached.first;
+		dir = global::SoundPool.playingAttached.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Reserve();
 		}
-		dir = SoundPool.playingCamera.first;
+		dir = global::SoundPool.playingCamera.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Reserve();
 		}
 	}
 
-	// Token: 0x0600048E RID: 1166 RVA: 0x00017C34 File Offset: 0x00015E34
+	// Token: 0x0600050C RID: 1292 RVA: 0x000195FC File Offset: 0x000177FC
 	public static void Drain()
 	{
-		SoundPool.Dir dir = SoundPool.playing.first;
+		global::SoundPool.Dir dir = global::SoundPool.playing.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Dispose();
 		}
-		dir = SoundPool.playingAttached.first;
+		dir = global::SoundPool.playingAttached.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Dispose();
 		}
-		dir = SoundPool.playingCamera.first;
+		dir = global::SoundPool.playingCamera.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Dispose();
 		}
-		dir = SoundPool.reserved.first;
+		dir = global::SoundPool.reserved.first;
 		while (dir.has)
 		{
-			SoundPool.Node node = dir.node;
+			global::SoundPool.Node node = dir.node;
 			dir = dir.node.way.next;
 			node.Dispose();
 		}
 	}
 
-	// Token: 0x170000B4 RID: 180
-	// (get) Token: 0x0600048F RID: 1167 RVA: 0x00017D34 File Offset: 0x00015F34
+	// Token: 0x170000CE RID: 206
+	// (get) Token: 0x0600050D RID: 1293 RVA: 0x000196FC File Offset: 0x000178FC
 	public static int reserveCount
 	{
 		get
 		{
-			return SoundPool.reserved.count;
+			return global::SoundPool.reserved.count;
 		}
 	}
 
-	// Token: 0x170000B5 RID: 181
-	// (get) Token: 0x06000490 RID: 1168 RVA: 0x00017D40 File Offset: 0x00015F40
+	// Token: 0x170000CF RID: 207
+	// (get) Token: 0x0600050E RID: 1294 RVA: 0x00019708 File Offset: 0x00017908
 	public static int playingCount
 	{
 		get
 		{
-			return SoundPool.playingCamera.count + SoundPool.playingAttached.count + SoundPool.playing.count;
+			return global::SoundPool.playingCamera.count + global::SoundPool.playingAttached.count + global::SoundPool.playing.count;
 		}
 	}
 
-	// Token: 0x170000B6 RID: 182
-	// (get) Token: 0x06000491 RID: 1169 RVA: 0x00017D70 File Offset: 0x00015F70
+	// Token: 0x170000D0 RID: 208
+	// (get) Token: 0x0600050F RID: 1295 RVA: 0x00019738 File Offset: 0x00017938
 	public static int totalCount
 	{
 		get
 		{
-			return SoundPool.playingCamera.count + SoundPool.playingAttached.count + SoundPool.playing.count + SoundPool.reserved.count;
+			return global::SoundPool.playingCamera.count + global::SoundPool.playingAttached.count + global::SoundPool.playing.count + global::SoundPool.reserved.count;
 		}
 	}
 
-	// Token: 0x06000492 RID: 1170 RVA: 0x00017DA0 File Offset: 0x00015FA0
+	// Token: 0x06000510 RID: 1296 RVA: 0x00019768 File Offset: 0x00017968
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x06000493 RID: 1171 RVA: 0x00017DD4 File Offset: 0x00015FD4
+	// Token: 0x06000511 RID: 1297 RVA: 0x0001979C File Offset: 0x0001799C
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
 		def.volume = volume;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x06000494 RID: 1172 RVA: 0x00017E10 File Offset: 0x00016010
+	// Token: 0x06000512 RID: 1298 RVA: 0x000197D8 File Offset: 0x000179D8
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
 		def.volume = volume;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x06000495 RID: 1173 RVA: 0x00017E54 File Offset: 0x00016054
+	// Token: 0x06000513 RID: 1299 RVA: 0x0001981C File Offset: 0x00017A1C
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x06000496 RID: 1174 RVA: 0x00017EA0 File Offset: 0x000160A0
+	// Token: 0x06000514 RID: 1300 RVA: 0x00019868 File Offset: 0x00017A68
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, AudioRolloffMode rolloffMode, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -465,13 +465,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x06000497 RID: 1175 RVA: 0x00017EF8 File Offset: 0x000160F8
+	// Token: 0x06000515 RID: 1301 RVA: 0x000198C0 File Offset: 0x00017AC0
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -479,13 +479,13 @@ public static class SoundPool
 		def.pitch = pitch;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x06000498 RID: 1176 RVA: 0x00017F50 File Offset: 0x00016150
+	// Token: 0x06000516 RID: 1302 RVA: 0x00019918 File Offset: 0x00017B18
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -494,13 +494,13 @@ public static class SoundPool
 		def.doppler = dopplerLevel;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x06000499 RID: 1177 RVA: 0x00017FB0 File Offset: 0x000161B0
+	// Token: 0x06000517 RID: 1303 RVA: 0x00019978 File Offset: 0x00017B78
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -510,13 +510,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x0600049A RID: 1178 RVA: 0x00018018 File Offset: 0x00016218
+	// Token: 0x06000518 RID: 1304 RVA: 0x000199E0 File Offset: 0x00017BE0
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -527,13 +527,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x0600049B RID: 1179 RVA: 0x00018088 File Offset: 0x00016288
+	// Token: 0x06000519 RID: 1305 RVA: 0x00019A50 File Offset: 0x00017C50
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -543,13 +543,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x0600049C RID: 1180 RVA: 0x000180F0 File Offset: 0x000162F0
+	// Token: 0x0600051A RID: 1306 RVA: 0x00019AB8 File Offset: 0x00017CB8
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -560,13 +560,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.mode = rolloffMode;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x0600049D RID: 1181 RVA: 0x00018160 File Offset: 0x00016360
+	// Token: 0x0600051B RID: 1307 RVA: 0x00019B28 File Offset: 0x00017D28
 	public static void Play(this AudioClip clip, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
@@ -578,68 +578,68 @@ public static class SoundPool
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x0600049E RID: 1182 RVA: 0x000181DC File Offset: 0x000163DC
+	// Token: 0x0600051C RID: 1308 RVA: 0x00019BA4 File Offset: 0x00017DA4
 	public static void Play(this AudioClip clip, Vector3 position)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x0600049F RID: 1183 RVA: 0x00018208 File Offset: 0x00016408
+	// Token: 0x0600051D RID: 1309 RVA: 0x00019BD0 File Offset: 0x00017DD0
 	public static void Play(this AudioClip clip, Vector3 position, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A0 RID: 1184 RVA: 0x0001823C File Offset: 0x0001643C
+	// Token: 0x0600051E RID: 1310 RVA: 0x00019C04 File Offset: 0x00017E04
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A1 RID: 1185 RVA: 0x00018278 File Offset: 0x00016478
+	// Token: 0x0600051F RID: 1311 RVA: 0x00019C40 File Offset: 0x00017E40
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A2 RID: 1186 RVA: 0x000182BC File Offset: 0x000164BC
+	// Token: 0x06000520 RID: 1312 RVA: 0x00019C84 File Offset: 0x00017E84
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float minDistance, float maxDistance, int priority)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.priority = priority;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A3 RID: 1187 RVA: 0x00018308 File Offset: 0x00016508
+	// Token: 0x06000521 RID: 1313 RVA: 0x00019CD0 File Offset: 0x00017ED0
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, int priority)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
@@ -647,39 +647,39 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.priority = priority;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A4 RID: 1188 RVA: 0x00018360 File Offset: 0x00016560
+	// Token: 0x06000522 RID: 1314 RVA: 0x00019D28 File Offset: 0x00017F28
 	public static void Play(this AudioClip clip, Vector3 position, float volume, AudioRolloffMode rolloffMode, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A5 RID: 1189 RVA: 0x000183AC File Offset: 0x000165AC
+	// Token: 0x06000523 RID: 1315 RVA: 0x00019D74 File Offset: 0x00017F74
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.pitch = pitch;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A6 RID: 1190 RVA: 0x000183F8 File Offset: 0x000165F8
+	// Token: 0x06000524 RID: 1316 RVA: 0x00019DC0 File Offset: 0x00017FC0
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
@@ -687,13 +687,13 @@ public static class SoundPool
 		def.doppler = dopplerLevel;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A7 RID: 1191 RVA: 0x00018450 File Offset: 0x00016650
+	// Token: 0x06000525 RID: 1317 RVA: 0x00019E18 File Offset: 0x00018018
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
@@ -702,13 +702,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A8 RID: 1192 RVA: 0x000184B0 File Offset: 0x000166B0
+	// Token: 0x06000526 RID: 1318 RVA: 0x00019E78 File Offset: 0x00018078
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
@@ -718,13 +718,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004A9 RID: 1193 RVA: 0x00018518 File Offset: 0x00016718
+	// Token: 0x06000527 RID: 1319 RVA: 0x00019EE0 File Offset: 0x000180E0
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
@@ -733,13 +733,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004AA RID: 1194 RVA: 0x00018578 File Offset: 0x00016778
+	// Token: 0x06000528 RID: 1320 RVA: 0x00019F40 File Offset: 0x00018140
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
@@ -749,13 +749,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.mode = rolloffMode;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004AB RID: 1195 RVA: 0x000185E0 File Offset: 0x000167E0
+	// Token: 0x06000529 RID: 1321 RVA: 0x00019FA8 File Offset: 0x000181A8
 	public static void Play(this AudioClip clip, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
@@ -766,150 +766,150 @@ public static class SoundPool
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004AC RID: 1196 RVA: 0x00018650 File Offset: 0x00016850
+	// Token: 0x0600052A RID: 1322 RVA: 0x0001A018 File Offset: 0x00018218
 	public static void Play(this AudioClip clip)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 1;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004AD RID: 1197 RVA: 0x0001867C File Offset: 0x0001687C
+	// Token: 0x0600052B RID: 1323 RVA: 0x0001A044 File Offset: 0x00018244
 	public static void Play(this AudioClip clip, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 1;
 		def.clip = clip;
 		def.volume = volume;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004AE RID: 1198 RVA: 0x000186B0 File Offset: 0x000168B0
+	// Token: 0x0600052C RID: 1324 RVA: 0x0001A078 File Offset: 0x00018278
 	public static void Play(this AudioClip clip, float volume, float pan)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 1;
 		def.clip = clip;
 		def.volume = volume;
 		def.pan = pan;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004AF RID: 1199 RVA: 0x000186EC File Offset: 0x000168EC
+	// Token: 0x0600052D RID: 1325 RVA: 0x0001A0B4 File Offset: 0x000182B4
 	public static void Play(this AudioClip clip, float volume, float pan, float pitch)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 1;
 		def.clip = clip;
 		def.volume = volume;
 		def.pan = pan;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B0 RID: 1200 RVA: 0x00018730 File Offset: 0x00016930
+	// Token: 0x0600052E RID: 1326 RVA: 0x0001A0F8 File Offset: 0x000182F8
 	public static void Play(this AudioClip clip, float volume, float pan, Vector3 worldPosition)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 5;
 		def.clip = clip;
 		def.volume = volume;
 		def.pan = pan;
 		def.localPosition = worldPosition;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B1 RID: 1201 RVA: 0x00018774 File Offset: 0x00016974
+	// Token: 0x0600052F RID: 1327 RVA: 0x0001A13C File Offset: 0x0001833C
 	public static void Play(this AudioClip clip, float volume, float pan, Vector3 worldPosition, Quaternion worldRotation)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 5;
 		def.clip = clip;
 		def.volume = volume;
 		def.pan = pan;
 		def.localPosition = worldPosition;
 		def.localRotation = worldRotation;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B2 RID: 1202 RVA: 0x000187C0 File Offset: 0x000169C0
+	// Token: 0x06000530 RID: 1328 RVA: 0x0001A188 File Offset: 0x00018388
 	public static void PlayLocal(this AudioClip clip, float volume, float pan, Vector3 worldPosition)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 1;
 		def.clip = clip;
 		def.volume = volume;
 		def.pan = pan;
 		def.localPosition = worldPosition;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B3 RID: 1203 RVA: 0x00018804 File Offset: 0x00016A04
+	// Token: 0x06000531 RID: 1329 RVA: 0x0001A1CC File Offset: 0x000183CC
 	public static void PlayLocal(this AudioClip clip, float volume, float pan, Vector3 worldPosition, Quaternion worldRotation)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 1;
 		def.clip = clip;
 		def.volume = volume;
 		def.pan = pan;
 		def.localPosition = worldPosition;
 		def.localRotation = worldRotation;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B4 RID: 1204 RVA: 0x00018850 File Offset: 0x00016A50
+	// Token: 0x06000532 RID: 1330 RVA: 0x0001A218 File Offset: 0x00018418
 	public static void Play(this AudioClip clip, Transform on)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B5 RID: 1205 RVA: 0x00018884 File Offset: 0x00016A84
+	// Token: 0x06000533 RID: 1331 RVA: 0x0001A24C File Offset: 0x0001844C
 	public static void Play(this AudioClip clip, Transform on, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B6 RID: 1206 RVA: 0x000188B8 File Offset: 0x00016AB8
+	// Token: 0x06000534 RID: 1332 RVA: 0x0001A280 File Offset: 0x00018480
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B7 RID: 1207 RVA: 0x000188FC File Offset: 0x00016AFC
+	// Token: 0x06000535 RID: 1333 RVA: 0x0001A2C4 File Offset: 0x000184C4
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
 		def.volume = volume;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B8 RID: 1208 RVA: 0x00018948 File Offset: 0x00016B48
+	// Token: 0x06000536 RID: 1334 RVA: 0x0001A310 File Offset: 0x00018510
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -917,13 +917,13 @@ public static class SoundPool
 		def.clip = clip;
 		def.volume = volume;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004B9 RID: 1209 RVA: 0x0001899C File Offset: 0x00016B9C
+	// Token: 0x06000537 RID: 1335 RVA: 0x0001A364 File Offset: 0x00018564
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -932,13 +932,13 @@ public static class SoundPool
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004BA RID: 1210 RVA: 0x000189FC File Offset: 0x00016BFC
+	// Token: 0x06000538 RID: 1336 RVA: 0x0001A3C4 File Offset: 0x000185C4
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, AudioRolloffMode rolloffMode, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -948,13 +948,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004BB RID: 1211 RVA: 0x00018A64 File Offset: 0x00016C64
+	// Token: 0x06000539 RID: 1337 RVA: 0x0001A42C File Offset: 0x0001862C
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -964,13 +964,13 @@ public static class SoundPool
 		def.pitch = pitch;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004BC RID: 1212 RVA: 0x00018ACC File Offset: 0x00016CCC
+	// Token: 0x0600053A RID: 1338 RVA: 0x0001A494 File Offset: 0x00018694
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -981,13 +981,13 @@ public static class SoundPool
 		def.doppler = dopplerLevel;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004BD RID: 1213 RVA: 0x00018B3C File Offset: 0x00016D3C
+	// Token: 0x0600053B RID: 1339 RVA: 0x0001A504 File Offset: 0x00018704
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -999,13 +999,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004BE RID: 1214 RVA: 0x00018BB4 File Offset: 0x00016DB4
+	// Token: 0x0600053C RID: 1340 RVA: 0x0001A57C File Offset: 0x0001877C
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1018,13 +1018,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004BF RID: 1215 RVA: 0x00018C38 File Offset: 0x00016E38
+	// Token: 0x0600053D RID: 1341 RVA: 0x0001A600 File Offset: 0x00018800
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1036,13 +1036,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C0 RID: 1216 RVA: 0x00018CB0 File Offset: 0x00016EB0
+	// Token: 0x0600053E RID: 1342 RVA: 0x0001A678 File Offset: 0x00018878
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1055,13 +1055,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.mode = rolloffMode;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C1 RID: 1217 RVA: 0x00018D34 File Offset: 0x00016F34
+	// Token: 0x0600053F RID: 1343 RVA: 0x0001A6FC File Offset: 0x000188FC
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1075,49 +1075,49 @@ public static class SoundPool
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C2 RID: 1218 RVA: 0x00018DC0 File Offset: 0x00016FC0
+	// Token: 0x06000540 RID: 1344 RVA: 0x0001A788 File Offset: 0x00018988
 	public static void Play(this AudioClip clip, Transform on, Vector3 position)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C3 RID: 1219 RVA: 0x00018DFC File Offset: 0x00016FFC
+	// Token: 0x06000541 RID: 1345 RVA: 0x0001A7C4 File Offset: 0x000189C4
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C4 RID: 1220 RVA: 0x00018E40 File Offset: 0x00017040
+	// Token: 0x06000542 RID: 1346 RVA: 0x0001A808 File Offset: 0x00018A08
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C5 RID: 1221 RVA: 0x00018E8C File Offset: 0x0001708C
+	// Token: 0x06000543 RID: 1347 RVA: 0x0001A854 File Offset: 0x00018A54
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1125,13 +1125,13 @@ public static class SoundPool
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C6 RID: 1222 RVA: 0x00018EE0 File Offset: 0x000170E0
+	// Token: 0x06000544 RID: 1348 RVA: 0x0001A8A8 File Offset: 0x00018AA8
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, AudioRolloffMode rolloffMode, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1140,13 +1140,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C7 RID: 1223 RVA: 0x00018F40 File Offset: 0x00017140
+	// Token: 0x06000545 RID: 1349 RVA: 0x0001A908 File Offset: 0x00018B08
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1155,13 +1155,13 @@ public static class SoundPool
 		def.pitch = pitch;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C8 RID: 1224 RVA: 0x00018FA0 File Offset: 0x000171A0
+	// Token: 0x06000546 RID: 1350 RVA: 0x0001A968 File Offset: 0x00018B68
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1171,13 +1171,13 @@ public static class SoundPool
 		def.doppler = dopplerLevel;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004C9 RID: 1225 RVA: 0x00019008 File Offset: 0x00017208
+	// Token: 0x06000547 RID: 1351 RVA: 0x0001A9D0 File Offset: 0x00018BD0
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1188,13 +1188,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004CA RID: 1226 RVA: 0x00019078 File Offset: 0x00017278
+	// Token: 0x06000548 RID: 1352 RVA: 0x0001AA40 File Offset: 0x00018C40
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1206,13 +1206,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004CB RID: 1227 RVA: 0x000190F0 File Offset: 0x000172F0
+	// Token: 0x06000549 RID: 1353 RVA: 0x0001AAB8 File Offset: 0x00018CB8
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1223,13 +1223,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004CC RID: 1228 RVA: 0x00019160 File Offset: 0x00017360
+	// Token: 0x0600054A RID: 1354 RVA: 0x0001AB28 File Offset: 0x00018D28
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1241,13 +1241,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.mode = rolloffMode;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004CD RID: 1229 RVA: 0x000191D8 File Offset: 0x000173D8
+	// Token: 0x0600054B RID: 1355 RVA: 0x0001ABA0 File Offset: 0x00018DA0
 	public static void Play(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 6;
 		def.parent = on;
 		def.localPosition = position;
@@ -1260,38 +1260,38 @@ public static class SoundPool
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004CE RID: 1230 RVA: 0x0001925C File Offset: 0x0001745C
+	// Token: 0x0600054C RID: 1356 RVA: 0x0001AC24 File Offset: 0x00018E24
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004CF RID: 1231 RVA: 0x000192A0 File Offset: 0x000174A0
+	// Token: 0x0600054D RID: 1357 RVA: 0x0001AC68 File Offset: 0x00018E68
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
 		def.localRotation = rotation;
 		def.clip = clip;
 		def.volume = volume;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D0 RID: 1232 RVA: 0x000192EC File Offset: 0x000174EC
+	// Token: 0x0600054E RID: 1358 RVA: 0x0001ACB4 File Offset: 0x00018EB4
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1299,13 +1299,13 @@ public static class SoundPool
 		def.clip = clip;
 		def.volume = volume;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D1 RID: 1233 RVA: 0x00019340 File Offset: 0x00017540
+	// Token: 0x0600054F RID: 1359 RVA: 0x0001AD08 File Offset: 0x00018F08
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1314,13 +1314,13 @@ public static class SoundPool
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D2 RID: 1234 RVA: 0x000193A0 File Offset: 0x000175A0
+	// Token: 0x06000550 RID: 1360 RVA: 0x0001AD68 File Offset: 0x00018F68
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, AudioRolloffMode rolloffMode, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1330,13 +1330,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D3 RID: 1235 RVA: 0x00019408 File Offset: 0x00017608
+	// Token: 0x06000551 RID: 1361 RVA: 0x0001ADD0 File Offset: 0x00018FD0
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1346,13 +1346,13 @@ public static class SoundPool
 		def.pitch = pitch;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D4 RID: 1236 RVA: 0x00019470 File Offset: 0x00017670
+	// Token: 0x06000552 RID: 1362 RVA: 0x0001AE38 File Offset: 0x00019038
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1363,13 +1363,13 @@ public static class SoundPool
 		def.doppler = dopplerLevel;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D5 RID: 1237 RVA: 0x000194E0 File Offset: 0x000176E0
+	// Token: 0x06000553 RID: 1363 RVA: 0x0001AEA8 File Offset: 0x000190A8
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1381,13 +1381,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D6 RID: 1238 RVA: 0x00019558 File Offset: 0x00017758
+	// Token: 0x06000554 RID: 1364 RVA: 0x0001AF20 File Offset: 0x00019120
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1400,13 +1400,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D7 RID: 1239 RVA: 0x000195DC File Offset: 0x000177DC
+	// Token: 0x06000555 RID: 1365 RVA: 0x0001AFA4 File Offset: 0x000191A4
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1418,13 +1418,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D8 RID: 1240 RVA: 0x00019654 File Offset: 0x00017854
+	// Token: 0x06000556 RID: 1366 RVA: 0x0001B01C File Offset: 0x0001921C
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1437,13 +1437,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.mode = rolloffMode;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004D9 RID: 1241 RVA: 0x000196D8 File Offset: 0x000178D8
+	// Token: 0x06000557 RID: 1367 RVA: 0x0001B0A0 File Offset: 0x000192A0
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, Quaternion rotation, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1457,62 +1457,62 @@ public static class SoundPool
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004DA RID: 1242 RVA: 0x00019764 File Offset: 0x00017964
+	// Token: 0x06000558 RID: 1368 RVA: 0x0001B12C File Offset: 0x0001932C
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
 		def.clip = clip;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004DB RID: 1243 RVA: 0x000197A0 File Offset: 0x000179A0
+	// Token: 0x06000559 RID: 1369 RVA: 0x0001B168 File Offset: 0x00019368
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004DC RID: 1244 RVA: 0x000197E4 File Offset: 0x000179E4
+	// Token: 0x0600055A RID: 1370 RVA: 0x0001B1AC File Offset: 0x000193AC
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, int priority)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.priority = priority;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004DD RID: 1245 RVA: 0x00019830 File Offset: 0x00017A30
+	// Token: 0x0600055B RID: 1371 RVA: 0x0001B1F8 File Offset: 0x000193F8
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
 		def.clip = clip;
 		def.volume = volume;
 		def.pitch = pitch;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004DE RID: 1246 RVA: 0x0001987C File Offset: 0x00017A7C
+	// Token: 0x0600055C RID: 1372 RVA: 0x0001B244 File Offset: 0x00019444
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1520,13 +1520,13 @@ public static class SoundPool
 		def.volume = volume;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004DF RID: 1247 RVA: 0x000198D0 File Offset: 0x00017AD0
+	// Token: 0x0600055D RID: 1373 RVA: 0x0001B298 File Offset: 0x00019498
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, AudioRolloffMode rolloffMode, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1535,13 +1535,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E0 RID: 1248 RVA: 0x00019930 File Offset: 0x00017B30
+	// Token: 0x0600055E RID: 1374 RVA: 0x0001B2F8 File Offset: 0x000194F8
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1550,13 +1550,13 @@ public static class SoundPool
 		def.pitch = pitch;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E1 RID: 1249 RVA: 0x00019990 File Offset: 0x00017B90
+	// Token: 0x0600055F RID: 1375 RVA: 0x0001B358 File Offset: 0x00019558
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, int priority)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1566,13 +1566,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.priority = priority;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E2 RID: 1250 RVA: 0x000199F8 File Offset: 0x00017BF8
+	// Token: 0x06000560 RID: 1376 RVA: 0x0001B3C0 File Offset: 0x000195C0
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1582,13 +1582,13 @@ public static class SoundPool
 		def.doppler = dopplerLevel;
 		def.min = minDistance;
 		def.max = maxDistance;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E3 RID: 1251 RVA: 0x00019A60 File Offset: 0x00017C60
+	// Token: 0x06000561 RID: 1377 RVA: 0x0001B428 File Offset: 0x00019628
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1599,13 +1599,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E4 RID: 1252 RVA: 0x00019AD0 File Offset: 0x00017CD0
+	// Token: 0x06000562 RID: 1378 RVA: 0x0001B498 File Offset: 0x00019698
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1617,13 +1617,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E5 RID: 1253 RVA: 0x00019B48 File Offset: 0x00017D48
+	// Token: 0x06000563 RID: 1379 RVA: 0x0001B510 File Offset: 0x00019710
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1634,13 +1634,13 @@ public static class SoundPool
 		def.min = minDistance;
 		def.max = maxDistance;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E6 RID: 1254 RVA: 0x00019BB8 File Offset: 0x00017DB8
+	// Token: 0x06000564 RID: 1380 RVA: 0x0001B580 File Offset: 0x00019780
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1652,13 +1652,13 @@ public static class SoundPool
 		def.max = maxDistance;
 		def.mode = rolloffMode;
 		def.spread = spread;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x060004E7 RID: 1255 RVA: 0x00019C30 File Offset: 0x00017E30
+	// Token: 0x06000565 RID: 1381 RVA: 0x0001B5F8 File Offset: 0x000197F8
 	public static void PlayLocal(this AudioClip clip, Transform on, Vector3 position, float volume, float pitch, AudioRolloffMode rolloffMode, float minDistance, float maxDistance, float dopplerLevel, float spread, bool bypassEffects)
 	{
-		SoundPool.Settings def = SoundPool.DEF;
+		global::SoundPool.Settings def = global::SoundPool.DEF;
 		def.SelectRoot = 2;
 		def.parent = on;
 		def.localPosition = position;
@@ -1671,62 +1671,62 @@ public static class SoundPool
 		def.spread = spread;
 		def.bypassEffects = bypassEffects;
 		def.mode = rolloffMode;
-		SoundPool.Play(ref def);
+		global::SoundPool.Play(ref def);
 	}
 
-	// Token: 0x04000434 RID: 1076
+	// Token: 0x040004A3 RID: 1187
 	private const sbyte SelectRoot_Attach = 2;
 
-	// Token: 0x04000435 RID: 1077
+	// Token: 0x040004A4 RID: 1188
 	private const sbyte SelectRoot_Camera = 1;
 
-	// Token: 0x04000436 RID: 1078
+	// Token: 0x040004A5 RID: 1189
 	private const sbyte SelectRoot_Default = 0;
 
-	// Token: 0x04000437 RID: 1079
+	// Token: 0x040004A6 RID: 1190
 	private const sbyte SelectRoot_Camera_WorldOffset = 5;
 
-	// Token: 0x04000438 RID: 1080
+	// Token: 0x040004A7 RID: 1191
 	private const sbyte SelectRoot_Attach_WorldOffset = 6;
 
-	// Token: 0x04000439 RID: 1081
+	// Token: 0x040004A8 RID: 1192
 	private const string goName = "zzz-soundpoolnode";
 
-	// Token: 0x0400043A RID: 1082
+	// Token: 0x040004A9 RID: 1193
 	private const float logarithmicMaxScale = 2f;
 
-	// Token: 0x0400043B RID: 1083
+	// Token: 0x040004AA RID: 1194
 	private static bool _enabled;
 
-	// Token: 0x0400043C RID: 1084
+	// Token: 0x040004AB RID: 1195
 	private static bool _quitting;
 
-	// Token: 0x0400043D RID: 1085
-	private static readonly SoundPool.Root playingAttached = new SoundPool.Root(SoundPool.RootID.PLAYING_ATTACHED);
+	// Token: 0x040004AC RID: 1196
+	private static readonly global::SoundPool.Root playingAttached = new global::SoundPool.Root(global::SoundPool.RootID.PLAYING_ATTACHED);
 
-	// Token: 0x0400043E RID: 1086
-	private static readonly SoundPool.Root playingCamera = new SoundPool.Root(SoundPool.RootID.PLAYING_CAMERA);
+	// Token: 0x040004AD RID: 1197
+	private static readonly global::SoundPool.Root playingCamera = new global::SoundPool.Root(global::SoundPool.RootID.PLAYING_CAMERA);
 
-	// Token: 0x0400043F RID: 1087
-	private static readonly SoundPool.Root playing = new SoundPool.Root(SoundPool.RootID.PLAYING);
+	// Token: 0x040004AE RID: 1198
+	private static readonly global::SoundPool.Root playing = new global::SoundPool.Root(global::SoundPool.RootID.PLAYING);
 
-	// Token: 0x04000440 RID: 1088
-	private static readonly SoundPool.Root reserved = new SoundPool.Root(SoundPool.RootID.RESERVED);
+	// Token: 0x040004AF RID: 1199
+	private static readonly global::SoundPool.Root reserved = new global::SoundPool.Root(global::SoundPool.RootID.RESERVED);
 
-	// Token: 0x04000441 RID: 1089
+	// Token: 0x040004B0 RID: 1200
 	private static bool firstLeak = false;
 
-	// Token: 0x04000442 RID: 1090
+	// Token: 0x040004B1 RID: 1201
 	private static bool hadFirstLeak;
 
-	// Token: 0x04000443 RID: 1091
+	// Token: 0x040004B2 RID: 1202
 	private static readonly Type[] goTypes = new Type[]
 	{
 		typeof(AudioSource)
 	};
 
-	// Token: 0x04000444 RID: 1092
-	private static readonly SoundPool.Settings DEF = new SoundPool.Settings
+	// Token: 0x040004B3 RID: 1203
+	private static readonly global::SoundPool.Settings DEF = new global::SoundPool.Settings
 	{
 		volume = 1f,
 		pitch = 1f,
@@ -1739,13 +1739,13 @@ public static class SoundPool
 		localRotation = Quaternion.identity
 	};
 
-	// Token: 0x020000DB RID: 219
+	// Token: 0x020000EF RID: 239
 	private struct Settings
 	{
-		// Token: 0x060004E8 RID: 1256 RVA: 0x00019CB4 File Offset: 0x00017EB4
-		public static explicit operator SoundPool.Settings(SoundPool.PlayerShared player)
+		// Token: 0x06000566 RID: 1382 RVA: 0x0001B67C File Offset: 0x0001987C
+		public static explicit operator global::SoundPool.Settings(global::SoundPool.PlayerShared player)
 		{
-			SoundPool.Settings def = SoundPool.DEF;
+			global::SoundPool.Settings def = global::SoundPool.DEF;
 			def.clip = player.clip;
 			def.volume = player.volume;
 			def.pitch = player.pitch;
@@ -1753,10 +1753,10 @@ public static class SoundPool
 			return def;
 		}
 
-		// Token: 0x060004E9 RID: 1257 RVA: 0x00019D00 File Offset: 0x00017F00
-		public static explicit operator SoundPool.Settings(SoundPool.Player3D player)
+		// Token: 0x06000567 RID: 1383 RVA: 0x0001B6C8 File Offset: 0x000198C8
+		public static explicit operator global::SoundPool.Settings(global::SoundPool.Player3D player)
 		{
-			SoundPool.Settings result = (SoundPool.Settings)player.super;
+			global::SoundPool.Settings result = (global::SoundPool.Settings)player.super;
 			result.doppler = player.dopplerLevel;
 			result.min = player.minDistance;
 			result.max = player.maxDistance;
@@ -1768,670 +1768,140 @@ public static class SoundPool
 			return result;
 		}
 
-		// Token: 0x060004EA RID: 1258 RVA: 0x00019D98 File Offset: 0x00017F98
-		public static explicit operator SoundPool.Settings(SoundPool.PlayerLocal player)
+		// Token: 0x06000568 RID: 1384 RVA: 0x0001B760 File Offset: 0x00019960
+		public static explicit operator global::SoundPool.Settings(global::SoundPool.PlayerLocal player)
 		{
-			SoundPool.Settings result = (SoundPool.Settings)player.super;
+			global::SoundPool.Settings result = (global::SoundPool.Settings)player.super;
 			result.localPosition = player.localPosition;
 			result.localRotation = player.localRotation;
 			return result;
 		}
 
-		// Token: 0x060004EB RID: 1259 RVA: 0x00019DD0 File Offset: 0x00017FD0
-		public static explicit operator SoundPool.Settings(SoundPool.Player2D player)
+		// Token: 0x06000569 RID: 1385 RVA: 0x0001B798 File Offset: 0x00019998
+		public static explicit operator global::SoundPool.Settings(global::SoundPool.Player2D player)
 		{
-			SoundPool.Settings result = (SoundPool.Settings)player.super;
+			global::SoundPool.Settings result = (global::SoundPool.Settings)player.super;
 			result.pan = player.pan;
 			return result;
 		}
 
-		// Token: 0x04000445 RID: 1093
+		// Token: 0x040004B4 RID: 1204
 		public AudioClip clip;
 
-		// Token: 0x04000446 RID: 1094
+		// Token: 0x040004B5 RID: 1205
 		public Transform parent;
 
-		// Token: 0x04000447 RID: 1095
+		// Token: 0x040004B6 RID: 1206
 		public Quaternion localRotation;
 
-		// Token: 0x04000448 RID: 1096
+		// Token: 0x040004B7 RID: 1207
 		public Vector3 localPosition;
 
-		// Token: 0x04000449 RID: 1097
+		// Token: 0x040004B8 RID: 1208
 		public float volume;
 
-		// Token: 0x0400044A RID: 1098
+		// Token: 0x040004B9 RID: 1209
 		public float pitch;
 
-		// Token: 0x0400044B RID: 1099
+		// Token: 0x040004BA RID: 1210
 		public float pan;
 
-		// Token: 0x0400044C RID: 1100
+		// Token: 0x040004BB RID: 1211
 		public float panLevel;
 
-		// Token: 0x0400044D RID: 1101
+		// Token: 0x040004BC RID: 1212
 		public float min;
 
-		// Token: 0x0400044E RID: 1102
+		// Token: 0x040004BD RID: 1213
 		public float max;
 
-		// Token: 0x0400044F RID: 1103
+		// Token: 0x040004BE RID: 1214
 		public float doppler;
 
-		// Token: 0x04000450 RID: 1104
+		// Token: 0x040004BF RID: 1215
 		public float spread;
 
-		// Token: 0x04000451 RID: 1105
+		// Token: 0x040004C0 RID: 1216
 		public int priority;
 
-		// Token: 0x04000452 RID: 1106
+		// Token: 0x040004C1 RID: 1217
 		public AudioRolloffMode mode;
 
-		// Token: 0x04000453 RID: 1107
+		// Token: 0x040004C2 RID: 1218
 		public sbyte SelectRoot;
 
-		// Token: 0x04000454 RID: 1108
+		// Token: 0x040004C3 RID: 1219
 		public bool bypassEffects;
 	}
 
-	// Token: 0x020000DC RID: 220
+	// Token: 0x020000F0 RID: 240
 	public struct PlayerShared
 	{
-		// Token: 0x060004EC RID: 1260 RVA: 0x00019DFC File Offset: 0x00017FFC
+		// Token: 0x0600056A RID: 1386 RVA: 0x0001B7C4 File Offset: 0x000199C4
 		public PlayerShared(AudioClip clip)
 		{
 			this.clip = clip;
-			this.volume = SoundPool.DEF.volume;
-			this.pitch = SoundPool.DEF.pitch;
-			this.priority = SoundPool.DEF.priority;
+			this.volume = global::SoundPool.DEF.volume;
+			this.pitch = global::SoundPool.DEF.pitch;
+			this.priority = global::SoundPool.DEF.priority;
 		}
 
-		// Token: 0x04000455 RID: 1109
-		public static readonly SoundPool.PlayerShared Default = new SoundPool.PlayerShared
+		// Token: 0x040004C4 RID: 1220
+		public static readonly global::SoundPool.PlayerShared Default = new global::SoundPool.PlayerShared
 		{
-			volume = SoundPool.DEF.volume,
-			pitch = SoundPool.DEF.pitch,
-			priority = SoundPool.DEF.priority
+			volume = global::SoundPool.DEF.volume,
+			pitch = global::SoundPool.DEF.pitch,
+			priority = global::SoundPool.DEF.priority
 		};
 
-		// Token: 0x04000456 RID: 1110
+		// Token: 0x040004C5 RID: 1221
 		public AudioClip clip;
 
-		// Token: 0x04000457 RID: 1111
+		// Token: 0x040004C6 RID: 1222
 		public float volume;
 
-		// Token: 0x04000458 RID: 1112
+		// Token: 0x040004C7 RID: 1223
 		public float pitch;
 
-		// Token: 0x04000459 RID: 1113
+		// Token: 0x040004C8 RID: 1224
 		public int priority;
 	}
 
-	// Token: 0x020000DD RID: 221
+	// Token: 0x020000F1 RID: 241
 	public struct Player3D
 	{
-		// Token: 0x060004EE RID: 1262 RVA: 0x00019E9C File Offset: 0x0001809C
+		// Token: 0x0600056C RID: 1388 RVA: 0x0001B864 File Offset: 0x00019A64
 		public Player3D(AudioClip clip)
 		{
-			this.super = new SoundPool.PlayerShared(clip);
-			this.minDistance = SoundPool.DEF.min;
-			this.maxDistance = SoundPool.DEF.max;
-			this.spread = SoundPool.DEF.spread;
-			this.dopplerLevel = SoundPool.DEF.doppler;
-			this.panLevel = SoundPool.DEF.panLevel;
-			this.rolloffMode = SoundPool.DEF.mode;
-			this.bypassEffects = SoundPool.DEF.bypassEffects;
+			this.super = new global::SoundPool.PlayerShared(clip);
+			this.minDistance = global::SoundPool.DEF.min;
+			this.maxDistance = global::SoundPool.DEF.max;
+			this.spread = global::SoundPool.DEF.spread;
+			this.dopplerLevel = global::SoundPool.DEF.doppler;
+			this.panLevel = global::SoundPool.DEF.panLevel;
+			this.rolloffMode = global::SoundPool.DEF.mode;
+			this.bypassEffects = global::SoundPool.DEF.bypassEffects;
 			this.cameraSticky = false;
 		}
 
-		// Token: 0x170000B7 RID: 183
-		// (get) Token: 0x060004F0 RID: 1264 RVA: 0x00019FE4 File Offset: 0x000181E4
-		// (set) Token: 0x060004F1 RID: 1265 RVA: 0x00019FF4 File Offset: 0x000181F4
-		public float volume
-		{
-			get
-			{
-				return this.super.volume;
-			}
-			set
-			{
-				this.super.volume = value;
-			}
-		}
-
-		// Token: 0x170000B8 RID: 184
-		// (get) Token: 0x060004F2 RID: 1266 RVA: 0x0001A004 File Offset: 0x00018204
-		// (set) Token: 0x060004F3 RID: 1267 RVA: 0x0001A014 File Offset: 0x00018214
-		public float pitch
-		{
-			get
-			{
-				return this.super.pitch;
-			}
-			set
-			{
-				this.super.pitch = value;
-			}
-		}
-
-		// Token: 0x170000B9 RID: 185
-		// (get) Token: 0x060004F4 RID: 1268 RVA: 0x0001A024 File Offset: 0x00018224
-		// (set) Token: 0x060004F5 RID: 1269 RVA: 0x0001A034 File Offset: 0x00018234
-		public int priority
-		{
-			get
-			{
-				return this.super.priority;
-			}
-			set
-			{
-				this.super.priority = value;
-			}
-		}
-
-		// Token: 0x170000BA RID: 186
-		// (get) Token: 0x060004F6 RID: 1270 RVA: 0x0001A044 File Offset: 0x00018244
-		// (set) Token: 0x060004F7 RID: 1271 RVA: 0x0001A054 File Offset: 0x00018254
-		public AudioClip clip
-		{
-			get
-			{
-				return this.super.clip;
-			}
-			set
-			{
-				this.super.clip = value;
-			}
-		}
-
-		// Token: 0x0400045A RID: 1114
-		public static readonly SoundPool.Player3D Default = new SoundPool.Player3D
-		{
-			super = SoundPool.PlayerShared.Default,
-			minDistance = SoundPool.DEF.min,
-			maxDistance = SoundPool.DEF.max,
-			rolloffMode = SoundPool.DEF.mode,
-			spread = SoundPool.DEF.spread,
-			dopplerLevel = SoundPool.DEF.doppler,
-			bypassEffects = SoundPool.DEF.bypassEffects,
-			panLevel = SoundPool.DEF.panLevel
-		};
-
-		// Token: 0x0400045B RID: 1115
-		public SoundPool.PlayerShared super;
-
-		// Token: 0x0400045C RID: 1116
-		public float minDistance;
-
-		// Token: 0x0400045D RID: 1117
-		public float maxDistance;
-
-		// Token: 0x0400045E RID: 1118
-		public float spread;
-
-		// Token: 0x0400045F RID: 1119
-		public float dopplerLevel;
-
-		// Token: 0x04000460 RID: 1120
-		public float panLevel;
-
-		// Token: 0x04000461 RID: 1121
-		public AudioRolloffMode rolloffMode;
-
-		// Token: 0x04000462 RID: 1122
-		public bool cameraSticky;
-
-		// Token: 0x04000463 RID: 1123
-		public bool bypassEffects;
-	}
-
-	// Token: 0x020000DE RID: 222
-	public struct PlayerWorld
-	{
-		// Token: 0x060004F8 RID: 1272 RVA: 0x0001A064 File Offset: 0x00018264
-		public PlayerWorld(AudioClip clip)
-		{
-			this.super = new SoundPool.Player3D(clip);
-			this.position = default(Vector3);
-			this.rotation = Quaternion.identity;
-		}
-
-		// Token: 0x170000BB RID: 187
-		// (get) Token: 0x060004FA RID: 1274 RVA: 0x0001A0DC File Offset: 0x000182DC
-		// (set) Token: 0x060004FB RID: 1275 RVA: 0x0001A0EC File Offset: 0x000182EC
-		public float volume
-		{
-			get
-			{
-				return this.super.volume;
-			}
-			set
-			{
-				this.super.volume = value;
-			}
-		}
-
-		// Token: 0x170000BC RID: 188
-		// (get) Token: 0x060004FC RID: 1276 RVA: 0x0001A0FC File Offset: 0x000182FC
-		// (set) Token: 0x060004FD RID: 1277 RVA: 0x0001A10C File Offset: 0x0001830C
-		public float pitch
-		{
-			get
-			{
-				return this.super.pitch;
-			}
-			set
-			{
-				this.super.pitch = value;
-			}
-		}
-
-		// Token: 0x170000BD RID: 189
-		// (get) Token: 0x060004FE RID: 1278 RVA: 0x0001A11C File Offset: 0x0001831C
-		// (set) Token: 0x060004FF RID: 1279 RVA: 0x0001A12C File Offset: 0x0001832C
-		public int priority
-		{
-			get
-			{
-				return this.super.priority;
-			}
-			set
-			{
-				this.super.priority = value;
-			}
-		}
-
-		// Token: 0x170000BE RID: 190
-		// (get) Token: 0x06000500 RID: 1280 RVA: 0x0001A13C File Offset: 0x0001833C
-		// (set) Token: 0x06000501 RID: 1281 RVA: 0x0001A14C File Offset: 0x0001834C
-		public AudioClip clip
-		{
-			get
-			{
-				return this.super.clip;
-			}
-			set
-			{
-				this.super.clip = value;
-			}
-		}
-
-		// Token: 0x170000BF RID: 191
-		// (get) Token: 0x06000502 RID: 1282 RVA: 0x0001A15C File Offset: 0x0001835C
-		// (set) Token: 0x06000503 RID: 1283 RVA: 0x0001A16C File Offset: 0x0001836C
-		public float minDistance
-		{
-			get
-			{
-				return this.super.minDistance;
-			}
-			set
-			{
-				this.super.minDistance = value;
-			}
-		}
-
-		// Token: 0x170000C0 RID: 192
-		// (get) Token: 0x06000504 RID: 1284 RVA: 0x0001A17C File Offset: 0x0001837C
-		// (set) Token: 0x06000505 RID: 1285 RVA: 0x0001A18C File Offset: 0x0001838C
-		public float maxDistance
-		{
-			get
-			{
-				return this.super.maxDistance;
-			}
-			set
-			{
-				this.super.maxDistance = value;
-			}
-		}
-
-		// Token: 0x170000C1 RID: 193
-		// (get) Token: 0x06000506 RID: 1286 RVA: 0x0001A19C File Offset: 0x0001839C
-		// (set) Token: 0x06000507 RID: 1287 RVA: 0x0001A1AC File Offset: 0x000183AC
-		public float spread
-		{
-			get
-			{
-				return this.super.spread;
-			}
-			set
-			{
-				this.super.spread = value;
-			}
-		}
-
-		// Token: 0x170000C2 RID: 194
-		// (get) Token: 0x06000508 RID: 1288 RVA: 0x0001A1BC File Offset: 0x000183BC
-		// (set) Token: 0x06000509 RID: 1289 RVA: 0x0001A1CC File Offset: 0x000183CC
-		public float dopplerLevel
-		{
-			get
-			{
-				return this.super.dopplerLevel;
-			}
-			set
-			{
-				this.super.dopplerLevel = value;
-			}
-		}
-
-		// Token: 0x170000C3 RID: 195
-		// (get) Token: 0x0600050A RID: 1290 RVA: 0x0001A1DC File Offset: 0x000183DC
-		// (set) Token: 0x0600050B RID: 1291 RVA: 0x0001A1EC File Offset: 0x000183EC
-		public float panLevel
-		{
-			get
-			{
-				return this.super.panLevel;
-			}
-			set
-			{
-				this.super.panLevel = value;
-			}
-		}
-
-		// Token: 0x170000C4 RID: 196
-		// (get) Token: 0x0600050C RID: 1292 RVA: 0x0001A1FC File Offset: 0x000183FC
-		// (set) Token: 0x0600050D RID: 1293 RVA: 0x0001A20C File Offset: 0x0001840C
-		public AudioRolloffMode rolloffMode
-		{
-			get
-			{
-				return this.super.rolloffMode;
-			}
-			set
-			{
-				this.super.rolloffMode = value;
-			}
-		}
-
-		// Token: 0x170000C5 RID: 197
-		// (get) Token: 0x0600050E RID: 1294 RVA: 0x0001A21C File Offset: 0x0001841C
-		// (set) Token: 0x0600050F RID: 1295 RVA: 0x0001A22C File Offset: 0x0001842C
-		public bool bypassEffects
-		{
-			get
-			{
-				return this.super.bypassEffects;
-			}
-			set
-			{
-				this.super.bypassEffects = value;
-			}
-		}
-
-		// Token: 0x170000C6 RID: 198
-		// (get) Token: 0x06000510 RID: 1296 RVA: 0x0001A23C File Offset: 0x0001843C
-		// (set) Token: 0x06000511 RID: 1297 RVA: 0x0001A24C File Offset: 0x0001844C
-		public bool cameraSticky
-		{
-			get
-			{
-				return this.super.cameraSticky;
-			}
-			set
-			{
-				this.super.cameraSticky = value;
-			}
-		}
-
-		// Token: 0x04000464 RID: 1124
-		public static readonly SoundPool.PlayerWorld Default = new SoundPool.PlayerWorld
-		{
-			super = SoundPool.Player3D.Default,
-			position = default(Vector3),
-			rotation = Quaternion.identity
-		};
-
-		// Token: 0x04000465 RID: 1125
-		public SoundPool.Player3D super;
-
-		// Token: 0x04000466 RID: 1126
-		public Vector3 position;
-
-		// Token: 0x04000467 RID: 1127
-		public Quaternion rotation;
-	}
-
-	// Token: 0x020000DF RID: 223
-	public struct PlayerLocal
-	{
-		// Token: 0x06000512 RID: 1298 RVA: 0x0001A25C File Offset: 0x0001845C
-		public PlayerLocal(AudioClip clip)
-		{
-			this.super = new SoundPool.Player3D(clip);
-			this.localPosition = default(Vector3);
-			this.localRotation = Quaternion.identity;
-		}
-
-		// Token: 0x170000C7 RID: 199
-		// (get) Token: 0x06000514 RID: 1300 RVA: 0x0001A2D4 File Offset: 0x000184D4
-		// (set) Token: 0x06000515 RID: 1301 RVA: 0x0001A2E4 File Offset: 0x000184E4
-		public float volume
-		{
-			get
-			{
-				return this.super.volume;
-			}
-			set
-			{
-				this.super.volume = value;
-			}
-		}
-
-		// Token: 0x170000C8 RID: 200
-		// (get) Token: 0x06000516 RID: 1302 RVA: 0x0001A2F4 File Offset: 0x000184F4
-		// (set) Token: 0x06000517 RID: 1303 RVA: 0x0001A304 File Offset: 0x00018504
-		public float pitch
-		{
-			get
-			{
-				return this.super.pitch;
-			}
-			set
-			{
-				this.super.pitch = value;
-			}
-		}
-
-		// Token: 0x170000C9 RID: 201
-		// (get) Token: 0x06000518 RID: 1304 RVA: 0x0001A314 File Offset: 0x00018514
-		// (set) Token: 0x06000519 RID: 1305 RVA: 0x0001A324 File Offset: 0x00018524
-		public int priority
-		{
-			get
-			{
-				return this.super.priority;
-			}
-			set
-			{
-				this.super.priority = value;
-			}
-		}
-
-		// Token: 0x170000CA RID: 202
-		// (get) Token: 0x0600051A RID: 1306 RVA: 0x0001A334 File Offset: 0x00018534
-		// (set) Token: 0x0600051B RID: 1307 RVA: 0x0001A344 File Offset: 0x00018544
-		public AudioClip clip
-		{
-			get
-			{
-				return this.super.clip;
-			}
-			set
-			{
-				this.super.clip = value;
-			}
-		}
-
-		// Token: 0x170000CB RID: 203
-		// (get) Token: 0x0600051C RID: 1308 RVA: 0x0001A354 File Offset: 0x00018554
-		// (set) Token: 0x0600051D RID: 1309 RVA: 0x0001A364 File Offset: 0x00018564
-		public float minDistance
-		{
-			get
-			{
-				return this.super.minDistance;
-			}
-			set
-			{
-				this.super.minDistance = value;
-			}
-		}
-
-		// Token: 0x170000CC RID: 204
-		// (get) Token: 0x0600051E RID: 1310 RVA: 0x0001A374 File Offset: 0x00018574
-		// (set) Token: 0x0600051F RID: 1311 RVA: 0x0001A384 File Offset: 0x00018584
-		public float maxDistance
-		{
-			get
-			{
-				return this.super.maxDistance;
-			}
-			set
-			{
-				this.super.maxDistance = value;
-			}
-		}
-
-		// Token: 0x170000CD RID: 205
-		// (get) Token: 0x06000520 RID: 1312 RVA: 0x0001A394 File Offset: 0x00018594
-		// (set) Token: 0x06000521 RID: 1313 RVA: 0x0001A3A4 File Offset: 0x000185A4
-		public float spread
-		{
-			get
-			{
-				return this.super.spread;
-			}
-			set
-			{
-				this.super.spread = value;
-			}
-		}
-
-		// Token: 0x170000CE RID: 206
-		// (get) Token: 0x06000522 RID: 1314 RVA: 0x0001A3B4 File Offset: 0x000185B4
-		// (set) Token: 0x06000523 RID: 1315 RVA: 0x0001A3C4 File Offset: 0x000185C4
-		public float dopplerLevel
-		{
-			get
-			{
-				return this.super.dopplerLevel;
-			}
-			set
-			{
-				this.super.dopplerLevel = value;
-			}
-		}
-
-		// Token: 0x170000CF RID: 207
-		// (get) Token: 0x06000524 RID: 1316 RVA: 0x0001A3D4 File Offset: 0x000185D4
-		// (set) Token: 0x06000525 RID: 1317 RVA: 0x0001A3E4 File Offset: 0x000185E4
-		public float panLevel
-		{
-			get
-			{
-				return this.super.panLevel;
-			}
-			set
-			{
-				this.super.panLevel = value;
-			}
-		}
-
-		// Token: 0x170000D0 RID: 208
-		// (get) Token: 0x06000526 RID: 1318 RVA: 0x0001A3F4 File Offset: 0x000185F4
-		// (set) Token: 0x06000527 RID: 1319 RVA: 0x0001A404 File Offset: 0x00018604
-		public AudioRolloffMode rolloffMode
-		{
-			get
-			{
-				return this.super.rolloffMode;
-			}
-			set
-			{
-				this.super.rolloffMode = value;
-			}
-		}
-
 		// Token: 0x170000D1 RID: 209
-		// (get) Token: 0x06000528 RID: 1320 RVA: 0x0001A414 File Offset: 0x00018614
-		// (set) Token: 0x06000529 RID: 1321 RVA: 0x0001A424 File Offset: 0x00018624
-		public bool bypassEffects
+		// (get) Token: 0x0600056E RID: 1390 RVA: 0x0001B9AC File Offset: 0x00019BAC
+		// (set) Token: 0x0600056F RID: 1391 RVA: 0x0001B9BC File Offset: 0x00019BBC
+		public float volume
 		{
 			get
 			{
-				return this.super.bypassEffects;
+				return this.super.volume;
 			}
 			set
 			{
-				this.super.bypassEffects = value;
+				this.super.volume = value;
 			}
 		}
 
 		// Token: 0x170000D2 RID: 210
-		// (get) Token: 0x0600052A RID: 1322 RVA: 0x0001A434 File Offset: 0x00018634
-		// (set) Token: 0x0600052B RID: 1323 RVA: 0x0001A444 File Offset: 0x00018644
-		public bool cameraSticky
-		{
-			get
-			{
-				return this.super.cameraSticky;
-			}
-			set
-			{
-				this.super.cameraSticky = value;
-			}
-		}
-
-		// Token: 0x04000468 RID: 1128
-		public static readonly SoundPool.PlayerLocal Default = new SoundPool.PlayerLocal
-		{
-			super = SoundPool.Player3D.Default,
-			localPosition = default(Vector3),
-			localRotation = Quaternion.identity
-		};
-
-		// Token: 0x04000469 RID: 1129
-		public SoundPool.Player3D super;
-
-		// Token: 0x0400046A RID: 1130
-		public Vector3 localPosition;
-
-		// Token: 0x0400046B RID: 1131
-		public Quaternion localRotation;
-	}
-
-	// Token: 0x020000E0 RID: 224
-	public struct PlayerChild
-	{
-		// Token: 0x0600052C RID: 1324 RVA: 0x0001A454 File Offset: 0x00018654
-		public PlayerChild(AudioClip clip)
-		{
-			this.super = new SoundPool.PlayerLocal(clip);
-			this.parent = null;
-			this.unglue = false;
-		}
-
-		// Token: 0x170000D3 RID: 211
-		// (get) Token: 0x0600052E RID: 1326 RVA: 0x0001A498 File Offset: 0x00018698
-		// (set) Token: 0x0600052F RID: 1327 RVA: 0x0001A4A8 File Offset: 0x000186A8
-		public float volume
-		{
-			get
-			{
-				return this.super.volume;
-			}
-			set
-			{
-				this.super.volume = value;
-			}
-		}
-
-		// Token: 0x170000D4 RID: 212
-		// (get) Token: 0x06000530 RID: 1328 RVA: 0x0001A4B8 File Offset: 0x000186B8
-		// (set) Token: 0x06000531 RID: 1329 RVA: 0x0001A4C8 File Offset: 0x000186C8
+		// (get) Token: 0x06000570 RID: 1392 RVA: 0x0001B9CC File Offset: 0x00019BCC
+		// (set) Token: 0x06000571 RID: 1393 RVA: 0x0001B9DC File Offset: 0x00019BDC
 		public float pitch
 		{
 			get
@@ -2444,9 +1914,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000D5 RID: 213
-		// (get) Token: 0x06000532 RID: 1330 RVA: 0x0001A4D8 File Offset: 0x000186D8
-		// (set) Token: 0x06000533 RID: 1331 RVA: 0x0001A4E8 File Offset: 0x000186E8
+		// Token: 0x170000D3 RID: 211
+		// (get) Token: 0x06000572 RID: 1394 RVA: 0x0001B9EC File Offset: 0x00019BEC
+		// (set) Token: 0x06000573 RID: 1395 RVA: 0x0001B9FC File Offset: 0x00019BFC
 		public int priority
 		{
 			get
@@ -2459,9 +1929,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000D6 RID: 214
-		// (get) Token: 0x06000534 RID: 1332 RVA: 0x0001A4F8 File Offset: 0x000186F8
-		// (set) Token: 0x06000535 RID: 1333 RVA: 0x0001A508 File Offset: 0x00018708
+		// Token: 0x170000D4 RID: 212
+		// (get) Token: 0x06000574 RID: 1396 RVA: 0x0001BA0C File Offset: 0x00019C0C
+		// (set) Token: 0x06000575 RID: 1397 RVA: 0x0001BA1C File Offset: 0x00019C1C
 		public AudioClip clip
 		{
 			get
@@ -2474,9 +1944,121 @@ public static class SoundPool
 			}
 		}
 
+		// Token: 0x040004C9 RID: 1225
+		public static readonly global::SoundPool.Player3D Default = new global::SoundPool.Player3D
+		{
+			super = global::SoundPool.PlayerShared.Default,
+			minDistance = global::SoundPool.DEF.min,
+			maxDistance = global::SoundPool.DEF.max,
+			rolloffMode = global::SoundPool.DEF.mode,
+			spread = global::SoundPool.DEF.spread,
+			dopplerLevel = global::SoundPool.DEF.doppler,
+			bypassEffects = global::SoundPool.DEF.bypassEffects,
+			panLevel = global::SoundPool.DEF.panLevel
+		};
+
+		// Token: 0x040004CA RID: 1226
+		public global::SoundPool.PlayerShared super;
+
+		// Token: 0x040004CB RID: 1227
+		public float minDistance;
+
+		// Token: 0x040004CC RID: 1228
+		public float maxDistance;
+
+		// Token: 0x040004CD RID: 1229
+		public float spread;
+
+		// Token: 0x040004CE RID: 1230
+		public float dopplerLevel;
+
+		// Token: 0x040004CF RID: 1231
+		public float panLevel;
+
+		// Token: 0x040004D0 RID: 1232
+		public AudioRolloffMode rolloffMode;
+
+		// Token: 0x040004D1 RID: 1233
+		public bool cameraSticky;
+
+		// Token: 0x040004D2 RID: 1234
+		public bool bypassEffects;
+	}
+
+	// Token: 0x020000F2 RID: 242
+	public struct PlayerWorld
+	{
+		// Token: 0x06000576 RID: 1398 RVA: 0x0001BA2C File Offset: 0x00019C2C
+		public PlayerWorld(AudioClip clip)
+		{
+			this.super = new global::SoundPool.Player3D(clip);
+			this.position = default(Vector3);
+			this.rotation = Quaternion.identity;
+		}
+
+		// Token: 0x170000D5 RID: 213
+		// (get) Token: 0x06000578 RID: 1400 RVA: 0x0001BAA4 File Offset: 0x00019CA4
+		// (set) Token: 0x06000579 RID: 1401 RVA: 0x0001BAB4 File Offset: 0x00019CB4
+		public float volume
+		{
+			get
+			{
+				return this.super.volume;
+			}
+			set
+			{
+				this.super.volume = value;
+			}
+		}
+
+		// Token: 0x170000D6 RID: 214
+		// (get) Token: 0x0600057A RID: 1402 RVA: 0x0001BAC4 File Offset: 0x00019CC4
+		// (set) Token: 0x0600057B RID: 1403 RVA: 0x0001BAD4 File Offset: 0x00019CD4
+		public float pitch
+		{
+			get
+			{
+				return this.super.pitch;
+			}
+			set
+			{
+				this.super.pitch = value;
+			}
+		}
+
 		// Token: 0x170000D7 RID: 215
-		// (get) Token: 0x06000536 RID: 1334 RVA: 0x0001A518 File Offset: 0x00018718
-		// (set) Token: 0x06000537 RID: 1335 RVA: 0x0001A528 File Offset: 0x00018728
+		// (get) Token: 0x0600057C RID: 1404 RVA: 0x0001BAE4 File Offset: 0x00019CE4
+		// (set) Token: 0x0600057D RID: 1405 RVA: 0x0001BAF4 File Offset: 0x00019CF4
+		public int priority
+		{
+			get
+			{
+				return this.super.priority;
+			}
+			set
+			{
+				this.super.priority = value;
+			}
+		}
+
+		// Token: 0x170000D8 RID: 216
+		// (get) Token: 0x0600057E RID: 1406 RVA: 0x0001BB04 File Offset: 0x00019D04
+		// (set) Token: 0x0600057F RID: 1407 RVA: 0x0001BB14 File Offset: 0x00019D14
+		public AudioClip clip
+		{
+			get
+			{
+				return this.super.clip;
+			}
+			set
+			{
+				this.super.clip = value;
+			}
+		}
+
+		// Token: 0x170000D9 RID: 217
+		// (get) Token: 0x06000580 RID: 1408 RVA: 0x0001BB24 File Offset: 0x00019D24
+		// (set) Token: 0x06000581 RID: 1409 RVA: 0x0001BB34 File Offset: 0x00019D34
 		public float minDistance
 		{
 			get
@@ -2489,9 +2071,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000D8 RID: 216
-		// (get) Token: 0x06000538 RID: 1336 RVA: 0x0001A538 File Offset: 0x00018738
-		// (set) Token: 0x06000539 RID: 1337 RVA: 0x0001A548 File Offset: 0x00018748
+		// Token: 0x170000DA RID: 218
+		// (get) Token: 0x06000582 RID: 1410 RVA: 0x0001BB44 File Offset: 0x00019D44
+		// (set) Token: 0x06000583 RID: 1411 RVA: 0x0001BB54 File Offset: 0x00019D54
 		public float maxDistance
 		{
 			get
@@ -2504,9 +2086,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000D9 RID: 217
-		// (get) Token: 0x0600053A RID: 1338 RVA: 0x0001A558 File Offset: 0x00018758
-		// (set) Token: 0x0600053B RID: 1339 RVA: 0x0001A568 File Offset: 0x00018768
+		// Token: 0x170000DB RID: 219
+		// (get) Token: 0x06000584 RID: 1412 RVA: 0x0001BB64 File Offset: 0x00019D64
+		// (set) Token: 0x06000585 RID: 1413 RVA: 0x0001BB74 File Offset: 0x00019D74
 		public float spread
 		{
 			get
@@ -2519,9 +2101,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000DA RID: 218
-		// (get) Token: 0x0600053C RID: 1340 RVA: 0x0001A578 File Offset: 0x00018778
-		// (set) Token: 0x0600053D RID: 1341 RVA: 0x0001A588 File Offset: 0x00018788
+		// Token: 0x170000DC RID: 220
+		// (get) Token: 0x06000586 RID: 1414 RVA: 0x0001BB84 File Offset: 0x00019D84
+		// (set) Token: 0x06000587 RID: 1415 RVA: 0x0001BB94 File Offset: 0x00019D94
 		public float dopplerLevel
 		{
 			get
@@ -2534,9 +2116,24 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000DB RID: 219
-		// (get) Token: 0x0600053E RID: 1342 RVA: 0x0001A598 File Offset: 0x00018798
-		// (set) Token: 0x0600053F RID: 1343 RVA: 0x0001A5A8 File Offset: 0x000187A8
+		// Token: 0x170000DD RID: 221
+		// (get) Token: 0x06000588 RID: 1416 RVA: 0x0001BBA4 File Offset: 0x00019DA4
+		// (set) Token: 0x06000589 RID: 1417 RVA: 0x0001BBB4 File Offset: 0x00019DB4
+		public float panLevel
+		{
+			get
+			{
+				return this.super.panLevel;
+			}
+			set
+			{
+				this.super.panLevel = value;
+			}
+		}
+
+		// Token: 0x170000DE RID: 222
+		// (get) Token: 0x0600058A RID: 1418 RVA: 0x0001BBC4 File Offset: 0x00019DC4
+		// (set) Token: 0x0600058B RID: 1419 RVA: 0x0001BBD4 File Offset: 0x00019DD4
 		public AudioRolloffMode rolloffMode
 		{
 			get
@@ -2549,9 +2146,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000DC RID: 220
-		// (get) Token: 0x06000540 RID: 1344 RVA: 0x0001A5B8 File Offset: 0x000187B8
-		// (set) Token: 0x06000541 RID: 1345 RVA: 0x0001A5C8 File Offset: 0x000187C8
+		// Token: 0x170000DF RID: 223
+		// (get) Token: 0x0600058C RID: 1420 RVA: 0x0001BBE4 File Offset: 0x00019DE4
+		// (set) Token: 0x0600058D RID: 1421 RVA: 0x0001BBF4 File Offset: 0x00019DF4
 		public bool bypassEffects
 		{
 			get
@@ -2564,9 +2161,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000DD RID: 221
-		// (get) Token: 0x06000542 RID: 1346 RVA: 0x0001A5D8 File Offset: 0x000187D8
-		// (set) Token: 0x06000543 RID: 1347 RVA: 0x0001A5E8 File Offset: 0x000187E8
+		// Token: 0x170000E0 RID: 224
+		// (get) Token: 0x0600058E RID: 1422 RVA: 0x0001BC04 File Offset: 0x00019E04
+		// (set) Token: 0x0600058F RID: 1423 RVA: 0x0001BC14 File Offset: 0x00019E14
 		public bool cameraSticky
 		{
 			get
@@ -2579,9 +2176,412 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000DE RID: 222
-		// (get) Token: 0x06000544 RID: 1348 RVA: 0x0001A5F8 File Offset: 0x000187F8
-		// (set) Token: 0x06000545 RID: 1349 RVA: 0x0001A608 File Offset: 0x00018808
+		// Token: 0x040004D3 RID: 1235
+		public static readonly global::SoundPool.PlayerWorld Default = new global::SoundPool.PlayerWorld
+		{
+			super = global::SoundPool.Player3D.Default,
+			position = default(Vector3),
+			rotation = Quaternion.identity
+		};
+
+		// Token: 0x040004D4 RID: 1236
+		public global::SoundPool.Player3D super;
+
+		// Token: 0x040004D5 RID: 1237
+		public Vector3 position;
+
+		// Token: 0x040004D6 RID: 1238
+		public Quaternion rotation;
+	}
+
+	// Token: 0x020000F3 RID: 243
+	public struct PlayerLocal
+	{
+		// Token: 0x06000590 RID: 1424 RVA: 0x0001BC24 File Offset: 0x00019E24
+		public PlayerLocal(AudioClip clip)
+		{
+			this.super = new global::SoundPool.Player3D(clip);
+			this.localPosition = default(Vector3);
+			this.localRotation = Quaternion.identity;
+		}
+
+		// Token: 0x170000E1 RID: 225
+		// (get) Token: 0x06000592 RID: 1426 RVA: 0x0001BC9C File Offset: 0x00019E9C
+		// (set) Token: 0x06000593 RID: 1427 RVA: 0x0001BCAC File Offset: 0x00019EAC
+		public float volume
+		{
+			get
+			{
+				return this.super.volume;
+			}
+			set
+			{
+				this.super.volume = value;
+			}
+		}
+
+		// Token: 0x170000E2 RID: 226
+		// (get) Token: 0x06000594 RID: 1428 RVA: 0x0001BCBC File Offset: 0x00019EBC
+		// (set) Token: 0x06000595 RID: 1429 RVA: 0x0001BCCC File Offset: 0x00019ECC
+		public float pitch
+		{
+			get
+			{
+				return this.super.pitch;
+			}
+			set
+			{
+				this.super.pitch = value;
+			}
+		}
+
+		// Token: 0x170000E3 RID: 227
+		// (get) Token: 0x06000596 RID: 1430 RVA: 0x0001BCDC File Offset: 0x00019EDC
+		// (set) Token: 0x06000597 RID: 1431 RVA: 0x0001BCEC File Offset: 0x00019EEC
+		public int priority
+		{
+			get
+			{
+				return this.super.priority;
+			}
+			set
+			{
+				this.super.priority = value;
+			}
+		}
+
+		// Token: 0x170000E4 RID: 228
+		// (get) Token: 0x06000598 RID: 1432 RVA: 0x0001BCFC File Offset: 0x00019EFC
+		// (set) Token: 0x06000599 RID: 1433 RVA: 0x0001BD0C File Offset: 0x00019F0C
+		public AudioClip clip
+		{
+			get
+			{
+				return this.super.clip;
+			}
+			set
+			{
+				this.super.clip = value;
+			}
+		}
+
+		// Token: 0x170000E5 RID: 229
+		// (get) Token: 0x0600059A RID: 1434 RVA: 0x0001BD1C File Offset: 0x00019F1C
+		// (set) Token: 0x0600059B RID: 1435 RVA: 0x0001BD2C File Offset: 0x00019F2C
+		public float minDistance
+		{
+			get
+			{
+				return this.super.minDistance;
+			}
+			set
+			{
+				this.super.minDistance = value;
+			}
+		}
+
+		// Token: 0x170000E6 RID: 230
+		// (get) Token: 0x0600059C RID: 1436 RVA: 0x0001BD3C File Offset: 0x00019F3C
+		// (set) Token: 0x0600059D RID: 1437 RVA: 0x0001BD4C File Offset: 0x00019F4C
+		public float maxDistance
+		{
+			get
+			{
+				return this.super.maxDistance;
+			}
+			set
+			{
+				this.super.maxDistance = value;
+			}
+		}
+
+		// Token: 0x170000E7 RID: 231
+		// (get) Token: 0x0600059E RID: 1438 RVA: 0x0001BD5C File Offset: 0x00019F5C
+		// (set) Token: 0x0600059F RID: 1439 RVA: 0x0001BD6C File Offset: 0x00019F6C
+		public float spread
+		{
+			get
+			{
+				return this.super.spread;
+			}
+			set
+			{
+				this.super.spread = value;
+			}
+		}
+
+		// Token: 0x170000E8 RID: 232
+		// (get) Token: 0x060005A0 RID: 1440 RVA: 0x0001BD7C File Offset: 0x00019F7C
+		// (set) Token: 0x060005A1 RID: 1441 RVA: 0x0001BD8C File Offset: 0x00019F8C
+		public float dopplerLevel
+		{
+			get
+			{
+				return this.super.dopplerLevel;
+			}
+			set
+			{
+				this.super.dopplerLevel = value;
+			}
+		}
+
+		// Token: 0x170000E9 RID: 233
+		// (get) Token: 0x060005A2 RID: 1442 RVA: 0x0001BD9C File Offset: 0x00019F9C
+		// (set) Token: 0x060005A3 RID: 1443 RVA: 0x0001BDAC File Offset: 0x00019FAC
+		public float panLevel
+		{
+			get
+			{
+				return this.super.panLevel;
+			}
+			set
+			{
+				this.super.panLevel = value;
+			}
+		}
+
+		// Token: 0x170000EA RID: 234
+		// (get) Token: 0x060005A4 RID: 1444 RVA: 0x0001BDBC File Offset: 0x00019FBC
+		// (set) Token: 0x060005A5 RID: 1445 RVA: 0x0001BDCC File Offset: 0x00019FCC
+		public AudioRolloffMode rolloffMode
+		{
+			get
+			{
+				return this.super.rolloffMode;
+			}
+			set
+			{
+				this.super.rolloffMode = value;
+			}
+		}
+
+		// Token: 0x170000EB RID: 235
+		// (get) Token: 0x060005A6 RID: 1446 RVA: 0x0001BDDC File Offset: 0x00019FDC
+		// (set) Token: 0x060005A7 RID: 1447 RVA: 0x0001BDEC File Offset: 0x00019FEC
+		public bool bypassEffects
+		{
+			get
+			{
+				return this.super.bypassEffects;
+			}
+			set
+			{
+				this.super.bypassEffects = value;
+			}
+		}
+
+		// Token: 0x170000EC RID: 236
+		// (get) Token: 0x060005A8 RID: 1448 RVA: 0x0001BDFC File Offset: 0x00019FFC
+		// (set) Token: 0x060005A9 RID: 1449 RVA: 0x0001BE0C File Offset: 0x0001A00C
+		public bool cameraSticky
+		{
+			get
+			{
+				return this.super.cameraSticky;
+			}
+			set
+			{
+				this.super.cameraSticky = value;
+			}
+		}
+
+		// Token: 0x040004D7 RID: 1239
+		public static readonly global::SoundPool.PlayerLocal Default = new global::SoundPool.PlayerLocal
+		{
+			super = global::SoundPool.Player3D.Default,
+			localPosition = default(Vector3),
+			localRotation = Quaternion.identity
+		};
+
+		// Token: 0x040004D8 RID: 1240
+		public global::SoundPool.Player3D super;
+
+		// Token: 0x040004D9 RID: 1241
+		public Vector3 localPosition;
+
+		// Token: 0x040004DA RID: 1242
+		public Quaternion localRotation;
+	}
+
+	// Token: 0x020000F4 RID: 244
+	public struct PlayerChild
+	{
+		// Token: 0x060005AA RID: 1450 RVA: 0x0001BE1C File Offset: 0x0001A01C
+		public PlayerChild(AudioClip clip)
+		{
+			this.super = new global::SoundPool.PlayerLocal(clip);
+			this.parent = null;
+			this.unglue = false;
+		}
+
+		// Token: 0x170000ED RID: 237
+		// (get) Token: 0x060005AC RID: 1452 RVA: 0x0001BE60 File Offset: 0x0001A060
+		// (set) Token: 0x060005AD RID: 1453 RVA: 0x0001BE70 File Offset: 0x0001A070
+		public float volume
+		{
+			get
+			{
+				return this.super.volume;
+			}
+			set
+			{
+				this.super.volume = value;
+			}
+		}
+
+		// Token: 0x170000EE RID: 238
+		// (get) Token: 0x060005AE RID: 1454 RVA: 0x0001BE80 File Offset: 0x0001A080
+		// (set) Token: 0x060005AF RID: 1455 RVA: 0x0001BE90 File Offset: 0x0001A090
+		public float pitch
+		{
+			get
+			{
+				return this.super.pitch;
+			}
+			set
+			{
+				this.super.pitch = value;
+			}
+		}
+
+		// Token: 0x170000EF RID: 239
+		// (get) Token: 0x060005B0 RID: 1456 RVA: 0x0001BEA0 File Offset: 0x0001A0A0
+		// (set) Token: 0x060005B1 RID: 1457 RVA: 0x0001BEB0 File Offset: 0x0001A0B0
+		public int priority
+		{
+			get
+			{
+				return this.super.priority;
+			}
+			set
+			{
+				this.super.priority = value;
+			}
+		}
+
+		// Token: 0x170000F0 RID: 240
+		// (get) Token: 0x060005B2 RID: 1458 RVA: 0x0001BEC0 File Offset: 0x0001A0C0
+		// (set) Token: 0x060005B3 RID: 1459 RVA: 0x0001BED0 File Offset: 0x0001A0D0
+		public AudioClip clip
+		{
+			get
+			{
+				return this.super.clip;
+			}
+			set
+			{
+				this.super.clip = value;
+			}
+		}
+
+		// Token: 0x170000F1 RID: 241
+		// (get) Token: 0x060005B4 RID: 1460 RVA: 0x0001BEE0 File Offset: 0x0001A0E0
+		// (set) Token: 0x060005B5 RID: 1461 RVA: 0x0001BEF0 File Offset: 0x0001A0F0
+		public float minDistance
+		{
+			get
+			{
+				return this.super.minDistance;
+			}
+			set
+			{
+				this.super.minDistance = value;
+			}
+		}
+
+		// Token: 0x170000F2 RID: 242
+		// (get) Token: 0x060005B6 RID: 1462 RVA: 0x0001BF00 File Offset: 0x0001A100
+		// (set) Token: 0x060005B7 RID: 1463 RVA: 0x0001BF10 File Offset: 0x0001A110
+		public float maxDistance
+		{
+			get
+			{
+				return this.super.maxDistance;
+			}
+			set
+			{
+				this.super.maxDistance = value;
+			}
+		}
+
+		// Token: 0x170000F3 RID: 243
+		// (get) Token: 0x060005B8 RID: 1464 RVA: 0x0001BF20 File Offset: 0x0001A120
+		// (set) Token: 0x060005B9 RID: 1465 RVA: 0x0001BF30 File Offset: 0x0001A130
+		public float spread
+		{
+			get
+			{
+				return this.super.spread;
+			}
+			set
+			{
+				this.super.spread = value;
+			}
+		}
+
+		// Token: 0x170000F4 RID: 244
+		// (get) Token: 0x060005BA RID: 1466 RVA: 0x0001BF40 File Offset: 0x0001A140
+		// (set) Token: 0x060005BB RID: 1467 RVA: 0x0001BF50 File Offset: 0x0001A150
+		public float dopplerLevel
+		{
+			get
+			{
+				return this.super.dopplerLevel;
+			}
+			set
+			{
+				this.super.dopplerLevel = value;
+			}
+		}
+
+		// Token: 0x170000F5 RID: 245
+		// (get) Token: 0x060005BC RID: 1468 RVA: 0x0001BF60 File Offset: 0x0001A160
+		// (set) Token: 0x060005BD RID: 1469 RVA: 0x0001BF70 File Offset: 0x0001A170
+		public AudioRolloffMode rolloffMode
+		{
+			get
+			{
+				return this.super.rolloffMode;
+			}
+			set
+			{
+				this.super.rolloffMode = value;
+			}
+		}
+
+		// Token: 0x170000F6 RID: 246
+		// (get) Token: 0x060005BE RID: 1470 RVA: 0x0001BF80 File Offset: 0x0001A180
+		// (set) Token: 0x060005BF RID: 1471 RVA: 0x0001BF90 File Offset: 0x0001A190
+		public bool bypassEffects
+		{
+			get
+			{
+				return this.super.bypassEffects;
+			}
+			set
+			{
+				this.super.bypassEffects = value;
+			}
+		}
+
+		// Token: 0x170000F7 RID: 247
+		// (get) Token: 0x060005C0 RID: 1472 RVA: 0x0001BFA0 File Offset: 0x0001A1A0
+		// (set) Token: 0x060005C1 RID: 1473 RVA: 0x0001BFB0 File Offset: 0x0001A1B0
+		public bool cameraSticky
+		{
+			get
+			{
+				return this.super.cameraSticky;
+			}
+			set
+			{
+				this.super.cameraSticky = value;
+			}
+		}
+
+		// Token: 0x170000F8 RID: 248
+		// (get) Token: 0x060005C2 RID: 1474 RVA: 0x0001BFC0 File Offset: 0x0001A1C0
+		// (set) Token: 0x060005C3 RID: 1475 RVA: 0x0001BFD0 File Offset: 0x0001A1D0
 		public Vector3 localPosition
 		{
 			get
@@ -2594,9 +2594,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000DF RID: 223
-		// (get) Token: 0x06000546 RID: 1350 RVA: 0x0001A618 File Offset: 0x00018818
-		// (set) Token: 0x06000547 RID: 1351 RVA: 0x0001A628 File Offset: 0x00018828
+		// Token: 0x170000F9 RID: 249
+		// (get) Token: 0x060005C4 RID: 1476 RVA: 0x0001BFE0 File Offset: 0x0001A1E0
+		// (set) Token: 0x060005C5 RID: 1477 RVA: 0x0001BFF0 File Offset: 0x0001A1F0
 		public Quaternion localRotation
 		{
 			get
@@ -2609,35 +2609,35 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x0400046C RID: 1132
-		public static readonly SoundPool.PlayerChild Default = new SoundPool.PlayerChild
+		// Token: 0x040004DB RID: 1243
+		public static readonly global::SoundPool.PlayerChild Default = new global::SoundPool.PlayerChild
 		{
-			super = SoundPool.PlayerLocal.Default
+			super = global::SoundPool.PlayerLocal.Default
 		};
 
-		// Token: 0x0400046D RID: 1133
-		public SoundPool.PlayerLocal super;
+		// Token: 0x040004DC RID: 1244
+		public global::SoundPool.PlayerLocal super;
 
-		// Token: 0x0400046E RID: 1134
+		// Token: 0x040004DD RID: 1245
 		public bool unglue;
 
-		// Token: 0x0400046F RID: 1135
+		// Token: 0x040004DE RID: 1246
 		public Transform parent;
 	}
 
-	// Token: 0x020000E1 RID: 225
+	// Token: 0x020000F5 RID: 245
 	public struct Player2D
 	{
-		// Token: 0x06000548 RID: 1352 RVA: 0x0001A638 File Offset: 0x00018838
+		// Token: 0x060005C6 RID: 1478 RVA: 0x0001C000 File Offset: 0x0001A200
 		public Player2D(AudioClip clip)
 		{
-			this.super = new SoundPool.PlayerShared(clip);
-			this.pan = SoundPool.DEF.pan;
+			this.super = new global::SoundPool.PlayerShared(clip);
+			this.pan = global::SoundPool.DEF.pan;
 		}
 
-		// Token: 0x170000E0 RID: 224
-		// (get) Token: 0x0600054A RID: 1354 RVA: 0x0001A69C File Offset: 0x0001889C
-		// (set) Token: 0x0600054B RID: 1355 RVA: 0x0001A6AC File Offset: 0x000188AC
+		// Token: 0x170000FA RID: 250
+		// (get) Token: 0x060005C8 RID: 1480 RVA: 0x0001C064 File Offset: 0x0001A264
+		// (set) Token: 0x060005C9 RID: 1481 RVA: 0x0001C074 File Offset: 0x0001A274
 		public float volume
 		{
 			get
@@ -2650,9 +2650,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000E1 RID: 225
-		// (get) Token: 0x0600054C RID: 1356 RVA: 0x0001A6BC File Offset: 0x000188BC
-		// (set) Token: 0x0600054D RID: 1357 RVA: 0x0001A6CC File Offset: 0x000188CC
+		// Token: 0x170000FB RID: 251
+		// (get) Token: 0x060005CA RID: 1482 RVA: 0x0001C084 File Offset: 0x0001A284
+		// (set) Token: 0x060005CB RID: 1483 RVA: 0x0001C094 File Offset: 0x0001A294
 		public float pitch
 		{
 			get
@@ -2665,9 +2665,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000E2 RID: 226
-		// (get) Token: 0x0600054E RID: 1358 RVA: 0x0001A6DC File Offset: 0x000188DC
-		// (set) Token: 0x0600054F RID: 1359 RVA: 0x0001A6EC File Offset: 0x000188EC
+		// Token: 0x170000FC RID: 252
+		// (get) Token: 0x060005CC RID: 1484 RVA: 0x0001C0A4 File Offset: 0x0001A2A4
+		// (set) Token: 0x060005CD RID: 1485 RVA: 0x0001C0B4 File Offset: 0x0001A2B4
 		public int priority
 		{
 			get
@@ -2680,9 +2680,9 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x170000E3 RID: 227
-		// (get) Token: 0x06000550 RID: 1360 RVA: 0x0001A6FC File Offset: 0x000188FC
-		// (set) Token: 0x06000551 RID: 1361 RVA: 0x0001A70C File Offset: 0x0001890C
+		// Token: 0x170000FD RID: 253
+		// (get) Token: 0x060005CE RID: 1486 RVA: 0x0001C0C4 File Offset: 0x0001A2C4
+		// (set) Token: 0x060005CF RID: 1487 RVA: 0x0001C0D4 File Offset: 0x0001A2D4
 		public AudioClip clip
 		{
 			get
@@ -2695,13 +2695,13 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x06000552 RID: 1362 RVA: 0x0001A71C File Offset: 0x0001891C
+		// Token: 0x060005D0 RID: 1488 RVA: 0x0001C0E4 File Offset: 0x0001A2E4
 		public void Play()
 		{
 			this.Play(this.clip);
 		}
 
-		// Token: 0x06000553 RID: 1363 RVA: 0x0001A72C File Offset: 0x0001892C
+		// Token: 0x060005D1 RID: 1489 RVA: 0x0001C0F4 File Offset: 0x0001A2F4
 		public void Play(AudioClip clip)
 		{
 			if (!clip)
@@ -2710,93 +2710,93 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x04000470 RID: 1136
-		public static readonly SoundPool.Player2D Default = new SoundPool.Player2D
+		// Token: 0x040004DF RID: 1247
+		public static readonly global::SoundPool.Player2D Default = new global::SoundPool.Player2D
 		{
-			super = SoundPool.PlayerShared.Default,
-			pan = SoundPool.DEF.pan
+			super = global::SoundPool.PlayerShared.Default,
+			pan = global::SoundPool.DEF.pan
 		};
 
-		// Token: 0x04000471 RID: 1137
-		public SoundPool.PlayerShared super;
+		// Token: 0x040004E0 RID: 1248
+		public global::SoundPool.PlayerShared super;
 
-		// Token: 0x04000472 RID: 1138
+		// Token: 0x040004E1 RID: 1249
 		public float pan;
 	}
 
-	// Token: 0x020000E2 RID: 226
+	// Token: 0x020000F6 RID: 246
 	private struct Dir
 	{
-		// Token: 0x04000473 RID: 1139
-		public SoundPool.Node node;
+		// Token: 0x040004E2 RID: 1250
+		public global::SoundPool.Node node;
 
-		// Token: 0x04000474 RID: 1140
+		// Token: 0x040004E3 RID: 1251
 		public bool has;
 	}
 
-	// Token: 0x020000E3 RID: 227
+	// Token: 0x020000F7 RID: 247
 	private struct Way
 	{
-		// Token: 0x04000475 RID: 1141
-		public SoundPool.Dir prev;
+		// Token: 0x040004E4 RID: 1252
+		public global::SoundPool.Dir prev;
 
-		// Token: 0x04000476 RID: 1142
-		public SoundPool.Dir next;
+		// Token: 0x040004E5 RID: 1253
+		public global::SoundPool.Dir next;
 	}
 
-	// Token: 0x020000E4 RID: 228
+	// Token: 0x020000F8 RID: 248
 	private enum RootID : sbyte
 	{
-		// Token: 0x04000478 RID: 1144
+		// Token: 0x040004E7 RID: 1255
 		LIMBO,
-		// Token: 0x04000479 RID: 1145
+		// Token: 0x040004E8 RID: 1256
 		PLAYING_ATTACHED = -3,
-		// Token: 0x0400047A RID: 1146
+		// Token: 0x040004E9 RID: 1257
 		PLAYING_CAMERA,
-		// Token: 0x0400047B RID: 1147
+		// Token: 0x040004EA RID: 1258
 		PLAYING,
-		// Token: 0x0400047C RID: 1148
+		// Token: 0x040004EB RID: 1259
 		RESERVED = 1,
-		// Token: 0x0400047D RID: 1149
+		// Token: 0x040004EC RID: 1260
 		DISPOSED
 	}
 
-	// Token: 0x020000E5 RID: 229
+	// Token: 0x020000F9 RID: 249
 	private class Root
 	{
-		// Token: 0x06000554 RID: 1364 RVA: 0x0001A73C File Offset: 0x0001893C
-		public Root(SoundPool.RootID id)
+		// Token: 0x060005D2 RID: 1490 RVA: 0x0001C104 File Offset: 0x0001A304
+		public Root(global::SoundPool.RootID id)
 		{
 			this.id = id;
 		}
 
-		// Token: 0x0400047E RID: 1150
+		// Token: 0x040004ED RID: 1261
 		public int count;
 
-		// Token: 0x0400047F RID: 1151
-		public SoundPool.Dir first;
+		// Token: 0x040004EE RID: 1262
+		public global::SoundPool.Dir first;
 
-		// Token: 0x04000480 RID: 1152
-		public readonly SoundPool.RootID id;
+		// Token: 0x040004EF RID: 1263
+		public readonly global::SoundPool.RootID id;
 	}
 
-	// Token: 0x020000E6 RID: 230
+	// Token: 0x020000FA RID: 250
 	private static class NodeGC
 	{
-		// Token: 0x06000555 RID: 1365 RVA: 0x0001A74C File Offset: 0x0001894C
+		// Token: 0x060005D3 RID: 1491 RVA: 0x0001C114 File Offset: 0x0001A314
 		public static void JOIN()
 		{
 			Transform[] array = null;
 			bool flag = false;
-			object destroyNextPumpLock = SoundPool.NodeGC.GCDAT.destroyNextPumpLock;
+			object destroyNextPumpLock = global::SoundPool.NodeGC.GCDAT.destroyNextPumpLock;
 			lock (destroyNextPumpLock)
 			{
-				if (SoundPool.NodeGC.GCDAT.destroyNextQueued)
+				if (global::SoundPool.NodeGC.GCDAT.destroyNextQueued)
 				{
 					flag = true;
-					array = SoundPool.NodeGC.GCDAT.destroyTheseNextPump.ToArray();
-					SoundPool.NodeGC.GCDAT.destroyTheseNextPump.Clear();
-					SoundPool.NodeGC.GCDAT.destroyNextQueued = false;
+					array = global::SoundPool.NodeGC.GCDAT.destroyTheseNextPump.ToArray();
+					global::SoundPool.NodeGC.GCDAT.destroyTheseNextPump.Clear();
+					global::SoundPool.NodeGC.GCDAT.destroyNextQueued = false;
 				}
 			}
 			if (flag)
@@ -2812,49 +2812,49 @@ public static class SoundPool
 			}
 		}
 
-		// Token: 0x06000556 RID: 1366 RVA: 0x0001A814 File Offset: 0x00018A14
+		// Token: 0x060005D4 RID: 1492 RVA: 0x0001C1DC File Offset: 0x0001A3DC
 		public static void LEAK(Transform transform)
 		{
-			object destroyNextPumpLock = SoundPool.NodeGC.GCDAT.destroyNextPumpLock;
+			object destroyNextPumpLock = global::SoundPool.NodeGC.GCDAT.destroyNextPumpLock;
 			lock (destroyNextPumpLock)
 			{
-				SoundPool.NodeGC.GCDAT.destroyNextQueued = true;
-				SoundPool.NodeGC.GCDAT.destroyTheseNextPump.Add(transform);
+				global::SoundPool.NodeGC.GCDAT.destroyNextQueued = true;
+				global::SoundPool.NodeGC.GCDAT.destroyTheseNextPump.Add(transform);
 			}
 		}
 
-		// Token: 0x020000E7 RID: 231
+		// Token: 0x020000FB RID: 251
 		private static class GCDAT
 		{
-			// Token: 0x06000557 RID: 1367 RVA: 0x0001A868 File Offset: 0x00018A68
+			// Token: 0x060005D5 RID: 1493 RVA: 0x0001C230 File Offset: 0x0001A430
 			static GCDAT()
 			{
-				SoundPool.firstLeak = true;
+				global::SoundPool.firstLeak = true;
 			}
 
-			// Token: 0x04000481 RID: 1153
+			// Token: 0x040004F0 RID: 1264
 			public static readonly List<Transform> destroyTheseNextPump = new List<Transform>();
 
-			// Token: 0x04000482 RID: 1154
+			// Token: 0x040004F1 RID: 1265
 			public static readonly object destroyNextPumpLock = new object();
 
-			// Token: 0x04000483 RID: 1155
+			// Token: 0x040004F2 RID: 1266
 			public static bool destroyNextQueued;
 		}
 	}
 
-	// Token: 0x020000E8 RID: 232
+	// Token: 0x020000FC RID: 252
 	private sealed class Node : IDisposable
 	{
-		// Token: 0x06000559 RID: 1369 RVA: 0x0001A88C File Offset: 0x00018A8C
+		// Token: 0x060005D7 RID: 1495 RVA: 0x0001C254 File Offset: 0x0001A454
 		public void Reserve()
 		{
 			switch (this.rootID)
 			{
-			case SoundPool.RootID.LIMBO:
+			case global::SoundPool.RootID.LIMBO:
 				break;
-			case SoundPool.RootID.RESERVED:
-			case SoundPool.RootID.DISPOSED:
+			case global::SoundPool.RootID.RESERVED:
+			case global::SoundPool.RootID.DISPOSED:
 				return;
 			default:
 				this.audio.Stop();
@@ -2874,31 +2874,31 @@ public static class SoundPool
 					this.root.first = this.way.next;
 				}
 				this.root.count--;
-				this.way = default(SoundPool.Way);
+				this.way = default(global::SoundPool.Way);
 				break;
 			}
-			this.root = SoundPool.reserved;
-			this.rootID = SoundPool.RootID.RESERVED;
-			this.way.next = SoundPool.reserved.first;
+			this.root = global::SoundPool.reserved;
+			this.rootID = global::SoundPool.RootID.RESERVED;
+			this.way.next = global::SoundPool.reserved.first;
 			if (this.way.next.has)
 			{
 				this.way.next.node.way.prev.has = true;
 				this.way.next.node.way.prev.node = this;
 			}
-			SoundPool.reserved.first.has = true;
-			SoundPool.reserved.first.node = this;
-			SoundPool.reserved.count++;
+			global::SoundPool.reserved.first.has = true;
+			global::SoundPool.reserved.first.node = this;
+			global::SoundPool.reserved.count++;
 		}
 
-		// Token: 0x0600055A RID: 1370 RVA: 0x0001AA4C File Offset: 0x00018C4C
+		// Token: 0x060005D8 RID: 1496 RVA: 0x0001C414 File Offset: 0x0001A614
 		public void EnterLimbo()
 		{
 			switch (this.rootID)
 			{
-			case SoundPool.RootID.LIMBO:
-			case SoundPool.RootID.DISPOSED:
+			case global::SoundPool.RootID.LIMBO:
+			case global::SoundPool.RootID.DISPOSED:
 				return;
-			case SoundPool.RootID.RESERVED:
+			case global::SoundPool.RootID.RESERVED:
 				break;
 			default:
 				this.audio.Stop();
@@ -2920,15 +2920,15 @@ public static class SoundPool
 				this.way.next.node.way.prev = this.way.prev;
 			}
 			this.root.count--;
-			this.way = default(SoundPool.Way);
+			this.way = default(global::SoundPool.Way);
 			this.root = null;
-			this.rootID = SoundPool.RootID.LIMBO;
+			this.rootID = global::SoundPool.RootID.LIMBO;
 		}
 
-		// Token: 0x0600055B RID: 1371 RVA: 0x0001AB6C File Offset: 0x00018D6C
+		// Token: 0x060005D9 RID: 1497 RVA: 0x0001C534 File Offset: 0x0001A734
 		public void Bind()
 		{
-			this.way.prev = default(SoundPool.Dir);
+			this.way.prev = default(global::SoundPool.Dir);
 			this.way.next = this.root.first;
 			this.root.first.has = true;
 			this.root.first.node = this;
@@ -2940,14 +2940,14 @@ public static class SoundPool
 			this.root.count++;
 		}
 
-		// Token: 0x0600055C RID: 1372 RVA: 0x0001AC30 File Offset: 0x00018E30
+		// Token: 0x060005DA RID: 1498 RVA: 0x0001C5F8 File Offset: 0x0001A7F8
 		public void Dispose()
 		{
 			switch (this.rootID)
 			{
-			case SoundPool.RootID.LIMBO:
+			case global::SoundPool.RootID.LIMBO:
 				goto IL_2F;
-			case SoundPool.RootID.DISPOSED:
+			case global::SoundPool.RootID.DISPOSED:
 				return;
 			}
 			this.EnterLimbo();
@@ -2955,44 +2955,44 @@ public static class SoundPool
 			Object.Destroy(this.transform.gameObject);
 			this.transform = null;
 			this.audio = null;
-			this.rootID = SoundPool.RootID.DISPOSED;
+			this.rootID = global::SoundPool.RootID.DISPOSED;
 			GC.SuppressFinalize(this);
 			GC.KeepAlive(this);
 		}
 
-		// Token: 0x0600055D RID: 1373 RVA: 0x0001ACA0 File Offset: 0x00018EA0
+		// Token: 0x060005DB RID: 1499 RVA: 0x0001C668 File Offset: 0x0001A868
 		~Node()
 		{
 			if ((int)this.rootID != 2)
 			{
-				SoundPool.NodeGC.LEAK(this.transform);
+				global::SoundPool.NodeGC.LEAK(this.transform);
 			}
 			this.transform = null;
 			this.audio = null;
 		}
 
-		// Token: 0x04000484 RID: 1156
+		// Token: 0x040004F3 RID: 1267
 		public AudioSource audio;
 
-		// Token: 0x04000485 RID: 1157
+		// Token: 0x040004F4 RID: 1268
 		public Transform transform;
 
-		// Token: 0x04000486 RID: 1158
-		public SoundPool.Way way;
+		// Token: 0x040004F5 RID: 1269
+		public global::SoundPool.Way way;
 
-		// Token: 0x04000487 RID: 1159
-		public SoundPool.RootID rootID;
+		// Token: 0x040004F6 RID: 1270
+		public global::SoundPool.RootID rootID;
 
-		// Token: 0x04000488 RID: 1160
-		public SoundPool.Root root;
+		// Token: 0x040004F7 RID: 1271
+		public global::SoundPool.Root root;
 
-		// Token: 0x04000489 RID: 1161
+		// Token: 0x040004F8 RID: 1272
 		public Vector3 translation;
 
-		// Token: 0x0400048A RID: 1162
+		// Token: 0x040004F9 RID: 1273
 		public Quaternion rotation;
 
-		// Token: 0x0400048B RID: 1163
+		// Token: 0x040004FA RID: 1274
 		public Transform parent;
 	}
 }

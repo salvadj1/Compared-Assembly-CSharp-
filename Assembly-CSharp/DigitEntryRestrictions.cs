@@ -2,11 +2,11 @@
 using System.Text;
 using UnityEngine;
 
-// Token: 0x020003F1 RID: 1009
+// Token: 0x020004A1 RID: 1185
 public class DigitEntryRestrictions : MonoBehaviour
 {
-	// Token: 0x0600253D RID: 9533 RVA: 0x0008F198 File Offset: 0x0008D398
-	public void OnKeyDown(dfControl control, dfKeyEventArgs keyEvent)
+	// Token: 0x060028AF RID: 10415 RVA: 0x00094B84 File Offset: 0x00092D84
+	public void OnKeyDown(global::dfControl control, global::dfKeyEventArgs keyEvent)
 	{
 		if (char.IsControl(keyEvent.Character))
 		{
@@ -18,8 +18,8 @@ public class DigitEntryRestrictions : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600253E RID: 9534 RVA: 0x0008F1C4 File Offset: 0x0008D3C4
-	public void OnKeyPress(dfControl control, dfKeyEventArgs keyEvent)
+	// Token: 0x060028B0 RID: 10416 RVA: 0x00094BB0 File Offset: 0x00092DB0
+	public void OnKeyPress(global::dfControl control, global::dfKeyEventArgs keyEvent)
 	{
 		if (char.IsControl(keyEvent.Character))
 		{
@@ -31,8 +31,8 @@ public class DigitEntryRestrictions : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600253F RID: 9535 RVA: 0x0008F1F0 File Offset: 0x0008D3F0
-	public void OnTextChanged(dfTextbox control, string value)
+	// Token: 0x060028B1 RID: 10417 RVA: 0x00094BDC File Offset: 0x00092DDC
+	public void OnTextChanged(global::dfTextbox control, string value)
 	{
 		int cursorIndex = control.CursorIndex;
 		StringBuilder stringBuilder = new StringBuilder();

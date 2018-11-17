@@ -3,15 +3,15 @@ using Google.ProtocolBuffers;
 
 namespace RustProto.Helpers
 {
-	// Token: 0x020001F9 RID: 505
+	// Token: 0x0200022C RID: 556
 	public sealed class Recycler<TMessage, TBuilder> : IDisposable where TMessage : GeneratedMessage<TMessage, TBuilder> where TBuilder : GeneratedBuilder<TMessage, TBuilder>, new()
 	{
-		// Token: 0x06000DB5 RID: 3509 RVA: 0x00035AA0 File Offset: 0x00033CA0
+		// Token: 0x06000F09 RID: 3849 RVA: 0x00039E48 File Offset: 0x00038048
 		private Recycler()
 		{
 		}
 
-		// Token: 0x06000DB6 RID: 3510 RVA: 0x00035AA8 File Offset: 0x00033CA8
+		// Token: 0x06000F0A RID: 3850 RVA: 0x00039E50 File Offset: 0x00038050
 		void IDisposable.Dispose()
 		{
 			if (!this.Disposed)
@@ -38,7 +38,7 @@ namespace RustProto.Helpers
 			}
 		}
 
-		// Token: 0x06000DB7 RID: 3511 RVA: 0x00035B4C File Offset: 0x00033D4C
+		// Token: 0x06000F0B RID: 3851 RVA: 0x00039EF4 File Offset: 0x000380F4
 		public static Recycler<TMessage, TBuilder> Manufacture()
 		{
 			if (Recycler<TMessage, TBuilder>.Recovery.Count == 0)
@@ -60,7 +60,7 @@ namespace RustProto.Helpers
 			return pile;
 		}
 
-		// Token: 0x06000DB8 RID: 3512 RVA: 0x00035BD0 File Offset: 0x00033DD0
+		// Token: 0x06000F0C RID: 3852 RVA: 0x00039F78 File Offset: 0x00038178
 		public TBuilder OpenBuilder()
 		{
 			if (this.OpenCount++ == 0)
@@ -78,7 +78,7 @@ namespace RustProto.Helpers
 			return this.Builder;
 		}
 
-		// Token: 0x06000DB9 RID: 3513 RVA: 0x00035C24 File Offset: 0x00033E24
+		// Token: 0x06000F0D RID: 3853 RVA: 0x00039FCC File Offset: 0x000381CC
 		public TBuilder OpenBuilder(TMessage copyFrom)
 		{
 			TBuilder result = this.OpenBuilder();
@@ -86,7 +86,7 @@ namespace RustProto.Helpers
 			return result;
 		}
 
-		// Token: 0x06000DBA RID: 3514 RVA: 0x00035C48 File Offset: 0x00033E48
+		// Token: 0x06000F0E RID: 3854 RVA: 0x00039FF0 File Offset: 0x000381F0
 		public void CloseBuilder(ref TBuilder builder)
 		{
 			if (this.Disposed)
@@ -109,34 +109,34 @@ namespace RustProto.Helpers
 			}
 		}
 
-		// Token: 0x04000878 RID: 2168
+		// Token: 0x0400099B RID: 2459
 		private TBuilder Builder;
 
-		// Token: 0x04000879 RID: 2169
+		// Token: 0x0400099C RID: 2460
 		private Recycler<TMessage, TBuilder> Next;
 
-		// Token: 0x0400087A RID: 2170
+		// Token: 0x0400099D RID: 2461
 		private bool Disposed;
 
-		// Token: 0x0400087B RID: 2171
+		// Token: 0x0400099E RID: 2462
 		private bool Cleared;
 
-		// Token: 0x0400087C RID: 2172
+		// Token: 0x0400099F RID: 2463
 		private bool Created;
 
-		// Token: 0x0400087D RID: 2173
+		// Token: 0x040009A0 RID: 2464
 		private int OpenCount;
 
-		// Token: 0x0400087E RID: 2174
+		// Token: 0x040009A1 RID: 2465
 		private static Recycler<TMessage, TBuilder>.Holding Recovery;
 
-		// Token: 0x020001FA RID: 506
+		// Token: 0x0200022D RID: 557
 		private struct Holding
 		{
-			// Token: 0x0400087F RID: 2175
+			// Token: 0x040009A2 RID: 2466
 			public Recycler<TMessage, TBuilder> Pile;
 
-			// Token: 0x04000880 RID: 2176
+			// Token: 0x040009A3 RID: 2467
 			public int Count;
 		}
 	}

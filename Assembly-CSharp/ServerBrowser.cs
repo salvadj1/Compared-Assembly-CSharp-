@@ -7,19 +7,19 @@ using POSIX;
 using Rust.Steam;
 using UnityEngine;
 
-// Token: 0x02000405 RID: 1029
+// Token: 0x020004B6 RID: 1206
 public class ServerBrowser : MonoBehaviour
 {
-	// Token: 0x060025B7 RID: 9655 RVA: 0x00090E2C File Offset: 0x0008F02C
+	// Token: 0x0600292F RID: 10543 RVA: 0x00096C64 File Offset: 0x00094E64
 	private void Start()
 	{
 		for (int i = 0; i < this.servers.Length; i++)
 		{
-			this.servers[i] = new List<ServerBrowser.Server>();
+			this.servers[i] = new List<global::ServerBrowser.Server>();
 		}
-		this.AddServerCallback = new ServerBrowser.funcServerAdd(this.Add_Server);
+		this.AddServerCallback = new global::ServerBrowser.funcServerAdd(this.Add_Server);
 		this.AddServerGC = GCHandle.Alloc(this.AddServerCallback);
-		this.FinServerCallback = new ServerBrowser.funcServerFinish(this.RefreshFinished);
+		this.FinServerCallback = new global::ServerBrowser.funcServerFinish(this.RefreshFinished);
 		this.RefreshFinishedGC = GCHandle.Alloc(this.FinServerCallback);
 		base.BroadcastMessage("CategoryChanged", this.serverType);
 		this.pagination.OnPageSwitch += this.OnPageSwitched;
@@ -30,14 +30,14 @@ public class ServerBrowser : MonoBehaviour
 		this.ClearServers();
 	}
 
-	// Token: 0x060025B8 RID: 9656 RVA: 0x00090EF4 File Offset: 0x0008F0F4
+	// Token: 0x06002930 RID: 10544 RVA: 0x00096D2C File Offset: 0x00094F2C
 	public void OnPageSwitched(int iNewPage)
 	{
 		this.pageNumber = iNewPage;
 		this.UpdateServerList();
 	}
 
-	// Token: 0x060025B9 RID: 9657 RVA: 0x00090F04 File Offset: 0x0008F104
+	// Token: 0x06002931 RID: 10545 RVA: 0x00096D3C File Offset: 0x00094F3C
 	public void SwitchCategory(int catID)
 	{
 		if (this.serverType == catID)
@@ -52,21 +52,21 @@ public class ServerBrowser : MonoBehaviour
 		this.UpdateServerList();
 	}
 
-	// Token: 0x060025BA RID: 9658 RVA: 0x00090F5C File Offset: 0x0008F15C
+	// Token: 0x06002932 RID: 10546 RVA: 0x00096D94 File Offset: 0x00094F94
 	private void OnEnable()
 	{
 		base.StartCoroutine(this.ServerListUpdater());
 	}
 
-	// Token: 0x060025BB RID: 9659 RVA: 0x00090F6C File Offset: 0x0008F16C
+	// Token: 0x06002933 RID: 10547 RVA: 0x00096DA4 File Offset: 0x00094FA4
 	public void ClearList()
 	{
 		this.pageNumber = 0;
-		foreach (List<ServerBrowser.Server> list in this.servers)
+		foreach (List<global::ServerBrowser.Server> list in this.servers)
 		{
 			list.Clear();
 		}
-		foreach (ServerCategory serverCategory in this.categoryButtons)
+		foreach (global::ServerCategory serverCategory in this.categoryButtons)
 		{
 			if (serverCategory)
 			{
@@ -80,40 +80,40 @@ public class ServerBrowser : MonoBehaviour
 		this.detailsLabel.Text = "...";
 	}
 
-	// Token: 0x060025BC RID: 9660 RVA: 0x0009100C File Offset: 0x0008F20C
+	// Token: 0x06002934 RID: 10548 RVA: 0x00096E44 File Offset: 0x00095044
 	public void ClearServers()
 	{
-		ServerItem[] componentsInChildren = this.serverContainer.GetComponentsInChildren<ServerItem>();
-		foreach (ServerItem serverItem in componentsInChildren)
+		global::ServerItem[] componentsInChildren = this.serverContainer.GetComponentsInChildren<global::ServerItem>();
+		foreach (global::ServerItem serverItem in componentsInChildren)
 		{
-			serverItem.gameObject.GetComponent<dfControl>().Hide();
+			serverItem.gameObject.GetComponent<global::dfControl>().Hide();
 			this.pooledServerItems.Enqueue(serverItem.gameObject);
 		}
 	}
 
-	// Token: 0x060025BD RID: 9661 RVA: 0x00091060 File Offset: 0x0008F260
+	// Token: 0x06002935 RID: 10549 RVA: 0x00096E98 File Offset: 0x00095098
 	public void RefreshServerList()
 	{
 		this.refreshButton.IsEnabled = false;
 		this.refreshButton.Opacity = 0.2f;
-		SteamClient.Needed();
+		global::SteamClient.Needed();
 		this.ClearList();
 		this.detailsLabel.Text = "Updating..";
-		this.serverRefresh = ServerBrowser.SteamServers_Fetch(1069, this.AddServerCallback, this.FinServerCallback);
+		this.serverRefresh = global::ServerBrowser.SteamServers_Fetch(1069, this.AddServerCallback, this.FinServerCallback);
 		if (this.serverRefresh == IntPtr.Zero)
 		{
 			Debug.Log("Error! Couldn't refresh servers!!");
 		}
 	}
 
-	// Token: 0x060025BE RID: 9662 RVA: 0x000910E0 File Offset: 0x0008F2E0
+	// Token: 0x06002936 RID: 10550 RVA: 0x00096F18 File Offset: 0x00095118
 	public void OnFirstOpen()
 	{
 		if (this.firstOpened)
 		{
 			return;
 		}
-		if (!base.GetComponent<dfPanel>().IsVisible)
+		if (!base.GetComponent<global::dfPanel>().IsVisible)
 		{
 			return;
 		}
@@ -121,8 +121,8 @@ public class ServerBrowser : MonoBehaviour
 		this.RefreshServerList();
 	}
 
-	// Token: 0x060025BF RID: 9663 RVA: 0x00091118 File Offset: 0x0008F318
-	private bool ShouldIgnoreServer(ServerBrowser.Server item)
+	// Token: 0x06002937 RID: 10551 RVA: 0x00096F50 File Offset: 0x00095150
+	private bool ShouldIgnoreServer(global::ServerBrowser.Server item)
 	{
 		string text = item.name.ToLower();
 		if (text.Contains("[color"))
@@ -216,14 +216,14 @@ public class ServerBrowser : MonoBehaviour
 				}
 			}
 		}
-		return item.currentplayers > item.maxplayers || item.currentplayers > 500 || ServerListConfig.IsBadServer(item.address);
+		return item.currentplayers > item.maxplayers || item.currentplayers > 500;
 	}
 
-	// Token: 0x060025C0 RID: 9664 RVA: 0x00091318 File Offset: 0x0008F518
+	// Token: 0x06002938 RID: 10552 RVA: 0x0009713C File Offset: 0x0009533C
 	private void Add_Server(int iMaxPlayers, int iCurrentPlayers, int iPing, uint iLastPlayed, [MarshalAs(UnmanagedType.LPStr)] [In] string strHostname, [MarshalAs(UnmanagedType.LPStr)] [In] string strAddress, int iPort, int iQueryPort, [MarshalAs(UnmanagedType.LPStr)] [In] string tags, bool bPassworded, int iType)
 	{
 		string strName = strAddress + ":" + iPort.ToString();
-		ServerBrowser.Server server = new ServerBrowser.Server();
+		global::ServerBrowser.Server server = new global::ServerBrowser.Server();
 		server.name = strHostname;
 		server.address = strAddress;
 		server.maxplayers = iMaxPlayers;
@@ -232,7 +232,7 @@ public class ServerBrowser : MonoBehaviour
 		server.lastplayed = iLastPlayed;
 		server.port = iPort;
 		server.queryport = iQueryPort;
-		server.fave = FavouriteList.Contains(strName);
+		server.fave = global::FavouriteList.Contains(strName);
 		if (server.name.Length > 64)
 		{
 			server.name = server.name.Substring(0, 64);
@@ -264,7 +264,7 @@ public class ServerBrowser : MonoBehaviour
 		}
 		if (iType == 4)
 		{
-			int num2 = (int)Time.ElapsedSecondsSince((int)server.lastplayed);
+			int num2 = (int)POSIX.Time.ElapsedSecondsSince((int)server.lastplayed);
 			string str = string.Empty;
 			if (num2 < 60)
 			{
@@ -282,7 +282,7 @@ public class ServerBrowser : MonoBehaviour
 			{
 				str = (num2 / 60 / 60 / 24).ToString() + " days ago";
 			}
-			ServerBrowser.Server server2 = server;
+			global::ServerBrowser.Server server2 = server;
 			server2.name = server2.name + " (" + str + ")";
 			this.servers[4].Add(server);
 			this.categoryButtons[4].UpdateServerCount(this.servers[4].Count);
@@ -310,7 +310,7 @@ public class ServerBrowser : MonoBehaviour
 						ulong iGroupID;
 						if (ulong.TryParse(s, NumberStyles.HexNumber, null, out iGroupID))
 						{
-							if (!SteamGroups.MemberOf(iGroupID))
+							if (!Rust.Steam.SteamGroups.MemberOf(iGroupID))
 							{
 								return;
 							}
@@ -340,14 +340,14 @@ public class ServerBrowser : MonoBehaviour
 		this.categoryButtons[1].UpdateServerCount(this.servers[1].Count);
 	}
 
-	// Token: 0x060025C1 RID: 9665 RVA: 0x00091714 File Offset: 0x0008F914
+	// Token: 0x06002939 RID: 10553 RVA: 0x00097538 File Offset: 0x00095738
 	private int GetMaxServers()
 	{
 		int num = (int)this.serverContainer.Height;
 		return num / 34;
 	}
 
-	// Token: 0x060025C2 RID: 9666 RVA: 0x00091734 File Offset: 0x0008F934
+	// Token: 0x0600293A RID: 10554 RVA: 0x00097558 File Offset: 0x00095758
 	public void UpdateServerList()
 	{
 		this.needsServerListUpdate = false;
@@ -369,31 +369,31 @@ public class ServerBrowser : MonoBehaviour
 		int iPages = (int)Mathf.Ceil((float)this.servers[this.serverType].Count / (float)num);
 		if (this.serverType == 4)
 		{
-			this.servers[this.serverType].Sort((ServerBrowser.Server x, ServerBrowser.Server y) => (x.lastplayed == y.lastplayed) ? string.Compare(x.name, y.name) : y.lastplayed.CompareTo(x.lastplayed));
+			this.servers[this.serverType].Sort((global::ServerBrowser.Server x, global::ServerBrowser.Server y) => (x.lastplayed == y.lastplayed) ? string.Compare(x.name, y.name) : y.lastplayed.CompareTo(x.lastplayed));
 		}
 		else
 		{
 			if (this.orderType == 0)
 			{
-				this.servers[this.serverType].Sort((ServerBrowser.Server x, ServerBrowser.Server y) => (x.fave == y.fave) ? string.Compare(x.name, y.name) : y.fave.CompareTo(x.fave));
+				this.servers[this.serverType].Sort((global::ServerBrowser.Server x, global::ServerBrowser.Server y) => (x.fave == y.fave) ? string.Compare(x.name, y.name) : y.fave.CompareTo(x.fave));
 			}
 			if (this.orderType == 1)
 			{
-				this.servers[this.serverType].Sort((ServerBrowser.Server x, ServerBrowser.Server y) => (x.fave == y.fave) ? ((x.currentplayers == y.currentplayers) ? string.Compare(x.name, y.name) : y.currentplayers.CompareTo(x.currentplayers)) : y.fave.CompareTo(x.fave));
+				this.servers[this.serverType].Sort((global::ServerBrowser.Server x, global::ServerBrowser.Server y) => (x.fave == y.fave) ? ((x.currentplayers == y.currentplayers) ? string.Compare(x.name, y.name) : y.currentplayers.CompareTo(x.currentplayers)) : y.fave.CompareTo(x.fave));
 			}
 			if (this.orderType == 2)
 			{
-				this.servers[this.serverType].Sort((ServerBrowser.Server x, ServerBrowser.Server y) => (x.fave == y.fave) ? ((x.ping == y.ping) ? string.Compare(x.name, y.name) : x.ping.CompareTo(y.ping)) : y.fave.CompareTo(x.fave));
+				this.servers[this.serverType].Sort((global::ServerBrowser.Server x, global::ServerBrowser.Server y) => (x.fave == y.fave) ? ((x.ping == y.ping) ? string.Compare(x.name, y.name) : x.ping.CompareTo(y.ping)) : y.fave.CompareTo(x.fave));
 			}
 		}
 		if (num2 + num > this.servers[this.serverType].Count)
 		{
 			num = this.servers[this.serverType].Count - num2;
 		}
-		List<ServerBrowser.Server> range = this.servers[this.serverType].GetRange(num2, num);
+		List<global::ServerBrowser.Server> range = this.servers[this.serverType].GetRange(num2, num);
 		this.pagination.Setup(iPages, this.pageNumber);
 		string text = string.Empty;
-		foreach (ServerBrowser.Server server in range)
+		foreach (global::ServerBrowser.Server server in range)
 		{
 			text += server.address;
 		}
@@ -406,17 +406,17 @@ public class ServerBrowser : MonoBehaviour
 		position..ctor(0f, 0f, 0f);
 		this.currentServerChecksum = text;
 		bool flag = false;
-		foreach (ServerBrowser.Server server2 in range)
+		foreach (global::ServerBrowser.Server server2 in range)
 		{
-			ServerBrowser.Server server3 = server2;
+			global::ServerBrowser.Server server3 = server2;
 			if (flag && !server2.fave)
 			{
 				position.y -= 2f;
 			}
 			flag = server2.fave;
 			GameObject gameObject = this.NewServerItem();
-			gameObject.GetComponent<ServerItem>().Init(ref server3);
-			dfControl component = gameObject.GetComponent<dfControl>();
+			gameObject.GetComponent<global::ServerItem>().Init(ref server3);
+			global::dfControl component = gameObject.GetComponent<global::dfControl>();
 			component.Width = this.serverContainer.Width;
 			component.Position = position;
 			component.Show();
@@ -425,7 +425,7 @@ public class ServerBrowser : MonoBehaviour
 		this.serverContainer.Invalidate();
 	}
 
-	// Token: 0x060025C3 RID: 9667 RVA: 0x00091A8C File Offset: 0x0008FC8C
+	// Token: 0x0600293B RID: 10555 RVA: 0x000978B0 File Offset: 0x00095AB0
 	private IEnumerator ServerListUpdater()
 	{
 		for (;;)
@@ -439,14 +439,14 @@ public class ServerBrowser : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x060025C4 RID: 9668 RVA: 0x00091AA8 File Offset: 0x0008FCA8
+	// Token: 0x0600293C RID: 10556 RVA: 0x000978CC File Offset: 0x00095ACC
 	private void RefreshFinished()
 	{
 		this.refreshButton.IsEnabled = true;
 		this.refreshButton.Opacity = 1f;
 	}
 
-	// Token: 0x060025C5 RID: 9669 RVA: 0x00091AC8 File Offset: 0x0008FCC8
+	// Token: 0x0600293D RID: 10557 RVA: 0x000978EC File Offset: 0x00095AEC
 	private GameObject NewServerItem()
 	{
 		if (this.pooledServerItems.Count > 0)
@@ -454,173 +454,173 @@ public class ServerBrowser : MonoBehaviour
 			return this.pooledServerItems.Dequeue();
 		}
 		GameObject gameObject = (GameObject)Object.Instantiate(this.serverItem);
-		dfControl component = gameObject.GetComponent<dfControl>();
+		global::dfControl component = gameObject.GetComponent<global::dfControl>();
 		this.serverContainer.AddControl(component);
 		return gameObject;
 	}
 
-	// Token: 0x060025C6 RID: 9670 RVA: 0x00091B18 File Offset: 0x0008FD18
+	// Token: 0x0600293E RID: 10558 RVA: 0x0009793C File Offset: 0x00095B3C
 	public void ChangeOrder(int iType)
 	{
 		this.orderType = iType;
 		this.UpdateServerList();
 	}
 
-	// Token: 0x060025C7 RID: 9671 RVA: 0x00091B28 File Offset: 0x0008FD28
+	// Token: 0x0600293F RID: 10559 RVA: 0x0009794C File Offset: 0x00095B4C
 	public void OrderByName()
 	{
 		this.ChangeOrder(0);
 	}
 
-	// Token: 0x060025C8 RID: 9672 RVA: 0x00091B34 File Offset: 0x0008FD34
+	// Token: 0x06002940 RID: 10560 RVA: 0x00097958 File Offset: 0x00095B58
 	public void OrderByPlayers()
 	{
 		this.ChangeOrder(1);
 	}
 
-	// Token: 0x060025C9 RID: 9673 RVA: 0x00091B40 File Offset: 0x0008FD40
+	// Token: 0x06002941 RID: 10561 RVA: 0x00097964 File Offset: 0x00095B64
 	public void OrderByPing()
 	{
 		this.ChangeOrder(2);
 	}
 
-	// Token: 0x060025CA RID: 9674
+	// Token: 0x06002942 RID: 10562
 	[DllImport("librust")]
-	public static extern IntPtr SteamServers_Fetch(int serverVersion, ServerBrowser.funcServerAdd fnc, ServerBrowser.funcServerFinish fnsh);
+	public static extern IntPtr SteamServers_Fetch(int serverVersion, global::ServerBrowser.funcServerAdd fnc, global::ServerBrowser.funcServerFinish fnsh);
 
-	// Token: 0x060025CB RID: 9675
+	// Token: 0x06002943 RID: 10563
 	[DllImport("librust")]
 	public static extern void SteamServers_Destroy(IntPtr ptr);
 
-	// Token: 0x04001241 RID: 4673
+	// Token: 0x040013BE RID: 5054
 	public const int ServerItemHeight = 34;
 
-	// Token: 0x04001242 RID: 4674
+	// Token: 0x040013BF RID: 5055
 	public const int SERVERTYPE_OFFICIAL = 0;
 
-	// Token: 0x04001243 RID: 4675
+	// Token: 0x040013C0 RID: 5056
 	public const int SERVERTYPE_COMMUNITY = 1;
 
-	// Token: 0x04001244 RID: 4676
+	// Token: 0x040013C1 RID: 5057
 	public const int SERVERTYPE_MODDED = 2;
 
-	// Token: 0x04001245 RID: 4677
+	// Token: 0x040013C2 RID: 5058
 	public const int SERVERTYPE_WHITELIST = 3;
 
-	// Token: 0x04001246 RID: 4678
+	// Token: 0x040013C3 RID: 5059
 	public const int SERVERTYPE_HISTORY = 4;
 
-	// Token: 0x04001247 RID: 4679
+	// Token: 0x040013C4 RID: 5060
 	public const int SERVERTYPE_FRIENDS = 5;
 
-	// Token: 0x04001248 RID: 4680
+	// Token: 0x040013C5 RID: 5061
 	public GameObject serverItem;
 
-	// Token: 0x04001249 RID: 4681
-	public ServerCategory[] categoryButtons;
+	// Token: 0x040013C6 RID: 5062
+	public global::ServerCategory[] categoryButtons;
 
-	// Token: 0x0400124A RID: 4682
-	public dfPanel serverContainer;
+	// Token: 0x040013C7 RID: 5063
+	public global::dfPanel serverContainer;
 
-	// Token: 0x0400124B RID: 4683
-	public Pagination pagination;
+	// Token: 0x040013C8 RID: 5064
+	public global::Pagination pagination;
 
-	// Token: 0x0400124C RID: 4684
-	public dfControl refreshButton;
+	// Token: 0x040013C9 RID: 5065
+	public global::dfControl refreshButton;
 
-	// Token: 0x0400124D RID: 4685
-	public dfRichTextLabel detailsLabel;
+	// Token: 0x040013CA RID: 5066
+	public global::dfRichTextLabel detailsLabel;
 
-	// Token: 0x0400124E RID: 4686
+	// Token: 0x040013CB RID: 5067
 	public string currentServerChecksum;
 
-	// Token: 0x0400124F RID: 4687
+	// Token: 0x040013CC RID: 5068
 	[NonSerialized]
-	public List<ServerBrowser.Server>[] servers = new List<ServerBrowser.Server>[6];
+	public List<global::ServerBrowser.Server>[] servers = new List<global::ServerBrowser.Server>[6];
 
-	// Token: 0x04001250 RID: 4688
+	// Token: 0x040013CD RID: 5069
 	[NonSerialized]
 	public Queue<GameObject> pooledServerItems = new Queue<GameObject>();
 
-	// Token: 0x04001251 RID: 4689
+	// Token: 0x040013CE RID: 5070
 	[NonSerialized]
 	public int serverType;
 
-	// Token: 0x04001252 RID: 4690
-	private ServerBrowser.funcServerAdd AddServerCallback;
+	// Token: 0x040013CF RID: 5071
+	private global::ServerBrowser.funcServerAdd AddServerCallback;
 
-	// Token: 0x04001253 RID: 4691
+	// Token: 0x040013D0 RID: 5072
 	private GCHandle AddServerGC;
 
-	// Token: 0x04001254 RID: 4692
-	private ServerBrowser.funcServerFinish FinServerCallback;
+	// Token: 0x040013D1 RID: 5073
+	private global::ServerBrowser.funcServerFinish FinServerCallback;
 
-	// Token: 0x04001255 RID: 4693
+	// Token: 0x040013D2 RID: 5074
 	private GCHandle RefreshFinishedGC;
 
-	// Token: 0x04001256 RID: 4694
+	// Token: 0x040013D3 RID: 5075
 	private IntPtr serverRefresh;
 
-	// Token: 0x04001257 RID: 4695
+	// Token: 0x040013D4 RID: 5076
 	private bool firstOpened;
 
-	// Token: 0x04001258 RID: 4696
+	// Token: 0x040013D5 RID: 5077
 	private bool needsServerListUpdate;
 
-	// Token: 0x04001259 RID: 4697
+	// Token: 0x040013D6 RID: 5078
 	private int playerCount;
 
-	// Token: 0x0400125A RID: 4698
+	// Token: 0x040013D7 RID: 5079
 	private int serverCount;
 
-	// Token: 0x0400125B RID: 4699
+	// Token: 0x040013D8 RID: 5080
 	private int slotCount;
 
-	// Token: 0x0400125C RID: 4700
+	// Token: 0x040013D9 RID: 5081
 	private int orderType = 2;
 
-	// Token: 0x0400125D RID: 4701
+	// Token: 0x040013DA RID: 5082
 	private int pageNumber;
 
-	// Token: 0x02000406 RID: 1030
+	// Token: 0x020004B7 RID: 1207
 	public class Server
 	{
-		// Token: 0x04001262 RID: 4706
+		// Token: 0x040013DF RID: 5087
 		public bool passworded;
 
-		// Token: 0x04001263 RID: 4707
+		// Token: 0x040013E0 RID: 5088
 		public string name;
 
-		// Token: 0x04001264 RID: 4708
+		// Token: 0x040013E1 RID: 5089
 		public string address;
 
-		// Token: 0x04001265 RID: 4709
+		// Token: 0x040013E2 RID: 5090
 		public int maxplayers;
 
-		// Token: 0x04001266 RID: 4710
+		// Token: 0x040013E3 RID: 5091
 		public int currentplayers;
 
-		// Token: 0x04001267 RID: 4711
+		// Token: 0x040013E4 RID: 5092
 		public int ping;
 
-		// Token: 0x04001268 RID: 4712
+		// Token: 0x040013E5 RID: 5093
 		public uint lastplayed;
 
-		// Token: 0x04001269 RID: 4713
+		// Token: 0x040013E6 RID: 5094
 		public int port;
 
-		// Token: 0x0400126A RID: 4714
+		// Token: 0x040013E7 RID: 5095
 		public int queryport;
 
-		// Token: 0x0400126B RID: 4715
+		// Token: 0x040013E8 RID: 5096
 		public bool fave;
 	}
 
-	// Token: 0x020008D7 RID: 2263
-	// (Invoke) Token: 0x06004D34 RID: 19764
+	// Token: 0x020004B8 RID: 1208
+	// (Invoke) Token: 0x0600294A RID: 10570
 	public delegate void funcServerAdd(int iMaxPlayers, int iCurrentPlayers, int iPing, uint iLastPlayed, [MarshalAs(UnmanagedType.LPStr)] [In] string strHostname, [MarshalAs(UnmanagedType.LPStr)] [In] string strAddress, int iPort, int iQueryPort, [MarshalAs(UnmanagedType.LPStr)] [In] string tags, bool bPassworded, int iType);
 
-	// Token: 0x020008D8 RID: 2264
-	// (Invoke) Token: 0x06004D38 RID: 19768
+	// Token: 0x020004B9 RID: 1209
+	// (Invoke) Token: 0x0600294E RID: 10574
 	public delegate void funcServerFinish();
 }

@@ -2,88 +2,88 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006EA RID: 1770
+// Token: 0x020007BC RID: 1980
 public class dfRenderData : IDisposable
 {
-	// Token: 0x06003F66 RID: 16230 RVA: 0x000F1658 File Offset: 0x000EF858
+	// Token: 0x06004382 RID: 17282 RVA: 0x000FA25C File Offset: 0x000F845C
 	internal dfRenderData(int capacity = 32)
 	{
-		this.Vertices = new dfList<Vector3>(capacity);
-		this.Triangles = new dfList<int>(capacity);
-		this.Normals = new dfList<Vector3>(capacity);
-		this.Tangents = new dfList<Vector4>(capacity);
-		this.UV = new dfList<Vector2>(capacity);
-		this.Colors = new dfList<Color32>(capacity);
+		this.Vertices = new global::dfList<Vector3>(capacity);
+		this.Triangles = new global::dfList<int>(capacity);
+		this.Normals = new global::dfList<Vector3>(capacity);
+		this.Tangents = new global::dfList<Vector4>(capacity);
+		this.UV = new global::dfList<Vector2>(capacity);
+		this.Colors = new global::dfList<Color32>(capacity);
 		this.Transform = Matrix4x4.identity;
 	}
 
-	// Token: 0x17000C6E RID: 3182
-	// (get) Token: 0x06003F68 RID: 16232 RVA: 0x000F16CC File Offset: 0x000EF8CC
-	// (set) Token: 0x06003F69 RID: 16233 RVA: 0x000F16D4 File Offset: 0x000EF8D4
+	// Token: 0x17000CF2 RID: 3314
+	// (get) Token: 0x06004384 RID: 17284 RVA: 0x000FA2D0 File Offset: 0x000F84D0
+	// (set) Token: 0x06004385 RID: 17285 RVA: 0x000FA2D8 File Offset: 0x000F84D8
 	public Material Material { get; set; }
 
-	// Token: 0x17000C6F RID: 3183
-	// (get) Token: 0x06003F6A RID: 16234 RVA: 0x000F16E0 File Offset: 0x000EF8E0
-	// (set) Token: 0x06003F6B RID: 16235 RVA: 0x000F16E8 File Offset: 0x000EF8E8
+	// Token: 0x17000CF3 RID: 3315
+	// (get) Token: 0x06004386 RID: 17286 RVA: 0x000FA2E4 File Offset: 0x000F84E4
+	// (set) Token: 0x06004387 RID: 17287 RVA: 0x000FA2EC File Offset: 0x000F84EC
 	public Shader Shader { get; set; }
 
-	// Token: 0x17000C70 RID: 3184
-	// (get) Token: 0x06003F6C RID: 16236 RVA: 0x000F16F4 File Offset: 0x000EF8F4
-	// (set) Token: 0x06003F6D RID: 16237 RVA: 0x000F16FC File Offset: 0x000EF8FC
+	// Token: 0x17000CF4 RID: 3316
+	// (get) Token: 0x06004388 RID: 17288 RVA: 0x000FA2F8 File Offset: 0x000F84F8
+	// (set) Token: 0x06004389 RID: 17289 RVA: 0x000FA300 File Offset: 0x000F8500
 	public Matrix4x4 Transform { get; set; }
 
-	// Token: 0x17000C71 RID: 3185
-	// (get) Token: 0x06003F6E RID: 16238 RVA: 0x000F1708 File Offset: 0x000EF908
-	// (set) Token: 0x06003F6F RID: 16239 RVA: 0x000F1710 File Offset: 0x000EF910
-	public dfList<Vector3> Vertices { get; set; }
+	// Token: 0x17000CF5 RID: 3317
+	// (get) Token: 0x0600438A RID: 17290 RVA: 0x000FA30C File Offset: 0x000F850C
+	// (set) Token: 0x0600438B RID: 17291 RVA: 0x000FA314 File Offset: 0x000F8514
+	public global::dfList<Vector3> Vertices { get; set; }
 
-	// Token: 0x17000C72 RID: 3186
-	// (get) Token: 0x06003F70 RID: 16240 RVA: 0x000F171C File Offset: 0x000EF91C
-	// (set) Token: 0x06003F71 RID: 16241 RVA: 0x000F1724 File Offset: 0x000EF924
-	public dfList<Vector2> UV { get; set; }
+	// Token: 0x17000CF6 RID: 3318
+	// (get) Token: 0x0600438C RID: 17292 RVA: 0x000FA320 File Offset: 0x000F8520
+	// (set) Token: 0x0600438D RID: 17293 RVA: 0x000FA328 File Offset: 0x000F8528
+	public global::dfList<Vector2> UV { get; set; }
 
-	// Token: 0x17000C73 RID: 3187
-	// (get) Token: 0x06003F72 RID: 16242 RVA: 0x000F1730 File Offset: 0x000EF930
-	// (set) Token: 0x06003F73 RID: 16243 RVA: 0x000F1738 File Offset: 0x000EF938
-	public dfList<Vector3> Normals { get; set; }
+	// Token: 0x17000CF7 RID: 3319
+	// (get) Token: 0x0600438E RID: 17294 RVA: 0x000FA334 File Offset: 0x000F8534
+	// (set) Token: 0x0600438F RID: 17295 RVA: 0x000FA33C File Offset: 0x000F853C
+	public global::dfList<Vector3> Normals { get; set; }
 
-	// Token: 0x17000C74 RID: 3188
-	// (get) Token: 0x06003F74 RID: 16244 RVA: 0x000F1744 File Offset: 0x000EF944
-	// (set) Token: 0x06003F75 RID: 16245 RVA: 0x000F174C File Offset: 0x000EF94C
-	public dfList<Vector4> Tangents { get; set; }
+	// Token: 0x17000CF8 RID: 3320
+	// (get) Token: 0x06004390 RID: 17296 RVA: 0x000FA348 File Offset: 0x000F8548
+	// (set) Token: 0x06004391 RID: 17297 RVA: 0x000FA350 File Offset: 0x000F8550
+	public global::dfList<Vector4> Tangents { get; set; }
 
-	// Token: 0x17000C75 RID: 3189
-	// (get) Token: 0x06003F76 RID: 16246 RVA: 0x000F1758 File Offset: 0x000EF958
-	// (set) Token: 0x06003F77 RID: 16247 RVA: 0x000F1760 File Offset: 0x000EF960
-	public dfList<int> Triangles { get; set; }
+	// Token: 0x17000CF9 RID: 3321
+	// (get) Token: 0x06004392 RID: 17298 RVA: 0x000FA35C File Offset: 0x000F855C
+	// (set) Token: 0x06004393 RID: 17299 RVA: 0x000FA364 File Offset: 0x000F8564
+	public global::dfList<int> Triangles { get; set; }
 
-	// Token: 0x17000C76 RID: 3190
-	// (get) Token: 0x06003F78 RID: 16248 RVA: 0x000F176C File Offset: 0x000EF96C
-	// (set) Token: 0x06003F79 RID: 16249 RVA: 0x000F1774 File Offset: 0x000EF974
-	public dfList<Color32> Colors { get; set; }
+	// Token: 0x17000CFA RID: 3322
+	// (get) Token: 0x06004394 RID: 17300 RVA: 0x000FA370 File Offset: 0x000F8570
+	// (set) Token: 0x06004395 RID: 17301 RVA: 0x000FA378 File Offset: 0x000F8578
+	public global::dfList<Color32> Colors { get; set; }
 
-	// Token: 0x17000C77 RID: 3191
-	// (get) Token: 0x06003F7A RID: 16250 RVA: 0x000F1780 File Offset: 0x000EF980
-	// (set) Token: 0x06003F7B RID: 16251 RVA: 0x000F1788 File Offset: 0x000EF988
+	// Token: 0x17000CFB RID: 3323
+	// (get) Token: 0x06004396 RID: 17302 RVA: 0x000FA384 File Offset: 0x000F8584
+	// (set) Token: 0x06004397 RID: 17303 RVA: 0x000FA38C File Offset: 0x000F858C
 	public uint Checksum { get; set; }
 
-	// Token: 0x17000C78 RID: 3192
-	// (get) Token: 0x06003F7C RID: 16252 RVA: 0x000F1794 File Offset: 0x000EF994
-	// (set) Token: 0x06003F7D RID: 16253 RVA: 0x000F179C File Offset: 0x000EF99C
-	public dfIntersectionType Intersection { get; set; }
+	// Token: 0x17000CFC RID: 3324
+	// (get) Token: 0x06004398 RID: 17304 RVA: 0x000FA398 File Offset: 0x000F8598
+	// (set) Token: 0x06004399 RID: 17305 RVA: 0x000FA3A0 File Offset: 0x000F85A0
+	public global::dfIntersectionType Intersection { get; set; }
 
-	// Token: 0x06003F7E RID: 16254 RVA: 0x000F17A8 File Offset: 0x000EF9A8
-	public static dfRenderData Obtain()
+	// Token: 0x0600439A RID: 17306 RVA: 0x000FA3AC File Offset: 0x000F85AC
+	public static global::dfRenderData Obtain()
 	{
-		return (dfRenderData.pool.Count <= 0) ? new dfRenderData(32) : dfRenderData.pool.Dequeue();
+		return (global::dfRenderData.pool.Count <= 0) ? new global::dfRenderData(32) : global::dfRenderData.pool.Dequeue();
 	}
 
-	// Token: 0x06003F7F RID: 16255 RVA: 0x000F17DC File Offset: 0x000EF9DC
+	// Token: 0x0600439B RID: 17307 RVA: 0x000FA3E0 File Offset: 0x000F85E0
 	public static void FlushObjectPool()
 	{
-		while (dfRenderData.pool.Count > 0)
+		while (global::dfRenderData.pool.Count > 0)
 		{
-			dfRenderData dfRenderData = dfRenderData.pool.Dequeue();
+			global::dfRenderData dfRenderData = global::dfRenderData.pool.Dequeue();
 			dfRenderData.Vertices.TrimExcess();
 			dfRenderData.Triangles.TrimExcess();
 			dfRenderData.UV.TrimExcess();
@@ -91,21 +91,21 @@ public class dfRenderData : IDisposable
 		}
 	}
 
-	// Token: 0x06003F80 RID: 16256 RVA: 0x000F1838 File Offset: 0x000EFA38
+	// Token: 0x0600439C RID: 17308 RVA: 0x000FA43C File Offset: 0x000F863C
 	public void Release()
 	{
 		this.Clear();
-		dfRenderData.pool.Enqueue(this);
+		global::dfRenderData.pool.Enqueue(this);
 	}
 
-	// Token: 0x06003F81 RID: 16257 RVA: 0x000F184C File Offset: 0x000EFA4C
+	// Token: 0x0600439D RID: 17309 RVA: 0x000FA450 File Offset: 0x000F8650
 	public void Clear()
 	{
 		this.Material = null;
 		this.Shader = null;
 		this.Transform = Matrix4x4.identity;
 		this.Checksum = 0u;
-		this.Intersection = dfIntersectionType.None;
+		this.Intersection = global::dfIntersectionType.None;
 		this.Vertices.Clear();
 		this.UV.Clear();
 		this.Triangles.Clear();
@@ -114,14 +114,14 @@ public class dfRenderData : IDisposable
 		this.Tangents.Clear();
 	}
 
-	// Token: 0x06003F82 RID: 16258 RVA: 0x000F18C4 File Offset: 0x000EFAC4
+	// Token: 0x0600439E RID: 17310 RVA: 0x000FA4C8 File Offset: 0x000F86C8
 	public bool IsValid()
 	{
 		int count = this.Vertices.Count;
 		return count > 0 && count <= 65000 && this.UV.Count == count && this.Colors.Count == count;
 	}
 
-	// Token: 0x06003F83 RID: 16259 RVA: 0x000F1914 File Offset: 0x000EFB14
+	// Token: 0x0600439F RID: 17311 RVA: 0x000FA518 File Offset: 0x000F8718
 	public void EnsureCapacity(int capacity)
 	{
 		this.Vertices.EnsureCapacity(capacity);
@@ -130,8 +130,8 @@ public class dfRenderData : IDisposable
 		this.Colors.EnsureCapacity(capacity);
 	}
 
-	// Token: 0x06003F84 RID: 16260 RVA: 0x000F1954 File Offset: 0x000EFB54
-	public void Merge(dfRenderData buffer, bool transformVertices = true)
+	// Token: 0x060043A0 RID: 17312 RVA: 0x000FA558 File Offset: 0x000F8758
+	public void Merge(global::dfRenderData buffer, bool transformVertices = true)
 	{
 		int count = this.Vertices.Count;
 		this.Vertices.EnsureCapacity(this.Vertices.Count + buffer.Vertices.Count);
@@ -157,7 +157,7 @@ public class dfRenderData : IDisposable
 		}
 	}
 
-	// Token: 0x06003F85 RID: 16261 RVA: 0x000F1A88 File Offset: 0x000EFC88
+	// Token: 0x060043A1 RID: 17313 RVA: 0x000FA68C File Offset: 0x000F888C
 	internal void ApplyTransform(Matrix4x4 transform)
 	{
 		for (int i = 0; i < this.Vertices.Count; i++)
@@ -173,7 +173,7 @@ public class dfRenderData : IDisposable
 		}
 	}
 
-	// Token: 0x06003F86 RID: 16262 RVA: 0x000F1B1C File Offset: 0x000EFD1C
+	// Token: 0x060043A2 RID: 17314 RVA: 0x000FA720 File Offset: 0x000F8920
 	public override string ToString()
 	{
 		return string.Format("V:{0} T:{1} U:{2} C:{3}", new object[]
@@ -185,12 +185,12 @@ public class dfRenderData : IDisposable
 		});
 	}
 
-	// Token: 0x06003F87 RID: 16263 RVA: 0x000F1B88 File Offset: 0x000EFD88
+	// Token: 0x060043A3 RID: 17315 RVA: 0x000FA78C File Offset: 0x000F898C
 	public void Dispose()
 	{
 		this.Release();
 	}
 
-	// Token: 0x040021D3 RID: 8659
-	private static Queue<dfRenderData> pool = new Queue<dfRenderData>();
+	// Token: 0x040023DC RID: 9180
+	private static Queue<global::dfRenderData> pool = new Queue<global::dfRenderData>();
 }

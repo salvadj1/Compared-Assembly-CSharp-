@@ -2,11 +2,11 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x020004C2 RID: 1218
-public sealed class HeadBob : MonoBehaviour, ICameraFX
+// Token: 0x0200057D RID: 1405
+public sealed class HeadBob : MonoBehaviour, global::ICameraFX
 {
-	// Token: 0x06002A64 RID: 10852 RVA: 0x000A6820 File Offset: 0x000A4A20
-	void ICameraFX.PreCull()
+	// Token: 0x06002E16 RID: 11798 RVA: 0x000AE5B8 File Offset: 0x000AC7B8
+	void global::ICameraFX.PreCull()
 	{
 		int num = (this.cfg.antiOutputs != null && this.allowAntiOutputs) ? this.cfg.antiOutputs.Length : 0;
 		bool flag = this.viewModel;
@@ -34,8 +34,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06002A65 RID: 10853 RVA: 0x000A6988 File Offset: 0x000A4B88
-	void ICameraFX.PostRender()
+	// Token: 0x06002E17 RID: 11799 RVA: 0x000AE720 File Offset: 0x000AC920
+	void global::ICameraFX.PostRender()
 	{
 		base.transform.localPosition -= this.preCullLP;
 		base.transform.localEulerAngles -= this.preCullLR;
@@ -55,8 +55,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06002A66 RID: 10854 RVA: 0x000A6A54 File Offset: 0x000A4C54
-	void ICameraFX.OnViewModelChange(ViewModel viewModel)
+	// Token: 0x06002E18 RID: 11800 RVA: 0x000AE7EC File Offset: 0x000AC9EC
+	void global::ICameraFX.OnViewModelChange(global::ViewModel viewModel)
 	{
 		if (this.viewModel != viewModel)
 		{
@@ -92,8 +92,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x1700096E RID: 2414
-	// (get) Token: 0x06002A67 RID: 10855 RVA: 0x000A6B04 File Offset: 0x000A4D04
+	// Token: 0x170009DE RID: 2526
+	// (get) Token: 0x06002E19 RID: 11801 RVA: 0x000AE89C File Offset: 0x000ACA9C
 	public float globalScalar
 	{
 		get
@@ -102,8 +102,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x1700096F RID: 2415
-	// (get) Token: 0x06002A68 RID: 10856 RVA: 0x000A6B0C File Offset: 0x000A4D0C
+	// Token: 0x170009DF RID: 2527
+	// (get) Token: 0x06002E1A RID: 11802 RVA: 0x000AE8A4 File Offset: 0x000ACAA4
 	public float globalPositionScalar
 	{
 		get
@@ -112,8 +112,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000970 RID: 2416
-	// (get) Token: 0x06002A69 RID: 10857 RVA: 0x000A6B14 File Offset: 0x000A4D14
+	// Token: 0x170009E0 RID: 2528
+	// (get) Token: 0x06002E1B RID: 11803 RVA: 0x000AE8AC File Offset: 0x000ACAAC
 	public float globalRotationScalar
 	{
 		get
@@ -122,29 +122,29 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000971 RID: 2417
-	// (get) Token: 0x06002A6A RID: 10858 RVA: 0x000A6B1C File Offset: 0x000A4D1C
+	// Token: 0x170009E1 RID: 2529
+	// (get) Token: 0x06002E1C RID: 11804 RVA: 0x000AE8B4 File Offset: 0x000ACAB4
 	public double positionScalar
 	{
 		get
 		{
-			return HeadBob.bob_scale * HeadBob.bob_scale_linear * (double)this._globalScalar * (double)this._globalPositionScalar * (double)this._viewModelPositionScalar * (double)this._aimPositionScalar;
+			return global::HeadBob.bob_scale * global::HeadBob.bob_scale_linear * (double)this._globalScalar * (double)this._globalPositionScalar * (double)this._viewModelPositionScalar * (double)this._aimPositionScalar;
 		}
 	}
 
-	// Token: 0x17000972 RID: 2418
-	// (get) Token: 0x06002A6B RID: 10859 RVA: 0x000A6B4C File Offset: 0x000A4D4C
+	// Token: 0x170009E2 RID: 2530
+	// (get) Token: 0x06002E1D RID: 11805 RVA: 0x000AE8E4 File Offset: 0x000ACAE4
 	public double rotationScalar
 	{
 		get
 		{
-			return HeadBob.bob_scale * HeadBob.bob_scale_angular * (double)this._globalScalar * (double)this._globalRotationScalar * (double)this._viewModelRotationScalar * (double)this._aimRotationScalar;
+			return global::HeadBob.bob_scale * global::HeadBob.bob_scale_angular * (double)this._globalScalar * (double)this._globalRotationScalar * (double)this._viewModelRotationScalar * (double)this._aimRotationScalar;
 		}
 	}
 
-	// Token: 0x17000973 RID: 2419
-	// (get) Token: 0x06002A6C RID: 10860 RVA: 0x000A6B7C File Offset: 0x000A4D7C
-	// (set) Token: 0x06002A6D RID: 10861 RVA: 0x000A6B84 File Offset: 0x000A4D84
+	// Token: 0x170009E3 RID: 2531
+	// (get) Token: 0x06002E1E RID: 11806 RVA: 0x000AE914 File Offset: 0x000ACB14
+	// (set) Token: 0x06002E1F RID: 11807 RVA: 0x000AE91C File Offset: 0x000ACB1C
 	public float viewModelPositionScalar
 	{
 		get
@@ -157,9 +157,9 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000974 RID: 2420
-	// (get) Token: 0x06002A6E RID: 10862 RVA: 0x000A6B90 File Offset: 0x000A4D90
-	// (set) Token: 0x06002A6F RID: 10863 RVA: 0x000A6B98 File Offset: 0x000A4D98
+	// Token: 0x170009E4 RID: 2532
+	// (get) Token: 0x06002E20 RID: 11808 RVA: 0x000AE928 File Offset: 0x000ACB28
+	// (set) Token: 0x06002E21 RID: 11809 RVA: 0x000AE930 File Offset: 0x000ACB30
 	public float viewModelRotationScalar
 	{
 		get
@@ -172,9 +172,9 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000975 RID: 2421
-	// (get) Token: 0x06002A70 RID: 10864 RVA: 0x000A6BA4 File Offset: 0x000A4DA4
-	// (set) Token: 0x06002A71 RID: 10865 RVA: 0x000A6BAC File Offset: 0x000A4DAC
+	// Token: 0x170009E5 RID: 2533
+	// (get) Token: 0x06002E22 RID: 11810 RVA: 0x000AE93C File Offset: 0x000ACB3C
+	// (set) Token: 0x06002E23 RID: 11811 RVA: 0x000AE944 File Offset: 0x000ACB44
 	public float aimPositionScalar
 	{
 		get
@@ -187,9 +187,9 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000976 RID: 2422
-	// (get) Token: 0x06002A72 RID: 10866 RVA: 0x000A6BB8 File Offset: 0x000A4DB8
-	// (set) Token: 0x06002A73 RID: 10867 RVA: 0x000A6BC0 File Offset: 0x000A4DC0
+	// Token: 0x170009E6 RID: 2534
+	// (get) Token: 0x06002E24 RID: 11812 RVA: 0x000AE950 File Offset: 0x000ACB50
+	// (set) Token: 0x06002E25 RID: 11813 RVA: 0x000AE958 File Offset: 0x000ACB58
 	public float aimRotationScalar
 	{
 		get
@@ -202,9 +202,9 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000977 RID: 2423
-	// (get) Token: 0x06002A74 RID: 10868 RVA: 0x000A6BCC File Offset: 0x000A4DCC
-	// (set) Token: 0x06002A75 RID: 10869 RVA: 0x000A6BE4 File Offset: 0x000A4DE4
+	// Token: 0x170009E7 RID: 2535
+	// (get) Token: 0x06002E26 RID: 11814 RVA: 0x000AE964 File Offset: 0x000ACB64
+	// (set) Token: 0x06002E27 RID: 11815 RVA: 0x000AE97C File Offset: 0x000ACB7C
 	public bool allow
 	{
 		get
@@ -222,7 +222,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06002A76 RID: 10870 RVA: 0x000A6C04 File Offset: 0x000A4E04
+	// Token: 0x06002E28 RID: 11816 RVA: 0x000AE99C File Offset: 0x000ACB9C
 	private void OnEnable()
 	{
 		if (this.allowOnEnable)
@@ -232,7 +232,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		this._wasForbidden = false;
 	}
 
-	// Token: 0x06002A77 RID: 10871 RVA: 0x000A6C20 File Offset: 0x000A4E20
+	// Token: 0x06002E29 RID: 11817 RVA: 0x000AE9B8 File Offset: 0x000ACBB8
 	private void OnDisable()
 	{
 		if (this.awake)
@@ -253,31 +253,31 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06002A78 RID: 10872 RVA: 0x000A6C9C File Offset: 0x000A4E9C
+	// Token: 0x06002E2A RID: 11818 RVA: 0x000AEA34 File Offset: 0x000ACC34
 	private void OnDestroy()
 	{
 		this.forceForbidOnDisable = false;
 	}
 
-	// Token: 0x06002A79 RID: 10873 RVA: 0x000A6CA8 File Offset: 0x000A4EA8
+	// Token: 0x06002E2B RID: 11819 RVA: 0x000AEA40 File Offset: 0x000ACC40
 	private void Awake()
 	{
 		this.awake = true;
-		this.working.stack = new BobEffectStack();
+		this.working.stack = new global::BobEffectStack();
 		this.predicted.stack = this.working.stack.Fork();
 	}
 
-	// Token: 0x06002A7A RID: 10874 RVA: 0x000A6CE8 File Offset: 0x000A4EE8
+	// Token: 0x06002E2C RID: 11820 RVA: 0x000AEA80 File Offset: 0x000ACC80
 	private void OnLocallyAppended(IDMain main)
 	{
 		if (!this._motor)
 		{
-			this._motor = main.GetRemote<CCMotor>();
+			this._motor = main.GetRemote<global::CCMotor>();
 		}
 	}
 
-	// Token: 0x17000978 RID: 2424
-	// (get) Token: 0x06002A7B RID: 10875 RVA: 0x000A6D08 File Offset: 0x000A4F08
+	// Token: 0x170009E8 RID: 2536
+	// (get) Token: 0x06002E2D RID: 11821 RVA: 0x000AEAA0 File Offset: 0x000ACCA0
 	private Vector3 offset
 	{
 		get
@@ -291,8 +291,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x17000979 RID: 2425
-	// (get) Token: 0x06002A7C RID: 10876 RVA: 0x000A6D64 File Offset: 0x000A4F64
+	// Token: 0x170009E9 RID: 2537
+	// (get) Token: 0x06002E2E RID: 11822 RVA: 0x000AEAFC File Offset: 0x000ACCFC
 	private Vector3 rotationOffset
 	{
 		get
@@ -306,8 +306,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06002A7D RID: 10877 RVA: 0x000A6DC0 File Offset: 0x000A4FC0
-	private void Solve(ref HeadBob.Weight weight, ref double dt)
+	// Token: 0x06002E2F RID: 11823 RVA: 0x000AEB58 File Offset: 0x000ACD58
+	private void Solve(ref global::HeadBob.Weight weight, ref double dt)
 	{
 		Vector3G vector3G;
 		vector3G.x = dt * this.groundLocalVelocity.x * (double)this.cfg.forceSpeedMultiplier.x;
@@ -322,87 +322,87 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 			int i = 0;
 			while (i < this.additionalCurveCount)
 			{
-				BobForceCurve bobForceCurve = this.cfg.additionalCurves[i];
+				global::BobForceCurve bobForceCurve = this.cfg.additionalCurves[i];
 				double num;
 				switch (bobForceCurve.source)
 				{
-				case BobForceCurveSource.LocalMovementMagnitude:
+				case global::BobForceCurveSource.LocalMovementMagnitude:
 					num = this.groundLocalVelocityMag;
 					break;
-				case BobForceCurveSource.LocalMovementX:
+				case global::BobForceCurveSource.LocalMovementX:
 					num = this.groundLocalVelocity.x;
 					break;
-				case BobForceCurveSource.LocalMovementY:
+				case global::BobForceCurveSource.LocalMovementY:
 					num = this.groundLocalVelocity.y;
 					break;
-				case BobForceCurveSource.LocalMovementZ:
+				case global::BobForceCurveSource.LocalMovementZ:
 					num = this.groundLocalVelocity.z;
 					break;
-				case BobForceCurveSource.WorldMovementMagnitude:
+				case global::BobForceCurveSource.WorldMovementMagnitude:
 					num = this.groundWorldVelocityMag;
 					break;
-				case BobForceCurveSource.WorldMovementX:
+				case global::BobForceCurveSource.WorldMovementX:
 					num = this.groundWorldVelocity.x;
 					break;
-				case BobForceCurveSource.WorldMovementY:
+				case global::BobForceCurveSource.WorldMovementY:
 					num = this.groundWorldVelocity.y;
 					break;
-				case BobForceCurveSource.WorldMovementZ:
+				case global::BobForceCurveSource.WorldMovementZ:
 					num = this.groundWorldVelocity.z;
 					break;
-				case BobForceCurveSource.LocalVelocityMagnitude:
+				case global::BobForceCurveSource.LocalVelocityMagnitude:
 					num = this.localVelocityMag;
 					break;
-				case BobForceCurveSource.LocalVelocityX:
+				case global::BobForceCurveSource.LocalVelocityX:
 					num = this.localVelocity.x;
 					break;
-				case BobForceCurveSource.LocalVelocityY:
+				case global::BobForceCurveSource.LocalVelocityY:
 					num = this.localVelocity.y;
 					break;
-				case BobForceCurveSource.LocalVelocityZ:
+				case global::BobForceCurveSource.LocalVelocityZ:
 					goto IL_204;
-				case BobForceCurveSource.WorldVelocityMagnitude:
+				case global::BobForceCurveSource.WorldVelocityMagnitude:
 					num = this.worldVelocityMag;
 					break;
-				case BobForceCurveSource.WorldVelocityX:
+				case global::BobForceCurveSource.WorldVelocityX:
 					num = this.worldVelocity.x;
 					break;
-				case BobForceCurveSource.WorldVelocityY:
+				case global::BobForceCurveSource.WorldVelocityY:
 					num = this.worldVelocity.y;
 					break;
-				case BobForceCurveSource.WorldVelocityZ:
+				case global::BobForceCurveSource.WorldVelocityZ:
 					num = this.worldVelocity.z;
 					break;
-				case BobForceCurveSource.RotationMagnitude:
+				case global::BobForceCurveSource.RotationMagnitude:
 					num = this.localAngularVelocityMag;
 					break;
-				case BobForceCurveSource.RotationPitch:
+				case global::BobForceCurveSource.RotationPitch:
 					num = this.localAngularVelocity.x;
 					break;
-				case BobForceCurveSource.RotationYaw:
+				case global::BobForceCurveSource.RotationYaw:
 					num = this.localAngularVelocity.y;
 					break;
-				case BobForceCurveSource.RotationRoll:
+				case global::BobForceCurveSource.RotationRoll:
 					num = this.localAngularVelocity.z;
 					break;
-				case BobForceCurveSource.TurnMagnitude:
+				case global::BobForceCurveSource.TurnMagnitude:
 					num = this.groundLocalAngularVelocityMag;
 					break;
-				case BobForceCurveSource.TurnPitch:
+				case global::BobForceCurveSource.TurnPitch:
 					num = this.groundLocalAngularVelocity.x;
 					break;
-				case BobForceCurveSource.TurnYaw:
+				case global::BobForceCurveSource.TurnYaw:
 					num = this.groundLocalAngularVelocity.y;
 					break;
-				case BobForceCurveSource.TurnRoll:
+				case global::BobForceCurveSource.TurnRoll:
 					num = this.groundLocalAngularVelocity.z;
 					break;
 				default:
 					goto IL_204;
 				}
 				IL_2DF:
-				BobForceCurveTarget target = bobForceCurve.target;
-				if (target == BobForceCurveTarget.Position || target != BobForceCurveTarget.Rotation)
+				global::BobForceCurveTarget target = bobForceCurve.target;
+				if (target == global::BobForceCurveTarget.Position || target != global::BobForceCurveTarget.Rotation)
 				{
 					bobForceCurve.Calculate(ref weight.additionalPositions[i], ref num, ref dt, ref weight.position.fE);
 				}
@@ -529,7 +529,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		weight.rotation.value.z = weight.rotation.value.z + weight.rotation.velocity.z * dt;
 	}
 
-	// Token: 0x06002A7E RID: 10878 RVA: 0x000A7C90 File Offset: 0x000A5E90
+	// Token: 0x06002E30 RID: 11824 RVA: 0x000AFA28 File Offset: 0x000ADC28
 	private int Step(float dt)
 	{
 		int num = 0;
@@ -606,7 +606,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		return num;
 	}
 
-	// Token: 0x06002A7F RID: 10879 RVA: 0x000A7FEC File Offset: 0x000A61EC
+	// Token: 0x06002E31 RID: 11825 RVA: 0x000AFD84 File Offset: 0x000ADF84
 	private void CheckDeadZone()
 	{
 		if (this.raw_pos.x >= (double)(-(double)this.cfg.positionDeadzone.x) && this.raw_pos.x < (double)this.cfg.positionDeadzone.x)
@@ -635,7 +635,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06002A80 RID: 10880 RVA: 0x000A8204 File Offset: 0x000A6404
+	// Token: 0x06002E32 RID: 11826 RVA: 0x000AFF9C File Offset: 0x000AE19C
 	private static void DrawForceLine(Vector3 posdir, Vector3 force, Vector3 radii, Vector3 k, float boxDim)
 	{
 		Vector3 vector = Vector3.Scale(radii, posdir);
@@ -663,20 +663,20 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		Gizmos.matrix = matrix;
 	}
 
-	// Token: 0x06002A81 RID: 10881 RVA: 0x000A838C File Offset: 0x000A658C
+	// Token: 0x06002E33 RID: 11827 RVA: 0x000B0124 File Offset: 0x000AE324
 	private static void DrawForceAxes(Vector3 force, Vector3 radii, Vector3 k, float boxDim)
 	{
 		Color color = Gizmos.color;
 		Gizmos.color = color * Color.red;
-		HeadBob.DrawForceLine(Vector3.right, force, radii, k, boxDim);
+		global::HeadBob.DrawForceLine(Vector3.right, force, radii, k, boxDim);
 		Gizmos.color = color * Color.green;
-		HeadBob.DrawForceLine(Vector3.up, force, radii, k, boxDim);
+		global::HeadBob.DrawForceLine(Vector3.up, force, radii, k, boxDim);
 		Gizmos.color = color * Color.blue;
-		HeadBob.DrawForceLine(Vector3.forward, force, radii, k, boxDim);
+		global::HeadBob.DrawForceLine(Vector3.forward, force, radii, k, boxDim);
 		Gizmos.color = color;
 	}
 
-	// Token: 0x06002A82 RID: 10882 RVA: 0x000A8400 File Offset: 0x000A6600
+	// Token: 0x06002E34 RID: 11828 RVA: 0x000B0198 File Offset: 0x000AE398
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.matrix = ((!base.transform.parent) ? base.transform : base.transform.parent).localToWorldMatrix;
@@ -686,23 +686,23 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		Gizmos.DrawWireSphere(Vector3.zero, 1f);
 		Gizmos.matrix = matrix;
 		Gizmos.color = new Color(1f, 1f, 1f, 0.8f);
-		HeadBob.DrawForceAxes(this.working.position.acceleration.f, this.cfg.elipsoidRadii, this.cfg.springConstant, 0.2f);
+		global::HeadBob.DrawForceAxes(this.working.position.acceleration.f, this.cfg.elipsoidRadii, this.cfg.springConstant, 0.2f);
 		Gizmos.color = Color.white;
-		HeadBob.DrawForceAxes(this.working.position.acceleration.f, this.cfg.elipsoidRadii, this.cfg.maxVelocity, 0.1f);
+		global::HeadBob.DrawForceAxes(this.working.position.acceleration.f, this.cfg.elipsoidRadii, this.cfg.maxVelocity, 0.1f);
 	}
 
-	// Token: 0x06002A83 RID: 10883 RVA: 0x000A8520 File Offset: 0x000A6720
+	// Token: 0x06002E35 RID: 11829 RVA: 0x000B02B8 File Offset: 0x000AE4B8
 	private void PushPosition()
 	{
 		this.worldToLocal.f = this.otherParent.worldToLocalMatrix;
 		this.localToWorld.f = this.otherParent.localToWorldMatrix;
-		HeadBob.VectorStamp vectorStamp;
+		global::HeadBob.VectorStamp vectorStamp;
 		vectorStamp.timeStamp = Time.time;
 		vectorStamp.valid = true;
-		Character character;
+		global::Character character;
 		Vector3 eulerAngles;
 		Vector3 vector;
-		if (this._motor && (character = (this._motor.idMain as Character)))
+		if (this._motor && (character = (this._motor.idMain as global::Character)))
 		{
 			eulerAngles = character.eyesAngles.eulerAngles;
 			vector = character.eyesOrigin;
@@ -715,7 +715,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		vectorStamp.vector.x = (double)vector.x;
 		vectorStamp.vector.y = (double)vector.y;
 		vectorStamp.vector.z = (double)vector.z;
-		HeadBob.VectorStamp vectorStamp2;
+		global::HeadBob.VectorStamp vectorStamp2;
 		vectorStamp2.vector.x = (double)eulerAngles.x;
 		vectorStamp2.vector.y = (double)eulerAngles.y;
 		vectorStamp2.vector.z = (double)eulerAngles.z;
@@ -748,8 +748,8 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		this.localAngularVelocityMag = Math.Sqrt(this.localAngularVelocity.x * this.localAngularVelocity.x + this.localAngularVelocity.y * this.localAngularVelocity.y + this.localAngularVelocity.z * this.localAngularVelocity.z);
 	}
 
-	// Token: 0x06002A84 RID: 10884 RVA: 0x000A8978 File Offset: 0x000A6B78
-	private void GatherInfo(CCMotor motor)
+	// Token: 0x06002E36 RID: 11830 RVA: 0x000B0710 File Offset: 0x000AE910
+	private void GatherInfo(global::CCMotor motor)
 	{
 		if (motor.isGrounded && !motor.isSliding)
 		{
@@ -778,7 +778,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		this.inputForce.z = this.inputForce.z * (double)this.cfg.inputForceMultiplier.z;
 	}
 
-	// Token: 0x06002A85 RID: 10885 RVA: 0x000A8B18 File Offset: 0x000A6D18
+	// Token: 0x06002E37 RID: 11831 RVA: 0x000B08B0 File Offset: 0x000AEAB0
 	private bool CheckChanges(bool hasMotor, Transform parent)
 	{
 		if (this.hadMotor != hasMotor || this.otherParent != parent)
@@ -788,24 +788,24 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 			this.groundWorldVelocity = default(Vector3G);
 			this.localVelocity = default(Vector3G);
 			this.worldVelocity = default(Vector3G);
-			this.impulseForce = default(HeadBob.VectorAccelSampler);
-			this.impulseTorque = default(HeadBob.VectorAccelSampler);
-			this.lastPosition = default(HeadBob.VectorStamp);
+			this.impulseForce = default(global::HeadBob.VectorAccelSampler);
+			this.impulseTorque = default(global::HeadBob.VectorAccelSampler);
+			this.lastPosition = default(global::HeadBob.VectorStamp);
 			this.otherParent = parent;
 			this.raw_pos = default(Vector3G);
 			this.raw_rot = default(Vector3G);
-			BobEffectStack stack = this.predicted.stack;
-			this.predicted = default(HeadBob.Weight);
+			global::BobEffectStack stack = this.predicted.stack;
+			this.predicted = default(global::HeadBob.Weight);
 			this.predicted.stack = stack;
 			stack = this.working.stack;
-			this.working = default(HeadBob.Weight);
+			this.working = default(global::HeadBob.Weight);
 			this.working.stack = stack;
 			return true;
 		}
 		return false;
 	}
 
-	// Token: 0x06002A86 RID: 10886 RVA: 0x000A8C30 File Offset: 0x000A6E30
+	// Token: 0x06002E38 RID: 11832 RVA: 0x000B09C8 File Offset: 0x000AEBC8
 	private bool Advance(float dt)
 	{
 		bool flag;
@@ -893,7 +893,7 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		return this.Step(dt) != 0 || flag;
 	}
 
-	// Token: 0x06002A87 RID: 10887 RVA: 0x000A8EBC File Offset: 0x000A70BC
+	// Token: 0x06002E39 RID: 11833 RVA: 0x000B0C54 File Offset: 0x000AEE54
 	private void LateUpdate()
 	{
 		if (!base.camera)
@@ -910,196 +910,196 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 		}
 	}
 
-	// Token: 0x06002A88 RID: 10888 RVA: 0x000A8F44 File Offset: 0x000A7144
-	public bool AddEffect(BobEffect effect)
+	// Token: 0x06002E3A RID: 11834 RVA: 0x000B0CDC File Offset: 0x000AEEDC
+	public bool AddEffect(global::BobEffect effect)
 	{
 		return this.working.stack.CreateInstance(effect);
 	}
 
-	// Token: 0x0400167F RID: 5759
-	public BobConfiguration cfg;
+	// Token: 0x0400183C RID: 6204
+	public global::BobConfiguration cfg;
 
-	// Token: 0x04001680 RID: 5760
+	// Token: 0x0400183D RID: 6205
 	[SerializeField]
-	private CCMotor _motor;
+	private global::CCMotor _motor;
 
-	// Token: 0x04001681 RID: 5761
+	// Token: 0x0400183E RID: 6206
 	[SerializeField]
-	private CameraMount _mount;
+	private global::CameraMount _mount;
 
-	// Token: 0x04001682 RID: 5762
+	// Token: 0x0400183F RID: 6207
 	[SerializeField]
 	private float _globalScalar = 1f;
 
-	// Token: 0x04001683 RID: 5763
+	// Token: 0x04001840 RID: 6208
 	[SerializeField]
 	private float _globalPositionScalar = 1f;
 
-	// Token: 0x04001684 RID: 5764
+	// Token: 0x04001841 RID: 6209
 	[SerializeField]
 	private float _globalRotationScalar = 1f;
 
-	// Token: 0x04001685 RID: 5765
+	// Token: 0x04001842 RID: 6210
 	private static double bob_scale = 1.0;
 
-	// Token: 0x04001686 RID: 5766
+	// Token: 0x04001843 RID: 6211
 	private static double bob_scale_linear = 1.0;
 
-	// Token: 0x04001687 RID: 5767
+	// Token: 0x04001844 RID: 6212
 	private static double bob_scale_angular = 1.0;
 
-	// Token: 0x04001688 RID: 5768
+	// Token: 0x04001845 RID: 6213
 	private float _viewModelPositionScalar = 1f;
 
-	// Token: 0x04001689 RID: 5769
+	// Token: 0x04001846 RID: 6214
 	private float _viewModelRotationScalar = 1f;
 
-	// Token: 0x0400168A RID: 5770
+	// Token: 0x04001847 RID: 6215
 	private float _aimPositionScalar = 1f;
 
-	// Token: 0x0400168B RID: 5771
+	// Token: 0x04001848 RID: 6216
 	private float _aimRotationScalar = 1f;
 
-	// Token: 0x0400168C RID: 5772
+	// Token: 0x04001849 RID: 6217
 	public bool simStep = true;
 
-	// Token: 0x0400168D RID: 5773
+	// Token: 0x0400184A RID: 6218
 	public bool allowOnEnable = true;
 
-	// Token: 0x0400168E RID: 5774
+	// Token: 0x0400184B RID: 6219
 	public bool forceForbidOnDisable;
 
-	// Token: 0x0400168F RID: 5775
+	// Token: 0x0400184C RID: 6220
 	public bool allowAntiOutputs;
 
-	// Token: 0x04001690 RID: 5776
+	// Token: 0x0400184D RID: 6221
 	private Transform otherParent;
 
-	// Token: 0x04001691 RID: 5777
-	private ViewModel viewModel;
+	// Token: 0x0400184E RID: 6222
+	private global::ViewModel viewModel;
 
-	// Token: 0x04001692 RID: 5778
+	// Token: 0x0400184F RID: 6223
 	private Matrix4x4G worldToLocal;
 
-	// Token: 0x04001693 RID: 5779
+	// Token: 0x04001850 RID: 6224
 	private Matrix4x4G localToWorld;
 
-	// Token: 0x04001694 RID: 5780
+	// Token: 0x04001851 RID: 6225
 	private Vector3G localVelocity;
 
-	// Token: 0x04001695 RID: 5781
+	// Token: 0x04001852 RID: 6226
 	private Vector3G worldVelocity;
 
-	// Token: 0x04001696 RID: 5782
+	// Token: 0x04001853 RID: 6227
 	private Vector3G groundLocalVelocity;
 
-	// Token: 0x04001697 RID: 5783
+	// Token: 0x04001854 RID: 6228
 	private Vector3G groundWorldVelocity;
 
-	// Token: 0x04001698 RID: 5784
+	// Token: 0x04001855 RID: 6229
 	private Vector3G localAngularVelocity;
 
-	// Token: 0x04001699 RID: 5785
+	// Token: 0x04001856 RID: 6230
 	private Vector3G groundLocalAngularVelocity;
 
-	// Token: 0x0400169A RID: 5786
+	// Token: 0x04001857 RID: 6231
 	private double localVelocityMag;
 
-	// Token: 0x0400169B RID: 5787
+	// Token: 0x04001858 RID: 6232
 	private double worldVelocityMag;
 
-	// Token: 0x0400169C RID: 5788
+	// Token: 0x04001859 RID: 6233
 	private double groundLocalVelocityMag;
 
-	// Token: 0x0400169D RID: 5789
+	// Token: 0x0400185A RID: 6234
 	private double groundWorldVelocityMag;
 
-	// Token: 0x0400169E RID: 5790
+	// Token: 0x0400185B RID: 6235
 	private double localAngularVelocityMag;
 
-	// Token: 0x0400169F RID: 5791
+	// Token: 0x0400185C RID: 6236
 	private double groundLocalAngularVelocityMag;
 
-	// Token: 0x040016A0 RID: 5792
+	// Token: 0x0400185D RID: 6237
 	private Vector3G inputForce;
 
-	// Token: 0x040016A1 RID: 5793
+	// Token: 0x0400185E RID: 6238
 	private Vector3G raw_pos;
 
-	// Token: 0x040016A2 RID: 5794
+	// Token: 0x0400185F RID: 6239
 	private Vector3G raw_rot;
 
-	// Token: 0x040016A3 RID: 5795
+	// Token: 0x04001860 RID: 6240
 	private double timeSolve;
 
-	// Token: 0x040016A4 RID: 5796
+	// Token: 0x04001861 RID: 6241
 	private double timeIntermit;
 
-	// Token: 0x040016A5 RID: 5797
+	// Token: 0x04001862 RID: 6242
 	private int additionalCurveCount;
 
-	// Token: 0x040016A6 RID: 5798
-	private HeadBob.Weight working;
+	// Token: 0x04001863 RID: 6243
+	private global::HeadBob.Weight working;
 
-	// Token: 0x040016A7 RID: 5799
-	private HeadBob.Weight predicted;
+	// Token: 0x04001864 RID: 6244
+	private global::HeadBob.Weight predicted;
 
-	// Token: 0x040016A8 RID: 5800
-	private HeadBob.Weight intermitStart;
+	// Token: 0x04001865 RID: 6245
+	private global::HeadBob.Weight intermitStart;
 
-	// Token: 0x040016A9 RID: 5801
-	private HeadBob.Weight intermitNext;
+	// Token: 0x04001866 RID: 6246
+	private global::HeadBob.Weight intermitNext;
 
-	// Token: 0x040016AA RID: 5802
+	// Token: 0x04001867 RID: 6247
 	private double intermitFraction;
 
-	// Token: 0x040016AB RID: 5803
-	private HeadBob.VectorAccelSampler impulseForce;
+	// Token: 0x04001868 RID: 6248
+	private global::HeadBob.VectorAccelSampler impulseForce;
 
-	// Token: 0x040016AC RID: 5804
-	private HeadBob.VectorAccelSampler impulseTorque;
+	// Token: 0x04001869 RID: 6249
+	private global::HeadBob.VectorAccelSampler impulseTorque;
 
-	// Token: 0x040016AD RID: 5805
-	private HeadBob.VectorStamp lastPosition;
+	// Token: 0x0400186A RID: 6250
+	private global::HeadBob.VectorStamp lastPosition;
 
-	// Token: 0x040016AE RID: 5806
-	private HeadBob.VectorStamp lastRotation;
+	// Token: 0x0400186B RID: 6251
+	private global::HeadBob.VectorStamp lastRotation;
 
-	// Token: 0x040016AF RID: 5807
+	// Token: 0x0400186C RID: 6252
 	private float allowFractionNormalized;
 
-	// Token: 0x040016B0 RID: 5808
+	// Token: 0x0400186D RID: 6253
 	private float allowValue;
 
-	// Token: 0x040016B1 RID: 5809
+	// Token: 0x0400186E RID: 6254
 	private Vector3 preCullLP;
 
-	// Token: 0x040016B2 RID: 5810
+	// Token: 0x0400186F RID: 6255
 	private Vector3 preCullLR;
 
-	// Token: 0x040016B3 RID: 5811
+	// Token: 0x04001870 RID: 6256
 	private bool anyAdditionalCurves;
 
-	// Token: 0x040016B4 RID: 5812
+	// Token: 0x04001871 RID: 6257
 	private bool _allow;
 
-	// Token: 0x040016B5 RID: 5813
+	// Token: 0x04001872 RID: 6258
 	private bool awake;
 
-	// Token: 0x040016B6 RID: 5814
+	// Token: 0x04001873 RID: 6259
 	private bool added;
 
-	// Token: 0x040016B7 RID: 5815
+	// Token: 0x04001874 RID: 6260
 	private bool hadMotor;
 
-	// Token: 0x040016B8 RID: 5816
+	// Token: 0x04001875 RID: 6261
 	private bool _wasForbidden;
 
-	// Token: 0x020004C3 RID: 1219
+	// Token: 0x0200057E RID: 1406
 	private struct Weight
 	{
-		// Token: 0x06002A89 RID: 10889 RVA: 0x000A8F58 File Offset: 0x000A7158
-		public void CopyTo(ref HeadBob.Weight other)
+		// Token: 0x06002E3B RID: 11835 RVA: 0x000B0CF0 File Offset: 0x000AEEF0
+		public void CopyTo(ref global::HeadBob.Weight other)
 		{
 			if (other.additionalPositions != this.additionalPositions && this.additionalPositions != null)
 			{
@@ -1113,46 +1113,46 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 			}
 		}
 
-		// Token: 0x040016B9 RID: 5817
-		public HeadBob.Weight.Element position;
+		// Token: 0x04001876 RID: 6262
+		public global::HeadBob.Weight.Element position;
 
-		// Token: 0x040016BA RID: 5818
-		public HeadBob.Weight.Element rotation;
+		// Token: 0x04001877 RID: 6263
+		public global::HeadBob.Weight.Element rotation;
 
-		// Token: 0x040016BB RID: 5819
+		// Token: 0x04001878 RID: 6264
 		public Vector3G[] additionalPositions;
 
-		// Token: 0x040016BC RID: 5820
-		public BobEffectStack stack;
+		// Token: 0x04001879 RID: 6265
+		public global::BobEffectStack stack;
 
-		// Token: 0x020004C4 RID: 1220
+		// Token: 0x0200057F RID: 1407
 		public struct Element
 		{
-			// Token: 0x040016BD RID: 5821
+			// Token: 0x0400187A RID: 6266
 			public Vector3G value;
 
-			// Token: 0x040016BE RID: 5822
+			// Token: 0x0400187B RID: 6267
 			public Vector3G velocity;
 
-			// Token: 0x040016BF RID: 5823
+			// Token: 0x0400187C RID: 6268
 			public Vector3G acceleration;
 
-			// Token: 0x040016C0 RID: 5824
+			// Token: 0x0400187D RID: 6269
 			public Vector3G fI;
 
-			// Token: 0x040016C1 RID: 5825
+			// Token: 0x0400187E RID: 6270
 			public Vector3G fE;
 
-			// Token: 0x040016C2 RID: 5826
+			// Token: 0x0400187F RID: 6271
 			public Vector3G fIV;
 		}
 	}
 
-	// Token: 0x020004C5 RID: 1221
+	// Token: 0x02000580 RID: 1408
 	private struct VectorStamp
 	{
-		// Token: 0x06002A8A RID: 10890 RVA: 0x000A8FE0 File Offset: 0x000A71E0
-		public double AddDifference(ref HeadBob.VectorStamp previous, ref Vector3G difference)
+		// Token: 0x06002E3C RID: 11836 RVA: 0x000B0D78 File Offset: 0x000AEF78
+		public double AddDifference(ref global::HeadBob.VectorStamp previous, ref Vector3G difference)
 		{
 			if (previous.valid && previous.timeStamp != this.timeStamp)
 			{
@@ -1165,20 +1165,20 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 			return 0.0;
 		}
 
-		// Token: 0x040016C3 RID: 5827
+		// Token: 0x04001880 RID: 6272
 		public Vector3G vector;
 
-		// Token: 0x040016C4 RID: 5828
+		// Token: 0x04001881 RID: 6273
 		public float timeStamp;
 
-		// Token: 0x040016C5 RID: 5829
+		// Token: 0x04001882 RID: 6274
 		public bool valid;
 	}
 
-	// Token: 0x020004C6 RID: 1222
+	// Token: 0x02000581 RID: 1409
 	private struct VectorAccelSampler
 	{
-		// Token: 0x06002A8B RID: 10891 RVA: 0x000A90A8 File Offset: 0x000A72A8
+		// Token: 0x06002E3D RID: 11837 RVA: 0x000B0E40 File Offset: 0x000AF040
 		public void Sample(ref Vector3G v, float timeStamp)
 		{
 			if (this.sample1.timeStamp < timeStamp)
@@ -1203,16 +1203,16 @@ public sealed class HeadBob : MonoBehaviour, ICameraFX
 			}
 		}
 
-		// Token: 0x040016C6 RID: 5830
-		public HeadBob.VectorStamp sample0;
+		// Token: 0x04001883 RID: 6275
+		public global::HeadBob.VectorStamp sample0;
 
-		// Token: 0x040016C7 RID: 5831
-		public HeadBob.VectorStamp sample1;
+		// Token: 0x04001884 RID: 6276
+		public global::HeadBob.VectorStamp sample1;
 
-		// Token: 0x040016C8 RID: 5832
-		public HeadBob.VectorStamp sample2;
+		// Token: 0x04001885 RID: 6277
+		public global::HeadBob.VectorStamp sample2;
 
-		// Token: 0x040016C9 RID: 5833
+		// Token: 0x04001886 RID: 6278
 		public Vector3G accel;
 	}
 }

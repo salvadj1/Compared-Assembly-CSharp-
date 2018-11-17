@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200039B RID: 923
+// Token: 0x02000448 RID: 1096
 public class VisEval : ScriptableObject
 {
-	// Token: 0x1700088C RID: 2188
-	// (get) Token: 0x060022F0 RID: 8944 RVA: 0x000867AC File Offset: 0x000849AC
+	// Token: 0x170008EA RID: 2282
+	// (get) Token: 0x06002652 RID: 9810 RVA: 0x0008BBA8 File Offset: 0x00089DA8
 	private int dataCount
 	{
 		get
@@ -14,8 +14,8 @@ public class VisEval : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700088D RID: 2189
-	// (get) Token: 0x060022F1 RID: 8945 RVA: 0x000867C8 File Offset: 0x000849C8
+	// Token: 0x170008EB RID: 2283
+	// (get) Token: 0x06002653 RID: 9811 RVA: 0x0008BBC4 File Offset: 0x00089DC4
 	public int ruleCount
 	{
 		get
@@ -24,16 +24,16 @@ public class VisEval : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700088E RID: 2190
-	public Vis.Rule this[int i]
+	// Token: 0x170008EC RID: 2284
+	public global::Vis.Rule this[int i]
 	{
 		get
 		{
-			return Vis.Rule.Decode(this.data, i * 4);
+			return global::Vis.Rule.Decode(this.data, i * 4);
 		}
 		set
 		{
-			Vis.Rule.Encode(ref value, this.data, i * 4);
+			global::Vis.Rule.Encode(ref value, this.data, i * 4);
 			if (this.expanded)
 			{
 				this.rules[i] = value;
@@ -41,13 +41,13 @@ public class VisEval : ScriptableObject
 		}
 	}
 
-	// Token: 0x060022F4 RID: 8948 RVA: 0x00086814 File Offset: 0x00084A14
-	public bool GetMessage(Vis.Mask current, ref Vis.Mask previous, Vis.Mask other)
+	// Token: 0x06002656 RID: 9814 RVA: 0x0008BC10 File Offset: 0x00089E10
+	public bool GetMessage(global::Vis.Mask current, ref global::Vis.Mask previous, global::Vis.Mask other)
 	{
 		return false;
 	}
 
-	// Token: 0x060022F5 RID: 8949 RVA: 0x00086818 File Offset: 0x00084A18
+	// Token: 0x06002657 RID: 9815 RVA: 0x0008BC14 File Offset: 0x00089E14
 	private void Swap(int i, int j)
 	{
 		int num = this.data[j];
@@ -61,7 +61,7 @@ public class VisEval : ScriptableObject
 		this.data[i++] = num;
 	}
 
-	// Token: 0x060022F6 RID: 8950 RVA: 0x000868AC File Offset: 0x00084AAC
+	// Token: 0x06002658 RID: 9816 RVA: 0x0008BCA8 File Offset: 0x00089EA8
 	public bool EditorOnly_MoveUp(int index)
 	{
 		if (index == 0)
@@ -76,7 +76,7 @@ public class VisEval : ScriptableObject
 		return true;
 	}
 
-	// Token: 0x060022F7 RID: 8951 RVA: 0x000868E0 File Offset: 0x00084AE0
+	// Token: 0x06002659 RID: 9817 RVA: 0x0008BCDC File Offset: 0x00089EDC
 	public bool EditorOnly_MoveDown(int index)
 	{
 		if (index >= this.ruleCount - 1)
@@ -87,7 +87,7 @@ public class VisEval : ScriptableObject
 		return true;
 	}
 
-	// Token: 0x060022F8 RID: 8952 RVA: 0x00086904 File Offset: 0x00084B04
+	// Token: 0x0600265A RID: 9818 RVA: 0x0008BD00 File Offset: 0x00089F00
 	public bool EditorOnly_MoveTop(int index)
 	{
 		if (this.EditorOnly_MoveUp(index--))
@@ -100,7 +100,7 @@ public class VisEval : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x060022F9 RID: 8953 RVA: 0x00086938 File Offset: 0x00084B38
+	// Token: 0x0600265B RID: 9819 RVA: 0x0008BD34 File Offset: 0x00089F34
 	public bool EditorOnly_MoveBottom(int index)
 	{
 		if (this.EditorOnly_MoveUp(index--))
@@ -113,14 +113,14 @@ public class VisEval : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x060022FA RID: 8954 RVA: 0x0008696C File Offset: 0x00084B6C
+	// Token: 0x0600265C RID: 9820 RVA: 0x0008BD68 File Offset: 0x00089F68
 	public bool EditorOnly_New()
 	{
 		Array.Resize<int>(ref this.data, this.dataCount + 4);
 		return true;
 	}
 
-	// Token: 0x060022FB RID: 8955 RVA: 0x00086984 File Offset: 0x00084B84
+	// Token: 0x0600265D RID: 9821 RVA: 0x0008BD80 File Offset: 0x00089F80
 	public bool EditorOnly_Clone(int index)
 	{
 		if (index >= 0 && index < this.ruleCount)
@@ -142,7 +142,7 @@ public class VisEval : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x060022FC RID: 8956 RVA: 0x000869FC File Offset: 0x00084BFC
+	// Token: 0x0600265E RID: 9822 RVA: 0x0008BDF8 File Offset: 0x00089FF8
 	public bool EditorOnly_Delete(int index)
 	{
 		if (index >= 0 && index < this.ruleCount)
@@ -171,7 +171,7 @@ public class VisEval : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x060022FD RID: 8957 RVA: 0x00086A9C File Offset: 0x00084C9C
+	// Token: 0x0600265F RID: 9823 RVA: 0x0008BE98 File Offset: 0x0008A098
 	public bool EditorOnly_Clear()
 	{
 		if (this.data != null)
@@ -182,8 +182,8 @@ public class VisEval : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x060022FE RID: 8958 RVA: 0x00086AB4 File Offset: 0x00084CB4
-	public bool Pass(Vis.Mask self, Vis.Mask instigator)
+	// Token: 0x06002660 RID: 9824 RVA: 0x0008BEB0 File Offset: 0x0008A0B0
+	public bool Pass(global::Vis.Mask self, global::Vis.Mask instigator)
 	{
 		if (!this.expanded)
 		{
@@ -192,17 +192,17 @@ public class VisEval : ScriptableObject
 			{
 				return true;
 			}
-			this.rules = new Vis.Rule[ruleCount];
+			this.rules = new global::Vis.Rule[ruleCount];
 			for (int i = 0; i < ruleCount; i++)
 			{
-				this.rules[i] = Vis.Rule.Decode(this.data, i * 4);
+				this.rules[i] = global::Vis.Rule.Decode(this.data, i * 4);
 			}
 			this.expanded = true;
 		}
 		for (int j = this.rules.Length - 1; j >= 0; j--)
 		{
-			Vis.Rule.Failure failure = this.rules[j].Pass(self, instigator);
-			if (failure != Vis.Rule.Failure.None)
+			global::Vis.Rule.Failure failure = this.rules[j].Pass(self, instigator);
+			if (failure != global::Vis.Rule.Failure.None)
 			{
 				return false;
 			}
@@ -210,15 +210,15 @@ public class VisEval : ScriptableObject
 		return true;
 	}
 
-	// Token: 0x0400109D RID: 4253
+	// Token: 0x04001203 RID: 4611
 	[SerializeField]
 	private int[] data;
 
-	// Token: 0x0400109E RID: 4254
+	// Token: 0x04001204 RID: 4612
 	[NonSerialized]
 	private bool expanded;
 
-	// Token: 0x0400109F RID: 4255
+	// Token: 0x04001205 RID: 4613
 	[NonSerialized]
-	private Vis.Rule[] rules;
+	private global::Vis.Rule[] rules;
 }

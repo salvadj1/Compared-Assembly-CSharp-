@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000407 RID: 1031
+// Token: 0x020004BB RID: 1211
 public class ServerCategory : MonoBehaviour
 {
-	// Token: 0x060025D2 RID: 9682 RVA: 0x00091CC4 File Offset: 0x0008FEC4
+	// Token: 0x06002958 RID: 10584 RVA: 0x00097B88 File Offset: 0x00095D88
 	public void UpdateServerCount(int iCount)
 	{
 		if (iCount == 0)
@@ -18,32 +18,32 @@ public class ServerCategory : MonoBehaviour
 		this.serverCount.Text = iCount.ToString("#,##0");
 	}
 
-	// Token: 0x060025D3 RID: 9683 RVA: 0x00091D0C File Offset: 0x0008FF0C
+	// Token: 0x06002959 RID: 10585 RVA: 0x00097BD0 File Offset: 0x00095DD0
 	public void OnSelected()
 	{
-		ServerBrowser serverBrowser = Object.FindObjectOfType<ServerBrowser>();
+		global::ServerBrowser serverBrowser = Object.FindObjectOfType<global::ServerBrowser>();
 		serverBrowser.SwitchCategory(this.categoryId);
 	}
 
-	// Token: 0x060025D4 RID: 9684 RVA: 0x00091D2C File Offset: 0x0008FF2C
+	// Token: 0x0600295A RID: 10586 RVA: 0x00097BF0 File Offset: 0x00095DF0
 	public void CategoryChanged(int iCategory)
 	{
 		if (iCategory == this.categoryId)
 		{
-			base.GetComponent<dfControl>().Opacity = 1f;
+			base.GetComponent<global::dfControl>().Opacity = 1f;
 		}
 		else
 		{
-			base.GetComponent<dfControl>().Opacity = 0.5f;
+			base.GetComponent<global::dfControl>().Opacity = 0.5f;
 		}
 	}
 
-	// Token: 0x0400126C RID: 4716
-	public dfLabel serverCount;
+	// Token: 0x040013EC RID: 5100
+	public global::dfLabel serverCount;
 
-	// Token: 0x0400126D RID: 4717
+	// Token: 0x040013ED RID: 5101
 	public int categoryId;
 
-	// Token: 0x0400126E RID: 4718
+	// Token: 0x040013EE RID: 5102
 	public bool activeCategory;
 }

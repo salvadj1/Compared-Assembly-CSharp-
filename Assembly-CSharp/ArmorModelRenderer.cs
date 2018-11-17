@@ -2,25 +2,25 @@
 using Facepunch.Actor;
 using UnityEngine;
 
-// Token: 0x0200050C RID: 1292
-public sealed class ArmorModelRenderer : IDLocalCharacter
+// Token: 0x020005C9 RID: 1481
+public sealed class ArmorModelRenderer : global::IDLocalCharacter
 {
-	// Token: 0x170009A7 RID: 2471
-	// (get) Token: 0x06002BB0 RID: 11184 RVA: 0x000AE8FC File Offset: 0x000ACAFC
-	public ArmorModelGroup defaultArmorModelGroup
+	// Token: 0x17000A1B RID: 2587
+	// (get) Token: 0x06002F70 RID: 12144 RVA: 0x000B6998 File Offset: 0x000B4B98
+	public global::ArmorModelGroup defaultArmorModelGroup
 	{
 		get
 		{
-			return ((!this.armorTrait) ? (this.armorTrait = base.GetTrait<CharacterArmorTrait>()) : this.armorTrait).defaultGroup;
+			return ((!this.armorTrait) ? (this.armorTrait = base.GetTrait<global::CharacterArmorTrait>()) : this.armorTrait).defaultGroup;
 		}
 	}
 
-	// Token: 0x06002BB1 RID: 11185 RVA: 0x000AE938 File Offset: 0x000ACB38
+	// Token: 0x06002F71 RID: 12145 RVA: 0x000B69D4 File Offset: 0x000B4BD4
 	private void OnEnable()
 	{
 		if (this.awake)
 		{
-			for (ArmorModelSlot armorModelSlot = ArmorModelSlot.Feet; armorModelSlot < (ArmorModelSlot)4; armorModelSlot += 1)
+			for (global::ArmorModelSlot armorModelSlot = global::ArmorModelSlot.Feet; armorModelSlot < (global::ArmorModelSlot)4; armorModelSlot += 1)
 			{
 				ActorMeshRenderer actorMeshRenderer = this.renderers[armorModelSlot];
 				if (actorMeshRenderer)
@@ -35,12 +35,12 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06002BB2 RID: 11186 RVA: 0x000AE9A8 File Offset: 0x000ACBA8
+	// Token: 0x06002F72 RID: 12146 RVA: 0x000B6A44 File Offset: 0x000B4C44
 	private void OnDisable()
 	{
 		if (this.awake)
 		{
-			for (ArmorModelSlot armorModelSlot = ArmorModelSlot.Feet; armorModelSlot < (ArmorModelSlot)4; armorModelSlot += 1)
+			for (global::ArmorModelSlot armorModelSlot = global::ArmorModelSlot.Feet; armorModelSlot < (global::ArmorModelSlot)4; armorModelSlot += 1)
 			{
 				ActorMeshRenderer actorMeshRenderer = this.renderers[armorModelSlot];
 				if (actorMeshRenderer)
@@ -55,8 +55,8 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170009A8 RID: 2472
-	// (get) Token: 0x06002BB3 RID: 11187 RVA: 0x000AEA18 File Offset: 0x000ACC18
+	// Token: 0x17000A1C RID: 2588
+	// (get) Token: 0x06002F73 RID: 12147 RVA: 0x000B6AB4 File Offset: 0x000B4CB4
 	public ActorRig actorRig
 	{
 		get
@@ -65,8 +65,8 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x170009A9 RID: 2473
-	public ArmorModel this[ArmorModelSlot slot]
+	// Token: 0x17000A1D RID: 2589
+	public global::ArmorModel this[global::ArmorModelSlot slot]
 	{
 		get
 		{
@@ -74,7 +74,7 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 			{
 				return this.models[slot];
 			}
-			ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
+			global::ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
 			if (defaultArmorModelGroup)
 			{
 				return defaultArmorModelGroup[slot];
@@ -83,38 +83,38 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06002BB5 RID: 11189 RVA: 0x000AEA68 File Offset: 0x000ACC68
-	public ArmorModelMemberMap GetArmorModelMemberMapCopy()
+	// Token: 0x06002F75 RID: 12149 RVA: 0x000B6B04 File Offset: 0x000B4D04
+	public global::ArmorModelMemberMap GetArmorModelMemberMapCopy()
 	{
 		if (this.awake)
 		{
 			return this.models;
 		}
-		ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
+		global::ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
 		if (!defaultArmorModelGroup)
 		{
-			return default(ArmorModelMemberMap);
+			return default(global::ArmorModelMemberMap);
 		}
 		return defaultArmorModelGroup.armorModelMemberMap;
 	}
 
-	// Token: 0x06002BB6 RID: 11190 RVA: 0x000AEAAC File Offset: 0x000ACCAC
-	private bool BindArmorModel<TArmorModel>(TArmorModel model) where TArmorModel : ArmorModel, new()
+	// Token: 0x06002F76 RID: 12150 RVA: 0x000B6B48 File Offset: 0x000B4D48
+	private bool BindArmorModel<TArmorModel>(TArmorModel model) where TArmorModel : global::ArmorModel, new()
 	{
 		if (model)
 		{
 			return this.BindArmorModelCheckedNonNull(model);
 		}
-		ArmorModel armorModel = this.defaultArmorModelGroup[ArmorModelSlotUtility.GetArmorModelSlotForClass<TArmorModel>()];
+		global::ArmorModel armorModel = this.defaultArmorModelGroup[global::ArmorModelSlotUtility.GetArmorModelSlotForClass<TArmorModel>()];
 		return armorModel && this.BindArmorModelCheckedNonNull(armorModel);
 	}
 
-	// Token: 0x06002BB7 RID: 11191 RVA: 0x000AEAFC File Offset: 0x000ACCFC
-	private bool BindArmorModel(ArmorModel model, ArmorModelSlot slot)
+	// Token: 0x06002F77 RID: 12151 RVA: 0x000B6B98 File Offset: 0x000B4D98
+	private bool BindArmorModel(global::ArmorModel model, global::ArmorModelSlot slot)
 	{
 		if (!model)
 		{
-			ArmorModel armorModel = this.defaultArmorModelGroup[slot];
+			global::ArmorModel armorModel = this.defaultArmorModelGroup[slot];
 			return armorModel && this.BindArmorModelCheckedNonNull(armorModel);
 		}
 		if (model.slot != slot)
@@ -125,15 +125,15 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		return this.BindArmorModelCheckedNonNull(model);
 	}
 
-	// Token: 0x06002BB8 RID: 11192 RVA: 0x000AEB64 File Offset: 0x000ACD64
-	public ArmorModelSlotMask BindArmorModels(ArmorModelMemberMap map)
+	// Token: 0x06002F78 RID: 12152 RVA: 0x000B6C00 File Offset: 0x000B4E00
+	public global::ArmorModelSlotMask BindArmorModels(global::ArmorModelMemberMap map)
 	{
 		if (!this.awake)
 		{
-			return this.Initialize(map, ArmorModelSlotMask.Feet | ArmorModelSlotMask.Legs | ArmorModelSlotMask.Torso | ArmorModelSlotMask.Head);
+			return this.Initialize(map, global::ArmorModelSlotMask.Feet | global::ArmorModelSlotMask.Legs | global::ArmorModelSlotMask.Torso | global::ArmorModelSlotMask.Head);
 		}
-		ArmorModelSlotMask armorModelSlotMask = (ArmorModelSlotMask)0;
-		for (ArmorModelSlot armorModelSlot = ArmorModelSlot.Feet; armorModelSlot < (ArmorModelSlot)4; armorModelSlot += 1)
+		global::ArmorModelSlotMask armorModelSlotMask = (global::ArmorModelSlotMask)0;
+		for (global::ArmorModelSlot armorModelSlot = global::ArmorModelSlot.Feet; armorModelSlot < (global::ArmorModelSlot)4; armorModelSlot += 1)
 		{
 			if (this.BindArmorModel(map[armorModelSlot], armorModelSlot))
 			{
@@ -143,15 +143,15 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		return armorModelSlotMask;
 	}
 
-	// Token: 0x06002BB9 RID: 11193 RVA: 0x000AEBB8 File Offset: 0x000ACDB8
-	public ArmorModelSlotMask BindArmorModels(ArmorModelMemberMap map, ArmorModelSlotMask slotMask)
+	// Token: 0x06002F79 RID: 12153 RVA: 0x000B6C54 File Offset: 0x000B4E54
+	public global::ArmorModelSlotMask BindArmorModels(global::ArmorModelMemberMap map, global::ArmorModelSlotMask slotMask)
 	{
 		if (!this.awake)
 		{
 			return this.Initialize(map, slotMask);
 		}
-		ArmorModelSlotMask armorModelSlotMask = (ArmorModelSlotMask)0;
-		foreach (ArmorModelSlot slot in slotMask.EnumerateSlots())
+		global::ArmorModelSlotMask armorModelSlotMask = (global::ArmorModelSlotMask)0;
+		foreach (global::ArmorModelSlot slot in slotMask.EnumerateSlots())
 		{
 			if (this.BindArmorModel(map[slot], slot))
 			{
@@ -161,15 +161,15 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		return armorModelSlotMask;
 	}
 
-	// Token: 0x06002BBA RID: 11194 RVA: 0x000AEC18 File Offset: 0x000ACE18
-	public ArmorModelSlotMask BindArmorGroup(ArmorModelGroup group, ArmorModelSlotMask slotMask)
+	// Token: 0x06002F7A RID: 12154 RVA: 0x000B6CB4 File Offset: 0x000B4EB4
+	public global::ArmorModelSlotMask BindArmorGroup(global::ArmorModelGroup group, global::ArmorModelSlotMask slotMask)
 	{
 		if (this.awake)
 		{
-			ArmorModelSlotMask armorModelSlotMask = (ArmorModelSlotMask)0;
-			foreach (ArmorModelSlot slot in slotMask.EnumerateSlots())
+			global::ArmorModelSlotMask armorModelSlotMask = (global::ArmorModelSlotMask)0;
+			foreach (global::ArmorModelSlot slot in slotMask.EnumerateSlots())
 			{
-				ArmorModel armorModel = group[slot];
+				global::ArmorModel armorModel = group[slot];
 				if (armorModel && this.BindArmorModelCheckedNonNull(armorModel))
 				{
 					armorModelSlotMask |= slot.ToMask();
@@ -179,20 +179,20 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 		if (!group)
 		{
-			return (ArmorModelSlotMask)0;
+			return (global::ArmorModelSlotMask)0;
 		}
 		return this.Initialize(group.armorModelMemberMap, slotMask);
 	}
 
-	// Token: 0x06002BBB RID: 11195 RVA: 0x000AEC98 File Offset: 0x000ACE98
-	public ArmorModelSlotMask BindArmorGroup(ArmorModelGroup group)
+	// Token: 0x06002F7B RID: 12155 RVA: 0x000B6D34 File Offset: 0x000B4F34
+	public global::ArmorModelSlotMask BindArmorGroup(global::ArmorModelGroup group)
 	{
-		ArmorModelSlotMask armorModelSlotMask = (ArmorModelSlotMask)0;
+		global::ArmorModelSlotMask armorModelSlotMask = (global::ArmorModelSlotMask)0;
 		if (group)
 		{
-			for (ArmorModelSlot armorModelSlot = ArmorModelSlot.Feet; armorModelSlot < (ArmorModelSlot)4; armorModelSlot += 1)
+			for (global::ArmorModelSlot armorModelSlot = global::ArmorModelSlot.Feet; armorModelSlot < (global::ArmorModelSlot)4; armorModelSlot += 1)
 			{
-				ArmorModel armorModel = group[armorModelSlot];
+				global::ArmorModel armorModel = group[armorModelSlot];
 				if (armorModel && this.BindArmorModelCheckedNonNull(armorModel))
 				{
 					armorModelSlotMask |= armorModelSlot.ToMask();
@@ -202,19 +202,19 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		return armorModelSlotMask;
 	}
 
-	// Token: 0x06002BBC RID: 11196 RVA: 0x000AECF0 File Offset: 0x000ACEF0
-	public ArmorModelSlotMask BindDefaultArmorGroup()
+	// Token: 0x06002F7C RID: 12156 RVA: 0x000B6D8C File Offset: 0x000B4F8C
+	public global::ArmorModelSlotMask BindDefaultArmorGroup()
 	{
-		ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
+		global::ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
 		if (defaultArmorModelGroup)
 		{
 			return this.BindArmorGroup(this.defaultArmorModelGroup);
 		}
-		return (ArmorModelSlotMask)0;
+		return (global::ArmorModelSlotMask)0;
 	}
 
-	// Token: 0x06002BBD RID: 11197 RVA: 0x000AED20 File Offset: 0x000ACF20
-	public bool Contains(ArmorModel model)
+	// Token: 0x06002F7D RID: 12157 RVA: 0x000B6DBC File Offset: 0x000B4FBC
+	public bool Contains(global::ArmorModel model)
 	{
 		if (!model)
 		{
@@ -222,14 +222,14 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 		if (!this.awake)
 		{
-			ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
+			global::ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
 			return defaultArmorModelGroup && defaultArmorModelGroup[model.slot] == model;
 		}
 		return this.models[model.slot] == model;
 	}
 
-	// Token: 0x06002BBE RID: 11198 RVA: 0x000AED84 File Offset: 0x000ACF84
-	public bool Contains<TArmorModel>(TArmorModel model) where TArmorModel : ArmorModel, new()
+	// Token: 0x06002F7E RID: 12158 RVA: 0x000B6E20 File Offset: 0x000B5020
+	public bool Contains<TArmorModel>(TArmorModel model) where TArmorModel : global::ArmorModel, new()
 	{
 		if (!model)
 		{
@@ -237,20 +237,20 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 		if (!this.awake)
 		{
-			ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
+			global::ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
 			return defaultArmorModelGroup && defaultArmorModelGroup.GetArmorModel<TArmorModel>() == model;
 		}
 		return this.models.GetArmorModel<TArmorModel>() == model;
 	}
 
-	// Token: 0x06002BBF RID: 11199 RVA: 0x000AEDF8 File Offset: 0x000ACFF8
-	public T GetArmorModel<T>() where T : ArmorModel, new()
+	// Token: 0x06002F7F RID: 12159 RVA: 0x000B6E94 File Offset: 0x000B5094
+	public T GetArmorModel<T>() where T : global::ArmorModel, new()
 	{
 		if (this.awake)
 		{
 			return this.models.GetArmorModel<T>();
 		}
-		ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
+		global::ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
 		if (defaultArmorModelGroup)
 		{
 			return defaultArmorModelGroup.GetArmorModel<T>();
@@ -258,12 +258,12 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		return (T)((object)null);
 	}
 
-	// Token: 0x06002BC0 RID: 11200 RVA: 0x000AEE3C File Offset: 0x000AD03C
-	private ArmorModelSlotMask Initialize(ArmorModelMemberMap memberMap, ArmorModelSlotMask memberMask)
+	// Token: 0x06002F80 RID: 12160 RVA: 0x000B6ED8 File Offset: 0x000B50D8
+	private global::ArmorModelSlotMask Initialize(global::ArmorModelMemberMap memberMap, global::ArmorModelSlotMask memberMask)
 	{
 		this.awake = true;
-		string rendererName = ArmorModelSlot.Head.GetRendererName();
-		ActorRig actorRig = this.defaultArmorModelGroup[ArmorModelSlot.Head].actorRig;
+		string rendererName = global::ArmorModelSlot.Head.GetRendererName();
+		ActorRig actorRig = this.defaultArmorModelGroup[global::ArmorModelSlot.Head].actorRig;
 		ActorMeshRenderer actorMeshRenderer;
 		if (this.originalRenderer)
 		{
@@ -273,12 +273,12 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		{
 			actorMeshRenderer = ActorMeshRenderer.CreateOn(base.transform, rendererName, actorRig, this.boneStructure.rigOrderedTransformArray, base.gameObject.layer);
 		}
-		this.renderers[ArmorModelSlot.Head] = actorMeshRenderer;
-		for (ArmorModelSlot armorModelSlot = ArmorModelSlot.Feet; armorModelSlot < ArmorModelSlot.Head; armorModelSlot += 1)
+		this.renderers[global::ArmorModelSlot.Head] = actorMeshRenderer;
+		for (global::ArmorModelSlot armorModelSlot = global::ArmorModelSlot.Feet; armorModelSlot < global::ArmorModelSlot.Head; armorModelSlot += 1)
 		{
 			this.renderers[armorModelSlot] = actorMeshRenderer.CloneBlank(armorModelSlot.GetRendererName());
 		}
-		for (ArmorModelSlot armorModelSlot2 = ArmorModelSlot.Feet; armorModelSlot2 < ArmorModelSlot.Head; armorModelSlot2 += 1)
+		for (global::ArmorModelSlot armorModelSlot2 = global::ArmorModelSlot.Feet; armorModelSlot2 < global::ArmorModelSlot.Head; armorModelSlot2 += 1)
 		{
 			ActorMeshRenderer actorMeshRenderer2 = this.renderers[armorModelSlot2];
 			if (actorMeshRenderer2)
@@ -286,18 +286,18 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 				actorMeshRenderer2.renderer.enabled = base.enabled;
 			}
 		}
-		ArmorModelSlotMask armorModelSlotMask = (ArmorModelSlotMask)0;
-		ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
+		global::ArmorModelSlotMask armorModelSlotMask = (global::ArmorModelSlotMask)0;
+		global::ArmorModelGroup defaultArmorModelGroup = this.defaultArmorModelGroup;
 		if (defaultArmorModelGroup)
 		{
-			ArmorModelSlot armorModelSlot3 = ArmorModelSlot.Feet;
-			while (armorModelSlot3 < (ArmorModelSlot)4)
+			global::ArmorModelSlot armorModelSlot3 = global::ArmorModelSlot.Feet;
+			while (armorModelSlot3 < (global::ArmorModelSlot)4)
 			{
 				if (!memberMask.Contains(armorModelSlot3))
 				{
 					goto IL_14D;
 				}
-				ArmorModel armorModel = memberMap.GetArmorModel(armorModelSlot3);
+				global::ArmorModel armorModel = memberMap.GetArmorModel(armorModelSlot3);
 				if (!armorModel || !this.BindArmorModelCheckedNonNull(armorModel))
 				{
 					goto IL_14D;
@@ -307,7 +307,7 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 				armorModelSlot3 += 1;
 				continue;
 				IL_14D:
-				ArmorModel armorModel2 = defaultArmorModelGroup[armorModelSlot3];
+				global::ArmorModel armorModel2 = defaultArmorModelGroup[armorModelSlot3];
 				if (armorModel2)
 				{
 					this.BindArmorModelCheckedNonNull(armorModel2);
@@ -318,9 +318,9 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 		else
 		{
-			foreach (ArmorModelSlot slot in memberMask.EnumerateSlots())
+			foreach (global::ArmorModelSlot slot in memberMask.EnumerateSlots())
 			{
-				ArmorModel armorModel3 = memberMap.GetArmorModel(slot);
+				global::ArmorModel armorModel3 = memberMap.GetArmorModel(slot);
 				if (armorModel3 && this.BindArmorModelCheckedNonNull(armorModel3))
 				{
 					armorModelSlotMask |= slot.ToMask();
@@ -330,21 +330,21 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		return armorModelSlotMask;
 	}
 
-	// Token: 0x06002BC1 RID: 11201 RVA: 0x000AF024 File Offset: 0x000AD224
-	private bool BindArmorModelCheckedNonNull(ArmorModel model)
+	// Token: 0x06002F81 RID: 12161 RVA: 0x000B70C0 File Offset: 0x000B52C0
+	private bool BindArmorModelCheckedNonNull(global::ArmorModel model)
 	{
-		ArmorModelSlot slot = model.slot;
-		if (!ArmorModelRenderer.rebindingCensorship)
+		global::ArmorModelSlot slot = model.slot;
+		if (!global::ArmorModelRenderer.rebindingCensorship)
 		{
-			ArmorModel armorModel = this.models[slot];
+			global::ArmorModel armorModel = this.models[slot];
 			if (armorModel == model)
 			{
 				return false;
 			}
 		}
 		ActorMeshRenderer actorMeshRenderer = this.renderers[slot];
-		ArmorModel armorModel2;
-		if (ArmorModelRenderer.censored)
+		global::ArmorModel armorModel2;
+		if (global::ArmorModelRenderer.censored)
 		{
 			armorModel2 = model.censoredModel;
 			if (!armorModel2)
@@ -373,7 +373,7 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		return true;
 	}
 
-	// Token: 0x06002BC2 RID: 11202 RVA: 0x000AF0F8 File Offset: 0x000AD2F8
+	// Token: 0x06002F82 RID: 12162 RVA: 0x000B7194 File Offset: 0x000B5394
 	private void OnDestroy()
 	{
 		if (!this.awake)
@@ -382,7 +382,7 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 		else
 		{
-			for (ArmorModelSlot armorModelSlot = ArmorModelSlot.Feet; armorModelSlot < (ArmorModelSlot)4; armorModelSlot += 1)
+			for (global::ArmorModelSlot armorModelSlot = global::ArmorModelSlot.Feet; armorModelSlot < (global::ArmorModelSlot)4; armorModelSlot += 1)
 			{
 				ActorMeshRenderer actorMeshRenderer = this.renderers[armorModelSlot];
 				if (actorMeshRenderer)
@@ -393,45 +393,45 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06002BC3 RID: 11203 RVA: 0x000AF154 File Offset: 0x000AD354
+	// Token: 0x06002F83 RID: 12163 RVA: 0x000B71F0 File Offset: 0x000B53F0
 	private void Start()
 	{
 		if (!this.awake)
 		{
-			this.Initialize(default(ArmorModelMemberMap), (ArmorModelSlotMask)0);
+			this.Initialize(default(global::ArmorModelMemberMap), (global::ArmorModelSlotMask)0);
 		}
 	}
 
-	// Token: 0x170009AA RID: 2474
-	// (get) Token: 0x06002BC4 RID: 11204 RVA: 0x000AF180 File Offset: 0x000AD380
-	// (set) Token: 0x06002BC5 RID: 11205 RVA: 0x000AF188 File Offset: 0x000AD388
+	// Token: 0x17000A1E RID: 2590
+	// (get) Token: 0x06002F84 RID: 12164 RVA: 0x000B721C File Offset: 0x000B541C
+	// (set) Token: 0x06002F85 RID: 12165 RVA: 0x000B7224 File Offset: 0x000B5424
 	public static bool Censored
 	{
 		get
 		{
-			return ArmorModelRenderer.censored;
+			return global::ArmorModelRenderer.censored;
 		}
 		set
 		{
-			if (ArmorModelRenderer.censored != value)
+			if (global::ArmorModelRenderer.censored != value)
 			{
-				ArmorModelRenderer.censored = value;
+				global::ArmorModelRenderer.censored = value;
 				try
 				{
-					ArmorModelRenderer.rebindingCensorship = true;
-					foreach (Object @object in Object.FindObjectsOfType(typeof(ArmorModelRenderer)))
+					global::ArmorModelRenderer.rebindingCensorship = true;
+					foreach (Object @object in Object.FindObjectsOfType(typeof(global::ArmorModelRenderer)))
 					{
-						ArmorModelRenderer armorModelRenderer = (ArmorModelRenderer)@object;
+						global::ArmorModelRenderer armorModelRenderer = (global::ArmorModelRenderer)@object;
 						if (armorModelRenderer)
 						{
-							for (ArmorModelSlot armorModelSlot = ArmorModelSlot.Feet; armorModelSlot < (ArmorModelSlot)4; armorModelSlot += 1)
+							for (global::ArmorModelSlot armorModelSlot = global::ArmorModelSlot.Feet; armorModelSlot < (global::ArmorModelSlot)4; armorModelSlot += 1)
 							{
-								ArmorModel armorModel = armorModelRenderer[armorModelSlot];
+								global::ArmorModel armorModel = armorModelRenderer[armorModelSlot];
 								if (armorModel && armorModel.hasCensoredModel)
 								{
 									if (!armorModelRenderer.awake)
 									{
-										armorModelRenderer.Initialize(default(ArmorModelMemberMap), (ArmorModelSlotMask)0);
+										armorModelRenderer.Initialize(default(global::ArmorModelMemberMap), (global::ArmorModelSlotMask)0);
 										break;
 									}
 									armorModelRenderer.BindArmorModelCheckedNonNull(armorModel);
@@ -439,45 +439,45 @@ public sealed class ArmorModelRenderer : IDLocalCharacter
 							}
 						}
 					}
-					SleepingAvatar.RebindAllRenderers();
+					global::SleepingAvatar.RebindAllRenderers();
 				}
 				finally
 				{
-					ArmorModelRenderer.rebindingCensorship = false;
+					global::ArmorModelRenderer.rebindingCensorship = false;
 				}
 			}
 		}
 	}
 
-	// Token: 0x040017E0 RID: 6112
+	// Token: 0x040019AC RID: 6572
 	[PrefetchComponent]
 	[SerializeField]
 	private BoneStructure boneStructure;
 
-	// Token: 0x040017E1 RID: 6113
+	// Token: 0x040019AD RID: 6573
 	[SerializeField]
 	[PrefetchChildComponent]
 	private SkinnedMeshRenderer originalRenderer;
 
-	// Token: 0x040017E2 RID: 6114
+	// Token: 0x040019AE RID: 6574
 	[NonSerialized]
-	private ArmorModelMemberMap<ActorMeshRenderer> renderers;
+	private global::ArmorModelMemberMap<ActorMeshRenderer> renderers;
 
-	// Token: 0x040017E3 RID: 6115
+	// Token: 0x040019AF RID: 6575
 	[NonSerialized]
-	private ArmorModelMemberMap models;
+	private global::ArmorModelMemberMap models;
 
-	// Token: 0x040017E4 RID: 6116
+	// Token: 0x040019B0 RID: 6576
 	[NonSerialized]
 	private bool awake;
 
-	// Token: 0x040017E5 RID: 6117
+	// Token: 0x040019B1 RID: 6577
 	[NonSerialized]
-	private CharacterArmorTrait armorTrait;
+	private global::CharacterArmorTrait armorTrait;
 
-	// Token: 0x040017E6 RID: 6118
+	// Token: 0x040019B2 RID: 6578
 	private static bool censored = true;
 
-	// Token: 0x040017E7 RID: 6119
+	// Token: 0x040019B3 RID: 6579
 	private static bool rebindingCensorship;
 }

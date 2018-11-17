@@ -2,17 +2,17 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000550 RID: 1360
-public class ArmorDataBlock : EquipmentDataBlock
+// Token: 0x0200060E RID: 1550
+public class ArmorDataBlock : global::EquipmentDataBlock
 {
-	// Token: 0x06002DDC RID: 11740 RVA: 0x000B67EC File Offset: 0x000B49EC
-	protected override IInventoryItem ConstructItem()
+	// Token: 0x060031A4 RID: 12708 RVA: 0x000BEA48 File Offset: 0x000BCC48
+	protected override global::IInventoryItem ConstructItem()
 	{
-		return new ArmorDataBlock.ITEM_TYPE(this);
+		return new global::ArmorDataBlock.ITEM_TYPE(this);
 	}
 
-	// Token: 0x06002DDD RID: 11741 RVA: 0x000B67F4 File Offset: 0x000B49F4
-	public void AddToDamageTypeList(DamageTypeList damageList)
+	// Token: 0x060031A5 RID: 12709 RVA: 0x000BEA50 File Offset: 0x000BCC50
+	public void AddToDamageTypeList(global::DamageTypeList damageList)
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -23,14 +23,14 @@ public class ArmorDataBlock : EquipmentDataBlock
 		}
 	}
 
-	// Token: 0x06002DDE RID: 11742 RVA: 0x000B6834 File Offset: 0x000B4A34
-	public TArmorModel GetArmorModel<TArmorModel>() where TArmorModel : ArmorModel, new()
+	// Token: 0x060031A6 RID: 12710 RVA: 0x000BEA90 File Offset: 0x000BCC90
+	public TArmorModel GetArmorModel<TArmorModel>() where TArmorModel : global::ArmorModel, new()
 	{
-		return (TArmorModel)((object)this.GetArmorModel(ArmorModelSlotUtility.GetArmorModelSlotForClass<TArmorModel>()));
+		return (TArmorModel)((object)this.GetArmorModel(global::ArmorModelSlotUtility.GetArmorModelSlotForClass<TArmorModel>()));
 	}
 
-	// Token: 0x06002DDF RID: 11743 RVA: 0x000B6848 File Offset: 0x000B4A48
-	public ArmorModel GetArmorModel(ArmorModelSlot slot)
+	// Token: 0x060031A7 RID: 12711 RVA: 0x000BEAA4 File Offset: 0x000BCCA4
+	public global::ArmorModel GetArmorModel(global::ArmorModelSlot slot)
 	{
 		if (!this.armorModel)
 		{
@@ -45,22 +45,22 @@ public class ArmorDataBlock : EquipmentDataBlock
 		return this.armorModel;
 	}
 
-	// Token: 0x06002DE0 RID: 11744 RVA: 0x000B68B8 File Offset: 0x000B4AB8
-	public bool GetArmorModelSlot(out ArmorModelSlot slot)
+	// Token: 0x060031A8 RID: 12712 RVA: 0x000BEB14 File Offset: 0x000BCD14
+	public bool GetArmorModelSlot(out global::ArmorModelSlot slot)
 	{
 		if (!this.armorModel)
 		{
-			slot = (ArmorModelSlot)4;
+			slot = (global::ArmorModelSlot)4;
 		}
 		else
 		{
 			slot = this.armorModel.slot;
 		}
-		return slot < (ArmorModelSlot)4;
+		return slot < (global::ArmorModelSlot)4;
 	}
 
-	// Token: 0x06002DE1 RID: 11745 RVA: 0x000B68F0 File Offset: 0x000B4AF0
-	public override void PopulateInfoWindow(ItemToolTip infoWindow, IInventoryItem tipItem)
+	// Token: 0x060031A9 RID: 12713 RVA: 0x000BEB4C File Offset: 0x000BCD4C
+	public override void PopulateInfoWindow(global::ItemToolTip infoWindow, global::IInventoryItem tipItem)
 	{
 		infoWindow.AddItemTitle(this, tipItem, 0f);
 		infoWindow.AddConditionInfo(tipItem);
@@ -70,21 +70,21 @@ public class ArmorDataBlock : EquipmentDataBlock
 			if (this.armorValues[i] != 0f)
 			{
 				float contentHeight = infoWindow.GetContentHeight();
-				GameObject gameObject = infoWindow.AddBasicLabel(TakeDamage.DamageIndexToString((DamageTypeIndex)i), 0f);
+				GameObject gameObject = infoWindow.AddBasicLabel(global::TakeDamage.DamageIndexToString((global::DamageTypeIndex)i), 0f);
 				GameObject gameObject2 = infoWindow.AddBasicLabel("+" + ((int)this.armorValues[i]).ToString("N0"), 0f);
 				gameObject2.transform.SetLocalPositionX(145f);
-				gameObject2.GetComponentInChildren<UILabel>().color = Color.green;
+				gameObject2.GetComponentInChildren<global::UILabel>().color = Color.green;
 				gameObject.transform.SetLocalPositionY(-(contentHeight + 10f));
 				gameObject2.transform.SetLocalPositionY(-(contentHeight + 10f));
 			}
 		}
 		infoWindow.AddSectionTitle("Equipment Slot", 20f);
 		string text = "Head, Chest, Legs, Feet";
-		if ((this._itemFlags & Inventory.SlotFlags.Head) == Inventory.SlotFlags.Head)
+		if ((this._itemFlags & global::Inventory.SlotFlags.Head) == global::Inventory.SlotFlags.Head)
 		{
 			text = "Head";
 		}
-		else if ((this._itemFlags & Inventory.SlotFlags.Chest) == Inventory.SlotFlags.Chest)
+		else if ((this._itemFlags & global::Inventory.SlotFlags.Chest) == global::Inventory.SlotFlags.Chest)
 		{
 			text = "Chest";
 		}
@@ -93,40 +93,40 @@ public class ArmorDataBlock : EquipmentDataBlock
 		infoWindow.FinishPopulating();
 	}
 
-	// Token: 0x06002DE2 RID: 11746 RVA: 0x000B6A48 File Offset: 0x000B4C48
-	public override void OnEquipped(IEquipmentItem item)
+	// Token: 0x060031AA RID: 12714 RVA: 0x000BECA4 File Offset: 0x000BCEA4
+	public override void OnEquipped(global::IEquipmentItem item)
 	{
 	}
 
-	// Token: 0x06002DE3 RID: 11747 RVA: 0x000B6A4C File Offset: 0x000B4C4C
-	public override void OnUnEquipped(IEquipmentItem item)
+	// Token: 0x060031AB RID: 12715 RVA: 0x000BECA8 File Offset: 0x000BCEA8
+	public override void OnUnEquipped(global::IEquipmentItem item)
 	{
 	}
 
-	// Token: 0x06002DE4 RID: 11748 RVA: 0x000B6A50 File Offset: 0x000B4C50
+	// Token: 0x060031AC RID: 12716 RVA: 0x000BECAC File Offset: 0x000BCEAC
 	public override string GetItemDescription()
 	{
 		return "This is an piece of armor. Drag it to it's corresponding slot in the armor window and it will provide additional protection";
 	}
 
-	// Token: 0x0400190A RID: 6410
-	public DamageTypeList armorValues;
+	// Token: 0x04001ADB RID: 6875
+	public global::DamageTypeList armorValues;
 
-	// Token: 0x0400190B RID: 6411
+	// Token: 0x04001ADC RID: 6876
 	[SerializeField]
-	protected ArmorModel armorModel;
+	protected global::ArmorModel armorModel;
 
-	// Token: 0x02000551 RID: 1361
-	private sealed class ITEM_TYPE : ArmorItem<ArmorDataBlock>, IArmorItem, IEquipmentItem, IInventoryItem
+	// Token: 0x0200060F RID: 1551
+	private sealed class ITEM_TYPE : global::ArmorItem<global::ArmorDataBlock>, global::IArmorItem, global::IEquipmentItem, global::IInventoryItem
 	{
-		// Token: 0x06002DE5 RID: 11749 RVA: 0x000B6A58 File Offset: 0x000B4C58
-		public ITEM_TYPE(ArmorDataBlock BLOCK) : base(BLOCK)
+		// Token: 0x060031AD RID: 12717 RVA: 0x000BECB4 File Offset: 0x000BCEB4
+		public ITEM_TYPE(global::ArmorDataBlock BLOCK) : base(BLOCK)
 		{
 		}
 
-		// Token: 0x17000A1A RID: 2586
-		// (get) Token: 0x06002DE6 RID: 11750 RVA: 0x000B6A64 File Offset: 0x000B4C64
-		ItemDataBlock IInventoryItem.datablock
+		// Token: 0x17000A90 RID: 2704
+		// (get) Token: 0x060031AE RID: 12718 RVA: 0x000BECC0 File Offset: 0x000BCEC0
+		global::ItemDataBlock global::IInventoryItem.datablock
 		{
 			get
 			{
@@ -134,175 +134,175 @@ public class ArmorDataBlock : EquipmentDataBlock
 			}
 		}
 
-		// Token: 0x06002DE7 RID: 11751 RVA: 0x000B6A6C File Offset: 0x000B4C6C
+		// Token: 0x060031AF RID: 12719 RVA: 0x000BECC8 File Offset: 0x000BCEC8
 		void OnUnEquipped()
 		{
 			base.OnUnEquipped();
 		}
 
-		// Token: 0x06002DE8 RID: 11752 RVA: 0x000B6A74 File Offset: 0x000B4C74
+		// Token: 0x060031B0 RID: 12720 RVA: 0x000BECD0 File Offset: 0x000BCED0
 		void OnEquipped()
 		{
 			base.OnEquipped();
 		}
 
-		// Token: 0x06002DE9 RID: 11753 RVA: 0x000B6A7C File Offset: 0x000B4C7C
+		// Token: 0x060031B1 RID: 12721 RVA: 0x000BECD8 File Offset: 0x000BCED8
 		bool IsDamaged()
 		{
 			return base.IsDamaged();
 		}
 
-		// Token: 0x06002DEA RID: 11754 RVA: 0x000B6A84 File Offset: 0x000B4C84
+		// Token: 0x060031B2 RID: 12722 RVA: 0x000BECE0 File Offset: 0x000BCEE0
 		bool IsBroken()
 		{
 			return base.IsBroken();
 		}
 
-		// Token: 0x06002DEB RID: 11755 RVA: 0x000B6A8C File Offset: 0x000B4C8C
+		// Token: 0x060031B3 RID: 12723 RVA: 0x000BECE8 File Offset: 0x000BCEE8
 		float GetConditionPercent()
 		{
 			return base.GetConditionPercent();
 		}
 
-		// Token: 0x06002DEC RID: 11756 RVA: 0x000B6A94 File Offset: 0x000B4C94
+		// Token: 0x060031B4 RID: 12724 RVA: 0x000BECF0 File Offset: 0x000BCEF0
 		int AddUses(int count)
 		{
 			return base.AddUses(count);
 		}
 
-		// Token: 0x06002DED RID: 11757 RVA: 0x000B6AA0 File Offset: 0x000B4CA0
+		// Token: 0x060031B5 RID: 12725 RVA: 0x000BECFC File Offset: 0x000BCEFC
 		void SetUses(int count)
 		{
 			base.SetUses(count);
 		}
 
-		// Token: 0x06002DEE RID: 11758 RVA: 0x000B6AAC File Offset: 0x000B4CAC
+		// Token: 0x060031B6 RID: 12726 RVA: 0x000BED08 File Offset: 0x000BCF08
 		void SetCondition(float condition)
 		{
 			base.SetCondition(condition);
 		}
 
-		// Token: 0x06002DEF RID: 11759 RVA: 0x000B6AB8 File Offset: 0x000B4CB8
+		// Token: 0x060031B7 RID: 12727 RVA: 0x000BED14 File Offset: 0x000BCF14
 		void SetMaxCondition(float condition)
 		{
 			base.SetMaxCondition(condition);
 		}
 
-		// Token: 0x06002DF0 RID: 11760 RVA: 0x000B6AC4 File Offset: 0x000B4CC4
+		// Token: 0x060031B8 RID: 12728 RVA: 0x000BED20 File Offset: 0x000BCF20
 		bool Consume(ref int count)
 		{
 			return base.Consume(ref count);
 		}
 
-		// Token: 0x06002DF1 RID: 11761 RVA: 0x000B6AD0 File Offset: 0x000B4CD0
+		// Token: 0x060031B9 RID: 12729 RVA: 0x000BED2C File Offset: 0x000BCF2C
 		bool TryConditionLoss(float probability, float percentLoss)
 		{
 			return base.TryConditionLoss(probability, percentLoss);
 		}
 
-		// Token: 0x06002DF2 RID: 11762 RVA: 0x000B6ADC File Offset: 0x000B4CDC
+		// Token: 0x060031BA RID: 12730 RVA: 0x000BED38 File Offset: 0x000BCF38
 		void Serialize(BitStream stream)
 		{
 			base.Serialize(stream);
 		}
 
-		// Token: 0x06002DF3 RID: 11763 RVA: 0x000B6AE8 File Offset: 0x000B4CE8
+		// Token: 0x060031BB RID: 12731 RVA: 0x000BED44 File Offset: 0x000BCF44
 		void Deserialize(BitStream stream)
 		{
 			base.Deserialize(stream);
 		}
 
-		// Token: 0x06002DF4 RID: 11764 RVA: 0x000B6AF4 File Offset: 0x000B4CF4
+		// Token: 0x060031BC RID: 12732 RVA: 0x000BED50 File Offset: 0x000BCF50
 		bool MarkDirty()
 		{
 			return base.MarkDirty();
 		}
 
-		// Token: 0x06002DF5 RID: 11765 RVA: 0x000B6AFC File Offset: 0x000B4CFC
+		// Token: 0x060031BD RID: 12733 RVA: 0x000BED58 File Offset: 0x000BCF58
 		int get_slot()
 		{
 			return base.slot;
 		}
 
-		// Token: 0x06002DF6 RID: 11766 RVA: 0x000B6B04 File Offset: 0x000B4D04
+		// Token: 0x060031BE RID: 12734 RVA: 0x000BED60 File Offset: 0x000BCF60
 		float get_condition()
 		{
 			return base.condition;
 		}
 
-		// Token: 0x06002DF7 RID: 11767 RVA: 0x000B6B0C File Offset: 0x000B4D0C
+		// Token: 0x060031BF RID: 12735 RVA: 0x000BED68 File Offset: 0x000BCF68
 		float get_maxcondition()
 		{
 			return base.maxcondition;
 		}
 
-		// Token: 0x06002DF8 RID: 11768 RVA: 0x000B6B14 File Offset: 0x000B4D14
+		// Token: 0x060031C0 RID: 12736 RVA: 0x000BED70 File Offset: 0x000BCF70
 		int get_uses()
 		{
 			return base.uses;
 		}
 
-		// Token: 0x06002DF9 RID: 11769 RVA: 0x000B6B1C File Offset: 0x000B4D1C
-		Inventory get_inventory()
+		// Token: 0x060031C1 RID: 12737 RVA: 0x000BED78 File Offset: 0x000BCF78
+		global::Inventory get_inventory()
 		{
 			return base.inventory;
 		}
 
-		// Token: 0x06002DFA RID: 11770 RVA: 0x000B6B24 File Offset: 0x000B4D24
+		// Token: 0x060031C2 RID: 12738 RVA: 0x000BED80 File Offset: 0x000BCF80
 		bool get_dirty()
 		{
 			return base.dirty;
 		}
 
-		// Token: 0x06002DFB RID: 11771 RVA: 0x000B6B2C File Offset: 0x000B4D2C
+		// Token: 0x060031C3 RID: 12739 RVA: 0x000BED88 File Offset: 0x000BCF88
 		float get_lastUseTime()
 		{
 			return base.lastUseTime;
 		}
 
-		// Token: 0x06002DFC RID: 11772 RVA: 0x000B6B34 File Offset: 0x000B4D34
+		// Token: 0x060031C4 RID: 12740 RVA: 0x000BED90 File Offset: 0x000BCF90
 		void set_lastUseTime(float value)
 		{
 			base.lastUseTime = value;
 		}
 
-		// Token: 0x06002DFD RID: 11773 RVA: 0x000B6B40 File Offset: 0x000B4D40
+		// Token: 0x060031C5 RID: 12741 RVA: 0x000BED9C File Offset: 0x000BCF9C
 		bool get_isInLocalInventory()
 		{
 			return base.isInLocalInventory;
 		}
 
-		// Token: 0x06002DFE RID: 11774 RVA: 0x000B6B48 File Offset: 0x000B4D48
+		// Token: 0x060031C6 RID: 12742 RVA: 0x000BEDA4 File Offset: 0x000BCFA4
 		IDMain get_idMain()
 		{
 			return base.idMain;
 		}
 
-		// Token: 0x06002DFF RID: 11775 RVA: 0x000B6B50 File Offset: 0x000B4D50
-		Character get_character()
+		// Token: 0x060031C7 RID: 12743 RVA: 0x000BEDAC File Offset: 0x000BCFAC
+		global::Character get_character()
 		{
 			return base.character;
 		}
 
-		// Token: 0x06002E00 RID: 11776 RVA: 0x000B6B58 File Offset: 0x000B4D58
-		Controller get_controller()
+		// Token: 0x060031C8 RID: 12744 RVA: 0x000BEDB4 File Offset: 0x000BCFB4
+		global::Controller get_controller()
 		{
 			return base.controller;
 		}
 
-		// Token: 0x06002E01 RID: 11777 RVA: 0x000B6B60 File Offset: 0x000B4D60
-		Controllable get_controllable()
+		// Token: 0x060031C9 RID: 12745 RVA: 0x000BEDBC File Offset: 0x000BCFBC
+		global::Controllable get_controllable()
 		{
 			return base.controllable;
 		}
 
-		// Token: 0x06002E02 RID: 11778 RVA: 0x000B6B68 File Offset: 0x000B4D68
+		// Token: 0x060031CA RID: 12746 RVA: 0x000BEDC4 File Offset: 0x000BCFC4
 		bool get_active()
 		{
 			return base.active;
 		}
 
-		// Token: 0x06002E03 RID: 11779 RVA: 0x000B6B70 File Offset: 0x000B4D70
+		// Token: 0x060031CB RID: 12747 RVA: 0x000BEDCC File Offset: 0x000BCFCC
 		bool get_doNotSave()
 		{
 			return base.doNotSave;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005C8 RID: 1480
-public interface IHandGrenadeItem : IHeldItem, IInventoryItem, IThrowableItem, IWeaponItem
+// Token: 0x02000686 RID: 1670
+public interface IHandGrenadeItem : global::IHeldItem, global::IInventoryItem, global::IThrowableItem, global::IWeaponItem
 {
 }

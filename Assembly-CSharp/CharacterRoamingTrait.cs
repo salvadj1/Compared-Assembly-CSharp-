@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000110 RID: 272
-public class CharacterRoamingTrait : CharacterTrait
+// Token: 0x0200012F RID: 303
+public class CharacterRoamingTrait : global::CharacterTrait
 {
-	// Token: 0x1700018D RID: 397
-	// (get) Token: 0x060006FE RID: 1790 RVA: 0x0001F82C File Offset: 0x0001DA2C
+	// Token: 0x170001BB RID: 443
+	// (get) Token: 0x060007D0 RID: 2000 RVA: 0x00022400 File Offset: 0x00020600
 	public float maxRoamDistance
 	{
 		get
@@ -14,8 +14,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700018E RID: 398
-	// (get) Token: 0x060006FF RID: 1791 RVA: 0x0001F84C File Offset: 0x0001DA4C
+	// Token: 0x170001BC RID: 444
+	// (get) Token: 0x060007D1 RID: 2001 RVA: 0x00022420 File Offset: 0x00020620
 	public float minRoamDistance
 	{
 		get
@@ -24,8 +24,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700018F RID: 399
-	// (get) Token: 0x06000700 RID: 1792 RVA: 0x0001F86C File Offset: 0x0001DA6C
+	// Token: 0x170001BD RID: 445
+	// (get) Token: 0x060007D2 RID: 2002 RVA: 0x00022440 File Offset: 0x00020640
 	public float randomRoamDistance
 	{
 		get
@@ -34,8 +34,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000190 RID: 400
-	// (get) Token: 0x06000701 RID: 1793 RVA: 0x0001F8C4 File Offset: 0x0001DAC4
+	// Token: 0x170001BE RID: 446
+	// (get) Token: 0x060007D3 RID: 2003 RVA: 0x00022498 File Offset: 0x00020698
 	public float maxFleeDistance
 	{
 		get
@@ -44,8 +44,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000191 RID: 401
-	// (get) Token: 0x06000702 RID: 1794 RVA: 0x0001F8E4 File Offset: 0x0001DAE4
+	// Token: 0x170001BF RID: 447
+	// (get) Token: 0x060007D4 RID: 2004 RVA: 0x000224B8 File Offset: 0x000206B8
 	public float minFleeDistance
 	{
 		get
@@ -54,8 +54,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000192 RID: 402
-	// (get) Token: 0x06000703 RID: 1795 RVA: 0x0001F904 File Offset: 0x0001DB04
+	// Token: 0x170001C0 RID: 448
+	// (get) Token: 0x060007D5 RID: 2005 RVA: 0x000224D8 File Offset: 0x000206D8
 	public float randomFleeDistance
 	{
 		get
@@ -64,8 +64,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000193 RID: 403
-	// (get) Token: 0x06000704 RID: 1796 RVA: 0x0001F95C File Offset: 0x0001DB5C
+	// Token: 0x170001C1 RID: 449
+	// (get) Token: 0x060007D6 RID: 2006 RVA: 0x00022530 File Offset: 0x00020730
 	public float minRoamAngle
 	{
 		get
@@ -74,8 +74,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000194 RID: 404
-	// (get) Token: 0x06000705 RID: 1797 RVA: 0x0001F97C File Offset: 0x0001DB7C
+	// Token: 0x170001C2 RID: 450
+	// (get) Token: 0x060007D7 RID: 2007 RVA: 0x00022550 File Offset: 0x00020750
 	public float maxRoamAngle
 	{
 		get
@@ -84,8 +84,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000195 RID: 405
-	// (get) Token: 0x06000706 RID: 1798 RVA: 0x0001F99C File Offset: 0x0001DB9C
+	// Token: 0x170001C3 RID: 451
+	// (get) Token: 0x060007D8 RID: 2008 RVA: 0x00022570 File Offset: 0x00020770
 	public float randomRoamAngle
 	{
 		get
@@ -94,8 +94,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000196 RID: 406
-	// (get) Token: 0x06000707 RID: 1799 RVA: 0x0001F9F4 File Offset: 0x0001DBF4
+	// Token: 0x170001C4 RID: 452
+	// (get) Token: 0x060007D9 RID: 2009 RVA: 0x000225C8 File Offset: 0x000207C8
 	public int minIdleMilliseconds
 	{
 		get
@@ -104,8 +104,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000197 RID: 407
-	// (get) Token: 0x06000708 RID: 1800 RVA: 0x0001F9FC File Offset: 0x0001DBFC
+	// Token: 0x170001C5 RID: 453
+	// (get) Token: 0x060007DA RID: 2010 RVA: 0x000225D0 File Offset: 0x000207D0
 	public int maxIdleMilliseconds
 	{
 		get
@@ -114,8 +114,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000198 RID: 408
-	// (get) Token: 0x06000709 RID: 1801 RVA: 0x0001FA04 File Offset: 0x0001DC04
+	// Token: 0x170001C6 RID: 454
+	// (get) Token: 0x060007DB RID: 2011 RVA: 0x000225D8 File Offset: 0x000207D8
 	public int randomIdleMilliseconds
 	{
 		get
@@ -124,8 +124,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000199 RID: 409
-	// (get) Token: 0x0600070A RID: 1802 RVA: 0x0001FA6C File Offset: 0x0001DC6C
+	// Token: 0x170001C7 RID: 455
+	// (get) Token: 0x060007DC RID: 2012 RVA: 0x00022640 File Offset: 0x00020840
 	public int retryFromFailureMilliseconds
 	{
 		get
@@ -134,8 +134,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700019A RID: 410
-	// (get) Token: 0x0600070B RID: 1803 RVA: 0x0001FA74 File Offset: 0x0001DC74
+	// Token: 0x170001C8 RID: 456
+	// (get) Token: 0x060007DD RID: 2013 RVA: 0x00022648 File Offset: 0x00020848
 	public float minIdleSeconds
 	{
 		get
@@ -144,8 +144,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700019B RID: 411
-	// (get) Token: 0x0600070C RID: 1804 RVA: 0x0001FA88 File Offset: 0x0001DC88
+	// Token: 0x170001C9 RID: 457
+	// (get) Token: 0x060007DE RID: 2014 RVA: 0x0002265C File Offset: 0x0002085C
 	public float maxIdleSeconds
 	{
 		get
@@ -154,8 +154,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700019C RID: 412
-	// (get) Token: 0x0600070D RID: 1805 RVA: 0x0001FA9C File Offset: 0x0001DC9C
+	// Token: 0x170001CA RID: 458
+	// (get) Token: 0x060007DF RID: 2015 RVA: 0x00022670 File Offset: 0x00020870
 	public float randomIdleSeconds
 	{
 		get
@@ -164,8 +164,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700019D RID: 413
-	// (get) Token: 0x0600070E RID: 1806 RVA: 0x0001FAB0 File Offset: 0x0001DCB0
+	// Token: 0x170001CB RID: 459
+	// (get) Token: 0x060007E0 RID: 2016 RVA: 0x00022684 File Offset: 0x00020884
 	public float retryFromFailureSeconds
 	{
 		get
@@ -174,8 +174,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700019E RID: 414
-	// (get) Token: 0x0600070F RID: 1807 RVA: 0x0001FAC4 File Offset: 0x0001DCC4
+	// Token: 0x170001CC RID: 460
+	// (get) Token: 0x060007E1 RID: 2017 RVA: 0x00022698 File Offset: 0x00020898
 	public float roamRadius
 	{
 		get
@@ -184,8 +184,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700019F RID: 415
-	// (get) Token: 0x06000710 RID: 1808 RVA: 0x0001FACC File Offset: 0x0001DCCC
+	// Token: 0x170001CD RID: 461
+	// (get) Token: 0x060007E2 RID: 2018 RVA: 0x000226A0 File Offset: 0x000208A0
 	public bool allowed
 	{
 		get
@@ -194,8 +194,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A0 RID: 416
-	// (get) Token: 0x06000711 RID: 1809 RVA: 0x0001FAD4 File Offset: 0x0001DCD4
+	// Token: 0x170001CE RID: 462
+	// (get) Token: 0x060007E3 RID: 2019 RVA: 0x000226A8 File Offset: 0x000208A8
 	public Vector3 randomRoamVector
 	{
 		get
@@ -218,8 +218,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A1 RID: 417
-	// (get) Token: 0x06000712 RID: 1810 RVA: 0x0001FB48 File Offset: 0x0001DD48
+	// Token: 0x170001CF RID: 463
+	// (get) Token: 0x060007E4 RID: 2020 RVA: 0x0002271C File Offset: 0x0002091C
 	public Vector3 randomFleeVector
 	{
 		get
@@ -242,8 +242,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A2 RID: 418
-	// (get) Token: 0x06000713 RID: 1811 RVA: 0x0001FBBC File Offset: 0x0001DDBC
+	// Token: 0x170001D0 RID: 464
+	// (get) Token: 0x060007E5 RID: 2021 RVA: 0x00022790 File Offset: 0x00020990
 	public Vector3 randomRoamNormal
 	{
 		get
@@ -265,8 +265,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A3 RID: 419
-	// (get) Token: 0x06000714 RID: 1812 RVA: 0x0001FC28 File Offset: 0x0001DE28
+	// Token: 0x170001D1 RID: 465
+	// (get) Token: 0x060007E6 RID: 2022 RVA: 0x000227FC File Offset: 0x000209FC
 	public float fleeSpeed
 	{
 		get
@@ -275,8 +275,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A4 RID: 420
-	// (get) Token: 0x06000715 RID: 1813 RVA: 0x0001FC30 File Offset: 0x0001DE30
+	// Token: 0x170001D2 RID: 466
+	// (get) Token: 0x060007E7 RID: 2023 RVA: 0x00022804 File Offset: 0x00020A04
 	public float runSpeed
 	{
 		get
@@ -285,8 +285,8 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A5 RID: 421
-	// (get) Token: 0x06000716 RID: 1814 RVA: 0x0001FC38 File Offset: 0x0001DE38
+	// Token: 0x170001D3 RID: 467
+	// (get) Token: 0x060007E8 RID: 2024 RVA: 0x0002280C File Offset: 0x00020A0C
 	public float walkSpeed
 	{
 		get
@@ -295,59 +295,59 @@ public class CharacterRoamingTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x0400052F RID: 1327
+	// Token: 0x040005FA RID: 1530
 	[SerializeField]
 	private float _maxRoamDistance = 20f;
 
-	// Token: 0x04000530 RID: 1328
+	// Token: 0x040005FB RID: 1531
 	[SerializeField]
 	private float _minRoamDistance = 10f;
 
-	// Token: 0x04000531 RID: 1329
+	// Token: 0x040005FC RID: 1532
 	[SerializeField]
 	private float _minRoamAngle = -180f;
 
-	// Token: 0x04000532 RID: 1330
+	// Token: 0x040005FD RID: 1533
 	[SerializeField]
 	private float _maxRoamAngle = 180f;
 
-	// Token: 0x04000533 RID: 1331
+	// Token: 0x040005FE RID: 1534
 	[SerializeField]
 	private float _maxFleeDistance = 40f;
 
-	// Token: 0x04000534 RID: 1332
+	// Token: 0x040005FF RID: 1535
 	[SerializeField]
 	private float _minFleeDistance = 21f;
 
-	// Token: 0x04000535 RID: 1333
+	// Token: 0x04000600 RID: 1536
 	[SerializeField]
 	private float _roamRadius = 80f;
 
-	// Token: 0x04000536 RID: 1334
+	// Token: 0x04000601 RID: 1537
 	[SerializeField]
 	private bool _allowed = true;
 
-	// Token: 0x04000537 RID: 1335
+	// Token: 0x04000602 RID: 1538
 	[SerializeField]
 	private int _minIdleMilliseconds = 2000;
 
-	// Token: 0x04000538 RID: 1336
+	// Token: 0x04000603 RID: 1539
 	[SerializeField]
 	private int _maxIdleMilliseconds = 8000;
 
-	// Token: 0x04000539 RID: 1337
+	// Token: 0x04000604 RID: 1540
 	[SerializeField]
 	private int _retryFromFailureMilliseconds = 800;
 
-	// Token: 0x0400053A RID: 1338
+	// Token: 0x04000605 RID: 1541
 	[SerializeField]
 	private float _fleeSpeed = 9f;
 
-	// Token: 0x0400053B RID: 1339
+	// Token: 0x04000606 RID: 1542
 	[SerializeField]
 	private float _runSpeed = 6f;
 
-	// Token: 0x0400053C RID: 1340
+	// Token: 0x04000607 RID: 1543
 	[SerializeField]
 	private float _walkSpeed = 1.8f;
 }

@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x02000213 RID: 531
+	// Token: 0x02000246 RID: 582
 	[DebuggerNonUserCode]
 	public sealed class objectDoor : GeneratedMessage<objectDoor, objectDoor.Builder>
 	{
-		// Token: 0x060011B9 RID: 4537 RVA: 0x0003F740 File Offset: 0x0003D940
+		// Token: 0x0600130D RID: 4877 RVA: 0x00043AE8 File Offset: 0x00041CE8
 		private objectDoor()
 		{
 		}
 
-		// Token: 0x060011BA RID: 4538 RVA: 0x0003F750 File Offset: 0x0003D950
+		// Token: 0x0600130E RID: 4878 RVA: 0x00043AF8 File Offset: 0x00041CF8
 		static objectDoor()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x060011BB RID: 4539 RVA: 0x0003F7A8 File Offset: 0x0003D9A8
-		public static Recycler<objectDoor, objectDoor.Builder> Recycler()
+		// Token: 0x0600130F RID: 4879 RVA: 0x00043B50 File Offset: 0x00041D50
+		public static RustProto.Helpers.Recycler<objectDoor, objectDoor.Builder> Recycler()
 		{
-			return Recycler<objectDoor, objectDoor.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectDoor, objectDoor.Builder>.Manufacture();
 		}
 
-		// Token: 0x170004DE RID: 1246
-		// (get) Token: 0x060011BC RID: 4540 RVA: 0x0003F7B0 File Offset: 0x0003D9B0
+		// Token: 0x17000526 RID: 1318
+		// (get) Token: 0x06001310 RID: 4880 RVA: 0x00043B58 File Offset: 0x00041D58
 		public static objectDoor DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004DF RID: 1247
-		// (get) Token: 0x060011BD RID: 4541 RVA: 0x0003F7B8 File Offset: 0x0003D9B8
+		// Token: 0x17000527 RID: 1319
+		// (get) Token: 0x06001311 RID: 4881 RVA: 0x00043B60 File Offset: 0x00041D60
 		public override objectDoor DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E0 RID: 1248
-		// (get) Token: 0x060011BE RID: 4542 RVA: 0x0003F7C0 File Offset: 0x0003D9C0
+		// Token: 0x17000528 RID: 1320
+		// (get) Token: 0x06001312 RID: 4882 RVA: 0x00043B68 File Offset: 0x00041D68
 		protected override objectDoor ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E1 RID: 1249
-		// (get) Token: 0x060011BF RID: 4543 RVA: 0x0003F7C4 File Offset: 0x0003D9C4
+		// Token: 0x17000529 RID: 1321
+		// (get) Token: 0x06001313 RID: 4883 RVA: 0x00043B6C File Offset: 0x00041D6C
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E2 RID: 1250
-		// (get) Token: 0x060011C0 RID: 4544 RVA: 0x0003F7CC File Offset: 0x0003D9CC
+		// Token: 0x1700052A RID: 1322
+		// (get) Token: 0x06001314 RID: 4884 RVA: 0x00043B74 File Offset: 0x00041D74
 		protected override FieldAccessorTable<objectDoor, objectDoor.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E3 RID: 1251
-		// (get) Token: 0x060011C1 RID: 4545 RVA: 0x0003F7D4 File Offset: 0x0003D9D4
+		// Token: 0x1700052B RID: 1323
+		// (get) Token: 0x06001315 RID: 4885 RVA: 0x00043B7C File Offset: 0x00041D7C
 		public bool HasState
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E4 RID: 1252
-		// (get) Token: 0x060011C2 RID: 4546 RVA: 0x0003F7DC File Offset: 0x0003D9DC
+		// Token: 0x1700052C RID: 1324
+		// (get) Token: 0x06001316 RID: 4886 RVA: 0x00043B84 File Offset: 0x00041D84
 		public int State
 		{
 			get
@@ -99,8 +99,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E5 RID: 1253
-		// (get) Token: 0x060011C3 RID: 4547 RVA: 0x0003F7E4 File Offset: 0x0003D9E4
+		// Token: 0x1700052D RID: 1325
+		// (get) Token: 0x06001317 RID: 4887 RVA: 0x00043B8C File Offset: 0x00041D8C
 		public bool HasOpen
 		{
 			get
@@ -109,8 +109,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E6 RID: 1254
-		// (get) Token: 0x060011C4 RID: 4548 RVA: 0x0003F7EC File Offset: 0x0003D9EC
+		// Token: 0x1700052E RID: 1326
+		// (get) Token: 0x06001318 RID: 4888 RVA: 0x00043B94 File Offset: 0x00041D94
 		public bool Open
 		{
 			get
@@ -119,8 +119,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004E7 RID: 1255
-		// (get) Token: 0x060011C5 RID: 4549 RVA: 0x0003F7F4 File Offset: 0x0003D9F4
+		// Token: 0x1700052F RID: 1327
+		// (get) Token: 0x06001319 RID: 4889 RVA: 0x00043B9C File Offset: 0x00041D9C
 		public override bool IsInitialized
 		{
 			get
@@ -129,7 +129,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060011C6 RID: 4550 RVA: 0x0003F7F8 File Offset: 0x0003D9F8
+		// Token: 0x0600131A RID: 4890 RVA: 0x00043BA0 File Offset: 0x00041DA0
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -145,8 +145,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x170004E8 RID: 1256
-		// (get) Token: 0x060011C7 RID: 4551 RVA: 0x0003F854 File Offset: 0x0003DA54
+		// Token: 0x17000530 RID: 1328
+		// (get) Token: 0x0600131B RID: 4891 RVA: 0x00043BFC File Offset: 0x00041DFC
 		public override int SerializedSize
 		{
 			get
@@ -171,154 +171,154 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060011C8 RID: 4552 RVA: 0x0003F8C0 File Offset: 0x0003DAC0
+		// Token: 0x0600131C RID: 4892 RVA: 0x00043C68 File Offset: 0x00041E68
 		public static objectDoor ParseFrom(ByteString data)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060011C9 RID: 4553 RVA: 0x0003F8D4 File Offset: 0x0003DAD4
+		// Token: 0x0600131D RID: 4893 RVA: 0x00043C7C File Offset: 0x00041E7C
 		public static objectDoor ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060011CA RID: 4554 RVA: 0x0003F8E8 File Offset: 0x0003DAE8
+		// Token: 0x0600131E RID: 4894 RVA: 0x00043C90 File Offset: 0x00041E90
 		public static objectDoor ParseFrom(byte[] data)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060011CB RID: 4555 RVA: 0x0003F8FC File Offset: 0x0003DAFC
+		// Token: 0x0600131F RID: 4895 RVA: 0x00043CA4 File Offset: 0x00041EA4
 		public static objectDoor ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060011CC RID: 4556 RVA: 0x0003F910 File Offset: 0x0003DB10
+		// Token: 0x06001320 RID: 4896 RVA: 0x00043CB8 File Offset: 0x00041EB8
 		public static objectDoor ParseFrom(Stream input)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060011CD RID: 4557 RVA: 0x0003F924 File Offset: 0x0003DB24
+		// Token: 0x06001321 RID: 4897 RVA: 0x00043CCC File Offset: 0x00041ECC
 		public static objectDoor ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060011CE RID: 4558 RVA: 0x0003F938 File Offset: 0x0003DB38
+		// Token: 0x06001322 RID: 4898 RVA: 0x00043CE0 File Offset: 0x00041EE0
 		public static objectDoor ParseDelimitedFrom(Stream input)
 		{
 			return objectDoor.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060011CF RID: 4559 RVA: 0x0003F94C File Offset: 0x0003DB4C
+		// Token: 0x06001323 RID: 4899 RVA: 0x00043CF4 File Offset: 0x00041EF4
 		public static objectDoor ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectDoor.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060011D0 RID: 4560 RVA: 0x0003F960 File Offset: 0x0003DB60
+		// Token: 0x06001324 RID: 4900 RVA: 0x00043D08 File Offset: 0x00041F08
 		public static objectDoor ParseFrom(ICodedInputStream input)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060011D1 RID: 4561 RVA: 0x0003F974 File Offset: 0x0003DB74
+		// Token: 0x06001325 RID: 4901 RVA: 0x00043D1C File Offset: 0x00041F1C
 		public static objectDoor ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectDoor.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060011D2 RID: 4562 RVA: 0x0003F988 File Offset: 0x0003DB88
+		// Token: 0x06001326 RID: 4902 RVA: 0x00043D30 File Offset: 0x00041F30
 		private objectDoor MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x060011D3 RID: 4563 RVA: 0x0003F98C File Offset: 0x0003DB8C
+		// Token: 0x06001327 RID: 4903 RVA: 0x00043D34 File Offset: 0x00041F34
 		public static objectDoor.Builder CreateBuilder()
 		{
 			return new objectDoor.Builder();
 		}
 
-		// Token: 0x060011D4 RID: 4564 RVA: 0x0003F994 File Offset: 0x0003DB94
+		// Token: 0x06001328 RID: 4904 RVA: 0x00043D3C File Offset: 0x00041F3C
 		public override objectDoor.Builder ToBuilder()
 		{
 			return objectDoor.CreateBuilder(this);
 		}
 
-		// Token: 0x060011D5 RID: 4565 RVA: 0x0003F99C File Offset: 0x0003DB9C
+		// Token: 0x06001329 RID: 4905 RVA: 0x00043D44 File Offset: 0x00041F44
 		public override objectDoor.Builder CreateBuilderForType()
 		{
 			return new objectDoor.Builder();
 		}
 
-		// Token: 0x060011D6 RID: 4566 RVA: 0x0003F9A4 File Offset: 0x0003DBA4
+		// Token: 0x0600132A RID: 4906 RVA: 0x00043D4C File Offset: 0x00041F4C
 		public static objectDoor.Builder CreateBuilder(objectDoor prototype)
 		{
 			return new objectDoor.Builder(prototype);
 		}
 
-		// Token: 0x04000981 RID: 2433
+		// Token: 0x04000AA4 RID: 2724
 		public const int StateFieldNumber = 1;
 
-		// Token: 0x04000982 RID: 2434
+		// Token: 0x04000AA5 RID: 2725
 		public const int OpenFieldNumber = 2;
 
-		// Token: 0x04000983 RID: 2435
+		// Token: 0x04000AA6 RID: 2726
 		private static readonly objectDoor defaultInstance = new objectDoor().MakeReadOnly();
 
-		// Token: 0x04000984 RID: 2436
+		// Token: 0x04000AA7 RID: 2727
 		private static readonly string[] _objectDoorFieldNames = new string[]
 		{
 			"Open",
 			"State"
 		};
 
-		// Token: 0x04000985 RID: 2437
+		// Token: 0x04000AA8 RID: 2728
 		private static readonly uint[] _objectDoorFieldTags = new uint[]
 		{
 			16u,
 			8u
 		};
 
-		// Token: 0x04000986 RID: 2438
+		// Token: 0x04000AA9 RID: 2729
 		private bool hasState;
 
-		// Token: 0x04000987 RID: 2439
+		// Token: 0x04000AAA RID: 2730
 		private int state_;
 
-		// Token: 0x04000988 RID: 2440
+		// Token: 0x04000AAB RID: 2731
 		private bool hasOpen;
 
-		// Token: 0x04000989 RID: 2441
+		// Token: 0x04000AAC RID: 2732
 		private bool open_;
 
-		// Token: 0x0400098A RID: 2442
+		// Token: 0x04000AAD RID: 2733
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000214 RID: 532
+		// Token: 0x02000247 RID: 583
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectDoor, objectDoor.Builder>
 		{
-			// Token: 0x060011D7 RID: 4567 RVA: 0x0003F9AC File Offset: 0x0003DBAC
+			// Token: 0x0600132B RID: 4907 RVA: 0x00043D54 File Offset: 0x00041F54
 			public Builder()
 			{
 				this.result = objectDoor.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x060011D8 RID: 4568 RVA: 0x0003F9C8 File Offset: 0x0003DBC8
+			// Token: 0x0600132C RID: 4908 RVA: 0x00043D70 File Offset: 0x00041F70
 			internal Builder(objectDoor cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x170004E9 RID: 1257
-			// (get) Token: 0x060011D9 RID: 4569 RVA: 0x0003F9E0 File Offset: 0x0003DBE0
+			// Token: 0x17000531 RID: 1329
+			// (get) Token: 0x0600132D RID: 4909 RVA: 0x00043D88 File Offset: 0x00041F88
 			protected override objectDoor.Builder ThisBuilder
 			{
 				get
@@ -327,7 +327,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011DA RID: 4570 RVA: 0x0003F9E4 File Offset: 0x0003DBE4
+			// Token: 0x0600132E RID: 4910 RVA: 0x00043D8C File Offset: 0x00041F8C
 			private objectDoor PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -340,8 +340,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x170004EA RID: 1258
-			// (get) Token: 0x060011DB RID: 4571 RVA: 0x0003FA24 File Offset: 0x0003DC24
+			// Token: 0x17000532 RID: 1330
+			// (get) Token: 0x0600132F RID: 4911 RVA: 0x00043DCC File Offset: 0x00041FCC
 			public override bool IsInitialized
 			{
 				get
@@ -350,8 +350,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004EB RID: 1259
-			// (get) Token: 0x060011DC RID: 4572 RVA: 0x0003FA34 File Offset: 0x0003DC34
+			// Token: 0x17000533 RID: 1331
+			// (get) Token: 0x06001330 RID: 4912 RVA: 0x00043DDC File Offset: 0x00041FDC
 			protected override objectDoor MessageBeingBuilt
 			{
 				get
@@ -360,7 +360,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011DD RID: 4573 RVA: 0x0003FA3C File Offset: 0x0003DC3C
+			// Token: 0x06001331 RID: 4913 RVA: 0x00043DE4 File Offset: 0x00041FE4
 			public override objectDoor.Builder Clear()
 			{
 				this.result = objectDoor.DefaultInstance;
@@ -368,7 +368,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011DE RID: 4574 RVA: 0x0003FA54 File Offset: 0x0003DC54
+			// Token: 0x06001332 RID: 4914 RVA: 0x00043DFC File Offset: 0x00041FFC
 			public override objectDoor.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -378,8 +378,8 @@ namespace RustProto
 				return new objectDoor.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x170004EC RID: 1260
-			// (get) Token: 0x060011DF RID: 4575 RVA: 0x0003FA80 File Offset: 0x0003DC80
+			// Token: 0x17000534 RID: 1332
+			// (get) Token: 0x06001333 RID: 4915 RVA: 0x00043E28 File Offset: 0x00042028
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -388,8 +388,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004ED RID: 1261
-			// (get) Token: 0x060011E0 RID: 4576 RVA: 0x0003FA88 File Offset: 0x0003DC88
+			// Token: 0x17000535 RID: 1333
+			// (get) Token: 0x06001334 RID: 4916 RVA: 0x00043E30 File Offset: 0x00042030
 			public override objectDoor DefaultInstanceForType
 			{
 				get
@@ -398,7 +398,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011E1 RID: 4577 RVA: 0x0003FA90 File Offset: 0x0003DC90
+			// Token: 0x06001335 RID: 4917 RVA: 0x00043E38 File Offset: 0x00042038
 			public override objectDoor BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -409,7 +409,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x060011E2 RID: 4578 RVA: 0x0003FAC4 File Offset: 0x0003DCC4
+			// Token: 0x06001336 RID: 4918 RVA: 0x00043E6C File Offset: 0x0004206C
 			public override objectDoor.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectDoor)
@@ -420,7 +420,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011E3 RID: 4579 RVA: 0x0003FAE8 File Offset: 0x0003DCE8
+			// Token: 0x06001337 RID: 4919 RVA: 0x00043E90 File Offset: 0x00042090
 			public override objectDoor.Builder MergeFrom(objectDoor other)
 			{
 				if (other == objectDoor.DefaultInstance)
@@ -440,13 +440,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011E4 RID: 4580 RVA: 0x0003FB48 File Offset: 0x0003DD48
+			// Token: 0x06001338 RID: 4920 RVA: 0x00043EF0 File Offset: 0x000420F0
 			public override objectDoor.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x060011E5 RID: 4581 RVA: 0x0003FB58 File Offset: 0x0003DD58
+			// Token: 0x06001339 RID: 4921 RVA: 0x00043F00 File Offset: 0x00042100
 			public override objectDoor.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -509,8 +509,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004EE RID: 1262
-			// (get) Token: 0x060011E6 RID: 4582 RVA: 0x0003FC94 File Offset: 0x0003DE94
+			// Token: 0x17000536 RID: 1334
+			// (get) Token: 0x0600133A RID: 4922 RVA: 0x0004403C File Offset: 0x0004223C
 			public bool HasState
 			{
 				get
@@ -519,9 +519,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004EF RID: 1263
-			// (get) Token: 0x060011E7 RID: 4583 RVA: 0x0003FCA4 File Offset: 0x0003DEA4
-			// (set) Token: 0x060011E8 RID: 4584 RVA: 0x0003FCB4 File Offset: 0x0003DEB4
+			// Token: 0x17000537 RID: 1335
+			// (get) Token: 0x0600133B RID: 4923 RVA: 0x0004404C File Offset: 0x0004224C
+			// (set) Token: 0x0600133C RID: 4924 RVA: 0x0004405C File Offset: 0x0004225C
 			public int State
 			{
 				get
@@ -534,7 +534,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011E9 RID: 4585 RVA: 0x0003FCC0 File Offset: 0x0003DEC0
+			// Token: 0x0600133D RID: 4925 RVA: 0x00044068 File Offset: 0x00042268
 			public objectDoor.Builder SetState(int value)
 			{
 				this.PrepareBuilder();
@@ -543,7 +543,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011EA RID: 4586 RVA: 0x0003FCF0 File Offset: 0x0003DEF0
+			// Token: 0x0600133E RID: 4926 RVA: 0x00044098 File Offset: 0x00042298
 			public objectDoor.Builder ClearState()
 			{
 				this.PrepareBuilder();
@@ -552,8 +552,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004F0 RID: 1264
-			// (get) Token: 0x060011EB RID: 4587 RVA: 0x0003FD20 File Offset: 0x0003DF20
+			// Token: 0x17000538 RID: 1336
+			// (get) Token: 0x0600133F RID: 4927 RVA: 0x000440C8 File Offset: 0x000422C8
 			public bool HasOpen
 			{
 				get
@@ -562,9 +562,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004F1 RID: 1265
-			// (get) Token: 0x060011EC RID: 4588 RVA: 0x0003FD30 File Offset: 0x0003DF30
-			// (set) Token: 0x060011ED RID: 4589 RVA: 0x0003FD40 File Offset: 0x0003DF40
+			// Token: 0x17000539 RID: 1337
+			// (get) Token: 0x06001340 RID: 4928 RVA: 0x000440D8 File Offset: 0x000422D8
+			// (set) Token: 0x06001341 RID: 4929 RVA: 0x000440E8 File Offset: 0x000422E8
 			public bool Open
 			{
 				get
@@ -577,7 +577,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011EE RID: 4590 RVA: 0x0003FD4C File Offset: 0x0003DF4C
+			// Token: 0x06001342 RID: 4930 RVA: 0x000440F4 File Offset: 0x000422F4
 			public objectDoor.Builder SetOpen(bool value)
 			{
 				this.PrepareBuilder();
@@ -586,7 +586,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011EF RID: 4591 RVA: 0x0003FD7C File Offset: 0x0003DF7C
+			// Token: 0x06001343 RID: 4931 RVA: 0x00044124 File Offset: 0x00042324
 			public objectDoor.Builder ClearOpen()
 			{
 				this.PrepareBuilder();
@@ -595,10 +595,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0400098B RID: 2443
+			// Token: 0x04000AAE RID: 2734
 			private bool resultIsReadOnly;
 
-			// Token: 0x0400098C RID: 2444
+			// Token: 0x04000AAF RID: 2735
 			private objectDoor result;
 		}
 	}

@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x02000724 RID: 1828
-[dfMarkupTagInfo("span")]
-public class dfMarkupTagSpan : dfMarkupTag
+// Token: 0x02000800 RID: 2048
+[global::dfMarkupTagInfo("span")]
+public class dfMarkupTagSpan : global::dfMarkupTag
 {
-	// Token: 0x060042DF RID: 17119 RVA: 0x00103D70 File Offset: 0x00101F70
+	// Token: 0x06004723 RID: 18211 RVA: 0x0010D080 File Offset: 0x0010B280
 	public dfMarkupTagSpan() : base("span")
 	{
 	}
 
-	// Token: 0x060042E0 RID: 17120 RVA: 0x00103D80 File Offset: 0x00101F80
-	public dfMarkupTagSpan(dfMarkupTag original) : base(original)
+	// Token: 0x06004724 RID: 18212 RVA: 0x0010D090 File Offset: 0x0010B290
+	public dfMarkupTagSpan(global::dfMarkupTag original) : base(original)
 	{
 	}
 
-	// Token: 0x060042E2 RID: 17122 RVA: 0x00103D98 File Offset: 0x00101F98
-	protected override void _PerformLayoutImpl(dfMarkupBox container, dfMarkupStyle style)
+	// Token: 0x06004726 RID: 18214 RVA: 0x0010D0A8 File Offset: 0x0010B2A8
+	protected override void _PerformLayoutImpl(global::dfMarkupBox container, global::dfMarkupStyle style)
 	{
 		style = base.applyTextStyleAttributes(style);
 		int i = 0;
 		while (i < base.ChildNodes.Count)
 		{
-			dfMarkupElement dfMarkupElement = base.ChildNodes[i];
-			if (!(dfMarkupElement is dfMarkupString))
+			global::dfMarkupElement dfMarkupElement = base.ChildNodes[i];
+			if (!(dfMarkupElement is global::dfMarkupString))
 			{
 				goto IL_5B;
 			}
-			dfMarkupString dfMarkupString = dfMarkupElement as dfMarkupString;
+			global::dfMarkupString dfMarkupString = dfMarkupElement as global::dfMarkupString;
 			if (!(dfMarkupString.Text == "\n"))
 			{
 				goto IL_5B;
@@ -45,23 +45,23 @@ public class dfMarkupTagSpan : dfMarkupTag
 		}
 	}
 
-	// Token: 0x060042E3 RID: 17123 RVA: 0x00103E20 File Offset: 0x00102020
-	internal static dfMarkupTagSpan Obtain()
+	// Token: 0x06004727 RID: 18215 RVA: 0x0010D130 File Offset: 0x0010B330
+	internal static global::dfMarkupTagSpan Obtain()
 	{
-		if (dfMarkupTagSpan.objectPool.Count > 0)
+		if (global::dfMarkupTagSpan.objectPool.Count > 0)
 		{
-			return dfMarkupTagSpan.objectPool.Dequeue();
+			return global::dfMarkupTagSpan.objectPool.Dequeue();
 		}
-		return new dfMarkupTagSpan();
+		return new global::dfMarkupTagSpan();
 	}
 
-	// Token: 0x060042E4 RID: 17124 RVA: 0x00103E50 File Offset: 0x00102050
+	// Token: 0x06004728 RID: 18216 RVA: 0x0010D160 File Offset: 0x0010B360
 	internal override void Release()
 	{
 		base.Release();
-		dfMarkupTagSpan.objectPool.Enqueue(this);
+		global::dfMarkupTagSpan.objectPool.Enqueue(this);
 	}
 
-	// Token: 0x04002353 RID: 9043
-	private static Queue<dfMarkupTagSpan> objectPool = new Queue<dfMarkupTagSpan>();
+	// Token: 0x04002576 RID: 9590
+	private static Queue<global::dfMarkupTagSpan> objectPool = new Queue<global::dfMarkupTagSpan>();
 }

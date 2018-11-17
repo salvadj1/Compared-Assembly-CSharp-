@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000664 RID: 1636
+// Token: 0x02000728 RID: 1832
 public class LootableObjectSpawner : MonoBehaviour
 {
-	// Token: 0x060038F2 RID: 14578 RVA: 0x000D1564 File Offset: 0x000CF764
+	// Token: 0x06003CE6 RID: 15590 RVA: 0x000D9F44 File Offset: 0x000D8144
 	private void Awake()
 	{
 		Object.Destroy(base.gameObject);
 	}
 
-	// Token: 0x060038F3 RID: 14579 RVA: 0x000D1574 File Offset: 0x000CF774
+	// Token: 0x06003CE7 RID: 15591 RVA: 0x000D9F54 File Offset: 0x000D8154
 	public void OnDrawGizmos()
 	{
 		Gizmos.color = Color.green;
@@ -19,7 +19,7 @@ public class LootableObjectSpawner : MonoBehaviour
 		Gizmos.DrawLine(base.transform.position, base.transform.position + base.transform.forward * 1f);
 	}
 
-	// Token: 0x060038F4 RID: 14580 RVA: 0x000D15E0 File Offset: 0x000CF7E0
+	// Token: 0x06003CE8 RID: 15592 RVA: 0x000D9FC0 File Offset: 0x000D81C0
 	public void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.yellow;
@@ -28,26 +28,26 @@ public class LootableObjectSpawner : MonoBehaviour
 		Gizmos.DrawLine(base.transform.position, base.transform.position + base.transform.forward * 1f);
 	}
 
-	// Token: 0x04001D1B RID: 7451
-	public LootableObjectSpawner.ChancePick[] _lootableChances;
+	// Token: 0x04001F13 RID: 7955
+	public global::LootableObjectSpawner.ChancePick[] _lootableChances;
 
-	// Token: 0x04001D1C RID: 7452
+	// Token: 0x04001F14 RID: 7956
 	public bool spawnOnStart = true;
 
-	// Token: 0x04001D1D RID: 7453
+	// Token: 0x04001F15 RID: 7957
 	public float spawnTimeMin = 5f;
 
-	// Token: 0x04001D1E RID: 7454
+	// Token: 0x04001F16 RID: 7958
 	public float spawnTimeMax = 10f;
 
-	// Token: 0x02000665 RID: 1637
+	// Token: 0x02000729 RID: 1833
 	[Serializable]
 	public class ChancePick
 	{
-		// Token: 0x04001D1F RID: 7455
-		public LootableObject obj;
+		// Token: 0x04001F17 RID: 7959
+		public global::LootableObject obj;
 
-		// Token: 0x04001D20 RID: 7456
+		// Token: 0x04001F18 RID: 7960
 		public float weight;
 	}
 }

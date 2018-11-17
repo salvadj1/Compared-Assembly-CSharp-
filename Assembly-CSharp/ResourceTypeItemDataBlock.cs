@@ -1,55 +1,55 @@
 ﻿using System;
 using uLink;
 
-// Token: 0x0200058C RID: 1420
-public class ResourceTypeItemDataBlock : ItemDataBlock
+// Token: 0x0200064A RID: 1610
+public class ResourceTypeItemDataBlock : global::ItemDataBlock
 {
-	// Token: 0x0600320B RID: 12811 RVA: 0x000BC9F8 File Offset: 0x000BABF8
-	protected override IInventoryItem ConstructItem()
+	// Token: 0x060035D3 RID: 13779 RVA: 0x000C4C54 File Offset: 0x000C2E54
+	protected override global::IInventoryItem ConstructItem()
 	{
-		return new ResourceTypeItemDataBlock.ITEM_TYPE(this);
+		return new global::ResourceTypeItemDataBlock.ITEM_TYPE(this);
 	}
 
-	// Token: 0x0600320C RID: 12812 RVA: 0x000BCA00 File Offset: 0x000BAC00
+	// Token: 0x060035D4 RID: 13780 RVA: 0x000C4C5C File Offset: 0x000C2E5C
 	public override string GetItemDescription()
 	{
 		return "A type of resource";
 	}
 
-	// Token: 0x0600320D RID: 12813 RVA: 0x000BCA08 File Offset: 0x000BAC08
-	public virtual void UseItem(IResourceTypeItem rs)
+	// Token: 0x060035D5 RID: 13781 RVA: 0x000C4C64 File Offset: 0x000C2E64
+	public virtual void UseItem(global::IResourceTypeItem rs)
 	{
 	}
 
-	// Token: 0x040019EF RID: 6639
+	// Token: 0x04001BC0 RID: 7104
 	public bool cookable;
 
-	// Token: 0x040019F0 RID: 6640
+	// Token: 0x04001BC1 RID: 7105
 	public bool flammable;
 
-	// Token: 0x040019F1 RID: 6641
-	public ItemDataBlock cookedVersion;
+	// Token: 0x04001BC2 RID: 7106
+	public global::ItemDataBlock cookedVersion;
 
-	// Token: 0x040019F2 RID: 6642
+	// Token: 0x04001BC3 RID: 7107
 	public int cookHeatRequirement = 1;
 
-	// Token: 0x040019F3 RID: 6643
+	// Token: 0x04001BC4 RID: 7108
 	public int numToGiveCookedMin = 1;
 
-	// Token: 0x040019F4 RID: 6644
+	// Token: 0x04001BC5 RID: 7109
 	public int numToGiveCookedMax = 1;
 
-	// Token: 0x0200058D RID: 1421
-	private sealed class ITEM_TYPE : ResourceTypeItem<ResourceTypeItemDataBlock>, ICookableItem, IFlammableItem, IInventoryItem, IResourceTypeItem
+	// Token: 0x0200064B RID: 1611
+	private sealed class ITEM_TYPE : global::ResourceTypeItem<global::ResourceTypeItemDataBlock>, global::ICookableItem, global::IFlammableItem, global::IInventoryItem, global::IResourceTypeItem
 	{
-		// Token: 0x0600320E RID: 12814 RVA: 0x000BCA0C File Offset: 0x000BAC0C
-		public ITEM_TYPE(ResourceTypeItemDataBlock BLOCK) : base(BLOCK)
+		// Token: 0x060035D6 RID: 13782 RVA: 0x000C4C68 File Offset: 0x000C2E68
+		public ITEM_TYPE(global::ResourceTypeItemDataBlock BLOCK) : base(BLOCK)
 		{
 		}
 
-		// Token: 0x17000A3B RID: 2619
-		// (get) Token: 0x0600320F RID: 12815 RVA: 0x000BCA18 File Offset: 0x000BAC18
-		ItemDataBlock IInventoryItem.datablock
+		// Token: 0x17000AB1 RID: 2737
+		// (get) Token: 0x060035D7 RID: 13783 RVA: 0x000C4C74 File Offset: 0x000C2E74
+		global::ItemDataBlock global::IInventoryItem.datablock
 		{
 			get
 			{
@@ -57,175 +57,175 @@ public class ResourceTypeItemDataBlock : ItemDataBlock
 			}
 		}
 
-		// Token: 0x06003210 RID: 12816 RVA: 0x000BCA20 File Offset: 0x000BAC20
-		bool GetCookableInfo(out int consumeCount, out ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp)
+		// Token: 0x060035D8 RID: 13784 RVA: 0x000C4C7C File Offset: 0x000C2E7C
+		bool GetCookableInfo(out int consumeCount, out global::ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp)
 		{
 			return base.GetCookableInfo(out consumeCount, out cookedVersion, out cookedCount, out cookTempMin, out burnTemp);
 		}
 
-		// Token: 0x06003211 RID: 12817 RVA: 0x000BCA30 File Offset: 0x000BAC30
+		// Token: 0x060035D9 RID: 13785 RVA: 0x000C4C8C File Offset: 0x000C2E8C
 		bool IsDamaged()
 		{
 			return base.IsDamaged();
 		}
 
-		// Token: 0x06003212 RID: 12818 RVA: 0x000BCA38 File Offset: 0x000BAC38
+		// Token: 0x060035DA RID: 13786 RVA: 0x000C4C94 File Offset: 0x000C2E94
 		bool IsBroken()
 		{
 			return base.IsBroken();
 		}
 
-		// Token: 0x06003213 RID: 12819 RVA: 0x000BCA40 File Offset: 0x000BAC40
+		// Token: 0x060035DB RID: 13787 RVA: 0x000C4C9C File Offset: 0x000C2E9C
 		float GetConditionPercent()
 		{
 			return base.GetConditionPercent();
 		}
 
-		// Token: 0x06003214 RID: 12820 RVA: 0x000BCA48 File Offset: 0x000BAC48
+		// Token: 0x060035DC RID: 13788 RVA: 0x000C4CA4 File Offset: 0x000C2EA4
 		int AddUses(int count)
 		{
 			return base.AddUses(count);
 		}
 
-		// Token: 0x06003215 RID: 12821 RVA: 0x000BCA54 File Offset: 0x000BAC54
+		// Token: 0x060035DD RID: 13789 RVA: 0x000C4CB0 File Offset: 0x000C2EB0
 		void SetUses(int count)
 		{
 			base.SetUses(count);
 		}
 
-		// Token: 0x06003216 RID: 12822 RVA: 0x000BCA60 File Offset: 0x000BAC60
+		// Token: 0x060035DE RID: 13790 RVA: 0x000C4CBC File Offset: 0x000C2EBC
 		void SetCondition(float condition)
 		{
 			base.SetCondition(condition);
 		}
 
-		// Token: 0x06003217 RID: 12823 RVA: 0x000BCA6C File Offset: 0x000BAC6C
+		// Token: 0x060035DF RID: 13791 RVA: 0x000C4CC8 File Offset: 0x000C2EC8
 		void SetMaxCondition(float condition)
 		{
 			base.SetMaxCondition(condition);
 		}
 
-		// Token: 0x06003218 RID: 12824 RVA: 0x000BCA78 File Offset: 0x000BAC78
+		// Token: 0x060035E0 RID: 13792 RVA: 0x000C4CD4 File Offset: 0x000C2ED4
 		bool Consume(ref int count)
 		{
 			return base.Consume(ref count);
 		}
 
-		// Token: 0x06003219 RID: 12825 RVA: 0x000BCA84 File Offset: 0x000BAC84
+		// Token: 0x060035E1 RID: 13793 RVA: 0x000C4CE0 File Offset: 0x000C2EE0
 		bool TryConditionLoss(float probability, float percentLoss)
 		{
 			return base.TryConditionLoss(probability, percentLoss);
 		}
 
-		// Token: 0x0600321A RID: 12826 RVA: 0x000BCA90 File Offset: 0x000BAC90
+		// Token: 0x060035E2 RID: 13794 RVA: 0x000C4CEC File Offset: 0x000C2EEC
 		void Serialize(BitStream stream)
 		{
 			base.Serialize(stream);
 		}
 
-		// Token: 0x0600321B RID: 12827 RVA: 0x000BCA9C File Offset: 0x000BAC9C
+		// Token: 0x060035E3 RID: 13795 RVA: 0x000C4CF8 File Offset: 0x000C2EF8
 		void Deserialize(BitStream stream)
 		{
 			base.Deserialize(stream);
 		}
 
-		// Token: 0x0600321C RID: 12828 RVA: 0x000BCAA8 File Offset: 0x000BACA8
+		// Token: 0x060035E4 RID: 13796 RVA: 0x000C4D04 File Offset: 0x000C2F04
 		bool MarkDirty()
 		{
 			return base.MarkDirty();
 		}
 
-		// Token: 0x0600321D RID: 12829 RVA: 0x000BCAB0 File Offset: 0x000BACB0
+		// Token: 0x060035E5 RID: 13797 RVA: 0x000C4D0C File Offset: 0x000C2F0C
 		int get_slot()
 		{
 			return base.slot;
 		}
 
-		// Token: 0x0600321E RID: 12830 RVA: 0x000BCAB8 File Offset: 0x000BACB8
+		// Token: 0x060035E6 RID: 13798 RVA: 0x000C4D14 File Offset: 0x000C2F14
 		float get_condition()
 		{
 			return base.condition;
 		}
 
-		// Token: 0x0600321F RID: 12831 RVA: 0x000BCAC0 File Offset: 0x000BACC0
+		// Token: 0x060035E7 RID: 13799 RVA: 0x000C4D1C File Offset: 0x000C2F1C
 		float get_maxcondition()
 		{
 			return base.maxcondition;
 		}
 
-		// Token: 0x06003220 RID: 12832 RVA: 0x000BCAC8 File Offset: 0x000BACC8
+		// Token: 0x060035E8 RID: 13800 RVA: 0x000C4D24 File Offset: 0x000C2F24
 		int get_uses()
 		{
 			return base.uses;
 		}
 
-		// Token: 0x06003221 RID: 12833 RVA: 0x000BCAD0 File Offset: 0x000BACD0
-		Inventory get_inventory()
+		// Token: 0x060035E9 RID: 13801 RVA: 0x000C4D2C File Offset: 0x000C2F2C
+		global::Inventory get_inventory()
 		{
 			return base.inventory;
 		}
 
-		// Token: 0x06003222 RID: 12834 RVA: 0x000BCAD8 File Offset: 0x000BACD8
+		// Token: 0x060035EA RID: 13802 RVA: 0x000C4D34 File Offset: 0x000C2F34
 		bool get_dirty()
 		{
 			return base.dirty;
 		}
 
-		// Token: 0x06003223 RID: 12835 RVA: 0x000BCAE0 File Offset: 0x000BACE0
+		// Token: 0x060035EB RID: 13803 RVA: 0x000C4D3C File Offset: 0x000C2F3C
 		float get_lastUseTime()
 		{
 			return base.lastUseTime;
 		}
 
-		// Token: 0x06003224 RID: 12836 RVA: 0x000BCAE8 File Offset: 0x000BACE8
+		// Token: 0x060035EC RID: 13804 RVA: 0x000C4D44 File Offset: 0x000C2F44
 		void set_lastUseTime(float value)
 		{
 			base.lastUseTime = value;
 		}
 
-		// Token: 0x06003225 RID: 12837 RVA: 0x000BCAF4 File Offset: 0x000BACF4
+		// Token: 0x060035ED RID: 13805 RVA: 0x000C4D50 File Offset: 0x000C2F50
 		bool get_isInLocalInventory()
 		{
 			return base.isInLocalInventory;
 		}
 
-		// Token: 0x06003226 RID: 12838 RVA: 0x000BCAFC File Offset: 0x000BACFC
+		// Token: 0x060035EE RID: 13806 RVA: 0x000C4D58 File Offset: 0x000C2F58
 		IDMain get_idMain()
 		{
 			return base.idMain;
 		}
 
-		// Token: 0x06003227 RID: 12839 RVA: 0x000BCB04 File Offset: 0x000BAD04
-		Character get_character()
+		// Token: 0x060035EF RID: 13807 RVA: 0x000C4D60 File Offset: 0x000C2F60
+		global::Character get_character()
 		{
 			return base.character;
 		}
 
-		// Token: 0x06003228 RID: 12840 RVA: 0x000BCB0C File Offset: 0x000BAD0C
-		Controller get_controller()
+		// Token: 0x060035F0 RID: 13808 RVA: 0x000C4D68 File Offset: 0x000C2F68
+		global::Controller get_controller()
 		{
 			return base.controller;
 		}
 
-		// Token: 0x06003229 RID: 12841 RVA: 0x000BCB14 File Offset: 0x000BAD14
-		Controllable get_controllable()
+		// Token: 0x060035F1 RID: 13809 RVA: 0x000C4D70 File Offset: 0x000C2F70
+		global::Controllable get_controllable()
 		{
 			return base.controllable;
 		}
 
-		// Token: 0x0600322A RID: 12842 RVA: 0x000BCB1C File Offset: 0x000BAD1C
+		// Token: 0x060035F2 RID: 13810 RVA: 0x000C4D78 File Offset: 0x000C2F78
 		bool get_active()
 		{
 			return base.active;
 		}
 
-		// Token: 0x0600322B RID: 12843 RVA: 0x000BCB24 File Offset: 0x000BAD24
+		// Token: 0x060035F3 RID: 13811 RVA: 0x000C4D80 File Offset: 0x000C2F80
 		bool get_doNotSave()
 		{
 			return base.doNotSave;
 		}
 
-		// Token: 0x0600322C RID: 12844 RVA: 0x000BCB2C File Offset: 0x000BAD2C
+		// Token: 0x060035F4 RID: 13812 RVA: 0x000C4D88 File Offset: 0x000C2F88
 		bool get_flammable()
 		{
 			return base.flammable;

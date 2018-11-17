@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000103 RID: 259
-public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLocalInterpolator
+// Token: 0x02000122 RID: 290
+public abstract class CharacterInterpolatorBase : global::IDLocalCharacterAddon, IIDLocalInterpolator
 {
-	// Token: 0x060006A4 RID: 1700 RVA: 0x0001E840 File Offset: 0x0001CA40
-	internal CharacterInterpolatorBase(IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags | IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake)
+	// Token: 0x06000776 RID: 1910 RVA: 0x00021414 File Offset: 0x0001F614
+	internal CharacterInterpolatorBase(global::IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags | global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake)
 	{
 	}
 
-	// Token: 0x1700015F RID: 351
-	// (get) Token: 0x060006A5 RID: 1701 RVA: 0x0001E860 File Offset: 0x0001CA60
+	// Token: 0x1700018D RID: 397
+	// (get) Token: 0x06000777 RID: 1911 RVA: 0x00021434 File Offset: 0x0001F634
 	IDMain IIDLocalInterpolator.idMain
 	{
 		get
@@ -20,8 +20,8 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x17000160 RID: 352
-	// (get) Token: 0x060006A6 RID: 1702 RVA: 0x0001E868 File Offset: 0x0001CA68
+	// Token: 0x1700018E RID: 398
+	// (get) Token: 0x06000778 RID: 1912 RVA: 0x0002143C File Offset: 0x0001F63C
 	IDLocal IIDLocalInterpolator.self
 	{
 		get
@@ -30,23 +30,23 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x17000161 RID: 353
-	// (get) Token: 0x060006A7 RID: 1703
+	// Token: 0x1700018F RID: 399
+	// (get) Token: 0x06000779 RID: 1913
 	protected abstract double __storedDuration { get; }
 
-	// Token: 0x17000162 RID: 354
-	// (get) Token: 0x060006A8 RID: 1704
+	// Token: 0x17000190 RID: 400
+	// (get) Token: 0x0600077A RID: 1914
 	protected abstract double __oldestTimeStamp { get; }
 
-	// Token: 0x17000163 RID: 355
-	// (get) Token: 0x060006A9 RID: 1705
+	// Token: 0x17000191 RID: 401
+	// (get) Token: 0x0600077B RID: 1915
 	protected abstract double __newestTimeStamp { get; }
 
-	// Token: 0x060006AA RID: 1706
+	// Token: 0x0600077C RID: 1916
 	protected abstract void __Clear();
 
-	// Token: 0x17000164 RID: 356
-	// (get) Token: 0x060006AB RID: 1707 RVA: 0x0001E86C File Offset: 0x0001CA6C
+	// Token: 0x17000192 RID: 402
+	// (get) Token: 0x0600077D RID: 1917 RVA: 0x00021440 File Offset: 0x0001F640
 	public double storedDuration
 	{
 		get
@@ -55,8 +55,8 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x17000165 RID: 357
-	// (get) Token: 0x060006AC RID: 1708 RVA: 0x0001E874 File Offset: 0x0001CA74
+	// Token: 0x17000193 RID: 403
+	// (get) Token: 0x0600077E RID: 1918 RVA: 0x00021448 File Offset: 0x0001F648
 	public double oldestTimeStamp
 	{
 		get
@@ -65,8 +65,8 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x17000166 RID: 358
-	// (get) Token: 0x060006AD RID: 1709 RVA: 0x0001E87C File Offset: 0x0001CA7C
+	// Token: 0x17000194 RID: 404
+	// (get) Token: 0x0600077F RID: 1919 RVA: 0x00021450 File Offset: 0x0001F650
 	public double newestTimeStamp
 	{
 		get
@@ -75,10 +75,10 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x060006AE RID: 1710 RVA: 0x0001E884 File Offset: 0x0001CA84
+	// Token: 0x06000780 RID: 1920 RVA: 0x00021458 File Offset: 0x0001F658
 	protected override void OnAddonAwake()
 	{
-		CharacterInterpolatorTrait trait = base.idMain.GetTrait<CharacterInterpolatorTrait>();
+		global::CharacterInterpolatorTrait trait = base.idMain.GetTrait<global::CharacterInterpolatorTrait>();
 		if (trait)
 		{
 			if (trait.bufferCapacity > 0)
@@ -90,21 +90,21 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x060006AF RID: 1711 RVA: 0x0001E8D8 File Offset: 0x0001CAD8
+	// Token: 0x06000781 RID: 1921 RVA: 0x000214AC File Offset: 0x0001F6AC
 	public void Clear()
 	{
 		this.__Clear();
 	}
 
-	// Token: 0x060006B0 RID: 1712 RVA: 0x0001E8E0 File Offset: 0x0001CAE0
+	// Token: 0x06000782 RID: 1922 RVA: 0x000214B4 File Offset: 0x0001F6B4
 	internal static void SyncronizeAll()
 	{
-		CharacterInterpolatorBase.Interpolators.UpdateAll();
+		global::CharacterInterpolatorBase.Interpolators.UpdateAll();
 	}
 
-	// Token: 0x17000167 RID: 359
-	// (get) Token: 0x060006B1 RID: 1713 RVA: 0x0001E8E8 File Offset: 0x0001CAE8
-	// (set) Token: 0x060006B2 RID: 1714 RVA: 0x0001E8F0 File Offset: 0x0001CAF0
+	// Token: 0x17000195 RID: 405
+	// (get) Token: 0x06000783 RID: 1923 RVA: 0x000214BC File Offset: 0x0001F6BC
+	// (set) Token: 0x06000784 RID: 1924 RVA: 0x000214C4 File Offset: 0x0001F6C4
 	public bool running
 	{
 		get
@@ -121,19 +121,19 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 			{
 				if (value)
 				{
-					this._running = CharacterInterpolatorBase.Interpolators.SetEnabled(this);
+					this._running = global::CharacterInterpolatorBase.Interpolators.SetEnabled(this);
 				}
 				else
 				{
-					this._running = !CharacterInterpolatorBase.Interpolators.SetDisabled(this);
+					this._running = !global::CharacterInterpolatorBase.Interpolators.SetDisabled(this);
 				}
 			}
 		}
 	}
 
-	// Token: 0x17000168 RID: 360
-	// (get) Token: 0x060006B3 RID: 1715 RVA: 0x0001E940 File Offset: 0x0001CB40
-	// (set) Token: 0x060006B4 RID: 1716 RVA: 0x0001E948 File Offset: 0x0001CB48
+	// Token: 0x17000196 RID: 406
+	// (get) Token: 0x06000785 RID: 1925 RVA: 0x00021514 File Offset: 0x0001F714
+	// (set) Token: 0x06000786 RID: 1926 RVA: 0x0002151C File Offset: 0x0001F71C
 	[Obsolete("Use .running for interpolators", true)]
 	public bool enabled
 	{
@@ -147,26 +147,26 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x060006B5 RID: 1717 RVA: 0x0001E954 File Offset: 0x0001CB54
+	// Token: 0x06000787 RID: 1927 RVA: 0x00021528 File Offset: 0x0001F728
 	protected void OnDestroy()
 	{
 		this._destroying = true;
 		if (this._running)
 		{
-			CharacterInterpolatorBase.Interpolators.SetDisabled(this);
+			global::CharacterInterpolatorBase.Interpolators.SetDisabled(this);
 			this._running = false;
 		}
 	}
 
-	// Token: 0x060006B6 RID: 1718 RVA: 0x0001E984 File Offset: 0x0001CB84
+	// Token: 0x06000788 RID: 1928 RVA: 0x00021558 File Offset: 0x0001F758
 	public virtual void SetGoals(Vector3 pos, Quaternion rot, double timestamp)
 	{
 		if (!this.initialized)
 		{
 			base.transform.position = pos;
-			if (base.idMain is Character)
+			if (base.idMain is global::Character)
 			{
-				Angle2 eyesAngles = Angle2.LookDirection(rot * Vector3.forward);
+				global::Angle2 eyesAngles = global::Angle2.LookDirection(rot * Vector3.forward);
 				eyesAngles.pitch = Mathf.DeltaAngle(0f, eyesAngles.pitch);
 				base.idMain.eyesAngles = eyesAngles;
 			}
@@ -179,7 +179,7 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		this.targetPos = pos;
 		this.targetRot = rot;
 		this.fromPos = base.transform.position;
-		if (base.idMain is Character)
+		if (base.idMain is global::Character)
 		{
 			this.fromRot = base.idMain.eyesAngles.quat;
 		}
@@ -190,17 +190,17 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		this.lerpStartTime = Time.realtimeSinceStartup;
 	}
 
-	// Token: 0x060006B7 RID: 1719 RVA: 0x0001EA70 File Offset: 0x0001CC70
+	// Token: 0x06000789 RID: 1929 RVA: 0x00021644 File Offset: 0x0001F844
 	protected virtual void Syncronize()
 	{
-		float num = (Time.realtimeSinceStartup - this.lerpStartTime) / Interpolation.@struct.totalDelaySecondsF;
+		float num = (Time.realtimeSinceStartup - this.lerpStartTime) / global::Interpolation.@struct.totalDelaySecondsF;
 		Vector3 vector = Vector3.Lerp(this.fromPos, this.targetPos, num);
 		Quaternion quaternion = Quaternion.Slerp(this.fromRot, this.targetRot, num);
-		if (base.idMain is Character)
+		if (base.idMain is global::Character)
 		{
-			Character idMain = base.idMain;
+			global::Character idMain = base.idMain;
 			idMain.origin = vector;
-			Angle2 eyesAngles = Angle2.LookDirection(quaternion * Vector3.forward);
+			global::Angle2 eyesAngles = global::Angle2.LookDirection(quaternion * Vector3.forward);
 			eyesAngles.pitch = Mathf.DeltaAngle(0f, eyesAngles.pitch);
 			idMain.eyesAngles = eyesAngles;
 		}
@@ -211,83 +211,83 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 		}
 	}
 
-	// Token: 0x040004FC RID: 1276
+	// Token: 0x040005C7 RID: 1479
 	protected const int kDefaultBufferCapacity = 32;
 
-	// Token: 0x040004FD RID: 1277
-	private const IDLocalCharacterAddon.AddonFlags kRequiredAddonFlags = IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake;
+	// Token: 0x040005C8 RID: 1480
+	private const global::IDLocalCharacterAddon.AddonFlags kRequiredAddonFlags = global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake;
 
-	// Token: 0x040004FE RID: 1278
+	// Token: 0x040005C9 RID: 1481
 	[NonSerialized]
 	private Vector3 targetPos;
 
-	// Token: 0x040004FF RID: 1279
+	// Token: 0x040005CA RID: 1482
 	[NonSerialized]
 	private Vector3 fromPos;
 
-	// Token: 0x04000500 RID: 1280
+	// Token: 0x040005CB RID: 1483
 	[NonSerialized]
 	private Quaternion targetRot;
 
-	// Token: 0x04000501 RID: 1281
+	// Token: 0x040005CC RID: 1484
 	[NonSerialized]
 	private Quaternion fromRot;
 
-	// Token: 0x04000502 RID: 1282
+	// Token: 0x040005CD RID: 1485
 	[NonSerialized]
 	private float lerpStartTime;
 
-	// Token: 0x04000503 RID: 1283
+	// Token: 0x040005CE RID: 1486
 	[NonSerialized]
 	private bool initialized;
 
-	// Token: 0x04000504 RID: 1284
+	// Token: 0x040005CF RID: 1487
 	[NonSerialized]
 	protected int _bufferCapacity = 32;
 
-	// Token: 0x04000505 RID: 1285
+	// Token: 0x040005D0 RID: 1488
 	[NonSerialized]
 	protected bool extrapolate;
 
-	// Token: 0x04000506 RID: 1286
+	// Token: 0x040005D1 RID: 1489
 	[NonSerialized]
 	protected float allowableTimeSpan = 0.1f;
 
-	// Token: 0x04000507 RID: 1287
+	// Token: 0x040005D2 RID: 1490
 	[NonSerialized]
 	protected int len;
 
-	// Token: 0x04000508 RID: 1288
+	// Token: 0x040005D3 RID: 1491
 	[NonSerialized]
 	private bool _running;
 
-	// Token: 0x04000509 RID: 1289
+	// Token: 0x040005D4 RID: 1492
 	[NonSerialized]
 	private bool _destroying;
 
-	// Token: 0x02000104 RID: 260
+	// Token: 0x02000123 RID: 291
 	private static class Interpolators
 	{
-		// Token: 0x060006B9 RID: 1721 RVA: 0x0001EB40 File Offset: 0x0001CD40
+		// Token: 0x0600078B RID: 1931 RVA: 0x00021714 File Offset: 0x0001F914
 		public static void UpdateAll()
 		{
-			if (CharacterInterpolatorBase.Interpolators.iterating)
+			if (global::CharacterInterpolatorBase.Interpolators.iterating)
 			{
 				return;
 			}
-			HashSet<CharacterInterpolatorBase> hashSet;
-			if (CharacterInterpolatorBase.Interpolators.swapped)
+			HashSet<global::CharacterInterpolatorBase> hashSet;
+			if (global::CharacterInterpolatorBase.Interpolators.swapped)
 			{
-				hashSet = CharacterInterpolatorBase.Interpolators.hashset2;
+				hashSet = global::CharacterInterpolatorBase.Interpolators.hashset2;
 			}
 			else
 			{
-				hashSet = CharacterInterpolatorBase.Interpolators.hashset1;
+				hashSet = global::CharacterInterpolatorBase.Interpolators.hashset1;
 			}
 			try
 			{
-				CharacterInterpolatorBase.Interpolators.iterating = true;
-				foreach (CharacterInterpolatorBase characterInterpolatorBase in hashSet)
+				global::CharacterInterpolatorBase.Interpolators.iterating = true;
+				foreach (global::CharacterInterpolatorBase characterInterpolatorBase in hashSet)
 				{
 					try
 					{
@@ -301,99 +301,99 @@ public abstract class CharacterInterpolatorBase : IDLocalCharacterAddon, IIDLoca
 			}
 			finally
 			{
-				if (CharacterInterpolatorBase.Interpolators.caughtIterating)
+				if (global::CharacterInterpolatorBase.Interpolators.caughtIterating)
 				{
-					CharacterInterpolatorBase.Interpolators.swapped = !CharacterInterpolatorBase.Interpolators.swapped;
-					if (CharacterInterpolatorBase.Interpolators.swapped)
+					global::CharacterInterpolatorBase.Interpolators.swapped = !global::CharacterInterpolatorBase.Interpolators.swapped;
+					if (global::CharacterInterpolatorBase.Interpolators.swapped)
 					{
-						CharacterInterpolatorBase.Interpolators.hashset1.Clear();
+						global::CharacterInterpolatorBase.Interpolators.hashset1.Clear();
 					}
 					else
 					{
-						CharacterInterpolatorBase.Interpolators.hashset2.Clear();
+						global::CharacterInterpolatorBase.Interpolators.hashset2.Clear();
 					}
 				}
-				CharacterInterpolatorBase.Interpolators.iterating = false;
+				global::CharacterInterpolatorBase.Interpolators.iterating = false;
 			}
 		}
 
-		// Token: 0x060006BA RID: 1722 RVA: 0x0001EC54 File Offset: 0x0001CE54
-		public static bool SetEnabled(CharacterInterpolatorBase interpolator)
+		// Token: 0x0600078C RID: 1932 RVA: 0x00021828 File Offset: 0x0001FA28
+		public static bool SetEnabled(global::CharacterInterpolatorBase interpolator)
 		{
-			if (!CharacterInterpolatorBase.Interpolators.iterating)
+			if (!global::CharacterInterpolatorBase.Interpolators.iterating)
 			{
-				return ((!CharacterInterpolatorBase.Interpolators.swapped) ? CharacterInterpolatorBase.Interpolators.hashset1 : CharacterInterpolatorBase.Interpolators.hashset2).Add(interpolator);
+				return ((!global::CharacterInterpolatorBase.Interpolators.swapped) ? global::CharacterInterpolatorBase.Interpolators.hashset1 : global::CharacterInterpolatorBase.Interpolators.hashset2).Add(interpolator);
 			}
-			if (CharacterInterpolatorBase.Interpolators.caughtIterating)
+			if (global::CharacterInterpolatorBase.Interpolators.caughtIterating)
 			{
-				return ((!CharacterInterpolatorBase.Interpolators.swapped) ? CharacterInterpolatorBase.Interpolators.hashset2 : CharacterInterpolatorBase.Interpolators.hashset1).Add(interpolator);
+				return ((!global::CharacterInterpolatorBase.Interpolators.swapped) ? global::CharacterInterpolatorBase.Interpolators.hashset2 : global::CharacterInterpolatorBase.Interpolators.hashset1).Add(interpolator);
 			}
-			HashSet<CharacterInterpolatorBase> hashSet;
-			HashSet<CharacterInterpolatorBase> hashSet2;
-			if (CharacterInterpolatorBase.Interpolators.swapped)
+			HashSet<global::CharacterInterpolatorBase> hashSet;
+			HashSet<global::CharacterInterpolatorBase> hashSet2;
+			if (global::CharacterInterpolatorBase.Interpolators.swapped)
 			{
-				hashSet = CharacterInterpolatorBase.Interpolators.hashset2;
-				hashSet2 = CharacterInterpolatorBase.Interpolators.hashset1;
+				hashSet = global::CharacterInterpolatorBase.Interpolators.hashset2;
+				hashSet2 = global::CharacterInterpolatorBase.Interpolators.hashset1;
 			}
 			else
 			{
-				hashSet = CharacterInterpolatorBase.Interpolators.hashset1;
-				hashSet2 = CharacterInterpolatorBase.Interpolators.hashset2;
+				hashSet = global::CharacterInterpolatorBase.Interpolators.hashset1;
+				hashSet2 = global::CharacterInterpolatorBase.Interpolators.hashset2;
 			}
 			if (hashSet.Contains(interpolator))
 			{
 				return false;
 			}
-			CharacterInterpolatorBase.Interpolators.caughtIterating = true;
+			global::CharacterInterpolatorBase.Interpolators.caughtIterating = true;
 			hashSet2.UnionWith(hashSet);
 			return hashSet2.Add(interpolator);
 		}
 
-		// Token: 0x060006BB RID: 1723 RVA: 0x0001ED00 File Offset: 0x0001CF00
-		public static bool SetDisabled(CharacterInterpolatorBase interpolator)
+		// Token: 0x0600078D RID: 1933 RVA: 0x000218D4 File Offset: 0x0001FAD4
+		public static bool SetDisabled(global::CharacterInterpolatorBase interpolator)
 		{
-			if (!CharacterInterpolatorBase.Interpolators.iterating)
+			if (!global::CharacterInterpolatorBase.Interpolators.iterating)
 			{
-				return ((!CharacterInterpolatorBase.Interpolators.swapped) ? CharacterInterpolatorBase.Interpolators.hashset1 : CharacterInterpolatorBase.Interpolators.hashset2).Remove(interpolator);
+				return ((!global::CharacterInterpolatorBase.Interpolators.swapped) ? global::CharacterInterpolatorBase.Interpolators.hashset1 : global::CharacterInterpolatorBase.Interpolators.hashset2).Remove(interpolator);
 			}
-			if (CharacterInterpolatorBase.Interpolators.caughtIterating)
+			if (global::CharacterInterpolatorBase.Interpolators.caughtIterating)
 			{
-				return ((!CharacterInterpolatorBase.Interpolators.swapped) ? CharacterInterpolatorBase.Interpolators.hashset2 : CharacterInterpolatorBase.Interpolators.hashset1).Remove(interpolator);
+				return ((!global::CharacterInterpolatorBase.Interpolators.swapped) ? global::CharacterInterpolatorBase.Interpolators.hashset2 : global::CharacterInterpolatorBase.Interpolators.hashset1).Remove(interpolator);
 			}
-			HashSet<CharacterInterpolatorBase> hashSet;
-			HashSet<CharacterInterpolatorBase> hashSet2;
-			if (CharacterInterpolatorBase.Interpolators.swapped)
+			HashSet<global::CharacterInterpolatorBase> hashSet;
+			HashSet<global::CharacterInterpolatorBase> hashSet2;
+			if (global::CharacterInterpolatorBase.Interpolators.swapped)
 			{
-				hashSet = CharacterInterpolatorBase.Interpolators.hashset2;
-				hashSet2 = CharacterInterpolatorBase.Interpolators.hashset1;
+				hashSet = global::CharacterInterpolatorBase.Interpolators.hashset2;
+				hashSet2 = global::CharacterInterpolatorBase.Interpolators.hashset1;
 			}
 			else
 			{
-				hashSet = CharacterInterpolatorBase.Interpolators.hashset1;
-				hashSet2 = CharacterInterpolatorBase.Interpolators.hashset2;
+				hashSet = global::CharacterInterpolatorBase.Interpolators.hashset1;
+				hashSet2 = global::CharacterInterpolatorBase.Interpolators.hashset2;
 			}
 			if (!hashSet.Contains(interpolator))
 			{
 				return false;
 			}
-			CharacterInterpolatorBase.Interpolators.caughtIterating = true;
+			global::CharacterInterpolatorBase.Interpolators.caughtIterating = true;
 			hashSet2.UnionWith(hashSet);
 			return hashSet2.Remove(interpolator);
 		}
 
-		// Token: 0x0400050A RID: 1290
-		private static readonly HashSet<CharacterInterpolatorBase> hashset1 = new HashSet<CharacterInterpolatorBase>();
+		// Token: 0x040005D5 RID: 1493
+		private static readonly HashSet<global::CharacterInterpolatorBase> hashset1 = new HashSet<global::CharacterInterpolatorBase>();
 
-		// Token: 0x0400050B RID: 1291
-		private static readonly HashSet<CharacterInterpolatorBase> hashset2 = new HashSet<CharacterInterpolatorBase>();
+		// Token: 0x040005D6 RID: 1494
+		private static readonly HashSet<global::CharacterInterpolatorBase> hashset2 = new HashSet<global::CharacterInterpolatorBase>();
 
-		// Token: 0x0400050C RID: 1292
+		// Token: 0x040005D7 RID: 1495
 		private static bool swapped;
 
-		// Token: 0x0400050D RID: 1293
+		// Token: 0x040005D8 RID: 1496
 		private static bool iterating;
 
-		// Token: 0x0400050E RID: 1294
+		// Token: 0x040005D9 RID: 1497
 		private static bool caughtIterating;
 	}
 }

@@ -2,12 +2,12 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x020000AB RID: 171
+// Token: 0x020000BE RID: 190
 public class PlayerProxyTest : MonoBehaviour
 {
-	// Token: 0x1700008F RID: 143
-	// (get) Token: 0x060003B0 RID: 944 RVA: 0x00013524 File Offset: 0x00011724
-	// (set) Token: 0x060003B1 RID: 945 RVA: 0x0001353C File Offset: 0x0001173C
+	// Token: 0x170000A7 RID: 167
+	// (get) Token: 0x06000428 RID: 1064 RVA: 0x00014D14 File Offset: 0x00012F14
+	// (set) Token: 0x06000429 RID: 1065 RVA: 0x00014D2C File Offset: 0x00012F2C
 	public bool treatAsProxy
 	{
 		get
@@ -55,7 +55,7 @@ public class PlayerProxyTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B2 RID: 946 RVA: 0x00013664 File Offset: 0x00011864
+	// Token: 0x0600042A RID: 1066 RVA: 0x00014E54 File Offset: 0x00013054
 	private void MineInit()
 	{
 		if (this.body)
@@ -72,7 +72,7 @@ public class PlayerProxyTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B3 RID: 947 RVA: 0x000136C8 File Offset: 0x000118C8
+	// Token: 0x0600042B RID: 1067 RVA: 0x00014EB8 File Offset: 0x000130B8
 	private void ProxyInit()
 	{
 		for (int i = 0; i < this.proxyDisableList.Length; i++)
@@ -88,8 +88,8 @@ public class PlayerProxyTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060003B4 RID: 948 RVA: 0x0001372C File Offset: 0x0001192C
-	private void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x0600042C RID: 1068 RVA: 0x00014F1C File Offset: 0x0001311C
+	private void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		if (info.networkView.isMine)
 		{
@@ -98,30 +98,30 @@ public class PlayerProxyTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400033C RID: 828
+	// Token: 0x040003A7 RID: 935
 	[PrefetchChildComponent(NameMask = "Soldier")]
 	public GameObject body;
 
-	// Token: 0x0400033D RID: 829
+	// Token: 0x040003A8 RID: 936
 	[PrefetchChildComponent(NameMask = "HB Hit")]
 	public GameObject proxyCollider;
 
-	// Token: 0x0400033E RID: 830
+	// Token: 0x040003A9 RID: 937
 	[PrefetchComponent]
-	public ArmorModelRenderer armorRenderer;
+	public global::ArmorModelRenderer armorRenderer;
 
-	// Token: 0x0400033F RID: 831
+	// Token: 0x040003AA RID: 938
 	public MonoBehaviour[] proxyDisableList;
 
-	// Token: 0x04000340 RID: 832
+	// Token: 0x040003AB RID: 939
 	private bool[] initialDisableListValues;
 
-	// Token: 0x04000341 RID: 833
+	// Token: 0x040003AC RID: 940
 	private bool isMine;
 
-	// Token: 0x04000342 RID: 834
+	// Token: 0x040003AD RID: 941
 	private bool isFaking;
 
-	// Token: 0x04000343 RID: 835
+	// Token: 0x040003AE RID: 942
 	private bool hasFaked;
 }

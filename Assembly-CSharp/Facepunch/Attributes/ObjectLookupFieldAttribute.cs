@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Facepunch.Attributes
 {
-	// Token: 0x020003CE RID: 974
+	// Token: 0x0200047B RID: 1147
 	public abstract class ObjectLookupFieldAttribute : FieldAttribute
 	{
-		// Token: 0x06002484 RID: 9348 RVA: 0x0008B8F8 File Offset: 0x00089AF8
+		// Token: 0x060027E6 RID: 10214 RVA: 0x00090CF4 File Offset: 0x0008EEF4
 		protected ObjectLookupFieldAttribute(PrefabLookupKinds kinds, Type minimumType, SearchMode searchModeDefault, Type[] interfaceTypes)
 		{
 			this.Kinds = kinds;
@@ -18,14 +18,14 @@ namespace Facepunch.Attributes
 			this.RequiredInterfaces = (interfaceTypes ?? ObjectLookupFieldAttribute.Empty.TypeArray);
 		}
 
-		// Token: 0x170008D0 RID: 2256
-		// (get) Token: 0x06002485 RID: 9349 RVA: 0x0008B954 File Offset: 0x00089B54
-		// (set) Token: 0x06002486 RID: 9350 RVA: 0x0008B95C File Offset: 0x00089B5C
+		// Token: 0x1700092E RID: 2350
+		// (get) Token: 0x060027E7 RID: 10215 RVA: 0x00090D50 File Offset: 0x0008EF50
+		// (set) Token: 0x060027E8 RID: 10216 RVA: 0x00090D58 File Offset: 0x0008EF58
 		public bool AllowNull { get; set; }
 
-		// Token: 0x170008D1 RID: 2257
-		// (get) Token: 0x06002487 RID: 9351 RVA: 0x0008B968 File Offset: 0x00089B68
-		// (set) Token: 0x06002488 RID: 9352 RVA: 0x0008B988 File Offset: 0x00089B88
+		// Token: 0x1700092F RID: 2351
+		// (get) Token: 0x060027E9 RID: 10217 RVA: 0x00090D64 File Offset: 0x0008EF64
+		// (set) Token: 0x060027EA RID: 10218 RVA: 0x00090D84 File Offset: 0x0008EF84
 		public SearchMode SearchMode
 		{
 			get
@@ -38,9 +38,9 @@ namespace Facepunch.Attributes
 			}
 		}
 
-		// Token: 0x170008D2 RID: 2258
-		// (get) Token: 0x06002489 RID: 9353 RVA: 0x0008B994 File Offset: 0x00089B94
-		// (set) Token: 0x0600248A RID: 9354 RVA: 0x0008B9AC File Offset: 0x00089BAC
+		// Token: 0x17000930 RID: 2352
+		// (get) Token: 0x060027EB RID: 10219 RVA: 0x00090D90 File Offset: 0x0008EF90
+		// (set) Token: 0x060027EC RID: 10220 RVA: 0x00090DA8 File Offset: 0x0008EFA8
 		public Type MinimumType
 		{
 			get
@@ -57,19 +57,19 @@ namespace Facepunch.Attributes
 			}
 		}
 
-		// Token: 0x0600248B RID: 9355 RVA: 0x0008B9EC File Offset: 0x00089BEC
+		// Token: 0x060027ED RID: 10221 RVA: 0x00090DE8 File Offset: 0x0008EFE8
 		protected virtual CustomLookupResult CustomLookup(object value, Type type, ref Object find)
 		{
 			return CustomLookupResult.Fallback;
 		}
 
-		// Token: 0x0600248C RID: 9356 RVA: 0x0008B9F0 File Offset: 0x00089BF0
+		// Token: 0x060027EE RID: 10222 RVA: 0x00090DEC File Offset: 0x0008EFEC
 		public CustomLookupResult Lookup(object value, out Object find)
 		{
 			return this.Lookup(value, this.MinimumType, out find);
 		}
 
-		// Token: 0x0600248D RID: 9357 RVA: 0x0008BA00 File Offset: 0x00089C00
+		// Token: 0x060027EF RID: 10223 RVA: 0x00090DFC File Offset: 0x0008EFFC
 		public CustomLookupResult Lookup(object value, Type type, out Object find)
 		{
 			find = null;
@@ -113,13 +113,13 @@ namespace Facepunch.Attributes
 			return customLookupResult;
 		}
 
-		// Token: 0x0600248E RID: 9358 RVA: 0x0008BAE8 File Offset: 0x00089CE8
+		// Token: 0x060027F0 RID: 10224 RVA: 0x00090EE4 File Offset: 0x0008F0E4
 		public CustomLookupResult Lookup<TObj>(object value, out TObj find) where TObj : Object
 		{
 			return this.Lookup<TObj>(value, typeof(TObj), out find);
 		}
 
-		// Token: 0x0600248F RID: 9359 RVA: 0x0008BAFC File Offset: 0x00089CFC
+		// Token: 0x060027F1 RID: 10225 RVA: 0x00090EF8 File Offset: 0x0008F0F8
 		public CustomLookupResult Lookup<TObj>(object value, Type type, out TObj find) where TObj : Object
 		{
 			if (!typeof(TObj).IsAssignableFrom(type))
@@ -165,13 +165,13 @@ namespace Facepunch.Attributes
 			return customLookupResult;
 		}
 
-		// Token: 0x06002490 RID: 9360 RVA: 0x0008BC2C File Offset: 0x00089E2C
+		// Token: 0x060027F2 RID: 10226 RVA: 0x00091028 File Offset: 0x0008F228
 		protected virtual CustomLookupResult CustomConfirm(Object obj, bool isNull, Type type)
 		{
 			return CustomLookupResult.Fallback;
 		}
 
-		// Token: 0x06002491 RID: 9361 RVA: 0x0008BC30 File Offset: 0x00089E30
+		// Token: 0x060027F3 RID: 10227 RVA: 0x0009102C File Offset: 0x0008F22C
 		public CustomLookupResult Confirm(Object obj)
 		{
 			bool flag;
@@ -229,34 +229,34 @@ namespace Facepunch.Attributes
 			return customLookupResult;
 		}
 
-		// Token: 0x06002492 RID: 9362 RVA: 0x0008BD2C File Offset: 0x00089F2C
+		// Token: 0x060027F4 RID: 10228 RVA: 0x00091128 File Offset: 0x0008F328
 		protected virtual bool CompliantMinimumType(Type type)
 		{
 			return true;
 		}
 
-		// Token: 0x040011A0 RID: 4512
+		// Token: 0x04001306 RID: 4870
 		public readonly PrefabLookupKinds Kinds;
 
-		// Token: 0x040011A1 RID: 4513
+		// Token: 0x04001307 RID: 4871
 		private Type minType;
 
-		// Token: 0x040011A2 RID: 4514
+		// Token: 0x04001308 RID: 4872
 		private SearchMode searchMode;
 
-		// Token: 0x040011A3 RID: 4515
+		// Token: 0x04001309 RID: 4873
 		private readonly Type attributeMinimumType = typeof(Object);
 
-		// Token: 0x040011A4 RID: 4516
+		// Token: 0x0400130A RID: 4874
 		private readonly SearchMode searchModeDefault = SearchMode.MainAsset;
 
-		// Token: 0x040011A5 RID: 4517
+		// Token: 0x0400130B RID: 4875
 		public readonly Type[] RequiredInterfaces;
 
-		// Token: 0x020003CF RID: 975
+		// Token: 0x0200047C RID: 1148
 		private static class Empty
 		{
-			// Token: 0x040011A7 RID: 4519
+			// Token: 0x0400130D RID: 4877
 			public static readonly Type[] TypeArray = new Type[0];
 		}
 	}

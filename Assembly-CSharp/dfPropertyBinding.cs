@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200070B RID: 1803
+// Token: 0x020007E5 RID: 2021
 [AddComponentMenu("Daikon Forge/Data Binding/Property Binding")]
 [Serializable]
-public class dfPropertyBinding : MonoBehaviour, IDataBindingComponent
+public class dfPropertyBinding : MonoBehaviour, global::IDataBindingComponent
 {
-	// Token: 0x060041D6 RID: 16854 RVA: 0x000FDEAC File Offset: 0x000FC0AC
+	// Token: 0x06004610 RID: 17936 RVA: 0x00106DE0 File Offset: 0x00104FE0
 	public void OnEnable()
 	{
 		if (!this.isBound && this.DataSource.IsValid && this.DataTarget.IsValid)
@@ -15,7 +15,7 @@ public class dfPropertyBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041D7 RID: 16855 RVA: 0x000FDEE0 File Offset: 0x000FC0E0
+	// Token: 0x06004611 RID: 17937 RVA: 0x00106E14 File Offset: 0x00105014
 	public void Start()
 	{
 		if (!this.isBound && this.DataSource.IsValid && this.DataTarget.IsValid)
@@ -24,13 +24,13 @@ public class dfPropertyBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041D8 RID: 16856 RVA: 0x000FDF14 File Offset: 0x000FC114
+	// Token: 0x06004612 RID: 17938 RVA: 0x00106E48 File Offset: 0x00105048
 	public void OnDisable()
 	{
 		this.Unbind();
 	}
 
-	// Token: 0x060041D9 RID: 16857 RVA: 0x000FDF1C File Offset: 0x000FC11C
+	// Token: 0x06004613 RID: 17939 RVA: 0x00106E50 File Offset: 0x00105050
 	public void Update()
 	{
 		if (this.sourceProperty == null || this.targetProperty == null)
@@ -49,7 +49,7 @@ public class dfPropertyBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041DA RID: 16858 RVA: 0x000FDFB4 File Offset: 0x000FC1B4
+	// Token: 0x06004614 RID: 17940 RVA: 0x00106EE8 File Offset: 0x001050E8
 	public void Bind()
 	{
 		if (this.isBound)
@@ -70,7 +70,7 @@ public class dfPropertyBinding : MonoBehaviour, IDataBindingComponent
 		}
 	}
 
-	// Token: 0x060041DB RID: 16859 RVA: 0x000FE06C File Offset: 0x000FC26C
+	// Token: 0x06004615 RID: 17941 RVA: 0x00106FA0 File Offset: 0x001051A0
 	public void Unbind()
 	{
 		if (!this.isBound)
@@ -82,7 +82,7 @@ public class dfPropertyBinding : MonoBehaviour, IDataBindingComponent
 		this.isBound = false;
 	}
 
-	// Token: 0x060041DC RID: 16860 RVA: 0x000FE090 File Offset: 0x000FC290
+	// Token: 0x06004616 RID: 17942 RVA: 0x00106FC4 File Offset: 0x001051C4
 	public override string ToString()
 	{
 		string text = (this.DataSource == null || !(this.DataSource.Component != null)) ? "[null]" : this.DataSource.Component.GetType().Name;
@@ -98,21 +98,21 @@ public class dfPropertyBinding : MonoBehaviour, IDataBindingComponent
 		});
 	}
 
-	// Token: 0x040022AC RID: 8876
-	public dfComponentMemberInfo DataSource;
+	// Token: 0x040024C0 RID: 9408
+	public global::dfComponentMemberInfo DataSource;
 
-	// Token: 0x040022AD RID: 8877
-	public dfComponentMemberInfo DataTarget;
+	// Token: 0x040024C1 RID: 9409
+	public global::dfComponentMemberInfo DataTarget;
 
-	// Token: 0x040022AE RID: 8878
+	// Token: 0x040024C2 RID: 9410
 	public bool TwoWay;
 
-	// Token: 0x040022AF RID: 8879
-	private dfObservableProperty sourceProperty;
+	// Token: 0x040024C3 RID: 9411
+	private global::dfObservableProperty sourceProperty;
 
-	// Token: 0x040022B0 RID: 8880
-	private dfObservableProperty targetProperty;
+	// Token: 0x040024C4 RID: 9412
+	private global::dfObservableProperty targetProperty;
 
-	// Token: 0x040022B1 RID: 8881
+	// Token: 0x040024C5 RID: 9413
 	private bool isBound;
 }

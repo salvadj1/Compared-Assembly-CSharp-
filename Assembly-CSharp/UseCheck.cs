@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x020001F4 RID: 500
+// Token: 0x02000227 RID: 551
 public enum UseCheck : sbyte
 {
-	// Token: 0x0400086E RID: 2158
+	// Token: 0x04000991 RID: 2449
 	Success = 1,
-	// Token: 0x0400086F RID: 2159
+	// Token: 0x04000992 RID: 2450
 	OutOfOrder = -128,
-	// Token: 0x04000870 RID: 2160
+	// Token: 0x04000993 RID: 2451
 	BadUser,
-	// Token: 0x04000871 RID: 2161
+	// Token: 0x04000994 RID: 2452
 	BadConfiguration
 }

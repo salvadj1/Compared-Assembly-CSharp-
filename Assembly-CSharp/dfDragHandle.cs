@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006A8 RID: 1704
+// Token: 0x02000771 RID: 1905
 [ExecuteInEditMode]
 [AddComponentMenu("Daikon Forge/User Interface/Drag Handle")]
 [Serializable]
-public class dfDragHandle : dfControl
+public class dfDragHandle : global::dfControl
 {
-	// Token: 0x06003C0B RID: 15371 RVA: 0x000E2238 File Offset: 0x000E0438
+	// Token: 0x0600400F RID: 16399 RVA: 0x000EAD60 File Offset: 0x000E8F60
 	public override void Start()
 	{
 		base.Start();
@@ -16,7 +16,7 @@ public class dfDragHandle : dfControl
 			if (base.Parent != null)
 			{
 				base.Size = new Vector2(base.Parent.Width, 30f);
-				base.Anchor = (dfAnchorStyle.Top | dfAnchorStyle.Left | dfAnchorStyle.Right);
+				base.Anchor = (global::dfAnchorStyle.Top | global::dfAnchorStyle.Left | global::dfAnchorStyle.Right);
 				base.RelativePosition = Vector2.zero;
 			}
 			else
@@ -26,8 +26,8 @@ public class dfDragHandle : dfControl
 		}
 	}
 
-	// Token: 0x06003C0C RID: 15372 RVA: 0x000E22C4 File Offset: 0x000E04C4
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x06004010 RID: 16400 RVA: 0x000EADEC File Offset: 0x000E8FEC
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
 		base.GetRootContainer().BringToFront();
 		args.Use();
@@ -40,11 +40,11 @@ public class dfDragHandle : dfControl
 		base.OnMouseDown(args);
 	}
 
-	// Token: 0x06003C0D RID: 15373 RVA: 0x000E2354 File Offset: 0x000E0554
-	protected internal override void OnMouseMove(dfMouseEventArgs args)
+	// Token: 0x06004011 RID: 16401 RVA: 0x000EAE7C File Offset: 0x000E907C
+	protected internal override void OnMouseMove(global::dfMouseEventArgs args)
 	{
 		args.Use();
-		if (args.Buttons.IsSet(dfMouseButtons.Left))
+		if (args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			Ray ray = args.Ray;
 			float num = 0f;
@@ -61,13 +61,13 @@ public class dfDragHandle : dfControl
 		base.OnMouseMove(args);
 	}
 
-	// Token: 0x06003C0E RID: 15374 RVA: 0x000E2438 File Offset: 0x000E0638
-	protected internal override void OnMouseUp(dfMouseEventArgs args)
+	// Token: 0x06004012 RID: 16402 RVA: 0x000EAF60 File Offset: 0x000E9160
+	protected internal override void OnMouseUp(global::dfMouseEventArgs args)
 	{
 		base.OnMouseUp(args);
 		base.Parent.MakePixelPerfect(true);
 	}
 
-	// Token: 0x04001F82 RID: 8066
+	// Token: 0x04002182 RID: 8578
 	private Vector3 lastPosition;
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007B8 RID: 1976
+// Token: 0x020008A5 RID: 2213
 [AddComponentMenu("NGUI/Tween/Volume")]
-public class TweenVolume : UITweener
+public class TweenVolume : global::UITweener
 {
-	// Token: 0x17000DC2 RID: 3522
-	// (get) Token: 0x0600474D RID: 18253 RVA: 0x0011EAC4 File Offset: 0x0011CCC4
+	// Token: 0x17000E54 RID: 3668
+	// (get) Token: 0x06004BDC RID: 19420 RVA: 0x001284E8 File Offset: 0x001266E8
 	public AudioSource audioSource
 	{
 		get
@@ -28,9 +28,9 @@ public class TweenVolume : UITweener
 		}
 	}
 
-	// Token: 0x17000DC3 RID: 3523
-	// (get) Token: 0x0600474E RID: 18254 RVA: 0x0011EB34 File Offset: 0x0011CD34
-	// (set) Token: 0x0600474F RID: 18255 RVA: 0x0011EB44 File Offset: 0x0011CD44
+	// Token: 0x17000E55 RID: 3669
+	// (get) Token: 0x06004BDD RID: 19421 RVA: 0x00128558 File Offset: 0x00126758
+	// (set) Token: 0x06004BDE RID: 19422 RVA: 0x00128568 File Offset: 0x00126768
 	public float volume
 	{
 		get
@@ -43,28 +43,28 @@ public class TweenVolume : UITweener
 		}
 	}
 
-	// Token: 0x06004750 RID: 18256 RVA: 0x0011EB54 File Offset: 0x0011CD54
+	// Token: 0x06004BDF RID: 19423 RVA: 0x00128578 File Offset: 0x00126778
 	protected override void OnUpdate(float factor)
 	{
 		this.volume = this.from * (1f - factor) + this.to * factor;
 		this.mSource.enabled = (this.mSource.volume > 0.01f);
 	}
 
-	// Token: 0x06004751 RID: 18257 RVA: 0x0011EB9C File Offset: 0x0011CD9C
-	public static TweenVolume Begin(GameObject go, float duration, float targetVolume)
+	// Token: 0x06004BE0 RID: 19424 RVA: 0x001285C0 File Offset: 0x001267C0
+	public static global::TweenVolume Begin(GameObject go, float duration, float targetVolume)
 	{
-		TweenVolume tweenVolume = UITweener.Begin<TweenVolume>(go, duration);
+		global::TweenVolume tweenVolume = global::UITweener.Begin<global::TweenVolume>(go, duration);
 		tweenVolume.from = tweenVolume.volume;
 		tweenVolume.to = targetVolume;
 		return tweenVolume;
 	}
 
-	// Token: 0x0400274D RID: 10061
+	// Token: 0x04002987 RID: 10631
 	public float from;
 
-	// Token: 0x0400274E RID: 10062
+	// Token: 0x04002988 RID: 10632
 	public float to = 1f;
 
-	// Token: 0x0400274F RID: 10063
+	// Token: 0x04002989 RID: 10633
 	private AudioSource mSource;
 }

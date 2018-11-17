@@ -2,13 +2,13 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x0200068F RID: 1679
+// Token: 0x02000754 RID: 1876
 public static class TerrainHack
 {
-	// Token: 0x06003A1A RID: 14874 RVA: 0x000D84A4 File Offset: 0x000D66A4
+	// Token: 0x06003E12 RID: 15890 RVA: 0x000E0E84 File Offset: 0x000DF084
 	static TerrainHack()
 	{
-		if (TerrainHack.OnTerrainChanged != null)
+		if (global::TerrainHack.OnTerrainChanged != null)
 		{
 			Type type = Type.GetType("UnityEngine.TerrainChangedFlags, UnityEngine", false, false);
 			if (type != null)
@@ -31,8 +31,8 @@ public static class TerrainHack
 						return;
 					}
 				}
-				TerrainHack.AbleToLocateOnTerrainChanged = true;
-				TerrainHack.TriggerTreeChangeValues = new object[]
+				global::TerrainHack.AbleToLocateOnTerrainChanged = true;
+				global::TerrainHack.TriggerTreeChangeValues = new object[]
 				{
 					obj
 				};
@@ -48,34 +48,34 @@ public static class TerrainHack
 		}
 	}
 
-	// Token: 0x06003A1B RID: 14875 RVA: 0x000D858C File Offset: 0x000D678C
+	// Token: 0x06003E13 RID: 15891 RVA: 0x000E0F6C File Offset: 0x000DF16C
 	public static void RefreshTreeTextures(Terrain terrain)
 	{
 		if (!terrain)
 		{
 			throw new NullReferenceException();
 		}
-		if (!TerrainHack.RanOnce)
+		if (!global::TerrainHack.RanOnce)
 		{
-			TerrainHack.RanOnce = true;
-			if (TerrainHack.AbleToLocateOnTerrainChanged)
+			global::TerrainHack.RanOnce = true;
+			if (global::TerrainHack.AbleToLocateOnTerrainChanged)
 			{
 				try
 				{
-					TerrainHack.OnTerrainChanged.Invoke(terrain, TerrainHack.TriggerTreeChangeValues);
-					TerrainHack.Working = true;
+					global::TerrainHack.OnTerrainChanged.Invoke(terrain, global::TerrainHack.TriggerTreeChangeValues);
+					global::TerrainHack.Working = true;
 					return;
 				}
 				catch (Exception ex)
 				{
 					Debug.LogException(ex);
-					TerrainHack.Working = false;
+					global::TerrainHack.Working = false;
 				}
 			}
 		}
-		if (TerrainHack.Working)
+		if (global::TerrainHack.Working)
 		{
-			TerrainHack.OnTerrainChanged.Invoke(terrain, TerrainHack.TriggerTreeChangeValues);
+			global::TerrainHack.OnTerrainChanged.Invoke(terrain, global::TerrainHack.TriggerTreeChangeValues);
 		}
 		else
 		{
@@ -83,18 +83,18 @@ public static class TerrainHack
 		}
 	}
 
-	// Token: 0x04001E3B RID: 7739
+	// Token: 0x04002033 RID: 8243
 	private static readonly bool AbleToLocateOnTerrainChanged;
 
-	// Token: 0x04001E3C RID: 7740
+	// Token: 0x04002034 RID: 8244
 	private static readonly object[] TriggerTreeChangeValues;
 
-	// Token: 0x04001E3D RID: 7741
+	// Token: 0x04002035 RID: 8245
 	private static bool RanOnce;
 
-	// Token: 0x04001E3E RID: 7742
+	// Token: 0x04002036 RID: 8246
 	private static bool Working;
 
-	// Token: 0x04001E3F RID: 7743
+	// Token: 0x04002037 RID: 8247
 	private static MethodInfo OnTerrainChanged = typeof(Terrain).GetMethod("OnTerrainChanged", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 }

@@ -3,12 +3,12 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000487 RID: 1159
-[InterfaceDriverComponent(typeof(IContextRequestable), "_implementation", "implementation", SearchRoute = InterfaceSearchRoute.GameObject, UnityType = typeof(MonoBehaviour), AlwaysSaveDisabled = true)]
-public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IContextRequestable, MonoBehaviour, Contextual>
+// Token: 0x02000542 RID: 1346
+[global::InterfaceDriverComponent(typeof(global::IContextRequestable), "_implementation", "implementation", SearchRoute = global::InterfaceSearchRoute.GameObject, UnityType = typeof(MonoBehaviour), AlwaysSaveDisabled = true)]
+public sealed class Contextual : MonoBehaviour, global::IComponentInterfaceDriver<global::IContextRequestable, MonoBehaviour, global::Contextual>
 {
-	// Token: 0x17000950 RID: 2384
-	// (get) Token: 0x06002942 RID: 10562 RVA: 0x000A1F10 File Offset: 0x000A0110
+	// Token: 0x170009C0 RID: 2496
+	// (get) Token: 0x06002CF4 RID: 11508 RVA: 0x000A830C File Offset: 0x000A650C
 	public bool isSoleAccess
 	{
 		get
@@ -21,15 +21,15 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 			}
 			else
 			{
-				bool? flag = this._isSoleAccess = new bool?(this.@interface is IContextRequestableSoleAccess);
+				bool? flag = this._isSoleAccess = new bool?(this.@interface is global::IContextRequestableSoleAccess);
 				value = flag.Value;
 			}
 			return value;
 		}
 	}
 
-	// Token: 0x17000951 RID: 2385
-	// (get) Token: 0x06002943 RID: 10563 RVA: 0x000A1F60 File Offset: 0x000A0160
+	// Token: 0x170009C1 RID: 2497
+	// (get) Token: 0x06002CF5 RID: 11509 RVA: 0x000A835C File Offset: 0x000A655C
 	public bool isMenu
 	{
 		get
@@ -42,15 +42,15 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 			}
 			else
 			{
-				bool? flag = this._isMenu = new bool?(this.@interface is IContextRequestableMenu);
+				bool? flag = this._isMenu = new bool?(this.@interface is global::IContextRequestableMenu);
 				value = flag.Value;
 			}
 			return value;
 		}
 	}
 
-	// Token: 0x17000952 RID: 2386
-	// (get) Token: 0x06002944 RID: 10564 RVA: 0x000A1FB0 File Offset: 0x000A01B0
+	// Token: 0x170009C2 RID: 2498
+	// (get) Token: 0x06002CF6 RID: 11510 RVA: 0x000A83AC File Offset: 0x000A65AC
 	public bool isQuick
 	{
 		get
@@ -63,29 +63,29 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 			}
 			else
 			{
-				bool? flag = this._isQuick = new bool?(this.@interface is IContextRequestableQuick);
+				bool? flag = this._isQuick = new bool?(this.@interface is global::IContextRequestableQuick);
 				value = flag.Value;
 			}
 			return value;
 		}
 	}
 
-	// Token: 0x06002945 RID: 10565 RVA: 0x000A2000 File Offset: 0x000A0200
-	public bool AsMenu(out IContextRequestableMenu menu)
+	// Token: 0x06002CF7 RID: 11511 RVA: 0x000A83FC File Offset: 0x000A65FC
+	public bool AsMenu(out global::IContextRequestableMenu menu)
 	{
 		if (this.isMenu)
 		{
-			menu = (this.@interface as IContextRequestableMenu);
+			menu = (this.@interface as global::IContextRequestableMenu);
 			return this.implementor;
 		}
 		menu = null;
 		return false;
 	}
 
-	// Token: 0x06002946 RID: 10566 RVA: 0x000A2038 File Offset: 0x000A0238
-	public bool AsMenu<IContextRequestableMenuType>(out IContextRequestableMenuType menu) where IContextRequestableMenuType : class, IContextRequestableMenu
+	// Token: 0x06002CF8 RID: 11512 RVA: 0x000A8434 File Offset: 0x000A6634
+	public bool AsMenu<IContextRequestableMenuType>(out IContextRequestableMenuType menu) where IContextRequestableMenuType : class, global::IContextRequestableMenu
 	{
-		IContextRequestableMenu contextRequestableMenu;
+		global::IContextRequestableMenu contextRequestableMenu;
 		if (this.AsMenu(out contextRequestableMenu))
 		{
 			return !object.ReferenceEquals(menu = (contextRequestableMenu as IContextRequestableMenuType), null);
@@ -94,22 +94,22 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		return false;
 	}
 
-	// Token: 0x06002947 RID: 10567 RVA: 0x000A2084 File Offset: 0x000A0284
-	public bool AsQuick(out IContextRequestableQuick quick)
+	// Token: 0x06002CF9 RID: 11513 RVA: 0x000A8480 File Offset: 0x000A6680
+	public bool AsQuick(out global::IContextRequestableQuick quick)
 	{
 		if (this.isQuick)
 		{
-			quick = (this.@interface as IContextRequestableQuick);
+			quick = (this.@interface as global::IContextRequestableQuick);
 			return this.implementor;
 		}
 		quick = null;
 		return false;
 	}
 
-	// Token: 0x06002948 RID: 10568 RVA: 0x000A20BC File Offset: 0x000A02BC
-	public bool AsQuick<IContextRequestableQuickType>(out IContextRequestableQuickType quick) where IContextRequestableQuickType : class, IContextRequestableQuick
+	// Token: 0x06002CFA RID: 11514 RVA: 0x000A84B8 File Offset: 0x000A66B8
+	public bool AsQuick<IContextRequestableQuickType>(out IContextRequestableQuickType quick) where IContextRequestableQuickType : class, global::IContextRequestableQuick
 	{
-		IContextRequestableQuick contextRequestableQuick;
+		global::IContextRequestableQuick contextRequestableQuick;
 		if (this.AsQuick(out contextRequestableQuick))
 		{
 			return !object.ReferenceEquals(quick = (contextRequestableQuick as IContextRequestableQuickType), null);
@@ -118,8 +118,8 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		return false;
 	}
 
-	// Token: 0x17000953 RID: 2387
-	// (get) Token: 0x06002949 RID: 10569 RVA: 0x000A2108 File Offset: 0x000A0308
+	// Token: 0x170009C3 RID: 2499
+	// (get) Token: 0x06002CFB RID: 11515 RVA: 0x000A8504 File Offset: 0x000A6704
 	public MonoBehaviour implementor
 	{
 		get
@@ -139,9 +139,9 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		}
 	}
 
-	// Token: 0x17000954 RID: 2388
-	// (get) Token: 0x0600294A RID: 10570 RVA: 0x000A2158 File Offset: 0x000A0358
-	public IContextRequestable @interface
+	// Token: 0x170009C4 RID: 2500
+	// (get) Token: 0x06002CFC RID: 11516 RVA: 0x000A8554 File Offset: 0x000A6754
+	public global::IContextRequestable @interface
 	{
 		get
 		{
@@ -160,8 +160,8 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		}
 	}
 
-	// Token: 0x17000955 RID: 2389
-	// (get) Token: 0x0600294B RID: 10571 RVA: 0x000A21A8 File Offset: 0x000A03A8
+	// Token: 0x170009C5 RID: 2501
+	// (get) Token: 0x06002CFD RID: 11517 RVA: 0x000A85A4 File Offset: 0x000A67A4
 	public bool exists
 	{
 		get
@@ -181,9 +181,9 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		}
 	}
 
-	// Token: 0x17000956 RID: 2390
-	// (get) Token: 0x0600294C RID: 10572 RVA: 0x000A2214 File Offset: 0x000A0414
-	public Contextual driver
+	// Token: 0x170009C6 RID: 2502
+	// (get) Token: 0x06002CFE RID: 11518 RVA: 0x000A8610 File Offset: 0x000A6810
+	public global::Contextual driver
 	{
 		get
 		{
@@ -191,12 +191,12 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		}
 	}
 
-	// Token: 0x0600294D RID: 10573 RVA: 0x000A2218 File Offset: 0x000A0418
+	// Token: 0x06002CFF RID: 11519 RVA: 0x000A8614 File Offset: 0x000A6814
 	private void Refresh()
 	{
 		this.implementation = this._implementation;
 		this._implementation = null;
-		this._requestable = (this.implementation as IContextRequestable);
+		this._requestable = (this.implementation as global::IContextRequestable);
 		this._implemented = (this._requestable != null);
 		if (!this._implemented)
 		{
@@ -204,13 +204,13 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		}
 	}
 
-	// Token: 0x0600294E RID: 10574 RVA: 0x000A2274 File Offset: 0x000A0474
-	public static bool FindUp(Transform transform, out Contextual contextual)
+	// Token: 0x06002D00 RID: 11520 RVA: 0x000A8670 File Offset: 0x000A6870
+	public static bool FindUp(Transform transform, out global::Contextual contextual)
 	{
 		while (transform)
 		{
-			Contextual component;
-			contextual = (component = transform.GetComponent<Contextual>());
+			global::Contextual component;
+			contextual = (component = transform.GetComponent<global::Contextual>());
 			if (component)
 			{
 				return true;
@@ -221,13 +221,13 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		return false;
 	}
 
-	// Token: 0x0600294F RID: 10575 RVA: 0x000A22B4 File Offset: 0x000A04B4
-	private static bool GetMB(MonoBehaviour networkView, out Contextual contextual)
+	// Token: 0x06002D01 RID: 11521 RVA: 0x000A86B0 File Offset: 0x000A68B0
+	private static bool GetMB(MonoBehaviour networkView, out global::Contextual contextual)
 	{
 		if (networkView)
 		{
-			Contextual component;
-			contextual = (component = networkView.GetComponent<Contextual>());
+			global::Contextual component;
+			contextual = (component = networkView.GetComponent<global::Contextual>());
 			if (component)
 			{
 				return contextual.exists;
@@ -237,83 +237,83 @@ public sealed class Contextual : MonoBehaviour, IComponentInterfaceDriver<IConte
 		return false;
 	}
 
-	// Token: 0x06002950 RID: 10576 RVA: 0x000A22F0 File Offset: 0x000A04F0
-	public static bool ContextOf(NetworkView networkView, out Contextual contextual)
+	// Token: 0x06002D02 RID: 11522 RVA: 0x000A86EC File Offset: 0x000A68EC
+	public static bool ContextOf(Facepunch.NetworkView networkView, out global::Contextual contextual)
 	{
-		return Contextual.GetMB(networkView, out contextual);
+		return global::Contextual.GetMB(networkView, out contextual);
 	}
 
-	// Token: 0x06002951 RID: 10577 RVA: 0x000A22FC File Offset: 0x000A04FC
-	public static bool ContextOf(NGCView networkView, out Contextual contextual)
+	// Token: 0x06002D03 RID: 11523 RVA: 0x000A86F8 File Offset: 0x000A68F8
+	public static bool ContextOf(global::NGCView networkView, out global::Contextual contextual)
 	{
-		return Contextual.GetMB(networkView, out contextual);
+		return global::Contextual.GetMB(networkView, out contextual);
 	}
 
-	// Token: 0x06002952 RID: 10578 RVA: 0x000A2308 File Offset: 0x000A0508
-	public static bool ContextOf(NetworkViewID networkViewID, out Contextual contextual)
+	// Token: 0x06002D04 RID: 11524 RVA: 0x000A8704 File Offset: 0x000A6904
+	public static bool ContextOf(uLink.NetworkViewID networkViewID, out global::Contextual contextual)
 	{
-		return Contextual.GetMB(NetworkView.Find(networkViewID), out contextual);
+		return global::Contextual.GetMB(Facepunch.NetworkView.Find(networkViewID), out contextual);
 	}
 
-	// Token: 0x06002953 RID: 10579 RVA: 0x000A2318 File Offset: 0x000A0518
-	public static bool ContextOf(NetEntityID entityID, out Contextual contextual)
+	// Token: 0x06002D05 RID: 11525 RVA: 0x000A8714 File Offset: 0x000A6914
+	public static bool ContextOf(global::NetEntityID entityID, out global::Contextual contextual)
 	{
-		return Contextual.GetMB(entityID.view, out contextual);
+		return global::Contextual.GetMB(entityID.view, out contextual);
 	}
 
-	// Token: 0x06002954 RID: 10580 RVA: 0x000A2328 File Offset: 0x000A0528
-	public static bool ContextOf(GameObject gameObject, out Contextual contextual)
+	// Token: 0x06002D06 RID: 11526 RVA: 0x000A8724 File Offset: 0x000A6924
+	public static bool ContextOf(GameObject gameObject, out global::Contextual contextual)
 	{
 		MonoBehaviour networkView;
-		if ((int)NetEntityID.Of(gameObject, out networkView) == 0)
+		if ((int)global::NetEntityID.Of(gameObject, out networkView) == 0)
 		{
 			contextual = null;
 			return false;
 		}
-		return Contextual.GetMB(networkView, out contextual);
+		return global::Contextual.GetMB(networkView, out contextual);
 	}
 
-	// Token: 0x06002955 RID: 10581 RVA: 0x000A2350 File Offset: 0x000A0550
-	public static bool ContextOf(Component component, out Contextual contextual)
+	// Token: 0x06002D07 RID: 11527 RVA: 0x000A874C File Offset: 0x000A694C
+	public static bool ContextOf(Component component, out global::Contextual contextual)
 	{
 		MonoBehaviour networkView;
-		if ((int)NetEntityID.Of(component, out networkView) == 0)
+		if ((int)global::NetEntityID.Of(component, out networkView) == 0)
 		{
 			contextual = null;
 			return false;
 		}
-		return Contextual.GetMB(networkView, out contextual);
+		return global::Contextual.GetMB(networkView, out contextual);
 	}
 
-	// Token: 0x04001538 RID: 5432
+	// Token: 0x040016CE RID: 5838
 	[SerializeField]
 	private MonoBehaviour _implementation;
 
-	// Token: 0x04001539 RID: 5433
+	// Token: 0x040016CF RID: 5839
 	[NonSerialized]
 	private MonoBehaviour implementation;
 
-	// Token: 0x0400153A RID: 5434
+	// Token: 0x040016D0 RID: 5840
 	[NonSerialized]
-	private IContextRequestable _requestable;
+	private global::IContextRequestable _requestable;
 
-	// Token: 0x0400153B RID: 5435
+	// Token: 0x040016D1 RID: 5841
 	[NonSerialized]
 	private bool _implemented;
 
-	// Token: 0x0400153C RID: 5436
+	// Token: 0x040016D2 RID: 5842
 	[NonSerialized]
 	private bool _awoke;
 
-	// Token: 0x0400153D RID: 5437
+	// Token: 0x040016D3 RID: 5843
 	[NonSerialized]
 	private bool? _isSoleAccess;
 
-	// Token: 0x0400153E RID: 5438
+	// Token: 0x040016D4 RID: 5844
 	[NonSerialized]
 	private bool? _isMenu;
 
-	// Token: 0x0400153F RID: 5439
+	// Token: 0x040016D5 RID: 5845
 	[NonSerialized]
 	private bool? _isQuick;
 }

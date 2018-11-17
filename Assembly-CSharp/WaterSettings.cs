@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200042C RID: 1068
+// Token: 0x020004E2 RID: 1250
 public class WaterSettings : MonoBehaviour
 {
-	// Token: 0x0600279A RID: 10138 RVA: 0x0009AA74 File Offset: 0x00098C74
+	// Token: 0x06002B2A RID: 11050 RVA: 0x000A09F4 File Offset: 0x0009EBF4
 	private void Start()
 	{
-		GameEvent.QualitySettingsRefresh += this.RefreshSettings;
+		global::GameEvent.QualitySettingsRefresh += this.RefreshSettings;
 		this.RefreshSettings();
 	}
 
-	// Token: 0x0600279B RID: 10139 RVA: 0x0009AA90 File Offset: 0x00098C90
+	// Token: 0x06002B2B RID: 11051 RVA: 0x000A0A10 File Offset: 0x0009EC10
 	private void OnDestroy()
 	{
-		GameEvent.QualitySettingsRefresh -= this.RefreshSettings;
+		global::GameEvent.QualitySettingsRefresh -= this.RefreshSettings;
 	}
 
-	// Token: 0x0600279C RID: 10140 RVA: 0x0009AAA4 File Offset: 0x00098CA4
+	// Token: 0x06002B2C RID: 11052 RVA: 0x000A0A24 File Offset: 0x0009EC24
 	protected void RefreshSettings()
 	{
 		WaterBase component = base.GetComponent<WaterBase>();
@@ -26,12 +26,12 @@ public class WaterSettings : MonoBehaviour
 		{
 			return;
 		}
-		if (render.level > 0.8f)
+		if (global::render.level > 0.8f)
 		{
 			component.waterQuality = 2;
 			component.edgeBlend = true;
 		}
-		else if (render.level > 0.5f)
+		else if (global::render.level > 0.5f)
 		{
 			component.waterQuality = 1;
 			component.edgeBlend = false;
@@ -41,15 +41,15 @@ public class WaterSettings : MonoBehaviour
 			component.waterQuality = 0;
 			component.edgeBlend = false;
 		}
-		if (water.level != -1)
+		if (global::water.level != -1)
 		{
-			component.waterQuality = Mathf.Clamp(water.level - 1, 0, 2);
-			component.edgeBlend = (water.level == 2);
+			component.waterQuality = Mathf.Clamp(global::water.level - 1, 0, 2);
+			component.edgeBlend = (global::water.level == 2);
 		}
 		if (component2)
 		{
 			component2.reflectionMask = 13111296;
-			if (!water.reflection)
+			if (!global::water.reflection)
 			{
 				component2.reflectionMask = 8388608;
 			}

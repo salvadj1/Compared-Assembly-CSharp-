@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000812 RID: 2066
+// Token: 0x02000904 RID: 2308
 [AddComponentMenu("Terrain/Terrain Toolkit")]
 [ExecuteInEditMode]
 public class TerrainToolkit : MonoBehaviour
 {
-	// Token: 0x06004A14 RID: 18964 RVA: 0x0013CDF8 File Offset: 0x0013AFF8
+	// Token: 0x06004EC3 RID: 20163 RVA: 0x00146D5C File Offset: 0x00144F5C
 	public void addPresets()
 	{
 		this.presetsInitialised = true;
@@ -21,47 +21,47 @@ public class TerrainToolkit : MonoBehaviour
 		this.velocityHydraulicErosionPresets = new ArrayList();
 		this.tidalErosionPresets = new ArrayList();
 		this.windErosionPresets = new ArrayList();
-		this.voronoiPresets.Add(new TerrainToolkit.voronoiPresetData("Scattered Peaks", TerrainToolkit.VoronoiType.Linear, 16, 8f, 0.5f, 1f));
-		this.voronoiPresets.Add(new TerrainToolkit.voronoiPresetData("Rolling Hills", TerrainToolkit.VoronoiType.Sine, 8, 8f, 0f, 1f));
-		this.voronoiPresets.Add(new TerrainToolkit.voronoiPresetData("Jagged Mountains", TerrainToolkit.VoronoiType.Linear, 32, 32f, 0.5f, 1f));
-		this.fractalPresets.Add(new TerrainToolkit.fractalPresetData("Rolling Plains", 0.4f, 1f));
-		this.fractalPresets.Add(new TerrainToolkit.fractalPresetData("Rough Mountains", 0.5f, 1f));
-		this.fractalPresets.Add(new TerrainToolkit.fractalPresetData("Add Noise", 0.75f, 0.05f));
-		this.perlinPresets.Add(new TerrainToolkit.perlinPresetData("Rough Plains", 2, 0.5f, 9, 1f));
-		this.perlinPresets.Add(new TerrainToolkit.perlinPresetData("Rolling Hills", 5, 0.75f, 3, 1f));
-		this.perlinPresets.Add(new TerrainToolkit.perlinPresetData("Rocky Mountains", 4, 1f, 8, 1f));
-		this.perlinPresets.Add(new TerrainToolkit.perlinPresetData("Hellish Landscape", 11, 1f, 7, 1f));
-		this.perlinPresets.Add(new TerrainToolkit.perlinPresetData("Add Noise", 10, 1f, 8, 0.2f));
-		this.thermalErosionPresets.Add(new TerrainToolkit.thermalErosionPresetData("Gradual, Weak Erosion", 25, 7.5f, 0.5f));
-		this.thermalErosionPresets.Add(new TerrainToolkit.thermalErosionPresetData("Fast, Harsh Erosion", 25, 2.5f, 0.1f));
-		this.thermalErosionPresets.Add(new TerrainToolkit.thermalErosionPresetData("Thermal Erosion Brush", 25, 0.1f, 0f));
-		this.fastHydraulicErosionPresets.Add(new TerrainToolkit.fastHydraulicErosionPresetData("Rainswept Earth", 25, 70f, 1f));
-		this.fastHydraulicErosionPresets.Add(new TerrainToolkit.fastHydraulicErosionPresetData("Terraced Slopes", 25, 30f, 0.4f));
-		this.fastHydraulicErosionPresets.Add(new TerrainToolkit.fastHydraulicErosionPresetData("Hydraulic Erosion Brush", 25, 85f, 1f));
-		this.fullHydraulicErosionPresets.Add(new TerrainToolkit.fullHydraulicErosionPresetData("Low Rainfall, Hard Rock", 25, 0.01f, 0.5f, 0.01f, 0.1f));
-		this.fullHydraulicErosionPresets.Add(new TerrainToolkit.fullHydraulicErosionPresetData("Low Rainfall, Soft Earth", 25, 0.01f, 0.5f, 0.06f, 0.15f));
-		this.fullHydraulicErosionPresets.Add(new TerrainToolkit.fullHydraulicErosionPresetData("Heavy Rainfall, Hard Rock", 25, 0.02f, 0.5f, 0.01f, 0.1f));
-		this.fullHydraulicErosionPresets.Add(new TerrainToolkit.fullHydraulicErosionPresetData("Heavy Rainfall, Soft Earth", 25, 0.02f, 0.5f, 0.06f, 0.15f));
-		this.velocityHydraulicErosionPresets.Add(new TerrainToolkit.velocityHydraulicErosionPresetData("Low Rainfall, Hard Rock", 25, 0.01f, 0.5f, 0.01f, 0.1f, 1f, 1f, 0.05f, 0.12f));
-		this.velocityHydraulicErosionPresets.Add(new TerrainToolkit.velocityHydraulicErosionPresetData("Low Rainfall, Soft Earth", 25, 0.01f, 0.5f, 0.06f, 0.15f, 1.2f, 2.8f, 0.05f, 0.12f));
-		this.velocityHydraulicErosionPresets.Add(new TerrainToolkit.velocityHydraulicErosionPresetData("Heavy Rainfall, Hard Rock", 25, 0.02f, 0.5f, 0.01f, 0.1f, 1.1f, 2.2f, 0.05f, 0.12f));
-		this.velocityHydraulicErosionPresets.Add(new TerrainToolkit.velocityHydraulicErosionPresetData("Heavy Rainfall, Soft Earth", 25, 0.02f, 0.5f, 0.06f, 0.15f, 1.2f, 2.4f, 0.05f, 0.12f));
-		this.velocityHydraulicErosionPresets.Add(new TerrainToolkit.velocityHydraulicErosionPresetData("Carved Stone", 25, 0.01f, 0.5f, 0.01f, 0.1f, 2f, 1.25f, 0.05f, 0.35f));
-		this.tidalErosionPresets.Add(new TerrainToolkit.tidalErosionPresetData("Low Tidal Range, Calm Waves", 25, 5f, 65f));
-		this.tidalErosionPresets.Add(new TerrainToolkit.tidalErosionPresetData("Low Tidal Range, Strong Waves", 25, 5f, 35f));
-		this.tidalErosionPresets.Add(new TerrainToolkit.tidalErosionPresetData("High Tidal Range, Calm Water", 25, 15f, 55f));
-		this.tidalErosionPresets.Add(new TerrainToolkit.tidalErosionPresetData("High Tidal Range, Strong Waves", 25, 15f, 25f));
-		this.windErosionPresets.Add(new TerrainToolkit.windErosionPresetData("Default (Northerly)", 25, 180f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
-		this.windErosionPresets.Add(new TerrainToolkit.windErosionPresetData("Default (Southerly)", 25, 0f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
-		this.windErosionPresets.Add(new TerrainToolkit.windErosionPresetData("Default (Easterly)", 25, 270f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
-		this.windErosionPresets.Add(new TerrainToolkit.windErosionPresetData("Default (Westerly)", 25, 90f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
+		this.voronoiPresets.Add(new global::TerrainToolkit.voronoiPresetData("Scattered Peaks", global::TerrainToolkit.VoronoiType.Linear, 16, 8f, 0.5f, 1f));
+		this.voronoiPresets.Add(new global::TerrainToolkit.voronoiPresetData("Rolling Hills", global::TerrainToolkit.VoronoiType.Sine, 8, 8f, 0f, 1f));
+		this.voronoiPresets.Add(new global::TerrainToolkit.voronoiPresetData("Jagged Mountains", global::TerrainToolkit.VoronoiType.Linear, 32, 32f, 0.5f, 1f));
+		this.fractalPresets.Add(new global::TerrainToolkit.fractalPresetData("Rolling Plains", 0.4f, 1f));
+		this.fractalPresets.Add(new global::TerrainToolkit.fractalPresetData("Rough Mountains", 0.5f, 1f));
+		this.fractalPresets.Add(new global::TerrainToolkit.fractalPresetData("Add Noise", 0.75f, 0.05f));
+		this.perlinPresets.Add(new global::TerrainToolkit.perlinPresetData("Rough Plains", 2, 0.5f, 9, 1f));
+		this.perlinPresets.Add(new global::TerrainToolkit.perlinPresetData("Rolling Hills", 5, 0.75f, 3, 1f));
+		this.perlinPresets.Add(new global::TerrainToolkit.perlinPresetData("Rocky Mountains", 4, 1f, 8, 1f));
+		this.perlinPresets.Add(new global::TerrainToolkit.perlinPresetData("Hellish Landscape", 11, 1f, 7, 1f));
+		this.perlinPresets.Add(new global::TerrainToolkit.perlinPresetData("Add Noise", 10, 1f, 8, 0.2f));
+		this.thermalErosionPresets.Add(new global::TerrainToolkit.thermalErosionPresetData("Gradual, Weak Erosion", 25, 7.5f, 0.5f));
+		this.thermalErosionPresets.Add(new global::TerrainToolkit.thermalErosionPresetData("Fast, Harsh Erosion", 25, 2.5f, 0.1f));
+		this.thermalErosionPresets.Add(new global::TerrainToolkit.thermalErosionPresetData("Thermal Erosion Brush", 25, 0.1f, 0f));
+		this.fastHydraulicErosionPresets.Add(new global::TerrainToolkit.fastHydraulicErosionPresetData("Rainswept Earth", 25, 70f, 1f));
+		this.fastHydraulicErosionPresets.Add(new global::TerrainToolkit.fastHydraulicErosionPresetData("Terraced Slopes", 25, 30f, 0.4f));
+		this.fastHydraulicErosionPresets.Add(new global::TerrainToolkit.fastHydraulicErosionPresetData("Hydraulic Erosion Brush", 25, 85f, 1f));
+		this.fullHydraulicErosionPresets.Add(new global::TerrainToolkit.fullHydraulicErosionPresetData("Low Rainfall, Hard Rock", 25, 0.01f, 0.5f, 0.01f, 0.1f));
+		this.fullHydraulicErosionPresets.Add(new global::TerrainToolkit.fullHydraulicErosionPresetData("Low Rainfall, Soft Earth", 25, 0.01f, 0.5f, 0.06f, 0.15f));
+		this.fullHydraulicErosionPresets.Add(new global::TerrainToolkit.fullHydraulicErosionPresetData("Heavy Rainfall, Hard Rock", 25, 0.02f, 0.5f, 0.01f, 0.1f));
+		this.fullHydraulicErosionPresets.Add(new global::TerrainToolkit.fullHydraulicErosionPresetData("Heavy Rainfall, Soft Earth", 25, 0.02f, 0.5f, 0.06f, 0.15f));
+		this.velocityHydraulicErosionPresets.Add(new global::TerrainToolkit.velocityHydraulicErosionPresetData("Low Rainfall, Hard Rock", 25, 0.01f, 0.5f, 0.01f, 0.1f, 1f, 1f, 0.05f, 0.12f));
+		this.velocityHydraulicErosionPresets.Add(new global::TerrainToolkit.velocityHydraulicErosionPresetData("Low Rainfall, Soft Earth", 25, 0.01f, 0.5f, 0.06f, 0.15f, 1.2f, 2.8f, 0.05f, 0.12f));
+		this.velocityHydraulicErosionPresets.Add(new global::TerrainToolkit.velocityHydraulicErosionPresetData("Heavy Rainfall, Hard Rock", 25, 0.02f, 0.5f, 0.01f, 0.1f, 1.1f, 2.2f, 0.05f, 0.12f));
+		this.velocityHydraulicErosionPresets.Add(new global::TerrainToolkit.velocityHydraulicErosionPresetData("Heavy Rainfall, Soft Earth", 25, 0.02f, 0.5f, 0.06f, 0.15f, 1.2f, 2.4f, 0.05f, 0.12f));
+		this.velocityHydraulicErosionPresets.Add(new global::TerrainToolkit.velocityHydraulicErosionPresetData("Carved Stone", 25, 0.01f, 0.5f, 0.01f, 0.1f, 2f, 1.25f, 0.05f, 0.35f));
+		this.tidalErosionPresets.Add(new global::TerrainToolkit.tidalErosionPresetData("Low Tidal Range, Calm Waves", 25, 5f, 65f));
+		this.tidalErosionPresets.Add(new global::TerrainToolkit.tidalErosionPresetData("Low Tidal Range, Strong Waves", 25, 5f, 35f));
+		this.tidalErosionPresets.Add(new global::TerrainToolkit.tidalErosionPresetData("High Tidal Range, Calm Water", 25, 15f, 55f));
+		this.tidalErosionPresets.Add(new global::TerrainToolkit.tidalErosionPresetData("High Tidal Range, Strong Waves", 25, 15f, 25f));
+		this.windErosionPresets.Add(new global::TerrainToolkit.windErosionPresetData("Default (Northerly)", 25, 180f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
+		this.windErosionPresets.Add(new global::TerrainToolkit.windErosionPresetData("Default (Southerly)", 25, 0f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
+		this.windErosionPresets.Add(new global::TerrainToolkit.windErosionPresetData("Default (Easterly)", 25, 270f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
+		this.windErosionPresets.Add(new global::TerrainToolkit.windErosionPresetData("Default (Westerly)", 25, 90f, 0.5f, 0.01f, 0.5f, 0.01f, 0.1f, 0.25f));
 	}
 
-	// Token: 0x06004A15 RID: 18965 RVA: 0x0013D424 File Offset: 0x0013B624
-	public void setVoronoiPreset(TerrainToolkit.voronoiPresetData preset)
+	// Token: 0x06004EC4 RID: 20164 RVA: 0x00147388 File Offset: 0x00145588
+	public void setVoronoiPreset(global::TerrainToolkit.voronoiPresetData preset)
 	{
 		this.generatorTypeInt = 0;
-		this.generatorType = TerrainToolkit.GeneratorType.Voronoi;
+		this.generatorType = global::TerrainToolkit.GeneratorType.Voronoi;
 		this.voronoiTypeInt = (int)preset.voronoiType;
 		this.voronoiType = preset.voronoiType;
 		this.voronoiCells = preset.voronoiCells;
@@ -70,55 +70,55 @@ public class TerrainToolkit : MonoBehaviour
 		this.voronoiBlend = preset.voronoiBlend;
 	}
 
-	// Token: 0x06004A16 RID: 18966 RVA: 0x0013D488 File Offset: 0x0013B688
-	public void setFractalPreset(TerrainToolkit.fractalPresetData preset)
+	// Token: 0x06004EC5 RID: 20165 RVA: 0x001473EC File Offset: 0x001455EC
+	public void setFractalPreset(global::TerrainToolkit.fractalPresetData preset)
 	{
 		this.generatorTypeInt = 1;
-		this.generatorType = TerrainToolkit.GeneratorType.DiamondSquare;
+		this.generatorType = global::TerrainToolkit.GeneratorType.DiamondSquare;
 		this.diamondSquareDelta = preset.diamondSquareDelta;
 		this.diamondSquareBlend = preset.diamondSquareBlend;
 	}
 
-	// Token: 0x06004A17 RID: 18967 RVA: 0x0013D4BC File Offset: 0x0013B6BC
-	public void setPerlinPreset(TerrainToolkit.perlinPresetData preset)
+	// Token: 0x06004EC6 RID: 20166 RVA: 0x00147420 File Offset: 0x00145620
+	public void setPerlinPreset(global::TerrainToolkit.perlinPresetData preset)
 	{
 		this.generatorTypeInt = 2;
-		this.generatorType = TerrainToolkit.GeneratorType.Perlin;
+		this.generatorType = global::TerrainToolkit.GeneratorType.Perlin;
 		this.perlinFrequency = preset.perlinFrequency;
 		this.perlinAmplitude = preset.perlinAmplitude;
 		this.perlinOctaves = preset.perlinOctaves;
 		this.perlinBlend = preset.perlinBlend;
 	}
 
-	// Token: 0x06004A18 RID: 18968 RVA: 0x0013D508 File Offset: 0x0013B708
-	public void setThermalErosionPreset(TerrainToolkit.thermalErosionPresetData preset)
+	// Token: 0x06004EC7 RID: 20167 RVA: 0x0014746C File Offset: 0x0014566C
+	public void setThermalErosionPreset(global::TerrainToolkit.thermalErosionPresetData preset)
 	{
 		this.erosionTypeInt = 0;
-		this.erosionType = TerrainToolkit.ErosionType.Thermal;
+		this.erosionType = global::TerrainToolkit.ErosionType.Thermal;
 		this.thermalIterations = preset.thermalIterations;
 		this.thermalMinSlope = preset.thermalMinSlope;
 		this.thermalFalloff = preset.thermalFalloff;
 	}
 
-	// Token: 0x06004A19 RID: 18969 RVA: 0x0013D548 File Offset: 0x0013B748
-	public void setFastHydraulicErosionPreset(TerrainToolkit.fastHydraulicErosionPresetData preset)
+	// Token: 0x06004EC8 RID: 20168 RVA: 0x001474AC File Offset: 0x001456AC
+	public void setFastHydraulicErosionPreset(global::TerrainToolkit.fastHydraulicErosionPresetData preset)
 	{
 		this.erosionTypeInt = 1;
-		this.erosionType = TerrainToolkit.ErosionType.Hydraulic;
+		this.erosionType = global::TerrainToolkit.ErosionType.Hydraulic;
 		this.hydraulicTypeInt = 0;
-		this.hydraulicType = TerrainToolkit.HydraulicType.Fast;
+		this.hydraulicType = global::TerrainToolkit.HydraulicType.Fast;
 		this.hydraulicIterations = preset.hydraulicIterations;
 		this.hydraulicMaxSlope = preset.hydraulicMaxSlope;
 		this.hydraulicFalloff = preset.hydraulicFalloff;
 	}
 
-	// Token: 0x06004A1A RID: 18970 RVA: 0x0013D598 File Offset: 0x0013B798
-	public void setFullHydraulicErosionPreset(TerrainToolkit.fullHydraulicErosionPresetData preset)
+	// Token: 0x06004EC9 RID: 20169 RVA: 0x001474FC File Offset: 0x001456FC
+	public void setFullHydraulicErosionPreset(global::TerrainToolkit.fullHydraulicErosionPresetData preset)
 	{
 		this.erosionTypeInt = 1;
-		this.erosionType = TerrainToolkit.ErosionType.Hydraulic;
+		this.erosionType = global::TerrainToolkit.ErosionType.Hydraulic;
 		this.hydraulicTypeInt = 1;
-		this.hydraulicType = TerrainToolkit.HydraulicType.Full;
+		this.hydraulicType = global::TerrainToolkit.HydraulicType.Full;
 		this.hydraulicIterations = preset.hydraulicIterations;
 		this.hydraulicRainfall = preset.hydraulicRainfall;
 		this.hydraulicEvaporation = preset.hydraulicEvaporation;
@@ -126,13 +126,13 @@ public class TerrainToolkit : MonoBehaviour
 		this.hydraulicSedimentSaturation = preset.hydraulicSedimentSaturation;
 	}
 
-	// Token: 0x06004A1B RID: 18971 RVA: 0x0013D600 File Offset: 0x0013B800
-	public void setVelocityHydraulicErosionPreset(TerrainToolkit.velocityHydraulicErosionPresetData preset)
+	// Token: 0x06004ECA RID: 20170 RVA: 0x00147564 File Offset: 0x00145764
+	public void setVelocityHydraulicErosionPreset(global::TerrainToolkit.velocityHydraulicErosionPresetData preset)
 	{
 		this.erosionTypeInt = 1;
-		this.erosionType = TerrainToolkit.ErosionType.Hydraulic;
+		this.erosionType = global::TerrainToolkit.ErosionType.Hydraulic;
 		this.hydraulicTypeInt = 2;
-		this.hydraulicType = TerrainToolkit.HydraulicType.Velocity;
+		this.hydraulicType = global::TerrainToolkit.HydraulicType.Velocity;
 		this.hydraulicIterations = preset.hydraulicIterations;
 		this.hydraulicVelocityRainfall = preset.hydraulicVelocityRainfall;
 		this.hydraulicVelocityEvaporation = preset.hydraulicVelocityEvaporation;
@@ -144,21 +144,21 @@ public class TerrainToolkit : MonoBehaviour
 		this.hydraulicDowncutting = preset.hydraulicDowncutting;
 	}
 
-	// Token: 0x06004A1C RID: 18972 RVA: 0x0013D698 File Offset: 0x0013B898
-	public void setTidalErosionPreset(TerrainToolkit.tidalErosionPresetData preset)
+	// Token: 0x06004ECB RID: 20171 RVA: 0x001475FC File Offset: 0x001457FC
+	public void setTidalErosionPreset(global::TerrainToolkit.tidalErosionPresetData preset)
 	{
 		this.erosionTypeInt = 2;
-		this.erosionType = TerrainToolkit.ErosionType.Tidal;
+		this.erosionType = global::TerrainToolkit.ErosionType.Tidal;
 		this.tidalIterations = preset.tidalIterations;
 		this.tidalRangeAmount = preset.tidalRangeAmount;
 		this.tidalCliffLimit = preset.tidalCliffLimit;
 	}
 
-	// Token: 0x06004A1D RID: 18973 RVA: 0x0013D6D8 File Offset: 0x0013B8D8
-	public void setWindErosionPreset(TerrainToolkit.windErosionPresetData preset)
+	// Token: 0x06004ECC RID: 20172 RVA: 0x0014763C File Offset: 0x0014583C
+	public void setWindErosionPreset(global::TerrainToolkit.windErosionPresetData preset)
 	{
 		this.erosionTypeInt = 3;
-		this.erosionType = TerrainToolkit.ErosionType.Wind;
+		this.erosionType = global::TerrainToolkit.ErosionType.Wind;
 		this.windIterations = preset.windIterations;
 		this.windDirection = preset.windDirection;
 		this.windForce = preset.windForce;
@@ -169,7 +169,7 @@ public class TerrainToolkit : MonoBehaviour
 		this.windSmoothing = preset.windSmoothing;
 	}
 
-	// Token: 0x06004A1E RID: 18974 RVA: 0x0013D754 File Offset: 0x0013B954
+	// Token: 0x06004ECD RID: 20173 RVA: 0x001476B8 File Offset: 0x001458B8
 	public void Update()
 	{
 		if (this.isBrushOn && (this.toolModeInt != 1 || this.erosionTypeInt > 2 || (this.erosionTypeInt == 1 && this.hydraulicTypeInt > 0)))
@@ -178,7 +178,7 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A1F RID: 18975 RVA: 0x0013D7A4 File Offset: 0x0013B9A4
+	// Token: 0x06004ECE RID: 20174 RVA: 0x00147708 File Offset: 0x00145908
 	public void OnDrawGizmos()
 	{
 		Terrain terrain = (Terrain)base.GetComponent(typeof(Terrain));
@@ -227,17 +227,17 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A20 RID: 18976 RVA: 0x0013DB68 File Offset: 0x0013BD68
+	// Token: 0x06004ECF RID: 20175 RVA: 0x00147ACC File Offset: 0x00145CCC
 	public void paint()
 	{
 		this.convertIntVarsToEnums();
 		this.erodeTerrainWithBrush();
 	}
 
-	// Token: 0x06004A21 RID: 18977 RVA: 0x0013DB78 File Offset: 0x0013BD78
+	// Token: 0x06004ED0 RID: 20176 RVA: 0x00147ADC File Offset: 0x00145CDC
 	private void erodeTerrainWithBrush()
 	{
-		this.erosionMode = TerrainToolkit.ErosionMode.Brush;
+		this.erosionMode = global::TerrainToolkit.ErosionMode.Brush;
 		Terrain terrain = (Terrain)base.GetComponent(typeof(Terrain));
 		if (terrain == null)
 		{
@@ -276,7 +276,7 @@ public class TerrainToolkit : MonoBehaviour
 			num = heights.GetLength(1);
 			num2 = heights.GetLength(0);
 			float[,] array = (float[,])heights.Clone();
-			TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
+			global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new global::TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
 			array = this.fastErosion(array, new Vector2((float)num, (float)num2), 1, erosionProgressDelegate);
 			float num5 = (float)num / 2f;
 			for (int i = 0; i < num; i++)
@@ -308,10 +308,10 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A22 RID: 18978 RVA: 0x0013DE18 File Offset: 0x0013C018
-	public void erodeAllTerrain(TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
+	// Token: 0x06004ED1 RID: 20177 RVA: 0x00147D7C File Offset: 0x00145F7C
+	public void erodeAllTerrain(global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
 	{
-		this.erosionMode = TerrainToolkit.ErosionMode.Filter;
+		this.erosionMode = global::TerrainToolkit.ErosionMode.Filter;
 		this.convertIntVarsToEnums();
 		Terrain terrain = (Terrain)base.GetComponent(typeof(Terrain));
 		if (terrain == null)
@@ -326,30 +326,30 @@ public class TerrainToolkit : MonoBehaviour
 			float[,] array = terrainData.GetHeights(0, 0, heightmapWidth, heightmapHeight);
 			switch (this.erosionType)
 			{
-			case TerrainToolkit.ErosionType.Thermal:
+			case global::TerrainToolkit.ErosionType.Thermal:
 			{
 				int iterations = this.thermalIterations;
 				array = this.fastErosion(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), iterations, erosionProgressDelegate);
 				break;
 			}
-			case TerrainToolkit.ErosionType.Hydraulic:
+			case global::TerrainToolkit.ErosionType.Hydraulic:
 			{
 				int iterations = this.hydraulicIterations;
 				switch (this.hydraulicType)
 				{
-				case TerrainToolkit.HydraulicType.Fast:
+				case global::TerrainToolkit.HydraulicType.Fast:
 					array = this.fastErosion(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), iterations, erosionProgressDelegate);
 					break;
-				case TerrainToolkit.HydraulicType.Full:
+				case global::TerrainToolkit.HydraulicType.Full:
 					array = this.fullHydraulicErosion(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), iterations, erosionProgressDelegate);
 					break;
-				case TerrainToolkit.HydraulicType.Velocity:
+				case global::TerrainToolkit.HydraulicType.Velocity:
 					array = this.velocityHydraulicErosion(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), iterations, erosionProgressDelegate);
 					break;
 				}
 				break;
 			}
-			case TerrainToolkit.ErosionType.Tidal:
+			case global::TerrainToolkit.ErosionType.Tidal:
 			{
 				Vector3 size = terrainData.size;
 				if (this.tidalSeaLevel >= base.transform.position.y && this.tidalSeaLevel <= base.transform.position.y + size.y)
@@ -363,7 +363,7 @@ public class TerrainToolkit : MonoBehaviour
 				}
 				break;
 			}
-			case TerrainToolkit.ErosionType.Wind:
+			case global::TerrainToolkit.ErosionType.Wind:
 			{
 				int iterations = this.windIterations;
 				array = this.windErosion(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), iterations, erosionProgressDelegate);
@@ -380,8 +380,8 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A23 RID: 18979 RVA: 0x0013E028 File Offset: 0x0013C228
-	private float[,] fastErosion(float[,] heightMap, Vector2 arraySize, int iterations, TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
+	// Token: 0x06004ED2 RID: 20178 RVA: 0x00147F8C File Offset: 0x0014618C
+	private float[,] fastErosion(float[,] heightMap, Vector2 arraySize, int iterations, global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
 	{
 		int num = (int)arraySize.y;
 		int num2 = (int)arraySize.x;
@@ -400,7 +400,7 @@ public class TerrainToolkit : MonoBehaviour
 		float num11 = 0f;
 		switch (this.erosionType)
 		{
-		case TerrainToolkit.ErosionType.Thermal:
+		case global::TerrainToolkit.ErosionType.Thermal:
 		{
 			num3 = size.x / (float)num * Mathf.Tan(this.thermalMinSlope * 0.0174532924f) / size.y;
 			if (num3 > 1f)
@@ -419,7 +419,7 @@ public class TerrainToolkit : MonoBehaviour
 			}
 			break;
 		}
-		case TerrainToolkit.ErosionType.Hydraulic:
+		case global::TerrainToolkit.ErosionType.Hydraulic:
 		{
 			num6 = size.x / (float)num * Mathf.Tan(this.hydraulicMaxSlope * 0.0174532924f) / size.y;
 			if (this.hydraulicFalloff == 0f)
@@ -430,7 +430,7 @@ public class TerrainToolkit : MonoBehaviour
 			num5 = size.x / (float)num * Mathf.Tan(num13 * 0.0174532924f) / size.y;
 			break;
 		}
-		case TerrainToolkit.ErosionType.Tidal:
+		case global::TerrainToolkit.ErosionType.Tidal:
 			num7 = (this.tidalSeaLevel - base.transform.position.y) / (base.transform.position.y + size.y);
 			num8 = (this.tidalSeaLevel - base.transform.position.y - this.tidalRangeAmount) / (base.transform.position.y + size.y);
 			num9 = (this.tidalSeaLevel - base.transform.position.y + this.tidalRangeAmount) / (base.transform.position.y + size.y);
@@ -498,7 +498,7 @@ public class TerrainToolkit : MonoBehaviour
 					{
 						for (int m = 0; m < num17; m++)
 						{
-							if ((m != num19 || l != num16) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (m == num19 || l == num16))))
+							if ((m != num19 || l != num16) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (m == num19 || l == num16))))
 							{
 								float num26 = heightMap[k + m + num18, j + l + num15];
 								num24 += num26;
@@ -523,19 +523,19 @@ public class TerrainToolkit : MonoBehaviour
 					bool flag = false;
 					switch (this.erosionType)
 					{
-					case TerrainToolkit.ErosionType.Thermal:
+					case global::TerrainToolkit.ErosionType.Thermal:
 						if (num28 >= num3)
 						{
 							flag = true;
 						}
 						break;
-					case TerrainToolkit.ErosionType.Hydraulic:
+					case global::TerrainToolkit.ErosionType.Hydraulic:
 						if (num28 > 0f && num28 <= num6)
 						{
 							flag = true;
 						}
 						break;
-					case TerrainToolkit.ErosionType.Tidal:
+					case global::TerrainToolkit.ErosionType.Tidal:
 						if (num28 > 0f && num28 <= num11 && num23 < num9 && num23 > num8)
 						{
 							flag = true;
@@ -546,7 +546,7 @@ public class TerrainToolkit : MonoBehaviour
 					}
 					if (flag)
 					{
-						if (this.erosionType == TerrainToolkit.ErosionType.Tidal)
+						if (this.erosionType == global::TerrainToolkit.ErosionType.Tidal)
 						{
 							float num29 = num24 / (float)(num25 + 1);
 							float num30 = Mathf.Abs(num7 - num23);
@@ -558,7 +558,7 @@ public class TerrainToolkit : MonoBehaviour
 						else
 						{
 							float num31;
-							if (this.erosionType == TerrainToolkit.ErosionType.Thermal)
+							if (this.erosionType == global::TerrainToolkit.ErosionType.Thermal)
 							{
 								if (num28 > num4)
 								{
@@ -581,7 +581,7 @@ public class TerrainToolkit : MonoBehaviour
 							}
 							float num35 = num20 / 2f * num31;
 							float num36 = heightMap[k + num19 + num18, j + num16 + num15];
-							if (this.erosionMode == TerrainToolkit.ErosionMode.Filter || (this.erosionMode == TerrainToolkit.ErosionMode.Brush && this.useDifferenceMaps))
+							if (this.erosionMode == global::TerrainToolkit.ErosionMode.Filter || (this.erosionMode == global::TerrainToolkit.ErosionMode.Brush && this.useDifferenceMaps))
 							{
 								float num37 = array[k + num19 + num18, j + num16 + num15];
 								float num38 = num37 - num35;
@@ -600,14 +600,14 @@ public class TerrainToolkit : MonoBehaviour
 							{
 								for (int m = 0; m < num17; m++)
 								{
-									if ((m != num19 || l != num16) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (m == num19 || l == num16))))
+									if ((m != num19 || l != num16) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (m == num19 || l == num16))))
 									{
 										float num40 = heightMap[k + m + num18, j + l + num15];
 										float num27 = num36 - num40;
 										if (num27 > 0f)
 										{
 											float num41 = num35 * (num27 / num22);
-											if (this.erosionMode == TerrainToolkit.ErosionMode.Filter || (this.erosionMode == TerrainToolkit.ErosionMode.Brush && this.useDifferenceMaps))
+											if (this.erosionMode == global::TerrainToolkit.ErosionMode.Filter || (this.erosionMode == global::TerrainToolkit.ErosionMode.Brush && this.useDifferenceMaps))
 											{
 												float num42 = array[k + m + num18, j + l + num15];
 												float num43 = num42 + num41;
@@ -630,7 +630,7 @@ public class TerrainToolkit : MonoBehaviour
 					}
 				}
 			}
-			if ((this.erosionMode == TerrainToolkit.ErosionMode.Filter || (this.erosionMode == TerrainToolkit.ErosionMode.Brush && this.useDifferenceMaps)) && this.erosionType != TerrainToolkit.ErosionType.Tidal)
+			if ((this.erosionMode == global::TerrainToolkit.ErosionMode.Filter || (this.erosionMode == global::TerrainToolkit.ErosionMode.Brush && this.useDifferenceMaps)) && this.erosionType != global::TerrainToolkit.ErosionType.Tidal)
 			{
 				for (int j = 0; j < num2; j++)
 				{
@@ -650,21 +650,21 @@ public class TerrainToolkit : MonoBehaviour
 					}
 				}
 			}
-			if (this.erosionMode == TerrainToolkit.ErosionMode.Filter)
+			if (this.erosionMode == global::TerrainToolkit.ErosionMode.Filter)
 			{
 				string titleString = string.Empty;
 				string displayString = string.Empty;
 				switch (this.erosionType)
 				{
-				case TerrainToolkit.ErosionType.Thermal:
+				case global::TerrainToolkit.ErosionType.Thermal:
 					titleString = "Applying Thermal Erosion";
 					displayString = "Applying thermal erosion.";
 					break;
-				case TerrainToolkit.ErosionType.Hydraulic:
+				case global::TerrainToolkit.ErosionType.Hydraulic:
 					titleString = "Applying Hydraulic Erosion";
 					displayString = "Applying hydraulic erosion.";
 					break;
-				case TerrainToolkit.ErosionType.Tidal:
+				case global::TerrainToolkit.ErosionType.Tidal:
 					titleString = "Applying Tidal Erosion";
 					displayString = "Applying tidal erosion.";
 					break;
@@ -678,8 +678,8 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A24 RID: 18980 RVA: 0x0013E920 File Offset: 0x0013CB20
-	private float[,] velocityHydraulicErosion(float[,] heightMap, Vector2 arraySize, int iterations, TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
+	// Token: 0x06004ED3 RID: 20179 RVA: 0x00148884 File Offset: 0x00146A84
+	private float[,] velocityHydraulicErosion(float[,] heightMap, Vector2 arraySize, int iterations, global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
 	{
 		int num = (int)arraySize.x;
 		int num2 = (int)arraySize.y;
@@ -764,7 +764,7 @@ public class TerrainToolkit : MonoBehaviour
 				{
 					for (int l = 0; l < num7; l++)
 					{
-						if ((l != num9 || k != num6) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (l == num9 || k == num6))))
+						if ((l != num9 || k != num6) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (l == num9 || k == num6))))
 						{
 							float num13 = heightMap[j + l + num8, i + k + num5];
 							float num14 = Mathf.Abs(num11 - num13);
@@ -869,7 +869,7 @@ public class TerrainToolkit : MonoBehaviour
 					{
 						for (int l = 0; l < num7; l++)
 						{
-							if ((l != num9 || k != num6) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (l == num9 || k == num6))))
+							if ((l != num9 || k != num6) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (l == num9 || k == num6))))
 							{
 								float num13 = heightMap[j + l + num8, i + k + num5];
 								float num22 = array3[j + l + num8, i + k + num5];
@@ -899,7 +899,7 @@ public class TerrainToolkit : MonoBehaviour
 					{
 						for (int l = 0; l < num7; l++)
 						{
-							if ((l != num9 || k != num6) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (l == num9 || k == num6))))
+							if ((l != num9 || k != num6) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (l == num9 || k == num6))))
 							{
 								float num13 = heightMap[j + l + num8, i + k + num5];
 								float num22 = array3[j + l + num8, i + k + num5];
@@ -1013,8 +1013,8 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A25 RID: 18981 RVA: 0x0013F3BC File Offset: 0x0013D5BC
-	private float[,] fullHydraulicErosion(float[,] heightMap, Vector2 arraySize, int iterations, TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
+	// Token: 0x06004ED4 RID: 20180 RVA: 0x00149320 File Offset: 0x00147520
+	private float[,] fullHydraulicErosion(float[,] heightMap, Vector2 arraySize, int iterations, global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
 	{
 		int num = (int)arraySize.x;
 		int num2 = (int)arraySize.y;
@@ -1125,7 +1125,7 @@ public class TerrainToolkit : MonoBehaviour
 					{
 						for (int m = 0; m < num11; m++)
 						{
-							if ((m != num13 || l != num10) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (m == num13 || l == num10))))
+							if ((m != num13 || l != num10) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (m == num13 || l == num10))))
 							{
 								float num19 = heightMap[j + m + num12, i + l + num9];
 								float num20 = array[j + m + num12, i + l + num9];
@@ -1157,7 +1157,7 @@ public class TerrainToolkit : MonoBehaviour
 					{
 						for (int m = 0; m < num11; m++)
 						{
-							if ((m != num13 || l != num10) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (m == num13 || l == num10))))
+							if ((m != num13 || l != num10) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (m == num13 || l == num10))))
 							{
 								float num19 = heightMap[j + m + num12, i + l + num9];
 								float num20 = array[j + m + num12, i + l + num9];
@@ -1231,8 +1231,8 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A26 RID: 18982 RVA: 0x0013FADC File Offset: 0x0013DCDC
-	private float[,] windErosion(float[,] heightMap, Vector2 arraySize, int iterations, TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
+	// Token: 0x06004ED5 RID: 20181 RVA: 0x00149A40 File Offset: 0x00147C40
+	private float[,] windErosion(float[,] heightMap, Vector2 arraySize, int iterations, global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate)
 	{
 		Terrain terrain = (Terrain)base.GetComponent(typeof(Terrain));
 		TerrainData terrainData = terrain.terrainData;
@@ -1355,7 +1355,7 @@ public class TerrainToolkit : MonoBehaviour
 					{
 						for (int m = 0; m < num18; m++)
 						{
-							if ((m != num20 || l != num17) && (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (m == num20 || l == num17))))
+							if ((m != num20 || l != num17) && (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (m == num20 || l == num17))))
 							{
 								Vector3 vector2;
 								vector2..ctor((float)(m + num19), 0f, (float)(-1 * (l + num16)));
@@ -1425,7 +1425,7 @@ public class TerrainToolkit : MonoBehaviour
 			this.smoothIterations = 1;
 			this.smoothBlend = 0.25f;
 			float[,] array8 = (float[,])heightMap.Clone();
-			TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
+			global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new global::TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
 			array8 = this.smooth(array8, arraySize, generatorProgressDelegate);
 			for (int i = 0; i < num2; i++)
 			{
@@ -1444,8 +1444,8 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A27 RID: 18983 RVA: 0x0014024C File Offset: 0x0013E44C
-	public void textureTerrain(TerrainToolkit.TextureProgressDelegate textureProgressDelegate)
+	// Token: 0x06004ED6 RID: 20182 RVA: 0x0014A1B0 File Offset: 0x001483B0
+	public void textureTerrain(global::TerrainToolkit.TextureProgressDelegate textureProgressDelegate)
 	{
 		Terrain terrain = (Terrain)base.GetComponent(typeof(Terrain));
 		if (terrain == null)
@@ -1617,7 +1617,7 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A28 RID: 18984 RVA: 0x0014072C File Offset: 0x0013E92C
+	// Token: 0x06004ED7 RID: 20183 RVA: 0x0014A690 File Offset: 0x00148890
 	public void addSplatPrototype(Texture2D tex, int index)
 	{
 		SplatPrototype[] array = new SplatPrototype[index + 1];
@@ -1642,7 +1642,7 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A29 RID: 18985 RVA: 0x001407C8 File Offset: 0x0013E9C8
+	// Token: 0x06004ED8 RID: 20184 RVA: 0x0014A72C File Offset: 0x0014892C
 	public void deleteSplatPrototype(Texture2D tex, int index)
 	{
 		int num = this.splatPrototypes.Length;
@@ -1665,14 +1665,14 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A2A RID: 18986 RVA: 0x00140850 File Offset: 0x0013EA50
+	// Token: 0x06004ED9 RID: 20185 RVA: 0x0014A7B4 File Offset: 0x001489B4
 	public void deleteAllSplatPrototypes()
 	{
 		SplatPrototype[] array = new SplatPrototype[0];
 		this.splatPrototypes = array;
 	}
 
-	// Token: 0x06004A2B RID: 18987 RVA: 0x0014086C File Offset: 0x0013EA6C
+	// Token: 0x06004EDA RID: 20186 RVA: 0x0014A7D0 File Offset: 0x001489D0
 	public void addBlendPoints()
 	{
 		float num = 0f;
@@ -1686,7 +1686,7 @@ public class TerrainToolkit : MonoBehaviour
 		this.heightBlendPoints.Add(item);
 	}
 
-	// Token: 0x06004A2C RID: 18988 RVA: 0x001408E4 File Offset: 0x0013EAE4
+	// Token: 0x06004EDB RID: 20187 RVA: 0x0014A848 File Offset: 0x00148A48
 	public void deleteBlendPoints()
 	{
 		if (this.heightBlendPoints.Count > 0)
@@ -1699,14 +1699,14 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A2D RID: 18989 RVA: 0x00140944 File Offset: 0x0013EB44
+	// Token: 0x06004EDC RID: 20188 RVA: 0x0014A8A8 File Offset: 0x00148AA8
 	public void deleteAllBlendPoints()
 	{
 		this.heightBlendPoints = new List<float>();
 	}
 
-	// Token: 0x06004A2E RID: 18990 RVA: 0x00140954 File Offset: 0x0013EB54
-	public void generateTerrain(TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
+	// Token: 0x06004EDD RID: 20189 RVA: 0x0014A8B8 File Offset: 0x00148AB8
+	public void generateTerrain(global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
 	{
 		this.convertIntVarsToEnums();
 		Terrain terrain = (Terrain)base.GetComponent(typeof(Terrain));
@@ -1721,19 +1721,19 @@ public class TerrainToolkit : MonoBehaviour
 		float[,] array = (float[,])heights.Clone();
 		switch (this.generatorType)
 		{
-		case TerrainToolkit.GeneratorType.Voronoi:
+		case global::TerrainToolkit.GeneratorType.Voronoi:
 			array = this.generateVoronoi(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), generatorProgressDelegate);
 			break;
-		case TerrainToolkit.GeneratorType.DiamondSquare:
+		case global::TerrainToolkit.GeneratorType.DiamondSquare:
 			array = this.generateDiamondSquare(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), generatorProgressDelegate);
 			break;
-		case TerrainToolkit.GeneratorType.Perlin:
+		case global::TerrainToolkit.GeneratorType.Perlin:
 			array = this.generatePerlin(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), generatorProgressDelegate);
 			break;
-		case TerrainToolkit.GeneratorType.Smooth:
+		case global::TerrainToolkit.GeneratorType.Smooth:
 			array = this.smooth(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), generatorProgressDelegate);
 			break;
-		case TerrainToolkit.GeneratorType.Normalise:
+		case global::TerrainToolkit.GeneratorType.Normalise:
 			array = this.normalise(array, new Vector2((float)heightmapWidth, (float)heightmapHeight), generatorProgressDelegate);
 			break;
 		default:
@@ -1748,19 +1748,19 @@ public class TerrainToolkit : MonoBehaviour
 				float num3 = 0f;
 				switch (this.generatorType)
 				{
-				case TerrainToolkit.GeneratorType.Voronoi:
+				case global::TerrainToolkit.GeneratorType.Voronoi:
 					num3 = num2 * this.voronoiBlend + num * (1f - this.voronoiBlend);
 					break;
-				case TerrainToolkit.GeneratorType.DiamondSquare:
+				case global::TerrainToolkit.GeneratorType.DiamondSquare:
 					num3 = num2 * this.diamondSquareBlend + num * (1f - this.diamondSquareBlend);
 					break;
-				case TerrainToolkit.GeneratorType.Perlin:
+				case global::TerrainToolkit.GeneratorType.Perlin:
 					num3 = num2 * this.perlinBlend + num * (1f - this.perlinBlend);
 					break;
-				case TerrainToolkit.GeneratorType.Smooth:
+				case global::TerrainToolkit.GeneratorType.Smooth:
 					num3 = num2 * this.smoothBlend + num * (1f - this.smoothBlend);
 					break;
-				case TerrainToolkit.GeneratorType.Normalise:
+				case global::TerrainToolkit.GeneratorType.Normalise:
 					num3 = num2 * this.normaliseBlend + num * (1f - this.normaliseBlend);
 					break;
 				}
@@ -1770,15 +1770,15 @@ public class TerrainToolkit : MonoBehaviour
 		terrainData.SetHeights(0, 0, heights);
 	}
 
-	// Token: 0x06004A2F RID: 18991 RVA: 0x00140B8C File Offset: 0x0013ED8C
-	private float[,] generateVoronoi(float[,] heightMap, Vector2 arraySize, TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
+	// Token: 0x06004EDE RID: 20190 RVA: 0x0014AAF0 File Offset: 0x00148CF0
+	private float[,] generateVoronoi(float[,] heightMap, Vector2 arraySize, global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
 	{
 		int num = (int)arraySize.x;
 		int num2 = (int)arraySize.y;
 		ArrayList arrayList = new ArrayList();
 		for (int i = 0; i < this.voronoiCells; i++)
 		{
-			TerrainToolkit.Peak peak = default(TerrainToolkit.Peak);
+			global::TerrainToolkit.Peak peak = default(global::TerrainToolkit.Peak);
 			int num3 = (int)Mathf.Floor(Random.value * (float)num);
 			int num4 = (int)Mathf.Floor(Random.value * (float)num2);
 			float peakHeight = Random.value;
@@ -1798,32 +1798,32 @@ public class TerrainToolkit : MonoBehaviour
 				ArrayList arrayList2 = new ArrayList();
 				for (int i = 0; i < this.voronoiCells; i++)
 				{
-					Vector2 peakPoint = ((TerrainToolkit.Peak)arrayList[i]).peakPoint;
+					Vector2 peakPoint = ((global::TerrainToolkit.Peak)arrayList[i]).peakPoint;
 					float dist = Vector2.Distance(peakPoint, new Vector2((float)k, (float)j));
-					arrayList2.Add(new TerrainToolkit.PeakDistance
+					arrayList2.Add(new global::TerrainToolkit.PeakDistance
 					{
 						id = i,
 						dist = dist
 					});
 				}
 				arrayList2.Sort();
-				TerrainToolkit.PeakDistance peakDistance = (TerrainToolkit.PeakDistance)arrayList2[0];
-				TerrainToolkit.PeakDistance peakDistance2 = (TerrainToolkit.PeakDistance)arrayList2[1];
+				global::TerrainToolkit.PeakDistance peakDistance = (global::TerrainToolkit.PeakDistance)arrayList2[0];
+				global::TerrainToolkit.PeakDistance peakDistance2 = (global::TerrainToolkit.PeakDistance)arrayList2[1];
 				int id = peakDistance.id;
 				float dist2 = peakDistance.dist;
 				float dist3 = peakDistance2.dist;
 				float num6 = Mathf.Abs(dist2 - dist3) / ((float)(num + num2) / Mathf.Sqrt((float)this.voronoiCells));
-				float num7 = ((TerrainToolkit.Peak)arrayList[id]).peakHeight;
+				float num7 = ((global::TerrainToolkit.Peak)arrayList[id]).peakHeight;
 				float num8 = num7 - Mathf.Abs(dist2 / dist3) * num7;
 				switch (this.voronoiType)
 				{
-				case TerrainToolkit.VoronoiType.Sine:
+				case global::TerrainToolkit.VoronoiType.Sine:
 				{
 					float num9 = num8 * 3.14159274f - 1.57079637f;
 					num8 = 0.5f + Mathf.Sin(num9) / 2f;
 					break;
 				}
-				case TerrainToolkit.VoronoiType.Tangent:
+				case global::TerrainToolkit.VoronoiType.Tangent:
 				{
 					float num9 = num8 * 3.14159274f / 2f;
 					num8 = 0.5f + Mathf.Tan(num9) / 2f;
@@ -1861,8 +1861,8 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A30 RID: 18992 RVA: 0x00140EB0 File Offset: 0x0013F0B0
-	private float[,] generateDiamondSquare(float[,] heightMap, Vector2 arraySize, TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
+	// Token: 0x06004EDF RID: 20191 RVA: 0x0014AE14 File Offset: 0x00149014
+	private float[,] generateDiamondSquare(float[,] heightMap, Vector2 arraySize, global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
 	{
 		int num = (int)arraySize.x;
 		int num2 = (int)arraySize.y;
@@ -1925,7 +1925,7 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A31 RID: 18993 RVA: 0x0014116C File Offset: 0x0013F36C
+	// Token: 0x06004EE0 RID: 20192 RVA: 0x0014B0D0 File Offset: 0x001492D0
 	private void dsCalculateHeight(float[,] heightMap, Vector2 arraySize, int Tx, int Ty, Vector2[] points, float heightRange)
 	{
 		int num = (int)arraySize.x;
@@ -1983,8 +1983,8 @@ public class TerrainToolkit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A32 RID: 18994 RVA: 0x00141334 File Offset: 0x0013F534
-	private float[,] generatePerlin(float[,] heightMap, Vector2 arraySize, TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
+	// Token: 0x06004EE1 RID: 20193 RVA: 0x0014B298 File Offset: 0x00149498
+	private float[,] generatePerlin(float[,] heightMap, Vector2 arraySize, global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
 	{
 		int num = (int)arraySize.x;
 		int num2 = (int)arraySize.y;
@@ -1995,12 +1995,12 @@ public class TerrainToolkit : MonoBehaviour
 				heightMap[j, i] = 0f;
 			}
 		}
-		TerrainToolkit.PerlinNoise2D[] array = new TerrainToolkit.PerlinNoise2D[this.perlinOctaves];
+		global::TerrainToolkit.PerlinNoise2D[] array = new global::TerrainToolkit.PerlinNoise2D[this.perlinOctaves];
 		int num3 = this.perlinFrequency;
 		float num4 = 1f;
 		for (int k = 0; k < this.perlinOctaves; k++)
 		{
-			array[k] = new TerrainToolkit.PerlinNoise2D(num3, num4);
+			array[k] = new global::TerrainToolkit.PerlinNoise2D(num3, num4);
 			num3 *= 2;
 			num4 /= 2f;
 		}
@@ -2023,7 +2023,7 @@ public class TerrainToolkit : MonoBehaviour
 			float percentComplete = (float)((k + 1) / this.perlinOctaves);
 			generatorProgressDelegate("Perlin Generator", "Generating height map. Please wait.", percentComplete);
 		}
-		TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate2 = new TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
+		global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate2 = new global::TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
 		float num9 = this.normaliseMin;
 		float num10 = this.normaliseMax;
 		float num11 = this.normaliseBlend;
@@ -2048,8 +2048,8 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A33 RID: 18995 RVA: 0x0014159C File Offset: 0x0013F79C
-	private float[,] smooth(float[,] heightMap, Vector2 arraySize, TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
+	// Token: 0x06004EE2 RID: 20194 RVA: 0x0014B500 File Offset: 0x00149700
+	private float[,] smooth(float[,] heightMap, Vector2 arraySize, global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
 	{
 		int num = (int)arraySize.x;
 		int num2 = (int)arraySize.y;
@@ -2107,7 +2107,7 @@ public class TerrainToolkit : MonoBehaviour
 					{
 						for (int m = 0; m < num6; m++)
 						{
-							if (this.neighbourhood == TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == TerrainToolkit.Neighbourhood.VonNeumann && (m == num8 || l == num5)))
+							if (this.neighbourhood == global::TerrainToolkit.Neighbourhood.Moore || (this.neighbourhood == global::TerrainToolkit.Neighbourhood.VonNeumann && (m == num8 || l == num5)))
 							{
 								float num11 = heightMap[k + m + num7, j + l + num4];
 								num9 += num11;
@@ -2125,8 +2125,8 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A34 RID: 18996 RVA: 0x00141730 File Offset: 0x0013F930
-	private float[,] normalise(float[,] heightMap, Vector2 arraySize, TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
+	// Token: 0x06004EE3 RID: 20195 RVA: 0x0014B694 File Offset: 0x00149894
+	private float[,] normalise(float[,] heightMap, Vector2 arraySize, global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate)
 	{
 		int num = (int)arraySize.x;
 		int num2 = (int)arraySize.y;
@@ -2163,58 +2163,58 @@ public class TerrainToolkit : MonoBehaviour
 		return heightMap;
 	}
 
-	// Token: 0x06004A35 RID: 18997 RVA: 0x00141848 File Offset: 0x0013FA48
+	// Token: 0x06004EE4 RID: 20196 RVA: 0x0014B7AC File Offset: 0x001499AC
 	public void FastThermalErosion(int iterations, float minSlope, float blendAmount)
 	{
 		this.erosionTypeInt = 0;
-		this.erosionType = TerrainToolkit.ErosionType.Thermal;
+		this.erosionType = global::TerrainToolkit.ErosionType.Thermal;
 		this.thermalIterations = iterations;
 		this.thermalMinSlope = minSlope;
 		this.thermalFalloff = blendAmount;
-		this.neighbourhood = TerrainToolkit.Neighbourhood.Moore;
-		TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
+		this.neighbourhood = global::TerrainToolkit.Neighbourhood.Moore;
+		global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new global::TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
 		this.erodeAllTerrain(erosionProgressDelegate);
 	}
 
-	// Token: 0x06004A36 RID: 18998 RVA: 0x00141894 File Offset: 0x0013FA94
+	// Token: 0x06004EE5 RID: 20197 RVA: 0x0014B7F8 File Offset: 0x001499F8
 	public void FastHydraulicErosion(int iterations, float maxSlope, float blendAmount)
 	{
 		this.erosionTypeInt = 1;
-		this.erosionType = TerrainToolkit.ErosionType.Hydraulic;
+		this.erosionType = global::TerrainToolkit.ErosionType.Hydraulic;
 		this.hydraulicTypeInt = 0;
-		this.hydraulicType = TerrainToolkit.HydraulicType.Fast;
+		this.hydraulicType = global::TerrainToolkit.HydraulicType.Fast;
 		this.hydraulicIterations = iterations;
 		this.hydraulicMaxSlope = maxSlope;
 		this.hydraulicFalloff = blendAmount;
-		this.neighbourhood = TerrainToolkit.Neighbourhood.Moore;
-		TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
+		this.neighbourhood = global::TerrainToolkit.Neighbourhood.Moore;
+		global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new global::TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
 		this.erodeAllTerrain(erosionProgressDelegate);
 	}
 
-	// Token: 0x06004A37 RID: 18999 RVA: 0x001418F0 File Offset: 0x0013FAF0
+	// Token: 0x06004EE6 RID: 20198 RVA: 0x0014B854 File Offset: 0x00149A54
 	public void FullHydraulicErosion(int iterations, float rainfall, float evaporation, float solubility, float saturation)
 	{
 		this.erosionTypeInt = 1;
-		this.erosionType = TerrainToolkit.ErosionType.Hydraulic;
+		this.erosionType = global::TerrainToolkit.ErosionType.Hydraulic;
 		this.hydraulicTypeInt = 1;
-		this.hydraulicType = TerrainToolkit.HydraulicType.Full;
+		this.hydraulicType = global::TerrainToolkit.HydraulicType.Full;
 		this.hydraulicIterations = iterations;
 		this.hydraulicRainfall = rainfall;
 		this.hydraulicEvaporation = evaporation;
 		this.hydraulicSedimentSolubility = solubility;
 		this.hydraulicSedimentSaturation = saturation;
-		this.neighbourhood = TerrainToolkit.Neighbourhood.Moore;
-		TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
+		this.neighbourhood = global::TerrainToolkit.Neighbourhood.Moore;
+		global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new global::TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
 		this.erodeAllTerrain(erosionProgressDelegate);
 	}
 
-	// Token: 0x06004A38 RID: 19000 RVA: 0x0014195C File Offset: 0x0013FB5C
+	// Token: 0x06004EE7 RID: 20199 RVA: 0x0014B8C0 File Offset: 0x00149AC0
 	public void VelocityHydraulicErosion(int iterations, float rainfall, float evaporation, float solubility, float saturation, float velocity, float momentum, float entropy, float downcutting)
 	{
 		this.erosionTypeInt = 1;
-		this.erosionType = TerrainToolkit.ErosionType.Hydraulic;
+		this.erosionType = global::TerrainToolkit.ErosionType.Hydraulic;
 		this.hydraulicTypeInt = 2;
-		this.hydraulicType = TerrainToolkit.HydraulicType.Velocity;
+		this.hydraulicType = global::TerrainToolkit.HydraulicType.Velocity;
 		this.hydraulicIterations = iterations;
 		this.hydraulicVelocityRainfall = rainfall;
 		this.hydraulicVelocityEvaporation = evaporation;
@@ -2224,30 +2224,30 @@ public class TerrainToolkit : MonoBehaviour
 		this.hydraulicMomentum = momentum;
 		this.hydraulicEntropy = entropy;
 		this.hydraulicDowncutting = downcutting;
-		this.neighbourhood = TerrainToolkit.Neighbourhood.Moore;
-		TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
+		this.neighbourhood = global::TerrainToolkit.Neighbourhood.Moore;
+		global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new global::TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
 		this.erodeAllTerrain(erosionProgressDelegate);
 	}
 
-	// Token: 0x06004A39 RID: 19001 RVA: 0x001419E8 File Offset: 0x0013FBE8
+	// Token: 0x06004EE8 RID: 20200 RVA: 0x0014B94C File Offset: 0x00149B4C
 	public void TidalErosion(int iterations, float seaLevel, float tidalRange, float cliffLimit)
 	{
 		this.erosionTypeInt = 2;
-		this.erosionType = TerrainToolkit.ErosionType.Tidal;
+		this.erosionType = global::TerrainToolkit.ErosionType.Tidal;
 		this.tidalIterations = iterations;
 		this.tidalSeaLevel = seaLevel;
 		this.tidalRangeAmount = tidalRange;
 		this.tidalCliffLimit = cliffLimit;
-		this.neighbourhood = TerrainToolkit.Neighbourhood.Moore;
-		TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
+		this.neighbourhood = global::TerrainToolkit.Neighbourhood.Moore;
+		global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new global::TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
 		this.erodeAllTerrain(erosionProgressDelegate);
 	}
 
-	// Token: 0x06004A3A RID: 19002 RVA: 0x00141A3C File Offset: 0x0013FC3C
+	// Token: 0x06004EE9 RID: 20201 RVA: 0x0014B9A0 File Offset: 0x00149BA0
 	public void WindErosion(int iterations, float direction, float force, float lift, float gravity, float capacity, float entropy, float smoothing)
 	{
 		this.erosionTypeInt = 3;
-		this.erosionType = TerrainToolkit.ErosionType.Wind;
+		this.erosionType = global::TerrainToolkit.ErosionType.Wind;
 		this.windIterations = iterations;
 		this.windDirection = direction;
 		this.windForce = force;
@@ -2256,12 +2256,12 @@ public class TerrainToolkit : MonoBehaviour
 		this.windCapacity = capacity;
 		this.windEntropy = entropy;
 		this.windSmoothing = smoothing;
-		this.neighbourhood = TerrainToolkit.Neighbourhood.Moore;
-		TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
+		this.neighbourhood = global::TerrainToolkit.Neighbourhood.Moore;
+		global::TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new global::TerrainToolkit.ErosionProgressDelegate(this.dummyErosionProgress);
 		this.erodeAllTerrain(erosionProgressDelegate);
 	}
 
-	// Token: 0x06004A3B RID: 19003 RVA: 0x00141AB0 File Offset: 0x0013FCB0
+	// Token: 0x06004EEA RID: 20202 RVA: 0x0014BA14 File Offset: 0x00149C14
 	public void TextureTerrain(float[] slopeStops, float[] heightStops, Texture2D[] textures)
 	{
 		if (slopeStops.Length != 2)
@@ -2321,152 +2321,152 @@ public class TerrainToolkit : MonoBehaviour
 			num5++;
 		}
 		terrainData.splatPrototypes = this.splatPrototypes;
-		TerrainToolkit.TextureProgressDelegate textureProgressDelegate = new TerrainToolkit.TextureProgressDelegate(this.dummyTextureProgress);
+		global::TerrainToolkit.TextureProgressDelegate textureProgressDelegate = new global::TerrainToolkit.TextureProgressDelegate(this.dummyTextureProgress);
 		this.textureTerrain(textureProgressDelegate);
 	}
 
-	// Token: 0x06004A3C RID: 19004 RVA: 0x00141C7C File Offset: 0x0013FE7C
-	public void VoronoiGenerator(TerrainToolkit.FeatureType featureType, int cells, float features, float scale, float blend)
+	// Token: 0x06004EEB RID: 20203 RVA: 0x0014BBE0 File Offset: 0x00149DE0
+	public void VoronoiGenerator(global::TerrainToolkit.FeatureType featureType, int cells, float features, float scale, float blend)
 	{
 		this.generatorTypeInt = 0;
-		this.generatorType = TerrainToolkit.GeneratorType.Voronoi;
+		this.generatorType = global::TerrainToolkit.GeneratorType.Voronoi;
 		switch (featureType)
 		{
-		case TerrainToolkit.FeatureType.Mountains:
+		case global::TerrainToolkit.FeatureType.Mountains:
 			this.voronoiTypeInt = 0;
-			this.voronoiType = TerrainToolkit.VoronoiType.Linear;
+			this.voronoiType = global::TerrainToolkit.VoronoiType.Linear;
 			break;
-		case TerrainToolkit.FeatureType.Hills:
+		case global::TerrainToolkit.FeatureType.Hills:
 			this.voronoiTypeInt = 1;
-			this.voronoiType = TerrainToolkit.VoronoiType.Sine;
+			this.voronoiType = global::TerrainToolkit.VoronoiType.Sine;
 			break;
-		case TerrainToolkit.FeatureType.Plateaus:
+		case global::TerrainToolkit.FeatureType.Plateaus:
 			this.voronoiTypeInt = 2;
-			this.voronoiType = TerrainToolkit.VoronoiType.Tangent;
+			this.voronoiType = global::TerrainToolkit.VoronoiType.Tangent;
 			break;
 		}
 		this.voronoiCells = cells;
 		this.voronoiFeatures = features;
 		this.voronoiScale = scale;
 		this.voronoiBlend = blend;
-		TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
+		global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new global::TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
 		this.generateTerrain(generatorProgressDelegate);
 	}
 
-	// Token: 0x06004A3D RID: 19005 RVA: 0x00141D1C File Offset: 0x0013FF1C
+	// Token: 0x06004EEC RID: 20204 RVA: 0x0014BC80 File Offset: 0x00149E80
 	public void FractalGenerator(float fractalDelta, float blend)
 	{
 		this.generatorTypeInt = 1;
-		this.generatorType = TerrainToolkit.GeneratorType.DiamondSquare;
+		this.generatorType = global::TerrainToolkit.GeneratorType.DiamondSquare;
 		this.diamondSquareDelta = fractalDelta;
 		this.diamondSquareBlend = blend;
-		TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
+		global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new global::TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
 		this.generateTerrain(generatorProgressDelegate);
 	}
 
-	// Token: 0x06004A3E RID: 19006 RVA: 0x00141D5C File Offset: 0x0013FF5C
+	// Token: 0x06004EED RID: 20205 RVA: 0x0014BCC0 File Offset: 0x00149EC0
 	public void PerlinGenerator(int frequency, float amplitude, int octaves, float blend)
 	{
 		this.generatorTypeInt = 2;
-		this.generatorType = TerrainToolkit.GeneratorType.Perlin;
+		this.generatorType = global::TerrainToolkit.GeneratorType.Perlin;
 		this.perlinFrequency = frequency;
 		this.perlinAmplitude = amplitude;
 		this.perlinOctaves = octaves;
 		this.perlinBlend = blend;
-		TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
+		global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new global::TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
 		this.generateTerrain(generatorProgressDelegate);
 	}
 
-	// Token: 0x06004A3F RID: 19007 RVA: 0x00141DA8 File Offset: 0x0013FFA8
+	// Token: 0x06004EEE RID: 20206 RVA: 0x0014BD0C File Offset: 0x00149F0C
 	public void SmoothTerrain(int iterations, float blend)
 	{
 		this.generatorTypeInt = 3;
-		this.generatorType = TerrainToolkit.GeneratorType.Smooth;
+		this.generatorType = global::TerrainToolkit.GeneratorType.Smooth;
 		this.smoothIterations = iterations;
 		this.smoothBlend = blend;
-		TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
+		global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new global::TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
 		this.generateTerrain(generatorProgressDelegate);
 	}
 
-	// Token: 0x06004A40 RID: 19008 RVA: 0x00141DE8 File Offset: 0x0013FFE8
+	// Token: 0x06004EEF RID: 20207 RVA: 0x0014BD4C File Offset: 0x00149F4C
 	public void NormaliseTerrain(float minHeight, float maxHeight, float blend)
 	{
 		this.generatorTypeInt = 4;
-		this.generatorType = TerrainToolkit.GeneratorType.Normalise;
+		this.generatorType = global::TerrainToolkit.GeneratorType.Normalise;
 		this.normaliseMin = minHeight;
 		this.normaliseMax = maxHeight;
 		this.normaliseBlend = blend;
-		TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
+		global::TerrainToolkit.GeneratorProgressDelegate generatorProgressDelegate = new global::TerrainToolkit.GeneratorProgressDelegate(this.dummyGeneratorProgress);
 		this.generateTerrain(generatorProgressDelegate);
 	}
 
-	// Token: 0x06004A41 RID: 19009 RVA: 0x00141E2C File Offset: 0x0014002C
+	// Token: 0x06004EF0 RID: 20208 RVA: 0x0014BD90 File Offset: 0x00149F90
 	public void NormalizeTerrain(float minHeight, float maxHeight, float blend)
 	{
 		this.NormaliseTerrain(minHeight, maxHeight, blend);
 	}
 
-	// Token: 0x06004A42 RID: 19010 RVA: 0x00141E38 File Offset: 0x00140038
+	// Token: 0x06004EF1 RID: 20209 RVA: 0x0014BD9C File Offset: 0x00149F9C
 	private void convertIntVarsToEnums()
 	{
 		switch (this.erosionTypeInt)
 		{
 		case 0:
-			this.erosionType = TerrainToolkit.ErosionType.Thermal;
+			this.erosionType = global::TerrainToolkit.ErosionType.Thermal;
 			break;
 		case 1:
-			this.erosionType = TerrainToolkit.ErosionType.Hydraulic;
+			this.erosionType = global::TerrainToolkit.ErosionType.Hydraulic;
 			break;
 		case 2:
-			this.erosionType = TerrainToolkit.ErosionType.Tidal;
+			this.erosionType = global::TerrainToolkit.ErosionType.Tidal;
 			break;
 		case 3:
-			this.erosionType = TerrainToolkit.ErosionType.Wind;
+			this.erosionType = global::TerrainToolkit.ErosionType.Wind;
 			break;
 		case 4:
-			this.erosionType = TerrainToolkit.ErosionType.Glacial;
+			this.erosionType = global::TerrainToolkit.ErosionType.Glacial;
 			break;
 		}
 		switch (this.hydraulicTypeInt)
 		{
 		case 0:
-			this.hydraulicType = TerrainToolkit.HydraulicType.Fast;
+			this.hydraulicType = global::TerrainToolkit.HydraulicType.Fast;
 			break;
 		case 1:
-			this.hydraulicType = TerrainToolkit.HydraulicType.Full;
+			this.hydraulicType = global::TerrainToolkit.HydraulicType.Full;
 			break;
 		case 2:
-			this.hydraulicType = TerrainToolkit.HydraulicType.Velocity;
+			this.hydraulicType = global::TerrainToolkit.HydraulicType.Velocity;
 			break;
 		}
 		switch (this.generatorTypeInt)
 		{
 		case 0:
-			this.generatorType = TerrainToolkit.GeneratorType.Voronoi;
+			this.generatorType = global::TerrainToolkit.GeneratorType.Voronoi;
 			break;
 		case 1:
-			this.generatorType = TerrainToolkit.GeneratorType.DiamondSquare;
+			this.generatorType = global::TerrainToolkit.GeneratorType.DiamondSquare;
 			break;
 		case 2:
-			this.generatorType = TerrainToolkit.GeneratorType.Perlin;
+			this.generatorType = global::TerrainToolkit.GeneratorType.Perlin;
 			break;
 		case 3:
-			this.generatorType = TerrainToolkit.GeneratorType.Smooth;
+			this.generatorType = global::TerrainToolkit.GeneratorType.Smooth;
 			break;
 		case 4:
-			this.generatorType = TerrainToolkit.GeneratorType.Normalise;
+			this.generatorType = global::TerrainToolkit.GeneratorType.Normalise;
 			break;
 		}
 		switch (this.voronoiTypeInt)
 		{
 		case 0:
-			this.voronoiType = TerrainToolkit.VoronoiType.Linear;
+			this.voronoiType = global::TerrainToolkit.VoronoiType.Linear;
 			break;
 		case 1:
-			this.voronoiType = TerrainToolkit.VoronoiType.Sine;
+			this.voronoiType = global::TerrainToolkit.VoronoiType.Sine;
 			break;
 		case 2:
-			this.voronoiType = TerrainToolkit.VoronoiType.Tangent;
+			this.voronoiType = global::TerrainToolkit.VoronoiType.Tangent;
 			break;
 		}
 		int num = this.neighbourhoodInt;
@@ -2474,347 +2474,347 @@ public class TerrainToolkit : MonoBehaviour
 		{
 			if (num == 1)
 			{
-				this.neighbourhood = TerrainToolkit.Neighbourhood.VonNeumann;
+				this.neighbourhood = global::TerrainToolkit.Neighbourhood.VonNeumann;
 			}
 		}
 		else
 		{
-			this.neighbourhood = TerrainToolkit.Neighbourhood.Moore;
+			this.neighbourhood = global::TerrainToolkit.Neighbourhood.Moore;
 		}
 	}
 
-	// Token: 0x06004A43 RID: 19011 RVA: 0x00141FC0 File Offset: 0x001401C0
+	// Token: 0x06004EF2 RID: 20210 RVA: 0x0014BF24 File Offset: 0x0014A124
 	public void dummyErosionProgress(string titleString, string displayString, int iteration, int nIterations, float percentComplete)
 	{
 	}
 
-	// Token: 0x06004A44 RID: 19012 RVA: 0x00141FC4 File Offset: 0x001401C4
+	// Token: 0x06004EF3 RID: 20211 RVA: 0x0014BF28 File Offset: 0x0014A128
 	public void dummyTextureProgress(string titleString, string displayString, float percentComplete)
 	{
 	}
 
-	// Token: 0x06004A45 RID: 19013 RVA: 0x00141FC8 File Offset: 0x001401C8
+	// Token: 0x06004EF4 RID: 20212 RVA: 0x0014BF2C File Offset: 0x0014A12C
 	public void dummyGeneratorProgress(string titleString, string displayString, float percentComplete)
 	{
 	}
 
-	// Token: 0x04002A2B RID: 10795
+	// Token: 0x04002C79 RID: 11385
 	public GUISkin guiSkin;
 
-	// Token: 0x04002A2C RID: 10796
+	// Token: 0x04002C7A RID: 11386
 	public Texture2D createIcon;
 
-	// Token: 0x04002A2D RID: 10797
+	// Token: 0x04002C7B RID: 11387
 	public Texture2D erodeIcon;
 
-	// Token: 0x04002A2E RID: 10798
+	// Token: 0x04002C7C RID: 11388
 	public Texture2D textureIcon;
 
-	// Token: 0x04002A2F RID: 10799
+	// Token: 0x04002C7D RID: 11389
 	public Texture2D mooreIcon;
 
-	// Token: 0x04002A30 RID: 10800
+	// Token: 0x04002C7E RID: 11390
 	public Texture2D vonNeumannIcon;
 
-	// Token: 0x04002A31 RID: 10801
+	// Token: 0x04002C7F RID: 11391
 	public Texture2D mountainsIcon;
 
-	// Token: 0x04002A32 RID: 10802
+	// Token: 0x04002C80 RID: 11392
 	public Texture2D hillsIcon;
 
-	// Token: 0x04002A33 RID: 10803
+	// Token: 0x04002C81 RID: 11393
 	public Texture2D plateausIcon;
 
-	// Token: 0x04002A34 RID: 10804
+	// Token: 0x04002C82 RID: 11394
 	public Texture2D defaultTexture;
 
-	// Token: 0x04002A35 RID: 10805
+	// Token: 0x04002C83 RID: 11395
 	public int toolModeInt;
 
-	// Token: 0x04002A36 RID: 10806
-	private TerrainToolkit.ErosionMode erosionMode;
+	// Token: 0x04002C84 RID: 11396
+	private global::TerrainToolkit.ErosionMode erosionMode;
 
-	// Token: 0x04002A37 RID: 10807
-	private TerrainToolkit.ErosionType erosionType;
+	// Token: 0x04002C85 RID: 11397
+	private global::TerrainToolkit.ErosionType erosionType;
 
-	// Token: 0x04002A38 RID: 10808
+	// Token: 0x04002C86 RID: 11398
 	public int erosionTypeInt;
 
-	// Token: 0x04002A39 RID: 10809
-	private TerrainToolkit.GeneratorType generatorType;
+	// Token: 0x04002C87 RID: 11399
+	private global::TerrainToolkit.GeneratorType generatorType;
 
-	// Token: 0x04002A3A RID: 10810
+	// Token: 0x04002C88 RID: 11400
 	public int generatorTypeInt;
 
-	// Token: 0x04002A3B RID: 10811
+	// Token: 0x04002C89 RID: 11401
 	public bool isBrushOn;
 
-	// Token: 0x04002A3C RID: 10812
+	// Token: 0x04002C8A RID: 11402
 	public bool isBrushHidden;
 
-	// Token: 0x04002A3D RID: 10813
+	// Token: 0x04002C8B RID: 11403
 	public bool isBrushPainting;
 
-	// Token: 0x04002A3E RID: 10814
+	// Token: 0x04002C8C RID: 11404
 	public Vector3 brushPosition;
 
-	// Token: 0x04002A3F RID: 10815
+	// Token: 0x04002C8D RID: 11405
 	public float brushSize = 50f;
 
-	// Token: 0x04002A40 RID: 10816
+	// Token: 0x04002C8E RID: 11406
 	public float brushOpacity = 1f;
 
-	// Token: 0x04002A41 RID: 10817
+	// Token: 0x04002C8F RID: 11407
 	public float brushSoftness = 0.5f;
 
-	// Token: 0x04002A42 RID: 10818
+	// Token: 0x04002C90 RID: 11408
 	public int neighbourhoodInt;
 
-	// Token: 0x04002A43 RID: 10819
-	private TerrainToolkit.Neighbourhood neighbourhood;
+	// Token: 0x04002C91 RID: 11409
+	private global::TerrainToolkit.Neighbourhood neighbourhood;
 
-	// Token: 0x04002A44 RID: 10820
+	// Token: 0x04002C92 RID: 11410
 	public bool useDifferenceMaps = true;
 
-	// Token: 0x04002A45 RID: 10821
+	// Token: 0x04002C93 RID: 11411
 	public int thermalIterations = 25;
 
-	// Token: 0x04002A46 RID: 10822
+	// Token: 0x04002C94 RID: 11412
 	public float thermalMinSlope = 1f;
 
-	// Token: 0x04002A47 RID: 10823
+	// Token: 0x04002C95 RID: 11413
 	public float thermalFalloff = 0.5f;
 
-	// Token: 0x04002A48 RID: 10824
+	// Token: 0x04002C96 RID: 11414
 	public int hydraulicTypeInt;
 
-	// Token: 0x04002A49 RID: 10825
-	public TerrainToolkit.HydraulicType hydraulicType;
+	// Token: 0x04002C97 RID: 11415
+	public global::TerrainToolkit.HydraulicType hydraulicType;
 
-	// Token: 0x04002A4A RID: 10826
+	// Token: 0x04002C98 RID: 11416
 	public int hydraulicIterations = 25;
 
-	// Token: 0x04002A4B RID: 10827
+	// Token: 0x04002C99 RID: 11417
 	public float hydraulicMaxSlope = 60f;
 
-	// Token: 0x04002A4C RID: 10828
+	// Token: 0x04002C9A RID: 11418
 	public float hydraulicFalloff = 0.5f;
 
-	// Token: 0x04002A4D RID: 10829
+	// Token: 0x04002C9B RID: 11419
 	public float hydraulicRainfall = 0.01f;
 
-	// Token: 0x04002A4E RID: 10830
+	// Token: 0x04002C9C RID: 11420
 	public float hydraulicEvaporation = 0.5f;
 
-	// Token: 0x04002A4F RID: 10831
+	// Token: 0x04002C9D RID: 11421
 	public float hydraulicSedimentSolubility = 0.01f;
 
-	// Token: 0x04002A50 RID: 10832
+	// Token: 0x04002C9E RID: 11422
 	public float hydraulicSedimentSaturation = 0.1f;
 
-	// Token: 0x04002A51 RID: 10833
+	// Token: 0x04002C9F RID: 11423
 	public float hydraulicVelocityRainfall = 0.01f;
 
-	// Token: 0x04002A52 RID: 10834
+	// Token: 0x04002CA0 RID: 11424
 	public float hydraulicVelocityEvaporation = 0.5f;
 
-	// Token: 0x04002A53 RID: 10835
+	// Token: 0x04002CA1 RID: 11425
 	public float hydraulicVelocitySedimentSolubility = 0.01f;
 
-	// Token: 0x04002A54 RID: 10836
+	// Token: 0x04002CA2 RID: 11426
 	public float hydraulicVelocitySedimentSaturation = 0.1f;
 
-	// Token: 0x04002A55 RID: 10837
+	// Token: 0x04002CA3 RID: 11427
 	public float hydraulicVelocity = 20f;
 
-	// Token: 0x04002A56 RID: 10838
+	// Token: 0x04002CA4 RID: 11428
 	public float hydraulicMomentum = 1f;
 
-	// Token: 0x04002A57 RID: 10839
+	// Token: 0x04002CA5 RID: 11429
 	public float hydraulicEntropy;
 
-	// Token: 0x04002A58 RID: 10840
+	// Token: 0x04002CA6 RID: 11430
 	public float hydraulicDowncutting = 0.1f;
 
-	// Token: 0x04002A59 RID: 10841
+	// Token: 0x04002CA7 RID: 11431
 	public int tidalIterations = 25;
 
-	// Token: 0x04002A5A RID: 10842
+	// Token: 0x04002CA8 RID: 11432
 	public float tidalSeaLevel = 50f;
 
-	// Token: 0x04002A5B RID: 10843
+	// Token: 0x04002CA9 RID: 11433
 	public float tidalRangeAmount = 5f;
 
-	// Token: 0x04002A5C RID: 10844
+	// Token: 0x04002CAA RID: 11434
 	public float tidalCliffLimit = 60f;
 
-	// Token: 0x04002A5D RID: 10845
+	// Token: 0x04002CAB RID: 11435
 	public int windIterations = 25;
 
-	// Token: 0x04002A5E RID: 10846
+	// Token: 0x04002CAC RID: 11436
 	public float windDirection;
 
-	// Token: 0x04002A5F RID: 10847
+	// Token: 0x04002CAD RID: 11437
 	public float windForce = 0.5f;
 
-	// Token: 0x04002A60 RID: 10848
+	// Token: 0x04002CAE RID: 11438
 	public float windLift = 0.01f;
 
-	// Token: 0x04002A61 RID: 10849
+	// Token: 0x04002CAF RID: 11439
 	public float windGravity = 0.5f;
 
-	// Token: 0x04002A62 RID: 10850
+	// Token: 0x04002CB0 RID: 11440
 	public float windCapacity = 0.01f;
 
-	// Token: 0x04002A63 RID: 10851
+	// Token: 0x04002CB1 RID: 11441
 	public float windEntropy = 0.1f;
 
-	// Token: 0x04002A64 RID: 10852
+	// Token: 0x04002CB2 RID: 11442
 	public float windSmoothing = 0.25f;
 
-	// Token: 0x04002A65 RID: 10853
+	// Token: 0x04002CB3 RID: 11443
 	public SplatPrototype[] splatPrototypes;
 
-	// Token: 0x04002A66 RID: 10854
+	// Token: 0x04002CB4 RID: 11444
 	public Texture2D tempTexture;
 
-	// Token: 0x04002A67 RID: 10855
+	// Token: 0x04002CB5 RID: 11445
 	public float slopeBlendMinAngle = 60f;
 
-	// Token: 0x04002A68 RID: 10856
+	// Token: 0x04002CB6 RID: 11446
 	public float slopeBlendMaxAngle = 75f;
 
-	// Token: 0x04002A69 RID: 10857
+	// Token: 0x04002CB7 RID: 11447
 	public List<float> heightBlendPoints;
 
-	// Token: 0x04002A6A RID: 10858
+	// Token: 0x04002CB8 RID: 11448
 	public string[] gradientStyles;
 
-	// Token: 0x04002A6B RID: 10859
+	// Token: 0x04002CB9 RID: 11449
 	public int voronoiTypeInt;
 
-	// Token: 0x04002A6C RID: 10860
-	public TerrainToolkit.VoronoiType voronoiType;
+	// Token: 0x04002CBA RID: 11450
+	public global::TerrainToolkit.VoronoiType voronoiType;
 
-	// Token: 0x04002A6D RID: 10861
+	// Token: 0x04002CBB RID: 11451
 	public int voronoiCells = 16;
 
-	// Token: 0x04002A6E RID: 10862
+	// Token: 0x04002CBC RID: 11452
 	public float voronoiFeatures = 1f;
 
-	// Token: 0x04002A6F RID: 10863
+	// Token: 0x04002CBD RID: 11453
 	public float voronoiScale = 1f;
 
-	// Token: 0x04002A70 RID: 10864
+	// Token: 0x04002CBE RID: 11454
 	public float voronoiBlend = 1f;
 
-	// Token: 0x04002A71 RID: 10865
+	// Token: 0x04002CBF RID: 11455
 	public float diamondSquareDelta = 0.5f;
 
-	// Token: 0x04002A72 RID: 10866
+	// Token: 0x04002CC0 RID: 11456
 	public float diamondSquareBlend = 1f;
 
-	// Token: 0x04002A73 RID: 10867
+	// Token: 0x04002CC1 RID: 11457
 	public int perlinFrequency = 4;
 
-	// Token: 0x04002A74 RID: 10868
+	// Token: 0x04002CC2 RID: 11458
 	public float perlinAmplitude = 1f;
 
-	// Token: 0x04002A75 RID: 10869
+	// Token: 0x04002CC3 RID: 11459
 	public int perlinOctaves = 8;
 
-	// Token: 0x04002A76 RID: 10870
+	// Token: 0x04002CC4 RID: 11460
 	public float perlinBlend = 1f;
 
-	// Token: 0x04002A77 RID: 10871
+	// Token: 0x04002CC5 RID: 11461
 	public float smoothBlend = 1f;
 
-	// Token: 0x04002A78 RID: 10872
+	// Token: 0x04002CC6 RID: 11462
 	public int smoothIterations;
 
-	// Token: 0x04002A79 RID: 10873
+	// Token: 0x04002CC7 RID: 11463
 	public float normaliseMin;
 
-	// Token: 0x04002A7A RID: 10874
+	// Token: 0x04002CC8 RID: 11464
 	public float normaliseMax = 1f;
 
-	// Token: 0x04002A7B RID: 10875
+	// Token: 0x04002CC9 RID: 11465
 	public float normaliseBlend = 1f;
 
-	// Token: 0x04002A7C RID: 10876
+	// Token: 0x04002CCA RID: 11466
 	[NonSerialized]
 	public bool presetsInitialised;
 
-	// Token: 0x04002A7D RID: 10877
+	// Token: 0x04002CCB RID: 11467
 	[NonSerialized]
 	public int voronoiPresetId;
 
-	// Token: 0x04002A7E RID: 10878
+	// Token: 0x04002CCC RID: 11468
 	[NonSerialized]
 	public int fractalPresetId;
 
-	// Token: 0x04002A7F RID: 10879
+	// Token: 0x04002CCD RID: 11469
 	[NonSerialized]
 	public int perlinPresetId;
 
-	// Token: 0x04002A80 RID: 10880
+	// Token: 0x04002CCE RID: 11470
 	[NonSerialized]
 	public int thermalErosionPresetId;
 
-	// Token: 0x04002A81 RID: 10881
+	// Token: 0x04002CCF RID: 11471
 	[NonSerialized]
 	public int fastHydraulicErosionPresetId;
 
-	// Token: 0x04002A82 RID: 10882
+	// Token: 0x04002CD0 RID: 11472
 	[NonSerialized]
 	public int fullHydraulicErosionPresetId;
 
-	// Token: 0x04002A83 RID: 10883
+	// Token: 0x04002CD1 RID: 11473
 	[NonSerialized]
 	public int velocityHydraulicErosionPresetId;
 
-	// Token: 0x04002A84 RID: 10884
+	// Token: 0x04002CD2 RID: 11474
 	[NonSerialized]
 	public int tidalErosionPresetId;
 
-	// Token: 0x04002A85 RID: 10885
+	// Token: 0x04002CD3 RID: 11475
 	[NonSerialized]
 	public int windErosionPresetId;
 
-	// Token: 0x04002A86 RID: 10886
+	// Token: 0x04002CD4 RID: 11476
 	public ArrayList voronoiPresets = new ArrayList();
 
-	// Token: 0x04002A87 RID: 10887
+	// Token: 0x04002CD5 RID: 11477
 	public ArrayList fractalPresets = new ArrayList();
 
-	// Token: 0x04002A88 RID: 10888
+	// Token: 0x04002CD6 RID: 11478
 	public ArrayList perlinPresets = new ArrayList();
 
-	// Token: 0x04002A89 RID: 10889
+	// Token: 0x04002CD7 RID: 11479
 	public ArrayList thermalErosionPresets = new ArrayList();
 
-	// Token: 0x04002A8A RID: 10890
+	// Token: 0x04002CD8 RID: 11480
 	public ArrayList fastHydraulicErosionPresets = new ArrayList();
 
-	// Token: 0x04002A8B RID: 10891
+	// Token: 0x04002CD9 RID: 11481
 	public ArrayList fullHydraulicErosionPresets = new ArrayList();
 
-	// Token: 0x04002A8C RID: 10892
+	// Token: 0x04002CDA RID: 11482
 	public ArrayList velocityHydraulicErosionPresets = new ArrayList();
 
-	// Token: 0x04002A8D RID: 10893
+	// Token: 0x04002CDB RID: 11483
 	public ArrayList tidalErosionPresets = new ArrayList();
 
-	// Token: 0x04002A8E RID: 10894
+	// Token: 0x04002CDC RID: 11484
 	public ArrayList windErosionPresets = new ArrayList();
 
-	// Token: 0x02000813 RID: 2067
+	// Token: 0x02000905 RID: 2309
 	public class PeakDistance : IComparable
 	{
-		// Token: 0x06004A47 RID: 19015 RVA: 0x00141FD4 File Offset: 0x001401D4
+		// Token: 0x06004EF6 RID: 20214 RVA: 0x0014BF38 File Offset: 0x0014A138
 		public int CompareTo(object obj)
 		{
-			TerrainToolkit.PeakDistance peakDistance = (TerrainToolkit.PeakDistance)obj;
+			global::TerrainToolkit.PeakDistance peakDistance = (global::TerrainToolkit.PeakDistance)obj;
 			int num = this.dist.CompareTo(peakDistance.dist);
 			if (num == 0)
 			{
@@ -2823,28 +2823,28 @@ public class TerrainToolkit : MonoBehaviour
 			return num;
 		}
 
-		// Token: 0x04002A8F RID: 10895
+		// Token: 0x04002CDD RID: 11485
 		public int id;
 
-		// Token: 0x04002A90 RID: 10896
+		// Token: 0x04002CDE RID: 11486
 		public float dist;
 	}
 
-	// Token: 0x02000814 RID: 2068
+	// Token: 0x02000906 RID: 2310
 	public struct Peak
 	{
-		// Token: 0x04002A91 RID: 10897
+		// Token: 0x04002CDF RID: 11487
 		public Vector2 peakPoint;
 
-		// Token: 0x04002A92 RID: 10898
+		// Token: 0x04002CE0 RID: 11488
 		public float peakHeight;
 	}
 
-	// Token: 0x02000815 RID: 2069
+	// Token: 0x02000907 RID: 2311
 	public class voronoiPresetData
 	{
-		// Token: 0x06004A48 RID: 19016 RVA: 0x00142014 File Offset: 0x00140214
-		public voronoiPresetData(string pn, TerrainToolkit.VoronoiType vt, int c, float vf, float vs, float vb)
+		// Token: 0x06004EF7 RID: 20215 RVA: 0x0014BF78 File Offset: 0x0014A178
+		public voronoiPresetData(string pn, global::TerrainToolkit.VoronoiType vt, int c, float vf, float vs, float vb)
 		{
 			this.presetName = pn;
 			this.voronoiType = vt;
@@ -2854,29 +2854,29 @@ public class TerrainToolkit : MonoBehaviour
 			this.voronoiBlend = vb;
 		}
 
-		// Token: 0x04002A93 RID: 10899
+		// Token: 0x04002CE1 RID: 11489
 		public string presetName;
 
-		// Token: 0x04002A94 RID: 10900
-		public TerrainToolkit.VoronoiType voronoiType;
+		// Token: 0x04002CE2 RID: 11490
+		public global::TerrainToolkit.VoronoiType voronoiType;
 
-		// Token: 0x04002A95 RID: 10901
+		// Token: 0x04002CE3 RID: 11491
 		public int voronoiCells;
 
-		// Token: 0x04002A96 RID: 10902
+		// Token: 0x04002CE4 RID: 11492
 		public float voronoiFeatures;
 
-		// Token: 0x04002A97 RID: 10903
+		// Token: 0x04002CE5 RID: 11493
 		public float voronoiScale;
 
-		// Token: 0x04002A98 RID: 10904
+		// Token: 0x04002CE6 RID: 11494
 		public float voronoiBlend;
 	}
 
-	// Token: 0x02000816 RID: 2070
+	// Token: 0x02000908 RID: 2312
 	public class fractalPresetData
 	{
-		// Token: 0x06004A49 RID: 19017 RVA: 0x0014204C File Offset: 0x0014024C
+		// Token: 0x06004EF8 RID: 20216 RVA: 0x0014BFB0 File Offset: 0x0014A1B0
 		public fractalPresetData(string pn, float dsd, float dsb)
 		{
 			this.presetName = pn;
@@ -2884,20 +2884,20 @@ public class TerrainToolkit : MonoBehaviour
 			this.diamondSquareBlend = dsb;
 		}
 
-		// Token: 0x04002A99 RID: 10905
+		// Token: 0x04002CE7 RID: 11495
 		public string presetName;
 
-		// Token: 0x04002A9A RID: 10906
+		// Token: 0x04002CE8 RID: 11496
 		public float diamondSquareDelta;
 
-		// Token: 0x04002A9B RID: 10907
+		// Token: 0x04002CE9 RID: 11497
 		public float diamondSquareBlend;
 	}
 
-	// Token: 0x02000817 RID: 2071
+	// Token: 0x02000909 RID: 2313
 	public class perlinPresetData
 	{
-		// Token: 0x06004A4A RID: 19018 RVA: 0x0014206C File Offset: 0x0014026C
+		// Token: 0x06004EF9 RID: 20217 RVA: 0x0014BFD0 File Offset: 0x0014A1D0
 		public perlinPresetData(string pn, int pf, float pa, int po, float pb)
 		{
 			this.presetName = pn;
@@ -2907,26 +2907,26 @@ public class TerrainToolkit : MonoBehaviour
 			this.perlinBlend = pb;
 		}
 
-		// Token: 0x04002A9C RID: 10908
+		// Token: 0x04002CEA RID: 11498
 		public string presetName;
 
-		// Token: 0x04002A9D RID: 10909
+		// Token: 0x04002CEB RID: 11499
 		public int perlinFrequency;
 
-		// Token: 0x04002A9E RID: 10910
+		// Token: 0x04002CEC RID: 11500
 		public float perlinAmplitude;
 
-		// Token: 0x04002A9F RID: 10911
+		// Token: 0x04002CED RID: 11501
 		public int perlinOctaves;
 
-		// Token: 0x04002AA0 RID: 10912
+		// Token: 0x04002CEE RID: 11502
 		public float perlinBlend;
 	}
 
-	// Token: 0x02000818 RID: 2072
+	// Token: 0x0200090A RID: 2314
 	public class thermalErosionPresetData
 	{
-		// Token: 0x06004A4B RID: 19019 RVA: 0x0014209C File Offset: 0x0014029C
+		// Token: 0x06004EFA RID: 20218 RVA: 0x0014C000 File Offset: 0x0014A200
 		public thermalErosionPresetData(string pn, int ti, float tms, float tba)
 		{
 			this.presetName = pn;
@@ -2935,23 +2935,23 @@ public class TerrainToolkit : MonoBehaviour
 			this.thermalFalloff = tba;
 		}
 
-		// Token: 0x04002AA1 RID: 10913
+		// Token: 0x04002CEF RID: 11503
 		public string presetName;
 
-		// Token: 0x04002AA2 RID: 10914
+		// Token: 0x04002CF0 RID: 11504
 		public int thermalIterations;
 
-		// Token: 0x04002AA3 RID: 10915
+		// Token: 0x04002CF1 RID: 11505
 		public float thermalMinSlope;
 
-		// Token: 0x04002AA4 RID: 10916
+		// Token: 0x04002CF2 RID: 11506
 		public float thermalFalloff;
 	}
 
-	// Token: 0x02000819 RID: 2073
+	// Token: 0x0200090B RID: 2315
 	public class fastHydraulicErosionPresetData
 	{
-		// Token: 0x06004A4C RID: 19020 RVA: 0x001420C4 File Offset: 0x001402C4
+		// Token: 0x06004EFB RID: 20219 RVA: 0x0014C028 File Offset: 0x0014A228
 		public fastHydraulicErosionPresetData(string pn, int hi, float hms, float hba)
 		{
 			this.presetName = pn;
@@ -2960,23 +2960,23 @@ public class TerrainToolkit : MonoBehaviour
 			this.hydraulicFalloff = hba;
 		}
 
-		// Token: 0x04002AA5 RID: 10917
+		// Token: 0x04002CF3 RID: 11507
 		public string presetName;
 
-		// Token: 0x04002AA6 RID: 10918
+		// Token: 0x04002CF4 RID: 11508
 		public int hydraulicIterations;
 
-		// Token: 0x04002AA7 RID: 10919
+		// Token: 0x04002CF5 RID: 11509
 		public float hydraulicMaxSlope;
 
-		// Token: 0x04002AA8 RID: 10920
+		// Token: 0x04002CF6 RID: 11510
 		public float hydraulicFalloff;
 	}
 
-	// Token: 0x0200081A RID: 2074
+	// Token: 0x0200090C RID: 2316
 	public class fullHydraulicErosionPresetData
 	{
-		// Token: 0x06004A4D RID: 19021 RVA: 0x001420EC File Offset: 0x001402EC
+		// Token: 0x06004EFC RID: 20220 RVA: 0x0014C050 File Offset: 0x0014A250
 		public fullHydraulicErosionPresetData(string pn, int hi, float hr, float he, float hso, float hsa)
 		{
 			this.presetName = pn;
@@ -2987,29 +2987,29 @@ public class TerrainToolkit : MonoBehaviour
 			this.hydraulicSedimentSaturation = hsa;
 		}
 
-		// Token: 0x04002AA9 RID: 10921
+		// Token: 0x04002CF7 RID: 11511
 		public string presetName;
 
-		// Token: 0x04002AAA RID: 10922
+		// Token: 0x04002CF8 RID: 11512
 		public int hydraulicIterations;
 
-		// Token: 0x04002AAB RID: 10923
+		// Token: 0x04002CF9 RID: 11513
 		public float hydraulicRainfall;
 
-		// Token: 0x04002AAC RID: 10924
+		// Token: 0x04002CFA RID: 11514
 		public float hydraulicEvaporation;
 
-		// Token: 0x04002AAD RID: 10925
+		// Token: 0x04002CFB RID: 11515
 		public float hydraulicSedimentSolubility;
 
-		// Token: 0x04002AAE RID: 10926
+		// Token: 0x04002CFC RID: 11516
 		public float hydraulicSedimentSaturation;
 	}
 
-	// Token: 0x0200081B RID: 2075
+	// Token: 0x0200090D RID: 2317
 	public class velocityHydraulicErosionPresetData
 	{
-		// Token: 0x06004A4E RID: 19022 RVA: 0x00142124 File Offset: 0x00140324
+		// Token: 0x06004EFD RID: 20221 RVA: 0x0014C088 File Offset: 0x0014A288
 		public velocityHydraulicErosionPresetData(string pn, int hi, float hvr, float hve, float hso, float hsa, float hv, float hm, float he, float hd)
 		{
 			this.presetName = pn;
@@ -3024,41 +3024,41 @@ public class TerrainToolkit : MonoBehaviour
 			this.hydraulicDowncutting = hd;
 		}
 
-		// Token: 0x04002AAF RID: 10927
+		// Token: 0x04002CFD RID: 11517
 		public string presetName;
 
-		// Token: 0x04002AB0 RID: 10928
+		// Token: 0x04002CFE RID: 11518
 		public int hydraulicIterations;
 
-		// Token: 0x04002AB1 RID: 10929
+		// Token: 0x04002CFF RID: 11519
 		public float hydraulicVelocityRainfall;
 
-		// Token: 0x04002AB2 RID: 10930
+		// Token: 0x04002D00 RID: 11520
 		public float hydraulicVelocityEvaporation;
 
-		// Token: 0x04002AB3 RID: 10931
+		// Token: 0x04002D01 RID: 11521
 		public float hydraulicVelocitySedimentSolubility;
 
-		// Token: 0x04002AB4 RID: 10932
+		// Token: 0x04002D02 RID: 11522
 		public float hydraulicVelocitySedimentSaturation;
 
-		// Token: 0x04002AB5 RID: 10933
+		// Token: 0x04002D03 RID: 11523
 		public float hydraulicVelocity;
 
-		// Token: 0x04002AB6 RID: 10934
+		// Token: 0x04002D04 RID: 11524
 		public float hydraulicMomentum;
 
-		// Token: 0x04002AB7 RID: 10935
+		// Token: 0x04002D05 RID: 11525
 		public float hydraulicEntropy;
 
-		// Token: 0x04002AB8 RID: 10936
+		// Token: 0x04002D06 RID: 11526
 		public float hydraulicDowncutting;
 	}
 
-	// Token: 0x0200081C RID: 2076
+	// Token: 0x0200090E RID: 2318
 	public class tidalErosionPresetData
 	{
-		// Token: 0x06004A4F RID: 19023 RVA: 0x00142184 File Offset: 0x00140384
+		// Token: 0x06004EFE RID: 20222 RVA: 0x0014C0E8 File Offset: 0x0014A2E8
 		public tidalErosionPresetData(string pn, int ti, float tra, float tcl)
 		{
 			this.presetName = pn;
@@ -3067,23 +3067,23 @@ public class TerrainToolkit : MonoBehaviour
 			this.tidalCliffLimit = tcl;
 		}
 
-		// Token: 0x04002AB9 RID: 10937
+		// Token: 0x04002D07 RID: 11527
 		public string presetName;
 
-		// Token: 0x04002ABA RID: 10938
+		// Token: 0x04002D08 RID: 11528
 		public int tidalIterations;
 
-		// Token: 0x04002ABB RID: 10939
+		// Token: 0x04002D09 RID: 11529
 		public float tidalRangeAmount;
 
-		// Token: 0x04002ABC RID: 10940
+		// Token: 0x04002D0A RID: 11530
 		public float tidalCliffLimit;
 	}
 
-	// Token: 0x0200081D RID: 2077
+	// Token: 0x0200090F RID: 2319
 	public class windErosionPresetData
 	{
-		// Token: 0x06004A50 RID: 19024 RVA: 0x001421AC File Offset: 0x001403AC
+		// Token: 0x06004EFF RID: 20223 RVA: 0x0014C110 File Offset: 0x0014A310
 		public windErosionPresetData(string pn, int wi, float wd, float wf, float wl, float wg, float wc, float we, float ws)
 		{
 			this.presetName = pn;
@@ -3097,130 +3097,130 @@ public class TerrainToolkit : MonoBehaviour
 			this.windSmoothing = ws;
 		}
 
-		// Token: 0x04002ABD RID: 10941
+		// Token: 0x04002D0B RID: 11531
 		public string presetName;
 
-		// Token: 0x04002ABE RID: 10942
+		// Token: 0x04002D0C RID: 11532
 		public int windIterations;
 
-		// Token: 0x04002ABF RID: 10943
+		// Token: 0x04002D0D RID: 11533
 		public float windDirection;
 
-		// Token: 0x04002AC0 RID: 10944
+		// Token: 0x04002D0E RID: 11534
 		public float windForce;
 
-		// Token: 0x04002AC1 RID: 10945
+		// Token: 0x04002D0F RID: 11535
 		public float windLift;
 
-		// Token: 0x04002AC2 RID: 10946
+		// Token: 0x04002D10 RID: 11536
 		public float windGravity;
 
-		// Token: 0x04002AC3 RID: 10947
+		// Token: 0x04002D11 RID: 11537
 		public float windCapacity;
 
-		// Token: 0x04002AC4 RID: 10948
+		// Token: 0x04002D12 RID: 11538
 		public float windEntropy;
 
-		// Token: 0x04002AC5 RID: 10949
+		// Token: 0x04002D13 RID: 11539
 		public float windSmoothing;
 	}
 
-	// Token: 0x0200081E RID: 2078
+	// Token: 0x02000910 RID: 2320
 	public enum ToolMode
 	{
-		// Token: 0x04002AC7 RID: 10951
+		// Token: 0x04002D15 RID: 11541
 		Create,
-		// Token: 0x04002AC8 RID: 10952
+		// Token: 0x04002D16 RID: 11542
 		Erode,
-		// Token: 0x04002AC9 RID: 10953
+		// Token: 0x04002D17 RID: 11543
 		Texture
 	}
 
-	// Token: 0x0200081F RID: 2079
+	// Token: 0x02000911 RID: 2321
 	public enum ErosionMode
 	{
-		// Token: 0x04002ACB RID: 10955
+		// Token: 0x04002D19 RID: 11545
 		Filter,
-		// Token: 0x04002ACC RID: 10956
+		// Token: 0x04002D1A RID: 11546
 		Brush
 	}
 
-	// Token: 0x02000820 RID: 2080
+	// Token: 0x02000912 RID: 2322
 	public enum ErosionType
 	{
-		// Token: 0x04002ACE RID: 10958
+		// Token: 0x04002D1C RID: 11548
 		Thermal,
-		// Token: 0x04002ACF RID: 10959
+		// Token: 0x04002D1D RID: 11549
 		Hydraulic,
-		// Token: 0x04002AD0 RID: 10960
+		// Token: 0x04002D1E RID: 11550
 		Tidal,
-		// Token: 0x04002AD1 RID: 10961
+		// Token: 0x04002D1F RID: 11551
 		Wind,
-		// Token: 0x04002AD2 RID: 10962
+		// Token: 0x04002D20 RID: 11552
 		Glacial
 	}
 
-	// Token: 0x02000821 RID: 2081
+	// Token: 0x02000913 RID: 2323
 	public enum HydraulicType
 	{
-		// Token: 0x04002AD4 RID: 10964
+		// Token: 0x04002D22 RID: 11554
 		Fast,
-		// Token: 0x04002AD5 RID: 10965
+		// Token: 0x04002D23 RID: 11555
 		Full,
-		// Token: 0x04002AD6 RID: 10966
+		// Token: 0x04002D24 RID: 11556
 		Velocity
 	}
 
-	// Token: 0x02000822 RID: 2082
+	// Token: 0x02000914 RID: 2324
 	public enum Neighbourhood
 	{
-		// Token: 0x04002AD8 RID: 10968
+		// Token: 0x04002D26 RID: 11558
 		Moore,
-		// Token: 0x04002AD9 RID: 10969
+		// Token: 0x04002D27 RID: 11559
 		VonNeumann
 	}
 
-	// Token: 0x02000823 RID: 2083
+	// Token: 0x02000915 RID: 2325
 	public enum GeneratorType
 	{
-		// Token: 0x04002ADB RID: 10971
+		// Token: 0x04002D29 RID: 11561
 		Voronoi,
-		// Token: 0x04002ADC RID: 10972
+		// Token: 0x04002D2A RID: 11562
 		DiamondSquare,
-		// Token: 0x04002ADD RID: 10973
+		// Token: 0x04002D2B RID: 11563
 		Perlin,
-		// Token: 0x04002ADE RID: 10974
+		// Token: 0x04002D2C RID: 11564
 		Smooth,
-		// Token: 0x04002ADF RID: 10975
+		// Token: 0x04002D2D RID: 11565
 		Normalise
 	}
 
-	// Token: 0x02000824 RID: 2084
+	// Token: 0x02000916 RID: 2326
 	public enum VoronoiType
 	{
-		// Token: 0x04002AE1 RID: 10977
+		// Token: 0x04002D2F RID: 11567
 		Linear,
-		// Token: 0x04002AE2 RID: 10978
+		// Token: 0x04002D30 RID: 11568
 		Sine,
-		// Token: 0x04002AE3 RID: 10979
+		// Token: 0x04002D31 RID: 11569
 		Tangent
 	}
 
-	// Token: 0x02000825 RID: 2085
+	// Token: 0x02000917 RID: 2327
 	public enum FeatureType
 	{
-		// Token: 0x04002AE5 RID: 10981
+		// Token: 0x04002D33 RID: 11571
 		Mountains,
-		// Token: 0x04002AE6 RID: 10982
+		// Token: 0x04002D34 RID: 11572
 		Hills,
-		// Token: 0x04002AE7 RID: 10983
+		// Token: 0x04002D35 RID: 11573
 		Plateaus
 	}
 
-	// Token: 0x02000826 RID: 2086
+	// Token: 0x02000918 RID: 2328
 	public class PerlinNoise2D
 	{
-		// Token: 0x06004A51 RID: 19025 RVA: 0x00142204 File Offset: 0x00140404
+		// Token: 0x06004F00 RID: 20224 RVA: 0x0014C168 File Offset: 0x0014A368
 		public PerlinNoise2D(int freq, float _amp)
 		{
 			Random random = new Random(Environment.TickCount);
@@ -3236,7 +3236,7 @@ public class TerrainToolkit : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06004A52 RID: 19026 RVA: 0x00142288 File Offset: 0x00140488
+		// Token: 0x06004F01 RID: 20225 RVA: 0x0014C1EC File Offset: 0x0014A3EC
 		public double getInterpolatedPoint(int _xa, int _xb, int _ya, int _yb, double Px, double Py)
 		{
 			double pa = this.interpolate(this.noiseValues[_xa % this.Frequency, _ya % this.frequency], this.noiseValues[_xb % this.Frequency, _ya % this.frequency], Px);
@@ -3244,7 +3244,7 @@ public class TerrainToolkit : MonoBehaviour
 			return this.interpolate(pa, pb, Py);
 		}
 
-		// Token: 0x06004A53 RID: 19027 RVA: 0x00142320 File Offset: 0x00140520
+		// Token: 0x06004F02 RID: 20226 RVA: 0x0014C284 File Offset: 0x0014A484
 		private double interpolate(double Pa, double Pb, double Px)
 		{
 			double num = Px * 3.1415927410125732;
@@ -3252,8 +3252,8 @@ public class TerrainToolkit : MonoBehaviour
 			return Pa * (1.0 - num2) + Pb * num2;
 		}
 
-		// Token: 0x17000E88 RID: 3720
-		// (get) Token: 0x06004A54 RID: 19028 RVA: 0x00142364 File Offset: 0x00140564
+		// Token: 0x17000F22 RID: 3874
+		// (get) Token: 0x06004F03 RID: 20227 RVA: 0x0014C2C8 File Offset: 0x0014A4C8
 		public float Amplitude
 		{
 			get
@@ -3262,8 +3262,8 @@ public class TerrainToolkit : MonoBehaviour
 			}
 		}
 
-		// Token: 0x17000E89 RID: 3721
-		// (get) Token: 0x06004A55 RID: 19029 RVA: 0x0014236C File Offset: 0x0014056C
+		// Token: 0x17000F23 RID: 3875
+		// (get) Token: 0x06004F04 RID: 20228 RVA: 0x0014C2D0 File Offset: 0x0014A4D0
 		public int Frequency
 		{
 			get
@@ -3272,25 +3272,25 @@ public class TerrainToolkit : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04002AE8 RID: 10984
+		// Token: 0x04002D36 RID: 11574
 		private double[,] noiseValues;
 
-		// Token: 0x04002AE9 RID: 10985
+		// Token: 0x04002D37 RID: 11575
 		private float amplitude = 1f;
 
-		// Token: 0x04002AEA RID: 10986
+		// Token: 0x04002D38 RID: 11576
 		private int frequency = 1;
 	}
 
-	// Token: 0x020008EF RID: 2287
-	// (Invoke) Token: 0x06004D94 RID: 19860
+	// Token: 0x02000919 RID: 2329
+	// (Invoke) Token: 0x06004F06 RID: 20230
 	public delegate void ErosionProgressDelegate(string titleString, string displayString, int iteration, int nIterations, float percentComplete);
 
-	// Token: 0x020008F0 RID: 2288
-	// (Invoke) Token: 0x06004D98 RID: 19864
+	// Token: 0x0200091A RID: 2330
+	// (Invoke) Token: 0x06004F0A RID: 20234
 	public delegate void TextureProgressDelegate(string titleString, string displayString, float percentComplete);
 
-	// Token: 0x020008F1 RID: 2289
-	// (Invoke) Token: 0x06004D9C RID: 19868
+	// Token: 0x0200091B RID: 2331
+	// (Invoke) Token: 0x06004F0E RID: 20238
 	public delegate void GeneratorProgressDelegate(string titleString, string displayString, float percentComplete);
 }

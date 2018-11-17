@@ -1,44 +1,44 @@
 ﻿using System;
 using Rust;
 
-// Token: 0x020005E1 RID: 1505
-public abstract class ResearchToolItem<T> : ToolItem<T> where T : ToolDataBlock
+// Token: 0x0200069F RID: 1695
+public abstract class ResearchToolItem<T> : global::ToolItem<T> where T : global::ToolDataBlock
 {
-	// Token: 0x06003610 RID: 13840 RVA: 0x000C3868 File Offset: 0x000C1A68
+	// Token: 0x060039D8 RID: 14808 RVA: 0x000CBAC4 File Offset: 0x000C9CC4
 	protected ResearchToolItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x06003611 RID: 13841 RVA: 0x000C3874 File Offset: 0x000C1A74
-	public override InventoryItem.MergeResult TryCombine(IInventoryItem otherItem)
+	// Token: 0x060039D9 RID: 14809 RVA: 0x000CBAD0 File Offset: 0x000C9CD0
+	public override global::InventoryItem.MergeResult TryCombine(global::IInventoryItem otherItem)
 	{
-		PlayerInventory playerInventory = base.inventory as PlayerInventory;
+		global::PlayerInventory playerInventory = base.inventory as global::PlayerInventory;
 		if (!playerInventory || otherItem.inventory != playerInventory)
 		{
-			return InventoryItem.MergeResult.Failed;
+			return global::InventoryItem.MergeResult.Failed;
 		}
-		ItemDataBlock datablock = otherItem.datablock;
+		global::ItemDataBlock datablock = otherItem.datablock;
 		if (!datablock || !datablock.isResearchable)
 		{
-			Notice.Popup("", "You can't research this", 4f);
-			return InventoryItem.MergeResult.Failed;
+			Rust.Notice.Popup("", "You can't research this", 4f);
+			return global::InventoryItem.MergeResult.Failed;
 		}
 		if (!playerInventory.AtWorkBench())
 		{
-			Notice.Popup("", "You must be at a workbench to do this.", 4f);
-			return InventoryItem.MergeResult.Failed;
+			Rust.Notice.Popup("", "You must be at a workbench to do this.", 4f);
+			return global::InventoryItem.MergeResult.Failed;
 		}
-		BlueprintDataBlock bp;
-		if (!BlueprintDataBlock.FindBlueprintForItem<BlueprintDataBlock>(otherItem.datablock, out bp))
+		global::BlueprintDataBlock bp;
+		if (!global::BlueprintDataBlock.FindBlueprintForItem<global::BlueprintDataBlock>(otherItem.datablock, out bp))
 		{
-			Notice.Popup("", "You can't research this.. No Blueprint Available!...", 4f);
-			return InventoryItem.MergeResult.Failed;
+			Rust.Notice.Popup("", "You can't research this.. No Blueprint Available!...", 4f);
+			return global::InventoryItem.MergeResult.Failed;
 		}
 		if (playerInventory.KnowsBP(bp))
 		{
-			Notice.Popup("", "You already know how to make this!", 4f);
-			return InventoryItem.MergeResult.Failed;
+			Rust.Notice.Popup("", "You already know how to make this!", 4f);
+			return global::InventoryItem.MergeResult.Failed;
 		}
-		return InventoryItem.MergeResult.Combined;
+		return global::InventoryItem.MergeResult.Combined;
 	}
 }

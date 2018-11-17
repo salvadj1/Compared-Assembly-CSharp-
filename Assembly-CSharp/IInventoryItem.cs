@@ -1,122 +1,122 @@
 ﻿using System;
 using uLink;
 
-// Token: 0x020005CE RID: 1486
+// Token: 0x0200068C RID: 1676
 public interface IInventoryItem
 {
-	// Token: 0x17000A93 RID: 2707
-	// (get) Token: 0x06003592 RID: 13714
-	ItemDataBlock datablock { get; }
+	// Token: 0x17000B09 RID: 2825
+	// (get) Token: 0x0600395A RID: 14682
+	global::ItemDataBlock datablock { get; }
 
-	// Token: 0x17000A94 RID: 2708
-	// (get) Token: 0x06003593 RID: 13715
+	// Token: 0x17000B0A RID: 2826
+	// (get) Token: 0x0600395B RID: 14683
 	int slot { get; }
 
-	// Token: 0x17000A95 RID: 2709
-	// (get) Token: 0x06003594 RID: 13716
+	// Token: 0x17000B0B RID: 2827
+	// (get) Token: 0x0600395C RID: 14684
 	float condition { get; }
 
-	// Token: 0x17000A96 RID: 2710
-	// (get) Token: 0x06003595 RID: 13717
+	// Token: 0x17000B0C RID: 2828
+	// (get) Token: 0x0600395D RID: 14685
 	float maxcondition { get; }
 
-	// Token: 0x06003596 RID: 13718
+	// Token: 0x0600395E RID: 14686
 	bool IsDamaged();
 
-	// Token: 0x06003597 RID: 13719
+	// Token: 0x0600395F RID: 14687
 	bool IsBroken();
 
-	// Token: 0x06003598 RID: 13720
+	// Token: 0x06003960 RID: 14688
 	float GetConditionPercent();
 
-	// Token: 0x17000A97 RID: 2711
-	// (get) Token: 0x06003599 RID: 13721
+	// Token: 0x17000B0D RID: 2829
+	// (get) Token: 0x06003961 RID: 14689
 	int uses { get; }
 
-	// Token: 0x17000A98 RID: 2712
-	// (get) Token: 0x0600359A RID: 13722
-	Inventory inventory { get; }
+	// Token: 0x17000B0E RID: 2830
+	// (get) Token: 0x06003962 RID: 14690
+	global::Inventory inventory { get; }
 
-	// Token: 0x17000A99 RID: 2713
-	// (get) Token: 0x0600359B RID: 13723
+	// Token: 0x17000B0F RID: 2831
+	// (get) Token: 0x06003963 RID: 14691
 	bool dirty { get; }
 
-	// Token: 0x17000A9A RID: 2714
-	// (get) Token: 0x0600359C RID: 13724
-	// (set) Token: 0x0600359D RID: 13725
+	// Token: 0x17000B10 RID: 2832
+	// (get) Token: 0x06003964 RID: 14692
+	// (set) Token: 0x06003965 RID: 14693
 	float lastUseTime { get; set; }
 
-	// Token: 0x17000A9B RID: 2715
-	// (get) Token: 0x0600359E RID: 13726
+	// Token: 0x17000B11 RID: 2833
+	// (get) Token: 0x06003966 RID: 14694
 	bool isInLocalInventory { get; }
 
-	// Token: 0x17000A9C RID: 2716
-	// (get) Token: 0x0600359F RID: 13727
+	// Token: 0x17000B12 RID: 2834
+	// (get) Token: 0x06003967 RID: 14695
 	IDMain idMain { get; }
 
-	// Token: 0x17000A9D RID: 2717
-	// (get) Token: 0x060035A0 RID: 13728
-	Character character { get; }
+	// Token: 0x17000B13 RID: 2835
+	// (get) Token: 0x06003968 RID: 14696
+	global::Character character { get; }
 
-	// Token: 0x17000A9E RID: 2718
-	// (get) Token: 0x060035A1 RID: 13729
-	Controller controller { get; }
+	// Token: 0x17000B14 RID: 2836
+	// (get) Token: 0x06003969 RID: 14697
+	global::Controller controller { get; }
 
-	// Token: 0x17000A9F RID: 2719
-	// (get) Token: 0x060035A2 RID: 13730
-	Controllable controllable { get; }
+	// Token: 0x17000B15 RID: 2837
+	// (get) Token: 0x0600396A RID: 14698
+	global::Controllable controllable { get; }
 
-	// Token: 0x17000AA0 RID: 2720
-	// (get) Token: 0x060035A3 RID: 13731
+	// Token: 0x17000B16 RID: 2838
+	// (get) Token: 0x0600396B RID: 14699
 	bool active { get; }
 
-	// Token: 0x17000AA1 RID: 2721
-	// (get) Token: 0x060035A4 RID: 13732
+	// Token: 0x17000B17 RID: 2839
+	// (get) Token: 0x0600396C RID: 14700
 	string toolTip { get; }
 
-	// Token: 0x060035A5 RID: 13733
+	// Token: 0x0600396D RID: 14701
 	int AddUses(int count);
 
-	// Token: 0x060035A6 RID: 13734
+	// Token: 0x0600396E RID: 14702
 	void SetUses(int count);
 
-	// Token: 0x060035A7 RID: 13735
+	// Token: 0x0600396F RID: 14703
 	void SetCondition(float condition);
 
-	// Token: 0x060035A8 RID: 13736
+	// Token: 0x06003970 RID: 14704
 	void SetMaxCondition(float condition);
 
-	// Token: 0x060035A9 RID: 13737
+	// Token: 0x06003971 RID: 14705
 	bool Consume(ref int count);
 
-	// Token: 0x060035AA RID: 13738
+	// Token: 0x06003972 RID: 14706
 	bool TryConditionLoss(float probability, float percentLoss);
 
-	// Token: 0x060035AB RID: 13739
+	// Token: 0x06003973 RID: 14707
 	void Serialize(BitStream stream);
 
-	// Token: 0x060035AC RID: 13740
+	// Token: 0x06003974 RID: 14708
 	void Deserialize(BitStream stream);
 
-	// Token: 0x060035AD RID: 13741
-	void OnMovedTo(Inventory inv, int slot);
+	// Token: 0x06003975 RID: 14709
+	void OnMovedTo(global::Inventory inv, int slot);
 
-	// Token: 0x060035AE RID: 13742
-	void OnAddedTo(Inventory inv, int slot);
+	// Token: 0x06003976 RID: 14710
+	void OnAddedTo(global::Inventory inv, int slot);
 
-	// Token: 0x060035AF RID: 13743
-	InventoryItem.MenuItemResult OnMenuOption(InventoryItem.MenuItem option);
+	// Token: 0x06003977 RID: 14711
+	global::InventoryItem.MenuItemResult OnMenuOption(global::InventoryItem.MenuItem option);
 
-	// Token: 0x17000AA2 RID: 2722
-	// (get) Token: 0x060035B0 RID: 13744
+	// Token: 0x17000B18 RID: 2840
+	// (get) Token: 0x06003978 RID: 14712
 	bool doNotSave { get; }
 
-	// Token: 0x060035B1 RID: 13745
+	// Token: 0x06003979 RID: 14713
 	bool MarkDirty();
 
-	// Token: 0x060035B2 RID: 13746
-	InventoryItem.MergeResult TryStack(IInventoryItem other);
+	// Token: 0x0600397A RID: 14714
+	global::InventoryItem.MergeResult TryStack(global::IInventoryItem other);
 
-	// Token: 0x060035B3 RID: 13747
-	InventoryItem.MergeResult TryCombine(IInventoryItem other);
+	// Token: 0x0600397B RID: 14715
+	global::InventoryItem.MergeResult TryCombine(global::IInventoryItem other);
 }

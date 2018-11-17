@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-// Token: 0x0200071E RID: 1822
+// Token: 0x020007FA RID: 2042
 public struct dfMarkupBorders
 {
-	// Token: 0x060042BC RID: 17084 RVA: 0x00103124 File Offset: 0x00101324
+	// Token: 0x06004700 RID: 18176 RVA: 0x0010C434 File Offset: 0x0010A634
 	public dfMarkupBorders(int left, int right, int top, int bottom)
 	{
 		this.left = left;
@@ -13,8 +13,8 @@ public struct dfMarkupBorders
 		this.bottom = bottom;
 	}
 
-	// Token: 0x17000D1A RID: 3354
-	// (get) Token: 0x060042BD RID: 17085 RVA: 0x00103144 File Offset: 0x00101344
+	// Token: 0x17000DA4 RID: 3492
+	// (get) Token: 0x06004701 RID: 18177 RVA: 0x0010C454 File Offset: 0x0010A654
 	public int horizontal
 	{
 		get
@@ -23,8 +23,8 @@ public struct dfMarkupBorders
 		}
 	}
 
-	// Token: 0x17000D1B RID: 3355
-	// (get) Token: 0x060042BE RID: 17086 RVA: 0x00103154 File Offset: 0x00101354
+	// Token: 0x17000DA5 RID: 3493
+	// (get) Token: 0x06004702 RID: 18178 RVA: 0x0010C464 File Offset: 0x0010A664
 	public int vertical
 	{
 		get
@@ -33,10 +33,10 @@ public struct dfMarkupBorders
 		}
 	}
 
-	// Token: 0x060042BF RID: 17087 RVA: 0x00103164 File Offset: 0x00101364
-	public static dfMarkupBorders Parse(string value)
+	// Token: 0x06004703 RID: 18179 RVA: 0x0010C474 File Offset: 0x0010A674
+	public static global::dfMarkupBorders Parse(string value)
 	{
-		dfMarkupBorders result = default(dfMarkupBorders);
+		global::dfMarkupBorders result = default(global::dfMarkupBorders);
 		value = Regex.Replace(value, "\\s+", " ");
 		string[] array = value.Split(new char[]
 		{
@@ -44,41 +44,41 @@ public struct dfMarkupBorders
 		});
 		if (array.Length == 1)
 		{
-			int num = dfMarkupStyle.ParseSize(value, 0);
+			int num = global::dfMarkupStyle.ParseSize(value, 0);
 			result.left = (result.right = num);
 			result.top = (result.bottom = num);
 		}
 		else if (array.Length == 2)
 		{
-			int num2 = dfMarkupStyle.ParseSize(array[0], 0);
+			int num2 = global::dfMarkupStyle.ParseSize(array[0], 0);
 			result.top = (result.bottom = num2);
-			int num3 = dfMarkupStyle.ParseSize(array[1], 0);
+			int num3 = global::dfMarkupStyle.ParseSize(array[1], 0);
 			result.left = (result.right = num3);
 		}
 		else if (array.Length == 3)
 		{
-			int num4 = dfMarkupStyle.ParseSize(array[0], 0);
+			int num4 = global::dfMarkupStyle.ParseSize(array[0], 0);
 			result.top = num4;
-			int num5 = dfMarkupStyle.ParseSize(array[1], 0);
+			int num5 = global::dfMarkupStyle.ParseSize(array[1], 0);
 			result.left = (result.right = num5);
-			int num6 = dfMarkupStyle.ParseSize(array[2], 0);
+			int num6 = global::dfMarkupStyle.ParseSize(array[2], 0);
 			result.bottom = num6;
 		}
 		else if (array.Length == 4)
 		{
-			int num7 = dfMarkupStyle.ParseSize(array[0], 0);
+			int num7 = global::dfMarkupStyle.ParseSize(array[0], 0);
 			result.top = num7;
-			int num8 = dfMarkupStyle.ParseSize(array[1], 0);
+			int num8 = global::dfMarkupStyle.ParseSize(array[1], 0);
 			result.right = num8;
-			int num9 = dfMarkupStyle.ParseSize(array[2], 0);
+			int num9 = global::dfMarkupStyle.ParseSize(array[2], 0);
 			result.bottom = num9;
-			int num10 = dfMarkupStyle.ParseSize(array[3], 0);
+			int num10 = global::dfMarkupStyle.ParseSize(array[3], 0);
 			result.left = num10;
 		}
 		return result;
 	}
 
-	// Token: 0x060042C0 RID: 17088 RVA: 0x001032D8 File Offset: 0x001014D8
+	// Token: 0x06004704 RID: 18180 RVA: 0x0010C5E8 File Offset: 0x0010A7E8
 	public override string ToString()
 	{
 		return string.Format("[T:{0},R:{1},L:{2},B:{3}]", new object[]
@@ -90,15 +90,15 @@ public struct dfMarkupBorders
 		});
 	}
 
-	// Token: 0x04002326 RID: 8998
+	// Token: 0x04002549 RID: 9545
 	public int left;
 
-	// Token: 0x04002327 RID: 8999
+	// Token: 0x0400254A RID: 9546
 	public int top;
 
-	// Token: 0x04002328 RID: 9000
+	// Token: 0x0400254B RID: 9547
 	public int right;
 
-	// Token: 0x04002329 RID: 9001
+	// Token: 0x0400254C RID: 9548
 	public int bottom;
 }

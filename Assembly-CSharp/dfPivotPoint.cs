@@ -1,24 +1,24 @@
 ﻿using System;
 
-// Token: 0x020006BA RID: 1722
+// Token: 0x02000785 RID: 1925
 public enum dfPivotPoint
 {
-	// Token: 0x04001FDB RID: 8155
+	// Token: 0x040021DC RID: 8668
 	TopLeft,
-	// Token: 0x04001FDC RID: 8156
+	// Token: 0x040021DD RID: 8669
 	TopCenter,
-	// Token: 0x04001FDD RID: 8157
+	// Token: 0x040021DE RID: 8670
 	TopRight,
-	// Token: 0x04001FDE RID: 8158
+	// Token: 0x040021DF RID: 8671
 	MiddleLeft,
-	// Token: 0x04001FDF RID: 8159
+	// Token: 0x040021E0 RID: 8672
 	MiddleCenter,
-	// Token: 0x04001FE0 RID: 8160
+	// Token: 0x040021E1 RID: 8673
 	MiddleRight,
-	// Token: 0x04001FE1 RID: 8161
+	// Token: 0x040021E2 RID: 8674
 	BottomLeft,
-	// Token: 0x04001FE2 RID: 8162
+	// Token: 0x040021E3 RID: 8675
 	BottomCenter,
-	// Token: 0x04001FE3 RID: 8163
+	// Token: 0x040021E4 RID: 8676
 	BottomRight
 }

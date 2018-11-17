@@ -3,17 +3,17 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x02000409 RID: 1033
+// Token: 0x020004BD RID: 1213
 public class BrandingVersion : MonoBehaviour
 {
-	// Token: 0x060025DC RID: 9692 RVA: 0x00091FA8 File Offset: 0x000901A8
+	// Token: 0x06002962 RID: 10594 RVA: 0x00097E6C File Offset: 0x0009606C
 	private void Start()
 	{
 		DateTime dateTime = this.RetrieveLinkerTimestamp();
 		this.textVersion.Text = dateTime.ToString("d MMM yyyy\\, h:mmtt");
 	}
 
-	// Token: 0x060025DD RID: 9693 RVA: 0x00091FD4 File Offset: 0x000901D4
+	// Token: 0x06002963 RID: 10595 RVA: 0x00097E98 File Offset: 0x00096098
 	private DateTime RetrieveLinkerTimestamp()
 	{
 		string location = Assembly.GetCallingAssembly().Location;
@@ -39,6 +39,6 @@ public class BrandingVersion : MonoBehaviour
 		return dateTime;
 	}
 
-	// Token: 0x04001275 RID: 4725
-	public dfRichTextLabel textVersion;
+	// Token: 0x040013F5 RID: 5109
+	public global::dfRichTextLabel textVersion;
 }

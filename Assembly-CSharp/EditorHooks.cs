@@ -3,10 +3,10 @@ using System.Diagnostics;
 using EditorHooksPrivate;
 using UnityEngine;
 
-// Token: 0x02000359 RID: 857
+// Token: 0x02000406 RID: 1030
 public static class EditorHooks
 {
-	// Token: 0x0600210E RID: 8462 RVA: 0x0008176C File Offset: 0x0007F96C
+	// Token: 0x06002470 RID: 9328 RVA: 0x00086B68 File Offset: 0x00084D68
 	static EditorHooks()
 	{
 		Type type = Type.GetType("EditorHooksEditor, Assembly-CSharp-Editor");
@@ -23,13 +23,13 @@ public static class EditorHooks
 		}
 	}
 
-	// Token: 0x0600210F RID: 8463 RVA: 0x000817C8 File Offset: 0x0007F9C8
+	// Token: 0x06002471 RID: 9329 RVA: 0x00086BC4 File Offset: 0x00084DC4
 	[Conditional("UNITY_EDITOR")]
 	public static void SetDirty(this Object obj)
 	{
-		if (Hooks._SetDirty != null)
+		if (EditorHooksPrivate.Hooks._SetDirty != null)
 		{
-			Hooks._SetDirty(obj);
+			EditorHooksPrivate.Hooks._SetDirty(obj);
 		}
 	}
 }

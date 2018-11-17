@@ -1,31 +1,31 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000762 RID: 1890
+// Token: 0x02000844 RID: 2116
 [AddComponentMenu("NGUI/Interaction/Button Rotation")]
 public class UIButtonRotation : MonoBehaviour
 {
-	// Token: 0x060044DE RID: 17630 RVA: 0x0010DDB0 File Offset: 0x0010BFB0
+	// Token: 0x0600493F RID: 18751 RVA: 0x00117730 File Offset: 0x00115930
 	private void Start()
 	{
 		this.mStarted = true;
 	}
 
-	// Token: 0x060044DF RID: 17631 RVA: 0x0010DDBC File Offset: 0x0010BFBC
+	// Token: 0x06004940 RID: 18752 RVA: 0x0011773C File Offset: 0x0011593C
 	private void OnEnable()
 	{
 		if (this.mStarted && this.mHighlighted)
 		{
-			this.OnHover(UICamera.IsHighlighted(base.gameObject));
+			this.OnHover(global::UICamera.IsHighlighted(base.gameObject));
 		}
 	}
 
-	// Token: 0x060044E0 RID: 17632 RVA: 0x0010DDE8 File Offset: 0x0010BFE8
+	// Token: 0x06004941 RID: 18753 RVA: 0x00117768 File Offset: 0x00115968
 	private void OnDisable()
 	{
 		if (this.tweenTarget != null)
 		{
-			TweenRotation component = this.tweenTarget.GetComponent<TweenRotation>();
+			global::TweenRotation component = this.tweenTarget.GetComponent<global::TweenRotation>();
 			if (component != null)
 			{
 				component.rotation = this.mRot;
@@ -34,7 +34,7 @@ public class UIButtonRotation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044E1 RID: 17633 RVA: 0x0010DE34 File Offset: 0x0010C034
+	// Token: 0x06004942 RID: 18754 RVA: 0x001177B4 File Offset: 0x001159B4
 	private void Init()
 	{
 		this.mInitDone = true;
@@ -45,7 +45,7 @@ public class UIButtonRotation : MonoBehaviour
 		this.mRot = this.tweenTarget.localRotation;
 	}
 
-	// Token: 0x060044E2 RID: 17634 RVA: 0x0010DE6C File Offset: 0x0010C06C
+	// Token: 0x06004943 RID: 18755 RVA: 0x001177EC File Offset: 0x001159EC
 	private void OnPress(bool isPressed)
 	{
 		if (base.enabled)
@@ -54,11 +54,11 @@ public class UIButtonRotation : MonoBehaviour
 			{
 				this.Init();
 			}
-			TweenRotation.Begin(this.tweenTarget.gameObject, this.duration, (!isPressed) ? ((!UICamera.IsHighlighted(base.gameObject)) ? this.mRot : (this.mRot * Quaternion.Euler(this.hover))) : (this.mRot * Quaternion.Euler(this.pressed))).method = UITweener.Method.EaseInOut;
+			global::TweenRotation.Begin(this.tweenTarget.gameObject, this.duration, (!isPressed) ? ((!global::UICamera.IsHighlighted(base.gameObject)) ? this.mRot : (this.mRot * Quaternion.Euler(this.hover))) : (this.mRot * Quaternion.Euler(this.pressed))).method = global::UITweener.Method.EaseInOut;
 		}
 	}
 
-	// Token: 0x060044E3 RID: 17635 RVA: 0x0010DF04 File Offset: 0x0010C104
+	// Token: 0x06004944 RID: 18756 RVA: 0x00117884 File Offset: 0x00115A84
 	private void OnHover(bool isOver)
 	{
 		if (base.enabled)
@@ -67,32 +67,32 @@ public class UIButtonRotation : MonoBehaviour
 			{
 				this.Init();
 			}
-			TweenRotation.Begin(this.tweenTarget.gameObject, this.duration, (!isOver) ? this.mRot : (this.mRot * Quaternion.Euler(this.hover))).method = UITweener.Method.EaseInOut;
+			global::TweenRotation.Begin(this.tweenTarget.gameObject, this.duration, (!isOver) ? this.mRot : (this.mRot * Quaternion.Euler(this.hover))).method = global::UITweener.Method.EaseInOut;
 			this.mHighlighted = isOver;
 		}
 	}
 
-	// Token: 0x04002517 RID: 9495
+	// Token: 0x0400274E RID: 10062
 	public Transform tweenTarget;
 
-	// Token: 0x04002518 RID: 9496
+	// Token: 0x0400274F RID: 10063
 	public Vector3 hover = Vector3.zero;
 
-	// Token: 0x04002519 RID: 9497
+	// Token: 0x04002750 RID: 10064
 	public Vector3 pressed = Vector3.zero;
 
-	// Token: 0x0400251A RID: 9498
+	// Token: 0x04002751 RID: 10065
 	public float duration = 0.2f;
 
-	// Token: 0x0400251B RID: 9499
+	// Token: 0x04002752 RID: 10066
 	private Quaternion mRot;
 
-	// Token: 0x0400251C RID: 9500
+	// Token: 0x04002753 RID: 10067
 	private bool mInitDone;
 
-	// Token: 0x0400251D RID: 9501
+	// Token: 0x04002754 RID: 10068
 	private bool mStarted;
 
-	// Token: 0x0400251E RID: 9502
+	// Token: 0x04002755 RID: 10069
 	private bool mHighlighted;
 }

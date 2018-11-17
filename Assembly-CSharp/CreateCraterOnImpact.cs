@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200084A RID: 2122
+// Token: 0x02000940 RID: 2368
 public class CreateCraterOnImpact : MonoBehaviour
 {
-	// Token: 0x06004ADD RID: 19165 RVA: 0x00146D20 File Offset: 0x00144F20
+	// Token: 0x06004F9E RID: 20382 RVA: 0x001512E4 File Offset: 0x0014F4E4
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (this.Explosion)
 		{
 			Object.Instantiate(this.Explosion, collision.contacts[0].point, Quaternion.identity);
 		}
-		CraterMaker component = collision.gameObject.GetComponent<CraterMaker>();
+		global::CraterMaker component = collision.gameObject.GetComponent<global::CraterMaker>();
 		if (component)
 		{
 			component.Create(collision.contacts[0].point, this.Radius, this.Depth, this.Noise);
@@ -19,15 +19,15 @@ public class CreateCraterOnImpact : MonoBehaviour
 		Object.Destroy(base.gameObject);
 	}
 
-	// Token: 0x04002BF4 RID: 11252
+	// Token: 0x04002E62 RID: 11874
 	public float Radius = 15f;
 
-	// Token: 0x04002BF5 RID: 11253
+	// Token: 0x04002E63 RID: 11875
 	public float Depth = 10f;
 
-	// Token: 0x04002BF6 RID: 11254
+	// Token: 0x04002E64 RID: 11876
 	public float Noise = 0.5f;
 
-	// Token: 0x04002BF7 RID: 11255
+	// Token: 0x04002E65 RID: 11877
 	public GameObject Explosion;
 }

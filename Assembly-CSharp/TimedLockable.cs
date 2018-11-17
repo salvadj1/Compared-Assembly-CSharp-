@@ -1,11 +1,11 @@
 ﻿using System;
 
-// Token: 0x0200066E RID: 1646
-public class TimedLockable : LockableObject
+// Token: 0x02000732 RID: 1842
+public class TimedLockable : global::LockableObject
 {
-	// Token: 0x04001D48 RID: 7496
+	// Token: 0x04001F40 RID: 8000
 	private ulong ownerID;
 
-	// Token: 0x04001D49 RID: 7497
+	// Token: 0x04001F41 RID: 8001
 	private float lockTime;
 }

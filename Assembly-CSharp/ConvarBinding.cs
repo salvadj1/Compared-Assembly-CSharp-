@@ -1,29 +1,29 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003FF RID: 1023
+// Token: 0x020004B0 RID: 1200
 public class ConvarBinding : MonoBehaviour
 {
-	// Token: 0x06002596 RID: 9622 RVA: 0x000906D8 File Offset: 0x0008E8D8
+	// Token: 0x0600290E RID: 10510 RVA: 0x00096510 File Offset: 0x00094710
 	private void Start()
 	{
 		this.UpdateFromConVar();
 	}
 
-	// Token: 0x06002597 RID: 9623 RVA: 0x000906E0 File Offset: 0x0008E8E0
+	// Token: 0x0600290F RID: 10511 RVA: 0x00096518 File Offset: 0x00094718
 	public void UpdateFromConVar()
 	{
-		dfSlider component = base.GetComponent<dfSlider>();
+		global::dfSlider component = base.GetComponent<global::dfSlider>();
 		if (component != null)
 		{
-			component.Value = ConVar.GetFloat(this.convarName, component.Value);
+			component.Value = global::ConVar.GetFloat(this.convarName, component.Value);
 		}
-		dfDropdown component2 = base.GetComponent<dfDropdown>();
+		global::dfDropdown component2 = base.GetComponent<global::dfDropdown>();
 		if (component2 != null)
 		{
 			if (this.useValuesNotNumbers)
 			{
-				string @string = ConVar.GetString(this.convarName, string.Empty);
+				string @string = global::ConVar.GetString(this.convarName, string.Empty);
 				if (!string.IsNullOrEmpty(@string))
 				{
 					int selectedIndex = component2.SelectedIndex;
@@ -36,21 +36,21 @@ public class ConvarBinding : MonoBehaviour
 			}
 			else
 			{
-				int @int = ConVar.GetInt(this.convarName, -1f);
+				int @int = global::ConVar.GetInt(this.convarName, -1f);
 				if (@int != -1)
 				{
 					component2.SelectedIndex = @int;
 				}
 			}
 		}
-		dfCheckbox component3 = base.GetComponent<dfCheckbox>();
+		global::dfCheckbox component3 = base.GetComponent<global::dfCheckbox>();
 		if (component3 != null)
 		{
-			component3.IsChecked = ConVar.GetBool(this.convarName, component3.IsChecked);
+			component3.IsChecked = global::ConVar.GetBool(this.convarName, component3.IsChecked);
 		}
 	}
 
-	// Token: 0x06002598 RID: 9624 RVA: 0x000907CC File Offset: 0x0008E9CC
+	// Token: 0x06002910 RID: 10512 RVA: 0x00096604 File Offset: 0x00094804
 	public void UpdateConVars()
 	{
 		string str;
@@ -58,19 +58,19 @@ public class ConvarBinding : MonoBehaviour
 		{
 			return;
 		}
-		ConsoleSystem.Run(this.convarName + " \"" + str + "\"", false);
+		global::ConsoleSystem.Run(this.convarName + " \"" + str + "\"", false);
 	}
 
-	// Token: 0x06002599 RID: 9625 RVA: 0x00090804 File Offset: 0x0008EA04
+	// Token: 0x06002911 RID: 10513 RVA: 0x0009663C File Offset: 0x0009483C
 	public bool GetStringValueFromControl(out string value)
 	{
-		dfSlider component = base.GetComponent<dfSlider>();
+		global::dfSlider component = base.GetComponent<global::dfSlider>();
 		if (component != null)
 		{
 			value = component.Value.ToString();
 			return true;
 		}
-		dfDropdown component2 = base.GetComponent<dfDropdown>();
+		global::dfDropdown component2 = base.GetComponent<global::dfDropdown>();
 		if (component2)
 		{
 			int selectedIndex = component2.SelectedIndex;
@@ -91,7 +91,7 @@ public class ConvarBinding : MonoBehaviour
 		}
 		else
 		{
-			dfCheckbox component3 = base.GetComponent<dfCheckbox>();
+			global::dfCheckbox component3 = base.GetComponent<global::dfCheckbox>();
 			if (component3)
 			{
 				value = ((!component3.IsChecked) ? bool.FalseString : bool.TrueString);
@@ -102,9 +102,9 @@ public class ConvarBinding : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001238 RID: 4664
+	// Token: 0x040013B5 RID: 5045
 	public string convarName;
 
-	// Token: 0x04001239 RID: 4665
+	// Token: 0x040013B6 RID: 5046
 	public bool useValuesNotNumbers;
 }

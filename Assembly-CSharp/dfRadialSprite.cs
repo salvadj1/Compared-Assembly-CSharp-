@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006E9 RID: 1769
-[ExecuteInEditMode]
+// Token: 0x020007BB RID: 1979
 [RequireComponent(typeof(BoxCollider))]
 [AddComponentMenu("Daikon Forge/User Interface/Sprite/Radial")]
+[ExecuteInEditMode]
 [Serializable]
-public class dfRadialSprite : dfSprite
+public class dfRadialSprite : global::dfSprite
 {
-	// Token: 0x17000C6D RID: 3181
-	// (get) Token: 0x06003F5E RID: 16222 RVA: 0x000F10F4 File Offset: 0x000EF2F4
-	// (set) Token: 0x06003F5F RID: 16223 RVA: 0x000F10FC File Offset: 0x000EF2FC
-	public dfPivotPoint FillOrigin
+	// Token: 0x17000CF1 RID: 3313
+	// (get) Token: 0x0600437A RID: 17274 RVA: 0x000F9CF8 File Offset: 0x000F7EF8
+	// (set) Token: 0x0600437B RID: 17275 RVA: 0x000F9D00 File Offset: 0x000F7F00
+	public global::dfPivotPoint FillOrigin
 	{
 		get
 		{
@@ -28,14 +28,14 @@ public class dfRadialSprite : dfSprite
 		}
 	}
 
-	// Token: 0x06003F60 RID: 16224 RVA: 0x000F1118 File Offset: 0x000EF318
+	// Token: 0x0600437C RID: 17276 RVA: 0x000F9D1C File Offset: 0x000F7F1C
 	protected override void OnRebuildRenderData()
 	{
 		if (base.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
 		if (spriteInfo == null)
 		{
 			return;
@@ -52,58 +52,58 @@ public class dfRadialSprite : dfSprite
 		this.renderData.Colors.AddRange(list4);
 	}
 
-	// Token: 0x06003F61 RID: 16225 RVA: 0x000F11C8 File Offset: 0x000EF3C8
+	// Token: 0x0600437D RID: 17277 RVA: 0x000F9DCC File Offset: 0x000F7FCC
 	private void buildMeshData(ref List<Vector3> verts, ref List<int> indices, ref List<Vector2> uv)
 	{
 		List<Vector3> list;
 		verts = (list = new List<Vector3>());
 		List<Vector3> list2 = list;
-		verts.AddRange(dfRadialSprite.baseVerts);
+		verts.AddRange(global::dfRadialSprite.baseVerts);
 		int num;
 		int index;
 		switch (this.fillOrigin)
 		{
-		case dfPivotPoint.TopLeft:
+		case global::dfPivotPoint.TopLeft:
 			num = 4;
 			index = 5;
 			list2.RemoveAt(6);
 			list2.RemoveAt(0);
 			break;
-		case dfPivotPoint.TopCenter:
+		case global::dfPivotPoint.TopCenter:
 			num = 6;
 			index = 0;
 			break;
-		case dfPivotPoint.TopRight:
+		case global::dfPivotPoint.TopRight:
 			num = 4;
 			index = 0;
 			list2.RemoveAt(2);
 			list2.RemoveAt(0);
 			break;
-		case dfPivotPoint.MiddleLeft:
+		case global::dfPivotPoint.MiddleLeft:
 			num = 6;
 			index = 6;
 			break;
-		case dfPivotPoint.MiddleCenter:
+		case global::dfPivotPoint.MiddleCenter:
 			num = 8;
 			list2.Add(list2[0]);
 			list2.Insert(0, Vector3.zero);
 			index = 0;
 			break;
-		case dfPivotPoint.MiddleRight:
+		case global::dfPivotPoint.MiddleRight:
 			num = 6;
 			index = 2;
 			break;
-		case dfPivotPoint.BottomLeft:
+		case global::dfPivotPoint.BottomLeft:
 			num = 4;
 			index = 4;
 			list2.RemoveAt(6);
 			list2.RemoveAt(4);
 			break;
-		case dfPivotPoint.BottomCenter:
+		case global::dfPivotPoint.BottomCenter:
 			num = 6;
 			index = 4;
 			break;
-		case dfPivotPoint.BottomRight:
+		case global::dfPivotPoint.BottomRight:
 			num = 4;
 			index = 2;
 			list2.RemoveAt(4);
@@ -148,7 +148,7 @@ public class dfRadialSprite : dfSprite
 		}
 	}
 
-	// Token: 0x06003F62 RID: 16226 RVA: 0x000F1454 File Offset: 0x000EF654
+	// Token: 0x0600437E RID: 17278 RVA: 0x000FA058 File Offset: 0x000F8258
 	private void makeFirst(List<Vector3> list, int index)
 	{
 		if (index == 0)
@@ -160,7 +160,7 @@ public class dfRadialSprite : dfSprite
 		list.InsertRange(0, range);
 	}
 
-	// Token: 0x06003F63 RID: 16227 RVA: 0x000F1490 File Offset: 0x000EF690
+	// Token: 0x0600437F RID: 17279 RVA: 0x000FA094 File Offset: 0x000F8294
 	private List<int> buildTriangles(List<Vector3> verts)
 	{
 		List<int> list = new List<int>();
@@ -174,20 +174,20 @@ public class dfRadialSprite : dfSprite
 		return list;
 	}
 
-	// Token: 0x06003F64 RID: 16228 RVA: 0x000F14D8 File Offset: 0x000EF6D8
+	// Token: 0x06004380 RID: 17280 RVA: 0x000FA0DC File Offset: 0x000F82DC
 	private List<Vector2> buildUV(List<Vector3> verts)
 	{
-		dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
 		if (spriteInfo == null)
 		{
 			return null;
 		}
 		Rect region = spriteInfo.region;
-		if (this.flip.IsSet(dfSpriteFlip.FlipHorizontal))
+		if (this.flip.IsSet(global::dfSpriteFlip.FlipHorizontal))
 		{
 			region..ctor(region.xMax, region.y, -region.width, region.height);
 		}
-		if (this.flip.IsSet(dfSpriteFlip.FlipVertical))
+		if (this.flip.IsSet(global::dfSpriteFlip.FlipVertical))
 		{
 			region..ctor(region.x, region.yMax, region.width, -region.height);
 		}
@@ -206,7 +206,7 @@ public class dfRadialSprite : dfSprite
 		return list;
 	}
 
-	// Token: 0x06003F65 RID: 16229 RVA: 0x000F15FC File Offset: 0x000EF7FC
+	// Token: 0x06004381 RID: 17281 RVA: 0x000FA200 File Offset: 0x000F8400
 	private Color32[] buildColors(int vertCount)
 	{
 		Color32 color = base.ApplyOpacity((!base.IsEnabled) ? this.disabledColor : this.color);
@@ -218,7 +218,7 @@ public class dfRadialSprite : dfSprite
 		return array;
 	}
 
-	// Token: 0x040021D1 RID: 8657
+	// Token: 0x040023DA RID: 9178
 	private static Vector3[] baseVerts = new Vector3[]
 	{
 		new Vector3(0f, 0.5f, 0f),
@@ -231,7 +231,7 @@ public class dfRadialSprite : dfSprite
 		new Vector3(-0.5f, 0.5f, 0f)
 	};
 
-	// Token: 0x040021D2 RID: 8658
+	// Token: 0x040023DB RID: 9179
 	[SerializeField]
-	protected dfPivotPoint fillOrigin = dfPivotPoint.MiddleCenter;
+	protected global::dfPivotPoint fillOrigin = global::dfPivotPoint.MiddleCenter;
 }

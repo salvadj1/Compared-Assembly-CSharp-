@@ -2,10 +2,10 @@
 
 namespace Facepunch.Load
 {
-	// Token: 0x02000269 RID: 617
+	// Token: 0x0200029D RID: 669
 	public class Operation
 	{
-		// Token: 0x04000B73 RID: 2931
+		// Token: 0x04000C99 RID: 3225
 		[NonSerialized]
 		public Loader Loader;
 	}

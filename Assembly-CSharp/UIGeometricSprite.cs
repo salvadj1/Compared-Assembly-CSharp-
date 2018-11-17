@@ -3,16 +3,16 @@ using NGUI.Meshing;
 using NGUI.Structures;
 using UnityEngine;
 
-// Token: 0x020007F0 RID: 2032
-public class UIGeometricSprite : UISprite
+// Token: 0x020008E1 RID: 2273
+public class UIGeometricSprite : global::UISprite
 {
-	// Token: 0x060048B7 RID: 18615 RVA: 0x00129C1C File Offset: 0x00127E1C
-	protected UIGeometricSprite(UIWidget.WidgetFlags additionalFlags) : base(additionalFlags)
+	// Token: 0x06004D62 RID: 19810 RVA: 0x00133B80 File Offset: 0x00131D80
+	protected UIGeometricSprite(global::UIWidget.WidgetFlags additionalFlags) : base(additionalFlags)
 	{
 	}
 
-	// Token: 0x17000E22 RID: 3618
-	// (get) Token: 0x060048B8 RID: 18616 RVA: 0x00129C38 File Offset: 0x00127E38
+	// Token: 0x17000EBC RID: 3772
+	// (get) Token: 0x06004D63 RID: 19811 RVA: 0x00133B9C File Offset: 0x00131D9C
 	public Rect innerUV
 	{
 		get
@@ -22,9 +22,9 @@ public class UIGeometricSprite : UISprite
 		}
 	}
 
-	// Token: 0x17000E23 RID: 3619
-	// (get) Token: 0x060048B9 RID: 18617 RVA: 0x00129C48 File Offset: 0x00127E48
-	// (set) Token: 0x060048BA RID: 18618 RVA: 0x00129C50 File Offset: 0x00127E50
+	// Token: 0x17000EBD RID: 3773
+	// (get) Token: 0x06004D64 RID: 19812 RVA: 0x00133BAC File Offset: 0x00131DAC
+	// (set) Token: 0x06004D65 RID: 19813 RVA: 0x00133BB4 File Offset: 0x00131DB4
 	public bool fillCenter
 	{
 		get
@@ -41,7 +41,7 @@ public class UIGeometricSprite : UISprite
 		}
 	}
 
-	// Token: 0x060048BB RID: 18619 RVA: 0x00129C6C File Offset: 0x00127E6C
+	// Token: 0x06004D66 RID: 19814 RVA: 0x00133BD0 File Offset: 0x00131DD0
 	public override void UpdateUVs(bool force)
 	{
 		if (base.cachedTransform.localScale != this.mScale)
@@ -58,16 +58,16 @@ public class UIGeometricSprite : UISprite
 				this.mOuter = this.mSprite.outer;
 				this.mInnerUV = this.mInner;
 				this.mOuterUV = this.mOuter;
-				if (base.atlas.coordinates == UIAtlas.Coordinates.Pixels)
+				if (base.atlas.coordinates == global::UIAtlas.Coordinates.Pixels)
 				{
-					this.mOuterUV = NGUIMath.ConvertToTexCoords(this.mOuterUV, mainTexture.width, mainTexture.height);
-					this.mInnerUV = NGUIMath.ConvertToTexCoords(this.mInnerUV, mainTexture.width, mainTexture.height);
+					this.mOuterUV = global::NGUIMath.ConvertToTexCoords(this.mOuterUV, mainTexture.width, mainTexture.height);
+					this.mInnerUV = global::NGUIMath.ConvertToTexCoords(this.mInnerUV, mainTexture.width, mainTexture.height);
 				}
 			}
 		}
 	}
 
-	// Token: 0x060048BC RID: 18620 RVA: 0x00129D8C File Offset: 0x00127F8C
+	// Token: 0x06004D67 RID: 19815 RVA: 0x00133CF0 File Offset: 0x00131EF0
 	public override void MakePixelPerfect()
 	{
 		Vector3 localPosition = base.cachedTransform.localPosition;
@@ -82,15 +82,15 @@ public class UIGeometricSprite : UISprite
 		base.cachedTransform.localScale = localScale;
 	}
 
-	// Token: 0x060048BD RID: 18621 RVA: 0x00129E4C File Offset: 0x0012804C
-	public override void OnFill(MeshBuffer m)
+	// Token: 0x06004D68 RID: 19816 RVA: 0x00133DB0 File Offset: 0x00131FB0
+	public override void OnFill(NGUI.Meshing.MeshBuffer m)
 	{
 		if (this.mOuterUV == this.mInnerUV)
 		{
 			base.OnFill(m);
 			return;
 		}
-		float3 @float = default(float3);
+		NGUI.Structures.float3 @float = default(NGUI.Structures.float3);
 		@float.xyz = base.cachedTransform.localScale;
 		Vector4 vector;
 		vector.x = this.mOuterUV.xMin;
@@ -102,31 +102,31 @@ public class UIGeometricSprite : UISprite
 		vector2.y = this.mInnerUV.yMin;
 		vector2.z = this.mInnerUV.yMax;
 		vector2.w = this.mOuterUV.yMax;
-		NineRectangle nineRectangle;
-		NineRectangle nineRectangle2;
-		NineRectangle.Calculate(base.pivot, base.atlas.pixelSize, base.mainTexture, ref vector, ref vector2, ref @float.xy, out nineRectangle, out nineRectangle2);
+		NGUI.Structures.NineRectangle nineRectangle;
+		NGUI.Structures.NineRectangle nineRectangle2;
+		NGUI.Structures.NineRectangle.Calculate(base.pivot, base.atlas.pixelSize, base.mainTexture, ref vector, ref vector2, ref @float.xy, out nineRectangle, out nineRectangle2);
 		Color color = base.color;
 		if (this.mFillCenter)
 		{
-			NineRectangle.Fill9(ref nineRectangle, ref nineRectangle2, ref color, m);
+			NGUI.Structures.NineRectangle.Fill9(ref nineRectangle, ref nineRectangle2, ref color, m);
 		}
 		else
 		{
-			NineRectangle.Fill8(ref nineRectangle, ref nineRectangle2, ref color, m);
+			NGUI.Structures.NineRectangle.Fill8(ref nineRectangle, ref nineRectangle2, ref color, m);
 		}
 	}
 
-	// Token: 0x04002906 RID: 10502
-	[HideInInspector]
+	// Token: 0x04002B54 RID: 11092
 	[SerializeField]
+	[HideInInspector]
 	private bool mFillCenter = true;
 
-	// Token: 0x04002907 RID: 10503
+	// Token: 0x04002B55 RID: 11093
 	protected Rect mInner;
 
-	// Token: 0x04002908 RID: 10504
+	// Token: 0x04002B56 RID: 11094
 	protected Rect mInnerUV;
 
-	// Token: 0x04002909 RID: 10505
+	// Token: 0x04002B57 RID: 11095
 	protected Vector3 mScale = Vector3.one;
 }

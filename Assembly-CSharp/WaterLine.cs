@@ -1,26 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200042A RID: 1066
+// Token: 0x020004E0 RID: 1248
 public class WaterLine : MonoBehaviour
 {
-	// Token: 0x06002794 RID: 10132 RVA: 0x0009AA24 File Offset: 0x00098C24
+	// Token: 0x06002B24 RID: 11044 RVA: 0x000A09A4 File Offset: 0x0009EBA4
 	public void Start()
 	{
 	}
 
-	// Token: 0x06002795 RID: 10133 RVA: 0x0009AA28 File Offset: 0x00098C28
+	// Token: 0x06002B25 RID: 11045 RVA: 0x000A09A8 File Offset: 0x0009EBA8
 	public void OnDestroy()
 	{
-		WaterLine.Height = 0f;
+		global::WaterLine.Height = 0f;
 	}
 
-	// Token: 0x06002796 RID: 10134 RVA: 0x0009AA34 File Offset: 0x00098C34
+	// Token: 0x06002B26 RID: 11046 RVA: 0x000A09B4 File Offset: 0x0009EBB4
 	public void Update()
 	{
-		WaterLine.Height = base.transform.position.y;
+		global::WaterLine.Height = base.transform.position.y;
 	}
 
-	// Token: 0x0400137D RID: 4989
+	// Token: 0x04001500 RID: 5376
 	public static float Height;
 }

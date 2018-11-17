@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x020007E5 RID: 2021
+// Token: 0x020008D6 RID: 2262
 public struct UITextPosition
 {
-	// Token: 0x06004854 RID: 18516 RVA: 0x001257F8 File Offset: 0x001239F8
-	public UITextPosition(UITextRegion beforeOrPre)
+	// Token: 0x06004CFF RID: 19711 RVA: 0x0012F75C File Offset: 0x0012D95C
+	public UITextPosition(global::UITextRegion beforeOrPre)
 	{
 		this.line = 0;
 		this.column = 0;
@@ -14,8 +14,8 @@ public struct UITextPosition
 		this.uniformRegion = beforeOrPre;
 	}
 
-	// Token: 0x06004855 RID: 18517 RVA: 0x00125830 File Offset: 0x00123A30
-	public UITextPosition(int line, int column, int position, UITextRegion region)
+	// Token: 0x06004D00 RID: 19712 RVA: 0x0012F794 File Offset: 0x0012D994
+	public UITextPosition(int line, int column, int position, global::UITextRegion region)
 	{
 		this.line = line;
 		this.column = column;
@@ -25,9 +25,9 @@ public struct UITextPosition
 		this.uniformRegion = region;
 	}
 
-	// Token: 0x17000E04 RID: 3588
-	// (get) Token: 0x06004856 RID: 18518 RVA: 0x0012586C File Offset: 0x00123A6C
-	// (set) Token: 0x06004857 RID: 18519 RVA: 0x0012587C File Offset: 0x00123A7C
+	// Token: 0x17000E9E RID: 3742
+	// (get) Token: 0x06004D01 RID: 19713 RVA: 0x0012F7D0 File Offset: 0x0012D9D0
+	// (set) Token: 0x06004D02 RID: 19714 RVA: 0x0012F7E0 File Offset: 0x0012D9E0
 	public int uniformPosition
 	{
 		get
@@ -40,17 +40,17 @@ public struct UITextPosition
 		}
 	}
 
-	// Token: 0x17000E05 RID: 3589
-	// (get) Token: 0x06004858 RID: 18520 RVA: 0x00125890 File Offset: 0x00123A90
+	// Token: 0x17000E9F RID: 3743
+	// (get) Token: 0x06004D03 RID: 19715 RVA: 0x0012F7F4 File Offset: 0x0012D9F4
 	public bool valid
 	{
 		get
 		{
-			return this.region != UITextRegion.Invalid;
+			return this.region != global::UITextRegion.Invalid;
 		}
 	}
 
-	// Token: 0x06004859 RID: 18521 RVA: 0x001258A0 File Offset: 0x00123AA0
+	// Token: 0x06004D04 RID: 19716 RVA: 0x0012F804 File Offset: 0x0012DA04
 	public override string ToString()
 	{
 		return string.Format("[{0} pos={1}{{{2}:{3}}} uniform={{{4}-{5}}}]", new object[]
@@ -64,21 +64,21 @@ public struct UITextPosition
 		});
 	}
 
-	// Token: 0x0400289E RID: 10398
+	// Token: 0x04002AEC RID: 10988
 	public int line;
 
-	// Token: 0x0400289F RID: 10399
+	// Token: 0x04002AED RID: 10989
 	public int column;
 
-	// Token: 0x040028A0 RID: 10400
+	// Token: 0x04002AEE RID: 10990
 	public int position;
 
-	// Token: 0x040028A1 RID: 10401
+	// Token: 0x04002AEF RID: 10991
 	public short deformed;
 
-	// Token: 0x040028A2 RID: 10402
-	public UITextRegion region;
+	// Token: 0x04002AF0 RID: 10992
+	public global::UITextRegion region;
 
-	// Token: 0x040028A3 RID: 10403
-	public UITextRegion uniformRegion;
+	// Token: 0x04002AF1 RID: 10993
+	public global::UITextRegion uniformRegion;
 }

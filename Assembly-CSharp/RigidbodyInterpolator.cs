@@ -1,31 +1,31 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200031A RID: 794
-public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInterpolatorWithLinearVelocity, IStateInterpolator<PosRot>, IStateInterpolatorSampler<PosRot>
+// Token: 0x020003C3 RID: 963
+public sealed class RigidbodyInterpolator : global::StateInterpolator<global::PosRot>, global::IStateInterpolatorWithLinearVelocity, global::IStateInterpolator<global::PosRot>, global::IStateInterpolatorSampler<global::PosRot>
 {
-	// Token: 0x06001E88 RID: 7816 RVA: 0x00077C7C File Offset: 0x00075E7C
+	// Token: 0x060021CA RID: 8650 RVA: 0x0007C6FC File Offset: 0x0007A8FC
 	public sealed override void SetGoals(Vector3 pos, Quaternion rot, double timestamp)
 	{
-		PosRot posRot;
+		global::PosRot posRot;
 		posRot.position = pos;
 		posRot.rotation = rot;
 		this.SetGoals(ref posRot, ref timestamp);
 	}
 
-	// Token: 0x06001E89 RID: 7817 RVA: 0x00077CA4 File Offset: 0x00075EA4
-	public void SetGoals(PosRot frame, double timestamp)
+	// Token: 0x060021CB RID: 8651 RVA: 0x0007C724 File Offset: 0x0007A924
+	public void SetGoals(global::PosRot frame, double timestamp)
 	{
 		this.SetGoals(ref frame, ref timestamp);
 	}
 
-	// Token: 0x06001E8A RID: 7818 RVA: 0x00077CB0 File Offset: 0x00075EB0
-	public bool Sample(ref double time, out PosRot result)
+	// Token: 0x060021CC RID: 8652 RVA: 0x0007C730 File Offset: 0x0007A930
+	public bool Sample(ref double time, out global::PosRot result)
 	{
 		int len = this.len;
 		if (len == 0)
 		{
-			result = default(PosRot);
+			result = default(global::PosRot);
 			return false;
 		}
 		int index;
@@ -68,7 +68,7 @@ public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInt
 					num2 = index;
 					index = this.tbuffer[num + 1].index;
 					double t = (time - this.tbuffer[index].timeStamp) / (this.tbuffer[num2].timeStamp - this.tbuffer[index].timeStamp);
-					PosRot.Lerp(ref this.tbuffer[index].value, ref this.tbuffer[num2].value, t, out result);
+					global::PosRot.Lerp(ref this.tbuffer[index].value, ref this.tbuffer[num2].value, t, out result);
 				}
 				else
 				{
@@ -78,7 +78,7 @@ public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInt
 			else
 			{
 				double timeStamp = this.tbuffer[num2].timeStamp;
-				double num4 = (double)this.allowDifference + NetCull.sendInterval;
+				double num4 = (double)this.allowDifference + global::NetCull.sendInterval;
 				double num5 = timeStamp - num3;
 				if (num5 > num4)
 				{
@@ -90,7 +90,7 @@ public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInt
 					}
 				}
 				double t2 = (time - num3) / num5;
-				PosRot.Lerp(ref this.tbuffer[index].value, ref this.tbuffer[num2].value, t2, out result);
+				global::PosRot.Lerp(ref this.tbuffer[index].value, ref this.tbuffer[num2].value, t2, out result);
 			}
 			return true;
 			Block_11:
@@ -103,7 +103,7 @@ public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInt
 		return true;
 	}
 
-	// Token: 0x06001E8B RID: 7819 RVA: 0x00077F14 File Offset: 0x00076114
+	// Token: 0x060021CD RID: 8653 RVA: 0x0007C994 File Offset: 0x0007AB94
 	public bool SampleWorldVelocity(double time, out Vector3 worldLinearVelocity)
 	{
 		int len = this.len;
@@ -133,7 +133,7 @@ public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInt
 				return false;
 			}
 			double timeStamp = this.tbuffer[num2].timeStamp;
-			double num4 = (double)this.allowDifference + NetCull.sendInterval;
+			double num4 = (double)this.allowDifference + global::NetCull.sendInterval;
 			double num5 = timeStamp - num3;
 			if (num5 >= num4)
 			{
@@ -158,17 +158,17 @@ public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInt
 		return false;
 	}
 
-	// Token: 0x06001E8C RID: 7820 RVA: 0x00078080 File Offset: 0x00076280
+	// Token: 0x060021CE RID: 8654 RVA: 0x0007CB00 File Offset: 0x0007AD00
 	public bool SampleWorldVelocity(out Vector3 worldLinearVelocity)
 	{
-		return this.SampleWorldVelocity(Interpolation.time, out worldLinearVelocity);
+		return this.SampleWorldVelocity(global::Interpolation.time, out worldLinearVelocity);
 	}
 
-	// Token: 0x06001E8D RID: 7821 RVA: 0x00078090 File Offset: 0x00076290
+	// Token: 0x060021CF RID: 8655 RVA: 0x0007CB10 File Offset: 0x0007AD10
 	protected override void Syncronize()
 	{
-		double time = Interpolation.time;
-		PosRot posRot;
+		double time = global::Interpolation.time;
+		global::PosRot posRot;
 		if (this.Sample(ref time, out posRot))
 		{
 			this.target.MovePosition(posRot.position);
@@ -176,18 +176,18 @@ public sealed class RigidbodyInterpolator : StateInterpolator<PosRot>, IStateInt
 		}
 	}
 
-	// Token: 0x06001E8E RID: 7822 RVA: 0x000780D8 File Offset: 0x000762D8
-	void SetGoals(ref TimeStamped<PosRot> sample)
+	// Token: 0x060021D0 RID: 8656 RVA: 0x0007CB58 File Offset: 0x0007AD58
+	void SetGoals(ref global::TimeStamped<global::PosRot> sample)
 	{
 		base.SetGoals(ref sample);
 	}
 
-	// Token: 0x04000EC4 RID: 3780
+	// Token: 0x04001004 RID: 4100
 	public Rigidbody target;
 
-	// Token: 0x04000EC5 RID: 3781
+	// Token: 0x04001005 RID: 4101
 	public bool exterpolate;
 
-	// Token: 0x04000EC6 RID: 3782
+	// Token: 0x04001006 RID: 4102
 	public float allowDifference = 0.1f;
 }

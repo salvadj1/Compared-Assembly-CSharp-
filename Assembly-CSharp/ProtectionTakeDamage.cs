@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000490 RID: 1168
-public class ProtectionTakeDamage : TakeDamage
+// Token: 0x0200054B RID: 1355
+public class ProtectionTakeDamage : global::TakeDamage
 {
-	// Token: 0x060029A8 RID: 10664 RVA: 0x000A34BC File Offset: 0x000A16BC
+	// Token: 0x06002D5A RID: 11610 RVA: 0x000AB254 File Offset: 0x000A9454
 	private void InitializeArmorValues()
 	{
-		this._armorValues = new DamageTypeList(this._startArmorValues);
+		this._armorValues = new global::DamageTypeList(this._startArmorValues);
 		this.initializedArmor = true;
 	}
 
-	// Token: 0x060029A9 RID: 10665 RVA: 0x000A34D8 File Offset: 0x000A16D8
+	// Token: 0x06002D5B RID: 11611 RVA: 0x000AB270 File Offset: 0x000A9470
 	protected new void Awake()
 	{
 		if (!this.initializedArmor)
@@ -21,8 +21,8 @@ public class ProtectionTakeDamage : TakeDamage
 		base.Awake();
 	}
 
-	// Token: 0x060029AA RID: 10666 RVA: 0x000A34F4 File Offset: 0x000A16F4
-	protected sealed override void ApplyDamageTypeList(ref DamageEvent damage, DamageTypeList damageTypes)
+	// Token: 0x06002D5C RID: 11612 RVA: 0x000AB28C File Offset: 0x000A948C
+	protected sealed override void ApplyDamageTypeList(ref global::DamageEvent damage, global::DamageTypeList damageTypes)
 	{
 		for (int i = 0; i < 6; i++)
 		{
@@ -37,12 +37,12 @@ public class ProtectionTakeDamage : TakeDamage
 		base.ApplyDamageTypeList(ref damage, damageTypes);
 	}
 
-	// Token: 0x060029AB RID: 10667 RVA: 0x000A3574 File Offset: 0x000A1774
-	public virtual void SetArmorValues(DamageTypeList armor)
+	// Token: 0x06002D5D RID: 11613 RVA: 0x000AB30C File Offset: 0x000A950C
+	public virtual void SetArmorValues(global::DamageTypeList armor)
 	{
 		if (!this.initializedArmor)
 		{
-			this._armorValues = new DamageTypeList(armor);
+			this._armorValues = new global::DamageTypeList(armor);
 			this.initializedArmor = true;
 		}
 		else
@@ -51,28 +51,28 @@ public class ProtectionTakeDamage : TakeDamage
 		}
 	}
 
-	// Token: 0x060029AC RID: 10668 RVA: 0x000A35A8 File Offset: 0x000A17A8
-	public DamageTypeList GetArmorValues()
+	// Token: 0x06002D5E RID: 11614 RVA: 0x000AB340 File Offset: 0x000A9540
+	public global::DamageTypeList GetArmorValues()
 	{
 		return this._armorValues;
 	}
 
-	// Token: 0x060029AD RID: 10669 RVA: 0x000A35B0 File Offset: 0x000A17B0
+	// Token: 0x06002D5F RID: 11615 RVA: 0x000AB348 File Offset: 0x000A9548
 	public virtual float GetArmorValue(int index)
 	{
 		return this._armorValues[index];
 	}
 
-	// Token: 0x0400158D RID: 5517
+	// Token: 0x0400174A RID: 5962
 	protected const float _maxArmorValue = 200f;
 
-	// Token: 0x0400158E RID: 5518
+	// Token: 0x0400174B RID: 5963
 	[SerializeField]
-	private DamageTypeList _startArmorValues;
+	private global::DamageTypeList _startArmorValues;
 
-	// Token: 0x0400158F RID: 5519
-	protected DamageTypeList _armorValues;
+	// Token: 0x0400174C RID: 5964
+	protected global::DamageTypeList _armorValues;
 
-	// Token: 0x04001590 RID: 5520
+	// Token: 0x0400174D RID: 5965
 	private bool initializedArmor;
 }

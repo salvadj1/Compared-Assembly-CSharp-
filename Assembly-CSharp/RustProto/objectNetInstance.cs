@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x0200020B RID: 523
+	// Token: 0x0200023E RID: 574
 	[DebuggerNonUserCode]
 	public sealed class objectNetInstance : GeneratedMessage<objectNetInstance, objectNetInstance.Builder>
 	{
-		// Token: 0x060010B1 RID: 4273 RVA: 0x0003D600 File Offset: 0x0003B800
+		// Token: 0x06001205 RID: 4613 RVA: 0x000419A8 File Offset: 0x0003FBA8
 		private objectNetInstance()
 		{
 		}
 
-		// Token: 0x060010B2 RID: 4274 RVA: 0x0003D610 File Offset: 0x0003B810
+		// Token: 0x06001206 RID: 4614 RVA: 0x000419B8 File Offset: 0x0003FBB8
 		static objectNetInstance()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x060010B3 RID: 4275 RVA: 0x0003D67C File Offset: 0x0003B87C
-		public static Recycler<objectNetInstance, objectNetInstance.Builder> Recycler()
+		// Token: 0x06001207 RID: 4615 RVA: 0x00041A24 File Offset: 0x0003FC24
+		public static RustProto.Helpers.Recycler<objectNetInstance, objectNetInstance.Builder> Recycler()
 		{
-			return Recycler<objectNetInstance, objectNetInstance.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectNetInstance, objectNetInstance.Builder>.Manufacture();
 		}
 
-		// Token: 0x17000476 RID: 1142
-		// (get) Token: 0x060010B4 RID: 4276 RVA: 0x0003D684 File Offset: 0x0003B884
+		// Token: 0x170004BE RID: 1214
+		// (get) Token: 0x06001208 RID: 4616 RVA: 0x00041A2C File Offset: 0x0003FC2C
 		public static objectNetInstance DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000477 RID: 1143
-		// (get) Token: 0x060010B5 RID: 4277 RVA: 0x0003D68C File Offset: 0x0003B88C
+		// Token: 0x170004BF RID: 1215
+		// (get) Token: 0x06001209 RID: 4617 RVA: 0x00041A34 File Offset: 0x0003FC34
 		public override objectNetInstance DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000478 RID: 1144
-		// (get) Token: 0x060010B6 RID: 4278 RVA: 0x0003D694 File Offset: 0x0003B894
+		// Token: 0x170004C0 RID: 1216
+		// (get) Token: 0x0600120A RID: 4618 RVA: 0x00041A3C File Offset: 0x0003FC3C
 		protected override objectNetInstance ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000479 RID: 1145
-		// (get) Token: 0x060010B7 RID: 4279 RVA: 0x0003D698 File Offset: 0x0003B898
+		// Token: 0x170004C1 RID: 1217
+		// (get) Token: 0x0600120B RID: 4619 RVA: 0x00041A40 File Offset: 0x0003FC40
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700047A RID: 1146
-		// (get) Token: 0x060010B8 RID: 4280 RVA: 0x0003D6A0 File Offset: 0x0003B8A0
+		// Token: 0x170004C2 RID: 1218
+		// (get) Token: 0x0600120C RID: 4620 RVA: 0x00041A48 File Offset: 0x0003FC48
 		protected override FieldAccessorTable<objectNetInstance, objectNetInstance.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700047B RID: 1147
-		// (get) Token: 0x060010B9 RID: 4281 RVA: 0x0003D6A8 File Offset: 0x0003B8A8
+		// Token: 0x170004C3 RID: 1219
+		// (get) Token: 0x0600120D RID: 4621 RVA: 0x00041A50 File Offset: 0x0003FC50
 		public bool HasServerPrefab
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700047C RID: 1148
-		// (get) Token: 0x060010BA RID: 4282 RVA: 0x0003D6B0 File Offset: 0x0003B8B0
+		// Token: 0x170004C4 RID: 1220
+		// (get) Token: 0x0600120E RID: 4622 RVA: 0x00041A58 File Offset: 0x0003FC58
 		public int ServerPrefab
 		{
 			get
@@ -99,8 +99,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700047D RID: 1149
-		// (get) Token: 0x060010BB RID: 4283 RVA: 0x0003D6B8 File Offset: 0x0003B8B8
+		// Token: 0x170004C5 RID: 1221
+		// (get) Token: 0x0600120F RID: 4623 RVA: 0x00041A60 File Offset: 0x0003FC60
 		public bool HasOwnerPrefab
 		{
 			get
@@ -109,8 +109,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700047E RID: 1150
-		// (get) Token: 0x060010BC RID: 4284 RVA: 0x0003D6C0 File Offset: 0x0003B8C0
+		// Token: 0x170004C6 RID: 1222
+		// (get) Token: 0x06001210 RID: 4624 RVA: 0x00041A68 File Offset: 0x0003FC68
 		public int OwnerPrefab
 		{
 			get
@@ -119,8 +119,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700047F RID: 1151
-		// (get) Token: 0x060010BD RID: 4285 RVA: 0x0003D6C8 File Offset: 0x0003B8C8
+		// Token: 0x170004C7 RID: 1223
+		// (get) Token: 0x06001211 RID: 4625 RVA: 0x00041A70 File Offset: 0x0003FC70
 		public bool HasProxyPrefab
 		{
 			get
@@ -129,8 +129,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000480 RID: 1152
-		// (get) Token: 0x060010BE RID: 4286 RVA: 0x0003D6D0 File Offset: 0x0003B8D0
+		// Token: 0x170004C8 RID: 1224
+		// (get) Token: 0x06001212 RID: 4626 RVA: 0x00041A78 File Offset: 0x0003FC78
 		public int ProxyPrefab
 		{
 			get
@@ -139,8 +139,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000481 RID: 1153
-		// (get) Token: 0x060010BF RID: 4287 RVA: 0x0003D6D8 File Offset: 0x0003B8D8
+		// Token: 0x170004C9 RID: 1225
+		// (get) Token: 0x06001213 RID: 4627 RVA: 0x00041A80 File Offset: 0x0003FC80
 		public bool HasGroupID
 		{
 			get
@@ -149,8 +149,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000482 RID: 1154
-		// (get) Token: 0x060010C0 RID: 4288 RVA: 0x0003D6E0 File Offset: 0x0003B8E0
+		// Token: 0x170004CA RID: 1226
+		// (get) Token: 0x06001214 RID: 4628 RVA: 0x00041A88 File Offset: 0x0003FC88
 		public int GroupID
 		{
 			get
@@ -159,8 +159,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000483 RID: 1155
-		// (get) Token: 0x060010C1 RID: 4289 RVA: 0x0003D6E8 File Offset: 0x0003B8E8
+		// Token: 0x170004CB RID: 1227
+		// (get) Token: 0x06001215 RID: 4629 RVA: 0x00041A90 File Offset: 0x0003FC90
 		public override bool IsInitialized
 		{
 			get
@@ -169,7 +169,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060010C2 RID: 4290 RVA: 0x0003D6EC File Offset: 0x0003B8EC
+		// Token: 0x06001216 RID: 4630 RVA: 0x00041A94 File Offset: 0x0003FC94
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -193,8 +193,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x17000484 RID: 1156
-		// (get) Token: 0x060010C3 RID: 4291 RVA: 0x0003D780 File Offset: 0x0003B980
+		// Token: 0x170004CC RID: 1228
+		// (get) Token: 0x06001217 RID: 4631 RVA: 0x00041B28 File Offset: 0x0003FD28
 		public override int SerializedSize
 		{
 			get
@@ -227,112 +227,112 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060010C4 RID: 4292 RVA: 0x0003D820 File Offset: 0x0003BA20
+		// Token: 0x06001218 RID: 4632 RVA: 0x00041BC8 File Offset: 0x0003FDC8
 		public static objectNetInstance ParseFrom(ByteString data)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060010C5 RID: 4293 RVA: 0x0003D834 File Offset: 0x0003BA34
+		// Token: 0x06001219 RID: 4633 RVA: 0x00041BDC File Offset: 0x0003FDDC
 		public static objectNetInstance ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060010C6 RID: 4294 RVA: 0x0003D848 File Offset: 0x0003BA48
+		// Token: 0x0600121A RID: 4634 RVA: 0x00041BF0 File Offset: 0x0003FDF0
 		public static objectNetInstance ParseFrom(byte[] data)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060010C7 RID: 4295 RVA: 0x0003D85C File Offset: 0x0003BA5C
+		// Token: 0x0600121B RID: 4635 RVA: 0x00041C04 File Offset: 0x0003FE04
 		public static objectNetInstance ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060010C8 RID: 4296 RVA: 0x0003D870 File Offset: 0x0003BA70
+		// Token: 0x0600121C RID: 4636 RVA: 0x00041C18 File Offset: 0x0003FE18
 		public static objectNetInstance ParseFrom(Stream input)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060010C9 RID: 4297 RVA: 0x0003D884 File Offset: 0x0003BA84
+		// Token: 0x0600121D RID: 4637 RVA: 0x00041C2C File Offset: 0x0003FE2C
 		public static objectNetInstance ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060010CA RID: 4298 RVA: 0x0003D898 File Offset: 0x0003BA98
+		// Token: 0x0600121E RID: 4638 RVA: 0x00041C40 File Offset: 0x0003FE40
 		public static objectNetInstance ParseDelimitedFrom(Stream input)
 		{
 			return objectNetInstance.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060010CB RID: 4299 RVA: 0x0003D8AC File Offset: 0x0003BAAC
+		// Token: 0x0600121F RID: 4639 RVA: 0x00041C54 File Offset: 0x0003FE54
 		public static objectNetInstance ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectNetInstance.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060010CC RID: 4300 RVA: 0x0003D8C0 File Offset: 0x0003BAC0
+		// Token: 0x06001220 RID: 4640 RVA: 0x00041C68 File Offset: 0x0003FE68
 		public static objectNetInstance ParseFrom(ICodedInputStream input)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060010CD RID: 4301 RVA: 0x0003D8D4 File Offset: 0x0003BAD4
+		// Token: 0x06001221 RID: 4641 RVA: 0x00041C7C File Offset: 0x0003FE7C
 		public static objectNetInstance ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectNetInstance.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060010CE RID: 4302 RVA: 0x0003D8E8 File Offset: 0x0003BAE8
+		// Token: 0x06001222 RID: 4642 RVA: 0x00041C90 File Offset: 0x0003FE90
 		private objectNetInstance MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x060010CF RID: 4303 RVA: 0x0003D8EC File Offset: 0x0003BAEC
+		// Token: 0x06001223 RID: 4643 RVA: 0x00041C94 File Offset: 0x0003FE94
 		public static objectNetInstance.Builder CreateBuilder()
 		{
 			return new objectNetInstance.Builder();
 		}
 
-		// Token: 0x060010D0 RID: 4304 RVA: 0x0003D8F4 File Offset: 0x0003BAF4
+		// Token: 0x06001224 RID: 4644 RVA: 0x00041C9C File Offset: 0x0003FE9C
 		public override objectNetInstance.Builder ToBuilder()
 		{
 			return objectNetInstance.CreateBuilder(this);
 		}
 
-		// Token: 0x060010D1 RID: 4305 RVA: 0x0003D8FC File Offset: 0x0003BAFC
+		// Token: 0x06001225 RID: 4645 RVA: 0x00041CA4 File Offset: 0x0003FEA4
 		public override objectNetInstance.Builder CreateBuilderForType()
 		{
 			return new objectNetInstance.Builder();
 		}
 
-		// Token: 0x060010D2 RID: 4306 RVA: 0x0003D904 File Offset: 0x0003BB04
+		// Token: 0x06001226 RID: 4646 RVA: 0x00041CAC File Offset: 0x0003FEAC
 		public static objectNetInstance.Builder CreateBuilder(objectNetInstance prototype)
 		{
 			return new objectNetInstance.Builder(prototype);
 		}
 
-		// Token: 0x0400093F RID: 2367
+		// Token: 0x04000A62 RID: 2658
 		public const int ServerPrefabFieldNumber = 1;
 
-		// Token: 0x04000940 RID: 2368
+		// Token: 0x04000A63 RID: 2659
 		public const int OwnerPrefabFieldNumber = 2;
 
-		// Token: 0x04000941 RID: 2369
+		// Token: 0x04000A64 RID: 2660
 		public const int ProxyPrefabFieldNumber = 3;
 
-		// Token: 0x04000942 RID: 2370
+		// Token: 0x04000A65 RID: 2661
 		public const int GroupIDFieldNumber = 4;
 
-		// Token: 0x04000943 RID: 2371
+		// Token: 0x04000A66 RID: 2662
 		private static readonly objectNetInstance defaultInstance = new objectNetInstance().MakeReadOnly();
 
-		// Token: 0x04000944 RID: 2372
+		// Token: 0x04000A67 RID: 2663
 		private static readonly string[] _objectNetInstanceFieldNames = new string[]
 		{
 			"groupID",
@@ -341,7 +341,7 @@ namespace RustProto
 			"serverPrefab"
 		};
 
-		// Token: 0x04000945 RID: 2373
+		// Token: 0x04000A68 RID: 2664
 		private static readonly uint[] _objectNetInstanceFieldTags = new uint[]
 		{
 			32u,
@@ -350,53 +350,53 @@ namespace RustProto
 			8u
 		};
 
-		// Token: 0x04000946 RID: 2374
+		// Token: 0x04000A69 RID: 2665
 		private bool hasServerPrefab;
 
-		// Token: 0x04000947 RID: 2375
+		// Token: 0x04000A6A RID: 2666
 		private int serverPrefab_;
 
-		// Token: 0x04000948 RID: 2376
+		// Token: 0x04000A6B RID: 2667
 		private bool hasOwnerPrefab;
 
-		// Token: 0x04000949 RID: 2377
+		// Token: 0x04000A6C RID: 2668
 		private int ownerPrefab_;
 
-		// Token: 0x0400094A RID: 2378
+		// Token: 0x04000A6D RID: 2669
 		private bool hasProxyPrefab;
 
-		// Token: 0x0400094B RID: 2379
+		// Token: 0x04000A6E RID: 2670
 		private int proxyPrefab_;
 
-		// Token: 0x0400094C RID: 2380
+		// Token: 0x04000A6F RID: 2671
 		private bool hasGroupID;
 
-		// Token: 0x0400094D RID: 2381
+		// Token: 0x04000A70 RID: 2672
 		private int groupID_;
 
-		// Token: 0x0400094E RID: 2382
+		// Token: 0x04000A71 RID: 2673
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x0200020C RID: 524
+		// Token: 0x0200023F RID: 575
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectNetInstance, objectNetInstance.Builder>
 		{
-			// Token: 0x060010D3 RID: 4307 RVA: 0x0003D90C File Offset: 0x0003BB0C
+			// Token: 0x06001227 RID: 4647 RVA: 0x00041CB4 File Offset: 0x0003FEB4
 			public Builder()
 			{
 				this.result = objectNetInstance.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x060010D4 RID: 4308 RVA: 0x0003D928 File Offset: 0x0003BB28
+			// Token: 0x06001228 RID: 4648 RVA: 0x00041CD0 File Offset: 0x0003FED0
 			internal Builder(objectNetInstance cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x17000485 RID: 1157
-			// (get) Token: 0x060010D5 RID: 4309 RVA: 0x0003D940 File Offset: 0x0003BB40
+			// Token: 0x170004CD RID: 1229
+			// (get) Token: 0x06001229 RID: 4649 RVA: 0x00041CE8 File Offset: 0x0003FEE8
 			protected override objectNetInstance.Builder ThisBuilder
 			{
 				get
@@ -405,7 +405,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010D6 RID: 4310 RVA: 0x0003D944 File Offset: 0x0003BB44
+			// Token: 0x0600122A RID: 4650 RVA: 0x00041CEC File Offset: 0x0003FEEC
 			private objectNetInstance PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -418,8 +418,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x17000486 RID: 1158
-			// (get) Token: 0x060010D7 RID: 4311 RVA: 0x0003D984 File Offset: 0x0003BB84
+			// Token: 0x170004CE RID: 1230
+			// (get) Token: 0x0600122B RID: 4651 RVA: 0x00041D2C File Offset: 0x0003FF2C
 			public override bool IsInitialized
 			{
 				get
@@ -428,8 +428,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000487 RID: 1159
-			// (get) Token: 0x060010D8 RID: 4312 RVA: 0x0003D994 File Offset: 0x0003BB94
+			// Token: 0x170004CF RID: 1231
+			// (get) Token: 0x0600122C RID: 4652 RVA: 0x00041D3C File Offset: 0x0003FF3C
 			protected override objectNetInstance MessageBeingBuilt
 			{
 				get
@@ -438,7 +438,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010D9 RID: 4313 RVA: 0x0003D99C File Offset: 0x0003BB9C
+			// Token: 0x0600122D RID: 4653 RVA: 0x00041D44 File Offset: 0x0003FF44
 			public override objectNetInstance.Builder Clear()
 			{
 				this.result = objectNetInstance.DefaultInstance;
@@ -446,7 +446,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010DA RID: 4314 RVA: 0x0003D9B4 File Offset: 0x0003BBB4
+			// Token: 0x0600122E RID: 4654 RVA: 0x00041D5C File Offset: 0x0003FF5C
 			public override objectNetInstance.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -456,8 +456,8 @@ namespace RustProto
 				return new objectNetInstance.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x17000488 RID: 1160
-			// (get) Token: 0x060010DB RID: 4315 RVA: 0x0003D9E0 File Offset: 0x0003BBE0
+			// Token: 0x170004D0 RID: 1232
+			// (get) Token: 0x0600122F RID: 4655 RVA: 0x00041D88 File Offset: 0x0003FF88
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -466,8 +466,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000489 RID: 1161
-			// (get) Token: 0x060010DC RID: 4316 RVA: 0x0003D9E8 File Offset: 0x0003BBE8
+			// Token: 0x170004D1 RID: 1233
+			// (get) Token: 0x06001230 RID: 4656 RVA: 0x00041D90 File Offset: 0x0003FF90
 			public override objectNetInstance DefaultInstanceForType
 			{
 				get
@@ -476,7 +476,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010DD RID: 4317 RVA: 0x0003D9F0 File Offset: 0x0003BBF0
+			// Token: 0x06001231 RID: 4657 RVA: 0x00041D98 File Offset: 0x0003FF98
 			public override objectNetInstance BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -487,7 +487,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x060010DE RID: 4318 RVA: 0x0003DA24 File Offset: 0x0003BC24
+			// Token: 0x06001232 RID: 4658 RVA: 0x00041DCC File Offset: 0x0003FFCC
 			public override objectNetInstance.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectNetInstance)
@@ -498,7 +498,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010DF RID: 4319 RVA: 0x0003DA48 File Offset: 0x0003BC48
+			// Token: 0x06001233 RID: 4659 RVA: 0x00041DF0 File Offset: 0x0003FFF0
 			public override objectNetInstance.Builder MergeFrom(objectNetInstance other)
 			{
 				if (other == objectNetInstance.DefaultInstance)
@@ -526,13 +526,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010E0 RID: 4320 RVA: 0x0003DAD4 File Offset: 0x0003BCD4
+			// Token: 0x06001234 RID: 4660 RVA: 0x00041E7C File Offset: 0x0004007C
 			public override objectNetInstance.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x060010E1 RID: 4321 RVA: 0x0003DAE4 File Offset: 0x0003BCE4
+			// Token: 0x06001235 RID: 4661 RVA: 0x00041E8C File Offset: 0x0004008C
 			public override objectNetInstance.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -609,8 +609,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700048A RID: 1162
-			// (get) Token: 0x060010E2 RID: 4322 RVA: 0x0003DC74 File Offset: 0x0003BE74
+			// Token: 0x170004D2 RID: 1234
+			// (get) Token: 0x06001236 RID: 4662 RVA: 0x0004201C File Offset: 0x0004021C
 			public bool HasServerPrefab
 			{
 				get
@@ -619,9 +619,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700048B RID: 1163
-			// (get) Token: 0x060010E3 RID: 4323 RVA: 0x0003DC84 File Offset: 0x0003BE84
-			// (set) Token: 0x060010E4 RID: 4324 RVA: 0x0003DC94 File Offset: 0x0003BE94
+			// Token: 0x170004D3 RID: 1235
+			// (get) Token: 0x06001237 RID: 4663 RVA: 0x0004202C File Offset: 0x0004022C
+			// (set) Token: 0x06001238 RID: 4664 RVA: 0x0004203C File Offset: 0x0004023C
 			public int ServerPrefab
 			{
 				get
@@ -634,7 +634,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010E5 RID: 4325 RVA: 0x0003DCA0 File Offset: 0x0003BEA0
+			// Token: 0x06001239 RID: 4665 RVA: 0x00042048 File Offset: 0x00040248
 			public objectNetInstance.Builder SetServerPrefab(int value)
 			{
 				this.PrepareBuilder();
@@ -643,7 +643,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010E6 RID: 4326 RVA: 0x0003DCD0 File Offset: 0x0003BED0
+			// Token: 0x0600123A RID: 4666 RVA: 0x00042078 File Offset: 0x00040278
 			public objectNetInstance.Builder ClearServerPrefab()
 			{
 				this.PrepareBuilder();
@@ -652,8 +652,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700048C RID: 1164
-			// (get) Token: 0x060010E7 RID: 4327 RVA: 0x0003DD00 File Offset: 0x0003BF00
+			// Token: 0x170004D4 RID: 1236
+			// (get) Token: 0x0600123B RID: 4667 RVA: 0x000420A8 File Offset: 0x000402A8
 			public bool HasOwnerPrefab
 			{
 				get
@@ -662,9 +662,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700048D RID: 1165
-			// (get) Token: 0x060010E8 RID: 4328 RVA: 0x0003DD10 File Offset: 0x0003BF10
-			// (set) Token: 0x060010E9 RID: 4329 RVA: 0x0003DD20 File Offset: 0x0003BF20
+			// Token: 0x170004D5 RID: 1237
+			// (get) Token: 0x0600123C RID: 4668 RVA: 0x000420B8 File Offset: 0x000402B8
+			// (set) Token: 0x0600123D RID: 4669 RVA: 0x000420C8 File Offset: 0x000402C8
 			public int OwnerPrefab
 			{
 				get
@@ -677,7 +677,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010EA RID: 4330 RVA: 0x0003DD2C File Offset: 0x0003BF2C
+			// Token: 0x0600123E RID: 4670 RVA: 0x000420D4 File Offset: 0x000402D4
 			public objectNetInstance.Builder SetOwnerPrefab(int value)
 			{
 				this.PrepareBuilder();
@@ -686,7 +686,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010EB RID: 4331 RVA: 0x0003DD5C File Offset: 0x0003BF5C
+			// Token: 0x0600123F RID: 4671 RVA: 0x00042104 File Offset: 0x00040304
 			public objectNetInstance.Builder ClearOwnerPrefab()
 			{
 				this.PrepareBuilder();
@@ -695,8 +695,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700048E RID: 1166
-			// (get) Token: 0x060010EC RID: 4332 RVA: 0x0003DD8C File Offset: 0x0003BF8C
+			// Token: 0x170004D6 RID: 1238
+			// (get) Token: 0x06001240 RID: 4672 RVA: 0x00042134 File Offset: 0x00040334
 			public bool HasProxyPrefab
 			{
 				get
@@ -705,9 +705,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700048F RID: 1167
-			// (get) Token: 0x060010ED RID: 4333 RVA: 0x0003DD9C File Offset: 0x0003BF9C
-			// (set) Token: 0x060010EE RID: 4334 RVA: 0x0003DDAC File Offset: 0x0003BFAC
+			// Token: 0x170004D7 RID: 1239
+			// (get) Token: 0x06001241 RID: 4673 RVA: 0x00042144 File Offset: 0x00040344
+			// (set) Token: 0x06001242 RID: 4674 RVA: 0x00042154 File Offset: 0x00040354
 			public int ProxyPrefab
 			{
 				get
@@ -720,7 +720,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010EF RID: 4335 RVA: 0x0003DDB8 File Offset: 0x0003BFB8
+			// Token: 0x06001243 RID: 4675 RVA: 0x00042160 File Offset: 0x00040360
 			public objectNetInstance.Builder SetProxyPrefab(int value)
 			{
 				this.PrepareBuilder();
@@ -729,7 +729,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010F0 RID: 4336 RVA: 0x0003DDE8 File Offset: 0x0003BFE8
+			// Token: 0x06001244 RID: 4676 RVA: 0x00042190 File Offset: 0x00040390
 			public objectNetInstance.Builder ClearProxyPrefab()
 			{
 				this.PrepareBuilder();
@@ -738,8 +738,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000490 RID: 1168
-			// (get) Token: 0x060010F1 RID: 4337 RVA: 0x0003DE18 File Offset: 0x0003C018
+			// Token: 0x170004D8 RID: 1240
+			// (get) Token: 0x06001245 RID: 4677 RVA: 0x000421C0 File Offset: 0x000403C0
 			public bool HasGroupID
 			{
 				get
@@ -748,9 +748,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000491 RID: 1169
-			// (get) Token: 0x060010F2 RID: 4338 RVA: 0x0003DE28 File Offset: 0x0003C028
-			// (set) Token: 0x060010F3 RID: 4339 RVA: 0x0003DE38 File Offset: 0x0003C038
+			// Token: 0x170004D9 RID: 1241
+			// (get) Token: 0x06001246 RID: 4678 RVA: 0x000421D0 File Offset: 0x000403D0
+			// (set) Token: 0x06001247 RID: 4679 RVA: 0x000421E0 File Offset: 0x000403E0
 			public int GroupID
 			{
 				get
@@ -763,7 +763,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060010F4 RID: 4340 RVA: 0x0003DE44 File Offset: 0x0003C044
+			// Token: 0x06001248 RID: 4680 RVA: 0x000421EC File Offset: 0x000403EC
 			public objectNetInstance.Builder SetGroupID(int value)
 			{
 				this.PrepareBuilder();
@@ -772,7 +772,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060010F5 RID: 4341 RVA: 0x0003DE74 File Offset: 0x0003C074
+			// Token: 0x06001249 RID: 4681 RVA: 0x0004221C File Offset: 0x0004041C
 			public objectNetInstance.Builder ClearGroupID()
 			{
 				this.PrepareBuilder();
@@ -781,10 +781,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0400094F RID: 2383
+			// Token: 0x04000A72 RID: 2674
 			private bool resultIsReadOnly;
 
-			// Token: 0x04000950 RID: 2384
+			// Token: 0x04000A73 RID: 2675
 			private objectNetInstance result;
 		}
 	}

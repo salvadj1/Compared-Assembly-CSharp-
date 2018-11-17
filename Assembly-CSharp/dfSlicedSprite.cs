@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006F1 RID: 1777
+// Token: 0x020007C3 RID: 1987
 [ExecuteInEditMode]
 [RequireComponent(typeof(BoxCollider))]
 [AddComponentMenu("Daikon Forge/User Interface/Sprite/Sliced")]
 [Serializable]
-public class dfSlicedSprite : dfSprite
+public class dfSlicedSprite : global::dfSprite
 {
-	// Token: 0x0600401A RID: 16410 RVA: 0x000F4EE8 File Offset: 0x000F30E8
+	// Token: 0x06004436 RID: 17462 RVA: 0x000FDAEC File Offset: 0x000FBCEC
 	// Note: this type is marked as 'beforefieldinit'.
 	static dfSlicedSprite()
 	{
@@ -40,26 +40,26 @@ public class dfSlicedSprite : dfSprite
 			6,
 			5
 		};
-		dfSlicedSprite.vertFill = array;
-		dfSlicedSprite.fillIndices = new int[][]
+		global::dfSlicedSprite.vertFill = array;
+		global::dfSlicedSprite.fillIndices = new int[][]
 		{
 			new int[4],
 			new int[4],
 			new int[4],
 			new int[4]
 		};
-		dfSlicedSprite.verts = new Vector3[16];
-		dfSlicedSprite.uv = new Vector2[16];
+		global::dfSlicedSprite.verts = new Vector3[16];
+		global::dfSlicedSprite.uv = new Vector2[16];
 	}
 
-	// Token: 0x0600401B RID: 16411 RVA: 0x000F500C File Offset: 0x000F320C
+	// Token: 0x06004437 RID: 17463 RVA: 0x000FDC10 File Offset: 0x000FBE10
 	protected override void OnRebuildRenderData()
 	{
 		if (base.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = base.SpriteInfo;
 		if (spriteInfo == null)
 		{
 			return;
@@ -71,7 +71,7 @@ public class dfSlicedSprite : dfSprite
 			return;
 		}
 		Color32 color = base.ApplyOpacity((!base.IsEnabled) ? this.disabledColor : this.color);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -84,43 +84,43 @@ public class dfSlicedSprite : dfSprite
 			size = base.Size,
 			spriteInfo = base.SpriteInfo
 		};
-		dfSlicedSprite.renderSprite(this.renderData, options);
+		global::dfSlicedSprite.renderSprite(this.renderData, options);
 	}
 
-	// Token: 0x0600401C RID: 16412 RVA: 0x000F5140 File Offset: 0x000F3340
-	internal new static void renderSprite(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x06004438 RID: 17464 RVA: 0x000FDD44 File Offset: 0x000FBF44
+	internal new static void renderSprite(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		options.baseIndex = renderData.Vertices.Count;
-		dfSlicedSprite.rebuildTriangles(renderData, options);
-		dfSlicedSprite.rebuildVertices(renderData, options);
-		dfSlicedSprite.rebuildUV(renderData, options);
-		dfSlicedSprite.rebuildColors(renderData, options);
+		global::dfSlicedSprite.rebuildTriangles(renderData, options);
+		global::dfSlicedSprite.rebuildVertices(renderData, options);
+		global::dfSlicedSprite.rebuildUV(renderData, options);
+		global::dfSlicedSprite.rebuildColors(renderData, options);
 		if (options.fillAmount < 1f)
 		{
-			dfSlicedSprite.doFill(renderData, options);
+			global::dfSlicedSprite.doFill(renderData, options);
 		}
 	}
 
-	// Token: 0x0600401D RID: 16413 RVA: 0x000F5194 File Offset: 0x000F3394
-	private static void rebuildTriangles(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x06004439 RID: 17465 RVA: 0x000FDD98 File Offset: 0x000FBF98
+	private static void rebuildTriangles(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		int baseIndex = options.baseIndex;
-		dfList<int> triangles = renderData.Triangles;
-		for (int i = 0; i < dfSlicedSprite.triangleIndices.Length; i++)
+		global::dfList<int> triangles = renderData.Triangles;
+		for (int i = 0; i < global::dfSlicedSprite.triangleIndices.Length; i++)
 		{
-			triangles.Add(baseIndex + dfSlicedSprite.triangleIndices[i]);
+			triangles.Add(baseIndex + global::dfSlicedSprite.triangleIndices[i]);
 		}
 	}
 
-	// Token: 0x0600401E RID: 16414 RVA: 0x000F51D8 File Offset: 0x000F33D8
-	private static void doFill(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x0600443A RID: 17466 RVA: 0x000FDDDC File Offset: 0x000FBFDC
+	private static void doFill(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		int baseIndex = options.baseIndex;
-		dfList<Vector3> vertices = renderData.Vertices;
-		dfList<Vector2> dfList = renderData.UV;
-		int[][] array = dfSlicedSprite.getFillIndices(options.fillDirection, baseIndex);
+		global::dfList<Vector3> vertices = renderData.Vertices;
+		global::dfList<Vector2> dfList = renderData.UV;
+		int[][] array = global::dfSlicedSprite.getFillIndices(options.fillDirection, baseIndex);
 		bool flag = options.invertFill;
-		if (options.fillDirection == dfFillDirection.Vertical)
+		if (options.fillDirection == global::dfFillDirection.Vertical)
 		{
 			flag = !flag;
 		}
@@ -131,7 +131,7 @@ public class dfSlicedSprite : dfSprite
 				Array.Reverse(array[i]);
 			}
 		}
-		int num = (options.fillDirection != dfFillDirection.Horizontal) ? 1 : 0;
+		int num = (options.fillDirection != global::dfFillDirection.Horizontal) ? 1 : 0;
 		float num2 = vertices[array[0][flag ? 3 : 0]][num];
 		float num3 = vertices[array[0][flag ? 0 : 3]][num];
 		float num4 = Mathf.Abs(num3 - num2);
@@ -189,145 +189,145 @@ public class dfSlicedSprite : dfSprite
 		}
 	}
 
-	// Token: 0x0600401F RID: 16415 RVA: 0x000F551C File Offset: 0x000F371C
-	private static int[][] getFillIndices(dfFillDirection fillDirection, int baseIndex)
+	// Token: 0x0600443B RID: 17467 RVA: 0x000FE120 File Offset: 0x000FC320
+	private static int[][] getFillIndices(global::dfFillDirection fillDirection, int baseIndex)
 	{
-		int[][] array = (fillDirection != dfFillDirection.Horizontal) ? dfSlicedSprite.vertFill : dfSlicedSprite.horzFill;
+		int[][] array = (fillDirection != global::dfFillDirection.Horizontal) ? global::dfSlicedSprite.vertFill : global::dfSlicedSprite.horzFill;
 		for (int i = 0; i < 4; i++)
 		{
 			for (int j = 0; j < 4; j++)
 			{
-				dfSlicedSprite.fillIndices[i][j] = baseIndex + array[i][j];
+				global::dfSlicedSprite.fillIndices[i][j] = baseIndex + array[i][j];
 			}
 		}
-		return dfSlicedSprite.fillIndices;
+		return global::dfSlicedSprite.fillIndices;
 	}
 
-	// Token: 0x06004020 RID: 16416 RVA: 0x000F5578 File Offset: 0x000F3778
-	private static void rebuildVertices(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x0600443C RID: 17468 RVA: 0x000FE17C File Offset: 0x000FC37C
+	private static void rebuildVertices(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		float num = 0f;
 		float num2 = 0f;
 		float num3 = Mathf.Ceil(options.size.x);
 		float num4 = Mathf.Ceil(-options.size.y);
-		dfAtlas.ItemInfo spriteInfo = options.spriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = options.spriteInfo;
 		float num5 = (float)spriteInfo.border.left;
 		float num6 = (float)spriteInfo.border.top;
 		float num7 = (float)spriteInfo.border.right;
 		float num8 = (float)spriteInfo.border.bottom;
-		if (options.flip.IsSet(dfSpriteFlip.FlipHorizontal))
+		if (options.flip.IsSet(global::dfSpriteFlip.FlipHorizontal))
 		{
 			float num9 = num7;
 			num7 = num5;
 			num5 = num9;
 		}
-		if (options.flip.IsSet(dfSpriteFlip.FlipVertical))
+		if (options.flip.IsSet(global::dfSpriteFlip.FlipVertical))
 		{
 			float num10 = num8;
 			num8 = num6;
 			num6 = num10;
 		}
-		dfSlicedSprite.verts[0] = new Vector3(num, num2, 0f) + options.offset;
-		dfSlicedSprite.verts[1] = dfSlicedSprite.verts[0] + new Vector3(num5, 0f, 0f);
-		dfSlicedSprite.verts[2] = dfSlicedSprite.verts[0] + new Vector3(num5, -num6, 0f);
-		dfSlicedSprite.verts[3] = dfSlicedSprite.verts[0] + new Vector3(0f, -num6, 0f);
-		dfSlicedSprite.verts[4] = new Vector3(num3 - num7, num2, 0f) + options.offset;
-		dfSlicedSprite.verts[5] = dfSlicedSprite.verts[4] + new Vector3(num7, 0f, 0f);
-		dfSlicedSprite.verts[6] = dfSlicedSprite.verts[4] + new Vector3(num7, -num6, 0f);
-		dfSlicedSprite.verts[7] = dfSlicedSprite.verts[4] + new Vector3(0f, -num6, 0f);
-		dfSlicedSprite.verts[8] = new Vector3(num, num4 + num8, 0f) + options.offset;
-		dfSlicedSprite.verts[9] = dfSlicedSprite.verts[8] + new Vector3(num5, 0f, 0f);
-		dfSlicedSprite.verts[10] = dfSlicedSprite.verts[8] + new Vector3(num5, -num8, 0f);
-		dfSlicedSprite.verts[11] = dfSlicedSprite.verts[8] + new Vector3(0f, -num8, 0f);
-		dfSlicedSprite.verts[12] = new Vector3(num3 - num7, num4 + num8, 0f) + options.offset;
-		dfSlicedSprite.verts[13] = dfSlicedSprite.verts[12] + new Vector3(num7, 0f, 0f);
-		dfSlicedSprite.verts[14] = dfSlicedSprite.verts[12] + new Vector3(num7, -num8, 0f);
-		dfSlicedSprite.verts[15] = dfSlicedSprite.verts[12] + new Vector3(0f, -num8, 0f);
-		for (int i = 0; i < dfSlicedSprite.verts.Length; i++)
+		global::dfSlicedSprite.verts[0] = new Vector3(num, num2, 0f) + options.offset;
+		global::dfSlicedSprite.verts[1] = global::dfSlicedSprite.verts[0] + new Vector3(num5, 0f, 0f);
+		global::dfSlicedSprite.verts[2] = global::dfSlicedSprite.verts[0] + new Vector3(num5, -num6, 0f);
+		global::dfSlicedSprite.verts[3] = global::dfSlicedSprite.verts[0] + new Vector3(0f, -num6, 0f);
+		global::dfSlicedSprite.verts[4] = new Vector3(num3 - num7, num2, 0f) + options.offset;
+		global::dfSlicedSprite.verts[5] = global::dfSlicedSprite.verts[4] + new Vector3(num7, 0f, 0f);
+		global::dfSlicedSprite.verts[6] = global::dfSlicedSprite.verts[4] + new Vector3(num7, -num6, 0f);
+		global::dfSlicedSprite.verts[7] = global::dfSlicedSprite.verts[4] + new Vector3(0f, -num6, 0f);
+		global::dfSlicedSprite.verts[8] = new Vector3(num, num4 + num8, 0f) + options.offset;
+		global::dfSlicedSprite.verts[9] = global::dfSlicedSprite.verts[8] + new Vector3(num5, 0f, 0f);
+		global::dfSlicedSprite.verts[10] = global::dfSlicedSprite.verts[8] + new Vector3(num5, -num8, 0f);
+		global::dfSlicedSprite.verts[11] = global::dfSlicedSprite.verts[8] + new Vector3(0f, -num8, 0f);
+		global::dfSlicedSprite.verts[12] = new Vector3(num3 - num7, num4 + num8, 0f) + options.offset;
+		global::dfSlicedSprite.verts[13] = global::dfSlicedSprite.verts[12] + new Vector3(num7, 0f, 0f);
+		global::dfSlicedSprite.verts[14] = global::dfSlicedSprite.verts[12] + new Vector3(num7, -num8, 0f);
+		global::dfSlicedSprite.verts[15] = global::dfSlicedSprite.verts[12] + new Vector3(0f, -num8, 0f);
+		for (int i = 0; i < global::dfSlicedSprite.verts.Length; i++)
 		{
-			renderData.Vertices.Add((dfSlicedSprite.verts[i] * options.pixelsToUnits).Quantize(options.pixelsToUnits));
+			renderData.Vertices.Add((global::dfSlicedSprite.verts[i] * options.pixelsToUnits).Quantize(options.pixelsToUnits));
 		}
 	}
 
-	// Token: 0x06004021 RID: 16417 RVA: 0x000F59C4 File Offset: 0x000F3BC4
-	private static void rebuildUV(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x0600443D RID: 17469 RVA: 0x000FE5C8 File Offset: 0x000FC7C8
+	private static void rebuildUV(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
-		dfAtlas atlas = options.atlas;
+		global::dfAtlas atlas = options.atlas;
 		Vector2 vector;
 		vector..ctor((float)atlas.Texture.width, (float)atlas.Texture.height);
-		dfAtlas.ItemInfo spriteInfo = options.spriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = options.spriteInfo;
 		float num = (float)spriteInfo.border.top / vector.y;
 		float num2 = (float)spriteInfo.border.bottom / vector.y;
 		float num3 = (float)spriteInfo.border.left / vector.x;
 		float num4 = (float)spriteInfo.border.right / vector.x;
 		Rect region = spriteInfo.region;
-		dfSlicedSprite.uv[0] = new Vector2(region.x, region.yMax);
-		dfSlicedSprite.uv[1] = new Vector2(region.x + num3, region.yMax);
-		dfSlicedSprite.uv[2] = new Vector2(region.x + num3, region.yMax - num);
-		dfSlicedSprite.uv[3] = new Vector2(region.x, region.yMax - num);
-		dfSlicedSprite.uv[4] = new Vector2(region.xMax - num4, region.yMax);
-		dfSlicedSprite.uv[5] = new Vector2(region.xMax, region.yMax);
-		dfSlicedSprite.uv[6] = new Vector2(region.xMax, region.yMax - num);
-		dfSlicedSprite.uv[7] = new Vector2(region.xMax - num4, region.yMax - num);
-		dfSlicedSprite.uv[8] = new Vector2(region.x, region.y + num2);
-		dfSlicedSprite.uv[9] = new Vector2(region.x + num3, region.y + num2);
-		dfSlicedSprite.uv[10] = new Vector2(region.x + num3, region.y);
-		dfSlicedSprite.uv[11] = new Vector2(region.x, region.y);
-		dfSlicedSprite.uv[12] = new Vector2(region.xMax - num4, region.y + num2);
-		dfSlicedSprite.uv[13] = new Vector2(region.xMax, region.y + num2);
-		dfSlicedSprite.uv[14] = new Vector2(region.xMax, region.y);
-		dfSlicedSprite.uv[15] = new Vector2(region.xMax - num4, region.y);
-		if (options.flip != dfSpriteFlip.None)
+		global::dfSlicedSprite.uv[0] = new Vector2(region.x, region.yMax);
+		global::dfSlicedSprite.uv[1] = new Vector2(region.x + num3, region.yMax);
+		global::dfSlicedSprite.uv[2] = new Vector2(region.x + num3, region.yMax - num);
+		global::dfSlicedSprite.uv[3] = new Vector2(region.x, region.yMax - num);
+		global::dfSlicedSprite.uv[4] = new Vector2(region.xMax - num4, region.yMax);
+		global::dfSlicedSprite.uv[5] = new Vector2(region.xMax, region.yMax);
+		global::dfSlicedSprite.uv[6] = new Vector2(region.xMax, region.yMax - num);
+		global::dfSlicedSprite.uv[7] = new Vector2(region.xMax - num4, region.yMax - num);
+		global::dfSlicedSprite.uv[8] = new Vector2(region.x, region.y + num2);
+		global::dfSlicedSprite.uv[9] = new Vector2(region.x + num3, region.y + num2);
+		global::dfSlicedSprite.uv[10] = new Vector2(region.x + num3, region.y);
+		global::dfSlicedSprite.uv[11] = new Vector2(region.x, region.y);
+		global::dfSlicedSprite.uv[12] = new Vector2(region.xMax - num4, region.y + num2);
+		global::dfSlicedSprite.uv[13] = new Vector2(region.xMax, region.y + num2);
+		global::dfSlicedSprite.uv[14] = new Vector2(region.xMax, region.y);
+		global::dfSlicedSprite.uv[15] = new Vector2(region.xMax - num4, region.y);
+		if (options.flip != global::dfSpriteFlip.None)
 		{
-			for (int i = 0; i < dfSlicedSprite.uv.Length; i += 4)
+			for (int i = 0; i < global::dfSlicedSprite.uv.Length; i += 4)
 			{
 				Vector2 vector2 = Vector2.zero;
-				if (options.flip.IsSet(dfSpriteFlip.FlipHorizontal))
+				if (options.flip.IsSet(global::dfSpriteFlip.FlipHorizontal))
 				{
-					vector2 = dfSlicedSprite.uv[i];
-					dfSlicedSprite.uv[i] = dfSlicedSprite.uv[i + 1];
-					dfSlicedSprite.uv[i + 1] = vector2;
-					vector2 = dfSlicedSprite.uv[i + 2];
-					dfSlicedSprite.uv[i + 2] = dfSlicedSprite.uv[i + 3];
-					dfSlicedSprite.uv[i + 3] = vector2;
+					vector2 = global::dfSlicedSprite.uv[i];
+					global::dfSlicedSprite.uv[i] = global::dfSlicedSprite.uv[i + 1];
+					global::dfSlicedSprite.uv[i + 1] = vector2;
+					vector2 = global::dfSlicedSprite.uv[i + 2];
+					global::dfSlicedSprite.uv[i + 2] = global::dfSlicedSprite.uv[i + 3];
+					global::dfSlicedSprite.uv[i + 3] = vector2;
 				}
-				if (options.flip.IsSet(dfSpriteFlip.FlipVertical))
+				if (options.flip.IsSet(global::dfSpriteFlip.FlipVertical))
 				{
-					vector2 = dfSlicedSprite.uv[i];
-					dfSlicedSprite.uv[i] = dfSlicedSprite.uv[i + 3];
-					dfSlicedSprite.uv[i + 3] = vector2;
-					vector2 = dfSlicedSprite.uv[i + 1];
-					dfSlicedSprite.uv[i + 1] = dfSlicedSprite.uv[i + 2];
-					dfSlicedSprite.uv[i + 2] = vector2;
+					vector2 = global::dfSlicedSprite.uv[i];
+					global::dfSlicedSprite.uv[i] = global::dfSlicedSprite.uv[i + 3];
+					global::dfSlicedSprite.uv[i + 3] = vector2;
+					vector2 = global::dfSlicedSprite.uv[i + 1];
+					global::dfSlicedSprite.uv[i + 1] = global::dfSlicedSprite.uv[i + 2];
+					global::dfSlicedSprite.uv[i + 2] = vector2;
 				}
 			}
-			if (options.flip.IsSet(dfSpriteFlip.FlipHorizontal))
+			if (options.flip.IsSet(global::dfSpriteFlip.FlipHorizontal))
 			{
-				Vector2[] array = new Vector2[dfSlicedSprite.uv.Length];
-				Array.Copy(dfSlicedSprite.uv, array, dfSlicedSprite.uv.Length);
-				Array.Copy(dfSlicedSprite.uv, 0, dfSlicedSprite.uv, 4, 4);
-				Array.Copy(array, 4, dfSlicedSprite.uv, 0, 4);
-				Array.Copy(dfSlicedSprite.uv, 8, dfSlicedSprite.uv, 12, 4);
-				Array.Copy(array, 12, dfSlicedSprite.uv, 8, 4);
+				Vector2[] array = new Vector2[global::dfSlicedSprite.uv.Length];
+				Array.Copy(global::dfSlicedSprite.uv, array, global::dfSlicedSprite.uv.Length);
+				Array.Copy(global::dfSlicedSprite.uv, 0, global::dfSlicedSprite.uv, 4, 4);
+				Array.Copy(array, 4, global::dfSlicedSprite.uv, 0, 4);
+				Array.Copy(global::dfSlicedSprite.uv, 8, global::dfSlicedSprite.uv, 12, 4);
+				Array.Copy(array, 12, global::dfSlicedSprite.uv, 8, 4);
 			}
-			if (options.flip.IsSet(dfSpriteFlip.FlipVertical))
+			if (options.flip.IsSet(global::dfSpriteFlip.FlipVertical))
 			{
-				Vector2[] array2 = new Vector2[dfSlicedSprite.uv.Length];
-				Array.Copy(dfSlicedSprite.uv, array2, dfSlicedSprite.uv.Length);
-				Array.Copy(dfSlicedSprite.uv, 0, dfSlicedSprite.uv, 8, 4);
-				Array.Copy(array2, 8, dfSlicedSprite.uv, 0, 4);
-				Array.Copy(dfSlicedSprite.uv, 4, dfSlicedSprite.uv, 12, 4);
-				Array.Copy(array2, 12, dfSlicedSprite.uv, 4, 4);
+				Vector2[] array2 = new Vector2[global::dfSlicedSprite.uv.Length];
+				Array.Copy(global::dfSlicedSprite.uv, array2, global::dfSlicedSprite.uv.Length);
+				Array.Copy(global::dfSlicedSprite.uv, 0, global::dfSlicedSprite.uv, 8, 4);
+				Array.Copy(array2, 8, global::dfSlicedSprite.uv, 0, 4);
+				Array.Copy(global::dfSlicedSprite.uv, 4, global::dfSlicedSprite.uv, 12, 4);
+				Array.Copy(array2, 12, global::dfSlicedSprite.uv, 4, 4);
 			}
 		}
-		for (int j = 0; j < dfSlicedSprite.uv.Length; j++)
+		for (int j = 0; j < global::dfSlicedSprite.uv.Length; j++)
 		{
-			renderData.UV.Add(dfSlicedSprite.uv[j]);
+			renderData.UV.Add(global::dfSlicedSprite.uv[j]);
 		}
 	}
 
-	// Token: 0x06004022 RID: 16418 RVA: 0x000F5F74 File Offset: 0x000F4174
-	private static void rebuildColors(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x0600443E RID: 17470 RVA: 0x000FEB78 File Offset: 0x000FCD78
+	private static void rebuildColors(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		for (int i = 0; i < 16; i++)
 		{
@@ -335,7 +335,7 @@ public class dfSlicedSprite : dfSprite
 		}
 	}
 
-	// Token: 0x04002217 RID: 8727
+	// Token: 0x04002420 RID: 9248
 	private static int[] triangleIndices = new int[]
 	{
 		0,
@@ -394,7 +394,7 @@ public class dfSlicedSprite : dfSprite
 		2
 	};
 
-	// Token: 0x04002218 RID: 8728
+	// Token: 0x04002421 RID: 9249
 	private static int[][] horzFill = new int[][]
 	{
 		new int[]
@@ -427,15 +427,15 @@ public class dfSlicedSprite : dfSprite
 		}
 	};
 
-	// Token: 0x04002219 RID: 8729
+	// Token: 0x04002422 RID: 9250
 	private static int[][] vertFill;
 
-	// Token: 0x0400221A RID: 8730
+	// Token: 0x04002423 RID: 9251
 	private static int[][] fillIndices;
 
-	// Token: 0x0400221B RID: 8731
+	// Token: 0x04002424 RID: 9252
 	private static Vector3[] verts;
 
-	// Token: 0x0400221C RID: 8732
+	// Token: 0x04002425 RID: 9253
 	private static Vector2[] uv;
 }

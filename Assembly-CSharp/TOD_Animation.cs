@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000827 RID: 2087
+// Token: 0x0200091C RID: 2332
 public class TOD_Animation : MonoBehaviour
 {
-	// Token: 0x17000E8A RID: 3722
-	// (get) Token: 0x06004A57 RID: 19031 RVA: 0x00142388 File Offset: 0x00140588
-	// (set) Token: 0x06004A58 RID: 19032 RVA: 0x00142390 File Offset: 0x00140590
+	// Token: 0x17000F24 RID: 3876
+	// (get) Token: 0x06004F12 RID: 20242 RVA: 0x0014C2EC File Offset: 0x0014A4EC
+	// (set) Token: 0x06004F13 RID: 20243 RVA: 0x0014C2F4 File Offset: 0x0014A4F4
 	internal Vector4 CloudUV { get; set; }
 
-	// Token: 0x17000E8B RID: 3723
-	// (get) Token: 0x06004A59 RID: 19033 RVA: 0x0014239C File Offset: 0x0014059C
+	// Token: 0x17000F25 RID: 3877
+	// (get) Token: 0x06004F14 RID: 20244 RVA: 0x0014C300 File Offset: 0x0014A500
 	internal Vector4 OffsetUV
 	{
 		get
@@ -24,13 +24,13 @@ public class TOD_Animation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A5A RID: 19034 RVA: 0x00142420 File Offset: 0x00140620
+	// Token: 0x06004F15 RID: 20245 RVA: 0x0014C384 File Offset: 0x0014A584
 	protected void Start()
 	{
-		this.sky = base.GetComponent<TOD_Sky>();
+		this.sky = base.GetComponent<global::TOD_Sky>();
 	}
 
-	// Token: 0x06004A5B RID: 19035 RVA: 0x00142430 File Offset: 0x00140630
+	// Token: 0x06004F16 RID: 20246 RVA: 0x0014C394 File Offset: 0x0014A594
 	protected void Update()
 	{
 		Vector2 vector;
@@ -42,12 +42,12 @@ public class TOD_Animation : MonoBehaviour
 		this.CloudUV = new Vector4(this.CloudUV.x % this.sky.Clouds.Scale1.x, this.CloudUV.y % this.sky.Clouds.Scale1.y, this.CloudUV.z % this.sky.Clouds.Scale2.x, this.CloudUV.w % this.sky.Clouds.Scale2.y);
 	}
 
-	// Token: 0x04002AEB RID: 10987
+	// Token: 0x04002D39 RID: 11577
 	public float WindDegrees;
 
-	// Token: 0x04002AEC RID: 10988
+	// Token: 0x04002D3A RID: 11578
 	public float WindSpeed = 3f;
 
-	// Token: 0x04002AED RID: 10989
-	private TOD_Sky sky;
+	// Token: 0x04002D3B RID: 11579
+	private global::TOD_Sky sky;
 }

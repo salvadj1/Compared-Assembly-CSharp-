@@ -4,12 +4,12 @@ using System.Text;
 using Facepunch.Geometry;
 using UnityEngine;
 
-// Token: 0x0200027A RID: 634
+// Token: 0x020002B0 RID: 688
 [AddComponentMenu("ID/Local/CCMotor")]
 public sealed class CCMotor : IDRemote
 {
-	// Token: 0x170006B3 RID: 1715
-	// (get) Token: 0x06001711 RID: 5905 RVA: 0x00057BDC File Offset: 0x00055DDC
+	// Token: 0x170006FD RID: 1789
+	// (get) Token: 0x06001873 RID: 6259 RVA: 0x0005C024 File Offset: 0x0005A224
 	[Obsolete("Do not query this", true)]
 	public Transform transform
 	{
@@ -19,45 +19,45 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006B4 RID: 1716
-	// (get) Token: 0x06001712 RID: 5906 RVA: 0x00057BE4 File Offset: 0x00055DE4
-	private CCMotor.YawAngle characterYawAngle
+	// Token: 0x170006FE RID: 1790
+	// (get) Token: 0x06001874 RID: 6260 RVA: 0x0005C02C File Offset: 0x0005A22C
+	private global::CCMotor.YawAngle characterYawAngle
 	{
 		get
 		{
-			Character character = (Character)base.idMain;
+			global::Character character = (global::Character)base.idMain;
 			return character.eyesYaw + Mathf.DeltaAngle(this.previousYaw.Degrees, this.currentYaw.Degrees);
 		}
 	}
 
-	// Token: 0x06001713 RID: 5907 RVA: 0x00057C24 File Offset: 0x00055E24
+	// Token: 0x06001875 RID: 6261 RVA: 0x0005C06C File Offset: 0x0005A26C
 	private Vector3 InverseTransformPoint(Vector3 point)
 	{
 		return this.InverseTransformDirection(this.tr.InverseTransformPoint(point));
 	}
 
-	// Token: 0x06001714 RID: 5908 RVA: 0x00057C38 File Offset: 0x00055E38
+	// Token: 0x06001876 RID: 6262 RVA: 0x0005C080 File Offset: 0x0005A280
 	private Vector3 TransformPoint(Vector3 point)
 	{
 		return this.tr.TransformPoint(this.TransformDirection(point));
 	}
 
-	// Token: 0x06001715 RID: 5909 RVA: 0x00057C4C File Offset: 0x00055E4C
+	// Token: 0x06001877 RID: 6263 RVA: 0x0005C094 File Offset: 0x0005A294
 	private Vector3 InverseTransformDirection(Vector3 direction)
 	{
 		return this.characterYawAngle.Unrotate(direction);
 	}
 
-	// Token: 0x06001716 RID: 5910 RVA: 0x00057C68 File Offset: 0x00055E68
+	// Token: 0x06001878 RID: 6264 RVA: 0x0005C0B0 File Offset: 0x0005A2B0
 	private Vector3 TransformDirection(Vector3 direction)
 	{
 		return this.characterYawAngle.Rotate(direction);
 	}
 
-	// Token: 0x170006B5 RID: 1717
-	// (get) Token: 0x06001717 RID: 5911 RVA: 0x00057C84 File Offset: 0x00055E84
-	// (set) Token: 0x06001718 RID: 5912 RVA: 0x00057C8C File Offset: 0x00055E8C
-	public CCMotorSettings settings
+	// Token: 0x170006FF RID: 1791
+	// (get) Token: 0x06001879 RID: 6265 RVA: 0x0005C0CC File Offset: 0x0005A2CC
+	// (set) Token: 0x0600187A RID: 6266 RVA: 0x0005C0D4 File Offset: 0x0005A2D4
+	public global::CCMotorSettings settings
 	{
 		get
 		{
@@ -76,8 +76,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006B6 RID: 1718
-	// (get) Token: 0x06001719 RID: 5913 RVA: 0x00057CB8 File Offset: 0x00055EB8
+	// Token: 0x17000700 RID: 1792
+	// (get) Token: 0x0600187B RID: 6267 RVA: 0x0005C100 File Offset: 0x0005A300
 	private float baseHeightVerticalSpeed
 	{
 		get
@@ -86,9 +86,9 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006B7 RID: 1719
-	// (get) Token: 0x0600171A RID: 5914 RVA: 0x00057CDC File Offset: 0x00055EDC
-	public CCTotemPole ccTotemPole
+	// Token: 0x17000701 RID: 1793
+	// (get) Token: 0x0600187C RID: 6268 RVA: 0x0005C124 File Offset: 0x0005A324
+	public global::CCTotemPole ccTotemPole
 	{
 		get
 		{
@@ -96,8 +96,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006B8 RID: 1720
-	// (get) Token: 0x0600171B RID: 5915 RVA: 0x00057CE4 File Offset: 0x00055EE4
+	// Token: 0x17000702 RID: 1794
+	// (get) Token: 0x0600187D RID: 6269 RVA: 0x0005C12C File Offset: 0x0005A32C
 	public bool isJumping
 	{
 		get
@@ -106,8 +106,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006B9 RID: 1721
-	// (get) Token: 0x0600171C RID: 5916 RVA: 0x00057CF4 File Offset: 0x00055EF4
+	// Token: 0x17000703 RID: 1795
+	// (get) Token: 0x0600187E RID: 6270 RVA: 0x0005C13C File Offset: 0x0005A33C
 	public bool isSliding
 	{
 		get
@@ -116,8 +116,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006BA RID: 1722
-	// (get) Token: 0x0600171D RID: 5917 RVA: 0x00057D28 File Offset: 0x00055F28
+	// Token: 0x17000704 RID: 1796
+	// (get) Token: 0x0600187F RID: 6271 RVA: 0x0005C170 File Offset: 0x0005A370
 	public bool isTouchingCeiling
 	{
 		get
@@ -126,8 +126,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006BB RID: 1723
-	// (get) Token: 0x0600171E RID: 5918 RVA: 0x00057D3C File Offset: 0x00055F3C
+	// Token: 0x17000705 RID: 1797
+	// (get) Token: 0x06001880 RID: 6272 RVA: 0x0005C184 File Offset: 0x0005A384
 	public bool isGrounded
 	{
 		get
@@ -136,8 +136,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006BC RID: 1724
-	// (get) Token: 0x0600171F RID: 5919 RVA: 0x00057D44 File Offset: 0x00055F44
+	// Token: 0x17000706 RID: 1798
+	// (get) Token: 0x06001881 RID: 6273 RVA: 0x0005C18C File Offset: 0x0005A38C
 	public bool isCrouchBlocked
 	{
 		get
@@ -146,8 +146,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006BD RID: 1725
-	// (get) Token: 0x06001720 RID: 5920 RVA: 0x00057D54 File Offset: 0x00055F54
+	// Token: 0x17000707 RID: 1799
+	// (get) Token: 0x06001882 RID: 6274 RVA: 0x0005C19C File Offset: 0x0005A39C
 	public bool tooSteep
 	{
 		get
@@ -156,8 +156,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006BE RID: 1726
-	// (get) Token: 0x06001721 RID: 5921 RVA: 0x00057D88 File Offset: 0x00055F88
+	// Token: 0x17000708 RID: 1800
+	// (get) Token: 0x06001883 RID: 6275 RVA: 0x0005C1D0 File Offset: 0x0005A3D0
 	public Vector3 direction
 	{
 		get
@@ -166,9 +166,9 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006BF RID: 1727
-	// (get) Token: 0x06001722 RID: 5922 RVA: 0x00057D98 File Offset: 0x00055F98
-	// (set) Token: 0x06001723 RID: 5923 RVA: 0x00057DA0 File Offset: 0x00055FA0
+	// Token: 0x17000709 RID: 1801
+	// (get) Token: 0x06001884 RID: 6276 RVA: 0x0005C1E0 File Offset: 0x0005A3E0
+	// (set) Token: 0x06001885 RID: 6277 RVA: 0x0005C1E8 File Offset: 0x0005A3E8
 	public bool driveable
 	{
 		get
@@ -181,8 +181,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C0 RID: 1728
-	// (get) Token: 0x06001724 RID: 5924 RVA: 0x00057DAC File Offset: 0x00055FAC
+	// Token: 0x1700070A RID: 1802
+	// (get) Token: 0x06001886 RID: 6278 RVA: 0x0005C1F4 File Offset: 0x0005A3F4
 	public Vector3 currentGroundNormal
 	{
 		get
@@ -191,8 +191,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C1 RID: 1729
-	// (get) Token: 0x06001725 RID: 5925 RVA: 0x00057DB4 File Offset: 0x00055FB4
+	// Token: 0x1700070B RID: 1803
+	// (get) Token: 0x06001887 RID: 6279 RVA: 0x0005C1FC File Offset: 0x0005A3FC
 	public Vector3 previousGroundNormal
 	{
 		get
@@ -201,8 +201,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C2 RID: 1730
-	// (get) Token: 0x06001726 RID: 5926 RVA: 0x00057DBC File Offset: 0x00055FBC
+	// Token: 0x1700070C RID: 1804
+	// (get) Token: 0x06001888 RID: 6280 RVA: 0x0005C204 File Offset: 0x0005A404
 	public Vector3 currentHitPoint
 	{
 		get
@@ -211,8 +211,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C3 RID: 1731
-	// (get) Token: 0x06001727 RID: 5927 RVA: 0x00057DCC File Offset: 0x00055FCC
+	// Token: 0x1700070D RID: 1805
+	// (get) Token: 0x06001889 RID: 6281 RVA: 0x0005C214 File Offset: 0x0005A414
 	public Vector3 previousHitPoint
 	{
 		get
@@ -221,8 +221,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C4 RID: 1732
-	// (get) Token: 0x06001728 RID: 5928 RVA: 0x00057DDC File Offset: 0x00055FDC
+	// Token: 0x1700070E RID: 1806
+	// (get) Token: 0x0600188A RID: 6282 RVA: 0x0005C224 File Offset: 0x0005A424
 	public Vector3? fallbackCurrentGroundNormal
 	{
 		get
@@ -235,8 +235,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C5 RID: 1733
-	// (get) Token: 0x06001729 RID: 5929 RVA: 0x00057E0C File Offset: 0x0005600C
+	// Token: 0x1700070F RID: 1807
+	// (get) Token: 0x0600188B RID: 6283 RVA: 0x0005C254 File Offset: 0x0005A454
 	public Vector3? fallbackPreviousGroundNormal
 	{
 		get
@@ -249,9 +249,9 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C6 RID: 1734
-	// (get) Token: 0x0600172A RID: 5930 RVA: 0x00057E70 File Offset: 0x00056070
-	// (set) Token: 0x0600172B RID: 5931 RVA: 0x00057E80 File Offset: 0x00056080
+	// Token: 0x17000710 RID: 1808
+	// (get) Token: 0x0600188C RID: 6284 RVA: 0x0005C2B8 File Offset: 0x0005A4B8
+	// (set) Token: 0x0600188D RID: 6285 RVA: 0x0005C2C8 File Offset: 0x0005A4C8
 	public Vector3 velocity
 	{
 		get
@@ -270,9 +270,9 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C7 RID: 1735
-	// (get) Token: 0x0600172C RID: 5932 RVA: 0x00057ECC File Offset: 0x000560CC
-	// (set) Token: 0x0600172D RID: 5933 RVA: 0x00057EDC File Offset: 0x000560DC
+	// Token: 0x17000711 RID: 1809
+	// (get) Token: 0x0600188E RID: 6286 RVA: 0x0005C314 File Offset: 0x0005A514
+	// (set) Token: 0x0600188F RID: 6287 RVA: 0x0005C324 File Offset: 0x0005A524
 	public Vector3 differentVelocity
 	{
 		get
@@ -288,17 +288,17 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x170006C8 RID: 1736
-	// (get) Token: 0x0600172E RID: 5934 RVA: 0x00057F44 File Offset: 0x00056144
+	// Token: 0x17000712 RID: 1810
+	// (get) Token: 0x06001890 RID: 6288 RVA: 0x0005C38C File Offset: 0x0005A58C
 	public bool movingWithPlatform
 	{
 		get
 		{
-			return this.movingPlatform.setup.enable && (this._grounded || this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.PermaLocked) && this.movingPlatform.activePlatform != null;
+			return this.movingPlatform.setup.enable && (this._grounded || this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.PermaLocked) && this.movingPlatform.activePlatform != null;
 		}
 	}
 
-	// Token: 0x0600172F RID: 5935 RVA: 0x00057F9C File Offset: 0x0005619C
+	// Token: 0x06001891 RID: 6289 RVA: 0x0005C3E4 File Offset: 0x0005A5E4
 	private void Awake()
 	{
 		if (this._settings)
@@ -307,14 +307,14 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x06001730 RID: 5936 RVA: 0x00057FBC File Offset: 0x000561BC
-	private CCTotem.MoveInfo ApplyMovementDelta(ref Vector3 moveDistance, float crouchDelta)
+	// Token: 0x06001892 RID: 6290 RVA: 0x0005C404 File Offset: 0x0005A604
+	private global::CCTotem.MoveInfo ApplyMovementDelta(ref Vector3 moveDistance, float crouchDelta)
 	{
 		float height = this.cc.Height + crouchDelta;
 		return this.cc.Move(moveDistance, height);
 	}
 
-	// Token: 0x06001731 RID: 5937 RVA: 0x00057FEC File Offset: 0x000561EC
+	// Token: 0x06001893 RID: 6291 RVA: 0x0005C434 File Offset: 0x0005A634
 	private void ApplyYawDelta(float yRotation)
 	{
 		if (yRotation != 0f)
@@ -323,13 +323,13 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x06001732 RID: 5938 RVA: 0x0005801C File Offset: 0x0005621C
+	// Token: 0x06001894 RID: 6292 RVA: 0x0005C464 File Offset: 0x0005A664
 	public void Step()
 	{
 		this.Step(Time.deltaTime);
 	}
 
-	// Token: 0x06001733 RID: 5939 RVA: 0x0005802C File Offset: 0x0005622C
+	// Token: 0x06001895 RID: 6293 RVA: 0x0005C474 File Offset: 0x0005A674
 	public void Step(float deltaTime)
 	{
 		if (deltaTime <= 0f || !base.enabled)
@@ -339,7 +339,7 @@ public sealed class CCMotor : IDRemote
 		this.StepPhysics(deltaTime);
 	}
 
-	// Token: 0x06001734 RID: 5940 RVA: 0x0005804C File Offset: 0x0005624C
+	// Token: 0x06001896 RID: 6294 RVA: 0x0005C494 File Offset: 0x0005A694
 	private void StepPhysics(float deltaTime)
 	{
 		Vector3 velocity = this.movement.velocity;
@@ -409,7 +409,7 @@ public sealed class CCMotor : IDRemote
 		this.movingPlatform.hitPlatform = null;
 		this._groundNormal = default(Vector3);
 		float crouchDelta = this.input.crouchSpeed * deltaTime;
-		CCTotem.MoveInfo moveInfo = this.ApplyMovementDelta(ref vector5, crouchDelta);
+		global::CCTotem.MoveInfo moveInfo = this.ApplyMovementDelta(ref vector5, crouchDelta);
 		this.movement.collisionFlags = moveInfo.CollisionFlags;
 		float num4 = moveInfo.WantedHeight - moveInfo.PositionPlacement.height;
 		CollisionFlags collisionFlags = moveInfo.CollisionFlags | moveInfo.WorkingCollisionFlags;
@@ -487,7 +487,7 @@ public sealed class CCMotor : IDRemote
 			if (this._grounded)
 			{
 				this._grounded = false;
-				if (this.movingPlatform.setup.enable && (this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.InitTransfer || this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.PermaTransfer))
+				if (this.movingPlatform.setup.enable && (this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.InitTransfer || this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.PermaTransfer))
 				{
 					this.movement.frameVelocity = this.movingPlatform.platformVelocity;
 					this.movement.velocity = this.movement.velocity + this.movingPlatform.platformVelocity;
@@ -526,7 +526,7 @@ public sealed class CCMotor : IDRemote
 		this.BindCharacter();
 	}
 
-	// Token: 0x06001735 RID: 5941 RVA: 0x00058A54 File Offset: 0x00056C54
+	// Token: 0x06001897 RID: 6295 RVA: 0x0005CE9C File Offset: 0x0005B09C
 	private void FixedUpdate()
 	{
 		float deltaTime = Time.deltaTime;
@@ -558,24 +558,24 @@ public sealed class CCMotor : IDRemote
 				this.movingPlatform.platformVelocity = default(Vector3);
 			}
 		}
-		if (this.stepMode == CCMotor.StepMode.ViaFixedUpdate)
+		if (this.stepMode == global::CCMotor.StepMode.ViaFixedUpdate)
 		{
 			this.StepPhysics(deltaTime);
 		}
 	}
 
-	// Token: 0x06001736 RID: 5942 RVA: 0x00058BA8 File Offset: 0x00056DA8
+	// Token: 0x06001898 RID: 6296 RVA: 0x0005CFF0 File Offset: 0x0005B1F0
 	private void Update()
 	{
 		float deltaTime;
-		if (this.stepMode != CCMotor.StepMode.ViaUpdate || (deltaTime = Time.deltaTime) == 0f)
+		if (this.stepMode != global::CCMotor.StepMode.ViaUpdate || (deltaTime = Time.deltaTime) == 0f)
 		{
 			return;
 		}
 		this.StepPhysics(deltaTime);
 	}
 
-	// Token: 0x06001737 RID: 5943 RVA: 0x00058BDC File Offset: 0x00056DDC
+	// Token: 0x06001899 RID: 6297 RVA: 0x0005D024 File Offset: 0x0005B224
 	private void DesiredHorizontalVelocity(ref Vector3 inputMoveDirection, out Vector3 desiredVelocity)
 	{
 		Vector3 vector = this.InverseTransformDirection(inputMoveDirection);
@@ -591,7 +591,7 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x06001738 RID: 5944 RVA: 0x00058C6C File Offset: 0x00056E6C
+	// Token: 0x0600189A RID: 6298 RVA: 0x0005D0B4 File Offset: 0x0005B2B4
 	public float MaxSpeedInDirection(ref Vector3 desiredMovementDirection)
 	{
 		if (desiredMovementDirection.x == 0f && desiredMovementDirection.y == 0f && desiredMovementDirection.z == 0f)
@@ -618,7 +618,7 @@ public sealed class CCMotor : IDRemote
 		return Mathf.Sqrt(vector.x * vector.x + vector.z * vector.z) * this.movement.setup.maxSidewaysSpeed;
 	}
 
-	// Token: 0x06001739 RID: 5945 RVA: 0x00058DD4 File Offset: 0x00056FD4
+	// Token: 0x0600189B RID: 6299 RVA: 0x0005D21C File Offset: 0x0005B41C
 	private void ApplyInputVelocityChange(float deltaTime, ref Vector3 velocity, ref Vector3 acceleration)
 	{
 		Vector3 vector = (!this.canControl) ? default(Vector3) : this.input.moveDirection;
@@ -650,7 +650,7 @@ public sealed class CCMotor : IDRemote
 		{
 			this.DesiredHorizontalVelocity(ref vector, out vector2);
 		}
-		if (this.movingPlatform.setup.enable && this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.PermaTransfer)
+		if (this.movingPlatform.setup.enable && this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.PermaTransfer)
 		{
 			vector2.x += this.movement.frameVelocity.x;
 			vector2.z += this.movement.frameVelocity.z;
@@ -715,7 +715,7 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x0600173A RID: 5946 RVA: 0x000592F0 File Offset: 0x000574F0
+	// Token: 0x0600189C RID: 6300 RVA: 0x0005D738 File Offset: 0x0005B938
 	private void ApplyGravityAndJumping(float deltaTime, ref Vector3 velocity, ref Vector3 acceleration, out bool simulate)
 	{
 		float time = Time.time;
@@ -759,7 +759,7 @@ public sealed class CCMotor : IDRemote
 					velocity.x += this.jumping.jumpDir.x * num;
 					velocity.y = this.jumping.jumpDir.y * num;
 					velocity.z += this.jumping.jumpDir.z * num;
-					if (this.movingPlatform.setup.enable && (this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.InitTransfer || this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.PermaTransfer))
+					if (this.movingPlatform.setup.enable && (this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.InitTransfer || this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.PermaTransfer))
 					{
 						this.movement.frameVelocity = this.movingPlatform.platformVelocity;
 						velocity.x += this.movingPlatform.platformVelocity.x;
@@ -829,12 +829,12 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x0600173B RID: 5947 RVA: 0x000599B8 File Offset: 0x00057BB8
+	// Token: 0x0600189D RID: 6301 RVA: 0x0005DE00 File Offset: 0x0005C000
 	internal void OnBindCCMotorSettings()
 	{
 	}
 
-	// Token: 0x0600173C RID: 5948 RVA: 0x000599BC File Offset: 0x00057BBC
+	// Token: 0x0600189E RID: 6302 RVA: 0x0005DE04 File Offset: 0x0005C004
 	private void OnDestroy()
 	{
 		try
@@ -845,14 +845,14 @@ public sealed class CCMotor : IDRemote
 		{
 			if (this._installed)
 			{
-				CCMotor.Callbacks.UninstallCallbacks(this, this.cc);
+				global::CCMotor.Callbacks.UninstallCallbacks(this, this.cc);
 			}
 			this.cc = null;
 		}
 	}
 
-	// Token: 0x0600173D RID: 5949 RVA: 0x00059A10 File Offset: 0x00057C10
-	private void OnHit(ref CCDesc.Hit hit)
+	// Token: 0x0600189F RID: 6303 RVA: 0x0005DE58 File Offset: 0x0005C058
+	private void OnHit(ref global::CCDesc.Hit hit)
 	{
 		Vector3 normal = hit.Normal;
 		Vector3 moveDirection = hit.MoveDirection;
@@ -877,10 +877,10 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x0600173E RID: 5950 RVA: 0x00059B90 File Offset: 0x00057D90
+	// Token: 0x060018A0 RID: 6304 RVA: 0x0005DFD8 File Offset: 0x0005C1D8
 	private void SubtractNewPlatformVelocity()
 	{
-		if (this.movingPlatform.setup.enable && (this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.InitTransfer || this.movingPlatform.setup.movementTransfer == CCMotor.JumpMovementTransfer.PermaTransfer))
+		if (this.movingPlatform.setup.enable && (this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.InitTransfer || this.movingPlatform.setup.movementTransfer == global::CCMotor.JumpMovementTransfer.PermaTransfer))
 		{
 			if (this.movingPlatform.newPlatform)
 			{
@@ -893,7 +893,7 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x0600173F RID: 5951 RVA: 0x00059C2C File Offset: 0x00057E2C
+	// Token: 0x060018A1 RID: 6305 RVA: 0x0005E074 File Offset: 0x0005C274
 	private IEnumerator SubtractNewPlatformVelocityLateRoutine(Transform platform)
 	{
 		yield return new WaitForFixedUpdate();
@@ -906,39 +906,39 @@ public sealed class CCMotor : IDRemote
 		yield break;
 	}
 
-	// Token: 0x06001740 RID: 5952 RVA: 0x00059C58 File Offset: 0x00057E58
+	// Token: 0x060018A2 RID: 6306 RVA: 0x0005E0A0 File Offset: 0x0005C2A0
 	private float CalculateJumpVerticalSpeed(float targetJumpHeight)
 	{
 		return Mathf.Sqrt(2f * targetJumpHeight * this.movement.setup.gravity);
 	}
 
-	// Token: 0x06001741 RID: 5953 RVA: 0x00059C78 File Offset: 0x00057E78
+	// Token: 0x060018A3 RID: 6307 RVA: 0x0005E0C0 File Offset: 0x0005C2C0
 	private void DoPush(Rigidbody pusher, Collider pusherCollider, Collision collisionFromPusher)
 	{
 	}
 
-	// Token: 0x06001742 RID: 5954 RVA: 0x00059C7C File Offset: 0x00057E7C
+	// Token: 0x060018A4 RID: 6308 RVA: 0x0005E0C4 File Offset: 0x0005C2C4
 	public void OnPushEnter(Rigidbody pusher, Collider pusherCollider, Collision collisionFromPusher)
 	{
 		this.DoPush(pusher, pusherCollider, collisionFromPusher);
 	}
 
-	// Token: 0x06001743 RID: 5955 RVA: 0x00059C88 File Offset: 0x00057E88
+	// Token: 0x060018A5 RID: 6309 RVA: 0x0005E0D0 File Offset: 0x0005C2D0
 	public void OnPushStay(Rigidbody pusher, Collider pusherCollider, Collision collisionFromPusher)
 	{
 		this.DoPush(pusher, pusherCollider, collisionFromPusher);
 	}
 
-	// Token: 0x06001744 RID: 5956 RVA: 0x00059C94 File Offset: 0x00057E94
+	// Token: 0x060018A6 RID: 6310 RVA: 0x0005E0DC File Offset: 0x0005C2DC
 	public void OnPushExit(Rigidbody pusher, Collider pusherCollider, Collision collisionFromPusher)
 	{
 		this.DoPush(pusher, pusherCollider, collisionFromPusher);
 	}
 
-	// Token: 0x06001745 RID: 5957 RVA: 0x00059CA0 File Offset: 0x00057EA0
+	// Token: 0x060018A7 RID: 6311 RVA: 0x0005E0E8 File Offset: 0x0005C2E8
 	private void MoveFromCollision(Collision collision)
 	{
-		PlayerPusher component = collision.gameObject.GetComponent<PlayerPusher>();
+		global::PlayerPusher component = collision.gameObject.GetComponent<global::PlayerPusher>();
 		if (component)
 		{
 			ContactPoint[] contacts = collision.contacts;
@@ -963,21 +963,21 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x06001746 RID: 5958 RVA: 0x00059DC8 File Offset: 0x00057FC8
+	// Token: 0x060018A8 RID: 6312 RVA: 0x0005E210 File Offset: 0x0005C410
 	public void OnCollisionEnter(Collision collision)
 	{
 		this.MoveFromCollision(collision);
 	}
 
-	// Token: 0x06001747 RID: 5959 RVA: 0x00059DD4 File Offset: 0x00057FD4
+	// Token: 0x060018A9 RID: 6313 RVA: 0x0005E21C File Offset: 0x0005C41C
 	public void OnCollisionStay(Collision collision)
 	{
 		this.MoveFromCollision(collision);
 	}
 
-	// Token: 0x170006C9 RID: 1737
-	// (get) Token: 0x06001748 RID: 5960 RVA: 0x00059DE0 File Offset: 0x00057FE0
-	public CCMotor ccmotor
+	// Token: 0x17000713 RID: 1811
+	// (get) Token: 0x060018AA RID: 6314 RVA: 0x0005E228 File Offset: 0x0005C428
+	public global::CCMotor ccmotor
 	{
 		get
 		{
@@ -985,8 +985,8 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x06001749 RID: 5961 RVA: 0x00059DE4 File Offset: 0x00057FE4
-	public void InitializeSetup(Character character, CCTotemPole cc, CharacterCCMotorTrait trait)
+	// Token: 0x060018AB RID: 6315 RVA: 0x0005E22C File Offset: 0x0005C42C
+	public void InitializeSetup(global::Character character, global::CCTotemPole cc, global::CharacterCCMotorTrait trait)
 	{
 		this.tr = base.transform;
 		this.cc = cc;
@@ -1010,19 +1010,19 @@ public sealed class CCMotor : IDRemote
 		if (!this._installed && cc)
 		{
 			this._installed = true;
-			CCMotor.Callbacks.InstallCallbacks(this, cc);
+			global::CCMotor.Callbacks.InstallCallbacks(this, cc);
 		}
 	}
 
-	// Token: 0x0600174A RID: 5962 RVA: 0x00059ED0 File Offset: 0x000580D0
-	private void BindPosition(ref CCTotem.PositionPlacement placement)
+	// Token: 0x060018AC RID: 6316 RVA: 0x0005E318 File Offset: 0x0005C518
+	private void BindPosition(ref global::CCTotem.PositionPlacement placement)
 	{
 		this.tr.position = placement.bottom;
-		this.LastPositionPlacement = new CCTotem.PositionPlacement?(placement);
+		this.LastPositionPlacement = new global::CCTotem.PositionPlacement?(placement);
 	}
 
-	// Token: 0x170006CA RID: 1738
-	// (get) Token: 0x0600174B RID: 5963 RVA: 0x00059F00 File Offset: 0x00058100
+	// Token: 0x17000714 RID: 1812
+	// (get) Token: 0x060018AD RID: 6317 RVA: 0x0005E348 File Offset: 0x0005C548
 	public string setupString
 	{
 		get
@@ -1037,10 +1037,10 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x0600174C RID: 5964 RVA: 0x00059F64 File Offset: 0x00058164
+	// Token: 0x060018AE RID: 6318 RVA: 0x0005E3AC File Offset: 0x0005C5AC
 	private void BindCharacter()
 	{
-		Character character = (Character)base.idMain;
+		global::Character character = (global::Character)base.idMain;
 		character.origin = this.tr.position;
 		float num = Mathf.DeltaAngle(this.previousYaw.Degrees, this.currentYaw.Degrees);
 		if (num != 0f)
@@ -1050,19 +1050,19 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x0600174D RID: 5965 RVA: 0x00059FD0 File Offset: 0x000581D0
+	// Token: 0x060018AF RID: 6319 RVA: 0x0005E418 File Offset: 0x0005C618
 	private void RouteMessage(string messageName)
 	{
 		base.idMain.SendMessage(messageName, 1);
 	}
 
-	// Token: 0x0600174E RID: 5966 RVA: 0x00059FE0 File Offset: 0x000581E0
+	// Token: 0x060018B0 RID: 6320 RVA: 0x0005E428 File Offset: 0x0005C628
 	private void RouteMessage(string messageName, SendMessageOptions sendOptions)
 	{
 		base.idMain.SendMessage(messageName, sendOptions);
 	}
 
-	// Token: 0x0600174F RID: 5967 RVA: 0x00059FF0 File Offset: 0x000581F0
+	// Token: 0x060018B1 RID: 6321 RVA: 0x0005E438 File Offset: 0x0005C638
 	public void Teleport(Vector3 origin)
 	{
 		if (this.cc)
@@ -1075,13 +1075,13 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x06001750 RID: 5968 RVA: 0x0005A020 File Offset: 0x00058220
+	// Token: 0x060018B2 RID: 6322 RVA: 0x0005E468 File Offset: 0x0005C668
 	private void ApplyHorizontalPushVelocity(ref Vector3 velocity)
 	{
-		CCTotemPole cctotemPole = this.cc;
+		global::CCTotemPole cctotemPole = this.cc;
 		if (cctotemPole && cctotemPole.Exists)
 		{
-			CCDesc ccdesc = this.cc.totemicObject.CCDesc;
+			global::CCDesc ccdesc = this.cc.totemicObject.CCDesc;
 			Capsule capsule;
 			if (ColliderUtility.GetGeometricShapeWorld(ccdesc.collider, ref capsule))
 			{
@@ -1091,7 +1091,7 @@ public sealed class CCMotor : IDRemote
 				bool flag = false;
 				foreach (Collider collider in Physics.OverlapSphere(this.cc.totemicObject.CCDesc.worldCenter, this.cc.totemicObject.CCDesc.effectiveSkinnedHeight, 1310720))
 				{
-					CCPusher component = collider.GetComponent<CCPusher>();
+					global::CCPusher component = collider.GetComponent<global::CCPusher>();
 					if (component)
 					{
 						Vector3 vector3 = default(Vector3);
@@ -1112,166 +1112,166 @@ public sealed class CCMotor : IDRemote
 		}
 	}
 
-	// Token: 0x04000BCA RID: 3018
+	// Token: 0x04000CF0 RID: 3312
 	private const float kYEpsilon = 0.001f;
 
-	// Token: 0x04000BCB RID: 3019
+	// Token: 0x04000CF1 RID: 3313
 	private const float kYMaxNotGrounded = 0.01f;
 
-	// Token: 0x04000BCC RID: 3020
+	// Token: 0x04000CF2 RID: 3314
 	private const float kResetButtonDownTime = -100f;
 
-	// Token: 0x04000BCD RID: 3021
+	// Token: 0x04000CF3 RID: 3315
 	private const float kJumpButtonDelaySeconds = 0.2f;
 
-	// Token: 0x04000BCE RID: 3022
+	// Token: 0x04000CF4 RID: 3316
 	private const float kHitEpsilon = 0.001f;
 
-	// Token: 0x04000BCF RID: 3023
-	private CCTotemPole cc;
+	// Token: 0x04000CF5 RID: 3317
+	private global::CCTotemPole cc;
 
-	// Token: 0x04000BD0 RID: 3024
+	// Token: 0x04000CF6 RID: 3318
 	internal Transform tr;
 
-	// Token: 0x04000BD1 RID: 3025
-	public CCMotor.StepMode stepMode;
+	// Token: 0x04000CF7 RID: 3319
+	public global::CCMotor.StepMode stepMode;
 
-	// Token: 0x04000BD2 RID: 3026
+	// Token: 0x04000CF8 RID: 3320
 	internal bool canControl;
 
-	// Token: 0x04000BD3 RID: 3027
+	// Token: 0x04000CF9 RID: 3321
 	internal bool sendFallMessage;
 
-	// Token: 0x04000BD4 RID: 3028
+	// Token: 0x04000CFA RID: 3322
 	internal bool sendLandMessage;
 
-	// Token: 0x04000BD5 RID: 3029
+	// Token: 0x04000CFB RID: 3323
 	internal bool sendJumpMessage;
 
-	// Token: 0x04000BD6 RID: 3030
+	// Token: 0x04000CFC RID: 3324
 	internal bool sendExternalVelocityMessage;
 
-	// Token: 0x04000BD7 RID: 3031
+	// Token: 0x04000CFD RID: 3325
 	internal bool sendJumpFailureMessage;
 
-	// Token: 0x04000BD8 RID: 3032
+	// Token: 0x04000CFE RID: 3326
 	private bool _grounded;
 
-	// Token: 0x04000BD9 RID: 3033
+	// Token: 0x04000CFF RID: 3327
 	private bool _installed;
 
-	// Token: 0x04000BDA RID: 3034
+	// Token: 0x04000D00 RID: 3328
 	[NonSerialized]
-	public CCTotem.PositionPlacement? LastPositionPlacement;
+	public global::CCTotem.PositionPlacement? LastPositionPlacement;
 
-	// Token: 0x04000BDB RID: 3035
-	private CCMotor.YawAngle currentYaw;
+	// Token: 0x04000D01 RID: 3329
+	private global::CCMotor.YawAngle currentYaw;
 
-	// Token: 0x04000BDC RID: 3036
-	private CCMotor.YawAngle previousYaw;
+	// Token: 0x04000D02 RID: 3330
+	private global::CCMotor.YawAngle previousYaw;
 
-	// Token: 0x04000BDD RID: 3037
+	// Token: 0x04000D03 RID: 3331
 	public float minTimeBetweenJumps;
 
-	// Token: 0x04000BDE RID: 3038
+	// Token: 0x04000D04 RID: 3332
 	private Vector3 _groundNormal;
 
-	// Token: 0x04000BDF RID: 3039
+	// Token: 0x04000D05 RID: 3333
 	private Vector3 _lastGroundNormal;
 
-	// Token: 0x04000BE0 RID: 3040
+	// Token: 0x04000D06 RID: 3334
 	[SerializeField]
-	private CCMotorSettings _settings;
+	private global::CCMotorSettings _settings;
 
-	// Token: 0x04000BE1 RID: 3041
-	public CCMotor.InputFrame input;
+	// Token: 0x04000D07 RID: 3335
+	public global::CCMotor.InputFrame input;
 
-	// Token: 0x04000BE2 RID: 3042
-	public CCMotor.MovementContext movement = new CCMotor.MovementContext(CCMotor.Movement.init);
+	// Token: 0x04000D08 RID: 3336
+	public global::CCMotor.MovementContext movement = new global::CCMotor.MovementContext(global::CCMotor.Movement.init);
 
-	// Token: 0x04000BE3 RID: 3043
-	private CCMotor.JumpBaseVerticalSpeedArgs jumpVerticalSpeedCalculator;
+	// Token: 0x04000D09 RID: 3337
+	private global::CCMotor.JumpBaseVerticalSpeedArgs jumpVerticalSpeedCalculator;
 
-	// Token: 0x04000BE4 RID: 3044
-	public CCMotor.JumpingContext jumping = new CCMotor.JumpingContext(CCMotor.Jumping.init);
+	// Token: 0x04000D0A RID: 3338
+	public global::CCMotor.JumpingContext jumping = new global::CCMotor.JumpingContext(global::CCMotor.Jumping.init);
 
-	// Token: 0x04000BE5 RID: 3045
-	public CCMotor.MovingPlatformContext movingPlatform = new CCMotor.MovingPlatformContext(CCMotor.MovingPlatform.init);
+	// Token: 0x04000D0B RID: 3339
+	public global::CCMotor.MovingPlatformContext movingPlatform = new global::CCMotor.MovingPlatformContext(global::CCMotor.MovingPlatform.init);
 
-	// Token: 0x04000BE6 RID: 3046
-	public CCMotor.Sliding sliding;
+	// Token: 0x04000D0C RID: 3340
+	public global::CCMotor.Sliding sliding;
 
-	// Token: 0x04000BE7 RID: 3047
+	// Token: 0x04000D0D RID: 3341
 	private StringBuilder stringBuilder;
 
-	// Token: 0x04000BE8 RID: 3048
+	// Token: 0x04000D0E RID: 3342
 	private static bool ccmotor_debug;
 
-	// Token: 0x0200027B RID: 635
+	// Token: 0x020002B1 RID: 689
 	public enum StepMode
 	{
-		// Token: 0x04000BEA RID: 3050
+		// Token: 0x04000D10 RID: 3344
 		ViaUpdate,
-		// Token: 0x04000BEB RID: 3051
+		// Token: 0x04000D11 RID: 3345
 		ViaFixedUpdate,
-		// Token: 0x04000BEC RID: 3052
+		// Token: 0x04000D12 RID: 3346
 		Elsewhere
 	}
 
-	// Token: 0x0200027C RID: 636
+	// Token: 0x020002B2 RID: 690
 	private struct YawAngle
 	{
-		// Token: 0x06001751 RID: 5969 RVA: 0x0005A178 File Offset: 0x00058378
+		// Token: 0x060018B3 RID: 6323 RVA: 0x0005E5C0 File Offset: 0x0005C7C0
 		private YawAngle(float Degrees)
 		{
 			this.Degrees = Degrees;
 		}
 
-		// Token: 0x06001752 RID: 5970 RVA: 0x0005A184 File Offset: 0x00058384
+		// Token: 0x060018B4 RID: 6324 RVA: 0x0005E5CC File Offset: 0x0005C7CC
 		public Vector3 Rotate(Vector3 direction)
 		{
 			return Quaternion.AngleAxis(this.Degrees, Vector3.up) * direction;
 		}
 
-		// Token: 0x06001753 RID: 5971 RVA: 0x0005A19C File Offset: 0x0005839C
+		// Token: 0x060018B5 RID: 6325 RVA: 0x0005E5E4 File Offset: 0x0005C7E4
 		public Vector3 Unrotate(Vector3 direction)
 		{
 			return Quaternion.AngleAxis(this.Degrees, Vector3.down) * direction;
 		}
 
-		// Token: 0x06001754 RID: 5972 RVA: 0x0005A1B4 File Offset: 0x000583B4
-		public static implicit operator CCMotor.YawAngle(float Degrees)
+		// Token: 0x060018B6 RID: 6326 RVA: 0x0005E5FC File Offset: 0x0005C7FC
+		public static implicit operator global::CCMotor.YawAngle(float Degrees)
 		{
-			return new CCMotor.YawAngle(Degrees);
+			return new global::CCMotor.YawAngle(Degrees);
 		}
 
-		// Token: 0x04000BED RID: 3053
+		// Token: 0x04000D13 RID: 3347
 		public readonly float Degrees;
 	}
 
-	// Token: 0x0200027D RID: 637
+	// Token: 0x020002B3 RID: 691
 	public struct InputFrame
 	{
-		// Token: 0x04000BEE RID: 3054
+		// Token: 0x04000D14 RID: 3348
 		public Vector3 moveDirection;
 
-		// Token: 0x04000BEF RID: 3055
+		// Token: 0x04000D15 RID: 3349
 		public bool jump;
 
-		// Token: 0x04000BF0 RID: 3056
+		// Token: 0x04000D16 RID: 3350
 		public float crouchSpeed;
 	}
 
-	// Token: 0x0200027E RID: 638
+	// Token: 0x020002B4 RID: 692
 	public struct Movement
 	{
-		// Token: 0x170006CB RID: 1739
-		// (get) Token: 0x06001755 RID: 5973 RVA: 0x0005A1BC File Offset: 0x000583BC
-		public static CCMotor.Movement init
+		// Token: 0x17000715 RID: 1813
+		// (get) Token: 0x060018B7 RID: 6327 RVA: 0x0005E604 File Offset: 0x0005C804
+		public static global::CCMotor.Movement init
 		{
 			get
 			{
-				CCMotor.Movement result;
+				global::CCMotor.Movement result;
 				result.maxForwardSpeed = 3f;
 				result.maxSidewaysSpeed = 3f;
 				result.maxBackwardsSpeed = 3f;
@@ -1292,7 +1292,7 @@ public sealed class CCMotor : IDRemote
 			}
 		}
 
-		// Token: 0x06001756 RID: 5974 RVA: 0x0005A2A8 File Offset: 0x000584A8
+		// Token: 0x060018B8 RID: 6328 RVA: 0x0005E6F0 File Offset: 0x0005C8F0
 		public override string ToString()
 		{
 			return string.Format("[Movement: maxForwardSpeed={0}, maxSidewaysSpeed={1}, maxBackwardsSpeed={2}, maxGroundAcceleration={3}, maxAirAcceleration={4}, inputAirVelocityRatio={5}, gravity={6}, maxFallSpeed={7}, slopeSpeedMultiplier={8}, maxAirHorizontalSpeed={9}]", new object[]
@@ -1310,45 +1310,45 @@ public sealed class CCMotor : IDRemote
 			});
 		}
 
-		// Token: 0x04000BF1 RID: 3057
+		// Token: 0x04000D17 RID: 3351
 		public float maxForwardSpeed;
 
-		// Token: 0x04000BF2 RID: 3058
+		// Token: 0x04000D18 RID: 3352
 		public float maxSidewaysSpeed;
 
-		// Token: 0x04000BF3 RID: 3059
+		// Token: 0x04000D19 RID: 3353
 		public float maxBackwardsSpeed;
 
-		// Token: 0x04000BF4 RID: 3060
+		// Token: 0x04000D1A RID: 3354
 		public float maxGroundAcceleration;
 
-		// Token: 0x04000BF5 RID: 3061
+		// Token: 0x04000D1B RID: 3355
 		public float maxAirAcceleration;
 
-		// Token: 0x04000BF6 RID: 3062
+		// Token: 0x04000D1C RID: 3356
 		public float inputAirVelocityRatio;
 
-		// Token: 0x04000BF7 RID: 3063
+		// Token: 0x04000D1D RID: 3357
 		public float gravity;
 
-		// Token: 0x04000BF8 RID: 3064
+		// Token: 0x04000D1E RID: 3358
 		public float maxFallSpeed;
 
-		// Token: 0x04000BF9 RID: 3065
+		// Token: 0x04000D1F RID: 3359
 		public float maxAirHorizontalSpeed;
 
-		// Token: 0x04000BFA RID: 3066
+		// Token: 0x04000D20 RID: 3360
 		public float maxUnblockingHeightDifference;
 
-		// Token: 0x04000BFB RID: 3067
+		// Token: 0x04000D21 RID: 3361
 		public AnimationCurve slopeSpeedMultiplier;
 	}
 
-	// Token: 0x0200027F RID: 639
+	// Token: 0x020002B5 RID: 693
 	public struct MovementContext
 	{
-		// Token: 0x06001757 RID: 5975 RVA: 0x0005A350 File Offset: 0x00058550
-		public MovementContext(ref CCMotor.Movement setup)
+		// Token: 0x060018B9 RID: 6329 RVA: 0x0005E798 File Offset: 0x0005C998
+		public MovementContext(ref global::CCMotor.Movement setup)
 		{
 			this.setup = setup;
 			this.collisionFlags = 0;
@@ -1362,47 +1362,47 @@ public sealed class CCMotor : IDRemote
 			this.lastHitPoint.z = 0f;
 		}
 
-		// Token: 0x06001758 RID: 5976 RVA: 0x0005A3E4 File Offset: 0x000585E4
-		public MovementContext(CCMotor.Movement setup)
+		// Token: 0x060018BA RID: 6330 RVA: 0x0005E82C File Offset: 0x0005CA2C
+		public MovementContext(global::CCMotor.Movement setup)
 		{
-			this = new CCMotor.MovementContext(ref setup);
+			this = new global::CCMotor.MovementContext(ref setup);
 		}
 
-		// Token: 0x06001759 RID: 5977 RVA: 0x0005A3F0 File Offset: 0x000585F0
-		public static implicit operator CCMotor.Movement(CCMotor.MovementContext c)
+		// Token: 0x060018BB RID: 6331 RVA: 0x0005E838 File Offset: 0x0005CA38
+		public static implicit operator global::CCMotor.Movement(global::CCMotor.MovementContext c)
 		{
 			return c.setup;
 		}
 
-		// Token: 0x04000BFC RID: 3068
-		public CCMotor.Movement setup;
+		// Token: 0x04000D22 RID: 3362
+		public global::CCMotor.Movement setup;
 
-		// Token: 0x04000BFD RID: 3069
+		// Token: 0x04000D23 RID: 3363
 		public CollisionFlags collisionFlags;
 
-		// Token: 0x04000BFE RID: 3070
+		// Token: 0x04000D24 RID: 3364
 		public bool crouchBlocked;
 
-		// Token: 0x04000BFF RID: 3071
+		// Token: 0x04000D25 RID: 3365
 		public Vector3 acceleration;
 
-		// Token: 0x04000C00 RID: 3072
+		// Token: 0x04000D26 RID: 3366
 		public Vector3 velocity;
 
-		// Token: 0x04000C01 RID: 3073
+		// Token: 0x04000D27 RID: 3367
 		public Vector3 frameVelocity;
 
-		// Token: 0x04000C02 RID: 3074
+		// Token: 0x04000D28 RID: 3368
 		public Vector3 hitPoint;
 
-		// Token: 0x04000C03 RID: 3075
+		// Token: 0x04000D29 RID: 3369
 		public Vector3 lastHitPoint;
 	}
 
-	// Token: 0x02000280 RID: 640
+	// Token: 0x020002B6 RID: 694
 	public struct Jumping
 	{
-		// Token: 0x0600175B RID: 5979 RVA: 0x0005A444 File Offset: 0x00058644
+		// Token: 0x060018BD RID: 6333 RVA: 0x0005E88C File Offset: 0x0005CA8C
 		public override string ToString()
 		{
 			return string.Format("[Jumping: enable={0}, baseHeight={1}, extraHeight={2}, perpAmount={3}, steepPerpAmount={4}]", new object[]
@@ -1415,23 +1415,23 @@ public sealed class CCMotor : IDRemote
 			});
 		}
 
-		// Token: 0x04000C04 RID: 3076
+		// Token: 0x04000D2A RID: 3370
 		public bool enable;
 
-		// Token: 0x04000C05 RID: 3077
+		// Token: 0x04000D2B RID: 3371
 		public float baseHeight;
 
-		// Token: 0x04000C06 RID: 3078
+		// Token: 0x04000D2C RID: 3372
 		public float extraHeight;
 
-		// Token: 0x04000C07 RID: 3079
+		// Token: 0x04000D2D RID: 3373
 		public float perpAmount;
 
-		// Token: 0x04000C08 RID: 3080
+		// Token: 0x04000D2E RID: 3374
 		public float steepPerpAmount;
 
-		// Token: 0x04000C09 RID: 3081
-		public static readonly CCMotor.Jumping init = new CCMotor.Jumping
+		// Token: 0x04000D2F RID: 3375
+		public static readonly global::CCMotor.Jumping init = new global::CCMotor.Jumping
 		{
 			enable = true,
 			baseHeight = 1f,
@@ -1440,12 +1440,12 @@ public sealed class CCMotor : IDRemote
 		};
 	}
 
-	// Token: 0x02000281 RID: 641
+	// Token: 0x020002B7 RID: 695
 	private struct JumpBaseVerticalSpeedArgs
 	{
-		// Token: 0x170006CC RID: 1740
-		// (get) Token: 0x0600175C RID: 5980 RVA: 0x0005A4A8 File Offset: 0x000586A8
-		// (set) Token: 0x0600175D RID: 5981 RVA: 0x0005A4B0 File Offset: 0x000586B0
+		// Token: 0x17000716 RID: 1814
+		// (get) Token: 0x060018BE RID: 6334 RVA: 0x0005E8F0 File Offset: 0x0005CAF0
+		// (set) Token: 0x060018BF RID: 6335 RVA: 0x0005E8F8 File Offset: 0x0005CAF8
 		public float baseHeight
 		{
 			get
@@ -1462,9 +1462,9 @@ public sealed class CCMotor : IDRemote
 			}
 		}
 
-		// Token: 0x170006CD RID: 1741
-		// (get) Token: 0x0600175E RID: 5982 RVA: 0x0005A4CC File Offset: 0x000586CC
-		// (set) Token: 0x0600175F RID: 5983 RVA: 0x0005A4D4 File Offset: 0x000586D4
+		// Token: 0x17000717 RID: 1815
+		// (get) Token: 0x060018C0 RID: 6336 RVA: 0x0005E914 File Offset: 0x0005CB14
+		// (set) Token: 0x060018C1 RID: 6337 RVA: 0x0005E91C File Offset: 0x0005CB1C
 		public float gravity
 		{
 			get
@@ -1481,37 +1481,37 @@ public sealed class CCMotor : IDRemote
 			}
 		}
 
-		// Token: 0x06001760 RID: 5984 RVA: 0x0005A4F0 File Offset: 0x000586F0
-		public float CalculateVerticalSpeed(ref CCMotor.Jumping jumping, ref CCMotor.Movement movement)
+		// Token: 0x060018C2 RID: 6338 RVA: 0x0005E938 File Offset: 0x0005CB38
+		public float CalculateVerticalSpeed(ref global::CCMotor.Jumping jumping, ref global::CCMotor.Movement movement)
 		{
 			if (this.dirty || this._baseHeight != jumping.baseHeight || this._gravity != movement.gravity)
 			{
 				this._baseHeight = jumping.baseHeight;
 				this._gravity = movement.gravity;
-				this._verticalSpeed = Mathf.Sqrt(2f * this._baseHeight * this._gravity);
+				this._verticalSpeed = Mathf.Sqrt(2f * this._baseHeight * Mathf.Abs(this._gravity));
 				this.dirty = false;
 			}
 			return this._verticalSpeed;
 		}
 
-		// Token: 0x04000C0A RID: 3082
+		// Token: 0x04000D30 RID: 3376
 		private float _baseHeight;
 
-		// Token: 0x04000C0B RID: 3083
+		// Token: 0x04000D31 RID: 3377
 		private float _gravity;
 
-		// Token: 0x04000C0C RID: 3084
+		// Token: 0x04000D32 RID: 3378
 		private float _verticalSpeed;
 
-		// Token: 0x04000C0D RID: 3085
+		// Token: 0x04000D33 RID: 3379
 		private bool dirty;
 	}
 
-	// Token: 0x02000282 RID: 642
+	// Token: 0x020002B8 RID: 696
 	public struct JumpingContext
 	{
-		// Token: 0x06001761 RID: 5985 RVA: 0x0005A570 File Offset: 0x00058770
-		public JumpingContext(ref CCMotor.Jumping setup)
+		// Token: 0x060018C3 RID: 6339 RVA: 0x0005E9B4 File Offset: 0x0005CBB4
+		public JumpingContext(ref global::CCMotor.Jumping setup)
 		{
 			this.setup = setup;
 			this.jumping = false;
@@ -1525,146 +1525,146 @@ public sealed class CCMotor : IDRemote
 			this.lastLandTime = float.MinValue;
 		}
 
-		// Token: 0x06001762 RID: 5986 RVA: 0x0005A5F0 File Offset: 0x000587F0
-		public JumpingContext(CCMotor.Jumping setup)
+		// Token: 0x060018C4 RID: 6340 RVA: 0x0005EA34 File Offset: 0x0005CC34
+		public JumpingContext(global::CCMotor.Jumping setup)
 		{
-			this = new CCMotor.JumpingContext(ref setup);
+			this = new global::CCMotor.JumpingContext(ref setup);
 		}
 
-		// Token: 0x06001763 RID: 5987 RVA: 0x0005A5FC File Offset: 0x000587FC
-		public static implicit operator CCMotor.Jumping(CCMotor.JumpingContext c)
+		// Token: 0x060018C5 RID: 6341 RVA: 0x0005EA40 File Offset: 0x0005CC40
+		public static implicit operator global::CCMotor.Jumping(global::CCMotor.JumpingContext c)
 		{
 			return c.setup;
 		}
 
-		// Token: 0x04000C0E RID: 3086
-		public CCMotor.Jumping setup;
+		// Token: 0x04000D34 RID: 3380
+		public global::CCMotor.Jumping setup;
 
-		// Token: 0x04000C0F RID: 3087
+		// Token: 0x04000D35 RID: 3381
 		public bool jumping;
 
-		// Token: 0x04000C10 RID: 3088
+		// Token: 0x04000D36 RID: 3382
 		public bool holdingJumpButton;
 
-		// Token: 0x04000C11 RID: 3089
+		// Token: 0x04000D37 RID: 3383
 		public bool startedJumping;
 
-		// Token: 0x04000C12 RID: 3090
+		// Token: 0x04000D38 RID: 3384
 		public float lastStartTime;
 
-		// Token: 0x04000C13 RID: 3091
+		// Token: 0x04000D39 RID: 3385
 		public float lastButtonDownTime;
 
-		// Token: 0x04000C14 RID: 3092
+		// Token: 0x04000D3A RID: 3386
 		public float lastLandTime;
 
-		// Token: 0x04000C15 RID: 3093
+		// Token: 0x04000D3B RID: 3387
 		public Vector3 jumpDir;
 	}
 
-	// Token: 0x02000283 RID: 643
+	// Token: 0x020002B9 RID: 697
 	public enum JumpMovementTransfer
 	{
-		// Token: 0x04000C17 RID: 3095
+		// Token: 0x04000D3D RID: 3389
 		None,
-		// Token: 0x04000C18 RID: 3096
+		// Token: 0x04000D3E RID: 3390
 		InitTransfer,
-		// Token: 0x04000C19 RID: 3097
+		// Token: 0x04000D3F RID: 3391
 		PermaTransfer,
-		// Token: 0x04000C1A RID: 3098
+		// Token: 0x04000D40 RID: 3392
 		PermaLocked
 	}
 
-	// Token: 0x02000284 RID: 644
+	// Token: 0x020002BA RID: 698
 	public struct MovingPlatform
 	{
-		// Token: 0x06001765 RID: 5989 RVA: 0x0005A634 File Offset: 0x00058834
+		// Token: 0x060018C7 RID: 6343 RVA: 0x0005EA78 File Offset: 0x0005CC78
 		public override string ToString()
 		{
 			return string.Format("[MovingPlatform: enable={0}, movementTransfer={1}]", this.enable, this.movementTransfer);
 		}
 
-		// Token: 0x04000C1B RID: 3099
+		// Token: 0x04000D41 RID: 3393
 		public bool enable;
 
-		// Token: 0x04000C1C RID: 3100
-		public CCMotor.JumpMovementTransfer movementTransfer;
+		// Token: 0x04000D42 RID: 3394
+		public global::CCMotor.JumpMovementTransfer movementTransfer;
 
-		// Token: 0x04000C1D RID: 3101
-		public static readonly CCMotor.MovingPlatform init = new CCMotor.MovingPlatform
+		// Token: 0x04000D43 RID: 3395
+		public static readonly global::CCMotor.MovingPlatform init = new global::CCMotor.MovingPlatform
 		{
 			enable = true,
-			movementTransfer = CCMotor.JumpMovementTransfer.PermaTransfer
+			movementTransfer = global::CCMotor.JumpMovementTransfer.PermaTransfer
 		};
 	}
 
-	// Token: 0x02000285 RID: 645
+	// Token: 0x020002BB RID: 699
 	public struct MovingPlatformContext
 	{
-		// Token: 0x06001766 RID: 5990 RVA: 0x0005A664 File Offset: 0x00058864
-		public MovingPlatformContext(ref CCMotor.MovingPlatform setup)
+		// Token: 0x060018C8 RID: 6344 RVA: 0x0005EAA8 File Offset: 0x0005CCA8
+		public MovingPlatformContext(ref global::CCMotor.MovingPlatform setup)
 		{
 			this.setup = setup;
 			this.hitPlatform = null;
 			this.activePlatform = null;
-			this.activeLocal = default(CCMotor.MovingPlatformContext.PointAndRotation);
-			this.activeGlobal = default(CCMotor.MovingPlatformContext.PointAndRotation);
+			this.activeLocal = default(global::CCMotor.MovingPlatformContext.PointAndRotation);
+			this.activeGlobal = default(global::CCMotor.MovingPlatformContext.PointAndRotation);
 			this.lastMatrix = default(Matrix4x4);
 			this.platformVelocity = default(Vector3);
 			this.newPlatform = false;
 		}
 
-		// Token: 0x06001767 RID: 5991 RVA: 0x0005A6D0 File Offset: 0x000588D0
-		public MovingPlatformContext(CCMotor.MovingPlatform setup)
+		// Token: 0x060018C9 RID: 6345 RVA: 0x0005EB14 File Offset: 0x0005CD14
+		public MovingPlatformContext(global::CCMotor.MovingPlatform setup)
 		{
-			this = new CCMotor.MovingPlatformContext(ref setup);
+			this = new global::CCMotor.MovingPlatformContext(ref setup);
 		}
 
-		// Token: 0x06001768 RID: 5992 RVA: 0x0005A6DC File Offset: 0x000588DC
-		public static implicit operator CCMotor.MovingPlatform(CCMotor.MovingPlatformContext c)
+		// Token: 0x060018CA RID: 6346 RVA: 0x0005EB20 File Offset: 0x0005CD20
+		public static implicit operator global::CCMotor.MovingPlatform(global::CCMotor.MovingPlatformContext c)
 		{
 			return c.setup;
 		}
 
-		// Token: 0x04000C1E RID: 3102
-		public CCMotor.MovingPlatform setup;
+		// Token: 0x04000D44 RID: 3396
+		public global::CCMotor.MovingPlatform setup;
 
-		// Token: 0x04000C1F RID: 3103
+		// Token: 0x04000D45 RID: 3397
 		public Transform hitPlatform;
 
-		// Token: 0x04000C20 RID: 3104
+		// Token: 0x04000D46 RID: 3398
 		public Transform activePlatform;
 
-		// Token: 0x04000C21 RID: 3105
-		public CCMotor.MovingPlatformContext.PointAndRotation activeLocal;
+		// Token: 0x04000D47 RID: 3399
+		public global::CCMotor.MovingPlatformContext.PointAndRotation activeLocal;
 
-		// Token: 0x04000C22 RID: 3106
-		public CCMotor.MovingPlatformContext.PointAndRotation activeGlobal;
+		// Token: 0x04000D48 RID: 3400
+		public global::CCMotor.MovingPlatformContext.PointAndRotation activeGlobal;
 
-		// Token: 0x04000C23 RID: 3107
+		// Token: 0x04000D49 RID: 3401
 		public Matrix4x4 lastMatrix;
 
-		// Token: 0x04000C24 RID: 3108
+		// Token: 0x04000D4A RID: 3402
 		public Vector3 platformVelocity;
 
-		// Token: 0x04000C25 RID: 3109
+		// Token: 0x04000D4B RID: 3403
 		public bool newPlatform;
 
-		// Token: 0x02000286 RID: 646
+		// Token: 0x020002BC RID: 700
 		public struct PointAndRotation
 		{
-			// Token: 0x04000C26 RID: 3110
+			// Token: 0x04000D4C RID: 3404
 			public Vector3 point;
 
-			// Token: 0x04000C27 RID: 3111
+			// Token: 0x04000D4D RID: 3405
 			public Quaternion rotation;
 		}
 	}
 
-	// Token: 0x02000287 RID: 647
+	// Token: 0x020002BD RID: 701
 	public struct Sliding
 	{
-		// Token: 0x0600176A RID: 5994 RVA: 0x0005A730 File Offset: 0x00058930
+		// Token: 0x060018CC RID: 6348 RVA: 0x0005EB74 File Offset: 0x0005CD74
 		public override string ToString()
 		{
 			return string.Format("[Sliding enable={0}, slidingSpeed={1}, sidewaysControl={2}, speedControl={3}]", new object[]
@@ -1676,20 +1676,20 @@ public sealed class CCMotor : IDRemote
 			});
 		}
 
-		// Token: 0x04000C28 RID: 3112
+		// Token: 0x04000D4E RID: 3406
 		public bool enable;
 
-		// Token: 0x04000C29 RID: 3113
+		// Token: 0x04000D4F RID: 3407
 		public float slidingSpeed;
 
-		// Token: 0x04000C2A RID: 3114
+		// Token: 0x04000D50 RID: 3408
 		public float sidewaysControl;
 
-		// Token: 0x04000C2B RID: 3115
+		// Token: 0x04000D51 RID: 3409
 		public float speedControl;
 
-		// Token: 0x04000C2C RID: 3116
-		public static readonly CCMotor.Sliding init = new CCMotor.Sliding
+		// Token: 0x04000D52 RID: 3410
+		public static readonly global::CCMotor.Sliding init = new global::CCMotor.Sliding
 		{
 			enable = true,
 			slidingSpeed = 15f,
@@ -1698,33 +1698,33 @@ public sealed class CCMotor : IDRemote
 		};
 	}
 
-	// Token: 0x02000288 RID: 648
+	// Token: 0x020002BE RID: 702
 	private static class Callbacks
 	{
-		// Token: 0x0600176C RID: 5996 RVA: 0x0005A7C0 File Offset: 0x000589C0
-		public static void InstallCallbacks(CCMotor CCMotor, CCTotemPole CCTotemPole)
+		// Token: 0x060018CE RID: 6350 RVA: 0x0005EC04 File Offset: 0x0005CE04
+		public static void InstallCallbacks(global::CCMotor CCMotor, global::CCTotemPole CCTotemPole)
 		{
 			CCTotemPole.Tag = CCMotor;
-			CCTotemPole.OnBindPosition += CCMotor.Callbacks.PositionBinder;
-			CCTotemPole.OnConfigurationBinding += CCMotor.Callbacks.ConfigurationBinder;
+			CCTotemPole.OnBindPosition += global::CCMotor.Callbacks.PositionBinder;
+			CCTotemPole.OnConfigurationBinding += global::CCMotor.Callbacks.ConfigurationBinder;
 		}
 
-		// Token: 0x0600176D RID: 5997 RVA: 0x0005A7E0 File Offset: 0x000589E0
-		public static void UninstallCallbacks(CCMotor CCMotor, CCTotemPole CCTotemPole)
+		// Token: 0x060018CF RID: 6351 RVA: 0x0005EC24 File Offset: 0x0005CE24
+		public static void UninstallCallbacks(global::CCMotor CCMotor, global::CCTotemPole CCTotemPole)
 		{
 			if (CCTotemPole && object.ReferenceEquals(CCTotemPole.Tag, CCMotor))
 			{
-				CCTotemPole.OnConfigurationBinding -= CCMotor.Callbacks.ConfigurationBinder;
-				CCTotemPole.OnBindPosition -= CCMotor.Callbacks.PositionBinder;
+				CCTotemPole.OnConfigurationBinding -= global::CCMotor.Callbacks.ConfigurationBinder;
+				CCTotemPole.OnBindPosition -= global::CCMotor.Callbacks.PositionBinder;
 				CCTotemPole.Tag = null;
 			}
 		}
 
-		// Token: 0x0600176E RID: 5998 RVA: 0x0005A81C File Offset: 0x00058A1C
-		private static bool OnHit(CCDesc.HitManager HitManager, ref CCDesc.Hit hit)
+		// Token: 0x060018D0 RID: 6352 RVA: 0x0005EC60 File Offset: 0x0005CE60
+		private static bool OnHit(global::CCDesc.HitManager HitManager, ref global::CCDesc.Hit hit)
 		{
-			CCMotor ccmotor = (CCMotor)HitManager.Tag;
-			if (CCMotor.ccmotor_debug && !(hit.Collider is TerrainCollider))
+			global::CCMotor ccmotor = (global::CCMotor)HitManager.Tag;
+			if (global::CCMotor.ccmotor_debug && !(hit.Collider is TerrainCollider))
 			{
 				Debug.Log(string.Format("{{\"ccmotor\":{{\"hit\":{{\"point\":[{0},{1},{2}],\"normal\":[{3},{4},{5}]}},\"dir\":[{6},{7},{8}],\"move\":{9},\"obj\":{10}}}}}", new object[]
 				{
@@ -1745,38 +1745,38 @@ public sealed class CCMotor : IDRemote
 			return true;
 		}
 
-		// Token: 0x0600176F RID: 5999 RVA: 0x0005A958 File Offset: 0x00058B58
-		private static void OnConfigurationBinding(bool Bind, CCDesc CCDesc, object Tag)
+		// Token: 0x060018D1 RID: 6353 RVA: 0x0005ED9C File Offset: 0x0005CF9C
+		private static void OnConfigurationBinding(bool Bind, global::CCDesc CCDesc, object Tag)
 		{
-			CCHitDispatch hitDispatch = CCHitDispatch.GetHitDispatch(CCDesc);
+			global::CCHitDispatch hitDispatch = global::CCHitDispatch.GetHitDispatch(CCDesc);
 			if (hitDispatch)
 			{
-				CCDesc.HitManager hits = hitDispatch.Hits;
+				global::CCDesc.HitManager hits = hitDispatch.Hits;
 				if (!object.ReferenceEquals(hits, null))
 				{
 					if (Bind)
 					{
 						hits.Tag = Tag;
-						hits.OnHit += CCMotor.Callbacks.HitFilter;
+						hits.OnHit += global::CCMotor.Callbacks.HitFilter;
 					}
 					else if (object.ReferenceEquals(hits.Tag, Tag))
 					{
 						hits.Tag = null;
-						hits.OnHit -= CCMotor.Callbacks.HitFilter;
+						hits.OnHit -= global::CCMotor.Callbacks.HitFilter;
 					}
 				}
 			}
 			if (Bind)
 			{
 				CCDesc.Tag = Tag;
-				if (!CCDesc.GetComponent<CCTotemicFigure>())
+				if (!CCDesc.GetComponent<global::CCTotemicFigure>())
 				{
 					IDRemote idremote = CCDesc.GetComponent<IDRemote>();
 					if (!idremote)
 					{
 						idremote = CCDesc.gameObject.AddComponent<IDRemoteDefault>();
 					}
-					idremote.idMain = ((CCMotor)Tag).idMain;
+					idremote.idMain = ((global::CCMotor)Tag).idMain;
 					CCDesc.detectCollisions = true;
 				}
 			}
@@ -1786,23 +1786,23 @@ public sealed class CCMotor : IDRemote
 			}
 		}
 
-		// Token: 0x06001770 RID: 6000 RVA: 0x0005AA3C File Offset: 0x00058C3C
-		private static void OnBindPosition(ref CCTotem.PositionPlacement PositionPlacement, object Tag)
+		// Token: 0x060018D2 RID: 6354 RVA: 0x0005EE80 File Offset: 0x0005D080
+		private static void OnBindPosition(ref global::CCTotem.PositionPlacement PositionPlacement, object Tag)
 		{
-			CCMotor ccmotor = (CCMotor)Tag;
+			global::CCMotor ccmotor = (global::CCMotor)Tag;
 			if (ccmotor)
 			{
 				ccmotor.BindPosition(ref PositionPlacement);
 			}
 		}
 
-		// Token: 0x04000C2D RID: 3117
-		public static readonly CCDesc.HitFilter HitFilter = new CCDesc.HitFilter(CCMotor.Callbacks.OnHit);
+		// Token: 0x04000D53 RID: 3411
+		public static readonly global::CCDesc.HitFilter HitFilter = new global::CCDesc.HitFilter(global::CCMotor.Callbacks.OnHit);
 
-		// Token: 0x04000C2E RID: 3118
-		public static readonly CCTotem.PositionBinder PositionBinder = new CCTotem.PositionBinder(CCMotor.Callbacks.OnBindPosition);
+		// Token: 0x04000D54 RID: 3412
+		public static readonly global::CCTotem.PositionBinder PositionBinder = new global::CCTotem.PositionBinder(global::CCMotor.Callbacks.OnBindPosition);
 
-		// Token: 0x04000C2F RID: 3119
-		public static readonly CCTotem.ConfigurationBinder ConfigurationBinder = new CCTotem.ConfigurationBinder(CCMotor.Callbacks.OnConfigurationBinding);
+		// Token: 0x04000D55 RID: 3413
+		public static readonly global::CCTotem.ConfigurationBinder ConfigurationBinder = new global::CCTotem.ConfigurationBinder(global::CCMotor.Callbacks.OnConfigurationBinding);
 	}
 }

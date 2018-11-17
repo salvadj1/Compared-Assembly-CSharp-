@@ -3,31 +3,31 @@ using System.Runtime.Serialization;
 
 namespace Facepunch.Abstract
 {
-	// Token: 0x020001D7 RID: 471
+	// Token: 0x02000208 RID: 520
 	[Serializable]
 	internal class KeyArgumentIsKeyTypeException : ArgumentOutOfRangeException
 	{
-		// Token: 0x06000D0B RID: 3339 RVA: 0x000331C4 File Offset: 0x000313C4
+		// Token: 0x06000E53 RID: 3667 RVA: 0x0003724C File Offset: 0x0003544C
 		public KeyArgumentIsKeyTypeException()
 		{
 		}
 
-		// Token: 0x06000D0C RID: 3340 RVA: 0x000331CC File Offset: 0x000313CC
+		// Token: 0x06000E54 RID: 3668 RVA: 0x00037254 File Offset: 0x00035454
 		public KeyArgumentIsKeyTypeException(string parameterName) : base(parameterName)
 		{
 		}
 
-		// Token: 0x06000D0D RID: 3341 RVA: 0x000331D8 File Offset: 0x000313D8
+		// Token: 0x06000E55 RID: 3669 RVA: 0x00037260 File Offset: 0x00035460
 		public KeyArgumentIsKeyTypeException(string parameterName, string message) : base(parameterName, message)
 		{
 		}
 
-		// Token: 0x06000D0E RID: 3342 RVA: 0x000331E4 File Offset: 0x000313E4
+		// Token: 0x06000E56 RID: 3670 RVA: 0x0003726C File Offset: 0x0003546C
 		public KeyArgumentIsKeyTypeException(string message, Exception inner) : base(message, inner)
 		{
 		}
 
-		// Token: 0x06000D0F RID: 3343 RVA: 0x000331F0 File Offset: 0x000313F0
+		// Token: 0x06000E57 RID: 3671 RVA: 0x00037278 File Offset: 0x00035478
 		protected KeyArgumentIsKeyTypeException(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}

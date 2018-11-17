@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000843 RID: 2115
+// Token: 0x02000938 RID: 2360
 [RequireComponent(typeof(ParticleSystem))]
 public class ParticleAtDay : MonoBehaviour
 {
-	// Token: 0x06004AC7 RID: 19143 RVA: 0x001468FC File Offset: 0x00144AFC
+	// Token: 0x06004F82 RID: 20354 RVA: 0x00150860 File Offset: 0x0014EA60
 	protected void OnEnable()
 	{
 		if (!this.sky)
@@ -17,7 +17,7 @@ public class ParticleAtDay : MonoBehaviour
 		this.particleEmission = this.particleComponent.emissionRate;
 	}
 
-	// Token: 0x06004AC8 RID: 19144 RVA: 0x00146948 File Offset: 0x00144B48
+	// Token: 0x06004F83 RID: 20355 RVA: 0x001508AC File Offset: 0x0014EAAC
 	protected void Update()
 	{
 		int num = (!this.sky.IsDay) ? -1 : 1;
@@ -25,18 +25,18 @@ public class ParticleAtDay : MonoBehaviour
 		this.particleComponent.emissionRate = Mathf.Lerp(0f, this.particleEmission, this.lerpTime);
 	}
 
-	// Token: 0x04002BDB RID: 11227
-	public TOD_Sky sky;
+	// Token: 0x04002E29 RID: 11817
+	public global::TOD_Sky sky;
 
-	// Token: 0x04002BDC RID: 11228
+	// Token: 0x04002E2A RID: 11818
 	public float fadeTime = 1f;
 
-	// Token: 0x04002BDD RID: 11229
+	// Token: 0x04002E2B RID: 11819
 	private float lerpTime;
 
-	// Token: 0x04002BDE RID: 11230
+	// Token: 0x04002E2C RID: 11820
 	private ParticleSystem particleComponent;
 
-	// Token: 0x04002BDF RID: 11231
+	// Token: 0x04002E2D RID: 11821
 	private float particleEmission;
 }

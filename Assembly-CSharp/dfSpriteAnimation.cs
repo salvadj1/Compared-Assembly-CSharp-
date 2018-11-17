@@ -4,46 +4,46 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x0200070D RID: 1805
+// Token: 0x020007E7 RID: 2023
 [RequireComponent(typeof(BoxCollider))]
 [AddComponentMenu("Daikon Forge/Tweens/Sprite Animator")]
 [Serializable]
-public class dfSpriteAnimation : dfTweenPlayableBase
+public class dfSpriteAnimation : global::dfTweenPlayableBase
 {
 	// Token: 0x1400005C RID: 92
-	// (add) Token: 0x060041EB RID: 16875 RVA: 0x000FE660 File Offset: 0x000FC860
-	// (remove) Token: 0x060041EC RID: 16876 RVA: 0x000FE67C File Offset: 0x000FC87C
-	public event TweenNotification AnimationStarted;
+	// (add) Token: 0x06004625 RID: 17957 RVA: 0x00107594 File Offset: 0x00105794
+	// (remove) Token: 0x06004626 RID: 17958 RVA: 0x001075B0 File Offset: 0x001057B0
+	public event global::TweenNotification AnimationStarted;
 
 	// Token: 0x1400005D RID: 93
-	// (add) Token: 0x060041ED RID: 16877 RVA: 0x000FE698 File Offset: 0x000FC898
-	// (remove) Token: 0x060041EE RID: 16878 RVA: 0x000FE6B4 File Offset: 0x000FC8B4
-	public event TweenNotification AnimationStopped;
+	// (add) Token: 0x06004627 RID: 17959 RVA: 0x001075CC File Offset: 0x001057CC
+	// (remove) Token: 0x06004628 RID: 17960 RVA: 0x001075E8 File Offset: 0x001057E8
+	public event global::TweenNotification AnimationStopped;
 
 	// Token: 0x1400005E RID: 94
-	// (add) Token: 0x060041EF RID: 16879 RVA: 0x000FE6D0 File Offset: 0x000FC8D0
-	// (remove) Token: 0x060041F0 RID: 16880 RVA: 0x000FE6EC File Offset: 0x000FC8EC
-	public event TweenNotification AnimationPaused;
+	// (add) Token: 0x06004629 RID: 17961 RVA: 0x00107604 File Offset: 0x00105804
+	// (remove) Token: 0x0600462A RID: 17962 RVA: 0x00107620 File Offset: 0x00105820
+	public event global::TweenNotification AnimationPaused;
 
 	// Token: 0x1400005F RID: 95
-	// (add) Token: 0x060041F1 RID: 16881 RVA: 0x000FE708 File Offset: 0x000FC908
-	// (remove) Token: 0x060041F2 RID: 16882 RVA: 0x000FE724 File Offset: 0x000FC924
-	public event TweenNotification AnimationResumed;
+	// (add) Token: 0x0600462B RID: 17963 RVA: 0x0010763C File Offset: 0x0010583C
+	// (remove) Token: 0x0600462C RID: 17964 RVA: 0x00107658 File Offset: 0x00105858
+	public event global::TweenNotification AnimationResumed;
 
 	// Token: 0x14000060 RID: 96
-	// (add) Token: 0x060041F3 RID: 16883 RVA: 0x000FE740 File Offset: 0x000FC940
-	// (remove) Token: 0x060041F4 RID: 16884 RVA: 0x000FE75C File Offset: 0x000FC95C
-	public event TweenNotification AnimationReset;
+	// (add) Token: 0x0600462D RID: 17965 RVA: 0x00107674 File Offset: 0x00105874
+	// (remove) Token: 0x0600462E RID: 17966 RVA: 0x00107690 File Offset: 0x00105890
+	public event global::TweenNotification AnimationReset;
 
 	// Token: 0x14000061 RID: 97
-	// (add) Token: 0x060041F5 RID: 16885 RVA: 0x000FE778 File Offset: 0x000FC978
-	// (remove) Token: 0x060041F6 RID: 16886 RVA: 0x000FE794 File Offset: 0x000FC994
-	public event TweenNotification AnimationCompleted;
+	// (add) Token: 0x0600462F RID: 17967 RVA: 0x001076AC File Offset: 0x001058AC
+	// (remove) Token: 0x06004630 RID: 17968 RVA: 0x001076C8 File Offset: 0x001058C8
+	public event global::TweenNotification AnimationCompleted;
 
-	// Token: 0x17000CF4 RID: 3316
-	// (get) Token: 0x060041F7 RID: 16887 RVA: 0x000FE7B0 File Offset: 0x000FC9B0
-	// (set) Token: 0x060041F8 RID: 16888 RVA: 0x000FE7B8 File Offset: 0x000FC9B8
-	public dfAnimationClip Clip
+	// Token: 0x17000D7C RID: 3452
+	// (get) Token: 0x06004631 RID: 17969 RVA: 0x001076E4 File Offset: 0x001058E4
+	// (set) Token: 0x06004632 RID: 17970 RVA: 0x001076EC File Offset: 0x001058EC
+	public global::dfAnimationClip Clip
 	{
 		get
 		{
@@ -55,10 +55,10 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000CF5 RID: 3317
-	// (get) Token: 0x060041F9 RID: 16889 RVA: 0x000FE7C4 File Offset: 0x000FC9C4
-	// (set) Token: 0x060041FA RID: 16890 RVA: 0x000FE7CC File Offset: 0x000FC9CC
-	public dfComponentMemberInfo Target
+	// Token: 0x17000D7D RID: 3453
+	// (get) Token: 0x06004633 RID: 17971 RVA: 0x001076F8 File Offset: 0x001058F8
+	// (set) Token: 0x06004634 RID: 17972 RVA: 0x00107700 File Offset: 0x00105900
+	public global::dfComponentMemberInfo Target
 	{
 		get
 		{
@@ -70,9 +70,9 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000CF6 RID: 3318
-	// (get) Token: 0x060041FB RID: 16891 RVA: 0x000FE7D8 File Offset: 0x000FC9D8
-	// (set) Token: 0x060041FC RID: 16892 RVA: 0x000FE7E0 File Offset: 0x000FC9E0
+	// Token: 0x17000D7E RID: 3454
+	// (get) Token: 0x06004635 RID: 17973 RVA: 0x0010770C File Offset: 0x0010590C
+	// (set) Token: 0x06004636 RID: 17974 RVA: 0x00107714 File Offset: 0x00105914
 	public bool AutoRun
 	{
 		get
@@ -85,9 +85,9 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000CF7 RID: 3319
-	// (get) Token: 0x060041FD RID: 16893 RVA: 0x000FE7EC File Offset: 0x000FC9EC
-	// (set) Token: 0x060041FE RID: 16894 RVA: 0x000FE7F4 File Offset: 0x000FC9F4
+	// Token: 0x17000D7F RID: 3455
+	// (get) Token: 0x06004637 RID: 17975 RVA: 0x00107720 File Offset: 0x00105920
+	// (set) Token: 0x06004638 RID: 17976 RVA: 0x00107728 File Offset: 0x00105928
 	public float Length
 	{
 		get
@@ -100,10 +100,10 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000CF8 RID: 3320
-	// (get) Token: 0x060041FF RID: 16895 RVA: 0x000FE808 File Offset: 0x000FCA08
-	// (set) Token: 0x06004200 RID: 16896 RVA: 0x000FE810 File Offset: 0x000FCA10
-	public dfTweenLoopType LoopType
+	// Token: 0x17000D80 RID: 3456
+	// (get) Token: 0x06004639 RID: 17977 RVA: 0x0010773C File Offset: 0x0010593C
+	// (set) Token: 0x0600463A RID: 17978 RVA: 0x00107744 File Offset: 0x00105944
+	public global::dfTweenLoopType LoopType
 	{
 		get
 		{
@@ -115,10 +115,10 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000CF9 RID: 3321
-	// (get) Token: 0x06004201 RID: 16897 RVA: 0x000FE81C File Offset: 0x000FCA1C
-	// (set) Token: 0x06004202 RID: 16898 RVA: 0x000FE824 File Offset: 0x000FCA24
-	public dfSpriteAnimation.PlayDirection Direction
+	// Token: 0x17000D81 RID: 3457
+	// (get) Token: 0x0600463B RID: 17979 RVA: 0x00107750 File Offset: 0x00105950
+	// (set) Token: 0x0600463C RID: 17980 RVA: 0x00107758 File Offset: 0x00105958
+	public global::dfSpriteAnimation.PlayDirection Direction
 	{
 		get
 		{
@@ -134,9 +134,9 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000CFA RID: 3322
-	// (get) Token: 0x06004203 RID: 16899 RVA: 0x000FE840 File Offset: 0x000FCA40
-	// (set) Token: 0x06004204 RID: 16900 RVA: 0x000FE858 File Offset: 0x000FCA58
+	// Token: 0x17000D82 RID: 3458
+	// (get) Token: 0x0600463D RID: 17981 RVA: 0x00107774 File Offset: 0x00105974
+	// (set) Token: 0x0600463E RID: 17982 RVA: 0x0010778C File Offset: 0x0010598C
 	public bool IsPaused
 	{
 		get
@@ -159,17 +159,17 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004205 RID: 16901 RVA: 0x000FE880 File Offset: 0x000FCA80
+	// Token: 0x0600463F RID: 17983 RVA: 0x001077B4 File Offset: 0x001059B4
 	public void Awake()
 	{
 	}
 
-	// Token: 0x06004206 RID: 16902 RVA: 0x000FE884 File Offset: 0x000FCA84
+	// Token: 0x06004640 RID: 17984 RVA: 0x001077B8 File Offset: 0x001059B8
 	public void Start()
 	{
 	}
 
-	// Token: 0x06004207 RID: 16903 RVA: 0x000FE888 File Offset: 0x000FCA88
+	// Token: 0x06004641 RID: 17985 RVA: 0x001077BC File Offset: 0x001059BC
 	public void LateUpdate()
 	{
 		if (this.AutoRun && !this.IsPlaying && !this.autoRunStarted)
@@ -179,21 +179,21 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004208 RID: 16904 RVA: 0x000FE8C4 File Offset: 0x000FCAC4
+	// Token: 0x06004642 RID: 17986 RVA: 0x001077F8 File Offset: 0x001059F8
 	public void PlayForward()
 	{
-		this.playDirection = dfSpriteAnimation.PlayDirection.Forward;
+		this.playDirection = global::dfSpriteAnimation.PlayDirection.Forward;
 		this.Play();
 	}
 
-	// Token: 0x06004209 RID: 16905 RVA: 0x000FE8D4 File Offset: 0x000FCAD4
+	// Token: 0x06004643 RID: 17987 RVA: 0x00107808 File Offset: 0x00105A08
 	public void PlayReverse()
 	{
-		this.playDirection = dfSpriteAnimation.PlayDirection.Reverse;
+		this.playDirection = global::dfSpriteAnimation.PlayDirection.Reverse;
 		this.Play();
 	}
 
-	// Token: 0x0600420A RID: 16906 RVA: 0x000FE8E4 File Offset: 0x000FCAE4
+	// Token: 0x06004644 RID: 17988 RVA: 0x00107818 File Offset: 0x00105A18
 	public void Pause()
 	{
 		if (this.isRunning)
@@ -203,7 +203,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x0600420B RID: 16907 RVA: 0x000FE900 File Offset: 0x000FCB00
+	// Token: 0x06004645 RID: 17989 RVA: 0x00107834 File Offset: 0x00105A34
 	public void Resume()
 	{
 		if (this.isRunning && this.isPaused)
@@ -213,8 +213,8 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x17000CFB RID: 3323
-	// (get) Token: 0x0600420C RID: 16908 RVA: 0x000FE928 File Offset: 0x000FCB28
+	// Token: 0x17000D83 RID: 3459
+	// (get) Token: 0x06004646 RID: 17990 RVA: 0x0010785C File Offset: 0x00105A5C
 	public override bool IsPlaying
 	{
 		get
@@ -223,7 +223,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x0600420D RID: 16909 RVA: 0x000FE930 File Offset: 0x000FCB30
+	// Token: 0x06004647 RID: 17991 RVA: 0x00107864 File Offset: 0x00105A64
 	public override void Play()
 	{
 		if (this.IsPlaying)
@@ -252,7 +252,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		base.StartCoroutine(this.Execute());
 	}
 
-	// Token: 0x0600420E RID: 16910 RVA: 0x000FE9FC File Offset: 0x000FCBFC
+	// Token: 0x06004648 RID: 17992 RVA: 0x00107930 File Offset: 0x00105B30
 	public override void Reset()
 	{
 		List<string> list = (!(this.clip != null)) ? null : this.clip.Sprites;
@@ -271,7 +271,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		this.target = null;
 	}
 
-	// Token: 0x0600420F RID: 16911 RVA: 0x000FEAA0 File Offset: 0x000FCCA0
+	// Token: 0x06004649 RID: 17993 RVA: 0x001079D4 File Offset: 0x00105BD4
 	public override void Stop()
 	{
 		if (!this.isRunning)
@@ -290,9 +290,9 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		this.target = null;
 	}
 
-	// Token: 0x17000CFC RID: 3324
-	// (get) Token: 0x06004210 RID: 16912 RVA: 0x000FEB24 File Offset: 0x000FCD24
-	// (set) Token: 0x06004211 RID: 16913 RVA: 0x000FEB2C File Offset: 0x000FCD2C
+	// Token: 0x17000D84 RID: 3460
+	// (get) Token: 0x0600464A RID: 17994 RVA: 0x00107A58 File Offset: 0x00105C58
+	// (set) Token: 0x0600464B RID: 17995 RVA: 0x00107A60 File Offset: 0x00105C60
 	public override string TweenName
 	{
 		get
@@ -305,7 +305,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004212 RID: 16914 RVA: 0x000FEB38 File Offset: 0x000FCD38
+	// Token: 0x0600464C RID: 17996 RVA: 0x00107A6C File Offset: 0x00105C6C
 	protected void onPaused()
 	{
 		base.SendMessage("AnimationPaused", this, 1);
@@ -315,7 +315,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004213 RID: 16915 RVA: 0x000FEB60 File Offset: 0x000FCD60
+	// Token: 0x0600464D RID: 17997 RVA: 0x00107A94 File Offset: 0x00105C94
 	protected void onResumed()
 	{
 		base.SendMessage("AnimationResumed", this, 1);
@@ -325,7 +325,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004214 RID: 16916 RVA: 0x000FEB88 File Offset: 0x000FCD88
+	// Token: 0x0600464E RID: 17998 RVA: 0x00107ABC File Offset: 0x00105CBC
 	protected void onStarted()
 	{
 		base.SendMessage("AnimationStarted", this, 1);
@@ -335,7 +335,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004215 RID: 16917 RVA: 0x000FEBB0 File Offset: 0x000FCDB0
+	// Token: 0x0600464F RID: 17999 RVA: 0x00107AE4 File Offset: 0x00105CE4
 	protected void onStopped()
 	{
 		base.SendMessage("AnimationStopped", this, 1);
@@ -345,7 +345,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004216 RID: 16918 RVA: 0x000FEBD8 File Offset: 0x000FCDD8
+	// Token: 0x06004650 RID: 18000 RVA: 0x00107B0C File Offset: 0x00105D0C
 	protected void onReset()
 	{
 		base.SendMessage("AnimationReset", this, 1);
@@ -355,7 +355,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004217 RID: 16919 RVA: 0x000FEC00 File Offset: 0x000FCE00
+	// Token: 0x06004651 RID: 18001 RVA: 0x00107B34 File Offset: 0x00105D34
 	protected void onCompleted()
 	{
 		base.SendMessage("AnimationCompleted", this, 1);
@@ -365,7 +365,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x06004218 RID: 16920 RVA: 0x000FEC28 File Offset: 0x000FCE28
+	// Token: 0x06004652 RID: 18002 RVA: 0x00107B5C File Offset: 0x00105D5C
 	private IEnumerator Execute()
 	{
 		if (this.clip == null || this.clip.Sprites == null || this.clip.Sprites.Count == 0)
@@ -376,7 +376,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		this.isPaused = false;
 		this.onStarted();
 		float startTime = Time.realtimeSinceStartup;
-		int direction = (this.playDirection != dfSpriteAnimation.PlayDirection.Forward) ? -1 : 1;
+		int direction = (this.playDirection != global::dfSpriteAnimation.PlayDirection.Forward) ? -1 : 1;
 		int lastFrameIndex = (direction != 1) ? (this.clip.Sprites.Count - 1) : 0;
 		this.setFrame(lastFrameIndex);
 		for (;;)
@@ -393,13 +393,13 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 				{
 					switch (this.loopType)
 					{
-					case dfTweenLoopType.Once:
+					case global::dfTweenLoopType.Once:
 						goto IL_1C8;
-					case dfTweenLoopType.Loop:
+					case global::dfTweenLoopType.Loop:
 						startTime = timeNow;
 						frameIndex = 0;
 						break;
-					case dfTweenLoopType.PingPong:
+					case global::dfTweenLoopType.PingPong:
 						startTime = timeNow;
 						direction *= -1;
 						frameIndex = 0;
@@ -424,7 +424,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		yield break;
 	}
 
-	// Token: 0x06004219 RID: 16921 RVA: 0x000FEC44 File Offset: 0x000FCE44
+	// Token: 0x06004653 RID: 18003 RVA: 0x00107B78 File Offset: 0x00105D78
 	private string getPath(Transform obj)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
@@ -444,7 +444,7 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		return stringBuilder.ToString();
 	}
 
-	// Token: 0x0600421A RID: 16922 RVA: 0x000FECB0 File Offset: 0x000FCEB0
+	// Token: 0x06004654 RID: 18004 RVA: 0x00107BE4 File Offset: 0x00105DE4
 	private void setFrame(int frameIndex)
 	{
 		List<string> sprites = this.clip.Sprites;
@@ -459,56 +459,56 @@ public class dfSpriteAnimation : dfTweenPlayableBase
 		}
 	}
 
-	// Token: 0x040022B9 RID: 8889
+	// Token: 0x040024CD RID: 9421
 	[SerializeField]
 	private string animationName = "ANIMATION";
 
-	// Token: 0x040022BA RID: 8890
+	// Token: 0x040024CE RID: 9422
 	[SerializeField]
-	private dfAnimationClip clip;
+	private global::dfAnimationClip clip;
 
-	// Token: 0x040022BB RID: 8891
+	// Token: 0x040024CF RID: 9423
 	[SerializeField]
-	private dfComponentMemberInfo memberInfo = new dfComponentMemberInfo();
+	private global::dfComponentMemberInfo memberInfo = new global::dfComponentMemberInfo();
 
-	// Token: 0x040022BC RID: 8892
+	// Token: 0x040024D0 RID: 9424
 	[SerializeField]
-	private dfTweenLoopType loopType = dfTweenLoopType.Loop;
+	private global::dfTweenLoopType loopType = global::dfTweenLoopType.Loop;
 
-	// Token: 0x040022BD RID: 8893
+	// Token: 0x040024D1 RID: 9425
 	[SerializeField]
 	private float length = 1f;
 
-	// Token: 0x040022BE RID: 8894
+	// Token: 0x040024D2 RID: 9426
 	[SerializeField]
 	private bool autoStart;
 
-	// Token: 0x040022BF RID: 8895
+	// Token: 0x040024D3 RID: 9427
 	[SerializeField]
 	private bool skipToEndOnStop;
 
-	// Token: 0x040022C0 RID: 8896
+	// Token: 0x040024D4 RID: 9428
 	[SerializeField]
-	private dfSpriteAnimation.PlayDirection playDirection;
+	private global::dfSpriteAnimation.PlayDirection playDirection;
 
-	// Token: 0x040022C1 RID: 8897
+	// Token: 0x040024D5 RID: 9429
 	private bool autoRunStarted;
 
-	// Token: 0x040022C2 RID: 8898
+	// Token: 0x040024D6 RID: 9430
 	private bool isRunning;
 
-	// Token: 0x040022C3 RID: 8899
+	// Token: 0x040024D7 RID: 9431
 	private bool isPaused;
 
-	// Token: 0x040022C4 RID: 8900
-	private dfObservableProperty target;
+	// Token: 0x040024D8 RID: 9432
+	private global::dfObservableProperty target;
 
-	// Token: 0x0200070E RID: 1806
+	// Token: 0x020007E8 RID: 2024
 	public enum PlayDirection
 	{
-		// Token: 0x040022CC RID: 8908
+		// Token: 0x040024E0 RID: 9440
 		Forward,
-		// Token: 0x040022CD RID: 8909
+		// Token: 0x040024E1 RID: 9441
 		Reverse
 	}
 }

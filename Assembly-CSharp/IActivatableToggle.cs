@@ -1,12 +1,12 @@
 ﻿using System;
 using Facepunch;
 
-// Token: 0x0200043E RID: 1086
-public interface IActivatableToggle : IActivatable, IComponentInterface<IActivatable, MonoBehaviour, Activatable>, IComponentInterface<IActivatable, MonoBehaviour>, IComponentInterface<IActivatable>
+// Token: 0x020004F4 RID: 1268
+public interface IActivatableToggle : global::IActivatable, global::IComponentInterface<global::IActivatable, MonoBehaviour, global::Activatable>, global::IComponentInterface<global::IActivatable, MonoBehaviour>, global::IComponentInterface<global::IActivatable>
 {
-	// Token: 0x060027FD RID: 10237
-	ActivationResult ActTrigger(Character instigator, ActivationToggleState toggleTarget, ulong timestamp);
+	// Token: 0x06002B8D RID: 11149
+	global::ActivationResult ActTrigger(global::Character instigator, global::ActivationToggleState toggleTarget, ulong timestamp);
 
-	// Token: 0x060027FE RID: 10238
-	ActivationToggleState ActGetToggleState();
+	// Token: 0x06002B8E RID: 11150
+	global::ActivationToggleState ActGetToggleState();
 }

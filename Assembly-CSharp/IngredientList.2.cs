@@ -1,10 +1,10 @@
 ﻿using System;
 using Facepunch.Hash;
 
-// Token: 0x0200054D RID: 1357
-public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientList<DB>> where DB : Datablock, IComparable<DB>
+// Token: 0x0200060B RID: 1547
+public sealed class IngredientList<DB> : global::IngredientList, IEquatable<global::IngredientList<DB>> where DB : global::Datablock, IComparable<DB>
 {
-	// Token: 0x06002DAF RID: 11695 RVA: 0x000B6328 File Offset: 0x000B4528
+	// Token: 0x06003177 RID: 12663 RVA: 0x000BE584 File Offset: 0x000BC784
 	public IngredientList(DB[] unsorted)
 	{
 		this.unsorted = (unsorted ?? new DB[0]);
@@ -16,8 +16,8 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		this.lastToString = null;
 	}
 
-	// Token: 0x17000A15 RID: 2581
-	// (get) Token: 0x06002DB0 RID: 11696 RVA: 0x000B6378 File Offset: 0x000B4578
+	// Token: 0x17000A8B RID: 2699
+	// (get) Token: 0x06003178 RID: 12664 RVA: 0x000BE5D4 File Offset: 0x000BC7D4
 	public DB[] ordered
 	{
 		get
@@ -30,8 +30,8 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		}
 	}
 
-	// Token: 0x17000A16 RID: 2582
-	// (get) Token: 0x06002DB1 RID: 11697 RVA: 0x000B6394 File Offset: 0x000B4594
+	// Token: 0x17000A8C RID: 2700
+	// (get) Token: 0x06003179 RID: 12665 RVA: 0x000BE5F0 File Offset: 0x000BC7F0
 	private bool needReSort
 	{
 		get
@@ -40,7 +40,7 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		}
 	}
 
-	// Token: 0x06002DB2 RID: 11698 RVA: 0x000B63BC File Offset: 0x000B45BC
+	// Token: 0x0600317A RID: 12666 RVA: 0x000BE618 File Offset: 0x000BC818
 	private void ReSort()
 	{
 		int num = this.unsorted.Length;
@@ -53,8 +53,8 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		Array.Sort<DB>(this.sorted);
 	}
 
-	// Token: 0x06002DB3 RID: 11699 RVA: 0x000B6414 File Offset: 0x000B4614
-	public IngredientList<DB> EnsureContents(DB[] original)
+	// Token: 0x0600317B RID: 12667 RVA: 0x000BE670 File Offset: 0x000BC870
+	public global::IngredientList<DB> EnsureContents(DB[] original)
 	{
 		if (this.unsorted != original)
 		{
@@ -66,8 +66,8 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		return this;
 	}
 
-	// Token: 0x17000A17 RID: 2583
-	// (get) Token: 0x06002DB4 RID: 11700 RVA: 0x000B6440 File Offset: 0x000B4640
+	// Token: 0x17000A8D RID: 2701
+	// (get) Token: 0x0600317C RID: 12668 RVA: 0x000BE69C File Offset: 0x000BC89C
 	public uint hashCode
 	{
 		get
@@ -87,33 +87,33 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 				ordered = this.sorted;
 			}
 			int num = ordered.Length;
-			if (num > IngredientList.tempHash.Length)
+			if (num > global::IngredientList.tempHash.Length)
 			{
-				Array.Resize<int>(ref IngredientList.tempHash, num);
+				Array.Resize<int>(ref global::IngredientList.tempHash, num);
 			}
 			for (int i = 0; i < num; i++)
 			{
-				IngredientList.tempHash[i] = ordered[i].uniqueID;
+				global::IngredientList.tempHash[i] = ordered[i].uniqueID;
 			}
-			this.hash = MurmurHash2.UINT(IngredientList.tempHash, num, 4027449069u);
+			this.hash = Facepunch.Hash.MurmurHash2.UINT(global::IngredientList.tempHash, num, 4027449069u);
 			this.madeHashCode = true;
 			return this.hash;
 		}
 	}
 
-	// Token: 0x06002DB5 RID: 11701 RVA: 0x000B64F4 File Offset: 0x000B46F4
+	// Token: 0x0600317D RID: 12669 RVA: 0x000BE750 File Offset: 0x000BC950
 	public override int GetHashCode()
 	{
 		return (int)this.hashCode;
 	}
 
-	// Token: 0x06002DB6 RID: 11702 RVA: 0x000B64FC File Offset: 0x000B46FC
+	// Token: 0x0600317E RID: 12670 RVA: 0x000BE758 File Offset: 0x000BC958
 	public override bool Equals(object obj)
 	{
-		return obj is IngredientList<DB> && this.Equals((IngredientList<DB>)obj);
+		return obj is global::IngredientList<DB> && this.Equals((global::IngredientList<DB>)obj);
 	}
 
-	// Token: 0x06002DB7 RID: 11703 RVA: 0x000B6518 File Offset: 0x000B4718
+	// Token: 0x0600317F RID: 12671 RVA: 0x000BE774 File Offset: 0x000BC974
 	private static string Combine(DB[] dbs)
 	{
 		string[] array = new string[dbs.Length];
@@ -124,8 +124,8 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		return string.Join(",", array);
 	}
 
-	// Token: 0x17000A18 RID: 2584
-	// (get) Token: 0x06002DB8 RID: 11704 RVA: 0x000B6568 File Offset: 0x000B4768
+	// Token: 0x17000A8E RID: 2702
+	// (get) Token: 0x06003180 RID: 12672 RVA: 0x000BE7C4 File Offset: 0x000BC9C4
 	public string text
 	{
 		get
@@ -133,13 +133,13 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 			string result;
 			if ((result = this.lastToString) == null)
 			{
-				result = (this.lastToString = IngredientList<DB>.Combine(this.ordered));
+				result = (this.lastToString = global::IngredientList<DB>.Combine(this.ordered));
 			}
 			return result;
 		}
 	}
 
-	// Token: 0x06002DB9 RID: 11705 RVA: 0x000B6598 File Offset: 0x000B4798
+	// Token: 0x06003181 RID: 12673 RVA: 0x000BE7F4 File Offset: 0x000BC9F4
 	public override string ToString()
 	{
 		return string.Format("[IngredientList<{0}>[{1}]{2:X}:{3}]", new object[]
@@ -151,8 +151,8 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		});
 	}
 
-	// Token: 0x06002DBA RID: 11706 RVA: 0x000B65F0 File Offset: 0x000B47F0
-	public bool Equals(IngredientList<DB> other)
+	// Token: 0x06003182 RID: 12674 RVA: 0x000BE84C File Offset: 0x000BCA4C
+	public bool Equals(global::IngredientList<DB> other)
 	{
 		if (object.ReferenceEquals(other, this))
 		{
@@ -185,18 +185,18 @@ public sealed class IngredientList<DB> : IngredientList, IEquatable<IngredientLi
 		return false;
 	}
 
-	// Token: 0x04001904 RID: 6404
+	// Token: 0x04001AD5 RID: 6869
 	public DB[] unsorted;
 
-	// Token: 0x04001905 RID: 6405
+	// Token: 0x04001AD6 RID: 6870
 	private DB[] sorted;
 
-	// Token: 0x04001906 RID: 6406
+	// Token: 0x04001AD7 RID: 6871
 	private bool madeHashCode;
 
-	// Token: 0x04001907 RID: 6407
+	// Token: 0x04001AD8 RID: 6872
 	private uint hash;
 
-	// Token: 0x04001908 RID: 6408
+	// Token: 0x04001AD9 RID: 6873
 	private string lastToString;
 }

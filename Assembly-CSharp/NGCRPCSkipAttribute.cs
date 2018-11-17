@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000303 RID: 771
+// Token: 0x020003AB RID: 939
 [AttributeUsage(AttributeTargets.Method, Inherited = false)]
 public sealed class NGCRPCSkipAttribute : Attribute
 {

@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x0200050F RID: 1295
+// Token: 0x020005CC RID: 1484
 public enum ArmorModelSlot : byte
 {
-	// Token: 0x040017EA RID: 6122
+	// Token: 0x040019B6 RID: 6582
 	Feet,
-	// Token: 0x040017EB RID: 6123
+	// Token: 0x040019B7 RID: 6583
 	Legs,
-	// Token: 0x040017EC RID: 6124
+	// Token: 0x040019B8 RID: 6584
 	Torso,
-	// Token: 0x040017ED RID: 6125
+	// Token: 0x040019B9 RID: 6585
 	Head
 }

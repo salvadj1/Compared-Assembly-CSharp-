@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004E5 RID: 1253
+// Token: 0x020005A0 RID: 1440
 public class Orbit : MonoBehaviour
 {
-	// Token: 0x06002AE1 RID: 10977 RVA: 0x000AB384 File Offset: 0x000A9584
+	// Token: 0x06002E93 RID: 11923 RVA: 0x000B311C File Offset: 0x000B131C
 	private void OnDrawGizmosSelected()
 	{
 		Gizmos.matrix = base.transform.localToWorldMatrix;
@@ -12,7 +12,7 @@ public class Orbit : MonoBehaviour
 		Gizmos.DrawSphere(this.orbitPosition, 0.01f);
 	}
 
-	// Token: 0x06002AE2 RID: 10978 RVA: 0x000AB3C4 File Offset: 0x000A95C4
+	// Token: 0x06002E94 RID: 11924 RVA: 0x000B315C File Offset: 0x000B135C
 	private void Update()
 	{
 		float deltaTime = Time.deltaTime;
@@ -39,12 +39,12 @@ public class Orbit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001767 RID: 5991
+	// Token: 0x04001924 RID: 6436
 	public Vector3 orbitPosition;
 
-	// Token: 0x04001768 RID: 5992
+	// Token: 0x04001925 RID: 6437
 	public Vector3 orbitEulerSpeed;
 
-	// Token: 0x04001769 RID: 5993
+	// Token: 0x04001926 RID: 6438
 	public bool orbitCenter;
 }

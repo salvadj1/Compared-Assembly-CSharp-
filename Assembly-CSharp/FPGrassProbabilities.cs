@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000043 RID: 67
+// Token: 0x02000055 RID: 85
 [ExecuteInEditMode]
-public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
+public class FPGrassProbabilities : ScriptableObject, global::IFPGrassAsset
 {
-	// Token: 0x06000248 RID: 584 RVA: 0x0000CFB0 File Offset: 0x0000B1B0
+	// Token: 0x060002BA RID: 698 RVA: 0x0000E558 File Offset: 0x0000C758
 	private void OnEnable()
 	{
 		if (!this.enabled)
@@ -15,7 +15,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x06000249 RID: 585 RVA: 0x0000CFCC File Offset: 0x0000B1CC
+	// Token: 0x060002BB RID: 699 RVA: 0x0000E574 File Offset: 0x0000C774
 	private void OnDisable()
 	{
 		if (this.enabled)
@@ -29,7 +29,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x0600024A RID: 586 RVA: 0x0000D004 File Offset: 0x0000B204
+	// Token: 0x060002BC RID: 700 RVA: 0x0000E5AC File Offset: 0x0000C7AC
 	private Color[] GetPixels()
 	{
 		if (this.probabilityTexture)
@@ -57,13 +57,13 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		return this.pixels;
 	}
 
-	// Token: 0x0600024B RID: 587 RVA: 0x0000D0D8 File Offset: 0x0000B2D8
+	// Token: 0x060002BD RID: 701 RVA: 0x0000E680 File Offset: 0x0000C880
 	public void StartEditing()
 	{
 		this.applyLock++;
 	}
 
-	// Token: 0x0600024C RID: 588 RVA: 0x0000D0E8 File Offset: 0x0000B2E8
+	// Token: 0x060002BE RID: 702 RVA: 0x0000E690 File Offset: 0x0000C890
 	public void StopEditing()
 	{
 		if (--this.applyLock <= 0)
@@ -79,7 +79,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x0600024D RID: 589 RVA: 0x0000D13C File Offset: 0x0000B33C
+	// Token: 0x060002BF RID: 703 RVA: 0x0000E6E4 File Offset: 0x0000C8E4
 	private void UpdatePixels(bool apply = false)
 	{
 		if (this.applyLock == 0)
@@ -88,7 +88,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 			Texture2D texture2D = this.GetTexture(1);
 			if (this.linear)
 			{
-				FPGrassProbabilities.Linear.SetLinearPixels(array, texture2D);
+				global::FPGrassProbabilities.Linear.SetLinearPixels(array, texture2D);
 			}
 			else
 			{
@@ -106,7 +106,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x0600024E RID: 590 RVA: 0x0000D1AC File Offset: 0x0000B3AC
+	// Token: 0x060002C0 RID: 704 RVA: 0x0000E754 File Offset: 0x0000C954
 	private Texture2D GetTexture(sbyte TOpt)
 	{
 		if (this.texture)
@@ -118,7 +118,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 			Object.DestroyImmediate(this.texture, false);
 			this.texture = null;
 		}
-		if (FPGrass.Support.DetailProbabilityFilterMode == null)
+		if (global::FPGrass.Support.DetailProbabilityFilterMode == null)
 		{
 			this.texture = new Texture2D(16, 2, 1, false, false)
 			{
@@ -137,7 +137,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 				hideFlags = 4,
 				name = "FPGrass Detail Probability (Linear)",
 				anisoLevel = 0,
-				filterMode = FPGrass.Support.DetailProbabilityFilterMode,
+				filterMode = global::FPGrass.Support.DetailProbabilityFilterMode,
 				wrapMode = 1
 			};
 			this.linear = true;
@@ -149,13 +149,13 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		return this.texture;
 	}
 
-	// Token: 0x0600024F RID: 591 RVA: 0x0000D2A0 File Offset: 0x0000B4A0
+	// Token: 0x060002C1 RID: 705 RVA: 0x0000E848 File Offset: 0x0000CA48
 	public Texture2D GetTexture()
 	{
 		return this.GetTexture(0);
 	}
 
-	// Token: 0x06000250 RID: 592 RVA: 0x0000D2AC File Offset: 0x0000B4AC
+	// Token: 0x060002C2 RID: 706 RVA: 0x0000E854 File Offset: 0x0000CA54
 	public void Initialize()
 	{
 		if (this.probabilityTexture)
@@ -165,7 +165,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x06000251 RID: 593 RVA: 0x0000D2CC File Offset: 0x0000B4CC
+	// Token: 0x060002C3 RID: 707 RVA: 0x0000E874 File Offset: 0x0000CA74
 	private static bool SetDif(ref float current, float value)
 	{
 		if (current != value)
@@ -176,7 +176,7 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		return false;
 	}
 
-	// Token: 0x06000252 RID: 594 RVA: 0x0000D2DC File Offset: 0x0000B4DC
+	// Token: 0x060002C4 RID: 708 RVA: 0x0000E884 File Offset: 0x0000CA84
 	public void SetDetailProperty(int splatChannel, int detailIndex, int detailID, float probability)
 	{
 		Color[] array = this.GetPixels();
@@ -185,11 +185,11 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		float value = (float)((detailID >= 0) ? ((detailID <= 256) ? detailID : 256) : 0) / 256f;
 		float value2 = (probability >= 0f) ? ((probability <= 1f) ? probability : 1f) : 0f;
 		bool flag = false;
-		if (FPGrassProbabilities.SetDif(ref array[num].a, value))
+		if (global::FPGrassProbabilities.SetDif(ref array[num].a, value))
 		{
 			flag = true;
 		}
-		if (FPGrassProbabilities.SetDif(ref array[num2].a, value2))
+		if (global::FPGrassProbabilities.SetDif(ref array[num2].a, value2))
 		{
 			flag = true;
 		}
@@ -199,80 +199,80 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x06000253 RID: 595 RVA: 0x0000D39C File Offset: 0x0000B59C
+	// Token: 0x060002C5 RID: 709 RVA: 0x0000E944 File Offset: 0x0000CB44
 	public int GetDetailID(int splatChannel, int detailIndex)
 	{
 		return (int)(this.GetPixels()[4 * splatChannel + detailIndex].a * 256f);
 	}
 
-	// Token: 0x06000254 RID: 596 RVA: 0x0000D3BC File Offset: 0x0000B5BC
+	// Token: 0x060002C6 RID: 710 RVA: 0x0000E964 File Offset: 0x0000CB64
 	public float GetDetailProbability(int splatChannel, int detailIndex)
 	{
 		return this.GetPixels()[4 * splatChannel + detailIndex + 16].a;
 	}
 
-	// Token: 0x04000180 RID: 384
+	// Token: 0x040001E2 RID: 482
 	private const int kBillnearPixelSize = 4;
 
-	// Token: 0x04000181 RID: 385
+	// Token: 0x040001E3 RID: 483
 	private const int kWidth = 16;
 
-	// Token: 0x04000182 RID: 386
+	// Token: 0x040001E4 RID: 484
 	private const int kHeight = 2;
 
-	// Token: 0x04000183 RID: 387
+	// Token: 0x040001E5 RID: 485
 	private const TextureFormat kDetailProbabilityFormat = 1;
 
-	// Token: 0x04000184 RID: 388
+	// Token: 0x040001E6 RID: 486
 	private const sbyte kTOpt_Default = 0;
 
-	// Token: 0x04000185 RID: 389
+	// Token: 0x040001E7 RID: 487
 	private const sbyte kTOpt_NoSetPixelsOnCreate = 1;
 
-	// Token: 0x04000186 RID: 390
+	// Token: 0x040001E8 RID: 488
 	private const sbyte kTOpt_NoApplyPixelsOnCreate = 3;
 
-	// Token: 0x04000187 RID: 391
+	// Token: 0x040001E9 RID: 489
 	private const sbyte kTOpt_ReCreate = 4;
 
-	// Token: 0x04000188 RID: 392
-	[SerializeField]
+	// Token: 0x040001EA RID: 490
 	[Obsolete]
+	[SerializeField]
 	private Texture2D probabilityTexture;
 
-	// Token: 0x04000189 RID: 393
-	[SerializeField]
+	// Token: 0x040001EB RID: 491
 	[HideInInspector]
+	[SerializeField]
 	private Color[] pixels;
 
-	// Token: 0x0400018A RID: 394
+	// Token: 0x040001EC RID: 492
 	[NonSerialized]
 	private Texture2D texture;
 
-	// Token: 0x0400018B RID: 395
+	// Token: 0x040001ED RID: 493
 	[NonSerialized]
 	private bool linear;
 
-	// Token: 0x0400018C RID: 396
+	// Token: 0x040001EE RID: 494
 	[NonSerialized]
 	private int applyLock;
 
-	// Token: 0x0400018D RID: 397
+	// Token: 0x040001EF RID: 495
 	[NonSerialized]
 	private bool updateQueued;
 
-	// Token: 0x0400018E RID: 398
+	// Token: 0x040001F0 RID: 496
 	[NonSerialized]
 	private bool applyQueued;
 
-	// Token: 0x0400018F RID: 399
+	// Token: 0x040001F1 RID: 497
 	[NonSerialized]
 	private bool enabled;
 
-	// Token: 0x02000044 RID: 68
+	// Token: 0x02000056 RID: 86
 	private static class Linear
 	{
-		// Token: 0x06000256 RID: 598 RVA: 0x0000D3EC File Offset: 0x0000B5EC
+		// Token: 0x060002C8 RID: 712 RVA: 0x0000E994 File Offset: 0x0000CB94
 		public static void SetLinearPixels(Color[] P, Texture2D Dest)
 		{
 			for (int i = 0; i < 16; i++)
@@ -289,10 +289,10 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 						{
 							int num3 = j * 16 + i;
 							int num4 = num2 * 64 + num;
-							FPGrassProbabilities.Linear.B[num4].r = P[num3].r;
-							FPGrassProbabilities.Linear.B[num4].g = P[num3].g;
-							FPGrassProbabilities.Linear.B[num4].b = P[num3].b;
-							FPGrassProbabilities.Linear.B[num4].a = P[num3].a;
+							global::FPGrassProbabilities.Linear.B[num4].r = P[num3].r;
+							global::FPGrassProbabilities.Linear.B[num4].g = P[num3].g;
+							global::FPGrassProbabilities.Linear.B[num4].b = P[num3].b;
+							global::FPGrassProbabilities.Linear.B[num4].a = P[num3].a;
 							l++;
 							num2++;
 						}
@@ -301,25 +301,25 @@ public class FPGrassProbabilities : ScriptableObject, IFPGrassAsset
 					}
 				}
 			}
-			Dest.SetPixels(0, 0, 64, 8, FPGrassProbabilities.Linear.B, 0);
+			Dest.SetPixels(0, 0, 64, 8, global::FPGrassProbabilities.Linear.B, 0);
 		}
 
-		// Token: 0x04000190 RID: 400
+		// Token: 0x040001F2 RID: 498
 		private const int kB = 4;
 
-		// Token: 0x04000191 RID: 401
+		// Token: 0x040001F3 RID: 499
 		private const int kW = 16;
 
-		// Token: 0x04000192 RID: 402
+		// Token: 0x040001F4 RID: 500
 		private const int kH = 2;
 
-		// Token: 0x04000193 RID: 403
+		// Token: 0x040001F5 RID: 501
 		private const int kP_Stride = 16;
 
-		// Token: 0x04000194 RID: 404
+		// Token: 0x040001F6 RID: 502
 		private const int kB_Stride = 64;
 
-		// Token: 0x04000195 RID: 405
+		// Token: 0x040001F7 RID: 503
 		private static readonly Color[] B = new Color[512];
 	}
 }

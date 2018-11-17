@@ -2,94 +2,94 @@
 
 namespace NGUI.MessageUtil
 {
-	// Token: 0x020007DD RID: 2013
+	// Token: 0x020008CE RID: 2254
 	public static class Names
 	{
-		// Token: 0x0400285D RID: 10333
+		// Token: 0x04002AAB RID: 10923
 		public const string OnSelect = "OnSelect";
 
-		// Token: 0x0400285E RID: 10334
+		// Token: 0x04002AAC RID: 10924
 		public const string OnHover = "OnHover";
 
-		// Token: 0x0400285F RID: 10335
+		// Token: 0x04002AAD RID: 10925
 		public const string OnTooltip = "OnTooltip";
 
-		// Token: 0x04002860 RID: 10336
+		// Token: 0x04002AAE RID: 10926
 		public const string OnDrop = "OnDrop";
 
-		// Token: 0x04002861 RID: 10337
+		// Token: 0x04002AAF RID: 10927
 		public const string OnClick = "OnClick";
 
-		// Token: 0x04002862 RID: 10338
+		// Token: 0x04002AB0 RID: 10928
 		public const string OnDoubleClick = "OnDoubleClick";
 
-		// Token: 0x04002863 RID: 10339
+		// Token: 0x04002AB1 RID: 10929
 		public const string OnPress = "OnPress";
 
-		// Token: 0x04002864 RID: 10340
+		// Token: 0x04002AB2 RID: 10930
 		public const string OnInput = "OnInput";
 
-		// Token: 0x04002865 RID: 10341
+		// Token: 0x04002AB3 RID: 10931
 		public const string OnDrag = "OnDrag";
 
-		// Token: 0x04002866 RID: 10342
+		// Token: 0x04002AB4 RID: 10932
 		public const string OnScroll = "OnScroll";
 
-		// Token: 0x04002867 RID: 10343
+		// Token: 0x04002AB5 RID: 10933
 		public const string OnScrollX = "OnScrollX";
 
-		// Token: 0x04002868 RID: 10344
+		// Token: 0x04002AB6 RID: 10934
 		public const string OnKey = "OnKey";
 
-		// Token: 0x04002869 RID: 10345
+		// Token: 0x04002AB7 RID: 10935
 		public const string OnDragState = "OnDragState";
 
-		// Token: 0x0400286A RID: 10346
+		// Token: 0x04002AB8 RID: 10936
 		public const string OnLandHoverEnter = "OnLandHoverEnter";
 
-		// Token: 0x0400286B RID: 10347
+		// Token: 0x04002AB9 RID: 10937
 		public const string OnLandHoverExit = "OnLandHoverExit";
 
-		// Token: 0x0400286C RID: 10348
+		// Token: 0x04002ABA RID: 10938
 		public const string OnDragHoverEnter = "OnDragHoverEnter";
 
-		// Token: 0x0400286D RID: 10349
+		// Token: 0x04002ABB RID: 10939
 		public const string OnDragHoverExit = "OnDragHoverExit";
 
-		// Token: 0x0400286E RID: 10350
+		// Token: 0x04002ABC RID: 10940
 		public const string OnLand = "OnLand";
 
-		// Token: 0x0400286F RID: 10351
+		// Token: 0x04002ABD RID: 10941
 		public const string OnLandOutside = "OnLandOutside";
 
-		// Token: 0x04002870 RID: 10352
+		// Token: 0x04002ABE RID: 10942
 		public const string OnAltPress = "OnAltPress";
 
-		// Token: 0x04002871 RID: 10353
+		// Token: 0x04002ABF RID: 10943
 		public const string OnAltClick = "OnAltClick";
 
-		// Token: 0x04002872 RID: 10354
+		// Token: 0x04002AC0 RID: 10944
 		public const string OnAltDoubleClick = "OnAltDoubleClick";
 
-		// Token: 0x04002873 RID: 10355
+		// Token: 0x04002AC1 RID: 10945
 		public const string OnAltDrop = "OnAltDrop";
 
-		// Token: 0x04002874 RID: 10356
+		// Token: 0x04002AC2 RID: 10946
 		public const string OnAltLand = "OnAltLand";
 
-		// Token: 0x04002875 RID: 10357
+		// Token: 0x04002AC3 RID: 10947
 		public const string OnMidPress = "OnMidPress";
 
-		// Token: 0x04002876 RID: 10358
+		// Token: 0x04002AC4 RID: 10948
 		public const string OnMidClick = "OnMidClick";
 
-		// Token: 0x04002877 RID: 10359
+		// Token: 0x04002AC5 RID: 10949
 		public const string OnMidDoubleClick = "OnMidDoubleClick";
 
-		// Token: 0x04002878 RID: 10360
+		// Token: 0x04002AC6 RID: 10950
 		public const string OnMidDrop = "OnMidDrop";
 
-		// Token: 0x04002879 RID: 10361
+		// Token: 0x04002AC7 RID: 10951
 		public const string OnMidLand = "OnMidLand";
 	}
 }

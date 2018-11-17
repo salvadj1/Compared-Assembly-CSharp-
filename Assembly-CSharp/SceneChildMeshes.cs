@@ -1,45 +1,45 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000671 RID: 1649
+// Token: 0x02000735 RID: 1845
 public class SceneChildMeshes : MonoBehaviour
 {
-	// Token: 0x0600394B RID: 14667 RVA: 0x000D2858 File Offset: 0x000D0A58
-	private static SceneChildMeshes GetMapSingleton(bool canCreate)
+	// Token: 0x06003D3F RID: 15679 RVA: 0x000DB238 File Offset: 0x000D9438
+	private static global::SceneChildMeshes GetMapSingleton(bool canCreate)
 	{
-		if (!SceneChildMeshes.lastFound)
+		if (!global::SceneChildMeshes.lastFound)
 		{
-			Object[] array = Object.FindObjectsOfType(typeof(SceneChildMeshes));
+			Object[] array = Object.FindObjectsOfType(typeof(global::SceneChildMeshes));
 			if (array.Length == 0)
 			{
 				if (canCreate)
 				{
 					GameObject gameObject = new GameObject("__Scene Child Meshes", new Type[]
 					{
-						typeof(SceneChildMeshes)
+						typeof(global::SceneChildMeshes)
 					})
 					{
 						hideFlags = 1
 					};
-					SceneChildMeshes.lastFound = gameObject.GetComponent<SceneChildMeshes>();
+					global::SceneChildMeshes.lastFound = gameObject.GetComponent<global::SceneChildMeshes>();
 				}
 			}
 			else
 			{
-				SceneChildMeshes.lastFound = (SceneChildMeshes)array[0];
+				global::SceneChildMeshes.lastFound = (global::SceneChildMeshes)array[0];
 			}
 		}
-		return SceneChildMeshes.lastFound;
+		return global::SceneChildMeshes.lastFound;
 	}
 
-	// Token: 0x04001D51 RID: 7505
+	// Token: 0x04001F49 RID: 8009
 	[SerializeField]
 	private Mesh[] sceneMeshes;
 
-	// Token: 0x04001D52 RID: 7506
+	// Token: 0x04001F4A RID: 8010
 	[SerializeField]
 	private Mesh[] treeMeshes;
 
-	// Token: 0x04001D53 RID: 7507
-	private static SceneChildMeshes lastFound;
+	// Token: 0x04001F4B RID: 8011
+	private static global::SceneChildMeshes lastFound;
 }

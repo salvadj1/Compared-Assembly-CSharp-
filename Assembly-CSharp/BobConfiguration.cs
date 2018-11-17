@@ -1,82 +1,82 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000252 RID: 594
+// Token: 0x02000285 RID: 645
 public class BobConfiguration : ScriptableObject
 {
-	// Token: 0x04000B04 RID: 2820
+	// Token: 0x04000C27 RID: 3111
 	public Vector3 springConstant = Vector3.one * 5f;
 
-	// Token: 0x04000B05 RID: 2821
+	// Token: 0x04000C28 RID: 3112
 	public Vector3 springDampen = Vector3.one * 0.1f;
 
-	// Token: 0x04000B06 RID: 2822
+	// Token: 0x04000C29 RID: 3113
 	public float weightMass = 5f;
 
-	// Token: 0x04000B07 RID: 2823
+	// Token: 0x04000C2A RID: 3114
 	public float timeScale = 1f;
 
-	// Token: 0x04000B08 RID: 2824
+	// Token: 0x04000C2B RID: 3115
 	public Vector3 forceSpeedMultiplier = Vector3.one;
 
-	// Token: 0x04000B09 RID: 2825
+	// Token: 0x04000C2C RID: 3116
 	public Vector3 inputForceMultiplier = Vector3.one;
 
-	// Token: 0x04000B0A RID: 2826
+	// Token: 0x04000C2D RID: 3117
 	public Vector3 elipsoidRadii = Vector3.one;
 
-	// Token: 0x04000B0B RID: 2827
+	// Token: 0x04000C2E RID: 3118
 	public Vector3 maxVelocity = Vector3.one * 20f;
 
-	// Token: 0x04000B0C RID: 2828
+	// Token: 0x04000C2F RID: 3119
 	public Vector3 positionDeadzone = new Vector3(0.0001f, 0.0001f, 0.0001f);
 
-	// Token: 0x04000B0D RID: 2829
+	// Token: 0x04000C30 RID: 3120
 	public Vector3 rotationDeadzone = new Vector3(0.0001f, 0.0001f, 0.0001f);
 
-	// Token: 0x04000B0E RID: 2830
+	// Token: 0x04000C31 RID: 3121
 	public Vector3 angularSpringConstant = Vector3.one * 5f;
 
-	// Token: 0x04000B0F RID: 2831
+	// Token: 0x04000C32 RID: 3122
 	public Vector3 angularSpringDampen = Vector3.one * 0.1f;
 
-	// Token: 0x04000B10 RID: 2832
+	// Token: 0x04000C33 RID: 3123
 	public float angularWeightMass = 5f;
 
-	// Token: 0x04000B11 RID: 2833
+	// Token: 0x04000C34 RID: 3124
 	[SerializeField]
-	public BobForceCurve[] additionalCurves;
+	public global::BobForceCurve[] additionalCurves;
 
-	// Token: 0x04000B12 RID: 2834
+	// Token: 0x04000C35 RID: 3125
 	public AnimationCurve allowCurve;
 
-	// Token: 0x04000B13 RID: 2835
+	// Token: 0x04000C36 RID: 3126
 	public AnimationCurve forbidCurve;
 
-	// Token: 0x04000B14 RID: 2836
+	// Token: 0x04000C37 RID: 3127
 	public float solveRate = 100f;
 
-	// Token: 0x04000B15 RID: 2837
+	// Token: 0x04000C38 RID: 3128
 	public Vector3 impulseForceScale = Vector3.one;
 
-	// Token: 0x04000B16 RID: 2838
+	// Token: 0x04000C39 RID: 3129
 	public float impulseForceSmooth = 0.02f;
 
-	// Token: 0x04000B17 RID: 2839
+	// Token: 0x04000C3A RID: 3130
 	public float impulseForceMaxChangeAcceleration = float.PositiveInfinity;
 
-	// Token: 0x04000B18 RID: 2840
+	// Token: 0x04000C3B RID: 3131
 	public Vector3 angularImpulseForceScale = Vector3.one;
 
-	// Token: 0x04000B19 RID: 2841
+	// Token: 0x04000C3C RID: 3132
 	public float angleImpulseForceSmooth = 0.02f;
 
-	// Token: 0x04000B1A RID: 2842
+	// Token: 0x04000C3D RID: 3133
 	public float angleImpulseForceMaxChangeAcceleration = float.PositiveInfinity;
 
-	// Token: 0x04000B1B RID: 2843
+	// Token: 0x04000C3E RID: 3134
 	public float intermitRate = 20f;
 
-	// Token: 0x04000B1C RID: 2844
-	public BobAntiOutput[] antiOutputs;
+	// Token: 0x04000C3F RID: 3135
+	public global::BobAntiOutput[] antiOutputs;
 }

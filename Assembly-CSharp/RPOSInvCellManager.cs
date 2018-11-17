@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000415 RID: 1045
+// Token: 0x020004CA RID: 1226
 public class RPOSInvCellManager : MonoBehaviour
 {
-	// Token: 0x060026A1 RID: 9889 RVA: 0x0009664C File Offset: 0x0009484C
+	// Token: 0x06002A2B RID: 10795 RVA: 0x0009C510 File Offset: 0x0009A710
 	private void Awake()
 	{
 		if (this.SpawnCells)
@@ -13,8 +13,8 @@ public class RPOSInvCellManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026A2 RID: 9890 RVA: 0x00096668 File Offset: 0x00094868
-	public void SetInventory(Inventory newInv, bool spawnNewCells)
+	// Token: 0x06002A2C RID: 10796 RVA: 0x0009C52C File Offset: 0x0009A72C
+	public void SetInventory(global::Inventory newInv, bool spawnNewCells)
 	{
 		this.displayInventory = newInv;
 		if (spawnNewCells && this.SpawnCells)
@@ -29,7 +29,7 @@ public class RPOSInvCellManager : MonoBehaviour
 			this.CreateCellsOnGameObject(newInv, base.gameObject);
 		}
 		int num = 0;
-		foreach (RPOSInventoryCell rposinventoryCell in this._inventoryCells)
+		foreach (global::RPOSInventoryCell rposinventoryCell in this._inventoryCells)
 		{
 			rposinventoryCell._displayInventory = newInv;
 			rposinventoryCell._mySlot = (byte)(this.CellIndexStart + num);
@@ -38,7 +38,7 @@ public class RPOSInvCellManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026A3 RID: 9891 RVA: 0x0009673C File Offset: 0x0009493C
+	// Token: 0x06002A2D RID: 10797 RVA: 0x0009C600 File Offset: 0x0009A800
 	public int GetNumCells()
 	{
 		if (this.SpawnCells || this.generatedCells)
@@ -48,22 +48,22 @@ public class RPOSInvCellManager : MonoBehaviour
 		return this._inventoryCells.Length;
 	}
 
-	// Token: 0x060026A4 RID: 9892 RVA: 0x00096778 File Offset: 0x00094978
+	// Token: 0x06002A2E RID: 10798 RVA: 0x0009C63C File Offset: 0x0009A83C
 	public static int GetIndex2D(int x, int y, int width)
 	{
 		return x + y * width;
 	}
 
-	// Token: 0x060026A5 RID: 9893 RVA: 0x00096780 File Offset: 0x00094980
-	protected virtual void CreateCellsOnGameObject(Inventory inven, GameObject parent)
+	// Token: 0x06002A2F RID: 10799 RVA: 0x0009C644 File Offset: 0x0009A844
+	protected virtual void CreateCellsOnGameObject(global::Inventory inven, GameObject parent)
 	{
 		bool flag = inven;
 		int newSize;
 		int num;
 		if (flag)
 		{
-			Inventory.Slot.Range range;
-			inven.GetSlotsOfKind(Inventory.Slot.Kind.Default, out range);
+			global::Inventory.Slot.Range range;
+			inven.GetSlotsOfKind(global::Inventory.Slot.Kind.Default, out range);
 			newSize = range.Count;
 			num = range.End;
 		}
@@ -72,28 +72,28 @@ public class RPOSInvCellManager : MonoBehaviour
 			newSize = this.GetNumCells();
 			num = int.MaxValue;
 		}
-		Array.Resize<RPOSInventoryCell>(ref this._inventoryCells, newSize);
-		float x = this.CellPrefab.GetComponent<RPOSInventoryCell>()._background.transform.localScale.x;
-		float y = this.CellPrefab.GetComponent<RPOSInventoryCell>()._background.transform.localScale.y;
+		Array.Resize<global::RPOSInventoryCell>(ref this._inventoryCells, newSize);
+		float x = this.CellPrefab.GetComponent<global::RPOSInventoryCell>()._background.transform.localScale.x;
+		float y = this.CellPrefab.GetComponent<global::RPOSInventoryCell>()._background.transform.localScale.y;
 		for (int i = 0; i < this.NumCellsVertical; i++)
 		{
 			for (int j = 0; j < this.NumCellsHorizontal; j++)
 			{
-				byte b = (byte)(this.CellIndexStart + RPOSInvCellManager.GetIndex2D(j, i, this.NumCellsHorizontal));
+				byte b = (byte)(this.CellIndexStart + global::RPOSInvCellManager.GetIndex2D(j, i, this.NumCellsHorizontal));
 				if ((int)b >= num)
 				{
 					return;
 				}
-				GameObject gameObject = NGUITools.AddChild(parent, this.CellPrefab);
-				RPOSInventoryCell component = gameObject.GetComponent<RPOSInventoryCell>();
+				GameObject gameObject = global::NGUITools.AddChild(parent, this.CellPrefab);
+				global::RPOSInventoryCell component = gameObject.GetComponent<global::RPOSInventoryCell>();
 				component._mySlot = b;
 				component._displayInventory = inven;
 				if (this.NumberedCells)
 				{
-					component._numberLabel.text = (RPOSInvCellManager.GetIndex2D(j, i, this.NumCellsHorizontal) + 1).ToString();
+					component._numberLabel.text = (global::RPOSInvCellManager.GetIndex2D(j, i, this.NumCellsHorizontal) + 1).ToString();
 				}
 				gameObject.transform.localPosition = new Vector3((float)this.CellOffsetX + ((float)j * x + (float)(j * this.CellSpacing)), -((float)this.CellOffsetY + ((float)i * y + (float)(i * this.CellSpacing))), -2f);
-				this._inventoryCells[RPOS.GetIndex2D(j, i, this.NumCellsHorizontal)] = gameObject.GetComponent<RPOSInventoryCell>();
+				this._inventoryCells[global::RPOS.GetIndex2D(j, i, this.NumCellsHorizontal)] = gameObject.GetComponent<global::RPOSInventoryCell>();
 			}
 		}
 		if (this.CenterFromCells)
@@ -109,45 +109,45 @@ public class RPOSInvCellManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040012E5 RID: 4837
+	// Token: 0x04001465 RID: 5221
 	public bool SpawnCells;
 
-	// Token: 0x040012E6 RID: 4838
+	// Token: 0x04001466 RID: 5222
 	private bool generatedCells;
 
-	// Token: 0x040012E7 RID: 4839
+	// Token: 0x04001467 RID: 5223
 	public int NumCellsHorizontal;
 
-	// Token: 0x040012E8 RID: 4840
+	// Token: 0x04001468 RID: 5224
 	public int NumCellsVertical;
 
-	// Token: 0x040012E9 RID: 4841
+	// Token: 0x04001469 RID: 5225
 	public int CellOffsetX;
 
-	// Token: 0x040012EA RID: 4842
+	// Token: 0x0400146A RID: 5226
 	public int CellOffsetY;
 
-	// Token: 0x040012EB RID: 4843
+	// Token: 0x0400146B RID: 5227
 	public int CellSize = 96;
 
-	// Token: 0x040012EC RID: 4844
+	// Token: 0x0400146C RID: 5228
 	public int CellSpacing = 10;
 
-	// Token: 0x040012ED RID: 4845
+	// Token: 0x0400146D RID: 5229
 	public int CellIndexStart;
 
-	// Token: 0x040012EE RID: 4846
+	// Token: 0x0400146E RID: 5230
 	public bool CenterFromCells;
 
-	// Token: 0x040012EF RID: 4847
+	// Token: 0x0400146F RID: 5231
 	public bool NumberedCells;
 
-	// Token: 0x040012F0 RID: 4848
+	// Token: 0x04001470 RID: 5232
 	public GameObject CellPrefab;
 
-	// Token: 0x040012F1 RID: 4849
-	public Inventory displayInventory;
+	// Token: 0x04001471 RID: 5233
+	public global::Inventory displayInventory;
 
-	// Token: 0x040012F2 RID: 4850
-	public RPOSInventoryCell[] _inventoryCells;
+	// Token: 0x04001472 RID: 5234
+	public global::RPOSInventoryCell[] _inventoryCells;
 }

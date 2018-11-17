@@ -1,17 +1,17 @@
 ﻿using System;
 
-// Token: 0x020007E8 RID: 2024
+// Token: 0x020008D9 RID: 2265
 public struct UITextSelection
 {
-	// Token: 0x06004862 RID: 18530 RVA: 0x00125AB0 File Offset: 0x00123CB0
-	public UITextSelection(UITextPosition carratPos, UITextPosition selectPos)
+	// Token: 0x06004D0D RID: 19725 RVA: 0x0012FA14 File Offset: 0x0012DC14
+	public UITextSelection(global::UITextPosition carratPos, global::UITextPosition selectPos)
 	{
 		this.carratPos = carratPos;
 		this.selectPos = selectPos;
 	}
 
-	// Token: 0x17000E0D RID: 3597
-	// (get) Token: 0x06004863 RID: 18531 RVA: 0x00125AC0 File Offset: 0x00123CC0
+	// Token: 0x17000EA7 RID: 3751
+	// (get) Token: 0x06004D0E RID: 19726 RVA: 0x0012FA24 File Offset: 0x0012DC24
 	public bool hasSelection
 	{
 		get
@@ -20,8 +20,8 @@ public struct UITextSelection
 		}
 	}
 
-	// Token: 0x17000E0E RID: 3598
-	// (get) Token: 0x06004864 RID: 18532 RVA: 0x00125B0C File Offset: 0x00123D0C
+	// Token: 0x17000EA8 RID: 3752
+	// (get) Token: 0x06004D0F RID: 19727 RVA: 0x0012FA70 File Offset: 0x0012DC70
 	public bool showCarrat
 	{
 		get
@@ -30,8 +30,8 @@ public struct UITextSelection
 		}
 	}
 
-	// Token: 0x17000E0F RID: 3599
-	// (get) Token: 0x06004865 RID: 18533 RVA: 0x00125B58 File Offset: 0x00123D58
+	// Token: 0x17000EA9 RID: 3753
+	// (get) Token: 0x06004D10 RID: 19728 RVA: 0x0012FABC File Offset: 0x0012DCBC
 	public bool valid
 	{
 		get
@@ -40,8 +40,8 @@ public struct UITextSelection
 		}
 	}
 
-	// Token: 0x06004866 RID: 18534 RVA: 0x00125B68 File Offset: 0x00123D68
-	public bool GetHighlight(out UIHighlight h)
+	// Token: 0x06004D11 RID: 19729 RVA: 0x0012FACC File Offset: 0x0012DCCC
+	public bool GetHighlight(out global::UIHighlight h)
 	{
 		if (this.selectPos.position < this.carratPos.position)
 		{
@@ -66,12 +66,12 @@ public struct UITextSelection
 			h.a.C = this.carratPos.column;
 			return true;
 		}
-		h = UIHighlight.invalid;
+		h = global::UIHighlight.invalid;
 		return false;
 	}
 
-	// Token: 0x17000E10 RID: 3600
-	// (get) Token: 0x06004867 RID: 18535 RVA: 0x00125D08 File Offset: 0x00123F08
+	// Token: 0x17000EAA RID: 3754
+	// (get) Token: 0x06004D12 RID: 19730 RVA: 0x0012FC6C File Offset: 0x0012DE6C
 	public int highlightBegin
 	{
 		get
@@ -84,8 +84,8 @@ public struct UITextSelection
 		}
 	}
 
-	// Token: 0x17000E11 RID: 3601
-	// (get) Token: 0x06004868 RID: 18536 RVA: 0x00125D88 File Offset: 0x00123F88
+	// Token: 0x17000EAB RID: 3755
+	// (get) Token: 0x06004D13 RID: 19731 RVA: 0x0012FCEC File Offset: 0x0012DEEC
 	public int highlightEnd
 	{
 		get
@@ -98,8 +98,8 @@ public struct UITextSelection
 		}
 	}
 
-	// Token: 0x17000E12 RID: 3602
-	// (get) Token: 0x06004869 RID: 18537 RVA: 0x00125E08 File Offset: 0x00124008
+	// Token: 0x17000EAC RID: 3756
+	// (get) Token: 0x06004D14 RID: 19732 RVA: 0x0012FD6C File Offset: 0x0012DF6C
 	public int carratIndex
 	{
 		get
@@ -112,8 +112,8 @@ public struct UITextSelection
 		}
 	}
 
-	// Token: 0x17000E13 RID: 3603
-	// (get) Token: 0x0600486A RID: 18538 RVA: 0x00125E60 File Offset: 0x00124060
+	// Token: 0x17000EAD RID: 3757
+	// (get) Token: 0x06004D15 RID: 19733 RVA: 0x0012FDC4 File Offset: 0x0012DFC4
 	public int selectIndex
 	{
 		get
@@ -126,56 +126,56 @@ public struct UITextSelection
 		}
 	}
 
-	// Token: 0x0600486B RID: 18539 RVA: 0x00125EB8 File Offset: 0x001240B8
-	public UITextSelection.Change GetChangesTo(ref UITextSelection value)
+	// Token: 0x06004D16 RID: 19734 RVA: 0x0012FE1C File Offset: 0x0012E01C
+	public global::UITextSelection.Change GetChangesTo(ref global::UITextSelection value)
 	{
-		UITextSelection.Change result;
+		global::UITextSelection.Change result;
 		if (this.carratPos.valid)
 		{
 			if (!value.carratPos.valid)
 			{
-				result = ((!this.hasSelection) ? UITextSelection.Change.CarratToNone : UITextSelection.Change.SelectionToNone);
+				result = ((!this.hasSelection) ? global::UITextSelection.Change.CarratToNone : global::UITextSelection.Change.SelectionToNone);
 			}
 			else if (this.hasSelection)
 			{
 				if (!value.hasSelection)
 				{
-					result = UITextSelection.Change.SelectionToCarrat;
+					result = global::UITextSelection.Change.SelectionToCarrat;
 				}
 				else if (value.carratPos.position != this.carratPos.position || value.selectPos.position != this.selectPos.position)
 				{
-					result = UITextSelection.Change.SelectionAdjusted;
+					result = global::UITextSelection.Change.SelectionAdjusted;
 				}
 				else
 				{
-					result = UITextSelection.Change.None;
+					result = global::UITextSelection.Change.None;
 				}
 			}
 			else if (value.hasSelection)
 			{
-				result = UITextSelection.Change.CarratToSelection;
+				result = global::UITextSelection.Change.CarratToSelection;
 			}
 			else if (value.carratPos.position != this.carratPos.position)
 			{
-				result = UITextSelection.Change.CarratMove;
+				result = global::UITextSelection.Change.CarratMove;
 			}
 			else
 			{
-				result = UITextSelection.Change.None;
+				result = global::UITextSelection.Change.None;
 			}
 		}
 		else if (value.carratPos.valid)
 		{
-			result = ((!value.hasSelection) ? UITextSelection.Change.NoneToCarrat : UITextSelection.Change.NoneToSelection);
+			result = ((!value.hasSelection) ? global::UITextSelection.Change.NoneToCarrat : global::UITextSelection.Change.NoneToSelection);
 		}
 		else
 		{
-			result = UITextSelection.Change.None;
+			result = global::UITextSelection.Change.None;
 		}
 		return result;
 	}
 
-	// Token: 0x0600486C RID: 18540 RVA: 0x00125FC4 File Offset: 0x001241C4
+	// Token: 0x06004D17 RID: 19735 RVA: 0x0012FF28 File Offset: 0x0012E128
 	public override string ToString()
 	{
 		return string.Format("[hasSelection={0}, showCarrat={1}, highlight=[{2}->{3}], carratPos={4}, selectPos={5}]", new object[]
@@ -189,59 +189,59 @@ public struct UITextSelection
 		});
 	}
 
-	// Token: 0x040028A9 RID: 10409
-	private const UITextSelection.Change kSelectChange_None = UITextSelection.Change.None;
+	// Token: 0x04002AF7 RID: 10999
+	private const global::UITextSelection.Change kSelectChange_None = global::UITextSelection.Change.None;
 
-	// Token: 0x040028AA RID: 10410
-	private const UITextSelection.Change kSelectChange_DropCarrat = UITextSelection.Change.CarratToNone;
+	// Token: 0x04002AF8 RID: 11000
+	private const global::UITextSelection.Change kSelectChange_DropCarrat = global::UITextSelection.Change.CarratToNone;
 
-	// Token: 0x040028AB RID: 10411
-	private const UITextSelection.Change kSelectChange_MoveCarrat = UITextSelection.Change.CarratMove;
+	// Token: 0x04002AF9 RID: 11001
+	private const global::UITextSelection.Change kSelectChange_MoveCarrat = global::UITextSelection.Change.CarratMove;
 
-	// Token: 0x040028AC RID: 10412
-	private const UITextSelection.Change kSelectChange_NewCarrat = UITextSelection.Change.NoneToCarrat;
+	// Token: 0x04002AFA RID: 11002
+	private const global::UITextSelection.Change kSelectChange_NewCarrat = global::UITextSelection.Change.NoneToCarrat;
 
-	// Token: 0x040028AD RID: 10413
-	private const UITextSelection.Change kSelectChange_DropSelection = UITextSelection.Change.SelectionToCarrat;
+	// Token: 0x04002AFB RID: 11003
+	private const global::UITextSelection.Change kSelectChange_DropSelection = global::UITextSelection.Change.SelectionToCarrat;
 
-	// Token: 0x040028AE RID: 10414
-	private const UITextSelection.Change kSelectChange_MoveSelection = UITextSelection.Change.SelectionAdjusted;
+	// Token: 0x04002AFC RID: 11004
+	private const global::UITextSelection.Change kSelectChange_MoveSelection = global::UITextSelection.Change.SelectionAdjusted;
 
-	// Token: 0x040028AF RID: 10415
-	private const UITextSelection.Change kSelectChange_NewSelection = UITextSelection.Change.CarratToSelection;
+	// Token: 0x04002AFD RID: 11005
+	private const global::UITextSelection.Change kSelectChange_NewSelection = global::UITextSelection.Change.CarratToSelection;
 
-	// Token: 0x040028B0 RID: 10416
-	private const UITextSelection.Change kSelectChange_DropAll = UITextSelection.Change.SelectionToNone;
+	// Token: 0x04002AFE RID: 11006
+	private const global::UITextSelection.Change kSelectChange_DropAll = global::UITextSelection.Change.SelectionToNone;
 
-	// Token: 0x040028B1 RID: 10417
-	private const UITextSelection.Change kSelectChange_NewAll = UITextSelection.Change.NoneToSelection;
+	// Token: 0x04002AFF RID: 11007
+	private const global::UITextSelection.Change kSelectChange_NewAll = global::UITextSelection.Change.NoneToSelection;
 
-	// Token: 0x040028B2 RID: 10418
-	public UITextPosition carratPos;
+	// Token: 0x04002B00 RID: 11008
+	public global::UITextPosition carratPos;
 
-	// Token: 0x040028B3 RID: 10419
-	public UITextPosition selectPos;
+	// Token: 0x04002B01 RID: 11009
+	public global::UITextPosition selectPos;
 
-	// Token: 0x020007E9 RID: 2025
+	// Token: 0x020008DA RID: 2266
 	public enum Change : sbyte
 	{
-		// Token: 0x040028B5 RID: 10421
+		// Token: 0x04002B03 RID: 11011
 		None,
-		// Token: 0x040028B6 RID: 10422
+		// Token: 0x04002B04 RID: 11012
 		NoneToCarrat,
-		// Token: 0x040028B7 RID: 10423
+		// Token: 0x04002B05 RID: 11013
 		CarratMove,
-		// Token: 0x040028B8 RID: 10424
+		// Token: 0x04002B06 RID: 11014
 		CarratToNone,
-		// Token: 0x040028B9 RID: 10425
+		// Token: 0x04002B07 RID: 11015
 		CarratToSelection,
-		// Token: 0x040028BA RID: 10426
+		// Token: 0x04002B08 RID: 11016
 		SelectionAdjusted,
-		// Token: 0x040028BB RID: 10427
+		// Token: 0x04002B09 RID: 11017
 		SelectionToCarrat,
-		// Token: 0x040028BC RID: 10428
+		// Token: 0x04002B0A RID: 11018
 		NoneToSelection,
-		// Token: 0x040028BD RID: 10429
+		// Token: 0x04002B0B RID: 11019
 		SelectionToNone
 	}
 }

@@ -2,182 +2,182 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200041C RID: 1052
+// Token: 0x020004D1 RID: 1233
 public class RPOSWindow : MonoBehaviour
 {
-	// Token: 0x060026DB RID: 9947 RVA: 0x00097D74 File Offset: 0x00095F74
+	// Token: 0x06002A65 RID: 10853 RVA: 0x0009DC38 File Offset: 0x0009BE38
 	public RPOSWindow()
 	{
-		this.buttonCallback = new UIEventListener.VoidDelegate(this.ButtonClickCallback);
+		this.buttonCallback = new global::UIEventListener.VoidDelegate(this.ButtonClickCallback);
 	}
 
 	// Token: 0x14000018 RID: 24
-	// (add) Token: 0x060026DC RID: 9948 RVA: 0x00097DC8 File Offset: 0x00095FC8
-	// (remove) Token: 0x060026DD RID: 9949 RVA: 0x00097DD4 File Offset: 0x00095FD4
-	public event RPOSWindowMessageHandler WillOpen
+	// (add) Token: 0x06002A66 RID: 10854 RVA: 0x0009DC8C File Offset: 0x0009BE8C
+	// (remove) Token: 0x06002A67 RID: 10855 RVA: 0x0009DC98 File Offset: 0x0009BE98
+	public event global::RPOSWindowMessageHandler WillOpen
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.WillOpen, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.WillOpen, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.WillOpen, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.WillOpen, value);
 		}
 	}
 
 	// Token: 0x14000019 RID: 25
-	// (add) Token: 0x060026DE RID: 9950 RVA: 0x00097DE0 File Offset: 0x00095FE0
-	// (remove) Token: 0x060026DF RID: 9951 RVA: 0x00097DEC File Offset: 0x00095FEC
-	public event RPOSWindowMessageHandler DidOpen
+	// (add) Token: 0x06002A68 RID: 10856 RVA: 0x0009DCA4 File Offset: 0x0009BEA4
+	// (remove) Token: 0x06002A69 RID: 10857 RVA: 0x0009DCB0 File Offset: 0x0009BEB0
+	public event global::RPOSWindowMessageHandler DidOpen
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.DidOpen, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.DidOpen, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.DidOpen, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.DidOpen, value);
 		}
 	}
 
 	// Token: 0x1400001A RID: 26
-	// (add) Token: 0x060026E0 RID: 9952 RVA: 0x00097DF8 File Offset: 0x00095FF8
-	// (remove) Token: 0x060026E1 RID: 9953 RVA: 0x00097E04 File Offset: 0x00096004
-	public event RPOSWindowMessageHandler WillShow
+	// (add) Token: 0x06002A6A RID: 10858 RVA: 0x0009DCBC File Offset: 0x0009BEBC
+	// (remove) Token: 0x06002A6B RID: 10859 RVA: 0x0009DCC8 File Offset: 0x0009BEC8
+	public event global::RPOSWindowMessageHandler WillShow
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.WillShow, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.WillShow, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.WillShow, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.WillShow, value);
 		}
 	}
 
 	// Token: 0x1400001B RID: 27
-	// (add) Token: 0x060026E2 RID: 9954 RVA: 0x00097E10 File Offset: 0x00096010
-	// (remove) Token: 0x060026E3 RID: 9955 RVA: 0x00097E1C File Offset: 0x0009601C
-	public event RPOSWindowMessageHandler DidShow
+	// (add) Token: 0x06002A6C RID: 10860 RVA: 0x0009DCD4 File Offset: 0x0009BED4
+	// (remove) Token: 0x06002A6D RID: 10861 RVA: 0x0009DCE0 File Offset: 0x0009BEE0
+	public event global::RPOSWindowMessageHandler DidShow
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.DidShow, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.DidShow, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.DidShow, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.DidShow, value);
 		}
 	}
 
 	// Token: 0x1400001C RID: 28
-	// (add) Token: 0x060026E4 RID: 9956 RVA: 0x00097E28 File Offset: 0x00096028
-	// (remove) Token: 0x060026E5 RID: 9957 RVA: 0x00097E34 File Offset: 0x00096034
-	public event RPOSWindowMessageHandler WillHide
+	// (add) Token: 0x06002A6E RID: 10862 RVA: 0x0009DCEC File Offset: 0x0009BEEC
+	// (remove) Token: 0x06002A6F RID: 10863 RVA: 0x0009DCF8 File Offset: 0x0009BEF8
+	public event global::RPOSWindowMessageHandler WillHide
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.WillHide, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.WillHide, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.WillHide, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.WillHide, value);
 		}
 	}
 
 	// Token: 0x1400001D RID: 29
-	// (add) Token: 0x060026E6 RID: 9958 RVA: 0x00097E40 File Offset: 0x00096040
-	// (remove) Token: 0x060026E7 RID: 9959 RVA: 0x00097E4C File Offset: 0x0009604C
-	public event RPOSWindowMessageHandler DidHide
+	// (add) Token: 0x06002A70 RID: 10864 RVA: 0x0009DD04 File Offset: 0x0009BF04
+	// (remove) Token: 0x06002A71 RID: 10865 RVA: 0x0009DD10 File Offset: 0x0009BF10
+	public event global::RPOSWindowMessageHandler DidHide
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.DidHide, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.DidHide, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.DidHide, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.DidHide, value);
 		}
 	}
 
 	// Token: 0x1400001E RID: 30
-	// (add) Token: 0x060026E8 RID: 9960 RVA: 0x00097E58 File Offset: 0x00096058
-	// (remove) Token: 0x060026E9 RID: 9961 RVA: 0x00097E64 File Offset: 0x00096064
-	public event RPOSWindowMessageHandler WillClose
+	// (add) Token: 0x06002A72 RID: 10866 RVA: 0x0009DD1C File Offset: 0x0009BF1C
+	// (remove) Token: 0x06002A73 RID: 10867 RVA: 0x0009DD28 File Offset: 0x0009BF28
+	public event global::RPOSWindowMessageHandler WillClose
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.WillClose, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.WillClose, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.WillClose, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.WillClose, value);
 		}
 	}
 
 	// Token: 0x1400001F RID: 31
-	// (add) Token: 0x060026EA RID: 9962 RVA: 0x00097E70 File Offset: 0x00096070
-	// (remove) Token: 0x060026EB RID: 9963 RVA: 0x00097E7C File Offset: 0x0009607C
-	public event RPOSWindowMessageHandler DidClose
+	// (add) Token: 0x06002A74 RID: 10868 RVA: 0x0009DD34 File Offset: 0x0009BF34
+	// (remove) Token: 0x06002A75 RID: 10869 RVA: 0x0009DD40 File Offset: 0x0009BF40
+	public event global::RPOSWindowMessageHandler DidClose
 	{
 		add
 		{
-			this.AddMessageHandler(RPOSWindowMessage.DidClose, value);
+			this.AddMessageHandler(global::RPOSWindowMessage.DidClose, value);
 		}
 		remove
 		{
-			this.RemoveMessageHandler(RPOSWindowMessage.DidClose, value);
+			this.RemoveMessageHandler(global::RPOSWindowMessage.DidClose, value);
 		}
 	}
 
-	// Token: 0x060026EC RID: 9964 RVA: 0x00097E88 File Offset: 0x00096088
-	private void FireEvent(RPOSWindowMessage message)
+	// Token: 0x06002A76 RID: 10870 RVA: 0x0009DD4C File Offset: 0x0009BF4C
+	private void FireEvent(global::RPOSWindowMessage message)
 	{
 		this.messageCenter.Fire(this, message);
 	}
 
-	// Token: 0x060026ED RID: 9965 RVA: 0x00097E98 File Offset: 0x00096098
-	public bool AddMessageHandler(RPOSWindowMessage message, RPOSWindowMessageHandler handler)
+	// Token: 0x06002A77 RID: 10871 RVA: 0x0009DD5C File Offset: 0x0009BF5C
+	public bool AddMessageHandler(global::RPOSWindowMessage message, global::RPOSWindowMessageHandler handler)
 	{
 		return !this._destroyed && !this._lock_destroy && !this._destroyAfterAwake && (this._awake || this._lock_awake) && this.messageCenter.Add(message, handler);
 	}
 
-	// Token: 0x060026EE RID: 9966 RVA: 0x00097EEC File Offset: 0x000960EC
-	public bool RemoveMessageHandler(RPOSWindowMessage message, RPOSWindowMessageHandler handler)
+	// Token: 0x06002A78 RID: 10872 RVA: 0x0009DDB0 File Offset: 0x0009BFB0
+	public bool RemoveMessageHandler(global::RPOSWindowMessage message, global::RPOSWindowMessageHandler handler)
 	{
 		return (!this._awake || this._destroyed) && this.messageCenter.Remove(message, handler);
 	}
 
-	// Token: 0x060026EF RID: 9967 RVA: 0x00097F14 File Offset: 0x00096114
+	// Token: 0x06002A79 RID: 10873 RVA: 0x0009DDD8 File Offset: 0x0009BFD8
 	[Obsolete("Use WindowAwake", true)]
 	protected void Awake()
 	{
 		this._EnsureAwake();
 	}
 
-	// Token: 0x060026F0 RID: 9968 RVA: 0x00097F1C File Offset: 0x0009611C
+	// Token: 0x06002A7A RID: 10874 RVA: 0x0009DDE0 File Offset: 0x0009BFE0
 	[Obsolete("Forwarder to SubTouch with SubTouchKind.Press if true else SubTouchKind.Release", true)]
 	protected void OnChildPress(bool press)
 	{
-		this.SubTouch(UICamera.Cursor.Buttons.LeftValue.Pressed, (!press) ? RPOSWindow.SubTouchKind.Release : RPOSWindow.SubTouchKind.Press);
+		this.SubTouch(global::UICamera.Cursor.Buttons.LeftValue.Pressed, (!press) ? global::RPOSWindow.SubTouchKind.Release : global::RPOSWindow.SubTouchKind.Press);
 	}
 
-	// Token: 0x060026F1 RID: 9969 RVA: 0x00097F48 File Offset: 0x00096148
+	// Token: 0x06002A7B RID: 10875 RVA: 0x0009DE0C File Offset: 0x0009C00C
 	[Obsolete("Forwarder to SubTouch with SubTouchKind.Click", true)]
 	protected void OnChildClick(GameObject go)
 	{
-		this.SubTouch(go, RPOSWindow.SubTouchKind.Click);
+		this.SubTouch(go, global::RPOSWindow.SubTouchKind.Click);
 	}
 
-	// Token: 0x060026F2 RID: 9970 RVA: 0x00097F54 File Offset: 0x00096154
+	// Token: 0x06002A7C RID: 10876 RVA: 0x0009DE18 File Offset: 0x0009C018
 	[Obsolete("Forwarder to SubTouch with SubTouchKind.ClickCancel", true)]
 	protected void OnChildClickMissed(GameObject go)
 	{
-		this.SubTouch(go, RPOSWindow.SubTouchKind.ClickCancel);
+		this.SubTouch(go, global::RPOSWindow.SubTouchKind.ClickCancel);
 	}
 
-	// Token: 0x060026F3 RID: 9971 RVA: 0x00097F60 File Offset: 0x00096160
+	// Token: 0x06002A7D RID: 10877 RVA: 0x0009DE24 File Offset: 0x0009C024
 	[Obsolete("Use WindowDestroy", true)]
 	protected void OnDestroy()
 	{
@@ -187,7 +187,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026F4 RID: 9972 RVA: 0x00097F74 File Offset: 0x00096174
+	// Token: 0x06002A7E RID: 10878 RVA: 0x0009DE38 File Offset: 0x0009C038
 	private void _EnsureAwake()
 	{
 		if (!this._awake)
@@ -210,15 +210,15 @@ public class RPOSWindow : MonoBehaviour
 				try
 				{
 					this._lock_awake = true;
-					this._myPanel = base.GetComponent<UIPanel>();
+					this._myPanel = base.GetComponent<global::UIPanel>();
 					this.panelsEnabled = false;
 					if (this._closeButton)
 					{
-						this.closeButtonListener = UIEventListener.Get(this._closeButton.gameObject);
+						this.closeButtonListener = global::UIEventListener.Get(this._closeButton.gameObject);
 						if (this.closeButtonListener)
 						{
-							UIEventListener uieventListener = this.closeButtonListener;
-							uieventListener.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener.onClick, this.buttonCallback);
+							global::UIEventListener uieventListener = this.closeButtonListener;
+							uieventListener.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener.onClick, this.buttonCallback);
 						}
 					}
 					this.WindowAwake();
@@ -251,14 +251,14 @@ public class RPOSWindow : MonoBehaviour
 					}
 					else
 					{
-						RPOS.RegisterWindow(this);
+						global::RPOS.RegisterWindow(this);
 					}
 				}
 			}
 		}
 	}
 
-	// Token: 0x060026F5 RID: 9973 RVA: 0x00098148 File Offset: 0x00096348
+	// Token: 0x06002A7F RID: 10879 RVA: 0x0009E00C File Offset: 0x0009C20C
 	private void _EnsureDestroy()
 	{
 		if (this._awake)
@@ -274,8 +274,8 @@ public class RPOSWindow : MonoBehaviour
 					this._lock_destroy = true;
 					if (this.closeButtonListener)
 					{
-						UIEventListener uieventListener = this.closeButtonListener;
-						uieventListener.onClick = (UIEventListener.VoidDelegate)Delegate.Remove(uieventListener.onClick, this.buttonCallback);
+						global::UIEventListener uieventListener = this.closeButtonListener;
+						uieventListener.onClick = (global::UIEventListener.VoidDelegate)Delegate.Remove(uieventListener.onClick, this.buttonCallback);
 					}
 					if (!this._closed)
 					{
@@ -297,7 +297,7 @@ public class RPOSWindow : MonoBehaviour
 				{
 					this._destroyed = true;
 					this._lock_destroy = false;
-					RPOS.UnregisterWindow(this);
+					global::RPOS.UnregisterWindow(this);
 				}
 			}
 		}
@@ -313,7 +313,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026F6 RID: 9974 RVA: 0x000982A8 File Offset: 0x000964A8
+	// Token: 0x06002A80 RID: 10880 RVA: 0x0009E16C File Offset: 0x0009C36C
 	[Obsolete("For use by RPOS only!")]
 	internal void RPOSReady()
 	{
@@ -328,7 +328,7 @@ public class RPOSWindow : MonoBehaviour
 				this._showWithoutRPOS = true;
 			}
 		}
-		if (RPOS.IsOpen)
+		if (global::RPOS.IsOpen)
 		{
 			Debug.Log("Was ready");
 			this.RPOSOn();
@@ -336,21 +336,21 @@ public class RPOSWindow : MonoBehaviour
 		this.CheckDisplay();
 	}
 
-	// Token: 0x060026F7 RID: 9975 RVA: 0x00098308 File Offset: 0x00096508
+	// Token: 0x06002A81 RID: 10881 RVA: 0x0009E1CC File Offset: 0x0009C3CC
 	[Obsolete("For use by RPOS only!")]
 	internal void RPOSOn()
 	{
 		this.OnRPOSOpened();
 	}
 
-	// Token: 0x060026F8 RID: 9976 RVA: 0x00098310 File Offset: 0x00096510
+	// Token: 0x06002A82 RID: 10882 RVA: 0x0009E1D4 File Offset: 0x0009C3D4
 	[Obsolete("For use by RPOS only!")]
 	internal void RPOSOff()
 	{
 		this.OnRPOSClosed();
 	}
 
-	// Token: 0x060026F9 RID: 9977 RVA: 0x00098318 File Offset: 0x00096518
+	// Token: 0x06002A83 RID: 10883 RVA: 0x0009E1DC File Offset: 0x0009C3DC
 	[Obsolete("For use by RPOS only!")]
 	internal bool CheckDisplay()
 	{
@@ -360,7 +360,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 		if (!this._showing)
 		{
-			if ((!this._showWithoutRPOS && (!this._showWithRPOS || !RPOS.IsOpen)) || (this._inventoryHide && this._isInventoryRelated))
+			if ((!this._showWithoutRPOS && (!this._showWithRPOS || !global::RPOS.IsOpen)) || (this._inventoryHide && this._isInventoryRelated))
 			{
 				return false;
 			}
@@ -369,7 +369,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 		else
 		{
-			if (!this._forceHide && (this._showWithoutRPOS || (this._showWithRPOS && RPOS.IsOpen)) && (!this._inventoryHide || !this._isInventoryRelated))
+			if (!this._forceHide && (this._showWithoutRPOS || (this._showWithRPOS && global::RPOS.IsOpen)) && (!this._inventoryHide || !this._isInventoryRelated))
 			{
 				return false;
 			}
@@ -379,13 +379,13 @@ public class RPOSWindow : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x060026FA RID: 9978 RVA: 0x000983E4 File Offset: 0x000965E4
-	public static void EnsureAwake(RPOSWindow window)
+	// Token: 0x06002A84 RID: 10884 RVA: 0x0009E2A8 File Offset: 0x0009C4A8
+	public static void EnsureAwake(global::RPOSWindow window)
 	{
 		window._EnsureAwake();
 	}
 
-	// Token: 0x060026FB RID: 9979 RVA: 0x000983EC File Offset: 0x000965EC
+	// Token: 0x06002A85 RID: 10885 RVA: 0x0009E2B0 File Offset: 0x0009C4B0
 	private static bool GameObjectEqual(Object A, Object B)
 	{
 		if (!A)
@@ -418,10 +418,10 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026FC RID: 9980 RVA: 0x000984BC File Offset: 0x000966BC
+	// Token: 0x06002A86 RID: 10886 RVA: 0x0009E380 File Offset: 0x0009C580
 	private void ButtonClickCallback(GameObject button)
 	{
-		if (RPOSWindow.GameObjectEqual(button, this._closeButton))
+		if (global::RPOSWindow.GameObjectEqual(button, this._closeButton))
 		{
 			this.CloseButtonClicked();
 		}
@@ -430,7 +430,7 @@ public class RPOSWindow : MonoBehaviour
 			int count = this.bumpers.Count;
 			if (count > 0 && button)
 			{
-				UIButton component = button.GetComponent<UIButton>();
+				global::UIButton component = button.GetComponent<global::UIButton>();
 				if (component)
 				{
 					for (int i = 0; i < count; i++)
@@ -446,7 +446,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026FD RID: 9981 RVA: 0x00098564 File Offset: 0x00096764
+	// Token: 0x06002A87 RID: 10887 RVA: 0x0009E428 File Offset: 0x0009C628
 	private void HideOrClose(bool hideIsTrue)
 	{
 		if (hideIsTrue)
@@ -459,8 +459,8 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F0 RID: 2288
-	// (set) Token: 0x060026FE RID: 9982 RVA: 0x00098580 File Offset: 0x00096780
+	// Token: 0x17000956 RID: 2390
+	// (set) Token: 0x06002A88 RID: 10888 RVA: 0x0009E444 File Offset: 0x0009C644
 	private bool panelsEnabled
 	{
 		set
@@ -471,7 +471,7 @@ public class RPOSWindow : MonoBehaviour
 			}
 			if (this.childPanels != null)
 			{
-				foreach (UIPanel uipanel in this.childPanels)
+				foreach (global::UIPanel uipanel in this.childPanels)
 				{
 					if (uipanel)
 					{
@@ -482,7 +482,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026FF RID: 9983 RVA: 0x000985E8 File Offset: 0x000967E8
+	// Token: 0x06002A89 RID: 10889 RVA: 0x0009E4AC File Offset: 0x0009C6AC
 	private void WindowShow()
 	{
 		if (this._lock_show)
@@ -496,9 +496,9 @@ public class RPOSWindow : MonoBehaviour
 		try
 		{
 			this._lock_show = true;
-			this.FireEvent(RPOSWindowMessage.WillShow);
+			this.FireEvent(global::RPOSWindowMessage.WillShow);
 			this.OnWindowShow();
-			this.FireEvent(RPOSWindowMessage.DidShow);
+			this.FireEvent(global::RPOSWindowMessage.DidShow);
 		}
 		finally
 		{
@@ -506,7 +506,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002700 RID: 9984 RVA: 0x00098660 File Offset: 0x00096860
+	// Token: 0x06002A8A RID: 10890 RVA: 0x0009E524 File Offset: 0x0009C724
 	private void WindowHide()
 	{
 		if (this._lock_show)
@@ -516,9 +516,9 @@ public class RPOSWindow : MonoBehaviour
 		try
 		{
 			this._lock_show = true;
-			this.FireEvent(RPOSWindowMessage.WillHide);
+			this.FireEvent(global::RPOSWindowMessage.WillHide);
 			this.OnWindowHide();
-			this.FireEvent(RPOSWindowMessage.DidHide);
+			this.FireEvent(global::RPOSWindowMessage.DidHide);
 		}
 		finally
 		{
@@ -526,7 +526,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002701 RID: 9985 RVA: 0x000986C8 File Offset: 0x000968C8
+	// Token: 0x06002A8B RID: 10891 RVA: 0x0009E58C File Offset: 0x0009C78C
 	private void WindowClose()
 	{
 		if (this._closed || this._lock_close)
@@ -547,11 +547,11 @@ public class RPOSWindow : MonoBehaviour
 			}
 			if (this._opened)
 			{
-				this.FireEvent(RPOSWindowMessage.WillClose);
+				this.FireEvent(global::RPOSWindowMessage.WillClose);
 				this._closed = true;
 				this.OnWindowClosed();
 				this._opened = false;
-				this.FireEvent(RPOSWindowMessage.DidClose);
+				this.FireEvent(global::RPOSWindowMessage.DidClose);
 			}
 		}
 		finally
@@ -564,7 +564,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002702 RID: 9986 RVA: 0x000987B0 File Offset: 0x000969B0
+	// Token: 0x06002A8C RID: 10892 RVA: 0x0009E674 File Offset: 0x0009C874
 	private void WindowOpen()
 	{
 		if (this._opened || this._lock_open)
@@ -579,7 +579,7 @@ public class RPOSWindow : MonoBehaviour
 		{
 			this._lock_open = true;
 			bool closed = this._closed;
-			this.FireEvent(RPOSWindowMessage.WillOpen);
+			this.FireEvent(global::RPOSWindowMessage.WillOpen);
 			this._opened = true;
 			this._closed = false;
 			if (closed)
@@ -590,7 +590,7 @@ public class RPOSWindow : MonoBehaviour
 			{
 				this.OnWindowOpened();
 			}
-			this.FireEvent(RPOSWindowMessage.DidOpen);
+			this.FireEvent(global::RPOSWindowMessage.DidOpen);
 		}
 		finally
 		{
@@ -602,40 +602,40 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002703 RID: 9987 RVA: 0x00098868 File Offset: 0x00096A68
-	internal void AddBumper(RPOSBumper.Instance inst)
+	// Token: 0x06002A8D RID: 10893 RVA: 0x0009E72C File Offset: 0x0009C92C
+	internal void AddBumper(global::RPOSBumper.Instance inst)
 	{
 		inst.label.text = this.title;
-		UIEventListener listener = inst.listener;
+		global::UIEventListener listener = inst.listener;
 		if (listener)
 		{
-			UIEventListener uieventListener = listener;
-			uieventListener.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener.onClick, this.buttonCallback);
+			global::UIEventListener uieventListener = listener;
+			uieventListener.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener.onClick, this.buttonCallback);
 			if (this.bumpers == null)
 			{
-				this.bumpers = new List<RPOSBumper.Instance>();
+				this.bumpers = new List<global::RPOSBumper.Instance>();
 			}
 			this.bumpers.Add(inst);
 		}
 	}
 
-	// Token: 0x06002704 RID: 9988 RVA: 0x000988D8 File Offset: 0x00096AD8
-	internal void RemoveBumper(RPOSBumper.Instance inst)
+	// Token: 0x06002A8E RID: 10894 RVA: 0x0009E79C File Offset: 0x0009C99C
+	internal void RemoveBumper(global::RPOSBumper.Instance inst)
 	{
 		if (this.bumpers != null && this.bumpers.Remove(inst))
 		{
-			UIEventListener listener = inst.listener;
+			global::UIEventListener listener = inst.listener;
 			if (listener)
 			{
-				UIEventListener uieventListener = listener;
-				uieventListener.onClick = (UIEventListener.VoidDelegate)Delegate.Remove(uieventListener.onClick, this.buttonCallback);
+				global::UIEventListener uieventListener = listener;
+				uieventListener.onClick = (global::UIEventListener.VoidDelegate)Delegate.Remove(uieventListener.onClick, this.buttonCallback);
 			}
 		}
 	}
 
-	// Token: 0x170008F1 RID: 2289
-	// (get) Token: 0x06002705 RID: 9989 RVA: 0x00098930 File Offset: 0x00096B30
-	// (set) Token: 0x06002706 RID: 9990 RVA: 0x00098938 File Offset: 0x00096B38
+	// Token: 0x17000957 RID: 2391
+	// (get) Token: 0x06002A8F RID: 10895 RVA: 0x0009E7F4 File Offset: 0x0009C9F4
+	// (set) Token: 0x06002A90 RID: 10896 RVA: 0x0009E7FC File Offset: 0x0009C9FC
 	internal bool inventoryHide
 	{
 		get
@@ -655,7 +655,7 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002707 RID: 9991 RVA: 0x00098978 File Offset: 0x00096B78
+	// Token: 0x06002A91 RID: 10897 RVA: 0x0009E83C File Offset: 0x0009CA3C
 	internal void zzz___INTERNAL_FOCUS()
 	{
 		if (!this.showWithRPOS)
@@ -665,8 +665,8 @@ public class RPOSWindow : MonoBehaviour
 		this.BringToFront();
 	}
 
-	// Token: 0x170008F2 RID: 2290
-	// (get) Token: 0x06002708 RID: 9992 RVA: 0x00098994 File Offset: 0x00096B94
+	// Token: 0x17000958 RID: 2392
+	// (get) Token: 0x06002A92 RID: 10898 RVA: 0x0009E858 File Offset: 0x0009CA58
 	public Vector4 windowDimensions
 	{
 		get
@@ -675,9 +675,9 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F3 RID: 2291
-	// (get) Token: 0x06002709 RID: 9993 RVA: 0x0009899C File Offset: 0x00096B9C
-	public UIWidget.Pivot shrinkPivot
+	// Token: 0x17000959 RID: 2393
+	// (get) Token: 0x06002A93 RID: 10899 RVA: 0x0009E860 File Offset: 0x0009CA60
+	public global::UIWidget.Pivot shrinkPivot
 	{
 		get
 		{
@@ -685,10 +685,10 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F4 RID: 2292
-	// (get) Token: 0x0600270A RID: 9994 RVA: 0x000989A4 File Offset: 0x00096BA4
-	// (set) Token: 0x0600270B RID: 9995 RVA: 0x000989AC File Offset: 0x00096BAC
-	public UILabel titleObj
+	// Token: 0x1700095A RID: 2394
+	// (get) Token: 0x06002A94 RID: 10900 RVA: 0x0009E868 File Offset: 0x0009CA68
+	// (set) Token: 0x06002A95 RID: 10901 RVA: 0x0009E870 File Offset: 0x0009CA70
+	public global::UILabel titleObj
 	{
 		get
 		{
@@ -700,10 +700,10 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F5 RID: 2293
-	// (get) Token: 0x0600270C RID: 9996 RVA: 0x000989B8 File Offset: 0x00096BB8
-	// (set) Token: 0x0600270D RID: 9997 RVA: 0x000989C0 File Offset: 0x00096BC0
-	public UIButton closeButton
+	// Token: 0x1700095B RID: 2395
+	// (get) Token: 0x06002A96 RID: 10902 RVA: 0x0009E87C File Offset: 0x0009CA7C
+	// (set) Token: 0x06002A97 RID: 10903 RVA: 0x0009E884 File Offset: 0x0009CA84
+	public global::UIButton closeButton
 	{
 		get
 		{
@@ -715,10 +715,10 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F6 RID: 2294
-	// (get) Token: 0x0600270E RID: 9998 RVA: 0x000989CC File Offset: 0x00096BCC
-	// (set) Token: 0x0600270F RID: 9999 RVA: 0x000989D4 File Offset: 0x00096BD4
-	public UIPanel mainPanel
+	// Token: 0x1700095C RID: 2396
+	// (get) Token: 0x06002A98 RID: 10904 RVA: 0x0009E890 File Offset: 0x0009CA90
+	// (set) Token: 0x06002A99 RID: 10905 RVA: 0x0009E898 File Offset: 0x0009CA98
+	public global::UIPanel mainPanel
 	{
 		get
 		{
@@ -730,9 +730,9 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F7 RID: 2295
-	// (get) Token: 0x06002710 RID: 10000 RVA: 0x000989E0 File Offset: 0x00096BE0
-	// (set) Token: 0x06002711 RID: 10001 RVA: 0x000989E8 File Offset: 0x00096BE8
+	// Token: 0x1700095D RID: 2397
+	// (get) Token: 0x06002A9A RID: 10906 RVA: 0x0009E8A4 File Offset: 0x0009CAA4
+	// (set) Token: 0x06002A9B RID: 10907 RVA: 0x0009E8AC File Offset: 0x0009CAAC
 	public GameObject background
 	{
 		get
@@ -745,9 +745,9 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F8 RID: 2296
-	// (get) Token: 0x06002712 RID: 10002 RVA: 0x000989F4 File Offset: 0x00096BF4
-	// (set) Token: 0x06002713 RID: 10003 RVA: 0x000989FC File Offset: 0x00096BFC
+	// Token: 0x1700095E RID: 2398
+	// (get) Token: 0x06002A9C RID: 10908 RVA: 0x0009E8B8 File Offset: 0x0009CAB8
+	// (set) Token: 0x06002A9D RID: 10909 RVA: 0x0009E8C0 File Offset: 0x0009CAC0
 	public GameObject dragger
 	{
 		get
@@ -760,8 +760,8 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008F9 RID: 2297
-	// (get) Token: 0x06002714 RID: 10004 RVA: 0x00098A08 File Offset: 0x00096C08
+	// Token: 0x1700095F RID: 2399
+	// (get) Token: 0x06002A9E RID: 10910 RVA: 0x0009E8CC File Offset: 0x0009CACC
 	public bool open
 	{
 		get
@@ -770,8 +770,8 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008FA RID: 2298
-	// (get) Token: 0x06002715 RID: 10005 RVA: 0x00098A24 File Offset: 0x00096C24
+	// Token: 0x17000960 RID: 2400
+	// (get) Token: 0x06002A9F RID: 10911 RVA: 0x0009E8E8 File Offset: 0x0009CAE8
 	public bool closed
 	{
 		get
@@ -780,8 +780,8 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008FB RID: 2299
-	// (get) Token: 0x06002716 RID: 10006 RVA: 0x00098A40 File Offset: 0x00096C40
+	// Token: 0x17000961 RID: 2401
+	// (get) Token: 0x06002AA0 RID: 10912 RVA: 0x0009E904 File Offset: 0x0009CB04
 	public bool showing
 	{
 		get
@@ -790,9 +790,9 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008FC RID: 2300
-	// (get) Token: 0x06002717 RID: 10007 RVA: 0x00098A48 File Offset: 0x00096C48
-	// (set) Token: 0x06002718 RID: 10008 RVA: 0x00098A60 File Offset: 0x00096C60
+	// Token: 0x17000962 RID: 2402
+	// (get) Token: 0x06002AA1 RID: 10913 RVA: 0x0009E90C File Offset: 0x0009CB0C
+	// (set) Token: 0x06002AA2 RID: 10914 RVA: 0x0009E924 File Offset: 0x0009CB24
 	public bool showWithRPOS
 	{
 		get
@@ -809,19 +809,19 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008FD RID: 2301
-	// (get) Token: 0x06002719 RID: 10009 RVA: 0x00098A7C File Offset: 0x00096C7C
+	// Token: 0x17000963 RID: 2403
+	// (get) Token: 0x06002AA3 RID: 10915 RVA: 0x0009E940 File Offset: 0x0009CB40
 	public bool showingWithRPOS
 	{
 		get
 		{
-			return this._showing && RPOS.IsOpen;
+			return this._showing && global::RPOS.IsOpen;
 		}
 	}
 
-	// Token: 0x170008FE RID: 2302
-	// (get) Token: 0x0600271A RID: 10010 RVA: 0x00098A94 File Offset: 0x00096C94
-	// (set) Token: 0x0600271B RID: 10011 RVA: 0x00098AAC File Offset: 0x00096CAC
+	// Token: 0x17000964 RID: 2404
+	// (get) Token: 0x06002AA4 RID: 10916 RVA: 0x0009E958 File Offset: 0x0009CB58
+	// (set) Token: 0x06002AA5 RID: 10917 RVA: 0x0009E970 File Offset: 0x0009CB70
 	public bool showWithoutRPOS
 	{
 		get
@@ -838,19 +838,19 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170008FF RID: 2303
-	// (get) Token: 0x0600271C RID: 10012 RVA: 0x00098AC8 File Offset: 0x00096CC8
+	// Token: 0x17000965 RID: 2405
+	// (get) Token: 0x06002AA6 RID: 10918 RVA: 0x0009E98C File Offset: 0x0009CB8C
 	public bool showingWithoutRPOS
 	{
 		get
 		{
-			return this._showing && !RPOS.IsOpen;
+			return this._showing && !global::RPOS.IsOpen;
 		}
 	}
 
-	// Token: 0x17000900 RID: 2304
-	// (get) Token: 0x0600271D RID: 10013 RVA: 0x00098AE0 File Offset: 0x00096CE0
-	// (set) Token: 0x0600271E RID: 10014 RVA: 0x00098AE8 File Offset: 0x00096CE8
+	// Token: 0x17000966 RID: 2406
+	// (get) Token: 0x06002AA7 RID: 10919 RVA: 0x0009E9A4 File Offset: 0x0009CBA4
+	// (set) Token: 0x06002AA8 RID: 10920 RVA: 0x0009E9AC File Offset: 0x0009CBAC
 	public string title
 	{
 		get
@@ -866,8 +866,8 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000901 RID: 2305
-	// (get) Token: 0x0600271F RID: 10015 RVA: 0x00098B08 File Offset: 0x00096D08
+	// Token: 0x17000967 RID: 2407
+	// (get) Token: 0x06002AA9 RID: 10921 RVA: 0x0009E9CC File Offset: 0x0009CBCC
 	public bool ready
 	{
 		get
@@ -876,8 +876,8 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000902 RID: 2306
-	// (get) Token: 0x06002720 RID: 10016 RVA: 0x00098B18 File Offset: 0x00096D18
+	// Token: 0x17000968 RID: 2408
+	// (get) Token: 0x06002AAA RID: 10922 RVA: 0x0009E9DC File Offset: 0x0009CBDC
 	public int numBelow
 	{
 		get
@@ -886,18 +886,18 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000903 RID: 2307
-	// (get) Token: 0x06002721 RID: 10017 RVA: 0x00098B20 File Offset: 0x00096D20
+	// Token: 0x17000969 RID: 2409
+	// (get) Token: 0x06002AAB RID: 10923 RVA: 0x0009E9E4 File Offset: 0x0009CBE4
 	public int numAbove
 	{
 		get
 		{
-			return RPOS.WindowCount - (this.order + 1);
+			return global::RPOS.WindowCount - (this.order + 1);
 		}
 	}
 
-	// Token: 0x17000904 RID: 2308
-	// (get) Token: 0x06002722 RID: 10018 RVA: 0x00098B30 File Offset: 0x00096D30
+	// Token: 0x1700096A RID: 2410
+	// (get) Token: 0x06002AAC RID: 10924 RVA: 0x0009E9F4 File Offset: 0x0009CBF4
 	public int order
 	{
 		get
@@ -910,9 +910,9 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000905 RID: 2309
-	// (get) Token: 0x06002723 RID: 10019 RVA: 0x00098B50 File Offset: 0x00096D50
-	// (set) Token: 0x06002724 RID: 10020 RVA: 0x00098B5C File Offset: 0x00096D5C
+	// Token: 0x1700096B RID: 2411
+	// (get) Token: 0x06002AAD RID: 10925 RVA: 0x0009EA14 File Offset: 0x0009CC14
+	// (set) Token: 0x06002AAE RID: 10926 RVA: 0x0009EA20 File Offset: 0x0009CC20
 	public bool bumpersEnabled
 	{
 		get
@@ -925,8 +925,8 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000906 RID: 2310
-	// (get) Token: 0x06002725 RID: 10021 RVA: 0x00098B68 File Offset: 0x00096D68
+	// Token: 0x1700096C RID: 2412
+	// (get) Token: 0x06002AAF RID: 10927 RVA: 0x0009EA2C File Offset: 0x0009CC2C
 	public bool isInventoryRelated
 	{
 		get
@@ -935,85 +935,85 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002726 RID: 10022 RVA: 0x00098B70 File Offset: 0x00096D70
+	// Token: 0x06002AB0 RID: 10928 RVA: 0x0009EA34 File Offset: 0x0009CC34
 	public bool BringToFront()
 	{
-		return RPOS.BringToFront(this);
+		return global::RPOS.BringToFront(this);
 	}
 
-	// Token: 0x06002727 RID: 10023 RVA: 0x00098B78 File Offset: 0x00096D78
+	// Token: 0x06002AB1 RID: 10929 RVA: 0x0009EA3C File Offset: 0x0009CC3C
 	public bool SendToBack()
 	{
-		return RPOS.SendToBack(this);
+		return global::RPOS.SendToBack(this);
 	}
 
-	// Token: 0x06002728 RID: 10024 RVA: 0x00098B80 File Offset: 0x00096D80
+	// Token: 0x06002AB2 RID: 10930 RVA: 0x0009EA44 File Offset: 0x0009CC44
 	public bool MoveUp()
 	{
-		RPOSWindow.EnsureAwake(this);
-		return RPOS.MoveUp(this);
+		global::RPOSWindow.EnsureAwake(this);
+		return global::RPOS.MoveUp(this);
 	}
 
-	// Token: 0x06002729 RID: 10025 RVA: 0x00098B90 File Offset: 0x00096D90
+	// Token: 0x06002AB3 RID: 10931 RVA: 0x0009EA54 File Offset: 0x0009CC54
 	public bool MoveDown()
 	{
-		RPOSWindow.EnsureAwake(this);
-		return RPOS.MoveDown(this);
+		global::RPOSWindow.EnsureAwake(this);
+		return global::RPOS.MoveDown(this);
 	}
 
-	// Token: 0x0600272A RID: 10026 RVA: 0x00098BA0 File Offset: 0x00096DA0
-	public bool IsAbove(RPOSWindow window)
+	// Token: 0x06002AB4 RID: 10932 RVA: 0x0009EA64 File Offset: 0x0009CC64
+	public bool IsAbove(global::RPOSWindow window)
 	{
 		return window.order < this.order;
 	}
 
-	// Token: 0x0600272B RID: 10027 RVA: 0x00098BB0 File Offset: 0x00096DB0
-	public bool IsBelow(RPOSWindow window)
+	// Token: 0x06002AB5 RID: 10933 RVA: 0x0009EA74 File Offset: 0x0009CC74
+	public bool IsBelow(global::RPOSWindow window)
 	{
 		return window.order > this.order;
 	}
 
-	// Token: 0x17000907 RID: 2311
-	// (get) Token: 0x0600272C RID: 10028 RVA: 0x00098BC0 File Offset: 0x00096DC0
-	public RPOSWindow prevWindow
+	// Token: 0x1700096D RID: 2413
+	// (get) Token: 0x06002AB6 RID: 10934 RVA: 0x0009EA84 File Offset: 0x0009CC84
+	public global::RPOSWindow prevWindow
 	{
 		get
 		{
-			return RPOS.GetWindowBelow(this);
+			return global::RPOS.GetWindowBelow(this);
 		}
 	}
 
-	// Token: 0x17000908 RID: 2312
-	// (get) Token: 0x0600272D RID: 10029 RVA: 0x00098BC8 File Offset: 0x00096DC8
-	public RPOSWindow nextWindow
+	// Token: 0x1700096E RID: 2414
+	// (get) Token: 0x06002AB7 RID: 10935 RVA: 0x0009EA8C File Offset: 0x0009CC8C
+	public global::RPOSWindow nextWindow
 	{
 		get
 		{
-			return RPOS.GetWindowAbove(this);
+			return global::RPOS.GetWindowAbove(this);
 		}
 	}
 
-	// Token: 0x0600272E RID: 10030 RVA: 0x00098BD0 File Offset: 0x00096DD0
+	// Token: 0x06002AB8 RID: 10936 RVA: 0x0009EA94 File Offset: 0x0009CC94
 	public void ExternalClose()
 	{
 		this.OnExternalClose();
 	}
 
-	// Token: 0x0600272F RID: 10031 RVA: 0x00098BD8 File Offset: 0x00096DD8
+	// Token: 0x06002AB9 RID: 10937 RVA: 0x0009EA9C File Offset: 0x0009CC9C
 	protected void Hide()
 	{
 		this.showWithRPOS = false;
 		this.showWithoutRPOS = false;
 	}
 
-	// Token: 0x06002730 RID: 10032 RVA: 0x00098BE8 File Offset: 0x00096DE8
+	// Token: 0x06002ABA RID: 10938 RVA: 0x0009EAAC File Offset: 0x0009CCAC
 	protected void SetWindowTitle(string title)
 	{
 		this.TitleText = title;
 		this._titleObj.text = title.ToUpper();
 		if (this.bumpers != null)
 		{
-			foreach (RPOSBumper.Instance instance in this.bumpers)
+			foreach (global::RPOSBumper.Instance instance in this.bumpers)
 			{
 				if (instance.label)
 				{
@@ -1023,64 +1023,64 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002731 RID: 10033 RVA: 0x00098C8C File Offset: 0x00096E8C
+	// Token: 0x06002ABB RID: 10939 RVA: 0x0009EB50 File Offset: 0x0009CD50
 	public void OnScroll(float delta)
 	{
 		Debug.Log("fuck you" + delta);
 	}
 
-	// Token: 0x06002732 RID: 10034 RVA: 0x00098CA4 File Offset: 0x00096EA4
+	// Token: 0x06002ABC RID: 10940 RVA: 0x0009EB68 File Offset: 0x0009CD68
 	protected virtual void WindowAwake()
 	{
 		this.SetWindowTitle(this.TitleText);
 	}
 
-	// Token: 0x06002733 RID: 10035 RVA: 0x00098CB4 File Offset: 0x00096EB4
+	// Token: 0x06002ABD RID: 10941 RVA: 0x0009EB78 File Offset: 0x0009CD78
 	protected virtual void WindowDestroy()
 	{
 	}
 
-	// Token: 0x06002734 RID: 10036 RVA: 0x00098CB8 File Offset: 0x00096EB8
+	// Token: 0x06002ABE RID: 10942 RVA: 0x0009EB7C File Offset: 0x0009CD7C
 	protected virtual void OnWindowShow()
 	{
 		this.panelsEnabled = true;
 	}
 
-	// Token: 0x06002735 RID: 10037 RVA: 0x00098CC4 File Offset: 0x00096EC4
+	// Token: 0x06002ABF RID: 10943 RVA: 0x0009EB88 File Offset: 0x0009CD88
 	protected virtual void OnWindowHide()
 	{
 		this.panelsEnabled = false;
 	}
 
-	// Token: 0x06002736 RID: 10038 RVA: 0x00098CD0 File Offset: 0x00096ED0
+	// Token: 0x06002AC0 RID: 10944 RVA: 0x0009EB94 File Offset: 0x0009CD94
 	protected virtual void OnWindowOpened()
 	{
 		this.BringToFront();
 	}
 
-	// Token: 0x06002737 RID: 10039 RVA: 0x00098CDC File Offset: 0x00096EDC
+	// Token: 0x06002AC1 RID: 10945 RVA: 0x0009EBA0 File Offset: 0x0009CDA0
 	protected virtual void OnWindowReOpen()
 	{
 		this.OnWindowOpened();
 	}
 
-	// Token: 0x06002738 RID: 10040 RVA: 0x00098CE4 File Offset: 0x00096EE4
+	// Token: 0x06002AC2 RID: 10946 RVA: 0x0009EBA8 File Offset: 0x0009CDA8
 	protected virtual void OnWindowClosed()
 	{
 	}
 
-	// Token: 0x06002739 RID: 10041 RVA: 0x00098CE8 File Offset: 0x00096EE8
+	// Token: 0x06002AC3 RID: 10947 RVA: 0x0009EBAC File Offset: 0x0009CDAC
 	protected virtual void OnRPOSClosed()
 	{
 	}
 
-	// Token: 0x0600273A RID: 10042 RVA: 0x00098CEC File Offset: 0x00096EEC
+	// Token: 0x06002AC4 RID: 10948 RVA: 0x0009EBB0 File Offset: 0x0009CDB0
 	protected virtual void OnRPOSOpened()
 	{
 	}
 
-	// Token: 0x0600273B RID: 10043 RVA: 0x00098CF0 File Offset: 0x00096EF0
-	protected virtual void OnBumperClick(RPOSBumper.Instance bumper)
+	// Token: 0x06002AC5 RID: 10949 RVA: 0x0009EBB4 File Offset: 0x0009CDB4
+	protected virtual void OnBumperClick(global::RPOSBumper.Instance bumper)
 	{
 		if (!this.bumpersDisabled)
 		{
@@ -1092,55 +1092,55 @@ public class RPOSWindow : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600273C RID: 10044 RVA: 0x00098D2C File Offset: 0x00096F2C
-	protected virtual void SubTouch(GameObject go, RPOSWindow.SubTouchKind kind)
+	// Token: 0x06002AC6 RID: 10950 RVA: 0x0009EBF0 File Offset: 0x0009CDF0
+	protected virtual void SubTouch(GameObject go, global::RPOSWindow.SubTouchKind kind)
 	{
 		switch (kind)
 		{
-		case RPOSWindow.SubTouchKind.Press:
+		case global::RPOSWindow.SubTouchKind.Press:
 			if (go == this._dragger || go == this._background)
 			{
 				this.BringToFront();
 			}
 			break;
-		case RPOSWindow.SubTouchKind.Click:
-		case RPOSWindow.SubTouchKind.ClickCancel:
+		case global::RPOSWindow.SubTouchKind.Click:
+		case global::RPOSWindow.SubTouchKind.ClickCancel:
 			this.BringToFront();
 			break;
 		}
 	}
 
-	// Token: 0x0600273D RID: 10045 RVA: 0x00098D8C File Offset: 0x00096F8C
+	// Token: 0x06002AC7 RID: 10951 RVA: 0x0009EC50 File Offset: 0x0009CE50
 	protected virtual void OnExternalClose()
 	{
 		this.HideOrClose(this.hidesWithExternalClose);
 	}
 
-	// Token: 0x0600273E RID: 10046 RVA: 0x00098D9C File Offset: 0x00096F9C
+	// Token: 0x06002AC8 RID: 10952 RVA: 0x0009EC60 File Offset: 0x0009CE60
 	protected virtual void CloseButtonClicked()
 	{
 		this.HideOrClose(this.hidesWithCloseButton);
 	}
 
-	// Token: 0x0600273F RID: 10047 RVA: 0x00098DAC File Offset: 0x00096FAC
+	// Token: 0x06002AC9 RID: 10953 RVA: 0x0009EC70 File Offset: 0x0009CE70
 	public void MovePixelXY(int x, int y)
 	{
 		base.transform.position = base.transform.TransformPoint((float)x, (float)y, 0f);
 	}
 
-	// Token: 0x06002740 RID: 10048 RVA: 0x00098DD8 File Offset: 0x00096FD8
+	// Token: 0x06002ACA RID: 10954 RVA: 0x0009EC9C File Offset: 0x0009CE9C
 	public void MovePixelX(int x)
 	{
 		this.MovePixelXY(x, 0);
 	}
 
-	// Token: 0x06002741 RID: 10049 RVA: 0x00098DE4 File Offset: 0x00096FE4
+	// Token: 0x06002ACB RID: 10955 RVA: 0x0009ECA8 File Offset: 0x0009CEA8
 	public void MovePixelY(int y)
 	{
 		this.MovePixelXY(0, y);
 	}
 
-	// Token: 0x06002742 RID: 10050 RVA: 0x00098DF0 File Offset: 0x00096FF0
+	// Token: 0x06002ACC RID: 10956 RVA: 0x0009ECB4 File Offset: 0x0009CEB4
 	protected void OnDrawGizmosSelected()
 	{
 		Matrix4x4 matrix = Gizmos.matrix;
@@ -1149,143 +1149,143 @@ public class RPOSWindow : MonoBehaviour
 		Gizmos.matrix = matrix;
 	}
 
-	// Token: 0x04001317 RID: 4887
-	private RPOSWindowMessageCenter messageCenter;
+	// Token: 0x04001497 RID: 5271
+	private global::RPOSWindowMessageCenter messageCenter;
 
-	// Token: 0x04001318 RID: 4888
-	private readonly UIEventListener.VoidDelegate buttonCallback;
+	// Token: 0x04001498 RID: 5272
+	private readonly global::UIEventListener.VoidDelegate buttonCallback;
 
-	// Token: 0x04001319 RID: 4889
-	private List<RPOSBumper.Instance> bumpers;
+	// Token: 0x04001499 RID: 5273
+	private List<global::RPOSBumper.Instance> bumpers;
 
-	// Token: 0x0400131A RID: 4890
-	private UIEventListener closeButtonListener;
+	// Token: 0x0400149A RID: 5274
+	private global::UIEventListener closeButtonListener;
 
-	// Token: 0x0400131B RID: 4891
+	// Token: 0x0400149B RID: 5275
 	[Obsolete("RPOS ONLY")]
 	internal int zzz__index = -1;
 
-	// Token: 0x0400131C RID: 4892
+	// Token: 0x0400149C RID: 5276
 	private bool _showWithRPOS;
 
-	// Token: 0x0400131D RID: 4893
+	// Token: 0x0400149D RID: 5277
 	private bool _showWithoutRPOS;
 
-	// Token: 0x0400131E RID: 4894
+	// Token: 0x0400149E RID: 5278
 	private bool _forceHide;
 
-	// Token: 0x0400131F RID: 4895
+	// Token: 0x0400149F RID: 5279
 	private bool _showing;
 
-	// Token: 0x04001320 RID: 4896
+	// Token: 0x040014A0 RID: 5280
 	private bool _opened;
 
-	// Token: 0x04001321 RID: 4897
+	// Token: 0x040014A1 RID: 5281
 	private bool _closed;
 
-	// Token: 0x04001322 RID: 4898
+	// Token: 0x040014A2 RID: 5282
 	private bool _awake;
 
-	// Token: 0x04001323 RID: 4899
+	// Token: 0x040014A3 RID: 5283
 	private bool _destroyed;
 
-	// Token: 0x04001324 RID: 4900
+	// Token: 0x040014A4 RID: 5284
 	private bool _destroyAfterAwake;
 
-	// Token: 0x04001325 RID: 4901
+	// Token: 0x040014A5 RID: 5285
 	private bool _inventoryHide;
 
-	// Token: 0x04001326 RID: 4902
+	// Token: 0x040014A6 RID: 5286
 	private bool _lock_awake;
 
-	// Token: 0x04001327 RID: 4903
+	// Token: 0x040014A7 RID: 5287
 	private bool _lock_open;
 
-	// Token: 0x04001328 RID: 4904
+	// Token: 0x040014A8 RID: 5288
 	private bool _lock_close;
 
-	// Token: 0x04001329 RID: 4905
+	// Token: 0x040014A9 RID: 5289
 	private bool _lock_show;
 
-	// Token: 0x0400132A RID: 4906
+	// Token: 0x040014AA RID: 5290
 	private bool _lock_destroy;
 
-	// Token: 0x0400132B RID: 4907
+	// Token: 0x040014AB RID: 5291
 	protected bool neverAutoShow;
 
-	// Token: 0x0400132C RID: 4908
+	// Token: 0x040014AC RID: 5292
 	[SerializeField]
-	private UILabel _titleObj;
+	private global::UILabel _titleObj;
 
-	// Token: 0x0400132D RID: 4909
+	// Token: 0x040014AD RID: 5293
 	[SerializeField]
-	private UIButton _closeButton;
+	private global::UIButton _closeButton;
 
-	// Token: 0x0400132E RID: 4910
+	// Token: 0x040014AE RID: 5294
 	[SerializeField]
-	private UIPanel _myPanel;
+	private global::UIPanel _myPanel;
 
-	// Token: 0x0400132F RID: 4911
+	// Token: 0x040014AF RID: 5295
 	[SerializeField]
 	private GameObject _background;
 
-	// Token: 0x04001330 RID: 4912
+	// Token: 0x040014B0 RID: 5296
 	[SerializeField]
 	private GameObject _dragger;
 
-	// Token: 0x04001331 RID: 4913
+	// Token: 0x040014B1 RID: 5297
 	[SerializeField]
 	private string TitleText;
 
-	// Token: 0x04001332 RID: 4914
+	// Token: 0x040014B2 RID: 5298
 	[SerializeField]
 	protected bool autoShowWithRPOS;
 
-	// Token: 0x04001333 RID: 4915
+	// Token: 0x040014B3 RID: 5299
 	[SerializeField]
 	protected bool autoShowWithoutRPOS;
 
-	// Token: 0x04001334 RID: 4916
+	// Token: 0x040014B4 RID: 5300
 	[SerializeField]
 	protected bool hidesWithCloseButton;
 
-	// Token: 0x04001335 RID: 4917
+	// Token: 0x040014B5 RID: 5301
 	[SerializeField]
 	protected bool hidesWithExternalClose;
 
-	// Token: 0x04001336 RID: 4918
+	// Token: 0x040014B6 RID: 5302
 	[SerializeField]
 	protected bool destroyWithClose;
 
-	// Token: 0x04001337 RID: 4919
+	// Token: 0x040014B7 RID: 5303
 	[SerializeField]
-	protected UIPanel[] childPanels;
+	protected global::UIPanel[] childPanels;
 
-	// Token: 0x04001338 RID: 4920
+	// Token: 0x040014B8 RID: 5304
 	[SerializeField]
 	private bool _isInventoryRelated;
 
-	// Token: 0x04001339 RID: 4921
+	// Token: 0x040014B9 RID: 5305
 	[SerializeField]
-	private UIWidget.Pivot _shrinkPivot = UIWidget.Pivot.Center;
+	private global::UIWidget.Pivot _shrinkPivot = global::UIWidget.Pivot.Center;
 
-	// Token: 0x0400133A RID: 4922
+	// Token: 0x040014BA RID: 5306
 	[SerializeField]
 	private Vector4 _windowDimensions = new Vector4(0f, 0f, 128f, 32f);
 
-	// Token: 0x0400133B RID: 4923
+	// Token: 0x040014BB RID: 5307
 	private bool bumpersDisabled;
 
-	// Token: 0x0200041D RID: 1053
+	// Token: 0x020004D2 RID: 1234
 	protected enum SubTouchKind
 	{
-		// Token: 0x0400133D RID: 4925
+		// Token: 0x040014BD RID: 5309
 		Press,
-		// Token: 0x0400133E RID: 4926
+		// Token: 0x040014BE RID: 5310
 		Click,
-		// Token: 0x0400133F RID: 4927
+		// Token: 0x040014BF RID: 5311
 		ClickCancel,
-		// Token: 0x04001340 RID: 4928
+		// Token: 0x040014C0 RID: 5312
 		Release
 	}
 }

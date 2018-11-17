@@ -2,34 +2,34 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000592 RID: 1426
-public class StructureComponentDataBlock : HeldItemDataBlock
+// Token: 0x02000650 RID: 1616
+public class StructureComponentDataBlock : global::HeldItemDataBlock
 {
-	// Token: 0x060032B4 RID: 12980 RVA: 0x000BD524 File Offset: 0x000BB724
-	protected override IInventoryItem ConstructItem()
+	// Token: 0x0600367C RID: 13948 RVA: 0x000C5780 File Offset: 0x000C3980
+	protected override global::IInventoryItem ConstructItem()
 	{
-		return new StructureComponentDataBlock.ITEM_TYPE(this);
+		return new global::StructureComponentDataBlock.ITEM_TYPE(this);
 	}
 
-	// Token: 0x17000A3E RID: 2622
-	// (get) Token: 0x060032B5 RID: 12981 RVA: 0x000BD52C File Offset: 0x000BB72C
-	public StructureComponent structureToPlacePrefab
+	// Token: 0x17000AB4 RID: 2740
+	// (get) Token: 0x0600367D RID: 13949 RVA: 0x000C5788 File Offset: 0x000C3988
+	public global::StructureComponent structureToPlacePrefab
 	{
 		get
 		{
 			if (!this._loadedStructureToPlace && Application.isPlaying)
 			{
-				NetCull.LoadPrefabScript<StructureComponent>(this.structureToPlaceName, out this._structureToPlace);
+				global::NetCull.LoadPrefabScript<global::StructureComponent>(this.structureToPlaceName, out this._structureToPlace);
 				this._loadedStructureToPlace = true;
 			}
 			return this._structureToPlace;
 		}
 	}
 
-	// Token: 0x060032B6 RID: 12982 RVA: 0x000BD570 File Offset: 0x000BB770
+	// Token: 0x0600367E RID: 13950 RVA: 0x000C57CC File Offset: 0x000C39CC
 	public bool MasterFromRay(Ray ray)
 	{
-		foreach (StructureMaster structureMaster in StructureMaster.RayTestStructures(ray))
+		foreach (global::StructureMaster structureMaster in global::StructureMaster.RayTestStructures(ray))
 		{
 			if (structureMaster)
 			{
@@ -39,10 +39,10 @@ public class StructureComponentDataBlock : HeldItemDataBlock
 		return false;
 	}
 
-	// Token: 0x060032B7 RID: 12983 RVA: 0x000BD5AC File Offset: 0x000BB7AC
+	// Token: 0x0600367F RID: 13951 RVA: 0x000C5808 File Offset: 0x000C3A08
 	public bool CheckBlockers(Vector3 pos)
 	{
-		if (this._structureToPlace.type == StructureComponent.StructureComponentType.Foundation)
+		if (this._structureToPlace.type == global::StructureComponent.StructureComponentType.Foundation)
 		{
 			Collider[] array = Physics.OverlapSphere(pos, 12f, 271975425);
 			foreach (Collider collider in array)
@@ -50,47 +50,47 @@ public class StructureComponentDataBlock : HeldItemDataBlock
 				IDMain main = IDBase.GetMain(collider.gameObject);
 				if (main)
 				{
-					float num = TransformHelpers.Dist2D(main.transform.position, pos);
-					if (main.GetComponent<SpikeWall>() && num < 5f)
+					float num = global::TransformHelpers.Dist2D(main.transform.position, pos);
+					if (main.GetComponent<global::SpikeWall>() && num < 5f)
 					{
 						return false;
 					}
 				}
 			}
 		}
-		return NoPlacementZone.ValidPos(pos);
+		return global::NoPlacementZone.ValidPos(pos);
 	}
 
-	// Token: 0x060032B8 RID: 12984 RVA: 0x000BD650 File Offset: 0x000BB850
-	public override void DoAction1(BitStream stream, ItemRepresentation rep, ref NetworkMessageInfo info)
+	// Token: 0x06003680 RID: 13952 RVA: 0x000C58AC File Offset: 0x000C3AAC
+	public override void DoAction1(BitStream stream, global::ItemRepresentation rep, ref uLink.NetworkMessageInfo info)
 	{
 	}
 
-	// Token: 0x040019FA RID: 6650
+	// Token: 0x04001BCB RID: 7115
 	public string structureToPlaceName;
 
-	// Token: 0x040019FB RID: 6651
+	// Token: 0x04001BCC RID: 7116
 	[NonSerialized]
-	private StructureComponent _structureToPlace;
+	private global::StructureComponent _structureToPlace;
 
-	// Token: 0x040019FC RID: 6652
+	// Token: 0x04001BCD RID: 7117
 	[NonSerialized]
 	private bool _loadedStructureToPlace;
 
-	// Token: 0x040019FD RID: 6653
+	// Token: 0x04001BCE RID: 7118
 	public Material overrideMat;
 
-	// Token: 0x02000593 RID: 1427
-	private sealed class ITEM_TYPE : StructureComponentItem<StructureComponentDataBlock>, IHeldItem, IInventoryItem, IStructureComponentItem
+	// Token: 0x02000651 RID: 1617
+	private sealed class ITEM_TYPE : global::StructureComponentItem<global::StructureComponentDataBlock>, global::IHeldItem, global::IInventoryItem, global::IStructureComponentItem
 	{
-		// Token: 0x060032B9 RID: 12985 RVA: 0x000BD654 File Offset: 0x000BB854
-		public ITEM_TYPE(StructureComponentDataBlock BLOCK) : base(BLOCK)
+		// Token: 0x06003681 RID: 13953 RVA: 0x000C58B0 File Offset: 0x000C3AB0
+		public ITEM_TYPE(global::StructureComponentDataBlock BLOCK) : base(BLOCK)
 		{
 		}
 
-		// Token: 0x17000A3F RID: 2623
-		// (get) Token: 0x060032BA RID: 12986 RVA: 0x000BD660 File Offset: 0x000BB860
-		ItemDataBlock IInventoryItem.datablock
+		// Token: 0x17000AB5 RID: 2741
+		// (get) Token: 0x06003682 RID: 13954 RVA: 0x000C58BC File Offset: 0x000C3ABC
+		global::ItemDataBlock global::IInventoryItem.datablock
 		{
 			get
 			{
@@ -98,259 +98,259 @@ public class StructureComponentDataBlock : HeldItemDataBlock
 			}
 		}
 
-		// Token: 0x060032BB RID: 12987 RVA: 0x000BD668 File Offset: 0x000BB868
+		// Token: 0x06003683 RID: 13955 RVA: 0x000C58C4 File Offset: 0x000C3AC4
 		void SetTotalModSlotCount(int count)
 		{
 			base.SetTotalModSlotCount(count);
 		}
 
-		// Token: 0x060032BC RID: 12988 RVA: 0x000BD674 File Offset: 0x000BB874
+		// Token: 0x06003684 RID: 13956 RVA: 0x000C58D0 File Offset: 0x000C3AD0
 		void SetUsedModSlotCount(int count)
 		{
 			base.SetUsedModSlotCount(count);
 		}
 
-		// Token: 0x060032BD RID: 12989 RVA: 0x000BD680 File Offset: 0x000BB880
-		void AddMod(ItemModDataBlock mod)
+		// Token: 0x06003685 RID: 13957 RVA: 0x000C58DC File Offset: 0x000C3ADC
+		void AddMod(global::ItemModDataBlock mod)
 		{
 			base.AddMod(mod);
 		}
 
-		// Token: 0x060032BE RID: 12990 RVA: 0x000BD68C File Offset: 0x000BB88C
-		int FindMod(ItemModDataBlock mod)
+		// Token: 0x06003686 RID: 13958 RVA: 0x000C58E8 File Offset: 0x000C3AE8
+		int FindMod(global::ItemModDataBlock mod)
 		{
 			return base.FindMod(mod);
 		}
 
-		// Token: 0x060032BF RID: 12991 RVA: 0x000BD698 File Offset: 0x000BB898
+		// Token: 0x06003687 RID: 13959 RVA: 0x000C58F4 File Offset: 0x000C3AF4
 		void OnActivate()
 		{
 			base.OnActivate();
 		}
 
-		// Token: 0x060032C0 RID: 12992 RVA: 0x000BD6A0 File Offset: 0x000BB8A0
+		// Token: 0x06003688 RID: 13960 RVA: 0x000C58FC File Offset: 0x000C3AFC
 		void OnDeactivate()
 		{
 			base.OnDeactivate();
 		}
 
-		// Token: 0x060032C1 RID: 12993 RVA: 0x000BD6A8 File Offset: 0x000BB8A8
-		ViewModel get_viewModelInstance()
+		// Token: 0x06003689 RID: 13961 RVA: 0x000C5904 File Offset: 0x000C3B04
+		global::ViewModel get_viewModelInstance()
 		{
 			return base.viewModelInstance;
 		}
 
-		// Token: 0x060032C2 RID: 12994 RVA: 0x000BD6B0 File Offset: 0x000BB8B0
-		ItemRepresentation get_itemRepresentation()
+		// Token: 0x0600368A RID: 13962 RVA: 0x000C590C File Offset: 0x000C3B0C
+		global::ItemRepresentation get_itemRepresentation()
 		{
 			return base.itemRepresentation;
 		}
 
-		// Token: 0x060032C3 RID: 12995 RVA: 0x000BD6B8 File Offset: 0x000BB8B8
-		void set_itemRepresentation(ItemRepresentation value)
+		// Token: 0x0600368B RID: 13963 RVA: 0x000C5914 File Offset: 0x000C3B14
+		void set_itemRepresentation(global::ItemRepresentation value)
 		{
 			base.itemRepresentation = value;
 		}
 
-		// Token: 0x060032C4 RID: 12996 RVA: 0x000BD6C4 File Offset: 0x000BB8C4
+		// Token: 0x0600368C RID: 13964 RVA: 0x000C5920 File Offset: 0x000C3B20
 		bool get_canActivate()
 		{
 			return base.canActivate;
 		}
 
-		// Token: 0x060032C5 RID: 12997 RVA: 0x000BD6CC File Offset: 0x000BB8CC
+		// Token: 0x0600368D RID: 13965 RVA: 0x000C5928 File Offset: 0x000C3B28
 		bool get_canDeactivate()
 		{
 			return base.canDeactivate;
 		}
 
-		// Token: 0x060032C6 RID: 12998 RVA: 0x000BD6D4 File Offset: 0x000BB8D4
-		ItemModFlags get_modFlags()
+		// Token: 0x0600368E RID: 13966 RVA: 0x000C5930 File Offset: 0x000C3B30
+		global::ItemModFlags get_modFlags()
 		{
 			return base.modFlags;
 		}
 
-		// Token: 0x060032C7 RID: 12999 RVA: 0x000BD6DC File Offset: 0x000BB8DC
-		ItemModDataBlock[] get_itemMods()
+		// Token: 0x0600368F RID: 13967 RVA: 0x000C5938 File Offset: 0x000C3B38
+		global::ItemModDataBlock[] get_itemMods()
 		{
 			return base.itemMods;
 		}
 
-		// Token: 0x060032C8 RID: 13000 RVA: 0x000BD6E4 File Offset: 0x000BB8E4
+		// Token: 0x06003690 RID: 13968 RVA: 0x000C5940 File Offset: 0x000C3B40
 		int get_totalModSlots()
 		{
 			return base.totalModSlots;
 		}
 
-		// Token: 0x060032C9 RID: 13001 RVA: 0x000BD6EC File Offset: 0x000BB8EC
+		// Token: 0x06003691 RID: 13969 RVA: 0x000C5948 File Offset: 0x000C3B48
 		int get_usedModSlots()
 		{
 			return base.usedModSlots;
 		}
 
-		// Token: 0x060032CA RID: 13002 RVA: 0x000BD6F4 File Offset: 0x000BB8F4
+		// Token: 0x06003692 RID: 13970 RVA: 0x000C5950 File Offset: 0x000C3B50
 		int get_freeModSlots()
 		{
 			return base.freeModSlots;
 		}
 
-		// Token: 0x060032CB RID: 13003 RVA: 0x000BD6FC File Offset: 0x000BB8FC
+		// Token: 0x06003693 RID: 13971 RVA: 0x000C5958 File Offset: 0x000C3B58
 		bool IsDamaged()
 		{
 			return base.IsDamaged();
 		}
 
-		// Token: 0x060032CC RID: 13004 RVA: 0x000BD704 File Offset: 0x000BB904
+		// Token: 0x06003694 RID: 13972 RVA: 0x000C5960 File Offset: 0x000C3B60
 		bool IsBroken()
 		{
 			return base.IsBroken();
 		}
 
-		// Token: 0x060032CD RID: 13005 RVA: 0x000BD70C File Offset: 0x000BB90C
+		// Token: 0x06003695 RID: 13973 RVA: 0x000C5968 File Offset: 0x000C3B68
 		float GetConditionPercent()
 		{
 			return base.GetConditionPercent();
 		}
 
-		// Token: 0x060032CE RID: 13006 RVA: 0x000BD714 File Offset: 0x000BB914
+		// Token: 0x06003696 RID: 13974 RVA: 0x000C5970 File Offset: 0x000C3B70
 		int AddUses(int count)
 		{
 			return base.AddUses(count);
 		}
 
-		// Token: 0x060032CF RID: 13007 RVA: 0x000BD720 File Offset: 0x000BB920
+		// Token: 0x06003697 RID: 13975 RVA: 0x000C597C File Offset: 0x000C3B7C
 		void SetUses(int count)
 		{
 			base.SetUses(count);
 		}
 
-		// Token: 0x060032D0 RID: 13008 RVA: 0x000BD72C File Offset: 0x000BB92C
+		// Token: 0x06003698 RID: 13976 RVA: 0x000C5988 File Offset: 0x000C3B88
 		void SetCondition(float condition)
 		{
 			base.SetCondition(condition);
 		}
 
-		// Token: 0x060032D1 RID: 13009 RVA: 0x000BD738 File Offset: 0x000BB938
+		// Token: 0x06003699 RID: 13977 RVA: 0x000C5994 File Offset: 0x000C3B94
 		void SetMaxCondition(float condition)
 		{
 			base.SetMaxCondition(condition);
 		}
 
-		// Token: 0x060032D2 RID: 13010 RVA: 0x000BD744 File Offset: 0x000BB944
+		// Token: 0x0600369A RID: 13978 RVA: 0x000C59A0 File Offset: 0x000C3BA0
 		bool Consume(ref int count)
 		{
 			return base.Consume(ref count);
 		}
 
-		// Token: 0x060032D3 RID: 13011 RVA: 0x000BD750 File Offset: 0x000BB950
+		// Token: 0x0600369B RID: 13979 RVA: 0x000C59AC File Offset: 0x000C3BAC
 		bool TryConditionLoss(float probability, float percentLoss)
 		{
 			return base.TryConditionLoss(probability, percentLoss);
 		}
 
-		// Token: 0x060032D4 RID: 13012 RVA: 0x000BD75C File Offset: 0x000BB95C
+		// Token: 0x0600369C RID: 13980 RVA: 0x000C59B8 File Offset: 0x000C3BB8
 		void Serialize(BitStream stream)
 		{
 			base.Serialize(stream);
 		}
 
-		// Token: 0x060032D5 RID: 13013 RVA: 0x000BD768 File Offset: 0x000BB968
+		// Token: 0x0600369D RID: 13981 RVA: 0x000C59C4 File Offset: 0x000C3BC4
 		void Deserialize(BitStream stream)
 		{
 			base.Deserialize(stream);
 		}
 
-		// Token: 0x060032D6 RID: 13014 RVA: 0x000BD774 File Offset: 0x000BB974
+		// Token: 0x0600369E RID: 13982 RVA: 0x000C59D0 File Offset: 0x000C3BD0
 		bool MarkDirty()
 		{
 			return base.MarkDirty();
 		}
 
-		// Token: 0x060032D7 RID: 13015 RVA: 0x000BD77C File Offset: 0x000BB97C
+		// Token: 0x0600369F RID: 13983 RVA: 0x000C59D8 File Offset: 0x000C3BD8
 		int get_slot()
 		{
 			return base.slot;
 		}
 
-		// Token: 0x060032D8 RID: 13016 RVA: 0x000BD784 File Offset: 0x000BB984
+		// Token: 0x060036A0 RID: 13984 RVA: 0x000C59E0 File Offset: 0x000C3BE0
 		float get_condition()
 		{
 			return base.condition;
 		}
 
-		// Token: 0x060032D9 RID: 13017 RVA: 0x000BD78C File Offset: 0x000BB98C
+		// Token: 0x060036A1 RID: 13985 RVA: 0x000C59E8 File Offset: 0x000C3BE8
 		float get_maxcondition()
 		{
 			return base.maxcondition;
 		}
 
-		// Token: 0x060032DA RID: 13018 RVA: 0x000BD794 File Offset: 0x000BB994
+		// Token: 0x060036A2 RID: 13986 RVA: 0x000C59F0 File Offset: 0x000C3BF0
 		int get_uses()
 		{
 			return base.uses;
 		}
 
-		// Token: 0x060032DB RID: 13019 RVA: 0x000BD79C File Offset: 0x000BB99C
-		Inventory get_inventory()
+		// Token: 0x060036A3 RID: 13987 RVA: 0x000C59F8 File Offset: 0x000C3BF8
+		global::Inventory get_inventory()
 		{
 			return base.inventory;
 		}
 
-		// Token: 0x060032DC RID: 13020 RVA: 0x000BD7A4 File Offset: 0x000BB9A4
+		// Token: 0x060036A4 RID: 13988 RVA: 0x000C5A00 File Offset: 0x000C3C00
 		bool get_dirty()
 		{
 			return base.dirty;
 		}
 
-		// Token: 0x060032DD RID: 13021 RVA: 0x000BD7AC File Offset: 0x000BB9AC
+		// Token: 0x060036A5 RID: 13989 RVA: 0x000C5A08 File Offset: 0x000C3C08
 		float get_lastUseTime()
 		{
 			return base.lastUseTime;
 		}
 
-		// Token: 0x060032DE RID: 13022 RVA: 0x000BD7B4 File Offset: 0x000BB9B4
+		// Token: 0x060036A6 RID: 13990 RVA: 0x000C5A10 File Offset: 0x000C3C10
 		void set_lastUseTime(float value)
 		{
 			base.lastUseTime = value;
 		}
 
-		// Token: 0x060032DF RID: 13023 RVA: 0x000BD7C0 File Offset: 0x000BB9C0
+		// Token: 0x060036A7 RID: 13991 RVA: 0x000C5A1C File Offset: 0x000C3C1C
 		bool get_isInLocalInventory()
 		{
 			return base.isInLocalInventory;
 		}
 
-		// Token: 0x060032E0 RID: 13024 RVA: 0x000BD7C8 File Offset: 0x000BB9C8
+		// Token: 0x060036A8 RID: 13992 RVA: 0x000C5A24 File Offset: 0x000C3C24
 		IDMain get_idMain()
 		{
 			return base.idMain;
 		}
 
-		// Token: 0x060032E1 RID: 13025 RVA: 0x000BD7D0 File Offset: 0x000BB9D0
-		Character get_character()
+		// Token: 0x060036A9 RID: 13993 RVA: 0x000C5A2C File Offset: 0x000C3C2C
+		global::Character get_character()
 		{
 			return base.character;
 		}
 
-		// Token: 0x060032E2 RID: 13026 RVA: 0x000BD7D8 File Offset: 0x000BB9D8
-		Controller get_controller()
+		// Token: 0x060036AA RID: 13994 RVA: 0x000C5A34 File Offset: 0x000C3C34
+		global::Controller get_controller()
 		{
 			return base.controller;
 		}
 
-		// Token: 0x060032E3 RID: 13027 RVA: 0x000BD7E0 File Offset: 0x000BB9E0
-		Controllable get_controllable()
+		// Token: 0x060036AB RID: 13995 RVA: 0x000C5A3C File Offset: 0x000C3C3C
+		global::Controllable get_controllable()
 		{
 			return base.controllable;
 		}
 
-		// Token: 0x060032E4 RID: 13028 RVA: 0x000BD7E8 File Offset: 0x000BB9E8
+		// Token: 0x060036AC RID: 13996 RVA: 0x000C5A44 File Offset: 0x000C3C44
 		bool get_active()
 		{
 			return base.active;
 		}
 
-		// Token: 0x060032E5 RID: 13029 RVA: 0x000BD7F0 File Offset: 0x000BB9F0
+		// Token: 0x060036AD RID: 13997 RVA: 0x000C5A4C File Offset: 0x000C3C4C
 		bool get_doNotSave()
 		{
 			return base.doNotSave;

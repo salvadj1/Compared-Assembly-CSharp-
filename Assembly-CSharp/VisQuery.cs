@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003C4 RID: 964
+// Token: 0x02000471 RID: 1137
 public class VisQuery : ScriptableObject
 {
-	// Token: 0x0600245F RID: 9311 RVA: 0x0008B34C File Offset: 0x0008954C
-	private void Enter(VisNode a, VisNode b)
+	// Token: 0x060027C1 RID: 10177 RVA: 0x00090748 File Offset: 0x0008E948
+	private void Enter(global::VisNode a, global::VisNode b)
 	{
 		IDMain idMain = a.idMain;
 		IDMain instigator = (!this.nonInstance) ? b.idMain : null;
@@ -18,8 +18,8 @@ public class VisQuery : ScriptableObject
 		}
 	}
 
-	// Token: 0x06002460 RID: 9312 RVA: 0x0008B3B4 File Offset: 0x000895B4
-	private void Exit(VisNode a, VisNode b)
+	// Token: 0x060027C2 RID: 10178 RVA: 0x000907B0 File Offset: 0x0008E9B0
+	private void Exit(global::VisNode a, global::VisNode b)
 	{
 		IDMain idMain = a.idMain;
 		IDMain instigator = (!this.nonInstance) ? b.idMain : null;
@@ -32,54 +32,54 @@ public class VisQuery : ScriptableObject
 		}
 	}
 
-	// Token: 0x06002461 RID: 9313 RVA: 0x0008B41C File Offset: 0x0008961C
-	private bool Try(VisNode self, VisNode instigator)
+	// Token: 0x060027C3 RID: 10179 RVA: 0x00090818 File Offset: 0x0008EA18
+	private bool Try(global::VisNode self, global::VisNode instigator)
 	{
-		Vis.Mask traitMask = self.traitMask;
-		Vis.Mask traitMask2 = instigator.traitMask;
+		global::Vis.Mask traitMask = self.traitMask;
+		global::Vis.Mask traitMask2 = instigator.traitMask;
 		return this.evaluation.Pass(traitMask, traitMask2);
 	}
 
-	// Token: 0x0400117A RID: 4474
+	// Token: 0x040012E0 RID: 4832
 	[SerializeField]
-	protected VisEval evaluation;
+	protected global::VisEval evaluation;
 
-	// Token: 0x0400117B RID: 4475
+	// Token: 0x040012E1 RID: 4833
 	[SerializeField]
-	protected VisAction[] actions;
+	protected global::VisAction[] actions;
 
-	// Token: 0x0400117C RID: 4476
+	// Token: 0x040012E2 RID: 4834
 	[SerializeField]
 	protected bool nonInstance;
 
-	// Token: 0x020003C5 RID: 965
+	// Token: 0x02000472 RID: 1138
 	public enum TryResult
 	{
-		// Token: 0x0400117E RID: 4478
+		// Token: 0x040012E4 RID: 4836
 		Outside,
-		// Token: 0x0400117F RID: 4479
+		// Token: 0x040012E5 RID: 4837
 		Enter,
-		// Token: 0x04001180 RID: 4480
+		// Token: 0x040012E6 RID: 4838
 		Stay,
-		// Token: 0x04001181 RID: 4481
+		// Token: 0x040012E7 RID: 4839
 		Exit
 	}
 
-	// Token: 0x020003C6 RID: 966
+	// Token: 0x02000473 RID: 1139
 	public class Instance
 	{
-		// Token: 0x06002462 RID: 9314 RVA: 0x0008B444 File Offset: 0x00089644
-		internal Instance(VisQuery outer, ref int bit)
+		// Token: 0x060027C4 RID: 10180 RVA: 0x00090840 File Offset: 0x0008EA40
+		internal Instance(global::VisQuery outer, ref int bit)
 		{
 			this.outer = outer;
-			this.applicable = new HSet<VisNode>();
+			this.applicable = new global::HSet<global::VisNode>();
 			this.bit = 1L << (bit & 31);
 			this.bitNumber = (byte)bit;
 			bit++;
 		}
 
-		// Token: 0x170008CC RID: 2252
-		// (get) Token: 0x06002463 RID: 9315 RVA: 0x0008B47C File Offset: 0x0008967C
+		// Token: 0x1700092A RID: 2346
+		// (get) Token: 0x060027C5 RID: 10181 RVA: 0x00090878 File Offset: 0x0008EA78
 		public int count
 		{
 			get
@@ -88,14 +88,14 @@ public class VisQuery : ScriptableObject
 			}
 		}
 
-		// Token: 0x06002464 RID: 9316 RVA: 0x0008B484 File Offset: 0x00089684
-		public bool Fits(VisNode other)
+		// Token: 0x060027C6 RID: 10182 RVA: 0x00090880 File Offset: 0x0008EA80
+		public bool Fits(global::VisNode other)
 		{
 			return this.applicable.Contains(other);
 		}
 
-		// Token: 0x06002465 RID: 9317 RVA: 0x0008B494 File Offset: 0x00089694
-		public void ExecuteEnter(VisNode self, VisNode other)
+		// Token: 0x060027C7 RID: 10183 RVA: 0x00090890 File Offset: 0x0008EA90
+		public void ExecuteEnter(global::VisNode self, global::VisNode other)
 		{
 			if (this.execNum++ == 0 || !this.outer.nonInstance)
 			{
@@ -103,8 +103,8 @@ public class VisQuery : ScriptableObject
 			}
 		}
 
-		// Token: 0x06002466 RID: 9318 RVA: 0x0008B4D4 File Offset: 0x000896D4
-		public void ExecuteExit(VisNode self, VisNode other)
+		// Token: 0x060027C8 RID: 10184 RVA: 0x000908D0 File Offset: 0x0008EAD0
+		public void ExecuteExit(global::VisNode self, global::VisNode other)
 		{
 			if (--this.execNum == 0 || !this.outer.nonInstance)
 			{
@@ -112,22 +112,22 @@ public class VisQuery : ScriptableObject
 			}
 		}
 
-		// Token: 0x06002467 RID: 9319 RVA: 0x0008B514 File Offset: 0x00089714
-		public void Execute(VisQuery.TryResult res, VisNode self, VisNode other)
+		// Token: 0x060027C9 RID: 10185 RVA: 0x00090910 File Offset: 0x0008EB10
+		public void Execute(global::VisQuery.TryResult res, global::VisNode self, global::VisNode other)
 		{
 			switch (res)
 			{
-			case VisQuery.TryResult.Enter:
+			case global::VisQuery.TryResult.Enter:
 				this.ExecuteEnter(self, other);
 				break;
-			case VisQuery.TryResult.Exit:
+			case global::VisQuery.TryResult.Exit:
 				this.ExecuteExit(self, other);
 				break;
 			}
 		}
 
-		// Token: 0x06002468 RID: 9320 RVA: 0x0008B55C File Offset: 0x0008975C
-		public VisQuery.TryResult TryAdd(VisNode self, VisNode other)
+		// Token: 0x060027CA RID: 10186 RVA: 0x00090958 File Offset: 0x0008EB58
+		public global::VisQuery.TryResult TryAdd(global::VisNode self, global::VisNode other)
 		{
 			if (!this.outer.Try(self, other))
 			{
@@ -136,57 +136,57 @@ public class VisQuery : ScriptableObject
 			if (this.applicable.Add(other))
 			{
 				this.num++;
-				return VisQuery.TryResult.Enter;
+				return global::VisQuery.TryResult.Enter;
 			}
-			return VisQuery.TryResult.Stay;
+			return global::VisQuery.TryResult.Stay;
 		}
 
-		// Token: 0x06002469 RID: 9321 RVA: 0x0008B5A8 File Offset: 0x000897A8
-		public VisQuery.TryResult TryRemove(VisNode self, VisNode other)
+		// Token: 0x060027CB RID: 10187 RVA: 0x000909A4 File Offset: 0x0008EBA4
+		public global::VisQuery.TryResult TryRemove(global::VisNode self, global::VisNode other)
 		{
 			if (this.applicable.Remove(other))
 			{
 				this.num--;
-				return VisQuery.TryResult.Exit;
+				return global::VisQuery.TryResult.Exit;
 			}
-			return VisQuery.TryResult.Outside;
+			return global::VisQuery.TryResult.Outside;
 		}
 
-		// Token: 0x0600246A RID: 9322 RVA: 0x0008B5D8 File Offset: 0x000897D8
-		public void Clear(VisNode self)
+		// Token: 0x060027CC RID: 10188 RVA: 0x000909D4 File Offset: 0x0008EBD4
+		public void Clear(global::VisNode self)
 		{
 			while (--this.num >= 0)
 			{
-				HSetIter<VisNode> enumerator = this.applicable.GetEnumerator();
+				global::HSetIter<global::VisNode> enumerator = this.applicable.GetEnumerator();
 				enumerator.MoveNext();
-				VisNode other = enumerator.Current;
+				global::VisNode other = enumerator.Current;
 				enumerator.Dispose();
 				this.TryRemove(self, other);
 			}
 		}
 
-		// Token: 0x0600246B RID: 9323 RVA: 0x0008B630 File Offset: 0x00089830
+		// Token: 0x060027CD RID: 10189 RVA: 0x00090A2C File Offset: 0x0008EC2C
 		public bool IsActive(long mask)
 		{
 			return (mask & this.bit) == this.bit;
 		}
 
-		// Token: 0x04001182 RID: 4482
-		public readonly VisQuery outer;
+		// Token: 0x040012E8 RID: 4840
+		public readonly global::VisQuery outer;
 
-		// Token: 0x04001183 RID: 4483
-		private readonly HSet<VisNode> applicable;
+		// Token: 0x040012E9 RID: 4841
+		private readonly global::HSet<global::VisNode> applicable;
 
-		// Token: 0x04001184 RID: 4484
+		// Token: 0x040012EA RID: 4842
 		private readonly long bit;
 
-		// Token: 0x04001185 RID: 4485
+		// Token: 0x040012EB RID: 4843
 		private readonly byte bitNumber;
 
-		// Token: 0x04001186 RID: 4486
+		// Token: 0x040012EC RID: 4844
 		private int num;
 
-		// Token: 0x04001187 RID: 4487
+		// Token: 0x040012ED RID: 4845
 		private int execNum;
 	}
 }

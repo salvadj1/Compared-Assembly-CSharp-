@@ -1,9 +1,9 @@
 ﻿using System;
 using Facepunch;
 
-// Token: 0x020001F5 RID: 501
-public interface IUseableChecked : IUseable, IComponentInterface<IUseable, MonoBehaviour, Useable>, IComponentInterface<IUseable, MonoBehaviour>, IComponentInterface<IUseable>
+// Token: 0x02000228 RID: 552
+public interface IUseableChecked : global::IUseable, global::IComponentInterface<global::IUseable, MonoBehaviour, global::Useable>, global::IComponentInterface<global::IUseable, MonoBehaviour>, global::IComponentInterface<global::IUseable>
 {
-	// Token: 0x06000DA4 RID: 3492
-	UseCheck CanUse(Character user, UseEnterRequest request);
+	// Token: 0x06000EF8 RID: 3832
+	global::UseCheck CanUse(global::Character user, global::UseEnterRequest request);
 }

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000396 RID: 918
+// Token: 0x02000443 RID: 1091
 public class VisClass : ScriptableObject
 {
-	// Token: 0x1700087F RID: 2175
-	// (get) Token: 0x060022CD RID: 8909 RVA: 0x00085BE0 File Offset: 0x00083DE0
-	public VisClass superClass
+	// Token: 0x170008DD RID: 2269
+	// (get) Token: 0x0600262F RID: 9775 RVA: 0x0008AFDC File Offset: 0x000891DC
+	public global::VisClass superClass
 	{
 		get
 		{
@@ -15,37 +15,37 @@ public class VisClass : ScriptableObject
 		}
 	}
 
-	// Token: 0x060022CE RID: 8910 RVA: 0x00085BE8 File Offset: 0x00083DE8
-	public void EditorOnly_Rep(ref VisClass.Rep rep)
+	// Token: 0x06002630 RID: 9776 RVA: 0x0008AFE4 File Offset: 0x000891E4
+	public void EditorOnly_Rep(ref global::VisClass.Rep rep)
 	{
 		if (this.keys == null && this.values == null)
 		{
 			this.keys = new string[0];
-			this.values = new VisQuery[0];
+			this.values = new global::VisQuery[0];
 		}
-		VisClass.Rep.Ref(ref rep, this);
+		global::VisClass.Rep.Ref(ref rep, this);
 	}
 
-	// Token: 0x060022CF RID: 8911 RVA: 0x00085C20 File Offset: 0x00083E20
-	public bool EditorOnly_Apply(ref VisClass.Rep rep)
+	// Token: 0x06002631 RID: 9777 RVA: 0x0008B01C File Offset: 0x0008921C
+	public bool EditorOnly_Apply(ref global::VisClass.Rep rep)
 	{
 		return rep != null && rep.Apply();
 	}
 
-	// Token: 0x060022D0 RID: 8912 RVA: 0x00085C34 File Offset: 0x00083E34
-	public void EditorOnly_Add(ref VisClass.Rep rep, string key, VisQuery value)
+	// Token: 0x06002632 RID: 9778 RVA: 0x0008B030 File Offset: 0x00089230
+	public void EditorOnly_Add(ref global::VisClass.Rep rep, string key, global::VisQuery value)
 	{
 		Array.Resize<string>(ref this.keys, this.keys.Length + 1);
-		Array.Resize<VisQuery>(ref this.values, this.values.Length + 1);
+		Array.Resize<global::VisQuery>(ref this.values, this.values.Length + 1);
 		this.keys[this.keys.Length - 1] = key;
 		this.values[this.values.Length - 1] = value;
 		rep = null;
 	}
 
-	// Token: 0x060022D1 RID: 8913 RVA: 0x00085C94 File Offset: 0x00083E94
-	public bool EditorOnly_SetSuper(ref VisClass.Rep rep, VisClass _super)
+	// Token: 0x06002633 RID: 9779 RVA: 0x0008B090 File Offset: 0x00089290
+	public bool EditorOnly_SetSuper(ref global::VisClass.Rep rep, global::VisClass _super)
 	{
-		VisClass visClass = _super;
+		global::VisClass visClass = _super;
 		int num = 50;
 		while (visClass != null)
 		{
@@ -66,8 +66,8 @@ public class VisClass : ScriptableObject
 		return true;
 	}
 
-	// Token: 0x060022D2 RID: 8914 RVA: 0x00085CFC File Offset: 0x00083EFC
-	private void BuildMembers(List<VisQuery> list, HashSet<VisQuery> hset)
+	// Token: 0x06002634 RID: 9780 RVA: 0x0008B0F8 File Offset: 0x000892F8
+	private void BuildMembers(List<global::VisQuery> list, HashSet<global::VisQuery> hset)
 	{
 		if (this._super)
 		{
@@ -92,7 +92,7 @@ public class VisClass : ScriptableObject
 		}
 	}
 
-	// Token: 0x060022D3 RID: 8915 RVA: 0x00085DB8 File Offset: 0x00083FB8
+	// Token: 0x06002635 RID: 9781 RVA: 0x0008B1B4 File Offset: 0x000893B4
 	private void Setup()
 	{
 		if (this.locked)
@@ -105,9 +105,9 @@ public class VisClass : ScriptableObject
 			return;
 		}
 		this.recurseLock = true;
-		List<VisQuery> list = new List<VisQuery>();
-		HashSet<VisQuery> hashSet = new HashSet<VisQuery>();
-		Dictionary<string, VisQuery> dictionary = new Dictionary<string, VisQuery>();
+		List<global::VisQuery> list = new List<global::VisQuery>();
+		HashSet<global::VisQuery> hashSet = new HashSet<global::VisQuery>();
+		Dictionary<string, global::VisQuery> dictionary = new Dictionary<string, global::VisQuery>();
 		if (this._super)
 		{
 			this._super.Setup();
@@ -118,11 +118,11 @@ public class VisClass : ScriptableObject
 					string text = this.keys[i];
 					if (!string.IsNullOrEmpty(text))
 					{
-						VisQuery visQuery = this.values[i];
+						global::VisQuery visQuery = this.values[i];
 						int num;
 						if (this._super.members.TryGetValue(text, out num))
 						{
-							VisQuery visQuery2 = this._super.instance[num];
+							global::VisQuery visQuery2 = this._super.instance[num];
 							if (visQuery2 == visQuery)
 							{
 								if (visQuery2 != null)
@@ -154,7 +154,7 @@ public class VisClass : ScriptableObject
 				string text2 = this.keys[j];
 				if (!string.IsNullOrEmpty(text2))
 				{
-					VisQuery visQuery3 = this.values[j];
+					global::VisQuery visQuery3 = this.values[j];
 					if (!(visQuery3 == null))
 					{
 						dictionary.Add(text2, visQuery3);
@@ -167,7 +167,7 @@ public class VisClass : ScriptableObject
 			}
 		}
 		this.members = new Dictionary<string, int>(dictionary.Count);
-		foreach (KeyValuePair<string, VisQuery> keyValuePair in dictionary)
+		foreach (KeyValuePair<string, global::VisQuery> keyValuePair in dictionary)
 		{
 			this.members.Add(keyValuePair.Key, list.IndexOf(keyValuePair.Value));
 		}
@@ -176,9 +176,9 @@ public class VisClass : ScriptableObject
 		this.locked = true;
 	}
 
-	// Token: 0x17000880 RID: 2176
-	// (get) Token: 0x060022D4 RID: 8916 RVA: 0x00086024 File Offset: 0x00084224
-	public VisClass.Handle handle
+	// Token: 0x170008DE RID: 2270
+	// (get) Token: 0x06002636 RID: 9782 RVA: 0x0008B420 File Offset: 0x00089620
+	public global::VisClass.Handle handle
 	{
 		get
 		{
@@ -187,51 +187,51 @@ public class VisClass : ScriptableObject
 				this.Setup();
 				if (!this.locked)
 				{
-					return new VisClass.Handle(null);
+					return new global::VisClass.Handle(null);
 				}
 			}
-			return new VisClass.Handle(this);
+			return new global::VisClass.Handle(this);
 		}
 	}
 
-	// Token: 0x0400107F RID: 4223
+	// Token: 0x040011E5 RID: 4581
 	[SerializeField]
-	private VisClass _super;
+	private global::VisClass _super;
 
-	// Token: 0x04001080 RID: 4224
+	// Token: 0x040011E6 RID: 4582
 	[SerializeField]
 	private string[] keys;
 
-	// Token: 0x04001081 RID: 4225
+	// Token: 0x040011E7 RID: 4583
 	[SerializeField]
-	private VisQuery[] values;
+	private global::VisQuery[] values;
 
-	// Token: 0x04001082 RID: 4226
+	// Token: 0x040011E8 RID: 4584
 	[NonSerialized]
-	private VisQuery[] instance;
+	private global::VisQuery[] instance;
 
-	// Token: 0x04001083 RID: 4227
+	// Token: 0x040011E9 RID: 4585
 	[NonSerialized]
 	private Dictionary<string, int> members;
 
-	// Token: 0x04001084 RID: 4228
+	// Token: 0x040011EA RID: 4586
 	[NonSerialized]
 	private bool locked;
 
-	// Token: 0x04001085 RID: 4229
+	// Token: 0x040011EB RID: 4587
 	[NonSerialized]
 	private bool recurseLock;
 
-	// Token: 0x04001086 RID: 4230
-	private static readonly VisQuery.Instance[] none = new VisQuery.Instance[0];
+	// Token: 0x040011EC RID: 4588
+	private static readonly global::VisQuery.Instance[] none = new global::VisQuery.Instance[0];
 
-	// Token: 0x02000397 RID: 919
+	// Token: 0x02000444 RID: 1092
 	public class Rep
 	{
-		// Token: 0x060022D7 RID: 8919 RVA: 0x00086068 File Offset: 0x00084268
-		private static bool MarkModified(VisClass.Rep.Setting setting)
+		// Token: 0x06002639 RID: 9785 RVA: 0x0008B464 File Offset: 0x00089664
+		private static bool MarkModified(global::VisClass.Rep.Setting setting)
 		{
-			if (VisClass.Rep.building)
+			if (global::VisClass.Rep.building)
 			{
 				return false;
 			}
@@ -239,13 +239,13 @@ public class VisClass : ScriptableObject
 			return true;
 		}
 
-		// Token: 0x060022D8 RID: 8920 RVA: 0x0008608C File Offset: 0x0008428C
-		internal static void Recur(ref VisClass.Rep rep, VisClass klass)
+		// Token: 0x0600263A RID: 9786 RVA: 0x0008B488 File Offset: 0x00089688
+		internal static void Recur(ref global::VisClass.Rep rep, global::VisClass klass)
 		{
 			if (klass._super)
 			{
-				VisClass.Rep.Recur(ref rep, klass._super);
-				foreach (VisClass.Rep.Setting setting in rep.dict.Values)
+				global::VisClass.Rep.Recur(ref rep, klass._super);
+				foreach (global::VisClass.Rep.Setting setting in rep.dict.Values)
 				{
 					setting.isInherited = true;
 				}
@@ -254,15 +254,15 @@ public class VisClass : ScriptableObject
 					string text = klass.keys[i];
 					if (!string.IsNullOrEmpty(text))
 					{
-						VisQuery visQuery = klass.values[i];
-						VisClass.Rep.Setting setting2;
+						global::VisQuery visQuery = klass.values[i];
+						global::VisClass.Rep.Setting setting2;
 						if (!rep.dict.TryGetValue(text, out setting2))
 						{
 							if (visQuery == null)
 							{
 								goto IL_F7;
 							}
-							setting2 = new VisClass.Rep.Setting(text, klass, rep);
+							setting2 = new global::VisClass.Rep.Setting(text, klass, rep);
 							rep.dict.Add(text, setting2);
 						}
 						else
@@ -277,18 +277,18 @@ public class VisClass : ScriptableObject
 			}
 			else
 			{
-				rep = new VisClass.Rep();
-				rep.klass = VisClass.Rep.nklass;
-				rep.dict = new Dictionary<string, VisClass.Rep.Setting>();
+				rep = new global::VisClass.Rep();
+				rep.klass = global::VisClass.Rep.nklass;
+				rep.dict = new Dictionary<string, global::VisClass.Rep.Setting>();
 				for (int j = 0; j < klass.keys.Length; j++)
 				{
 					string text2 = klass.keys[j];
 					if (!string.IsNullOrEmpty(text2))
 					{
-						VisQuery visQuery2 = klass.values[j];
+						global::VisQuery visQuery2 = klass.values[j];
 						if (!(visQuery2 == null))
 						{
-							VisClass.Rep.Setting setting3 = new VisClass.Rep.Setting(text2, klass, rep);
+							global::VisClass.Rep.Setting setting3 = new global::VisClass.Rep.Setting(text2, klass, rep);
 							setting3.query = visQuery2;
 							rep.dict.Add(text2, setting3);
 						}
@@ -297,21 +297,21 @@ public class VisClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x060022D9 RID: 8921 RVA: 0x00086260 File Offset: 0x00084460
-		internal static void Ref(ref VisClass.Rep rep, VisClass klass)
+		// Token: 0x0600263B RID: 9787 RVA: 0x0008B65C File Offset: 0x0008985C
+		internal static void Ref(ref global::VisClass.Rep rep, global::VisClass klass)
 		{
 			if (rep == null)
 			{
-				VisClass.Rep.nklass = klass;
-				VisClass.Rep.building = true;
-				VisClass.Rep.Recur(ref rep, klass);
-				VisClass.Rep.building = false;
-				VisClass.Rep.nklass = null;
+				global::VisClass.Rep.nklass = klass;
+				global::VisClass.Rep.building = true;
+				global::VisClass.Rep.Recur(ref rep, klass);
+				global::VisClass.Rep.building = false;
+				global::VisClass.Rep.nklass = null;
 			}
 		}
 
-		// Token: 0x060022DA RID: 8922 RVA: 0x00086294 File Offset: 0x00084494
-		private void Remove(VisClass.Rep.Setting setting)
+		// Token: 0x0600263C RID: 9788 RVA: 0x0008B690 File Offset: 0x00089890
+		private void Remove(global::VisClass.Rep.Setting setting)
 		{
 			for (int i = 0; i < this.klass.keys.Length; i++)
 			{
@@ -324,7 +324,7 @@ public class VisClass : ScriptableObject
 						this.klass.values[num - 1] = this.klass.values[num];
 					}
 					Array.Resize<string>(ref this.klass.keys, this.klass.keys.Length - 1);
-					Array.Resize<VisQuery>(ref this.klass.values, this.klass.values.Length - 1);
+					Array.Resize<global::VisQuery>(ref this.klass.values, this.klass.values.Length - 1);
 					break;
 				}
 			}
@@ -338,17 +338,17 @@ public class VisClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x060022DB RID: 8923 RVA: 0x000863B0 File Offset: 0x000845B0
-		private void Change(VisClass.Rep.Setting setting)
+		// Token: 0x0600263D RID: 9789 RVA: 0x0008B7AC File Offset: 0x000899AC
+		private void Change(global::VisClass.Rep.Setting setting)
 		{
 			if (setting.isInherited)
 			{
-				VisQuery valueSet = setting.valueSet;
+				global::VisQuery valueSet = setting.valueSet;
 				setting = (this.dict[setting.name] = setting.Override(this.klass));
 				setting.isInherited = false;
 				setting.valueSet = valueSet;
 				Array.Resize<string>(ref this.klass.keys, this.klass.keys.Length + 1);
-				Array.Resize<VisQuery>(ref this.klass.values, this.klass.values.Length + 1);
+				Array.Resize<global::VisQuery>(ref this.klass.values, this.klass.values.Length + 1);
 				this.klass.keys[this.klass.keys.Length - 1] = setting.name;
 				this.klass.values[this.klass.values.Length - 1] = valueSet;
 			}
@@ -365,19 +365,19 @@ public class VisClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x060022DC RID: 8924 RVA: 0x000864D0 File Offset: 0x000846D0
+		// Token: 0x0600263E RID: 9790 RVA: 0x0008B8CC File Offset: 0x00089ACC
 		internal bool Apply()
 		{
 			if (this.modifiedSettings.Count == 0)
 			{
 				return false;
 			}
-			foreach (VisClass.Rep.Setting setting in this.modifiedSettings)
+			foreach (global::VisClass.Rep.Setting setting in this.modifiedSettings)
 			{
-				VisClass.Rep.Action action = setting.action;
-				if (action != VisClass.Rep.Action.Revert)
+				global::VisClass.Rep.Action action = setting.action;
+				if (action != global::VisClass.Rep.Action.Revert)
 				{
-					if (action == VisClass.Rep.Action.Value)
+					if (action == global::VisClass.Rep.Action.Value)
 					{
 						if (setting.valueSet == null && !setting.isOverride)
 						{
@@ -393,50 +393,50 @@ public class VisClass : ScriptableObject
 				{
 					this.Remove(setting);
 				}
-				setting.action = VisClass.Rep.Action.None;
+				setting.action = global::VisClass.Rep.Action.None;
 			}
 			return true;
 		}
 
-		// Token: 0x04001087 RID: 4231
-		internal static VisClass nklass;
+		// Token: 0x040011ED RID: 4589
+		internal static global::VisClass nklass;
 
-		// Token: 0x04001088 RID: 4232
-		internal VisClass klass;
+		// Token: 0x040011EE RID: 4590
+		internal global::VisClass klass;
 
-		// Token: 0x04001089 RID: 4233
+		// Token: 0x040011EF RID: 4591
 		private static bool building;
 
-		// Token: 0x0400108A RID: 4234
-		private HashSet<VisClass.Rep.Setting> modifiedSettings = new HashSet<VisClass.Rep.Setting>();
+		// Token: 0x040011F0 RID: 4592
+		private HashSet<global::VisClass.Rep.Setting> modifiedSettings = new HashSet<global::VisClass.Rep.Setting>();
 
-		// Token: 0x0400108B RID: 4235
-		public Dictionary<string, VisClass.Rep.Setting> dict;
+		// Token: 0x040011F1 RID: 4593
+		public Dictionary<string, global::VisClass.Rep.Setting> dict;
 
-		// Token: 0x02000398 RID: 920
+		// Token: 0x02000445 RID: 1093
 		internal enum Action
 		{
-			// Token: 0x0400108D RID: 4237
+			// Token: 0x040011F3 RID: 4595
 			None,
-			// Token: 0x0400108E RID: 4238
+			// Token: 0x040011F4 RID: 4596
 			Revert,
-			// Token: 0x0400108F RID: 4239
+			// Token: 0x040011F5 RID: 4597
 			Value
 		}
 
-		// Token: 0x02000399 RID: 921
+		// Token: 0x02000446 RID: 1094
 		public class Setting
 		{
-			// Token: 0x060022DD RID: 8925 RVA: 0x000865A8 File Offset: 0x000847A8
-			internal Setting(string key, VisClass klass, VisClass.Rep rep)
+			// Token: 0x0600263F RID: 9791 RVA: 0x0008B9A4 File Offset: 0x00089BA4
+			internal Setting(string key, global::VisClass klass, global::VisClass.Rep rep)
 			{
 				this.key = key;
 				this.rep = rep;
 				this._inheritedClass = klass;
 			}
 
-			// Token: 0x17000881 RID: 2177
-			// (get) Token: 0x060022DE RID: 8926 RVA: 0x000865C8 File Offset: 0x000847C8
+			// Token: 0x170008DF RID: 2271
+			// (get) Token: 0x06002640 RID: 9792 RVA: 0x0008B9C4 File Offset: 0x00089BC4
 			internal string name
 			{
 				get
@@ -445,9 +445,9 @@ public class VisClass : ScriptableObject
 				}
 			}
 
-			// Token: 0x17000882 RID: 2178
-			// (get) Token: 0x060022DF RID: 8927 RVA: 0x000865D0 File Offset: 0x000847D0
-			private VisClass inheritedClass
+			// Token: 0x170008E0 RID: 2272
+			// (get) Token: 0x06002641 RID: 9793 RVA: 0x0008B9CC File Offset: 0x00089BCC
+			private global::VisClass inheritedClass
 			{
 				get
 				{
@@ -455,19 +455,19 @@ public class VisClass : ScriptableObject
 				}
 			}
 
-			// Token: 0x060022E0 RID: 8928 RVA: 0x000865D8 File Offset: 0x000847D8
-			internal VisClass.Rep.Setting Override(VisClass klass)
+			// Token: 0x06002642 RID: 9794 RVA: 0x0008B9D4 File Offset: 0x00089BD4
+			internal global::VisClass.Rep.Setting Override(global::VisClass klass)
 			{
-				VisClass.Rep.Setting setting = (VisClass.Rep.Setting)base.MemberwiseClone();
+				global::VisClass.Rep.Setting setting = (global::VisClass.Rep.Setting)base.MemberwiseClone();
 				setting._inheritedClass = klass;
 				setting._hasSuper = true;
 				setting._inheritSetting = this;
 				return setting;
 			}
 
-			// Token: 0x17000883 RID: 2179
-			// (get) Token: 0x060022E1 RID: 8929 RVA: 0x00086608 File Offset: 0x00084808
-			// (set) Token: 0x060022E2 RID: 8930 RVA: 0x00086610 File Offset: 0x00084810
+			// Token: 0x170008E1 RID: 2273
+			// (get) Token: 0x06002643 RID: 9795 RVA: 0x0008BA04 File Offset: 0x00089C04
+			// (set) Token: 0x06002644 RID: 9796 RVA: 0x0008BA0C File Offset: 0x00089C0C
 			public bool isInherited
 			{
 				get
@@ -479,16 +479,16 @@ public class VisClass : ScriptableObject
 					if (this._isInherited != value)
 					{
 						this._isInherited = value;
-						if (VisClass.Rep.MarkModified(this))
+						if (global::VisClass.Rep.MarkModified(this))
 						{
-							this.action = VisClass.Rep.Action.Revert;
+							this.action = global::VisClass.Rep.Action.Revert;
 						}
 					}
 				}
 			}
 
-			// Token: 0x17000884 RID: 2180
-			// (get) Token: 0x060022E3 RID: 8931 RVA: 0x00086638 File Offset: 0x00084838
+			// Token: 0x170008E2 RID: 2274
+			// (get) Token: 0x06002645 RID: 9797 RVA: 0x0008BA34 File Offset: 0x00089C34
 			public bool isOverride
 			{
 				get
@@ -497,9 +497,9 @@ public class VisClass : ScriptableObject
 				}
 			}
 
-			// Token: 0x17000885 RID: 2181
-			// (get) Token: 0x060022E4 RID: 8932 RVA: 0x00086640 File Offset: 0x00084840
-			public VisQuery superQuery
+			// Token: 0x170008E3 RID: 2275
+			// (get) Token: 0x06002646 RID: 9798 RVA: 0x0008BA3C File Offset: 0x00089C3C
+			public global::VisQuery superQuery
 			{
 				get
 				{
@@ -507,10 +507,10 @@ public class VisClass : ScriptableObject
 				}
 			}
 
-			// Token: 0x17000886 RID: 2182
-			// (get) Token: 0x060022E5 RID: 8933 RVA: 0x00086660 File Offset: 0x00084860
-			// (set) Token: 0x060022E6 RID: 8934 RVA: 0x00086668 File Offset: 0x00084868
-			public VisQuery query
+			// Token: 0x170008E4 RID: 2276
+			// (get) Token: 0x06002647 RID: 9799 RVA: 0x0008BA5C File Offset: 0x00089C5C
+			// (set) Token: 0x06002648 RID: 9800 RVA: 0x0008BA64 File Offset: 0x00089C64
+			public global::VisQuery query
 			{
 				get
 				{
@@ -520,15 +520,15 @@ public class VisClass : ScriptableObject
 				{
 					if (this._isInherited)
 					{
-						VisClass.Rep.MarkModified(this);
+						global::VisClass.Rep.MarkModified(this);
 					}
 					else if (this._value == value)
 					{
 						return;
 					}
-					if (VisClass.Rep.MarkModified(this))
+					if (global::VisClass.Rep.MarkModified(this))
 					{
-						this.action = VisClass.Rep.Action.Value;
+						this.action = global::VisClass.Rep.Action.Value;
 						this._valueSet = value;
 					}
 					else
@@ -538,16 +538,16 @@ public class VisClass : ScriptableObject
 				}
 			}
 
-			// Token: 0x060022E7 RID: 8935 RVA: 0x000866C4 File Offset: 0x000848C4
-			internal VisClass.Rep.Setting MoveBack()
+			// Token: 0x06002649 RID: 9801 RVA: 0x0008BAC0 File Offset: 0x00089CC0
+			internal global::VisClass.Rep.Setting MoveBack()
 			{
 				return this._inheritSetting;
 			}
 
-			// Token: 0x17000887 RID: 2183
-			// (get) Token: 0x060022E8 RID: 8936 RVA: 0x000866CC File Offset: 0x000848CC
-			// (set) Token: 0x060022E9 RID: 8937 RVA: 0x000866D4 File Offset: 0x000848D4
-			internal VisQuery valueSet
+			// Token: 0x170008E5 RID: 2277
+			// (get) Token: 0x0600264A RID: 9802 RVA: 0x0008BAC8 File Offset: 0x00089CC8
+			// (set) Token: 0x0600264B RID: 9803 RVA: 0x0008BAD0 File Offset: 0x00089CD0
+			internal global::VisQuery valueSet
 			{
 				get
 				{
@@ -559,63 +559,63 @@ public class VisClass : ScriptableObject
 				}
 			}
 
-			// Token: 0x04001090 RID: 4240
-			internal VisClass.Rep rep;
+			// Token: 0x040011F6 RID: 4598
+			internal global::VisClass.Rep rep;
 
-			// Token: 0x04001091 RID: 4241
-			internal VisClass.Rep.Action action;
+			// Token: 0x040011F7 RID: 4599
+			internal global::VisClass.Rep.Action action;
 
-			// Token: 0x04001092 RID: 4242
+			// Token: 0x040011F8 RID: 4600
 			private bool _unchanged;
 
-			// Token: 0x04001093 RID: 4243
+			// Token: 0x040011F9 RID: 4601
 			private bool _isInherited;
 
-			// Token: 0x04001094 RID: 4244
+			// Token: 0x040011FA RID: 4602
 			private bool _hasSuper;
 
-			// Token: 0x04001095 RID: 4245
-			private VisQuery _value;
+			// Token: 0x040011FB RID: 4603
+			private global::VisQuery _value;
 
-			// Token: 0x04001096 RID: 4246
-			private VisQuery _valueSet;
+			// Token: 0x040011FC RID: 4604
+			private global::VisQuery _valueSet;
 
-			// Token: 0x04001097 RID: 4247
-			private VisClass _inheritedClass;
+			// Token: 0x040011FD RID: 4605
+			private global::VisClass _inheritedClass;
 
-			// Token: 0x04001098 RID: 4248
-			private VisClass.Rep.Setting _inheritSetting;
+			// Token: 0x040011FE RID: 4606
+			private global::VisClass.Rep.Setting _inheritSetting;
 
-			// Token: 0x04001099 RID: 4249
+			// Token: 0x040011FF RID: 4607
 			private string key;
 		}
 	}
 
-	// Token: 0x0200039A RID: 922
+	// Token: 0x02000447 RID: 1095
 	public struct Handle
 	{
-		// Token: 0x060022EA RID: 8938 RVA: 0x000866E0 File Offset: 0x000848E0
-		internal Handle(VisClass klass)
+		// Token: 0x0600264C RID: 9804 RVA: 0x0008BADC File Offset: 0x00089CDC
+		internal Handle(global::VisClass klass)
 		{
 			this.klass = klass;
 			this.bits = 0L;
 			if (klass)
 			{
 				int num = 0;
-				this.queries = new VisQuery.Instance[klass.instance.Length];
+				this.queries = new global::VisQuery.Instance[klass.instance.Length];
 				for (int i = 0; i < this.queries.Length; i++)
 				{
-					this.queries[i] = new VisQuery.Instance(klass.instance[i], ref num);
+					this.queries[i] = new global::VisQuery.Instance(klass.instance[i], ref num);
 				}
 			}
 			else
 			{
-				this.queries = VisClass.none;
+				this.queries = global::VisClass.none;
 			}
 		}
 
-		// Token: 0x17000888 RID: 2184
-		// (get) Token: 0x060022EB RID: 8939 RVA: 0x0008675C File Offset: 0x0008495C
+		// Token: 0x170008E6 RID: 2278
+		// (get) Token: 0x0600264D RID: 9805 RVA: 0x0008BB58 File Offset: 0x00089D58
 		public bool valid
 		{
 			get
@@ -624,8 +624,8 @@ public class VisClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000889 RID: 2185
-		// (get) Token: 0x060022EC RID: 8940 RVA: 0x0008676C File Offset: 0x0008496C
+		// Token: 0x170008E7 RID: 2279
+		// (get) Token: 0x0600264E RID: 9806 RVA: 0x0008BB68 File Offset: 0x00089D68
 		public int Length
 		{
 			get
@@ -634,8 +634,8 @@ public class VisClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x1700088A RID: 2186
-		public VisQuery.Instance this[int i]
+		// Token: 0x170008E8 RID: 2280
+		public global::VisQuery.Instance this[int i]
 		{
 			get
 			{
@@ -643,8 +643,8 @@ public class VisClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x1700088B RID: 2187
-		public VisQuery.Instance this[string name]
+		// Token: 0x170008E9 RID: 2281
+		public global::VisQuery.Instance this[string name]
 		{
 			get
 			{
@@ -652,13 +652,13 @@ public class VisClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x0400109A RID: 4250
-		private readonly VisClass klass;
+		// Token: 0x04001200 RID: 4608
+		private readonly global::VisClass klass;
 
-		// Token: 0x0400109B RID: 4251
-		private readonly VisQuery.Instance[] queries;
+		// Token: 0x04001201 RID: 4609
+		private readonly global::VisQuery.Instance[] queries;
 
-		// Token: 0x0400109C RID: 4252
+		// Token: 0x04001202 RID: 4610
 		private long bits;
 	}
 }

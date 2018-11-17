@@ -1,5 +1,5 @@
 ﻿using System;
 
-// Token: 0x020008F7 RID: 2295
-// (Invoke) Token: 0x06004DB4 RID: 19892
-public delegate bool RPOSWindowMessageHandler(RPOSWindow window, RPOSWindowMessage message);
+// Token: 0x0200094C RID: 2380
+// (Invoke) Token: 0x06004FC6 RID: 20422
+public delegate bool RPOSWindowMessageHandler(global::RPOSWindow window, global::RPOSWindowMessage message);

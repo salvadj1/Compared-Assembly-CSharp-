@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace NGUI.Meshing
 {
-	// Token: 0x020007A0 RID: 1952
+	// Token: 0x0200088B RID: 2187
 	[StructLayout(LayoutKind.Explicit, Size = 36)]
 	public struct Vertex
 	{
-		// Token: 0x17000DA4 RID: 3492
-		// (get) Token: 0x06004695 RID: 18069 RVA: 0x001190B4 File Offset: 0x001172B4
-		// (set) Token: 0x06004696 RID: 18070 RVA: 0x001190EC File Offset: 0x001172EC
+		// Token: 0x17000E34 RID: 3636
+		// (get) Token: 0x06004B1A RID: 19226 RVA: 0x00122A34 File Offset: 0x00120C34
+		// (set) Token: 0x06004B1B RID: 19227 RVA: 0x00122A6C File Offset: 0x00120C6C
 		public Vector3 position
 		{
 			get
@@ -29,9 +29,9 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x17000DA5 RID: 3493
-		// (get) Token: 0x06004697 RID: 18071 RVA: 0x00119124 File Offset: 0x00117324
-		// (set) Token: 0x06004698 RID: 18072 RVA: 0x00119150 File Offset: 0x00117350
+		// Token: 0x17000E35 RID: 3637
+		// (get) Token: 0x06004B1C RID: 19228 RVA: 0x00122AA4 File Offset: 0x00120CA4
+		// (set) Token: 0x06004B1D RID: 19229 RVA: 0x00122AD0 File Offset: 0x00120CD0
 		public Vector2 texcoord
 		{
 			get
@@ -48,9 +48,9 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x17000DA6 RID: 3494
-		// (get) Token: 0x06004699 RID: 18073 RVA: 0x00119170 File Offset: 0x00117370
-		// (set) Token: 0x0600469A RID: 18074 RVA: 0x001191B8 File Offset: 0x001173B8
+		// Token: 0x17000E36 RID: 3638
+		// (get) Token: 0x06004B1E RID: 19230 RVA: 0x00122AF0 File Offset: 0x00120CF0
+		// (set) Token: 0x06004B1F RID: 19231 RVA: 0x00122B38 File Offset: 0x00120D38
 		public Color color
 		{
 			get
@@ -71,39 +71,39 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x040026BA RID: 9914
+		// Token: 0x040028F1 RID: 10481
 		[FieldOffset(0)]
 		public float x;
 
-		// Token: 0x040026BB RID: 9915
+		// Token: 0x040028F2 RID: 10482
 		[FieldOffset(4)]
 		public float y;
 
-		// Token: 0x040026BC RID: 9916
+		// Token: 0x040028F3 RID: 10483
 		[FieldOffset(8)]
 		public float z;
 
-		// Token: 0x040026BD RID: 9917
+		// Token: 0x040028F4 RID: 10484
 		[FieldOffset(12)]
 		public float u;
 
-		// Token: 0x040026BE RID: 9918
+		// Token: 0x040028F5 RID: 10485
 		[FieldOffset(16)]
 		public float v;
 
-		// Token: 0x040026BF RID: 9919
+		// Token: 0x040028F6 RID: 10486
 		[FieldOffset(20)]
 		public float r;
 
-		// Token: 0x040026C0 RID: 9920
+		// Token: 0x040028F7 RID: 10487
 		[FieldOffset(24)]
 		public float g;
 
-		// Token: 0x040026C1 RID: 9921
+		// Token: 0x040028F8 RID: 10488
 		[FieldOffset(28)]
 		public float b;
 
-		// Token: 0x040026C2 RID: 9922
+		// Token: 0x040028F9 RID: 10489
 		[FieldOffset(32)]
 		public float a;
 	}

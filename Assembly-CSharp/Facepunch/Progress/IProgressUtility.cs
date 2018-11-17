@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Facepunch.Progress
 {
-	// Token: 0x020001BE RID: 446
+	// Token: 0x020001EE RID: 494
 	public static class IProgressUtility
 	{
-		// Token: 0x06000C6B RID: 3179 RVA: 0x00031610 File Offset: 0x0002F810
+		// Token: 0x06000DAB RID: 3499 RVA: 0x000354FC File Offset: 0x000336FC
 		public static bool Poll(this IProgress IProgress, out float progress)
 		{
 			bool flag;

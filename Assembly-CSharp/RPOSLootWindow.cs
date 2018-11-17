@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000419 RID: 1049
-public class RPOSLootWindow : RPOSWindowScrollable
+// Token: 0x020004CE RID: 1230
+public class RPOSLootWindow : global::RPOSWindowScrollable
 {
-	// Token: 0x060026C8 RID: 9928 RVA: 0x000975D4 File Offset: 0x000957D4
+	// Token: 0x06002A52 RID: 10834 RVA: 0x0009D498 File Offset: 0x0009B698
 	protected override void WindowAwake()
 	{
 		this.autoResetScrolling = false;
@@ -15,35 +15,35 @@ public class RPOSLootWindow : RPOSWindowScrollable
 		}
 		if (this.TakeAllButton)
 		{
-			UIEventListener uieventListener = UIEventListener.Get(this.TakeAllButton.gameObject);
-			UIEventListener uieventListener2 = uieventListener;
-			uieventListener2.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new UIEventListener.VoidDelegate(this.TakeAllButtonClicked));
+			global::UIEventListener uieventListener = global::UIEventListener.Get(this.TakeAllButton.gameObject);
+			global::UIEventListener uieventListener2 = uieventListener;
+			uieventListener2.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new global::UIEventListener.VoidDelegate(this.TakeAllButtonClicked));
 		}
 	}
 
-	// Token: 0x060026C9 RID: 9929 RVA: 0x00097654 File Offset: 0x00095854
-	public virtual void SetLootable(LootableObject lootable, bool doInit)
+	// Token: 0x06002A53 RID: 10835 RVA: 0x0009D518 File Offset: 0x0009B718
+	public virtual void SetLootable(global::LootableObject lootable, bool doInit)
 	{
 		this.myLootable = lootable;
 		this.Initialize();
 	}
 
-	// Token: 0x060026CA RID: 9930 RVA: 0x00097664 File Offset: 0x00095864
+	// Token: 0x06002A54 RID: 10836 RVA: 0x0009D528 File Offset: 0x0009B728
 	public void TakeAllButtonClicked(GameObject go)
 	{
-		RPOS.ChangeRPOSMode(false);
+		global::RPOS.ChangeRPOSMode(false);
 		Object.Destroy(base.gameObject);
 	}
 
-	// Token: 0x060026CB RID: 9931 RVA: 0x00097678 File Offset: 0x00095878
+	// Token: 0x06002A55 RID: 10837 RVA: 0x0009D53C File Offset: 0x0009B73C
 	public void Initialize()
 	{
-		RPOSInvCellManager componentInChildren = base.GetComponentInChildren<RPOSInvCellManager>();
-		componentInChildren.SetInventory(this.myLootable.GetComponent<Inventory>(), true);
+		global::RPOSInvCellManager componentInChildren = base.GetComponentInChildren<global::RPOSInvCellManager>();
+		componentInChildren.SetInventory(this.myLootable.GetComponent<global::Inventory>(), true);
 		base.ResetScrolling();
 	}
 
-	// Token: 0x060026CC RID: 9932 RVA: 0x000976A4 File Offset: 0x000958A4
+	// Token: 0x06002A56 RID: 10838 RVA: 0x0009D568 File Offset: 0x0009B768
 	protected override void OnWindowHide()
 	{
 		try
@@ -56,14 +56,14 @@ public class RPOSLootWindow : RPOSWindowScrollable
 		}
 	}
 
-	// Token: 0x060026CD RID: 9933 RVA: 0x000976E0 File Offset: 0x000958E0
+	// Token: 0x06002A57 RID: 10839 RVA: 0x0009D5A4 File Offset: 0x0009B7A4
 	protected override void OnRPOSClosed()
 	{
 		base.OnRPOSClosed();
 		this.LootClosed();
 	}
 
-	// Token: 0x060026CE RID: 9934 RVA: 0x000976F0 File Offset: 0x000958F0
+	// Token: 0x06002A58 RID: 10840 RVA: 0x0009D5B4 File Offset: 0x0009B7B4
 	public virtual void LootClosed()
 	{
 		if (this.myLootable)
@@ -73,20 +73,20 @@ public class RPOSLootWindow : RPOSWindowScrollable
 		Object.Destroy(base.gameObject);
 	}
 
-	// Token: 0x060026CF RID: 9935 RVA: 0x00097724 File Offset: 0x00095924
+	// Token: 0x06002A59 RID: 10841 RVA: 0x0009D5E8 File Offset: 0x0009B7E8
 	protected override void OnExternalClose()
 	{
 		this.LootClosed();
 	}
 
-	// Token: 0x0400130C RID: 4876
+	// Token: 0x0400148C RID: 5260
 	[NonSerialized]
-	public LootableObject myLootable;
+	public global::LootableObject myLootable;
 
-	// Token: 0x0400130D RID: 4877
+	// Token: 0x0400148D RID: 5261
 	[NonSerialized]
 	public bool initalized;
 
-	// Token: 0x0400130E RID: 4878
-	public UIButton TakeAllButton;
+	// Token: 0x0400148E RID: 5262
+	public global::UIButton TakeAllButton;
 }

@@ -3,12 +3,12 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x02000704 RID: 1796
+// Token: 0x020007D8 RID: 2008
 [Serializable]
 public class dfComponentMemberInfo
 {
-	// Token: 0x17000CE7 RID: 3303
-	// (get) Token: 0x06004175 RID: 16757 RVA: 0x000FCAF8 File Offset: 0x000FACF8
+	// Token: 0x17000D6F RID: 3439
+	// (get) Token: 0x0600459D RID: 17821 RVA: 0x001059AC File Offset: 0x00103BAC
 	public bool IsValid
 	{
 		get
@@ -17,7 +17,7 @@ public class dfComponentMemberInfo
 		}
 	}
 
-	// Token: 0x06004176 RID: 16758 RVA: 0x000FCB58 File Offset: 0x000FAD58
+	// Token: 0x0600459E RID: 17822 RVA: 0x00105A0C File Offset: 0x00103C0C
 	public Type GetMemberType()
 	{
 		Type type = this.Component.GetType();
@@ -45,14 +45,14 @@ public class dfComponentMemberInfo
 		throw new InvalidCastException("Invalid member type: " + memberInfo.MemberType);
 	}
 
-	// Token: 0x06004177 RID: 16759 RVA: 0x000FCC20 File Offset: 0x000FAE20
+	// Token: 0x0600459F RID: 17823 RVA: 0x00105AD4 File Offset: 0x00103CD4
 	public MethodInfo GetMethod()
 	{
 		return this.Component.GetType().GetMember(this.MemberName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic).FirstOrDefault<MemberInfo>() as MethodInfo;
 	}
 
-	// Token: 0x06004178 RID: 16760 RVA: 0x000FCC54 File Offset: 0x000FAE54
-	public dfObservableProperty GetProperty()
+	// Token: 0x060045A0 RID: 17824 RVA: 0x00105B08 File Offset: 0x00103D08
+	public global::dfObservableProperty GetProperty()
 	{
 		Type type = this.Component.GetType();
 		MemberInfo memberInfo = this.Component.GetType().GetMember(this.MemberName).FirstOrDefault<MemberInfo>();
@@ -64,10 +64,10 @@ public class dfComponentMemberInfo
 		{
 			throw new InvalidCastException("Member " + this.MemberName + " is not an observable field or property");
 		}
-		return new dfObservableProperty(this.Component, memberInfo);
+		return new global::dfObservableProperty(this.Component, memberInfo);
 	}
 
-	// Token: 0x06004179 RID: 16761 RVA: 0x000FCCF0 File Offset: 0x000FAEF0
+	// Token: 0x060045A1 RID: 17825 RVA: 0x00105BA4 File Offset: 0x00103DA4
 	public override string ToString()
 	{
 		string arg = (!(this.Component != null)) ? "[Missing ComponentType]" : this.Component.GetType().Name;
@@ -75,9 +75,9 @@ public class dfComponentMemberInfo
 		return string.Format("{0}.{1}", arg, arg2);
 	}
 
-	// Token: 0x0400228C RID: 8844
+	// Token: 0x0400249C RID: 9372
 	public Component Component;
 
-	// Token: 0x0400228D RID: 8845
+	// Token: 0x0400249D RID: 9373
 	public string MemberName;
 }

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200040F RID: 1039
+// Token: 0x020004C4 RID: 1220
 public class RPOSBumper : MonoBehaviour
 {
-	// Token: 0x06002673 RID: 9843 RVA: 0x0009569C File Offset: 0x0009389C
+	// Token: 0x060029FD RID: 10749 RVA: 0x0009B560 File Offset: 0x00099760
 	private void Clear()
 	{
 		if (this.instances != null)
 		{
-			foreach (RPOSBumper.Instance instance in this.instances)
+			foreach (global::RPOSBumper.Instance instance in this.instances)
 			{
 				if (instance.window)
 				{
@@ -21,23 +21,23 @@ public class RPOSBumper : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002674 RID: 9844 RVA: 0x00095730 File Offset: 0x00093930
+	// Token: 0x060029FE RID: 10750 RVA: 0x0009B5F4 File Offset: 0x000997F4
 	private void OnDestroy()
 	{
 		this.Clear();
 	}
 
-	// Token: 0x06002675 RID: 9845 RVA: 0x00095738 File Offset: 0x00093938
+	// Token: 0x060029FF RID: 10751 RVA: 0x0009B5FC File Offset: 0x000997FC
 	public void Populate()
 	{
 		this.Clear();
-		List<RPOSWindow> list = new List<RPOSWindow>(RPOS.GetBumperWindowList());
+		List<global::RPOSWindow> list = new List<global::RPOSWindow>(global::RPOS.GetBumperWindowList());
 		int num = list.Count;
 		for (int i = 0; i < num; i++)
 		{
 			if (list[i] && !string.IsNullOrEmpty(list[i].title))
 			{
-				list[i].EnsureAwake<RPOSWindow>();
+				list[i].EnsureAwake<global::RPOSWindow>();
 			}
 			else
 			{
@@ -51,21 +51,21 @@ public class RPOSBumper : MonoBehaviour
 		int num5 = 0;
 		if (this.instances == null)
 		{
-			this.instances = new HashSet<RPOSBumper.Instance>();
+			this.instances = new HashSet<global::RPOSBumper.Instance>();
 		}
-		foreach (RPOSWindow rposwindow in list)
+		foreach (global::RPOSWindow rposwindow in list)
 		{
-			RPOSBumper.Instance instance = new RPOSBumper.Instance();
+			global::RPOSBumper.Instance instance = new global::RPOSBumper.Instance();
 			instance.window = rposwindow;
 			Vector3 localScale = this.buttonPrefab.gameObject.transform.localScale;
-			GameObject gameObject = NGUITools.AddChild(base.gameObject, this.buttonPrefab.gameObject);
-			instance.label = gameObject.gameObject.GetComponentInChildren<UILabel>();
+			GameObject gameObject = global::NGUITools.AddChild(base.gameObject, this.buttonPrefab.gameObject);
+			instance.label = gameObject.gameObject.GetComponentInChildren<global::UILabel>();
 			instance.label.name = rposwindow.title + "BumperButton";
 			Vector3 localPosition = gameObject.transform.localPosition;
 			localPosition.x = num4 + (num2 + num3) * (float)num5;
 			gameObject.transform.localPosition = localPosition;
 			gameObject.transform.localScale = localScale;
-			instance.button = gameObject.GetComponentInChildren<UIButton>();
+			instance.button = gameObject.GetComponentInChildren<global::UIButton>();
 			instance.bumper = this;
 			rposwindow.AddBumper(instance);
 			this.instances.Add(instance);
@@ -77,21 +77,21 @@ public class RPOSBumper : MonoBehaviour
 		this.background.gameObject.transform.localPosition = new Vector3(localScale2.x * -0.5f, base.transform.localPosition.y, 0f);
 	}
 
-	// Token: 0x040012C1 RID: 4801
-	public UISlicedSprite background;
+	// Token: 0x04001441 RID: 5185
+	public global::UISlicedSprite background;
 
-	// Token: 0x040012C2 RID: 4802
-	public UIButton buttonPrefab;
+	// Token: 0x04001442 RID: 5186
+	public global::UIButton buttonPrefab;
 
-	// Token: 0x040012C3 RID: 4803
-	private HashSet<RPOSBumper.Instance> instances;
+	// Token: 0x04001443 RID: 5187
+	private HashSet<global::RPOSBumper.Instance> instances;
 
-	// Token: 0x02000410 RID: 1040
+	// Token: 0x020004C5 RID: 1221
 	public class Instance
 	{
-		// Token: 0x170008EB RID: 2283
-		// (get) Token: 0x06002677 RID: 9847 RVA: 0x000959C0 File Offset: 0x00093BC0
-		public UIEventListener listener
+		// Token: 0x17000951 RID: 2385
+		// (get) Token: 0x06002A01 RID: 10753 RVA: 0x0009B884 File Offset: 0x00099A84
+		public global::UIEventListener listener
 		{
 			get
 			{
@@ -100,29 +100,29 @@ public class RPOSBumper : MonoBehaviour
 					this.onceGetListener = true;
 					if (this.button)
 					{
-						this._listener = UIEventListener.Get(this.button.gameObject);
+						this._listener = global::UIEventListener.Get(this.button.gameObject);
 					}
 				}
 				return this._listener;
 			}
 		}
 
-		// Token: 0x040012C4 RID: 4804
-		public RPOSBumper bumper;
+		// Token: 0x04001444 RID: 5188
+		public global::RPOSBumper bumper;
 
-		// Token: 0x040012C5 RID: 4805
-		public UIButton button;
+		// Token: 0x04001445 RID: 5189
+		public global::UIButton button;
 
-		// Token: 0x040012C6 RID: 4806
-		public UILabel label;
+		// Token: 0x04001446 RID: 5190
+		public global::UILabel label;
 
-		// Token: 0x040012C7 RID: 4807
-		public RPOSWindow window;
+		// Token: 0x04001447 RID: 5191
+		public global::RPOSWindow window;
 
-		// Token: 0x040012C8 RID: 4808
-		private UIEventListener _listener;
+		// Token: 0x04001448 RID: 5192
+		private global::UIEventListener _listener;
 
-		// Token: 0x040012C9 RID: 4809
+		// Token: 0x04001449 RID: 5193
 		private bool onceGetListener;
 	}
 }

@@ -1,15 +1,15 @@
 ﻿using System;
 
-// Token: 0x02000489 RID: 1161
+// Token: 0x02000544 RID: 1348
 public class BaseHitBox : IDRemote
 {
-	// Token: 0x17000957 RID: 2391
-	// (get) Token: 0x0600295A RID: 10586 RVA: 0x000A249C File Offset: 0x000A069C
-	public Character idMain
+	// Token: 0x170009C7 RID: 2503
+	// (get) Token: 0x06002D0C RID: 11532 RVA: 0x000A8898 File Offset: 0x000A6A98
+	public global::Character idMain
 	{
 		get
 		{
-			return (Character)base.idMain;
+			return (global::Character)base.idMain;
 		}
 	}
 }

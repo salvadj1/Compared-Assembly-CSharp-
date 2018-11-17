@@ -1,17 +1,17 @@
 ﻿using System;
 
-// Token: 0x020006BC RID: 1724
+// Token: 0x02000787 RID: 1927
 [AttributeUsage(AttributeTargets.Delegate, Inherited = true, AllowMultiple = false)]
 public class dfEventCategoryAttribute : Attribute
 {
-	// Token: 0x06003C66 RID: 15462 RVA: 0x000E3DF8 File Offset: 0x000E1FF8
+	// Token: 0x06004070 RID: 16496 RVA: 0x000EC93C File Offset: 0x000EAB3C
 	public dfEventCategoryAttribute(string category)
 	{
 		this.Category = category;
 	}
 
-	// Token: 0x17000BAD RID: 2989
-	// (get) Token: 0x06003C67 RID: 15463 RVA: 0x000E3E08 File Offset: 0x000E2008
-	// (set) Token: 0x06003C68 RID: 15464 RVA: 0x000E3E10 File Offset: 0x000E2010
+	// Token: 0x17000C31 RID: 3121
+	// (get) Token: 0x06004071 RID: 16497 RVA: 0x000EC94C File Offset: 0x000EAB4C
+	// (set) Token: 0x06004072 RID: 16498 RVA: 0x000EC954 File Offset: 0x000EAB54
 	public string Category { get; private set; }
 }

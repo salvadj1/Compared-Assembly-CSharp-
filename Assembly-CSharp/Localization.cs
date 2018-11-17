@@ -2,33 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200078E RID: 1934
+// Token: 0x02000873 RID: 2163
 [AddComponentMenu("NGUI/Internal/Localization")]
 public class Localization : MonoBehaviour
 {
-	// Token: 0x17000D92 RID: 3474
-	// (get) Token: 0x060045D1 RID: 17873 RVA: 0x00114A10 File Offset: 0x00112C10
-	public static Localization instance
+	// Token: 0x17000E22 RID: 3618
+	// (get) Token: 0x06004A3E RID: 19006 RVA: 0x0011E390 File Offset: 0x0011C590
+	public static global::Localization instance
 	{
 		get
 		{
-			if (Localization.mInst == null)
+			if (global::Localization.mInst == null)
 			{
-				Localization.mInst = (Object.FindObjectOfType(typeof(Localization)) as Localization);
-				if (Localization.mInst == null)
+				global::Localization.mInst = (Object.FindObjectOfType(typeof(global::Localization)) as global::Localization);
+				if (global::Localization.mInst == null)
 				{
 					GameObject gameObject = new GameObject("_Localization");
 					Object.DontDestroyOnLoad(gameObject);
-					Localization.mInst = gameObject.AddComponent<Localization>();
+					global::Localization.mInst = gameObject.AddComponent<global::Localization>();
 				}
 			}
-			return Localization.mInst;
+			return global::Localization.mInst;
 		}
 	}
 
-	// Token: 0x17000D93 RID: 3475
-	// (get) Token: 0x060045D2 RID: 17874 RVA: 0x00114A78 File Offset: 0x00112C78
-	// (set) Token: 0x060045D3 RID: 17875 RVA: 0x00114B04 File Offset: 0x00112D04
+	// Token: 0x17000E23 RID: 3619
+	// (get) Token: 0x06004A3F RID: 19007 RVA: 0x0011E3F8 File Offset: 0x0011C5F8
+	// (set) Token: 0x06004A40 RID: 19008 RVA: 0x0011E484 File Offset: 0x0011C684
 	public string currentLanguage
 	{
 		get
@@ -69,7 +69,7 @@ public class Localization : MonoBehaviour
 							i++;
 						}
 					}
-					TextAsset textAsset2 = Resources.Load(value, typeof(TextAsset)) as TextAsset;
+					TextAsset textAsset2 = UnityEngine.Resources.Load(value, typeof(TextAsset)) as TextAsset;
 					if (textAsset2 != null)
 					{
 						this.Load(textAsset2);
@@ -82,12 +82,12 @@ public class Localization : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060045D4 RID: 17876 RVA: 0x00114BC8 File Offset: 0x00112DC8
+	// Token: 0x06004A41 RID: 19009 RVA: 0x0011E548 File Offset: 0x0011C748
 	private void Awake()
 	{
-		if (Localization.mInst == null)
+		if (global::Localization.mInst == null)
 		{
-			Localization.mInst = this;
+			global::Localization.mInst = this;
 			Object.DontDestroyOnLoad(base.gameObject);
 		}
 		else
@@ -96,7 +96,7 @@ public class Localization : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060045D5 RID: 17877 RVA: 0x00114BFC File Offset: 0x00112DFC
+	// Token: 0x06004A42 RID: 19010 RVA: 0x0011E57C File Offset: 0x0011C77C
 	private void Start()
 	{
 		if (!string.IsNullOrEmpty(this.startingLanguage))
@@ -105,53 +105,53 @@ public class Localization : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060045D6 RID: 17878 RVA: 0x00114C1C File Offset: 0x00112E1C
+	// Token: 0x06004A43 RID: 19011 RVA: 0x0011E59C File Offset: 0x0011C79C
 	private void OnEnable()
 	{
-		if (Localization.mInst == null)
+		if (global::Localization.mInst == null)
 		{
-			Localization.mInst = this;
+			global::Localization.mInst = this;
 		}
 	}
 
-	// Token: 0x060045D7 RID: 17879 RVA: 0x00114C34 File Offset: 0x00112E34
+	// Token: 0x06004A44 RID: 19012 RVA: 0x0011E5B4 File Offset: 0x0011C7B4
 	private void OnDestroy()
 	{
-		if (Localization.mInst == this)
+		if (global::Localization.mInst == this)
 		{
-			Localization.mInst = null;
+			global::Localization.mInst = null;
 		}
 	}
 
-	// Token: 0x060045D8 RID: 17880 RVA: 0x00114C4C File Offset: 0x00112E4C
+	// Token: 0x06004A45 RID: 19013 RVA: 0x0011E5CC File Offset: 0x0011C7CC
 	private void Load(TextAsset asset)
 	{
 		this.mLanguage = asset.name;
 		PlayerPrefs.SetString("Language", this.mLanguage);
-		ByteReader byteReader = new ByteReader(asset);
+		global::ByteReader byteReader = new global::ByteReader(asset);
 		this.mDictionary = byteReader.ReadDictionary();
-		UIRoot.Broadcast("OnLocalize", this);
+		global::UIRoot.Broadcast("OnLocalize", this);
 	}
 
-	// Token: 0x060045D9 RID: 17881 RVA: 0x00114C94 File Offset: 0x00112E94
+	// Token: 0x06004A46 RID: 19014 RVA: 0x0011E614 File Offset: 0x0011C814
 	public string Get(string key)
 	{
 		string text;
 		return (!this.mDictionary.TryGetValue(key, out text)) ? key : text;
 	}
 
-	// Token: 0x04002650 RID: 9808
-	private static Localization mInst;
+	// Token: 0x04002887 RID: 10375
+	private static global::Localization mInst;
 
-	// Token: 0x04002651 RID: 9809
+	// Token: 0x04002888 RID: 10376
 	public string startingLanguage;
 
-	// Token: 0x04002652 RID: 9810
+	// Token: 0x04002889 RID: 10377
 	public TextAsset[] languages;
 
-	// Token: 0x04002653 RID: 9811
+	// Token: 0x0400288A RID: 10378
 	private Dictionary<string, string> mDictionary = new Dictionary<string, string>();
 
-	// Token: 0x04002654 RID: 9812
+	// Token: 0x0400288B RID: 10379
 	private string mLanguage;
 }

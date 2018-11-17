@@ -8,44 +8,44 @@ using RustProto.Proto;
 
 namespace RustProto
 {
-	// Token: 0x02000234 RID: 564
+	// Token: 0x02000267 RID: 615
 	[DebuggerNonUserCode]
-	public sealed class User : GeneratedMessage<User, User.Builder>
+	public sealed class User : GeneratedMessage<RustProto.User, RustProto.User.Builder>
 	{
-		// Token: 0x06001491 RID: 5265 RVA: 0x000452B8 File Offset: 0x000434B8
+		// Token: 0x060015E5 RID: 5605 RVA: 0x00049660 File Offset: 0x00047860
 		private User()
 		{
 		}
 
-		// Token: 0x06001492 RID: 5266 RVA: 0x000452D4 File Offset: 0x000434D4
+		// Token: 0x060015E6 RID: 5606 RVA: 0x0004967C File Offset: 0x0004787C
 		static User()
 		{
-			object.ReferenceEquals(User.Descriptor, null);
+			object.ReferenceEquals(RustProto.Proto.User.Descriptor, null);
 		}
 
-		// Token: 0x170005E9 RID: 1513
-		// (get) Token: 0x06001493 RID: 5267 RVA: 0x00045338 File Offset: 0x00043538
-		public static User DefaultInstance
+		// Token: 0x17000631 RID: 1585
+		// (get) Token: 0x060015E7 RID: 5607 RVA: 0x000496E0 File Offset: 0x000478E0
+		public static RustProto.User DefaultInstance
 		{
 			get
 			{
-				return User.defaultInstance;
+				return RustProto.User.defaultInstance;
 			}
 		}
 
-		// Token: 0x170005EA RID: 1514
-		// (get) Token: 0x06001494 RID: 5268 RVA: 0x00045340 File Offset: 0x00043540
-		public override User DefaultInstanceForType
+		// Token: 0x17000632 RID: 1586
+		// (get) Token: 0x060015E8 RID: 5608 RVA: 0x000496E8 File Offset: 0x000478E8
+		public override RustProto.User DefaultInstanceForType
 		{
 			get
 			{
-				return User.DefaultInstance;
+				return RustProto.User.DefaultInstance;
 			}
 		}
 
-		// Token: 0x170005EB RID: 1515
-		// (get) Token: 0x06001495 RID: 5269 RVA: 0x00045348 File Offset: 0x00043548
-		protected override User ThisMessage
+		// Token: 0x17000633 RID: 1587
+		// (get) Token: 0x060015E9 RID: 5609 RVA: 0x000496F0 File Offset: 0x000478F0
+		protected override RustProto.User ThisMessage
 		{
 			get
 			{
@@ -53,28 +53,28 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005EC RID: 1516
-		// (get) Token: 0x06001496 RID: 5270 RVA: 0x0004534C File Offset: 0x0004354C
+		// Token: 0x17000634 RID: 1588
+		// (get) Token: 0x060015EA RID: 5610 RVA: 0x000496F4 File Offset: 0x000478F4
 		public static MessageDescriptor Descriptor
 		{
 			get
 			{
-				return User.internal__static_RustProto_User__Descriptor;
+				return RustProto.Proto.User.internal__static_RustProto_User__Descriptor;
 			}
 		}
 
-		// Token: 0x170005ED RID: 1517
-		// (get) Token: 0x06001497 RID: 5271 RVA: 0x00045354 File Offset: 0x00043554
-		protected override FieldAccessorTable<User, User.Builder> InternalFieldAccessors
+		// Token: 0x17000635 RID: 1589
+		// (get) Token: 0x060015EB RID: 5611 RVA: 0x000496FC File Offset: 0x000478FC
+		protected override FieldAccessorTable<RustProto.User, RustProto.User.Builder> InternalFieldAccessors
 		{
 			get
 			{
-				return User.internal__static_RustProto_User__FieldAccessorTable;
+				return RustProto.Proto.User.internal__static_RustProto_User__FieldAccessorTable;
 			}
 		}
 
-		// Token: 0x170005EE RID: 1518
-		// (get) Token: 0x06001498 RID: 5272 RVA: 0x0004535C File Offset: 0x0004355C
+		// Token: 0x17000636 RID: 1590
+		// (get) Token: 0x060015EC RID: 5612 RVA: 0x00049704 File Offset: 0x00047904
 		public bool HasUserid
 		{
 			get
@@ -83,8 +83,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005EF RID: 1519
-		// (get) Token: 0x06001499 RID: 5273 RVA: 0x00045364 File Offset: 0x00043564
+		// Token: 0x17000637 RID: 1591
+		// (get) Token: 0x060015ED RID: 5613 RVA: 0x0004970C File Offset: 0x0004790C
 		[CLSCompliant(false)]
 		public ulong Userid
 		{
@@ -94,8 +94,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005F0 RID: 1520
-		// (get) Token: 0x0600149A RID: 5274 RVA: 0x0004536C File Offset: 0x0004356C
+		// Token: 0x17000638 RID: 1592
+		// (get) Token: 0x060015EE RID: 5614 RVA: 0x00049714 File Offset: 0x00047914
 		public bool HasDisplayname
 		{
 			get
@@ -104,8 +104,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005F1 RID: 1521
-		// (get) Token: 0x0600149B RID: 5275 RVA: 0x00045374 File Offset: 0x00043574
+		// Token: 0x17000639 RID: 1593
+		// (get) Token: 0x060015EF RID: 5615 RVA: 0x0004971C File Offset: 0x0004791C
 		public string Displayname
 		{
 			get
@@ -114,8 +114,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005F2 RID: 1522
-		// (get) Token: 0x0600149C RID: 5276 RVA: 0x0004537C File Offset: 0x0004357C
+		// Token: 0x1700063A RID: 1594
+		// (get) Token: 0x060015F0 RID: 5616 RVA: 0x00049724 File Offset: 0x00047924
 		public bool HasUsergroup
 		{
 			get
@@ -124,9 +124,9 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005F3 RID: 1523
-		// (get) Token: 0x0600149D RID: 5277 RVA: 0x00045384 File Offset: 0x00043584
-		public User.Types.UserGroup Usergroup
+		// Token: 0x1700063B RID: 1595
+		// (get) Token: 0x060015F1 RID: 5617 RVA: 0x0004972C File Offset: 0x0004792C
+		public RustProto.User.Types.UserGroup Usergroup
 		{
 			get
 			{
@@ -134,8 +134,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005F4 RID: 1524
-		// (get) Token: 0x0600149E RID: 5278 RVA: 0x0004538C File Offset: 0x0004358C
+		// Token: 0x1700063C RID: 1596
+		// (get) Token: 0x060015F2 RID: 5618 RVA: 0x00049734 File Offset: 0x00047934
 		public override bool IsInitialized
 		{
 			get
@@ -144,11 +144,11 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600149F RID: 5279 RVA: 0x000453C4 File Offset: 0x000435C4
+		// Token: 0x060015F3 RID: 5619 RVA: 0x0004976C File Offset: 0x0004796C
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
-			string[] userFieldNames = User._userFieldNames;
+			string[] userFieldNames = RustProto.User._userFieldNames;
 			if (this.hasUserid)
 			{
 				output.WriteUInt64(1, userFieldNames[2], this.Userid);
@@ -164,8 +164,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x170005F5 RID: 1525
-		// (get) Token: 0x060014A0 RID: 5280 RVA: 0x00045448 File Offset: 0x00043648
+		// Token: 0x1700063D RID: 1597
+		// (get) Token: 0x060015F4 RID: 5620 RVA: 0x000497F0 File Offset: 0x000479F0
 		public override int SerializedSize
 		{
 			get
@@ -194,109 +194,109 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060014A1 RID: 5281 RVA: 0x000454CC File Offset: 0x000436CC
-		public static User ParseFrom(ByteString data)
+		// Token: 0x060015F5 RID: 5621 RVA: 0x00049874 File Offset: 0x00047A74
+		public static RustProto.User ParseFrom(ByteString data)
 		{
-			return User.CreateBuilder().MergeFrom(data).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060014A2 RID: 5282 RVA: 0x000454E0 File Offset: 0x000436E0
-		public static User ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
+		// Token: 0x060015F6 RID: 5622 RVA: 0x00049888 File Offset: 0x00047A88
+		public static RustProto.User ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
-			return User.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060014A3 RID: 5283 RVA: 0x000454F4 File Offset: 0x000436F4
-		public static User ParseFrom(byte[] data)
+		// Token: 0x060015F7 RID: 5623 RVA: 0x0004989C File Offset: 0x00047A9C
+		public static RustProto.User ParseFrom(byte[] data)
 		{
-			return User.CreateBuilder().MergeFrom(data).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060014A4 RID: 5284 RVA: 0x00045508 File Offset: 0x00043708
-		public static User ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
+		// Token: 0x060015F8 RID: 5624 RVA: 0x000498B0 File Offset: 0x00047AB0
+		public static RustProto.User ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
-			return User.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060014A5 RID: 5285 RVA: 0x0004551C File Offset: 0x0004371C
-		public static User ParseFrom(Stream input)
+		// Token: 0x060015F9 RID: 5625 RVA: 0x000498C4 File Offset: 0x00047AC4
+		public static RustProto.User ParseFrom(Stream input)
 		{
-			return User.CreateBuilder().MergeFrom(input).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060014A6 RID: 5286 RVA: 0x00045530 File Offset: 0x00043730
-		public static User ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
+		// Token: 0x060015FA RID: 5626 RVA: 0x000498D8 File Offset: 0x00047AD8
+		public static RustProto.User ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
-			return User.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060014A7 RID: 5287 RVA: 0x00045544 File Offset: 0x00043744
-		public static User ParseDelimitedFrom(Stream input)
+		// Token: 0x060015FB RID: 5627 RVA: 0x000498EC File Offset: 0x00047AEC
+		public static RustProto.User ParseDelimitedFrom(Stream input)
 		{
-			return User.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060014A8 RID: 5288 RVA: 0x00045558 File Offset: 0x00043758
-		public static User ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
+		// Token: 0x060015FC RID: 5628 RVA: 0x00049900 File Offset: 0x00047B00
+		public static RustProto.User ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
-			return User.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060014A9 RID: 5289 RVA: 0x0004556C File Offset: 0x0004376C
-		public static User ParseFrom(ICodedInputStream input)
+		// Token: 0x060015FD RID: 5629 RVA: 0x00049914 File Offset: 0x00047B14
+		public static RustProto.User ParseFrom(ICodedInputStream input)
 		{
-			return User.CreateBuilder().MergeFrom(input).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060014AA RID: 5290 RVA: 0x00045580 File Offset: 0x00043780
-		public static User ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
+		// Token: 0x060015FE RID: 5630 RVA: 0x00049928 File Offset: 0x00047B28
+		public static RustProto.User ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
-			return User.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
+			return RustProto.User.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060014AB RID: 5291 RVA: 0x00045594 File Offset: 0x00043794
-		private User MakeReadOnly()
+		// Token: 0x060015FF RID: 5631 RVA: 0x0004993C File Offset: 0x00047B3C
+		private RustProto.User MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x060014AC RID: 5292 RVA: 0x00045598 File Offset: 0x00043798
-		public static User.Builder CreateBuilder()
+		// Token: 0x06001600 RID: 5632 RVA: 0x00049940 File Offset: 0x00047B40
+		public static RustProto.User.Builder CreateBuilder()
 		{
-			return new User.Builder();
+			return new RustProto.User.Builder();
 		}
 
-		// Token: 0x060014AD RID: 5293 RVA: 0x000455A0 File Offset: 0x000437A0
-		public override User.Builder ToBuilder()
+		// Token: 0x06001601 RID: 5633 RVA: 0x00049948 File Offset: 0x00047B48
+		public override RustProto.User.Builder ToBuilder()
 		{
-			return User.CreateBuilder(this);
+			return RustProto.User.CreateBuilder(this);
 		}
 
-		// Token: 0x060014AE RID: 5294 RVA: 0x000455A8 File Offset: 0x000437A8
-		public override User.Builder CreateBuilderForType()
+		// Token: 0x06001602 RID: 5634 RVA: 0x00049950 File Offset: 0x00047B50
+		public override RustProto.User.Builder CreateBuilderForType()
 		{
-			return new User.Builder();
+			return new RustProto.User.Builder();
 		}
 
-		// Token: 0x060014AF RID: 5295 RVA: 0x000455B0 File Offset: 0x000437B0
-		public static User.Builder CreateBuilder(User prototype)
+		// Token: 0x06001603 RID: 5635 RVA: 0x00049958 File Offset: 0x00047B58
+		public static RustProto.User.Builder CreateBuilder(RustProto.User prototype)
 		{
-			return new User.Builder(prototype);
+			return new RustProto.User.Builder(prototype);
 		}
 
-		// Token: 0x04000A45 RID: 2629
+		// Token: 0x04000B68 RID: 2920
 		public const int UseridFieldNumber = 1;
 
-		// Token: 0x04000A46 RID: 2630
+		// Token: 0x04000B69 RID: 2921
 		public const int DisplaynameFieldNumber = 2;
 
-		// Token: 0x04000A47 RID: 2631
+		// Token: 0x04000B6A RID: 2922
 		public const int UsergroupFieldNumber = 3;
 
-		// Token: 0x04000A48 RID: 2632
-		private static readonly User defaultInstance = new User().MakeReadOnly();
+		// Token: 0x04000B6B RID: 2923
+		private static readonly RustProto.User defaultInstance = new RustProto.User().MakeReadOnly();
 
-		// Token: 0x04000A49 RID: 2633
+		// Token: 0x04000B6C RID: 2924
 		private static readonly string[] _userFieldNames = new string[]
 		{
 			"displayname",
@@ -304,7 +304,7 @@ namespace RustProto
 			"userid"
 		};
 
-		// Token: 0x04000A4A RID: 2634
+		// Token: 0x04000B6D RID: 2925
 		private static readonly uint[] _userFieldTags = new uint[]
 		{
 			18u,
@@ -312,64 +312,64 @@ namespace RustProto
 			8u
 		};
 
-		// Token: 0x04000A4B RID: 2635
+		// Token: 0x04000B6E RID: 2926
 		private bool hasUserid;
 
-		// Token: 0x04000A4C RID: 2636
+		// Token: 0x04000B6F RID: 2927
 		private ulong userid_;
 
-		// Token: 0x04000A4D RID: 2637
+		// Token: 0x04000B70 RID: 2928
 		private bool hasDisplayname;
 
-		// Token: 0x04000A4E RID: 2638
+		// Token: 0x04000B71 RID: 2929
 		private string displayname_ = string.Empty;
 
-		// Token: 0x04000A4F RID: 2639
+		// Token: 0x04000B72 RID: 2930
 		private bool hasUsergroup;
 
-		// Token: 0x04000A50 RID: 2640
-		private User.Types.UserGroup usergroup_;
+		// Token: 0x04000B73 RID: 2931
+		private RustProto.User.Types.UserGroup usergroup_;
 
-		// Token: 0x04000A51 RID: 2641
+		// Token: 0x04000B74 RID: 2932
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000235 RID: 565
+		// Token: 0x02000268 RID: 616
 		[DebuggerNonUserCode]
 		public static class Types
 		{
-			// Token: 0x02000236 RID: 566
+			// Token: 0x02000269 RID: 617
 			public enum UserGroup
 			{
-				// Token: 0x04000A53 RID: 2643
+				// Token: 0x04000B76 RID: 2934
 				REGULAR,
-				// Token: 0x04000A54 RID: 2644
+				// Token: 0x04000B77 RID: 2935
 				BANNED,
-				// Token: 0x04000A55 RID: 2645
+				// Token: 0x04000B78 RID: 2936
 				ADMIN
 			}
 		}
 
-		// Token: 0x02000237 RID: 567
+		// Token: 0x0200026A RID: 618
 		[DebuggerNonUserCode]
-		public sealed class Builder : GeneratedBuilder<User, User.Builder>
+		public sealed class Builder : GeneratedBuilder<RustProto.User, RustProto.User.Builder>
 		{
-			// Token: 0x060014B0 RID: 5296 RVA: 0x000455B8 File Offset: 0x000437B8
+			// Token: 0x06001604 RID: 5636 RVA: 0x00049960 File Offset: 0x00047B60
 			public Builder()
 			{
-				this.result = User.DefaultInstance;
+				this.result = RustProto.User.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x060014B1 RID: 5297 RVA: 0x000455D4 File Offset: 0x000437D4
-			internal Builder(User cloneFrom)
+			// Token: 0x06001605 RID: 5637 RVA: 0x0004997C File Offset: 0x00047B7C
+			internal Builder(RustProto.User cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x170005F6 RID: 1526
-			// (get) Token: 0x060014B2 RID: 5298 RVA: 0x000455EC File Offset: 0x000437EC
-			protected override User.Builder ThisBuilder
+			// Token: 0x1700063E RID: 1598
+			// (get) Token: 0x06001606 RID: 5638 RVA: 0x00049994 File Offset: 0x00047B94
+			protected override RustProto.User.Builder ThisBuilder
 			{
 				get
 				{
@@ -377,21 +377,21 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060014B3 RID: 5299 RVA: 0x000455F0 File Offset: 0x000437F0
-			private User PrepareBuilder()
+			// Token: 0x06001607 RID: 5639 RVA: 0x00049998 File Offset: 0x00047B98
+			private RustProto.User PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
 				{
-					User other = this.result;
-					this.result = new User();
+					RustProto.User other = this.result;
+					this.result = new RustProto.User();
 					this.resultIsReadOnly = false;
 					this.MergeFrom(other);
 				}
 				return this.result;
 			}
 
-			// Token: 0x170005F7 RID: 1527
-			// (get) Token: 0x060014B4 RID: 5300 RVA: 0x00045630 File Offset: 0x00043830
+			// Token: 0x1700063F RID: 1599
+			// (get) Token: 0x06001608 RID: 5640 RVA: 0x000499D8 File Offset: 0x00047BD8
 			public override bool IsInitialized
 			{
 				get
@@ -400,9 +400,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005F8 RID: 1528
-			// (get) Token: 0x060014B5 RID: 5301 RVA: 0x00045640 File Offset: 0x00043840
-			protected override User MessageBeingBuilt
+			// Token: 0x17000640 RID: 1600
+			// (get) Token: 0x06001609 RID: 5641 RVA: 0x000499E8 File Offset: 0x00047BE8
+			protected override RustProto.User MessageBeingBuilt
 			{
 				get
 				{
@@ -410,46 +410,46 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060014B6 RID: 5302 RVA: 0x00045648 File Offset: 0x00043848
-			public override User.Builder Clear()
+			// Token: 0x0600160A RID: 5642 RVA: 0x000499F0 File Offset: 0x00047BF0
+			public override RustProto.User.Builder Clear()
 			{
-				this.result = User.DefaultInstance;
+				this.result = RustProto.User.DefaultInstance;
 				this.resultIsReadOnly = true;
 				return this;
 			}
 
-			// Token: 0x060014B7 RID: 5303 RVA: 0x00045660 File Offset: 0x00043860
-			public override User.Builder Clone()
+			// Token: 0x0600160B RID: 5643 RVA: 0x00049A08 File Offset: 0x00047C08
+			public override RustProto.User.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
 				{
-					return new User.Builder(this.result);
+					return new RustProto.User.Builder(this.result);
 				}
-				return new User.Builder().MergeFrom(this.result);
+				return new RustProto.User.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x170005F9 RID: 1529
-			// (get) Token: 0x060014B8 RID: 5304 RVA: 0x0004568C File Offset: 0x0004388C
+			// Token: 0x17000641 RID: 1601
+			// (get) Token: 0x0600160C RID: 5644 RVA: 0x00049A34 File Offset: 0x00047C34
 			public override MessageDescriptor DescriptorForType
 			{
 				get
 				{
-					return User.Descriptor;
+					return RustProto.User.Descriptor;
 				}
 			}
 
-			// Token: 0x170005FA RID: 1530
-			// (get) Token: 0x060014B9 RID: 5305 RVA: 0x00045694 File Offset: 0x00043894
-			public override User DefaultInstanceForType
+			// Token: 0x17000642 RID: 1602
+			// (get) Token: 0x0600160D RID: 5645 RVA: 0x00049A3C File Offset: 0x00047C3C
+			public override RustProto.User DefaultInstanceForType
 			{
 				get
 				{
-					return User.DefaultInstance;
+					return RustProto.User.DefaultInstance;
 				}
 			}
 
-			// Token: 0x060014BA RID: 5306 RVA: 0x0004569C File Offset: 0x0004389C
-			public override User BuildPartial()
+			// Token: 0x0600160E RID: 5646 RVA: 0x00049A44 File Offset: 0x00047C44
+			public override RustProto.User BuildPartial()
 			{
 				if (this.resultIsReadOnly)
 				{
@@ -459,21 +459,21 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x060014BB RID: 5307 RVA: 0x000456D0 File Offset: 0x000438D0
-			public override User.Builder MergeFrom(IMessage other)
+			// Token: 0x0600160F RID: 5647 RVA: 0x00049A78 File Offset: 0x00047C78
+			public override RustProto.User.Builder MergeFrom(IMessage other)
 			{
-				if (other is User)
+				if (other is RustProto.User)
 				{
-					return this.MergeFrom((User)other);
+					return this.MergeFrom((RustProto.User)other);
 				}
 				base.MergeFrom(other);
 				return this;
 			}
 
-			// Token: 0x060014BC RID: 5308 RVA: 0x000456F4 File Offset: 0x000438F4
-			public override User.Builder MergeFrom(User other)
+			// Token: 0x06001610 RID: 5648 RVA: 0x00049A9C File Offset: 0x00047C9C
+			public override RustProto.User.Builder MergeFrom(RustProto.User other)
 			{
-				if (other == User.DefaultInstance)
+				if (other == RustProto.User.DefaultInstance)
 				{
 					return this;
 				}
@@ -494,14 +494,14 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060014BD RID: 5309 RVA: 0x00045768 File Offset: 0x00043968
-			public override User.Builder MergeFrom(ICodedInputStream input)
+			// Token: 0x06001611 RID: 5649 RVA: 0x00049B10 File Offset: 0x00047D10
+			public override RustProto.User.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x060014BE RID: 5310 RVA: 0x00045778 File Offset: 0x00043978
-			public override User.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
+			// Token: 0x06001612 RID: 5650 RVA: 0x00049B20 File Offset: 0x00047D20
+			public override RustProto.User.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
 				UnknownFieldSet.Builder builder = null;
@@ -511,7 +511,7 @@ namespace RustProto
 				{
 					if (num == 0u && text != null)
 					{
-						int num2 = Array.BinarySearch<string>(User._userFieldNames, text, StringComparer.Ordinal);
+						int num2 = Array.BinarySearch<string>(RustProto.User._userFieldNames, text, StringComparer.Ordinal);
 						if (num2 < 0)
 						{
 							if (builder == null)
@@ -521,7 +521,7 @@ namespace RustProto
 							this.ParseUnknownField(input, builder, extensionRegistry, num, text);
 							continue;
 						}
-						num = User._userFieldTags[num2];
+						num = RustProto.User._userFieldTags[num2];
 					}
 					uint num3 = num;
 					if (num3 == 0u)
@@ -549,7 +549,7 @@ namespace RustProto
 								}
 								this.ParseUnknownField(input, builder, extensionRegistry, num, text);
 							}
-							else if (input.ReadEnum<User.Types.UserGroup>(ref this.result.usergroup_, ref obj))
+							else if (input.ReadEnum<RustProto.User.Types.UserGroup>(ref this.result.usergroup_, ref obj))
 							{
 								this.result.hasUsergroup = true;
 							}
@@ -579,8 +579,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170005FB RID: 1531
-			// (get) Token: 0x060014BF RID: 5311 RVA: 0x0004591C File Offset: 0x00043B1C
+			// Token: 0x17000643 RID: 1603
+			// (get) Token: 0x06001613 RID: 5651 RVA: 0x00049CC4 File Offset: 0x00047EC4
 			public bool HasUserid
 			{
 				get
@@ -589,9 +589,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005FC RID: 1532
-			// (get) Token: 0x060014C0 RID: 5312 RVA: 0x0004592C File Offset: 0x00043B2C
-			// (set) Token: 0x060014C1 RID: 5313 RVA: 0x0004593C File Offset: 0x00043B3C
+			// Token: 0x17000644 RID: 1604
+			// (get) Token: 0x06001614 RID: 5652 RVA: 0x00049CD4 File Offset: 0x00047ED4
+			// (set) Token: 0x06001615 RID: 5653 RVA: 0x00049CE4 File Offset: 0x00047EE4
 			[CLSCompliant(false)]
 			public ulong Userid
 			{
@@ -605,9 +605,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060014C2 RID: 5314 RVA: 0x00045948 File Offset: 0x00043B48
+			// Token: 0x06001616 RID: 5654 RVA: 0x00049CF0 File Offset: 0x00047EF0
 			[CLSCompliant(false)]
-			public User.Builder SetUserid(ulong value)
+			public RustProto.User.Builder SetUserid(ulong value)
 			{
 				this.PrepareBuilder();
 				this.result.hasUserid = true;
@@ -615,8 +615,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060014C3 RID: 5315 RVA: 0x00045978 File Offset: 0x00043B78
-			public User.Builder ClearUserid()
+			// Token: 0x06001617 RID: 5655 RVA: 0x00049D20 File Offset: 0x00047F20
+			public RustProto.User.Builder ClearUserid()
 			{
 				this.PrepareBuilder();
 				this.result.hasUserid = false;
@@ -624,8 +624,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170005FD RID: 1533
-			// (get) Token: 0x060014C4 RID: 5316 RVA: 0x0004599C File Offset: 0x00043B9C
+			// Token: 0x17000645 RID: 1605
+			// (get) Token: 0x06001618 RID: 5656 RVA: 0x00049D44 File Offset: 0x00047F44
 			public bool HasDisplayname
 			{
 				get
@@ -634,9 +634,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005FE RID: 1534
-			// (get) Token: 0x060014C5 RID: 5317 RVA: 0x000459AC File Offset: 0x00043BAC
-			// (set) Token: 0x060014C6 RID: 5318 RVA: 0x000459BC File Offset: 0x00043BBC
+			// Token: 0x17000646 RID: 1606
+			// (get) Token: 0x06001619 RID: 5657 RVA: 0x00049D54 File Offset: 0x00047F54
+			// (set) Token: 0x0600161A RID: 5658 RVA: 0x00049D64 File Offset: 0x00047F64
 			public string Displayname
 			{
 				get
@@ -649,8 +649,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060014C7 RID: 5319 RVA: 0x000459C8 File Offset: 0x00043BC8
-			public User.Builder SetDisplayname(string value)
+			// Token: 0x0600161B RID: 5659 RVA: 0x00049D70 File Offset: 0x00047F70
+			public RustProto.User.Builder SetDisplayname(string value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
 				this.PrepareBuilder();
@@ -659,8 +659,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060014C8 RID: 5320 RVA: 0x000459F8 File Offset: 0x00043BF8
-			public User.Builder ClearDisplayname()
+			// Token: 0x0600161C RID: 5660 RVA: 0x00049DA0 File Offset: 0x00047FA0
+			public RustProto.User.Builder ClearDisplayname()
 			{
 				this.PrepareBuilder();
 				this.result.hasDisplayname = false;
@@ -668,8 +668,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170005FF RID: 1535
-			// (get) Token: 0x060014C9 RID: 5321 RVA: 0x00045A2C File Offset: 0x00043C2C
+			// Token: 0x17000647 RID: 1607
+			// (get) Token: 0x0600161D RID: 5661 RVA: 0x00049DD4 File Offset: 0x00047FD4
 			public bool HasUsergroup
 			{
 				get
@@ -678,10 +678,10 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000600 RID: 1536
-			// (get) Token: 0x060014CA RID: 5322 RVA: 0x00045A3C File Offset: 0x00043C3C
-			// (set) Token: 0x060014CB RID: 5323 RVA: 0x00045A4C File Offset: 0x00043C4C
-			public User.Types.UserGroup Usergroup
+			// Token: 0x17000648 RID: 1608
+			// (get) Token: 0x0600161E RID: 5662 RVA: 0x00049DE4 File Offset: 0x00047FE4
+			// (set) Token: 0x0600161F RID: 5663 RVA: 0x00049DF4 File Offset: 0x00047FF4
+			public RustProto.User.Types.UserGroup Usergroup
 			{
 				get
 				{
@@ -693,8 +693,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060014CC RID: 5324 RVA: 0x00045A58 File Offset: 0x00043C58
-			public User.Builder SetUsergroup(User.Types.UserGroup value)
+			// Token: 0x06001620 RID: 5664 RVA: 0x00049E00 File Offset: 0x00048000
+			public RustProto.User.Builder SetUsergroup(RustProto.User.Types.UserGroup value)
 			{
 				this.PrepareBuilder();
 				this.result.hasUsergroup = true;
@@ -702,20 +702,20 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060014CD RID: 5325 RVA: 0x00045A88 File Offset: 0x00043C88
-			public User.Builder ClearUsergroup()
+			// Token: 0x06001621 RID: 5665 RVA: 0x00049E30 File Offset: 0x00048030
+			public RustProto.User.Builder ClearUsergroup()
 			{
 				this.PrepareBuilder();
 				this.result.hasUsergroup = false;
-				this.result.usergroup_ = User.Types.UserGroup.REGULAR;
+				this.result.usergroup_ = RustProto.User.Types.UserGroup.REGULAR;
 				return this;
 			}
 
-			// Token: 0x04000A56 RID: 2646
+			// Token: 0x04000B79 RID: 2937
 			private bool resultIsReadOnly;
 
-			// Token: 0x04000A57 RID: 2647
-			private User result;
+			// Token: 0x04000B7A RID: 2938
+			private RustProto.User result;
 		}
 	}
 }

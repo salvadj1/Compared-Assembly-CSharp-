@@ -1,18 +1,18 @@
 ﻿using System;
 
-// Token: 0x020004B5 RID: 1205
+// Token: 0x02000570 RID: 1392
 public enum ResourceType
 {
-	// Token: 0x04001629 RID: 5673
+	// Token: 0x040017E6 RID: 6118
 	Wood,
-	// Token: 0x0400162A RID: 5674
+	// Token: 0x040017E7 RID: 6119
 	Meat,
-	// Token: 0x0400162B RID: 5675
+	// Token: 0x040017E8 RID: 6120
 	OreSimple,
-	// Token: 0x0400162C RID: 5676
+	// Token: 0x040017E9 RID: 6121
 	OreMedium,
-	// Token: 0x0400162D RID: 5677
+	// Token: 0x040017EA RID: 6122
 	OreAdvanced,
-	// Token: 0x0400162E RID: 5678
+	// Token: 0x040017EB RID: 6123
 	None
 }

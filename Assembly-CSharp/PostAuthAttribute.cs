@@ -3,13 +3,13 @@
 // Token: 0x02000004 RID: 4
 public abstract class PostAuthAttribute : Attribute
 {
-	// Token: 0x06000001 RID: 1 RVA: 0x000020EC File Offset: 0x000002EC
-	internal PostAuthAttribute(AuthTarg target, AuthOptions options, string nameMask)
+	// Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
+	internal PostAuthAttribute(global::AuthTarg target, global::AuthOptions options, string nameMask)
 	{
 		this._target = target;
 		if (!string.IsNullOrEmpty(nameMask))
 		{
-			this._options = (options | (AuthOptions)4);
+			this._options = (options | (global::AuthOptions)4);
 			this._nameMask = nameMask;
 		}
 		else
@@ -20,8 +20,8 @@ public abstract class PostAuthAttribute : Attribute
 	}
 
 	// Token: 0x17000001 RID: 1
-	// (get) Token: 0x06000002 RID: 2 RVA: 0x00002138 File Offset: 0x00000338
-	public AuthTarg target
+	// (get) Token: 0x06000002 RID: 2 RVA: 0x0000209C File Offset: 0x0000029C
+	public global::AuthTarg target
 	{
 		get
 		{
@@ -30,8 +30,8 @@ public abstract class PostAuthAttribute : Attribute
 	}
 
 	// Token: 0x17000002 RID: 2
-	// (get) Token: 0x06000003 RID: 3 RVA: 0x00002140 File Offset: 0x00000340
-	public AuthOptions options
+	// (get) Token: 0x06000003 RID: 3 RVA: 0x000020A4 File Offset: 0x000002A4
+	public global::AuthOptions options
 	{
 		get
 		{
@@ -40,7 +40,7 @@ public abstract class PostAuthAttribute : Attribute
 	}
 
 	// Token: 0x17000003 RID: 3
-	// (get) Token: 0x06000004 RID: 4 RVA: 0x00002148 File Offset: 0x00000348
+	// (get) Token: 0x06000004 RID: 4 RVA: 0x000020AC File Offset: 0x000002AC
 	public string nameMask
 	{
 		get
@@ -50,28 +50,28 @@ public abstract class PostAuthAttribute : Attribute
 	}
 
 	// Token: 0x04000009 RID: 9
-	public const AuthOptions kOption_None = (AuthOptions)0;
+	public const global::AuthOptions kOption_None = (global::AuthOptions)0;
 
 	// Token: 0x0400000A RID: 10
-	public const AuthOptions kOption_Down = AuthOptions.SearchDown;
+	public const global::AuthOptions kOption_Down = global::AuthOptions.SearchDown;
 
 	// Token: 0x0400000B RID: 11
-	public const AuthOptions kOption_Up = AuthOptions.SearchUp;
+	public const global::AuthOptions kOption_Up = global::AuthOptions.SearchUp;
 
 	// Token: 0x0400000C RID: 12
-	public const AuthOptions kOption_NameMask = (AuthOptions)4;
+	public const global::AuthOptions kOption_NameMask = (global::AuthOptions)4;
 
 	// Token: 0x0400000D RID: 13
-	public const AuthOptions kOption_Include = AuthOptions.SearchInclusive;
+	public const global::AuthOptions kOption_Include = global::AuthOptions.SearchInclusive;
 
 	// Token: 0x0400000E RID: 14
-	public const AuthOptions kOption_Reverse = AuthOptions.SearchReverse;
+	public const global::AuthOptions kOption_Reverse = global::AuthOptions.SearchReverse;
 
 	// Token: 0x0400000F RID: 15
-	private readonly AuthOptions _options;
+	private readonly global::AuthOptions _options;
 
 	// Token: 0x04000010 RID: 16
-	private readonly AuthTarg _target;
+	private readonly global::AuthTarg _target;
 
 	// Token: 0x04000011 RID: 17
 	private readonly string _nameMask;

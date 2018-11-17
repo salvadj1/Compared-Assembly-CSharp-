@@ -1,41 +1,41 @@
 ﻿using System;
 
-// Token: 0x02000191 RID: 401
+// Token: 0x020001BD RID: 445
 public static class GameEvent
 {
 	// Token: 0x14000005 RID: 5
-	// (add) Token: 0x06000BEA RID: 3050 RVA: 0x0002FC44 File Offset: 0x0002DE44
-	// (remove) Token: 0x06000BEB RID: 3051 RVA: 0x0002FC5C File Offset: 0x0002DE5C
-	public static event GameEvent.OnPlayerConnectedHandler PlayerConnected;
+	// (add) Token: 0x06000D1A RID: 3354 RVA: 0x00033B30 File Offset: 0x00031D30
+	// (remove) Token: 0x06000D1B RID: 3355 RVA: 0x00033B48 File Offset: 0x00031D48
+	public static event global::GameEvent.OnPlayerConnectedHandler PlayerConnected;
 
 	// Token: 0x14000006 RID: 6
-	// (add) Token: 0x06000BEC RID: 3052 RVA: 0x0002FC74 File Offset: 0x0002DE74
-	// (remove) Token: 0x06000BED RID: 3053 RVA: 0x0002FC8C File Offset: 0x0002DE8C
-	public static event GameEvent.OnGenericEvent QualitySettingsRefresh;
+	// (add) Token: 0x06000D1C RID: 3356 RVA: 0x00033B60 File Offset: 0x00031D60
+	// (remove) Token: 0x06000D1D RID: 3357 RVA: 0x00033B78 File Offset: 0x00031D78
+	public static event global::GameEvent.OnGenericEvent QualitySettingsRefresh;
 
-	// Token: 0x06000BEE RID: 3054 RVA: 0x0002FCA4 File Offset: 0x0002DEA4
-	public static void DoPlayerConnected(PlayerClient player)
+	// Token: 0x06000D1E RID: 3358 RVA: 0x00033B90 File Offset: 0x00031D90
+	public static void DoPlayerConnected(global::PlayerClient player)
 	{
-		if (GameEvent.PlayerConnected != null)
+		if (global::GameEvent.PlayerConnected != null)
 		{
-			GameEvent.PlayerConnected(player);
+			global::GameEvent.PlayerConnected(player);
 		}
 	}
 
-	// Token: 0x06000BEF RID: 3055 RVA: 0x0002FCBC File Offset: 0x0002DEBC
+	// Token: 0x06000D1F RID: 3359 RVA: 0x00033BA8 File Offset: 0x00031DA8
 	public static void DoQualitySettingsRefresh()
 	{
-		if (GameEvent.QualitySettingsRefresh != null)
+		if (global::GameEvent.QualitySettingsRefresh != null)
 		{
-			GameEvent.QualitySettingsRefresh();
+			global::GameEvent.QualitySettingsRefresh();
 		}
 	}
 
-	// Token: 0x02000864 RID: 2148
-	// (Invoke) Token: 0x06004B68 RID: 19304
+	// Token: 0x020001BE RID: 446
+	// (Invoke) Token: 0x06000D21 RID: 3361
 	public delegate void OnGenericEvent();
 
-	// Token: 0x02000865 RID: 2149
-	// (Invoke) Token: 0x06004B6C RID: 19308
-	public delegate void OnPlayerConnectedHandler(PlayerClient player);
+	// Token: 0x020001BF RID: 447
+	// (Invoke) Token: 0x06000D25 RID: 3365
+	public delegate void OnPlayerConnectedHandler(global::PlayerClient player);
 }

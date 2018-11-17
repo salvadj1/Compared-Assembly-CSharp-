@@ -1,28 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006F2 RID: 1778
+// Token: 0x020007C4 RID: 1988
+[AddComponentMenu("Daikon Forge/User Interface/Slider")]
 [ExecuteInEditMode]
 [RequireComponent(typeof(BoxCollider))]
-[AddComponentMenu("Daikon Forge/User Interface/Slider")]
 [Serializable]
-public class dfSlider : dfControl
+public class dfSlider : global::dfControl
 {
 	// Token: 0x14000051 RID: 81
-	// (add) Token: 0x06004024 RID: 16420 RVA: 0x000F6004 File Offset: 0x000F4204
-	// (remove) Token: 0x06004025 RID: 16421 RVA: 0x000F6020 File Offset: 0x000F4220
-	public event PropertyChangedEventHandler<float> ValueChanged;
+	// (add) Token: 0x06004440 RID: 17472 RVA: 0x000FEC08 File Offset: 0x000FCE08
+	// (remove) Token: 0x06004441 RID: 17473 RVA: 0x000FEC24 File Offset: 0x000FCE24
+	public event global::PropertyChangedEventHandler<float> ValueChanged;
 
-	// Token: 0x17000C9C RID: 3228
-	// (get) Token: 0x06004026 RID: 16422 RVA: 0x000F603C File Offset: 0x000F423C
-	// (set) Token: 0x06004027 RID: 16423 RVA: 0x000F6084 File Offset: 0x000F4284
-	public dfAtlas Atlas
+	// Token: 0x17000D20 RID: 3360
+	// (get) Token: 0x06004442 RID: 17474 RVA: 0x000FEC40 File Offset: 0x000FCE40
+	// (set) Token: 0x06004443 RID: 17475 RVA: 0x000FEC88 File Offset: 0x000FCE88
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -32,7 +32,7 @@ public class dfSlider : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -40,9 +40,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000C9D RID: 3229
-	// (get) Token: 0x06004028 RID: 16424 RVA: 0x000F60A4 File Offset: 0x000F42A4
-	// (set) Token: 0x06004029 RID: 16425 RVA: 0x000F60AC File Offset: 0x000F42AC
+	// Token: 0x17000D21 RID: 3361
+	// (get) Token: 0x06004444 RID: 17476 RVA: 0x000FECA8 File Offset: 0x000FCEA8
+	// (set) Token: 0x06004445 RID: 17477 RVA: 0x000FECB0 File Offset: 0x000FCEB0
 	public string BackgroundSprite
 	{
 		get
@@ -59,9 +59,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000C9E RID: 3230
-	// (get) Token: 0x0600402A RID: 16426 RVA: 0x000F60CC File Offset: 0x000F42CC
-	// (set) Token: 0x0600402B RID: 16427 RVA: 0x000F60D4 File Offset: 0x000F42D4
+	// Token: 0x17000D22 RID: 3362
+	// (get) Token: 0x06004446 RID: 17478 RVA: 0x000FECD0 File Offset: 0x000FCED0
+	// (set) Token: 0x06004447 RID: 17479 RVA: 0x000FECD8 File Offset: 0x000FCED8
 	public float MinValue
 	{
 		get
@@ -82,9 +82,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000C9F RID: 3231
-	// (get) Token: 0x0600402C RID: 16428 RVA: 0x000F6110 File Offset: 0x000F4310
-	// (set) Token: 0x0600402D RID: 16429 RVA: 0x000F6118 File Offset: 0x000F4318
+	// Token: 0x17000D23 RID: 3363
+	// (get) Token: 0x06004448 RID: 17480 RVA: 0x000FED14 File Offset: 0x000FCF14
+	// (set) Token: 0x06004449 RID: 17481 RVA: 0x000FED1C File Offset: 0x000FCF1C
 	public float MaxValue
 	{
 		get
@@ -105,9 +105,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA0 RID: 3232
-	// (get) Token: 0x0600402E RID: 16430 RVA: 0x000F6154 File Offset: 0x000F4354
-	// (set) Token: 0x0600402F RID: 16431 RVA: 0x000F615C File Offset: 0x000F435C
+	// Token: 0x17000D24 RID: 3364
+	// (get) Token: 0x0600444A RID: 17482 RVA: 0x000FED58 File Offset: 0x000FCF58
+	// (set) Token: 0x0600444B RID: 17483 RVA: 0x000FED60 File Offset: 0x000FCF60
 	public float StepSize
 	{
 		get
@@ -126,9 +126,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA1 RID: 3233
-	// (get) Token: 0x06004030 RID: 16432 RVA: 0x000F61A4 File Offset: 0x000F43A4
-	// (set) Token: 0x06004031 RID: 16433 RVA: 0x000F61AC File Offset: 0x000F43AC
+	// Token: 0x17000D25 RID: 3365
+	// (get) Token: 0x0600444C RID: 17484 RVA: 0x000FEDA8 File Offset: 0x000FCFA8
+	// (set) Token: 0x0600444D RID: 17485 RVA: 0x000FEDB0 File Offset: 0x000FCFB0
 	public float ScrollSize
 	{
 		get
@@ -146,10 +146,10 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA2 RID: 3234
-	// (get) Token: 0x06004032 RID: 16434 RVA: 0x000F61E0 File Offset: 0x000F43E0
-	// (set) Token: 0x06004033 RID: 16435 RVA: 0x000F61E8 File Offset: 0x000F43E8
-	public dfControlOrientation Orientation
+	// Token: 0x17000D26 RID: 3366
+	// (get) Token: 0x0600444E RID: 17486 RVA: 0x000FEDE4 File Offset: 0x000FCFE4
+	// (set) Token: 0x0600444F RID: 17487 RVA: 0x000FEDEC File Offset: 0x000FCFEC
+	public global::dfControlOrientation Orientation
 	{
 		get
 		{
@@ -166,9 +166,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA3 RID: 3235
-	// (get) Token: 0x06004034 RID: 16436 RVA: 0x000F6210 File Offset: 0x000F4410
-	// (set) Token: 0x06004035 RID: 16437 RVA: 0x000F6218 File Offset: 0x000F4418
+	// Token: 0x17000D27 RID: 3367
+	// (get) Token: 0x06004450 RID: 17488 RVA: 0x000FEE14 File Offset: 0x000FD014
+	// (set) Token: 0x06004451 RID: 17489 RVA: 0x000FEE1C File Offset: 0x000FD01C
 	public float Value
 	{
 		get
@@ -186,10 +186,10 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA4 RID: 3236
-	// (get) Token: 0x06004036 RID: 16438 RVA: 0x000F6268 File Offset: 0x000F4468
-	// (set) Token: 0x06004037 RID: 16439 RVA: 0x000F6270 File Offset: 0x000F4470
-	public dfControl Thumb
+	// Token: 0x17000D28 RID: 3368
+	// (get) Token: 0x06004452 RID: 17490 RVA: 0x000FEE6C File Offset: 0x000FD06C
+	// (set) Token: 0x06004453 RID: 17491 RVA: 0x000FEE74 File Offset: 0x000FD074
+	public global::dfControl Thumb
 	{
 		get
 		{
@@ -206,10 +206,10 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA5 RID: 3237
-	// (get) Token: 0x06004038 RID: 16440 RVA: 0x000F62A8 File Offset: 0x000F44A8
-	// (set) Token: 0x06004039 RID: 16441 RVA: 0x000F62B0 File Offset: 0x000F44B0
-	public dfControl Progress
+	// Token: 0x17000D29 RID: 3369
+	// (get) Token: 0x06004454 RID: 17492 RVA: 0x000FEEAC File Offset: 0x000FD0AC
+	// (set) Token: 0x06004455 RID: 17493 RVA: 0x000FEEB4 File Offset: 0x000FD0B4
+	public global::dfControl Progress
 	{
 		get
 		{
@@ -226,10 +226,10 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA6 RID: 3238
-	// (get) Token: 0x0600403A RID: 16442 RVA: 0x000F62E8 File Offset: 0x000F44E8
-	// (set) Token: 0x0600403B RID: 16443 RVA: 0x000F62F0 File Offset: 0x000F44F0
-	public dfProgressFillMode FillMode
+	// Token: 0x17000D2A RID: 3370
+	// (get) Token: 0x06004456 RID: 17494 RVA: 0x000FEEEC File Offset: 0x000FD0EC
+	// (set) Token: 0x06004457 RID: 17495 RVA: 0x000FEEF4 File Offset: 0x000FD0F4
+	public global::dfProgressFillMode FillMode
 	{
 		get
 		{
@@ -245,9 +245,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA7 RID: 3239
-	// (get) Token: 0x0600403C RID: 16444 RVA: 0x000F630C File Offset: 0x000F450C
-	// (set) Token: 0x0600403D RID: 16445 RVA: 0x000F632C File Offset: 0x000F452C
+	// Token: 0x17000D2B RID: 3371
+	// (get) Token: 0x06004458 RID: 17496 RVA: 0x000FEF10 File Offset: 0x000FD110
+	// (set) Token: 0x06004459 RID: 17497 RVA: 0x000FEF30 File Offset: 0x000FD130
 	public RectOffset FillPadding
 	{
 		get
@@ -269,9 +269,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA8 RID: 3240
-	// (get) Token: 0x0600403E RID: 16446 RVA: 0x000F6364 File Offset: 0x000F4564
-	// (set) Token: 0x0600403F RID: 16447 RVA: 0x000F636C File Offset: 0x000F456C
+	// Token: 0x17000D2C RID: 3372
+	// (get) Token: 0x0600445A RID: 17498 RVA: 0x000FEF68 File Offset: 0x000FD168
+	// (set) Token: 0x0600445B RID: 17499 RVA: 0x000FEF70 File Offset: 0x000FD170
 	public Vector2 ThumbOffset
 	{
 		get
@@ -288,9 +288,9 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CA9 RID: 3241
-	// (get) Token: 0x06004040 RID: 16448 RVA: 0x000F6398 File Offset: 0x000F4598
-	// (set) Token: 0x06004041 RID: 16449 RVA: 0x000F63A0 File Offset: 0x000F45A0
+	// Token: 0x17000D2D RID: 3373
+	// (get) Token: 0x0600445C RID: 17500 RVA: 0x000FEF9C File Offset: 0x000FD19C
+	// (set) Token: 0x0600445D RID: 17501 RVA: 0x000FEFA4 File Offset: 0x000FD1A4
 	public bool RightToLeft
 	{
 		get
@@ -307,10 +307,10 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x06004042 RID: 16450 RVA: 0x000F63C4 File Offset: 0x000F45C4
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x0600445E RID: 17502 RVA: 0x000FEFC8 File Offset: 0x000FD1C8
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
-		if (this.Orientation == dfControlOrientation.Horizontal)
+		if (this.Orientation == global::dfControlOrientation.Horizontal)
 		{
 			if (args.KeyCode == 276)
 			{
@@ -343,14 +343,14 @@ public class dfSlider : dfControl
 		base.OnKeyDown(args);
 	}
 
-	// Token: 0x06004043 RID: 16451 RVA: 0x000F6490 File Offset: 0x000F4690
+	// Token: 0x0600445F RID: 17503 RVA: 0x000FF094 File Offset: 0x000FD294
 	public override void Start()
 	{
 		base.Start();
 		this.updateValueIndicators(this.rawValue);
 	}
 
-	// Token: 0x06004044 RID: 16452 RVA: 0x000F64A4 File Offset: 0x000F46A4
+	// Token: 0x06004460 RID: 17504 RVA: 0x000FF0A8 File Offset: 0x000FD2A8
 	public override void OnEnable()
 	{
 		if (this.size.magnitude < 1.401298E-45f)
@@ -361,10 +361,10 @@ public class dfSlider : dfControl
 		this.updateValueIndicators(this.rawValue);
 	}
 
-	// Token: 0x06004045 RID: 16453 RVA: 0x000F64F0 File Offset: 0x000F46F0
-	protected internal override void OnMouseWheel(dfMouseEventArgs args)
+	// Token: 0x06004461 RID: 17505 RVA: 0x000FF0F4 File Offset: 0x000FD2F4
+	protected internal override void OnMouseWheel(global::dfMouseEventArgs args)
 	{
-		int num = (this.orientation != dfControlOrientation.Horizontal) ? 1 : -1;
+		int num = (this.orientation != global::dfControlOrientation.Horizontal) ? 1 : -1;
 		this.Value += this.scrollSize * args.WheelDelta * (float)num;
 		args.Use();
 		base.Signal("OnMouseWheel", new object[]
@@ -378,10 +378,10 @@ public class dfSlider : dfControl
 		});
 	}
 
-	// Token: 0x06004046 RID: 16454 RVA: 0x000F6564 File Offset: 0x000F4764
-	protected internal override void OnMouseMove(dfMouseEventArgs args)
+	// Token: 0x06004462 RID: 17506 RVA: 0x000FF168 File Offset: 0x000FD368
+	protected internal override void OnMouseMove(global::dfMouseEventArgs args)
 	{
-		if (!args.Buttons.IsSet(dfMouseButtons.Left))
+		if (!args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			base.OnMouseMove(args);
 			return;
@@ -399,10 +399,10 @@ public class dfSlider : dfControl
 		});
 	}
 
-	// Token: 0x06004047 RID: 16455 RVA: 0x000F65CC File Offset: 0x000F47CC
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x06004463 RID: 17507 RVA: 0x000FF1D0 File Offset: 0x000FD3D0
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
-		if (!args.Buttons.IsSet(dfMouseButtons.Left))
+		if (!args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			base.OnMouseMove(args);
 			return;
@@ -421,14 +421,14 @@ public class dfSlider : dfControl
 		});
 	}
 
-	// Token: 0x06004048 RID: 16456 RVA: 0x000F663C File Offset: 0x000F483C
+	// Token: 0x06004464 RID: 17508 RVA: 0x000FF240 File Offset: 0x000FD440
 	protected internal override void OnSizeChanged()
 	{
 		base.OnSizeChanged();
 		this.updateValueIndicators(this.rawValue);
 	}
 
-	// Token: 0x06004049 RID: 16457 RVA: 0x000F6650 File Offset: 0x000F4850
+	// Token: 0x06004465 RID: 17509 RVA: 0x000FF254 File Offset: 0x000FD454
 	protected internal virtual void OnValueChanged()
 	{
 		this.Invalidate();
@@ -443,8 +443,8 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x17000CAA RID: 3242
-	// (get) Token: 0x0600404A RID: 16458 RVA: 0x000F66AC File Offset: 0x000F48AC
+	// Token: 0x17000D2E RID: 3374
+	// (get) Token: 0x06004466 RID: 17510 RVA: 0x000FF2B0 File Offset: 0x000FD4B0
 	public override bool CanFocus
 	{
 		get
@@ -453,7 +453,7 @@ public class dfSlider : dfControl
 		}
 	}
 
-	// Token: 0x0600404B RID: 16459 RVA: 0x000F66CC File Offset: 0x000F48CC
+	// Token: 0x06004467 RID: 17511 RVA: 0x000FF2D0 File Offset: 0x000FD4D0
 	protected override void OnRebuildRenderData()
 	{
 		if (this.Atlas == null)
@@ -464,20 +464,20 @@ public class dfSlider : dfControl
 		this.renderBackground();
 	}
 
-	// Token: 0x0600404C RID: 16460 RVA: 0x000F6708 File Offset: 0x000F4908
+	// Token: 0x06004468 RID: 17512 RVA: 0x000FF30C File Offset: 0x000FD50C
 	protected internal virtual void renderBackground()
 	{
 		if (this.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
 		if (itemInfo == null)
 		{
 			return;
 		}
 		Color32 color = base.ApplyOpacity((!base.IsEnabled) ? this.disabledColor : this.color);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -489,15 +489,15 @@ public class dfSlider : dfControl
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x0600404D RID: 16461 RVA: 0x000F6810 File Offset: 0x000F4A10
+	// Token: 0x06004469 RID: 17513 RVA: 0x000FF414 File Offset: 0x000FD614
 	private void updateValueIndicators(float rawValue)
 	{
 		if (this.thumb != null)
@@ -508,11 +508,11 @@ public class dfSlider : dfControl
 			float num2 = (rawValue - this.minValue) / num * vector.magnitude;
 			Vector3 vector2 = this.thumbOffset * base.PixelsToUnits();
 			Vector3 position = endPoints[0] + vector.normalized * num2 + vector2;
-			if (this.orientation == dfControlOrientation.Vertical || this.rightToLeft)
+			if (this.orientation == global::dfControlOrientation.Vertical || this.rightToLeft)
 			{
 				position = endPoints[1] + -vector.normalized * num2 + vector2;
 			}
-			this.thumb.Pivot = dfPivotPoint.MiddleCenter;
+			this.thumb.Pivot = global::dfPivotPoint.MiddleCenter;
 			this.thumb.transform.position = position;
 		}
 		if (this.fillIndicator == null)
@@ -524,12 +524,12 @@ public class dfSlider : dfControl
 		Vector3 relativePosition;
 		relativePosition..ctor((float)rectOffset.left, (float)rectOffset.top);
 		Vector2 size = this.size - new Vector2((float)rectOffset.horizontal, (float)rectOffset.vertical);
-		dfSprite dfSprite = this.fillIndicator as dfSprite;
-		if (dfSprite != null && this.fillMode == dfProgressFillMode.Fill)
+		global::dfSprite dfSprite = this.fillIndicator as global::dfSprite;
+		if (dfSprite != null && this.fillMode == global::dfProgressFillMode.Fill)
 		{
 			dfSprite.FillAmount = num3;
 		}
-		else if (this.orientation == dfControlOrientation.Horizontal)
+		else if (this.orientation == global::dfControlOrientation.Horizontal)
 		{
 			size.x = base.Width * num3 - (float)rectOffset.horizontal;
 		}
@@ -541,8 +541,8 @@ public class dfSlider : dfControl
 		this.fillIndicator.RelativePosition = relativePosition;
 	}
 
-	// Token: 0x0600404E RID: 16462 RVA: 0x000F6A10 File Offset: 0x000F4C10
-	private float getValueFromMouseEvent(dfMouseEventArgs args)
+	// Token: 0x0600446A RID: 17514 RVA: 0x000FF614 File Offset: 0x000FD814
+	private float getValueFromMouseEvent(global::dfMouseEventArgs args)
 	{
 		Vector3[] endPoints = this.getEndPoints(true);
 		Vector3 vector = endPoints[0];
@@ -556,24 +556,24 @@ public class dfSlider : dfControl
 			return this.rawValue;
 		}
 		Vector3 test = ray.origin + ray.direction * num;
-		Vector3 vector3 = dfSlider.closestPoint(vector, vector2, test, true);
+		Vector3 vector3 = global::dfSlider.closestPoint(vector, vector2, test, true);
 		float num2 = (vector3 - vector).magnitude / (vector2 - vector).magnitude;
 		float num3 = this.minValue + (this.maxValue - this.minValue) * num2;
-		if (this.orientation == dfControlOrientation.Vertical || this.rightToLeft)
+		if (this.orientation == global::dfControlOrientation.Vertical || this.rightToLeft)
 		{
 			num3 = this.maxValue - num3;
 		}
 		return num3;
 	}
 
-	// Token: 0x0600404F RID: 16463 RVA: 0x000F6B08 File Offset: 0x000F4D08
+	// Token: 0x0600446B RID: 17515 RVA: 0x000FF70C File Offset: 0x000FD90C
 	private Vector3[] getEndPoints(bool convertToWorld = false)
 	{
 		Vector3 vector = this.pivot.TransformToUpperLeft(base.Size);
 		Vector3 vector2;
 		vector2..ctor(vector.x, vector.y - this.size.y * 0.5f);
 		Vector3 vector3 = vector2 + new Vector3(this.size.x, 0f);
-		if (this.orientation == dfControlOrientation.Vertical)
+		if (this.orientation == global::dfControlOrientation.Vertical)
 		{
 			vector2..ctor(vector.x + this.size.x * 0.5f, vector.y);
 			vector3 = vector2 - new Vector3(0f, this.size.y);
@@ -592,7 +592,7 @@ public class dfSlider : dfControl
 		};
 	}
 
-	// Token: 0x06004050 RID: 16464 RVA: 0x000F6C14 File Offset: 0x000F4E14
+	// Token: 0x0600446C RID: 17516 RVA: 0x000FF818 File Offset: 0x000FDA18
 	private static Vector3 closestPoint(Vector3 start, Vector3 end, Vector3 test, bool clamp)
 	{
 		Vector3 vector = test - start;
@@ -614,59 +614,59 @@ public class dfSlider : dfControl
 		return start + vector2;
 	}
 
-	// Token: 0x0400221D RID: 8733
+	// Token: 0x04002426 RID: 9254
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x0400221E RID: 8734
+	// Token: 0x04002427 RID: 9255
 	[SerializeField]
 	protected string backgroundSprite;
 
-	// Token: 0x0400221F RID: 8735
+	// Token: 0x04002428 RID: 9256
 	[SerializeField]
-	protected dfControlOrientation orientation;
+	protected global::dfControlOrientation orientation;
 
-	// Token: 0x04002220 RID: 8736
+	// Token: 0x04002429 RID: 9257
 	[SerializeField]
 	protected float rawValue = 10f;
 
-	// Token: 0x04002221 RID: 8737
+	// Token: 0x0400242A RID: 9258
 	[SerializeField]
 	protected float minValue;
 
-	// Token: 0x04002222 RID: 8738
+	// Token: 0x0400242B RID: 9259
 	[SerializeField]
 	protected float maxValue = 100f;
 
-	// Token: 0x04002223 RID: 8739
+	// Token: 0x0400242C RID: 9260
 	[SerializeField]
 	protected float stepSize = 1f;
 
-	// Token: 0x04002224 RID: 8740
+	// Token: 0x0400242D RID: 9261
 	[SerializeField]
 	protected float scrollSize = 1f;
 
-	// Token: 0x04002225 RID: 8741
+	// Token: 0x0400242E RID: 9262
 	[SerializeField]
-	protected dfControl thumb;
+	protected global::dfControl thumb;
 
-	// Token: 0x04002226 RID: 8742
+	// Token: 0x0400242F RID: 9263
 	[SerializeField]
-	protected dfControl fillIndicator;
+	protected global::dfControl fillIndicator;
 
-	// Token: 0x04002227 RID: 8743
+	// Token: 0x04002430 RID: 9264
 	[SerializeField]
-	protected dfProgressFillMode fillMode = dfProgressFillMode.Fill;
+	protected global::dfProgressFillMode fillMode = global::dfProgressFillMode.Fill;
 
-	// Token: 0x04002228 RID: 8744
+	// Token: 0x04002431 RID: 9265
 	[SerializeField]
 	protected RectOffset fillPadding = new RectOffset();
 
-	// Token: 0x04002229 RID: 8745
+	// Token: 0x04002432 RID: 9266
 	[SerializeField]
 	protected Vector2 thumbOffset = Vector2.zero;
 
-	// Token: 0x0400222A RID: 8746
+	// Token: 0x04002433 RID: 9267
 	[SerializeField]
 	protected bool rightToLeft;
 }

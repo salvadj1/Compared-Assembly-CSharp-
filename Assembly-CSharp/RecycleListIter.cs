@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x02000378 RID: 888
+// Token: 0x02000425 RID: 1061
 public struct RecycleListIter<T>
 {
-	// Token: 0x060021C1 RID: 8641 RVA: 0x0008326C File Offset: 0x0008146C
+	// Token: 0x06002523 RID: 9507 RVA: 0x00088668 File Offset: 0x00086868
 	internal RecycleListIter(List<T>.Enumerator enumerator)
 	{
 		this.enumerator = enumerator;
 	}
 
-	// Token: 0x060021C2 RID: 8642 RVA: 0x00083278 File Offset: 0x00081478
+	// Token: 0x06002524 RID: 9508 RVA: 0x00088674 File Offset: 0x00086874
 	public bool MoveNext()
 	{
 		return this.enumerator.MoveNext();
 	}
 
-	// Token: 0x1700083A RID: 2106
-	// (get) Token: 0x060021C3 RID: 8643 RVA: 0x00083288 File Offset: 0x00081488
+	// Token: 0x17000898 RID: 2200
+	// (get) Token: 0x06002525 RID: 9509 RVA: 0x00088684 File Offset: 0x00086884
 	public T Current
 	{
 		get
@@ -26,12 +26,12 @@ public struct RecycleListIter<T>
 		}
 	}
 
-	// Token: 0x060021C4 RID: 8644 RVA: 0x00083298 File Offset: 0x00081498
+	// Token: 0x06002526 RID: 9510 RVA: 0x00088694 File Offset: 0x00086894
 	public void Dispose()
 	{
 		this.enumerator.Dispose();
 	}
 
-	// Token: 0x04000FBA RID: 4026
+	// Token: 0x04001120 RID: 4384
 	private List<T>.Enumerator enumerator;
 }

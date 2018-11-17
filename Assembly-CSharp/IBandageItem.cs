@@ -1,20 +1,20 @@
 ﻿using System;
 
-// Token: 0x020005B2 RID: 1458
-public interface IBandageItem : IHeldItem, IInventoryItem
+// Token: 0x02000670 RID: 1648
+public interface IBandageItem : global::IHeldItem, global::IInventoryItem
 {
-	// Token: 0x17000A5F RID: 2655
-	// (get) Token: 0x060034E1 RID: 13537
-	// (set) Token: 0x060034E2 RID: 13538
+	// Token: 0x17000AD5 RID: 2773
+	// (get) Token: 0x060038A9 RID: 14505
+	// (set) Token: 0x060038AA RID: 14506
 	float bandageStartTime { get; set; }
 
-	// Token: 0x17000A60 RID: 2656
-	// (get) Token: 0x060034E3 RID: 13539
-	// (set) Token: 0x060034E4 RID: 13540
+	// Token: 0x17000AD6 RID: 2774
+	// (get) Token: 0x060038AB RID: 14507
+	// (set) Token: 0x060038AC RID: 14508
 	bool lastFramePrimary { get; set; }
 
-	// Token: 0x17000A61 RID: 2657
-	// (get) Token: 0x060034E5 RID: 13541
-	// (set) Token: 0x060034E6 RID: 13542
+	// Token: 0x17000AD7 RID: 2775
+	// (get) Token: 0x060038AD RID: 14509
+	// (set) Token: 0x060038AE RID: 14510
 	float lastBandageTime { get; set; }
 }

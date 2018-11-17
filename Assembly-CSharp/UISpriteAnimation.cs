@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000802 RID: 2050
-[AddComponentMenu("NGUI/UI/Sprite Animation")]
+// Token: 0x020008F4 RID: 2292
 [ExecuteInEditMode]
-[RequireComponent(typeof(UISprite))]
+[AddComponentMenu("NGUI/UI/Sprite Animation")]
+[RequireComponent(typeof(global::UISprite))]
 public class UISpriteAnimation : MonoBehaviour
 {
-	// Token: 0x17000E73 RID: 3699
-	// (get) Token: 0x060049B1 RID: 18865 RVA: 0x001395C8 File Offset: 0x001377C8
-	// (set) Token: 0x060049B2 RID: 18866 RVA: 0x001395D0 File Offset: 0x001377D0
+	// Token: 0x17000F0D RID: 3853
+	// (get) Token: 0x06004E60 RID: 20064 RVA: 0x0014352C File Offset: 0x0014172C
+	// (set) Token: 0x06004E61 RID: 20065 RVA: 0x00143534 File Offset: 0x00141734
 	public int framesPerSecond
 	{
 		get
@@ -23,9 +23,9 @@ public class UISpriteAnimation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E74 RID: 3700
-	// (get) Token: 0x060049B3 RID: 18867 RVA: 0x001395DC File Offset: 0x001377DC
-	// (set) Token: 0x060049B4 RID: 18868 RVA: 0x001395E4 File Offset: 0x001377E4
+	// Token: 0x17000F0E RID: 3854
+	// (get) Token: 0x06004E62 RID: 20066 RVA: 0x00143540 File Offset: 0x00141740
+	// (set) Token: 0x06004E63 RID: 20067 RVA: 0x00143548 File Offset: 0x00141748
 	public string namePrefix
 	{
 		get
@@ -42,13 +42,13 @@ public class UISpriteAnimation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049B5 RID: 18869 RVA: 0x00139604 File Offset: 0x00137804
+	// Token: 0x06004E64 RID: 20068 RVA: 0x00143568 File Offset: 0x00141768
 	private void Start()
 	{
 		this.RebuildSpriteList();
 	}
 
-	// Token: 0x060049B6 RID: 18870 RVA: 0x0013960C File Offset: 0x0013780C
+	// Token: 0x06004E65 RID: 20069 RVA: 0x00143570 File Offset: 0x00141770
 	private void Update()
 	{
 		if (this.mSpriteNames.Count > 1 && Application.isPlaying)
@@ -68,22 +68,22 @@ public class UISpriteAnimation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049B7 RID: 18871 RVA: 0x001396F0 File Offset: 0x001378F0
+	// Token: 0x06004E66 RID: 20070 RVA: 0x00143654 File Offset: 0x00141854
 	private void RebuildSpriteList()
 	{
 		if (this.mSprite == null)
 		{
-			this.mSprite = base.GetComponent<UISprite>();
+			this.mSprite = base.GetComponent<global::UISprite>();
 		}
 		this.mSpriteNames.Clear();
 		if (this.mSprite != null && this.mSprite.atlas != null)
 		{
-			List<UIAtlas.Sprite> spriteList = this.mSprite.atlas.spriteList;
+			List<global::UIAtlas.Sprite> spriteList = this.mSprite.atlas.spriteList;
 			int i = 0;
 			int count = spriteList.Count;
 			while (i < count)
 			{
-				UIAtlas.Sprite sprite = spriteList[i];
+				global::UIAtlas.Sprite sprite = spriteList[i];
 				if (string.IsNullOrEmpty(this.mPrefix) || sprite.name.StartsWith(this.mPrefix))
 				{
 					this.mSpriteNames.Add(sprite.name);
@@ -94,25 +94,25 @@ public class UISpriteAnimation : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040029A0 RID: 10656
-	[SerializeField]
+	// Token: 0x04002BEE RID: 11246
 	[HideInInspector]
+	[SerializeField]
 	private int mFPS = 30;
 
-	// Token: 0x040029A1 RID: 10657
+	// Token: 0x04002BEF RID: 11247
 	[HideInInspector]
 	[SerializeField]
 	private string mPrefix = string.Empty;
 
-	// Token: 0x040029A2 RID: 10658
-	private UISprite mSprite;
+	// Token: 0x04002BF0 RID: 11248
+	private global::UISprite mSprite;
 
-	// Token: 0x040029A3 RID: 10659
+	// Token: 0x04002BF1 RID: 11249
 	private float mDelta;
 
-	// Token: 0x040029A4 RID: 10660
+	// Token: 0x04002BF2 RID: 11250
 	private int mIndex;
 
-	// Token: 0x040029A5 RID: 10661
+	// Token: 0x04002BF3 RID: 11251
 	private List<string> mSpriteNames = new List<string>();
 }

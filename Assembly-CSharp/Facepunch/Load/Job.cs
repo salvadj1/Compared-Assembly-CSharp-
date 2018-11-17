@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace Facepunch.Load
 {
-	// Token: 0x02000267 RID: 615
+	// Token: 0x0200029A RID: 666
 	public sealed class Job : IDownloadTask
 	{
-		// Token: 0x0600165E RID: 5726 RVA: 0x00054C84 File Offset: 0x00052E84
+		// Token: 0x060017B2 RID: 6066 RVA: 0x0005902C File Offset: 0x0005722C
 		public Job()
 		{
 			this.TaskStatus = TaskStatus.Pending;
 		}
 
-		// Token: 0x1700065A RID: 1626
-		// (get) Token: 0x0600165F RID: 5727 RVA: 0x00054C94 File Offset: 0x00052E94
+		// Token: 0x170006A2 RID: 1698
+		// (get) Token: 0x060017B3 RID: 6067 RVA: 0x0005903C File Offset: 0x0005723C
 		int IDownloadTask.Count
 		{
 			get
@@ -22,8 +22,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700065B RID: 1627
-		// (get) Token: 0x06001660 RID: 5728 RVA: 0x00054C98 File Offset: 0x00052E98
+		// Token: 0x170006A3 RID: 1699
+		// (get) Token: 0x060017B4 RID: 6068 RVA: 0x00059040 File Offset: 0x00057240
 		int IDownloadTask.Done
 		{
 			get
@@ -32,8 +32,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700065C RID: 1628
-		// (get) Token: 0x06001661 RID: 5729 RVA: 0x00054CB0 File Offset: 0x00052EB0
+		// Token: 0x170006A4 RID: 1700
+		// (get) Token: 0x060017B5 RID: 6069 RVA: 0x00059058 File Offset: 0x00057258
 		TaskStatusCount IDownloadTask.TaskStatusCount
 		{
 			get
@@ -51,8 +51,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700065D RID: 1629
-		// (get) Token: 0x06001662 RID: 5730 RVA: 0x00054D00 File Offset: 0x00052F00
+		// Token: 0x170006A5 RID: 1701
+		// (get) Token: 0x060017B6 RID: 6070 RVA: 0x000590A8 File Offset: 0x000572A8
 		public Loader Loader
 		{
 			get
@@ -61,13 +61,13 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x1700065E RID: 1630
-		// (get) Token: 0x06001663 RID: 5731 RVA: 0x00054D10 File Offset: 0x00052F10
-		// (set) Token: 0x06001664 RID: 5732 RVA: 0x00054D18 File Offset: 0x00052F18
+		// Token: 0x170006A6 RID: 1702
+		// (get) Token: 0x060017B7 RID: 6071 RVA: 0x000590B8 File Offset: 0x000572B8
+		// (set) Token: 0x060017B8 RID: 6072 RVA: 0x000590C0 File Offset: 0x000572C0
 		public Group Group { get; internal set; }
 
-		// Token: 0x1700065F RID: 1631
-		// (get) Token: 0x06001665 RID: 5733 RVA: 0x00054D24 File Offset: 0x00052F24
+		// Token: 0x170006A7 RID: 1703
+		// (get) Token: 0x060017B9 RID: 6073 RVA: 0x000590CC File Offset: 0x000572CC
 		public string Name
 		{
 			get
@@ -76,8 +76,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000660 RID: 1632
-		// (get) Token: 0x06001666 RID: 5734 RVA: 0x00054D34 File Offset: 0x00052F34
+		// Token: 0x170006A8 RID: 1704
+		// (get) Token: 0x060017BA RID: 6074 RVA: 0x000590DC File Offset: 0x000572DC
 		public string Path
 		{
 			get
@@ -86,8 +86,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000661 RID: 1633
-		// (get) Token: 0x06001667 RID: 5735 RVA: 0x00054D44 File Offset: 0x00052F44
+		// Token: 0x170006A9 RID: 1705
+		// (get) Token: 0x060017BB RID: 6075 RVA: 0x000590EC File Offset: 0x000572EC
 		public int ByteLength
 		{
 			get
@@ -96,8 +96,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000662 RID: 1634
-		// (get) Token: 0x06001668 RID: 5736 RVA: 0x00054D54 File Offset: 0x00052F54
+		// Token: 0x170006AA RID: 1706
+		// (get) Token: 0x060017BC RID: 6076 RVA: 0x000590FC File Offset: 0x000572FC
 		public ContentType ContentType
 		{
 			get
@@ -106,8 +106,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000663 RID: 1635
-		// (get) Token: 0x06001669 RID: 5737 RVA: 0x00054D64 File Offset: 0x00052F64
+		// Token: 0x170006AB RID: 1707
+		// (get) Token: 0x060017BD RID: 6077 RVA: 0x0005910C File Offset: 0x0005730C
 		public Type TypeOfAssets
 		{
 			get
@@ -116,8 +116,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000664 RID: 1636
-		// (get) Token: 0x0600166A RID: 5738 RVA: 0x00054D74 File Offset: 0x00052F74
+		// Token: 0x170006AC RID: 1708
+		// (get) Token: 0x060017BE RID: 6078 RVA: 0x0005911C File Offset: 0x0005731C
 		public int ByteLengthDownloaded
 		{
 			get
@@ -126,13 +126,13 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000665 RID: 1637
-		// (get) Token: 0x0600166B RID: 5739 RVA: 0x00054D8C File Offset: 0x00052F8C
-		// (set) Token: 0x0600166C RID: 5740 RVA: 0x00054D94 File Offset: 0x00052F94
+		// Token: 0x170006AD RID: 1709
+		// (get) Token: 0x060017BF RID: 6079 RVA: 0x00059134 File Offset: 0x00057334
+		// (set) Token: 0x060017C0 RID: 6080 RVA: 0x0005913C File Offset: 0x0005733C
 		internal AssetBundle AssetBundle { get; set; }
 
-		// Token: 0x17000666 RID: 1638
-		// (get) Token: 0x0600166D RID: 5741 RVA: 0x00054DA0 File Offset: 0x00052FA0
+		// Token: 0x170006AE RID: 1710
+		// (get) Token: 0x060017C1 RID: 6081 RVA: 0x00059148 File Offset: 0x00057348
 		public float PercentDone
 		{
 			get
@@ -150,8 +150,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000667 RID: 1639
-		// (get) Token: 0x0600166E RID: 5742 RVA: 0x00054DF4 File Offset: 0x00052FF4
+		// Token: 0x170006AF RID: 1711
+		// (get) Token: 0x060017C2 RID: 6082 RVA: 0x0005919C File Offset: 0x0005739C
 		public string ContextualDescription
 		{
 			get
@@ -169,12 +169,12 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000668 RID: 1640
-		// (get) Token: 0x0600166F RID: 5743 RVA: 0x00054E7C File Offset: 0x0005307C
-		// (set) Token: 0x06001670 RID: 5744 RVA: 0x00054E84 File Offset: 0x00053084
+		// Token: 0x170006B0 RID: 1712
+		// (get) Token: 0x060017C3 RID: 6083 RVA: 0x00059224 File Offset: 0x00057424
+		// (set) Token: 0x060017C4 RID: 6084 RVA: 0x0005922C File Offset: 0x0005742C
 		public TaskStatus TaskStatus { get; private set; }
 
-		// Token: 0x06001671 RID: 5745 RVA: 0x00054E90 File Offset: 0x00053090
+		// Token: 0x060017C5 RID: 6085 RVA: 0x00059238 File Offset: 0x00057438
 		public void OnDownloadingBegin(IDownloader downloader)
 		{
 			this.downloader = downloader;
@@ -183,7 +183,7 @@ namespace Facepunch.Load
 			this.TaskStatus = TaskStatus.Downloading;
 		}
 
-		// Token: 0x06001672 RID: 5746 RVA: 0x00054ED0 File Offset: 0x000530D0
+		// Token: 0x060017C6 RID: 6086 RVA: 0x00059278 File Offset: 0x00057478
 		public void OnDownloadingComplete()
 		{
 			this.TaskStatus = TaskStatus.Complete;
@@ -199,27 +199,27 @@ namespace Facepunch.Load
 			this.Tag = null;
 		}
 
-		// Token: 0x04000B5E RID: 2910
+		// Token: 0x04000C81 RID: 3201
 		[NonSerialized]
 		public Operation _op;
 
-		// Token: 0x04000B5F RID: 2911
+		// Token: 0x04000C82 RID: 3202
 		[NonSerialized]
 		public Item Item;
 
-		// Token: 0x04000B60 RID: 2912
+		// Token: 0x04000C83 RID: 3203
 		private IDownloaderDescriptive descriptiveDownloader;
 
-		// Token: 0x04000B61 RID: 2913
+		// Token: 0x04000C84 RID: 3204
 		private bool hasDescriptiveDownloader;
 
-		// Token: 0x04000B62 RID: 2914
+		// Token: 0x04000C85 RID: 3205
 		private string lastDescriptiveString;
 
-		// Token: 0x04000B63 RID: 2915
+		// Token: 0x04000C86 RID: 3206
 		public object Tag;
 
-		// Token: 0x04000B64 RID: 2916
+		// Token: 0x04000C87 RID: 3207
 		private IDownloader downloader;
 	}
 }

@@ -1,60 +1,60 @@
 ﻿using System;
 
-// Token: 0x0200073B RID: 1851
+// Token: 0x02000819 RID: 2073
 public enum dfEasingType
 {
-	// Token: 0x0400237B RID: 9083
+	// Token: 0x0400259E RID: 9630
 	Linear,
-	// Token: 0x0400237C RID: 9084
+	// Token: 0x0400259F RID: 9631
 	Bounce,
-	// Token: 0x0400237D RID: 9085
+	// Token: 0x040025A0 RID: 9632
 	BackEaseIn,
-	// Token: 0x0400237E RID: 9086
+	// Token: 0x040025A1 RID: 9633
 	BackEaseOut,
-	// Token: 0x0400237F RID: 9087
+	// Token: 0x040025A2 RID: 9634
 	BackEaseInOut,
-	// Token: 0x04002380 RID: 9088
+	// Token: 0x040025A3 RID: 9635
 	CircEaseIn,
-	// Token: 0x04002381 RID: 9089
+	// Token: 0x040025A4 RID: 9636
 	CircEaseOut,
-	// Token: 0x04002382 RID: 9090
+	// Token: 0x040025A5 RID: 9637
 	CircEaseInOut,
-	// Token: 0x04002383 RID: 9091
+	// Token: 0x040025A6 RID: 9638
 	CubicEaseIn,
-	// Token: 0x04002384 RID: 9092
+	// Token: 0x040025A7 RID: 9639
 	CubicEaseOut,
-	// Token: 0x04002385 RID: 9093
+	// Token: 0x040025A8 RID: 9640
 	CubicEaseInOut,
-	// Token: 0x04002386 RID: 9094
+	// Token: 0x040025A9 RID: 9641
 	ExpoEaseIn,
-	// Token: 0x04002387 RID: 9095
+	// Token: 0x040025AA RID: 9642
 	ExpoEaseOut,
-	// Token: 0x04002388 RID: 9096
+	// Token: 0x040025AB RID: 9643
 	ExpoEaseInOut,
-	// Token: 0x04002389 RID: 9097
+	// Token: 0x040025AC RID: 9644
 	QuadEaseIn,
-	// Token: 0x0400238A RID: 9098
+	// Token: 0x040025AD RID: 9645
 	QuadEaseOut,
-	// Token: 0x0400238B RID: 9099
+	// Token: 0x040025AE RID: 9646
 	QuadEaseInOut,
-	// Token: 0x0400238C RID: 9100
+	// Token: 0x040025AF RID: 9647
 	QuartEaseIn,
-	// Token: 0x0400238D RID: 9101
+	// Token: 0x040025B0 RID: 9648
 	QuartEaseOut,
-	// Token: 0x0400238E RID: 9102
+	// Token: 0x040025B1 RID: 9649
 	QuartEaseInOut,
-	// Token: 0x0400238F RID: 9103
+	// Token: 0x040025B2 RID: 9650
 	QuintEaseIn,
-	// Token: 0x04002390 RID: 9104
+	// Token: 0x040025B3 RID: 9651
 	QuintEaseOut,
-	// Token: 0x04002391 RID: 9105
+	// Token: 0x040025B4 RID: 9652
 	QuintEaseInOut,
-	// Token: 0x04002392 RID: 9106
+	// Token: 0x040025B5 RID: 9653
 	SineEaseIn,
-	// Token: 0x04002393 RID: 9107
+	// Token: 0x040025B6 RID: 9654
 	SineEaseOut,
-	// Token: 0x04002394 RID: 9108
+	// Token: 0x040025B7 RID: 9655
 	SineEaseInOut,
-	// Token: 0x04002395 RID: 9109
+	// Token: 0x040025B8 RID: 9656
 	Spring
 }

@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004DF RID: 1247
+// Token: 0x0200059A RID: 1434
 public struct HealthDimmer
 {
-	// Token: 0x06002ACF RID: 10959 RVA: 0x000AAE5C File Offset: 0x000A905C
+	// Token: 0x06002E81 RID: 11905 RVA: 0x000B2BF4 File Offset: 0x000B0DF4
 	private void Initialize(IDBase self)
 	{
-		TakeDamage local;
+		global::TakeDamage local;
 		MeshRenderer[] componentsInChildren;
 		Material material;
-		if (!self || !(local = self.GetLocal<TakeDamage>()) || !HealthDimmer.GetFirstMaterial<MeshRenderer>(componentsInChildren = self.GetComponentsInChildren<MeshRenderer>(true), out material))
+		if (!self || !(local = self.GetLocal<global::TakeDamage>()) || !global::HealthDimmer.GetFirstMaterial<MeshRenderer>(componentsInChildren = self.GetComponentsInChildren<MeshRenderer>(true), out material))
 		{
 			this.renderers = null;
 			this.valid = false;
@@ -21,15 +21,15 @@ public struct HealthDimmer
 			this.renderers = componentsInChildren;
 			this.takeDamage = local;
 			this.valid = true;
-			this.structureStyle = (self.idMain is StructureComponent);
-			Color color = material.GetColor(HealthDimmer.PropOnce._Color);
+			this.structureStyle = (self.idMain is global::StructureComponent);
+			Color color = material.GetColor(global::HealthDimmer.PropOnce._Color);
 			this.averageRGB = (color.r + color.g + color.b) * 0.333333343f;
 			this.propBlock = new MaterialPropertyBlock();
 			this.percent = null;
 		}
 	}
 
-	// Token: 0x06002AD0 RID: 10960 RVA: 0x000AAF28 File Offset: 0x000A9128
+	// Token: 0x06002E82 RID: 11906 RVA: 0x000B2CC0 File Offset: 0x000B0EC0
 	private void MakeColor(float percent, out Color color)
 	{
 		float b;
@@ -46,7 +46,7 @@ public struct HealthDimmer
 		color.a = 1f;
 	}
 
-	// Token: 0x06002AD1 RID: 10961 RVA: 0x000AAF98 File Offset: 0x000A9198
+	// Token: 0x06002E83 RID: 11907 RVA: 0x000B2D30 File Offset: 0x000B0F30
 	public void Reset()
 	{
 		this.percent = null;
@@ -70,7 +70,7 @@ public struct HealthDimmer
 		}
 	}
 
-	// Token: 0x06002AD2 RID: 10962 RVA: 0x000AB014 File Offset: 0x000A9214
+	// Token: 0x06002E84 RID: 11908 RVA: 0x000B2DAC File Offset: 0x000B0FAC
 	public void UpdateHealthAmount(IDBase self, float newHealth, bool force = false)
 	{
 		if (!this.initialized)
@@ -96,7 +96,7 @@ public struct HealthDimmer
 		Color color;
 		this.MakeColor(num, out color);
 		this.propBlock.Clear();
-		this.propBlock.AddColor(HealthDimmer.PropOnce._Color, color);
+		this.propBlock.AddColor(global::HealthDimmer.PropOnce._Color, color);
 		foreach (MeshRenderer meshRenderer in this.renderers)
 		{
 			if (meshRenderer)
@@ -106,7 +106,7 @@ public struct HealthDimmer
 		}
 	}
 
-	// Token: 0x06002AD3 RID: 10963 RVA: 0x000AB11C File Offset: 0x000A931C
+	// Token: 0x06002E85 RID: 11909 RVA: 0x000B2EB4 File Offset: 0x000B10B4
 	private static bool GetFirstMaterial<TRenderer>(TRenderer[] renderers, out Material material) where TRenderer : Renderer
 	{
 		int num;
@@ -116,7 +116,7 @@ public struct HealthDimmer
 			{
 				TRenderer trenderer;
 				Material sharedMaterial;
-				if ((trenderer = renderers[i]) && (sharedMaterial = trenderer.sharedMaterial) && sharedMaterial.HasProperty(HealthDimmer.PropOnce._Color))
+				if ((trenderer = renderers[i]) && (sharedMaterial = trenderer.sharedMaterial) && sharedMaterial.HasProperty(global::HealthDimmer.PropOnce._Color))
 				{
 					material = sharedMaterial;
 					return true;
@@ -127,46 +127,46 @@ public struct HealthDimmer
 		return false;
 	}
 
-	// Token: 0x04001756 RID: 5974
+	// Token: 0x04001913 RID: 6419
 	[NonSerialized]
 	private float averageRGB;
 
-	// Token: 0x04001757 RID: 5975
+	// Token: 0x04001914 RID: 6420
 	[NonSerialized]
 	private float? percent;
 
-	// Token: 0x04001758 RID: 5976
+	// Token: 0x04001915 RID: 6421
 	[NonSerialized]
 	private bool initialized;
 
-	// Token: 0x04001759 RID: 5977
+	// Token: 0x04001916 RID: 6422
 	[NonSerialized]
 	private bool valid;
 
-	// Token: 0x0400175A RID: 5978
+	// Token: 0x04001917 RID: 6423
 	[NonSerialized]
 	private bool structureStyle;
 
-	// Token: 0x0400175B RID: 5979
+	// Token: 0x04001918 RID: 6424
 	[NonSerialized]
 	private MeshRenderer[] renderers;
 
-	// Token: 0x0400175C RID: 5980
+	// Token: 0x04001919 RID: 6425
 	[NonSerialized]
 	private MaterialPropertyBlock propBlock;
 
-	// Token: 0x0400175D RID: 5981
+	// Token: 0x0400191A RID: 6426
 	[NonSerialized]
-	private TakeDamage takeDamage;
+	private global::TakeDamage takeDamage;
 
-	// Token: 0x0400175E RID: 5982
+	// Token: 0x0400191B RID: 6427
 	[NonSerialized]
 	public bool disabled;
 
-	// Token: 0x020004E0 RID: 1248
+	// Token: 0x0200059B RID: 1435
 	private static class PropOnce
 	{
-		// Token: 0x0400175F RID: 5983
+		// Token: 0x0400191C RID: 6428
 		public static readonly int _Color = Shader.PropertyToID("_Color");
 	}
 }

@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000832 RID: 2098
-[ExecuteInEditMode]
+// Token: 0x02000927 RID: 2343
 [RequireComponent(typeof(Camera))]
+[ExecuteInEditMode]
 public abstract class TOD_PostEffectsBase : MonoBehaviour
 {
-	// Token: 0x06004A75 RID: 19061
+	// Token: 0x06004F30 RID: 20272
 	protected abstract bool CheckResources();
 
-	// Token: 0x06004A76 RID: 19062 RVA: 0x001431A8 File Offset: 0x001413A8
+	// Token: 0x06004F31 RID: 20273 RVA: 0x0014D10C File Offset: 0x0014B30C
 	protected Material CheckShaderAndCreateMaterial(Shader shader, Material material)
 	{
 		if (!shader)
@@ -40,7 +40,7 @@ public abstract class TOD_PostEffectsBase : MonoBehaviour
 		return (!material) ? null : material;
 	}
 
-	// Token: 0x06004A77 RID: 19063 RVA: 0x00143278 File Offset: 0x00141478
+	// Token: 0x06004F32 RID: 20274 RVA: 0x0014D1DC File Offset: 0x0014B3DC
 	protected Material CreateMaterial(Shader shader, Material material)
 	{
 		if (!shader)
@@ -61,19 +61,19 @@ public abstract class TOD_PostEffectsBase : MonoBehaviour
 		return (!material) ? null : material;
 	}
 
-	// Token: 0x06004A78 RID: 19064 RVA: 0x00143300 File Offset: 0x00141500
+	// Token: 0x06004F33 RID: 20275 RVA: 0x0014D264 File Offset: 0x0014B464
 	protected void OnEnable()
 	{
 		this.isSupported = true;
 	}
 
-	// Token: 0x06004A79 RID: 19065 RVA: 0x0014330C File Offset: 0x0014150C
+	// Token: 0x06004F34 RID: 20276 RVA: 0x0014D270 File Offset: 0x0014B470
 	protected void Start()
 	{
 		this.CheckResources();
 	}
 
-	// Token: 0x06004A7A RID: 19066 RVA: 0x00143318 File Offset: 0x00141518
+	// Token: 0x06004F35 RID: 20277 RVA: 0x0014D27C File Offset: 0x0014B47C
 	protected bool CheckSupport(bool needDepth)
 	{
 		this.isSupported = true;
@@ -94,7 +94,7 @@ public abstract class TOD_PostEffectsBase : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06004A7B RID: 19067 RVA: 0x0014337C File Offset: 0x0014157C
+	// Token: 0x06004F36 RID: 20278 RVA: 0x0014D2E0 File Offset: 0x0014B4E0
 	protected bool CheckSupport(bool needDepth, bool needHdr)
 	{
 		if (!this.CheckSupport(needDepth))
@@ -109,20 +109,20 @@ public abstract class TOD_PostEffectsBase : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06004A7C RID: 19068 RVA: 0x001433B4 File Offset: 0x001415B4
+	// Token: 0x06004F37 RID: 20279 RVA: 0x0014D318 File Offset: 0x0014B518
 	protected void ReportAutoDisable()
 	{
 		Debug.LogWarning("The image effect " + this.ToString() + " has been disabled as it's not supported on the current platform.");
 	}
 
-	// Token: 0x06004A7D RID: 19069 RVA: 0x001433D0 File Offset: 0x001415D0
+	// Token: 0x06004F38 RID: 20280 RVA: 0x0014D334 File Offset: 0x0014B534
 	protected void NotSupported()
 	{
 		base.enabled = false;
 		this.isSupported = false;
 	}
 
-	// Token: 0x06004A7E RID: 19070 RVA: 0x001433E0 File Offset: 0x001415E0
+	// Token: 0x06004F39 RID: 20281 RVA: 0x0014D344 File Offset: 0x0014B544
 	protected void DrawBorder(RenderTexture dest, Material material)
 	{
 		RenderTexture.active = dest;
@@ -198,6 +198,6 @@ public abstract class TOD_PostEffectsBase : MonoBehaviour
 		GL.PopMatrix();
 	}
 
-	// Token: 0x04002B52 RID: 11090
+	// Token: 0x04002DA0 RID: 11680
 	protected bool isSupported = true;
 }

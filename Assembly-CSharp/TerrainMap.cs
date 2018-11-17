@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200049B RID: 1179
+// Token: 0x02000556 RID: 1366
 public class TerrainMap : ScriptableObject
 {
-	// Token: 0x17000958 RID: 2392
-	// (get) Token: 0x060029C3 RID: 10691 RVA: 0x000A38BC File Offset: 0x000A1ABC
+	// Token: 0x170009C8 RID: 2504
+	// (get) Token: 0x06002D75 RID: 11637 RVA: 0x000AB654 File Offset: 0x000A9854
 	public int width
 	{
 		get
@@ -14,8 +14,8 @@ public class TerrainMap : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000959 RID: 2393
-	// (get) Token: 0x060029C4 RID: 10692 RVA: 0x000A38C4 File Offset: 0x000A1AC4
+	// Token: 0x170009C9 RID: 2505
+	// (get) Token: 0x06002D76 RID: 11638 RVA: 0x000AB65C File Offset: 0x000A985C
 	public int height
 	{
 		get
@@ -24,8 +24,8 @@ public class TerrainMap : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700095A RID: 2394
-	// (get) Token: 0x060029C5 RID: 10693 RVA: 0x000A38CC File Offset: 0x000A1ACC
+	// Token: 0x170009CA RID: 2506
+	// (get) Token: 0x06002D77 RID: 11639 RVA: 0x000AB664 File Offset: 0x000A9864
 	public int count
 	{
 		get
@@ -34,7 +34,7 @@ public class TerrainMap : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700095B RID: 2395
+	// Token: 0x170009CB RID: 2507
 	public string this[int i]
 	{
 		get
@@ -47,7 +47,7 @@ public class TerrainMap : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700095C RID: 2396
+	// Token: 0x170009CC RID: 2508
 	public string this[int x, int y]
 	{
 		get
@@ -60,7 +60,7 @@ public class TerrainMap : ScriptableObject
 		}
 	}
 
-	// Token: 0x060029CA RID: 10698 RVA: 0x000A391C File Offset: 0x000A1B1C
+	// Token: 0x06002D7C RID: 11644 RVA: 0x000AB6B4 File Offset: 0x000A98B4
 	public void ResizeGUIDS(int width, int height)
 	{
 		int width2 = this._width;
@@ -83,27 +83,27 @@ public class TerrainMap : ScriptableObject
 		}
 	}
 
-	// Token: 0x040015B0 RID: 5552
+	// Token: 0x0400176D RID: 5997
 	[SerializeField]
 	private string[] _guids;
 
-	// Token: 0x040015B1 RID: 5553
+	// Token: 0x0400176E RID: 5998
 	[SerializeField]
 	private int _width;
 
-	// Token: 0x040015B2 RID: 5554
+	// Token: 0x0400176F RID: 5999
 	[SerializeField]
 	private int _height;
 
-	// Token: 0x040015B3 RID: 5555
+	// Token: 0x04001770 RID: 6000
 	public float baseHeight;
 
-	// Token: 0x040015B4 RID: 5556
+	// Token: 0x04001771 RID: 6001
 	public Vector3 scale;
 
-	// Token: 0x040015B5 RID: 5557
+	// Token: 0x04001772 RID: 6002
 	public Terrain copyFrom;
 
-	// Token: 0x040015B6 RID: 5558
+	// Token: 0x04001773 RID: 6003
 	public TerrainData root;
 }

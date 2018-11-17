@@ -2,19 +2,19 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x020005E7 RID: 1511
-public abstract class StructureComponentItem<T> : HeldItem<T> where T : StructureComponentDataBlock
+// Token: 0x020006A5 RID: 1701
+public abstract class StructureComponentItem<T> : global::HeldItem<T> where T : global::StructureComponentDataBlock
 {
-	// Token: 0x0600361B RID: 13851 RVA: 0x000C3BE4 File Offset: 0x000C1DE4
+	// Token: 0x060039E3 RID: 14819 RVA: 0x000CBE40 File Offset: 0x000CA040
 	protected StructureComponentItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x0600361C RID: 13852 RVA: 0x000C3BF8 File Offset: 0x000C1DF8
+	// Token: 0x060039E4 RID: 14820 RVA: 0x000CBE54 File Offset: 0x000CA054
 	protected void RenderPlacementHelpers()
 	{
 		T datablock = this.datablock;
-		StructureComponent structureToPlacePrefab = datablock.structureToPlacePrefab;
+		global::StructureComponent structureToPlacePrefab = datablock.structureToPlacePrefab;
 		this._master = null;
 		this._placePos = Vector3.zero;
 		this._placeRot = Quaternion.identity;
@@ -28,13 +28,13 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 		{
 			this.desiredRotation *= Quaternion.AngleAxis(-90f, Vector3.up);
 		}
-		Character character = base.character;
+		global::Character character = base.character;
 		if (character == null)
 		{
 			return;
 		}
 		Ray eyesRay = character.eyesRay;
-		float num = (structureToPlacePrefab.type != StructureComponent.StructureComponentType.Ceiling) ? 8f : 4f;
+		float num = (structureToPlacePrefab.type != global::StructureComponent.StructureComponentType.Ceiling) ? 8f : 4f;
 		Vector3 vector = Vector3.zero;
 		Vector3 vector2 = Vector3.up;
 		Vector3 zero = Vector3.zero;
@@ -53,17 +53,17 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 		}
 		switch (structureToPlacePrefab.type)
 		{
-		case StructureComponent.StructureComponentType.Ceiling:
-		case StructureComponent.StructureComponentType.Foundation:
-		case StructureComponent.StructureComponentType.Ramp:
+		case global::StructureComponent.StructureComponentType.Ceiling:
+		case global::StructureComponent.StructureComponentType.Foundation:
+		case global::StructureComponent.StructureComponentType.Ramp:
 			vector.y -= 3.5f;
 			break;
 		}
 		bool flag2 = false;
 		bool flag3 = false;
 		Vector3 placePos = vector;
-		Quaternion placeRot = TransformHelpers.LookRotationForcedUp(character.eyesAngles.forward, Vector3.up) * this.desiredRotation;
-		foreach (StructureMaster structureMaster in StructureMaster.RayTestStructures(eyesRay))
+		Quaternion placeRot = global::TransformHelpers.LookRotationForcedUp(character.eyesAngles.forward, Vector3.up) * this.desiredRotation;
+		foreach (global::StructureMaster structureMaster in global::StructureMaster.RayTestStructures(eyesRay))
 		{
 			if (structureMaster)
 			{
@@ -71,8 +71,8 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 				int num3;
 				int num4;
 				structureMaster.GetStructureSize(out num2, out num3, out num4);
-				this._placePos = StructureMaster.SnapToGrid(structureMaster.transform, vector, true);
-				this._placeRot = TransformHelpers.LookRotationForcedUp(structureMaster.transform.forward, structureMaster.transform.transform.up) * this.desiredRotation;
+				this._placePos = global::StructureMaster.SnapToGrid(structureMaster.transform, vector, true);
+				this._placeRot = global::TransformHelpers.LookRotationForcedUp(structureMaster.transform.forward, structureMaster.transform.transform.up) * this.desiredRotation;
 				if (!flag3)
 				{
 					placePos = this._placePos;
@@ -89,12 +89,12 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 		}
 		if (!flag2)
 		{
-			if (structureToPlacePrefab.type == StructureComponent.StructureComponentType.Foundation)
+			if (structureToPlacePrefab.type == global::StructureComponent.StructureComponentType.Foundation)
 			{
 				if (flag && raycastHit.collider is TerrainCollider)
 				{
 					bool flag4 = false;
-					foreach (StructureMaster structureMaster2 in StructureMaster.AllStructuresWithBounds)
+					foreach (global::StructureMaster structureMaster2 in global::StructureMaster.AllStructuresWithBounds)
 					{
 						if (structureMaster2.containedBounds.Intersects(new Bounds(vector, new Vector3(5f, 5f, 4f))))
 						{
@@ -105,7 +105,7 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 					if (!flag4)
 					{
 						this._placePos = vector;
-						this._placeRot = TransformHelpers.LookRotationForcedUp(character.eyesAngles.forward, Vector3.up) * this.desiredRotation;
+						this._placeRot = global::TransformHelpers.LookRotationForcedUp(character.eyesAngles.forward, Vector3.up) * this.desiredRotation;
 						this.validLocation = true;
 					}
 				}
@@ -151,7 +151,7 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 		this.RenderDeployPreview(this._placePos, this._placeRot);
 	}
 
-	// Token: 0x0600361D RID: 13853 RVA: 0x000C40A8 File Offset: 0x000C22A8
+	// Token: 0x060039E5 RID: 14821 RVA: 0x000CC304 File Offset: 0x000CA504
 	private void InformException(Exception e, string title, ref bool informedOnce, Object obj = null)
 	{
 		if (!informedOnce)
@@ -165,7 +165,7 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 		}
 	}
 
-	// Token: 0x0600361E RID: 13854 RVA: 0x000C40E0 File Offset: 0x000C22E0
+	// Token: 0x060039E6 RID: 14822 RVA: 0x000CC33C File Offset: 0x000CA53C
 	public override void PreCameraRender()
 	{
 		try
@@ -174,37 +174,37 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 		}
 		catch (Exception e)
 		{
-			this.InformException(e, "in PreCameraRender()", ref StructureComponentItem<T>.informedPreRender, null);
+			this.InformException(e, "in PreCameraRender()", ref global::StructureComponentItem<T>.informedPreRender, null);
 		}
 	}
 
-	// Token: 0x0600361F RID: 13855 RVA: 0x000C412C File Offset: 0x000C232C
+	// Token: 0x060039E7 RID: 14823 RVA: 0x000CC388 File Offset: 0x000CA588
 	public virtual void RenderDeployPreview(Vector3 point, Quaternion rot)
 	{
 		if (this._prefabRenderer == null)
 		{
 			T datablock = this.datablock;
-			StructureComponent structureToPlacePrefab = datablock.structureToPlacePrefab;
+			global::StructureComponent structureToPlacePrefab = datablock.structureToPlacePrefab;
 			if (!structureToPlacePrefab)
 			{
 				return;
 			}
-			this._prefabRenderer = PrefabRenderer.GetOrCreateRender(structureToPlacePrefab.gameObject);
+			this._prefabRenderer = global::PrefabRenderer.GetOrCreateRender(structureToPlacePrefab.gameObject);
 			this._materialProps = new MaterialPropertyBlock();
 		}
 		Material overrideMat = this.datablock.overrideMat;
 		if (overrideMat)
 		{
-			this._prefabRenderer.RenderOneMaterial(MountedCamera.main.camera, Matrix4x4.TRS(point, rot, Vector3.one), this._materialProps, overrideMat);
+			this._prefabRenderer.RenderOneMaterial(global::MountedCamera.main.camera, Matrix4x4.TRS(point, rot, Vector3.one), this._materialProps, overrideMat);
 		}
 		else
 		{
-			this._prefabRenderer.Render(MountedCamera.main.camera, Matrix4x4.TRS(point, rot, Vector3.one), this._materialProps, null);
+			this._prefabRenderer.Render(global::MountedCamera.main.camera, Matrix4x4.TRS(point, rot, Vector3.one), this._materialProps, null);
 		}
 	}
 
-	// Token: 0x06003620 RID: 13856 RVA: 0x000C41F4 File Offset: 0x000C23F4
-	public override void ItemPreFrame(ref HumanController.InputSample sample)
+	// Token: 0x060039E8 RID: 14824 RVA: 0x000CC450 File Offset: 0x000CA650
+	public override void ItemPreFrame(ref global::HumanController.InputSample sample)
 	{
 		base.ItemPreFrame(ref sample);
 		try
@@ -221,15 +221,15 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 		}
 		catch (Exception e)
 		{
-			this.InformException(e, "in ItemPreFrame", ref StructureComponentItem<T>.informedPreFrame, null);
+			this.InformException(e, "in ItemPreFrame", ref global::StructureComponentItem<T>.informedPreFrame, null);
 		}
 	}
 
-	// Token: 0x06003621 RID: 13857 RVA: 0x000C42A0 File Offset: 0x000C24A0
+	// Token: 0x060039E9 RID: 14825 RVA: 0x000CC4FC File Offset: 0x000CA6FC
 	public virtual void DoPlace()
 	{
 		this._nextPlaceTime = Time.time + 0.5f;
-		Character character = base.character;
+		global::Character character = base.character;
 		if (character == null)
 		{
 			Debug.Log("NO char for placement");
@@ -242,52 +242,52 @@ public abstract class StructureComponentItem<T> : HeldItem<T> where T : Structur
 			eyesRay.direction,
 			this._placePos,
 			this._placeRot,
-			(!(this._master != null)) ? NetworkViewID.unassigned : this._master.networkView.viewID
+			(!(this._master != null)) ? uLink.NetworkViewID.unassigned : this._master.networkView.viewID
 		});
 	}
 
-	// Token: 0x06003622 RID: 13858 RVA: 0x000C4364 File Offset: 0x000C2564
+	// Token: 0x060039EA RID: 14826 RVA: 0x000CC5C0 File Offset: 0x000CA7C0
 	public bool IsValidLocation()
 	{
 		return false;
 	}
 
-	// Token: 0x06003623 RID: 13859 RVA: 0x000C4368 File Offset: 0x000C2568
+	// Token: 0x060039EB RID: 14827 RVA: 0x000CC5C4 File Offset: 0x000CA7C4
 	public virtual bool CanPlace()
 	{
 		return this.validLocation && this._nextPlaceTime <= Time.time;
 	}
 
-	// Token: 0x04001AA3 RID: 6819
+	// Token: 0x04001C74 RID: 7284
 	protected bool validLocation;
 
-	// Token: 0x04001AA4 RID: 6820
+	// Token: 0x04001C75 RID: 7285
 	protected float _nextPlaceTime;
 
-	// Token: 0x04001AA5 RID: 6821
-	protected StructureMaster _master;
+	// Token: 0x04001C76 RID: 7286
+	protected global::StructureMaster _master;
 
-	// Token: 0x04001AA6 RID: 6822
+	// Token: 0x04001C77 RID: 7287
 	protected Vector3 _placePos;
 
-	// Token: 0x04001AA7 RID: 6823
+	// Token: 0x04001C78 RID: 7288
 	protected Quaternion _placeRot;
 
-	// Token: 0x04001AA8 RID: 6824
-	protected PrefabRenderer _prefabRenderer;
+	// Token: 0x04001C79 RID: 7289
+	protected global::PrefabRenderer _prefabRenderer;
 
-	// Token: 0x04001AA9 RID: 6825
+	// Token: 0x04001C7A RID: 7290
 	protected MaterialPropertyBlock _materialProps;
 
-	// Token: 0x04001AAA RID: 6826
+	// Token: 0x04001C7B RID: 7291
 	protected bool lastFrameAttack2;
 
-	// Token: 0x04001AAB RID: 6827
+	// Token: 0x04001C7C RID: 7292
 	public Quaternion desiredRotation = Quaternion.identity;
 
-	// Token: 0x04001AAC RID: 6828
+	// Token: 0x04001C7D RID: 7293
 	private static bool informedPreRender;
 
-	// Token: 0x04001AAD RID: 6829
+	// Token: 0x04001C7E RID: 7294
 	private static bool informedPreFrame;
 }

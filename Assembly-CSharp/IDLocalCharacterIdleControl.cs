@@ -1,11 +1,11 @@
 ﻿using System;
 
-// Token: 0x0200014B RID: 331
-public abstract class IDLocalCharacterIdleControl : IDLocalCharacter
+// Token: 0x02000175 RID: 373
+public abstract class IDLocalCharacterIdleControl : global::IDLocalCharacter
 {
-	// Token: 0x170002D4 RID: 724
-	// (get) Token: 0x06000A1B RID: 2587 RVA: 0x0002861C File Offset: 0x0002681C
-	public new IDLocalCharacterIdleControl idleControl
+	// Token: 0x17000316 RID: 790
+	// (get) Token: 0x06000B41 RID: 2881 RVA: 0x0002C398 File Offset: 0x0002A598
+	public new global::IDLocalCharacterIdleControl idleControl
 	{
 		get
 		{
@@ -13,7 +13,7 @@ public abstract class IDLocalCharacterIdleControl : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000A1C RID: 2588 RVA: 0x00028620 File Offset: 0x00026820
+	// Token: 0x06000B42 RID: 2882 RVA: 0x0002C39C File Offset: 0x0002A59C
 	internal bool SetIdle(bool value)
 	{
 		if (!this._setIdle)
@@ -58,8 +58,8 @@ public abstract class IDLocalCharacterIdleControl : IDLocalCharacter
 		return true;
 	}
 
-	// Token: 0x170002D5 RID: 725
-	// (get) Token: 0x06000A1D RID: 2589 RVA: 0x000286DC File Offset: 0x000268DC
+	// Token: 0x17000317 RID: 791
+	// (get) Token: 0x06000B43 RID: 2883 RVA: 0x0002C458 File Offset: 0x0002A658
 	public new bool? idle
 	{
 		get
@@ -72,21 +72,21 @@ public abstract class IDLocalCharacterIdleControl : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000A1E RID: 2590
+	// Token: 0x06000B44 RID: 2884
 	protected abstract void OnIdleEnter();
 
-	// Token: 0x06000A1F RID: 2591
+	// Token: 0x06000B45 RID: 2885
 	protected abstract void OnIdleExit();
 
-	// Token: 0x04000688 RID: 1672
+	// Token: 0x04000797 RID: 1943
 	[NonSerialized]
 	internal bool _idle = true;
 
-	// Token: 0x04000689 RID: 1673
+	// Token: 0x04000798 RID: 1944
 	[NonSerialized]
 	internal bool _setIdle;
 
-	// Token: 0x0400068A RID: 1674
+	// Token: 0x04000799 RID: 1945
 	[NonSerialized]
 	internal bool _changingIdle;
 }

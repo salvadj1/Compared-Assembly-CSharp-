@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x02000258 RID: 600
+// Token: 0x0200028B RID: 651
 public class BobEffectStack : IDisposable
 {
-	// Token: 0x06001616 RID: 5654 RVA: 0x00053124 File Offset: 0x00051324
-	public bool IsForkOf(BobEffectStack stack)
+	// Token: 0x0600176A RID: 5994 RVA: 0x000574CC File Offset: 0x000556CC
+	public bool IsForkOf(global::BobEffectStack stack)
 	{
 		return this.owner != null && this.owner == stack;
 	}
 
-	// Token: 0x06001617 RID: 5655 RVA: 0x00053140 File Offset: 0x00051340
-	public bool CreateInstance(BobEffect effect)
+	// Token: 0x0600176B RID: 5995 RVA: 0x000574E8 File Offset: 0x000556E8
+	public bool CreateInstance(global::BobEffect effect)
 	{
-		BobEffect.Data data;
+		global::BobEffect.Data data;
 		if (effect && effect.Create(out data))
 		{
 			this.data.Add(data);
-			foreach (BobEffectStack bobEffectStack in this.forks)
+			foreach (global::BobEffectStack bobEffectStack in this.forks)
 			{
 				bobEffectStack.data.Add(data.Clone());
 			}
@@ -28,7 +28,7 @@ public class BobEffectStack : IDisposable
 		return false;
 	}
 
-	// Token: 0x06001618 RID: 5656 RVA: 0x000531D8 File Offset: 0x000513D8
+	// Token: 0x0600176C RID: 5996 RVA: 0x00057580 File Offset: 0x00055780
 	private void RunSim(ref int i, ref Vector3G force, ref Vector3G torque)
 	{
 		while (i < this.dataCount)
@@ -36,7 +36,7 @@ public class BobEffectStack : IDisposable
 			this.ctx.data = this.data[i];
 			switch (this.ctx.data.effect.Simulate(ref this.ctx))
 			{
-			case BOBRES.CONTINUE:
+			case global::BOBRES.CONTINUE:
 				force.x += this.ctx.data.force.x;
 				force.y += this.ctx.data.force.y;
 				force.z += this.ctx.data.force.z;
@@ -44,7 +44,7 @@ public class BobEffectStack : IDisposable
 				torque.y += this.ctx.data.torque.y;
 				torque.z += this.ctx.data.torque.z;
 				break;
-			case BOBRES.EXIT:
+			case global::BOBRES.EXIT:
 				if (!this.isFork)
 				{
 					int index = i++;
@@ -56,7 +56,7 @@ public class BobEffectStack : IDisposable
 							this.ctx.data.effect.Destroy(ref this.ctx.data);
 						}
 						this.data.RemoveAt(index);
-						foreach (BobEffectStack bobEffectStack in this.forks)
+						foreach (global::BobEffectStack bobEffectStack in this.forks)
 						{
 							bobEffectStack.data.RemoveAt(index);
 						}
@@ -67,7 +67,7 @@ public class BobEffectStack : IDisposable
 					}
 				}
 				return;
-			case BOBRES.ERROR:
+			case global::BOBRES.ERROR:
 				Debug.LogError("Error with effect", this.ctx.data.effect);
 				break;
 			}
@@ -75,7 +75,7 @@ public class BobEffectStack : IDisposable
 		}
 	}
 
-	// Token: 0x06001619 RID: 5657 RVA: 0x00053424 File Offset: 0x00051624
+	// Token: 0x0600176D RID: 5997 RVA: 0x000577CC File Offset: 0x000559CC
 	public void Simulate(ref double dt, ref Vector3G force, ref Vector3G torque)
 	{
 		this.dataCount = this.data.Count;
@@ -87,10 +87,10 @@ public class BobEffectStack : IDisposable
 		}
 	}
 
-	// Token: 0x0600161A RID: 5658 RVA: 0x00053468 File Offset: 0x00051668
+	// Token: 0x0600176E RID: 5998 RVA: 0x00057810 File Offset: 0x00055A10
 	private void DestroyAllEffects()
 	{
-		foreach (BobEffect.Data data in this.data)
+		foreach (global::BobEffect.Data data in this.data)
 		{
 			this.ctx.data = data;
 			if (this.ctx.data.effect)
@@ -102,12 +102,12 @@ public class BobEffectStack : IDisposable
 		this.data.Clear();
 	}
 
-	// Token: 0x0600161B RID: 5659 RVA: 0x00053524 File Offset: 0x00051724
+	// Token: 0x0600176F RID: 5999 RVA: 0x000578CC File Offset: 0x00055ACC
 	public void Dispose()
 	{
 		if (!this.isFork)
 		{
-			foreach (BobEffectStack bobEffectStack in this.forks)
+			foreach (global::BobEffectStack bobEffectStack in this.forks)
 			{
 				bobEffectStack.DestroyAllEffects();
 			}
@@ -121,21 +121,21 @@ public class BobEffectStack : IDisposable
 		}
 	}
 
-	// Token: 0x0600161C RID: 5660 RVA: 0x000535C0 File Offset: 0x000517C0
-	public BobEffectStack Fork()
+	// Token: 0x06001770 RID: 6000 RVA: 0x00057968 File Offset: 0x00055B68
+	public global::BobEffectStack Fork()
 	{
-		BobEffectStack bobEffectStack = new BobEffectStack();
+		global::BobEffectStack bobEffectStack = new global::BobEffectStack();
 		bobEffectStack.isFork = true;
 		bobEffectStack.owner = ((!this.isFork) ? this : this.owner);
 		bobEffectStack.owner.forks.Add(bobEffectStack);
-		foreach (BobEffect.Data data in bobEffectStack.owner.data)
+		foreach (global::BobEffect.Data data in bobEffectStack.owner.data)
 		{
 			bobEffectStack.data.Add(data.Clone());
 		}
 		return bobEffectStack;
 	}
 
-	// Token: 0x0600161D RID: 5661 RVA: 0x00053674 File Offset: 0x00051874
+	// Token: 0x06001771 RID: 6001 RVA: 0x00057A1C File Offset: 0x00055C1C
 	public void Join()
 	{
 		if (this.isFork)
@@ -148,21 +148,21 @@ public class BobEffectStack : IDisposable
 		}
 	}
 
-	// Token: 0x04000B29 RID: 2857
-	private List<BobEffect.Data> data = new List<BobEffect.Data>();
+	// Token: 0x04000C4C RID: 3148
+	private List<global::BobEffect.Data> data = new List<global::BobEffect.Data>();
 
-	// Token: 0x04000B2A RID: 2858
-	private List<BobEffectStack> forks = new List<BobEffectStack>();
+	// Token: 0x04000C4D RID: 3149
+	private List<global::BobEffectStack> forks = new List<global::BobEffectStack>();
 
-	// Token: 0x04000B2B RID: 2859
-	private BobEffectStack owner;
+	// Token: 0x04000C4E RID: 3150
+	private global::BobEffectStack owner;
 
-	// Token: 0x04000B2C RID: 2860
+	// Token: 0x04000C4F RID: 3151
 	private int dataCount;
 
-	// Token: 0x04000B2D RID: 2861
+	// Token: 0x04000C50 RID: 3152
 	private bool isFork;
 
-	// Token: 0x04000B2E RID: 2862
-	private BobEffect.Context ctx;
+	// Token: 0x04000C51 RID: 3153
+	private global::BobEffect.Context ctx;
 }

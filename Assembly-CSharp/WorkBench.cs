@@ -4,18 +4,18 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200066F RID: 1647
-[RequireComponent(typeof(Inventory))]
-[NGCAutoAddScript]
-public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequestableQuick, IContextRequestableText, IComponentInterface<IUseable, MonoBehaviour, Useable>, IComponentInterface<IUseable, MonoBehaviour>, IComponentInterface<IUseable>, IComponentInterface<IContextRequestable, MonoBehaviour, Contextual>, IComponentInterface<IContextRequestable, MonoBehaviour>, IComponentInterface<IContextRequestable>
+// Token: 0x02000733 RID: 1843
+[RequireComponent(typeof(global::Inventory))]
+[global::NGCAutoAddScript]
+public class WorkBench : IDMain, global::IUseable, global::IContextRequestable, global::IContextRequestableQuick, global::IContextRequestableText, global::IComponentInterface<global::IUseable, MonoBehaviour, global::Useable>, global::IComponentInterface<global::IUseable, MonoBehaviour>, global::IComponentInterface<global::IUseable>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour, global::Contextual>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour>, global::IComponentInterface<global::IContextRequestable>
 {
-	// Token: 0x06003922 RID: 14626 RVA: 0x000D222C File Offset: 0x000D042C
+	// Token: 0x06003D16 RID: 15638 RVA: 0x000DAC0C File Offset: 0x000D8E0C
 	public WorkBench() : base(0)
 	{
 	}
 
-	// Token: 0x17000B26 RID: 2854
-	// (get) Token: 0x06003924 RID: 14628 RVA: 0x000D2244 File Offset: 0x000D0444
+	// Token: 0x17000BA8 RID: 2984
+	// (get) Token: 0x06003D18 RID: 15640 RVA: 0x000DAC24 File Offset: 0x000D8E24
 	private static bool debug_workbench
 	{
 		get
@@ -24,101 +24,101 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		}
 	}
 
-	// Token: 0x06003925 RID: 14629 RVA: 0x000D2248 File Offset: 0x000D0448
+	// Token: 0x06003D19 RID: 15641 RVA: 0x000DAC28 File Offset: 0x000D8E28
 	public static void LogError<T>(T a, Object b)
 	{
-		if (WorkBench.debug_workbench)
+		if (global::WorkBench.debug_workbench)
 		{
 			Debug.LogError(a, b);
 		}
 	}
 
-	// Token: 0x06003926 RID: 14630 RVA: 0x000D2260 File Offset: 0x000D0460
+	// Token: 0x06003D1A RID: 15642 RVA: 0x000DAC40 File Offset: 0x000D8E40
 	public static void LogWarning<T>(T a, Object b)
 	{
-		if (WorkBench.debug_workbench)
+		if (global::WorkBench.debug_workbench)
 		{
 			Debug.LogWarning(a, b);
 		}
 	}
 
-	// Token: 0x06003927 RID: 14631 RVA: 0x000D2278 File Offset: 0x000D0478
+	// Token: 0x06003D1B RID: 15643 RVA: 0x000DAC58 File Offset: 0x000D8E58
 	public static void Log<T>(T a, Object b)
 	{
-		if (WorkBench.debug_workbench)
+		if (global::WorkBench.debug_workbench)
 		{
 			Debug.Log(a, b);
 		}
 	}
 
-	// Token: 0x06003928 RID: 14632 RVA: 0x000D2290 File Offset: 0x000D0490
+	// Token: 0x06003D1C RID: 15644 RVA: 0x000DAC70 File Offset: 0x000D8E70
 	public static void LogError<T>(T a)
 	{
-		if (WorkBench.debug_workbench)
+		if (global::WorkBench.debug_workbench)
 		{
 			Debug.LogError(a);
 		}
 	}
 
-	// Token: 0x06003929 RID: 14633 RVA: 0x000D22A8 File Offset: 0x000D04A8
+	// Token: 0x06003D1D RID: 15645 RVA: 0x000DAC88 File Offset: 0x000D8E88
 	public static void LogWarning<T>(T a)
 	{
-		if (WorkBench.debug_workbench)
+		if (global::WorkBench.debug_workbench)
 		{
 			Debug.LogWarning(a);
 		}
 	}
 
-	// Token: 0x0600392A RID: 14634 RVA: 0x000D22C0 File Offset: 0x000D04C0
+	// Token: 0x06003D1E RID: 15646 RVA: 0x000DACA0 File Offset: 0x000D8EA0
 	public static void Log<T>(T a)
 	{
-		if (WorkBench.debug_workbench)
+		if (global::WorkBench.debug_workbench)
 		{
 			Debug.Log(a);
 		}
 	}
 
-	// Token: 0x0600392B RID: 14635 RVA: 0x000D22D8 File Offset: 0x000D04D8
+	// Token: 0x06003D1F RID: 15647 RVA: 0x000DACB8 File Offset: 0x000D8EB8
 	protected void Awake()
 	{
 		this.SharedAwake();
 	}
 
-	// Token: 0x0600392C RID: 14636 RVA: 0x000D22E0 File Offset: 0x000D04E0
+	// Token: 0x06003D20 RID: 15648 RVA: 0x000DACC0 File Offset: 0x000D8EC0
 	private void SharedAwake()
 	{
-		this._inventory = base.GetComponent<Inventory>();
+		this._inventory = base.GetComponent<global::Inventory>();
 	}
 
-	// Token: 0x0600392D RID: 14637 RVA: 0x000D22F0 File Offset: 0x000D04F0
-	public void OnUseEnter(Useable use)
+	// Token: 0x06003D21 RID: 15649 RVA: 0x000DACD0 File Offset: 0x000D8ED0
+	public void OnUseEnter(global::Useable use)
 	{
 	}
 
-	// Token: 0x0600392E RID: 14638 RVA: 0x000D22F4 File Offset: 0x000D04F4
-	public void OnUseExit(Useable use, UseExitReason reason)
+	// Token: 0x06003D22 RID: 15650 RVA: 0x000DACD4 File Offset: 0x000D8ED4
+	public void OnUseExit(global::Useable use, global::UseExitReason reason)
 	{
 	}
 
-	// Token: 0x0600392F RID: 14639 RVA: 0x000D22F8 File Offset: 0x000D04F8
+	// Token: 0x06003D23 RID: 15651 RVA: 0x000DACD8 File Offset: 0x000D8ED8
 	[RPC]
-	private void SetUser(NetworkPlayer ply)
+	private void SetUser(uLink.NetworkPlayer ply)
 	{
-		if (ply == NetCull.player)
+		if (ply == global::NetCull.player)
 		{
-			RPOS.OpenWorkbenchWindow(this);
+			global::RPOS.OpenWorkbenchWindow(this);
 		}
-		else if (this._currentlyUsingPlayer == NetCull.player && ply != this._currentlyUsingPlayer)
+		else if (this._currentlyUsingPlayer == global::NetCull.player && ply != this._currentlyUsingPlayer)
 		{
-			this._currentlyUsingPlayer = NetworkPlayer.unassigned;
-			RPOS.CloseWorkbenchWindow();
+			this._currentlyUsingPlayer = uLink.NetworkPlayer.unassigned;
+			global::RPOS.CloseWorkbenchWindow();
 		}
 		this._currentlyUsingPlayer = ply;
 	}
 
-	// Token: 0x06003930 RID: 14640 RVA: 0x000D2360 File Offset: 0x000D0560
+	// Token: 0x06003D24 RID: 15652 RVA: 0x000DAD40 File Offset: 0x000D8F40
 	[RPC]
-	private void StopUsing(NetworkMessageInfo info)
+	private void StopUsing(uLink.NetworkMessageInfo info)
 	{
 		if (this._currentlyUsingPlayer == info.sender)
 		{
@@ -126,42 +126,42 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		}
 	}
 
-	// Token: 0x06003931 RID: 14641 RVA: 0x000D2390 File Offset: 0x000D0590
+	// Token: 0x06003D25 RID: 15653 RVA: 0x000DAD70 File Offset: 0x000D8F70
 	public void ClientClosedWorkbenchWindow()
 	{
 		if (this.IsLocalUsing())
 		{
-			NetCull.RPC(this, "StopUsing", 0);
+			global::NetCull.RPC(this, "StopUsing", 0);
 		}
 	}
 
-	// Token: 0x06003932 RID: 14642 RVA: 0x000D23AC File Offset: 0x000D05AC
-	public ContextExecution ContextQuery(Controllable controllable, ulong timestamp)
+	// Token: 0x06003D26 RID: 15654 RVA: 0x000DAD8C File Offset: 0x000D8F8C
+	public global::ContextExecution ContextQuery(global::Controllable controllable, ulong timestamp)
 	{
-		return ContextExecution.Quick;
+		return global::ContextExecution.Quick;
 	}
 
-	// Token: 0x06003933 RID: 14643 RVA: 0x000D23B0 File Offset: 0x000D05B0
-	public ContextResponse ContextRespondQuick(Controllable controllable, ulong timestamp)
+	// Token: 0x06003D27 RID: 15655 RVA: 0x000DAD90 File Offset: 0x000D8F90
+	public global::ContextResponse ContextRespondQuick(global::Controllable controllable, ulong timestamp)
 	{
-		return ContextRequestable.UseableForwardFromContextRespond(this, controllable, this._useable);
+		return global::ContextRequestable.UseableForwardFromContextRespond(this, controllable, this._useable);
 	}
 
-	// Token: 0x06003934 RID: 14644 RVA: 0x000D23C0 File Offset: 0x000D05C0
-	public string ContextText(Controllable localControllable)
+	// Token: 0x06003D28 RID: 15656 RVA: 0x000DADA0 File Offset: 0x000D8FA0
+	public string ContextText(global::Controllable localControllable)
 	{
-		if (this._currentlyUsingPlayer == NetworkPlayer.unassigned)
+		if (this._currentlyUsingPlayer == uLink.NetworkPlayer.unassigned)
 		{
 			return "Use";
 		}
-		if (this._currentlyUsingPlayer != NetCull.player)
+		if (this._currentlyUsingPlayer != global::NetCull.player)
 		{
 			return "Occupied";
 		}
 		return string.Empty;
 	}
 
-	// Token: 0x06003935 RID: 14645 RVA: 0x000D2400 File Offset: 0x000D0600
+	// Token: 0x06003D29 RID: 15657 RVA: 0x000DADE0 File Offset: 0x000D8FE0
 	public void RadialCheck()
 	{
 		if (this._useable.user && Vector3.Distance(this._useable.user.transform.position, base.transform.position) > 5f)
@@ -171,13 +171,13 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		}
 	}
 
-	// Token: 0x06003936 RID: 14646 RVA: 0x000D2468 File Offset: 0x000D0668
+	// Token: 0x06003D2A RID: 15658 RVA: 0x000DAE48 File Offset: 0x000D9048
 	public bool IsLocalUsing()
 	{
-		return this._currentlyUsingPlayer == NetCull.player;
+		return this._currentlyUsingPlayer == global::NetCull.player;
 	}
 
-	// Token: 0x06003937 RID: 14647 RVA: 0x000D247C File Offset: 0x000D067C
+	// Token: 0x06003D2B RID: 15659 RVA: 0x000DAE5C File Offset: 0x000D905C
 	[RPC]
 	private void DoAction()
 	{
@@ -191,19 +191,19 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		}
 	}
 
-	// Token: 0x06003938 RID: 14648 RVA: 0x000D249C File Offset: 0x000D069C
+	// Token: 0x06003D2C RID: 15660 RVA: 0x000DAE7C File Offset: 0x000D907C
 	private void StartWork()
 	{
 		if (!this.EnsureWorkExists())
 		{
 			return;
 		}
-		IToolItem tool = this.GetTool();
+		global::IToolItem tool = this.GetTool();
 		if (tool == null)
 		{
 			return;
 		}
-		this._startTime_network = NetCull.time;
+		this._startTime_network = global::NetCull.time;
 		this._workDuration = this.GetWorkDuration();
 		base.Invoke("CompleteWork", this._workDuration);
 		this._inventory.locked = true;
@@ -211,37 +211,37 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		this.SendWorkStatusUpdate();
 	}
 
-	// Token: 0x06003939 RID: 14649 RVA: 0x000D2504 File Offset: 0x000D0704
+	// Token: 0x06003D2D RID: 15661 RVA: 0x000DAEE4 File Offset: 0x000D90E4
 	private void SendWorkStatusUpdate()
 	{
-		if (this._currentlyUsingPlayer == NetworkPlayer.unassigned)
+		if (this._currentlyUsingPlayer == uLink.NetworkPlayer.unassigned)
 		{
 			return;
 		}
 		float p = (float)this._startTime_network;
-		NetCull.RPC<float, float>(this, "WorkStatusUpdate", this._currentlyUsingPlayer, p, this._workDuration);
+		global::NetCull.RPC<float, float>(this, "WorkStatusUpdate", this._currentlyUsingPlayer, p, this._workDuration);
 	}
 
-	// Token: 0x0600393A RID: 14650 RVA: 0x000D2548 File Offset: 0x000D0748
+	// Token: 0x06003D2E RID: 15662 RVA: 0x000DAF28 File Offset: 0x000D9128
 	[RPC]
 	private void WorkStatusUpdate(float startTime, float newWorkDuration)
 	{
 		this._startTime_network = (double)startTime;
 		this._workDuration = newWorkDuration;
-		RPOSWorkbenchWindow component = RPOS.GetWindowByName("Workbench").GetComponent<RPOSWorkbenchWindow>();
+		global::RPOSWorkbenchWindow component = global::RPOS.GetWindowByName("Workbench").GetComponent<global::RPOSWorkbenchWindow>();
 		component.BenchUpdate();
 	}
 
-	// Token: 0x0600393B RID: 14651 RVA: 0x000D257C File Offset: 0x000D077C
+	// Token: 0x06003D2F RID: 15663 RVA: 0x000DAF5C File Offset: 0x000D915C
 	public void TryCancel()
 	{
 		this.CancelWork();
 	}
 
-	// Token: 0x0600393C RID: 14652 RVA: 0x000D2584 File Offset: 0x000D0784
+	// Token: 0x06003D30 RID: 15664 RVA: 0x000DAF64 File Offset: 0x000D9164
 	public void CancelWork()
 	{
-		IToolItem tool = this.GetTool();
+		global::IToolItem tool = this.GetTool();
 		if (tool != null)
 		{
 			tool.CancelWork();
@@ -253,44 +253,44 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		this.SendWorkStatusUpdate();
 	}
 
-	// Token: 0x0600393D RID: 14653 RVA: 0x000D25DC File Offset: 0x000D07DC
+	// Token: 0x06003D31 RID: 15665 RVA: 0x000DAFBC File Offset: 0x000D91BC
 	public void CompleteWork()
 	{
 	}
 
-	// Token: 0x0600393E RID: 14654 RVA: 0x000D25E0 File Offset: 0x000D07E0
+	// Token: 0x06003D32 RID: 15666 RVA: 0x000DAFC0 File Offset: 0x000D91C0
 	public bool EnsureWorkExists()
 	{
-		IToolItem tool = this.GetTool();
+		global::IToolItem tool = this.GetTool();
 		return tool != null && tool.canWork;
 	}
 
-	// Token: 0x0600393F RID: 14655 RVA: 0x000D2608 File Offset: 0x000D0808
+	// Token: 0x06003D33 RID: 15667 RVA: 0x000DAFE8 File Offset: 0x000D91E8
 	public virtual bool HasTool()
 	{
 		return this.GetTool() != null;
 	}
 
-	// Token: 0x06003940 RID: 14656 RVA: 0x000D2618 File Offset: 0x000D0818
-	public virtual IToolItem GetTool()
+	// Token: 0x06003D34 RID: 15668 RVA: 0x000DAFF8 File Offset: 0x000D91F8
+	public virtual global::IToolItem GetTool()
 	{
-		return this._inventory.FindItemType<IToolItem>();
+		return this._inventory.FindItemType<global::IToolItem>();
 	}
 
-	// Token: 0x06003941 RID: 14657 RVA: 0x000D2634 File Offset: 0x000D0834
-	public virtual BlueprintDataBlock GetMatchingDBForItems()
+	// Token: 0x06003D35 RID: 15669 RVA: 0x000DB014 File Offset: 0x000D9214
+	public virtual global::BlueprintDataBlock GetMatchingDBForItems()
 	{
 		ArrayList arrayList = new ArrayList();
-		foreach (ItemDataBlock itemDataBlock in DatablockDictionary.All)
+		foreach (global::ItemDataBlock itemDataBlock in global::DatablockDictionary.All)
 		{
-			if (itemDataBlock is BlueprintDataBlock)
+			if (itemDataBlock is global::BlueprintDataBlock)
 			{
-				BlueprintDataBlock blueprintDataBlock = itemDataBlock as BlueprintDataBlock;
+				global::BlueprintDataBlock blueprintDataBlock = itemDataBlock as global::BlueprintDataBlock;
 				bool flag = true;
-				foreach (BlueprintDataBlock.IngredientEntry ingredientEntry in blueprintDataBlock.ingredients)
+				foreach (global::BlueprintDataBlock.IngredientEntry ingredientEntry in blueprintDataBlock.ingredients)
 				{
 					int num = 0;
-					IInventoryItem inventoryItem = this._inventory.FindItem(ingredientEntry.Ingredient, out num);
+					global::IInventoryItem inventoryItem = this._inventory.FindItem(ingredientEntry.Ingredient, out num);
 					if (inventoryItem == null || num < ingredientEntry.amount)
 					{
 						flag = false;
@@ -305,11 +305,11 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		}
 		if (arrayList.Count > 0)
 		{
-			BlueprintDataBlock result = null;
+			global::BlueprintDataBlock result = null;
 			int num2 = -1;
 			foreach (object obj in arrayList)
 			{
-				BlueprintDataBlock blueprintDataBlock2 = (BlueprintDataBlock)obj;
+				global::BlueprintDataBlock blueprintDataBlock2 = (global::BlueprintDataBlock)obj;
 				if (blueprintDataBlock2.ingredients.Length > num2)
 				{
 					result = blueprintDataBlock2;
@@ -321,29 +321,29 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		return null;
 	}
 
-	// Token: 0x06003942 RID: 14658 RVA: 0x000D2784 File Offset: 0x000D0984
+	// Token: 0x06003D36 RID: 15670 RVA: 0x000DB164 File Offset: 0x000D9364
 	[RPC]
 	public void TakeAll()
 	{
 	}
 
-	// Token: 0x06003943 RID: 14659 RVA: 0x000D2788 File Offset: 0x000D0988
+	// Token: 0x06003D37 RID: 15671 RVA: 0x000DB168 File Offset: 0x000D9368
 	public bool IsWorking()
 	{
 		return this._workDuration != -1f;
 	}
 
-	// Token: 0x06003944 RID: 14660 RVA: 0x000D279C File Offset: 0x000D099C
+	// Token: 0x06003D38 RID: 15672 RVA: 0x000DB17C File Offset: 0x000D937C
 	public double GetTimePassed()
 	{
 		if (this._workDuration == -1f)
 		{
 			return -1.0;
 		}
-		return NetCull.time - this._startTime_network;
+		return global::NetCull.time - this._startTime_network;
 	}
 
-	// Token: 0x06003945 RID: 14661 RVA: 0x000D27D0 File Offset: 0x000D09D0
+	// Token: 0x06003D39 RID: 15673 RVA: 0x000DB1B0 File Offset: 0x000D93B0
 	public float GetFractionComplete()
 	{
 		if (!this.IsWorking())
@@ -353,10 +353,10 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		return (float)(this.GetTimePassed() / (double)this._workDuration);
 	}
 
-	// Token: 0x06003946 RID: 14662 RVA: 0x000D2800 File Offset: 0x000D0A00
+	// Token: 0x06003D3A RID: 15674 RVA: 0x000DB1E0 File Offset: 0x000D93E0
 	public float GetWorkDuration()
 	{
-		IToolItem tool = this.GetTool();
+		global::IToolItem tool = this.GetTool();
 		if (tool != null)
 		{
 			return tool.workDuration;
@@ -364,22 +364,22 @@ public class WorkBench : IDMain, IUseable, IContextRequestable, IContextRequesta
 		return 0f;
 	}
 
-	// Token: 0x04001D4A RID: 7498
+	// Token: 0x04001F42 RID: 8002
 	[HideInInspector]
-	public Inventory _inventory;
+	public global::Inventory _inventory;
 
-	// Token: 0x04001D4B RID: 7499
-	private Useable _useable;
+	// Token: 0x04001F43 RID: 8003
+	private global::Useable _useable;
 
-	// Token: 0x04001D4C RID: 7500
-	private NetworkPlayer _currentlyUsingPlayer;
+	// Token: 0x04001F44 RID: 8004
+	private uLink.NetworkPlayer _currentlyUsingPlayer;
 
-	// Token: 0x04001D4D RID: 7501
+	// Token: 0x04001F45 RID: 8005
 	private double _startTime_network;
 
-	// Token: 0x04001D4E RID: 7502
+	// Token: 0x04001F46 RID: 8006
 	private float _workDuration = -1f;
 
-	// Token: 0x04001D4F RID: 7503
+	// Token: 0x04001F47 RID: 8007
 	private static bool _debug_workbench;
 }

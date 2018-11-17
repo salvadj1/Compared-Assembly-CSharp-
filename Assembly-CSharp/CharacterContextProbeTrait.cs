@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000458 RID: 1112
-public class CharacterContextProbeTrait : CharacterTrait
+// Token: 0x0200050E RID: 1294
+public class CharacterContextProbeTrait : global::CharacterTrait
 {
-	// Token: 0x17000930 RID: 2352
-	// (get) Token: 0x06002898 RID: 10392 RVA: 0x0009FA2C File Offset: 0x0009DC2C
+	// Token: 0x17000998 RID: 2456
+	// (get) Token: 0x06002C28 RID: 11304 RVA: 0x000A59AC File Offset: 0x000A3BAC
 	public float rayLength
 	{
 		get
@@ -14,7 +14,7 @@ public class CharacterContextProbeTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x04001495 RID: 5269
+	// Token: 0x04001618 RID: 5656
 	[SerializeField]
 	private float _rayLength = 3f;
 }

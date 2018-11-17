@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x0200017A RID: 378
+// Token: 0x020001A6 RID: 422
 public sealed class TempList<T> : List<T>, IDisposable
 {
-	// Token: 0x06000B75 RID: 2933 RVA: 0x0002CC5C File Offset: 0x0002AE5C
+	// Token: 0x06000CA5 RID: 3237 RVA: 0x00030B48 File Offset: 0x0002ED48
 	private TempList()
 	{
 	}
 
-	// Token: 0x06000B76 RID: 2934 RVA: 0x0002CC64 File Offset: 0x0002AE64
+	// Token: 0x06000CA6 RID: 3238 RVA: 0x00030B50 File Offset: 0x0002ED50
 	private TempList(IEnumerable<T> enumerable) : base(enumerable)
 	{
 	}
 
-	// Token: 0x06000B77 RID: 2935 RVA: 0x0002CC70 File Offset: 0x0002AE70
+	// Token: 0x06000CA7 RID: 3239 RVA: 0x00030B5C File Offset: 0x0002ED5C
 	private void Activate()
 	{
 		if (!this.active)
@@ -23,39 +23,39 @@ public sealed class TempList<T> : List<T>, IDisposable
 			{
 				throw new InvalidOperationException();
 			}
-			if (TempList<T>.activeCount == 0)
+			if (global::TempList<T>.activeCount == 0)
 			{
-				TempList<T>.firstActive = this;
-				TempList<T>.lastActive = this;
+				global::TempList<T>.firstActive = this;
+				global::TempList<T>.lastActive = this;
 				this.p = (this.n = false);
 				this.prev = (this.next = null);
 			}
-			else if (TempList<T>.activeCount == 1)
+			else if (global::TempList<T>.activeCount == 1)
 			{
-				TempList<T>.lastActive = this;
+				global::TempList<T>.lastActive = this;
 				this.p = true;
 				this.n = false;
-				this.prev = TempList<T>.firstActive;
+				this.prev = global::TempList<T>.firstActive;
 				this.next = null;
-				TempList<T>.firstActive.n = true;
-				TempList<T>.firstActive.next = this;
+				global::TempList<T>.firstActive.n = true;
+				global::TempList<T>.firstActive.next = this;
 			}
 			else
 			{
 				this.p = true;
 				this.n = false;
-				this.prev = TempList<T>.lastActive;
-				TempList<T>.lastActive.n = true;
-				TempList<T>.lastActive.next = this;
-				TempList<T>.lastActive = this;
+				this.prev = global::TempList<T>.lastActive;
+				global::TempList<T>.lastActive.n = true;
+				global::TempList<T>.lastActive.next = this;
+				global::TempList<T>.lastActive = this;
 				this.next = null;
 			}
-			TempList<T>.activeCount++;
+			global::TempList<T>.activeCount++;
 			this.active = true;
 		}
 	}
 
-	// Token: 0x06000B78 RID: 2936 RVA: 0x0002CD70 File Offset: 0x0002AF70
+	// Token: 0x06000CA8 RID: 3240 RVA: 0x00030C5C File Offset: 0x0002EE5C
 	private void Deactivate()
 	{
 		if (this.active)
@@ -64,25 +64,25 @@ public sealed class TempList<T> : List<T>, IDisposable
 			{
 				throw new InvalidOperationException();
 			}
-			if (TempList<T>.lastActive == this)
+			if (global::TempList<T>.lastActive == this)
 			{
-				if (TempList<T>.firstActive != this)
+				if (global::TempList<T>.firstActive != this)
 				{
-					TempList<T>.lastActive = this.prev;
+					global::TempList<T>.lastActive = this.prev;
 					this.prev.n = false;
 					this.prev.next = null;
 				}
 				else
 				{
-					TempList<T>.lastActive = null;
-					TempList<T>.firstActive = null;
+					global::TempList<T>.lastActive = null;
+					global::TempList<T>.firstActive = null;
 				}
 			}
-			else if (TempList<T>.firstActive == this)
+			else if (global::TempList<T>.firstActive == this)
 			{
 				this.next.p = false;
 				this.next.prev = null;
-				TempList<T>.firstActive = this.next;
+				global::TempList<T>.firstActive = this.next;
 			}
 			else
 			{
@@ -94,11 +94,11 @@ public sealed class TempList<T> : List<T>, IDisposable
 			this.p = false;
 			this.n = false;
 			this.active = false;
-			TempList<T>.activeCount--;
+			global::TempList<T>.activeCount--;
 		}
 	}
 
-	// Token: 0x06000B79 RID: 2937 RVA: 0x0002CE6C File Offset: 0x0002B06C
+	// Token: 0x06000CA9 RID: 3241 RVA: 0x00030D58 File Offset: 0x0002EF58
 	private void Bin()
 	{
 		if (!this.inDump)
@@ -107,26 +107,26 @@ public sealed class TempList<T> : List<T>, IDisposable
 			{
 				throw new InvalidOperationException();
 			}
-			this.next = TempList<T>.dump;
-			int num = TempList<T>.dumpCount;
-			TempList<T>.dumpCount = num + 1;
+			this.next = global::TempList<T>.dump;
+			int num = global::TempList<T>.dumpCount;
+			global::TempList<T>.dumpCount = num + 1;
 			if (num != 0)
 			{
-				TempList<T>.dump.prev = this;
+				global::TempList<T>.dump.prev = this;
 			}
-			TempList<T>.dump = this;
+			global::TempList<T>.dump = this;
 			this.inDump = true;
 			this.Clear();
 		}
 	}
 
-	// Token: 0x06000B7A RID: 2938 RVA: 0x0002CED0 File Offset: 0x0002B0D0
-	private static bool Resurrect(out TempList<T> twl)
+	// Token: 0x06000CAA RID: 3242 RVA: 0x00030DBC File Offset: 0x0002EFBC
+	private static bool Resurrect(out global::TempList<T> twl)
 	{
-		if (TempList<T>.dumpCount != 0)
+		if (global::TempList<T>.dumpCount != 0)
 		{
-			twl = TempList<T>.dump;
-			TempList<T>.dump = ((--TempList<T>.dumpCount != 0) ? twl.prev : null);
+			twl = global::TempList<T>.dump;
+			global::TempList<T>.dump = ((--global::TempList<T>.dumpCount != 0) ? twl.prev : null);
 			twl.inDump = false;
 			twl.prev = null;
 			return true;
@@ -135,66 +135,66 @@ public sealed class TempList<T> : List<T>, IDisposable
 		return false;
 	}
 
-	// Token: 0x06000B7B RID: 2939 RVA: 0x0002CF28 File Offset: 0x0002B128
-	public static TempList<T> New()
+	// Token: 0x06000CAB RID: 3243 RVA: 0x00030E14 File Offset: 0x0002F014
+	public static global::TempList<T> New()
 	{
-		TempList<T> result;
-		if (TempList<T>.Resurrect(out result))
+		global::TempList<T> result;
+		if (global::TempList<T>.Resurrect(out result))
 		{
 			return result;
 		}
-		return new TempList<T>();
+		return new global::TempList<T>();
 	}
 
-	// Token: 0x06000B7C RID: 2940 RVA: 0x0002CF48 File Offset: 0x0002B148
-	public static TempList<T> New(IEnumerable<T> windows)
+	// Token: 0x06000CAC RID: 3244 RVA: 0x00030E34 File Offset: 0x0002F034
+	public static global::TempList<T> New(IEnumerable<T> windows)
 	{
-		TempList<T> tempList;
-		if (TempList<T>.Resurrect(out tempList))
+		global::TempList<T> tempList;
+		if (global::TempList<T>.Resurrect(out tempList))
 		{
 			tempList.AddRange(windows);
 			return tempList;
 		}
-		return new TempList<T>(windows);
+		return new global::TempList<T>(windows);
 	}
 
-	// Token: 0x06000B7D RID: 2941 RVA: 0x0002CF70 File Offset: 0x0002B170
+	// Token: 0x06000CAD RID: 3245 RVA: 0x00030E5C File Offset: 0x0002F05C
 	public void Dispose()
 	{
 		this.Deactivate();
 		this.Bin();
 	}
 
-	// Token: 0x04000722 RID: 1826
-	private static TempList<T> dump;
+	// Token: 0x04000836 RID: 2102
+	private static global::TempList<T> dump;
 
-	// Token: 0x04000723 RID: 1827
+	// Token: 0x04000837 RID: 2103
 	private static int dumpCount;
 
-	// Token: 0x04000724 RID: 1828
-	private static TempList<T> lastActive;
+	// Token: 0x04000838 RID: 2104
+	private static global::TempList<T> lastActive;
 
-	// Token: 0x04000725 RID: 1829
-	private static TempList<T> firstActive;
+	// Token: 0x04000839 RID: 2105
+	private static global::TempList<T> firstActive;
 
-	// Token: 0x04000726 RID: 1830
+	// Token: 0x0400083A RID: 2106
 	private static int activeCount;
 
-	// Token: 0x04000727 RID: 1831
-	private TempList<T> prev;
+	// Token: 0x0400083B RID: 2107
+	private global::TempList<T> prev;
 
-	// Token: 0x04000728 RID: 1832
-	private TempList<T> next;
+	// Token: 0x0400083C RID: 2108
+	private global::TempList<T> next;
 
-	// Token: 0x04000729 RID: 1833
+	// Token: 0x0400083D RID: 2109
 	private bool inDump;
 
-	// Token: 0x0400072A RID: 1834
+	// Token: 0x0400083E RID: 2110
 	private bool active;
 
-	// Token: 0x0400072B RID: 1835
+	// Token: 0x0400083F RID: 2111
 	private bool p;
 
-	// Token: 0x0400072C RID: 1836
+	// Token: 0x04000840 RID: 2112
 	private bool n;
 }

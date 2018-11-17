@@ -2,27 +2,27 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x020006F6 RID: 1782
+// Token: 0x020007C8 RID: 1992
 public class dfClipboardHelper
 {
-	// Token: 0x06004070 RID: 16496 RVA: 0x000F761C File Offset: 0x000F581C
+	// Token: 0x0600448C RID: 17548 RVA: 0x00100220 File Offset: 0x000FE420
 	private static PropertyInfo GetSystemCopyBufferProperty()
 	{
-		if (dfClipboardHelper.m_systemCopyBufferProperty == null)
+		if (global::dfClipboardHelper.m_systemCopyBufferProperty == null)
 		{
 			Type typeFromHandle = typeof(GUIUtility);
-			dfClipboardHelper.m_systemCopyBufferProperty = typeFromHandle.GetProperty("systemCopyBuffer", BindingFlags.Static | BindingFlags.NonPublic);
-			if (dfClipboardHelper.m_systemCopyBufferProperty == null)
+			global::dfClipboardHelper.m_systemCopyBufferProperty = typeFromHandle.GetProperty("systemCopyBuffer", BindingFlags.Static | BindingFlags.NonPublic);
+			if (global::dfClipboardHelper.m_systemCopyBufferProperty == null)
 			{
 				throw new Exception("Can'time access internal member 'GUIUtility.systemCopyBuffer' it may have been removed / renamed");
 			}
 		}
-		return dfClipboardHelper.m_systemCopyBufferProperty;
+		return global::dfClipboardHelper.m_systemCopyBufferProperty;
 	}
 
-	// Token: 0x17000CB2 RID: 3250
-	// (get) Token: 0x06004071 RID: 16497 RVA: 0x000F766C File Offset: 0x000F586C
-	// (set) Token: 0x06004072 RID: 16498 RVA: 0x000F76C8 File Offset: 0x000F58C8
+	// Token: 0x17000D36 RID: 3382
+	// (get) Token: 0x0600448D RID: 17549 RVA: 0x00100270 File Offset: 0x000FE470
+	// (set) Token: 0x0600448E RID: 17550 RVA: 0x001002CC File Offset: 0x000FE4CC
 	public static string clipBoard
 	{
 		get
@@ -30,7 +30,7 @@ public class dfClipboardHelper
 			string result;
 			try
 			{
-				PropertyInfo systemCopyBufferProperty = dfClipboardHelper.GetSystemCopyBufferProperty();
+				PropertyInfo systemCopyBufferProperty = global::dfClipboardHelper.GetSystemCopyBufferProperty();
 				result = (string)systemCopyBufferProperty.GetValue(null, null);
 			}
 			catch
@@ -43,7 +43,7 @@ public class dfClipboardHelper
 		{
 			try
 			{
-				PropertyInfo systemCopyBufferProperty = dfClipboardHelper.GetSystemCopyBufferProperty();
+				PropertyInfo systemCopyBufferProperty = global::dfClipboardHelper.GetSystemCopyBufferProperty();
 				systemCopyBufferProperty.SetValue(null, value, null);
 			}
 			catch
@@ -52,6 +52,6 @@ public class dfClipboardHelper
 		}
 	}
 
-	// Token: 0x0400223F RID: 8767
+	// Token: 0x04002448 RID: 9288
 	private static PropertyInfo m_systemCopyBufferProperty;
 }

@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200069B RID: 1691
+// Token: 0x02000761 RID: 1889
 [AddComponentMenu("Water/Mesher")]
 public class WaterMesher : MonoBehaviour
 {
-	// Token: 0x17000B49 RID: 2889
-	// (get) Token: 0x06003A7B RID: 14971 RVA: 0x000DB1F4 File Offset: 0x000D93F4
-	// (set) Token: 0x06003A7C RID: 14972 RVA: 0x000DB23C File Offset: 0x000D943C
+	// Token: 0x17000BCD RID: 3021
+	// (get) Token: 0x06003E79 RID: 15993 RVA: 0x000E3C84 File Offset: 0x000E1E84
+	// (set) Token: 0x06003E7A RID: 15994 RVA: 0x000E3CCC File Offset: 0x000E1ECC
 	public Vector2 position
 	{
 		get
@@ -26,8 +26,8 @@ public class WaterMesher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B4A RID: 2890
-	// (get) Token: 0x06003A7D RID: 14973 RVA: 0x000DB280 File Offset: 0x000D9480
+	// Token: 0x17000BCE RID: 3022
+	// (get) Token: 0x06003E7B RID: 15995 RVA: 0x000E3D10 File Offset: 0x000E1F10
 	public Vector3 position3
 	{
 		get
@@ -36,7 +36,7 @@ public class WaterMesher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A7E RID: 14974 RVA: 0x000DB290 File Offset: 0x000D9490
+	// Token: 0x06003E7C RID: 15996 RVA: 0x000E3D20 File Offset: 0x000E1F20
 	public Vector2 Point(float t, Vector2 p3)
 	{
 		Vector2 position = this.position;
@@ -58,8 +58,8 @@ public class WaterMesher : MonoBehaviour
 		return position;
 	}
 
-	// Token: 0x17000B4B RID: 2891
-	// (get) Token: 0x06003A7F RID: 14975 RVA: 0x000DB400 File Offset: 0x000D9600
+	// Token: 0x17000BCF RID: 3023
+	// (get) Token: 0x06003E7D RID: 15997 RVA: 0x000E3E90 File Offset: 0x000E2090
 	public Vector2 smoothInTangent
 	{
 		get
@@ -68,8 +68,8 @@ public class WaterMesher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B4C RID: 2892
-	// (get) Token: 0x06003A80 RID: 14976 RVA: 0x000DB440 File Offset: 0x000D9640
+	// Token: 0x17000BD0 RID: 3024
+	// (get) Token: 0x06003E7E RID: 15998 RVA: 0x000E3ED0 File Offset: 0x000E20D0
 	public Vector2 smoothOutTangent
 	{
 		get
@@ -78,7 +78,7 @@ public class WaterMesher : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A81 RID: 14977 RVA: 0x000DB480 File Offset: 0x000D9680
+	// Token: 0x06003E7F RID: 15999 RVA: 0x000E3F10 File Offset: 0x000E2110
 	public Vector2 SmoothPoint(float t, Vector2 p3)
 	{
 		Vector2 position = this.position;
@@ -100,7 +100,7 @@ public class WaterMesher : MonoBehaviour
 		return position;
 	}
 
-	// Token: 0x06003A82 RID: 14978 RVA: 0x000DB5F0 File Offset: 0x000D97F0
+	// Token: 0x06003E80 RID: 16000 RVA: 0x000E4080 File Offset: 0x000E2280
 	public Vector3 Point3(float t, Vector2 p3)
 	{
 		Vector2 vector = this.Point(t, p3);
@@ -111,21 +111,21 @@ public class WaterMesher : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x04001EEC RID: 7916
+	// Token: 0x040020E8 RID: 8424
 	private const int kPoints = 16;
 
-	// Token: 0x04001EED RID: 7917
-	public WaterMesher next;
+	// Token: 0x040020E9 RID: 8425
+	public global::WaterMesher next;
 
-	// Token: 0x04001EEE RID: 7918
-	public WaterMesher prev;
+	// Token: 0x040020EA RID: 8426
+	public global::WaterMesher prev;
 
-	// Token: 0x04001EEF RID: 7919
+	// Token: 0x040020EB RID: 8427
 	public Vector2 inTangent;
 
-	// Token: 0x04001EF0 RID: 7920
+	// Token: 0x040020EC RID: 8428
 	public Vector2 outTangent;
 
-	// Token: 0x04001EF1 RID: 7921
+	// Token: 0x040020ED RID: 8429
 	public bool isRoot;
 }

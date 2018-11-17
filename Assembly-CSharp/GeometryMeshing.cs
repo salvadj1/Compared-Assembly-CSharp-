@@ -1,27 +1,27 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200067E RID: 1662
+// Token: 0x02000743 RID: 1859
 public class GeometryMeshing
 {
-	// Token: 0x060039D5 RID: 14805 RVA: 0x000D5C8C File Offset: 0x000D3E8C
-	public static GeometryMeshing.Mesh Sphere(GeometryMeshing.SphereInfo sphere)
+	// Token: 0x06003DCD RID: 15821 RVA: 0x000DE66C File Offset: 0x000DC86C
+	public static global::GeometryMeshing.Mesh Sphere(global::GeometryMeshing.SphereInfo sphere)
 	{
 		Debug.Log("TODO");
-		return default(GeometryMeshing.Mesh);
+		return default(global::GeometryMeshing.Mesh);
 	}
 
-	// Token: 0x060039D6 RID: 14806 RVA: 0x000D5CAC File Offset: 0x000D3EAC
-	public static GeometryMeshing.Mesh Capsule(GeometryMeshing.CapsuleInfo capsule)
+	// Token: 0x06003DCE RID: 15822 RVA: 0x000DE68C File Offset: 0x000DC88C
+	public static global::GeometryMeshing.Mesh Capsule(global::GeometryMeshing.CapsuleInfo capsule)
 	{
 		if (capsule.height <= capsule.radius * 2f)
 		{
-			GeometryMeshing.SphereInfo sphere;
+			global::GeometryMeshing.SphereInfo sphere;
 			sphere.offset = capsule.offset;
 			sphere.radius = capsule.radius;
 			sphere.capSplit = capsule.capSplit;
 			sphere.sides = capsule.sides;
-			return GeometryMeshing.Sphere(sphere);
+			return global::GeometryMeshing.Sphere(sphere);
 		}
 		bool flag = capsule.capSplit == 0;
 		int num = (!flag) ? (capsule.capSplit - 1) : 0;
@@ -87,25 +87,25 @@ public class GeometryMeshing
 			array2[num8++] = (n + 1) % capsule.sides + num2 + capsule.sides;
 			array2[num8++] = (n + 1) % capsule.sides + num2;
 		}
-		return new GeometryMeshing.Mesh(array, array2, GeometryMeshing.IndexKind.Triangles);
+		return new global::GeometryMeshing.Mesh(array, array2, global::GeometryMeshing.IndexKind.Triangles);
 	}
 
-	// Token: 0x0200067F RID: 1663
+	// Token: 0x02000744 RID: 1860
 	public enum IndexKind : sbyte
 	{
-		// Token: 0x04001DC2 RID: 7618
+		// Token: 0x04001FBA RID: 8122
 		Invalid,
-		// Token: 0x04001DC3 RID: 7619
+		// Token: 0x04001FBB RID: 8123
 		Triangles,
-		// Token: 0x04001DC4 RID: 7620
+		// Token: 0x04001FBC RID: 8124
 		TriangleStrip
 	}
 
-	// Token: 0x02000680 RID: 1664
+	// Token: 0x02000745 RID: 1861
 	public struct Mesh
 	{
-		// Token: 0x060039D7 RID: 14807 RVA: 0x000D6158 File Offset: 0x000D4358
-		internal Mesh(Vector3[] vertices, int[] indices, GeometryMeshing.IndexKind kind)
+		// Token: 0x06003DCF RID: 15823 RVA: 0x000DEB38 File Offset: 0x000DCD38
+		internal Mesh(Vector3[] vertices, int[] indices, global::GeometryMeshing.IndexKind kind)
 		{
 			this.vertices = vertices;
 			this.indices = indices;
@@ -114,8 +114,8 @@ public class GeometryMeshing
 			this.indexKind = kind;
 		}
 
-		// Token: 0x17000B33 RID: 2867
-		// (get) Token: 0x060039D8 RID: 14808 RVA: 0x000D6198 File Offset: 0x000D4398
+		// Token: 0x17000BB5 RID: 2997
+		// (get) Token: 0x06003DD0 RID: 15824 RVA: 0x000DEB78 File Offset: 0x000DCD78
 		public bool valid
 		{
 			get
@@ -124,54 +124,54 @@ public class GeometryMeshing
 			}
 		}
 
-		// Token: 0x04001DC5 RID: 7621
+		// Token: 0x04001FBD RID: 8125
 		public readonly Vector3[] vertices;
 
-		// Token: 0x04001DC6 RID: 7622
+		// Token: 0x04001FBE RID: 8126
 		public readonly int[] indices;
 
-		// Token: 0x04001DC7 RID: 7623
+		// Token: 0x04001FBF RID: 8127
 		public readonly uint indexCount;
 
-		// Token: 0x04001DC8 RID: 7624
+		// Token: 0x04001FC0 RID: 8128
 		public readonly ushort vertexCount;
 
-		// Token: 0x04001DC9 RID: 7625
-		public readonly GeometryMeshing.IndexKind indexKind;
+		// Token: 0x04001FC1 RID: 8129
+		public readonly global::GeometryMeshing.IndexKind indexKind;
 	}
 
-	// Token: 0x02000681 RID: 1665
+	// Token: 0x02000746 RID: 1862
 	public struct CapsuleInfo
 	{
-		// Token: 0x04001DCA RID: 7626
+		// Token: 0x04001FC2 RID: 8130
 		public Vector3 offset;
 
-		// Token: 0x04001DCB RID: 7627
+		// Token: 0x04001FC3 RID: 8131
 		public float height;
 
-		// Token: 0x04001DCC RID: 7628
+		// Token: 0x04001FC4 RID: 8132
 		public float radius;
 
-		// Token: 0x04001DCD RID: 7629
+		// Token: 0x04001FC5 RID: 8133
 		public int sides;
 
-		// Token: 0x04001DCE RID: 7630
+		// Token: 0x04001FC6 RID: 8134
 		public int capSplit;
 	}
 
-	// Token: 0x02000682 RID: 1666
+	// Token: 0x02000747 RID: 1863
 	public struct SphereInfo
 	{
-		// Token: 0x04001DCF RID: 7631
+		// Token: 0x04001FC7 RID: 8135
 		public Vector3 offset;
 
-		// Token: 0x04001DD0 RID: 7632
+		// Token: 0x04001FC8 RID: 8136
 		public float radius;
 
-		// Token: 0x04001DD1 RID: 7633
+		// Token: 0x04001FC9 RID: 8137
 		public int sides;
 
-		// Token: 0x04001DD2 RID: 7634
+		// Token: 0x04001FCA RID: 8138
 		public int capSplit;
 	}
 }

@@ -4,35 +4,35 @@ using Facepunch.Build;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000624 RID: 1572
+// Token: 0x020006E6 RID: 1766
 public class ClientInit : MonoBehaviour
 {
-	// Token: 0x060037B7 RID: 14263 RVA: 0x000CCB28 File Offset: 0x000CAD28
+	// Token: 0x06003B9D RID: 15261 RVA: 0x000D52D0 File Offset: 0x000D34D0
 	private void Awake()
 	{
 		Object.DontDestroyOnLoad(base.gameObject);
 	}
 
-	// Token: 0x060037B8 RID: 14264 RVA: 0x000CCB38 File Offset: 0x000CAD38
+	// Token: 0x06003B9E RID: 15262 RVA: 0x000D52E0 File Offset: 0x000D34E0
 	private void Start()
 	{
-		SteamClient.Create();
-		ConsoleSystem.Run("config.load", false);
-		ConsoleSystem.Run("serverfavourite.load", false);
-		HudEnabled.Disable();
-		DatablockDictionary.Initialize();
+		global::SteamClient.Create();
+		global::ConsoleSystem.Run("config.load", false);
+		global::ConsoleSystem.Run("serverfavourite.load", false);
+		global::HudEnabled.Disable();
+		global::DatablockDictionary.Initialize();
 		Application.LoadLevelAdditive("GameUI");
-		Connection.GameLoaded();
+		Facepunch.Build.Connection.GameLoaded();
 	}
 
-	// Token: 0x060037B9 RID: 14265 RVA: 0x000CCB74 File Offset: 0x000CAD74
-	private IEnumerator uLink_OnDisconnectedFromServer(NetworkDisconnection netDisconnect)
+	// Token: 0x06003B9F RID: 15263 RVA: 0x000D531C File Offset: 0x000D351C
+	private IEnumerator uLink_OnDisconnectedFromServer(uLink.NetworkDisconnection netDisconnect)
 	{
 		yield return null;
 		yield return null;
 		try
 		{
-			SoundPool.Drain();
+			global::SoundPool.Drain();
 		}
 		catch (Exception ex)
 		{
@@ -41,7 +41,7 @@ public class ClientInit : MonoBehaviour
 		}
 		try
 		{
-			DestroysOnDisconnect.OnDisconnectedFromServer();
+			global::DestroysOnDisconnect.OnDisconnectedFromServer();
 		}
 		catch (Exception ex2)
 		{

@@ -1,61 +1,61 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000764 RID: 1892
+// Token: 0x02000846 RID: 2118
 [AddComponentMenu("NGUI/Interaction/Button Sound")]
 public class UIButtonSound : MonoBehaviour
 {
-	// Token: 0x060044EC RID: 17644 RVA: 0x0010E1A8 File Offset: 0x0010C3A8
+	// Token: 0x0600494D RID: 18765 RVA: 0x00117B28 File Offset: 0x00115D28
 	private void OnHover(bool isOver)
 	{
-		if (base.enabled && ((isOver && this.trigger == UIButtonSound.Trigger.OnMouseOver) || (!isOver && this.trigger == UIButtonSound.Trigger.OnMouseOut)))
+		if (base.enabled && ((isOver && this.trigger == global::UIButtonSound.Trigger.OnMouseOver) || (!isOver && this.trigger == global::UIButtonSound.Trigger.OnMouseOut)))
 		{
-			NGUITools.PlaySound(this.audioClip, this.volume, this.pitch);
+			global::NGUITools.PlaySound(this.audioClip, this.volume, this.pitch);
 		}
 	}
 
-	// Token: 0x060044ED RID: 17645 RVA: 0x0010E1FC File Offset: 0x0010C3FC
+	// Token: 0x0600494E RID: 18766 RVA: 0x00117B7C File Offset: 0x00115D7C
 	private void OnPress(bool isPressed)
 	{
-		if (base.enabled && ((isPressed && this.trigger == UIButtonSound.Trigger.OnPress) || (!isPressed && this.trigger == UIButtonSound.Trigger.OnRelease)))
+		if (base.enabled && ((isPressed && this.trigger == global::UIButtonSound.Trigger.OnPress) || (!isPressed && this.trigger == global::UIButtonSound.Trigger.OnRelease)))
 		{
-			NGUITools.PlaySound(this.audioClip, this.volume, this.pitch);
+			global::NGUITools.PlaySound(this.audioClip, this.volume, this.pitch);
 		}
 	}
 
-	// Token: 0x060044EE RID: 17646 RVA: 0x0010E250 File Offset: 0x0010C450
+	// Token: 0x0600494F RID: 18767 RVA: 0x00117BD0 File Offset: 0x00115DD0
 	private void OnClick()
 	{
-		if (base.enabled && this.trigger == UIButtonSound.Trigger.OnClick)
+		if (base.enabled && this.trigger == global::UIButtonSound.Trigger.OnClick)
 		{
-			NGUITools.PlaySound(this.audioClip, this.volume, this.pitch);
+			global::NGUITools.PlaySound(this.audioClip, this.volume, this.pitch);
 		}
 	}
 
-	// Token: 0x04002527 RID: 9511
+	// Token: 0x0400275E RID: 10078
 	public AudioClip audioClip;
 
-	// Token: 0x04002528 RID: 9512
-	public UIButtonSound.Trigger trigger;
+	// Token: 0x0400275F RID: 10079
+	public global::UIButtonSound.Trigger trigger;
 
-	// Token: 0x04002529 RID: 9513
+	// Token: 0x04002760 RID: 10080
 	public float volume = 1f;
 
-	// Token: 0x0400252A RID: 9514
+	// Token: 0x04002761 RID: 10081
 	public float pitch = 1f;
 
-	// Token: 0x02000765 RID: 1893
+	// Token: 0x02000847 RID: 2119
 	public enum Trigger
 	{
-		// Token: 0x0400252C RID: 9516
+		// Token: 0x04002763 RID: 10083
 		OnClick,
-		// Token: 0x0400252D RID: 9517
+		// Token: 0x04002764 RID: 10084
 		OnMouseOver,
-		// Token: 0x0400252E RID: 9518
+		// Token: 0x04002765 RID: 10085
 		OnMouseOut,
-		// Token: 0x0400252F RID: 9519
+		// Token: 0x04002766 RID: 10086
 		OnPress,
-		// Token: 0x04002530 RID: 9520
+		// Token: 0x04002767 RID: 10087
 		OnRelease
 	}
 }

@@ -4,20 +4,20 @@ using System.Collections.Generic;
 using Facepunch.Progress;
 using UnityEngine;
 
-// Token: 0x020004EE RID: 1262
-public class SlowSpawn : ThrottledTask, IProgress
+// Token: 0x020005A9 RID: 1449
+public class SlowSpawn : global::ThrottledTask, Facepunch.Progress.IProgress
 {
-	// Token: 0x1700097F RID: 2431
-	public SlowSpawn.InstanceParameters this[int i]
+	// Token: 0x170009EF RID: 2543
+	public global::SlowSpawn.InstanceParameters this[int i]
 	{
 		get
 		{
-			return new SlowSpawn.InstanceParameters(this, i);
+			return new global::SlowSpawn.InstanceParameters(this, i);
 		}
 	}
 
-	// Token: 0x17000980 RID: 2432
-	// (get) Token: 0x06002AF6 RID: 10998 RVA: 0x000ABC98 File Offset: 0x000A9E98
+	// Token: 0x170009F0 RID: 2544
+	// (get) Token: 0x06002EA8 RID: 11944 RVA: 0x000B3A30 File Offset: 0x000B1C30
 	public int Count
 	{
 		get
@@ -26,8 +26,8 @@ public class SlowSpawn : ThrottledTask, IProgress
 		}
 	}
 
-	// Token: 0x17000981 RID: 2433
-	// (get) Token: 0x06002AF7 RID: 10999 RVA: 0x000ABCB4 File Offset: 0x000A9EB4
+	// Token: 0x170009F1 RID: 2545
+	// (get) Token: 0x06002EA9 RID: 11945 RVA: 0x000B3A4C File Offset: 0x000B1C4C
 	public int CountSpawned
 	{
 		get
@@ -36,8 +36,8 @@ public class SlowSpawn : ThrottledTask, IProgress
 		}
 	}
 
-	// Token: 0x17000982 RID: 2434
-	// (get) Token: 0x06002AF8 RID: 11000 RVA: 0x000ABCF0 File Offset: 0x000A9EF0
+	// Token: 0x170009F2 RID: 2546
+	// (get) Token: 0x06002EAA RID: 11946 RVA: 0x000B3A88 File Offset: 0x000B1C88
 	public float progress
 	{
 		get
@@ -46,7 +46,7 @@ public class SlowSpawn : ThrottledTask, IProgress
 		}
 	}
 
-	// Token: 0x06002AF9 RID: 11001 RVA: 0x000ABD44 File Offset: 0x000A9F44
+	// Token: 0x06002EAB RID: 11947 RVA: 0x000B3ADC File Offset: 0x000B1CDC
 	private IEnumerator Start()
 	{
 		if (!base.Working && ++this.iter < (this.iter_end = this.Count))
@@ -54,7 +54,7 @@ public class SlowSpawn : ThrottledTask, IProgress
 			base.Working = true;
 			for (;;)
 			{
-				ThrottledTask.Timer timer = base.Begin;
+				global::ThrottledTask.Timer timer = base.Begin;
 				do
 				{
 					try
@@ -81,8 +81,8 @@ public class SlowSpawn : ThrottledTask, IProgress
 		yield break;
 	}
 
-	// Token: 0x06002AFA RID: 11002 RVA: 0x000ABD60 File Offset: 0x000A9F60
-	public IEnumerable<GameObject> SpawnAll(SlowSpawn.SpawnFlags SpawnFlags = SlowSpawn.SpawnFlags.All, HideFlags HideFlags = 9)
+	// Token: 0x06002EAC RID: 11948 RVA: 0x000B3AF8 File Offset: 0x000B1CF8
+	public IEnumerable<GameObject> SpawnAll(global::SlowSpawn.SpawnFlags SpawnFlags = global::SlowSpawn.SpawnFlags.All, HideFlags HideFlags = 9)
 	{
 		int i = 0;
 		while (i < this.Count)
@@ -109,66 +109,66 @@ public class SlowSpawn : ThrottledTask, IProgress
 		yield break;
 	}
 
-	// Token: 0x04001781 RID: 6017
+	// Token: 0x0400193E RID: 6462
 	[SerializeField]
 	private string findSequence = "_decor_";
 
-	// Token: 0x04001782 RID: 6018
+	// Token: 0x0400193F RID: 6463
 	[SerializeField]
 	private Mesh[] meshes;
 
-	// Token: 0x04001783 RID: 6019
+	// Token: 0x04001940 RID: 6464
 	[SerializeField]
 	private Material sharedMaterial;
 
-	// Token: 0x04001784 RID: 6020
+	// Token: 0x04001941 RID: 6465
 	[SerializeField]
-	private SlowSpawn.SpawnFlags runtimeLoad = SlowSpawn.SpawnFlags.Collider;
+	private global::SlowSpawn.SpawnFlags runtimeLoad = global::SlowSpawn.SpawnFlags.Collider;
 
-	// Token: 0x04001785 RID: 6021
+	// Token: 0x04001942 RID: 6466
 	[HideInInspector]
 	[SerializeField]
 	private int[] meshIndex;
 
-	// Token: 0x04001786 RID: 6022
+	// Token: 0x04001943 RID: 6467
 	[HideInInspector]
 	[SerializeField]
 	private Vector4[] ps;
 
-	// Token: 0x04001787 RID: 6023
+	// Token: 0x04001944 RID: 6468
 	[SerializeField]
 	[HideInInspector]
 	private Quaternion[] r;
 
-	// Token: 0x04001788 RID: 6024
+	// Token: 0x04001945 RID: 6469
 	[NonSerialized]
 	private int iter = -1;
 
-	// Token: 0x04001789 RID: 6025
+	// Token: 0x04001946 RID: 6470
 	[NonSerialized]
 	private int iter_end;
 
-	// Token: 0x020004EF RID: 1263
+	// Token: 0x020005AA RID: 1450
 	[Flags]
 	public enum SpawnFlags
 	{
-		// Token: 0x0400178B RID: 6027
+		// Token: 0x04001948 RID: 6472
 		Collider = 1,
-		// Token: 0x0400178C RID: 6028
+		// Token: 0x04001949 RID: 6473
 		Renderer = 2,
-		// Token: 0x0400178D RID: 6029
+		// Token: 0x0400194A RID: 6474
 		MeshFilter = 4,
-		// Token: 0x0400178E RID: 6030
+		// Token: 0x0400194B RID: 6475
 		All = 7,
-		// Token: 0x0400178F RID: 6031
+		// Token: 0x0400194C RID: 6476
 		Graphics = 6
 	}
 
-	// Token: 0x020004F0 RID: 1264
+	// Token: 0x020005AB RID: 1451
 	public struct InstanceParameters
 	{
-		// Token: 0x06002AFB RID: 11003 RVA: 0x000ABDA0 File Offset: 0x000A9FA0
-		public InstanceParameters(SlowSpawn SlowSpawn, int Index)
+		// Token: 0x06002EAD RID: 11949 RVA: 0x000B3B38 File Offset: 0x000B1D38
+		public InstanceParameters(global::SlowSpawn SlowSpawn, int Index)
 		{
 			this.Index = Index;
 			this.Layer = SlowSpawn.gameObject.layer;
@@ -182,7 +182,7 @@ public class SlowSpawn : ThrottledTask, IProgress
 			this.SharedMaterial = SlowSpawn.sharedMaterial;
 		}
 
-		// Token: 0x06002AFC RID: 11004 RVA: 0x000ABE74 File Offset: 0x000AA074
+		// Token: 0x06002EAE RID: 11950 RVA: 0x000B3C0C File Offset: 0x000B1E0C
 		public MeshCollider AddCollider(GameObject go)
 		{
 			MeshCollider meshCollider = go.AddComponent<MeshCollider>();
@@ -190,7 +190,7 @@ public class SlowSpawn : ThrottledTask, IProgress
 			return meshCollider;
 		}
 
-		// Token: 0x06002AFD RID: 11005 RVA: 0x000ABE98 File Offset: 0x000AA098
+		// Token: 0x06002EAF RID: 11951 RVA: 0x000B3C30 File Offset: 0x000B1E30
 		public MeshRenderer AddRenderer(GameObject go)
 		{
 			MeshRenderer meshRenderer = go.AddComponent<MeshRenderer>();
@@ -198,7 +198,7 @@ public class SlowSpawn : ThrottledTask, IProgress
 			return meshRenderer;
 		}
 
-		// Token: 0x06002AFE RID: 11006 RVA: 0x000ABEBC File Offset: 0x000AA0BC
+		// Token: 0x06002EB0 RID: 11952 RVA: 0x000B3C54 File Offset: 0x000B1E54
 		public MeshFilter AddMeshFilter(GameObject go)
 		{
 			MeshFilter meshFilter = go.AddComponent<MeshFilter>();
@@ -206,36 +206,36 @@ public class SlowSpawn : ThrottledTask, IProgress
 			return meshFilter;
 		}
 
-		// Token: 0x06002AFF RID: 11007 RVA: 0x000ABEE0 File Offset: 0x000AA0E0
-		private SlowSpawn.SpawnFlags AddTo(GameObject go, SlowSpawn.SpawnFlags spawnFlags, bool safe)
+		// Token: 0x06002EB1 RID: 11953 RVA: 0x000B3C78 File Offset: 0x000B1E78
+		private global::SlowSpawn.SpawnFlags AddTo(GameObject go, global::SlowSpawn.SpawnFlags spawnFlags, bool safe)
 		{
-			SlowSpawn.SpawnFlags spawnFlags2 = (SlowSpawn.SpawnFlags)0;
-			if ((spawnFlags & SlowSpawn.SpawnFlags.MeshFilter) == SlowSpawn.SpawnFlags.MeshFilter && (safe || !go.GetComponent<MeshFilter>()))
+			global::SlowSpawn.SpawnFlags spawnFlags2 = (global::SlowSpawn.SpawnFlags)0;
+			if ((spawnFlags & global::SlowSpawn.SpawnFlags.MeshFilter) == global::SlowSpawn.SpawnFlags.MeshFilter && (safe || !go.GetComponent<MeshFilter>()))
 			{
-				spawnFlags2 |= SlowSpawn.SpawnFlags.MeshFilter;
+				spawnFlags2 |= global::SlowSpawn.SpawnFlags.MeshFilter;
 				this.AddMeshFilter(go);
 			}
-			if ((spawnFlags & SlowSpawn.SpawnFlags.Renderer) == SlowSpawn.SpawnFlags.Renderer && (safe || !go.renderer))
+			if ((spawnFlags & global::SlowSpawn.SpawnFlags.Renderer) == global::SlowSpawn.SpawnFlags.Renderer && (safe || !go.renderer))
 			{
-				spawnFlags2 |= SlowSpawn.SpawnFlags.Renderer;
+				spawnFlags2 |= global::SlowSpawn.SpawnFlags.Renderer;
 				this.AddRenderer(go);
 			}
-			if ((spawnFlags & SlowSpawn.SpawnFlags.Collider) == SlowSpawn.SpawnFlags.Collider && (safe || !go.collider))
+			if ((spawnFlags & global::SlowSpawn.SpawnFlags.Collider) == global::SlowSpawn.SpawnFlags.Collider && (safe || !go.collider))
 			{
-				spawnFlags2 |= SlowSpawn.SpawnFlags.Collider;
+				spawnFlags2 |= global::SlowSpawn.SpawnFlags.Collider;
 				this.AddCollider(go);
 			}
 			return spawnFlags2;
 		}
 
-		// Token: 0x06002B00 RID: 11008 RVA: 0x000ABF74 File Offset: 0x000AA174
-		public SlowSpawn.SpawnFlags AddTo(GameObject go, SlowSpawn.SpawnFlags spawnFlags = SlowSpawn.SpawnFlags.All)
+		// Token: 0x06002EB2 RID: 11954 RVA: 0x000B3D0C File Offset: 0x000B1F0C
+		public global::SlowSpawn.SpawnFlags AddTo(GameObject go, global::SlowSpawn.SpawnFlags spawnFlags = global::SlowSpawn.SpawnFlags.All)
 		{
 			return this.AddTo(go, spawnFlags, false);
 		}
 
-		// Token: 0x06002B01 RID: 11009 RVA: 0x000ABF80 File Offset: 0x000AA180
-		public GameObject Spawn(SlowSpawn.SpawnFlags spawnFlags = SlowSpawn.SpawnFlags.All, HideFlags HideFlags = 9)
+		// Token: 0x06002EB3 RID: 11955 RVA: 0x000B3D18 File Offset: 0x000B1F18
+		public GameObject Spawn(global::SlowSpawn.SpawnFlags spawnFlags = global::SlowSpawn.SpawnFlags.All, HideFlags HideFlags = 9)
 		{
 			GameObject gameObject = new GameObject(string.Empty)
 			{
@@ -251,31 +251,31 @@ public class SlowSpawn : ThrottledTask, IProgress
 			return gameObject;
 		}
 
-		// Token: 0x04001790 RID: 6032
-		public const SlowSpawn.SpawnFlags DefaultSpawnFlags = SlowSpawn.SpawnFlags.All;
+		// Token: 0x0400194D RID: 6477
+		public const global::SlowSpawn.SpawnFlags DefaultSpawnFlags = global::SlowSpawn.SpawnFlags.All;
 
-		// Token: 0x04001791 RID: 6033
+		// Token: 0x0400194E RID: 6478
 		public const HideFlags DefaultHideFlags = 9;
 
-		// Token: 0x04001792 RID: 6034
+		// Token: 0x0400194F RID: 6479
 		public readonly Vector3 Position;
 
-		// Token: 0x04001793 RID: 6035
+		// Token: 0x04001950 RID: 6480
 		public readonly Vector3 Scale;
 
-		// Token: 0x04001794 RID: 6036
+		// Token: 0x04001951 RID: 6481
 		public readonly Quaternion Rotation;
 
-		// Token: 0x04001795 RID: 6037
+		// Token: 0x04001952 RID: 6482
 		public readonly Mesh Mesh;
 
-		// Token: 0x04001796 RID: 6038
+		// Token: 0x04001953 RID: 6483
 		public readonly Material SharedMaterial;
 
-		// Token: 0x04001797 RID: 6039
+		// Token: 0x04001954 RID: 6484
 		public readonly int Layer;
 
-		// Token: 0x04001798 RID: 6040
+		// Token: 0x04001955 RID: 6485
 		public readonly int Index;
 	}
 }

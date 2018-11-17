@@ -1,33 +1,33 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006C9 RID: 1737
+// Token: 0x02000794 RID: 1940
 [Serializable]
 public abstract class dfFontBase : MonoBehaviour
 {
-	// Token: 0x17000BD7 RID: 3031
-	// (get) Token: 0x06003CE4 RID: 15588
-	// (set) Token: 0x06003CE5 RID: 15589
+	// Token: 0x17000C5B RID: 3163
+	// (get) Token: 0x060040EE RID: 16622
+	// (set) Token: 0x060040EF RID: 16623
 	public abstract Material Material { get; set; }
 
-	// Token: 0x17000BD8 RID: 3032
-	// (get) Token: 0x06003CE6 RID: 15590
+	// Token: 0x17000C5C RID: 3164
+	// (get) Token: 0x060040F0 RID: 16624
 	public abstract Texture Texture { get; }
 
-	// Token: 0x17000BD9 RID: 3033
-	// (get) Token: 0x06003CE7 RID: 15591
+	// Token: 0x17000C5D RID: 3165
+	// (get) Token: 0x060040F1 RID: 16625
 	public abstract bool IsValid { get; }
 
-	// Token: 0x17000BDA RID: 3034
-	// (get) Token: 0x06003CE8 RID: 15592
-	// (set) Token: 0x06003CE9 RID: 15593
+	// Token: 0x17000C5E RID: 3166
+	// (get) Token: 0x060040F2 RID: 16626
+	// (set) Token: 0x060040F3 RID: 16627
 	public abstract int FontSize { get; set; }
 
-	// Token: 0x17000BDB RID: 3035
-	// (get) Token: 0x06003CEA RID: 15594
-	// (set) Token: 0x06003CEB RID: 15595
+	// Token: 0x17000C5F RID: 3167
+	// (get) Token: 0x060040F4 RID: 16628
+	// (set) Token: 0x060040F5 RID: 16629
 	public abstract int LineHeight { get; set; }
 
-	// Token: 0x06003CEC RID: 15596
-	public abstract dfFontRendererBase ObtainRenderer();
+	// Token: 0x060040F6 RID: 16630
+	public abstract global::dfFontRendererBase ObtainRenderer();
 }

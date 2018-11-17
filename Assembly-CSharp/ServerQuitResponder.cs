@@ -2,10 +2,10 @@
 using System.Diagnostics;
 using UnityEngine;
 
-// Token: 0x0200063E RID: 1598
+// Token: 0x02000701 RID: 1793
 public class ServerQuitResponder : MonoBehaviour
 {
-	// Token: 0x060037E9 RID: 14313 RVA: 0x000CD19C File Offset: 0x000CB39C
+	// Token: 0x06003BD5 RID: 15317 RVA: 0x000D5A4C File Offset: 0x000D3C4C
 	[Conditional("ALLOW_SQR")]
 	public static void WillChangeLevels()
 	{

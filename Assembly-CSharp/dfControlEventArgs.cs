@@ -1,25 +1,25 @@
 ﻿using System;
 
-// Token: 0x020006BD RID: 1725
+// Token: 0x02000788 RID: 1928
 public class dfControlEventArgs
 {
-	// Token: 0x06003C69 RID: 15465 RVA: 0x000E3E1C File Offset: 0x000E201C
-	internal dfControlEventArgs(dfControl Target)
+	// Token: 0x06004073 RID: 16499 RVA: 0x000EC960 File Offset: 0x000EAB60
+	internal dfControlEventArgs(global::dfControl Target)
 	{
 		this.Source = Target;
 	}
 
-	// Token: 0x17000BAE RID: 2990
-	// (get) Token: 0x06003C6A RID: 15466 RVA: 0x000E3E2C File Offset: 0x000E202C
-	// (set) Token: 0x06003C6B RID: 15467 RVA: 0x000E3E34 File Offset: 0x000E2034
-	public dfControl Source { get; private set; }
+	// Token: 0x17000C32 RID: 3122
+	// (get) Token: 0x06004074 RID: 16500 RVA: 0x000EC970 File Offset: 0x000EAB70
+	// (set) Token: 0x06004075 RID: 16501 RVA: 0x000EC978 File Offset: 0x000EAB78
+	public global::dfControl Source { get; private set; }
 
-	// Token: 0x17000BAF RID: 2991
-	// (get) Token: 0x06003C6C RID: 15468 RVA: 0x000E3E40 File Offset: 0x000E2040
-	// (set) Token: 0x06003C6D RID: 15469 RVA: 0x000E3E48 File Offset: 0x000E2048
+	// Token: 0x17000C33 RID: 3123
+	// (get) Token: 0x06004076 RID: 16502 RVA: 0x000EC984 File Offset: 0x000EAB84
+	// (set) Token: 0x06004077 RID: 16503 RVA: 0x000EC98C File Offset: 0x000EAB8C
 	public bool Used { get; private set; }
 
-	// Token: 0x06003C6E RID: 15470 RVA: 0x000E3E54 File Offset: 0x000E2054
+	// Token: 0x06004078 RID: 16504 RVA: 0x000EC998 File Offset: 0x000EAB98
 	public void Use()
 	{
 		this.Used = true;

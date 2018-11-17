@@ -2,13 +2,13 @@
 
 namespace MoPhoGames.USpeak.Interface
 {
-	// Token: 0x020000C2 RID: 194
+	// Token: 0x020000D6 RID: 214
 	public interface ISpeechDataHandler
 	{
-		// Token: 0x06000418 RID: 1048
+		// Token: 0x06000496 RID: 1174
 		void USpeakOnSerializeAudio(byte[] data);
 
-		// Token: 0x06000419 RID: 1049
+		// Token: 0x06000497 RID: 1175
 		void USpeakInitializeSettings(int data);
 	}
 }

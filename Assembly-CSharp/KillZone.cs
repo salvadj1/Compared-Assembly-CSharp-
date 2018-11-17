@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000053 RID: 83
+// Token: 0x02000065 RID: 101
 public class KillZone : IDRemote
 {
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005E2 RID: 1506
-public interface IResourceTypeItem : ICookableItem, IFlammableItem, IInventoryItem
+// Token: 0x020006A0 RID: 1696
+public interface IResourceTypeItem : global::ICookableItem, global::IFlammableItem, global::IInventoryItem
 {
 }

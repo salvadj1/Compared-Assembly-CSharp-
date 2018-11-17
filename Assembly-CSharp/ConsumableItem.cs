@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005C1 RID: 1473
-public abstract class ConsumableItem<T> : InventoryItem<T> where T : ConsumableDataBlock
+// Token: 0x0200067F RID: 1663
+public abstract class ConsumableItem<T> : global::InventoryItem<T> where T : global::ConsumableDataBlock
 {
-	// Token: 0x06003549 RID: 13641 RVA: 0x000C201C File Offset: 0x000C021C
+	// Token: 0x06003911 RID: 14609 RVA: 0x000CA278 File Offset: 0x000C8478
 	protected ConsumableItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x0600354A RID: 13642 RVA: 0x000C2028 File Offset: 0x000C0228
-	public bool GetCookableInfo(out int consumeCount, out ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp)
+	// Token: 0x06003912 RID: 14610 RVA: 0x000CA284 File Offset: 0x000C8484
+	public bool GetCookableInfo(out int consumeCount, out global::ItemDataBlock cookedVersion, out int cookedCount, out int cookTempMin, out int burnTemp)
 	{
 		burnTemp = this.datablock.burnTemp;
 		cookTempMin = this.datablock.cookHeatRequirement;

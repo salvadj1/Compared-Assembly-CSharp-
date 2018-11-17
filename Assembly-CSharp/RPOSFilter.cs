@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000413 RID: 1043
-[RequireComponent(typeof(UICamera))]
+// Token: 0x020004C8 RID: 1224
+[RequireComponent(typeof(global::UICamera))]
 public class RPOSFilter : MonoBehaviour
 {
-	// Token: 0x06002692 RID: 9874 RVA: 0x0009632C File Offset: 0x0009452C
+	// Token: 0x06002A1C RID: 10780 RVA: 0x0009C1F0 File Offset: 0x0009A3F0
 	private void Awake()
 	{
-		this.uicamera = base.GetComponent<UICamera>();
+		this.uicamera = base.GetComponent<global::UICamera>();
 	}
 
-	// Token: 0x06002693 RID: 9875 RVA: 0x0009633C File Offset: 0x0009453C
+	// Token: 0x06002A1D RID: 10781 RVA: 0x0009C200 File Offset: 0x0009A400
 	private void OnPreCull()
 	{
-		RPOS.BeforeRPOSRender_Internal(this.uicamera);
+		global::RPOS.BeforeRPOSRender_Internal(this.uicamera);
 	}
 
-	// Token: 0x040012DE RID: 4830
-	private UICamera uicamera;
+	// Token: 0x0400145E RID: 5214
+	private global::UICamera uicamera;
 }

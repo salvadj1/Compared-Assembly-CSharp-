@@ -1,9 +1,9 @@
 ﻿using System;
 using Facepunch;
 
-// Token: 0x02000441 RID: 1089
-public interface IActivatableFill : IActivatable, IComponentInterface<IActivatable, MonoBehaviour, Activatable>, IComponentInterface<IActivatable, MonoBehaviour>, IComponentInterface<IActivatable>
+// Token: 0x020004F7 RID: 1271
+public interface IActivatableFill : global::IActivatable, global::IComponentInterface<global::IActivatable, MonoBehaviour, global::Activatable>, global::IComponentInterface<global::IActivatable, MonoBehaviour>, global::IComponentInterface<global::IActivatable>
 {
-	// Token: 0x06002800 RID: 10240
-	void ActivatableChanged(Activatable activatable, bool nonNull);
+	// Token: 0x06002B90 RID: 11152
+	void ActivatableChanged(global::Activatable activatable, bool nonNull);
 }

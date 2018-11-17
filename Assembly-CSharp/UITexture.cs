@@ -2,19 +2,19 @@
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x02000809 RID: 2057
-[AddComponentMenu("NGUI/UI/Texture")]
+// Token: 0x020008FB RID: 2299
 [ExecuteInEditMode]
-public class UITexture : UIWidget
+[AddComponentMenu("NGUI/UI/Texture")]
+public class UITexture : global::UIWidget
 {
-	// Token: 0x060049C5 RID: 18885 RVA: 0x00139E04 File Offset: 0x00138004
-	public UITexture() : base(UIWidget.WidgetFlags.KeepsMaterial)
+	// Token: 0x06004E74 RID: 20084 RVA: 0x00143D68 File Offset: 0x00141F68
+	public UITexture() : base(global::UIWidget.WidgetFlags.KeepsMaterial)
 	{
 	}
 
-	// Token: 0x17000E75 RID: 3701
-	// (get) Token: 0x060049C6 RID: 18886 RVA: 0x00139E10 File Offset: 0x00138010
-	// (set) Token: 0x060049C7 RID: 18887 RVA: 0x00139E18 File Offset: 0x00138018
+	// Token: 0x17000F0F RID: 3855
+	// (get) Token: 0x06004E75 RID: 20085 RVA: 0x00143D74 File Offset: 0x00141F74
+	// (set) Token: 0x06004E76 RID: 20086 RVA: 0x00143D7C File Offset: 0x00141F7C
 	public bool mirrorX
 	{
 		get
@@ -31,9 +31,9 @@ public class UITexture : UIWidget
 		}
 	}
 
-	// Token: 0x17000E76 RID: 3702
-	// (get) Token: 0x060049C8 RID: 18888 RVA: 0x00139E34 File Offset: 0x00138034
-	// (set) Token: 0x060049C9 RID: 18889 RVA: 0x00139E3C File Offset: 0x0013803C
+	// Token: 0x17000F10 RID: 3856
+	// (get) Token: 0x06004E77 RID: 20087 RVA: 0x00143D98 File Offset: 0x00141F98
+	// (set) Token: 0x06004E78 RID: 20088 RVA: 0x00143DA0 File Offset: 0x00141FA0
 	public bool mirrorY
 	{
 		get
@@ -50,7 +50,7 @@ public class UITexture : UIWidget
 		}
 	}
 
-	// Token: 0x060049CA RID: 18890 RVA: 0x00139E58 File Offset: 0x00138058
+	// Token: 0x06004E79 RID: 20089 RVA: 0x00143DBC File Offset: 0x00141FBC
 	public override void MakePixelPerfect()
 	{
 		Texture mainTexture = base.mainTexture;
@@ -65,16 +65,16 @@ public class UITexture : UIWidget
 		base.MakePixelPerfect();
 	}
 
-	// Token: 0x060049CB RID: 18891 RVA: 0x00139EC0 File Offset: 0x001380C0
-	public override void OnFill(MeshBuffer m)
+	// Token: 0x06004E7A RID: 20090 RVA: 0x00143E24 File Offset: 0x00142024
+	public override void OnFill(NGUI.Meshing.MeshBuffer m)
 	{
-		Vertex a;
+		NGUI.Meshing.Vertex a;
 		a.z = 0f;
-		Vertex b;
+		NGUI.Meshing.Vertex b;
 		b.z = 0f;
-		Vertex c;
+		NGUI.Meshing.Vertex c;
 		c.z = 0f;
-		Vertex d;
+		NGUI.Meshing.Vertex d;
 		d.z = 0f;
 		Color color = base.color;
 		a.r = (b.r = (c.r = (d.r = color.r)));
@@ -251,13 +251,13 @@ public class UITexture : UIWidget
 		}
 	}
 
-	// Token: 0x040029C1 RID: 10689
+	// Token: 0x04002C0F RID: 11279
 	[SerializeField]
 	[HideInInspector]
 	private bool _mirrorY;
 
-	// Token: 0x040029C2 RID: 10690
-	[HideInInspector]
+	// Token: 0x04002C10 RID: 11280
 	[SerializeField]
+	[HideInInspector]
 	private bool _mirrorX;
 }

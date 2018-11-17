@@ -1,40 +1,40 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000726 RID: 1830
-[dfMarkupTagInfo("ol")]
-[dfMarkupTagInfo("ul")]
-public class dfMarkupTagList : dfMarkupTag
+// Token: 0x02000802 RID: 2050
+[global::dfMarkupTagInfo("ul")]
+[global::dfMarkupTagInfo("ol")]
+public class dfMarkupTagList : global::dfMarkupTag
 {
-	// Token: 0x060042E9 RID: 17129 RVA: 0x00103F48 File Offset: 0x00102148
+	// Token: 0x0600472D RID: 18221 RVA: 0x0010D258 File Offset: 0x0010B458
 	public dfMarkupTagList() : base("ul")
 	{
 	}
 
-	// Token: 0x060042EA RID: 17130 RVA: 0x00103F58 File Offset: 0x00102158
-	public dfMarkupTagList(dfMarkupTag original) : base(original)
+	// Token: 0x0600472E RID: 18222 RVA: 0x0010D268 File Offset: 0x0010B468
+	public dfMarkupTagList(global::dfMarkupTag original) : base(original)
 	{
 	}
 
-	// Token: 0x17000D24 RID: 3364
-	// (get) Token: 0x060042EB RID: 17131 RVA: 0x00103F64 File Offset: 0x00102164
-	// (set) Token: 0x060042EC RID: 17132 RVA: 0x00103F6C File Offset: 0x0010216C
+	// Token: 0x17000DAE RID: 3502
+	// (get) Token: 0x0600472F RID: 18223 RVA: 0x0010D274 File Offset: 0x0010B474
+	// (set) Token: 0x06004730 RID: 18224 RVA: 0x0010D27C File Offset: 0x0010B47C
 	internal int BulletWidth { get; private set; }
 
-	// Token: 0x060042ED RID: 17133 RVA: 0x00103F78 File Offset: 0x00102178
-	protected override void _PerformLayoutImpl(dfMarkupBox container, dfMarkupStyle style)
+	// Token: 0x06004731 RID: 18225 RVA: 0x0010D288 File Offset: 0x0010B488
+	protected override void _PerformLayoutImpl(global::dfMarkupBox container, global::dfMarkupStyle style)
 	{
 		if (base.ChildNodes.Count == 0)
 		{
 			return;
 		}
-		style.Align = dfMarkupTextAlign.Left;
-		dfMarkupBox dfMarkupBox = new dfMarkupBox(this, dfMarkupDisplayType.block, style);
+		style.Align = global::dfMarkupTextAlign.Left;
+		global::dfMarkupBox dfMarkupBox = new global::dfMarkupBox(this, global::dfMarkupDisplayType.block, style);
 		container.AddChild(dfMarkupBox);
 		this.calculateBulletWidth(style);
 		for (int i = 0; i < base.ChildNodes.Count; i++)
 		{
-			dfMarkupTag dfMarkupTag = base.ChildNodes[i] as dfMarkupTag;
+			global::dfMarkupTag dfMarkupTag = base.ChildNodes[i] as global::dfMarkupTag;
 			if (dfMarkupTag != null && !(dfMarkupTag.TagName != "li"))
 			{
 				dfMarkupTag.PerformLayout(dfMarkupBox, style);
@@ -43,8 +43,8 @@ public class dfMarkupTagList : dfMarkupTag
 		dfMarkupBox.FitToContents(false);
 	}
 
-	// Token: 0x060042EE RID: 17134 RVA: 0x00104014 File Offset: 0x00102214
-	private void calculateBulletWidth(dfMarkupStyle style)
+	// Token: 0x06004732 RID: 18226 RVA: 0x0010D324 File Offset: 0x0010B524
+	private void calculateBulletWidth(global::dfMarkupStyle style)
 	{
 		if (base.TagName == "ul")
 		{
@@ -54,7 +54,7 @@ public class dfMarkupTagList : dfMarkupTag
 		int num = 0;
 		for (int i = 0; i < base.ChildNodes.Count; i++)
 		{
-			dfMarkupTag dfMarkupTag = base.ChildNodes[i] as dfMarkupTag;
+			global::dfMarkupTag dfMarkupTag = base.ChildNodes[i] as global::dfMarkupTag;
 			if (dfMarkupTag != null && dfMarkupTag.TagName == "li")
 			{
 				num++;

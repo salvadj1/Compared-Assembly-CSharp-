@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200036A RID: 874
-public interface ODBEnumerable<T, TEnumerator> : IEnumerable, IEnumerable<T> where T : Object where TEnumerator : struct, ODBEnumerator<T>
+// Token: 0x02000417 RID: 1047
+public interface ODBEnumerable<T, TEnumerator> : IEnumerable, IEnumerable<T> where T : Object where TEnumerator : struct, global::ODBEnumerator<T>
 {
-	// Token: 0x06002156 RID: 8534
+	// Token: 0x060024B8 RID: 9400
 	TEnumerator GetEnumerator();
 
-	// Token: 0x06002157 RID: 8535
+	// Token: 0x060024B9 RID: 9401
 	IEnumerable<T> ToGeneric();
 }

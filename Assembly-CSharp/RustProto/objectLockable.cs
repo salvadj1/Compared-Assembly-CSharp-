@@ -10,29 +10,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x02000219 RID: 537
+	// Token: 0x0200024C RID: 588
 	[DebuggerNonUserCode]
 	public sealed class objectLockable : GeneratedMessage<objectLockable, objectLockable.Builder>
 	{
-		// Token: 0x06001250 RID: 4688 RVA: 0x00040844 File Offset: 0x0003EA44
+		// Token: 0x060013A4 RID: 5028 RVA: 0x00044BEC File Offset: 0x00042DEC
 		private objectLockable()
 		{
 		}
 
-		// Token: 0x06001251 RID: 4689 RVA: 0x0004086C File Offset: 0x0003EA6C
+		// Token: 0x060013A5 RID: 5029 RVA: 0x00044C14 File Offset: 0x00042E14
 		static objectLockable()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x06001252 RID: 4690 RVA: 0x000408D4 File Offset: 0x0003EAD4
-		public static Recycler<objectLockable, objectLockable.Builder> Recycler()
+		// Token: 0x060013A6 RID: 5030 RVA: 0x00044C7C File Offset: 0x00042E7C
+		public static RustProto.Helpers.Recycler<objectLockable, objectLockable.Builder> Recycler()
 		{
-			return Recycler<objectLockable, objectLockable.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectLockable, objectLockable.Builder>.Manufacture();
 		}
 
-		// Token: 0x17000512 RID: 1298
-		// (get) Token: 0x06001253 RID: 4691 RVA: 0x000408DC File Offset: 0x0003EADC
+		// Token: 0x1700055A RID: 1370
+		// (get) Token: 0x060013A7 RID: 5031 RVA: 0x00044C84 File Offset: 0x00042E84
 		public static objectLockable DefaultInstance
 		{
 			get
@@ -41,8 +41,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000513 RID: 1299
-		// (get) Token: 0x06001254 RID: 4692 RVA: 0x000408E4 File Offset: 0x0003EAE4
+		// Token: 0x1700055B RID: 1371
+		// (get) Token: 0x060013A8 RID: 5032 RVA: 0x00044C8C File Offset: 0x00042E8C
 		public override objectLockable DefaultInstanceForType
 		{
 			get
@@ -51,8 +51,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000514 RID: 1300
-		// (get) Token: 0x06001255 RID: 4693 RVA: 0x000408EC File Offset: 0x0003EAEC
+		// Token: 0x1700055C RID: 1372
+		// (get) Token: 0x060013A9 RID: 5033 RVA: 0x00044C94 File Offset: 0x00042E94
 		protected override objectLockable ThisMessage
 		{
 			get
@@ -61,8 +61,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000515 RID: 1301
-		// (get) Token: 0x06001256 RID: 4694 RVA: 0x000408F0 File Offset: 0x0003EAF0
+		// Token: 0x1700055D RID: 1373
+		// (get) Token: 0x060013AA RID: 5034 RVA: 0x00044C98 File Offset: 0x00042E98
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -71,8 +71,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000516 RID: 1302
-		// (get) Token: 0x06001257 RID: 4695 RVA: 0x000408F8 File Offset: 0x0003EAF8
+		// Token: 0x1700055E RID: 1374
+		// (get) Token: 0x060013AB RID: 5035 RVA: 0x00044CA0 File Offset: 0x00042EA0
 		protected override FieldAccessorTable<objectLockable, objectLockable.Builder> InternalFieldAccessors
 		{
 			get
@@ -81,8 +81,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000517 RID: 1303
-		// (get) Token: 0x06001258 RID: 4696 RVA: 0x00040900 File Offset: 0x0003EB00
+		// Token: 0x1700055F RID: 1375
+		// (get) Token: 0x060013AC RID: 5036 RVA: 0x00044CA8 File Offset: 0x00042EA8
 		public bool HasPassword
 		{
 			get
@@ -91,8 +91,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000518 RID: 1304
-		// (get) Token: 0x06001259 RID: 4697 RVA: 0x00040908 File Offset: 0x0003EB08
+		// Token: 0x17000560 RID: 1376
+		// (get) Token: 0x060013AD RID: 5037 RVA: 0x00044CB0 File Offset: 0x00042EB0
 		public string Password
 		{
 			get
@@ -101,8 +101,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000519 RID: 1305
-		// (get) Token: 0x0600125A RID: 4698 RVA: 0x00040910 File Offset: 0x0003EB10
+		// Token: 0x17000561 RID: 1377
+		// (get) Token: 0x060013AE RID: 5038 RVA: 0x00044CB8 File Offset: 0x00042EB8
 		public bool HasLocked
 		{
 			get
@@ -111,8 +111,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700051A RID: 1306
-		// (get) Token: 0x0600125B RID: 4699 RVA: 0x00040918 File Offset: 0x0003EB18
+		// Token: 0x17000562 RID: 1378
+		// (get) Token: 0x060013AF RID: 5039 RVA: 0x00044CC0 File Offset: 0x00042EC0
 		public bool Locked
 		{
 			get
@@ -121,8 +121,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700051B RID: 1307
-		// (get) Token: 0x0600125C RID: 4700 RVA: 0x00040920 File Offset: 0x0003EB20
+		// Token: 0x17000563 RID: 1379
+		// (get) Token: 0x060013B0 RID: 5040 RVA: 0x00044CC8 File Offset: 0x00042EC8
 		[CLSCompliant(false)]
 		public IList<ulong> UsersList
 		{
@@ -132,8 +132,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700051C RID: 1308
-		// (get) Token: 0x0600125D RID: 4701 RVA: 0x00040930 File Offset: 0x0003EB30
+		// Token: 0x17000564 RID: 1380
+		// (get) Token: 0x060013B1 RID: 5041 RVA: 0x00044CD8 File Offset: 0x00042ED8
 		public int UsersCount
 		{
 			get
@@ -142,15 +142,15 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600125E RID: 4702 RVA: 0x00040940 File Offset: 0x0003EB40
+		// Token: 0x060013B2 RID: 5042 RVA: 0x00044CE8 File Offset: 0x00042EE8
 		[CLSCompliant(false)]
 		public ulong GetUsers(int index)
 		{
 			return this.users_[index];
 		}
 
-		// Token: 0x1700051D RID: 1309
-		// (get) Token: 0x0600125F RID: 4703 RVA: 0x00040950 File Offset: 0x0003EB50
+		// Token: 0x17000565 RID: 1381
+		// (get) Token: 0x060013B3 RID: 5043 RVA: 0x00044CF8 File Offset: 0x00042EF8
 		public override bool IsInitialized
 		{
 			get
@@ -159,7 +159,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001260 RID: 4704 RVA: 0x00040954 File Offset: 0x0003EB54
+		// Token: 0x060013B4 RID: 5044 RVA: 0x00044CFC File Offset: 0x00042EFC
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -179,8 +179,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x1700051E RID: 1310
-		// (get) Token: 0x06001261 RID: 4705 RVA: 0x000409D4 File Offset: 0x0003EBD4
+		// Token: 0x17000566 RID: 1382
+		// (get) Token: 0x060013B5 RID: 5045 RVA: 0x00044D7C File Offset: 0x00042F7C
 		public override int SerializedSize
 		{
 			get
@@ -212,110 +212,110 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001262 RID: 4706 RVA: 0x00040AAC File Offset: 0x0003ECAC
+		// Token: 0x060013B6 RID: 5046 RVA: 0x00044E54 File Offset: 0x00043054
 		public static objectLockable ParseFrom(ByteString data)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001263 RID: 4707 RVA: 0x00040AC0 File Offset: 0x0003ECC0
+		// Token: 0x060013B7 RID: 5047 RVA: 0x00044E68 File Offset: 0x00043068
 		public static objectLockable ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001264 RID: 4708 RVA: 0x00040AD4 File Offset: 0x0003ECD4
+		// Token: 0x060013B8 RID: 5048 RVA: 0x00044E7C File Offset: 0x0004307C
 		public static objectLockable ParseFrom(byte[] data)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x06001265 RID: 4709 RVA: 0x00040AE8 File Offset: 0x0003ECE8
+		// Token: 0x060013B9 RID: 5049 RVA: 0x00044E90 File Offset: 0x00043090
 		public static objectLockable ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001266 RID: 4710 RVA: 0x00040AFC File Offset: 0x0003ECFC
+		// Token: 0x060013BA RID: 5050 RVA: 0x00044EA4 File Offset: 0x000430A4
 		public static objectLockable ParseFrom(Stream input)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001267 RID: 4711 RVA: 0x00040B10 File Offset: 0x0003ED10
+		// Token: 0x060013BB RID: 5051 RVA: 0x00044EB8 File Offset: 0x000430B8
 		public static objectLockable ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001268 RID: 4712 RVA: 0x00040B24 File Offset: 0x0003ED24
+		// Token: 0x060013BC RID: 5052 RVA: 0x00044ECC File Offset: 0x000430CC
 		public static objectLockable ParseDelimitedFrom(Stream input)
 		{
 			return objectLockable.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001269 RID: 4713 RVA: 0x00040B38 File Offset: 0x0003ED38
+		// Token: 0x060013BD RID: 5053 RVA: 0x00044EE0 File Offset: 0x000430E0
 		public static objectLockable ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectLockable.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600126A RID: 4714 RVA: 0x00040B4C File Offset: 0x0003ED4C
+		// Token: 0x060013BE RID: 5054 RVA: 0x00044EF4 File Offset: 0x000430F4
 		public static objectLockable ParseFrom(ICodedInputStream input)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x0600126B RID: 4715 RVA: 0x00040B60 File Offset: 0x0003ED60
+		// Token: 0x060013BF RID: 5055 RVA: 0x00044F08 File Offset: 0x00043108
 		public static objectLockable ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectLockable.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600126C RID: 4716 RVA: 0x00040B74 File Offset: 0x0003ED74
+		// Token: 0x060013C0 RID: 5056 RVA: 0x00044F1C File Offset: 0x0004311C
 		private objectLockable MakeReadOnly()
 		{
 			this.users_.MakeReadOnly();
 			return this;
 		}
 
-		// Token: 0x0600126D RID: 4717 RVA: 0x00040B84 File Offset: 0x0003ED84
+		// Token: 0x060013C1 RID: 5057 RVA: 0x00044F2C File Offset: 0x0004312C
 		public static objectLockable.Builder CreateBuilder()
 		{
 			return new objectLockable.Builder();
 		}
 
-		// Token: 0x0600126E RID: 4718 RVA: 0x00040B8C File Offset: 0x0003ED8C
+		// Token: 0x060013C2 RID: 5058 RVA: 0x00044F34 File Offset: 0x00043134
 		public override objectLockable.Builder ToBuilder()
 		{
 			return objectLockable.CreateBuilder(this);
 		}
 
-		// Token: 0x0600126F RID: 4719 RVA: 0x00040B94 File Offset: 0x0003ED94
+		// Token: 0x060013C3 RID: 5059 RVA: 0x00044F3C File Offset: 0x0004313C
 		public override objectLockable.Builder CreateBuilderForType()
 		{
 			return new objectLockable.Builder();
 		}
 
-		// Token: 0x06001270 RID: 4720 RVA: 0x00040B9C File Offset: 0x0003ED9C
+		// Token: 0x060013C4 RID: 5060 RVA: 0x00044F44 File Offset: 0x00043144
 		public static objectLockable.Builder CreateBuilder(objectLockable prototype)
 		{
 			return new objectLockable.Builder(prototype);
 		}
 
-		// Token: 0x0400099F RID: 2463
+		// Token: 0x04000AC2 RID: 2754
 		public const int PasswordFieldNumber = 1;
 
-		// Token: 0x040009A0 RID: 2464
+		// Token: 0x04000AC3 RID: 2755
 		public const int LockedFieldNumber = 2;
 
-		// Token: 0x040009A1 RID: 2465
+		// Token: 0x04000AC4 RID: 2756
 		public const int UsersFieldNumber = 3;
 
-		// Token: 0x040009A2 RID: 2466
+		// Token: 0x04000AC5 RID: 2757
 		private static readonly objectLockable defaultInstance = new objectLockable().MakeReadOnly();
 
-		// Token: 0x040009A3 RID: 2467
+		// Token: 0x04000AC6 RID: 2758
 		private static readonly string[] _objectLockableFieldNames = new string[]
 		{
 			"locked",
@@ -323,7 +323,7 @@ namespace RustProto
 			"users"
 		};
 
-		// Token: 0x040009A4 RID: 2468
+		// Token: 0x04000AC7 RID: 2759
 		private static readonly uint[] _objectLockableFieldTags = new uint[]
 		{
 			16u,
@@ -331,44 +331,44 @@ namespace RustProto
 			24u
 		};
 
-		// Token: 0x040009A5 RID: 2469
+		// Token: 0x04000AC8 RID: 2760
 		private bool hasPassword;
 
-		// Token: 0x040009A6 RID: 2470
+		// Token: 0x04000AC9 RID: 2761
 		private string password_ = string.Empty;
 
-		// Token: 0x040009A7 RID: 2471
+		// Token: 0x04000ACA RID: 2762
 		private bool hasLocked;
 
-		// Token: 0x040009A8 RID: 2472
+		// Token: 0x04000ACB RID: 2763
 		private bool locked_;
 
-		// Token: 0x040009A9 RID: 2473
+		// Token: 0x04000ACC RID: 2764
 		private PopsicleList<ulong> users_ = new PopsicleList<ulong>();
 
-		// Token: 0x040009AA RID: 2474
+		// Token: 0x04000ACD RID: 2765
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x0200021A RID: 538
+		// Token: 0x0200024D RID: 589
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectLockable, objectLockable.Builder>
 		{
-			// Token: 0x06001271 RID: 4721 RVA: 0x00040BA4 File Offset: 0x0003EDA4
+			// Token: 0x060013C5 RID: 5061 RVA: 0x00044F4C File Offset: 0x0004314C
 			public Builder()
 			{
 				this.result = objectLockable.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x06001272 RID: 4722 RVA: 0x00040BC0 File Offset: 0x0003EDC0
+			// Token: 0x060013C6 RID: 5062 RVA: 0x00044F68 File Offset: 0x00043168
 			internal Builder(objectLockable cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x1700051F RID: 1311
-			// (get) Token: 0x06001273 RID: 4723 RVA: 0x00040BD8 File Offset: 0x0003EDD8
+			// Token: 0x17000567 RID: 1383
+			// (get) Token: 0x060013C7 RID: 5063 RVA: 0x00044F80 File Offset: 0x00043180
 			protected override objectLockable.Builder ThisBuilder
 			{
 				get
@@ -377,7 +377,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001274 RID: 4724 RVA: 0x00040BDC File Offset: 0x0003EDDC
+			// Token: 0x060013C8 RID: 5064 RVA: 0x00044F84 File Offset: 0x00043184
 			private objectLockable PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -390,8 +390,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x17000520 RID: 1312
-			// (get) Token: 0x06001275 RID: 4725 RVA: 0x00040C1C File Offset: 0x0003EE1C
+			// Token: 0x17000568 RID: 1384
+			// (get) Token: 0x060013C9 RID: 5065 RVA: 0x00044FC4 File Offset: 0x000431C4
 			public override bool IsInitialized
 			{
 				get
@@ -400,8 +400,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000521 RID: 1313
-			// (get) Token: 0x06001276 RID: 4726 RVA: 0x00040C2C File Offset: 0x0003EE2C
+			// Token: 0x17000569 RID: 1385
+			// (get) Token: 0x060013CA RID: 5066 RVA: 0x00044FD4 File Offset: 0x000431D4
 			protected override objectLockable MessageBeingBuilt
 			{
 				get
@@ -410,7 +410,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001277 RID: 4727 RVA: 0x00040C34 File Offset: 0x0003EE34
+			// Token: 0x060013CB RID: 5067 RVA: 0x00044FDC File Offset: 0x000431DC
 			public override objectLockable.Builder Clear()
 			{
 				this.result = objectLockable.DefaultInstance;
@@ -418,7 +418,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001278 RID: 4728 RVA: 0x00040C4C File Offset: 0x0003EE4C
+			// Token: 0x060013CC RID: 5068 RVA: 0x00044FF4 File Offset: 0x000431F4
 			public override objectLockable.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -428,8 +428,8 @@ namespace RustProto
 				return new objectLockable.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x17000522 RID: 1314
-			// (get) Token: 0x06001279 RID: 4729 RVA: 0x00040C78 File Offset: 0x0003EE78
+			// Token: 0x1700056A RID: 1386
+			// (get) Token: 0x060013CD RID: 5069 RVA: 0x00045020 File Offset: 0x00043220
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -438,8 +438,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000523 RID: 1315
-			// (get) Token: 0x0600127A RID: 4730 RVA: 0x00040C80 File Offset: 0x0003EE80
+			// Token: 0x1700056B RID: 1387
+			// (get) Token: 0x060013CE RID: 5070 RVA: 0x00045028 File Offset: 0x00043228
 			public override objectLockable DefaultInstanceForType
 			{
 				get
@@ -448,7 +448,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600127B RID: 4731 RVA: 0x00040C88 File Offset: 0x0003EE88
+			// Token: 0x060013CF RID: 5071 RVA: 0x00045030 File Offset: 0x00043230
 			public override objectLockable BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -459,7 +459,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x0600127C RID: 4732 RVA: 0x00040CBC File Offset: 0x0003EEBC
+			// Token: 0x060013D0 RID: 5072 RVA: 0x00045064 File Offset: 0x00043264
 			public override objectLockable.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectLockable)
@@ -470,7 +470,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600127D RID: 4733 RVA: 0x00040CE0 File Offset: 0x0003EEE0
+			// Token: 0x060013D1 RID: 5073 RVA: 0x00045088 File Offset: 0x00043288
 			public override objectLockable.Builder MergeFrom(objectLockable other)
 			{
 				if (other == objectLockable.DefaultInstance)
@@ -494,13 +494,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600127E RID: 4734 RVA: 0x00040D64 File Offset: 0x0003EF64
+			// Token: 0x060013D2 RID: 5074 RVA: 0x0004510C File Offset: 0x0004330C
 			public override objectLockable.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x0600127F RID: 4735 RVA: 0x00040D74 File Offset: 0x0003EF74
+			// Token: 0x060013D3 RID: 5075 RVA: 0x0004511C File Offset: 0x0004331C
 			public override objectLockable.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -572,8 +572,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000524 RID: 1316
-			// (get) Token: 0x06001280 RID: 4736 RVA: 0x00040EE0 File Offset: 0x0003F0E0
+			// Token: 0x1700056C RID: 1388
+			// (get) Token: 0x060013D4 RID: 5076 RVA: 0x00045288 File Offset: 0x00043488
 			public bool HasPassword
 			{
 				get
@@ -582,9 +582,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000525 RID: 1317
-			// (get) Token: 0x06001281 RID: 4737 RVA: 0x00040EF0 File Offset: 0x0003F0F0
-			// (set) Token: 0x06001282 RID: 4738 RVA: 0x00040F00 File Offset: 0x0003F100
+			// Token: 0x1700056D RID: 1389
+			// (get) Token: 0x060013D5 RID: 5077 RVA: 0x00045298 File Offset: 0x00043498
+			// (set) Token: 0x060013D6 RID: 5078 RVA: 0x000452A8 File Offset: 0x000434A8
 			public string Password
 			{
 				get
@@ -597,7 +597,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001283 RID: 4739 RVA: 0x00040F0C File Offset: 0x0003F10C
+			// Token: 0x060013D7 RID: 5079 RVA: 0x000452B4 File Offset: 0x000434B4
 			public objectLockable.Builder SetPassword(string value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -607,7 +607,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001284 RID: 4740 RVA: 0x00040F3C File Offset: 0x0003F13C
+			// Token: 0x060013D8 RID: 5080 RVA: 0x000452E4 File Offset: 0x000434E4
 			public objectLockable.Builder ClearPassword()
 			{
 				this.PrepareBuilder();
@@ -616,8 +616,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000526 RID: 1318
-			// (get) Token: 0x06001285 RID: 4741 RVA: 0x00040F70 File Offset: 0x0003F170
+			// Token: 0x1700056E RID: 1390
+			// (get) Token: 0x060013D9 RID: 5081 RVA: 0x00045318 File Offset: 0x00043518
 			public bool HasLocked
 			{
 				get
@@ -626,9 +626,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000527 RID: 1319
-			// (get) Token: 0x06001286 RID: 4742 RVA: 0x00040F80 File Offset: 0x0003F180
-			// (set) Token: 0x06001287 RID: 4743 RVA: 0x00040F90 File Offset: 0x0003F190
+			// Token: 0x1700056F RID: 1391
+			// (get) Token: 0x060013DA RID: 5082 RVA: 0x00045328 File Offset: 0x00043528
+			// (set) Token: 0x060013DB RID: 5083 RVA: 0x00045338 File Offset: 0x00043538
 			public bool Locked
 			{
 				get
@@ -641,7 +641,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001288 RID: 4744 RVA: 0x00040F9C File Offset: 0x0003F19C
+			// Token: 0x060013DC RID: 5084 RVA: 0x00045344 File Offset: 0x00043544
 			public objectLockable.Builder SetLocked(bool value)
 			{
 				this.PrepareBuilder();
@@ -650,7 +650,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001289 RID: 4745 RVA: 0x00040FCC File Offset: 0x0003F1CC
+			// Token: 0x060013DD RID: 5085 RVA: 0x00045374 File Offset: 0x00043574
 			public objectLockable.Builder ClearLocked()
 			{
 				this.PrepareBuilder();
@@ -659,8 +659,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000528 RID: 1320
-			// (get) Token: 0x0600128A RID: 4746 RVA: 0x00040FFC File Offset: 0x0003F1FC
+			// Token: 0x17000570 RID: 1392
+			// (get) Token: 0x060013DE RID: 5086 RVA: 0x000453A4 File Offset: 0x000435A4
 			[CLSCompliant(false)]
 			public IPopsicleList<ulong> UsersList
 			{
@@ -670,8 +670,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000529 RID: 1321
-			// (get) Token: 0x0600128B RID: 4747 RVA: 0x0004100C File Offset: 0x0003F20C
+			// Token: 0x17000571 RID: 1393
+			// (get) Token: 0x060013DF RID: 5087 RVA: 0x000453B4 File Offset: 0x000435B4
 			public int UsersCount
 			{
 				get
@@ -680,14 +680,14 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600128C RID: 4748 RVA: 0x0004101C File Offset: 0x0003F21C
+			// Token: 0x060013E0 RID: 5088 RVA: 0x000453C4 File Offset: 0x000435C4
 			[CLSCompliant(false)]
 			public ulong GetUsers(int index)
 			{
 				return this.result.GetUsers(index);
 			}
 
-			// Token: 0x0600128D RID: 4749 RVA: 0x0004102C File Offset: 0x0003F22C
+			// Token: 0x060013E1 RID: 5089 RVA: 0x000453D4 File Offset: 0x000435D4
 			[CLSCompliant(false)]
 			public objectLockable.Builder SetUsers(int index, ulong value)
 			{
@@ -696,7 +696,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600128E RID: 4750 RVA: 0x00041048 File Offset: 0x0003F248
+			// Token: 0x060013E2 RID: 5090 RVA: 0x000453F0 File Offset: 0x000435F0
 			[CLSCompliant(false)]
 			public objectLockable.Builder AddUsers(ulong value)
 			{
@@ -705,7 +705,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600128F RID: 4751 RVA: 0x00041064 File Offset: 0x0003F264
+			// Token: 0x060013E3 RID: 5091 RVA: 0x0004540C File Offset: 0x0004360C
 			[CLSCompliant(false)]
 			public objectLockable.Builder AddRangeUsers(IEnumerable<ulong> values)
 			{
@@ -714,7 +714,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001290 RID: 4752 RVA: 0x00041080 File Offset: 0x0003F280
+			// Token: 0x060013E4 RID: 5092 RVA: 0x00045428 File Offset: 0x00043628
 			public objectLockable.Builder ClearUsers()
 			{
 				this.PrepareBuilder();
@@ -722,10 +722,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x040009AB RID: 2475
+			// Token: 0x04000ACE RID: 2766
 			private bool resultIsReadOnly;
 
-			// Token: 0x040009AC RID: 2476
+			// Token: 0x04000ACF RID: 2767
 			private objectLockable result;
 		}
 	}

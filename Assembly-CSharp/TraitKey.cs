@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001D5 RID: 469
+// Token: 0x02000206 RID: 518
 public class TraitKey : ScriptableObject
 {
 }

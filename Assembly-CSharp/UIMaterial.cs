@@ -2,123 +2,123 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200079D RID: 1949
+// Token: 0x02000888 RID: 2184
 public class UIMaterial : ScriptableObject
 {
-	// Token: 0x06004674 RID: 18036 RVA: 0x001184EC File Offset: 0x001166EC
-	public static UIMaterial Create(Material key)
+	// Token: 0x06004AF9 RID: 19193 RVA: 0x00121E6C File Offset: 0x0012006C
+	public static global::UIMaterial Create(Material key)
 	{
 		if (!key)
 		{
 			return null;
 		}
-		UIMaterial uimaterial;
-		if (UIMaterial.g.keyedMaterials.TryGetValue(key, out uimaterial))
+		global::UIMaterial uimaterial;
+		if (global::UIMaterial.g.keyedMaterials.TryGetValue(key, out uimaterial))
 		{
 			return uimaterial;
 		}
-		if (UIMaterial.g.generatedMaterials.TryGetValue(key, out uimaterial))
+		if (global::UIMaterial.g.generatedMaterials.TryGetValue(key, out uimaterial))
 		{
 			return uimaterial;
 		}
-		uimaterial = ScriptableObject.CreateInstance<UIMaterial>();
+		uimaterial = ScriptableObject.CreateInstance<global::UIMaterial>();
 		uimaterial.key = key;
-		uimaterial.hashCode = ++UIMaterial.g.hashCodeIterator;
+		uimaterial.hashCode = ++global::UIMaterial.g.hashCodeIterator;
 		if (uimaterial.hashCode == 2147483647)
 		{
-			UIMaterial.g.hashCodeIterator = int.MinValue;
+			global::UIMaterial.g.hashCodeIterator = int.MinValue;
 		}
-		UIMaterial.g.keyedMaterials.Add(key, uimaterial);
+		global::UIMaterial.g.keyedMaterials.Add(key, uimaterial);
 		return uimaterial;
 	}
 
-	// Token: 0x06004675 RID: 18037 RVA: 0x00118578 File Offset: 0x00116778
-	public static UIMaterial Create(Material key, bool manageKeyDestruction, UIDrawCall.Clipping useAsClipping)
+	// Token: 0x06004AFA RID: 19194 RVA: 0x00121EF8 File Offset: 0x001200F8
+	public static global::UIMaterial Create(Material key, bool manageKeyDestruction, global::UIDrawCall.Clipping useAsClipping)
 	{
 		if (!manageKeyDestruction)
 		{
-			return UIMaterial.Create(key);
+			return global::UIMaterial.Create(key);
 		}
 		if (!key)
 		{
 			return null;
 		}
-		UIMaterial uimaterial;
-		if (UIMaterial.g.keyedMaterials.TryGetValue(key, out uimaterial))
+		global::UIMaterial uimaterial;
+		if (global::UIMaterial.g.keyedMaterials.TryGetValue(key, out uimaterial))
 		{
 			throw new InvalidOperationException("That material is registered and cannot be used with manageKeyDestruction");
 		}
-		if (UIMaterial.g.generatedMaterials.TryGetValue(key, out uimaterial))
+		if (global::UIMaterial.g.generatedMaterials.TryGetValue(key, out uimaterial))
 		{
 			return uimaterial;
 		}
-		uimaterial = ScriptableObject.CreateInstance<UIMaterial>();
+		uimaterial = ScriptableObject.CreateInstance<global::UIMaterial>();
 		uimaterial.key = key;
-		uimaterial.hashCode = ++UIMaterial.g.hashCodeIterator;
+		uimaterial.hashCode = ++global::UIMaterial.g.hashCodeIterator;
 		if (uimaterial.hashCode == 2147483647)
 		{
-			UIMaterial.g.hashCodeIterator = int.MinValue;
+			global::UIMaterial.g.hashCodeIterator = int.MinValue;
 		}
-		UIMaterial.g.generatedMaterials.Add(key, uimaterial);
+		global::UIMaterial.g.generatedMaterials.Add(key, uimaterial);
 		uimaterial.matFirst = key;
 		switch (useAsClipping)
 		{
-		case UIDrawCall.Clipping.None:
+		case global::UIDrawCall.Clipping.None:
 			uimaterial.matNone = key;
 			break;
-		case UIDrawCall.Clipping.HardClip:
+		case global::UIDrawCall.Clipping.HardClip:
 			uimaterial.matHardClip = key;
 			break;
-		case UIDrawCall.Clipping.AlphaClip:
+		case global::UIDrawCall.Clipping.AlphaClip:
 			uimaterial.matAlphaClip = key;
 			break;
-		case UIDrawCall.Clipping.SoftClip:
+		case global::UIDrawCall.Clipping.SoftClip:
 			uimaterial.matSoftClip = key;
 			break;
 		default:
 			throw new NotImplementedException();
 		}
-		uimaterial.madeMats = (UIMaterial.ClippingFlags)(1 << (int)useAsClipping);
+		uimaterial.madeMats = (global::UIMaterial.ClippingFlags)(1 << (int)useAsClipping);
 		return uimaterial;
 	}
 
-	// Token: 0x06004676 RID: 18038 RVA: 0x00118680 File Offset: 0x00116880
-	public static UIMaterial Create(Material key, bool manageKeyDestruction)
+	// Token: 0x06004AFB RID: 19195 RVA: 0x00122000 File Offset: 0x00120200
+	public static global::UIMaterial Create(Material key, bool manageKeyDestruction)
 	{
-		return UIMaterial.Create(key, manageKeyDestruction, UIDrawCall.Clipping.None);
+		return global::UIMaterial.Create(key, manageKeyDestruction, global::UIDrawCall.Clipping.None);
 	}
 
-	// Token: 0x06004677 RID: 18039 RVA: 0x0011868C File Offset: 0x0011688C
+	// Token: 0x06004AFC RID: 19196 RVA: 0x0012200C File Offset: 0x0012020C
 	public sealed override int GetHashCode()
 	{
 		return this.hashCode;
 	}
 
-	// Token: 0x06004678 RID: 18040 RVA: 0x00118694 File Offset: 0x00116894
+	// Token: 0x06004AFD RID: 19197 RVA: 0x00122014 File Offset: 0x00120214
 	public override string ToString()
 	{
 		return (!this.key) ? "destroyed" : this.key.ToString();
 	}
 
-	// Token: 0x06004679 RID: 18041 RVA: 0x001186BC File Offset: 0x001168BC
-	private Material FastGet(UIDrawCall.Clipping clipping)
+	// Token: 0x06004AFE RID: 19198 RVA: 0x0012203C File Offset: 0x0012023C
+	private Material FastGet(global::UIDrawCall.Clipping clipping)
 	{
 		switch (clipping)
 		{
-		case UIDrawCall.Clipping.None:
+		case global::UIDrawCall.Clipping.None:
 			return this.matNone;
-		case UIDrawCall.Clipping.HardClip:
+		case global::UIDrawCall.Clipping.HardClip:
 			return this.matHardClip;
-		case UIDrawCall.Clipping.AlphaClip:
+		case global::UIDrawCall.Clipping.AlphaClip:
 			return this.matAlphaClip;
-		case UIDrawCall.Clipping.SoftClip:
+		case global::UIDrawCall.Clipping.SoftClip:
 			return this.matSoftClip;
 		default:
 			throw new NotImplementedException();
 		}
 	}
 
-	// Token: 0x0600467A RID: 18042 RVA: 0x00118708 File Offset: 0x00116908
+	// Token: 0x06004AFF RID: 19199 RVA: 0x00122088 File Offset: 0x00120288
 	private static bool ShaderNameDecor(ref string shaderName, string not1, string not2, string suffix)
 	{
 		string text = shaderName.Replace(not1, string.Empty).Replace(not2, string.Empty);
@@ -138,8 +138,8 @@ public class UIMaterial : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x0600467B RID: 18043 RVA: 0x0011876C File Offset: 0x0011696C
-	private static Shader GetClippingShader(Shader original, UIDrawCall.Clipping clipping)
+	// Token: 0x06004B00 RID: 19200 RVA: 0x001220EC File Offset: 0x001202EC
+	private static Shader GetClippingShader(Shader original, global::UIDrawCall.Clipping clipping)
 	{
 		if (!original)
 		{
@@ -148,7 +148,7 @@ public class UIMaterial : ScriptableObject
 		string text = original.name;
 		switch (clipping)
 		{
-		case UIDrawCall.Clipping.None:
+		case global::UIDrawCall.Clipping.None:
 		{
 			string text2 = text.Replace(" (HardClip)", string.Empty).Replace(" (AlphaClip)", string.Empty).Replace(" (SoftClip)", string.Empty);
 			if (text2 == text)
@@ -158,20 +158,20 @@ public class UIMaterial : ScriptableObject
 			text = text2;
 			break;
 		}
-		case UIDrawCall.Clipping.HardClip:
-			if (!UIMaterial.ShaderNameDecor(ref text, " (AlphaClip)", " (SoftClip)", " (HardClip)"))
+		case global::UIDrawCall.Clipping.HardClip:
+			if (!global::UIMaterial.ShaderNameDecor(ref text, " (AlphaClip)", " (SoftClip)", " (HardClip)"))
 			{
 				return original;
 			}
 			break;
-		case UIDrawCall.Clipping.AlphaClip:
-			if (!UIMaterial.ShaderNameDecor(ref text, " (SoftClip)", " (HardClip)", " (AlphaClip)"))
+		case global::UIDrawCall.Clipping.AlphaClip:
+			if (!global::UIMaterial.ShaderNameDecor(ref text, " (SoftClip)", " (HardClip)", " (AlphaClip)"))
 			{
 				return original;
 			}
 			break;
-		case UIDrawCall.Clipping.SoftClip:
-			if (!UIMaterial.ShaderNameDecor(ref text, " (HardClip)", " (AlphaClip)", " (SoftClip)"))
+		case global::UIDrawCall.Clipping.SoftClip:
+			if (!global::UIMaterial.ShaderNameDecor(ref text, " (HardClip)", " (AlphaClip)", " (SoftClip)"))
 			{
 				return original;
 			}
@@ -187,7 +187,7 @@ public class UIMaterial : ScriptableObject
 		return shader;
 	}
 
-	// Token: 0x0600467C RID: 18044 RVA: 0x00118880 File Offset: 0x00116A80
+	// Token: 0x06004B01 RID: 19201 RVA: 0x00122200 File Offset: 0x00120400
 	private static Material CreateMaterial(Shader shader)
 	{
 		return new Material(shader)
@@ -196,84 +196,84 @@ public class UIMaterial : ScriptableObject
 		};
 	}
 
-	// Token: 0x0600467D RID: 18045 RVA: 0x001188A0 File Offset: 0x00116AA0
-	private static UIDrawCall.Clipping ShaderClipping(string shaderName)
+	// Token: 0x06004B02 RID: 19202 RVA: 0x00122220 File Offset: 0x00120420
+	private static global::UIDrawCall.Clipping ShaderClipping(string shaderName)
 	{
 		if (shaderName.EndsWith(" (SoftClip)"))
 		{
-			return UIDrawCall.Clipping.SoftClip;
+			return global::UIDrawCall.Clipping.SoftClip;
 		}
 		if (shaderName.EndsWith(" (HardClip)"))
 		{
-			return UIDrawCall.Clipping.HardClip;
+			return global::UIDrawCall.Clipping.HardClip;
 		}
 		if (shaderName.EndsWith(" (AlphaClip)"))
 		{
-			return UIDrawCall.Clipping.AlphaClip;
+			return global::UIDrawCall.Clipping.AlphaClip;
 		}
-		return UIDrawCall.Clipping.None;
+		return global::UIDrawCall.Clipping.None;
 	}
 
-	// Token: 0x0600467E RID: 18046 RVA: 0x001188E4 File Offset: 0x00116AE4
+	// Token: 0x06004B03 RID: 19203 RVA: 0x00122264 File Offset: 0x00120464
 	private void MakeDefaultMaterial()
 	{
-		this.MakeMaterial(UIMaterial.ShaderClipping(this.key.shader.name));
+		this.MakeMaterial(global::UIMaterial.ShaderClipping(this.key.shader.name));
 	}
 
-	// Token: 0x0600467F RID: 18047 RVA: 0x00118904 File Offset: 0x00116B04
-	public UIMaterial Clone()
+	// Token: 0x06004B04 RID: 19204 RVA: 0x00122284 File Offset: 0x00120484
+	public global::UIMaterial Clone()
 	{
 		Material material = new Material(this.key)
 		{
 			hideFlags = 4
 		};
-		return UIMaterial.Create(material, true);
+		return global::UIMaterial.Create(material, true);
 	}
 
-	// Token: 0x06004680 RID: 18048 RVA: 0x00118930 File Offset: 0x00116B30
-	private Material MakeMaterial(UIDrawCall.Clipping clipping)
+	// Token: 0x06004B05 RID: 19205 RVA: 0x001222B0 File Offset: 0x001204B0
+	private Material MakeMaterial(global::UIDrawCall.Clipping clipping)
 	{
-		bool flag = this.madeMats == (UIMaterial.ClippingFlags)0;
+		bool flag = this.madeMats == (global::UIMaterial.ClippingFlags)0;
 		Material material;
 		Material material2;
 		switch (clipping)
 		{
-		case UIDrawCall.Clipping.None:
+		case global::UIDrawCall.Clipping.None:
 		{
 			Shader shader = this.key.shader;
 			material = this.matNone;
-			material2 = (this.matNone = UIMaterial.CreateMaterial(shader));
-			this.madeMats |= UIMaterial.ClippingFlags.None;
+			material2 = (this.matNone = global::UIMaterial.CreateMaterial(shader));
+			this.madeMats |= global::UIMaterial.ClippingFlags.None;
 			break;
 		}
-		case UIDrawCall.Clipping.HardClip:
+		case global::UIDrawCall.Clipping.HardClip:
 		{
-			Shader shader = UIMaterial.GetClippingShader(this.key.shader, UIDrawCall.Clipping.HardClip);
+			Shader shader = global::UIMaterial.GetClippingShader(this.key.shader, global::UIDrawCall.Clipping.HardClip);
 			material = this.matHardClip;
-			material2 = (this.matHardClip = UIMaterial.CreateMaterial(shader));
-			this.madeMats |= UIMaterial.ClippingFlags.HardClip;
+			material2 = (this.matHardClip = global::UIMaterial.CreateMaterial(shader));
+			this.madeMats |= global::UIMaterial.ClippingFlags.HardClip;
 			break;
 		}
-		case UIDrawCall.Clipping.AlphaClip:
+		case global::UIDrawCall.Clipping.AlphaClip:
 		{
-			Shader shader = UIMaterial.GetClippingShader(this.key.shader, UIDrawCall.Clipping.AlphaClip);
+			Shader shader = global::UIMaterial.GetClippingShader(this.key.shader, global::UIDrawCall.Clipping.AlphaClip);
 			material = this.matAlphaClip;
-			material2 = (this.matAlphaClip = UIMaterial.CreateMaterial(shader));
-			this.madeMats |= UIMaterial.ClippingFlags.AlphaClip;
+			material2 = (this.matAlphaClip = global::UIMaterial.CreateMaterial(shader));
+			this.madeMats |= global::UIMaterial.ClippingFlags.AlphaClip;
 			break;
 		}
-		case UIDrawCall.Clipping.SoftClip:
+		case global::UIDrawCall.Clipping.SoftClip:
 		{
-			Shader shader = UIMaterial.GetClippingShader(this.key.shader, UIDrawCall.Clipping.SoftClip);
+			Shader shader = global::UIMaterial.GetClippingShader(this.key.shader, global::UIDrawCall.Clipping.SoftClip);
 			material = this.matSoftClip;
-			material2 = (this.matSoftClip = UIMaterial.CreateMaterial(shader));
-			this.madeMats |= UIMaterial.ClippingFlags.SoftClip;
+			material2 = (this.matSoftClip = global::UIMaterial.CreateMaterial(shader));
+			this.madeMats |= global::UIMaterial.ClippingFlags.SoftClip;
 			break;
 		}
 		default:
 			throw new NotImplementedException();
 		}
-		UIMaterial.g.generatedMaterials.Add(material2, this);
+		global::UIMaterial.g.generatedMaterials.Add(material2, this);
 		if (flag)
 		{
 			this.matFirst = material2;
@@ -290,25 +290,25 @@ public class UIMaterial : ScriptableObject
 		return material2;
 	}
 
-	// Token: 0x17000DA2 RID: 3490
-	public Material this[UIDrawCall.Clipping clipping]
+	// Token: 0x17000E32 RID: 3634
+	public Material this[global::UIDrawCall.Clipping clipping]
 	{
 		get
 		{
-			UIMaterial.ClippingFlags clippingFlags = (UIMaterial.ClippingFlags)(1 << (int)clipping);
+			global::UIMaterial.ClippingFlags clippingFlags = (global::UIMaterial.ClippingFlags)(1 << (int)clipping);
 			if ((clippingFlags & this.madeMats) != clippingFlags)
 			{
 				return this.MakeMaterial(clipping);
 			}
 			switch (clipping)
 			{
-			case UIDrawCall.Clipping.None:
+			case global::UIDrawCall.Clipping.None:
 				return this.matNone;
-			case UIDrawCall.Clipping.HardClip:
+			case global::UIDrawCall.Clipping.HardClip:
 				return this.matHardClip;
-			case UIDrawCall.Clipping.AlphaClip:
+			case global::UIDrawCall.Clipping.AlphaClip:
 				return this.matAlphaClip;
-			case UIDrawCall.Clipping.SoftClip:
+			case global::UIDrawCall.Clipping.SoftClip:
 				return this.matSoftClip;
 			default:
 				throw new NotImplementedException();
@@ -316,26 +316,26 @@ public class UIMaterial : ScriptableObject
 		}
 	}
 
-	// Token: 0x06004682 RID: 18050 RVA: 0x00118B10 File Offset: 0x00116D10
+	// Token: 0x06004B07 RID: 19207 RVA: 0x00122490 File Offset: 0x00120690
 	public void Set(string property, float value)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetFloat(property, value);
 			}
 		}
 	}
 
-	// Token: 0x06004683 RID: 18051 RVA: 0x00118B60 File Offset: 0x00116D60
+	// Token: 0x06004B08 RID: 19208 RVA: 0x001224E0 File Offset: 0x001206E0
 	public void Set(string property, Vector2 value)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
@@ -343,19 +343,19 @@ public class UIMaterial : ScriptableObject
 		vector.x = value.x;
 		vector.y = value.y;
 		vector.z = (vector.w = 0f);
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetVector(property, vector);
 			}
 		}
 	}
 
-	// Token: 0x06004684 RID: 18052 RVA: 0x00118BE4 File Offset: 0x00116DE4
+	// Token: 0x06004B09 RID: 19209 RVA: 0x00122564 File Offset: 0x00120764
 	public void Set(string property, Vector3 value)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
@@ -363,19 +363,19 @@ public class UIMaterial : ScriptableObject
 		vector.x = value.x;
 		vector.y = value.y;
 		vector.z = (vector.w = 0f);
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetVector(property, vector);
 			}
 		}
 	}
 
-	// Token: 0x06004685 RID: 18053 RVA: 0x00118C68 File Offset: 0x00116E68
+	// Token: 0x06004B0A RID: 19210 RVA: 0x001225E8 File Offset: 0x001207E8
 	public void Set(string property, Vector4 value)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
@@ -383,115 +383,115 @@ public class UIMaterial : ScriptableObject
 		vector.x = value.x;
 		vector.y = value.y;
 		vector.z = (vector.w = 0f);
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetVector(property, vector);
 			}
 		}
 	}
 
-	// Token: 0x06004686 RID: 18054 RVA: 0x00118CEC File Offset: 0x00116EEC
+	// Token: 0x06004B0B RID: 19211 RVA: 0x0012266C File Offset: 0x0012086C
 	public void Set(string property, Color color)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetColor(property, color);
 			}
 		}
 	}
 
-	// Token: 0x06004687 RID: 18055 RVA: 0x00118D3C File Offset: 0x00116F3C
+	// Token: 0x06004B0C RID: 19212 RVA: 0x001226BC File Offset: 0x001208BC
 	public void Set(string property, Matrix4x4 mat)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetMatrix(property, mat);
 			}
 		}
 	}
 
-	// Token: 0x06004688 RID: 18056 RVA: 0x00118D8C File Offset: 0x00116F8C
+	// Token: 0x06004B0D RID: 19213 RVA: 0x0012270C File Offset: 0x0012090C
 	public void Set(string property, Texture texture)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetTexture(property, texture);
 			}
 		}
 	}
 
-	// Token: 0x06004689 RID: 18057 RVA: 0x00118DDC File Offset: 0x00116FDC
+	// Token: 0x06004B0E RID: 19214 RVA: 0x0012275C File Offset: 0x0012095C
 	public void SetTextureScale(string property, Vector2 scale)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetTextureScale(property, scale);
 			}
 		}
 	}
 
-	// Token: 0x0600468A RID: 18058 RVA: 0x00118E2C File Offset: 0x0011702C
+	// Token: 0x06004B0F RID: 19215 RVA: 0x001227AC File Offset: 0x001209AC
 	public void SetTextureOffset(string property, Vector2 offset)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetTextureOffset(property, offset);
 			}
 		}
 	}
 
-	// Token: 0x0600468B RID: 18059 RVA: 0x00118E7C File Offset: 0x0011707C
+	// Token: 0x06004B10 RID: 19216 RVA: 0x001227FC File Offset: 0x001209FC
 	public void SetPass(int pass)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).SetPass(pass);
 			}
 		}
 	}
 
-	// Token: 0x0600468C RID: 18060 RVA: 0x00118ECC File Offset: 0x001170CC
+	// Token: 0x06004B11 RID: 19217 RVA: 0x0012284C File Offset: 0x00120A4C
 	public void CopyPropertiesFromMaterial(Material material)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			if (material == this.key)
 			{
@@ -499,65 +499,65 @@ public class UIMaterial : ScriptableObject
 			}
 			this.MakeDefaultMaterial();
 		}
-		for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+		for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 		{
-			if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+			if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 			{
 				this.FastGet(clipping).CopyPropertiesFromMaterial(material);
 			}
 		}
 	}
 
-	// Token: 0x0600468D RID: 18061 RVA: 0x00118F30 File Offset: 0x00117130
+	// Token: 0x06004B12 RID: 19218 RVA: 0x001228B0 File Offset: 0x00120AB0
 	public bool HasProperty(string property)
 	{
-		if (this.madeMats == (UIMaterial.ClippingFlags)0)
+		if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 		{
 			return this.key.HasProperty(property);
 		}
 		return this.matFirst.HasProperty(property);
 	}
 
-	// Token: 0x0600468E RID: 18062 RVA: 0x00118F64 File Offset: 0x00117164
+	// Token: 0x06004B13 RID: 19219 RVA: 0x001228E4 File Offset: 0x00120AE4
 	public void CopyPropertiesFromOriginal()
 	{
-		if (this.madeMats != (UIMaterial.ClippingFlags)0)
+		if (this.madeMats != (global::UIMaterial.ClippingFlags)0)
 		{
 			this.CopyPropertiesFromMaterial(this.key);
 		}
 	}
 
-	// Token: 0x0600468F RID: 18063 RVA: 0x00118F80 File Offset: 0x00117180
+	// Token: 0x06004B14 RID: 19220 RVA: 0x00122900 File Offset: 0x00120B00
 	private void OnDestroy()
 	{
-		if (this.madeMats != (UIMaterial.ClippingFlags)0)
+		if (this.madeMats != (global::UIMaterial.ClippingFlags)0)
 		{
-			for (UIDrawCall.Clipping clipping = UIDrawCall.Clipping.None; clipping < (UIDrawCall.Clipping)4; clipping++)
+			for (global::UIDrawCall.Clipping clipping = global::UIDrawCall.Clipping.None; clipping < (global::UIDrawCall.Clipping)4; clipping++)
 			{
-				if ((this.madeMats & (UIMaterial.ClippingFlags)(1 << (int)clipping)) != (UIMaterial.ClippingFlags)0)
+				if ((this.madeMats & (global::UIMaterial.ClippingFlags)(1 << (int)clipping)) != (global::UIMaterial.ClippingFlags)0)
 				{
 					Material material = this.FastGet(clipping);
-					UIMaterial.g.generatedMaterials.Remove(material);
+					global::UIMaterial.g.generatedMaterials.Remove(material);
 					Object.DestroyImmediate(material);
 				}
 			}
 		}
-		UIMaterial.g.keyedMaterials.Remove(this.key);
+		global::UIMaterial.g.keyedMaterials.Remove(this.key);
 		this.matNone = (this.matFirst = (this.matHardClip = (this.matSoftClip = (this.matAlphaClip = (this.key = null)))));
 	}
 
-	// Token: 0x17000DA3 RID: 3491
-	// (get) Token: 0x06004690 RID: 18064 RVA: 0x0011901C File Offset: 0x0011721C
-	// (set) Token: 0x06004691 RID: 18065 RVA: 0x00119050 File Offset: 0x00117250
+	// Token: 0x17000E33 RID: 3635
+	// (get) Token: 0x06004B15 RID: 19221 RVA: 0x0012299C File Offset: 0x00120B9C
+	// (set) Token: 0x06004B16 RID: 19222 RVA: 0x001229D0 File Offset: 0x00120BD0
 	public Texture mainTexture
 	{
 		get
 		{
-			return (this.madeMats != (UIMaterial.ClippingFlags)0) ? this.matFirst.mainTexture : this.key.mainTexture;
+			return (this.madeMats != (global::UIMaterial.ClippingFlags)0) ? this.matFirst.mainTexture : this.key.mainTexture;
 		}
 		set
 		{
-			if (this.madeMats == (UIMaterial.ClippingFlags)0)
+			if (this.madeMats == (global::UIMaterial.ClippingFlags)0)
 			{
 				this.MakeDefaultMaterial();
 			}
@@ -565,80 +565,80 @@ public class UIMaterial : ScriptableObject
 		}
 	}
 
-	// Token: 0x06004692 RID: 18066 RVA: 0x00119070 File Offset: 0x00117270
-	public static explicit operator UIMaterial(Material key)
+	// Token: 0x06004B17 RID: 19223 RVA: 0x001229F0 File Offset: 0x00120BF0
+	public static explicit operator global::UIMaterial(Material key)
 	{
-		return UIMaterial.Create(key);
+		return global::UIMaterial.Create(key);
 	}
 
-	// Token: 0x06004693 RID: 18067 RVA: 0x00119078 File Offset: 0x00117278
-	public static explicit operator Material(UIMaterial uimat)
+	// Token: 0x06004B18 RID: 19224 RVA: 0x001229F8 File Offset: 0x00120BF8
+	public static explicit operator Material(global::UIMaterial uimat)
 	{
 		return (!uimat) ? null : uimat.key;
 	}
 
-	// Token: 0x040026A5 RID: 9893
-	private const UIDrawCall.Clipping kBeginClipping = UIDrawCall.Clipping.None;
+	// Token: 0x040028DC RID: 10460
+	private const global::UIDrawCall.Clipping kBeginClipping = global::UIDrawCall.Clipping.None;
 
-	// Token: 0x040026A6 RID: 9894
-	private const UIDrawCall.Clipping kEndClipping = (UIDrawCall.Clipping)4;
+	// Token: 0x040028DD RID: 10461
+	private const global::UIDrawCall.Clipping kEndClipping = (global::UIDrawCall.Clipping)4;
 
-	// Token: 0x040026A7 RID: 9895
+	// Token: 0x040028DE RID: 10462
 	private const string hard = " (HardClip)";
 
-	// Token: 0x040026A8 RID: 9896
+	// Token: 0x040028DF RID: 10463
 	private const string alpha = " (AlphaClip)";
 
-	// Token: 0x040026A9 RID: 9897
+	// Token: 0x040028E0 RID: 10464
 	private const string soft = " (SoftClip)";
 
-	// Token: 0x040026AA RID: 9898
+	// Token: 0x040028E1 RID: 10465
 	private Material key;
 
-	// Token: 0x040026AB RID: 9899
+	// Token: 0x040028E2 RID: 10466
 	private Material matNone;
 
-	// Token: 0x040026AC RID: 9900
+	// Token: 0x040028E3 RID: 10467
 	private Material matHardClip;
 
-	// Token: 0x040026AD RID: 9901
+	// Token: 0x040028E4 RID: 10468
 	private Material matAlphaClip;
 
-	// Token: 0x040026AE RID: 9902
+	// Token: 0x040028E5 RID: 10469
 	private Material matSoftClip;
 
-	// Token: 0x040026AF RID: 9903
+	// Token: 0x040028E6 RID: 10470
 	private Material matFirst;
 
-	// Token: 0x040026B0 RID: 9904
+	// Token: 0x040028E7 RID: 10471
 	private int hashCode;
 
-	// Token: 0x040026B1 RID: 9905
-	private UIMaterial.ClippingFlags madeMats;
+	// Token: 0x040028E8 RID: 10472
+	private global::UIMaterial.ClippingFlags madeMats;
 
-	// Token: 0x0200079E RID: 1950
+	// Token: 0x02000889 RID: 2185
 	private static class g
 	{
-		// Token: 0x040026B2 RID: 9906
+		// Token: 0x040028E9 RID: 10473
 		public static int hashCodeIterator = int.MinValue;
 
-		// Token: 0x040026B3 RID: 9907
-		public static readonly Dictionary<Material, UIMaterial> generatedMaterials = new Dictionary<Material, UIMaterial>();
+		// Token: 0x040028EA RID: 10474
+		public static readonly Dictionary<Material, global::UIMaterial> generatedMaterials = new Dictionary<Material, global::UIMaterial>();
 
-		// Token: 0x040026B4 RID: 9908
-		public static readonly Dictionary<Material, UIMaterial> keyedMaterials = new Dictionary<Material, UIMaterial>();
+		// Token: 0x040028EB RID: 10475
+		public static readonly Dictionary<Material, global::UIMaterial> keyedMaterials = new Dictionary<Material, global::UIMaterial>();
 	}
 
-	// Token: 0x0200079F RID: 1951
+	// Token: 0x0200088A RID: 2186
 	private enum ClippingFlags
 	{
-		// Token: 0x040026B6 RID: 9910
+		// Token: 0x040028ED RID: 10477
 		None = 1,
-		// Token: 0x040026B7 RID: 9911
+		// Token: 0x040028EE RID: 10478
 		HardClip,
-		// Token: 0x040026B8 RID: 9912
+		// Token: 0x040028EF RID: 10479
 		AlphaClip = 4,
-		// Token: 0x040026B9 RID: 9913
+		// Token: 0x040028F0 RID: 10480
 		SoftClip = 8
 	}
 }

@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x0200016C RID: 364
+// Token: 0x02000198 RID: 408
 public static class EnumerableToArray
 {
-	// Token: 0x06000B1A RID: 2842 RVA: 0x0002B9EC File Offset: 0x00029BEC
+	// Token: 0x06000C4A RID: 3146 RVA: 0x0002F8D8 File Offset: 0x0002DAD8
 	public static T[] ToArray<T>(this T[] array)
 	{
 		int num = array.Length;
 		if (num == 0)
 		{
-			return EmptyArray<T>.array;
+			return global::EmptyArray<T>.array;
 		}
 		T[] array2 = new T[num];
 		Array.Copy(array, array2, num);
 		return array2;
 	}
 
-	// Token: 0x06000B1B RID: 2843 RVA: 0x0002BA1C File Offset: 0x00029C1C
+	// Token: 0x06000C4B RID: 3147 RVA: 0x0002F908 File Offset: 0x0002DB08
 	public static T[] ToArray<T>(this IEnumerable<T> enumerable)
 	{
 		if (enumerable is ICollection<T>)
@@ -30,13 +30,13 @@ public static class EnumerableToArray
 		T[] array2;
 		using (IEnumerator<T> enumerator = enumerable.GetEnumerator())
 		{
-			EnumerableToArray.EnumeratorToArray<T> enumeratorToArray = new EnumerableToArray.EnumeratorToArray<T>(enumerator);
+			global::EnumerableToArray.EnumeratorToArray<T> enumeratorToArray = new global::EnumerableToArray.EnumeratorToArray<T>(enumerator);
 			array2 = enumeratorToArray.array;
 		}
 		return array2;
 	}
 
-	// Token: 0x06000B1C RID: 2844 RVA: 0x0002BAA0 File Offset: 0x00029CA0
+	// Token: 0x06000C4C RID: 3148 RVA: 0x0002F98C File Offset: 0x0002DB8C
 	public static T[] ToArray<T>(this ICollection<T> collection)
 	{
 		T[] array = new T[collection.Count];
@@ -44,10 +44,10 @@ public static class EnumerableToArray
 		return array;
 	}
 
-	// Token: 0x0200016D RID: 365
+	// Token: 0x02000199 RID: 409
 	private struct EnumeratorToArray<T>
 	{
-		// Token: 0x06000B1D RID: 2845 RVA: 0x0002BAC4 File Offset: 0x00029CC4
+		// Token: 0x06000C4D RID: 3149 RVA: 0x0002F9B0 File Offset: 0x0002DBB0
 		public EnumeratorToArray(IEnumerator<T> enumerator)
 		{
 			this.array = null;
@@ -59,12 +59,12 @@ public static class EnumerableToArray
 			}
 			else
 			{
-				this.array = EmptyArray<T>.array;
+				this.array = global::EmptyArray<T>.array;
 			}
 			this.enumerator = null;
 		}
 
-		// Token: 0x06000B1E RID: 2846 RVA: 0x0002BB04 File Offset: 0x00029D04
+		// Token: 0x06000C4E RID: 3150 RVA: 0x0002F9F0 File Offset: 0x0002DBF0
 		private void Fill()
 		{
 			int num = this.len++;
@@ -80,13 +80,13 @@ public static class EnumerableToArray
 			this.array[num] = t;
 		}
 
-		// Token: 0x040006FE RID: 1790
+		// Token: 0x04000812 RID: 2066
 		public T[] array;
 
-		// Token: 0x040006FF RID: 1791
+		// Token: 0x04000813 RID: 2067
 		private IEnumerator<T> enumerator;
 
-		// Token: 0x04000700 RID: 1792
+		// Token: 0x04000814 RID: 2068
 		private int len;
 	}
 }

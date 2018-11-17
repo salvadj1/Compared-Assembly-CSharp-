@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000459 RID: 1113
-public class CharacterFootstepTrait : CharacterTrait
+// Token: 0x0200050F RID: 1295
+public class CharacterFootstepTrait : global::CharacterTrait
 {
-	// Token: 0x17000931 RID: 2353
-	// (get) Token: 0x0600289A RID: 10394 RVA: 0x0009FA74 File Offset: 0x0009DC74
-	public AudioClipArray defaultFootsteps
+	// Token: 0x17000999 RID: 2457
+	// (get) Token: 0x06002C2A RID: 11306 RVA: 0x000A59F4 File Offset: 0x000A3BF4
+	public global::AudioClipArray defaultFootsteps
 	{
 		get
 		{
@@ -14,8 +14,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000932 RID: 2354
-	// (get) Token: 0x0600289B RID: 10395 RVA: 0x0009FA7C File Offset: 0x0009DC7C
+	// Token: 0x1700099A RID: 2458
+	// (get) Token: 0x06002C2B RID: 11307 RVA: 0x000A59FC File Offset: 0x000A3BFC
 	public float strideDist
 	{
 		get
@@ -24,8 +24,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000933 RID: 2355
-	// (get) Token: 0x0600289C RID: 10396 RVA: 0x0009FA84 File Offset: 0x0009DC84
+	// Token: 0x1700099B RID: 2459
+	// (get) Token: 0x06002C2C RID: 11308 RVA: 0x000A5A04 File Offset: 0x000A3C04
 	public float sqrStrideDist
 	{
 		get
@@ -34,8 +34,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000934 RID: 2356
-	// (get) Token: 0x0600289D RID: 10397 RVA: 0x0009FA94 File Offset: 0x0009DC94
+	// Token: 0x1700099C RID: 2460
+	// (get) Token: 0x06002C2D RID: 11309 RVA: 0x000A5A14 File Offset: 0x000A3C14
 	public float maxPerSecond
 	{
 		get
@@ -44,8 +44,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000935 RID: 2357
-	// (get) Token: 0x0600289E RID: 10398 RVA: 0x0009FA9C File Offset: 0x0009DC9C
+	// Token: 0x1700099D RID: 2461
+	// (get) Token: 0x06002C2E RID: 11310 RVA: 0x000A5A1C File Offset: 0x000A3C1C
 	public float minInterval
 	{
 		get
@@ -54,8 +54,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000936 RID: 2358
-	// (get) Token: 0x0600289F RID: 10399 RVA: 0x0009FAC0 File Offset: 0x0009DCC0
+	// Token: 0x1700099E RID: 2462
+	// (get) Token: 0x06002C2F RID: 11311 RVA: 0x000A5A40 File Offset: 0x000A3C40
 	public bool timeLimited
 	{
 		get
@@ -64,8 +64,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000937 RID: 2359
-	// (get) Token: 0x060028A0 RID: 10400 RVA: 0x0009FAE4 File Offset: 0x0009DCE4
+	// Token: 0x1700099F RID: 2463
+	// (get) Token: 0x06002C30 RID: 11312 RVA: 0x000A5A64 File Offset: 0x000A3C64
 	public float minAudioDist
 	{
 		get
@@ -74,8 +74,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000938 RID: 2360
-	// (get) Token: 0x060028A1 RID: 10401 RVA: 0x0009FAEC File Offset: 0x0009DCEC
+	// Token: 0x170009A0 RID: 2464
+	// (get) Token: 0x06002C31 RID: 11313 RVA: 0x000A5A6C File Offset: 0x000A3C6C
 	public float maxAudioDist
 	{
 		get
@@ -84,8 +84,8 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000939 RID: 2361
-	// (get) Token: 0x060028A2 RID: 10402 RVA: 0x0009FAF4 File Offset: 0x0009DCF4
+	// Token: 0x170009A1 RID: 2465
+	// (get) Token: 0x06002C32 RID: 11314 RVA: 0x000A5A74 File Offset: 0x000A3C74
 	public bool animal
 	{
 		get
@@ -94,27 +94,27 @@ public class CharacterFootstepTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x04001496 RID: 5270
+	// Token: 0x04001619 RID: 5657
 	[SerializeField]
-	private AudioClipArray _defaultFootsteps;
+	private global::AudioClipArray _defaultFootsteps;
 
-	// Token: 0x04001497 RID: 5271
+	// Token: 0x0400161A RID: 5658
 	[SerializeField]
 	private float _strideDist = 2.5f;
 
-	// Token: 0x04001498 RID: 5272
+	// Token: 0x0400161B RID: 5659
 	[SerializeField]
 	private float _minAudioDist = 3f;
 
-	// Token: 0x04001499 RID: 5273
+	// Token: 0x0400161C RID: 5660
 	[SerializeField]
 	private float _maxAudioDist = 30f;
 
-	// Token: 0x0400149A RID: 5274
+	// Token: 0x0400161D RID: 5661
 	[SerializeField]
 	private bool _animal;
 
-	// Token: 0x0400149B RID: 5275
+	// Token: 0x0400161E RID: 5662
 	[SerializeField]
 	private float _maxPerSecond = 6f;
 }

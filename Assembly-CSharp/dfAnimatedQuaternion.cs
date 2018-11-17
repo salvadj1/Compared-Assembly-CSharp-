@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000736 RID: 1846
-public class dfAnimatedQuaternion : dfAnimatedValue<Quaternion>
+// Token: 0x02000813 RID: 2067
+public class dfAnimatedQuaternion : global::dfAnimatedValue<Quaternion>
 {
-	// Token: 0x06004362 RID: 17250 RVA: 0x00105F34 File Offset: 0x00104134
+	// Token: 0x060047AA RID: 18346 RVA: 0x0010F244 File Offset: 0x0010D444
 	public dfAnimatedQuaternion(Quaternion StartValue, Quaternion EndValue, float Time) : base(StartValue, EndValue, Time)
 	{
 	}
 
-	// Token: 0x06004363 RID: 17251 RVA: 0x00105F40 File Offset: 0x00104140
+	// Token: 0x060047AB RID: 18347 RVA: 0x0010F250 File Offset: 0x0010D450
 	protected override Quaternion Lerp(Quaternion startValue, Quaternion endValue, float time)
 	{
 		return Quaternion.Lerp(startValue, endValue, time);
 	}
 
-	// Token: 0x06004364 RID: 17252 RVA: 0x00105F4C File Offset: 0x0010414C
-	public static implicit operator dfAnimatedQuaternion(Quaternion value)
+	// Token: 0x060047AC RID: 18348 RVA: 0x0010F25C File Offset: 0x0010D45C
+	public static implicit operator global::dfAnimatedQuaternion(Quaternion value)
 	{
-		return new dfAnimatedQuaternion(value, value, 0f);
+		return new global::dfAnimatedQuaternion(value, value, 0f);
 	}
 }

@@ -1,21 +1,21 @@
 ﻿using System;
 
-// Token: 0x020007E6 RID: 2022
+// Token: 0x020008D7 RID: 2263
 public struct UIHighlight
 {
-	// Token: 0x17000E06 RID: 3590
-	// (get) Token: 0x0600485A RID: 18522 RVA: 0x00125914 File Offset: 0x00123B14
-	public static UIHighlight invalid
+	// Token: 0x17000EA0 RID: 3744
+	// (get) Token: 0x06004D05 RID: 19717 RVA: 0x0012F878 File Offset: 0x0012DA78
+	public static global::UIHighlight invalid
 	{
 		get
 		{
-			return new UIHighlight
+			return new global::UIHighlight
 			{
-				a = new UIHighlight.Node
+				a = new global::UIHighlight.Node
 				{
 					i = -1
 				},
-				b = new UIHighlight.Node
+				b = new global::UIHighlight.Node
 				{
 					i = -1
 				}
@@ -23,8 +23,8 @@ public struct UIHighlight
 		}
 	}
 
-	// Token: 0x17000E07 RID: 3591
-	// (get) Token: 0x0600485B RID: 18523 RVA: 0x0012595C File Offset: 0x00123B5C
+	// Token: 0x17000EA1 RID: 3745
+	// (get) Token: 0x06004D06 RID: 19718 RVA: 0x0012F8C0 File Offset: 0x0012DAC0
 	public int lineCount
 	{
 		get
@@ -33,8 +33,8 @@ public struct UIHighlight
 		}
 	}
 
-	// Token: 0x17000E08 RID: 3592
-	// (get) Token: 0x0600485C RID: 18524 RVA: 0x001259A4 File Offset: 0x00123BA4
+	// Token: 0x17000EA2 RID: 3746
+	// (get) Token: 0x06004D07 RID: 19719 RVA: 0x0012F908 File Offset: 0x0012DB08
 	public bool empty
 	{
 		get
@@ -43,8 +43,8 @@ public struct UIHighlight
 		}
 	}
 
-	// Token: 0x17000E09 RID: 3593
-	// (get) Token: 0x0600485D RID: 18525 RVA: 0x001259C0 File Offset: 0x00123BC0
+	// Token: 0x17000EA3 RID: 3747
+	// (get) Token: 0x06004D08 RID: 19720 RVA: 0x0012F924 File Offset: 0x0012DB24
 	public bool any
 	{
 		get
@@ -53,8 +53,8 @@ public struct UIHighlight
 		}
 	}
 
-	// Token: 0x17000E0A RID: 3594
-	// (get) Token: 0x0600485E RID: 18526 RVA: 0x001259E0 File Offset: 0x00123BE0
+	// Token: 0x17000EA4 RID: 3748
+	// (get) Token: 0x06004D09 RID: 19721 RVA: 0x0012F944 File Offset: 0x0012DB44
 	public int characterCount
 	{
 		get
@@ -63,8 +63,8 @@ public struct UIHighlight
 		}
 	}
 
-	// Token: 0x17000E0B RID: 3595
-	// (get) Token: 0x0600485F RID: 18527 RVA: 0x001259FC File Offset: 0x00123BFC
+	// Token: 0x17000EA5 RID: 3749
+	// (get) Token: 0x06004D0A RID: 19722 RVA: 0x0012F960 File Offset: 0x0012DB60
 	public int lineSpan
 	{
 		get
@@ -73,13 +73,13 @@ public struct UIHighlight
 		}
 	}
 
-	// Token: 0x17000E0C RID: 3596
-	// (get) Token: 0x06004860 RID: 18528 RVA: 0x00125A18 File Offset: 0x00123C18
-	public UIHighlight.Node delta
+	// Token: 0x17000EA6 RID: 3750
+	// (get) Token: 0x06004D0B RID: 19723 RVA: 0x0012F97C File Offset: 0x0012DB7C
+	public global::UIHighlight.Node delta
 	{
 		get
 		{
-			UIHighlight.Node result;
+			global::UIHighlight.Node result;
 			result.i = this.b.i - this.a.i;
 			result.L = this.b.L - this.a.L;
 			result.C = this.b.C - this.a.C;
@@ -87,28 +87,28 @@ public struct UIHighlight
 		}
 	}
 
-	// Token: 0x040028A4 RID: 10404
-	public UIHighlight.Node a;
+	// Token: 0x04002AF2 RID: 10994
+	public global::UIHighlight.Node a;
 
-	// Token: 0x040028A5 RID: 10405
-	public UIHighlight.Node b;
+	// Token: 0x04002AF3 RID: 10995
+	public global::UIHighlight.Node b;
 
-	// Token: 0x020007E7 RID: 2023
+	// Token: 0x020008D8 RID: 2264
 	public struct Node
 	{
-		// Token: 0x06004861 RID: 18529 RVA: 0x00125A80 File Offset: 0x00123C80
+		// Token: 0x06004D0C RID: 19724 RVA: 0x0012F9E4 File Offset: 0x0012DBE4
 		public override string ToString()
 		{
 			return string.Format("[{0}({1}:{2})]", this.i, this.L, this.C);
 		}
 
-		// Token: 0x040028A6 RID: 10406
+		// Token: 0x04002AF4 RID: 10996
 		public int i;
 
-		// Token: 0x040028A7 RID: 10407
+		// Token: 0x04002AF5 RID: 10997
 		public int L;
 
-		// Token: 0x040028A8 RID: 10408
+		// Token: 0x04002AF6 RID: 10998
 		public int C;
 	}
 }

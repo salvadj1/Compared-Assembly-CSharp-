@@ -2,38 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020004DC RID: 1244
+// Token: 0x02000597 RID: 1431
 public class GenericSpawnerSpawnList : ScriptableObject
 {
-	// Token: 0x06002AC8 RID: 10952 RVA: 0x000AAD30 File Offset: 0x000A8F30
-	public List<GenericSpawnerSpawnList.GenericSpawnInstance> GetCopy()
+	// Token: 0x06002E7A RID: 11898 RVA: 0x000B2AC8 File Offset: 0x000B0CC8
+	public List<global::GenericSpawnerSpawnList.GenericSpawnInstance> GetCopy()
 	{
-		List<GenericSpawnerSpawnList.GenericSpawnInstance> list = new List<GenericSpawnerSpawnList.GenericSpawnInstance>(this._spawnList.Count);
-		foreach (GenericSpawnerSpawnList.GenericSpawnInstance genericSpawnInstance in this._spawnList)
+		List<global::GenericSpawnerSpawnList.GenericSpawnInstance> list = new List<global::GenericSpawnerSpawnList.GenericSpawnInstance>(this._spawnList.Count);
+		foreach (global::GenericSpawnerSpawnList.GenericSpawnInstance genericSpawnInstance in this._spawnList)
 		{
 			list.Add(genericSpawnInstance.Clone());
 		}
 		return list;
 	}
 
-	// Token: 0x0400174E RID: 5966
+	// Token: 0x0400190B RID: 6411
 	[SerializeField]
-	public List<GenericSpawnerSpawnList.GenericSpawnInstance> _spawnList;
+	public List<global::GenericSpawnerSpawnList.GenericSpawnInstance> _spawnList;
 
-	// Token: 0x020004DD RID: 1245
+	// Token: 0x02000598 RID: 1432
 	[Serializable]
 	public class GenericSpawnInstance
 	{
-		// Token: 0x06002ACA RID: 10954 RVA: 0x000AADD4 File Offset: 0x000A8FD4
+		// Token: 0x06002E7C RID: 11900 RVA: 0x000B2B6C File Offset: 0x000B0D6C
 		public int GetNumActive()
 		{
 			return this.spawned.Count;
 		}
 
-		// Token: 0x06002ACB RID: 10955 RVA: 0x000AADE4 File Offset: 0x000A8FE4
-		public GenericSpawnerSpawnList.GenericSpawnInstance Clone()
+		// Token: 0x06002E7D RID: 11901 RVA: 0x000B2B7C File Offset: 0x000B0D7C
+		public global::GenericSpawnerSpawnList.GenericSpawnInstance Clone()
 		{
-			return new GenericSpawnerSpawnList.GenericSpawnInstance
+			return new global::GenericSpawnerSpawnList.GenericSpawnInstance
 			{
 				prefabName = this.prefabName,
 				targetPopulation = this.targetPopulation,
@@ -43,22 +43,22 @@ public class GenericSpawnerSpawnList : ScriptableObject
 			};
 		}
 
-		// Token: 0x0400174F RID: 5967
+		// Token: 0x0400190C RID: 6412
 		public string prefabName = string.Empty;
 
-		// Token: 0x04001750 RID: 5968
+		// Token: 0x0400190D RID: 6413
 		public int targetPopulation;
 
-		// Token: 0x04001751 RID: 5969
+		// Token: 0x0400190E RID: 6414
 		public int numToSpawnPerTick = 1;
 
-		// Token: 0x04001752 RID: 5970
+		// Token: 0x0400190F RID: 6415
 		public bool forceStaticInstantiate;
 
-		// Token: 0x04001753 RID: 5971
+		// Token: 0x04001910 RID: 6416
 		public bool useNavmeshSample = true;
 
-		// Token: 0x04001754 RID: 5972
+		// Token: 0x04001911 RID: 6417
 		public List<GameObject> spawned;
 	}
 }

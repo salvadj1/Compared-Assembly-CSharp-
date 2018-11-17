@@ -3,36 +3,36 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020003E3 RID: 995
+// Token: 0x02000493 RID: 1171
 public class ConsoleNetworker : MonoBehaviour
 {
-	// Token: 0x060024EB RID: 9451 RVA: 0x0008D9C4 File Offset: 0x0008BBC4
+	// Token: 0x0600285D RID: 10333 RVA: 0x000933B0 File Offset: 0x000915B0
 	private void Awake()
 	{
-		ConsoleNetworker.singleton = this;
+		global::ConsoleNetworker.singleton = this;
 	}
 
-	// Token: 0x060024EC RID: 9452 RVA: 0x0008D9CC File Offset: 0x0008BBCC
+	// Token: 0x0600285E RID: 10334 RVA: 0x000933B8 File Offset: 0x000915B8
 	public static void SendCommandToServer(string strCommand)
 	{
-		if (!ConsoleNetworker.singleton)
+		if (!global::ConsoleNetworker.singleton)
 		{
 			return;
 		}
-		ConsoleNetworker.singleton.networkView.RPC<string>("SV_RunConsoleCommand", 0, strCommand);
+		global::ConsoleNetworker.singleton.networkView.RPC<string>("SV_RunConsoleCommand", 0, strCommand);
 	}
 
-	// Token: 0x060024ED RID: 9453 RVA: 0x0008DA00 File Offset: 0x0008BC00
+	// Token: 0x0600285F RID: 10335 RVA: 0x000933EC File Offset: 0x000915EC
 	[RPC]
-	public void SV_RunConsoleCommand(string cmd, NetworkMessageInfo info)
+	public void SV_RunConsoleCommand(string cmd, uLink.NetworkMessageInfo info)
 	{
 	}
 
-	// Token: 0x060024EE RID: 9454 RVA: 0x0008DA04 File Offset: 0x0008BC04
+	// Token: 0x06002860 RID: 10336 RVA: 0x000933F0 File Offset: 0x000915F0
 	[RPC]
-	public void CL_ConsoleMessage(string message, NetworkMessageInfo info)
+	public void CL_ConsoleMessage(string message, uLink.NetworkMessageInfo info)
 	{
-		ConsoleWindow consoleWindow = (ConsoleWindow)Object.FindObjectOfType(typeof(ConsoleWindow));
+		global::ConsoleWindow consoleWindow = (global::ConsoleWindow)Object.FindObjectOfType(typeof(global::ConsoleWindow));
 		if (!consoleWindow)
 		{
 			return;
@@ -40,21 +40,21 @@ public class ConsoleNetworker : MonoBehaviour
 		consoleWindow.AddText(message, true);
 	}
 
-	// Token: 0x060024EF RID: 9455 RVA: 0x0008DA3C File Offset: 0x0008BC3C
+	// Token: 0x06002861 RID: 10337 RVA: 0x00093428 File Offset: 0x00091628
 	[RPC]
-	public void CL_ConsoleCommand(string message, NetworkMessageInfo info)
+	public void CL_ConsoleCommand(string message, uLink.NetworkMessageInfo info)
 	{
-		ConsoleWindow consoleWindow = (ConsoleWindow)Object.FindObjectOfType(typeof(ConsoleWindow));
+		global::ConsoleWindow consoleWindow = (global::ConsoleWindow)Object.FindObjectOfType(typeof(global::ConsoleWindow));
 		if (!consoleWindow)
 		{
 			return;
 		}
-		if (!ConsoleSystem.Run(message, false))
+		if (!global::ConsoleSystem.Run(message, false))
 		{
 			Debug.Log("Unhandled command from server: " + message);
 		}
 	}
 
-	// Token: 0x040011D5 RID: 4565
-	public static ConsoleNetworker singleton;
+	// Token: 0x0400134F RID: 4943
+	public static global::ConsoleNetworker singleton;
 }

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A085C0DE-B3F0-4BC3-B0A9-95A2B92395D4}</ProjectGuid>
+    <ProjectGuid>{0E42FCDD-9D02-450E-B2CE-2DA99B428B20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Assembly-CSharp</RootNamespace>
@@ -604,7 +604,6 @@
     <Compile Include="FPGrassProbabilityGenerator.cs" />
     <Compile Include="FPGrassProperty.cs" />
     <Compile Include="Furnace.cs" />
-    <Compile Include="GameConfig.cs" />
     <Compile Include="GameConstant.cs" />
     <Compile Include="GameEvent.cs" />
     <Compile Include="GameFullscreen.cs" />
@@ -770,11 +769,6 @@
     <Compile Include="IWeaponItem.cs" />
     <Compile Include="JetCameraMode.cs" />
     <Compile Include="JPGEncoder.cs" />
-    <Compile Include="JSON\Array.cs" />
-    <Compile Include="JSON\Extensions.cs" />
-    <Compile Include="JSON\Object.cs" />
-    <Compile Include="JSON\Value.cs" />
-    <Compile Include="JSON\ValueType.cs" />
     <Compile Include="KeyPressHandler.cs" />
     <Compile Include="KillZone.cs" />
     <Compile Include="KindOfCamera.cs" />
@@ -1095,7 +1089,6 @@
     <Compile Include="ServerHelper.cs" />
     <Compile Include="ServerInit.cs" />
     <Compile Include="ServerItem.cs" />
-    <Compile Include="ServerListConfig.cs" />
     <Compile Include="ServerManagement.cs" />
     <Compile Include="ServerQuitResponder.cs" />
     <Compile Include="ServerSave.cs" />
@@ -1359,6 +1352,12 @@
     <Compile Include="WorkZone.cs" />
     <Compile Include="ZombieSpawner.cs" />
     <Compile Include="zzzzzzzz____RustCompileData_.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{0e42fcdd-9d02-450e-b2ce-2da99b428b20}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

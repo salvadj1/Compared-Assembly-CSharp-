@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000644 RID: 1604
+// Token: 0x02000707 RID: 1799
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class PathSlopScene : MonoBehaviour
 {
-	// Token: 0x17000B07 RID: 2823
-	// (get) Token: 0x06003804 RID: 14340 RVA: 0x000CD598 File Offset: 0x000CB798
+	// Token: 0x17000B87 RID: 2951
+	// (get) Token: 0x06003BF0 RID: 15344 RVA: 0x000D5E48 File Offset: 0x000D4048
 	public MeshFilter filter
 	{
 		get
@@ -15,8 +15,8 @@ public class PathSlopScene : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B08 RID: 2824
-	// (get) Token: 0x06003805 RID: 14341 RVA: 0x000CD5A0 File Offset: 0x000CB7A0
+	// Token: 0x17000B88 RID: 2952
+	// (get) Token: 0x06003BF1 RID: 15345 RVA: 0x000D5E50 File Offset: 0x000D4050
 	public MeshRenderer renderer
 	{
 		get
@@ -25,9 +25,9 @@ public class PathSlopScene : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B09 RID: 2825
-	// (get) Token: 0x06003806 RID: 14342 RVA: 0x000CD5B0 File Offset: 0x000CB7B0
-	public static PathSlopScene current
+	// Token: 0x17000B89 RID: 2953
+	// (get) Token: 0x06003BF2 RID: 15346 RVA: 0x000D5E60 File Offset: 0x000D4060
+	public static global::PathSlopScene current
 	{
 		get
 		{
@@ -35,18 +35,18 @@ public class PathSlopScene : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001C1C RID: 7196
+	// Token: 0x04001E11 RID: 7697
 	public Vector4[] sloppymess;
 
-	// Token: 0x04001C1D RID: 7197
+	// Token: 0x04001E12 RID: 7698
 	public float initialWidth = 1f;
 
-	// Token: 0x04001C1E RID: 7198
+	// Token: 0x04001E13 RID: 7699
 	public float areaGrid = 8f;
 
-	// Token: 0x04001C1F RID: 7199
+	// Token: 0x04001E14 RID: 7700
 	public float pushup = 0.05f;
 
-	// Token: 0x04001C20 RID: 7200
+	// Token: 0x04001E15 RID: 7701
 	public LayerMask layerMask = 1;
 }

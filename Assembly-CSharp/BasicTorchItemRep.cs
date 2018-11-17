@@ -3,10 +3,10 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000517 RID: 1303
-public class BasicTorchItemRep : ItemRepresentation
+// Token: 0x020005D4 RID: 1492
+public class BasicTorchItemRep : global::ItemRepresentation
 {
-	// Token: 0x06002BDD RID: 11229 RVA: 0x000AF62C File Offset: 0x000AD82C
+	// Token: 0x06002F9D RID: 12189 RVA: 0x000B76C8 File Offset: 0x000B58C8
 	public void RepIgnite()
 	{
 		if (!this.lit)
@@ -16,7 +16,7 @@ public class BasicTorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x06002BDE RID: 11230 RVA: 0x000AF664 File Offset: 0x000AD864
+	// Token: 0x06002F9E RID: 12190 RVA: 0x000B7700 File Offset: 0x000B5900
 	public void RepExtinguish()
 	{
 		if (this.lit)
@@ -26,7 +26,7 @@ public class BasicTorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x06002BDF RID: 11231 RVA: 0x000AF680 File Offset: 0x000AD880
+	// Token: 0x06002F9F RID: 12191 RVA: 0x000B771C File Offset: 0x000B591C
 	[RPC]
 	protected void OnStatus(bool on)
 	{
@@ -44,11 +44,11 @@ public class BasicTorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x06002BE0 RID: 11232 RVA: 0x000AF6B8 File Offset: 0x000AD8B8
+	// Token: 0x06002FA0 RID: 12192 RVA: 0x000B7754 File Offset: 0x000B5954
 	private void ServerRPC_Status(bool lit)
 	{
-		NetworkView networkView = base.networkView;
-		RPCMode rpcmode;
+		Facepunch.NetworkView networkView = base.networkView;
+		uLink.RPCMode rpcmode;
 		if (!lit)
 		{
 			rpcmode = 9;
@@ -61,7 +61,7 @@ public class BasicTorchItemRep : ItemRepresentation
 		this.lit = lit;
 	}
 
-	// Token: 0x06002BE1 RID: 11233 RVA: 0x000AF6F4 File Offset: 0x000AD8F4
+	// Token: 0x06002FA1 RID: 12193 RVA: 0x000B7790 File Offset: 0x000B5990
 	private void KillLight()
 	{
 		if (this._myLight)
@@ -71,15 +71,15 @@ public class BasicTorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x040017FE RID: 6142
+	// Token: 0x040019CA RID: 6602
 	private const bool defaultLit = false;
 
-	// Token: 0x040017FF RID: 6143
+	// Token: 0x040019CB RID: 6603
 	public GameObject _myLight;
 
-	// Token: 0x04001800 RID: 6144
+	// Token: 0x040019CC RID: 6604
 	public GameObject _myLightPrefab;
 
-	// Token: 0x04001801 RID: 6145
+	// Token: 0x040019CD RID: 6605
 	private bool lit;
 }

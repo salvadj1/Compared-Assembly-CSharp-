@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020005F9 RID: 1529
-public class PlayerInventory : CraftingInventory, FixedSizeInventory
+// Token: 0x020006B9 RID: 1721
+public class PlayerInventory : global::CraftingInventory, global::FixedSizeInventory
 {
-	// Token: 0x060036BA RID: 14010 RVA: 0x000C5468 File Offset: 0x000C3668
-	protected void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06003A92 RID: 14994 RVA: 0x000CD998 File Offset: 0x000CBB98
+	protected void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		if (info.networkView.isMine)
 		{
@@ -15,87 +15,87 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		}
 	}
 
-	// Token: 0x060036BB RID: 14011 RVA: 0x000C5484 File Offset: 0x000C3684
+	// Token: 0x06003A93 RID: 14995 RVA: 0x000CD9B4 File Offset: 0x000CBBB4
 	public void MakeBPsDirty()
 	{
 		this.bpDirty = true;
 	}
 
-	// Token: 0x060036BC RID: 14012 RVA: 0x000C5490 File Offset: 0x000C3690
-	protected override void ConfigureSlots(int totalCount, ref Inventory.Slot.KindDictionary<Inventory.Slot.Range> ranges, ref Inventory.SlotFlags[] flags)
+	// Token: 0x06003A94 RID: 14996 RVA: 0x000CD9C0 File Offset: 0x000CBBC0
+	protected override void ConfigureSlots(int totalCount, ref global::Inventory.Slot.KindDictionary<global::Inventory.Slot.Range> ranges, ref global::Inventory.SlotFlags[] flags)
 	{
 		if (totalCount != 40)
 		{
 			Debug.LogError("Invalid size for player inventory " + totalCount, this);
 		}
-		ranges = PlayerInventory.LateLoaded.SlotRanges;
-		flags = PlayerInventory.LateLoaded.EveryPlayerInventory;
+		ranges = global::PlayerInventory.LateLoaded.SlotRanges;
+		flags = global::PlayerInventory.LateLoaded.EveryPlayerInventory;
 		if (base.networkView.isMine)
 		{
-			this._boundBPs = new List<BlueprintDataBlock>();
+			this._boundBPs = new List<global::BlueprintDataBlock>();
 		}
 	}
 
-	// Token: 0x060036BD RID: 14013 RVA: 0x000C54E8 File Offset: 0x000C36E8
-	public bool KnowsBP(BlueprintDataBlock bp)
+	// Token: 0x06003A95 RID: 14997 RVA: 0x000CDA18 File Offset: 0x000CBC18
+	public bool KnowsBP(global::BlueprintDataBlock bp)
 	{
 		return bp && this._boundBPs.Contains(bp);
 	}
 
-	// Token: 0x060036BE RID: 14014 RVA: 0x000C5504 File Offset: 0x000C3704
-	[NGCRPCSkip]
+	// Token: 0x06003A96 RID: 14998 RVA: 0x000CDA34 File Offset: 0x000CBC34
 	[RPC]
-	public void ReceiveBoundBPs(byte[] data, NetworkMessageInfo info)
+	[global::NGCRPCSkip]
+	public void ReceiveBoundBPs(byte[] data, uLink.NetworkMessageInfo info)
 	{
-		this._boundBPs = (this._boundBPs ?? new List<BlueprintDataBlock>());
+		this._boundBPs = (this._boundBPs ?? new List<global::BlueprintDataBlock>());
 		this._boundBPs.Clear();
 		BitStream bitStream = new BitStream(data, false);
 		int num = bitStream.ReadInt32();
 		for (int i = 0; i < num; i++)
 		{
 			int uniqueID = bitStream.ReadInt32();
-			ItemDataBlock byUniqueID = DatablockDictionary.GetByUniqueID(uniqueID);
+			global::ItemDataBlock byUniqueID = global::DatablockDictionary.GetByUniqueID(uniqueID);
 			if (byUniqueID)
 			{
-				BlueprintDataBlock item = byUniqueID as BlueprintDataBlock;
+				global::BlueprintDataBlock item = byUniqueID as global::BlueprintDataBlock;
 				this._boundBPs.Add(item);
 			}
 		}
 		this.Refresh();
 	}
 
-	// Token: 0x060036BF RID: 14015 RVA: 0x000C558C File Offset: 0x000C378C
-	public List<BlueprintDataBlock> GetBoundBPs()
+	// Token: 0x06003A97 RID: 14999 RVA: 0x000CDABC File Offset: 0x000CBCBC
+	public List<global::BlueprintDataBlock> GetBoundBPs()
 	{
 		return this._boundBPs;
 	}
 
-	// Token: 0x060036C0 RID: 14016 RVA: 0x000C5594 File Offset: 0x000C3794
-	protected override bool CheckSlotFlags(Inventory.SlotFlags itemSlotFlags, Inventory.SlotFlags slotFlags)
+	// Token: 0x06003A98 RID: 15000 RVA: 0x000CDAC4 File Offset: 0x000CBCC4
+	protected override bool CheckSlotFlags(global::Inventory.SlotFlags itemSlotFlags, global::Inventory.SlotFlags slotFlags)
 	{
-		return base.CheckSlotFlags(itemSlotFlags, slotFlags) && ((slotFlags & Inventory.SlotFlags.Equip) != Inventory.SlotFlags.Equip || (itemSlotFlags & slotFlags) == slotFlags);
+		return base.CheckSlotFlags(itemSlotFlags, slotFlags) && ((slotFlags & global::Inventory.SlotFlags.Equip) != global::Inventory.SlotFlags.Equip || (itemSlotFlags & slotFlags) == slotFlags);
 	}
 
-	// Token: 0x060036C1 RID: 14017 RVA: 0x000C55C4 File Offset: 0x000C37C4
+	// Token: 0x06003A99 RID: 15001 RVA: 0x000CDAF4 File Offset: 0x000CBCF4
 	public static bool IsEquipmentSlot(int slot)
 	{
 		return slot >= 36 && slot < 40;
 	}
 
-	// Token: 0x060036C2 RID: 14018 RVA: 0x000C55D8 File Offset: 0x000C37D8
+	// Token: 0x06003A9A RID: 15002 RVA: 0x000CDB08 File Offset: 0x000CBD08
 	public static bool IsBeltSlot(int slot)
 	{
 		return slot >= 30 && slot < 36;
 	}
 
-	// Token: 0x060036C3 RID: 14019 RVA: 0x000C55EC File Offset: 0x000C37EC
-	protected override void DoSetActiveItem(InventoryItem item)
+	// Token: 0x06003A9B RID: 15003 RVA: 0x000CDB1C File Offset: 0x000CBD1C
+	protected override void DoSetActiveItem(global::InventoryItem item)
 	{
-		InventoryItem activeItem = this._activeItem;
+		global::InventoryItem activeItem = this._activeItem;
 		this._activeItem = item;
 		if (activeItem != null)
 		{
-			IHeldItem heldItem = activeItem.iface as IHeldItem;
+			global::IHeldItem heldItem = activeItem.iface as global::IHeldItem;
 			if (heldItem != null)
 			{
 				heldItem.OnDeactivate();
@@ -103,7 +103,7 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		}
 		if (this._activeItem != null)
 		{
-			IHeldItem heldItem2 = this._activeItem as IHeldItem;
+			global::IHeldItem heldItem2 = this._activeItem as global::IHeldItem;
 			if (heldItem2 != null)
 			{
 				heldItem2.OnActivate();
@@ -111,12 +111,12 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		}
 	}
 
-	// Token: 0x060036C4 RID: 14020 RVA: 0x000C5648 File Offset: 0x000C3848
+	// Token: 0x06003A9C RID: 15004 RVA: 0x000CDB78 File Offset: 0x000CBD78
 	protected override void DoDeactivateItem()
 	{
 		if (this._activeItem != null)
 		{
-			IHeldItem heldItem = this._activeItem as IHeldItem;
+			global::IHeldItem heldItem = this._activeItem as global::IHeldItem;
 			if (heldItem != null)
 			{
 				heldItem.OnDeactivate();
@@ -126,42 +126,42 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		base.DoDeactivateItem();
 	}
 
-	// Token: 0x060036C5 RID: 14021 RVA: 0x000C5688 File Offset: 0x000C3888
+	// Token: 0x06003A9D RID: 15005 RVA: 0x000CDBB8 File Offset: 0x000CBDB8
 	public override void Refresh()
 	{
-		InventoryHolder inventoryHolder = base.inventoryHolder;
+		global::InventoryHolder inventoryHolder = base.inventoryHolder;
 		if (inventoryHolder)
 		{
 			inventoryHolder.InventoryModified();
 		}
 	}
 
-	// Token: 0x17000AED RID: 2797
-	// (get) Token: 0x060036C6 RID: 14022 RVA: 0x000C56B0 File Offset: 0x000C38B0
-	private new EquipmentWearer equipmentWearer
+	// Token: 0x17000B67 RID: 2919
+	// (get) Token: 0x06003A9E RID: 15006 RVA: 0x000CDBE0 File Offset: 0x000CBDE0
+	private new global::EquipmentWearer equipmentWearer
 	{
 		get
 		{
-			return (!this._equipmentWearer) ? (this._equipmentWearer = base.GetLocal<EquipmentWearer>()) : this._equipmentWearer;
+			return (!this._equipmentWearer) ? (this._equipmentWearer = base.GetLocal<global::EquipmentWearer>()) : this._equipmentWearer;
 		}
 	}
 
-	// Token: 0x060036C7 RID: 14023 RVA: 0x000C56E8 File Offset: 0x000C38E8
+	// Token: 0x06003A9F RID: 15007 RVA: 0x000CDC18 File Offset: 0x000CBE18
 	private void UpdateEquipment()
 	{
-		EquipmentWearer equipmentWearer = this.equipmentWearer;
+		global::EquipmentWearer equipmentWearer = this.equipmentWearer;
 		if (equipmentWearer)
 		{
 			equipmentWearer.EquipmentUpdate();
 		}
 	}
 
-	// Token: 0x060036C8 RID: 14024 RVA: 0x000C5710 File Offset: 0x000C3910
-	protected override void ItemRemoved(int slot, IInventoryItem item)
+	// Token: 0x06003AA0 RID: 15008 RVA: 0x000CDC40 File Offset: 0x000CBE40
+	protected override void ItemRemoved(int slot, global::IInventoryItem item)
 	{
-		if (PlayerInventory.IsEquipmentSlot(slot))
+		if (global::PlayerInventory.IsEquipmentSlot(slot))
 		{
-			IEquipmentItem equipmentItem = item as IEquipmentItem;
+			global::IEquipmentItem equipmentItem = item as global::IEquipmentItem;
 			if (equipmentItem != null)
 			{
 				equipmentItem.OnUnEquipped();
@@ -170,12 +170,12 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		}
 	}
 
-	// Token: 0x060036C9 RID: 14025 RVA: 0x000C5744 File Offset: 0x000C3944
-	protected override void ItemAdded(int slot, IInventoryItem item)
+	// Token: 0x06003AA1 RID: 15009 RVA: 0x000CDC74 File Offset: 0x000CBE74
+	protected override void ItemAdded(int slot, global::IInventoryItem item)
 	{
-		if (PlayerInventory.IsEquipmentSlot(slot))
+		if (global::PlayerInventory.IsEquipmentSlot(slot))
 		{
-			IEquipmentItem equipmentItem = item as IEquipmentItem;
+			global::IEquipmentItem equipmentItem = item as global::IEquipmentItem;
 			if (equipmentItem != null)
 			{
 				equipmentItem.OnEquipped();
@@ -184,8 +184,8 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		}
 	}
 
-	// Token: 0x17000AEE RID: 2798
-	// (get) Token: 0x060036CA RID: 14026 RVA: 0x000C5778 File Offset: 0x000C3978
+	// Token: 0x17000B68 RID: 2920
+	// (get) Token: 0x06003AA2 RID: 15010 RVA: 0x000CDCA8 File Offset: 0x000CBEA8
 	public int fixedSlotCount
 	{
 		get
@@ -194,29 +194,29 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		}
 	}
 
-	// Token: 0x060036CB RID: 14027 RVA: 0x000C577C File Offset: 0x000C397C
-	public bool GetArmorItem<IArmorItem>(ArmorModelSlot slot, out IArmorItem item) where IArmorItem : class, IInventoryItem
+	// Token: 0x06003AA3 RID: 15011 RVA: 0x000CDCAC File Offset: 0x000CBEAC
+	public bool GetArmorItem<IArmorItem>(global::ArmorModelSlot slot, out IArmorItem item) where IArmorItem : class, global::IInventoryItem
 	{
 		int slot2;
 		switch (slot)
 		{
-		case ArmorModelSlot.Feet:
+		case global::ArmorModelSlot.Feet:
 			slot2 = 39;
 			break;
-		case ArmorModelSlot.Legs:
+		case global::ArmorModelSlot.Legs:
 			slot2 = 38;
 			break;
-		case ArmorModelSlot.Torso:
+		case global::ArmorModelSlot.Torso:
 			slot2 = 37;
 			break;
-		case ArmorModelSlot.Head:
+		case global::ArmorModelSlot.Head:
 			slot2 = 36;
 			break;
 		default:
 			item = (IArmorItem)((object)null);
 			return false;
 		}
-		IInventoryItem inventoryItem;
+		global::IInventoryItem inventoryItem;
 		if (base.GetItem(slot2, out inventoryItem))
 		{
 			return !object.ReferenceEquals(item = (inventoryItem as IArmorItem), null);
@@ -225,102 +225,102 @@ public class PlayerInventory : CraftingInventory, FixedSizeInventory
 		return false;
 	}
 
-	// Token: 0x04001AE3 RID: 6883
+	// Token: 0x04001CC9 RID: 7369
 	private const int _storageSpace = 30;
 
-	// Token: 0x04001AE4 RID: 6884
+	// Token: 0x04001CCA RID: 7370
 	private const int _beltSpace = 6;
 
-	// Token: 0x04001AE5 RID: 6885
+	// Token: 0x04001CCB RID: 7371
 	private const int _equipSpace = 4;
 
-	// Token: 0x04001AE6 RID: 6886
+	// Token: 0x04001CCC RID: 7372
 	public const int EquipmentStart = 36;
 
-	// Token: 0x04001AE7 RID: 6887
+	// Token: 0x04001CCD RID: 7373
 	public const int EquipmentEnd = 40;
 
-	// Token: 0x04001AE8 RID: 6888
+	// Token: 0x04001CCE RID: 7374
 	public const int NumEquipItems = 4;
 
-	// Token: 0x04001AE9 RID: 6889
+	// Token: 0x04001CCF RID: 7375
 	public const int BeltStart = 30;
 
-	// Token: 0x04001AEA RID: 6890
+	// Token: 0x04001CD0 RID: 7376
 	public const int BeltEnd = 36;
 
-	// Token: 0x04001AEB RID: 6891
+	// Token: 0x04001CD1 RID: 7377
 	public const int NumBeltItems = 6;
 
-	// Token: 0x04001AEC RID: 6892
+	// Token: 0x04001CD2 RID: 7378
 	public const int StorageStart = 0;
 
-	// Token: 0x04001AED RID: 6893
+	// Token: 0x04001CD3 RID: 7379
 	public const int StorageEnd = 30;
 
-	// Token: 0x04001AEE RID: 6894
+	// Token: 0x04001CD4 RID: 7380
 	public const int NumStorageItems = 30;
 
-	// Token: 0x04001AEF RID: 6895
+	// Token: 0x04001CD5 RID: 7381
 	private const int TotalSlotCount = 40;
 
-	// Token: 0x04001AF0 RID: 6896
-	private List<BlueprintDataBlock> _boundBPs;
+	// Token: 0x04001CD6 RID: 7382
+	private List<global::BlueprintDataBlock> _boundBPs;
 
-	// Token: 0x04001AF1 RID: 6897
+	// Token: 0x04001CD7 RID: 7383
 	public bool bpDirty = true;
 
-	// Token: 0x04001AF2 RID: 6898
+	// Token: 0x04001CD8 RID: 7384
 	[NonSerialized]
-	private EquipmentWearer _equipmentWearer;
+	private global::EquipmentWearer _equipmentWearer;
 
-	// Token: 0x020005FA RID: 1530
+	// Token: 0x020006BA RID: 1722
 	private static class LateLoaded
 	{
-		// Token: 0x060036CC RID: 14028 RVA: 0x000C5814 File Offset: 0x000C3A14
+		// Token: 0x06003AA4 RID: 15012 RVA: 0x000CDD44 File Offset: 0x000CBF44
 		static LateLoaded()
 		{
 			for (int i = 0; i < 40; i++)
 			{
-				Inventory.SlotFlags slotFlags = (Inventory.SlotFlags)0;
-				if (PlayerInventory.IsBeltSlot(i))
+				global::Inventory.SlotFlags slotFlags = (global::Inventory.SlotFlags)0;
+				if (global::PlayerInventory.IsBeltSlot(i))
 				{
-					slotFlags |= Inventory.SlotFlags.Belt;
+					slotFlags |= global::Inventory.SlotFlags.Belt;
 				}
 				if (i == 30)
 				{
-					slotFlags |= Inventory.SlotFlags.Safe;
+					slotFlags |= global::Inventory.SlotFlags.Safe;
 				}
-				if (PlayerInventory.IsEquipmentSlot(i))
+				if (global::PlayerInventory.IsEquipmentSlot(i))
 				{
-					slotFlags |= Inventory.SlotFlags.Equip;
+					slotFlags |= global::Inventory.SlotFlags.Equip;
 					switch (i)
 					{
 					case 36:
-						slotFlags |= Inventory.SlotFlags.Head;
+						slotFlags |= global::Inventory.SlotFlags.Head;
 						break;
 					case 37:
-						slotFlags |= Inventory.SlotFlags.Chest;
+						slotFlags |= global::Inventory.SlotFlags.Chest;
 						break;
 					case 38:
-						slotFlags |= Inventory.SlotFlags.Legs;
+						slotFlags |= global::Inventory.SlotFlags.Legs;
 						break;
 					case 39:
-						slotFlags |= Inventory.SlotFlags.Feet;
+						slotFlags |= global::Inventory.SlotFlags.Feet;
 						break;
 					}
 				}
-				PlayerInventory.LateLoaded.EveryPlayerInventory[i] = slotFlags;
+				global::PlayerInventory.LateLoaded.EveryPlayerInventory[i] = slotFlags;
 			}
-			PlayerInventory.LateLoaded.SlotRanges[Inventory.Slot.Kind.Default] = new Inventory.Slot.Range(0, 30);
-			PlayerInventory.LateLoaded.SlotRanges[Inventory.Slot.Kind.Belt] = new Inventory.Slot.Range(30, 6);
-			PlayerInventory.LateLoaded.SlotRanges[Inventory.Slot.Kind.Armor] = new Inventory.Slot.Range(36, 4);
+			global::PlayerInventory.LateLoaded.SlotRanges[global::Inventory.Slot.Kind.Default] = new global::Inventory.Slot.Range(0, 30);
+			global::PlayerInventory.LateLoaded.SlotRanges[global::Inventory.Slot.Kind.Belt] = new global::Inventory.Slot.Range(30, 6);
+			global::PlayerInventory.LateLoaded.SlotRanges[global::Inventory.Slot.Kind.Armor] = new global::Inventory.Slot.Range(36, 4);
 		}
 
-		// Token: 0x04001AF3 RID: 6899
-		public static readonly Inventory.SlotFlags[] EveryPlayerInventory = new Inventory.SlotFlags[40];
+		// Token: 0x04001CD9 RID: 7385
+		public static readonly global::Inventory.SlotFlags[] EveryPlayerInventory = new global::Inventory.SlotFlags[40];
 
-		// Token: 0x04001AF4 RID: 6900
-		public static Inventory.Slot.KindDictionary<Inventory.Slot.Range> SlotRanges;
+		// Token: 0x04001CDA RID: 7386
+		public static global::Inventory.Slot.KindDictionary<global::Inventory.Slot.Range> SlotRanges;
 	}
 }

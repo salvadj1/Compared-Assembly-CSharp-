@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007B5 RID: 1973
+// Token: 0x020008A2 RID: 2210
 [AddComponentMenu("NGUI/Tween/Rotation")]
-public class TweenRotation : UITweener
+public class TweenRotation : global::UITweener
 {
-	// Token: 0x17000DBE RID: 3518
-	// (get) Token: 0x0600473E RID: 18238 RVA: 0x0011E7C8 File Offset: 0x0011C9C8
+	// Token: 0x17000E50 RID: 3664
+	// (get) Token: 0x06004BCD RID: 19405 RVA: 0x001281EC File Offset: 0x001263EC
 	public Transform cachedTransform
 	{
 		get
@@ -19,9 +19,9 @@ public class TweenRotation : UITweener
 		}
 	}
 
-	// Token: 0x17000DBF RID: 3519
-	// (get) Token: 0x0600473F RID: 18239 RVA: 0x0011E7F0 File Offset: 0x0011C9F0
-	// (set) Token: 0x06004740 RID: 18240 RVA: 0x0011E800 File Offset: 0x0011CA00
+	// Token: 0x17000E51 RID: 3665
+	// (get) Token: 0x06004BCE RID: 19406 RVA: 0x00128214 File Offset: 0x00126414
+	// (set) Token: 0x06004BCF RID: 19407 RVA: 0x00128224 File Offset: 0x00126424
 	public Quaternion rotation
 	{
 		get
@@ -34,27 +34,27 @@ public class TweenRotation : UITweener
 		}
 	}
 
-	// Token: 0x06004741 RID: 18241 RVA: 0x0011E810 File Offset: 0x0011CA10
+	// Token: 0x06004BD0 RID: 19408 RVA: 0x00128234 File Offset: 0x00126434
 	protected override void OnUpdate(float factor)
 	{
 		this.cachedTransform.localRotation = Quaternion.Slerp(Quaternion.Euler(this.from), Quaternion.Euler(this.to), factor);
 	}
 
-	// Token: 0x06004742 RID: 18242 RVA: 0x0011E844 File Offset: 0x0011CA44
-	public static TweenRotation Begin(GameObject go, float duration, Quaternion rot)
+	// Token: 0x06004BD1 RID: 19409 RVA: 0x00128268 File Offset: 0x00126468
+	public static global::TweenRotation Begin(GameObject go, float duration, Quaternion rot)
 	{
-		TweenRotation tweenRotation = UITweener.Begin<TweenRotation>(go, duration);
+		global::TweenRotation tweenRotation = global::UITweener.Begin<global::TweenRotation>(go, duration);
 		tweenRotation.from = tweenRotation.rotation.eulerAngles;
 		tweenRotation.to = rot.eulerAngles;
 		return tweenRotation;
 	}
 
-	// Token: 0x04002742 RID: 10050
+	// Token: 0x0400297C RID: 10620
 	public Vector3 from;
 
-	// Token: 0x04002743 RID: 10051
+	// Token: 0x0400297D RID: 10621
 	public Vector3 to;
 
-	// Token: 0x04002744 RID: 10052
+	// Token: 0x0400297E RID: 10622
 	private Transform mTrans;
 }

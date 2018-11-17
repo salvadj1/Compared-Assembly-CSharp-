@@ -1,36 +1,36 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000776 RID: 1910
-[RequireComponent(typeof(UIInput))]
+// Token: 0x02000859 RID: 2137
+[RequireComponent(typeof(global::UIInput))]
 [AddComponentMenu("NGUI/Interaction/Input Validator")]
 public class UIInputValidator : MonoBehaviour
 {
-	// Token: 0x06004556 RID: 17750 RVA: 0x001111A8 File Offset: 0x0010F3A8
+	// Token: 0x060049BB RID: 18875 RVA: 0x0011AB28 File Offset: 0x00118D28
 	private void Start()
 	{
-		base.GetComponent<UIInput>().validator = new UIInput.Validator(this.Validate);
+		base.GetComponent<global::UIInput>().validator = new global::UIInput.Validator(this.Validate);
 	}
 
-	// Token: 0x06004557 RID: 17751 RVA: 0x001111C4 File Offset: 0x0010F3C4
+	// Token: 0x060049BC RID: 18876 RVA: 0x0011AB44 File Offset: 0x00118D44
 	private char Validate(string text, char ch)
 	{
-		if (this.logic == UIInputValidator.Validation.None || !base.enabled)
+		if (this.logic == global::UIInputValidator.Validation.None || !base.enabled)
 		{
 			return ch;
 		}
-		if (this.logic == UIInputValidator.Validation.Integer || this.logic == UIInputValidator.Validation.IntegerPositive)
+		if (this.logic == global::UIInputValidator.Validation.Integer || this.logic == global::UIInputValidator.Validation.IntegerPositive)
 		{
 			if (ch >= '0' && ch <= '9')
 			{
 				return ch;
 			}
-			if (this.logic != UIInputValidator.Validation.IntegerPositive && ch == '-' && text.Length == 0)
+			if (this.logic != global::UIInputValidator.Validation.IntegerPositive && ch == '-' && text.Length == 0)
 			{
 				return ch;
 			}
 		}
-		else if (this.logic == UIInputValidator.Validation.Float)
+		else if (this.logic == global::UIInputValidator.Validation.Float)
 		{
 			if (ch >= '0' && ch <= '9')
 			{
@@ -45,7 +45,7 @@ public class UIInputValidator : MonoBehaviour
 				return ch;
 			}
 		}
-		else if (this.logic == UIInputValidator.Validation.Alphanumeric)
+		else if (this.logic == global::UIInputValidator.Validation.Alphanumeric)
 		{
 			if (ch >= 'A' && ch <= 'Z')
 			{
@@ -60,7 +60,7 @@ public class UIInputValidator : MonoBehaviour
 				return ch;
 			}
 		}
-		else if (this.logic == UIInputValidator.Validation.Username)
+		else if (this.logic == global::UIInputValidator.Validation.Username)
 		{
 			if (ch >= 'A' && ch <= 'Z')
 			{
@@ -75,7 +75,7 @@ public class UIInputValidator : MonoBehaviour
 				return ch;
 			}
 		}
-		else if (this.logic == UIInputValidator.Validation.Name)
+		else if (this.logic == global::UIInputValidator.Validation.Name)
 		{
 			char c = (text.Length <= 0) ? ' ' : text[text.Length - 1];
 			if (ch >= 'a' && ch <= 'z')
@@ -109,25 +109,25 @@ public class UIInputValidator : MonoBehaviour
 		return '\0';
 	}
 
-	// Token: 0x040025B1 RID: 9649
-	public UIInputValidator.Validation logic;
+	// Token: 0x040027E8 RID: 10216
+	public global::UIInputValidator.Validation logic;
 
-	// Token: 0x02000777 RID: 1911
+	// Token: 0x0200085A RID: 2138
 	public enum Validation
 	{
-		// Token: 0x040025B3 RID: 9651
+		// Token: 0x040027EA RID: 10218
 		None,
-		// Token: 0x040025B4 RID: 9652
+		// Token: 0x040027EB RID: 10219
 		Integer,
-		// Token: 0x040025B5 RID: 9653
+		// Token: 0x040027EC RID: 10220
 		Float,
-		// Token: 0x040025B6 RID: 9654
+		// Token: 0x040027ED RID: 10221
 		Alphanumeric,
-		// Token: 0x040025B7 RID: 9655
+		// Token: 0x040027EE RID: 10222
 		Username,
-		// Token: 0x040025B8 RID: 9656
+		// Token: 0x040027EF RID: 10223
 		Name,
-		// Token: 0x040025B9 RID: 9657
+		// Token: 0x040027F0 RID: 10224
 		IntegerPositive
 	}
 }

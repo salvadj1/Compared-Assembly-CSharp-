@@ -1,15 +1,15 @@
 ﻿using System;
 
-// Token: 0x020005DD RID: 1501
-public abstract class MagazineItem<T> : InventoryItem<T> where T : MagazineDataBlock
+// Token: 0x0200069B RID: 1691
+public abstract class MagazineItem<T> : global::InventoryItem<T> where T : global::MagazineDataBlock
 {
-	// Token: 0x060035FB RID: 13819 RVA: 0x000C356C File Offset: 0x000C176C
+	// Token: 0x060039C3 RID: 14787 RVA: 0x000CB7C8 File Offset: 0x000C99C8
 	protected MagazineItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x17000AB7 RID: 2743
-	// (get) Token: 0x060035FC RID: 13820 RVA: 0x000C3578 File Offset: 0x000C1778
+	// Token: 0x17000B2D RID: 2861
+	// (get) Token: 0x060039C4 RID: 14788 RVA: 0x000CB7D4 File Offset: 0x000C99D4
 	public int numEmptyBulletSlots
 	{
 		get
@@ -18,8 +18,8 @@ public abstract class MagazineItem<T> : InventoryItem<T> where T : MagazineDataB
 		}
 	}
 
-	// Token: 0x17000AB8 RID: 2744
-	// (get) Token: 0x060035FD RID: 13821 RVA: 0x000C3588 File Offset: 0x000C1788
+	// Token: 0x17000B2E RID: 2862
+	// (get) Token: 0x060039C5 RID: 14789 RVA: 0x000CB7E4 File Offset: 0x000C99E4
 	public override string toolTip
 	{
 		get
@@ -45,9 +45,9 @@ public abstract class MagazineItem<T> : InventoryItem<T> where T : MagazineDataB
 		}
 	}
 
-	// Token: 0x04001A9C RID: 6812
+	// Token: 0x04001C6D RID: 7277
 	private int? lastUsesStringCount;
 
-	// Token: 0x04001A9D RID: 6813
+	// Token: 0x04001C6E RID: 7278
 	private string lastUsesString;
 }

@@ -1,38 +1,38 @@
 ﻿using System;
 
-// Token: 0x02000712 RID: 1810
+// Token: 0x020007EE RID: 2030
 public enum dfMarkupDisplayType
 {
-	// Token: 0x040022E6 RID: 8934
+	// Token: 0x04002509 RID: 9481
 	inline,
-	// Token: 0x040022E7 RID: 8935
+	// Token: 0x0400250A RID: 9482
 	block,
-	// Token: 0x040022E8 RID: 8936
+	// Token: 0x0400250B RID: 9483
 	listItem,
-	// Token: 0x040022E9 RID: 8937
+	// Token: 0x0400250C RID: 9484
 	inlineBlock,
-	// Token: 0x040022EA RID: 8938
+	// Token: 0x0400250D RID: 9485
 	table,
-	// Token: 0x040022EB RID: 8939
+	// Token: 0x0400250E RID: 9486
 	inlineTable,
-	// Token: 0x040022EC RID: 8940
+	// Token: 0x0400250F RID: 9487
 	tableRowGroup,
-	// Token: 0x040022ED RID: 8941
+	// Token: 0x04002510 RID: 9488
 	tableHeaderGroup,
-	// Token: 0x040022EE RID: 8942
+	// Token: 0x04002511 RID: 9489
 	tableFooterGroup,
-	// Token: 0x040022EF RID: 8943
+	// Token: 0x04002512 RID: 9490
 	tableRow,
-	// Token: 0x040022F0 RID: 8944
+	// Token: 0x04002513 RID: 9491
 	tableColumnGroup,
-	// Token: 0x040022F1 RID: 8945
+	// Token: 0x04002514 RID: 9492
 	tableColumn,
-	// Token: 0x040022F2 RID: 8946
+	// Token: 0x04002515 RID: 9493
 	tableCell,
-	// Token: 0x040022F3 RID: 8947
+	// Token: 0x04002516 RID: 9494
 	tableCaption,
-	// Token: 0x040022F4 RID: 8948
+	// Token: 0x04002517 RID: 9495
 	none,
-	// Token: 0x040022F5 RID: 8949
+	// Token: 0x04002518 RID: 9496
 	inherit
 }

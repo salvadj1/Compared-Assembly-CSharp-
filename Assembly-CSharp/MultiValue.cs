@@ -2,34 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// Token: 0x0200015D RID: 349
+// Token: 0x02000188 RID: 392
 public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<TValue>, IList<TValue>, ICloneable
 {
-	// Token: 0x06000A8D RID: 2701 RVA: 0x0002A100 File Offset: 0x00028300
+	// Token: 0x06000BB7 RID: 2999 RVA: 0x0002DE7C File Offset: 0x0002C07C
 	private MultiValue(bool ignore)
 	{
 	}
 
-	// Token: 0x06000A8E RID: 2702 RVA: 0x0002A108 File Offset: 0x00028308
+	// Token: 0x06000BB8 RID: 3000 RVA: 0x0002DE84 File Offset: 0x0002C084
 	public MultiValue()
 	{
 		this.list = new List<TValue>();
 		this.hashSet = new HashSet<TValue>();
 	}
 
-	// Token: 0x06000A8F RID: 2703 RVA: 0x0002A128 File Offset: 0x00028328
-	private MultiValue(IEqualityComparer<TValue> comparer, MultiValue<TValue> mv)
+	// Token: 0x06000BB9 RID: 3001 RVA: 0x0002DEA4 File Offset: 0x0002C0A4
+	private MultiValue(IEqualityComparer<TValue> comparer, global::MultiValue<TValue> mv)
 	{
 		this.list = new List<TValue>(mv.list);
 		this.hashSet = new HashSet<TValue>(mv.hashSet, comparer);
 		this.count = mv.count;
 	}
 
-	// Token: 0x06000A90 RID: 2704 RVA: 0x0002A160 File Offset: 0x00028360
+	// Token: 0x06000BBA RID: 3002 RVA: 0x0002DEDC File Offset: 0x0002C0DC
 	public MultiValue(IEnumerable<TValue> v)
 	{
 		this.hashSet = new HashSet<TValue>();
-		MultiValue<TValue>.InitData initData;
+		global::MultiValue<TValue>.InitData initData;
 		initData.mv = this;
 		using (initData.enumerator = v.GetEnumerator())
 		{
@@ -37,11 +37,11 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000A91 RID: 2705 RVA: 0x0002A1CC File Offset: 0x000283CC
+	// Token: 0x06000BBB RID: 3003 RVA: 0x0002DF48 File Offset: 0x0002C148
 	public MultiValue(IEnumerable<TValue> v, IEqualityComparer<TValue> equalityComparer)
 	{
 		this.hashSet = new HashSet<TValue>(equalityComparer);
-		MultiValue<TValue>.InitData initData;
+		global::MultiValue<TValue>.InitData initData;
 		initData.mv = this;
 		using (initData.enumerator = v.GetEnumerator())
 		{
@@ -49,39 +49,39 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000A92 RID: 2706 RVA: 0x0002A23C File Offset: 0x0002843C
+	// Token: 0x06000BBC RID: 3004 RVA: 0x0002DFB8 File Offset: 0x0002C1B8
 	public MultiValue(int capacity, IEqualityComparer<TValue> equalityComparer)
 	{
 		this.hashSet = new HashSet<TValue>(equalityComparer);
 		this.list = new List<TValue>(capacity);
 	}
 
-	// Token: 0x06000A93 RID: 2707 RVA: 0x0002A25C File Offset: 0x0002845C
+	// Token: 0x06000BBD RID: 3005 RVA: 0x0002DFD8 File Offset: 0x0002C1D8
 	public MultiValue(IEqualityComparer<TValue> equalityComparer)
 	{
 		this.hashSet = new HashSet<TValue>(equalityComparer);
 		this.list = new List<TValue>();
 	}
 
-	// Token: 0x06000A94 RID: 2708 RVA: 0x0002A27C File Offset: 0x0002847C
+	// Token: 0x06000BBE RID: 3006 RVA: 0x0002DFF8 File Offset: 0x0002C1F8
 	IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator()
 	{
 		return ((IEnumerable<TValue>)this.list).GetEnumerator();
 	}
 
-	// Token: 0x06000A95 RID: 2709 RVA: 0x0002A28C File Offset: 0x0002848C
+	// Token: 0x06000BBF RID: 3007 RVA: 0x0002E008 File Offset: 0x0002C208
 	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return ((IEnumerable)this.list).GetEnumerator();
 	}
 
-	// Token: 0x06000A96 RID: 2710 RVA: 0x0002A29C File Offset: 0x0002849C
+	// Token: 0x06000BC0 RID: 3008 RVA: 0x0002E018 File Offset: 0x0002C218
 	void IList<TValue>.Insert(int index, TValue value)
 	{
 		this.InsertOrMove(index, value);
 	}
 
-	// Token: 0x06000A97 RID: 2711 RVA: 0x0002A2A8 File Offset: 0x000284A8
+	// Token: 0x06000BC1 RID: 3009 RVA: 0x0002E024 File Offset: 0x0002C224
 	void IList<TValue>.RemoveAt(int index)
 	{
 		TValue item = this.list[index];
@@ -90,7 +90,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		this.count--;
 	}
 
-	// Token: 0x06000A98 RID: 2712 RVA: 0x0002A2EC File Offset: 0x000284EC
+	// Token: 0x06000BC2 RID: 3010 RVA: 0x0002E068 File Offset: 0x0002C268
 	void ICollection<TValue>.Add(TValue item)
 	{
 		if (this.hashSet.Add(item))
@@ -100,7 +100,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000A99 RID: 2713 RVA: 0x0002A31C File Offset: 0x0002851C
+	// Token: 0x06000BC3 RID: 3011 RVA: 0x0002E098 File Offset: 0x0002C298
 	void ICollection<TValue>.Clear()
 	{
 		if (this.count > 0)
@@ -111,14 +111,14 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000A9A RID: 2714 RVA: 0x0002A348 File Offset: 0x00028548
+	// Token: 0x06000BC4 RID: 3012 RVA: 0x0002E0C4 File Offset: 0x0002C2C4
 	bool ICollection<TValue>.Remove(TValue value)
 	{
 		return this.Remove(value) != 0;
 	}
 
-	// Token: 0x170002F6 RID: 758
-	// (get) Token: 0x06000A9B RID: 2715 RVA: 0x0002A358 File Offset: 0x00028558
+	// Token: 0x17000338 RID: 824
+	// (get) Token: 0x06000BC5 RID: 3013 RVA: 0x0002E0D4 File Offset: 0x0002C2D4
 	bool ICollection<TValue>.IsReadOnly
 	{
 		get
@@ -127,19 +127,19 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000A9C RID: 2716 RVA: 0x0002A35C File Offset: 0x0002855C
+	// Token: 0x06000BC6 RID: 3014 RVA: 0x0002E0D8 File Offset: 0x0002C2D8
 	object ICloneable.Clone()
 	{
 		return this.Clone();
 	}
 
-	// Token: 0x06000A9D RID: 2717 RVA: 0x0002A364 File Offset: 0x00028564
+	// Token: 0x06000BC7 RID: 3015 RVA: 0x0002E0E0 File Offset: 0x0002C2E0
 	public List<TValue>.Enumerator GetEnumerator()
 	{
 		return this.list.GetEnumerator();
 	}
 
-	// Token: 0x06000A9E RID: 2718 RVA: 0x0002A374 File Offset: 0x00028574
+	// Token: 0x06000BC8 RID: 3016 RVA: 0x0002E0F0 File Offset: 0x0002C2F0
 	public int IndexOf(TValue item)
 	{
 		if (this.count >= 16 && !this.hashSet.Contains(item))
@@ -149,7 +149,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		return this.list.IndexOf(item);
 	}
 
-	// Token: 0x06000A9F RID: 2719 RVA: 0x0002A3B0 File Offset: 0x000285B0
+	// Token: 0x06000BC9 RID: 3017 RVA: 0x0002E12C File Offset: 0x0002C32C
 	public int InsertOrMove(int index, TValue item)
 	{
 		if (index == this.count)
@@ -228,7 +228,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000AA0 RID: 2720 RVA: 0x0002A598 File Offset: 0x00028798
+	// Token: 0x06000BCA RID: 3018 RVA: 0x0002E314 File Offset: 0x0002C514
 	public bool RemoveAt(int index)
 	{
 		TValue item = this.list[index];
@@ -237,7 +237,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		return --this.count != 0;
 	}
 
-	// Token: 0x170002F7 RID: 759
+	// Token: 0x17000339 RID: 825
 	public TValue this[int index]
 	{
 		get
@@ -250,7 +250,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000AA3 RID: 2723 RVA: 0x0002A604 File Offset: 0x00028804
+	// Token: 0x06000BCD RID: 3021 RVA: 0x0002E380 File Offset: 0x0002C580
 	public bool Add(TValue item)
 	{
 		if (this.hashSet.Add(item))
@@ -262,7 +262,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		return false;
 	}
 
-	// Token: 0x06000AA4 RID: 2724 RVA: 0x0002A640 File Offset: 0x00028840
+	// Token: 0x06000BCE RID: 3022 RVA: 0x0002E3BC File Offset: 0x0002C5BC
 	public bool Clear()
 	{
 		if (this.count > 0)
@@ -275,19 +275,19 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		return false;
 	}
 
-	// Token: 0x06000AA5 RID: 2725 RVA: 0x0002A67C File Offset: 0x0002887C
+	// Token: 0x06000BCF RID: 3023 RVA: 0x0002E3F8 File Offset: 0x0002C5F8
 	public bool Contains(TValue item)
 	{
 		return this.hashSet.Contains(item);
 	}
 
-	// Token: 0x06000AA6 RID: 2726 RVA: 0x0002A68C File Offset: 0x0002888C
+	// Token: 0x06000BD0 RID: 3024 RVA: 0x0002E408 File Offset: 0x0002C608
 	public void CopyTo(TValue[] array, int arrayIndex)
 	{
 		this.list.CopyTo(array, arrayIndex);
 	}
 
-	// Token: 0x06000AA7 RID: 2727 RVA: 0x0002A69C File Offset: 0x0002889C
+	// Token: 0x06000BD1 RID: 3025 RVA: 0x0002E418 File Offset: 0x0002C618
 	public int Remove(TValue item)
 	{
 		if (!this.hashSet.Remove(item))
@@ -302,8 +302,8 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		return (--this.count != 0) ? 1 : 2;
 	}
 
-	// Token: 0x170002F8 RID: 760
-	// (get) Token: 0x06000AA8 RID: 2728 RVA: 0x0002A6FC File Offset: 0x000288FC
+	// Token: 0x1700033A RID: 826
+	// (get) Token: 0x06000BD2 RID: 3026 RVA: 0x0002E478 File Offset: 0x0002C678
 	public int Count
 	{
 		get
@@ -312,7 +312,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000AA9 RID: 2729 RVA: 0x0002A704 File Offset: 0x00028904
+	// Token: 0x06000BD3 RID: 3027 RVA: 0x0002E480 File Offset: 0x0002C680
 	public int AddRange(IEnumerable<TValue> value)
 	{
 		int num = 0;
@@ -326,8 +326,8 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		return num;
 	}
 
-	// Token: 0x06000AAA RID: 2730 RVA: 0x0002A770 File Offset: 0x00028970
-	public void Set(MultiValue<TValue> other)
+	// Token: 0x06000BD4 RID: 3028 RVA: 0x0002E4EC File Offset: 0x0002C6EC
+	public void Set(global::MultiValue<TValue> other)
 	{
 		if (other == this)
 		{
@@ -340,10 +340,10 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		}
 	}
 
-	// Token: 0x06000AAB RID: 2731 RVA: 0x0002A7E4 File Offset: 0x000289E4
-	public MultiValue<TValue> Clone()
+	// Token: 0x06000BD5 RID: 3029 RVA: 0x0002E560 File Offset: 0x0002C760
+	public global::MultiValue<TValue> Clone()
 	{
-		return new MultiValue<TValue>(false)
+		return new global::MultiValue<TValue>(false)
 		{
 			hashSet = new HashSet<TValue>(this.hashSet),
 			list = new List<TValue>(this.list),
@@ -351,8 +351,8 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		};
 	}
 
-	// Token: 0x06000AAC RID: 2732 RVA: 0x0002A828 File Offset: 0x00028A28
-	public bool Clone(IEqualityComparer<TValue> valueComparer, out MultiValue<TValue> val)
+	// Token: 0x06000BD6 RID: 3030 RVA: 0x0002E5A4 File Offset: 0x0002C7A4
+	public bool Clone(IEqualityComparer<TValue> valueComparer, out global::MultiValue<TValue> val)
 	{
 		if (this.count == 0)
 		{
@@ -364,7 +364,7 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			val = this.Clone();
 			return true;
 		}
-		val = new MultiValue<TValue>(this.list, valueComparer);
+		val = new global::MultiValue<TValue>(this.list, valueComparer);
 		if (val.count == 0)
 		{
 			val = null;
@@ -373,25 +373,25 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 		return true;
 	}
 
-	// Token: 0x040006DB RID: 1755
+	// Token: 0x040007EA RID: 2026
 	private const int kCheckHashCountMin = 16;
 
-	// Token: 0x040006DC RID: 1756
+	// Token: 0x040007EB RID: 2027
 	private const bool kIsReadOnly = false;
 
-	// Token: 0x040006DD RID: 1757
+	// Token: 0x040007EC RID: 2028
 	private HashSet<TValue> hashSet;
 
-	// Token: 0x040006DE RID: 1758
+	// Token: 0x040007ED RID: 2029
 	private List<TValue> list;
 
-	// Token: 0x040006DF RID: 1759
+	// Token: 0x040007EE RID: 2030
 	private int count;
 
-	// Token: 0x0200015E RID: 350
+	// Token: 0x02000189 RID: 393
 	private struct InitData
 	{
-		// Token: 0x06000AAD RID: 2733 RVA: 0x0002A880 File Offset: 0x00028A80
+		// Token: 0x06000BD7 RID: 3031 RVA: 0x0002E5FC File Offset: 0x0002C7FC
 		public void RecurseInit()
 		{
 			while (this.enumerator.MoveNext())
@@ -408,59 +408,59 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			this.mv.list = new List<TValue>(this.mv.count);
 		}
 
-		// Token: 0x040006E0 RID: 1760
-		public MultiValue<TValue> mv;
+		// Token: 0x040007EF RID: 2031
+		public global::MultiValue<TValue> mv;
 
-		// Token: 0x040006E1 RID: 1761
+		// Token: 0x040007F0 RID: 2032
 		public IEnumerator<TValue> enumerator;
 	}
 
-	// Token: 0x0200015F RID: 351
+	// Token: 0x0200018A RID: 394
 	public struct KeyPair<TKey> : IEnumerable, IEnumerable<TValue>, ICollection<TValue>, IList<TValue>
 	{
-		// Token: 0x06000AAE RID: 2734 RVA: 0x0002A90C File Offset: 0x00028B0C
-		public KeyPair(DictionaryMultiValue<TKey, TValue> dict, TKey key)
+		// Token: 0x06000BD8 RID: 3032 RVA: 0x0002E688 File Offset: 0x0002C888
+		public KeyPair(global::DictionaryMultiValue<TKey, TValue> dict, TKey key)
 		{
 			this.dict = dict;
 			this.key = key;
 		}
 
-		// Token: 0x06000AAF RID: 2735 RVA: 0x0002A91C File Offset: 0x00028B1C
+		// Token: 0x06000BD9 RID: 3033 RVA: 0x0002E698 File Offset: 0x0002C898
 		IEnumerator<TValue> IEnumerable<TValue>.GetEnumerator()
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			if (this.GetMultiValue(out multiValue))
 			{
 				return ((IEnumerable<TValue>)multiValue).GetEnumerator();
 			}
-			return ((IEnumerable<TValue>)MultiValue<TValue>.KeyPair<TKey>.g.emptyList).GetEnumerator();
+			return ((IEnumerable<TValue>)global::MultiValue<TValue>.KeyPair<TKey>.g.emptyList).GetEnumerator();
 		}
 
-		// Token: 0x06000AB0 RID: 2736 RVA: 0x0002A948 File Offset: 0x00028B48
+		// Token: 0x06000BDA RID: 3034 RVA: 0x0002E6C4 File Offset: 0x0002C8C4
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			if (this.GetMultiValue(out multiValue))
 			{
 				return ((IEnumerable)multiValue).GetEnumerator();
 			}
-			return ((IEnumerable)MultiValue<TValue>.KeyPair<TKey>.g.emptyList).GetEnumerator();
+			return ((IEnumerable)global::MultiValue<TValue>.KeyPair<TKey>.g.emptyList).GetEnumerator();
 		}
 
-		// Token: 0x06000AB1 RID: 2737 RVA: 0x0002A974 File Offset: 0x00028B74
+		// Token: 0x06000BDB RID: 3035 RVA: 0x0002E6F0 File Offset: 0x0002C8F0
 		bool ICollection<TValue>.Remove(TValue value)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			return this.GetMultiValue(out multiValue) && ((ICollection<TValue>)multiValue).Remove(value);
 		}
 
-		// Token: 0x06000AB2 RID: 2738 RVA: 0x0002A998 File Offset: 0x00028B98
+		// Token: 0x06000BDC RID: 3036 RVA: 0x0002E714 File Offset: 0x0002C914
 		void IList<TValue>.RemoveAt(int index)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			if (!this.GetMultiValue(out multiValue))
 			{
-				MultiValue<TValue>.KeyPair<TKey>.g.emptyList.RemoveAt(index);
+				global::MultiValue<TValue>.KeyPair<TKey>.g.emptyList.RemoveAt(index);
 			}
 			else
 			{
@@ -468,10 +468,10 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x06000AB3 RID: 2739 RVA: 0x0002A9CC File Offset: 0x00028BCC
+		// Token: 0x06000BDD RID: 3037 RVA: 0x0002E748 File Offset: 0x0002C948
 		void IList<TValue>.Insert(int index, TValue value)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			bool orCreateMultiValue = this.GetOrCreateMultiValue(out multiValue);
 			((IList<TValue>)multiValue).Insert(index, value);
 			if (!orCreateMultiValue && multiValue.count > 0)
@@ -480,10 +480,10 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x06000AB4 RID: 2740 RVA: 0x0002AA04 File Offset: 0x00028C04
+		// Token: 0x06000BDE RID: 3038 RVA: 0x0002E780 File Offset: 0x0002C980
 		void ICollection<TValue>.Add(TValue item)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			bool orCreateMultiValue = this.GetOrCreateMultiValue(out multiValue);
 			((ICollection<TValue>)multiValue).Add(item);
 			if (!orCreateMultiValue && multiValue.count != 0)
@@ -492,18 +492,18 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x06000AB5 RID: 2741 RVA: 0x0002AA3C File Offset: 0x00028C3C
+		// Token: 0x06000BDF RID: 3039 RVA: 0x0002E7B8 File Offset: 0x0002C9B8
 		void ICollection<TValue>.Clear()
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			if (this.GetMultiValue(out multiValue))
 			{
 				((ICollection<TValue>)multiValue).Clear();
 			}
 		}
 
-		// Token: 0x170002F9 RID: 761
-		// (get) Token: 0x06000AB6 RID: 2742 RVA: 0x0002AA5C File Offset: 0x00028C5C
+		// Token: 0x1700033B RID: 827
+		// (get) Token: 0x06000BE0 RID: 3040 RVA: 0x0002E7D8 File Offset: 0x0002C9D8
 		bool ICollection<TValue>.IsReadOnly
 		{
 			get
@@ -512,8 +512,8 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x170002FA RID: 762
-		// (get) Token: 0x06000AB7 RID: 2743 RVA: 0x0002AA60 File Offset: 0x00028C60
+		// Token: 0x1700033C RID: 828
+		// (get) Token: 0x06000BE1 RID: 3041 RVA: 0x0002E7DC File Offset: 0x0002C9DC
 		public TKey Key
 		{
 			get
@@ -522,9 +522,9 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x170002FB RID: 763
-		// (get) Token: 0x06000AB8 RID: 2744 RVA: 0x0002AA68 File Offset: 0x00028C68
-		public DictionaryMultiValue<TKey, TValue> Dictionary
+		// Token: 0x1700033D RID: 829
+		// (get) Token: 0x06000BE2 RID: 3042 RVA: 0x0002E7E4 File Offset: 0x0002C9E4
+		public global::DictionaryMultiValue<TKey, TValue> Dictionary
 		{
 			get
 			{
@@ -532,8 +532,8 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x170002FC RID: 764
-		// (get) Token: 0x06000AB9 RID: 2745 RVA: 0x0002AA70 File Offset: 0x00028C70
+		// Token: 0x1700033E RID: 830
+		// (get) Token: 0x06000BE3 RID: 3043 RVA: 0x0002E7EC File Offset: 0x0002C9EC
 		public bool Valid
 		{
 			get
@@ -542,8 +542,8 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x06000ABA RID: 2746 RVA: 0x0002AA80 File Offset: 0x00028C80
-		private bool GetMultiValue(out MultiValue<TValue> v)
+		// Token: 0x06000BE4 RID: 3044 RVA: 0x0002E7FC File Offset: 0x0002C9FC
+		private bool GetMultiValue(out global::MultiValue<TValue> v)
 		{
 			if (this.dict == null)
 			{
@@ -552,8 +552,8 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			return this.dict.GetMultiValue(this.key, out v);
 		}
 
-		// Token: 0x06000ABB RID: 2747 RVA: 0x0002AAB0 File Offset: 0x00028CB0
-		private bool GetOrCreateMultiValue(out MultiValue<TValue> v)
+		// Token: 0x06000BE5 RID: 3045 RVA: 0x0002E82C File Offset: 0x0002CA2C
+		private bool GetOrCreateMultiValue(out global::MultiValue<TValue> v)
 		{
 			if (this.dict == null)
 			{
@@ -562,38 +562,38 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			return this.dict.GetOrCreateMultiValue(this.key, out v);
 		}
 
-		// Token: 0x06000ABC RID: 2748 RVA: 0x0002AAE8 File Offset: 0x00028CE8
-		private void Bind(MultiValue<TValue> v)
+		// Token: 0x06000BE6 RID: 3046 RVA: 0x0002E864 File Offset: 0x0002CA64
+		private void Bind(global::MultiValue<TValue> v)
 		{
 			this.dict.SetMultiValue(this.key, v);
 		}
 
-		// Token: 0x06000ABD RID: 2749 RVA: 0x0002AAFC File Offset: 0x00028CFC
+		// Token: 0x06000BE7 RID: 3047 RVA: 0x0002E878 File Offset: 0x0002CA78
 		public List<TValue>.Enumerator GetEnumerator()
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			if (this.GetMultiValue(out multiValue))
 			{
 				return multiValue.GetEnumerator();
 			}
-			return MultiValue<TValue>.KeyPair<TKey>.g.emptyList.GetEnumerator();
+			return global::MultiValue<TValue>.KeyPair<TKey>.g.emptyList.GetEnumerator();
 		}
 
-		// Token: 0x170002FD RID: 765
-		// (get) Token: 0x06000ABE RID: 2750 RVA: 0x0002AB28 File Offset: 0x00028D28
+		// Token: 0x1700033F RID: 831
+		// (get) Token: 0x06000BE8 RID: 3048 RVA: 0x0002E8A4 File Offset: 0x0002CAA4
 		public int Count
 		{
 			get
 			{
-				MultiValue<TValue> multiValue;
+				global::MultiValue<TValue> multiValue;
 				return (!this.GetMultiValue(out multiValue)) ? multiValue.Count : 0;
 			}
 		}
 
-		// Token: 0x06000ABF RID: 2751 RVA: 0x0002AB50 File Offset: 0x00028D50
+		// Token: 0x06000BE9 RID: 3049 RVA: 0x0002E8CC File Offset: 0x0002CACC
 		public bool Add(TValue value)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			bool orCreateMultiValue = this.GetOrCreateMultiValue(out multiValue);
 			if (multiValue.Add(value))
 			{
@@ -606,10 +606,10 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			return false;
 		}
 
-		// Token: 0x06000AC0 RID: 2752 RVA: 0x0002AB84 File Offset: 0x00028D84
+		// Token: 0x06000BEA RID: 3050 RVA: 0x0002E900 File Offset: 0x0002CB00
 		public int InsertOrMove(int index, TValue item)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			bool orCreateMultiValue = this.GetOrCreateMultiValue(out multiValue);
 			int num = multiValue.InsertOrMove(index, item);
 			if (num == 1 && !orCreateMultiValue)
@@ -619,73 +619,73 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			return num;
 		}
 
-		// Token: 0x06000AC1 RID: 2753 RVA: 0x0002ABB8 File Offset: 0x00028DB8
+		// Token: 0x06000BEB RID: 3051 RVA: 0x0002E934 File Offset: 0x0002CB34
 		public int Remove(TValue value)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			return (!this.GetMultiValue(out multiValue)) ? 0 : multiValue.Remove(value);
 		}
 
-		// Token: 0x06000AC2 RID: 2754 RVA: 0x0002ABE0 File Offset: 0x00028DE0
+		// Token: 0x06000BEC RID: 3052 RVA: 0x0002E95C File Offset: 0x0002CB5C
 		public bool Contains(TValue value)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			return this.GetMultiValue(out multiValue) && multiValue.Contains(value);
 		}
 
-		// Token: 0x06000AC3 RID: 2755 RVA: 0x0002AC04 File Offset: 0x00028E04
+		// Token: 0x06000BED RID: 3053 RVA: 0x0002E980 File Offset: 0x0002CB80
 		public bool Clear(TValue value)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			return this.GetMultiValue(out multiValue) && multiValue.Clear();
 		}
 
-		// Token: 0x06000AC4 RID: 2756 RVA: 0x0002AC28 File Offset: 0x00028E28
+		// Token: 0x06000BEE RID: 3054 RVA: 0x0002E9A4 File Offset: 0x0002CBA4
 		public bool RemoveAt(int index)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			return this.GetMultiValue(out multiValue) && multiValue.RemoveAt(index);
 		}
 
-		// Token: 0x06000AC5 RID: 2757 RVA: 0x0002AC4C File Offset: 0x00028E4C
+		// Token: 0x06000BEF RID: 3055 RVA: 0x0002E9C8 File Offset: 0x0002CBC8
 		public void CopyTo(TValue[] array, int arrayIndex)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			if (this.GetMultiValue(out multiValue))
 			{
 				multiValue.CopyTo(array, arrayIndex);
 			}
 			else
 			{
-				MultiValue<TValue>.KeyPair<TKey>.g.emptyList.CopyTo(array, arrayIndex);
+				global::MultiValue<TValue>.KeyPair<TKey>.g.emptyList.CopyTo(array, arrayIndex);
 			}
 		}
 
-		// Token: 0x06000AC6 RID: 2758 RVA: 0x0002AC80 File Offset: 0x00028E80
+		// Token: 0x06000BF0 RID: 3056 RVA: 0x0002E9FC File Offset: 0x0002CBFC
 		public int IndexOf(TValue item)
 		{
-			MultiValue<TValue> multiValue;
+			global::MultiValue<TValue> multiValue;
 			return (!this.GetMultiValue(out multiValue)) ? -1 : multiValue.IndexOf(item);
 		}
 
-		// Token: 0x170002FE RID: 766
+		// Token: 0x17000340 RID: 832
 		public TValue this[int i]
 		{
 			get
 			{
-				MultiValue<TValue> multiValue;
+				global::MultiValue<TValue> multiValue;
 				if (!this.GetMultiValue(out multiValue))
 				{
-					return MultiValue<TValue>.KeyPair<TKey>.g.emptyList[i];
+					return global::MultiValue<TValue>.KeyPair<TKey>.g.emptyList[i];
 				}
 				return multiValue[i];
 			}
 			set
 			{
-				MultiValue<TValue> multiValue;
+				global::MultiValue<TValue> multiValue;
 				if (!this.GetMultiValue(out multiValue))
 				{
-					MultiValue<TValue>.KeyPair<TKey>.g.emptyList[i] = value;
+					global::MultiValue<TValue>.KeyPair<TKey>.g.emptyList[i] = value;
 				}
 				else
 				{
@@ -694,16 +694,16 @@ public class MultiValue<TValue> : IEnumerable, IEnumerable<TValue>, ICollection<
 			}
 		}
 
-		// Token: 0x040006E2 RID: 1762
+		// Token: 0x040007F1 RID: 2033
 		private readonly TKey key;
 
-		// Token: 0x040006E3 RID: 1763
-		private readonly DictionaryMultiValue<TKey, TValue> dict;
+		// Token: 0x040007F2 RID: 2034
+		private readonly global::DictionaryMultiValue<TKey, TValue> dict;
 
-		// Token: 0x02000160 RID: 352
+		// Token: 0x0200018B RID: 395
 		private static class g
 		{
-			// Token: 0x040006E4 RID: 1764
+			// Token: 0x040007F3 RID: 2035
 			public static readonly List<TValue> emptyList = new List<TValue>(0);
 		}
 	}

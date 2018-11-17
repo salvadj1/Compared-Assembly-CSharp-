@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000101 RID: 257
-public class CharacterCrouchTrait : CharacterTrait
+// Token: 0x02000120 RID: 288
+public class CharacterCrouchTrait : global::CharacterTrait
 {
-	// Token: 0x17000156 RID: 342
-	// (get) Token: 0x06000699 RID: 1689 RVA: 0x0001E6DC File Offset: 0x0001C8DC
+	// Token: 0x17000184 RID: 388
+	// (get) Token: 0x0600076B RID: 1899 RVA: 0x000212B0 File Offset: 0x0001F4B0
 	public AnimationCurve crouchCurve
 	{
 		get
@@ -14,8 +14,8 @@ public class CharacterCrouchTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000157 RID: 343
-	// (get) Token: 0x0600069A RID: 1690 RVA: 0x0001E6E4 File Offset: 0x0001C8E4
+	// Token: 0x17000185 RID: 389
+	// (get) Token: 0x0600076C RID: 1900 RVA: 0x000212B8 File Offset: 0x0001F4B8
 	public float crouchToSpeedFraction
 	{
 		get
@@ -24,8 +24,8 @@ public class CharacterCrouchTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000158 RID: 344
-	// (get) Token: 0x0600069B RID: 1691 RVA: 0x0001E6EC File Offset: 0x0001C8EC
+	// Token: 0x17000186 RID: 390
+	// (get) Token: 0x0600076D RID: 1901 RVA: 0x000212C0 File Offset: 0x0001F4C0
 	private float crouchSpeedBase
 	{
 		get
@@ -38,8 +38,8 @@ public class CharacterCrouchTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000159 RID: 345
-	// (get) Token: 0x0600069C RID: 1692 RVA: 0x0001E744 File Offset: 0x0001C944
+	// Token: 0x17000187 RID: 391
+	// (get) Token: 0x0600076E RID: 1902 RVA: 0x00021318 File Offset: 0x0001F518
 	public float crouchOutSpeed
 	{
 		get
@@ -48,8 +48,8 @@ public class CharacterCrouchTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700015A RID: 346
-	// (get) Token: 0x0600069D RID: 1693 RVA: 0x0001E754 File Offset: 0x0001C954
+	// Token: 0x17000188 RID: 392
+	// (get) Token: 0x0600076F RID: 1903 RVA: 0x00021328 File Offset: 0x0001F528
 	public float crouchInSpeed
 	{
 		get
@@ -58,13 +58,13 @@ public class CharacterCrouchTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x0600069E RID: 1694 RVA: 0x0001E76C File Offset: 0x0001C96C
+	// Token: 0x06000770 RID: 1904 RVA: 0x00021340 File Offset: 0x0001F540
 	public bool IsCrouching(float minHeight, float maxHeight, float currentHeight)
 	{
 		return Mathf.InverseLerp(minHeight, maxHeight, currentHeight) <= this._maxCrouchFraction;
 	}
 
-	// Token: 0x040004F5 RID: 1269
+	// Token: 0x040005C0 RID: 1472
 	[SerializeField]
 	private AnimationCurve _crouchCurve = new AnimationCurve(new Keyframe[]
 	{
@@ -72,11 +72,11 @@ public class CharacterCrouchTrait : CharacterTrait
 		new Keyframe(0.55f, -0.55f, 0f, 0f)
 	});
 
-	// Token: 0x040004F6 RID: 1270
+	// Token: 0x040005C1 RID: 1473
 	[SerializeField]
 	private float _crouchToSpeedFraction = 1.3f;
 
-	// Token: 0x040004F7 RID: 1271
+	// Token: 0x040005C2 RID: 1474
 	[SerializeField]
 	private float _maxCrouchFraction = 0.9f;
 }

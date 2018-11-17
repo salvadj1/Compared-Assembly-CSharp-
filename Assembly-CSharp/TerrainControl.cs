@@ -2,27 +2,27 @@
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x0200068D RID: 1677
+// Token: 0x02000752 RID: 1874
 [ExecuteInEditMode]
 public sealed class TerrainControl : MonoBehaviour
 {
-	// Token: 0x06003A05 RID: 14853 RVA: 0x000D7E6C File Offset: 0x000D606C
+	// Token: 0x06003DFD RID: 15869 RVA: 0x000E084C File Offset: 0x000DEA4C
 	[ContextMenu("Get settings from terrain")]
 	private void CopyTerrainSettings()
 	{
 		this.settings.CopyFrom(this.terrain);
 	}
 
-	// Token: 0x06003A06 RID: 14854 RVA: 0x000D7E80 File Offset: 0x000D6080
+	// Token: 0x06003DFE RID: 15870 RVA: 0x000E0860 File Offset: 0x000DEA60
 	[ContextMenu("Set settings to terrain")]
 	private void RestoreTerrainSettings()
 	{
 		this.settings.CopyTo(this.terrain);
 	}
 
-	// Token: 0x17000B3C RID: 2876
-	// (get) Token: 0x06003A07 RID: 14855 RVA: 0x000D7E94 File Offset: 0x000D6094
-	// (set) Token: 0x06003A08 RID: 14856 RVA: 0x000D7E9C File Offset: 0x000D609C
+	// Token: 0x17000BBE RID: 3006
+	// (get) Token: 0x06003DFF RID: 15871 RVA: 0x000E0874 File Offset: 0x000DEA74
+	// (set) Token: 0x06003E00 RID: 15872 RVA: 0x000E087C File Offset: 0x000DEA7C
 	public float customBasemapDistance
 	{
 		get
@@ -36,8 +36,8 @@ public sealed class TerrainControl : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B3D RID: 2877
-	// (get) Token: 0x06003A09 RID: 14857 RVA: 0x000D7EAC File Offset: 0x000D60AC
+	// Token: 0x17000BBF RID: 3007
+	// (get) Token: 0x06003E01 RID: 15873 RVA: 0x000E088C File Offset: 0x000DEA8C
 	public Terrain terrain
 	{
 		get
@@ -46,7 +46,7 @@ public sealed class TerrainControl : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A0A RID: 14858 RVA: 0x000D7EB4 File Offset: 0x000D60B4
+	// Token: 0x06003E02 RID: 15874 RVA: 0x000E0894 File Offset: 0x000DEA94
 	private void Reset()
 	{
 		GameObject[] array = GameObject.FindGameObjectsWithTag("Main Terrain");
@@ -63,16 +63,16 @@ public sealed class TerrainControl : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A0B RID: 14859 RVA: 0x000D7F0C File Offset: 0x000D610C
+	// Token: 0x06003E03 RID: 15875 RVA: 0x000E08EC File Offset: 0x000DEAEC
 	private void OnApplicationQuit()
 	{
 		this.quitting = true;
 	}
 
-	// Token: 0x06003A0C RID: 14860 RVA: 0x000D7F18 File Offset: 0x000D6118
+	// Token: 0x06003E04 RID: 15876 RVA: 0x000E08F8 File Offset: 0x000DEAF8
 	private void OnEnable()
 	{
-		TerrainControl.activeTerrainControl = this;
+		global::TerrainControl.activeTerrainControl = this;
 		this.quitting = false;
 		if (!this.running)
 		{
@@ -85,55 +85,55 @@ public sealed class TerrainControl : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A0D RID: 14861 RVA: 0x000D7F6C File Offset: 0x000D616C
+	// Token: 0x06003E05 RID: 15877 RVA: 0x000E094C File Offset: 0x000DEB4C
 	internal static void ter_reassign()
 	{
-		if (TerrainControl.activeTerrainControl)
+		if (global::TerrainControl.activeTerrainControl)
 		{
-			TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(true, false, false, false);
+			global::TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(true, false, false, false);
 		}
 	}
 
-	// Token: 0x06003A0E RID: 14862 RVA: 0x000D7F8C File Offset: 0x000D618C
+	// Token: 0x06003E06 RID: 15878 RVA: 0x000E096C File Offset: 0x000DEB6C
 	internal static void ter_reassign_nocopy()
 	{
-		if (TerrainControl.activeTerrainControl)
+		if (global::TerrainControl.activeTerrainControl)
 		{
-			TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(true, false, false, true);
+			global::TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(true, false, false, true);
 		}
 	}
 
-	// Token: 0x06003A0F RID: 14863 RVA: 0x000D7FAC File Offset: 0x000D61AC
+	// Token: 0x06003E07 RID: 15879 RVA: 0x000E098C File Offset: 0x000DEB8C
 	internal static void ter_flush()
 	{
-		if (TerrainControl.activeTerrainControl)
+		if (global::TerrainControl.activeTerrainControl)
 		{
-			TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(false, true, false, false);
+			global::TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(false, true, false, false);
 		}
 	}
 
-	// Token: 0x06003A10 RID: 14864 RVA: 0x000D7FCC File Offset: 0x000D61CC
+	// Token: 0x06003E08 RID: 15880 RVA: 0x000E09AC File Offset: 0x000DEBAC
 	internal static void ter_mat()
 	{
-		if (TerrainControl.activeTerrainControl)
+		if (global::TerrainControl.activeTerrainControl)
 		{
-			TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(false, false, true, false);
+			global::TerrainControl.activeTerrainControl.DoReassignmentOfTerrainData(false, false, true, false);
 		}
 	}
 
-	// Token: 0x06003A11 RID: 14865 RVA: 0x000D7FEC File Offset: 0x000D61EC
+	// Token: 0x06003E09 RID: 15881 RVA: 0x000E09CC File Offset: 0x000DEBCC
 	internal static void ter_flushtrees()
 	{
-		if (TerrainControl.activeTerrainControl && TerrainControl.activeTerrainControl._terrain)
+		if (global::TerrainControl.activeTerrainControl && global::TerrainControl.activeTerrainControl._terrain)
 		{
-			TerrainHack.RefreshTreeTextures(TerrainControl.activeTerrainControl._terrain);
+			global::TerrainHack.RefreshTreeTextures(global::TerrainControl.activeTerrainControl._terrain);
 		}
 	}
 
-	// Token: 0x06003A12 RID: 14866 RVA: 0x000D802C File Offset: 0x000D622C
+	// Token: 0x06003E0A RID: 15882 RVA: 0x000E0A0C File Offset: 0x000DEC0C
 	private bool DoReassignmentOfTerrainData(bool td, bool andFlush, bool mats, bool doNotCopySettings)
 	{
-		if (!this.terrainDataFromBundle && !Bundling.Load<TerrainData>(this.bundlePathToTerrainData, out this.terrainDataFromBundle))
+		if (!this.terrainDataFromBundle && !Facepunch.Bundling.Load<TerrainData>(this.bundlePathToTerrainData, out this.terrainDataFromBundle))
 		{
 			Debug.LogError("Bad terrain data path " + this.bundlePathToTerrainData);
 			return true;
@@ -165,12 +165,12 @@ public sealed class TerrainControl : MonoBehaviour
 		return !this.terrainDataFromBundle;
 	}
 
-	// Token: 0x06003A13 RID: 14867 RVA: 0x000D8100 File Offset: 0x000D6300
+	// Token: 0x06003E0B RID: 15883 RVA: 0x000E0AE0 File Offset: 0x000DECE0
 	private void ReassignTerrainData()
 	{
 		if (Application.isPlaying && !global::terrain.manual)
 		{
-			if (!Bundling.Load<TerrainData>(this.bundlePathToTerrainData, out this.terrainDataFromBundle))
+			if (!Facepunch.Bundling.Load<TerrainData>(this.bundlePathToTerrainData, out this.terrainDataFromBundle))
 			{
 				Debug.LogError("Bad terrain data path " + this.bundlePathToTerrainData);
 			}
@@ -187,7 +187,7 @@ public sealed class TerrainControl : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A14 RID: 14868 RVA: 0x000D81A4 File Offset: 0x000D63A4
+	// Token: 0x06003E0C RID: 15884 RVA: 0x000E0B84 File Offset: 0x000DED84
 	private void OnDisable()
 	{
 		if (!this.quitting && this.running)
@@ -196,7 +196,7 @@ public sealed class TerrainControl : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A15 RID: 14869 RVA: 0x000D81C4 File Offset: 0x000D63C4
+	// Token: 0x06003E0D RID: 15885 RVA: 0x000E0BA4 File Offset: 0x000DEDA4
 	private void BindTerrainSettings()
 	{
 		if (this.forceCustomBasemapDistance && this.terrain)
@@ -205,13 +205,13 @@ public sealed class TerrainControl : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003A16 RID: 14870 RVA: 0x000D8200 File Offset: 0x000D6400
+	// Token: 0x06003E0E RID: 15886 RVA: 0x000E0BE0 File Offset: 0x000DEDE0
 	private void Update()
 	{
 		float idleinterval = global::terrain.idleinterval;
-		MountedCamera main;
+		global::MountedCamera main;
 		bool flag;
-		if (idleinterval <= 0f || !(main = MountedCamera.main))
+		if (idleinterval <= 0f || !(main = global::MountedCamera.main))
 		{
 			flag = true;
 		}
@@ -248,67 +248,67 @@ public sealed class TerrainControl : MonoBehaviour
 			if (num2 > idleinterval)
 			{
 				this.timeNoticedCameraChange = ((idleinterval <= 0f) ? realtimeSinceStartup : (realtimeSinceStartup - num2 % idleinterval));
-				TerrainHack.RefreshTreeTextures(this._terrain);
+				global::TerrainHack.RefreshTreeTextures(this._terrain);
 			}
 		}
 	}
 
-	// Token: 0x04001E22 RID: 7714
+	// Token: 0x0400201A RID: 8218
 	[SerializeField]
 	private Terrain _terrain;
 
-	// Token: 0x04001E23 RID: 7715
+	// Token: 0x0400201B RID: 8219
 	[SerializeField]
 	private float _customBasemapDistance = 10000f;
 
-	// Token: 0x04001E24 RID: 7716
+	// Token: 0x0400201C RID: 8220
 	[NonSerialized]
 	private bool running;
 
-	// Token: 0x04001E25 RID: 7717
+	// Token: 0x0400201D RID: 8221
 	[NonSerialized]
 	private bool quitting;
 
-	// Token: 0x04001E26 RID: 7718
+	// Token: 0x0400201E RID: 8222
 	[SerializeField]
 	private Material _terrainMaterialTemplate;
 
-	// Token: 0x04001E27 RID: 7719
-	private static TerrainControl activeTerrainControl;
+	// Token: 0x0400201F RID: 8223
+	private static global::TerrainControl activeTerrainControl;
 
-	// Token: 0x04001E28 RID: 7720
+	// Token: 0x04002020 RID: 8224
 	[SerializeField]
-	private TerrainControl.TerrainSettingsHack settings;
+	private global::TerrainControl.TerrainSettingsHack settings;
 
-	// Token: 0x04001E29 RID: 7721
+	// Token: 0x04002021 RID: 8225
 	public bool forceCustomBasemapDistance = true;
 
-	// Token: 0x04001E2A RID: 7722
+	// Token: 0x04002022 RID: 8226
 	public string bundlePathToTerrainData = "Env/ter/rust_island_2013-2";
 
-	// Token: 0x04001E2B RID: 7723
+	// Token: 0x04002023 RID: 8227
 	public float reassignTerrainDataInterval;
 
-	// Token: 0x04001E2C RID: 7724
+	// Token: 0x04002024 RID: 8228
 	private TerrainData terrainDataFromBundle;
 
-	// Token: 0x04001E2D RID: 7725
+	// Token: 0x04002025 RID: 8229
 	[NonSerialized]
 	private float timeNoticedCameraChange;
 
-	// Token: 0x04001E2E RID: 7726
+	// Token: 0x04002026 RID: 8230
 	[NonSerialized]
 	private Vector3 lastCameraPosition;
 
-	// Token: 0x04001E2F RID: 7727
+	// Token: 0x04002027 RID: 8231
 	[NonSerialized]
 	private Vector3 lastCameraForward;
 
-	// Token: 0x0200068E RID: 1678
+	// Token: 0x02000753 RID: 1875
 	[Serializable]
 	private class TerrainSettingsHack
 	{
-		// Token: 0x06003A18 RID: 14872 RVA: 0x000D837C File Offset: 0x000D657C
+		// Token: 0x06003E10 RID: 15888 RVA: 0x000E0D5C File Offset: 0x000DEF5C
 		public void CopyFrom(Terrain terrain)
 		{
 			this.basemapDistance = terrain.basemapDistance;
@@ -324,7 +324,7 @@ public sealed class TerrainControl : MonoBehaviour
 			this.treeMaximumFullLODCount = terrain.treeMaximumFullLODCount;
 		}
 
-		// Token: 0x06003A19 RID: 14873 RVA: 0x000D8410 File Offset: 0x000D6610
+		// Token: 0x06003E11 RID: 15889 RVA: 0x000E0DF0 File Offset: 0x000DEFF0
 		public void CopyTo(Terrain terrain)
 		{
 			terrain.basemapDistance = this.basemapDistance;
@@ -340,37 +340,37 @@ public sealed class TerrainControl : MonoBehaviour
 			terrain.treeMaximumFullLODCount = this.treeMaximumFullLODCount;
 		}
 
-		// Token: 0x04001E30 RID: 7728
+		// Token: 0x04002028 RID: 8232
 		public float basemapDistance;
 
-		// Token: 0x04001E31 RID: 7729
+		// Token: 0x04002029 RID: 8233
 		public bool castShadows;
 
-		// Token: 0x04001E32 RID: 7730
+		// Token: 0x0400202A RID: 8234
 		public float detailObjectDensity;
 
-		// Token: 0x04001E33 RID: 7731
+		// Token: 0x0400202B RID: 8235
 		public float detailObjectDistance;
 
-		// Token: 0x04001E34 RID: 7732
+		// Token: 0x0400202C RID: 8236
 		public int heightmapMaximumLOD;
 
-		// Token: 0x04001E35 RID: 7733
+		// Token: 0x0400202D RID: 8237
 		public float heightmapPixelError;
 
-		// Token: 0x04001E36 RID: 7734
+		// Token: 0x0400202E RID: 8238
 		public Material materialTemplate;
 
-		// Token: 0x04001E37 RID: 7735
+		// Token: 0x0400202F RID: 8239
 		public float treeBillboardDistance;
 
-		// Token: 0x04001E38 RID: 7736
+		// Token: 0x04002030 RID: 8240
 		public float treeCrossFadeLength;
 
-		// Token: 0x04001E39 RID: 7737
+		// Token: 0x04002031 RID: 8241
 		public float treeDistance;
 
-		// Token: 0x04001E3A RID: 7738
+		// Token: 0x04002032 RID: 8242
 		public int treeMaximumFullLODCount;
 	}
 }

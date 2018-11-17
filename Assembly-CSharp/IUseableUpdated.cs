@@ -1,13 +1,13 @@
 ﻿using System;
 using Facepunch;
 
-// Token: 0x020001F2 RID: 498
-public interface IUseableUpdated : IUseable, IComponentInterface<IUseable, MonoBehaviour, Useable>, IComponentInterface<IUseable, MonoBehaviour>, IComponentInterface<IUseable>
+// Token: 0x02000225 RID: 549
+public interface IUseableUpdated : global::IUseable, global::IComponentInterface<global::IUseable, MonoBehaviour, global::Useable>, global::IComponentInterface<global::IUseable, MonoBehaviour>, global::IComponentInterface<global::IUseable>
 {
-	// Token: 0x1700034D RID: 845
-	// (get) Token: 0x06000DA1 RID: 3489
-	UseUpdateFlags UseUpdateFlags { get; }
+	// Token: 0x17000395 RID: 917
+	// (get) Token: 0x06000EF5 RID: 3829
+	global::UseUpdateFlags UseUpdateFlags { get; }
 
-	// Token: 0x06000DA2 RID: 3490
-	void OnUseUpdate(Useable use);
+	// Token: 0x06000EF6 RID: 3830
+	void OnUseUpdate(global::Useable use);
 }

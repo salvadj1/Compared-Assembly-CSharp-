@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000841 RID: 2113
+// Token: 0x02000936 RID: 2358
 [RequireComponent(typeof(AudioSource))]
 public class AudioAtWeather : MonoBehaviour
 {
-	// Token: 0x06004AC2 RID: 19138 RVA: 0x00146774 File Offset: 0x00144974
+	// Token: 0x06004F7D RID: 20349 RVA: 0x001506D8 File Offset: 0x0014E8D8
 	protected void OnEnable()
 	{
 		if (!this.sky)
@@ -17,7 +17,7 @@ public class AudioAtWeather : MonoBehaviour
 		this.audioVolume = this.audioComponent.volume;
 	}
 
-	// Token: 0x06004AC3 RID: 19139 RVA: 0x001467C0 File Offset: 0x001449C0
+	// Token: 0x06004F7E RID: 20350 RVA: 0x00150724 File Offset: 0x0014E924
 	protected void Update()
 	{
 		int num = (this.sky.Components.Weather.Weather != this.type) ? -1 : 1;
@@ -25,21 +25,21 @@ public class AudioAtWeather : MonoBehaviour
 		this.audioComponent.volume = Mathf.Lerp(0f, this.audioVolume, this.lerpTime);
 	}
 
-	// Token: 0x04002BD4 RID: 11220
-	public TOD_Sky sky;
+	// Token: 0x04002E22 RID: 11810
+	public global::TOD_Sky sky;
 
-	// Token: 0x04002BD5 RID: 11221
-	public TOD_Weather.WeatherType type;
+	// Token: 0x04002E23 RID: 11811
+	public global::TOD_Weather.WeatherType type;
 
-	// Token: 0x04002BD6 RID: 11222
+	// Token: 0x04002E24 RID: 11812
 	public float fadeTime = 1f;
 
-	// Token: 0x04002BD7 RID: 11223
+	// Token: 0x04002E25 RID: 11813
 	private float lerpTime;
 
-	// Token: 0x04002BD8 RID: 11224
+	// Token: 0x04002E26 RID: 11814
 	private AudioSource audioComponent;
 
-	// Token: 0x04002BD9 RID: 11225
+	// Token: 0x04002E27 RID: 11815
 	private float audioVolume;
 }

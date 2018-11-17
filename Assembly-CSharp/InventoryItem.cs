@@ -3,44 +3,44 @@ using InventoryExtensions;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020005CF RID: 1487
+// Token: 0x0200068D RID: 1677
 public abstract class InventoryItem
 {
-	// Token: 0x060035B4 RID: 13748 RVA: 0x000C2AFC File Offset: 0x000C0CFC
-	internal InventoryItem(ItemDataBlock datablock)
+	// Token: 0x0600397C RID: 14716 RVA: 0x000CAD58 File Offset: 0x000C8F58
+	internal InventoryItem(global::ItemDataBlock datablock)
 	{
 		this.maxUses = datablock._maxUses;
 		this.datablockUniqueID = datablock.uniqueID;
-		this.iface = (this as IInventoryItem);
+		this.iface = (this as global::IInventoryItem);
 	}
 
-	// Token: 0x17000AA3 RID: 2723
-	// (get) Token: 0x060035B5 RID: 13749 RVA: 0x000C2B34 File Offset: 0x000C0D34
-	// (set) Token: 0x060035B6 RID: 13750 RVA: 0x000C2B3C File Offset: 0x000C0D3C
+	// Token: 0x17000B19 RID: 2841
+	// (get) Token: 0x0600397D RID: 14717 RVA: 0x000CAD90 File Offset: 0x000C8F90
+	// (set) Token: 0x0600397E RID: 14718 RVA: 0x000CAD98 File Offset: 0x000C8F98
 	public float maxcondition { get; private set; }
 
-	// Token: 0x17000AA4 RID: 2724
-	// (get) Token: 0x060035B7 RID: 13751 RVA: 0x000C2B48 File Offset: 0x000C0D48
-	// (set) Token: 0x060035B8 RID: 13752 RVA: 0x000C2B50 File Offset: 0x000C0D50
+	// Token: 0x17000B1A RID: 2842
+	// (get) Token: 0x0600397F RID: 14719 RVA: 0x000CADA4 File Offset: 0x000C8FA4
+	// (set) Token: 0x06003980 RID: 14720 RVA: 0x000CADAC File Offset: 0x000C8FAC
 	public float condition { get; private set; }
 
-	// Token: 0x17000AA5 RID: 2725
-	// (get) Token: 0x060035B9 RID: 13753 RVA: 0x000C2B5C File Offset: 0x000C0D5C
-	// (set) Token: 0x060035BA RID: 13754 RVA: 0x000C2B64 File Offset: 0x000C0D64
+	// Token: 0x17000B1B RID: 2843
+	// (get) Token: 0x06003981 RID: 14721 RVA: 0x000CADB8 File Offset: 0x000C8FB8
+	// (set) Token: 0x06003982 RID: 14722 RVA: 0x000CADC0 File Offset: 0x000C8FC0
 	public int slot { get; private set; }
 
-	// Token: 0x17000AA6 RID: 2726
-	// (get) Token: 0x060035BB RID: 13755 RVA: 0x000C2B70 File Offset: 0x000C0D70
-	// (set) Token: 0x060035BC RID: 13756 RVA: 0x000C2B78 File Offset: 0x000C0D78
+	// Token: 0x17000B1C RID: 2844
+	// (get) Token: 0x06003983 RID: 14723 RVA: 0x000CADCC File Offset: 0x000C8FCC
+	// (set) Token: 0x06003984 RID: 14724 RVA: 0x000CADD4 File Offset: 0x000C8FD4
 	public int uses { get; private set; }
 
-	// Token: 0x17000AA7 RID: 2727
-	// (get) Token: 0x060035BD RID: 13757 RVA: 0x000C2B84 File Offset: 0x000C0D84
-	// (set) Token: 0x060035BE RID: 13758 RVA: 0x000C2B8C File Offset: 0x000C0D8C
-	public Inventory inventory { get; private set; }
+	// Token: 0x17000B1D RID: 2845
+	// (get) Token: 0x06003985 RID: 14725 RVA: 0x000CADE0 File Offset: 0x000C8FE0
+	// (set) Token: 0x06003986 RID: 14726 RVA: 0x000CADE8 File Offset: 0x000C8FE8
+	public global::Inventory inventory { get; private set; }
 
-	// Token: 0x17000AA8 RID: 2728
-	// (get) Token: 0x060035BF RID: 13759 RVA: 0x000C2B98 File Offset: 0x000C0D98
+	// Token: 0x17000B1E RID: 2846
+	// (get) Token: 0x06003987 RID: 14727 RVA: 0x000CADF4 File Offset: 0x000C8FF4
 	public bool dirty
 	{
 		get
@@ -49,85 +49,85 @@ public abstract class InventoryItem
 		}
 	}
 
-	// Token: 0x17000AA9 RID: 2729
-	// (get) Token: 0x060035C0 RID: 13760 RVA: 0x000C2BCC File Offset: 0x000C0DCC
-	// (set) Token: 0x060035C1 RID: 13761 RVA: 0x000C2BD4 File Offset: 0x000C0DD4
+	// Token: 0x17000B1F RID: 2847
+	// (get) Token: 0x06003988 RID: 14728 RVA: 0x000CAE28 File Offset: 0x000C9028
+	// (set) Token: 0x06003989 RID: 14729 RVA: 0x000CAE30 File Offset: 0x000C9030
 	public float lastUseTime { get; set; }
 
-	// Token: 0x17000AAA RID: 2730
-	// (get) Token: 0x060035C2 RID: 13762
+	// Token: 0x17000B20 RID: 2848
+	// (get) Token: 0x0600398A RID: 14730
 	public abstract string toolTip { get; }
 
-	// Token: 0x17000AAB RID: 2731
-	// (get) Token: 0x060035C3 RID: 13763 RVA: 0x000C2BE0 File Offset: 0x000C0DE0
+	// Token: 0x17000B21 RID: 2849
+	// (get) Token: 0x0600398B RID: 14731 RVA: 0x000CAE3C File Offset: 0x000C903C
 	public bool isInLocalInventory
 	{
 		get
 		{
-			Inventory inventory = this.inventory;
-			Character character;
-			return inventory && (character = (inventory.idMain as Character)) && character.localPlayerControlled;
+			global::Inventory inventory = this.inventory;
+			global::Character character;
+			return inventory && (character = (inventory.idMain as global::Character)) && character.localPlayerControlled;
 		}
 	}
 
-	// Token: 0x17000AAC RID: 2732
-	// (get) Token: 0x060035C4 RID: 13764 RVA: 0x000C2C20 File Offset: 0x000C0E20
+	// Token: 0x17000B22 RID: 2850
+	// (get) Token: 0x0600398C RID: 14732 RVA: 0x000CAE7C File Offset: 0x000C907C
 	public IDMain idMain
 	{
 		get
 		{
-			Inventory inventory = this.inventory;
+			global::Inventory inventory = this.inventory;
 			return (!inventory) ? null : inventory.idMain;
 		}
 	}
 
-	// Token: 0x17000AAD RID: 2733
-	// (get) Token: 0x060035C5 RID: 13765 RVA: 0x000C2C4C File Offset: 0x000C0E4C
-	public Character character
+	// Token: 0x17000B23 RID: 2851
+	// (get) Token: 0x0600398D RID: 14733 RVA: 0x000CAEA8 File Offset: 0x000C90A8
+	public global::Character character
 	{
 		get
 		{
-			Inventory inventory = this.inventory;
-			return (!inventory) ? null : (inventory.idMain as Character);
+			global::Inventory inventory = this.inventory;
+			return (!inventory) ? null : (inventory.idMain as global::Character);
 		}
 	}
 
-	// Token: 0x17000AAE RID: 2734
-	// (get) Token: 0x060035C6 RID: 13766 RVA: 0x000C2C7C File Offset: 0x000C0E7C
-	public Controller controller
+	// Token: 0x17000B24 RID: 2852
+	// (get) Token: 0x0600398E RID: 14734 RVA: 0x000CAED8 File Offset: 0x000C90D8
+	public global::Controller controller
 	{
 		get
 		{
-			Inventory inventory = this.inventory;
-			Character character;
-			return (!inventory || !(character = (inventory.idMain as Character))) ? null : character.controller;
+			global::Inventory inventory = this.inventory;
+			global::Character character;
+			return (!inventory || !(character = (inventory.idMain as global::Character))) ? null : character.controller;
 		}
 	}
 
-	// Token: 0x17000AAF RID: 2735
-	// (get) Token: 0x060035C7 RID: 13767 RVA: 0x000C2CC0 File Offset: 0x000C0EC0
-	public Controllable controllable
+	// Token: 0x17000B25 RID: 2853
+	// (get) Token: 0x0600398F RID: 14735 RVA: 0x000CAF1C File Offset: 0x000C911C
+	public global::Controllable controllable
 	{
 		get
 		{
-			Inventory inventory = this.inventory;
-			Character character;
-			return (!inventory || !(character = (inventory.idMain as Character))) ? null : character.controllable;
+			global::Inventory inventory = this.inventory;
+			global::Character character;
+			return (!inventory || !(character = (inventory.idMain as global::Character))) ? null : character.controllable;
 		}
 	}
 
-	// Token: 0x17000AB0 RID: 2736
-	// (get) Token: 0x060035C8 RID: 13768 RVA: 0x000C2D04 File Offset: 0x000C0F04
+	// Token: 0x17000B26 RID: 2854
+	// (get) Token: 0x06003990 RID: 14736 RVA: 0x000CAF60 File Offset: 0x000C9160
 	public bool active
 	{
 		get
 		{
-			Inventory inventory = this.inventory;
+			global::Inventory inventory = this.inventory;
 			return inventory && inventory.activeItem == this;
 		}
 	}
 
-	// Token: 0x060035C9 RID: 13769 RVA: 0x000C2D30 File Offset: 0x000C0F30
+	// Token: 0x06003991 RID: 14737 RVA: 0x000CAF8C File Offset: 0x000C918C
 	public int AddUses(int count)
 	{
 		int uses;
@@ -147,7 +147,7 @@ public abstract class InventoryItem
 		return count;
 	}
 
-	// Token: 0x060035CA RID: 13770 RVA: 0x000C2D94 File Offset: 0x000C0F94
+	// Token: 0x06003992 RID: 14738 RVA: 0x000CAFF0 File Offset: 0x000C91F0
 	public void SetUses(int count)
 	{
 		int uses = this.uses;
@@ -162,7 +162,7 @@ public abstract class InventoryItem
 		}
 	}
 
-	// Token: 0x060035CB RID: 13771 RVA: 0x000C2DD8 File Offset: 0x000C0FD8
+	// Token: 0x06003993 RID: 14739 RVA: 0x000CB034 File Offset: 0x000C9234
 	public bool Consume(ref int numWant)
 	{
 		int uses = this.uses;
@@ -187,7 +187,7 @@ public abstract class InventoryItem
 		return false;
 	}
 
-	// Token: 0x060035CC RID: 13772 RVA: 0x000C2E30 File Offset: 0x000C1030
+	// Token: 0x06003994 RID: 14740 RVA: 0x000CB08C File Offset: 0x000C928C
 	public void SetCondition(float newcondition)
 	{
 		float condition = this.condition;
@@ -196,7 +196,7 @@ public abstract class InventoryItem
 		this.MarkDirty();
 	}
 
-	// Token: 0x060035CD RID: 13773 RVA: 0x000C2E6C File Offset: 0x000C106C
+	// Token: 0x06003995 RID: 14741 RVA: 0x000CB0C8 File Offset: 0x000C92C8
 	public void SetMaxCondition(float newmaxcondition)
 	{
 		float maxcondition = this.maxcondition;
@@ -205,29 +205,29 @@ public abstract class InventoryItem
 		this.MarkDirty();
 	}
 
-	// Token: 0x060035CE RID: 13774 RVA: 0x000C2EA4 File Offset: 0x000C10A4
+	// Token: 0x06003996 RID: 14742 RVA: 0x000CB100 File Offset: 0x000C9300
 	public float GetConditionForBreak()
 	{
 		return 0f;
 	}
 
-	// Token: 0x060035CF RID: 13775 RVA: 0x000C2EAC File Offset: 0x000C10AC
+	// Token: 0x06003997 RID: 14743 RVA: 0x000CB108 File Offset: 0x000C9308
 	public virtual void ConditionChanged(float oldCondition)
 	{
 	}
 
-	// Token: 0x060035D0 RID: 13776 RVA: 0x000C2EB0 File Offset: 0x000C10B0
-	public virtual bool CanMoveToSlot(Inventory toinv, int toslot)
+	// Token: 0x06003998 RID: 14744 RVA: 0x000CB10C File Offset: 0x000C930C
+	public virtual bool CanMoveToSlot(global::Inventory toinv, int toslot)
 	{
 		return true;
 	}
 
-	// Token: 0x060035D1 RID: 13777 RVA: 0x000C2EB4 File Offset: 0x000C10B4
+	// Token: 0x06003999 RID: 14745 RVA: 0x000CB110 File Offset: 0x000C9310
 	public virtual void MaxConditionChanged(float oldCondition)
 	{
 	}
 
-	// Token: 0x060035D2 RID: 13778 RVA: 0x000C2EB8 File Offset: 0x000C10B8
+	// Token: 0x0600399A RID: 14746 RVA: 0x000CB114 File Offset: 0x000C9314
 	public virtual string GetConditionString()
 	{
 		if (!this.datablock.doesLoseCondition)
@@ -265,42 +265,42 @@ public abstract class InventoryItem
 		return "ERROR";
 	}
 
-	// Token: 0x060035D3 RID: 13779 RVA: 0x000C2F7C File Offset: 0x000C117C
+	// Token: 0x0600399B RID: 14747 RVA: 0x000CB1D8 File Offset: 0x000C93D8
 	public float GetConditionPercent()
 	{
 		return this.condition / this.maxcondition;
 	}
 
-	// Token: 0x060035D4 RID: 13780 RVA: 0x000C2F8C File Offset: 0x000C118C
+	// Token: 0x0600399C RID: 14748 RVA: 0x000CB1E8 File Offset: 0x000C93E8
 	public bool IsDamaged()
 	{
 		return this.maxcondition - this.condition > 0.001f;
 	}
 
-	// Token: 0x060035D5 RID: 13781 RVA: 0x000C2FA4 File Offset: 0x000C11A4
+	// Token: 0x0600399D RID: 14749 RVA: 0x000CB200 File Offset: 0x000C9400
 	public bool IsBroken()
 	{
 		return this.condition <= this.GetConditionForBreak();
 	}
 
-	// Token: 0x060035D6 RID: 13782 RVA: 0x000C2FB8 File Offset: 0x000C11B8
+	// Token: 0x0600399E RID: 14750 RVA: 0x000CB214 File Offset: 0x000C9414
 	public void BreakIntoPieces()
 	{
 	}
 
-	// Token: 0x060035D7 RID: 13783 RVA: 0x000C2FBC File Offset: 0x000C11BC
+	// Token: 0x0600399F RID: 14751 RVA: 0x000CB218 File Offset: 0x000C9418
 	public bool TryConditionLoss(float probability, float percentLoss)
 	{
 		return false;
 	}
 
-	// Token: 0x17000AB1 RID: 2737
-	// (get) Token: 0x060035D8 RID: 13784
-	protected abstract ItemDataBlock __infrastructure_db { get; }
+	// Token: 0x17000B27 RID: 2855
+	// (get) Token: 0x060039A0 RID: 14752
+	protected abstract global::ItemDataBlock __infrastructure_db { get; }
 
-	// Token: 0x17000AB2 RID: 2738
-	// (get) Token: 0x060035D9 RID: 13785 RVA: 0x000C2FC0 File Offset: 0x000C11C0
-	public ItemDataBlock datablock
+	// Token: 0x17000B28 RID: 2856
+	// (get) Token: 0x060039A1 RID: 14753 RVA: 0x000CB21C File Offset: 0x000C941C
+	public global::ItemDataBlock datablock
 	{
 		get
 		{
@@ -308,52 +308,52 @@ public abstract class InventoryItem
 		}
 	}
 
-	// Token: 0x060035DA RID: 13786 RVA: 0x000C2FC8 File Offset: 0x000C11C8
+	// Token: 0x060039A2 RID: 14754 RVA: 0x000CB224 File Offset: 0x000C9424
 	public bool MarkDirty()
 	{
-		Inventory inventory = this.inventory;
+		global::Inventory inventory = this.inventory;
 		return inventory && inventory.MarkSlotDirty(this.slot);
 	}
 
-	// Token: 0x060035DB RID: 13787
+	// Token: 0x060039A3 RID: 14755
 	protected abstract void OnBitStreamWrite(BitStream stream);
 
-	// Token: 0x060035DC RID: 13788
+	// Token: 0x060039A4 RID: 14756
 	protected abstract void OnBitStreamRead(BitStream stream);
 
-	// Token: 0x060035DD RID: 13789
-	public abstract void OnMovedTo(Inventory inv, int slot);
+	// Token: 0x060039A5 RID: 14757
+	public abstract void OnMovedTo(global::Inventory inv, int slot);
 
-	// Token: 0x060035DE RID: 13790 RVA: 0x000C2FF8 File Offset: 0x000C11F8
-	public virtual void OnAddedTo(Inventory inv, int slot)
+	// Token: 0x060039A6 RID: 14758 RVA: 0x000CB254 File Offset: 0x000C9454
+	public virtual void OnAddedTo(global::Inventory inv, int slot)
 	{
 		this.inventory = inv;
 		this.slot = slot;
 	}
 
-	// Token: 0x060035DF RID: 13791
-	public abstract InventoryItem.MergeResult TryStack(IInventoryItem other);
+	// Token: 0x060039A7 RID: 14759
+	public abstract global::InventoryItem.MergeResult TryStack(global::IInventoryItem other);
 
-	// Token: 0x060035E0 RID: 13792
-	public abstract InventoryItem.MergeResult TryCombine(IInventoryItem other);
+	// Token: 0x060039A8 RID: 14760
+	public abstract global::InventoryItem.MergeResult TryCombine(global::IInventoryItem other);
 
-	// Token: 0x060035E1 RID: 13793
-	public abstract InventoryItem.MenuItemResult OnMenuOption(InventoryItem.MenuItem option);
+	// Token: 0x060039A9 RID: 14761
+	public abstract global::InventoryItem.MenuItemResult OnMenuOption(global::InventoryItem.MenuItem option);
 
-	// Token: 0x060035E2 RID: 13794 RVA: 0x000C3008 File Offset: 0x000C1208
+	// Token: 0x060039AA RID: 14762 RVA: 0x000CB264 File Offset: 0x000C9464
 	public void Serialize(BitStream stream)
 	{
 		this.OnBitStreamWrite(stream);
 	}
 
-	// Token: 0x060035E3 RID: 13795 RVA: 0x000C3014 File Offset: 0x000C1214
+	// Token: 0x060039AB RID: 14763 RVA: 0x000CB270 File Offset: 0x000C9470
 	public void Deserialize(BitStream stream)
 	{
 		this.OnBitStreamRead(stream);
 	}
 
-	// Token: 0x060035E4 RID: 13796 RVA: 0x000C3020 File Offset: 0x000C1220
-	protected static void SerializeSharedProperties(BitStream stream, InventoryItem item, ItemDataBlock db)
+	// Token: 0x060039AC RID: 14764 RVA: 0x000CB27C File Offset: 0x000C947C
+	protected static void SerializeSharedProperties(BitStream stream, global::InventoryItem item, global::ItemDataBlock db)
 	{
 		stream.WriteInvInt(item.uses);
 		if (item.datablock.DoesLoseCondition())
@@ -363,8 +363,8 @@ public abstract class InventoryItem
 		}
 	}
 
-	// Token: 0x060035E5 RID: 13797 RVA: 0x000C3064 File Offset: 0x000C1264
-	protected static void DeserializeSharedProperties(BitStream stream, InventoryItem item, ItemDataBlock db)
+	// Token: 0x060039AD RID: 14765 RVA: 0x000CB2C0 File Offset: 0x000C94C0
+	protected static void DeserializeSharedProperties(BitStream stream, global::InventoryItem item, global::ItemDataBlock db)
 	{
 		item.uses = stream.ReadInvInt();
 		if (item.datablock.DoesLoseCondition())
@@ -374,79 +374,79 @@ public abstract class InventoryItem
 		}
 	}
 
-	// Token: 0x04001A76 RID: 6774
+	// Token: 0x04001C47 RID: 7239
 	public const int MAX_SUPPORTED_ITEM_MODS = 5;
 
-	// Token: 0x04001A77 RID: 6775
-	public readonly IInventoryItem iface;
+	// Token: 0x04001C48 RID: 7240
+	public readonly global::IInventoryItem iface;
 
-	// Token: 0x04001A78 RID: 6776
+	// Token: 0x04001C49 RID: 7241
 	public readonly int maxUses;
 
-	// Token: 0x04001A79 RID: 6777
+	// Token: 0x04001C4A RID: 7242
 	public readonly int datablockUniqueID;
 
-	// Token: 0x020005D0 RID: 1488
+	// Token: 0x0200068E RID: 1678
 	public enum MergeResult
 	{
-		// Token: 0x04001A81 RID: 6785
+		// Token: 0x04001C52 RID: 7250
 		Failed,
-		// Token: 0x04001A82 RID: 6786
+		// Token: 0x04001C53 RID: 7251
 		Merged,
-		// Token: 0x04001A83 RID: 6787
+		// Token: 0x04001C54 RID: 7252
 		Combined
 	}
 
-	// Token: 0x020005D1 RID: 1489
+	// Token: 0x0200068F RID: 1679
 	public enum ItemEvent
 	{
-		// Token: 0x04001A85 RID: 6789
+		// Token: 0x04001C56 RID: 7254
 		None,
-		// Token: 0x04001A86 RID: 6790
+		// Token: 0x04001C57 RID: 7255
 		Equipped,
-		// Token: 0x04001A87 RID: 6791
+		// Token: 0x04001C58 RID: 7256
 		UnEquipped,
-		// Token: 0x04001A88 RID: 6792
+		// Token: 0x04001C59 RID: 7257
 		Combined,
-		// Token: 0x04001A89 RID: 6793
+		// Token: 0x04001C5A RID: 7258
 		Used
 	}
 
-	// Token: 0x020005D2 RID: 1490
+	// Token: 0x02000690 RID: 1680
 	public enum MenuItem : byte
 	{
-		// Token: 0x04001A8B RID: 6795
+		// Token: 0x04001C5C RID: 7260
 		Info = 1,
-		// Token: 0x04001A8C RID: 6796
+		// Token: 0x04001C5D RID: 7261
 		Status,
-		// Token: 0x04001A8D RID: 6797
+		// Token: 0x04001C5E RID: 7262
 		Use,
-		// Token: 0x04001A8E RID: 6798
+		// Token: 0x04001C5F RID: 7263
 		Study,
-		// Token: 0x04001A8F RID: 6799
+		// Token: 0x04001C60 RID: 7264
 		Split,
-		// Token: 0x04001A90 RID: 6800
+		// Token: 0x04001C61 RID: 7265
 		Eat,
-		// Token: 0x04001A91 RID: 6801
+		// Token: 0x04001C62 RID: 7266
 		Drink,
-		// Token: 0x04001A92 RID: 6802
+		// Token: 0x04001C63 RID: 7267
 		Consume,
-		// Token: 0x04001A93 RID: 6803
+		// Token: 0x04001C64 RID: 7268
 		Unload
 	}
 
-	// Token: 0x020005D3 RID: 1491
+	// Token: 0x02000691 RID: 1681
 	public enum MenuItemResult : byte
 	{
-		// Token: 0x04001A95 RID: 6805
+		// Token: 0x04001C66 RID: 7270
 		DoneOnServer = 1,
-		// Token: 0x04001A96 RID: 6806
+		// Token: 0x04001C67 RID: 7271
 		DoneOnServerNotYetClient,
-		// Token: 0x04001A97 RID: 6807
+		// Token: 0x04001C68 RID: 7272
 		DoneOnClient,
-		// Token: 0x04001A98 RID: 6808
+		// Token: 0x04001C69 RID: 7273
 		Complete,
-		// Token: 0x04001A99 RID: 6809
+		// Token: 0x04001C6A RID: 7274
 		Unhandled = 0
 	}
 }

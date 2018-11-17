@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020007AF RID: 1967
-[ExecuteInEditMode]
+// Token: 0x0200089A RID: 2202
 [AddComponentMenu("NGUI/Internal/Update Manager")]
+[ExecuteInEditMode]
 public class UpdateManager : MonoBehaviour
 {
-	// Token: 0x0600471D RID: 18205 RVA: 0x0011DEA8 File Offset: 0x0011C0A8
-	private static int Compare(UpdateManager.UpdateEntry a, UpdateManager.UpdateEntry b)
+	// Token: 0x06004BA2 RID: 19362 RVA: 0x00127828 File Offset: 0x00125A28
+	private static int Compare(global::UpdateManager.UpdateEntry a, global::UpdateManager.UpdateEntry b)
 	{
 		if (a.index < b.index)
 		{
@@ -22,28 +22,28 @@ public class UpdateManager : MonoBehaviour
 		return 0;
 	}
 
-	// Token: 0x0600471E RID: 18206 RVA: 0x0011DED4 File Offset: 0x0011C0D4
+	// Token: 0x06004BA3 RID: 19363 RVA: 0x00127854 File Offset: 0x00125A54
 	private static void CreateInstance()
 	{
-		if (UpdateManager.mInst == null)
+		if (global::UpdateManager.mInst == null)
 		{
-			UpdateManager.mInst = (Object.FindObjectOfType(typeof(UpdateManager)) as UpdateManager);
-			if (UpdateManager.mInst == null && Application.isPlaying)
+			global::UpdateManager.mInst = (Object.FindObjectOfType(typeof(global::UpdateManager)) as global::UpdateManager);
+			if (global::UpdateManager.mInst == null && Application.isPlaying)
 			{
 				GameObject gameObject = new GameObject("_UpdateManager");
 				Object.DontDestroyOnLoad(gameObject);
-				UpdateManager.mInst = gameObject.AddComponent<UpdateManager>();
+				global::UpdateManager.mInst = gameObject.AddComponent<global::UpdateManager>();
 			}
 		}
 	}
 
-	// Token: 0x0600471F RID: 18207 RVA: 0x0011DF40 File Offset: 0x0011C140
-	private void UpdateList(List<UpdateManager.UpdateEntry> list, float delta)
+	// Token: 0x06004BA4 RID: 19364 RVA: 0x001278C0 File Offset: 0x00125AC0
+	private void UpdateList(List<global::UpdateManager.UpdateEntry> list, float delta)
 	{
 		int i = list.Count;
 		while (i > 0)
 		{
-			UpdateManager.UpdateEntry updateEntry = list[--i];
+			global::UpdateManager.UpdateEntry updateEntry = list[--i];
 			if (updateEntry.isMonoBehaviour)
 			{
 				if (updateEntry.mb == null)
@@ -60,7 +60,7 @@ public class UpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004720 RID: 18208 RVA: 0x0011DFCC File Offset: 0x0011C1CC
+	// Token: 0x06004BA5 RID: 19365 RVA: 0x0012794C File Offset: 0x00125B4C
 	private void Start()
 	{
 		if (Application.isPlaying)
@@ -70,18 +70,18 @@ public class UpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004721 RID: 18209 RVA: 0x0011DFFC File Offset: 0x0011C1FC
+	// Token: 0x06004BA6 RID: 19366 RVA: 0x0012797C File Offset: 0x00125B7C
 	private void OnApplicationQuit()
 	{
 		Object.DestroyImmediate(base.gameObject);
 	}
 
-	// Token: 0x06004722 RID: 18210 RVA: 0x0011E00C File Offset: 0x0011C20C
+	// Token: 0x06004BA7 RID: 19367 RVA: 0x0012798C File Offset: 0x00125B8C
 	private void Update()
 	{
-		if (UpdateManager.mInst != this)
+		if (global::UpdateManager.mInst != this)
 		{
-			NGUITools.Destroy(base.gameObject);
+			global::NGUITools.Destroy(base.gameObject);
 		}
 		else
 		{
@@ -89,7 +89,7 @@ public class UpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004723 RID: 18211 RVA: 0x0011E04C File Offset: 0x0011C24C
+	// Token: 0x06004BA8 RID: 19368 RVA: 0x001279CC File Offset: 0x00125BCC
 	private void LateUpdate()
 	{
 		this.UpdateList(this.mOnLate, Time.deltaTime);
@@ -99,7 +99,7 @@ public class UpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004724 RID: 18212 RVA: 0x0011E07C File Offset: 0x0011C27C
+	// Token: 0x06004BA9 RID: 19369 RVA: 0x001279FC File Offset: 0x00125BFC
 	private bool CoroutineUpdate()
 	{
 		float realtimeSinceStartup = Time.realtimeSinceStartup;
@@ -114,12 +114,12 @@ public class UpdateManager : MonoBehaviour
 		int i = this.mDest.Count;
 		while (i > 0)
 		{
-			UpdateManager.DestroyEntry destroyEntry = this.mDest[--i];
+			global::UpdateManager.DestroyEntry destroyEntry = this.mDest[--i];
 			if (!isPlaying || destroyEntry.time < this.mTime)
 			{
 				if (destroyEntry.obj != null)
 				{
-					NGUITools.Destroy(destroyEntry.obj);
+					global::NGUITools.Destroy(destroyEntry.obj);
 					destroyEntry.obj = null;
 				}
 				this.mDest.RemoveAt(i);
@@ -127,13 +127,13 @@ public class UpdateManager : MonoBehaviour
 		}
 		if (this.mOnUpdate.Count == 0 && this.mOnLate.Count == 0 && this.mOnCoro.Count == 0 && this.mDest.Count == 0)
 		{
-			NGUITools.Destroy(base.gameObject);
+			global::NGUITools.Destroy(base.gameObject);
 			return false;
 		}
 		return true;
 	}
 
-	// Token: 0x06004725 RID: 18213 RVA: 0x0011E184 File Offset: 0x0011C384
+	// Token: 0x06004BAA RID: 19370 RVA: 0x00127B04 File Offset: 0x00125D04
 	private IEnumerator CoroutineFunction()
 	{
 		while (Application.isPlaying)
@@ -147,21 +147,21 @@ public class UpdateManager : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06004726 RID: 18214 RVA: 0x0011E1A0 File Offset: 0x0011C3A0
-	private void Add(MonoBehaviour mb, int updateOrder, UpdateManager.OnUpdate func, List<UpdateManager.UpdateEntry> list)
+	// Token: 0x06004BAB RID: 19371 RVA: 0x00127B20 File Offset: 0x00125D20
+	private void Add(MonoBehaviour mb, int updateOrder, global::UpdateManager.OnUpdate func, List<global::UpdateManager.UpdateEntry> list)
 	{
 		int i = 0;
 		int count = list.Count;
 		while (i < count)
 		{
-			UpdateManager.UpdateEntry updateEntry = list[i];
+			global::UpdateManager.UpdateEntry updateEntry = list[i];
 			if (updateEntry.func == func)
 			{
 				return;
 			}
 			i++;
 		}
-		list.Add(new UpdateManager.UpdateEntry
+		list.Add(new global::UpdateManager.UpdateEntry
 		{
 			index = updateOrder,
 			func = func,
@@ -170,32 +170,32 @@ public class UpdateManager : MonoBehaviour
 		});
 		if (updateOrder != 0)
 		{
-			list.Sort(new Comparison<UpdateManager.UpdateEntry>(UpdateManager.Compare));
+			list.Sort(new Comparison<global::UpdateManager.UpdateEntry>(global::UpdateManager.Compare));
 		}
 	}
 
-	// Token: 0x06004727 RID: 18215 RVA: 0x0011E22C File Offset: 0x0011C42C
-	public static void AddUpdate(MonoBehaviour mb, int updateOrder, UpdateManager.OnUpdate func)
+	// Token: 0x06004BAC RID: 19372 RVA: 0x00127BAC File Offset: 0x00125DAC
+	public static void AddUpdate(MonoBehaviour mb, int updateOrder, global::UpdateManager.OnUpdate func)
 	{
-		UpdateManager.CreateInstance();
-		UpdateManager.mInst.Add(mb, updateOrder, func, UpdateManager.mInst.mOnUpdate);
+		global::UpdateManager.CreateInstance();
+		global::UpdateManager.mInst.Add(mb, updateOrder, func, global::UpdateManager.mInst.mOnUpdate);
 	}
 
-	// Token: 0x06004728 RID: 18216 RVA: 0x0011E24C File Offset: 0x0011C44C
-	public static void AddLateUpdate(MonoBehaviour mb, int updateOrder, UpdateManager.OnUpdate func)
+	// Token: 0x06004BAD RID: 19373 RVA: 0x00127BCC File Offset: 0x00125DCC
+	public static void AddLateUpdate(MonoBehaviour mb, int updateOrder, global::UpdateManager.OnUpdate func)
 	{
-		UpdateManager.CreateInstance();
-		UpdateManager.mInst.Add(mb, updateOrder, func, UpdateManager.mInst.mOnLate);
+		global::UpdateManager.CreateInstance();
+		global::UpdateManager.mInst.Add(mb, updateOrder, func, global::UpdateManager.mInst.mOnLate);
 	}
 
-	// Token: 0x06004729 RID: 18217 RVA: 0x0011E26C File Offset: 0x0011C46C
-	public static void AddCoroutine(MonoBehaviour mb, int updateOrder, UpdateManager.OnUpdate func)
+	// Token: 0x06004BAE RID: 19374 RVA: 0x00127BEC File Offset: 0x00125DEC
+	public static void AddCoroutine(MonoBehaviour mb, int updateOrder, global::UpdateManager.OnUpdate func)
 	{
-		UpdateManager.CreateInstance();
-		UpdateManager.mInst.Add(mb, updateOrder, func, UpdateManager.mInst.mOnCoro);
+		global::UpdateManager.CreateInstance();
+		global::UpdateManager.mInst.Add(mb, updateOrder, func, global::UpdateManager.mInst.mOnCoro);
 	}
 
-	// Token: 0x0600472A RID: 18218 RVA: 0x0011E28C File Offset: 0x0011C48C
+	// Token: 0x06004BAF RID: 19375 RVA: 0x00127C0C File Offset: 0x00125E0C
 	public static void AddDestroy(Object obj, float delay)
 	{
 		if (obj == null)
@@ -206,11 +206,11 @@ public class UpdateManager : MonoBehaviour
 		{
 			if (delay > 0f)
 			{
-				UpdateManager.CreateInstance();
-				UpdateManager.DestroyEntry destroyEntry = new UpdateManager.DestroyEntry();
+				global::UpdateManager.CreateInstance();
+				global::UpdateManager.DestroyEntry destroyEntry = new global::UpdateManager.DestroyEntry();
 				destroyEntry.obj = obj;
 				destroyEntry.time = Time.realtimeSinceStartup + delay;
-				UpdateManager.mInst.mDest.Add(destroyEntry);
+				global::UpdateManager.mInst.mDest.Add(destroyEntry);
 			}
 			else
 			{
@@ -223,51 +223,51 @@ public class UpdateManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002726 RID: 10022
-	private static UpdateManager mInst;
+	// Token: 0x0400295D RID: 10589
+	private static global::UpdateManager mInst;
 
-	// Token: 0x04002727 RID: 10023
-	private List<UpdateManager.UpdateEntry> mOnUpdate = new List<UpdateManager.UpdateEntry>();
+	// Token: 0x0400295E RID: 10590
+	private List<global::UpdateManager.UpdateEntry> mOnUpdate = new List<global::UpdateManager.UpdateEntry>();
 
-	// Token: 0x04002728 RID: 10024
-	private List<UpdateManager.UpdateEntry> mOnLate = new List<UpdateManager.UpdateEntry>();
+	// Token: 0x0400295F RID: 10591
+	private List<global::UpdateManager.UpdateEntry> mOnLate = new List<global::UpdateManager.UpdateEntry>();
 
-	// Token: 0x04002729 RID: 10025
-	private List<UpdateManager.UpdateEntry> mOnCoro = new List<UpdateManager.UpdateEntry>();
+	// Token: 0x04002960 RID: 10592
+	private List<global::UpdateManager.UpdateEntry> mOnCoro = new List<global::UpdateManager.UpdateEntry>();
 
-	// Token: 0x0400272A RID: 10026
-	private List<UpdateManager.DestroyEntry> mDest = new List<UpdateManager.DestroyEntry>();
+	// Token: 0x04002961 RID: 10593
+	private List<global::UpdateManager.DestroyEntry> mDest = new List<global::UpdateManager.DestroyEntry>();
 
-	// Token: 0x0400272B RID: 10027
+	// Token: 0x04002962 RID: 10594
 	private float mTime;
 
-	// Token: 0x020007B0 RID: 1968
+	// Token: 0x0200089B RID: 2203
 	public class UpdateEntry
 	{
-		// Token: 0x0400272C RID: 10028
+		// Token: 0x04002963 RID: 10595
 		public int index;
 
-		// Token: 0x0400272D RID: 10029
-		public UpdateManager.OnUpdate func;
+		// Token: 0x04002964 RID: 10596
+		public global::UpdateManager.OnUpdate func;
 
-		// Token: 0x0400272E RID: 10030
+		// Token: 0x04002965 RID: 10597
 		public MonoBehaviour mb;
 
-		// Token: 0x0400272F RID: 10031
+		// Token: 0x04002966 RID: 10598
 		public bool isMonoBehaviour;
 	}
 
-	// Token: 0x020007B1 RID: 1969
+	// Token: 0x0200089C RID: 2204
 	public class DestroyEntry
 	{
-		// Token: 0x04002730 RID: 10032
+		// Token: 0x04002967 RID: 10599
 		public Object obj;
 
-		// Token: 0x04002731 RID: 10033
+		// Token: 0x04002968 RID: 10600
 		public float time;
 	}
 
-	// Token: 0x020008ED RID: 2285
-	// (Invoke) Token: 0x06004D8C RID: 19852
+	// Token: 0x0200089D RID: 2205
+	// (Invoke) Token: 0x06004BB3 RID: 19379
 	public delegate void OnUpdate(float delta);
 }

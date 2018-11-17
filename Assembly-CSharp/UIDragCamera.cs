@@ -1,33 +1,33 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200076A RID: 1898
+// Token: 0x0200084C RID: 2124
 [AddComponentMenu("NGUI/Interaction/Drag Camera")]
 [ExecuteInEditMode]
-public class UIDragCamera : IgnoreTimeScale
+public class UIDragCamera : global::IgnoreTimeScale
 {
-	// Token: 0x06004506 RID: 17670 RVA: 0x0010EA1C File Offset: 0x0010CC1C
+	// Token: 0x06004967 RID: 18791 RVA: 0x0011839C File Offset: 0x0011659C
 	private void Awake()
 	{
 		if (this.target != null)
 		{
 			if (this.draggableCamera == null)
 			{
-				this.draggableCamera = this.target.GetComponent<UIDraggableCamera>();
+				this.draggableCamera = this.target.GetComponent<global::UIDraggableCamera>();
 				if (this.draggableCamera == null)
 				{
-					this.draggableCamera = this.target.gameObject.AddComponent<UIDraggableCamera>();
+					this.draggableCamera = this.target.gameObject.AddComponent<global::UIDraggableCamera>();
 				}
 			}
 			this.target = null;
 		}
 		else if (this.draggableCamera == null)
 		{
-			this.draggableCamera = NGUITools.FindInParents<UIDraggableCamera>(base.gameObject);
+			this.draggableCamera = global::NGUITools.FindInParents<global::UIDraggableCamera>(base.gameObject);
 		}
 	}
 
-	// Token: 0x06004507 RID: 17671 RVA: 0x0010EAB4 File Offset: 0x0010CCB4
+	// Token: 0x06004968 RID: 18792 RVA: 0x00118434 File Offset: 0x00116634
 	private void OnPress(bool isPressed)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.draggableCamera != null)
@@ -36,7 +36,7 @@ public class UIDragCamera : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004508 RID: 17672 RVA: 0x0010EAFC File Offset: 0x0010CCFC
+	// Token: 0x06004969 RID: 18793 RVA: 0x0011847C File Offset: 0x0011667C
 	private void OnDrag(Vector2 delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.draggableCamera != null)
@@ -45,7 +45,7 @@ public class UIDragCamera : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x06004509 RID: 17673 RVA: 0x0010EB44 File Offset: 0x0010CD44
+	// Token: 0x0600496A RID: 18794 RVA: 0x001184C4 File Offset: 0x001166C4
 	private void OnScroll(float delta)
 	{
 		if (base.enabled && base.gameObject.activeInHierarchy && this.draggableCamera != null)
@@ -54,10 +54,10 @@ public class UIDragCamera : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x0400254E RID: 9550
-	public UIDraggableCamera draggableCamera;
+	// Token: 0x04002785 RID: 10117
+	public global::UIDraggableCamera draggableCamera;
 
-	// Token: 0x0400254F RID: 9551
+	// Token: 0x04002786 RID: 10118
 	[HideInInspector]
 	[SerializeField]
 	private Component target;

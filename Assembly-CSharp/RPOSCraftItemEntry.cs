@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000411 RID: 1041
+// Token: 0x020004C6 RID: 1222
 public class RPOSCraftItemEntry : MonoBehaviour
 {
-	// Token: 0x06002679 RID: 9849 RVA: 0x00095A14 File Offset: 0x00093C14
+	// Token: 0x06002A03 RID: 10755 RVA: 0x0009B8D8 File Offset: 0x00099AD8
 	public void SetSelected(bool selected)
 	{
 		Color color = (!selected) ? Color.white : Color.yellow;
-		base.GetComponentInChildren<UILabel>().color = color;
+		base.GetComponentInChildren<global::UILabel>().color = color;
 	}
 
-	// Token: 0x0600267A RID: 9850 RVA: 0x00095A44 File Offset: 0x00093C44
+	// Token: 0x06002A04 RID: 10756 RVA: 0x0009B908 File Offset: 0x00099B08
 	public void Update()
 	{
-		if (!RPOS.IsOpen)
+		if (!global::RPOS.IsOpen)
 		{
 			return;
 		}
@@ -28,18 +28,18 @@ public class RPOSCraftItemEntry : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600267B RID: 9851 RVA: 0x00095A9C File Offset: 0x00093C9C
+	// Token: 0x06002A05 RID: 10757 RVA: 0x0009B960 File Offset: 0x00099B60
 	public void OnTooltip(bool show)
 	{
-		ItemToolTip.SetToolTip((!show || !(this.actualItemDataBlock != null)) ? null : this.actualItemDataBlock, null);
+		global::ItemToolTip.SetToolTip((!show || !(this.actualItemDataBlock != null)) ? null : this.actualItemDataBlock, null);
 	}
 
-	// Token: 0x040012CA RID: 4810
-	public ItemDataBlock actualItemDataBlock;
+	// Token: 0x0400144A RID: 5194
+	public global::ItemDataBlock actualItemDataBlock;
 
-	// Token: 0x040012CB RID: 4811
-	public BlueprintDataBlock blueprint;
+	// Token: 0x0400144B RID: 5195
+	public global::BlueprintDataBlock blueprint;
 
-	// Token: 0x040012CC RID: 4812
-	public RPOSCraftWindow craftWindow;
+	// Token: 0x0400144C RID: 5196
+	public global::RPOSCraftWindow craftWindow;
 }

@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x02000436 RID: 1078
-public class RabbitAI : BasicWildLifeAI
+// Token: 0x020004EC RID: 1260
+public class RabbitAI : global::BasicWildLifeAI
 {
-	// Token: 0x060027DA RID: 10202 RVA: 0x0009B8E0 File Offset: 0x00099AE0
+	// Token: 0x06002B6A RID: 11114 RVA: 0x000A1860 File Offset: 0x0009FA60
 	protected void Update()
 	{
 		if (this._takeDamage.dead)
@@ -35,6 +35,6 @@ public class RabbitAI : BasicWildLifeAI
 		this.lastMoveAnim = text;
 	}
 
-	// Token: 0x040013C5 RID: 5061
+	// Token: 0x04001548 RID: 5448
 	protected string lastMoveAnim;
 }

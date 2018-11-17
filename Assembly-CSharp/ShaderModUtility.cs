@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x02000360 RID: 864
+// Token: 0x0200040D RID: 1037
 public static class ShaderModUtility
 {
-	// Token: 0x0600211E RID: 8478 RVA: 0x00081BDC File Offset: 0x0007FDDC
-	public static int Replace(this ShaderMod[] mods, ShaderMod.Replacement replacement, string incoming, ref string outgoing)
+	// Token: 0x06002480 RID: 9344 RVA: 0x00086FD8 File Offset: 0x000851D8
+	public static int Replace(this global::ShaderMod[] mods, global::ShaderMod.Replacement replacement, string incoming, ref string outgoing)
 	{
 		if (mods != null)
 		{
@@ -21,8 +21,8 @@ public static class ShaderModUtility
 		return -1;
 	}
 
-	// Token: 0x0600211F RID: 8479 RVA: 0x00081C28 File Offset: 0x0007FE28
-	public static int ReplaceReverse(this ShaderMod[] mods, ShaderMod.Replacement replacement, string incoming, ref string outgoing)
+	// Token: 0x06002481 RID: 9345 RVA: 0x00087024 File Offset: 0x00085224
+	public static int ReplaceReverse(this global::ShaderMod[] mods, global::ShaderMod.Replacement replacement, string incoming, ref string outgoing)
 	{
 		if (mods != null)
 		{
@@ -38,8 +38,8 @@ public static class ShaderModUtility
 		return -1;
 	}
 
-	// Token: 0x06002120 RID: 8480 RVA: 0x00081C74 File Offset: 0x0007FE74
-	public static IEnumerable<ShaderMod.KV> MergeKeyValues(this ShaderMod[] mods, ShaderMod.Replacement replacement)
+	// Token: 0x06002482 RID: 9346 RVA: 0x00087070 File Offset: 0x00085270
+	public static IEnumerable<global::ShaderMod.KV> MergeKeyValues(this global::ShaderMod[] mods, global::ShaderMod.Replacement replacement)
 	{
 		return null;
 	}

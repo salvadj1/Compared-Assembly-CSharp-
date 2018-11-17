@@ -1,15 +1,15 @@
 ﻿using System;
 
-// Token: 0x020006AF RID: 1711
+// Token: 0x0200077A RID: 1914
 [Flags]
 public enum dfMouseButtons
 {
-	// Token: 0x04001FB4 RID: 8116
+	// Token: 0x040021B5 RID: 8629
 	None = 0,
-	// Token: 0x04001FB5 RID: 8117
+	// Token: 0x040021B6 RID: 8630
 	Left = 1,
-	// Token: 0x04001FB6 RID: 8118
+	// Token: 0x040021B7 RID: 8631
 	Right = 2,
-	// Token: 0x04001FB7 RID: 8119
+	// Token: 0x040021B8 RID: 8632
 	Middle = 4
 }

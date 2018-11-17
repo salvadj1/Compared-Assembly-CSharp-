@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x0200010E RID: 270
-public class CharacterPrefab : NetMainPrefab
+// Token: 0x0200012D RID: 301
+public class CharacterPrefab : global::NetMainPrefab
 {
-	// Token: 0x060006F6 RID: 1782 RVA: 0x0001F660 File Offset: 0x0001D860
-	public CharacterPrefab() : this(typeof(Character), false, null, false)
+	// Token: 0x060007C8 RID: 1992 RVA: 0x00022234 File Offset: 0x00020434
+	public CharacterPrefab() : this(typeof(global::Character), false, null, false)
 	{
 	}
 
-	// Token: 0x060006F7 RID: 1783 RVA: 0x0001F678 File Offset: 0x0001D878
+	// Token: 0x060007C9 RID: 1993 RVA: 0x0002224C File Offset: 0x0002044C
 	protected CharacterPrefab(Type characterType) : this(characterType, true, null, false)
 	{
 	}
 
-	// Token: 0x060006F8 RID: 1784 RVA: 0x0001F684 File Offset: 0x0001D884
+	// Token: 0x060007CA RID: 1994 RVA: 0x00022258 File Offset: 0x00020458
 	protected CharacterPrefab(Type characterType, params Type[] requiredIDLocalComponents) : this(characterType, true, requiredIDLocalComponents, requiredIDLocalComponents != null && requiredIDLocalComponents.Length > 0)
 	{
 	}
 
-	// Token: 0x060006F9 RID: 1785 RVA: 0x0001F6A0 File Offset: 0x0001D8A0
+	// Token: 0x060007CB RID: 1995 RVA: 0x00022274 File Offset: 0x00020474
 	private CharacterPrefab(Type characterType, bool typeCheck, Type[] requiredIDLocalComponents, bool anyRequiredIDLocalComponents) : base(characterType)
 	{
-		if (typeCheck && !typeof(Character).IsAssignableFrom(characterType))
+		if (typeCheck && !typeof(global::Character).IsAssignableFrom(characterType))
 		{
 			throw new ArgumentOutOfRangeException("type", "type must be assignable to Character");
 		}
 	}
 
-	// Token: 0x060006FA RID: 1786 RVA: 0x0001F6E0 File Offset: 0x0001D8E0
+	// Token: 0x060007CC RID: 1996 RVA: 0x000222B4 File Offset: 0x000204B4
 	protected static Type[] TypeArrayAppend(Type[] mustInclude, Type[] given)
 	{
 		if (mustInclude == null || mustInclude.Length == 0)

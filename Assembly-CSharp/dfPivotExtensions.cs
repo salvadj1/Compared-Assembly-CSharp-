@@ -1,31 +1,31 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006BB RID: 1723
+// Token: 0x02000786 RID: 1926
 public static class dfPivotExtensions
 {
-	// Token: 0x06003C63 RID: 15459 RVA: 0x000E3ABC File Offset: 0x000E1CBC
-	public static Vector3 TransformToCenter(this dfPivotPoint pivot, Vector2 size)
+	// Token: 0x0600406D RID: 16493 RVA: 0x000EC600 File Offset: 0x000EA800
+	public static Vector3 TransformToCenter(this global::dfPivotPoint pivot, Vector2 size)
 	{
 		switch (pivot)
 		{
-		case dfPivotPoint.TopLeft:
+		case global::dfPivotPoint.TopLeft:
 			return new Vector2(0.5f * size.x, 0.5f * -size.y);
-		case dfPivotPoint.TopCenter:
+		case global::dfPivotPoint.TopCenter:
 			return new Vector2(0f, 0.5f * -size.y);
-		case dfPivotPoint.TopRight:
+		case global::dfPivotPoint.TopRight:
 			return new Vector2(0.5f * -size.x, 0.5f * -size.y);
-		case dfPivotPoint.MiddleLeft:
+		case global::dfPivotPoint.MiddleLeft:
 			return new Vector2(0.5f * size.x, 0f);
-		case dfPivotPoint.MiddleCenter:
+		case global::dfPivotPoint.MiddleCenter:
 			return new Vector2(0f, 0f);
-		case dfPivotPoint.MiddleRight:
+		case global::dfPivotPoint.MiddleRight:
 			return new Vector2(0.5f * -size.x, 0f);
-		case dfPivotPoint.BottomLeft:
+		case global::dfPivotPoint.BottomLeft:
 			return new Vector2(0.5f * size.x, 0.5f * size.y);
-		case dfPivotPoint.BottomCenter:
+		case global::dfPivotPoint.BottomCenter:
 			return new Vector2(0f, 0.5f * size.y);
-		case dfPivotPoint.BottomRight:
+		case global::dfPivotPoint.BottomRight:
 			return new Vector2(0.5f * -size.x, 0.5f * size.y);
 		default:
 			throw new Exception(string.Concat(new object[]
@@ -38,34 +38,34 @@ public static class dfPivotExtensions
 		}
 	}
 
-	// Token: 0x06003C64 RID: 15460 RVA: 0x000E3C5C File Offset: 0x000E1E5C
-	public static Vector3 UpperLeftToTransform(this dfPivotPoint pivot, Vector2 size)
+	// Token: 0x0600406E RID: 16494 RVA: 0x000EC7A0 File Offset: 0x000EA9A0
+	public static Vector3 UpperLeftToTransform(this global::dfPivotPoint pivot, Vector2 size)
 	{
 		return pivot.TransformToUpperLeft(size).Scale(-1f, -1f, 1f);
 	}
 
-	// Token: 0x06003C65 RID: 15461 RVA: 0x000E3C7C File Offset: 0x000E1E7C
-	public static Vector3 TransformToUpperLeft(this dfPivotPoint pivot, Vector2 size)
+	// Token: 0x0600406F RID: 16495 RVA: 0x000EC7C0 File Offset: 0x000EA9C0
+	public static Vector3 TransformToUpperLeft(this global::dfPivotPoint pivot, Vector2 size)
 	{
 		switch (pivot)
 		{
-		case dfPivotPoint.TopLeft:
+		case global::dfPivotPoint.TopLeft:
 			return new Vector2(0f, 0f);
-		case dfPivotPoint.TopCenter:
+		case global::dfPivotPoint.TopCenter:
 			return new Vector2(0.5f * -size.x, 0f);
-		case dfPivotPoint.TopRight:
+		case global::dfPivotPoint.TopRight:
 			return new Vector2(-size.x, 0f);
-		case dfPivotPoint.MiddleLeft:
+		case global::dfPivotPoint.MiddleLeft:
 			return new Vector2(0f, 0.5f * size.y);
-		case dfPivotPoint.MiddleCenter:
+		case global::dfPivotPoint.MiddleCenter:
 			return new Vector2(0.5f * -size.x, 0.5f * size.y);
-		case dfPivotPoint.MiddleRight:
+		case global::dfPivotPoint.MiddleRight:
 			return new Vector2(-size.x, 0.5f * size.y);
-		case dfPivotPoint.BottomLeft:
+		case global::dfPivotPoint.BottomLeft:
 			return new Vector2(0f, size.y);
-		case dfPivotPoint.BottomCenter:
+		case global::dfPivotPoint.BottomCenter:
 			return new Vector2(0.5f * -size.x, size.y);
-		case dfPivotPoint.BottomRight:
+		case global::dfPivotPoint.BottomRight:
 			return new Vector2(-size.x, size.y);
 		default:
 			throw new Exception(string.Concat(new object[]

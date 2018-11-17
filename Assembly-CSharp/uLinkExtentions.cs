@@ -1,10 +1,10 @@
 ﻿using System;
 using uLink;
 
-// Token: 0x02000329 RID: 809
+// Token: 0x020003D6 RID: 982
 public static class uLinkExtentions
 {
-	// Token: 0x06001EE7 RID: 7911 RVA: 0x00079A20 File Offset: 0x00077C20
+	// Token: 0x06002249 RID: 8777 RVA: 0x0007EE1C File Offset: 0x0007D01C
 	public static void Write7BitEncodedSize(this BitStream stream, ulong u)
 	{
 		while (u >= 128UL)
@@ -15,7 +15,7 @@ public static class uLinkExtentions
 		stream.WriteByte((byte)u);
 	}
 
-	// Token: 0x06001EE8 RID: 7912 RVA: 0x00079A54 File Offset: 0x00077C54
+	// Token: 0x0600224A RID: 8778 RVA: 0x0007EE50 File Offset: 0x0007D050
 	public static void Write7BitEncodedSize(this BitStream stream, uint u)
 	{
 		while (u >= 128u)
@@ -26,7 +26,7 @@ public static class uLinkExtentions
 		stream.WriteByte((byte)u);
 	}
 
-	// Token: 0x06001EE9 RID: 7913 RVA: 0x00079A90 File Offset: 0x00077C90
+	// Token: 0x0600224B RID: 8779 RVA: 0x0007EE8C File Offset: 0x0007D08C
 	public static void Write7BitEncodedSize(this BitStream stream, ushort u)
 	{
 		while (u >= 128)
@@ -37,7 +37,7 @@ public static class uLinkExtentions
 		stream.WriteByte((byte)u);
 	}
 
-	// Token: 0x06001EEA RID: 7914 RVA: 0x00079AC4 File Offset: 0x00077CC4
+	// Token: 0x0600224C RID: 8780 RVA: 0x0007EEC0 File Offset: 0x0007D0C0
 	public static void Write7BitEncodedSize(this BitStream stream, long u)
 	{
 		if (u < 0L)
@@ -47,7 +47,7 @@ public static class uLinkExtentions
 		stream.Write7BitEncodedSize((ulong)u);
 	}
 
-	// Token: 0x06001EEB RID: 7915 RVA: 0x00079AE8 File Offset: 0x00077CE8
+	// Token: 0x0600224D RID: 8781 RVA: 0x0007EEE4 File Offset: 0x0007D0E4
 	public static void Write7BitEncodedSize(this BitStream stream, int u)
 	{
 		if (u < 0)
@@ -57,7 +57,7 @@ public static class uLinkExtentions
 		stream.Write7BitEncodedSize((uint)u);
 	}
 
-	// Token: 0x06001EEC RID: 7916 RVA: 0x00079B08 File Offset: 0x00077D08
+	// Token: 0x0600224E RID: 8782 RVA: 0x0007EF04 File Offset: 0x0007D104
 	public static void Write7BitEncodedSize(this BitStream stream, short u)
 	{
 		if (u < 0)
@@ -67,7 +67,7 @@ public static class uLinkExtentions
 		stream.Write7BitEncodedSize((ushort)u);
 	}
 
-	// Token: 0x06001EED RID: 7917 RVA: 0x00079B2C File Offset: 0x00077D2C
+	// Token: 0x0600224F RID: 8783 RVA: 0x0007EF28 File Offset: 0x0007D128
 	public static void Read7BitEncodedSize(this BitStream stream, out ulong u)
 	{
 		byte b = stream.ReadByte();
@@ -80,7 +80,7 @@ public static class uLinkExtentions
 		}
 	}
 
-	// Token: 0x06001EEE RID: 7918 RVA: 0x00079B88 File Offset: 0x00077D88
+	// Token: 0x06002250 RID: 8784 RVA: 0x0007EF84 File Offset: 0x0007D184
 	public static void Read7BitEncodedSize(this BitStream stream, out uint u)
 	{
 		byte b = stream.ReadByte();
@@ -93,7 +93,7 @@ public static class uLinkExtentions
 		}
 	}
 
-	// Token: 0x06001EEF RID: 7919 RVA: 0x00079BE0 File Offset: 0x00077DE0
+	// Token: 0x06002251 RID: 8785 RVA: 0x0007EFDC File Offset: 0x0007D1DC
 	public static void Read7BitEncodedSize(this BitStream stream, out ushort u)
 	{
 		byte b = stream.ReadByte();
@@ -106,7 +106,7 @@ public static class uLinkExtentions
 		}
 	}
 
-	// Token: 0x06001EF0 RID: 7920 RVA: 0x00079C38 File Offset: 0x00077E38
+	// Token: 0x06002252 RID: 8786 RVA: 0x0007F034 File Offset: 0x0007D234
 	public static void Read7BitEncodedSize(this BitStream stream, out long u)
 	{
 		ulong num;
@@ -118,7 +118,7 @@ public static class uLinkExtentions
 		u = (long)num;
 	}
 
-	// Token: 0x06001EF1 RID: 7921 RVA: 0x00079C6C File Offset: 0x00077E6C
+	// Token: 0x06002253 RID: 8787 RVA: 0x0007F068 File Offset: 0x0007D268
 	public static void Read7BitEncodedSize(this BitStream stream, out int u)
 	{
 		uint num;
@@ -130,7 +130,7 @@ public static class uLinkExtentions
 		u = (int)num;
 	}
 
-	// Token: 0x06001EF2 RID: 7922 RVA: 0x00079C9C File Offset: 0x00077E9C
+	// Token: 0x06002254 RID: 8788 RVA: 0x0007F098 File Offset: 0x0007D298
 	public static void Read7BitEncodedSize(this BitStream stream, out short u)
 	{
 		ushort num;
@@ -142,7 +142,7 @@ public static class uLinkExtentions
 		u = (short)num;
 	}
 
-	// Token: 0x06001EF3 RID: 7923 RVA: 0x00079CCC File Offset: 0x00077ECC
+	// Token: 0x06002255 RID: 8789 RVA: 0x0007F0C8 File Offset: 0x0007D2C8
 	public static byte[] GetDataByteArray(this BitStream stream)
 	{
 		int bitCount = stream._bitCount;
@@ -159,7 +159,7 @@ public static class uLinkExtentions
 		return data;
 	}
 
-	// Token: 0x06001EF4 RID: 7924 RVA: 0x00079D0C File Offset: 0x00077F0C
+	// Token: 0x06002256 RID: 8790 RVA: 0x0007F108 File Offset: 0x0007D308
 	public static byte[] GetDataByteArrayShiftedRight(this BitStream stream, int right)
 	{
 		if (right == 0)
@@ -181,7 +181,7 @@ public static class uLinkExtentions
 		return array;
 	}
 
-	// Token: 0x06001EF5 RID: 7925 RVA: 0x00079D70 File Offset: 0x00077F70
+	// Token: 0x06002257 RID: 8791 RVA: 0x0007F16C File Offset: 0x0007D36C
 	public static void WriteByteArray_MinimumCalls(this BitStream stream, byte[] array, int offset, int length, params object[] codecOptions)
 	{
 		stream.Write<int>(length, codecOptions);
@@ -224,7 +224,7 @@ public static class uLinkExtentions
 		}
 	}
 
-	// Token: 0x06001EF6 RID: 7926 RVA: 0x00079EE4 File Offset: 0x000780E4
+	// Token: 0x06002258 RID: 8792 RVA: 0x0007F2E0 File Offset: 0x0007D4E0
 	public static void ReadByteArray_MinimalCalls(this BitStream stream, out byte[] array, out int length, params object[] codecOptions)
 	{
 		length = stream.Read<int>(codecOptions);
@@ -276,33 +276,33 @@ public static class uLinkExtentions
 		}
 	}
 
-	// Token: 0x04000EE4 RID: 3812
+	// Token: 0x0400104A RID: 4170
 	private const ushort bit8 = 128;
 
-	// Token: 0x04000EE5 RID: 3813
+	// Token: 0x0400104B RID: 4171
 	private const ushort bit1234567 = 127;
 
-	// Token: 0x04000EE6 RID: 3814
+	// Token: 0x0400104C RID: 4172
 	private const int kByte0 = 0;
 
-	// Token: 0x04000EE7 RID: 3815
+	// Token: 0x0400104D RID: 4173
 	private const int kByte1 = 8;
 
-	// Token: 0x04000EE8 RID: 3816
+	// Token: 0x0400104E RID: 4174
 	private const int kByte2 = 16;
 
-	// Token: 0x04000EE9 RID: 3817
+	// Token: 0x0400104F RID: 4175
 	private const int kByte3 = 24;
 
-	// Token: 0x04000EEA RID: 3818
+	// Token: 0x04001050 RID: 4176
 	private const int kByte4 = 32;
 
-	// Token: 0x04000EEB RID: 3819
+	// Token: 0x04001051 RID: 4177
 	private const int kByte5 = 40;
 
-	// Token: 0x04000EEC RID: 3820
+	// Token: 0x04001052 RID: 4178
 	private const int kByte6 = 48;
 
-	// Token: 0x04000EED RID: 3821
+	// Token: 0x04001053 RID: 4179
 	private const int kByte7 = 56;
 }

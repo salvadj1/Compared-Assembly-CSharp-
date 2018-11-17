@@ -1,21 +1,21 @@
 ﻿using System;
 
-// Token: 0x02000321 RID: 801
+// Token: 0x020003CE RID: 974
 public struct TimeStamped<T>
 {
-	// Token: 0x06001EBA RID: 7866 RVA: 0x00078BFC File Offset: 0x00076DFC
+	// Token: 0x0600221C RID: 8732 RVA: 0x0007DFF8 File Offset: 0x0007C1F8
 	public void Set(ref T value, ref double timeStamp)
 	{
 		this.timeStamp = timeStamp;
 		this.value = value;
 	}
 
-	// Token: 0x04000ED5 RID: 3797
+	// Token: 0x0400103B RID: 4155
 	public double timeStamp;
 
-	// Token: 0x04000ED6 RID: 3798
+	// Token: 0x0400103C RID: 4156
 	public int index;
 
-	// Token: 0x04000ED7 RID: 3799
+	// Token: 0x0400103D RID: 4157
 	public T value;
 }

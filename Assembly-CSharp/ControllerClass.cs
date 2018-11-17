@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200013E RID: 318
+// Token: 0x02000168 RID: 360
 public class ControllerClass : ScriptableObject
 {
-	// Token: 0x17000257 RID: 599
-	// (get) Token: 0x06000925 RID: 2341 RVA: 0x00026BE8 File Offset: 0x00024DE8
+	// Token: 0x17000299 RID: 665
+	// (get) Token: 0x06000A4B RID: 2635 RVA: 0x0002A964 File Offset: 0x00028B64
 	internal string npcName
 	{
 		get
@@ -14,73 +14,73 @@ public class ControllerClass : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000258 RID: 600
-	// (get) Token: 0x06000926 RID: 2342 RVA: 0x00026C0C File Offset: 0x00024E0C
+	// Token: 0x1700029A RID: 666
+	// (get) Token: 0x06000A4C RID: 2636 RVA: 0x0002A988 File Offset: 0x00028B88
 	internal bool root
 	{
 		get
 		{
-			return (this.runtime & ControllerClass.Configuration.DynamicFreeVessel) == ControllerClass.Configuration.DynamicRoot;
+			return (this.runtime & global::ControllerClass.Configuration.DynamicFreeVessel) == global::ControllerClass.Configuration.DynamicRoot;
 		}
 	}
 
-	// Token: 0x17000259 RID: 601
-	// (get) Token: 0x06000927 RID: 2343 RVA: 0x00026C1C File Offset: 0x00024E1C
+	// Token: 0x1700029B RID: 667
+	// (get) Token: 0x06000A4D RID: 2637 RVA: 0x0002A998 File Offset: 0x00028B98
 	internal bool vessel
 	{
 		get
 		{
-			return (this.runtime & ControllerClass.Configuration.DynamicFreeVessel) != ControllerClass.Configuration.DynamicRoot;
+			return (this.runtime & global::ControllerClass.Configuration.DynamicFreeVessel) != global::ControllerClass.Configuration.DynamicRoot;
 		}
 	}
 
-	// Token: 0x1700025A RID: 602
-	// (get) Token: 0x06000928 RID: 2344 RVA: 0x00026C2C File Offset: 0x00024E2C
+	// Token: 0x1700029C RID: 668
+	// (get) Token: 0x06000A4E RID: 2638 RVA: 0x0002A9A8 File Offset: 0x00028BA8
 	internal bool staticGroup
 	{
 		get
 		{
-			return (this.runtime & ControllerClass.Configuration.StaticRoot) == ControllerClass.Configuration.StaticRoot;
+			return (this.runtime & global::ControllerClass.Configuration.StaticRoot) == global::ControllerClass.Configuration.StaticRoot;
 		}
 	}
 
-	// Token: 0x1700025B RID: 603
-	// (get) Token: 0x06000929 RID: 2345 RVA: 0x00026C3C File Offset: 0x00024E3C
+	// Token: 0x1700029D RID: 669
+	// (get) Token: 0x06000A4F RID: 2639 RVA: 0x0002A9B8 File Offset: 0x00028BB8
 	internal bool vesselStandalone
 	{
 		get
 		{
-			return (this.runtime & ControllerClass.Configuration.DynamicFreeVessel) == ControllerClass.Configuration.DynamicStandaloneVessel;
+			return (this.runtime & global::ControllerClass.Configuration.DynamicFreeVessel) == global::ControllerClass.Configuration.DynamicStandaloneVessel;
 		}
 	}
 
-	// Token: 0x1700025C RID: 604
-	// (get) Token: 0x0600092A RID: 2346 RVA: 0x00026C4C File Offset: 0x00024E4C
+	// Token: 0x1700029E RID: 670
+	// (get) Token: 0x06000A50 RID: 2640 RVA: 0x0002A9C8 File Offset: 0x00028BC8
 	internal bool vesselDependant
 	{
 		get
 		{
-			return (this.runtime & ControllerClass.Configuration.DynamicFreeVessel) == ControllerClass.Configuration.DynamicDependantVessel;
+			return (this.runtime & global::ControllerClass.Configuration.DynamicFreeVessel) == global::ControllerClass.Configuration.DynamicDependantVessel;
 		}
 	}
 
-	// Token: 0x1700025D RID: 605
-	// (get) Token: 0x0600092B RID: 2347 RVA: 0x00026C5C File Offset: 0x00024E5C
+	// Token: 0x1700029F RID: 671
+	// (get) Token: 0x06000A51 RID: 2641 RVA: 0x0002A9D8 File Offset: 0x00028BD8
 	internal bool vesselFree
 	{
 		get
 		{
-			return (this.runtime & ControllerClass.Configuration.DynamicFreeVessel) == ControllerClass.Configuration.DynamicFreeVessel;
+			return (this.runtime & global::ControllerClass.Configuration.DynamicFreeVessel) == global::ControllerClass.Configuration.DynamicFreeVessel;
 		}
 	}
 
-	// Token: 0x0600092C RID: 2348 RVA: 0x00026C6C File Offset: 0x00024E6C
+	// Token: 0x06000A52 RID: 2642 RVA: 0x0002A9E8 File Offset: 0x00028BE8
 	internal string GetClassName(bool player, bool local)
 	{
 		return (this.classNames != null) ? this.classNames.GetClassName(player, local) : null;
 	}
 
-	// Token: 0x0600092D RID: 2349 RVA: 0x00026C8C File Offset: 0x00024E8C
+	// Token: 0x06000A53 RID: 2643 RVA: 0x0002AA08 File Offset: 0x00028C08
 	internal bool GetClassName(bool player, bool local, out string className)
 	{
 		string className2;
@@ -88,20 +88,20 @@ public class ControllerClass : ScriptableObject
 		return !object.ReferenceEquals(className2, null);
 	}
 
-	// Token: 0x0600092E RID: 2350 RVA: 0x00026CB0 File Offset: 0x00024EB0
+	// Token: 0x06000A54 RID: 2644 RVA: 0x0002AA2C File Offset: 0x00028C2C
 	internal bool DefinesClass(bool player, bool local)
 	{
 		return !object.ReferenceEquals(this.GetClassName(player, local), null);
 	}
 
-	// Token: 0x0600092F RID: 2351 RVA: 0x00026CC4 File Offset: 0x00024EC4
+	// Token: 0x06000A55 RID: 2645 RVA: 0x0002AA40 File Offset: 0x00028C40
 	internal bool DefinesClass(bool player)
 	{
 		return !object.ReferenceEquals(this.GetClassName(player, false) ?? this.GetClassName(player, true), null);
 	}
 
-	// Token: 0x1700025E RID: 606
-	// (get) Token: 0x06000930 RID: 2352 RVA: 0x00026CF4 File Offset: 0x00024EF4
+	// Token: 0x170002A0 RID: 672
+	// (get) Token: 0x06000A56 RID: 2646 RVA: 0x0002AA70 File Offset: 0x00028C70
 	internal string unassignedClassName
 	{
 		get
@@ -110,74 +110,74 @@ public class ControllerClass : ScriptableObject
 		}
 	}
 
-	// Token: 0x0400064E RID: 1614
-	private const ControllerClass.Configuration kDriverMask = ControllerClass.Configuration.DynamicFreeVessel;
+	// Token: 0x0400075D RID: 1885
+	private const global::ControllerClass.Configuration kDriverMask = global::ControllerClass.Configuration.DynamicFreeVessel;
 
-	// Token: 0x0400064F RID: 1615
-	private const ControllerClass.Configuration kStaticMask = ControllerClass.Configuration.StaticRoot;
+	// Token: 0x0400075E RID: 1886
+	private const global::ControllerClass.Configuration kStaticMask = global::ControllerClass.Configuration.StaticRoot;
 
-	// Token: 0x04000650 RID: 1616
-	private const ControllerClass.Configuration kDriver_Root = ControllerClass.Configuration.DynamicRoot;
+	// Token: 0x0400075F RID: 1887
+	private const global::ControllerClass.Configuration kDriver_Root = global::ControllerClass.Configuration.DynamicRoot;
 
-	// Token: 0x04000651 RID: 1617
-	private const ControllerClass.Configuration kDriver_StandaloneVessel = ControllerClass.Configuration.DynamicStandaloneVessel;
+	// Token: 0x04000760 RID: 1888
+	private const global::ControllerClass.Configuration kDriver_StandaloneVessel = global::ControllerClass.Configuration.DynamicStandaloneVessel;
 
-	// Token: 0x04000652 RID: 1618
-	private const ControllerClass.Configuration kDriver_DependantVessel = ControllerClass.Configuration.DynamicDependantVessel;
+	// Token: 0x04000761 RID: 1889
+	private const global::ControllerClass.Configuration kDriver_DependantVessel = global::ControllerClass.Configuration.DynamicDependantVessel;
 
-	// Token: 0x04000653 RID: 1619
-	private const ControllerClass.Configuration kDriver_FreeVessel = ControllerClass.Configuration.DynamicFreeVessel;
+	// Token: 0x04000762 RID: 1890
+	private const global::ControllerClass.Configuration kDriver_FreeVessel = global::ControllerClass.Configuration.DynamicFreeVessel;
 
-	// Token: 0x04000654 RID: 1620
-	private const ControllerClass.Configuration kStatic_Static = ControllerClass.Configuration.StaticRoot;
+	// Token: 0x04000763 RID: 1891
+	private const global::ControllerClass.Configuration kStatic_Static = global::ControllerClass.Configuration.StaticRoot;
 
-	// Token: 0x04000655 RID: 1621
-	private const ControllerClass.Configuration kStatic_Dynamic = ControllerClass.Configuration.DynamicRoot;
+	// Token: 0x04000764 RID: 1892
+	private const global::ControllerClass.Configuration kStatic_Dynamic = global::ControllerClass.Configuration.DynamicRoot;
 
-	// Token: 0x04000656 RID: 1622
+	// Token: 0x04000765 RID: 1893
 	[SerializeField]
 	private string _npcName = string.Empty;
 
-	// Token: 0x04000657 RID: 1623
+	// Token: 0x04000766 RID: 1894
 	[SerializeField]
-	private ControllerClassesConfigurations classNames;
+	private global::ControllerClassesConfigurations classNames;
 
-	// Token: 0x04000658 RID: 1624
+	// Token: 0x04000767 RID: 1895
 	[SerializeField]
-	private ControllerClass.Configuration runtime;
+	private global::ControllerClass.Configuration runtime;
 
-	// Token: 0x0200013F RID: 319
+	// Token: 0x02000169 RID: 361
 	public enum Configuration
 	{
-		// Token: 0x0400065A RID: 1626
+		// Token: 0x04000769 RID: 1897
 		DynamicRoot,
-		// Token: 0x0400065B RID: 1627
+		// Token: 0x0400076A RID: 1898
 		DynamicStandaloneVessel,
-		// Token: 0x0400065C RID: 1628
+		// Token: 0x0400076B RID: 1899
 		DynamicDependantVessel,
-		// Token: 0x0400065D RID: 1629
+		// Token: 0x0400076C RID: 1900
 		DynamicFreeVessel,
-		// Token: 0x0400065E RID: 1630
+		// Token: 0x0400076D RID: 1901
 		StaticRoot,
-		// Token: 0x0400065F RID: 1631
+		// Token: 0x0400076E RID: 1902
 		StaticStandaloneVessel,
-		// Token: 0x04000660 RID: 1632
+		// Token: 0x0400076F RID: 1903
 		StaticDependantVessel,
-		// Token: 0x04000661 RID: 1633
+		// Token: 0x04000770 RID: 1904
 		StaticFreeVessel
 	}
 
-	// Token: 0x02000140 RID: 320
+	// Token: 0x0200016A RID: 362
 	public struct Merge
 	{
-		// Token: 0x06000931 RID: 2353 RVA: 0x00026D04 File Offset: 0x00024F04
-		public bool Add(ControllerClass @class)
+		// Token: 0x06000A57 RID: 2647 RVA: 0x0002AA80 File Offset: 0x00028C80
+		public bool Add(global::ControllerClass @class)
 		{
 			if (!@class)
 			{
 				return false;
 			}
-			ControllerClass.Merge.Instance instance;
+			global::ControllerClass.Merge.Instance instance;
 			instance.hash = @class.GetHashCode();
 			instance.value = @class;
 			if (this.length == 1)
@@ -205,7 +205,7 @@ public class ControllerClass : ScriptableObject
 			}
 			else if (num == 1)
 			{
-				this.classes = new ControllerClass.Merge.Instance[]
+				this.classes = new global::ControllerClass.Merge.Instance[]
 				{
 					this.first,
 					instance
@@ -215,14 +215,14 @@ public class ControllerClass : ScriptableObject
 			}
 			else
 			{
-				Array.Resize<ControllerClass.Merge.Instance>(ref this.classes, this.length);
+				Array.Resize<global::ControllerClass.Merge.Instance>(ref this.classes, this.length);
 				this.classes[num] = instance;
 			}
 			return true;
 		}
 
-		// Token: 0x1700025F RID: 607
-		// (get) Token: 0x06000932 RID: 2354 RVA: 0x00026E9C File Offset: 0x0002509C
+		// Token: 0x170002A1 RID: 673
+		// (get) Token: 0x06000A58 RID: 2648 RVA: 0x0002AC18 File Offset: 0x00028E18
 		public bool any
 		{
 			get
@@ -231,8 +231,8 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000260 RID: 608
-		// (get) Token: 0x06000933 RID: 2355 RVA: 0x00026EA8 File Offset: 0x000250A8
+		// Token: 0x170002A2 RID: 674
+		// (get) Token: 0x06000A59 RID: 2649 RVA: 0x0002AC24 File Offset: 0x00028E24
 		public bool root
 		{
 			get
@@ -256,8 +256,8 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000261 RID: 609
-		// (get) Token: 0x06000934 RID: 2356 RVA: 0x00026F18 File Offset: 0x00025118
+		// Token: 0x170002A3 RID: 675
+		// (get) Token: 0x06000A5A RID: 2650 RVA: 0x0002AC94 File Offset: 0x00028E94
 		public bool vessel
 		{
 			get
@@ -281,8 +281,8 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000262 RID: 610
-		// (get) Token: 0x06000935 RID: 2357 RVA: 0x00026F88 File Offset: 0x00025188
+		// Token: 0x170002A4 RID: 676
+		// (get) Token: 0x06000A5B RID: 2651 RVA: 0x0002AD04 File Offset: 0x00028F04
 		public bool staticGroup
 		{
 			get
@@ -306,8 +306,8 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000263 RID: 611
-		// (get) Token: 0x06000936 RID: 2358 RVA: 0x00026FF8 File Offset: 0x000251F8
+		// Token: 0x170002A5 RID: 677
+		// (get) Token: 0x06000A5C RID: 2652 RVA: 0x0002AD74 File Offset: 0x00028F74
 		public bool vesselStandalone
 		{
 			get
@@ -331,8 +331,8 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000264 RID: 612
-		// (get) Token: 0x06000937 RID: 2359 RVA: 0x00027068 File Offset: 0x00025268
+		// Token: 0x170002A6 RID: 678
+		// (get) Token: 0x06000A5D RID: 2653 RVA: 0x0002ADE4 File Offset: 0x00028FE4
 		public bool vesselDependant
 		{
 			get
@@ -356,8 +356,8 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000265 RID: 613
-		// (get) Token: 0x06000938 RID: 2360 RVA: 0x000270D8 File Offset: 0x000252D8
+		// Token: 0x170002A7 RID: 679
+		// (get) Token: 0x06000A5E RID: 2654 RVA: 0x0002AE54 File Offset: 0x00029054
 		public bool vesselFree
 		{
 			get
@@ -381,7 +381,7 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000266 RID: 614
+		// Token: 0x170002A8 RID: 680
 		public bool this[bool player, bool local]
 		{
 			get
@@ -405,7 +405,7 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000267 RID: 615
+		// Token: 0x170002A9 RID: 681
 		public bool this[bool player]
 		{
 			get
@@ -429,8 +429,8 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000268 RID: 616
-		// (get) Token: 0x0600093B RID: 2363 RVA: 0x0002722C File Offset: 0x0002542C
+		// Token: 0x170002AA RID: 682
+		// (get) Token: 0x06000A61 RID: 2657 RVA: 0x0002AFA8 File Offset: 0x000291A8
 		public bool multiple
 		{
 			get
@@ -439,26 +439,26 @@ public class ControllerClass : ScriptableObject
 			}
 		}
 
-		// Token: 0x04000662 RID: 1634
+		// Token: 0x04000771 RID: 1905
 		private int length;
 
-		// Token: 0x04000663 RID: 1635
+		// Token: 0x04000772 RID: 1906
 		private int hash;
 
-		// Token: 0x04000664 RID: 1636
-		private ControllerClass.Merge.Instance first;
+		// Token: 0x04000773 RID: 1907
+		private global::ControllerClass.Merge.Instance first;
 
-		// Token: 0x04000665 RID: 1637
-		private ControllerClass.Merge.Instance[] classes;
+		// Token: 0x04000774 RID: 1908
+		private global::ControllerClass.Merge.Instance[] classes;
 
-		// Token: 0x02000141 RID: 321
+		// Token: 0x0200016B RID: 363
 		private struct Instance
 		{
-			// Token: 0x04000666 RID: 1638
+			// Token: 0x04000775 RID: 1909
 			public int hash;
 
-			// Token: 0x04000667 RID: 1639
-			public ControllerClass value;
+			// Token: 0x04000776 RID: 1910
+			public global::ControllerClass value;
 		}
 	}
 }

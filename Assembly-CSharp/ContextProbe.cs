@@ -3,21 +3,21 @@ using Facepunch;
 using Facepunch.Cursor;
 using UnityEngine;
 
-// Token: 0x0200009B RID: 155
-public sealed class ContextProbe : IDLocalCharacterAddon
+// Token: 0x020000AE RID: 174
+public sealed class ContextProbe : global::IDLocalCharacterAddon
 {
-	// Token: 0x0600033C RID: 828 RVA: 0x0001018C File Offset: 0x0000E38C
-	public ContextProbe() : this(IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | IDLocalCharacterAddon.AddonFlags.FireOnWillRemoveAddon)
+	// Token: 0x060003B4 RID: 948 RVA: 0x0001197C File Offset: 0x0000FB7C
+	public ContextProbe() : this(global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | global::IDLocalCharacterAddon.AddonFlags.FireOnWillRemoveAddon)
 	{
 	}
 
-	// Token: 0x0600033D RID: 829 RVA: 0x00010198 File Offset: 0x0000E398
-	private ContextProbe(IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
+	// Token: 0x060003B5 RID: 949 RVA: 0x00011988 File Offset: 0x0000FB88
+	private ContextProbe(global::IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
 	{
 	}
 
-	// Token: 0x1700007C RID: 124
-	// (get) Token: 0x0600033E RID: 830 RVA: 0x000101A4 File Offset: 0x0000E3A4
+	// Token: 0x17000094 RID: 148
+	// (get) Token: 0x060003B6 RID: 950 RVA: 0x00011994 File Offset: 0x0000FB94
 	public bool isHighlighting
 	{
 		get
@@ -26,36 +26,36 @@ public sealed class ContextProbe : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700007D RID: 125
-	// (get) Token: 0x0600033F RID: 831 RVA: 0x000101AC File Offset: 0x0000E3AC
+	// Token: 0x17000095 RID: 149
+	// (get) Token: 0x060003B7 RID: 951 RVA: 0x0001199C File Offset: 0x0000FB9C
 	public static bool aProbeIsHighlighting
 	{
 		get
 		{
-			return ContextProbe.singleton && ContextProbe.singleton.hasHighlight;
+			return global::ContextProbe.singleton && global::ContextProbe.singleton.hasHighlight;
 		}
 	}
 
-	// Token: 0x06000340 RID: 832 RVA: 0x000101CC File Offset: 0x0000E3CC
+	// Token: 0x060003B8 RID: 952 RVA: 0x000119BC File Offset: 0x0000FBBC
 	protected override void OnAddonAwake()
 	{
-		ContextProbe.singleton = this;
-		CharacterContextProbeTrait trait = base.GetTrait<CharacterContextProbeTrait>();
+		global::ContextProbe.singleton = this;
+		global::CharacterContextProbeTrait trait = base.GetTrait<global::CharacterContextProbeTrait>();
 		this.raycastLength = trait.rayLength;
 	}
 
-	// Token: 0x06000341 RID: 833 RVA: 0x000101F4 File Offset: 0x0000E3F4
+	// Token: 0x060003B9 RID: 953 RVA: 0x000119E4 File Offset: 0x0000FBE4
 	protected override void OnWillRemoveAddon()
 	{
-		if (ContextProbe.singleton == this)
+		if (global::ContextProbe.singleton == this)
 		{
-			ContextProbe.singleton = null;
+			global::ContextProbe.singleton = null;
 		}
 		this.hasHighlight = false;
 		this.lastUseHighlight = null;
 	}
 
-	// Token: 0x06000342 RID: 834 RVA: 0x00010228 File Offset: 0x0000E428
+	// Token: 0x060003BA RID: 954 RVA: 0x00011A18 File Offset: 0x0000FC18
 	private void Update()
 	{
 		if (base.dead)
@@ -65,22 +65,22 @@ public sealed class ContextProbe : IDLocalCharacterAddon
 		bool press;
 		if (LockCursorManager.IsLocked())
 		{
-			press = Context.ButtonDown;
-			bool buttonUp = Context.ButtonUp;
+			press = global::Context.ButtonDown;
+			bool buttonUp = global::Context.ButtonUp;
 		}
 		else
 		{
 			press = false;
-			bool flag = Context.WorkingInMenu && Context.ButtonUp;
+			bool flag = global::Context.WorkingInMenu && global::Context.ButtonUp;
 		}
 		this.hasHighlight = this.ClientCheckUse(base.eyesRay, press);
-		if (Context.ButtonUp)
+		if (global::Context.ButtonUp)
 		{
-			Context.EndQuery();
+			global::Context.EndQuery();
 		}
 	}
 
-	// Token: 0x06000343 RID: 835 RVA: 0x00010294 File Offset: 0x0000E494
+	// Token: 0x060003BB RID: 955 RVA: 0x00011A84 File Offset: 0x0000FC84
 	private bool ClientCheckUse(Ray ray, bool press)
 	{
 		RaycastHit raycastHit;
@@ -89,25 +89,25 @@ public sealed class ContextProbe : IDLocalCharacterAddon
 		{
 			Transform transform = raycastHit.transform;
 			Transform parent = transform.parent;
-			NetEntityID netEntityID;
+			global::NetEntityID netEntityID;
 			MonoBehaviour component;
-			NetEntityID.Kind kind;
-			while ((int)(kind = NetEntityID.Of(transform, out netEntityID, out component)) == 0 && parent)
+			global::NetEntityID.Kind kind;
+			while ((int)(kind = global::NetEntityID.Of(transform, out netEntityID, out component)) == 0 && parent)
 			{
 				transform = parent;
 				parent = transform.parent;
 			}
-			Contextual contextual;
+			global::Contextual contextual;
 			if ((int)kind == 0)
 			{
 				monoBehaviour = null;
 			}
-			else if (Contextual.ContextOf(component, out contextual))
+			else if (global::Contextual.ContextOf(component, out contextual))
 			{
 				monoBehaviour = contextual.implementor;
 				if (press)
 				{
-					Context.BeginQuery(contextual);
+					global::Context.BeginQuery(contextual);
 				}
 			}
 			else
@@ -124,39 +124,39 @@ public sealed class ContextProbe : IDLocalCharacterAddon
 			this.lastUseHighlight = monoBehaviour;
 			if (monoBehaviour)
 			{
-				IContextRequestableText contextRequestableText = monoBehaviour as IContextRequestableText;
+				global::IContextRequestableText contextRequestableText = monoBehaviour as global::IContextRequestableText;
 				if (contextRequestableText != null)
 				{
-					RPOS.UseHoverTextSet(base.controllable, contextRequestableText);
+					global::RPOS.UseHoverTextSet(base.controllable, contextRequestableText);
 				}
 				else
 				{
-					RPOS.UseHoverTextSet(monoBehaviour.name);
+					global::RPOS.UseHoverTextSet(monoBehaviour.name);
 				}
 			}
 			else
 			{
-				RPOS.UseHoverTextClear();
+				global::RPOS.UseHoverTextClear();
 			}
 		}
 		return monoBehaviour;
 	}
 
-	// Token: 0x040002B7 RID: 695
-	private const IDLocalCharacterAddon.AddonFlags ContextProbeAddonFlags = IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | IDLocalCharacterAddon.AddonFlags.FireOnWillRemoveAddon;
+	// Token: 0x04000322 RID: 802
+	private const global::IDLocalCharacterAddon.AddonFlags ContextProbeAddonFlags = global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | global::IDLocalCharacterAddon.AddonFlags.FireOnWillRemoveAddon;
 
-	// Token: 0x040002B8 RID: 696
+	// Token: 0x04000323 RID: 803
 	[NonSerialized]
 	private float raycastLength;
 
-	// Token: 0x040002B9 RID: 697
+	// Token: 0x04000324 RID: 804
 	[NonSerialized]
 	private MonoBehaviour lastUseHighlight;
 
-	// Token: 0x040002BA RID: 698
+	// Token: 0x04000325 RID: 805
 	[NonSerialized]
 	private bool hasHighlight;
 
-	// Token: 0x040002BB RID: 699
-	private static ContextProbe singleton;
+	// Token: 0x04000326 RID: 806
+	private static global::ContextProbe singleton;
 }

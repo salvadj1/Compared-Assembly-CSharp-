@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001F8 RID: 504
+// Token: 0x0200022B RID: 555
 public class LibRust : MonoBehaviour
 {
 }

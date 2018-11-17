@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x0200021B RID: 539
+	// Token: 0x0200024E RID: 590
 	[DebuggerNonUserCode]
 	public sealed class objectStructComponent : GeneratedMessage<objectStructComponent, objectStructComponent.Builder>
 	{
-		// Token: 0x06001291 RID: 4753 RVA: 0x0004109C File Offset: 0x0003F29C
+		// Token: 0x060013E5 RID: 5093 RVA: 0x00045444 File Offset: 0x00043644
 		private objectStructComponent()
 		{
 		}
 
-		// Token: 0x06001292 RID: 4754 RVA: 0x000410AC File Offset: 0x0003F2AC
+		// Token: 0x060013E6 RID: 5094 RVA: 0x00045454 File Offset: 0x00043654
 		static objectStructComponent()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x06001293 RID: 4755 RVA: 0x00041110 File Offset: 0x0003F310
-		public static Recycler<objectStructComponent, objectStructComponent.Builder> Recycler()
+		// Token: 0x060013E7 RID: 5095 RVA: 0x000454B8 File Offset: 0x000436B8
+		public static RustProto.Helpers.Recycler<objectStructComponent, objectStructComponent.Builder> Recycler()
 		{
-			return Recycler<objectStructComponent, objectStructComponent.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectStructComponent, objectStructComponent.Builder>.Manufacture();
 		}
 
-		// Token: 0x1700052A RID: 1322
-		// (get) Token: 0x06001294 RID: 4756 RVA: 0x00041118 File Offset: 0x0003F318
+		// Token: 0x17000572 RID: 1394
+		// (get) Token: 0x060013E8 RID: 5096 RVA: 0x000454C0 File Offset: 0x000436C0
 		public static objectStructComponent DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700052B RID: 1323
-		// (get) Token: 0x06001295 RID: 4757 RVA: 0x00041120 File Offset: 0x0003F320
+		// Token: 0x17000573 RID: 1395
+		// (get) Token: 0x060013E9 RID: 5097 RVA: 0x000454C8 File Offset: 0x000436C8
 		public override objectStructComponent DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700052C RID: 1324
-		// (get) Token: 0x06001296 RID: 4758 RVA: 0x00041128 File Offset: 0x0003F328
+		// Token: 0x17000574 RID: 1396
+		// (get) Token: 0x060013EA RID: 5098 RVA: 0x000454D0 File Offset: 0x000436D0
 		protected override objectStructComponent ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700052D RID: 1325
-		// (get) Token: 0x06001297 RID: 4759 RVA: 0x0004112C File Offset: 0x0003F32C
+		// Token: 0x17000575 RID: 1397
+		// (get) Token: 0x060013EB RID: 5099 RVA: 0x000454D4 File Offset: 0x000436D4
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700052E RID: 1326
-		// (get) Token: 0x06001298 RID: 4760 RVA: 0x00041134 File Offset: 0x0003F334
+		// Token: 0x17000576 RID: 1398
+		// (get) Token: 0x060013EC RID: 5100 RVA: 0x000454DC File Offset: 0x000436DC
 		protected override FieldAccessorTable<objectStructComponent, objectStructComponent.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x1700052F RID: 1327
-		// (get) Token: 0x06001299 RID: 4761 RVA: 0x0004113C File Offset: 0x0003F33C
+		// Token: 0x17000577 RID: 1399
+		// (get) Token: 0x060013ED RID: 5101 RVA: 0x000454E4 File Offset: 0x000436E4
 		public bool HasID
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000530 RID: 1328
-		// (get) Token: 0x0600129A RID: 4762 RVA: 0x00041144 File Offset: 0x0003F344
+		// Token: 0x17000578 RID: 1400
+		// (get) Token: 0x060013EE RID: 5102 RVA: 0x000454EC File Offset: 0x000436EC
 		public int ID
 		{
 			get
@@ -99,8 +99,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000531 RID: 1329
-		// (get) Token: 0x0600129B RID: 4763 RVA: 0x0004114C File Offset: 0x0003F34C
+		// Token: 0x17000579 RID: 1401
+		// (get) Token: 0x060013EF RID: 5103 RVA: 0x000454F4 File Offset: 0x000436F4
 		public bool HasMasterID
 		{
 			get
@@ -109,8 +109,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000532 RID: 1330
-		// (get) Token: 0x0600129C RID: 4764 RVA: 0x00041154 File Offset: 0x0003F354
+		// Token: 0x1700057A RID: 1402
+		// (get) Token: 0x060013F0 RID: 5104 RVA: 0x000454FC File Offset: 0x000436FC
 		public int MasterID
 		{
 			get
@@ -119,8 +119,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000533 RID: 1331
-		// (get) Token: 0x0600129D RID: 4765 RVA: 0x0004115C File Offset: 0x0003F35C
+		// Token: 0x1700057B RID: 1403
+		// (get) Token: 0x060013F1 RID: 5105 RVA: 0x00045504 File Offset: 0x00043704
 		public bool HasMasterViewID
 		{
 			get
@@ -129,8 +129,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000534 RID: 1332
-		// (get) Token: 0x0600129E RID: 4766 RVA: 0x00041164 File Offset: 0x0003F364
+		// Token: 0x1700057C RID: 1404
+		// (get) Token: 0x060013F2 RID: 5106 RVA: 0x0004550C File Offset: 0x0004370C
 		public int MasterViewID
 		{
 			get
@@ -139,8 +139,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x17000535 RID: 1333
-		// (get) Token: 0x0600129F RID: 4767 RVA: 0x0004116C File Offset: 0x0003F36C
+		// Token: 0x1700057D RID: 1405
+		// (get) Token: 0x060013F3 RID: 5107 RVA: 0x00045514 File Offset: 0x00043714
 		public override bool IsInitialized
 		{
 			get
@@ -149,7 +149,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060012A0 RID: 4768 RVA: 0x00041170 File Offset: 0x0003F370
+		// Token: 0x060013F4 RID: 5108 RVA: 0x00045518 File Offset: 0x00043718
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -169,8 +169,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x17000536 RID: 1334
-		// (get) Token: 0x060012A1 RID: 4769 RVA: 0x000411E8 File Offset: 0x0003F3E8
+		// Token: 0x1700057E RID: 1406
+		// (get) Token: 0x060013F5 RID: 5109 RVA: 0x00045590 File Offset: 0x00043790
 		public override int SerializedSize
 		{
 			get
@@ -199,109 +199,109 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060012A2 RID: 4770 RVA: 0x0004126C File Offset: 0x0003F46C
+		// Token: 0x060013F6 RID: 5110 RVA: 0x00045614 File Offset: 0x00043814
 		public static objectStructComponent ParseFrom(ByteString data)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060012A3 RID: 4771 RVA: 0x00041280 File Offset: 0x0003F480
+		// Token: 0x060013F7 RID: 5111 RVA: 0x00045628 File Offset: 0x00043828
 		public static objectStructComponent ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060012A4 RID: 4772 RVA: 0x00041294 File Offset: 0x0003F494
+		// Token: 0x060013F8 RID: 5112 RVA: 0x0004563C File Offset: 0x0004383C
 		public static objectStructComponent ParseFrom(byte[] data)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060012A5 RID: 4773 RVA: 0x000412A8 File Offset: 0x0003F4A8
+		// Token: 0x060013F9 RID: 5113 RVA: 0x00045650 File Offset: 0x00043850
 		public static objectStructComponent ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060012A6 RID: 4774 RVA: 0x000412BC File Offset: 0x0003F4BC
+		// Token: 0x060013FA RID: 5114 RVA: 0x00045664 File Offset: 0x00043864
 		public static objectStructComponent ParseFrom(Stream input)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060012A7 RID: 4775 RVA: 0x000412D0 File Offset: 0x0003F4D0
+		// Token: 0x060013FB RID: 5115 RVA: 0x00045678 File Offset: 0x00043878
 		public static objectStructComponent ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060012A8 RID: 4776 RVA: 0x000412E4 File Offset: 0x0003F4E4
+		// Token: 0x060013FC RID: 5116 RVA: 0x0004568C File Offset: 0x0004388C
 		public static objectStructComponent ParseDelimitedFrom(Stream input)
 		{
 			return objectStructComponent.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060012A9 RID: 4777 RVA: 0x000412F8 File Offset: 0x0003F4F8
+		// Token: 0x060013FD RID: 5117 RVA: 0x000456A0 File Offset: 0x000438A0
 		public static objectStructComponent ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectStructComponent.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060012AA RID: 4778 RVA: 0x0004130C File Offset: 0x0003F50C
+		// Token: 0x060013FE RID: 5118 RVA: 0x000456B4 File Offset: 0x000438B4
 		public static objectStructComponent ParseFrom(ICodedInputStream input)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060012AB RID: 4779 RVA: 0x00041320 File Offset: 0x0003F520
+		// Token: 0x060013FF RID: 5119 RVA: 0x000456C8 File Offset: 0x000438C8
 		public static objectStructComponent ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectStructComponent.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060012AC RID: 4780 RVA: 0x00041334 File Offset: 0x0003F534
+		// Token: 0x06001400 RID: 5120 RVA: 0x000456DC File Offset: 0x000438DC
 		private objectStructComponent MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x060012AD RID: 4781 RVA: 0x00041338 File Offset: 0x0003F538
+		// Token: 0x06001401 RID: 5121 RVA: 0x000456E0 File Offset: 0x000438E0
 		public static objectStructComponent.Builder CreateBuilder()
 		{
 			return new objectStructComponent.Builder();
 		}
 
-		// Token: 0x060012AE RID: 4782 RVA: 0x00041340 File Offset: 0x0003F540
+		// Token: 0x06001402 RID: 5122 RVA: 0x000456E8 File Offset: 0x000438E8
 		public override objectStructComponent.Builder ToBuilder()
 		{
 			return objectStructComponent.CreateBuilder(this);
 		}
 
-		// Token: 0x060012AF RID: 4783 RVA: 0x00041348 File Offset: 0x0003F548
+		// Token: 0x06001403 RID: 5123 RVA: 0x000456F0 File Offset: 0x000438F0
 		public override objectStructComponent.Builder CreateBuilderForType()
 		{
 			return new objectStructComponent.Builder();
 		}
 
-		// Token: 0x060012B0 RID: 4784 RVA: 0x00041350 File Offset: 0x0003F550
+		// Token: 0x06001404 RID: 5124 RVA: 0x000456F8 File Offset: 0x000438F8
 		public static objectStructComponent.Builder CreateBuilder(objectStructComponent prototype)
 		{
 			return new objectStructComponent.Builder(prototype);
 		}
 
-		// Token: 0x040009AD RID: 2477
+		// Token: 0x04000AD0 RID: 2768
 		public const int IDFieldNumber = 1;
 
-		// Token: 0x040009AE RID: 2478
+		// Token: 0x04000AD1 RID: 2769
 		public const int MasterIDFieldNumber = 2;
 
-		// Token: 0x040009AF RID: 2479
+		// Token: 0x04000AD2 RID: 2770
 		public const int MasterViewIDFieldNumber = 3;
 
-		// Token: 0x040009B0 RID: 2480
+		// Token: 0x04000AD3 RID: 2771
 		private static readonly objectStructComponent defaultInstance = new objectStructComponent().MakeReadOnly();
 
-		// Token: 0x040009B1 RID: 2481
+		// Token: 0x04000AD4 RID: 2772
 		private static readonly string[] _objectStructComponentFieldNames = new string[]
 		{
 			"ID",
@@ -309,7 +309,7 @@ namespace RustProto
 			"MasterViewID"
 		};
 
-		// Token: 0x040009B2 RID: 2482
+		// Token: 0x04000AD5 RID: 2773
 		private static readonly uint[] _objectStructComponentFieldTags = new uint[]
 		{
 			8u,
@@ -317,47 +317,47 @@ namespace RustProto
 			24u
 		};
 
-		// Token: 0x040009B3 RID: 2483
+		// Token: 0x04000AD6 RID: 2774
 		private bool hasID;
 
-		// Token: 0x040009B4 RID: 2484
+		// Token: 0x04000AD7 RID: 2775
 		private int iD_;
 
-		// Token: 0x040009B5 RID: 2485
+		// Token: 0x04000AD8 RID: 2776
 		private bool hasMasterID;
 
-		// Token: 0x040009B6 RID: 2486
+		// Token: 0x04000AD9 RID: 2777
 		private int masterID_;
 
-		// Token: 0x040009B7 RID: 2487
+		// Token: 0x04000ADA RID: 2778
 		private bool hasMasterViewID;
 
-		// Token: 0x040009B8 RID: 2488
+		// Token: 0x04000ADB RID: 2779
 		private int masterViewID_;
 
-		// Token: 0x040009B9 RID: 2489
+		// Token: 0x04000ADC RID: 2780
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x0200021C RID: 540
+		// Token: 0x0200024F RID: 591
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectStructComponent, objectStructComponent.Builder>
 		{
-			// Token: 0x060012B1 RID: 4785 RVA: 0x00041358 File Offset: 0x0003F558
+			// Token: 0x06001405 RID: 5125 RVA: 0x00045700 File Offset: 0x00043900
 			public Builder()
 			{
 				this.result = objectStructComponent.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x060012B2 RID: 4786 RVA: 0x00041374 File Offset: 0x0003F574
+			// Token: 0x06001406 RID: 5126 RVA: 0x0004571C File Offset: 0x0004391C
 			internal Builder(objectStructComponent cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x17000537 RID: 1335
-			// (get) Token: 0x060012B3 RID: 4787 RVA: 0x0004138C File Offset: 0x0003F58C
+			// Token: 0x1700057F RID: 1407
+			// (get) Token: 0x06001407 RID: 5127 RVA: 0x00045734 File Offset: 0x00043934
 			protected override objectStructComponent.Builder ThisBuilder
 			{
 				get
@@ -366,7 +366,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060012B4 RID: 4788 RVA: 0x00041390 File Offset: 0x0003F590
+			// Token: 0x06001408 RID: 5128 RVA: 0x00045738 File Offset: 0x00043938
 			private objectStructComponent PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -379,8 +379,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x17000538 RID: 1336
-			// (get) Token: 0x060012B5 RID: 4789 RVA: 0x000413D0 File Offset: 0x0003F5D0
+			// Token: 0x17000580 RID: 1408
+			// (get) Token: 0x06001409 RID: 5129 RVA: 0x00045778 File Offset: 0x00043978
 			public override bool IsInitialized
 			{
 				get
@@ -389,8 +389,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000539 RID: 1337
-			// (get) Token: 0x060012B6 RID: 4790 RVA: 0x000413E0 File Offset: 0x0003F5E0
+			// Token: 0x17000581 RID: 1409
+			// (get) Token: 0x0600140A RID: 5130 RVA: 0x00045788 File Offset: 0x00043988
 			protected override objectStructComponent MessageBeingBuilt
 			{
 				get
@@ -399,7 +399,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060012B7 RID: 4791 RVA: 0x000413E8 File Offset: 0x0003F5E8
+			// Token: 0x0600140B RID: 5131 RVA: 0x00045790 File Offset: 0x00043990
 			public override objectStructComponent.Builder Clear()
 			{
 				this.result = objectStructComponent.DefaultInstance;
@@ -407,7 +407,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060012B8 RID: 4792 RVA: 0x00041400 File Offset: 0x0003F600
+			// Token: 0x0600140C RID: 5132 RVA: 0x000457A8 File Offset: 0x000439A8
 			public override objectStructComponent.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -417,8 +417,8 @@ namespace RustProto
 				return new objectStructComponent.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x1700053A RID: 1338
-			// (get) Token: 0x060012B9 RID: 4793 RVA: 0x0004142C File Offset: 0x0003F62C
+			// Token: 0x17000582 RID: 1410
+			// (get) Token: 0x0600140D RID: 5133 RVA: 0x000457D4 File Offset: 0x000439D4
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -427,8 +427,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700053B RID: 1339
-			// (get) Token: 0x060012BA RID: 4794 RVA: 0x00041434 File Offset: 0x0003F634
+			// Token: 0x17000583 RID: 1411
+			// (get) Token: 0x0600140E RID: 5134 RVA: 0x000457DC File Offset: 0x000439DC
 			public override objectStructComponent DefaultInstanceForType
 			{
 				get
@@ -437,7 +437,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060012BB RID: 4795 RVA: 0x0004143C File Offset: 0x0003F63C
+			// Token: 0x0600140F RID: 5135 RVA: 0x000457E4 File Offset: 0x000439E4
 			public override objectStructComponent BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -448,7 +448,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x060012BC RID: 4796 RVA: 0x00041470 File Offset: 0x0003F670
+			// Token: 0x06001410 RID: 5136 RVA: 0x00045818 File Offset: 0x00043A18
 			public override objectStructComponent.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectStructComponent)
@@ -459,7 +459,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060012BD RID: 4797 RVA: 0x00041494 File Offset: 0x0003F694
+			// Token: 0x06001411 RID: 5137 RVA: 0x0004583C File Offset: 0x00043A3C
 			public override objectStructComponent.Builder MergeFrom(objectStructComponent other)
 			{
 				if (other == objectStructComponent.DefaultInstance)
@@ -483,13 +483,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060012BE RID: 4798 RVA: 0x00041508 File Offset: 0x0003F708
+			// Token: 0x06001412 RID: 5138 RVA: 0x000458B0 File Offset: 0x00043AB0
 			public override objectStructComponent.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x060012BF RID: 4799 RVA: 0x00041518 File Offset: 0x0003F718
+			// Token: 0x06001413 RID: 5139 RVA: 0x000458C0 File Offset: 0x00043AC0
 			public override objectStructComponent.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -559,8 +559,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700053C RID: 1340
-			// (get) Token: 0x060012C0 RID: 4800 RVA: 0x00041680 File Offset: 0x0003F880
+			// Token: 0x17000584 RID: 1412
+			// (get) Token: 0x06001414 RID: 5140 RVA: 0x00045A28 File Offset: 0x00043C28
 			public bool HasID
 			{
 				get
@@ -569,9 +569,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700053D RID: 1341
-			// (get) Token: 0x060012C1 RID: 4801 RVA: 0x00041690 File Offset: 0x0003F890
-			// (set) Token: 0x060012C2 RID: 4802 RVA: 0x000416A0 File Offset: 0x0003F8A0
+			// Token: 0x17000585 RID: 1413
+			// (get) Token: 0x06001415 RID: 5141 RVA: 0x00045A38 File Offset: 0x00043C38
+			// (set) Token: 0x06001416 RID: 5142 RVA: 0x00045A48 File Offset: 0x00043C48
 			public int ID
 			{
 				get
@@ -584,7 +584,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060012C3 RID: 4803 RVA: 0x000416AC File Offset: 0x0003F8AC
+			// Token: 0x06001417 RID: 5143 RVA: 0x00045A54 File Offset: 0x00043C54
 			public objectStructComponent.Builder SetID(int value)
 			{
 				this.PrepareBuilder();
@@ -593,7 +593,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060012C4 RID: 4804 RVA: 0x000416DC File Offset: 0x0003F8DC
+			// Token: 0x06001418 RID: 5144 RVA: 0x00045A84 File Offset: 0x00043C84
 			public objectStructComponent.Builder ClearID()
 			{
 				this.PrepareBuilder();
@@ -602,8 +602,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x1700053E RID: 1342
-			// (get) Token: 0x060012C5 RID: 4805 RVA: 0x0004170C File Offset: 0x0003F90C
+			// Token: 0x17000586 RID: 1414
+			// (get) Token: 0x06001419 RID: 5145 RVA: 0x00045AB4 File Offset: 0x00043CB4
 			public bool HasMasterID
 			{
 				get
@@ -612,9 +612,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x1700053F RID: 1343
-			// (get) Token: 0x060012C6 RID: 4806 RVA: 0x0004171C File Offset: 0x0003F91C
-			// (set) Token: 0x060012C7 RID: 4807 RVA: 0x0004172C File Offset: 0x0003F92C
+			// Token: 0x17000587 RID: 1415
+			// (get) Token: 0x0600141A RID: 5146 RVA: 0x00045AC4 File Offset: 0x00043CC4
+			// (set) Token: 0x0600141B RID: 5147 RVA: 0x00045AD4 File Offset: 0x00043CD4
 			public int MasterID
 			{
 				get
@@ -627,7 +627,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060012C8 RID: 4808 RVA: 0x00041738 File Offset: 0x0003F938
+			// Token: 0x0600141C RID: 5148 RVA: 0x00045AE0 File Offset: 0x00043CE0
 			public objectStructComponent.Builder SetMasterID(int value)
 			{
 				this.PrepareBuilder();
@@ -636,7 +636,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060012C9 RID: 4809 RVA: 0x00041768 File Offset: 0x0003F968
+			// Token: 0x0600141D RID: 5149 RVA: 0x00045B10 File Offset: 0x00043D10
 			public objectStructComponent.Builder ClearMasterID()
 			{
 				this.PrepareBuilder();
@@ -645,8 +645,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x17000540 RID: 1344
-			// (get) Token: 0x060012CA RID: 4810 RVA: 0x00041798 File Offset: 0x0003F998
+			// Token: 0x17000588 RID: 1416
+			// (get) Token: 0x0600141E RID: 5150 RVA: 0x00045B40 File Offset: 0x00043D40
 			public bool HasMasterViewID
 			{
 				get
@@ -655,9 +655,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x17000541 RID: 1345
-			// (get) Token: 0x060012CB RID: 4811 RVA: 0x000417A8 File Offset: 0x0003F9A8
-			// (set) Token: 0x060012CC RID: 4812 RVA: 0x000417B8 File Offset: 0x0003F9B8
+			// Token: 0x17000589 RID: 1417
+			// (get) Token: 0x0600141F RID: 5151 RVA: 0x00045B50 File Offset: 0x00043D50
+			// (set) Token: 0x06001420 RID: 5152 RVA: 0x00045B60 File Offset: 0x00043D60
 			public int MasterViewID
 			{
 				get
@@ -670,7 +670,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060012CD RID: 4813 RVA: 0x000417C4 File Offset: 0x0003F9C4
+			// Token: 0x06001421 RID: 5153 RVA: 0x00045B6C File Offset: 0x00043D6C
 			public objectStructComponent.Builder SetMasterViewID(int value)
 			{
 				this.PrepareBuilder();
@@ -679,7 +679,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060012CE RID: 4814 RVA: 0x000417F4 File Offset: 0x0003F9F4
+			// Token: 0x06001422 RID: 5154 RVA: 0x00045B9C File Offset: 0x00043D9C
 			public objectStructComponent.Builder ClearMasterViewID()
 			{
 				this.PrepareBuilder();
@@ -688,10 +688,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x040009BA RID: 2490
+			// Token: 0x04000ADD RID: 2781
 			private bool resultIsReadOnly;
 
-			// Token: 0x040009BB RID: 2491
+			// Token: 0x04000ADE RID: 2782
 			private objectStructComponent result;
 		}
 	}

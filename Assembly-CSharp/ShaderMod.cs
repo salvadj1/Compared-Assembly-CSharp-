@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200035B RID: 859
+// Token: 0x02000408 RID: 1032
 public class ShaderMod : ScriptableObject
 {
-	// Token: 0x17000823 RID: 2083
-	public ShaderMod.DICT this[ShaderMod.Replacement replacement]
+	// Token: 0x17000881 RID: 2177
+	public global::ShaderMod.DICT this[global::ShaderMod.Replacement replacement]
 	{
 		get
 		{
 			switch (replacement)
 			{
-			case ShaderMod.Replacement.Include:
+			case global::ShaderMod.Replacement.Include:
 				return this.replaceIncludes;
-			case ShaderMod.Replacement.Queue:
+			case global::ShaderMod.Replacement.Queue:
 				return this.replaceQueues;
-			case ShaderMod.Replacement.Define:
+			case global::ShaderMod.Replacement.Define:
 				return this.macroDefines;
 			default:
 				return null;
@@ -23,70 +23,70 @@ public class ShaderMod : ScriptableObject
 		}
 	}
 
-	// Token: 0x06002113 RID: 8467 RVA: 0x0008182C File Offset: 0x0007FA2C
-	public bool Replace(ShaderMod.Replacement replacement, string incoming, ref string outgoing)
+	// Token: 0x06002475 RID: 9333 RVA: 0x00086C28 File Offset: 0x00084E28
+	public bool Replace(global::ShaderMod.Replacement replacement, string incoming, ref string outgoing)
 	{
-		ShaderMod.DICT dict = this[replacement];
+		global::ShaderMod.DICT dict = this[replacement];
 		return dict != null && dict.Replace(replacement, incoming, ref outgoing);
 	}
 
-	// Token: 0x04000F7E RID: 3966
-	public ShaderMod.DICT replaceIncludes;
+	// Token: 0x040010E4 RID: 4324
+	public global::ShaderMod.DICT replaceIncludes;
 
-	// Token: 0x04000F7F RID: 3967
-	public ShaderMod.DICT replaceQueues;
+	// Token: 0x040010E5 RID: 4325
+	public global::ShaderMod.DICT replaceQueues;
 
-	// Token: 0x04000F80 RID: 3968
-	public ShaderMod.DICT macroDefines;
+	// Token: 0x040010E6 RID: 4326
+	public global::ShaderMod.DICT macroDefines;
 
-	// Token: 0x04000F81 RID: 3969
+	// Token: 0x040010E7 RID: 4327
 	public string[] preIncludes;
 
-	// Token: 0x04000F82 RID: 3970
+	// Token: 0x040010E8 RID: 4328
 	public string[] postIncludes;
 
-	// Token: 0x0200035C RID: 860
+	// Token: 0x02000409 RID: 1033
 	[Serializable]
 	public class KV
 	{
-		// Token: 0x06002114 RID: 8468 RVA: 0x00081854 File Offset: 0x0007FA54
+		// Token: 0x06002476 RID: 9334 RVA: 0x00086C50 File Offset: 0x00084E50
 		public KV()
 		{
 			this.key = string.Empty;
 			this.value = string.Empty;
 		}
 
-		// Token: 0x06002115 RID: 8469 RVA: 0x00081874 File Offset: 0x0007FA74
+		// Token: 0x06002477 RID: 9335 RVA: 0x00086C70 File Offset: 0x00084E70
 		public KV(string key, string value)
 		{
 			this.key = key;
 			this.value = value;
 		}
 
-		// Token: 0x06002116 RID: 8470 RVA: 0x0008188C File Offset: 0x0007FA8C
+		// Token: 0x06002478 RID: 9336 RVA: 0x00086C88 File Offset: 0x00084E88
 		public override int GetHashCode()
 		{
 			return (this.key != null) ? this.key.GetHashCode() : 0;
 		}
 
-		// Token: 0x04000F83 RID: 3971
+		// Token: 0x040010E9 RID: 4329
 		public string key;
 
-		// Token: 0x04000F84 RID: 3972
+		// Token: 0x040010EA RID: 4330
 		public string value;
 	}
 
-	// Token: 0x0200035D RID: 861
+	// Token: 0x0200040A RID: 1034
 	public static class QueueCompare
 	{
-		// Token: 0x06002118 RID: 8472 RVA: 0x000818C4 File Offset: 0x0007FAC4
+		// Token: 0x0600247A RID: 9338 RVA: 0x00086CC0 File Offset: 0x00084EC0
 		public static int ToInt32(string queue)
 		{
 			if (queue == null || queue.Length == 0)
 			{
 				return 2000;
 			}
-			int num = queue.IndexOfAny(ShaderMod.QueueCompare.signChars);
+			int num = queue.IndexOfAny(global::ShaderMod.QueueCompare.signChars);
 			int num2;
 			if (num != -1)
 			{
@@ -114,31 +114,31 @@ public class ShaderMod : ScriptableObject
 			return (!int.TryParse(queue, out num2)) ? 2000 : num2;
 		}
 
-		// Token: 0x06002119 RID: 8473 RVA: 0x000819F4 File Offset: 0x0007FBF4
+		// Token: 0x0600247B RID: 9339 RVA: 0x00086DF0 File Offset: 0x00084FF0
 		public static bool Equals(string queue1, string queue2)
 		{
-			return ShaderMod.QueueCompare.ToInt32(queue1) == ShaderMod.QueueCompare.ToInt32(queue2);
+			return global::ShaderMod.QueueCompare.ToInt32(queue1) == global::ShaderMod.QueueCompare.ToInt32(queue2);
 		}
 
-		// Token: 0x04000F85 RID: 3973
+		// Token: 0x040010EB RID: 4331
 		public const int kBackground = 1000;
 
-		// Token: 0x04000F86 RID: 3974
+		// Token: 0x040010EC RID: 4332
 		public const int kGeometry = 2000;
 
-		// Token: 0x04000F87 RID: 3975
+		// Token: 0x040010ED RID: 4333
 		public const int kAlphaTest = 2450;
 
-		// Token: 0x04000F88 RID: 3976
+		// Token: 0x040010EE RID: 4334
 		public const int kTransparent = 3000;
 
-		// Token: 0x04000F89 RID: 3977
+		// Token: 0x040010EF RID: 4335
 		public const int kOverlay = 4000;
 
-		// Token: 0x04000F8A RID: 3978
+		// Token: 0x040010F0 RID: 4336
 		public const int kDefault = 2000;
 
-		// Token: 0x04000F8B RID: 3979
+		// Token: 0x040010F1 RID: 4337
 		private static readonly char[] signChars = new char[]
 		{
 			'-',
@@ -146,16 +146,16 @@ public class ShaderMod : ScriptableObject
 		};
 	}
 
-	// Token: 0x0200035E RID: 862
+	// Token: 0x0200040B RID: 1035
 	[Serializable]
 	public class DICT
 	{
-		// Token: 0x17000824 RID: 2084
+		// Token: 0x17000882 RID: 2178
 		public string this[string key]
 		{
 			get
 			{
-				foreach (ShaderMod.KV kv in this.keyValues)
+				foreach (global::ShaderMod.KV kv in this.keyValues)
 				{
 					if (kv.key == key)
 					{
@@ -174,7 +174,7 @@ public class ShaderMod : ScriptableObject
 						if (value == null)
 						{
 							this.keyValues[num] = this.keyValues[this.keyValues.Length - 1];
-							Array.Resize<ShaderMod.KV>(ref this.keyValues, this.keyValues.Length - 1);
+							Array.Resize<global::ShaderMod.KV>(ref this.keyValues, this.keyValues.Length - 1);
 						}
 						else
 						{
@@ -186,17 +186,17 @@ public class ShaderMod : ScriptableObject
 				{
 					throw new ArgumentNullException("key");
 				}
-				Array.Resize<ShaderMod.KV>(ref this.keyValues, this.keyValues.Length + 1);
-				this.keyValues[this.keyValues.Length - 1] = new ShaderMod.KV(key, value);
+				Array.Resize<global::ShaderMod.KV>(ref this.keyValues, this.keyValues.Length + 1);
+				this.keyValues[this.keyValues.Length - 1] = new global::ShaderMod.KV(key, value);
 			}
 		}
 
-		// Token: 0x0600211D RID: 8477 RVA: 0x00081B24 File Offset: 0x0007FD24
-		public bool Replace(ShaderMod.Replacement replacement, string incoming, ref string outgoing)
+		// Token: 0x0600247F RID: 9343 RVA: 0x00086F20 File Offset: 0x00085120
+		public bool Replace(global::ShaderMod.Replacement replacement, string incoming, ref string outgoing)
 		{
 			if (this.keyValues != null)
 			{
-				if (replacement != ShaderMod.Replacement.Queue)
+				if (replacement != global::ShaderMod.Replacement.Queue)
 				{
 					for (int i = 0; i < this.keyValues.Length; i++)
 					{
@@ -211,7 +211,7 @@ public class ShaderMod : ScriptableObject
 				{
 					for (int j = 0; j < this.keyValues.Length; j++)
 					{
-						if (ShaderMod.QueueCompare.Equals(this.keyValues[j].key, incoming))
+						if (global::ShaderMod.QueueCompare.Equals(this.keyValues[j].key, incoming))
 						{
 							outgoing = this.keyValues[j].value;
 							return true;
@@ -222,18 +222,18 @@ public class ShaderMod : ScriptableObject
 			return false;
 		}
 
-		// Token: 0x04000F8D RID: 3981
-		public ShaderMod.KV[] keyValues;
+		// Token: 0x040010F3 RID: 4339
+		public global::ShaderMod.KV[] keyValues;
 	}
 
-	// Token: 0x0200035F RID: 863
+	// Token: 0x0200040C RID: 1036
 	public enum Replacement
 	{
-		// Token: 0x04000F8F RID: 3983
+		// Token: 0x040010F5 RID: 4341
 		Include,
-		// Token: 0x04000F90 RID: 3984
+		// Token: 0x040010F6 RID: 4342
 		Queue,
-		// Token: 0x04000F91 RID: 3985
+		// Token: 0x040010F7 RID: 4343
 		Define
 	}
 }

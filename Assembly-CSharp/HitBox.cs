@@ -1,7 +1,7 @@
 ﻿using System;
 using Facepunch.Intersect;
 
-// Token: 0x02000196 RID: 406
-public class HitBox : HitBox
+// Token: 0x020001C4 RID: 452
+public class HitBox : Facepunch.Intersect.HitBox
 {
 }

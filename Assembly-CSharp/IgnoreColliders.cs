@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003D7 RID: 983
+// Token: 0x02000484 RID: 1156
 public class IgnoreColliders : MonoBehaviour
 {
-	// Token: 0x060024AF RID: 9391 RVA: 0x0008C2C4 File Offset: 0x0008A4C4
+	// Token: 0x06002811 RID: 10257 RVA: 0x000916C0 File Offset: 0x0008F8C0
 	private void Awake()
 	{
 		if (this.a != null && this.b != null)
@@ -22,9 +22,9 @@ public class IgnoreColliders : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040011A9 RID: 4521
+	// Token: 0x0400130F RID: 4879
 	public Collider[] a;
 
-	// Token: 0x040011AA RID: 4522
+	// Token: 0x04001310 RID: 4880
 	public Collider[] b;
 }

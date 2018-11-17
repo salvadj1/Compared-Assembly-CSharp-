@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000438 RID: 1080
-public class WolfAI : HostileWildlifeAI
+// Token: 0x020004EE RID: 1262
+public class WolfAI : global::HostileWildlifeAI
 {
-	// Token: 0x060027DD RID: 10205 RVA: 0x0009B9AC File Offset: 0x00099BAC
+	// Token: 0x06002B6D RID: 11117 RVA: 0x000A192C File Offset: 0x0009FB2C
 	public override string GetAttackAnim()
 	{
 		return "bite";
 	}
 
-	// Token: 0x060027DE RID: 10206 RVA: 0x0009B9B4 File Offset: 0x00099BB4
+	// Token: 0x06002B6E RID: 11118 RVA: 0x000A1934 File Offset: 0x0009FB34
 	public void Start()
 	{
 		this.wolfRenderer.material = this.mats[Random.Range(0, this.mats.Length)];
 	}
 
-	// Token: 0x060027DF RID: 10207 RVA: 0x0009B9E4 File Offset: 0x00099BE4
+	// Token: 0x06002B6F RID: 11119 RVA: 0x000A1964 File Offset: 0x0009FB64
 	protected void Update()
 	{
 		if (this._takeDamage.dead)
@@ -48,9 +48,9 @@ public class WolfAI : HostileWildlifeAI
 		this.lastMoveAnim = text;
 	}
 
-	// Token: 0x040013C6 RID: 5062
+	// Token: 0x04001549 RID: 5449
 	public Renderer wolfRenderer;
 
-	// Token: 0x040013C7 RID: 5063
+	// Token: 0x0400154A RID: 5450
 	public Material[] mats;
 }

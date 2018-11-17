@@ -1,28 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006F0 RID: 1776
-[RequireComponent(typeof(BoxCollider))]
-[AddComponentMenu("Daikon Forge/User Interface/Scrollbar")]
+// Token: 0x020007C2 RID: 1986
 [ExecuteInEditMode]
+[AddComponentMenu("Daikon Forge/User Interface/Scrollbar")]
+[RequireComponent(typeof(BoxCollider))]
 [Serializable]
-public class dfScrollbar : dfControl
+public class dfScrollbar : global::dfControl
 {
 	// Token: 0x14000050 RID: 80
-	// (add) Token: 0x06003FE4 RID: 16356 RVA: 0x000F3E5C File Offset: 0x000F205C
-	// (remove) Token: 0x06003FE5 RID: 16357 RVA: 0x000F3E78 File Offset: 0x000F2078
-	public event PropertyChangedEventHandler<float> ValueChanged;
+	// (add) Token: 0x06004400 RID: 17408 RVA: 0x000FCA60 File Offset: 0x000FAC60
+	// (remove) Token: 0x06004401 RID: 17409 RVA: 0x000FCA7C File Offset: 0x000FAC7C
+	public event global::PropertyChangedEventHandler<float> ValueChanged;
 
-	// Token: 0x17000C8D RID: 3213
-	// (get) Token: 0x06003FE6 RID: 16358 RVA: 0x000F3E94 File Offset: 0x000F2094
-	// (set) Token: 0x06003FE7 RID: 16359 RVA: 0x000F3EDC File Offset: 0x000F20DC
-	public dfAtlas Atlas
+	// Token: 0x17000D11 RID: 3345
+	// (get) Token: 0x06004402 RID: 17410 RVA: 0x000FCA98 File Offset: 0x000FAC98
+	// (set) Token: 0x06004403 RID: 17411 RVA: 0x000FCAE0 File Offset: 0x000FACE0
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -32,7 +32,7 @@ public class dfScrollbar : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -40,9 +40,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C8E RID: 3214
-	// (get) Token: 0x06003FE8 RID: 16360 RVA: 0x000F3EFC File Offset: 0x000F20FC
-	// (set) Token: 0x06003FE9 RID: 16361 RVA: 0x000F3F04 File Offset: 0x000F2104
+	// Token: 0x17000D12 RID: 3346
+	// (get) Token: 0x06004404 RID: 17412 RVA: 0x000FCB00 File Offset: 0x000FAD00
+	// (set) Token: 0x06004405 RID: 17413 RVA: 0x000FCB08 File Offset: 0x000FAD08
 	public float MinValue
 	{
 		get
@@ -61,9 +61,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C8F RID: 3215
-	// (get) Token: 0x06003FEA RID: 16362 RVA: 0x000F3F34 File Offset: 0x000F2134
-	// (set) Token: 0x06003FEB RID: 16363 RVA: 0x000F3F3C File Offset: 0x000F213C
+	// Token: 0x17000D13 RID: 3347
+	// (get) Token: 0x06004406 RID: 17414 RVA: 0x000FCB38 File Offset: 0x000FAD38
+	// (set) Token: 0x06004407 RID: 17415 RVA: 0x000FCB40 File Offset: 0x000FAD40
 	public float MaxValue
 	{
 		get
@@ -82,9 +82,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C90 RID: 3216
-	// (get) Token: 0x06003FEC RID: 16364 RVA: 0x000F3F6C File Offset: 0x000F216C
-	// (set) Token: 0x06003FED RID: 16365 RVA: 0x000F3F74 File Offset: 0x000F2174
+	// Token: 0x17000D14 RID: 3348
+	// (get) Token: 0x06004408 RID: 17416 RVA: 0x000FCB70 File Offset: 0x000FAD70
+	// (set) Token: 0x06004409 RID: 17417 RVA: 0x000FCB78 File Offset: 0x000FAD78
 	public float StepSize
 	{
 		get
@@ -103,9 +103,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C91 RID: 3217
-	// (get) Token: 0x06003FEE RID: 16366 RVA: 0x000F3FB4 File Offset: 0x000F21B4
-	// (set) Token: 0x06003FEF RID: 16367 RVA: 0x000F3FBC File Offset: 0x000F21BC
+	// Token: 0x17000D15 RID: 3349
+	// (get) Token: 0x0600440A RID: 17418 RVA: 0x000FCBB8 File Offset: 0x000FADB8
+	// (set) Token: 0x0600440B RID: 17419 RVA: 0x000FCBC0 File Offset: 0x000FADC0
 	public float ScrollSize
 	{
 		get
@@ -125,9 +125,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C92 RID: 3218
-	// (get) Token: 0x06003FF0 RID: 16368 RVA: 0x000F4004 File Offset: 0x000F2204
-	// (set) Token: 0x06003FF1 RID: 16369 RVA: 0x000F400C File Offset: 0x000F220C
+	// Token: 0x17000D16 RID: 3350
+	// (get) Token: 0x0600440C RID: 17420 RVA: 0x000FCC08 File Offset: 0x000FAE08
+	// (set) Token: 0x0600440D RID: 17421 RVA: 0x000FCC10 File Offset: 0x000FAE10
 	public float IncrementAmount
 	{
 		get
@@ -144,10 +144,10 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C93 RID: 3219
-	// (get) Token: 0x06003FF2 RID: 16370 RVA: 0x000F4034 File Offset: 0x000F2234
-	// (set) Token: 0x06003FF3 RID: 16371 RVA: 0x000F403C File Offset: 0x000F223C
-	public dfControlOrientation Orientation
+	// Token: 0x17000D17 RID: 3351
+	// (get) Token: 0x0600440E RID: 17422 RVA: 0x000FCC38 File Offset: 0x000FAE38
+	// (set) Token: 0x0600440F RID: 17423 RVA: 0x000FCC40 File Offset: 0x000FAE40
+	public global::dfControlOrientation Orientation
 	{
 		get
 		{
@@ -163,9 +163,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C94 RID: 3220
-	// (get) Token: 0x06003FF4 RID: 16372 RVA: 0x000F4058 File Offset: 0x000F2258
-	// (set) Token: 0x06003FF5 RID: 16373 RVA: 0x000F4060 File Offset: 0x000F2260
+	// Token: 0x17000D18 RID: 3352
+	// (get) Token: 0x06004410 RID: 17424 RVA: 0x000FCC5C File Offset: 0x000FAE5C
+	// (set) Token: 0x06004411 RID: 17425 RVA: 0x000FCC64 File Offset: 0x000FAE64
 	public float Value
 	{
 		get
@@ -184,10 +184,10 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C95 RID: 3221
-	// (get) Token: 0x06003FF6 RID: 16374 RVA: 0x000F4098 File Offset: 0x000F2298
-	// (set) Token: 0x06003FF7 RID: 16375 RVA: 0x000F40A0 File Offset: 0x000F22A0
-	public dfControl Thumb
+	// Token: 0x17000D19 RID: 3353
+	// (get) Token: 0x06004412 RID: 17426 RVA: 0x000FCC9C File Offset: 0x000FAE9C
+	// (set) Token: 0x06004413 RID: 17427 RVA: 0x000FCCA4 File Offset: 0x000FAEA4
+	public global::dfControl Thumb
 	{
 		get
 		{
@@ -203,10 +203,10 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C96 RID: 3222
-	// (get) Token: 0x06003FF8 RID: 16376 RVA: 0x000F40C0 File Offset: 0x000F22C0
-	// (set) Token: 0x06003FF9 RID: 16377 RVA: 0x000F40C8 File Offset: 0x000F22C8
-	public dfControl Track
+	// Token: 0x17000D1A RID: 3354
+	// (get) Token: 0x06004414 RID: 17428 RVA: 0x000FCCC4 File Offset: 0x000FAEC4
+	// (set) Token: 0x06004415 RID: 17429 RVA: 0x000FCCCC File Offset: 0x000FAECC
+	public global::dfControl Track
 	{
 		get
 		{
@@ -222,10 +222,10 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C97 RID: 3223
-	// (get) Token: 0x06003FFA RID: 16378 RVA: 0x000F40E8 File Offset: 0x000F22E8
-	// (set) Token: 0x06003FFB RID: 16379 RVA: 0x000F40F0 File Offset: 0x000F22F0
-	public dfControl IncButton
+	// Token: 0x17000D1B RID: 3355
+	// (get) Token: 0x06004416 RID: 17430 RVA: 0x000FCCEC File Offset: 0x000FAEEC
+	// (set) Token: 0x06004417 RID: 17431 RVA: 0x000FCCF4 File Offset: 0x000FAEF4
+	public global::dfControl IncButton
 	{
 		get
 		{
@@ -241,10 +241,10 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C98 RID: 3224
-	// (get) Token: 0x06003FFC RID: 16380 RVA: 0x000F4110 File Offset: 0x000F2310
-	// (set) Token: 0x06003FFD RID: 16381 RVA: 0x000F4118 File Offset: 0x000F2318
-	public dfControl DecButton
+	// Token: 0x17000D1C RID: 3356
+	// (get) Token: 0x06004418 RID: 17432 RVA: 0x000FCD14 File Offset: 0x000FAF14
+	// (set) Token: 0x06004419 RID: 17433 RVA: 0x000FCD1C File Offset: 0x000FAF1C
+	public global::dfControl DecButton
 	{
 		get
 		{
@@ -260,9 +260,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C99 RID: 3225
-	// (get) Token: 0x06003FFE RID: 16382 RVA: 0x000F4138 File Offset: 0x000F2338
-	// (set) Token: 0x06003FFF RID: 16383 RVA: 0x000F4158 File Offset: 0x000F2358
+	// Token: 0x17000D1D RID: 3357
+	// (get) Token: 0x0600441A RID: 17434 RVA: 0x000FCD3C File Offset: 0x000FAF3C
+	// (set) Token: 0x0600441B RID: 17435 RVA: 0x000FCD5C File Offset: 0x000FAF5C
 	public RectOffset ThumbPadding
 	{
 		get
@@ -275,7 +275,7 @@ public class dfScrollbar : dfControl
 		}
 		set
 		{
-			if (this.orientation == dfControlOrientation.Horizontal)
+			if (this.orientation == global::dfControlOrientation.Horizontal)
 			{
 				int num = 0;
 				value.bottom = num;
@@ -295,9 +295,9 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x17000C9A RID: 3226
-	// (get) Token: 0x06004000 RID: 16384 RVA: 0x000F41BC File Offset: 0x000F23BC
-	// (set) Token: 0x06004001 RID: 16385 RVA: 0x000F41C4 File Offset: 0x000F23C4
+	// Token: 0x17000D1E RID: 3358
+	// (get) Token: 0x0600441C RID: 17436 RVA: 0x000FCDC0 File Offset: 0x000FAFC0
+	// (set) Token: 0x0600441D RID: 17437 RVA: 0x000FCDC8 File Offset: 0x000FAFC8
 	public bool AutoHide
 	{
 		get
@@ -315,7 +315,7 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x06004002 RID: 16386 RVA: 0x000F41E8 File Offset: 0x000F23E8
+	// Token: 0x0600441E RID: 17438 RVA: 0x000FCDEC File Offset: 0x000FAFEC
 	public override Vector2 CalculateMinimumSize()
 	{
 		Vector2[] array = new Vector2[3];
@@ -332,7 +332,7 @@ public class dfScrollbar : dfControl
 			array[2] = this.thumb.CalculateMinimumSize();
 		}
 		Vector2 zero = Vector2.zero;
-		if (this.orientation == dfControlOrientation.Horizontal)
+		if (this.orientation == global::dfControlOrientation.Horizontal)
 		{
 			zero.x = array[0].x + array[1].x + array[2].x;
 			zero.y = Mathf.Max(new float[]
@@ -355,8 +355,8 @@ public class dfScrollbar : dfControl
 		return Vector2.Max(zero, base.CalculateMinimumSize());
 	}
 
-	// Token: 0x17000C9B RID: 3227
-	// (get) Token: 0x06004003 RID: 16387 RVA: 0x000F4370 File Offset: 0x000F2570
+	// Token: 0x17000D1F RID: 3359
+	// (get) Token: 0x0600441F RID: 17439 RVA: 0x000FCF74 File Offset: 0x000FB174
 	public override bool CanFocus
 	{
 		get
@@ -365,35 +365,35 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x06004004 RID: 16388 RVA: 0x000F4390 File Offset: 0x000F2590
+	// Token: 0x06004420 RID: 17440 RVA: 0x000FCF94 File Offset: 0x000FB194
 	protected override void OnRebuildRenderData()
 	{
 		this.updateThumb(this.rawValue);
 		base.OnRebuildRenderData();
 	}
 
-	// Token: 0x06004005 RID: 16389 RVA: 0x000F43A4 File Offset: 0x000F25A4
+	// Token: 0x06004421 RID: 17441 RVA: 0x000FCFA8 File Offset: 0x000FB1A8
 	public override void Start()
 	{
 		base.Start();
 		this.attachEvents();
 	}
 
-	// Token: 0x06004006 RID: 16390 RVA: 0x000F43B4 File Offset: 0x000F25B4
+	// Token: 0x06004422 RID: 17442 RVA: 0x000FCFB8 File Offset: 0x000FB1B8
 	public override void OnDisable()
 	{
 		base.OnDisable();
 		this.detachEvents();
 	}
 
-	// Token: 0x06004007 RID: 16391 RVA: 0x000F43C4 File Offset: 0x000F25C4
+	// Token: 0x06004423 RID: 17443 RVA: 0x000FCFC8 File Offset: 0x000FB1C8
 	public override void OnDestroy()
 	{
 		base.OnDestroy();
 		this.detachEvents();
 	}
 
-	// Token: 0x06004008 RID: 16392 RVA: 0x000F43D4 File Offset: 0x000F25D4
+	// Token: 0x06004424 RID: 17444 RVA: 0x000FCFD8 File Offset: 0x000FB1D8
 	private void attachEvents()
 	{
 		if (!Application.isPlaying)
@@ -412,7 +412,7 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x06004009 RID: 16393 RVA: 0x000F446C File Offset: 0x000F266C
+	// Token: 0x06004425 RID: 17445 RVA: 0x000FD070 File Offset: 0x000FB270
 	private void detachEvents()
 	{
 		if (!Application.isPlaying)
@@ -431,10 +431,10 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x0600400A RID: 16394 RVA: 0x000F4504 File Offset: 0x000F2704
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x06004426 RID: 17446 RVA: 0x000FD108 File Offset: 0x000FB308
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
-		if (this.Orientation == dfControlOrientation.Horizontal)
+		if (this.Orientation == global::dfControlOrientation.Horizontal)
 		{
 			if (args.KeyCode == 276)
 			{
@@ -467,8 +467,8 @@ public class dfScrollbar : dfControl
 		base.OnKeyDown(args);
 	}
 
-	// Token: 0x0600400B RID: 16395 RVA: 0x000F45D0 File Offset: 0x000F27D0
-	protected internal override void OnMouseWheel(dfMouseEventArgs args)
+	// Token: 0x06004427 RID: 17447 RVA: 0x000FD1D4 File Offset: 0x000FB3D4
+	protected internal override void OnMouseWheel(global::dfMouseEventArgs args)
 	{
 		this.Value += this.IncrementAmount * -args.WheelDelta;
 		args.Use();
@@ -478,15 +478,15 @@ public class dfScrollbar : dfControl
 		});
 	}
 
-	// Token: 0x0600400C RID: 16396 RVA: 0x000F4614 File Offset: 0x000F2814
-	protected internal override void OnMouseHover(dfMouseEventArgs args)
+	// Token: 0x06004428 RID: 17448 RVA: 0x000FD218 File Offset: 0x000FB418
+	protected internal override void OnMouseHover(global::dfMouseEventArgs args)
 	{
 		bool flag = args.Source == this.incButton || args.Source == this.decButton || args.Source == this.thumb;
 		if (flag)
 		{
 			return;
 		}
-		if (args.Source != this.track || !args.Buttons.IsSet(dfMouseButtons.Left))
+		if (args.Source != this.track || !args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			base.OnMouseHover(args);
 			return;
@@ -499,14 +499,14 @@ public class dfScrollbar : dfControl
 		});
 	}
 
-	// Token: 0x0600400D RID: 16397 RVA: 0x000F46BC File Offset: 0x000F28BC
-	protected internal override void OnMouseMove(dfMouseEventArgs args)
+	// Token: 0x06004429 RID: 17449 RVA: 0x000FD2C0 File Offset: 0x000FB4C0
+	protected internal override void OnMouseMove(global::dfMouseEventArgs args)
 	{
 		if (args.Source == this.incButton || args.Source == this.decButton)
 		{
 			return;
 		}
-		if ((args.Source != this.track && args.Source != this.thumb) || !args.Buttons.IsSet(dfMouseButtons.Left))
+		if ((args.Source != this.track && args.Source != this.thumb) || !args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			base.OnMouseMove(args);
 			return;
@@ -519,10 +519,10 @@ public class dfScrollbar : dfControl
 		});
 	}
 
-	// Token: 0x0600400E RID: 16398 RVA: 0x000F477C File Offset: 0x000F297C
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x0600442A RID: 17450 RVA: 0x000FD380 File Offset: 0x000FB580
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
-		if (args.Buttons.IsSet(dfMouseButtons.Left))
+		if (args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			base.Focus();
 		}
@@ -530,7 +530,7 @@ public class dfScrollbar : dfControl
 		{
 			return;
 		}
-		if ((args.Source != this.track && args.Source != this.thumb) || !args.Buttons.IsSet(dfMouseButtons.Left))
+		if ((args.Source != this.track && args.Source != this.thumb) || !args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			base.OnMouseDown(args);
 			return;
@@ -553,7 +553,7 @@ public class dfScrollbar : dfControl
 		});
 	}
 
-	// Token: 0x0600400F RID: 16399 RVA: 0x000F48C0 File Offset: 0x000F2AC0
+	// Token: 0x0600442B RID: 17451 RVA: 0x000FD4C4 File Offset: 0x000FB6C4
 	protected internal virtual void OnValueChanged()
 	{
 		this.Invalidate();
@@ -567,14 +567,14 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x06004010 RID: 16400 RVA: 0x000F4910 File Offset: 0x000F2B10
+	// Token: 0x0600442C RID: 17452 RVA: 0x000FD514 File Offset: 0x000FB714
 	protected internal override void OnSizeChanged()
 	{
 		base.OnSizeChanged();
 		this.updateThumb(this.rawValue);
 	}
 
-	// Token: 0x06004011 RID: 16401 RVA: 0x000F4924 File Offset: 0x000F2B24
+	// Token: 0x0600442D RID: 17453 RVA: 0x000FD528 File Offset: 0x000FB728
 	private void doAutoHide()
 	{
 		if (!this.autoHide || !Application.isPlaying)
@@ -591,28 +591,28 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x06004012 RID: 16402 RVA: 0x000F497C File Offset: 0x000F2B7C
-	private void incrementPressed(dfControl sender, dfMouseEventArgs args)
+	// Token: 0x0600442E RID: 17454 RVA: 0x000FD580 File Offset: 0x000FB780
+	private void incrementPressed(global::dfControl sender, global::dfMouseEventArgs args)
 	{
-		if (args.Buttons.IsSet(dfMouseButtons.Left))
+		if (args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			this.Value += this.IncrementAmount;
 			args.Use();
 		}
 	}
 
-	// Token: 0x06004013 RID: 16403 RVA: 0x000F49B4 File Offset: 0x000F2BB4
-	private void decrementPressed(dfControl sender, dfMouseEventArgs args)
+	// Token: 0x0600442F RID: 17455 RVA: 0x000FD5B8 File Offset: 0x000FB7B8
+	private void decrementPressed(global::dfControl sender, global::dfMouseEventArgs args)
 	{
-		if (args.Buttons.IsSet(dfMouseButtons.Left))
+		if (args.Buttons.IsSet(global::dfMouseButtons.Left))
 		{
 			this.Value -= this.IncrementAmount;
 			args.Use();
 		}
 	}
 
-	// Token: 0x06004014 RID: 16404 RVA: 0x000F49EC File Offset: 0x000F2BEC
-	private void updateFromTrackClick(dfMouseEventArgs args)
+	// Token: 0x06004430 RID: 17456 RVA: 0x000FD5F0 File Offset: 0x000FB7F0
+	private void updateFromTrackClick(global::dfMouseEventArgs args)
 	{
 		float valueFromMouseEvent = this.getValueFromMouseEvent(args);
 		if (valueFromMouseEvent > this.rawValue + this.scrollSize)
@@ -625,7 +625,7 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x06004015 RID: 16405 RVA: 0x000F4A4C File Offset: 0x000F2C4C
+	// Token: 0x06004431 RID: 17457 RVA: 0x000FD650 File Offset: 0x000FB850
 	private float adjustValue(float value)
 	{
 		float num = Mathf.Max(this.maxValue - this.minValue, 0f);
@@ -634,7 +634,7 @@ public class dfScrollbar : dfControl
 		return value2.Quantize(this.stepSize);
 	}
 
-	// Token: 0x06004016 RID: 16406 RVA: 0x000F4AAC File Offset: 0x000F2CAC
+	// Token: 0x06004432 RID: 17458 RVA: 0x000FD6B0 File Offset: 0x000FB8B0
 	private void updateThumb(float rawValue)
 	{
 		if (this.controls.Count == 0 || this.thumb == null || this.track == null || !base.IsVisible)
@@ -648,10 +648,10 @@ public class dfScrollbar : dfControl
 			return;
 		}
 		this.thumb.IsVisible = true;
-		float num2 = (this.orientation != dfControlOrientation.Horizontal) ? this.track.Height : this.track.Width;
-		float num3 = (this.orientation != dfControlOrientation.Horizontal) ? Mathf.Max(this.scrollSize / num * num2, this.thumb.MinimumSize.y) : Mathf.Max(this.scrollSize / num * num2, this.thumb.MinimumSize.x);
-		Vector2 size = (this.orientation != dfControlOrientation.Horizontal) ? new Vector2(this.thumb.Width, num3) : new Vector2(num3, this.thumb.Height);
-		if (this.Orientation == dfControlOrientation.Horizontal)
+		float num2 = (this.orientation != global::dfControlOrientation.Horizontal) ? this.track.Height : this.track.Width;
+		float num3 = (this.orientation != global::dfControlOrientation.Horizontal) ? Mathf.Max(this.scrollSize / num * num2, this.thumb.MinimumSize.y) : Mathf.Max(this.scrollSize / num * num2, this.thumb.MinimumSize.x);
+		Vector2 size = (this.orientation != global::dfControlOrientation.Horizontal) ? new Vector2(this.thumb.Width, num3) : new Vector2(num3, this.thumb.Height);
+		if (this.Orientation == global::dfControlOrientation.Horizontal)
 		{
 			size.x -= (float)this.thumbPadding.horizontal;
 		}
@@ -662,9 +662,9 @@ public class dfScrollbar : dfControl
 		this.thumb.Size = size;
 		float num4 = (rawValue - this.minValue) / (num - this.scrollSize);
 		float num5 = num4 * (num2 - num3);
-		Vector3 vector = (this.orientation != dfControlOrientation.Horizontal) ? Vector3.up : Vector3.right;
-		Vector3 vector2 = (this.Orientation != dfControlOrientation.Horizontal) ? new Vector3((this.track.Width - this.thumb.Width) * 0.5f, 0f) : new Vector3(0f, (this.track.Height - this.thumb.Height) * 0.5f);
-		if (this.Orientation == dfControlOrientation.Horizontal)
+		Vector3 vector = (this.orientation != global::dfControlOrientation.Horizontal) ? Vector3.up : Vector3.right;
+		Vector3 vector2 = (this.Orientation != global::dfControlOrientation.Horizontal) ? new Vector3((this.track.Width - this.thumb.Width) * 0.5f, 0f) : new Vector3(0f, (this.track.Height - this.thumb.Height) * 0.5f);
+		if (this.Orientation == global::dfControlOrientation.Horizontal)
 		{
 			vector2.x = (float)this.thumbPadding.left;
 		}
@@ -682,12 +682,12 @@ public class dfScrollbar : dfControl
 		}
 	}
 
-	// Token: 0x06004017 RID: 16407 RVA: 0x000F4D64 File Offset: 0x000F2F64
-	private float getValueFromMouseEvent(dfMouseEventArgs args)
+	// Token: 0x06004433 RID: 17459 RVA: 0x000FD968 File Offset: 0x000FBB68
+	private float getValueFromMouseEvent(global::dfMouseEventArgs args)
 	{
 		Vector3[] corners = this.track.GetCorners();
 		Vector3 vector = corners[0];
-		Vector3 vector2 = corners[(this.orientation != dfControlOrientation.Horizontal) ? 2 : 1];
+		Vector3 vector2 = corners[(this.orientation != global::dfControlOrientation.Horizontal) ? 2 : 1];
 		Plane plane;
 		plane..ctor(base.transform.TransformDirection(Vector3.back), vector);
 		Ray ray = args.Ray;
@@ -701,12 +701,12 @@ public class dfScrollbar : dfControl
 		{
 			vector3 += this.thumbMouseOffset;
 		}
-		Vector3 vector4 = dfScrollbar.closestPoint(vector, vector2, vector3, true);
+		Vector3 vector4 = global::dfScrollbar.closestPoint(vector, vector2, vector3, true);
 		float num2 = (vector4 - vector).magnitude / (vector2 - vector).magnitude;
 		return this.minValue + (this.maxValue - this.minValue) * num2;
 	}
 
-	// Token: 0x06004018 RID: 16408 RVA: 0x000F4E74 File Offset: 0x000F3074
+	// Token: 0x06004434 RID: 17460 RVA: 0x000FDA78 File Offset: 0x000FBC78
 	private static Vector3 closestPoint(Vector3 start, Vector3 end, Vector3 test, bool clamp)
 	{
 		Vector3 vector = test - start;
@@ -728,62 +728,62 @@ public class dfScrollbar : dfControl
 		return start + vector2;
 	}
 
-	// Token: 0x04002207 RID: 8711
+	// Token: 0x04002410 RID: 9232
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x04002208 RID: 8712
+	// Token: 0x04002411 RID: 9233
 	[SerializeField]
-	protected dfControlOrientation orientation;
+	protected global::dfControlOrientation orientation;
 
-	// Token: 0x04002209 RID: 8713
+	// Token: 0x04002412 RID: 9234
 	[SerializeField]
 	protected float rawValue = 1f;
 
-	// Token: 0x0400220A RID: 8714
+	// Token: 0x04002413 RID: 9235
 	[SerializeField]
 	protected float minValue;
 
-	// Token: 0x0400220B RID: 8715
+	// Token: 0x04002414 RID: 9236
 	[SerializeField]
 	protected float maxValue = 100f;
 
-	// Token: 0x0400220C RID: 8716
+	// Token: 0x04002415 RID: 9237
 	[SerializeField]
 	protected float stepSize = 1f;
 
-	// Token: 0x0400220D RID: 8717
+	// Token: 0x04002416 RID: 9238
 	[SerializeField]
 	protected float scrollSize = 1f;
 
-	// Token: 0x0400220E RID: 8718
+	// Token: 0x04002417 RID: 9239
 	[SerializeField]
 	protected float increment = 1f;
 
-	// Token: 0x0400220F RID: 8719
+	// Token: 0x04002418 RID: 9240
 	[SerializeField]
-	protected dfControl thumb;
+	protected global::dfControl thumb;
 
-	// Token: 0x04002210 RID: 8720
+	// Token: 0x04002419 RID: 9241
 	[SerializeField]
-	protected dfControl track;
+	protected global::dfControl track;
 
-	// Token: 0x04002211 RID: 8721
+	// Token: 0x0400241A RID: 9242
 	[SerializeField]
-	protected dfControl incButton;
+	protected global::dfControl incButton;
 
-	// Token: 0x04002212 RID: 8722
+	// Token: 0x0400241B RID: 9243
 	[SerializeField]
-	protected dfControl decButton;
+	protected global::dfControl decButton;
 
-	// Token: 0x04002213 RID: 8723
+	// Token: 0x0400241C RID: 9244
 	[SerializeField]
 	protected RectOffset thumbPadding = new RectOffset();
 
-	// Token: 0x04002214 RID: 8724
+	// Token: 0x0400241D RID: 9245
 	[SerializeField]
 	protected bool autoHide;
 
-	// Token: 0x04002215 RID: 8725
+	// Token: 0x0400241E RID: 9246
 	private Vector3 thumbMouseOffset = Vector3.zero;
 }

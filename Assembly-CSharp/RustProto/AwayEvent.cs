@@ -9,29 +9,29 @@ using RustProto.Proto;
 
 namespace RustProto
 {
-	// Token: 0x02000225 RID: 549
+	// Token: 0x02000258 RID: 600
 	[DebuggerNonUserCode]
 	public sealed class AwayEvent : GeneratedMessage<AwayEvent, AwayEvent.Builder>
 	{
-		// Token: 0x060013CB RID: 5067 RVA: 0x000437E0 File Offset: 0x000419E0
+		// Token: 0x0600151F RID: 5407 RVA: 0x00047B88 File Offset: 0x00045D88
 		private AwayEvent()
 		{
 		}
 
-		// Token: 0x060013CC RID: 5068 RVA: 0x000437F0 File Offset: 0x000419F0
+		// Token: 0x06001520 RID: 5408 RVA: 0x00047B98 File Offset: 0x00045D98
 		static AwayEvent()
 		{
-			object.ReferenceEquals(Avatar.Descriptor, null);
+			object.ReferenceEquals(RustProto.Proto.Avatar.Descriptor, null);
 		}
 
-		// Token: 0x060013CD RID: 5069 RVA: 0x00043854 File Offset: 0x00041A54
-		public static Recycler<AwayEvent, AwayEvent.Builder> Recycler()
+		// Token: 0x06001521 RID: 5409 RVA: 0x00047BFC File Offset: 0x00045DFC
+		public static RustProto.Helpers.Recycler<AwayEvent, AwayEvent.Builder> Recycler()
 		{
-			return Recycler<AwayEvent, AwayEvent.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<AwayEvent, AwayEvent.Builder>.Manufacture();
 		}
 
-		// Token: 0x170005A2 RID: 1442
-		// (get) Token: 0x060013CE RID: 5070 RVA: 0x0004385C File Offset: 0x00041A5C
+		// Token: 0x170005EA RID: 1514
+		// (get) Token: 0x06001522 RID: 5410 RVA: 0x00047C04 File Offset: 0x00045E04
 		public static AwayEvent DefaultInstance
 		{
 			get
@@ -40,8 +40,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005A3 RID: 1443
-		// (get) Token: 0x060013CF RID: 5071 RVA: 0x00043864 File Offset: 0x00041A64
+		// Token: 0x170005EB RID: 1515
+		// (get) Token: 0x06001523 RID: 5411 RVA: 0x00047C0C File Offset: 0x00045E0C
 		public override AwayEvent DefaultInstanceForType
 		{
 			get
@@ -50,8 +50,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005A4 RID: 1444
-		// (get) Token: 0x060013D0 RID: 5072 RVA: 0x0004386C File Offset: 0x00041A6C
+		// Token: 0x170005EC RID: 1516
+		// (get) Token: 0x06001524 RID: 5412 RVA: 0x00047C14 File Offset: 0x00045E14
 		protected override AwayEvent ThisMessage
 		{
 			get
@@ -60,28 +60,28 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005A5 RID: 1445
-		// (get) Token: 0x060013D1 RID: 5073 RVA: 0x00043870 File Offset: 0x00041A70
+		// Token: 0x170005ED RID: 1517
+		// (get) Token: 0x06001525 RID: 5413 RVA: 0x00047C18 File Offset: 0x00045E18
 		public static MessageDescriptor Descriptor
 		{
 			get
 			{
-				return Avatar.internal__static_RustProto_AwayEvent__Descriptor;
+				return RustProto.Proto.Avatar.internal__static_RustProto_AwayEvent__Descriptor;
 			}
 		}
 
-		// Token: 0x170005A6 RID: 1446
-		// (get) Token: 0x060013D2 RID: 5074 RVA: 0x00043878 File Offset: 0x00041A78
+		// Token: 0x170005EE RID: 1518
+		// (get) Token: 0x06001526 RID: 5414 RVA: 0x00047C20 File Offset: 0x00045E20
 		protected override FieldAccessorTable<AwayEvent, AwayEvent.Builder> InternalFieldAccessors
 		{
 			get
 			{
-				return Avatar.internal__static_RustProto_AwayEvent__FieldAccessorTable;
+				return RustProto.Proto.Avatar.internal__static_RustProto_AwayEvent__FieldAccessorTable;
 			}
 		}
 
-		// Token: 0x170005A7 RID: 1447
-		// (get) Token: 0x060013D3 RID: 5075 RVA: 0x00043880 File Offset: 0x00041A80
+		// Token: 0x170005EF RID: 1519
+		// (get) Token: 0x06001527 RID: 5415 RVA: 0x00047C28 File Offset: 0x00045E28
 		public bool HasType
 		{
 			get
@@ -90,8 +90,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005A8 RID: 1448
-		// (get) Token: 0x060013D4 RID: 5076 RVA: 0x00043888 File Offset: 0x00041A88
+		// Token: 0x170005F0 RID: 1520
+		// (get) Token: 0x06001528 RID: 5416 RVA: 0x00047C30 File Offset: 0x00045E30
 		public AwayEvent.Types.AwayEventType Type
 		{
 			get
@@ -100,8 +100,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005A9 RID: 1449
-		// (get) Token: 0x060013D5 RID: 5077 RVA: 0x00043890 File Offset: 0x00041A90
+		// Token: 0x170005F1 RID: 1521
+		// (get) Token: 0x06001529 RID: 5417 RVA: 0x00047C38 File Offset: 0x00045E38
 		public bool HasTimestamp
 		{
 			get
@@ -110,8 +110,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005AA RID: 1450
-		// (get) Token: 0x060013D6 RID: 5078 RVA: 0x00043898 File Offset: 0x00041A98
+		// Token: 0x170005F2 RID: 1522
+		// (get) Token: 0x0600152A RID: 5418 RVA: 0x00047C40 File Offset: 0x00045E40
 		public int Timestamp
 		{
 			get
@@ -120,8 +120,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005AB RID: 1451
-		// (get) Token: 0x060013D7 RID: 5079 RVA: 0x000438A0 File Offset: 0x00041AA0
+		// Token: 0x170005F3 RID: 1523
+		// (get) Token: 0x0600152B RID: 5419 RVA: 0x00047C48 File Offset: 0x00045E48
 		public bool HasInstigator
 		{
 			get
@@ -130,8 +130,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005AC RID: 1452
-		// (get) Token: 0x060013D8 RID: 5080 RVA: 0x000438A8 File Offset: 0x00041AA8
+		// Token: 0x170005F4 RID: 1524
+		// (get) Token: 0x0600152C RID: 5420 RVA: 0x00047C50 File Offset: 0x00045E50
 		[CLSCompliant(false)]
 		public ulong Instigator
 		{
@@ -141,8 +141,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170005AD RID: 1453
-		// (get) Token: 0x060013D9 RID: 5081 RVA: 0x000438B0 File Offset: 0x00041AB0
+		// Token: 0x170005F5 RID: 1525
+		// (get) Token: 0x0600152D RID: 5421 RVA: 0x00047C58 File Offset: 0x00045E58
 		public override bool IsInitialized
 		{
 			get
@@ -151,7 +151,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060013DA RID: 5082 RVA: 0x000438D0 File Offset: 0x00041AD0
+		// Token: 0x0600152E RID: 5422 RVA: 0x00047C78 File Offset: 0x00045E78
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -171,8 +171,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x170005AE RID: 1454
-		// (get) Token: 0x060013DB RID: 5083 RVA: 0x00043954 File Offset: 0x00041B54
+		// Token: 0x170005F6 RID: 1526
+		// (get) Token: 0x0600152F RID: 5423 RVA: 0x00047CFC File Offset: 0x00045EFC
 		public override int SerializedSize
 		{
 			get
@@ -201,109 +201,109 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x060013DC RID: 5084 RVA: 0x000439D8 File Offset: 0x00041BD8
+		// Token: 0x06001530 RID: 5424 RVA: 0x00047D80 File Offset: 0x00045F80
 		public static AwayEvent ParseFrom(ByteString data)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060013DD RID: 5085 RVA: 0x000439EC File Offset: 0x00041BEC
+		// Token: 0x06001531 RID: 5425 RVA: 0x00047D94 File Offset: 0x00045F94
 		public static AwayEvent ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060013DE RID: 5086 RVA: 0x00043A00 File Offset: 0x00041C00
+		// Token: 0x06001532 RID: 5426 RVA: 0x00047DA8 File Offset: 0x00045FA8
 		public static AwayEvent ParseFrom(byte[] data)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x060013DF RID: 5087 RVA: 0x00043A14 File Offset: 0x00041C14
+		// Token: 0x06001533 RID: 5427 RVA: 0x00047DBC File Offset: 0x00045FBC
 		public static AwayEvent ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060013E0 RID: 5088 RVA: 0x00043A28 File Offset: 0x00041C28
+		// Token: 0x06001534 RID: 5428 RVA: 0x00047DD0 File Offset: 0x00045FD0
 		public static AwayEvent ParseFrom(Stream input)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060013E1 RID: 5089 RVA: 0x00043A3C File Offset: 0x00041C3C
+		// Token: 0x06001535 RID: 5429 RVA: 0x00047DE4 File Offset: 0x00045FE4
 		public static AwayEvent ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060013E2 RID: 5090 RVA: 0x00043A50 File Offset: 0x00041C50
+		// Token: 0x06001536 RID: 5430 RVA: 0x00047DF8 File Offset: 0x00045FF8
 		public static AwayEvent ParseDelimitedFrom(Stream input)
 		{
 			return AwayEvent.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060013E3 RID: 5091 RVA: 0x00043A64 File Offset: 0x00041C64
+		// Token: 0x06001537 RID: 5431 RVA: 0x00047E0C File Offset: 0x0004600C
 		public static AwayEvent ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return AwayEvent.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060013E4 RID: 5092 RVA: 0x00043A78 File Offset: 0x00041C78
+		// Token: 0x06001538 RID: 5432 RVA: 0x00047E20 File Offset: 0x00046020
 		public static AwayEvent ParseFrom(ICodedInputStream input)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x060013E5 RID: 5093 RVA: 0x00043A8C File Offset: 0x00041C8C
+		// Token: 0x06001539 RID: 5433 RVA: 0x00047E34 File Offset: 0x00046034
 		public static AwayEvent ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return AwayEvent.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x060013E6 RID: 5094 RVA: 0x00043AA0 File Offset: 0x00041CA0
+		// Token: 0x0600153A RID: 5434 RVA: 0x00047E48 File Offset: 0x00046048
 		private AwayEvent MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x060013E7 RID: 5095 RVA: 0x00043AA4 File Offset: 0x00041CA4
+		// Token: 0x0600153B RID: 5435 RVA: 0x00047E4C File Offset: 0x0004604C
 		public static AwayEvent.Builder CreateBuilder()
 		{
 			return new AwayEvent.Builder();
 		}
 
-		// Token: 0x060013E8 RID: 5096 RVA: 0x00043AAC File Offset: 0x00041CAC
+		// Token: 0x0600153C RID: 5436 RVA: 0x00047E54 File Offset: 0x00046054
 		public override AwayEvent.Builder ToBuilder()
 		{
 			return AwayEvent.CreateBuilder(this);
 		}
 
-		// Token: 0x060013E9 RID: 5097 RVA: 0x00043AB4 File Offset: 0x00041CB4
+		// Token: 0x0600153D RID: 5437 RVA: 0x00047E5C File Offset: 0x0004605C
 		public override AwayEvent.Builder CreateBuilderForType()
 		{
 			return new AwayEvent.Builder();
 		}
 
-		// Token: 0x060013EA RID: 5098 RVA: 0x00043ABC File Offset: 0x00041CBC
+		// Token: 0x0600153E RID: 5438 RVA: 0x00047E64 File Offset: 0x00046064
 		public static AwayEvent.Builder CreateBuilder(AwayEvent prototype)
 		{
 			return new AwayEvent.Builder(prototype);
 		}
 
-		// Token: 0x040009F8 RID: 2552
+		// Token: 0x04000B1B RID: 2843
 		public const int TypeFieldNumber = 1;
 
-		// Token: 0x040009F9 RID: 2553
+		// Token: 0x04000B1C RID: 2844
 		public const int TimestampFieldNumber = 2;
 
-		// Token: 0x040009FA RID: 2554
+		// Token: 0x04000B1D RID: 2845
 		public const int InstigatorFieldNumber = 3;
 
-		// Token: 0x040009FB RID: 2555
+		// Token: 0x04000B1E RID: 2846
 		private static readonly AwayEvent defaultInstance = new AwayEvent().MakeReadOnly();
 
-		// Token: 0x040009FC RID: 2556
+		// Token: 0x04000B1F RID: 2847
 		private static readonly string[] _awayEventFieldNames = new string[]
 		{
 			"instigator",
@@ -311,7 +311,7 @@ namespace RustProto
 			"type"
 		};
 
-		// Token: 0x040009FD RID: 2557
+		// Token: 0x04000B20 RID: 2848
 		private static readonly uint[] _awayEventFieldTags = new uint[]
 		{
 			24u,
@@ -319,63 +319,63 @@ namespace RustProto
 			8u
 		};
 
-		// Token: 0x040009FE RID: 2558
+		// Token: 0x04000B21 RID: 2849
 		private bool hasType;
 
-		// Token: 0x040009FF RID: 2559
+		// Token: 0x04000B22 RID: 2850
 		private AwayEvent.Types.AwayEventType type_;
 
-		// Token: 0x04000A00 RID: 2560
+		// Token: 0x04000B23 RID: 2851
 		private bool hasTimestamp;
 
-		// Token: 0x04000A01 RID: 2561
+		// Token: 0x04000B24 RID: 2852
 		private int timestamp_;
 
-		// Token: 0x04000A02 RID: 2562
+		// Token: 0x04000B25 RID: 2853
 		private bool hasInstigator;
 
-		// Token: 0x04000A03 RID: 2563
+		// Token: 0x04000B26 RID: 2854
 		private ulong instigator_;
 
-		// Token: 0x04000A04 RID: 2564
+		// Token: 0x04000B27 RID: 2855
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000226 RID: 550
+		// Token: 0x02000259 RID: 601
 		[DebuggerNonUserCode]
 		public static class Types
 		{
-			// Token: 0x02000227 RID: 551
+			// Token: 0x0200025A RID: 602
 			public enum AwayEventType
 			{
-				// Token: 0x04000A06 RID: 2566
+				// Token: 0x04000B29 RID: 2857
 				UNKNOWN,
-				// Token: 0x04000A07 RID: 2567
+				// Token: 0x04000B2A RID: 2858
 				SLUMBER,
-				// Token: 0x04000A08 RID: 2568
+				// Token: 0x04000B2B RID: 2859
 				DIED
 			}
 		}
 
-		// Token: 0x02000228 RID: 552
+		// Token: 0x0200025B RID: 603
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<AwayEvent, AwayEvent.Builder>
 		{
-			// Token: 0x060013EB RID: 5099 RVA: 0x00043AC4 File Offset: 0x00041CC4
+			// Token: 0x0600153F RID: 5439 RVA: 0x00047E6C File Offset: 0x0004606C
 			public Builder()
 			{
 				this.result = AwayEvent.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x060013EC RID: 5100 RVA: 0x00043AE0 File Offset: 0x00041CE0
+			// Token: 0x06001540 RID: 5440 RVA: 0x00047E88 File Offset: 0x00046088
 			internal Builder(AwayEvent cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x170005AF RID: 1455
-			// (get) Token: 0x060013ED RID: 5101 RVA: 0x00043AF8 File Offset: 0x00041CF8
+			// Token: 0x170005F7 RID: 1527
+			// (get) Token: 0x06001541 RID: 5441 RVA: 0x00047EA0 File Offset: 0x000460A0
 			protected override AwayEvent.Builder ThisBuilder
 			{
 				get
@@ -384,7 +384,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013EE RID: 5102 RVA: 0x00043AFC File Offset: 0x00041CFC
+			// Token: 0x06001542 RID: 5442 RVA: 0x00047EA4 File Offset: 0x000460A4
 			private AwayEvent PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -397,8 +397,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x170005B0 RID: 1456
-			// (get) Token: 0x060013EF RID: 5103 RVA: 0x00043B3C File Offset: 0x00041D3C
+			// Token: 0x170005F8 RID: 1528
+			// (get) Token: 0x06001543 RID: 5443 RVA: 0x00047EE4 File Offset: 0x000460E4
 			public override bool IsInitialized
 			{
 				get
@@ -407,8 +407,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005B1 RID: 1457
-			// (get) Token: 0x060013F0 RID: 5104 RVA: 0x00043B4C File Offset: 0x00041D4C
+			// Token: 0x170005F9 RID: 1529
+			// (get) Token: 0x06001544 RID: 5444 RVA: 0x00047EF4 File Offset: 0x000460F4
 			protected override AwayEvent MessageBeingBuilt
 			{
 				get
@@ -417,7 +417,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013F1 RID: 5105 RVA: 0x00043B54 File Offset: 0x00041D54
+			// Token: 0x06001545 RID: 5445 RVA: 0x00047EFC File Offset: 0x000460FC
 			public override AwayEvent.Builder Clear()
 			{
 				this.result = AwayEvent.DefaultInstance;
@@ -425,7 +425,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013F2 RID: 5106 RVA: 0x00043B6C File Offset: 0x00041D6C
+			// Token: 0x06001546 RID: 5446 RVA: 0x00047F14 File Offset: 0x00046114
 			public override AwayEvent.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -435,8 +435,8 @@ namespace RustProto
 				return new AwayEvent.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x170005B2 RID: 1458
-			// (get) Token: 0x060013F3 RID: 5107 RVA: 0x00043B98 File Offset: 0x00041D98
+			// Token: 0x170005FA RID: 1530
+			// (get) Token: 0x06001547 RID: 5447 RVA: 0x00047F40 File Offset: 0x00046140
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -445,8 +445,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005B3 RID: 1459
-			// (get) Token: 0x060013F4 RID: 5108 RVA: 0x00043BA0 File Offset: 0x00041DA0
+			// Token: 0x170005FB RID: 1531
+			// (get) Token: 0x06001548 RID: 5448 RVA: 0x00047F48 File Offset: 0x00046148
 			public override AwayEvent DefaultInstanceForType
 			{
 				get
@@ -455,7 +455,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013F5 RID: 5109 RVA: 0x00043BA8 File Offset: 0x00041DA8
+			// Token: 0x06001549 RID: 5449 RVA: 0x00047F50 File Offset: 0x00046150
 			public override AwayEvent BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -466,7 +466,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x060013F6 RID: 5110 RVA: 0x00043BDC File Offset: 0x00041DDC
+			// Token: 0x0600154A RID: 5450 RVA: 0x00047F84 File Offset: 0x00046184
 			public override AwayEvent.Builder MergeFrom(IMessage other)
 			{
 				if (other is AwayEvent)
@@ -477,7 +477,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013F7 RID: 5111 RVA: 0x00043C00 File Offset: 0x00041E00
+			// Token: 0x0600154B RID: 5451 RVA: 0x00047FA8 File Offset: 0x000461A8
 			public override AwayEvent.Builder MergeFrom(AwayEvent other)
 			{
 				if (other == AwayEvent.DefaultInstance)
@@ -501,13 +501,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013F8 RID: 5112 RVA: 0x00043C74 File Offset: 0x00041E74
+			// Token: 0x0600154C RID: 5452 RVA: 0x0004801C File Offset: 0x0004621C
 			public override AwayEvent.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x060013F9 RID: 5113 RVA: 0x00043C84 File Offset: 0x00041E84
+			// Token: 0x0600154D RID: 5453 RVA: 0x0004802C File Offset: 0x0004622C
 			public override AwayEvent.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -586,8 +586,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170005B4 RID: 1460
-			// (get) Token: 0x060013FA RID: 5114 RVA: 0x00043E28 File Offset: 0x00042028
+			// Token: 0x170005FC RID: 1532
+			// (get) Token: 0x0600154E RID: 5454 RVA: 0x000481D0 File Offset: 0x000463D0
 			public bool HasType
 			{
 				get
@@ -596,9 +596,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005B5 RID: 1461
-			// (get) Token: 0x060013FB RID: 5115 RVA: 0x00043E38 File Offset: 0x00042038
-			// (set) Token: 0x060013FC RID: 5116 RVA: 0x00043E48 File Offset: 0x00042048
+			// Token: 0x170005FD RID: 1533
+			// (get) Token: 0x0600154F RID: 5455 RVA: 0x000481E0 File Offset: 0x000463E0
+			// (set) Token: 0x06001550 RID: 5456 RVA: 0x000481F0 File Offset: 0x000463F0
 			public AwayEvent.Types.AwayEventType Type
 			{
 				get
@@ -611,7 +611,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060013FD RID: 5117 RVA: 0x00043E54 File Offset: 0x00042054
+			// Token: 0x06001551 RID: 5457 RVA: 0x000481FC File Offset: 0x000463FC
 			public AwayEvent.Builder SetType(AwayEvent.Types.AwayEventType value)
 			{
 				this.PrepareBuilder();
@@ -620,7 +620,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060013FE RID: 5118 RVA: 0x00043E84 File Offset: 0x00042084
+			// Token: 0x06001552 RID: 5458 RVA: 0x0004822C File Offset: 0x0004642C
 			public AwayEvent.Builder ClearType()
 			{
 				this.PrepareBuilder();
@@ -629,8 +629,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170005B6 RID: 1462
-			// (get) Token: 0x060013FF RID: 5119 RVA: 0x00043EB4 File Offset: 0x000420B4
+			// Token: 0x170005FE RID: 1534
+			// (get) Token: 0x06001553 RID: 5459 RVA: 0x0004825C File Offset: 0x0004645C
 			public bool HasTimestamp
 			{
 				get
@@ -639,9 +639,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005B7 RID: 1463
-			// (get) Token: 0x06001400 RID: 5120 RVA: 0x00043EC4 File Offset: 0x000420C4
-			// (set) Token: 0x06001401 RID: 5121 RVA: 0x00043ED4 File Offset: 0x000420D4
+			// Token: 0x170005FF RID: 1535
+			// (get) Token: 0x06001554 RID: 5460 RVA: 0x0004826C File Offset: 0x0004646C
+			// (set) Token: 0x06001555 RID: 5461 RVA: 0x0004827C File Offset: 0x0004647C
 			public int Timestamp
 			{
 				get
@@ -654,7 +654,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001402 RID: 5122 RVA: 0x00043EE0 File Offset: 0x000420E0
+			// Token: 0x06001556 RID: 5462 RVA: 0x00048288 File Offset: 0x00046488
 			public AwayEvent.Builder SetTimestamp(int value)
 			{
 				this.PrepareBuilder();
@@ -663,7 +663,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001403 RID: 5123 RVA: 0x00043F10 File Offset: 0x00042110
+			// Token: 0x06001557 RID: 5463 RVA: 0x000482B8 File Offset: 0x000464B8
 			public AwayEvent.Builder ClearTimestamp()
 			{
 				this.PrepareBuilder();
@@ -672,8 +672,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170005B8 RID: 1464
-			// (get) Token: 0x06001404 RID: 5124 RVA: 0x00043F40 File Offset: 0x00042140
+			// Token: 0x17000600 RID: 1536
+			// (get) Token: 0x06001558 RID: 5464 RVA: 0x000482E8 File Offset: 0x000464E8
 			public bool HasInstigator
 			{
 				get
@@ -682,9 +682,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170005B9 RID: 1465
-			// (get) Token: 0x06001405 RID: 5125 RVA: 0x00043F50 File Offset: 0x00042150
-			// (set) Token: 0x06001406 RID: 5126 RVA: 0x00043F60 File Offset: 0x00042160
+			// Token: 0x17000601 RID: 1537
+			// (get) Token: 0x06001559 RID: 5465 RVA: 0x000482F8 File Offset: 0x000464F8
+			// (set) Token: 0x0600155A RID: 5466 RVA: 0x00048308 File Offset: 0x00046508
 			[CLSCompliant(false)]
 			public ulong Instigator
 			{
@@ -698,7 +698,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001407 RID: 5127 RVA: 0x00043F6C File Offset: 0x0004216C
+			// Token: 0x0600155B RID: 5467 RVA: 0x00048314 File Offset: 0x00046514
 			[CLSCompliant(false)]
 			public AwayEvent.Builder SetInstigator(ulong value)
 			{
@@ -708,7 +708,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001408 RID: 5128 RVA: 0x00043F9C File Offset: 0x0004219C
+			// Token: 0x0600155C RID: 5468 RVA: 0x00048344 File Offset: 0x00046544
 			public AwayEvent.Builder ClearInstigator()
 			{
 				this.PrepareBuilder();
@@ -717,10 +717,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x04000A09 RID: 2569
+			// Token: 0x04000B2C RID: 2860
 			private bool resultIsReadOnly;
 
-			// Token: 0x04000A0A RID: 2570
+			// Token: 0x04000B2D RID: 2861
 			private AwayEvent result;
 		}
 	}

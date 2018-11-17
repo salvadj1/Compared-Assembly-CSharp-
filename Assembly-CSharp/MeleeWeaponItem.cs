@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005DF RID: 1503
-public abstract class MeleeWeaponItem<T> : WeaponItem<T> where T : MeleeWeaponDataBlock
+// Token: 0x0200069D RID: 1693
+public abstract class MeleeWeaponItem<T> : global::WeaponItem<T> where T : global::MeleeWeaponDataBlock
 {
-	// Token: 0x06003604 RID: 13828 RVA: 0x000C3630 File Offset: 0x000C1830
+	// Token: 0x060039CC RID: 14796 RVA: 0x000CB88C File Offset: 0x000C9A8C
 	protected MeleeWeaponItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x17000ABB RID: 2747
-	// (get) Token: 0x06003605 RID: 13829 RVA: 0x000C3650 File Offset: 0x000C1850
-	// (set) Token: 0x06003606 RID: 13830 RVA: 0x000C3658 File Offset: 0x000C1858
+	// Token: 0x17000B31 RID: 2865
+	// (get) Token: 0x060039CD RID: 14797 RVA: 0x000CB8AC File Offset: 0x000C9AAC
+	// (set) Token: 0x060039CE RID: 14798 RVA: 0x000CB8B4 File Offset: 0x000C9AB4
 	public float queuedSwingAttackTime
 	{
 		get
@@ -24,9 +24,9 @@ public abstract class MeleeWeaponItem<T> : WeaponItem<T> where T : MeleeWeaponDa
 		}
 	}
 
-	// Token: 0x17000ABC RID: 2748
-	// (get) Token: 0x06003607 RID: 13831 RVA: 0x000C3664 File Offset: 0x000C1864
-	// (set) Token: 0x06003608 RID: 13832 RVA: 0x000C366C File Offset: 0x000C186C
+	// Token: 0x17000B32 RID: 2866
+	// (get) Token: 0x060039CF RID: 14799 RVA: 0x000CB8C0 File Offset: 0x000C9AC0
+	// (set) Token: 0x060039D0 RID: 14800 RVA: 0x000CB8C8 File Offset: 0x000C9AC8
 	public float queuedSwingSoundTime
 	{
 		get
@@ -39,11 +39,11 @@ public abstract class MeleeWeaponItem<T> : WeaponItem<T> where T : MeleeWeaponDa
 		}
 	}
 
-	// Token: 0x06003609 RID: 13833 RVA: 0x000C3678 File Offset: 0x000C1878
-	public override void PrimaryAttack(ref HumanController.InputSample sample)
+	// Token: 0x060039D1 RID: 14801 RVA: 0x000CB8D4 File Offset: 0x000C9AD4
+	public override void PrimaryAttack(ref global::HumanController.InputSample sample)
 	{
 		float num = this.datablock.fireRate;
-		Metabolism local = base.inventory.GetLocal<Metabolism>();
+		global::Metabolism local = base.inventory.GetLocal<global::Metabolism>();
 		if (local && local.GetCalorieLevel() <= 0f)
 		{
 			num = this.datablock.fireRate * 2f;
@@ -52,37 +52,37 @@ public abstract class MeleeWeaponItem<T> : WeaponItem<T> where T : MeleeWeaponDa
 		base.nextSecondaryAttackTime = num2;
 		base.nextPrimaryAttackTime = num2;
 		T datablock = this.datablock;
-		datablock.Local_FireWeapon(base.viewModelInstance, base.itemRepresentation, this.iface as IMeleeWeaponItem, ref sample);
+		datablock.Local_FireWeapon(base.viewModelInstance, base.itemRepresentation, this.iface as global::IMeleeWeaponItem, ref sample);
 	}
 
-	// Token: 0x0600360A RID: 13834 RVA: 0x000C3718 File Offset: 0x000C1918
-	public override void SecondaryAttack(ref HumanController.InputSample sample)
+	// Token: 0x060039D2 RID: 14802 RVA: 0x000CB974 File Offset: 0x000C9B74
+	public override void SecondaryAttack(ref global::HumanController.InputSample sample)
 	{
 		float num = Time.time + this.datablock.fireRate;
 		base.nextPrimaryAttackTime = num;
 		base.nextSecondaryAttackTime = num;
 	}
 
-	// Token: 0x0600360B RID: 13835 RVA: 0x000C374C File Offset: 0x000C194C
+	// Token: 0x060039D3 RID: 14803 RVA: 0x000CB9A8 File Offset: 0x000C9BA8
 	public virtual void QueueMidSwing(float time)
 	{
 		this.queuedSwingAttackTime = time;
 	}
 
-	// Token: 0x0600360C RID: 13836 RVA: 0x000C3758 File Offset: 0x000C1958
+	// Token: 0x060039D4 RID: 14804 RVA: 0x000CB9B4 File Offset: 0x000C9BB4
 	public virtual void QueueSwingSound(float time)
 	{
 		this.queuedSwingSoundTime = time;
 	}
 
-	// Token: 0x0600360D RID: 13837 RVA: 0x000C3764 File Offset: 0x000C1964
-	public override void ItemPreFrame(ref HumanController.InputSample sample)
+	// Token: 0x060039D5 RID: 14805 RVA: 0x000CB9C0 File Offset: 0x000C9BC0
+	public override void ItemPreFrame(ref global::HumanController.InputSample sample)
 	{
 		base.ItemPreFrame(ref sample);
 		if (this.queuedSwingAttackTime > 0f && this.queuedSwingAttackTime < Time.time)
 		{
 			T datablock = this.datablock;
-			datablock.Local_MidSwing(base.viewModelInstance, base.itemRepresentation, this.iface as IMeleeWeaponItem, ref sample);
+			datablock.Local_MidSwing(base.viewModelInstance, base.itemRepresentation, this.iface as global::IMeleeWeaponItem, ref sample);
 			this.queuedSwingAttackTime = -1f;
 		}
 		if (this.queuedSwingSoundTime > 0f && this.queuedSwingSoundTime < Time.time)
@@ -93,7 +93,7 @@ public abstract class MeleeWeaponItem<T> : WeaponItem<T> where T : MeleeWeaponDa
 		}
 	}
 
-	// Token: 0x0600360E RID: 13838 RVA: 0x000C3810 File Offset: 0x000C1A10
+	// Token: 0x060039D6 RID: 14806 RVA: 0x000CBA6C File Offset: 0x000C9C6C
 	protected override void OnSetActive(bool isActive)
 	{
 		this.queuedSwingSoundTime = -1f;
@@ -101,15 +101,15 @@ public abstract class MeleeWeaponItem<T> : WeaponItem<T> where T : MeleeWeaponDa
 		base.OnSetActive(isActive);
 	}
 
-	// Token: 0x0600360F RID: 13839 RVA: 0x000C3830 File Offset: 0x000C1A30
+	// Token: 0x060039D7 RID: 14807 RVA: 0x000CBA8C File Offset: 0x000C9C8C
 	protected override bool CanSetActivate(bool wantsTrue)
 	{
 		return base.CanSetActivate(wantsTrue) && (wantsTrue || base.nextPrimaryAttackTime <= Time.time);
 	}
 
-	// Token: 0x04001A9E RID: 6814
+	// Token: 0x04001C6F RID: 7279
 	private float _queuedSwingAttackTime = -1f;
 
-	// Token: 0x04001A9F RID: 6815
+	// Token: 0x04001C70 RID: 7280
 	private float _queuedSwingSoundTime = -1f;
 }

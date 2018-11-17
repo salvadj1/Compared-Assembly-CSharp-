@@ -4,61 +4,61 @@ using System.Runtime.InteropServices;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000622 RID: 1570
+// Token: 0x020006E3 RID: 1763
 public class ClientConnect : MonoBehaviour
 {
-	// Token: 0x060037A9 RID: 14249 RVA: 0x000CC64C File Offset: 0x000CA84C
-	public static ClientConnect Instance()
+	// Token: 0x06003B89 RID: 15241 RVA: 0x000D4D24 File Offset: 0x000D2F24
+	public static global::ClientConnect Instance()
 	{
 		GameObject gameObject = new GameObject();
 		Object.DontDestroyOnLoad(gameObject);
-		return gameObject.AddComponent<ClientConnect>();
+		return gameObject.AddComponent<global::ClientConnect>();
 	}
 
-	// Token: 0x060037AA RID: 14250
+	// Token: 0x06003B8A RID: 15242
 	[DllImport("librust")]
 	public static extern uint SteamClient_GetAuth(IntPtr pData, int iMaxLength);
 
-	// Token: 0x060037AB RID: 14251
+	// Token: 0x06003B8B RID: 15243
 	[DllImport("librust")]
 	public static extern IntPtr Steam_GetDisplayname();
 
-	// Token: 0x060037AC RID: 14252
+	// Token: 0x06003B8C RID: 15244
 	[DllImport("librust")]
 	public static extern ulong Steam_GetSteamID();
 
-	// Token: 0x060037AD RID: 14253 RVA: 0x000CC670 File Offset: 0x000CA870
+	// Token: 0x06003B8D RID: 15245 RVA: 0x000D4D48 File Offset: 0x000D2F48
 	public bool DoConnect(string strURL, int iPort)
 	{
-		SteamClient.Needed();
-		NetCull.config.timeoutDelay = 60f;
-		if (ClientConnect.Steam_GetSteamID() == 0UL)
+		global::SteamClient.Needed();
+		global::NetCull.config.timeoutDelay = 60f;
+		if (global::ClientConnect.Steam_GetSteamID() == 0UL)
 		{
-			LoadingScreen.Update("connection failed (no steam detected)");
+			global::LoadingScreen.Update("connection failed (no steam detected)");
 			Object.Destroy(base.gameObject);
 			return false;
 		}
 		byte[] array = new byte[1024];
 		IntPtr intPtr = Marshal.AllocHGlobal(1024);
-		uint num = ClientConnect.SteamClient_GetAuth(intPtr, 1024);
+		uint num = global::ClientConnect.SteamClient_GetAuth(intPtr, 1024);
 		byte[] array2 = new byte[num];
 		Marshal.Copy(intPtr, array2, 0, (int)num);
 		Marshal.FreeHGlobal(intPtr);
 		BitStream bitStream = new BitStream(false);
 		bitStream.WriteInt32(1069);
 		bitStream.WriteByte(2);
-		bitStream.WriteUInt64(ClientConnect.Steam_GetSteamID());
-		bitStream.WriteString(Marshal.PtrToStringAnsi(ClientConnect.Steam_GetDisplayname()));
+		bitStream.WriteUInt64(global::ClientConnect.Steam_GetSteamID());
+		bitStream.WriteString(Marshal.PtrToStringAnsi(global::ClientConnect.Steam_GetDisplayname()));
 		bitStream.WriteBytes(array2);
 		try
 		{
-			NetError netError = NetCull.Connect(strURL, iPort, string.Empty, new object[]
+			global::NetError netError = global::NetCull.Connect(strURL, iPort, string.Empty, new object[]
 			{
 				bitStream
 			});
-			if (netError != NetError.NoError)
+			if (netError != global::NetError.NoError)
 			{
-				LoadingScreen.Update("connection failed (" + netError + ")");
+				global::LoadingScreen.Update("connection failed (" + netError + ")");
 				Object.Destroy(base.gameObject);
 				return false;
 			}
@@ -69,17 +69,17 @@ public class ClientConnect : MonoBehaviour
 			Object.Destroy(base.gameObject);
 			return false;
 		}
-		SteamClient.SteamClient_OnJoinServer(strURL, iPort);
+		global::SteamClient.SteamClient_OnJoinServer(strURL, iPort);
 		return true;
 	}
 
-	// Token: 0x060037AE RID: 14254 RVA: 0x000CC7CC File Offset: 0x000CA9CC
+	// Token: 0x06003B8E RID: 15246 RVA: 0x000D4EA4 File Offset: 0x000D30A4
 	private void uLink_OnConnectedToServer()
 	{
-		LoadingScreen.Update("connected!");
-		BitStream bitStream = new BitStream((byte[])NetCull.approvalData.ReadObject(typeof(byte[]).TypeHandle, new object[0]), false);
+		global::LoadingScreen.Update("connected!");
+		BitStream bitStream = new BitStream((byte[])global::NetCull.approvalData.ReadObject(typeof(byte[]).TypeHandle, new object[0]), false);
 		string text = bitStream.ReadString();
-		NetCull.sendRate = bitStream.ReadSingle();
+		global::NetCull.sendRate = bitStream.ReadSingle();
 		string str = bitStream.ReadString();
 		bool flag = bitStream.ReadBoolean();
 		bool flag2 = bitStream.ReadBoolean();
@@ -88,17 +88,17 @@ public class ClientConnect : MonoBehaviour
 			ulong serverid = bitStream.ReadUInt64();
 			uint serverip = bitStream.ReadUInt32();
 			int serverport = bitStream.ReadInt32();
-			SteamClient.SteamUser_AdvertiseGame(serverid, serverip, serverport);
+			global::SteamClient.SteamUser_AdvertiseGame(serverid, serverip, serverport);
 		}
 		Debug.Log("Server Name: \"" + str + "\"");
 		Debug.Log("Level Name: \"" + text + "\"");
-		Debug.Log("Send Rate: " + NetCull.sendRate);
-		NetCull.isMessageQueueRunning = false;
+		Debug.Log("Send Rate: " + global::NetCull.sendRate);
+		global::NetCull.isMessageQueueRunning = false;
 		base.StartCoroutine(this.LoadLevel(text));
-		DisableOnConnectedState.OnConnected();
+		global::DisableOnConnectedState.OnConnected();
 	}
 
-	// Token: 0x060037AF RID: 14255 RVA: 0x000CC8C4 File Offset: 0x000CAAC4
+	// Token: 0x06003B8F RID: 15247 RVA: 0x000D4F9C File Offset: 0x000D319C
 	private IEnumerator LoadLevel(string levelName)
 	{
 		AudioSource audioSource = base.GetComponentInChildren<AudioSource>();
@@ -106,30 +106,30 @@ public class ClientConnect : MonoBehaviour
 		{
 			audioSource.enabled = false;
 		}
-		yield return RustLevel.Load(levelName, out this.levelLoader);
-		GameEvent.DoQualitySettingsRefresh();
+		yield return global::RustLevel.Load(levelName, out this.levelLoader);
+		global::GameEvent.DoQualitySettingsRefresh();
 		Object.Destroy(base.gameObject);
 		yield break;
 	}
 
-	// Token: 0x060037B0 RID: 14256 RVA: 0x000CC8F0 File Offset: 0x000CAAF0
-	private void uLink_OnFailedToConnect(NetworkConnectionError ulink_error)
+	// Token: 0x06003B90 RID: 15248 RVA: 0x000D4FC8 File Offset: 0x000D31C8
+	private void uLink_OnFailedToConnect(uLink.NetworkConnectionError ulink_error)
 	{
 		if (this.levelLoader)
 		{
 			Object.Destroy(this.levelLoader);
 		}
-		if (!MainMenu.singleton)
+		if (!global::MainMenu.singleton)
 		{
-			NetError netError = ulink_error.ToNetError();
-			if (netError != NetError.NoError)
+			global::NetError netError = ulink_error.ToNetError();
+			if (netError != global::NetError.NoError)
 			{
 				Debug.LogError(netError.NiceString());
 			}
 		}
 		try
 		{
-			DisableOnConnectedState.OnDisconnected();
+			global::DisableOnConnectedState.OnDisconnected();
 		}
 		finally
 		{
@@ -137,8 +137,8 @@ public class ClientConnect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060037B1 RID: 14257 RVA: 0x000CC974 File Offset: 0x000CAB74
-	private void uLink_OnDisconnectedFromServer(NetworkDisconnection netDisconnect)
+	// Token: 0x06003B91 RID: 15249 RVA: 0x000D504C File Offset: 0x000D324C
+	private void uLink_OnDisconnectedFromServer(uLink.NetworkDisconnection netDisconnect)
 	{
 		if (this.levelLoader)
 		{
@@ -146,7 +146,7 @@ public class ClientConnect : MonoBehaviour
 		}
 		try
 		{
-			DisableOnConnectedState.OnDisconnected();
+			global::DisableOnConnectedState.OnDisconnected();
 		}
 		finally
 		{
@@ -154,7 +154,7 @@ public class ClientConnect : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001BD1 RID: 7121
+	// Token: 0x04001DBC RID: 7612
 	[NonSerialized]
 	private GameObject levelLoader;
 }

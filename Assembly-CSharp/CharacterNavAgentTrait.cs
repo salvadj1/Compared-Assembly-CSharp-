@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200010C RID: 268
-public class CharacterNavAgentTrait : CharacterTrait
+// Token: 0x0200012B RID: 299
+public class CharacterNavAgentTrait : global::CharacterTrait
 {
-	// Token: 0x1700017A RID: 378
-	// (get) Token: 0x060006E2 RID: 1762 RVA: 0x0001F510 File Offset: 0x0001D710
+	// Token: 0x170001A8 RID: 424
+	// (get) Token: 0x060007B4 RID: 1972 RVA: 0x000220E4 File Offset: 0x000202E4
 	public float radius
 	{
 		get
@@ -14,8 +14,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700017B RID: 379
-	// (get) Token: 0x060006E3 RID: 1763 RVA: 0x0001F518 File Offset: 0x0001D718
+	// Token: 0x170001A9 RID: 425
+	// (get) Token: 0x060007B5 RID: 1973 RVA: 0x000220EC File Offset: 0x000202EC
 	public float speed
 	{
 		get
@@ -24,8 +24,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700017C RID: 380
-	// (get) Token: 0x060006E4 RID: 1764 RVA: 0x0001F520 File Offset: 0x0001D720
+	// Token: 0x170001AA RID: 426
+	// (get) Token: 0x060007B6 RID: 1974 RVA: 0x000220F4 File Offset: 0x000202F4
 	public float acceleration
 	{
 		get
@@ -34,8 +34,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700017D RID: 381
-	// (get) Token: 0x060006E5 RID: 1765 RVA: 0x0001F528 File Offset: 0x0001D728
+	// Token: 0x170001AB RID: 427
+	// (get) Token: 0x060007B7 RID: 1975 RVA: 0x000220FC File Offset: 0x000202FC
 	public float angularSpeed
 	{
 		get
@@ -44,8 +44,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700017E RID: 382
-	// (get) Token: 0x060006E6 RID: 1766 RVA: 0x0001F530 File Offset: 0x0001D730
+	// Token: 0x170001AC RID: 428
+	// (get) Token: 0x060007B8 RID: 1976 RVA: 0x00022104 File Offset: 0x00020304
 	public float stoppingDistance
 	{
 		get
@@ -54,8 +54,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700017F RID: 383
-	// (get) Token: 0x060006E7 RID: 1767 RVA: 0x0001F538 File Offset: 0x0001D738
+	// Token: 0x170001AD RID: 429
+	// (get) Token: 0x060007B9 RID: 1977 RVA: 0x0002210C File Offset: 0x0002030C
 	public bool autoTraverseOffMeshLink
 	{
 		get
@@ -64,8 +64,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000180 RID: 384
-	// (get) Token: 0x060006E8 RID: 1768 RVA: 0x0001F540 File Offset: 0x0001D740
+	// Token: 0x170001AE RID: 430
+	// (get) Token: 0x060007BA RID: 1978 RVA: 0x00022114 File Offset: 0x00020314
 	public bool autoBraking
 	{
 		get
@@ -74,8 +74,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000181 RID: 385
-	// (get) Token: 0x060006E9 RID: 1769 RVA: 0x0001F548 File Offset: 0x0001D748
+	// Token: 0x170001AF RID: 431
+	// (get) Token: 0x060007BB RID: 1979 RVA: 0x0002211C File Offset: 0x0002031C
 	public bool autoRepath
 	{
 		get
@@ -84,8 +84,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000182 RID: 386
-	// (get) Token: 0x060006EA RID: 1770 RVA: 0x0001F550 File Offset: 0x0001D750
+	// Token: 0x170001B0 RID: 432
+	// (get) Token: 0x060007BC RID: 1980 RVA: 0x00022124 File Offset: 0x00020324
 	public float height
 	{
 		get
@@ -94,8 +94,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000183 RID: 387
-	// (get) Token: 0x060006EB RID: 1771 RVA: 0x0001F558 File Offset: 0x0001D758
+	// Token: 0x170001B1 RID: 433
+	// (get) Token: 0x060007BD RID: 1981 RVA: 0x0002212C File Offset: 0x0002032C
 	public float baseOffset
 	{
 		get
@@ -104,8 +104,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000184 RID: 388
-	// (get) Token: 0x060006EC RID: 1772 RVA: 0x0001F560 File Offset: 0x0001D760
+	// Token: 0x170001B2 RID: 434
+	// (get) Token: 0x060007BE RID: 1982 RVA: 0x00022134 File Offset: 0x00020334
 	public ObstacleAvoidanceType obstacleAvoidanceType
 	{
 		get
@@ -114,8 +114,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000185 RID: 389
-	// (get) Token: 0x060006ED RID: 1773 RVA: 0x0001F568 File Offset: 0x0001D768
+	// Token: 0x170001B3 RID: 435
+	// (get) Token: 0x060007BF RID: 1983 RVA: 0x0002213C File Offset: 0x0002033C
 	public int avoidancePriority
 	{
 		get
@@ -124,8 +124,8 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000186 RID: 390
-	// (get) Token: 0x060006EE RID: 1774 RVA: 0x0001F570 File Offset: 0x0001D770
+	// Token: 0x170001B4 RID: 436
+	// (get) Token: 0x060007C0 RID: 1984 RVA: 0x00022144 File Offset: 0x00020344
 	public int walkableMaks
 	{
 		get
@@ -134,7 +134,7 @@ public class CharacterNavAgentTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x060006EF RID: 1775 RVA: 0x0001F578 File Offset: 0x0001D778
+	// Token: 0x060007C1 RID: 1985 RVA: 0x0002214C File Offset: 0x0002034C
 	public void CopyTo(NavMeshAgent agent)
 	{
 		agent.radius = this._radius;
@@ -152,55 +152,55 @@ public class CharacterNavAgentTrait : CharacterTrait
 		agent.walkableMask = this._walkableMask;
 	}
 
-	// Token: 0x0400051C RID: 1308
+	// Token: 0x040005E7 RID: 1511
 	[SerializeField]
 	private float _radius = 0.5f;
 
-	// Token: 0x0400051D RID: 1309
+	// Token: 0x040005E8 RID: 1512
 	[SerializeField]
 	private float _speed = 3f;
 
-	// Token: 0x0400051E RID: 1310
+	// Token: 0x040005E9 RID: 1513
 	[SerializeField]
 	private float _acceleration = 8f;
 
-	// Token: 0x0400051F RID: 1311
+	// Token: 0x040005EA RID: 1514
 	[SerializeField]
 	private float _angularSpeed = 120f;
 
-	// Token: 0x04000520 RID: 1312
+	// Token: 0x040005EB RID: 1515
 	[SerializeField]
 	private float _stoppingDistance = 2f;
 
-	// Token: 0x04000521 RID: 1313
+	// Token: 0x040005EC RID: 1516
 	[SerializeField]
 	private bool _autoTraverseOffMeshLink = true;
 
-	// Token: 0x04000522 RID: 1314
+	// Token: 0x040005ED RID: 1517
 	[SerializeField]
 	private bool _autoBraking = true;
 
-	// Token: 0x04000523 RID: 1315
+	// Token: 0x040005EE RID: 1518
 	[SerializeField]
 	private bool _autoRepath = true;
 
-	// Token: 0x04000524 RID: 1316
+	// Token: 0x040005EF RID: 1519
 	[SerializeField]
 	private float _height = 2f;
 
-	// Token: 0x04000525 RID: 1317
+	// Token: 0x040005F0 RID: 1520
 	[SerializeField]
 	private float _baseOffset;
 
-	// Token: 0x04000526 RID: 1318
+	// Token: 0x040005F1 RID: 1521
 	[SerializeField]
 	private ObstacleAvoidanceType _obstacleAvoidanceType = 1;
 
-	// Token: 0x04000527 RID: 1319
+	// Token: 0x040005F2 RID: 1522
 	[SerializeField]
 	private int _avoidancePriority = 50;
 
-	// Token: 0x04000528 RID: 1320
+	// Token: 0x040005F3 RID: 1523
 	[SerializeField]
 	private int _walkableMask = -1;
 }

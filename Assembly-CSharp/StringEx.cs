@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Threading;
 
-// Token: 0x020004F1 RID: 1265
+// Token: 0x020005AE RID: 1454
 public static class StringEx
 {
-	// Token: 0x06002B03 RID: 11011 RVA: 0x000ABFF8 File Offset: 0x000AA1F8
-	private static StringEx.L S(string s, int l, out char[] buffer)
+	// Token: 0x06002EC3 RID: 11971 RVA: 0x000B4094 File Offset: 0x000B2294
+	private static global::StringEx.L S(string s, int l, out char[] buffer)
 	{
 		if (s == null || l <= 0)
 		{
 			buffer = null;
-			return default(StringEx.L);
+			return default(global::StringEx.L);
 		}
-		StringEx.L result = new StringEx.L(l <= 1024);
+		global::StringEx.L result = new global::StringEx.L(l <= 1024);
 		if (result.locked)
 		{
 			int sourceIndex = 0;
 			char[] destination;
-			buffer = (destination = StringEx.cb);
+			buffer = (destination = global::StringEx.cb);
 			s.CopyTo(sourceIndex, destination, 0, l);
 		}
 		else
@@ -27,20 +27,20 @@ public static class StringEx
 		return result;
 	}
 
-	// Token: 0x06002B04 RID: 11012 RVA: 0x000AC060 File Offset: 0x000AA260
-	private static StringEx.L S(string s, int l, int minSafeSize, out char[] buffer)
+	// Token: 0x06002EC4 RID: 11972 RVA: 0x000B40FC File Offset: 0x000B22FC
+	private static global::StringEx.L S(string s, int l, int minSafeSize, out char[] buffer)
 	{
 		if (s == null || l <= 0)
 		{
 			buffer = null;
-			return default(StringEx.L);
+			return default(global::StringEx.L);
 		}
-		StringEx.L result = new StringEx.L(minSafeSize <= 1024);
+		global::StringEx.L result = new global::StringEx.L(minSafeSize <= 1024);
 		if (result.locked)
 		{
 			int sourceIndex = 0;
 			char[] destination;
-			buffer = (destination = StringEx.cb);
+			buffer = (destination = global::StringEx.cb);
 			s.CopyTo(sourceIndex, destination, 0, l);
 		}
 		else
@@ -50,19 +50,19 @@ public static class StringEx
 		return result;
 	}
 
-	// Token: 0x06002B05 RID: 11013 RVA: 0x000AC0C8 File Offset: 0x000AA2C8
+	// Token: 0x06002EC5 RID: 11973 RVA: 0x000B4164 File Offset: 0x000B2364
 	private static string c2s(char[] c, int l)
 	{
 		return (l != 0) ? new string(c, 0, l) : string.Empty;
 	}
 
-	// Token: 0x06002B06 RID: 11014 RVA: 0x000AC0E4 File Offset: 0x000AA2E4
+	// Token: 0x06002EC6 RID: 11974 RVA: 0x000B4180 File Offset: 0x000B2380
 	private static string c2s(int l, char[] c)
 	{
 		return (l != 0) ? new string(c, 0, l) : string.Empty;
 	}
 
-	// Token: 0x06002B07 RID: 11015 RVA: 0x000AC100 File Offset: 0x000AA300
+	// Token: 0x06002EC7 RID: 11975 RVA: 0x000B419C File Offset: 0x000B239C
 	public static string RemoveWhiteSpaces(this string s)
 	{
 		int num = (s != null) ? s.Length : 0;
@@ -75,7 +75,7 @@ public static class StringEx
 					return s.Remove(num - 1);
 				}
 				char[] array;
-				using (StringEx.L l = StringEx.S(s, num, out array))
+				using (global::StringEx.L l = global::StringEx.S(s, num, out array))
 				{
 					if (!l.V)
 					{
@@ -89,14 +89,14 @@ public static class StringEx
 							array[l2++] = array[i];
 						}
 					}
-					return StringEx.c2s(array, l2);
+					return global::StringEx.c2s(array, l2);
 				}
 			}
 		}
 		return s;
 	}
 
-	// Token: 0x06002B08 RID: 11016 RVA: 0x000AC1E0 File Offset: 0x000AA3E0
+	// Token: 0x06002EC8 RID: 11976 RVA: 0x000B427C File Offset: 0x000B247C
 	public static string ToLowerEx(this string s)
 	{
 		int num = (s != null) ? s.Length : 0;
@@ -105,7 +105,7 @@ public static class StringEx
 			if (char.IsUpper(s, i))
 			{
 				char[] array;
-				using (StringEx.L l = StringEx.S(s, num, out array))
+				using (global::StringEx.L l = global::StringEx.S(s, num, out array))
 				{
 					if (!l.V)
 					{
@@ -116,14 +116,14 @@ public static class StringEx
 						array[i] = char.ToLowerInvariant(array[i]);
 					}
 					while (++i < num);
-					return StringEx.c2s(array, num);
+					return global::StringEx.c2s(array, num);
 				}
 			}
 		}
 		return s;
 	}
 
-	// Token: 0x06002B09 RID: 11017 RVA: 0x000AC294 File Offset: 0x000AA494
+	// Token: 0x06002EC9 RID: 11977 RVA: 0x000B4330 File Offset: 0x000B2530
 	public static string ToUpperEx(this string s)
 	{
 		int num = (s != null) ? s.Length : 0;
@@ -132,7 +132,7 @@ public static class StringEx
 			if (char.IsLower(s, i))
 			{
 				char[] array;
-				using (StringEx.L l = StringEx.S(s, num, out array))
+				using (global::StringEx.L l = global::StringEx.S(s, num, out array))
 				{
 					if (!l.V)
 					{
@@ -143,14 +143,14 @@ public static class StringEx
 						array[i] = char.ToUpperInvariant(array[i]);
 					}
 					while (++i < num);
-					return StringEx.c2s(array, num);
+					return global::StringEx.c2s(array, num);
 				}
 			}
 		}
 		return s;
 	}
 
-	// Token: 0x06002B0A RID: 11018 RVA: 0x000AC348 File Offset: 0x000AA548
+	// Token: 0x06002ECA RID: 11978 RVA: 0x000B43E4 File Offset: 0x000B25E4
 	public static string MakeNice(this string s)
 	{
 		int length;
@@ -170,7 +170,7 @@ public static class StringEx
 					bool flag3 = true;
 					int num2 = 0;
 					char[] array;
-					using (StringEx.L l = StringEx.S(s, length - num, (length - (num + 1)) * 2, out array))
+					using (global::StringEx.L l = global::StringEx.S(s, length - num, (length - (num + 1)) * 2, out array))
 					{
 						if (!l.V)
 						{
@@ -231,7 +231,7 @@ public static class StringEx
 								flag3 = true;
 							}
 						}
-						return StringEx.c2s(array, (!flag3) ? num2 : (num2 - 1));
+						return global::StringEx.c2s(array, (!flag3) ? num2 : (num2 - 1));
 					}
 					continue;
 				}
@@ -241,14 +241,14 @@ public static class StringEx
 		return s;
 	}
 
-	// Token: 0x06002B0B RID: 11019 RVA: 0x000AC564 File Offset: 0x000AA764
+	// Token: 0x06002ECB RID: 11979 RVA: 0x000B4600 File Offset: 0x000B2800
 	[Obsolete("You gotta specify at least one char", true)]
 	public static string RemoveChars(this string s)
 	{
 		return s;
 	}
 
-	// Token: 0x06002B0C RID: 11020 RVA: 0x000AC568 File Offset: 0x000AA768
+	// Token: 0x06002ECC RID: 11980 RVA: 0x000B4604 File Offset: 0x000B2804
 	public static string RemoveChars(this string s, params char[] rem)
 	{
 		int num = rem.Length;
@@ -268,7 +268,7 @@ public static class StringEx
 						return s.Remove(num2 - 1);
 					}
 					char[] array;
-					using (StringEx.L l = StringEx.S(s, num2, out array))
+					using (global::StringEx.L l = global::StringEx.S(s, num2, out array))
 					{
 						if (!l.V)
 						{
@@ -285,7 +285,7 @@ public static class StringEx
 							}
 							array[l2++] = array[i];
 						}
-						return StringEx.c2s(array, l2);
+						return global::StringEx.c2s(array, l2);
 					}
 				}
 			}
@@ -293,7 +293,7 @@ public static class StringEx
 		return s;
 	}
 
-	// Token: 0x06002B0D RID: 11021 RVA: 0x000AC680 File Offset: 0x000AA880
+	// Token: 0x06002ECD RID: 11981 RVA: 0x000B471C File Offset: 0x000B291C
 	public static string RemoveChars(this string s, char rem)
 	{
 		int num = (s != null) ? s.Length : 0;
@@ -306,7 +306,7 @@ public static class StringEx
 					return s.Remove(num - 1);
 				}
 				char[] array;
-				using (StringEx.L l = StringEx.S(s, num, out array))
+				using (global::StringEx.L l = global::StringEx.S(s, num, out array))
 				{
 					if (!l.V)
 					{
@@ -320,37 +320,37 @@ public static class StringEx
 							array[l2++] = array[i];
 						}
 					}
-					return StringEx.c2s(array, l2);
+					return global::StringEx.c2s(array, l2);
 				}
 			}
 		}
 		return s;
 	}
 
-	// Token: 0x04001799 RID: 6041
+	// Token: 0x04001965 RID: 6501
 	private const int maxLockSize = 1024;
 
-	// Token: 0x0400179A RID: 6042
+	// Token: 0x04001966 RID: 6502
 	private static uint lockCount;
 
-	// Token: 0x0400179B RID: 6043
+	// Token: 0x04001967 RID: 6503
 	private static readonly char[] cb = new char[1024];
 
-	// Token: 0x0400179C RID: 6044
+	// Token: 0x04001968 RID: 6504
 	private static readonly object cbLock = new object();
 
-	// Token: 0x020004F2 RID: 1266
+	// Token: 0x020005AF RID: 1455
 	private struct L : IDisposable
 	{
-		// Token: 0x06002B0E RID: 11022 RVA: 0x000AC760 File Offset: 0x000AA960
+		// Token: 0x06002ECE RID: 11982 RVA: 0x000B47FC File Offset: 0x000B29FC
 		public L(bool locked)
 		{
-			this._locked = (locked && Monitor.TryEnter(StringEx.cbLock));
+			this._locked = (locked && Monitor.TryEnter(global::StringEx.cbLock));
 			this._valid = true;
 		}
 
-		// Token: 0x17000983 RID: 2435
-		// (get) Token: 0x06002B0F RID: 11023 RVA: 0x000AC790 File Offset: 0x000AA990
+		// Token: 0x170009F7 RID: 2551
+		// (get) Token: 0x06002ECF RID: 11983 RVA: 0x000B482C File Offset: 0x000B2A2C
 		public bool locked
 		{
 			get
@@ -359,8 +359,8 @@ public static class StringEx
 			}
 		}
 
-		// Token: 0x17000984 RID: 2436
-		// (get) Token: 0x06002B10 RID: 11024 RVA: 0x000AC798 File Offset: 0x000AA998
+		// Token: 0x170009F8 RID: 2552
+		// (get) Token: 0x06002ED0 RID: 11984 RVA: 0x000B4834 File Offset: 0x000B2A34
 		public bool V
 		{
 			get
@@ -369,20 +369,20 @@ public static class StringEx
 			}
 		}
 
-		// Token: 0x06002B11 RID: 11025 RVA: 0x000AC7A0 File Offset: 0x000AA9A0
+		// Token: 0x06002ED1 RID: 11985 RVA: 0x000B483C File Offset: 0x000B2A3C
 		public void Dispose()
 		{
 			if (this._locked)
 			{
-				Monitor.Exit(StringEx.cbLock);
+				Monitor.Exit(global::StringEx.cbLock);
 				this._locked = false;
 			}
 		}
 
-		// Token: 0x0400179D RID: 6045
+		// Token: 0x04001969 RID: 6505
 		private bool _locked;
 
-		// Token: 0x0400179E RID: 6046
+		// Token: 0x0400196A RID: 6506
 		private bool _valid;
 	}
 }

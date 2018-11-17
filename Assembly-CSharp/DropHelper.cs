@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020004D0 RID: 1232
+// Token: 0x0200058B RID: 1419
 public static class DropHelper
 {
 }

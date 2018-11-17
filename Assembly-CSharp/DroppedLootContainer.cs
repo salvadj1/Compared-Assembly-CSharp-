@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000654 RID: 1620
-[RequireComponent(typeof(Inventory))]
+// Token: 0x02000717 RID: 1815
+[RequireComponent(typeof(global::Inventory))]
 public class DroppedLootContainer : MonoBehaviour
 {
-	// Token: 0x0600387B RID: 14459 RVA: 0x000CF6CC File Offset: 0x000CD8CC
+	// Token: 0x06003C67 RID: 15463 RVA: 0x000D7F7C File Offset: 0x000D617C
 	private void Start()
 	{
 	}
 
-	// Token: 0x0600387C RID: 14460 RVA: 0x000CF6D0 File Offset: 0x000CD8D0
+	// Token: 0x06003C68 RID: 15464 RVA: 0x000D7F80 File Offset: 0x000D6180
 	private void Update()
 	{
 	}

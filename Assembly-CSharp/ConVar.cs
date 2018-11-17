@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Reflection;
 
-// Token: 0x0200017C RID: 380
+// Token: 0x020001A8 RID: 424
 public class ConVar
 {
-	// Token: 0x06000B81 RID: 2945 RVA: 0x0002CF98 File Offset: 0x0002B198
+	// Token: 0x06000CB1 RID: 3249 RVA: 0x00030E84 File Offset: 0x0002F084
 	public static string GetString(string strName, string strDefault)
 	{
-		ConsoleSystem.Arg arg = new ConsoleSystem.Arg(strName);
+		global::ConsoleSystem.Arg arg = new global::ConsoleSystem.Arg(strName);
 		if (arg.Invalid)
 		{
 			return strDefault;
 		}
-		Type[] array = ConsoleSystem.FindTypes(arg.Class);
+		Type[] array = global::ConsoleSystem.FindTypes(arg.Class);
 		if (array.Length == 0)
 		{
 			return strDefault;
@@ -33,10 +33,10 @@ public class ConVar
 		return strDefault;
 	}
 
-	// Token: 0x06000B82 RID: 2946 RVA: 0x0002D054 File Offset: 0x0002B254
+	// Token: 0x06000CB2 RID: 3250 RVA: 0x00030F40 File Offset: 0x0002F140
 	public static float GetFloat(string strName, float strDefault)
 	{
-		string @string = ConVar.GetString(strName, string.Empty);
+		string @string = global::ConVar.GetString(strName, string.Empty);
 		if (@string.Length == 0)
 		{
 			return strDefault;
@@ -49,16 +49,16 @@ public class ConVar
 		return strDefault;
 	}
 
-	// Token: 0x06000B83 RID: 2947 RVA: 0x0002D08C File Offset: 0x0002B28C
+	// Token: 0x06000CB3 RID: 3251 RVA: 0x00030F78 File Offset: 0x0002F178
 	public static int GetInt(string strName, float strDefault)
 	{
-		return (int)ConVar.GetFloat(strName, strDefault);
+		return (int)global::ConVar.GetFloat(strName, strDefault);
 	}
 
-	// Token: 0x06000B84 RID: 2948 RVA: 0x0002D098 File Offset: 0x0002B298
+	// Token: 0x06000CB4 RID: 3252 RVA: 0x00030F84 File Offset: 0x0002F184
 	public static bool GetBool(string strName, bool strDefault)
 	{
-		string @string = ConVar.GetString(strName, (!strDefault) ? bool.FalseString : bool.TrueString);
+		string @string = global::ConVar.GetString(strName, (!strDefault) ? bool.FalseString : bool.TrueString);
 		bool result;
 		try
 		{
@@ -66,7 +66,7 @@ public class ConVar
 		}
 		catch
 		{
-			result = (ConVar.GetInt(strName, (float)((!strDefault) ? 0 : 1)) != 0);
+			result = (global::ConVar.GetInt(strName, (float)((!strDefault) ? 0 : 1)) != 0);
 		}
 		return result;
 	}

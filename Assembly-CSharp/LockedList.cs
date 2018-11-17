@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-// Token: 0x020001C3 RID: 451
+// Token: 0x020001F3 RID: 499
 [DebuggerDisplay("Count = {Count}")]
 public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection<T>, IList<T>, IEnumerable<T>, IEquatable<List<T>>
 {
-	// Token: 0x06000C7E RID: 3198 RVA: 0x00031990 File Offset: 0x0002FB90
+	// Token: 0x06000DBE RID: 3518 RVA: 0x0003587C File Offset: 0x00033A7C
 	private LockedList()
 	{
 		this.list = new List<T>(0);
 	}
 
-	// Token: 0x06000C7F RID: 3199 RVA: 0x000319A4 File Offset: 0x0002FBA4
+	// Token: 0x06000DBF RID: 3519 RVA: 0x00035890 File Offset: 0x00033A90
 	public LockedList(List<T> list)
 	{
 		if (object.ReferenceEquals(list, null))
@@ -23,25 +23,25 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		this.list = list;
 	}
 
-	// Token: 0x06000C80 RID: 3200 RVA: 0x000319D8 File Offset: 0x0002FBD8
+	// Token: 0x06000DC0 RID: 3520 RVA: 0x000358C4 File Offset: 0x00033AC4
 	int IList<T>.IndexOf(T item)
 	{
 		return this.list.IndexOf(item);
 	}
 
-	// Token: 0x06000C81 RID: 3201 RVA: 0x000319E8 File Offset: 0x0002FBE8
+	// Token: 0x06000DC1 RID: 3521 RVA: 0x000358D4 File Offset: 0x00033AD4
 	void IList<T>.Insert(int index, T item)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06000C82 RID: 3202 RVA: 0x000319F0 File Offset: 0x0002FBF0
+	// Token: 0x06000DC2 RID: 3522 RVA: 0x000358DC File Offset: 0x00033ADC
 	void IList<T>.RemoveAt(int index)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x17000325 RID: 805
+	// Token: 0x17000369 RID: 873
 	T IList<T>.this[int index]
 	{
 		get
@@ -54,32 +54,32 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x06000C85 RID: 3205 RVA: 0x00031A10 File Offset: 0x0002FC10
+	// Token: 0x06000DC5 RID: 3525 RVA: 0x000358FC File Offset: 0x00033AFC
 	void ICollection<T>.Add(T item)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06000C86 RID: 3206 RVA: 0x00031A18 File Offset: 0x0002FC18
+	// Token: 0x06000DC6 RID: 3526 RVA: 0x00035904 File Offset: 0x00033B04
 	void ICollection<T>.Clear()
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06000C87 RID: 3207 RVA: 0x00031A20 File Offset: 0x0002FC20
+	// Token: 0x06000DC7 RID: 3527 RVA: 0x0003590C File Offset: 0x00033B0C
 	bool ICollection<T>.Contains(T item)
 	{
 		return this.ilist.Contains(item);
 	}
 
-	// Token: 0x06000C88 RID: 3208 RVA: 0x00031A30 File Offset: 0x0002FC30
+	// Token: 0x06000DC8 RID: 3528 RVA: 0x0003591C File Offset: 0x00033B1C
 	void ICollection<T>.CopyTo(T[] array, int arrayIndex)
 	{
 		this.ilist.CopyTo(array, arrayIndex);
 	}
 
-	// Token: 0x17000326 RID: 806
-	// (get) Token: 0x06000C89 RID: 3209 RVA: 0x00031A40 File Offset: 0x0002FC40
+	// Token: 0x1700036A RID: 874
+	// (get) Token: 0x06000DC9 RID: 3529 RVA: 0x0003592C File Offset: 0x00033B2C
 	int ICollection<T>.Count
 	{
 		get
@@ -88,8 +88,8 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x17000327 RID: 807
-	// (get) Token: 0x06000C8A RID: 3210 RVA: 0x00031A50 File Offset: 0x0002FC50
+	// Token: 0x1700036B RID: 875
+	// (get) Token: 0x06000DCA RID: 3530 RVA: 0x0003593C File Offset: 0x00033B3C
 	bool ICollection<T>.IsReadOnly
 	{
 		get
@@ -98,56 +98,56 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x06000C8B RID: 3211 RVA: 0x00031A54 File Offset: 0x0002FC54
+	// Token: 0x06000DCB RID: 3531 RVA: 0x00035940 File Offset: 0x00033B40
 	bool ICollection<T>.Remove(T item)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06000C8C RID: 3212 RVA: 0x00031A5C File Offset: 0x0002FC5C
+	// Token: 0x06000DCC RID: 3532 RVA: 0x00035948 File Offset: 0x00033B48
 	IEnumerator<T> IEnumerable<T>.GetEnumerator()
 	{
 		return this.ilist.GetEnumerator();
 	}
 
-	// Token: 0x06000C8D RID: 3213 RVA: 0x00031A6C File Offset: 0x0002FC6C
+	// Token: 0x06000DCD RID: 3533 RVA: 0x00035958 File Offset: 0x00033B58
 	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return this.olist.GetEnumerator();
 	}
 
-	// Token: 0x06000C8E RID: 3214 RVA: 0x00031A7C File Offset: 0x0002FC7C
+	// Token: 0x06000DCE RID: 3534 RVA: 0x00035968 File Offset: 0x00033B68
 	int IList.Add(object value)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06000C8F RID: 3215 RVA: 0x00031A84 File Offset: 0x0002FC84
+	// Token: 0x06000DCF RID: 3535 RVA: 0x00035970 File Offset: 0x00033B70
 	void IList.Clear()
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06000C90 RID: 3216 RVA: 0x00031A8C File Offset: 0x0002FC8C
+	// Token: 0x06000DD0 RID: 3536 RVA: 0x00035978 File Offset: 0x00033B78
 	bool IList.Contains(object value)
 	{
 		return this.olist.Contains(value);
 	}
 
-	// Token: 0x06000C91 RID: 3217 RVA: 0x00031A9C File Offset: 0x0002FC9C
+	// Token: 0x06000DD1 RID: 3537 RVA: 0x00035988 File Offset: 0x00033B88
 	int IList.IndexOf(object value)
 	{
 		return this.olist.IndexOf(value);
 	}
 
-	// Token: 0x06000C92 RID: 3218 RVA: 0x00031AAC File Offset: 0x0002FCAC
+	// Token: 0x06000DD2 RID: 3538 RVA: 0x00035998 File Offset: 0x00033B98
 	void IList.Insert(int index, object value)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x17000328 RID: 808
-	// (get) Token: 0x06000C93 RID: 3219 RVA: 0x00031AB4 File Offset: 0x0002FCB4
+	// Token: 0x1700036C RID: 876
+	// (get) Token: 0x06000DD3 RID: 3539 RVA: 0x000359A0 File Offset: 0x00033BA0
 	bool IList.IsFixedSize
 	{
 		get
@@ -156,8 +156,8 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x17000329 RID: 809
-	// (get) Token: 0x06000C94 RID: 3220 RVA: 0x00031AB8 File Offset: 0x0002FCB8
+	// Token: 0x1700036D RID: 877
+	// (get) Token: 0x06000DD4 RID: 3540 RVA: 0x000359A4 File Offset: 0x00033BA4
 	bool IList.IsReadOnly
 	{
 		get
@@ -166,19 +166,19 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x06000C95 RID: 3221 RVA: 0x00031ABC File Offset: 0x0002FCBC
+	// Token: 0x06000DD5 RID: 3541 RVA: 0x000359A8 File Offset: 0x00033BA8
 	void IList.Remove(object value)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06000C96 RID: 3222 RVA: 0x00031AC4 File Offset: 0x0002FCC4
+	// Token: 0x06000DD6 RID: 3542 RVA: 0x000359B0 File Offset: 0x00033BB0
 	void IList.RemoveAt(int index)
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x1700032A RID: 810
+	// Token: 0x1700036E RID: 878
 	object IList.this[int index]
 	{
 		get
@@ -191,14 +191,14 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x06000C99 RID: 3225 RVA: 0x00031AE4 File Offset: 0x0002FCE4
+	// Token: 0x06000DD9 RID: 3545 RVA: 0x000359D0 File Offset: 0x00033BD0
 	void ICollection.CopyTo(Array array, int index)
 	{
 		this.olist.CopyTo(array, index);
 	}
 
-	// Token: 0x1700032B RID: 811
-	// (get) Token: 0x06000C9A RID: 3226 RVA: 0x00031AF4 File Offset: 0x0002FCF4
+	// Token: 0x1700036F RID: 879
+	// (get) Token: 0x06000DDA RID: 3546 RVA: 0x000359E0 File Offset: 0x00033BE0
 	int ICollection.Count
 	{
 		get
@@ -207,8 +207,8 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x1700032C RID: 812
-	// (get) Token: 0x06000C9B RID: 3227 RVA: 0x00031B04 File Offset: 0x0002FD04
+	// Token: 0x17000370 RID: 880
+	// (get) Token: 0x06000DDB RID: 3547 RVA: 0x000359F0 File Offset: 0x00033BF0
 	bool ICollection.IsSynchronized
 	{
 		get
@@ -217,8 +217,8 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x1700032D RID: 813
-	// (get) Token: 0x06000C9C RID: 3228 RVA: 0x00031B14 File Offset: 0x0002FD14
+	// Token: 0x17000371 RID: 881
+	// (get) Token: 0x06000DDC RID: 3548 RVA: 0x00035A00 File Offset: 0x00033C00
 	object ICollection.SyncRoot
 	{
 		get
@@ -227,18 +227,18 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x1700032E RID: 814
-	// (get) Token: 0x06000C9D RID: 3229 RVA: 0x00031B24 File Offset: 0x0002FD24
-	public static LockedList<T> Empty
+	// Token: 0x17000372 RID: 882
+	// (get) Token: 0x06000DDD RID: 3549 RVA: 0x00035A10 File Offset: 0x00033C10
+	public static global::LockedList<T> Empty
 	{
 		get
 		{
-			return LockedList<T>.EmptyInstance.List;
+			return global::LockedList<T>.EmptyInstance.List;
 		}
 	}
 
-	// Token: 0x1700032F RID: 815
-	// (get) Token: 0x06000C9E RID: 3230 RVA: 0x00031B2C File Offset: 0x0002FD2C
+	// Token: 0x17000373 RID: 883
+	// (get) Token: 0x06000DDE RID: 3550 RVA: 0x00035A18 File Offset: 0x00033C18
 	private IList<T> ilist
 	{
 		get
@@ -247,8 +247,8 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x17000330 RID: 816
-	// (get) Token: 0x06000C9F RID: 3231 RVA: 0x00031B34 File Offset: 0x0002FD34
+	// Token: 0x17000374 RID: 884
+	// (get) Token: 0x06000DDF RID: 3551 RVA: 0x00035A20 File Offset: 0x00033C20
 	private IList olist
 	{
 		get
@@ -257,7 +257,7 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x17000331 RID: 817
+	// Token: 0x17000375 RID: 885
 	public T this[int index]
 	{
 		get
@@ -270,8 +270,8 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x17000332 RID: 818
-	// (get) Token: 0x06000CA2 RID: 3234 RVA: 0x00031B54 File Offset: 0x0002FD54
+	// Token: 0x17000376 RID: 886
+	// (get) Token: 0x06000DE2 RID: 3554 RVA: 0x00035A40 File Offset: 0x00033C40
 	public int Count
 	{
 		get
@@ -280,92 +280,92 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x06000CA3 RID: 3235 RVA: 0x00031B64 File Offset: 0x0002FD64
+	// Token: 0x06000DE3 RID: 3555 RVA: 0x00035A50 File Offset: 0x00033C50
 	public List<T>.Enumerator GetEnumerator()
 	{
 		return this.list.GetEnumerator();
 	}
 
-	// Token: 0x06000CA4 RID: 3236 RVA: 0x00031B74 File Offset: 0x0002FD74
+	// Token: 0x06000DE4 RID: 3556 RVA: 0x00035A60 File Offset: 0x00033C60
 	public bool Equals(List<T> list)
 	{
 		return this.list.Equals(list);
 	}
 
-	// Token: 0x06000CA5 RID: 3237 RVA: 0x00031B84 File Offset: 0x0002FD84
+	// Token: 0x06000DE5 RID: 3557 RVA: 0x00035A70 File Offset: 0x00033C70
 	public override bool Equals(object obj)
 	{
-		return (!(obj is LockedList<T>)) ? (obj is List<T> && this.list.Equals(obj)) : this.list.Equals(((LockedList<T>)obj).list);
+		return (!(obj is global::LockedList<T>)) ? (obj is List<T> && this.list.Equals(obj)) : this.list.Equals(((global::LockedList<T>)obj).list);
 	}
 
-	// Token: 0x06000CA6 RID: 3238 RVA: 0x00031BD4 File Offset: 0x0002FDD4
+	// Token: 0x06000DE6 RID: 3558 RVA: 0x00035AC0 File Offset: 0x00033CC0
 	public override int GetHashCode()
 	{
 		return this.list.GetHashCode();
 	}
 
-	// Token: 0x06000CA7 RID: 3239 RVA: 0x00031BE4 File Offset: 0x0002FDE4
+	// Token: 0x06000DE7 RID: 3559 RVA: 0x00035AD0 File Offset: 0x00033CD0
 	public override string ToString()
 	{
 		return this.list.ToString();
 	}
 
-	// Token: 0x06000CA8 RID: 3240 RVA: 0x00031BF4 File Offset: 0x0002FDF4
+	// Token: 0x06000DE8 RID: 3560 RVA: 0x00035AE0 File Offset: 0x00033CE0
 	public T[] ToArray()
 	{
 		return this.list.ToArray();
 	}
 
-	// Token: 0x06000CA9 RID: 3241 RVA: 0x00031C04 File Offset: 0x0002FE04
+	// Token: 0x06000DE9 RID: 3561 RVA: 0x00035AF0 File Offset: 0x00033CF0
 	public List<T> ToList()
 	{
 		return this.list.GetRange(0, this.list.Count);
 	}
 
-	// Token: 0x06000CAA RID: 3242 RVA: 0x00031C20 File Offset: 0x0002FE20
+	// Token: 0x06000DEA RID: 3562 RVA: 0x00035B0C File Offset: 0x00033D0C
 	public void CopyTo(T[] array)
 	{
 		this.list.CopyTo(array);
 	}
 
-	// Token: 0x06000CAB RID: 3243 RVA: 0x00031C30 File Offset: 0x0002FE30
+	// Token: 0x06000DEB RID: 3563 RVA: 0x00035B1C File Offset: 0x00033D1C
 	public void CopyTo(T[] array, int arrayIndex)
 	{
 		this.list.CopyTo(array, arrayIndex);
 	}
 
-	// Token: 0x06000CAC RID: 3244 RVA: 0x00031C40 File Offset: 0x0002FE40
+	// Token: 0x06000DEC RID: 3564 RVA: 0x00035B2C File Offset: 0x00033D2C
 	public void CopyTo(int index, T[] array, int arrayIndex, int count)
 	{
 		this.list.CopyTo(index, array, arrayIndex, count);
 	}
 
-	// Token: 0x06000CAD RID: 3245 RVA: 0x00031C54 File Offset: 0x0002FE54
+	// Token: 0x06000DED RID: 3565 RVA: 0x00035B40 File Offset: 0x00033D40
 	public List<TOutput> ConvertAll<TOutput>(Converter<T, TOutput> converter)
 	{
 		return this.list.ConvertAll<TOutput>(converter);
 	}
 
-	// Token: 0x06000CAE RID: 3246 RVA: 0x00031C64 File Offset: 0x0002FE64
+	// Token: 0x06000DEE RID: 3566 RVA: 0x00035B50 File Offset: 0x00033D50
 	public int BinarySearch(T item)
 	{
 		return this.list.BinarySearch(item);
 	}
 
-	// Token: 0x06000CAF RID: 3247 RVA: 0x00031C74 File Offset: 0x0002FE74
+	// Token: 0x06000DEF RID: 3567 RVA: 0x00035B60 File Offset: 0x00033D60
 	public int BinarySearch(int index, int count, T item, IComparer<T> comparer)
 	{
 		return this.list.BinarySearch(index, count, item, comparer);
 	}
 
-	// Token: 0x06000CB0 RID: 3248 RVA: 0x00031C88 File Offset: 0x0002FE88
+	// Token: 0x06000DF0 RID: 3568 RVA: 0x00035B74 File Offset: 0x00033D74
 	public int BinarySearch(T item, IComparer<T> comparer)
 	{
 		return this.list.BinarySearch(item, comparer);
 	}
 
-	// Token: 0x17000333 RID: 819
-	// (get) Token: 0x06000CB1 RID: 3249 RVA: 0x00031C98 File Offset: 0x0002FE98
+	// Token: 0x17000377 RID: 887
+	// (get) Token: 0x06000DF1 RID: 3569 RVA: 0x00035B84 File Offset: 0x00033D84
 	public int Capacity
 	{
 		get
@@ -374,103 +374,103 @@ public sealed class LockedList<T> : IEnumerable, IList, ICollection, ICollection
 		}
 	}
 
-	// Token: 0x06000CB2 RID: 3250 RVA: 0x00031CA8 File Offset: 0x0002FEA8
+	// Token: 0x06000DF2 RID: 3570 RVA: 0x00035B94 File Offset: 0x00033D94
 	public bool TrueForAll(Predicate<T> match)
 	{
 		return this.list.TrueForAll(match);
 	}
 
-	// Token: 0x06000CB3 RID: 3251 RVA: 0x00031CB8 File Offset: 0x0002FEB8
+	// Token: 0x06000DF3 RID: 3571 RVA: 0x00035BA4 File Offset: 0x00033DA4
 	public List<T> FindAll(Predicate<T> match)
 	{
 		return this.list.FindAll(match);
 	}
 
-	// Token: 0x06000CB4 RID: 3252 RVA: 0x00031CC8 File Offset: 0x0002FEC8
+	// Token: 0x06000DF4 RID: 3572 RVA: 0x00035BB4 File Offset: 0x00033DB4
 	public int FindIndex(Predicate<T> match)
 	{
 		return this.list.FindIndex(match);
 	}
 
-	// Token: 0x06000CB5 RID: 3253 RVA: 0x00031CD8 File Offset: 0x0002FED8
+	// Token: 0x06000DF5 RID: 3573 RVA: 0x00035BC4 File Offset: 0x00033DC4
 	public T Find(Predicate<T> match)
 	{
 		return this.list.Find(match);
 	}
 
-	// Token: 0x06000CB6 RID: 3254 RVA: 0x00031CE8 File Offset: 0x0002FEE8
+	// Token: 0x06000DF6 RID: 3574 RVA: 0x00035BD4 File Offset: 0x00033DD4
 	public int FindLastIndex(Predicate<T> match)
 	{
 		return this.list.FindLastIndex(match);
 	}
 
-	// Token: 0x06000CB7 RID: 3255 RVA: 0x00031CF8 File Offset: 0x0002FEF8
+	// Token: 0x06000DF7 RID: 3575 RVA: 0x00035BE4 File Offset: 0x00033DE4
 	public T FindLast(Predicate<T> match)
 	{
 		return this.list.FindLast(match);
 	}
 
-	// Token: 0x06000CB8 RID: 3256 RVA: 0x00031D08 File Offset: 0x0002FF08
+	// Token: 0x06000DF8 RID: 3576 RVA: 0x00035BF4 File Offset: 0x00033DF4
 	public void ForEach(Action<T> action)
 	{
 		this.list.ForEach(action);
 	}
 
-	// Token: 0x06000CB9 RID: 3257 RVA: 0x00031D18 File Offset: 0x0002FF18
+	// Token: 0x06000DF9 RID: 3577 RVA: 0x00035C04 File Offset: 0x00033E04
 	public List<T> GetRange(int index, int count)
 	{
 		return this.list.GetRange(index, count);
 	}
 
-	// Token: 0x06000CBA RID: 3258 RVA: 0x00031D28 File Offset: 0x0002FF28
+	// Token: 0x06000DFA RID: 3578 RVA: 0x00035C14 File Offset: 0x00033E14
 	public int LastIndexOf(T item)
 	{
 		return this.list.LastIndexOf(item);
 	}
 
-	// Token: 0x06000CBB RID: 3259 RVA: 0x00031D38 File Offset: 0x0002FF38
+	// Token: 0x06000DFB RID: 3579 RVA: 0x00035C24 File Offset: 0x00033E24
 	public int LastIndexOf(T item, int index)
 	{
 		return this.list.LastIndexOf(item, index);
 	}
 
-	// Token: 0x06000CBC RID: 3260 RVA: 0x00031D48 File Offset: 0x0002FF48
+	// Token: 0x06000DFC RID: 3580 RVA: 0x00035C34 File Offset: 0x00033E34
 	public int LastIndexOf(T item, int index, int count)
 	{
 		return this.list.LastIndexOf(item, index, count);
 	}
 
-	// Token: 0x06000CBD RID: 3261 RVA: 0x00031D58 File Offset: 0x0002FF58
+	// Token: 0x06000DFD RID: 3581 RVA: 0x00035C44 File Offset: 0x00033E44
 	public int IndexOf(T item)
 	{
 		return this.list.IndexOf(item);
 	}
 
-	// Token: 0x06000CBE RID: 3262 RVA: 0x00031D68 File Offset: 0x0002FF68
+	// Token: 0x06000DFE RID: 3582 RVA: 0x00035C54 File Offset: 0x00033E54
 	public int IndexOf(T item, int index)
 	{
 		return this.list.IndexOf(item, index);
 	}
 
-	// Token: 0x06000CBF RID: 3263 RVA: 0x00031D78 File Offset: 0x0002FF78
+	// Token: 0x06000DFF RID: 3583 RVA: 0x00035C64 File Offset: 0x00033E64
 	public int IndexOf(T item, int index, int count)
 	{
 		return this.list.IndexOf(item, index, count);
 	}
 
-	// Token: 0x06000CC0 RID: 3264 RVA: 0x00031D88 File Offset: 0x0002FF88
+	// Token: 0x06000E00 RID: 3584 RVA: 0x00035C74 File Offset: 0x00033E74
 	public bool Contains(T item)
 	{
 		return this.list.Contains(item);
 	}
 
-	// Token: 0x04000799 RID: 1945
+	// Token: 0x040008AD RID: 2221
 	private readonly List<T> list;
 
-	// Token: 0x020001C4 RID: 452
+	// Token: 0x020001F4 RID: 500
 	private static class EmptyInstance
 	{
-		// Token: 0x0400079A RID: 1946
-		public static readonly LockedList<T> List = new LockedList<T>();
+		// Token: 0x040008AE RID: 2222
+		public static readonly global::LockedList<T> List = new global::LockedList<T>();
 	}
 }

@@ -1,55 +1,55 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200064D RID: 1613
-[NGCAutoAddScript]
-public class DeployedRespawn : DeployableObject
+// Token: 0x02000710 RID: 1808
+[global::NGCAutoAddScript]
+public class DeployedRespawn : global::DeployableObject
 {
-	// Token: 0x06003835 RID: 14389 RVA: 0x000CE564 File Offset: 0x000CC764
+	// Token: 0x06003C21 RID: 15393 RVA: 0x000D6E14 File Offset: 0x000D5014
 	protected DeployedRespawn() : base(2)
 	{
 		this.lastSpawnTime = double.NegativeInfinity;
 	}
 
-	// Token: 0x06003836 RID: 14390 RVA: 0x000CE58C File Offset: 0x000CC78C
+	// Token: 0x06003C22 RID: 15394 RVA: 0x000D6E3C File Offset: 0x000D503C
 	public virtual bool IsValidToSpawn()
 	{
-		return NetCull.time > this.lastSpawnTime + this.spawnDelay;
+		return global::NetCull.time > this.lastSpawnTime + this.spawnDelay;
 	}
 
-	// Token: 0x06003837 RID: 14391 RVA: 0x000CE5A4 File Offset: 0x000CC7A4
+	// Token: 0x06003C23 RID: 15395 RVA: 0x000D6E54 File Offset: 0x000D5054
 	public virtual void NearbyRespawn()
 	{
-		this.lastSpawnTime = NetCull.time;
+		this.lastSpawnTime = global::NetCull.time;
 	}
 
-	// Token: 0x06003838 RID: 14392 RVA: 0x000CE5B4 File Offset: 0x000CC7B4
+	// Token: 0x06003C24 RID: 15396 RVA: 0x000D6E64 File Offset: 0x000D5064
 	public virtual void MarkSpawnedOn()
 	{
-		this.lastSpawnTime = NetCull.time;
+		this.lastSpawnTime = global::NetCull.time;
 	}
 
-	// Token: 0x06003839 RID: 14393 RVA: 0x000CE5C4 File Offset: 0x000CC7C4
+	// Token: 0x06003C25 RID: 15397 RVA: 0x000D6E74 File Offset: 0x000D5074
 	public double CooldownTimeLeft()
 	{
-		return (double)Mathf.Clamp((float)(this.lastSpawnTime + this.spawnDelay - NetCull.time), 0f, (float)this.spawnDelay);
+		return (double)Mathf.Clamp((float)(this.lastSpawnTime + this.spawnDelay - global::NetCull.time), 0f, (float)this.spawnDelay);
 	}
 
-	// Token: 0x0600383A RID: 14394 RVA: 0x000CE5F8 File Offset: 0x000CC7F8
+	// Token: 0x06003C26 RID: 15398 RVA: 0x000D6EA8 File Offset: 0x000D50A8
 	public virtual Quaternion GetSpawnRot()
 	{
 		return base.transform.rotation;
 	}
 
-	// Token: 0x0600383B RID: 14395 RVA: 0x000CE608 File Offset: 0x000CC808
+	// Token: 0x06003C27 RID: 15399 RVA: 0x000D6EB8 File Offset: 0x000D50B8
 	public virtual Vector3 GetSpawnPos()
 	{
 		return base.transform.position;
 	}
 
-	// Token: 0x04001C4B RID: 7243
+	// Token: 0x04001E40 RID: 7744
 	public double lastSpawnTime;
 
-	// Token: 0x04001C4C RID: 7244
+	// Token: 0x04001E41 RID: 7745
 	public double spawnDelay = 240.0;
 }

@@ -1,43 +1,43 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200015C RID: 348
+// Token: 0x02000187 RID: 391
 public struct DisposeCallbackList<TCallback> : IDisposable where TCallback : class
 {
-	// Token: 0x06000A88 RID: 2696 RVA: 0x0002A0A8 File Offset: 0x000282A8
-	public DisposeCallbackList(DisposeCallbackList<Object, TCallback>.Function invoke)
+	// Token: 0x06000BB2 RID: 2994 RVA: 0x0002DE24 File Offset: 0x0002C024
+	public DisposeCallbackList(global::DisposeCallbackList<Object, TCallback>.Function invoke)
 	{
-		this.def = new DisposeCallbackList<Object, TCallback>(null, invoke);
+		this.def = new global::DisposeCallbackList<Object, TCallback>(null, invoke);
 	}
 
-	// Token: 0x06000A89 RID: 2697 RVA: 0x0002A0B8 File Offset: 0x000282B8
+	// Token: 0x06000BB3 RID: 2995 RVA: 0x0002DE34 File Offset: 0x0002C034
 	public bool Add(TCallback callback)
 	{
 		return this.def.Add(callback);
 	}
 
-	// Token: 0x06000A8A RID: 2698 RVA: 0x0002A0C8 File Offset: 0x000282C8
+	// Token: 0x06000BB4 RID: 2996 RVA: 0x0002DE44 File Offset: 0x0002C044
 	public bool Remove(TCallback callback)
 	{
 		return this.def.Remove(callback);
 	}
 
-	// Token: 0x06000A8B RID: 2699 RVA: 0x0002A0D8 File Offset: 0x000282D8
+	// Token: 0x06000BB5 RID: 2997 RVA: 0x0002DE54 File Offset: 0x0002C054
 	public void Dispose()
 	{
 		this.def.Dispose();
 	}
 
-	// Token: 0x170002F5 RID: 757
-	// (get) Token: 0x06000A8C RID: 2700 RVA: 0x0002A0E8 File Offset: 0x000282E8
-	public static DisposeCallbackList<TCallback> invalid
+	// Token: 0x17000337 RID: 823
+	// (get) Token: 0x06000BB6 RID: 2998 RVA: 0x0002DE64 File Offset: 0x0002C064
+	public static global::DisposeCallbackList<TCallback> invalid
 	{
 		get
 		{
-			return default(DisposeCallbackList<TCallback>);
+			return default(global::DisposeCallbackList<TCallback>);
 		}
 	}
 
-	// Token: 0x040006DA RID: 1754
-	private DisposeCallbackList<Object, TCallback> def;
+	// Token: 0x040007E9 RID: 2025
+	private global::DisposeCallbackList<Object, TCallback> def;
 }

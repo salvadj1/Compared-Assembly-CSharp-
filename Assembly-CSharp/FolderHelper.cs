@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004DA RID: 1242
+// Token: 0x02000595 RID: 1429
 public class FolderHelper : MonoBehaviour
 {
-	// Token: 0x06002AC1 RID: 10945 RVA: 0x000AAC40 File Offset: 0x000A8E40
+	// Token: 0x06002E73 RID: 11891 RVA: 0x000B29D8 File Offset: 0x000B0BD8
 	private void Awake()
 	{
 		base.transform.DetachChildren();

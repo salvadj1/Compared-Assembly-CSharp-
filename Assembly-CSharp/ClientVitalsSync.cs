@@ -4,28 +4,28 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200009A RID: 154
-public sealed class ClientVitalsSync : IDLocalCharacterAddon, IInterpTimedEventReceiver
+// Token: 0x020000AD RID: 173
+public sealed class ClientVitalsSync : global::IDLocalCharacterAddon, global::IInterpTimedEventReceiver
 {
-	// Token: 0x06000333 RID: 819 RVA: 0x0000FEEC File Offset: 0x0000E0EC
-	public ClientVitalsSync() : this(IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake | IDLocalCharacterAddon.AddonFlags.PrerequisitCheck)
+	// Token: 0x060003AB RID: 939 RVA: 0x000116DC File Offset: 0x0000F8DC
+	public ClientVitalsSync() : this(global::IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake | global::IDLocalCharacterAddon.AddonFlags.PrerequisitCheck)
 	{
 	}
 
-	// Token: 0x06000334 RID: 820 RVA: 0x0000FEF8 File Offset: 0x0000E0F8
-	protected ClientVitalsSync(IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
+	// Token: 0x060003AC RID: 940 RVA: 0x000116E8 File Offset: 0x0000F8E8
+	protected ClientVitalsSync(global::IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
 	{
 	}
 
-	// Token: 0x06000335 RID: 821 RVA: 0x0000FF04 File Offset: 0x0000E104
-	void IInterpTimedEventReceiver.OnInterpTimedEvent()
+	// Token: 0x060003AD RID: 941 RVA: 0x000116F4 File Offset: 0x0000F8F4
+	void global::IInterpTimedEventReceiver.OnInterpTimedEvent()
 	{
-		string tag = InterpTimedEvent.Tag;
+		string tag = global::InterpTimedEvent.Tag;
 		if (tag != null)
 		{
-			if (ClientVitalsSync.<>f__switch$map2 == null)
+			if (global::ClientVitalsSync.<>f__switch$map2 == null)
 			{
-				ClientVitalsSync.<>f__switch$map2 = new Dictionary<string, int>(1)
+				global::ClientVitalsSync.<>f__switch$map2 = new Dictionary<string, int>(1)
 				{
 					{
 						"DMG",
@@ -34,32 +34,32 @@ public sealed class ClientVitalsSync : IDLocalCharacterAddon, IInterpTimedEventR
 				};
 			}
 			int num;
-			if (ClientVitalsSync.<>f__switch$map2.TryGetValue(tag, out num))
+			if (global::ClientVitalsSync.<>f__switch$map2.TryGetValue(tag, out num))
 			{
 				if (num == 0)
 				{
-					this.ClientHealthChange(InterpTimedEvent.Argument<float>(0), InterpTimedEvent.Argument<GameObject>(1));
+					this.ClientHealthChange(global::InterpTimedEvent.Argument<float>(0), global::InterpTimedEvent.Argument<GameObject>(1));
 					return;
 				}
 			}
 		}
-		InterpTimedEvent.MarkUnhandled();
+		global::InterpTimedEvent.MarkUnhandled();
 	}
 
-	// Token: 0x06000336 RID: 822 RVA: 0x0000FF80 File Offset: 0x0000E180
+	// Token: 0x060003AE RID: 942 RVA: 0x00011770 File Offset: 0x0000F970
 	protected override bool CheckPrerequesits()
 	{
-		this.humanBodyTakeDamage = (base.takeDamage as HumanBodyTakeDamage);
+		this.humanBodyTakeDamage = (base.takeDamage as global::HumanBodyTakeDamage);
 		return this.humanBodyTakeDamage && base.networkViewOwner.isClient;
 	}
 
-	// Token: 0x06000337 RID: 823 RVA: 0x0000FFC0 File Offset: 0x0000E1C0
+	// Token: 0x060003AF RID: 943 RVA: 0x000117B0 File Offset: 0x0000F9B0
 	protected override void OnAddonPostAwake()
 	{
 	}
 
-	// Token: 0x1700007B RID: 123
-	// (get) Token: 0x06000338 RID: 824 RVA: 0x0000FFC4 File Offset: 0x0000E1C4
+	// Token: 0x17000093 RID: 147
+	// (get) Token: 0x060003B0 RID: 944 RVA: 0x000117B4 File Offset: 0x0000F9B4
 	public bool bleeding
 	{
 		get
@@ -68,13 +68,13 @@ public sealed class ClientVitalsSync : IDLocalCharacterAddon, IInterpTimedEventR
 		}
 	}
 
-	// Token: 0x06000339 RID: 825 RVA: 0x0000FFE4 File Offset: 0x0000E1E4
+	// Token: 0x060003B1 RID: 945 RVA: 0x000117D4 File Offset: 0x0000F9D4
 	[RPC]
-	public void Local_HealthChange(float amount, NetworkViewID attackerID, NetworkMessageInfo info)
+	public void Local_HealthChange(float amount, uLink.NetworkViewID attackerID, uLink.NetworkMessageInfo info)
 	{
-		NetworkView networkView;
+		uLink.NetworkView networkView;
 		GameObject gameObject;
-		if (attackerID != NetworkViewID.unassigned && (networkView = NetworkView.Find(attackerID)))
+		if (attackerID != uLink.NetworkViewID.unassigned && (networkView = uLink.NetworkView.Find(attackerID)))
 		{
 			gameObject = networkView.gameObject;
 		}
@@ -82,14 +82,14 @@ public sealed class ClientVitalsSync : IDLocalCharacterAddon, IInterpTimedEventR
 		{
 			gameObject = null;
 		}
-		InterpTimedEvent.Queue(this, "DMG", ref info, new object[]
+		global::InterpTimedEvent.Queue(this, "DMG", ref info, new object[]
 		{
 			amount,
 			gameObject
 		});
 	}
 
-	// Token: 0x0600033A RID: 826 RVA: 0x00010044 File Offset: 0x0000E244
+	// Token: 0x060003B2 RID: 946 RVA: 0x00011834 File Offset: 0x0000FA34
 	[RPC]
 	public void Local_BleedChange(float amount)
 	{
@@ -99,11 +99,11 @@ public sealed class ClientVitalsSync : IDLocalCharacterAddon, IInterpTimedEventR
 		}
 		if (base.localControlled)
 		{
-			RPOS.SetPlaqueActive("PlaqueBleeding", this.humanBodyTakeDamage._bleedingLevel > 0f);
+			global::RPOS.SetPlaqueActive("PlaqueBleeding", this.humanBodyTakeDamage._bleedingLevel > 0f);
 		}
 	}
 
-	// Token: 0x0600033B RID: 827 RVA: 0x00010094 File Offset: 0x0000E294
+	// Token: 0x060003B3 RID: 947 RVA: 0x00011884 File Offset: 0x0000FA84
 	public void ClientHealthChange(float amount, GameObject attacker)
 	{
 		float health = base.health;
@@ -113,13 +113,13 @@ public sealed class ClientVitalsSync : IDLocalCharacterAddon, IInterpTimedEventR
 		float healthFraction = base.healthFraction;
 		if (base.localControlled && num >= 1f)
 		{
-			base.GetComponent<LocalDamageDisplay>().SetNewHealthPercent(healthFraction, attacker);
+			base.GetComponent<global::LocalDamageDisplay>().SetNewHealthPercent(healthFraction, attacker);
 		}
-		if (attacker && flag && num >= 1f && (ClientVitalsSync.hudDamagePrefab || Bundling.Load<HUDDirectionalDamage>("content/hud/DirectionalDamage", out ClientVitalsSync.hudDamagePrefab)))
+		if (attacker && flag && num >= 1f && (global::ClientVitalsSync.hudDamagePrefab || Facepunch.Bundling.Load<global::HUDDirectionalDamage>("content/hud/DirectionalDamage", out global::ClientVitalsSync.hudDamagePrefab)))
 		{
-			Character character;
+			global::Character character;
 			Vector3 worldDamageDirection;
-			if (IDBase.GetMain<Character>(attacker, ref character))
+			if (IDBase.GetMain<global::Character>(attacker, ref character))
 			{
 				worldDamageDirection = base.eyesOrigin - character.eyesOrigin;
 			}
@@ -127,18 +127,18 @@ public sealed class ClientVitalsSync : IDLocalCharacterAddon, IInterpTimedEventR
 			{
 				worldDamageDirection = base.origin - attacker.transform.position;
 			}
-			HUDDirectionalDamage.CreateIndicator(worldDamageDirection, (double)amount, NetCull.time, 1.6000000238418579, ClientVitalsSync.hudDamagePrefab);
+			global::HUDDirectionalDamage.CreateIndicator(worldDamageDirection, (double)amount, global::NetCull.time, 1.6000000238418579, global::ClientVitalsSync.hudDamagePrefab);
 		}
-		RPOS.HealthUpdate(amount);
+		global::RPOS.HealthUpdate(amount);
 	}
 
-	// Token: 0x040002B3 RID: 691
-	private const IDLocalCharacterAddon.AddonFlags ClientVitalsSyncAddonFlags = IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake | IDLocalCharacterAddon.AddonFlags.PrerequisitCheck;
+	// Token: 0x0400031E RID: 798
+	private const global::IDLocalCharacterAddon.AddonFlags ClientVitalsSyncAddonFlags = global::IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake | global::IDLocalCharacterAddon.AddonFlags.PrerequisitCheck;
 
-	// Token: 0x040002B4 RID: 692
+	// Token: 0x0400031F RID: 799
 	[NonSerialized]
-	private HumanBodyTakeDamage humanBodyTakeDamage;
+	private global::HumanBodyTakeDamage humanBodyTakeDamage;
 
-	// Token: 0x040002B5 RID: 693
-	private static HUDDirectionalDamage hudDamagePrefab;
+	// Token: 0x04000320 RID: 800
+	private static global::HUDDirectionalDamage hudDamagePrefab;
 }

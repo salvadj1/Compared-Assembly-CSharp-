@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020004A8 RID: 1192
-public class TimedGrenade : RigidObj
+// Token: 0x02000563 RID: 1379
+public class TimedGrenade : global::RigidObj
 {
-	// Token: 0x060029F7 RID: 10743 RVA: 0x000A423C File Offset: 0x000A243C
-	public TimedGrenade() : base(RigidObj.FeatureFlags.StreamInitialVelocity | RigidObj.FeatureFlags.StreamOwnerViewID | RigidObj.FeatureFlags.ServerCollisions)
+	// Token: 0x06002DA9 RID: 11689 RVA: 0x000ABFD4 File Offset: 0x000AA1D4
+	public TimedGrenade() : base(global::RigidObj.FeatureFlags.StreamInitialVelocity | global::RigidObj.FeatureFlags.StreamOwnerViewID | global::RigidObj.FeatureFlags.ServerCollisions)
 	{
 	}
 
-	// Token: 0x060029F8 RID: 10744 RVA: 0x000A4278 File Offset: 0x000A2478
-	private new void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06002DAA RID: 11690 RVA: 0x000AC010 File Offset: 0x000AA210
+	private new void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		base.uLink_OnNetworkInstantiate(info);
 	}
 
-	// Token: 0x060029F9 RID: 10745 RVA: 0x000A4284 File Offset: 0x000A2484
+	// Token: 0x06002DAB RID: 11691 RVA: 0x000AC01C File Offset: 0x000AA21C
 	protected override void OnHide()
 	{
 		if (base.renderer)
@@ -26,7 +26,7 @@ public class TimedGrenade : RigidObj
 		}
 	}
 
-	// Token: 0x060029FA RID: 10746 RVA: 0x000A42A4 File Offset: 0x000A24A4
+	// Token: 0x06002DAC RID: 11692 RVA: 0x000AC03C File Offset: 0x000AA23C
 	protected override void OnShow()
 	{
 		if (base.renderer)
@@ -35,7 +35,7 @@ public class TimedGrenade : RigidObj
 		}
 	}
 
-	// Token: 0x060029FB RID: 10747 RVA: 0x000A42C4 File Offset: 0x000A24C4
+	// Token: 0x06002DAD RID: 11693 RVA: 0x000AC05C File Offset: 0x000AA25C
 	protected override void OnDone()
 	{
 		base.collider.enabled = false;
@@ -55,28 +55,28 @@ public class TimedGrenade : RigidObj
 		}
 	}
 
-	// Token: 0x060029FC RID: 10748 RVA: 0x000A4374 File Offset: 0x000A2574
+	// Token: 0x06002DAE RID: 11694 RVA: 0x000AC10C File Offset: 0x000AA30C
 	[RPC]
-	private void ClientBounce(NetworkMessageInfo info)
+	private void ClientBounce(uLink.NetworkMessageInfo info)
 	{
-		InterpTimedEvent.Queue(this, "bounce", ref info);
+		global::InterpTimedEvent.Queue(this, "bounce", ref info);
 	}
 
-	// Token: 0x060029FD RID: 10749 RVA: 0x000A4384 File Offset: 0x000A2584
+	// Token: 0x06002DAF RID: 11695 RVA: 0x000AC11C File Offset: 0x000AA31C
 	private void PlayClientBounce()
 	{
 		this.bounceSound.Play(this.rigidbody.position, 0.25f, Random.Range(0.85f, 1.15f), 1f, 18f);
 	}
 
-	// Token: 0x060029FE RID: 10750 RVA: 0x000A43C8 File Offset: 0x000A25C8
+	// Token: 0x06002DB0 RID: 11696 RVA: 0x000AC160 File Offset: 0x000AA360
 	protected override bool OnInterpTimedEvent()
 	{
-		string tag = InterpTimedEvent.Tag;
+		string tag = global::InterpTimedEvent.Tag;
 		if (tag != null)
 		{
-			if (TimedGrenade.<>f__switch$mapA == null)
+			if (global::TimedGrenade.<>f__switch$mapA == null)
 			{
-				TimedGrenade.<>f__switch$mapA = new Dictionary<string, int>(1)
+				global::TimedGrenade.<>f__switch$mapA = new Dictionary<string, int>(1)
 				{
 					{
 						"bounce",
@@ -85,7 +85,7 @@ public class TimedGrenade : RigidObj
 				};
 			}
 			int num;
-			if (TimedGrenade.<>f__switch$mapA.TryGetValue(tag, out num))
+			if (global::TimedGrenade.<>f__switch$mapA.TryGetValue(tag, out num))
 			{
 				if (num == 0)
 				{
@@ -97,24 +97,24 @@ public class TimedGrenade : RigidObj
 		return base.OnInterpTimedEvent();
 	}
 
-	// Token: 0x040015DB RID: 5595
+	// Token: 0x04001798 RID: 6040
 	private float fuseLength = 3f;
 
-	// Token: 0x040015DC RID: 5596
+	// Token: 0x04001799 RID: 6041
 	public GameObject explosionEffect;
 
-	// Token: 0x040015DD RID: 5597
+	// Token: 0x0400179A RID: 6042
 	public float explosionRadius = 30f;
 
-	// Token: 0x040015DE RID: 5598
+	// Token: 0x0400179B RID: 6043
 	public float damage = 200f;
 
-	// Token: 0x040015DF RID: 5599
+	// Token: 0x0400179C RID: 6044
 	public IDMain myOwner;
 
-	// Token: 0x040015E0 RID: 5600
+	// Token: 0x0400179D RID: 6045
 	public AudioClip bounceSound;
 
-	// Token: 0x040015E1 RID: 5601
+	// Token: 0x0400179E RID: 6046
 	private float lastBounceTime;
 }

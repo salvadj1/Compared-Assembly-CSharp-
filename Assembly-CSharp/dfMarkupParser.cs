@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
-// Token: 0x0200071D RID: 1821
+// Token: 0x020007F9 RID: 2041
 public class dfMarkupParser
 {
-	// Token: 0x060042B4 RID: 17076 RVA: 0x00102B5C File Offset: 0x00100D5C
+	// Token: 0x060046F8 RID: 18168 RVA: 0x0010BE6C File Offset: 0x0010A06C
 	static dfMarkupParser()
 	{
 		RegexOptions options = RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture | RegexOptions.CultureInvariant;
-		dfMarkupParser.TAG_PATTERN = new Regex("(\\<\\/?)(?<tag>[a-zA-Z0-9$_]+)(\\s(?<attr>.+?))?([\\/]*\\>)", options);
-		dfMarkupParser.ATTR_PATTERN = new Regex("(?<key>[a-zA-Z0-9$_]+)=(?<value>(\"((\\\\\")|\\\\\\\\|[^\"\\n])*\")|('((\\\\')|\\\\\\\\|[^'\\n])*')|\\d+|\\w+)", options);
-		dfMarkupParser.STYLE_PATTERN = new Regex("(?<key>[a-zA-Z0-9\\-]+)(\\s*\\:\\s*)(?<value>[^;]+)", options);
+		global::dfMarkupParser.TAG_PATTERN = new Regex("(\\<\\/?)(?<tag>[a-zA-Z0-9$_]+)(\\s(?<attr>.+?))?([\\/]*\\>)", options);
+		global::dfMarkupParser.ATTR_PATTERN = new Regex("(?<key>[a-zA-Z0-9$_]+)=(?<value>(\"((\\\\\")|\\\\\\\\|[^\"\\n])*\")|('((\\\\')|\\\\\\\\|[^'\\n])*')|\\d+|\\w+)", options);
+		global::dfMarkupParser.STYLE_PATTERN = new Regex("(?<key>[a-zA-Z0-9\\-]+)(\\s*\\:\\s*)(?<value>[^;]+)", options);
 	}
 
-	// Token: 0x060042B5 RID: 17077 RVA: 0x00102BC4 File Offset: 0x00100DC4
-	public static dfList<dfMarkupElement> Parse(dfRichTextLabel owner, string source)
+	// Token: 0x060046F9 RID: 18169 RVA: 0x0010BED4 File Offset: 0x0010A0D4
+	public static global::dfList<global::dfMarkupElement> Parse(global::dfRichTextLabel owner, string source)
 	{
-		dfList<dfMarkupElement> result;
+		global::dfList<global::dfMarkupElement> result;
 		try
 		{
-			dfMarkupParser.parserInstance.owner = owner;
-			dfList<dfMarkupElement> dfList = dfMarkupParser.parserInstance.parseMarkup(source);
+			global::dfMarkupParser.parserInstance.owner = owner;
+			global::dfList<global::dfMarkupElement> dfList = global::dfMarkupParser.parserInstance.parseMarkup(source);
 			result = dfList;
 		}
 		finally
@@ -31,11 +31,11 @@ public class dfMarkupParser
 		return result;
 	}
 
-	// Token: 0x060042B6 RID: 17078 RVA: 0x00102C14 File Offset: 0x00100E14
-	private dfList<dfMarkupElement> parseMarkup(string source)
+	// Token: 0x060046FA RID: 18170 RVA: 0x0010BF24 File Offset: 0x0010A124
+	private global::dfList<global::dfMarkupElement> parseMarkup(string source)
 	{
-		Queue<dfMarkupElement> queue = new Queue<dfMarkupElement>();
-		MatchCollection matchCollection = dfMarkupParser.TAG_PATTERN.Matches(source);
+		Queue<global::dfMarkupElement> queue = new Queue<global::dfMarkupElement>();
+		MatchCollection matchCollection = global::dfMarkupParser.TAG_PATTERN.Matches(source);
 		int num = 0;
 		for (int i = 0; i < matchCollection.Count; i++)
 		{
@@ -43,7 +43,7 @@ public class dfMarkupParser
 			if (match.Index > num)
 			{
 				string text = source.Substring(num, match.Index - num);
-				dfMarkupString item = new dfMarkupString(text);
+				global::dfMarkupString item = new global::dfMarkupString(text);
 				queue.Enqueue(item);
 			}
 			num = match.Index + match.Length;
@@ -52,49 +52,49 @@ public class dfMarkupParser
 		if (num < source.Length)
 		{
 			string text2 = source.Substring(num);
-			dfMarkupString item2 = new dfMarkupString(text2);
+			global::dfMarkupString item2 = new global::dfMarkupString(text2);
 			queue.Enqueue(item2);
 		}
 		return this.processTokens(queue);
 	}
 
-	// Token: 0x060042B7 RID: 17079 RVA: 0x00102CD0 File Offset: 0x00100ED0
-	private dfList<dfMarkupElement> processTokens(Queue<dfMarkupElement> tokens)
+	// Token: 0x060046FB RID: 18171 RVA: 0x0010BFE0 File Offset: 0x0010A1E0
+	private global::dfList<global::dfMarkupElement> processTokens(Queue<global::dfMarkupElement> tokens)
 	{
-		dfList<dfMarkupElement> dfList = dfList<dfMarkupElement>.Obtain();
+		global::dfList<global::dfMarkupElement> dfList = global::dfList<global::dfMarkupElement>.Obtain();
 		while (tokens.Count > 0)
 		{
 			dfList.Add(this.parseElement(tokens));
 		}
 		for (int i = 0; i < dfList.Count; i++)
 		{
-			if (dfList[i] is dfMarkupTag)
+			if (dfList[i] is global::dfMarkupTag)
 			{
-				((dfMarkupTag)dfList[i]).Owner = this.owner;
+				((global::dfMarkupTag)dfList[i]).Owner = this.owner;
 			}
 		}
 		return dfList;
 	}
 
-	// Token: 0x060042B8 RID: 17080 RVA: 0x00102D44 File Offset: 0x00100F44
-	private dfMarkupElement parseElement(Queue<dfMarkupElement> tokens)
+	// Token: 0x060046FC RID: 18172 RVA: 0x0010C054 File Offset: 0x0010A254
+	private global::dfMarkupElement parseElement(Queue<global::dfMarkupElement> tokens)
 	{
-		dfMarkupElement dfMarkupElement = tokens.Dequeue();
-		if (dfMarkupElement is dfMarkupString)
+		global::dfMarkupElement dfMarkupElement = tokens.Dequeue();
+		if (dfMarkupElement is global::dfMarkupString)
 		{
-			return ((dfMarkupString)dfMarkupElement).SplitWords();
+			return ((global::dfMarkupString)dfMarkupElement).SplitWords();
 		}
-		dfMarkupTag dfMarkupTag = (dfMarkupTag)dfMarkupElement;
+		global::dfMarkupTag dfMarkupTag = (global::dfMarkupTag)dfMarkupElement;
 		if (dfMarkupTag.IsClosedTag || dfMarkupTag.IsEndTag)
 		{
 			return this.refineTag(dfMarkupTag);
 		}
 		while (tokens.Count > 0)
 		{
-			dfMarkupElement dfMarkupElement2 = this.parseElement(tokens);
-			if (dfMarkupElement2 is dfMarkupTag)
+			global::dfMarkupElement dfMarkupElement2 = this.parseElement(tokens);
+			if (dfMarkupElement2 is global::dfMarkupTag)
 			{
-				dfMarkupTag dfMarkupTag2 = (dfMarkupTag)dfMarkupElement2;
+				global::dfMarkupTag dfMarkupTag2 = (global::dfMarkupTag)dfMarkupElement2;
 				if (dfMarkupTag2.IsEndTag)
 				{
 					if (dfMarkupTag2.TagName == dfMarkupTag.TagName)
@@ -109,36 +109,36 @@ public class dfMarkupParser
 		return this.refineTag(dfMarkupTag);
 	}
 
-	// Token: 0x060042B9 RID: 17081 RVA: 0x00102DFC File Offset: 0x00100FFC
-	private dfMarkupTag refineTag(dfMarkupTag original)
+	// Token: 0x060046FD RID: 18173 RVA: 0x0010C10C File Offset: 0x0010A30C
+	private global::dfMarkupTag refineTag(global::dfMarkupTag original)
 	{
 		if (original.IsEndTag)
 		{
 			return original;
 		}
-		if (dfMarkupParser.tagTypes == null)
+		if (global::dfMarkupParser.tagTypes == null)
 		{
-			dfMarkupParser.tagTypes = new Dictionary<string, Type>();
+			global::dfMarkupParser.tagTypes = new Dictionary<string, Type>();
 			foreach (Type type in Assembly.GetExecutingAssembly().GetExportedTypes())
 			{
-				if (typeof(dfMarkupTag).IsAssignableFrom(type))
+				if (typeof(global::dfMarkupTag).IsAssignableFrom(type))
 				{
-					object[] customAttributes = type.GetCustomAttributes(typeof(dfMarkupTagInfoAttribute), true);
+					object[] customAttributes = type.GetCustomAttributes(typeof(global::dfMarkupTagInfoAttribute), true);
 					if (customAttributes != null && customAttributes.Length != 0)
 					{
 						for (int j = 0; j < customAttributes.Length; j++)
 						{
-							string tagName = ((dfMarkupTagInfoAttribute)customAttributes[j]).TagName;
-							dfMarkupParser.tagTypes[tagName] = type;
+							string tagName = ((global::dfMarkupTagInfoAttribute)customAttributes[j]).TagName;
+							global::dfMarkupParser.tagTypes[tagName] = type;
 						}
 					}
 				}
 			}
 		}
-		if (dfMarkupParser.tagTypes.ContainsKey(original.TagName))
+		if (global::dfMarkupParser.tagTypes.ContainsKey(original.TagName))
 		{
-			Type type2 = dfMarkupParser.tagTypes[original.TagName];
-			return (dfMarkupTag)Activator.CreateInstance(type2, new object[]
+			Type type2 = global::dfMarkupParser.tagTypes[original.TagName];
+			return (global::dfMarkupTag)Activator.CreateInstance(type2, new object[]
 			{
 				original
 			});
@@ -146,25 +146,25 @@ public class dfMarkupParser
 		return original;
 	}
 
-	// Token: 0x060042BA RID: 17082 RVA: 0x00102F00 File Offset: 0x00101100
-	private dfMarkupElement parseTag(Match tag)
+	// Token: 0x060046FE RID: 18174 RVA: 0x0010C210 File Offset: 0x0010A410
+	private global::dfMarkupElement parseTag(Match tag)
 	{
 		string text = tag.Groups["tag"].Value.ToLowerInvariant();
 		if (tag.Value.StartsWith("</"))
 		{
-			return new dfMarkupTag(text)
+			return new global::dfMarkupTag(text)
 			{
 				IsEndTag = true
 			};
 		}
-		dfMarkupTag dfMarkupTag = new dfMarkupTag(text);
+		global::dfMarkupTag dfMarkupTag = new global::dfMarkupTag(text);
 		string value = tag.Groups["attr"].Value;
-		MatchCollection matchCollection = dfMarkupParser.ATTR_PATTERN.Matches(value);
+		MatchCollection matchCollection = global::dfMarkupParser.ATTR_PATTERN.Matches(value);
 		for (int i = 0; i < matchCollection.Count; i++)
 		{
 			Match match = matchCollection[i];
 			string value2 = match.Groups["key"].Value;
-			string text2 = dfMarkupEntity.Replace(match.Groups["value"].Value);
+			string text2 = global::dfMarkupEntity.Replace(match.Groups["value"].Value);
 			if (text2.StartsWith("\""))
 			{
 				text2 = text2.Trim(new char[]
@@ -187,7 +187,7 @@ public class dfMarkupParser
 				}
 				else
 				{
-					dfMarkupTag.Attributes.Add(new dfMarkupAttribute(value2, text2));
+					dfMarkupTag.Attributes.Add(new global::dfMarkupAttribute(value2, text2));
 				}
 			}
 		}
@@ -198,34 +198,34 @@ public class dfMarkupParser
 		return dfMarkupTag;
 	}
 
-	// Token: 0x060042BB RID: 17083 RVA: 0x001030A4 File Offset: 0x001012A4
-	private void parseStyleAttribute(dfMarkupTag element, string text)
+	// Token: 0x060046FF RID: 18175 RVA: 0x0010C3B4 File Offset: 0x0010A5B4
+	private void parseStyleAttribute(global::dfMarkupTag element, string text)
 	{
-		MatchCollection matchCollection = dfMarkupParser.STYLE_PATTERN.Matches(text);
+		MatchCollection matchCollection = global::dfMarkupParser.STYLE_PATTERN.Matches(text);
 		for (int i = 0; i < matchCollection.Count; i++)
 		{
 			Match match = matchCollection[i];
 			string name = match.Groups["key"].Value.ToLowerInvariant();
 			string value = match.Groups["value"].Value;
-			element.Attributes.Add(new dfMarkupAttribute(name, value));
+			element.Attributes.Add(new global::dfMarkupAttribute(name, value));
 		}
 	}
 
-	// Token: 0x04002320 RID: 8992
+	// Token: 0x04002543 RID: 9539
 	private static Regex TAG_PATTERN = null;
 
-	// Token: 0x04002321 RID: 8993
+	// Token: 0x04002544 RID: 9540
 	private static Regex ATTR_PATTERN = null;
 
-	// Token: 0x04002322 RID: 8994
+	// Token: 0x04002545 RID: 9541
 	private static Regex STYLE_PATTERN = null;
 
-	// Token: 0x04002323 RID: 8995
+	// Token: 0x04002546 RID: 9542
 	private static Dictionary<string, Type> tagTypes = null;
 
-	// Token: 0x04002324 RID: 8996
-	private static dfMarkupParser parserInstance = new dfMarkupParser();
+	// Token: 0x04002547 RID: 9543
+	private static global::dfMarkupParser parserInstance = new global::dfMarkupParser();
 
-	// Token: 0x04002325 RID: 8997
-	private dfRichTextLabel owner;
+	// Token: 0x04002548 RID: 9544
+	private global::dfRichTextLabel owner;
 }

@@ -3,16 +3,16 @@ using UnityEngine;
 
 namespace NGUI.MessageUtil
 {
-	// Token: 0x020007DE RID: 2014
+	// Token: 0x020008CF RID: 2255
 	public static class Boxed
 	{
-		// Token: 0x0600482B RID: 18475 RVA: 0x00123FF8 File Offset: 0x001221F8
+		// Token: 0x06004CD6 RID: 19670 RVA: 0x0012DF5C File Offset: 0x0012C15C
 		public static object Box(bool b)
 		{
 			return (!b) ? Boxed.@false : Boxed.@true;
 		}
 
-		// Token: 0x0600482C RID: 18476 RVA: 0x00124010 File Offset: 0x00122210
+		// Token: 0x06004CD7 RID: 19671 RVA: 0x0012DF74 File Offset: 0x0012C174
 		public static object Box(int i)
 		{
 			switch (i)
@@ -28,13 +28,13 @@ namespace NGUI.MessageUtil
 			}
 		}
 
-		// Token: 0x0600482D RID: 18477 RVA: 0x00124050 File Offset: 0x00122250
+		// Token: 0x06004CD8 RID: 19672 RVA: 0x0012DFB4 File Offset: 0x0012C1B4
 		public static object Box<T>(T o)
 		{
 			return o;
 		}
 
-		// Token: 0x0600482E RID: 18478 RVA: 0x00124058 File Offset: 0x00122258
+		// Token: 0x06004CD9 RID: 19673 RVA: 0x0012DFBC File Offset: 0x0012C1BC
 		public static object Box(KeyCode k)
 		{
 			switch (k)
@@ -64,40 +64,40 @@ namespace NGUI.MessageUtil
 			}
 		}
 
-		// Token: 0x0400287A RID: 10362
+		// Token: 0x04002AC8 RID: 10952
 		public static readonly object @true = true;
 
-		// Token: 0x0400287B RID: 10363
+		// Token: 0x04002AC9 RID: 10953
 		public static readonly object @false = false;
 
-		// Token: 0x0400287C RID: 10364
+		// Token: 0x04002ACA RID: 10954
 		public static readonly object int_0 = 0;
 
-		// Token: 0x0400287D RID: 10365
+		// Token: 0x04002ACB RID: 10955
 		public static readonly object int_1 = 1;
 
-		// Token: 0x0400287E RID: 10366
+		// Token: 0x04002ACC RID: 10956
 		public static readonly object int_2 = 2;
 
-		// Token: 0x0400287F RID: 10367
+		// Token: 0x04002ACD RID: 10957
 		public static readonly object key_escape = 27;
 
-		// Token: 0x04002880 RID: 10368
+		// Token: 0x04002ACE RID: 10958
 		public static readonly object key_left = 276;
 
-		// Token: 0x04002881 RID: 10369
+		// Token: 0x04002ACF RID: 10959
 		public static readonly object key_right = 275;
 
-		// Token: 0x04002882 RID: 10370
+		// Token: 0x04002AD0 RID: 10960
 		public static readonly object key_up = 273;
 
-		// Token: 0x04002883 RID: 10371
+		// Token: 0x04002AD1 RID: 10961
 		public static readonly object key_down = 274;
 
-		// Token: 0x04002884 RID: 10372
+		// Token: 0x04002AD2 RID: 10962
 		public static readonly object key_tab = 9;
 
-		// Token: 0x04002885 RID: 10373
+		// Token: 0x04002AD3 RID: 10963
 		public static readonly object key_none = 0;
 	}
 }

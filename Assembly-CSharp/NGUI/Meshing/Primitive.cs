@@ -3,17 +3,17 @@ using UnityEngine;
 
 namespace NGUI.Meshing
 {
-	// Token: 0x020007A2 RID: 1954
+	// Token: 0x0200088D RID: 2189
 	public struct Primitive
 	{
-		// Token: 0x0600469B RID: 18075 RVA: 0x00119200 File Offset: 0x00117400
+		// Token: 0x06004B20 RID: 19232 RVA: 0x00122B80 File Offset: 0x00120D80
 		public Primitive(PrimitiveKind kind, ushort start)
 		{
 			this.kind = kind;
 			this.start = start;
 		}
 
-		// Token: 0x0600469C RID: 18076 RVA: 0x00119210 File Offset: 0x00117410
+		// Token: 0x06004B21 RID: 19233 RVA: 0x00122B90 File Offset: 0x00120D90
 		public static int VertexCount(PrimitiveKind kind)
 		{
 			switch (kind)
@@ -41,7 +41,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x0600469D RID: 18077 RVA: 0x0011926C File Offset: 0x0011746C
+		// Token: 0x06004B22 RID: 19234 RVA: 0x00122BEC File Offset: 0x00120DEC
 		public static int IndexCount(PrimitiveKind kind)
 		{
 			switch (kind)
@@ -70,13 +70,13 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x0600469E RID: 18078 RVA: 0x001192D0 File Offset: 0x001174D0
+		// Token: 0x06004B23 RID: 19235 RVA: 0x00122C50 File Offset: 0x00120E50
 		public static bool JoinsInList(PrimitiveKind kind)
 		{
 			return true;
 		}
 
-		// Token: 0x0600469F RID: 18079 RVA: 0x001192D4 File Offset: 0x001174D4
+		// Token: 0x06004B24 RID: 19236 RVA: 0x00122C54 File Offset: 0x00120E54
 		public void Copy(ref int start, Vertex[] v, int end, MeshBuffer p)
 		{
 			int num = (end - start) / Primitive.VertexCount(this.kind);
@@ -91,7 +91,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046A0 RID: 18080 RVA: 0x00119348 File Offset: 0x00117548
+		// Token: 0x06004B25 RID: 19237 RVA: 0x00122CC8 File Offset: 0x00120EC8
 		public void Copy(ref int start, Vertex[] v, Vector3[] transformed, int end, MeshBuffer p)
 		{
 			int num = (end - start) / Primitive.VertexCount(this.kind);
@@ -116,7 +116,7 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x060046A1 RID: 18081 RVA: 0x001194B4 File Offset: 0x001176B4
+		// Token: 0x06004B26 RID: 19238 RVA: 0x00122E34 File Offset: 0x00121034
 		public void Put(int[] t, ref int v, ref int i, int end)
 		{
 			int num = (end - (int)this.start) / Primitive.VertexCount(this.kind);
@@ -313,10 +313,10 @@ namespace NGUI.Meshing
 			}
 		}
 
-		// Token: 0x040026D1 RID: 9937
+		// Token: 0x04002908 RID: 10504
 		public readonly PrimitiveKind kind;
 
-		// Token: 0x040026D2 RID: 9938
+		// Token: 0x04002909 RID: 10505
 		public readonly ushort start;
 	}
 }

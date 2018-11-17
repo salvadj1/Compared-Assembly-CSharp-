@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000194 RID: 404
+// Token: 0x020001C2 RID: 450
 public interface EditorActorRigged
 {
 }

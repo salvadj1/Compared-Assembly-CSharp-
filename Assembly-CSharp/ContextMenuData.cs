@@ -2,24 +2,24 @@
 using System.Collections.Generic;
 using uLink;
 
-// Token: 0x02000479 RID: 1145
+// Token: 0x0200052F RID: 1327
 internal class ContextMenuData
 {
-	// Token: 0x060028E8 RID: 10472 RVA: 0x000A0544 File Offset: 0x0009E744
+	// Token: 0x06002C78 RID: 11384 RVA: 0x000A64C4 File Offset: 0x000A46C4
 	public ContextMenuData(int optionCount, ContextMenuItemData[] data)
 	{
 		this.options_length = optionCount;
 		this.options = data;
 	}
 
-	// Token: 0x060028E9 RID: 10473 RVA: 0x000A055C File Offset: 0x0009E75C
-	public ContextMenuData(IEnumerable<ContextActionPrototype> prototypeEnumerable)
+	// Token: 0x06002C79 RID: 11385 RVA: 0x000A64DC File Offset: 0x000A46DC
+	public ContextMenuData(IEnumerable<global::ContextActionPrototype> prototypeEnumerable)
 	{
-		if (prototypeEnumerable is ICollection<ContextActionPrototype>)
+		if (prototypeEnumerable is ICollection<global::ContextActionPrototype>)
 		{
-			this.options = new ContextMenuItemData[((ICollection<ContextActionPrototype>)prototypeEnumerable).Count];
+			this.options = new ContextMenuItemData[((ICollection<global::ContextActionPrototype>)prototypeEnumerable).Count];
 			int num = 0;
-			foreach (ContextActionPrototype prototype in prototypeEnumerable)
+			foreach (global::ContextActionPrototype prototype in prototypeEnumerable)
 			{
 				this.options[num++] = new ContextMenuItemData(prototype);
 			}
@@ -35,14 +35,14 @@ internal class ContextMenuData
 		}
 	}
 
-	// Token: 0x060028EA RID: 10474 RVA: 0x000A0640 File Offset: 0x0009E840
+	// Token: 0x06002C7A RID: 11386 RVA: 0x000A65C0 File Offset: 0x000A47C0
 	static ContextMenuData()
 	{
 		BitStreamCodec.Add<ContextMenuData>(ContextMenuData.deserializer, ContextMenuData.serializer);
 	}
 
-	// Token: 0x060028EB RID: 10475 RVA: 0x000A0674 File Offset: 0x0009E874
-	private static ContextMenuItemData[] ToArray(IEnumerable<ContextActionPrototype> enumerable, out int length)
+	// Token: 0x06002C7B RID: 11387 RVA: 0x000A65F4 File Offset: 0x000A47F4
+	private static ContextMenuItemData[] ToArray(IEnumerable<global::ContextActionPrototype> enumerable, out int length)
 	{
 		ContextMenuItemData[] array;
 		using (enumerable.GetEnumerator())
@@ -58,7 +58,7 @@ internal class ContextMenuData
 		return array;
 	}
 
-	// Token: 0x060028EC RID: 10476 RVA: 0x000A06F0 File Offset: 0x0009E8F0
+	// Token: 0x06002C7C RID: 11388 RVA: 0x000A6670 File Offset: 0x000A4870
 	private static void Serialize(BitStream stream, object value, params object[] codecOptions)
 	{
 		ContextMenuData contextMenuData = (ContextMenuData)value;
@@ -70,7 +70,7 @@ internal class ContextMenuData
 		}
 	}
 
-	// Token: 0x060028ED RID: 10477 RVA: 0x000A076C File Offset: 0x0009E96C
+	// Token: 0x06002C7D RID: 11389 RVA: 0x000A66EC File Offset: 0x000A48EC
 	private static object Deserialize(BitStream stream, params object[] codecOptions)
 	{
 		int num = stream.Read<int>(codecOptions);
@@ -86,30 +86,30 @@ internal class ContextMenuData
 		return new ContextMenuData(num, array);
 	}
 
-	// Token: 0x040014FD RID: 5373
+	// Token: 0x04001680 RID: 5760
 	[NonSerialized]
 	public readonly int options_length;
 
-	// Token: 0x040014FE RID: 5374
+	// Token: 0x04001681 RID: 5761
 	[NonSerialized]
 	public readonly ContextMenuItemData[] options;
 
-	// Token: 0x040014FF RID: 5375
+	// Token: 0x04001682 RID: 5762
 	private static readonly BitStreamCodec.Serializer serializer = new BitStreamCodec.Serializer(ContextMenuData.Serialize);
 
-	// Token: 0x04001500 RID: 5376
+	// Token: 0x04001683 RID: 5763
 	private static readonly BitStreamCodec.Deserializer deserializer = new BitStreamCodec.Deserializer(ContextMenuData.Deserialize);
 
-	// Token: 0x0200047A RID: 1146
+	// Token: 0x02000530 RID: 1328
 	private struct EnumerableConverter
 	{
-		// Token: 0x060028EE RID: 10478 RVA: 0x000A07D8 File Offset: 0x0009E9D8
+		// Token: 0x06002C7E RID: 11390 RVA: 0x000A6758 File Offset: 0x000A4958
 		public void R()
 		{
 			if (this.enumerator.MoveNext())
 			{
 				this.length++;
-				ContextActionPrototype prototype = this.enumerator.Current;
+				global::ContextActionPrototype prototype = this.enumerator.Current;
 				this.R();
 				this.array[--this.spot] = new ContextMenuItemData(prototype);
 			}
@@ -124,16 +124,16 @@ internal class ContextMenuData
 			}
 		}
 
-		// Token: 0x04001501 RID: 5377
-		public IEnumerator<ContextActionPrototype> enumerator;
+		// Token: 0x04001684 RID: 5764
+		public IEnumerator<global::ContextActionPrototype> enumerator;
 
-		// Token: 0x04001502 RID: 5378
+		// Token: 0x04001685 RID: 5765
 		public int length;
 
-		// Token: 0x04001503 RID: 5379
+		// Token: 0x04001686 RID: 5766
 		public int spot;
 
-		// Token: 0x04001504 RID: 5380
+		// Token: 0x04001687 RID: 5767
 		public ContextMenuItemData[] array;
 	}
 }

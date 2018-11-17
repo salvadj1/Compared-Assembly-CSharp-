@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x020000F5 RID: 245
-internal sealed class BlankController : Controller
+// Token: 0x0200010E RID: 270
+internal sealed class BlankController : global::Controller
 {
-	// Token: 0x0600059F RID: 1439 RVA: 0x0001BCB8 File Offset: 0x00019EB8
-	public BlankController() : base((Controller.ControllerFlags)0, (IDLocalCharacterAddon.AddonFlags)0)
+	// Token: 0x06000641 RID: 1601 RVA: 0x0001DDFC File Offset: 0x0001BFFC
+	public BlankController() : base((global::Controller.ControllerFlags)0, (global::IDLocalCharacterAddon.AddonFlags)0)
 	{
 	}
 }

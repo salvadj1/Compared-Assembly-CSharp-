@@ -4,44 +4,44 @@ using RustProto;
 using RustProto.Helpers;
 using UnityEngine;
 
-// Token: 0x0200064C RID: 1612
-[NGCAutoAddScript]
-public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IServerSaveNotify, ICarriableTrans
+// Token: 0x0200070F RID: 1807
+[global::NGCAutoAddScript]
+public class DeployableObject : IDMain, global::IDeployedObjectMain, global::IServerSaveable, global::IServerSaveNotify, global::ICarriableTrans
 {
-	// Token: 0x06003820 RID: 14368 RVA: 0x000CE178 File Offset: 0x000CC378
+	// Token: 0x06003C0C RID: 15372 RVA: 0x000D6A28 File Offset: 0x000D4C28
 	public DeployableObject() : this(0)
 	{
 	}
 
-	// Token: 0x06003821 RID: 14369 RVA: 0x000CE184 File Offset: 0x000CC384
+	// Token: 0x06003C0D RID: 15373 RVA: 0x000D6A34 File Offset: 0x000D4C34
 	protected DeployableObject(IDFlags flags) : base(flags)
 	{
 	}
 
-	// Token: 0x06003822 RID: 14370 RVA: 0x000CE1BC File Offset: 0x000CC3BC
-	void IServerSaveNotify.PostLoad()
+	// Token: 0x06003C0E RID: 15374 RVA: 0x000D6A6C File Offset: 0x000D4C6C
+	void global::IServerSaveNotify.PostLoad()
 	{
 	}
 
-	// Token: 0x17000B0B RID: 2827
-	// (get) Token: 0x06003823 RID: 14371 RVA: 0x000CE1C0 File Offset: 0x000CC3C0
-	DeployedObjectInfo IDeployedObjectMain.DeployedObjectInfo
+	// Token: 0x17000B8B RID: 2955
+	// (get) Token: 0x06003C0F RID: 15375 RVA: 0x000D6A70 File Offset: 0x000D4C70
+	global::DeployedObjectInfo global::IDeployedObjectMain.DeployedObjectInfo
 	{
 		get
 		{
-			DeployedObjectInfo result;
+			global::DeployedObjectInfo result;
 			result.userID = this.ownerID;
 			result.valid = (this.ownerID != 0UL);
 			return result;
 		}
 	}
 
-	// Token: 0x06003824 RID: 14372 RVA: 0x000CE1F0 File Offset: 0x000CC3F0
+	// Token: 0x06003C10 RID: 15376 RVA: 0x000D6AA0 File Offset: 0x000D4CA0
 	public void Awake()
 	{
 	}
 
-	// Token: 0x06003825 RID: 14373 RVA: 0x000CE1F4 File Offset: 0x000CC3F4
+	// Token: 0x06003C11 RID: 15377 RVA: 0x000D6AA4 File Offset: 0x000D4CA4
 	protected void OnPoolAlive()
 	{
 		this.ownerID = 0UL;
@@ -49,13 +49,13 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		this.creatorID = 0UL;
 	}
 
-	// Token: 0x06003826 RID: 14374 RVA: 0x000CE214 File Offset: 0x000CC414
+	// Token: 0x06003C12 RID: 15378 RVA: 0x000D6AC4 File Offset: 0x000D4CC4
 	protected void OnPoolRetire()
 	{
 		this.healthDimmer.Reset();
 	}
 
-	// Token: 0x06003827 RID: 14375 RVA: 0x000CE224 File Offset: 0x000CC424
+	// Token: 0x06003C13 RID: 15379 RVA: 0x000D6AD4 File Offset: 0x000D4CD4
 	public void OnDestroy()
 	{
 		if (this._carrier)
@@ -66,22 +66,22 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		base.OnDestroy();
 	}
 
-	// Token: 0x06003828 RID: 14376 RVA: 0x000CE250 File Offset: 0x000CC450
-	public void OnAddedToCarrier(TransCarrier carrier)
+	// Token: 0x06003C14 RID: 15380 RVA: 0x000D6B00 File Offset: 0x000D4D00
+	public void OnAddedToCarrier(global::TransCarrier carrier)
 	{
 		this._carrier = carrier;
 	}
 
-	// Token: 0x06003829 RID: 14377 RVA: 0x000CE25C File Offset: 0x000CC45C
-	public void OnDroppedFromCarrier(TransCarrier carrier)
+	// Token: 0x06003C15 RID: 15381 RVA: 0x000D6B0C File Offset: 0x000D4D0C
+	public void OnDroppedFromCarrier(global::TransCarrier carrier)
 	{
 		this._carrier = null;
 	}
 
-	// Token: 0x0600382A RID: 14378 RVA: 0x000CE268 File Offset: 0x000CC468
+	// Token: 0x06003C16 RID: 15382 RVA: 0x000D6B18 File Offset: 0x000D4D18
 	public void Touched()
 	{
-		TransCarrier carrier = this.GetCarrier();
+		global::TransCarrier carrier = this.GetCarrier();
 		if (!carrier)
 		{
 			return;
@@ -91,33 +91,33 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		{
 			return;
 		}
-		if (idMain is StructureComponent)
+		if (idMain is global::StructureComponent)
 		{
-			((StructureComponent)idMain).Touched();
+			((global::StructureComponent)idMain).Touched();
 		}
 	}
 
-	// Token: 0x0600382B RID: 14379 RVA: 0x000CE2B4 File Offset: 0x000CC4B4
-	public TransCarrier GetCarrier()
+	// Token: 0x06003C17 RID: 15383 RVA: 0x000D6B64 File Offset: 0x000D4D64
+	public global::TransCarrier GetCarrier()
 	{
 		return this._carrier;
 	}
 
-	// Token: 0x0600382C RID: 14380 RVA: 0x000CE2BC File Offset: 0x000CC4BC
-	public void WriteObjectSave(ref SavedObject.Builder saveobj)
+	// Token: 0x06003C18 RID: 15384 RVA: 0x000D6B6C File Offset: 0x000D4D6C
+	public void WriteObjectSave(ref RustProto.SavedObject.Builder saveobj)
 	{
-		using (Recycler<objectDeployable, objectDeployable.Builder> recycler = objectDeployable.Recycler())
+		using (RustProto.Helpers.Recycler<RustProto.objectDeployable, RustProto.objectDeployable.Builder> recycler = RustProto.objectDeployable.Recycler())
 		{
-			objectDeployable.Builder builder = recycler.OpenBuilder();
+			RustProto.objectDeployable.Builder builder = recycler.OpenBuilder();
 			builder.SetCreatorID(this.creatorID);
 			builder.SetOwnerID(this.ownerID);
 			saveobj.SetDeployable(builder);
 		}
-		using (Recycler<objectICarriableTrans, objectICarriableTrans.Builder> recycler2 = objectICarriableTrans.Recycler())
+		using (RustProto.Helpers.Recycler<RustProto.objectICarriableTrans, RustProto.objectICarriableTrans.Builder> recycler2 = RustProto.objectICarriableTrans.Recycler())
 		{
-			objectICarriableTrans.Builder builder2 = recycler2.OpenBuilder();
-			NetEntityID netEntityID;
-			if (this._carrier && (int)NetEntityID.Of(this._carrier, out netEntityID) != 0)
+			RustProto.objectICarriableTrans.Builder builder2 = recycler2.OpenBuilder();
+			global::NetEntityID netEntityID;
+			if (this._carrier && (int)global::NetEntityID.Of(this._carrier, out netEntityID) != 0)
 			{
 				builder2.SetTransCarrierID(netEntityID.id);
 			}
@@ -129,8 +129,8 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		}
 	}
 
-	// Token: 0x0600382D RID: 14381 RVA: 0x000CE3A4 File Offset: 0x000CC5A4
-	public void ReadObjectSave(ref SavedObject saveobj)
+	// Token: 0x06003C19 RID: 15385 RVA: 0x000D6C54 File Offset: 0x000D4E54
+	public void ReadObjectSave(ref RustProto.SavedObject saveobj)
 	{
 		if (saveobj.HasDeployable)
 		{
@@ -139,7 +139,7 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		}
 	}
 
-	// Token: 0x0600382E RID: 14382 RVA: 0x000CE3E4 File Offset: 0x000CC5E4
+	// Token: 0x06003C1A RID: 15386 RVA: 0x000D6C94 File Offset: 0x000D4E94
 	public void GrabCarrier()
 	{
 		Ray ray;
@@ -147,12 +147,12 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		RaycastHit raycastHit;
 		bool flag;
 		MeshBatchInstance meshBatchInstance;
-		if (MeshBatchPhysics.Raycast(ray, ref raycastHit, 5f, ref flag, ref meshBatchInstance))
+		if (Facepunch.MeshBatch.MeshBatchPhysics.Raycast(ray, ref raycastHit, 5f, ref flag, ref meshBatchInstance))
 		{
 			IDMain idmain = (!flag) ? IDBase.GetMain(raycastHit.collider) : meshBatchInstance.idMain;
 			if (idmain)
 			{
-				TransCarrier local = idmain.GetLocal<TransCarrier>();
+				global::TransCarrier local = idmain.GetLocal<global::TransCarrier>();
 				if (local)
 				{
 					local.AddObject(this);
@@ -161,12 +161,12 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		}
 	}
 
-	// Token: 0x0600382F RID: 14383 RVA: 0x000CE47C File Offset: 0x000CC67C
+	// Token: 0x06003C1B RID: 15387 RVA: 0x000D6D2C File Offset: 0x000D4F2C
 	public void CacheCreator()
 	{
 	}
 
-	// Token: 0x06003830 RID: 14384 RVA: 0x000CE480 File Offset: 0x000CC680
+	// Token: 0x06003C1C RID: 15388 RVA: 0x000D6D30 File Offset: 0x000D4F30
 	[RPC]
 	public void GetOwnerInfo(ulong creator, ulong owner)
 	{
@@ -174,7 +174,7 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		this.ownerID = owner;
 	}
 
-	// Token: 0x06003831 RID: 14385 RVA: 0x000CE490 File Offset: 0x000CC690
+	// Token: 0x06003C1D RID: 15389 RVA: 0x000D6D40 File Offset: 0x000D4F40
 	[RPC]
 	public void Client_OnKilled()
 	{
@@ -185,26 +185,26 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		}
 	}
 
-	// Token: 0x06003832 RID: 14386 RVA: 0x000CE4E0 File Offset: 0x000CC6E0
+	// Token: 0x06003C1E RID: 15390 RVA: 0x000D6D90 File Offset: 0x000D4F90
 	[RPC]
 	public void ClientHealthUpdate(float newHealth)
 	{
 		this.healthDimmer.UpdateHealthAmount(this, newHealth, false);
 	}
 
-	// Token: 0x06003833 RID: 14387 RVA: 0x000CE4F0 File Offset: 0x000CC6F0
-	public bool BelongsTo(Controllable controllable)
+	// Token: 0x06003C1F RID: 15391 RVA: 0x000D6DA0 File Offset: 0x000D4FA0
+	public bool BelongsTo(global::Controllable controllable)
 	{
 		if (!controllable)
 		{
 			return false;
 		}
-		PlayerClient playerClient = controllable.playerClient;
+		global::PlayerClient playerClient = controllable.playerClient;
 		return playerClient && playerClient.userID == this.ownerID;
 	}
 
-	// Token: 0x06003834 RID: 14388 RVA: 0x000CE52C File Offset: 0x000CC72C
-	public static bool IsValidLocation(Vector3 location, Vector3 surfaceNormal, Quaternion rotation, DeployableObject prefab)
+	// Token: 0x06003C20 RID: 15392 RVA: 0x000D6DDC File Offset: 0x000D4FDC
+	public static bool IsValidLocation(Vector3 location, Vector3 surfaceNormal, UnityEngine.Quaternion rotation, global::DeployableObject prefab)
 	{
 		if (prefab.doEdgeCheck)
 		{
@@ -214,46 +214,46 @@ public class DeployableObject : IDMain, IDeployedObjectMain, IServerSaveable, IS
 		return num <= prefab.maxSlope;
 	}
 
-	// Token: 0x04001C3D RID: 7229
+	// Token: 0x04001E32 RID: 7730
 	public bool decayProtector;
 
-	// Token: 0x04001C3E RID: 7230
+	// Token: 0x04001E33 RID: 7731
 	public bool cantPlaceOn;
 
-	// Token: 0x04001C3F RID: 7231
+	// Token: 0x04001E34 RID: 7732
 	public bool doEdgeCheck;
 
-	// Token: 0x04001C40 RID: 7232
+	// Token: 0x04001E35 RID: 7733
 	public float maxEdgeDifferential = 1f;
 
-	// Token: 0x04001C41 RID: 7233
+	// Token: 0x04001E36 RID: 7734
 	public float maxSlope = 30f;
 
-	// Token: 0x04001C42 RID: 7234
+	// Token: 0x04001E37 RID: 7735
 	public ulong creatorID;
 
-	// Token: 0x04001C43 RID: 7235
+	// Token: 0x04001E38 RID: 7736
 	public ulong ownerID;
 
-	// Token: 0x04001C44 RID: 7236
+	// Token: 0x04001E39 RID: 7737
 	public string ownerName = string.Empty;
 
-	// Token: 0x04001C45 RID: 7237
+	// Token: 0x04001E3A RID: 7738
 	public bool handleDeathHere;
 
-	// Token: 0x04001C46 RID: 7238
+	// Token: 0x04001E3B RID: 7739
 	public GameObject corpseObject;
 
-	// Token: 0x04001C47 RID: 7239
-	public TransCarrier _carrier;
+	// Token: 0x04001E3C RID: 7740
+	public global::TransCarrier _carrier;
 
-	// Token: 0x04001C48 RID: 7240
+	// Token: 0x04001E3D RID: 7741
 	public GameObject clientDeathEffect;
 
-	// Token: 0x04001C49 RID: 7241
-	private EnvDecay _EnvDecay;
+	// Token: 0x04001E3E RID: 7742
+	private global::EnvDecay _EnvDecay;
 
-	// Token: 0x04001C4A RID: 7242
+	// Token: 0x04001E3F RID: 7743
 	[NonSerialized]
-	private HealthDimmer healthDimmer;
+	private global::HealthDimmer healthDimmer;
 }

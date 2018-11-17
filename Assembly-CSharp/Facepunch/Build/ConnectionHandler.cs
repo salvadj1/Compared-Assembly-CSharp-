@@ -2,15 +2,15 @@
 
 namespace Facepunch.Build
 {
-	// Token: 0x020000EA RID: 234
+	// Token: 0x020000FE RID: 254
 	public interface ConnectionHandler : IDisposable
 	{
-		// Token: 0x170000E4 RID: 228
-		// (get) Token: 0x06000565 RID: 1381
+		// Token: 0x170000FE RID: 254
+		// (get) Token: 0x060005E3 RID: 1507
 		string address { get; }
 
-		// Token: 0x170000E5 RID: 229
-		// (get) Token: 0x06000566 RID: 1382
+		// Token: 0x170000FF RID: 255
+		// (get) Token: 0x060005E4 RID: 1508
 		int? port { get; }
 	}
 }

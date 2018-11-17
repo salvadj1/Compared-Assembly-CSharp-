@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000100 RID: 256
-public class CharacterCCMotorTrait : CharacterTrait
+// Token: 0x0200011F RID: 287
+public class CharacterCCMotorTrait : global::CharacterTrait
 {
-	// Token: 0x1700014B RID: 331
-	// (get) Token: 0x0600068D RID: 1677 RVA: 0x0001E600 File Offset: 0x0001C800
-	public CCTotemPole prefab
+	// Token: 0x17000179 RID: 377
+	// (get) Token: 0x0600075F RID: 1887 RVA: 0x000211D4 File Offset: 0x0001F3D4
+	public global::CCTotemPole prefab
 	{
 		get
 		{
@@ -14,9 +14,9 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700014C RID: 332
-	// (get) Token: 0x0600068E RID: 1678 RVA: 0x0001E608 File Offset: 0x0001C808
-	public CCMotorSettings settings
+	// Token: 0x1700017A RID: 378
+	// (get) Token: 0x06000760 RID: 1888 RVA: 0x000211DC File Offset: 0x0001F3DC
+	public global::CCMotorSettings settings
 	{
 		get
 		{
@@ -24,8 +24,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700014D RID: 333
-	// (get) Token: 0x0600068F RID: 1679 RVA: 0x0001E610 File Offset: 0x0001C810
+	// Token: 0x1700017B RID: 379
+	// (get) Token: 0x06000761 RID: 1889 RVA: 0x000211E4 File Offset: 0x0001F3E4
 	public bool canControl
 	{
 		get
@@ -34,8 +34,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700014E RID: 334
-	// (get) Token: 0x06000690 RID: 1680 RVA: 0x0001E618 File Offset: 0x0001C818
+	// Token: 0x1700017C RID: 380
+	// (get) Token: 0x06000762 RID: 1890 RVA: 0x000211EC File Offset: 0x0001F3EC
 	public bool sendFallMessage
 	{
 		get
@@ -44,8 +44,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700014F RID: 335
-	// (get) Token: 0x06000691 RID: 1681 RVA: 0x0001E620 File Offset: 0x0001C820
+	// Token: 0x1700017D RID: 381
+	// (get) Token: 0x06000763 RID: 1891 RVA: 0x000211F4 File Offset: 0x0001F3F4
 	public bool sendLandMessage
 	{
 		get
@@ -54,8 +54,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000150 RID: 336
-	// (get) Token: 0x06000692 RID: 1682 RVA: 0x0001E628 File Offset: 0x0001C828
+	// Token: 0x1700017E RID: 382
+	// (get) Token: 0x06000764 RID: 1892 RVA: 0x000211FC File Offset: 0x0001F3FC
 	public bool sendJumpMessage
 	{
 		get
@@ -64,8 +64,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000151 RID: 337
-	// (get) Token: 0x06000693 RID: 1683 RVA: 0x0001E630 File Offset: 0x0001C830
+	// Token: 0x1700017F RID: 383
+	// (get) Token: 0x06000765 RID: 1893 RVA: 0x00021204 File Offset: 0x0001F404
 	public bool sendExternalVelocityMessage
 	{
 		get
@@ -74,8 +74,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000152 RID: 338
-	// (get) Token: 0x06000694 RID: 1684 RVA: 0x0001E638 File Offset: 0x0001C838
+	// Token: 0x17000180 RID: 384
+	// (get) Token: 0x06000766 RID: 1894 RVA: 0x0002120C File Offset: 0x0001F40C
 	public bool sendJumpFailureMessage
 	{
 		get
@@ -84,9 +84,9 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000153 RID: 339
-	// (get) Token: 0x06000695 RID: 1685 RVA: 0x0001E640 File Offset: 0x0001C840
-	public CCMotor.StepMode stepMode
+	// Token: 0x17000181 RID: 385
+	// (get) Token: 0x06000767 RID: 1895 RVA: 0x00021214 File Offset: 0x0001F414
+	public global::CCMotor.StepMode stepMode
 	{
 		get
 		{
@@ -94,8 +94,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000154 RID: 340
-	// (get) Token: 0x06000696 RID: 1686 RVA: 0x0001E648 File Offset: 0x0001C848
+	// Token: 0x17000182 RID: 386
+	// (get) Token: 0x06000768 RID: 1896 RVA: 0x0002121C File Offset: 0x0001F41C
 	public float minTimeBetweenJumps
 	{
 		get
@@ -104,8 +104,8 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x17000155 RID: 341
-	// (get) Token: 0x06000697 RID: 1687 RVA: 0x0001E650 File Offset: 0x0001C850
+	// Token: 0x17000183 RID: 387
+	// (get) Token: 0x06000769 RID: 1897 RVA: 0x00021224 File Offset: 0x0001F424
 	public bool enableColliderOnInit
 	{
 		get
@@ -114,47 +114,47 @@ public class CharacterCCMotorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x040004EA RID: 1258
+	// Token: 0x040005B5 RID: 1461
 	[SerializeField]
-	private CCMotorSettings _settings;
+	private global::CCMotorSettings _settings;
 
-	// Token: 0x040004EB RID: 1259
+	// Token: 0x040005B6 RID: 1462
 	[SerializeField]
-	private CCTotemPole _prefab;
+	private global::CCTotemPole _prefab;
 
-	// Token: 0x040004EC RID: 1260
+	// Token: 0x040005B7 RID: 1463
 	[SerializeField]
 	private bool _canControl = true;
 
-	// Token: 0x040004ED RID: 1261
+	// Token: 0x040005B8 RID: 1464
 	[SerializeField]
 	private bool _sendFallMessage;
 
-	// Token: 0x040004EE RID: 1262
+	// Token: 0x040005B9 RID: 1465
 	[SerializeField]
 	private bool _sendLandMessage;
 
-	// Token: 0x040004EF RID: 1263
+	// Token: 0x040005BA RID: 1466
 	[SerializeField]
 	private bool _sendJumpMessage;
 
-	// Token: 0x040004F0 RID: 1264
+	// Token: 0x040005BB RID: 1467
 	[SerializeField]
 	private bool _sendExternalVelocityMessage;
 
-	// Token: 0x040004F1 RID: 1265
+	// Token: 0x040005BC RID: 1468
 	[SerializeField]
 	private bool _sendJumpFailureMessage;
 
-	// Token: 0x040004F2 RID: 1266
+	// Token: 0x040005BD RID: 1469
 	[SerializeField]
 	private bool _enableColliderOnInit = true;
 
-	// Token: 0x040004F3 RID: 1267
+	// Token: 0x040005BE RID: 1470
 	[SerializeField]
 	private float _minTimeBetweenJumps = 1f;
 
-	// Token: 0x040004F4 RID: 1268
+	// Token: 0x040005BF RID: 1471
 	[SerializeField]
-	private CCMotor.StepMode _stepMode = CCMotor.StepMode.Elsewhere;
+	private global::CCMotor.StepMode _stepMode = global::CCMotor.StepMode.Elsewhere;
 }

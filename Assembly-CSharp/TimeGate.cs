@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x02000343 RID: 835
+// Token: 0x020003F0 RID: 1008
 public struct TimeGate
 {
-	// Token: 0x170007E4 RID: 2020
-	// (get) Token: 0x06001FC0 RID: 8128 RVA: 0x0007CED4 File Offset: 0x0007B0D4
+	// Token: 0x17000842 RID: 2114
+	// (get) Token: 0x06002322 RID: 8994 RVA: 0x000822D0 File Offset: 0x000804D0
 	public bool started
 	{
 		get
@@ -13,14 +13,14 @@ public struct TimeGate
 		}
 	}
 
-	// Token: 0x170007E5 RID: 2021
-	// (get) Token: 0x06001FC1 RID: 8129 RVA: 0x0007CEDC File Offset: 0x0007B0DC
-	// (set) Token: 0x06001FC2 RID: 8130 RVA: 0x0007CF0C File Offset: 0x0007B10C
+	// Token: 0x17000843 RID: 2115
+	// (get) Token: 0x06002323 RID: 8995 RVA: 0x000822D8 File Offset: 0x000804D8
+	// (set) Token: 0x06002324 RID: 8996 RVA: 0x00082308 File Offset: 0x00080508
 	public long elapsedMillis
 	{
 		get
 		{
-			return (!this.initialized) ? 2147483647L : (TimeGate.timeSource - this.startTime);
+			return (!this.initialized) ? 2147483647L : (global::TimeGate.timeSource - this.startTime);
 		}
 		set
 		{
@@ -30,20 +30,20 @@ public struct TimeGate
 			}
 			else
 			{
-				this.startTime = TimeGate.timeSource - value;
+				this.startTime = global::TimeGate.timeSource - value;
 				this.initialized = true;
 			}
 		}
 	}
 
-	// Token: 0x170007E6 RID: 2022
-	// (get) Token: 0x06001FC3 RID: 8131 RVA: 0x0007CF48 File Offset: 0x0007B148
-	// (set) Token: 0x06001FC4 RID: 8132 RVA: 0x0007CF88 File Offset: 0x0007B188
+	// Token: 0x17000844 RID: 2116
+	// (get) Token: 0x06002325 RID: 8997 RVA: 0x00082344 File Offset: 0x00080544
+	// (set) Token: 0x06002326 RID: 8998 RVA: 0x00082384 File Offset: 0x00080584
 	public double elapsedSeconds
 	{
 		get
 		{
-			return (!this.initialized) ? double.PositiveInfinity : ((double)(TimeGate.timeSource - this.startTime) / 1000.0);
+			return (!this.initialized) ? double.PositiveInfinity : ((double)(global::TimeGate.timeSource - this.startTime) / 1000.0);
 		}
 		set
 		{
@@ -53,15 +53,15 @@ public struct TimeGate
 			}
 			else
 			{
-				this.startTime = TimeGate.timeSource - TimeGate.SecondsToMS(value);
+				this.startTime = global::TimeGate.timeSource - global::TimeGate.SecondsToMS(value);
 				this.initialized = true;
 			}
 		}
 	}
 
-	// Token: 0x170007E7 RID: 2023
-	// (get) Token: 0x06001FC5 RID: 8133 RVA: 0x0007CFC8 File Offset: 0x0007B1C8
-	// (set) Token: 0x06001FC6 RID: 8134 RVA: 0x0007CFE4 File Offset: 0x0007B1E4
+	// Token: 0x17000845 RID: 2117
+	// (get) Token: 0x06002327 RID: 8999 RVA: 0x000823C4 File Offset: 0x000805C4
+	// (set) Token: 0x06002328 RID: 9000 RVA: 0x000823E0 File Offset: 0x000805E0
 	public long timeInMillis
 	{
 		get
@@ -75,9 +75,9 @@ public struct TimeGate
 		}
 	}
 
-	// Token: 0x170007E8 RID: 2024
-	// (get) Token: 0x06001FC7 RID: 8135 RVA: 0x0007CFF4 File Offset: 0x0007B1F4
-	// (set) Token: 0x06001FC8 RID: 8136 RVA: 0x0007D02C File Offset: 0x0007B22C
+	// Token: 0x17000846 RID: 2118
+	// (get) Token: 0x06002329 RID: 9001 RVA: 0x000823F0 File Offset: 0x000805F0
+	// (set) Token: 0x0600232A RID: 9002 RVA: 0x00082428 File Offset: 0x00080628
 	public double timeInSeconds
 	{
 		get
@@ -86,89 +86,89 @@ public struct TimeGate
 		}
 		set
 		{
-			this.startTime = TimeGate.SecondsToMS(value);
+			this.startTime = global::TimeGate.SecondsToMS(value);
 			this.initialized = true;
 		}
 	}
 
-	// Token: 0x170007E9 RID: 2025
-	// (get) Token: 0x06001FC9 RID: 8137 RVA: 0x0007D044 File Offset: 0x0007B244
+	// Token: 0x17000847 RID: 2119
+	// (get) Token: 0x0600232B RID: 9003 RVA: 0x00082440 File Offset: 0x00080640
 	public bool passedOrAtTime
 	{
 		get
 		{
-			return !this.initialized || this.startTime <= TimeGate.timeSource;
+			return !this.initialized || this.startTime <= global::TimeGate.timeSource;
 		}
 	}
 
-	// Token: 0x170007EA RID: 2026
-	// (get) Token: 0x06001FCA RID: 8138 RVA: 0x0007D064 File Offset: 0x0007B264
+	// Token: 0x17000848 RID: 2120
+	// (get) Token: 0x0600232C RID: 9004 RVA: 0x00082460 File Offset: 0x00080660
 	public bool behindOrAtTime
 	{
 		get
 		{
-			return !this.initialized || this.startTime >= TimeGate.timeSource;
+			return !this.initialized || this.startTime >= global::TimeGate.timeSource;
 		}
 	}
 
-	// Token: 0x170007EB RID: 2027
-	// (get) Token: 0x06001FCB RID: 8139 RVA: 0x0007D084 File Offset: 0x0007B284
+	// Token: 0x17000849 RID: 2121
+	// (get) Token: 0x0600232D RID: 9005 RVA: 0x00082480 File Offset: 0x00080680
 	public bool passedTime
 	{
 		get
 		{
-			return !this.initialized || this.startTime < TimeGate.timeSource;
+			return !this.initialized || this.startTime < global::TimeGate.timeSource;
 		}
 	}
 
-	// Token: 0x170007EC RID: 2028
-	// (get) Token: 0x06001FCC RID: 8140 RVA: 0x0007D0A4 File Offset: 0x0007B2A4
+	// Token: 0x1700084A RID: 2122
+	// (get) Token: 0x0600232E RID: 9006 RVA: 0x000824A0 File Offset: 0x000806A0
 	public bool behindTime
 	{
 		get
 		{
-			return !this.initialized || this.startTime > TimeGate.timeSource;
+			return !this.initialized || this.startTime > global::TimeGate.timeSource;
 		}
 	}
 
-	// Token: 0x170007ED RID: 2029
-	// (get) Token: 0x06001FCD RID: 8141 RVA: 0x0007D0C4 File Offset: 0x0007B2C4
+	// Token: 0x1700084B RID: 2123
+	// (get) Token: 0x0600232F RID: 9007 RVA: 0x000824C0 File Offset: 0x000806C0
 	private static long timeSource
 	{
 		get
 		{
-			return (long)NetCull.timeInMillis;
+			return (long)global::NetCull.timeInMillis;
 		}
 	}
 
-	// Token: 0x06001FCE RID: 8142 RVA: 0x0007D0CC File Offset: 0x0007B2CC
+	// Token: 0x06002330 RID: 9008 RVA: 0x000824C8 File Offset: 0x000806C8
 	private static long SecondsToMS(double seconds)
 	{
 		return (long)Math.Floor(seconds * 1000.0);
 	}
 
-	// Token: 0x06001FCF RID: 8143 RVA: 0x0007D0E0 File Offset: 0x0007B2E0
+	// Token: 0x06002331 RID: 9009 RVA: 0x000824DC File Offset: 0x000806DC
 	public bool ElapsedMillis(long span)
 	{
-		return span <= 0L || !this.initialized || TimeGate.timeSource - this.startTime >= span;
+		return span <= 0L || !this.initialized || global::TimeGate.timeSource - this.startTime >= span;
 	}
 
-	// Token: 0x06001FD0 RID: 8144 RVA: 0x0007D118 File Offset: 0x0007B318
+	// Token: 0x06002332 RID: 9010 RVA: 0x00082514 File Offset: 0x00080714
 	public bool ElapsedSeconds(double seconds)
 	{
-		return seconds <= 0.0 || !this.initialized || TimeGate.timeSource - this.startTime >= TimeGate.SecondsToMS(seconds);
+		return seconds <= 0.0 || !this.initialized || global::TimeGate.timeSource - this.startTime >= global::TimeGate.SecondsToMS(seconds);
 	}
 
-	// Token: 0x06001FD1 RID: 8145 RVA: 0x0007D15C File Offset: 0x0007B35C
+	// Token: 0x06002333 RID: 9011 RVA: 0x00082558 File Offset: 0x00080758
 	public bool FireMillis(long minimumElapsedTime)
 	{
 		return minimumElapsedTime <= 0L || this.RefireMillis(-minimumElapsedTime);
 	}
 
-	// Token: 0x06001FD2 RID: 8146 RVA: 0x0007D174 File Offset: 0x0007B374
+	// Token: 0x06002334 RID: 9012 RVA: 0x00082570 File Offset: 0x00080770
 	public bool RefireMillis(long intervalMS)
 	{
-		long timeSource = TimeGate.timeSource;
+		long timeSource = global::TimeGate.timeSource;
 		if (!this.initialized)
 		{
 			this.initialized = true;
@@ -203,116 +203,116 @@ public struct TimeGate
 		}
 	}
 
-	// Token: 0x06001FD3 RID: 8147 RVA: 0x0007D204 File Offset: 0x0007B404
+	// Token: 0x06002335 RID: 9013 RVA: 0x00082600 File Offset: 0x00080800
 	public bool RefireSeconds(double intervalSeconds)
 	{
-		return this.RefireMillis(TimeGate.SecondsToMS(intervalSeconds));
+		return this.RefireMillis(global::TimeGate.SecondsToMS(intervalSeconds));
 	}
 
-	// Token: 0x06001FD4 RID: 8148 RVA: 0x0007D214 File Offset: 0x0007B414
-	public static implicit operator TimeGate(double timeRemaining)
+	// Token: 0x06002336 RID: 9014 RVA: 0x00082610 File Offset: 0x00080810
+	public static implicit operator global::TimeGate(double timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.SecondsToMS((double)TimeGate.timeSource / 1000.0 - timeRemaining);
+		result.startTime = global::TimeGate.SecondsToMS((double)global::TimeGate.timeSource / 1000.0 - timeRemaining);
 		return result;
 	}
 
-	// Token: 0x06001FD5 RID: 8149 RVA: 0x0007D248 File Offset: 0x0007B448
-	public static implicit operator TimeGate(float timeRemaining)
+	// Token: 0x06002337 RID: 9015 RVA: 0x00082644 File Offset: 0x00080844
+	public static implicit operator global::TimeGate(float timeRemaining)
 	{
 		return (double)timeRemaining;
 	}
 
-	// Token: 0x06001FD6 RID: 8150 RVA: 0x0007D254 File Offset: 0x0007B454
-	public static implicit operator TimeGate(long timeRemaining)
+	// Token: 0x06002338 RID: 9016 RVA: 0x00082650 File Offset: 0x00080850
+	public static implicit operator global::TimeGate(long timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - timeRemaining;
+		result.startTime = global::TimeGate.timeSource - timeRemaining;
 		return result;
 	}
 
-	// Token: 0x06001FD7 RID: 8151 RVA: 0x0007D278 File Offset: 0x0007B478
-	public static implicit operator TimeGate(ulong timeRemaining)
+	// Token: 0x06002339 RID: 9017 RVA: 0x00082674 File Offset: 0x00080874
+	public static implicit operator global::TimeGate(ulong timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - (long)timeRemaining;
+		result.startTime = global::TimeGate.timeSource - (long)timeRemaining;
 		return result;
 	}
 
-	// Token: 0x06001FD8 RID: 8152 RVA: 0x0007D29C File Offset: 0x0007B49C
-	public static implicit operator TimeGate(int timeRemaining)
+	// Token: 0x0600233A RID: 9018 RVA: 0x00082698 File Offset: 0x00080898
+	public static implicit operator global::TimeGate(int timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - (long)timeRemaining;
+		result.startTime = global::TimeGate.timeSource - (long)timeRemaining;
 		return result;
 	}
 
-	// Token: 0x06001FD9 RID: 8153 RVA: 0x0007D2C4 File Offset: 0x0007B4C4
-	public static implicit operator TimeGate(uint timeRemaining)
+	// Token: 0x0600233B RID: 9019 RVA: 0x000826C0 File Offset: 0x000808C0
+	public static implicit operator global::TimeGate(uint timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - (long)((ulong)timeRemaining);
+		result.startTime = global::TimeGate.timeSource - (long)((ulong)timeRemaining);
 		return result;
 	}
 
-	// Token: 0x06001FDA RID: 8154 RVA: 0x0007D2EC File Offset: 0x0007B4EC
-	public static implicit operator TimeGate(short timeRemaining)
+	// Token: 0x0600233C RID: 9020 RVA: 0x000826E8 File Offset: 0x000808E8
+	public static implicit operator global::TimeGate(short timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - (long)timeRemaining;
+		result.startTime = global::TimeGate.timeSource - (long)timeRemaining;
 		return result;
 	}
 
-	// Token: 0x06001FDB RID: 8155 RVA: 0x0007D314 File Offset: 0x0007B514
-	public static implicit operator TimeGate(ushort timeRemaining)
+	// Token: 0x0600233D RID: 9021 RVA: 0x00082710 File Offset: 0x00080910
+	public static implicit operator global::TimeGate(ushort timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - (long)timeRemaining;
+		result.startTime = global::TimeGate.timeSource - (long)timeRemaining;
 		return result;
 	}
 
-	// Token: 0x06001FDC RID: 8156 RVA: 0x0007D33C File Offset: 0x0007B53C
-	public static implicit operator TimeGate(byte timeRemaining)
+	// Token: 0x0600233E RID: 9022 RVA: 0x00082738 File Offset: 0x00080938
+	public static implicit operator global::TimeGate(byte timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - (long)timeRemaining;
+		result.startTime = global::TimeGate.timeSource - (long)timeRemaining;
 		return result;
 	}
 
-	// Token: 0x06001FDD RID: 8157 RVA: 0x0007D364 File Offset: 0x0007B564
-	public static implicit operator TimeGate(sbyte timeRemaining)
+	// Token: 0x0600233F RID: 9023 RVA: 0x00082760 File Offset: 0x00080960
+	public static implicit operator global::TimeGate(sbyte timeRemaining)
 	{
-		TimeGate result;
+		global::TimeGate result;
 		result.initialized = true;
-		result.startTime = TimeGate.timeSource - (long)timeRemaining;
+		result.startTime = global::TimeGate.timeSource - (long)timeRemaining;
 		return result;
 	}
 
-	// Token: 0x06001FDE RID: 8158 RVA: 0x0007D38C File Offset: 0x0007B58C
-	public static bool operator true(TimeGate gate)
+	// Token: 0x06002340 RID: 9024 RVA: 0x00082788 File Offset: 0x00080988
+	public static bool operator true(global::TimeGate gate)
 	{
 		return gate.passedOrAtTime;
 	}
 
-	// Token: 0x06001FDF RID: 8159 RVA: 0x0007D398 File Offset: 0x0007B598
-	public static bool operator false(TimeGate gate)
+	// Token: 0x06002341 RID: 9025 RVA: 0x00082794 File Offset: 0x00080994
+	public static bool operator false(global::TimeGate gate)
 	{
 		return gate.behindTime;
 	}
 
-	// Token: 0x04000F3C RID: 3900
+	// Token: 0x040010A2 RID: 4258
 	[NonSerialized]
 	private bool initialized;
 
-	// Token: 0x04000F3D RID: 3901
+	// Token: 0x040010A3 RID: 4259
 	[NonSerialized]
 	private long startTime;
 }

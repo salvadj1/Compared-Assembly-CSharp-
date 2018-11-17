@@ -2,65 +2,65 @@
 using RustProto;
 using UnityEngine;
 
-// Token: 0x02000156 RID: 342
+// Token: 0x02000180 RID: 384
 [AddComponentMenu("ID/Local/Take Damage")]
-public class TakeDamage : IDLocal, IServerSaveable
+public class TakeDamage : IDLocal, global::IServerSaveable
 {
-	// Token: 0x06000A49 RID: 2633 RVA: 0x000293D4 File Offset: 0x000275D4
+	// Token: 0x06000B6F RID: 2927 RVA: 0x0002D150 File Offset: 0x0002B350
 	public virtual void SetGodMode(bool on)
 	{
 		this.takenodamage = on;
 	}
 
-	// Token: 0x06000A4A RID: 2634 RVA: 0x000293E0 File Offset: 0x000275E0
+	// Token: 0x06000B70 RID: 2928 RVA: 0x0002D15C File Offset: 0x0002B35C
 	private static float HealthAliveValueClamp(float newHealth)
 	{
 		return (newHealth >= 0.001f) ? newHealth : 0.001f;
 	}
 
-	// Token: 0x06000A4B RID: 2635 RVA: 0x000293F8 File Offset: 0x000275F8
+	// Token: 0x06000B71 RID: 2929 RVA: 0x0002D174 File Offset: 0x0002B374
 	public bool ShouldPlayHitNotification()
 	{
 		return this.playsHitNotification && this.alive;
 	}
 
-	// Token: 0x06000A4C RID: 2636 RVA: 0x00029410 File Offset: 0x00027610
+	// Token: 0x06000B72 RID: 2930 RVA: 0x0002D18C File Offset: 0x0002B38C
 	public void MarkDamageTime()
 	{
 		this._lastDamageTime = Time.time;
 	}
 
-	// Token: 0x06000A4D RID: 2637 RVA: 0x00029420 File Offset: 0x00027620
+	// Token: 0x06000B73 RID: 2931 RVA: 0x0002D19C File Offset: 0x0002B39C
 	public float TimeSinceHurt()
 	{
 		return Time.time - this._lastDamageTime;
 	}
 
-	// Token: 0x06000A4E RID: 2638 RVA: 0x00029430 File Offset: 0x00027630
+	// Token: 0x06000B74 RID: 2932 RVA: 0x0002D1AC File Offset: 0x0002B3AC
 	public static string DamageIndexToString(int index)
 	{
-		return TakeDamage.DamageIndexToString((DamageTypeIndex)index);
+		return global::TakeDamage.DamageIndexToString((global::DamageTypeIndex)index);
 	}
 
-	// Token: 0x06000A4F RID: 2639 RVA: 0x00029438 File Offset: 0x00027638
-	public static string DamageIndexToString(DamageTypeIndex index)
+	// Token: 0x06000B75 RID: 2933 RVA: 0x0002D1B4 File Offset: 0x0002B3B4
+	public static string DamageIndexToString(global::DamageTypeIndex index)
 	{
 		string result;
 		switch (index)
 		{
-		case DamageTypeIndex.damage_bullet:
+		case global::DamageTypeIndex.damage_bullet:
 			result = "Bullet";
 			break;
-		case DamageTypeIndex.damage_melee:
+		case global::DamageTypeIndex.damage_melee:
 			result = "Melee";
 			break;
-		case DamageTypeIndex.damage_explosion:
+		case global::DamageTypeIndex.damage_explosion:
 			result = "Explosion";
 			break;
-		case DamageTypeIndex.damage_radiation:
+		case global::DamageTypeIndex.damage_radiation:
 			result = "Radiation";
 			break;
-		case DamageTypeIndex.damage_cold:
+		case global::DamageTypeIndex.damage_cold:
 			result = "Cold";
 			break;
 		default:
@@ -70,9 +70,9 @@ public class TakeDamage : IDLocal, IServerSaveable
 		return result;
 	}
 
-	// Token: 0x170002E5 RID: 741
-	// (get) Token: 0x06000A50 RID: 2640 RVA: 0x000294AC File Offset: 0x000276AC
-	// (set) Token: 0x06000A51 RID: 2641 RVA: 0x000294B4 File Offset: 0x000276B4
+	// Token: 0x17000327 RID: 807
+	// (get) Token: 0x06000B76 RID: 2934 RVA: 0x0002D228 File Offset: 0x0002B428
+	// (set) Token: 0x06000B77 RID: 2935 RVA: 0x0002D230 File Offset: 0x0002B430
 	public float health
 	{
 		get
@@ -85,8 +85,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x170002E6 RID: 742
-	// (get) Token: 0x06000A52 RID: 2642 RVA: 0x000294C0 File Offset: 0x000276C0
+	// Token: 0x17000328 RID: 808
+	// (get) Token: 0x06000B78 RID: 2936 RVA: 0x0002D23C File Offset: 0x0002B43C
 	public float healthFraction
 	{
 		get
@@ -95,8 +95,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x170002E7 RID: 743
-	// (get) Token: 0x06000A53 RID: 2643 RVA: 0x000294D0 File Offset: 0x000276D0
+	// Token: 0x17000329 RID: 809
+	// (get) Token: 0x06000B79 RID: 2937 RVA: 0x0002D24C File Offset: 0x0002B44C
 	public float healthLoss
 	{
 		get
@@ -105,8 +105,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x170002E8 RID: 744
-	// (get) Token: 0x06000A54 RID: 2644 RVA: 0x000294E0 File Offset: 0x000276E0
+	// Token: 0x1700032A RID: 810
+	// (get) Token: 0x06000B7A RID: 2938 RVA: 0x0002D25C File Offset: 0x0002B45C
 	public float healthLossFraction
 	{
 		get
@@ -115,9 +115,9 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x170002E9 RID: 745
-	// (get) Token: 0x06000A55 RID: 2645 RVA: 0x000294F8 File Offset: 0x000276F8
-	// (set) Token: 0x06000A56 RID: 2646 RVA: 0x00029500 File Offset: 0x00027700
+	// Token: 0x1700032B RID: 811
+	// (get) Token: 0x06000B7B RID: 2939 RVA: 0x0002D274 File Offset: 0x0002B474
+	// (set) Token: 0x06000B7C RID: 2940 RVA: 0x0002D27C File Offset: 0x0002B47C
 	public float maxHealth
 	{
 		get
@@ -130,8 +130,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x170002EA RID: 746
-	// (get) Token: 0x06000A57 RID: 2647 RVA: 0x0002950C File Offset: 0x0002770C
+	// Token: 0x1700032C RID: 812
+	// (get) Token: 0x06000B7D RID: 2941 RVA: 0x0002D288 File Offset: 0x0002B488
 	public bool alive
 	{
 		get
@@ -140,8 +140,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x170002EB RID: 747
-	// (get) Token: 0x06000A58 RID: 2648 RVA: 0x0002951C File Offset: 0x0002771C
+	// Token: 0x1700032D RID: 813
+	// (get) Token: 0x06000B7E RID: 2942 RVA: 0x0002D298 File Offset: 0x0002B498
 	public bool dead
 	{
 		get
@@ -150,47 +150,47 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x06000A59 RID: 2649 RVA: 0x00029530 File Offset: 0x00027730
+	// Token: 0x06000B7F RID: 2943 RVA: 0x0002D2AC File Offset: 0x0002B4AC
 	protected void Awake()
 	{
-		this._maxHealth = (this._health = TakeDamage.HealthAliveValueClamp(this._maxHealth));
+		this._maxHealth = (this._health = global::TakeDamage.HealthAliveValueClamp(this._maxHealth));
 	}
 
-	// Token: 0x06000A5A RID: 2650 RVA: 0x00029558 File Offset: 0x00027758
-	public RepairEvent Heal(IDBase healer, float amount)
+	// Token: 0x06000B80 RID: 2944 RVA: 0x0002D2D4 File Offset: 0x0002B4D4
+	public global::RepairEvent Heal(IDBase healer, float amount)
 	{
-		RepairEvent result;
+		global::RepairEvent result;
 		this.Heal(healer, amount, out result);
 		return result;
 	}
 
-	// Token: 0x06000A5B RID: 2651 RVA: 0x00029574 File Offset: 0x00027774
-	public RepairStatus Heal(IDBase healer, float amount, out RepairEvent repair)
+	// Token: 0x06000B81 RID: 2945 RVA: 0x0002D2F0 File Offset: 0x0002B4F0
+	public global::RepairStatus Heal(IDBase healer, float amount, out global::RepairEvent repair)
 	{
 		repair.doner = healer;
 		repair.receiver = this;
 		repair.givenAmount = amount;
 		if (amount <= 0f)
 		{
-			repair.status = RepairStatus.Failed;
+			repair.status = global::RepairStatus.Failed;
 			repair.usedAmount = 0f;
-			return RepairStatus.Failed;
+			return global::RepairStatus.Failed;
 		}
 		if (this.dead)
 		{
-			repair.status = RepairStatus.FailedUnreparable;
+			repair.status = global::RepairStatus.FailedUnreparable;
 			repair.usedAmount = 0f;
 		}
 		else if (this._health == this._maxHealth)
 		{
-			repair.status = RepairStatus.FailedFull;
+			repair.status = global::RepairStatus.FailedFull;
 			repair.usedAmount = 0f;
 		}
 		else if (this._health > this._maxHealth - amount)
 		{
 			this._health = this._maxHealth;
 			repair.usedAmount = this._maxHealth - this._health;
-			repair.status = RepairStatus.AppliedPartial;
+			repair.status = global::RepairStatus.AppliedPartial;
 		}
 		else
 		{
@@ -198,11 +198,11 @@ public class TakeDamage : IDLocal, IServerSaveable
 			repair.usedAmount = repair.givenAmount;
 			if (this._health == this._maxHealth)
 			{
-				repair.status = RepairStatus.AppliedFull;
+				repair.status = global::RepairStatus.AppliedFull;
 			}
 			else
 			{
-				repair.status = RepairStatus.Applied;
+				repair.status = global::RepairStatus.Applied;
 			}
 		}
 		if (this.sendMessageRepair)
@@ -212,70 +212,70 @@ public class TakeDamage : IDLocal, IServerSaveable
 		return repair.status;
 	}
 
-	// Token: 0x06000A5C RID: 2652 RVA: 0x000296A4 File Offset: 0x000278A4
-	public static LifeStatus Hurt(IDBase attacker, IDBase victim, TakeDamage.Quantity damageQuantity, out DamageEvent damage, object extraData = null)
+	// Token: 0x06000B82 RID: 2946 RVA: 0x0002D420 File Offset: 0x0002B620
+	public static global::LifeStatus Hurt(IDBase attacker, IDBase victim, global::TakeDamage.Quantity damageQuantity, out global::DamageEvent damage, object extraData = null)
 	{
-		return TakeDamage.HurtShared(attacker, victim, damageQuantity, out damage, extraData);
+		return global::TakeDamage.HurtShared(attacker, victim, damageQuantity, out damage, extraData);
 	}
 
-	// Token: 0x06000A5D RID: 2653 RVA: 0x000296B4 File Offset: 0x000278B4
-	public static LifeStatus Hurt(IDBase attacker, IDBase victim, TakeDamage.Quantity damageQuantity, object extraData = null)
+	// Token: 0x06000B83 RID: 2947 RVA: 0x0002D430 File Offset: 0x0002B630
+	public static global::LifeStatus Hurt(IDBase attacker, IDBase victim, global::TakeDamage.Quantity damageQuantity, object extraData = null)
 	{
-		return TakeDamage.HurtShared(attacker, victim, damageQuantity, extraData);
+		return global::TakeDamage.HurtShared(attacker, victim, damageQuantity, extraData);
 	}
 
-	// Token: 0x06000A5E RID: 2654 RVA: 0x000296C0 File Offset: 0x000278C0
-	public static LifeStatus Kill(IDBase attacker, IDBase victim, out DamageEvent damage, object extraData = null)
+	// Token: 0x06000B84 RID: 2948 RVA: 0x0002D43C File Offset: 0x0002B63C
+	public static global::LifeStatus Kill(IDBase attacker, IDBase victim, out global::DamageEvent damage, object extraData = null)
 	{
-		return TakeDamage.HurtShared(attacker, victim, TakeDamage.Quantity.AllHealth, out damage, extraData);
+		return global::TakeDamage.HurtShared(attacker, victim, global::TakeDamage.Quantity.AllHealth, out damage, extraData);
 	}
 
-	// Token: 0x06000A5F RID: 2655 RVA: 0x000296D0 File Offset: 0x000278D0
-	public static LifeStatus Kill(IDBase attacker, IDBase victim, object extraData = null)
+	// Token: 0x06000B85 RID: 2949 RVA: 0x0002D44C File Offset: 0x0002B64C
+	public static global::LifeStatus Kill(IDBase attacker, IDBase victim, object extraData = null)
 	{
-		return TakeDamage.HurtShared(attacker, victim, TakeDamage.Quantity.AllHealth, extraData);
+		return global::TakeDamage.HurtShared(attacker, victim, global::TakeDamage.Quantity.AllHealth, extraData);
 	}
 
-	// Token: 0x06000A60 RID: 2656 RVA: 0x000296E0 File Offset: 0x000278E0
-	public static LifeStatus HurtSelf(IDBase victim, TakeDamage.Quantity damageQuantity, out DamageEvent damage, object extraData = null)
+	// Token: 0x06000B86 RID: 2950 RVA: 0x0002D45C File Offset: 0x0002B65C
+	public static global::LifeStatus HurtSelf(IDBase victim, global::TakeDamage.Quantity damageQuantity, out global::DamageEvent damage, object extraData = null)
 	{
-		return TakeDamage.HurtShared(victim, victim, damageQuantity, out damage, extraData);
+		return global::TakeDamage.HurtShared(victim, victim, damageQuantity, out damage, extraData);
 	}
 
-	// Token: 0x06000A61 RID: 2657 RVA: 0x000296EC File Offset: 0x000278EC
-	public static LifeStatus HurtSelf(IDBase victim, TakeDamage.Quantity damageQuantity, object extraData = null)
+	// Token: 0x06000B87 RID: 2951 RVA: 0x0002D468 File Offset: 0x0002B668
+	public static global::LifeStatus HurtSelf(IDBase victim, global::TakeDamage.Quantity damageQuantity, object extraData = null)
 	{
-		return TakeDamage.HurtShared(victim, victim, damageQuantity, extraData);
+		return global::TakeDamage.HurtShared(victim, victim, damageQuantity, extraData);
 	}
 
-	// Token: 0x06000A62 RID: 2658 RVA: 0x000296F8 File Offset: 0x000278F8
-	public static LifeStatus KillSelf(IDBase victim, object extraData = null)
+	// Token: 0x06000B88 RID: 2952 RVA: 0x0002D474 File Offset: 0x0002B674
+	public static global::LifeStatus KillSelf(IDBase victim, object extraData = null)
 	{
-		return TakeDamage.HurtShared(victim, victim, TakeDamage.Quantity.AllHealth, extraData);
+		return global::TakeDamage.HurtShared(victim, victim, global::TakeDamage.Quantity.AllHealth, extraData);
 	}
 
-	// Token: 0x06000A63 RID: 2659 RVA: 0x00029708 File Offset: 0x00027908
-	public static LifeStatus KillSelf(IDBase victim, out DamageEvent damage, object extraData = null)
+	// Token: 0x06000B89 RID: 2953 RVA: 0x0002D484 File Offset: 0x0002B684
+	public static global::LifeStatus KillSelf(IDBase victim, out global::DamageEvent damage, object extraData = null)
 	{
-		return TakeDamage.HurtShared(victim, victim, TakeDamage.Quantity.AllHealth, out damage, extraData);
+		return global::TakeDamage.HurtShared(victim, victim, global::TakeDamage.Quantity.AllHealth, out damage, extraData);
 	}
 
-	// Token: 0x06000A64 RID: 2660 RVA: 0x00029718 File Offset: 0x00027918
-	private static LifeStatus HurtShared(IDBase attacker, IDBase victim, TakeDamage.Quantity damageQuantity, out DamageEvent damage, object extraData = null)
+	// Token: 0x06000B8A RID: 2954 RVA: 0x0002D494 File Offset: 0x0002B694
+	private static global::LifeStatus HurtShared(IDBase attacker, IDBase victim, global::TakeDamage.Quantity damageQuantity, out global::DamageEvent damage, object extraData = null)
 	{
 		if (victim)
 		{
 			IDMain idMain = victim.idMain;
 			if (idMain)
 			{
-				TakeDamage takeDamage;
-				if (idMain is Character)
+				global::TakeDamage takeDamage;
+				if (idMain is global::Character)
 				{
-					takeDamage = ((Character)idMain).takeDamage;
+					takeDamage = ((global::Character)idMain).takeDamage;
 				}
 				else
 				{
-					takeDamage = idMain.GetLocal<TakeDamage>();
+					takeDamage = idMain.GetLocal<global::TakeDamage>();
 				}
 				if (takeDamage && !takeDamage.takenodamage)
 				{
@@ -284,8 +284,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 					damage.attacker.id = attacker;
 					damage.amount = damageQuantity.value;
 					damage.sender = takeDamage;
-					damage.status = ((!takeDamage.dead) ? LifeStatus.IsAlive : LifeStatus.IsDead);
-					damage.damageTypes = (DamageTypeFlags)0;
+					damage.status = ((!takeDamage.dead) ? global::LifeStatus.IsAlive : global::LifeStatus.IsDead);
+					damage.damageTypes = (global::DamageTypeFlags)0;
 					damage.extraData = extraData;
 					if ((int)damageQuantity.Unit == -1)
 					{
@@ -300,70 +300,70 @@ public class TakeDamage : IDLocal, IServerSaveable
 		damage.attacker.id = null;
 		damage.amount = 0f;
 		damage.sender = null;
-		damage.damageTypes = (DamageTypeFlags)0;
-		damage.status = LifeStatus.Failed;
+		damage.damageTypes = (global::DamageTypeFlags)0;
+		damage.status = global::LifeStatus.Failed;
 		damage.extraData = extraData;
-		return LifeStatus.Failed;
+		return global::LifeStatus.Failed;
 	}
 
-	// Token: 0x06000A65 RID: 2661 RVA: 0x00029840 File Offset: 0x00027A40
-	private static LifeStatus HurtShared(IDBase attacker, IDBase victim, TakeDamage.Quantity damageQuantity, object extraData = null)
+	// Token: 0x06000B8B RID: 2955 RVA: 0x0002D5BC File Offset: 0x0002B7BC
+	private static global::LifeStatus HurtShared(IDBase attacker, IDBase victim, global::TakeDamage.Quantity damageQuantity, object extraData = null)
 	{
-		DamageEvent damageEvent;
-		return TakeDamage.HurtShared(attacker, victim, damageQuantity, out damageEvent, extraData);
+		global::DamageEvent damageEvent;
+		return global::TakeDamage.HurtShared(attacker, victim, damageQuantity, out damageEvent, extraData);
 	}
 
-	// Token: 0x06000A66 RID: 2662 RVA: 0x00029858 File Offset: 0x00027A58
-	protected virtual void ApplyDamageTypeList(ref DamageEvent damage, DamageTypeList damageTypes)
+	// Token: 0x06000B8C RID: 2956 RVA: 0x0002D5D4 File Offset: 0x0002B7D4
+	protected virtual void ApplyDamageTypeList(ref global::DamageEvent damage, global::DamageTypeList damageTypes)
 	{
 		for (int i = 0; i < 6; i++)
 		{
 			if (!Mathf.Approximately(damageTypes[i], 0f))
 			{
-				damage.damageTypes |= (DamageTypeFlags)(1 << i);
+				damage.damageTypes |= (global::DamageTypeFlags)(1 << i);
 				damage.amount += damageTypes[i];
 			}
 		}
 	}
 
-	// Token: 0x06000A67 RID: 2663 RVA: 0x000298B4 File Offset: 0x00027AB4
-	protected virtual LifeStatus Hurt(ref DamageEvent damage)
+	// Token: 0x06000B8D RID: 2957 RVA: 0x0002D630 File Offset: 0x0002B830
+	protected virtual global::LifeStatus Hurt(ref global::DamageEvent damage)
 	{
 		if (this.dead)
 		{
-			damage.status = LifeStatus.IsDead;
+			damage.status = global::LifeStatus.IsDead;
 		}
 		else if (this.health > damage.amount)
 		{
-			damage.status = LifeStatus.IsAlive;
+			damage.status = global::LifeStatus.IsAlive;
 		}
 		else
 		{
-			damage.status = LifeStatus.WasKilled;
+			damage.status = global::LifeStatus.WasKilled;
 		}
 		this.ProcessDamageEvent(ref damage);
 		if (this.ShouldRelayDamageEvent(ref damage))
 		{
 			base.SendMessage("OnHurt", damage, 1);
 		}
-		if (damage.status == LifeStatus.WasKilled)
+		if (damage.status == global::LifeStatus.WasKilled)
 		{
 			base.SendMessage("OnKilled", damage, 1);
 		}
 		return damage.status;
 	}
 
-	// Token: 0x06000A68 RID: 2664 RVA: 0x00029950 File Offset: 0x00027B50
-	protected void ProcessDamageEvent(ref DamageEvent damage)
+	// Token: 0x06000B8E RID: 2958 RVA: 0x0002D6CC File Offset: 0x0002B8CC
+	protected void ProcessDamageEvent(ref global::DamageEvent damage)
 	{
 		if (this.takenodamage)
 		{
 			return;
 		}
-		LifeStatus status = damage.status;
-		if (status != LifeStatus.IsAlive)
+		global::LifeStatus status = damage.status;
+		if (status != global::LifeStatus.IsAlive)
 		{
-			if (status == LifeStatus.WasKilled)
+			if (status == global::LifeStatus.WasKilled)
 			{
 				this._health = 0f;
 			}
@@ -374,16 +374,16 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x06000A69 RID: 2665 RVA: 0x000299B0 File Offset: 0x00027BB0
-	protected bool ShouldRelayDamageEvent(ref DamageEvent damage)
+	// Token: 0x06000B8F RID: 2959 RVA: 0x0002D72C File Offset: 0x0002B92C
+	protected bool ShouldRelayDamageEvent(ref global::DamageEvent damage)
 	{
 		switch (damage.status)
 		{
-		case LifeStatus.IsAlive:
+		case global::LifeStatus.IsAlive:
 			return this.sendMessageWhenAlive;
-		case LifeStatus.WasKilled:
+		case global::LifeStatus.WasKilled:
 			return this.sendMessageWhenKilled;
-		case LifeStatus.IsDead:
+		case global::LifeStatus.IsDead:
 			return this.sendMessageWhenDead;
 		default:
 			Debug.LogWarning("Unhandled LifeStatus " + damage.status, this);
@@ -391,25 +391,25 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x06000A6A RID: 2666 RVA: 0x00029A0C File Offset: 0x00027C0C
+	// Token: 0x06000B90 RID: 2960 RVA: 0x0002D788 File Offset: 0x0002B988
 	public override string ToString()
 	{
 		return string.Format("[{0}: health={1}]", base.ToString(), this.health);
 	}
 
-	// Token: 0x06000A6B RID: 2667 RVA: 0x00029A2C File Offset: 0x00027C2C
+	// Token: 0x06000B91 RID: 2961 RVA: 0x0002D7A8 File Offset: 0x0002B9A8
 	public virtual void ServerFrame()
 	{
 	}
 
-	// Token: 0x06000A6C RID: 2668 RVA: 0x00029A30 File Offset: 0x00027C30
-	public virtual void SaveVitals(ref Vitals.Builder vitals)
+	// Token: 0x06000B92 RID: 2962 RVA: 0x0002D7AC File Offset: 0x0002B9AC
+	public virtual void SaveVitals(ref RustProto.Vitals.Builder vitals)
 	{
 		vitals.SetHealth(this.health);
 	}
 
-	// Token: 0x06000A6D RID: 2669 RVA: 0x00029A40 File Offset: 0x00027C40
-	public virtual void LoadVitals(Vitals vitals)
+	// Token: 0x06000B93 RID: 2963 RVA: 0x0002D7BC File Offset: 0x0002B9BC
+	public virtual void LoadVitals(RustProto.Vitals vitals)
 	{
 		this.health = vitals.Health;
 		if (this.health <= 0f)
@@ -419,89 +419,89 @@ public class TakeDamage : IDLocal, IServerSaveable
 		}
 	}
 
-	// Token: 0x040006B9 RID: 1721
+	// Token: 0x040007C8 RID: 1992
 	public const string DamageMessage = "OnHurt";
 
-	// Token: 0x040006BA RID: 1722
+	// Token: 0x040007C9 RID: 1993
 	public const string KillMessage = "OnKilled";
 
-	// Token: 0x040006BB RID: 1723
+	// Token: 0x040007CA RID: 1994
 	public const string RepairMessage = "OnRepair";
 
-	// Token: 0x040006BC RID: 1724
+	// Token: 0x040007CB RID: 1995
 	public const SendMessageOptions DamageMessageOptions = 1;
 
-	// Token: 0x040006BD RID: 1725
+	// Token: 0x040007CC RID: 1996
 	public const SendMessageOptions RepairMessageOptions = 1;
 
-	// Token: 0x040006BE RID: 1726
+	// Token: 0x040007CD RID: 1997
 	public const float kMinimumSetHealthValueWhenAlive = 0.001f;
 
-	// Token: 0x040006BF RID: 1727
+	// Token: 0x040007CE RID: 1998
 	protected float _lastDamageTime;
 
-	// Token: 0x040006C0 RID: 1728
+	// Token: 0x040007CF RID: 1999
 	private bool takenodamage;
 
-	// Token: 0x040006C1 RID: 1729
+	// Token: 0x040007D0 RID: 2000
 	[SerializeField]
 	private float _maxHealth = 100f;
 
-	// Token: 0x040006C2 RID: 1730
+	// Token: 0x040007D1 RID: 2001
 	private float _health;
 
-	// Token: 0x040006C3 RID: 1731
+	// Token: 0x040007D2 RID: 2002
 	public bool playsHitNotification;
 
-	// Token: 0x040006C4 RID: 1732
+	// Token: 0x040007D3 RID: 2003
 	public bool sendMessageWhenAlive = true;
 
-	// Token: 0x040006C5 RID: 1733
+	// Token: 0x040007D4 RID: 2004
 	public bool sendMessageWhenKilled = true;
 
-	// Token: 0x040006C6 RID: 1734
+	// Token: 0x040007D5 RID: 2005
 	public bool sendMessageWhenDead = true;
 
-	// Token: 0x040006C7 RID: 1735
+	// Token: 0x040007D6 RID: 2006
 	public bool sendMessageRepair = true;
 
-	// Token: 0x02000157 RID: 343
+	// Token: 0x02000181 RID: 385
 	public enum Unit : sbyte
 	{
-		// Token: 0x040006C9 RID: 1737
+		// Token: 0x040007D8 RID: 2008
 		Unspecified,
-		// Token: 0x040006CA RID: 1738
+		// Token: 0x040007D9 RID: 2009
 		HealthPoints,
-		// Token: 0x040006CB RID: 1739
+		// Token: 0x040007DA RID: 2010
 		AllHealth,
-		// Token: 0x040006CC RID: 1740
+		// Token: 0x040007DB RID: 2011
 		List = -1
 	}
 
-	// Token: 0x02000158 RID: 344
+	// Token: 0x02000182 RID: 386
 	public struct Quantity
 	{
-		// Token: 0x06000A6E RID: 2670 RVA: 0x00029A90 File Offset: 0x00027C90
-		private Quantity(TakeDamage.Unit Measurement, DamageTypeList DamageTypeList, float Value)
+		// Token: 0x06000B94 RID: 2964 RVA: 0x0002D80C File Offset: 0x0002BA0C
+		private Quantity(global::TakeDamage.Unit Measurement, global::DamageTypeList DamageTypeList, float Value)
 		{
 			this.Unit = Measurement;
 			this.list = DamageTypeList;
 			this.value = Value;
 		}
 
-		// Token: 0x170002EC RID: 748
-		// (get) Token: 0x06000A6F RID: 2671 RVA: 0x00029AA8 File Offset: 0x00027CA8
-		public static TakeDamage.Quantity AllHealth
+		// Token: 0x1700032E RID: 814
+		// (get) Token: 0x06000B95 RID: 2965 RVA: 0x0002D824 File Offset: 0x0002BA24
+		public static global::TakeDamage.Quantity AllHealth
 		{
 			get
 			{
-				return new TakeDamage.Quantity(TakeDamage.Unit.AllHealth, null, float.PositiveInfinity);
+				return new global::TakeDamage.Quantity(global::TakeDamage.Unit.AllHealth, null, float.PositiveInfinity);
 			}
 		}
 
-		// Token: 0x170002ED RID: 749
-		// (get) Token: 0x06000A70 RID: 2672 RVA: 0x00029AB8 File Offset: 0x00027CB8
-		public DamageTypeList DamageTypeList
+		// Token: 0x1700032F RID: 815
+		// (get) Token: 0x06000B96 RID: 2966 RVA: 0x0002D834 File Offset: 0x0002BA34
+		public global::DamageTypeList DamageTypeList
 		{
 			get
 			{
@@ -513,8 +513,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 			}
 		}
 
-		// Token: 0x170002EE RID: 750
-		// (get) Token: 0x06000A71 RID: 2673 RVA: 0x00029AD8 File Offset: 0x00027CD8
+		// Token: 0x17000330 RID: 816
+		// (get) Token: 0x06000B97 RID: 2967 RVA: 0x0002D854 File Offset: 0x0002BA54
 		public bool IsDamageTypeList
 		{
 			get
@@ -523,8 +523,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 			}
 		}
 
-		// Token: 0x170002EF RID: 751
-		// (get) Token: 0x06000A72 RID: 2674 RVA: 0x00029AE4 File Offset: 0x00027CE4
+		// Token: 0x17000331 RID: 817
+		// (get) Token: 0x06000B98 RID: 2968 RVA: 0x0002D860 File Offset: 0x0002BA60
 		public float HealthPoints
 		{
 			get
@@ -537,8 +537,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 			}
 		}
 
-		// Token: 0x170002F0 RID: 752
-		// (get) Token: 0x06000A73 RID: 2675 RVA: 0x00029B04 File Offset: 0x00027D04
+		// Token: 0x17000332 RID: 818
+		// (get) Token: 0x06000B99 RID: 2969 RVA: 0x0002D880 File Offset: 0x0002BA80
 		public bool IsHealthPoints
 		{
 			get
@@ -547,8 +547,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 			}
 		}
 
-		// Token: 0x170002F1 RID: 753
-		// (get) Token: 0x06000A74 RID: 2676 RVA: 0x00029B10 File Offset: 0x00027D10
+		// Token: 0x17000333 RID: 819
+		// (get) Token: 0x06000B9A RID: 2970 RVA: 0x0002D88C File Offset: 0x0002BA8C
 		public bool IsAllHealthPoints
 		{
 			get
@@ -557,8 +557,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 			}
 		}
 
-		// Token: 0x170002F2 RID: 754
-		// (get) Token: 0x06000A75 RID: 2677 RVA: 0x00029B1C File Offset: 0x00027D1C
+		// Token: 0x17000334 RID: 820
+		// (get) Token: 0x06000B9B RID: 2971 RVA: 0x0002D898 File Offset: 0x0002BA98
 		public bool Specified
 		{
 			get
@@ -567,8 +567,8 @@ public class TakeDamage : IDLocal, IServerSaveable
 			}
 		}
 
-		// Token: 0x170002F3 RID: 755
-		// (get) Token: 0x06000A76 RID: 2678 RVA: 0x00029B2C File Offset: 0x00027D2C
+		// Token: 0x17000335 RID: 821
+		// (get) Token: 0x06000B9C RID: 2972 RVA: 0x0002D8A8 File Offset: 0x0002BAA8
 		public object BoxedValue
 		{
 			get
@@ -577,37 +577,37 @@ public class TakeDamage : IDLocal, IServerSaveable
 			}
 		}
 
-		// Token: 0x06000A77 RID: 2679 RVA: 0x00029B54 File Offset: 0x00027D54
+		// Token: 0x06000B9D RID: 2973 RVA: 0x0002D8D0 File Offset: 0x0002BAD0
 		public override string ToString()
 		{
 			return string.Format("[{0}:{1}]", this.Unit, this.BoxedValue);
 		}
 
-		// Token: 0x06000A78 RID: 2680 RVA: 0x00029B74 File Offset: 0x00027D74
-		public static implicit operator TakeDamage.Quantity(int HealthPoints)
+		// Token: 0x06000B9E RID: 2974 RVA: 0x0002D8F0 File Offset: 0x0002BAF0
+		public static implicit operator global::TakeDamage.Quantity(int HealthPoints)
 		{
-			return new TakeDamage.Quantity((HealthPoints != 0) ? TakeDamage.Unit.HealthPoints : TakeDamage.Unit.Unspecified, null, (float)((HealthPoints >= 0) ? HealthPoints : (-(float)HealthPoints)));
+			return new global::TakeDamage.Quantity((HealthPoints != 0) ? global::TakeDamage.Unit.HealthPoints : global::TakeDamage.Unit.Unspecified, null, (float)((HealthPoints >= 0) ? HealthPoints : (-(float)HealthPoints)));
 		}
 
-		// Token: 0x06000A79 RID: 2681 RVA: 0x00029B9C File Offset: 0x00027D9C
-		public static implicit operator TakeDamage.Quantity(float HealthPoints)
+		// Token: 0x06000B9F RID: 2975 RVA: 0x0002D918 File Offset: 0x0002BB18
+		public static implicit operator global::TakeDamage.Quantity(float HealthPoints)
 		{
-			return new TakeDamage.Quantity((HealthPoints != 0f) ? ((!float.IsInfinity(HealthPoints)) ? TakeDamage.Unit.HealthPoints : TakeDamage.Unit.AllHealth) : TakeDamage.Unit.Unspecified, null, HealthPoints);
+			return new global::TakeDamage.Quantity((HealthPoints != 0f) ? ((!float.IsInfinity(HealthPoints)) ? global::TakeDamage.Unit.HealthPoints : global::TakeDamage.Unit.AllHealth) : global::TakeDamage.Unit.Unspecified, null, HealthPoints);
 		}
 
-		// Token: 0x06000A7A RID: 2682 RVA: 0x00029BD4 File Offset: 0x00027DD4
-		public static implicit operator TakeDamage.Quantity(DamageTypeList DamageTypeList)
+		// Token: 0x06000BA0 RID: 2976 RVA: 0x0002D950 File Offset: 0x0002BB50
+		public static implicit operator global::TakeDamage.Quantity(global::DamageTypeList DamageTypeList)
 		{
-			return new TakeDamage.Quantity((!object.ReferenceEquals(DamageTypeList, null)) ? TakeDamage.Unit.List : TakeDamage.Unit.Unspecified, DamageTypeList, 0f);
+			return new global::TakeDamage.Quantity((!object.ReferenceEquals(DamageTypeList, null)) ? global::TakeDamage.Unit.List : global::TakeDamage.Unit.Unspecified, DamageTypeList, 0f);
 		}
 
-		// Token: 0x040006CD RID: 1741
-		public readonly TakeDamage.Unit Unit;
+		// Token: 0x040007DC RID: 2012
+		public readonly global::TakeDamage.Unit Unit;
 
-		// Token: 0x040006CE RID: 1742
+		// Token: 0x040007DD RID: 2013
 		internal readonly float value;
 
-		// Token: 0x040006CF RID: 1743
-		internal readonly DamageTypeList list;
+		// Token: 0x040007DE RID: 2014
+		internal readonly global::DamageTypeList list;
 	}
 }

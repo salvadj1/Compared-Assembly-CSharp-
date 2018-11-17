@@ -3,30 +3,30 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000051 RID: 81
+// Token: 0x02000063 RID: 99
 public class EnvironmentControlCenter : NetBehaviour
 {
-	// Token: 0x060002BD RID: 701 RVA: 0x0000E5B4 File Offset: 0x0000C7B4
+	// Token: 0x0600032F RID: 815 RVA: 0x0000FB5C File Offset: 0x0000DD5C
 	protected void Awake()
 	{
-		EnvironmentControlCenter.Singleton = this;
+		global::EnvironmentControlCenter.Singleton = this;
 	}
 
-	// Token: 0x060002BE RID: 702 RVA: 0x0000E5BC File Offset: 0x0000C7BC
+	// Token: 0x06000330 RID: 816 RVA: 0x0000FB64 File Offset: 0x0000DD64
 	private void OnDestroy()
 	{
-		if (EnvironmentControlCenter.Singleton == this)
+		if (global::EnvironmentControlCenter.Singleton == this)
 		{
-			EnvironmentControlCenter.Singleton = null;
+			global::EnvironmentControlCenter.Singleton = null;
 		}
 	}
 
-	// Token: 0x060002BF RID: 703 RVA: 0x0000E5D4 File Offset: 0x0000C7D4
+	// Token: 0x06000331 RID: 817 RVA: 0x0000FB7C File Offset: 0x0000DD7C
 	[RPC]
 	private void CL_UpdateSkyState(BitStream stream)
 	{
-		env.daylength = stream.Read<float>(new object[0]);
-		env.nightlength = stream.Read<float>(new object[0]);
+		global::env.daylength = stream.Read<float>(new object[0]);
+		global::env.nightlength = stream.Read<float>(new object[0]);
 		this.sky.Cycle.MoonPhase = stream.Read<float>(new object[0]);
 		this.sky.Components.Animation.CloudUV = stream.Read<Vector4>(new object[0]);
 		this.sky.Cycle.Year = stream.Read<int>(new object[0]);
@@ -39,13 +39,13 @@ public class EnvironmentControlCenter : NetBehaviour
 		}
 	}
 
-	// Token: 0x060002C0 RID: 704 RVA: 0x0000E6F0 File Offset: 0x0000C8F0
+	// Token: 0x06000332 RID: 818 RVA: 0x0000FC98 File Offset: 0x0000DE98
 	public bool IsNight()
 	{
 		return this.sky && this.sky.IsNight;
 	}
 
-	// Token: 0x060002C1 RID: 705 RVA: 0x0000E710 File Offset: 0x0000C910
+	// Token: 0x06000333 RID: 819 RVA: 0x0000FCB8 File Offset: 0x0000DEB8
 	public float GetTime()
 	{
 		if (this.sky == null)
@@ -55,21 +55,21 @@ public class EnvironmentControlCenter : NetBehaviour
 		return this.sky.Cycle.Hour;
 	}
 
-	// Token: 0x060002C2 RID: 706 RVA: 0x0000E73C File Offset: 0x0000C93C
+	// Token: 0x06000334 RID: 820 RVA: 0x0000FCE4 File Offset: 0x0000DEE4
 	protected void Update()
 	{
 		if (this.sky == null)
 		{
-			this.sky = (TOD_Sky)Object.FindObjectOfType(typeof(TOD_Sky));
+			this.sky = (global::TOD_Sky)Object.FindObjectOfType(typeof(global::TOD_Sky));
 			if (this.sky == null)
 			{
 				return;
 			}
 		}
-		float num = env.daylength * 60f;
+		float num = global::env.daylength * 60f;
 		if (this.sky.IsNight)
 		{
-			num = env.nightlength * 60f;
+			num = global::env.nightlength * 60f;
 		}
 		float num2 = num / 24f;
 		float num3 = Time.deltaTime / num2;
@@ -100,9 +100,9 @@ public class EnvironmentControlCenter : NetBehaviour
 		}
 	}
 
-	// Token: 0x040001B2 RID: 434
-	public static EnvironmentControlCenter Singleton;
+	// Token: 0x04000214 RID: 532
+	public static global::EnvironmentControlCenter Singleton;
 
-	// Token: 0x040001B3 RID: 435
-	private TOD_Sky sky;
+	// Token: 0x04000215 RID: 533
+	private global::TOD_Sky sky;
 }

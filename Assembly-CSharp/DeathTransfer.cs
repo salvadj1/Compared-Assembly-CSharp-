@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200009C RID: 156
-public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventReceiver
+// Token: 0x020000AF RID: 175
+public sealed class DeathTransfer : global::IDLocalCharacterAddon, global::IInterpTimedEventReceiver
 {
-	// Token: 0x06000344 RID: 836 RVA: 0x00010398 File Offset: 0x0000E598
-	public DeathTransfer() : this((IDLocalCharacterAddon.AddonFlags)0)
+	// Token: 0x060003BC RID: 956 RVA: 0x00011B88 File Offset: 0x0000FD88
+	public DeathTransfer() : this((global::IDLocalCharacterAddon.AddonFlags)0)
 	{
 	}
 
-	// Token: 0x06000345 RID: 837 RVA: 0x000103A4 File Offset: 0x0000E5A4
-	protected DeathTransfer(IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
+	// Token: 0x060003BD RID: 957 RVA: 0x00011B94 File Offset: 0x0000FD94
+	protected DeathTransfer(global::IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
 	{
 	}
 
-	// Token: 0x06000346 RID: 838 RVA: 0x000103B0 File Offset: 0x0000E5B0
-	void IInterpTimedEventReceiver.OnInterpTimedEvent()
+	// Token: 0x060003BE RID: 958 RVA: 0x00011BA0 File Offset: 0x0000FDA0
+	void global::IInterpTimedEventReceiver.OnInterpTimedEvent()
 	{
-		string tag = InterpTimedEvent.Tag;
+		string tag = global::InterpTimedEvent.Tag;
 		if (tag != null)
 		{
-			if (DeathTransfer.<>f__switch$map3 == null)
+			if (global::DeathTransfer.<>f__switch$map3 == null)
 			{
-				DeathTransfer.<>f__switch$map3 = new Dictionary<string, int>(2)
+				global::DeathTransfer.<>f__switch$map3 = new Dictionary<string, int>(2)
 				{
 					{
 						"ClientLocalDeath",
@@ -37,7 +37,7 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 				};
 			}
 			int num;
-			if (DeathTransfer.<>f__switch$map3.TryGetValue(tag, out num))
+			if (global::DeathTransfer.<>f__switch$map3.TryGetValue(tag, out num))
 			{
 				if (num == 0)
 				{
@@ -68,23 +68,23 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 				}
 			}
 		}
-		InterpTimedEvent.MarkUnhandled();
+		global::InterpTimedEvent.MarkUnhandled();
 	}
 
-	// Token: 0x06000347 RID: 839 RVA: 0x000104A0 File Offset: 0x0000E6A0
-	private Ragdoll CreateRagdoll()
+	// Token: 0x060003BF RID: 959 RVA: 0x00011C90 File Offset: 0x0000FE90
+	private global::Ragdoll CreateRagdoll()
 	{
-		CharacterRagdollTrait trait = base.GetTrait<CharacterRagdollTrait>();
+		global::CharacterRagdollTrait trait = base.GetTrait<global::CharacterRagdollTrait>();
 		if (trait)
 		{
 			GameObject gameObject = Object.Instantiate(trait.ragdollPrefab, base.transform.position, base.transform.rotation) as GameObject;
-			Ragdoll component = gameObject.GetComponent<Ragdoll>();
+			global::Ragdoll component = gameObject.GetComponent<global::Ragdoll>();
 			component.sourceMain = base.idMain;
 			this._ragdollInstance = gameObject;
 			Object.Destroy(gameObject, 80f);
 			this.deathShot.LinkRagdoll(base.transform, gameObject);
-			ArmorModelRenderer local = base.GetLocal<ArmorModelRenderer>();
-			ArmorModelRenderer local2 = component.GetLocal<ArmorModelRenderer>();
+			global::ArmorModelRenderer local = base.GetLocal<global::ArmorModelRenderer>();
+			global::ArmorModelRenderer local2 = component.GetLocal<global::ArmorModelRenderer>();
 			if (local && local2)
 			{
 				local2.BindArmorModels(local.GetArmorModelMemberMapCopy());
@@ -94,11 +94,11 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 		return null;
 	}
 
-	// Token: 0x06000348 RID: 840 RVA: 0x00010554 File Offset: 0x0000E754
-	private Ragdoll DeathRagdoll()
+	// Token: 0x060003C0 RID: 960 RVA: 0x00011D44 File Offset: 0x0000FF44
+	private global::Ragdoll DeathRagdoll()
 	{
-		Ragdoll result = this.CreateRagdoll();
-		PlayerProxyTest component = base.GetComponent<PlayerProxyTest>();
+		global::Ragdoll result = this.CreateRagdoll();
+		global::PlayerProxyTest component = base.GetComponent<global::PlayerProxyTest>();
 		if (component.body)
 		{
 			component.body.SetActive(false);
@@ -106,19 +106,19 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 		return result;
 	}
 
-	// Token: 0x06000349 RID: 841 RVA: 0x0001058C File Offset: 0x0000E78C
-	private void Client_OnKilledShared(bool killedBy, Character attacker, ref NetworkMessageInfo info)
+	// Token: 0x060003C1 RID: 961 RVA: 0x00011D7C File Offset: 0x0000FF7C
+	private void Client_OnKilledShared(bool killedBy, global::Character attacker, ref uLink.NetworkMessageInfo info)
 	{
-		AudioClipArray death = base.GetTrait<CharacterSoundsTrait>().death;
+		global::AudioClipArray death = base.GetTrait<global::CharacterSoundsTrait>().death;
 		AudioClip clip = death[Random.Range(0, death.Length)];
 		clip.Play(base.transform.position, 1f, 1f, 10f);
 		bool localControlled = base.localControlled;
 		if (localControlled)
 		{
-			base.rposLimitFlags = (RPOSLimitFlags.KeepOff | RPOSLimitFlags.HideInventory | RPOSLimitFlags.HideContext | RPOSLimitFlags.HideSprites);
-			DeathScreen.Show();
+			base.rposLimitFlags = (global::RPOSLimitFlags.KeepOff | global::RPOSLimitFlags.HideInventory | global::RPOSLimitFlags.HideContext | global::RPOSLimitFlags.HideSprites);
+			global::DeathScreen.Show();
 		}
-		BaseHitBox remote = base.idMain.GetRemote<BaseHitBox>();
+		global::BaseHitBox remote = base.idMain.GetRemote<global::BaseHitBox>();
 		if (remote)
 		{
 			remote.collider.enabled = false;
@@ -126,7 +126,7 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 		bool flag;
 		if (killedBy && attacker)
 		{
-			Controllable controllable = attacker.controllable;
+			global::Controllable controllable = attacker.controllable;
 			flag = (controllable && controllable.localPlayerControlled);
 		}
 		else
@@ -143,35 +143,35 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 					collider.enabled = false;
 				}
 			}
-			InterpTimedEvent.Queue(this, "RAG", ref info);
-			NetCull.DontDestroyWithNetwork(this);
+			global::InterpTimedEvent.Queue(this, "RAG", ref info);
+			global::NetCull.DontDestroyWithNetwork(this);
 		}
 		else
 		{
-			InterpTimedEvent.Queue(this, "ClientLocalDeath", ref info);
+			global::InterpTimedEvent.Queue(this, "ClientLocalDeath", ref info);
 			if (localControlled)
 			{
-				InterpTimedEvent.Clear(true);
+				global::InterpTimedEvent.Clear(true);
 			}
 			else
 			{
-				InterpTimedEvent.Remove(this, true);
+				global::InterpTimedEvent.Remove(this, true);
 			}
 		}
 	}
 
-	// Token: 0x0600034A RID: 842 RVA: 0x000106E4 File Offset: 0x0000E8E4
+	// Token: 0x060003C2 RID: 962 RVA: 0x00011ED4 File Offset: 0x000100D4
 	private void ClientLocalDeath()
 	{
-		Ragdoll ragdoll = this.DeathRagdoll();
+		global::Ragdoll ragdoll = this.DeathRagdoll();
 		if (base.localControlled)
 		{
-			if (!actor.forceThirdPerson)
+			if (!global::actor.forceThirdPerson)
 			{
-				CameraMount componentInChildren = base.GetComponentInChildren<CameraMount>();
+				global::CameraMount componentInChildren = base.GetComponentInChildren<global::CameraMount>();
 				if (componentInChildren && componentInChildren.open)
 				{
-					RagdollTransferInfoProvider ragdollTransferInfoProvider = base.controller as RagdollTransferInfoProvider;
+					global::RagdollTransferInfoProvider ragdollTransferInfoProvider = base.controller as global::RagdollTransferInfoProvider;
 					Transform transform;
 					bool flag;
 					if (ragdollTransferInfoProvider != null)
@@ -198,10 +198,10 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 						vector.y += 0.08f;
 						Vector3 vector2 = transform.TransformPoint(vector);
 						ragdoll.origin += vector2 - transform.position;
-						CameraMount cameraMount = CameraMount.CreateTemporaryCameraMount(componentInChildren, transform);
+						global::CameraMount cameraMount = global::CameraMount.CreateTemporaryCameraMount(componentInChildren, transform);
 						cameraMount.camera.nearClipPlane = 0.02f;
 					}
-					ArmorModelRenderer local = ragdoll.GetLocal<ArmorModelRenderer>();
+					global::ArmorModelRenderer local = ragdoll.GetLocal<global::ArmorModelRenderer>();
 					if (local)
 					{
 						local.enabled = false;
@@ -212,63 +212,63 @@ public sealed class DeathTransfer : IDLocalCharacterAddon, IInterpTimedEventRece
 					Debug.Log("No camera?");
 				}
 			}
-			Object.Destroy(base.GetComponent<LocalDamageDisplay>());
+			Object.Destroy(base.GetComponent<global::LocalDamageDisplay>());
 		}
 	}
 
-	// Token: 0x0600034B RID: 843 RVA: 0x00010838 File Offset: 0x0000EA38
-	private void Client_ShotShared(ref Vector3 point, ref Angle2 normal, byte bodyPart, ref NetworkMessageInfo info)
+	// Token: 0x060003C3 RID: 963 RVA: 0x00012028 File Offset: 0x00010228
+	private void Client_ShotShared(ref Vector3 point, ref global::Angle2 normal, byte bodyPart, ref uLink.NetworkMessageInfo info)
 	{
 		this.deathShot.Set(base.idMain.hitBoxSystem, ref point, ref normal, bodyPart, ref info);
 	}
 
-	// Token: 0x0600034C RID: 844 RVA: 0x00010860 File Offset: 0x0000EA60
+	// Token: 0x060003C4 RID: 964 RVA: 0x00012050 File Offset: 0x00010250
 	[RPC]
-	protected void Client_OnKilled(NetworkMessageInfo info)
+	protected void Client_OnKilled(uLink.NetworkMessageInfo info)
 	{
 		this.Client_OnKilledShared(false, null, ref info);
 	}
 
-	// Token: 0x0600034D RID: 845 RVA: 0x0001086C File Offset: 0x0000EA6C
+	// Token: 0x060003C5 RID: 965 RVA: 0x0001205C File Offset: 0x0001025C
 	[RPC]
-	protected void Client_OnKilledBy(NetworkViewID attackerViewID, NetworkMessageInfo info)
+	protected void Client_OnKilledBy(uLink.NetworkViewID attackerViewID, uLink.NetworkMessageInfo info)
 	{
-		NetworkView networkView = NetworkView.Find(attackerViewID);
+		uLink.NetworkView networkView = uLink.NetworkView.Find(attackerViewID);
 		if (!networkView)
 		{
 			this.Client_OnKilledShared(false, null, ref info);
 		}
 		else
 		{
-			Character component = networkView.GetComponent<Character>();
+			global::Character component = networkView.GetComponent<global::Character>();
 			this.Client_OnKilledShared(component, component, ref info);
 		}
 	}
 
-	// Token: 0x0600034E RID: 846 RVA: 0x000108B0 File Offset: 0x0000EAB0
+	// Token: 0x060003C6 RID: 966 RVA: 0x000120A0 File Offset: 0x000102A0
 	[RPC]
-	protected void Client_OnKilledShot(Vector3 point, Angle2 normal, byte bodyPart, NetworkMessageInfo info)
+	protected void Client_OnKilledShot(Vector3 point, global::Angle2 normal, byte bodyPart, uLink.NetworkMessageInfo info)
 	{
 		this.Client_ShotShared(ref point, ref normal, bodyPart, ref info);
 		this.Client_OnKilled(info);
 	}
 
-	// Token: 0x0600034F RID: 847 RVA: 0x000108C8 File Offset: 0x0000EAC8
+	// Token: 0x060003C7 RID: 967 RVA: 0x000120B8 File Offset: 0x000102B8
 	[RPC]
-	protected void Client_OnKilledShotBy(NetworkViewID attackerViewID, Vector3 point, Angle2 normal, byte bodyPart, NetworkMessageInfo info)
+	protected void Client_OnKilledShotBy(uLink.NetworkViewID attackerViewID, Vector3 point, global::Angle2 normal, byte bodyPart, uLink.NetworkMessageInfo info)
 	{
 		this.Client_ShotShared(ref point, ref normal, bodyPart, ref info);
 		this.Client_OnKilledBy(attackerViewID, info);
 	}
 
-	// Token: 0x040002BC RID: 700
-	private const IDLocalCharacterAddon.AddonFlags DeathTransferAddonFlags = (IDLocalCharacterAddon.AddonFlags)0;
+	// Token: 0x04000327 RID: 807
+	private const global::IDLocalCharacterAddon.AddonFlags DeathTransferAddonFlags = (global::IDLocalCharacterAddon.AddonFlags)0;
 
-	// Token: 0x040002BD RID: 701
+	// Token: 0x04000328 RID: 808
 	[NonSerialized]
-	private QueuedShotDeathInfo deathShot;
+	private global::QueuedShotDeathInfo deathShot;
 
-	// Token: 0x040002BE RID: 702
+	// Token: 0x04000329 RID: 809
 	[NonSerialized]
 	private GameObject _ragdollInstance;
 }

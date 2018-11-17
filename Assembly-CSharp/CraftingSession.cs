@@ -1,11 +1,11 @@
 ﻿using System;
 
-// Token: 0x0200051A RID: 1306
+// Token: 0x020005D7 RID: 1495
 public struct CraftingSession
 {
-	// Token: 0x170009B2 RID: 2482
-	// (get) Token: 0x06002BF8 RID: 11256 RVA: 0x000AFAE4 File Offset: 0x000ADCE4
-	// (set) Token: 0x06002BF9 RID: 11257 RVA: 0x000AFAEC File Offset: 0x000ADCEC
+	// Token: 0x17000A26 RID: 2598
+	// (get) Token: 0x06002FB8 RID: 12216 RVA: 0x000B7B80 File Offset: 0x000B5D80
+	// (set) Token: 0x06002FB9 RID: 12217 RVA: 0x000B7B88 File Offset: 0x000B5D88
 	public float progressPerSec
 	{
 		get
@@ -18,8 +18,8 @@ public struct CraftingSession
 		}
 	}
 
-	// Token: 0x170009B3 RID: 2483
-	// (get) Token: 0x06002BFA RID: 11258 RVA: 0x000AFAF8 File Offset: 0x000ADCF8
+	// Token: 0x17000A27 RID: 2599
+	// (get) Token: 0x06002FBA RID: 12218 RVA: 0x000B7B94 File Offset: 0x000B5D94
 	public float remainingSeconds
 	{
 		get
@@ -28,8 +28,8 @@ public struct CraftingSession
 		}
 	}
 
-	// Token: 0x170009B4 RID: 2484
-	// (get) Token: 0x06002BFB RID: 11259 RVA: 0x000AFB10 File Offset: 0x000ADD10
+	// Token: 0x17000A28 RID: 2600
+	// (get) Token: 0x06002FBB RID: 12219 RVA: 0x000B7BAC File Offset: 0x000B5DAC
 	public double percentComplete
 	{
 		get
@@ -42,12 +42,12 @@ public struct CraftingSession
 		}
 	}
 
-	// Token: 0x06002BFC RID: 11260 RVA: 0x000AFB38 File Offset: 0x000ADD38
-	public bool Restart(Inventory inventory, int amount, BlueprintDataBlock blueprint, ulong startTimeMillis)
+	// Token: 0x06002FBC RID: 12220 RVA: 0x000B7BD4 File Offset: 0x000B5DD4
+	public bool Restart(global::Inventory inventory, int amount, global::BlueprintDataBlock blueprint, ulong startTimeMillis)
 	{
 		if (!blueprint || !blueprint.CanWork(amount, inventory))
 		{
-			this = default(CraftingSession);
+			this = default(global::CraftingSession);
 			return false;
 		}
 		this.blueprint = blueprint;
@@ -60,43 +60,43 @@ public struct CraftingSession
 		return true;
 	}
 
-	// Token: 0x0400180A RID: 6154
+	// Token: 0x040019D6 RID: 6614
 	[NonSerialized]
-	public BlueprintDataBlock blueprint;
+	public global::BlueprintDataBlock blueprint;
 
-	// Token: 0x0400180B RID: 6155
+	// Token: 0x040019D7 RID: 6615
 	[NonSerialized]
 	public float startTime;
 
-	// Token: 0x0400180C RID: 6156
+	// Token: 0x040019D8 RID: 6616
 	[NonSerialized]
 	public float duration;
 
-	// Token: 0x0400180D RID: 6157
+	// Token: 0x040019D9 RID: 6617
 	[NonSerialized]
 	public float progressSeconds;
 
-	// Token: 0x0400180E RID: 6158
+	// Token: 0x040019DA RID: 6618
 	[NonSerialized]
 	public float _progressPerSec;
 
-	// Token: 0x0400180F RID: 6159
+	// Token: 0x040019DB RID: 6619
 	[NonSerialized]
 	public ulong startTimeMillis;
 
-	// Token: 0x04001810 RID: 6160
+	// Token: 0x040019DC RID: 6620
 	[NonSerialized]
 	public ulong durationMillis;
 
-	// Token: 0x04001811 RID: 6161
+	// Token: 0x040019DD RID: 6621
 	[NonSerialized]
 	public ulong secondsCraftingFor;
 
-	// Token: 0x04001812 RID: 6162
+	// Token: 0x040019DE RID: 6622
 	[NonSerialized]
 	public int amount;
 
-	// Token: 0x04001813 RID: 6163
+	// Token: 0x040019DF RID: 6623
 	[NonSerialized]
 	public bool inProgress;
 }

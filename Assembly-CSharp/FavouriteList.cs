@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-// Token: 0x02000403 RID: 1027
+// Token: 0x020004B4 RID: 1204
 public static class FavouriteList
 {
-	// Token: 0x060025AB RID: 9643 RVA: 0x00090C20 File Offset: 0x0008EE20
+	// Token: 0x06002923 RID: 10531 RVA: 0x00096A58 File Offset: 0x00094C58
 	public static void Add(string strName)
 	{
-		if (FavouriteList.Contains(strName))
+		if (global::FavouriteList.Contains(strName))
 		{
 			return;
 		}
@@ -17,22 +17,22 @@ public static class FavouriteList
 		{
 			return;
 		}
-		FavouriteList.faveList.Add(strName);
+		global::FavouriteList.faveList.Add(strName);
 	}
 
-	// Token: 0x060025AC RID: 9644 RVA: 0x00090C54 File Offset: 0x0008EE54
+	// Token: 0x06002924 RID: 10532 RVA: 0x00096A8C File Offset: 0x00094C8C
 	public static bool Remove(string strName)
 	{
-		return FavouriteList.Contains(strName) && FavouriteList.faveList.Remove(strName);
+		return global::FavouriteList.Contains(strName) && global::FavouriteList.faveList.Remove(strName);
 	}
 
-	// Token: 0x060025AD RID: 9645 RVA: 0x00090C70 File Offset: 0x0008EE70
+	// Token: 0x06002925 RID: 10533 RVA: 0x00096AA8 File Offset: 0x00094CA8
 	public static bool Contains(string strName)
 	{
-		return FavouriteList.faveList.Contains(strName);
+		return global::FavouriteList.faveList.Contains(strName);
 	}
 
-	// Token: 0x060025AE RID: 9646 RVA: 0x00090C80 File Offset: 0x0008EE80
+	// Token: 0x06002926 RID: 10534 RVA: 0x00096AB8 File Offset: 0x00094CB8
 	public static void Save()
 	{
 		string text = string.Empty;
@@ -40,7 +40,7 @@ public static class FavouriteList
 		{
 			Directory.CreateDirectory("cfg");
 		}
-		foreach (string text2 in FavouriteList.faveList)
+		foreach (string text2 in global::FavouriteList.faveList)
 		{
 			text = text + "serverfavourite.add \"" + text2.ToString() + "\"\r\n";
 			Debug.Log("serverfavourite.add \"" + text2.ToString() + "\"\r\n");
@@ -49,10 +49,10 @@ public static class FavouriteList
 		Debug.Log(text);
 	}
 
-	// Token: 0x060025AF RID: 9647 RVA: 0x00090D40 File Offset: 0x0008EF40
+	// Token: 0x06002927 RID: 10535 RVA: 0x00096B78 File Offset: 0x00094D78
 	public static void Load()
 	{
-		FavouriteList.Clear();
+		global::FavouriteList.Clear();
 		if (!File.Exists("cfg/favourites.cfg"))
 		{
 			return;
@@ -63,15 +63,15 @@ public static class FavouriteList
 			return;
 		}
 		Debug.Log("Running cfg/favourites.cfg");
-		ConsoleSystem.RunFile(text);
+		global::ConsoleSystem.RunFile(text);
 	}
 
-	// Token: 0x060025B0 RID: 9648 RVA: 0x00090D8C File Offset: 0x0008EF8C
+	// Token: 0x06002928 RID: 10536 RVA: 0x00096BC4 File Offset: 0x00094DC4
 	public static void Clear()
 	{
-		FavouriteList.faveList.Clear();
+		global::FavouriteList.faveList.Clear();
 	}
 
-	// Token: 0x04001240 RID: 4672
+	// Token: 0x040013BD RID: 5053
 	private static List<string> faveList = new List<string>();
 }

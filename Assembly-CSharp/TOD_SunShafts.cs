@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000838 RID: 2104
+// Token: 0x0200092D RID: 2349
 [RequireComponent(typeof(Camera))]
-[ExecuteInEditMode]
 [AddComponentMenu("Time of Day/Camera Sun Shafts")]
-internal class TOD_SunShafts : TOD_PostEffectsBase
+[ExecuteInEditMode]
+internal class TOD_SunShafts : global::TOD_PostEffectsBase
 {
-	// Token: 0x06004AB2 RID: 19122 RVA: 0x00145C98 File Offset: 0x00143E98
+	// Token: 0x06004F6D RID: 20333 RVA: 0x0014FBFC File Offset: 0x0014DDFC
 	protected void OnDisable()
 	{
 		if (this.sunShaftsMaterial)
@@ -20,7 +20,7 @@ internal class TOD_SunShafts : TOD_PostEffectsBase
 		}
 	}
 
-	// Token: 0x06004AB3 RID: 19123 RVA: 0x00145CDC File Offset: 0x00143EDC
+	// Token: 0x06004F6E RID: 20334 RVA: 0x0014FC40 File Offset: 0x0014DE40
 	protected override bool CheckResources()
 	{
 		base.CheckSupport(this.UseDepthTexture);
@@ -33,7 +33,7 @@ internal class TOD_SunShafts : TOD_PostEffectsBase
 		return this.isSupported;
 	}
 
-	// Token: 0x06004AB4 RID: 19124 RVA: 0x00145D40 File Offset: 0x00143F40
+	// Token: 0x06004F6F RID: 20335 RVA: 0x0014FCA4 File Offset: 0x0014DEA4
 	protected void OnRenderImage(RenderTexture source, RenderTexture destination)
 	{
 		if (!this.CheckResources() || !this.sky)
@@ -104,74 +104,74 @@ internal class TOD_SunShafts : TOD_PostEffectsBase
 		RenderTexture.ReleaseTemporary(temporary2);
 	}
 
-	// Token: 0x04002B96 RID: 11158
+	// Token: 0x04002DE4 RID: 11748
 	private const int PASS_DEPTH = 2;
 
-	// Token: 0x04002B97 RID: 11159
+	// Token: 0x04002DE5 RID: 11749
 	private const int PASS_NODEPTH = 3;
 
-	// Token: 0x04002B98 RID: 11160
+	// Token: 0x04002DE6 RID: 11750
 	private const int PASS_RADIAL = 1;
 
-	// Token: 0x04002B99 RID: 11161
+	// Token: 0x04002DE7 RID: 11751
 	private const int PASS_SCREEN = 0;
 
-	// Token: 0x04002B9A RID: 11162
+	// Token: 0x04002DE8 RID: 11752
 	private const int PASS_ADD = 4;
 
-	// Token: 0x04002B9B RID: 11163
-	public TOD_Sky sky;
+	// Token: 0x04002DE9 RID: 11753
+	public global::TOD_Sky sky;
 
-	// Token: 0x04002B9C RID: 11164
+	// Token: 0x04002DEA RID: 11754
 	public TOD_SunShafts.SunShaftsResolution Resolution = TOD_SunShafts.SunShaftsResolution.Normal;
 
-	// Token: 0x04002B9D RID: 11165
+	// Token: 0x04002DEB RID: 11755
 	public TOD_SunShafts.SunShaftsBlendMode BlendMode;
 
-	// Token: 0x04002B9E RID: 11166
+	// Token: 0x04002DEC RID: 11756
 	public int RadialBlurIterations = 2;
 
-	// Token: 0x04002B9F RID: 11167
+	// Token: 0x04002DED RID: 11757
 	public float SunShaftBlurRadius = 2f;
 
-	// Token: 0x04002BA0 RID: 11168
+	// Token: 0x04002DEE RID: 11758
 	public float SunShaftIntensity = 1f;
 
-	// Token: 0x04002BA1 RID: 11169
+	// Token: 0x04002DEF RID: 11759
 	public float MaxRadius = 1f;
 
-	// Token: 0x04002BA2 RID: 11170
+	// Token: 0x04002DF0 RID: 11760
 	public bool UseDepthTexture = true;
 
-	// Token: 0x04002BA3 RID: 11171
+	// Token: 0x04002DF1 RID: 11761
 	public Shader SunShaftsShader;
 
-	// Token: 0x04002BA4 RID: 11172
+	// Token: 0x04002DF2 RID: 11762
 	public Shader ScreenClearShader;
 
-	// Token: 0x04002BA5 RID: 11173
+	// Token: 0x04002DF3 RID: 11763
 	private Material sunShaftsMaterial;
 
-	// Token: 0x04002BA6 RID: 11174
+	// Token: 0x04002DF4 RID: 11764
 	private Material screenClearMaterial;
 
-	// Token: 0x02000839 RID: 2105
+	// Token: 0x0200092E RID: 2350
 	public enum SunShaftsResolution
 	{
-		// Token: 0x04002BA8 RID: 11176
+		// Token: 0x04002DF6 RID: 11766
 		Low,
-		// Token: 0x04002BA9 RID: 11177
+		// Token: 0x04002DF7 RID: 11767
 		Normal,
-		// Token: 0x04002BAA RID: 11178
+		// Token: 0x04002DF8 RID: 11768
 		High
 	}
 
-	// Token: 0x0200083A RID: 2106
+	// Token: 0x0200092F RID: 2351
 	public enum SunShaftsBlendMode
 	{
-		// Token: 0x04002BAC RID: 11180
+		// Token: 0x04002DFA RID: 11770
 		Screen,
-		// Token: 0x04002BAD RID: 11181
+		// Token: 0x04002DFB RID: 11771
 		Add
 	}
 }

@@ -1,62 +1,62 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200044C RID: 1100
+// Token: 0x02000502 RID: 1282
 [RequireComponent(typeof(Camera))]
 public class CameraFXPost : MonoBehaviour
 {
-	// Token: 0x0600284C RID: 10316 RVA: 0x0009DF78 File Offset: 0x0009C178
+	// Token: 0x06002BDC RID: 11228 RVA: 0x000A3EF8 File Offset: 0x000A20F8
 	private void OnPreCull()
 	{
-		if (CameraFXPost.lastRenderFrame != Time.renderedFrameCount)
+		if (global::CameraFXPost.lastRenderFrame != Time.renderedFrameCount)
 		{
-			CameraFXPost.lastRenderFrame = Time.renderedFrameCount;
-			CameraFXPost.didPostRender = false;
-			if (CameraFXPost.cameraFX)
+			global::CameraFXPost.lastRenderFrame = Time.renderedFrameCount;
+			global::CameraFXPost.didPostRender = false;
+			if (global::CameraFXPost.cameraFX)
 			{
-				CameraFXPost.cameraFX.PostPreCull();
-				if (CameraFXPost.mountedCamera)
+				global::CameraFXPost.cameraFX.PostPreCull();
+				if (global::CameraFXPost.mountedCamera)
 				{
-					CameraFXPost.mountedCamera.PreCullEnd(true);
+					global::CameraFXPost.mountedCamera.PreCullEnd(true);
 				}
 			}
-			else if (CameraFXPost.mountedCamera)
+			else if (global::CameraFXPost.mountedCamera)
 			{
-				CameraFXPost.mountedCamera.PreCullEnd(false);
+				global::CameraFXPost.mountedCamera.PreCullEnd(false);
 			}
 			return;
 		}
 	}
 
-	// Token: 0x0600284D RID: 10317 RVA: 0x0009DFFC File Offset: 0x0009C1FC
+	// Token: 0x06002BDD RID: 11229 RVA: 0x000A3F7C File Offset: 0x000A217C
 	private void OnPostRender()
 	{
 		if (this.allowPostRenderCalls)
 		{
-			if (Time.renderedFrameCount != CameraFXPost.lastRenderFrame || CameraFXPost.didPostRender)
+			if (Time.renderedFrameCount != global::CameraFXPost.lastRenderFrame || global::CameraFXPost.didPostRender)
 			{
 				return;
 			}
-			if (CameraFXPost.cameraFX)
+			if (global::CameraFXPost.cameraFX)
 			{
-				CameraFXPost.cameraFX.PostPostRender();
+				global::CameraFXPost.cameraFX.PostPostRender();
 			}
-			CameraFXPost.didPostRender = true;
+			global::CameraFXPost.didPostRender = true;
 		}
 	}
 
-	// Token: 0x04001420 RID: 5152
+	// Token: 0x040015A3 RID: 5539
 	private static int lastRenderFrame = -100;
 
-	// Token: 0x04001421 RID: 5153
+	// Token: 0x040015A4 RID: 5540
 	private static bool didPostRender;
 
-	// Token: 0x04001422 RID: 5154
-	public static CameraFX cameraFX;
+	// Token: 0x040015A5 RID: 5541
+	public static global::CameraFX cameraFX;
 
-	// Token: 0x04001423 RID: 5155
-	public static MountedCamera mountedCamera;
+	// Token: 0x040015A6 RID: 5542
+	public static global::MountedCamera mountedCamera;
 
-	// Token: 0x04001424 RID: 5156
+	// Token: 0x040015A7 RID: 5543
 	public bool allowPostRenderCalls;
 }

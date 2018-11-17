@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020001CA RID: 458
+// Token: 0x020001FB RID: 507
 public struct TimeStringFormatter
 {
-	// Token: 0x06000CF2 RID: 3314 RVA: 0x00032858 File Offset: 0x00030A58
+	// Token: 0x06000E3A RID: 3642 RVA: 0x000368E0 File Offset: 0x00034AE0
 	private TimeStringFormatter(string aDay, string days, string aHour, string hours, string aMinute, string minutes, string aSecond, string seconds, string lessThanASecond)
 	{
 		this.aDay = aDay;
@@ -17,95 +17,95 @@ public struct TimeStringFormatter
 		this.lessThanASecond = lessThanASecond;
 	}
 
-	// Token: 0x06000CF3 RID: 3315 RVA: 0x000328AC File Offset: 0x00030AAC
+	// Token: 0x06000E3B RID: 3643 RVA: 0x00036934 File Offset: 0x00034B34
 	private static string DoMerge(string value)
 	{
 		return value.Replace("{", "{{").Replace("}", "}}").Replace("<ꪻ뮪>", "{0}");
 	}
 
-	// Token: 0x06000CF4 RID: 3316 RVA: 0x000328E8 File Offset: 0x00030AE8
+	// Token: 0x06000E3C RID: 3644 RVA: 0x00036970 File Offset: 0x00034B70
 	private static string Merge(string prefix)
 	{
-		return TimeStringFormatter.DoMerge(prefix ?? string.Empty);
+		return global::TimeStringFormatter.DoMerge(prefix ?? string.Empty);
 	}
 
-	// Token: 0x06000CF5 RID: 3317 RVA: 0x000328FC File Offset: 0x00030AFC
+	// Token: 0x06000E3D RID: 3645 RVA: 0x00036984 File Offset: 0x00034B84
 	private static string Merge(string prefix, string qualifier)
 	{
-		return TimeStringFormatter.DoMerge((prefix ?? string.Empty) + (qualifier ?? string.Empty));
+		return global::TimeStringFormatter.DoMerge((prefix ?? string.Empty) + (qualifier ?? string.Empty));
 	}
 
-	// Token: 0x06000CF6 RID: 3318 RVA: 0x00032930 File Offset: 0x00030B30
+	// Token: 0x06000E3E RID: 3646 RVA: 0x000369B8 File Offset: 0x00034BB8
 	private static string Merge(string prefix, string qualifier, string suffix)
 	{
-		return TimeStringFormatter.DoMerge((prefix ?? string.Empty) + (qualifier ?? string.Empty) + (suffix ?? string.Empty));
+		return global::TimeStringFormatter.DoMerge((prefix ?? string.Empty) + (qualifier ?? string.Empty) + (suffix ?? string.Empty));
 	}
 
-	// Token: 0x06000CF7 RID: 3319 RVA: 0x00032964 File Offset: 0x00030B64
-	public static TimeStringFormatter Define(TimeStringFormatter.Qualifier qualifier)
+	// Token: 0x06000E3F RID: 3647 RVA: 0x000369EC File Offset: 0x00034BEC
+	public static global::TimeStringFormatter Define(global::TimeStringFormatter.Qualifier qualifier)
 	{
-		return new TimeStringFormatter(TimeStringFormatter.Merge(qualifier.aDay), TimeStringFormatter.Merge(qualifier.days), TimeStringFormatter.Merge(qualifier.aHour), TimeStringFormatter.Merge(qualifier.hours), TimeStringFormatter.Merge(qualifier.aMinute), TimeStringFormatter.Merge(qualifier.minutes), TimeStringFormatter.Merge(qualifier.aSecond), TimeStringFormatter.Merge(qualifier.seconds), TimeStringFormatter.Merge(qualifier.lessThanASecond));
+		return new global::TimeStringFormatter(global::TimeStringFormatter.Merge(qualifier.aDay), global::TimeStringFormatter.Merge(qualifier.days), global::TimeStringFormatter.Merge(qualifier.aHour), global::TimeStringFormatter.Merge(qualifier.hours), global::TimeStringFormatter.Merge(qualifier.aMinute), global::TimeStringFormatter.Merge(qualifier.minutes), global::TimeStringFormatter.Merge(qualifier.aSecond), global::TimeStringFormatter.Merge(qualifier.seconds), global::TimeStringFormatter.Merge(qualifier.lessThanASecond));
 	}
 
-	// Token: 0x06000CF8 RID: 3320 RVA: 0x000329E4 File Offset: 0x00030BE4
-	public static TimeStringFormatter Define(string prefix, TimeStringFormatter.Qualifier qualifier)
+	// Token: 0x06000E40 RID: 3648 RVA: 0x00036A6C File Offset: 0x00034C6C
+	public static global::TimeStringFormatter Define(string prefix, global::TimeStringFormatter.Qualifier qualifier)
 	{
 		if (string.IsNullOrEmpty(prefix))
 		{
-			return TimeStringFormatter.Define(qualifier);
+			return global::TimeStringFormatter.Define(qualifier);
 		}
-		return new TimeStringFormatter(TimeStringFormatter.Merge(prefix, qualifier.aDay), TimeStringFormatter.Merge(prefix, qualifier.days), TimeStringFormatter.Merge(prefix, qualifier.aHour), TimeStringFormatter.Merge(prefix, qualifier.hours), TimeStringFormatter.Merge(prefix, qualifier.aMinute), TimeStringFormatter.Merge(prefix, qualifier.minutes), TimeStringFormatter.Merge(prefix, qualifier.aSecond), TimeStringFormatter.Merge(prefix, qualifier.seconds), TimeStringFormatter.Merge(prefix, qualifier.lessThanASecond));
+		return new global::TimeStringFormatter(global::TimeStringFormatter.Merge(prefix, qualifier.aDay), global::TimeStringFormatter.Merge(prefix, qualifier.days), global::TimeStringFormatter.Merge(prefix, qualifier.aHour), global::TimeStringFormatter.Merge(prefix, qualifier.hours), global::TimeStringFormatter.Merge(prefix, qualifier.aMinute), global::TimeStringFormatter.Merge(prefix, qualifier.minutes), global::TimeStringFormatter.Merge(prefix, qualifier.aSecond), global::TimeStringFormatter.Merge(prefix, qualifier.seconds), global::TimeStringFormatter.Merge(prefix, qualifier.lessThanASecond));
 	}
 
-	// Token: 0x06000CF9 RID: 3321 RVA: 0x00032A80 File Offset: 0x00030C80
-	public static TimeStringFormatter Define(TimeStringFormatter.Qualifier qualifier, string suffix)
+	// Token: 0x06000E41 RID: 3649 RVA: 0x00036B08 File Offset: 0x00034D08
+	public static global::TimeStringFormatter Define(global::TimeStringFormatter.Qualifier qualifier, string suffix)
 	{
 		if (string.IsNullOrEmpty(suffix))
 		{
-			return TimeStringFormatter.Define(qualifier);
+			return global::TimeStringFormatter.Define(qualifier);
 		}
-		return new TimeStringFormatter(TimeStringFormatter.Merge(qualifier.aDay, suffix), TimeStringFormatter.Merge(qualifier.days, suffix), TimeStringFormatter.Merge(qualifier.aHour, suffix), TimeStringFormatter.Merge(qualifier.hours, suffix), TimeStringFormatter.Merge(qualifier.aMinute, suffix), TimeStringFormatter.Merge(qualifier.minutes, suffix), TimeStringFormatter.Merge(qualifier.aSecond, suffix), TimeStringFormatter.Merge(qualifier.seconds, suffix), TimeStringFormatter.Merge(qualifier.lessThanASecond, suffix));
+		return new global::TimeStringFormatter(global::TimeStringFormatter.Merge(qualifier.aDay, suffix), global::TimeStringFormatter.Merge(qualifier.days, suffix), global::TimeStringFormatter.Merge(qualifier.aHour, suffix), global::TimeStringFormatter.Merge(qualifier.hours, suffix), global::TimeStringFormatter.Merge(qualifier.aMinute, suffix), global::TimeStringFormatter.Merge(qualifier.minutes, suffix), global::TimeStringFormatter.Merge(qualifier.aSecond, suffix), global::TimeStringFormatter.Merge(qualifier.seconds, suffix), global::TimeStringFormatter.Merge(qualifier.lessThanASecond, suffix));
 	}
 
-	// Token: 0x06000CFA RID: 3322 RVA: 0x00032B1C File Offset: 0x00030D1C
-	public static TimeStringFormatter Define(string prefix, TimeStringFormatter.Qualifier qualifier, string suffix)
+	// Token: 0x06000E42 RID: 3650 RVA: 0x00036BA4 File Offset: 0x00034DA4
+	public static global::TimeStringFormatter Define(string prefix, global::TimeStringFormatter.Qualifier qualifier, string suffix)
 	{
 		if (string.IsNullOrEmpty(suffix))
 		{
 			if (string.IsNullOrEmpty(prefix))
 			{
-				return TimeStringFormatter.Define(qualifier);
+				return global::TimeStringFormatter.Define(qualifier);
 			}
-			return TimeStringFormatter.Define(prefix, qualifier);
+			return global::TimeStringFormatter.Define(prefix, qualifier);
 		}
 		else
 		{
 			if (string.IsNullOrEmpty(prefix))
 			{
-				return TimeStringFormatter.Define(qualifier, suffix);
+				return global::TimeStringFormatter.Define(qualifier, suffix);
 			}
-			return new TimeStringFormatter(TimeStringFormatter.Merge(prefix, qualifier.aDay, suffix), TimeStringFormatter.Merge(prefix, qualifier.days, suffix), TimeStringFormatter.Merge(prefix, qualifier.aHour, suffix), TimeStringFormatter.Merge(prefix, qualifier.hours, suffix), TimeStringFormatter.Merge(prefix, qualifier.aMinute, suffix), TimeStringFormatter.Merge(prefix, qualifier.minutes, suffix), TimeStringFormatter.Merge(prefix, qualifier.aSecond, suffix), TimeStringFormatter.Merge(prefix, qualifier.seconds, suffix), TimeStringFormatter.Merge(prefix, qualifier.lessThanASecond, suffix));
+			return new global::TimeStringFormatter(global::TimeStringFormatter.Merge(prefix, qualifier.aDay, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.days, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.aHour, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.hours, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.aMinute, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.minutes, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.aSecond, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.seconds, suffix), global::TimeStringFormatter.Merge(prefix, qualifier.lessThanASecond, suffix));
 		}
 	}
 
-	// Token: 0x06000CFB RID: 3323 RVA: 0x00032BE4 File Offset: 0x00030DE4
-	public static TimeStringFormatter Define(TimeStringFormatter formatter, string lessThanASecond)
+	// Token: 0x06000E43 RID: 3651 RVA: 0x00036C6C File Offset: 0x00034E6C
+	public static global::TimeStringFormatter Define(global::TimeStringFormatter formatter, string lessThanASecond)
 	{
 		if (!object.ReferenceEquals(lessThanASecond, null))
 		{
-			formatter = new TimeStringFormatter(formatter.aDay, formatter.days, formatter.aHour, formatter.hours, formatter.aMinute, formatter.minutes, formatter.aSecond, formatter.seconds, TimeStringFormatter.Merge(lessThanASecond));
+			formatter = new global::TimeStringFormatter(formatter.aDay, formatter.days, formatter.aHour, formatter.hours, formatter.aMinute, formatter.minutes, formatter.aSecond, formatter.seconds, global::TimeStringFormatter.Merge(lessThanASecond));
 		}
 		return formatter;
 	}
 
-	// Token: 0x06000CFC RID: 3324 RVA: 0x00032C44 File Offset: 0x00030E44
-	public static TimeStringFormatter Define(string prefix, TimeStringFormatter.Qualifier qualifier, string suffix, string lessThanASecond)
+	// Token: 0x06000E44 RID: 3652 RVA: 0x00036CCC File Offset: 0x00034ECC
+	public static global::TimeStringFormatter Define(string prefix, global::TimeStringFormatter.Qualifier qualifier, string suffix, string lessThanASecond)
 	{
-		return TimeStringFormatter.Define(TimeStringFormatter.Define(prefix, qualifier, suffix), lessThanASecond);
+		return global::TimeStringFormatter.Define(global::TimeStringFormatter.Define(prefix, qualifier, suffix), lessThanASecond);
 	}
 
-	// Token: 0x06000CFD RID: 3325 RVA: 0x00032C54 File Offset: 0x00030E54
-	private static double Round(double total, TimeStringFormatter.Rounding rounding, int decimalPlaces, double fancyUnits)
+	// Token: 0x06000E45 RID: 3653 RVA: 0x00036CDC File Offset: 0x00034EDC
+	private static double Round(double total, global::TimeStringFormatter.Rounding rounding, int decimalPlaces, double fancyUnits)
 	{
 		if (total <= 0.0)
 		{
@@ -113,20 +113,20 @@ public struct TimeStringFormatter
 		}
 		switch (rounding)
 		{
-		case TimeStringFormatter.Rounding.Floor:
+		case global::TimeStringFormatter.Rounding.Floor:
 			return Math.Floor(total);
-		case TimeStringFormatter.Rounding.Ceiling:
+		case global::TimeStringFormatter.Rounding.Ceiling:
 			return Math.Ceiling(total);
-		case TimeStringFormatter.Rounding.Round:
+		case global::TimeStringFormatter.Rounding.Round:
 			return Math.Round(total);
-		case TimeStringFormatter.Rounding.Decimal:
+		case global::TimeStringFormatter.Rounding.Decimal:
 			fancyUnits = 1.0;
 			decimalPlaces = 0;
 			break;
-		case TimeStringFormatter.Rounding.RoundedDecimal:
+		case global::TimeStringFormatter.Rounding.RoundedDecimal:
 			fancyUnits = 1.0;
 			break;
-		case TimeStringFormatter.Rounding.FancyDecimal:
+		case global::TimeStringFormatter.Rounding.FancyDecimal:
 			decimalPlaces = 0;
 			break;
 		}
@@ -138,17 +138,17 @@ public struct TimeStringFormatter
 		return num + Math.Floor((total - num) * fancyUnits * ((double)decimalPlaces * 10.0)) / (10.0 * (double)decimalPlaces);
 	}
 
-	// Token: 0x06000CFE RID: 3326 RVA: 0x00032D20 File Offset: 0x00030F20
+	// Token: 0x06000E46 RID: 3654 RVA: 0x00036DA8 File Offset: 0x00034FA8
 	public string GetFormattingString(TimeSpan timePassed)
 	{
-		return this.GetFormattingString(timePassed, TimeStringFormatter.Rounding.Floor);
+		return this.GetFormattingString(timePassed, global::TimeStringFormatter.Rounding.Floor);
 	}
 
-	// Token: 0x06000CFF RID: 3327 RVA: 0x00032D2C File Offset: 0x00030F2C
-	public string GetFormattingString(TimeSpan timePassed, TimeStringFormatter.Rounding rounding)
+	// Token: 0x06000E47 RID: 3655 RVA: 0x00036DB4 File Offset: 0x00034FB4
+	public string GetFormattingString(TimeSpan timePassed, global::TimeStringFormatter.Rounding rounding)
 	{
 		int num2;
-		double num = TimeStringFormatter.Round(timePassed.TotalSeconds, rounding, num2 = 2, 1.0);
+		double num = global::TimeStringFormatter.Round(timePassed.TotalSeconds, rounding, num2 = 2, 1.0);
 		string format;
 		if (num <= 0.0)
 		{
@@ -162,7 +162,7 @@ public struct TimeStringFormatter
 		{
 			format = this.seconds;
 		}
-		else if ((num = TimeStringFormatter.Round(timePassed.TotalMinutes, rounding, num2 = 2, 0.6)) == 1.0)
+		else if ((num = global::TimeStringFormatter.Round(timePassed.TotalMinutes, rounding, num2 = 2, 0.6)) == 1.0)
 		{
 			format = this.aMinute;
 		}
@@ -170,7 +170,7 @@ public struct TimeStringFormatter
 		{
 			format = this.minutes;
 		}
-		else if ((num = TimeStringFormatter.Round(timePassed.TotalHours, rounding, num2 = 2, 1.0)) == 1.0)
+		else if ((num = global::TimeStringFormatter.Round(timePassed.TotalHours, rounding, num2 = 2, 1.0)) == 1.0)
 		{
 			format = this.aHour;
 		}
@@ -178,7 +178,7 @@ public struct TimeStringFormatter
 		{
 			format = this.hours;
 		}
-		else if ((num = TimeStringFormatter.Round(timePassed.TotalDays, rounding, num2 = 2, 0.24)) == 1.0)
+		else if ((num = global::TimeStringFormatter.Round(timePassed.TotalDays, rounding, num2 = 2, 0.24)) == 1.0)
 		{
 			format = this.aDay;
 		}
@@ -187,10 +187,10 @@ public struct TimeStringFormatter
 			format = this.days;
 		}
 		object arg;
-		if (rounding == TimeStringFormatter.Rounding.RoundedDecimal || rounding == TimeStringFormatter.Rounding.FancyDecimal || rounding == TimeStringFormatter.Rounding.RoundedFancyDecimal)
+		if (rounding == global::TimeStringFormatter.Rounding.RoundedDecimal || rounding == global::TimeStringFormatter.Rounding.FancyDecimal || rounding == global::TimeStringFormatter.Rounding.RoundedFancyDecimal)
 		{
 			string text;
-			if (rounding == TimeStringFormatter.Rounding.RoundedDecimal || rounding == TimeStringFormatter.Rounding.RoundedFancyDecimal)
+			if (rounding == global::TimeStringFormatter.Rounding.RoundedDecimal || rounding == global::TimeStringFormatter.Rounding.RoundedFancyDecimal)
 			{
 				if (num2 != 2)
 				{
@@ -202,7 +202,7 @@ public struct TimeStringFormatter
 			{
 				text = num.ToString();
 			}
-			if (rounding == TimeStringFormatter.Rounding.FancyDecimal || rounding == TimeStringFormatter.Rounding.RoundedFancyDecimal)
+			if (rounding == global::TimeStringFormatter.Rounding.FancyDecimal || rounding == global::TimeStringFormatter.Rounding.RoundedFancyDecimal)
 			{
 				arg = text.Replace('.', ':');
 			}
@@ -211,7 +211,7 @@ public struct TimeStringFormatter
 				arg = text;
 			}
 		}
-		else if (rounding != TimeStringFormatter.Rounding.Decimal && !double.IsNaN(num) && !double.IsInfinity(num))
+		else if (rounding != global::TimeStringFormatter.Rounding.Decimal && !double.IsNaN(num) && !double.IsInfinity(num))
 		{
 			arg = (int)num;
 		}
@@ -222,342 +222,342 @@ public struct TimeStringFormatter
 		return string.Format(format, arg);
 	}
 
-	// Token: 0x040007A7 RID: 1959
+	// Token: 0x040008BF RID: 2239
 	public const string kArgumentTime = "<ꪻ뮪>";
 
-	// Token: 0x040007A8 RID: 1960
+	// Token: 0x040008C0 RID: 2240
 	private const string kArgumentTimeReplacement = "{0}";
 
-	// Token: 0x040007A9 RID: 1961
+	// Token: 0x040008C1 RID: 2241
 	public const string kPeriod = ".";
 
-	// Token: 0x040007AA RID: 1962
+	// Token: 0x040008C2 RID: 2242
 	public readonly string aDay;
 
-	// Token: 0x040007AB RID: 1963
+	// Token: 0x040008C3 RID: 2243
 	public readonly string days;
 
-	// Token: 0x040007AC RID: 1964
+	// Token: 0x040008C4 RID: 2244
 	public readonly string aHour;
 
-	// Token: 0x040007AD RID: 1965
+	// Token: 0x040008C5 RID: 2245
 	public readonly string hours;
 
-	// Token: 0x040007AE RID: 1966
+	// Token: 0x040008C6 RID: 2246
 	public readonly string aMinute;
 
-	// Token: 0x040007AF RID: 1967
+	// Token: 0x040008C7 RID: 2247
 	public readonly string minutes;
 
-	// Token: 0x040007B0 RID: 1968
+	// Token: 0x040008C8 RID: 2248
 	public readonly string aSecond;
 
-	// Token: 0x040007B1 RID: 1969
+	// Token: 0x040008C9 RID: 2249
 	public readonly string seconds;
 
-	// Token: 0x040007B2 RID: 1970
+	// Token: 0x040008CA RID: 2250
 	public readonly string lessThanASecond;
 
-	// Token: 0x020001CB RID: 459
+	// Token: 0x020001FC RID: 508
 	public static class Quantity
 	{
-		// Token: 0x040007B3 RID: 1971
+		// Token: 0x040008CB RID: 2251
 		public const string kPrefix = " ";
 
-		// Token: 0x040007B4 RID: 1972
+		// Token: 0x040008CC RID: 2252
 		public const string aDay = " a day";
 
-		// Token: 0x040007B5 RID: 1973
+		// Token: 0x040008CD RID: 2253
 		public const string days = " <ꪻ뮪> days";
 
-		// Token: 0x040007B6 RID: 1974
+		// Token: 0x040008CE RID: 2254
 		public const string aHour = " an hour";
 
-		// Token: 0x040007B7 RID: 1975
+		// Token: 0x040008CF RID: 2255
 		public const string hours = " <ꪻ뮪> hours";
 
-		// Token: 0x040007B8 RID: 1976
+		// Token: 0x040008D0 RID: 2256
 		public const string aMinute = " a minute";
 
-		// Token: 0x040007B9 RID: 1977
+		// Token: 0x040008D1 RID: 2257
 		public const string minutes = " <ꪻ뮪> minutes";
 
-		// Token: 0x040007BA RID: 1978
+		// Token: 0x040008D2 RID: 2258
 		public const string aSecond = " a second";
 
-		// Token: 0x040007BB RID: 1979
+		// Token: 0x040008D3 RID: 2259
 		public const string seconds = " <ꪻ뮪> seconds";
 
-		// Token: 0x040007BC RID: 1980
+		// Token: 0x040008D4 RID: 2260
 		public const string lessThanASecond = "";
 
-		// Token: 0x040007BD RID: 1981
-		public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" a day", " <ꪻ뮪> days", " an hour", " <ꪻ뮪> hours", " a minute", " <ꪻ뮪> minutes", " a second", " <ꪻ뮪> seconds", string.Empty);
+		// Token: 0x040008D5 RID: 2261
+		public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" a day", " <ꪻ뮪> days", " an hour", " <ꪻ뮪> hours", " a minute", " <ꪻ뮪> minutes", " a second", " <ꪻ뮪> seconds", string.Empty);
 
-		// Token: 0x020001CC RID: 460
+		// Token: 0x020001FD RID: 509
 		public static class Period
 		{
-			// Token: 0x040007BE RID: 1982
+			// Token: 0x040008D6 RID: 2262
 			public const string kSuffix = ".";
 
-			// Token: 0x040007BF RID: 1983
+			// Token: 0x040008D7 RID: 2263
 			public const string aDay = " a day.";
 
-			// Token: 0x040007C0 RID: 1984
+			// Token: 0x040008D8 RID: 2264
 			public const string days = " <ꪻ뮪> days.";
 
-			// Token: 0x040007C1 RID: 1985
+			// Token: 0x040008D9 RID: 2265
 			public const string aHour = " an hour.";
 
-			// Token: 0x040007C2 RID: 1986
+			// Token: 0x040008DA RID: 2266
 			public const string hours = " <ꪻ뮪> hours.";
 
-			// Token: 0x040007C3 RID: 1987
+			// Token: 0x040008DB RID: 2267
 			public const string aMinute = " a minute.";
 
-			// Token: 0x040007C4 RID: 1988
+			// Token: 0x040008DC RID: 2268
 			public const string minutes = " <ꪻ뮪> minutes.";
 
-			// Token: 0x040007C5 RID: 1989
+			// Token: 0x040008DD RID: 2269
 			public const string aSecond = " a second.";
 
-			// Token: 0x040007C6 RID: 1990
+			// Token: 0x040008DE RID: 2270
 			public const string seconds = " <ꪻ뮪> seconds.";
 
-			// Token: 0x040007C7 RID: 1991
+			// Token: 0x040008DF RID: 2271
 			public const string lessThanASecond = ".";
 
-			// Token: 0x040007C8 RID: 1992
-			public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" a day.", " <ꪻ뮪> days.", " an hour.", " <ꪻ뮪> hours.", " a minute.", " <ꪻ뮪> minutes.", " a second.", " <ꪻ뮪> seconds.", ".");
+			// Token: 0x040008E0 RID: 2272
+			public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" a day.", " <ꪻ뮪> days.", " an hour.", " <ꪻ뮪> hours.", " a minute.", " <ꪻ뮪> minutes.", " a second.", " <ꪻ뮪> seconds.", ".");
 		}
 	}
 
-	// Token: 0x020001CD RID: 461
+	// Token: 0x020001FE RID: 510
 	public static class For
 	{
-		// Token: 0x040007C9 RID: 1993
+		// Token: 0x040008E1 RID: 2273
 		public const string kPrefix = " for";
 
-		// Token: 0x040007CA RID: 1994
+		// Token: 0x040008E2 RID: 2274
 		public const string aDay = " for a day";
 
-		// Token: 0x040007CB RID: 1995
+		// Token: 0x040008E3 RID: 2275
 		public const string days = " for <ꪻ뮪> days";
 
-		// Token: 0x040007CC RID: 1996
+		// Token: 0x040008E4 RID: 2276
 		public const string aHour = " for an hour";
 
-		// Token: 0x040007CD RID: 1997
+		// Token: 0x040008E5 RID: 2277
 		public const string hours = " for <ꪻ뮪> hours";
 
-		// Token: 0x040007CE RID: 1998
+		// Token: 0x040008E6 RID: 2278
 		public const string aMinute = " for a minute";
 
-		// Token: 0x040007CF RID: 1999
+		// Token: 0x040008E7 RID: 2279
 		public const string minutes = " for <ꪻ뮪> minutes";
 
-		// Token: 0x040007D0 RID: 2000
+		// Token: 0x040008E8 RID: 2280
 		public const string aSecond = " for a second";
 
-		// Token: 0x040007D1 RID: 2001
+		// Token: 0x040008E9 RID: 2281
 		public const string seconds = " for <ꪻ뮪> seconds";
 
-		// Token: 0x040007D2 RID: 2002
+		// Token: 0x040008EA RID: 2282
 		public const string lessThanASecond = "";
 
-		// Token: 0x040007D3 RID: 2003
-		public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" for a day", " for <ꪻ뮪> days", " for an hour", " for <ꪻ뮪> hours", " for a minute", " for <ꪻ뮪> minutes", " for a second", " for <ꪻ뮪> seconds", string.Empty);
+		// Token: 0x040008EB RID: 2283
+		public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" for a day", " for <ꪻ뮪> days", " for an hour", " for <ꪻ뮪> hours", " for a minute", " for <ꪻ뮪> minutes", " for a second", " for <ꪻ뮪> seconds", string.Empty);
 
-		// Token: 0x020001CE RID: 462
+		// Token: 0x020001FF RID: 511
 		public static class Period
 		{
-			// Token: 0x040007D4 RID: 2004
+			// Token: 0x040008EC RID: 2284
 			public const string kSuffix = ".";
 
-			// Token: 0x040007D5 RID: 2005
+			// Token: 0x040008ED RID: 2285
 			public const string aDay = " for a day.";
 
-			// Token: 0x040007D6 RID: 2006
+			// Token: 0x040008EE RID: 2286
 			public const string days = " for <ꪻ뮪> days.";
 
-			// Token: 0x040007D7 RID: 2007
+			// Token: 0x040008EF RID: 2287
 			public const string aHour = " for an hour.";
 
-			// Token: 0x040007D8 RID: 2008
+			// Token: 0x040008F0 RID: 2288
 			public const string hours = " for <ꪻ뮪> hours.";
 
-			// Token: 0x040007D9 RID: 2009
+			// Token: 0x040008F1 RID: 2289
 			public const string aMinute = " for a minute.";
 
-			// Token: 0x040007DA RID: 2010
+			// Token: 0x040008F2 RID: 2290
 			public const string minutes = " for <ꪻ뮪> minutes.";
 
-			// Token: 0x040007DB RID: 2011
+			// Token: 0x040008F3 RID: 2291
 			public const string aSecond = " for a second.";
 
-			// Token: 0x040007DC RID: 2012
+			// Token: 0x040008F4 RID: 2292
 			public const string seconds = " for <ꪻ뮪> seconds.";
 
-			// Token: 0x040007DD RID: 2013
+			// Token: 0x040008F5 RID: 2293
 			public const string lessThanASecond = ".";
 
-			// Token: 0x040007DE RID: 2014
-			public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" for a day.", " for <ꪻ뮪> days.", " for an hour.", " for <ꪻ뮪> hours.", " for a minute.", " for <ꪻ뮪> minutes.", " for a second.", " for <ꪻ뮪> seconds.", ".");
+			// Token: 0x040008F6 RID: 2294
+			public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" for a day.", " for <ꪻ뮪> days.", " for an hour.", " for <ꪻ뮪> hours.", " for a minute.", " for <ꪻ뮪> minutes.", " for a second.", " for <ꪻ뮪> seconds.", ".");
 		}
 	}
 
-	// Token: 0x020001CF RID: 463
+	// Token: 0x02000200 RID: 512
 	public static class Ago
 	{
-		// Token: 0x040007DF RID: 2015
+		// Token: 0x040008F7 RID: 2295
 		public const string kSuffix = " ago";
 
-		// Token: 0x040007E0 RID: 2016
+		// Token: 0x040008F8 RID: 2296
 		public const string aDay = " a day ago";
 
-		// Token: 0x040007E1 RID: 2017
+		// Token: 0x040008F9 RID: 2297
 		public const string days = " <ꪻ뮪> days ago";
 
-		// Token: 0x040007E2 RID: 2018
+		// Token: 0x040008FA RID: 2298
 		public const string aHour = " an hour ago";
 
-		// Token: 0x040007E3 RID: 2019
+		// Token: 0x040008FB RID: 2299
 		public const string hours = " <ꪻ뮪> hours ago";
 
-		// Token: 0x040007E4 RID: 2020
+		// Token: 0x040008FC RID: 2300
 		public const string aMinute = " a minute ago";
 
-		// Token: 0x040007E5 RID: 2021
+		// Token: 0x040008FD RID: 2301
 		public const string minutes = " <ꪻ뮪> minutes ago";
 
-		// Token: 0x040007E6 RID: 2022
+		// Token: 0x040008FE RID: 2302
 		public const string aSecond = " a second ago";
 
-		// Token: 0x040007E7 RID: 2023
+		// Token: 0x040008FF RID: 2303
 		public const string seconds = " <ꪻ뮪> seconds ago";
 
-		// Token: 0x040007E8 RID: 2024
+		// Token: 0x04000900 RID: 2304
 		public const string lessThanASecond = "";
 
-		// Token: 0x040007E9 RID: 2025
-		public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" a day ago", " <ꪻ뮪> days ago", " an hour ago", " <ꪻ뮪> hours ago", " a minute ago", " <ꪻ뮪> minutes ago", " a second ago", " <ꪻ뮪> seconds ago", string.Empty);
+		// Token: 0x04000901 RID: 2305
+		public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" a day ago", " <ꪻ뮪> days ago", " an hour ago", " <ꪻ뮪> hours ago", " a minute ago", " <ꪻ뮪> minutes ago", " a second ago", " <ꪻ뮪> seconds ago", string.Empty);
 
-		// Token: 0x020001D0 RID: 464
+		// Token: 0x02000201 RID: 513
 		public static class Period
 		{
-			// Token: 0x040007EA RID: 2026
+			// Token: 0x04000902 RID: 2306
 			public const string kSuffix = ".";
 
-			// Token: 0x040007EB RID: 2027
+			// Token: 0x04000903 RID: 2307
 			public const string aDay = " a day ago.";
 
-			// Token: 0x040007EC RID: 2028
+			// Token: 0x04000904 RID: 2308
 			public const string days = " <ꪻ뮪> days ago.";
 
-			// Token: 0x040007ED RID: 2029
+			// Token: 0x04000905 RID: 2309
 			public const string aHour = " an hour ago.";
 
-			// Token: 0x040007EE RID: 2030
+			// Token: 0x04000906 RID: 2310
 			public const string hours = " <ꪻ뮪> hours ago.";
 
-			// Token: 0x040007EF RID: 2031
+			// Token: 0x04000907 RID: 2311
 			public const string aMinute = " a minute ago.";
 
-			// Token: 0x040007F0 RID: 2032
+			// Token: 0x04000908 RID: 2312
 			public const string minutes = " <ꪻ뮪> minutes ago.";
 
-			// Token: 0x040007F1 RID: 2033
+			// Token: 0x04000909 RID: 2313
 			public const string aSecond = " a second ago.";
 
-			// Token: 0x040007F2 RID: 2034
+			// Token: 0x0400090A RID: 2314
 			public const string seconds = " <ꪻ뮪> seconds ago.";
 
-			// Token: 0x040007F3 RID: 2035
+			// Token: 0x0400090B RID: 2315
 			public const string lessThanASecond = ".";
 
-			// Token: 0x040007F4 RID: 2036
-			public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" a day ago.", " <ꪻ뮪> days ago.", " an hour ago.", " <ꪻ뮪> hours ago.", " a minute ago.", " <ꪻ뮪> minutes ago.", " a second ago.", " <ꪻ뮪> seconds ago.", ".");
+			// Token: 0x0400090C RID: 2316
+			public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" a day ago.", " <ꪻ뮪> days ago.", " an hour ago.", " <ꪻ뮪> hours ago.", " a minute ago.", " <ꪻ뮪> minutes ago.", " a second ago.", " <ꪻ뮪> seconds ago.", ".");
 		}
 	}
 
-	// Token: 0x020001D1 RID: 465
+	// Token: 0x02000202 RID: 514
 	public static class SinceAgo
 	{
-		// Token: 0x040007F5 RID: 2037
+		// Token: 0x0400090D RID: 2317
 		public const string kPrefix = " since";
 
-		// Token: 0x040007F6 RID: 2038
+		// Token: 0x0400090E RID: 2318
 		public const string aDay = " since a day ago";
 
-		// Token: 0x040007F7 RID: 2039
+		// Token: 0x0400090F RID: 2319
 		public const string days = " since <ꪻ뮪> days ago";
 
-		// Token: 0x040007F8 RID: 2040
+		// Token: 0x04000910 RID: 2320
 		public const string aHour = " since an hour ago";
 
-		// Token: 0x040007F9 RID: 2041
+		// Token: 0x04000911 RID: 2321
 		public const string hours = " since <ꪻ뮪> hours ago";
 
-		// Token: 0x040007FA RID: 2042
+		// Token: 0x04000912 RID: 2322
 		public const string aMinute = " since a minute ago";
 
-		// Token: 0x040007FB RID: 2043
+		// Token: 0x04000913 RID: 2323
 		public const string minutes = " since <ꪻ뮪> minutes ago";
 
-		// Token: 0x040007FC RID: 2044
+		// Token: 0x04000914 RID: 2324
 		public const string aSecond = " since a second ago";
 
-		// Token: 0x040007FD RID: 2045
+		// Token: 0x04000915 RID: 2325
 		public const string seconds = " since <ꪻ뮪> seconds ago";
 
-		// Token: 0x040007FE RID: 2046
+		// Token: 0x04000916 RID: 2326
 		public const string lessThanASecond = "";
 
-		// Token: 0x040007FF RID: 2047
-		public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" since a day ago", " since <ꪻ뮪> days ago", " since an hour ago", " since <ꪻ뮪> hours ago", " since a minute ago", " since <ꪻ뮪> minutes ago", " since a second ago", " since <ꪻ뮪> seconds ago", string.Empty);
+		// Token: 0x04000917 RID: 2327
+		public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" since a day ago", " since <ꪻ뮪> days ago", " since an hour ago", " since <ꪻ뮪> hours ago", " since a minute ago", " since <ꪻ뮪> minutes ago", " since a second ago", " since <ꪻ뮪> seconds ago", string.Empty);
 
-		// Token: 0x020001D2 RID: 466
+		// Token: 0x02000203 RID: 515
 		public static class Period
 		{
-			// Token: 0x04000800 RID: 2048
+			// Token: 0x04000918 RID: 2328
 			public const string kSuffix = ".";
 
-			// Token: 0x04000801 RID: 2049
+			// Token: 0x04000919 RID: 2329
 			public const string aDay = " since a day ago.";
 
-			// Token: 0x04000802 RID: 2050
+			// Token: 0x0400091A RID: 2330
 			public const string days = " since <ꪻ뮪> days ago.";
 
-			// Token: 0x04000803 RID: 2051
+			// Token: 0x0400091B RID: 2331
 			public const string aHour = " since an hour ago.";
 
-			// Token: 0x04000804 RID: 2052
+			// Token: 0x0400091C RID: 2332
 			public const string hours = " since <ꪻ뮪> hours ago.";
 
-			// Token: 0x04000805 RID: 2053
+			// Token: 0x0400091D RID: 2333
 			public const string aMinute = " since a minute ago.";
 
-			// Token: 0x04000806 RID: 2054
+			// Token: 0x0400091E RID: 2334
 			public const string minutes = " since <ꪻ뮪> minutes ago.";
 
-			// Token: 0x04000807 RID: 2055
+			// Token: 0x0400091F RID: 2335
 			public const string aSecond = " since a second ago.";
 
-			// Token: 0x04000808 RID: 2056
+			// Token: 0x04000920 RID: 2336
 			public const string seconds = " since <ꪻ뮪> seconds ago.";
 
-			// Token: 0x04000809 RID: 2057
+			// Token: 0x04000921 RID: 2337
 			public const string lessThanASecond = ".";
 
-			// Token: 0x0400080A RID: 2058
-			public static readonly TimeStringFormatter.Qualifier Qualifier = new TimeStringFormatter.Qualifier(" since a day ago.", " since <ꪻ뮪> days ago.", " since an hour ago.", " since <ꪻ뮪> hours ago.", " since a minute ago.", " since <ꪻ뮪> minutes ago.", " since a second ago.", " since <ꪻ뮪> seconds ago.", ".");
+			// Token: 0x04000922 RID: 2338
+			public static readonly global::TimeStringFormatter.Qualifier Qualifier = new global::TimeStringFormatter.Qualifier(" since a day ago.", " since <ꪻ뮪> days ago.", " since an hour ago.", " since <ꪻ뮪> hours ago.", " since a minute ago.", " since <ꪻ뮪> minutes ago.", " since a second ago.", " since <ꪻ뮪> seconds ago.", ".");
 		}
 	}
 
-	// Token: 0x020001D3 RID: 467
+	// Token: 0x02000204 RID: 516
 	public struct Qualifier
 	{
-		// Token: 0x06000D08 RID: 3336 RVA: 0x00033160 File Offset: 0x00031360
+		// Token: 0x06000E50 RID: 3664 RVA: 0x000371E8 File Offset: 0x000353E8
 		public Qualifier(string aDay, string days, string aHour, string hours, string aMinute, string minutes, string aSecond, string seconds, string lessThanASecond)
 		{
 			this.aDay = aDay;
@@ -571,50 +571,50 @@ public struct TimeStringFormatter
 			this.lessThanASecond = lessThanASecond;
 		}
 
-		// Token: 0x0400080B RID: 2059
+		// Token: 0x04000923 RID: 2339
 		public readonly string aDay;
 
-		// Token: 0x0400080C RID: 2060
+		// Token: 0x04000924 RID: 2340
 		public readonly string days;
 
-		// Token: 0x0400080D RID: 2061
+		// Token: 0x04000925 RID: 2341
 		public readonly string aHour;
 
-		// Token: 0x0400080E RID: 2062
+		// Token: 0x04000926 RID: 2342
 		public readonly string hours;
 
-		// Token: 0x0400080F RID: 2063
+		// Token: 0x04000927 RID: 2343
 		public readonly string aMinute;
 
-		// Token: 0x04000810 RID: 2064
+		// Token: 0x04000928 RID: 2344
 		public readonly string minutes;
 
-		// Token: 0x04000811 RID: 2065
+		// Token: 0x04000929 RID: 2345
 		public readonly string aSecond;
 
-		// Token: 0x04000812 RID: 2066
+		// Token: 0x0400092A RID: 2346
 		public readonly string seconds;
 
-		// Token: 0x04000813 RID: 2067
+		// Token: 0x0400092B RID: 2347
 		public readonly string lessThanASecond;
 	}
 
-	// Token: 0x020001D4 RID: 468
+	// Token: 0x02000205 RID: 517
 	public enum Rounding
 	{
-		// Token: 0x04000815 RID: 2069
+		// Token: 0x0400092D RID: 2349
 		Floor,
-		// Token: 0x04000816 RID: 2070
+		// Token: 0x0400092E RID: 2350
 		Ceiling,
-		// Token: 0x04000817 RID: 2071
+		// Token: 0x0400092F RID: 2351
 		Round,
-		// Token: 0x04000818 RID: 2072
+		// Token: 0x04000930 RID: 2352
 		Decimal,
-		// Token: 0x04000819 RID: 2073
+		// Token: 0x04000931 RID: 2353
 		RoundedDecimal,
-		// Token: 0x0400081A RID: 2074
+		// Token: 0x04000932 RID: 2354
 		FancyDecimal,
-		// Token: 0x0400081B RID: 2075
+		// Token: 0x04000933 RID: 2355
 		RoundedFancyDecimal
 	}
 }

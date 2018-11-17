@@ -1,387 +1,387 @@
 ﻿using System;
 
-// Token: 0x020002B3 RID: 691
+// Token: 0x020002F0 RID: 752
 public static class Interpolation
 {
-	// Token: 0x060018B7 RID: 6327 RVA: 0x00061CF4 File Offset: 0x0005FEF4
+	// Token: 0x06001A47 RID: 6727 RVA: 0x00066668 File Offset: 0x00064868
 	static Interpolation()
 	{
-		Interpolation.BindTiming(20UL, 1.5, 5f);
+		global::Interpolation.BindTiming(20UL, 1.5, 5f);
 	}
 
-	// Token: 0x17000725 RID: 1829
-	// (get) Token: 0x060018B8 RID: 6328 RVA: 0x00061D0C File Offset: 0x0005FF0C
+	// Token: 0x17000779 RID: 1913
+	// (get) Token: 0x06001A48 RID: 6728 RVA: 0x00066680 File Offset: 0x00064880
 	public static double deltaSeconds
 	{
 		get
 		{
-			return Interpolation._deltaSeconds;
+			return global::Interpolation._deltaSeconds;
 		}
 	}
 
-	// Token: 0x17000726 RID: 1830
-	// (get) Token: 0x060018B9 RID: 6329 RVA: 0x00061D14 File Offset: 0x0005FF14
+	// Token: 0x1700077A RID: 1914
+	// (get) Token: 0x06001A49 RID: 6729 RVA: 0x00066688 File Offset: 0x00064888
 	public static double totalDelaySeconds
 	{
 		get
 		{
-			return Interpolation._totalDelaySeconds;
+			return global::Interpolation._totalDelaySeconds;
 		}
 	}
 
-	// Token: 0x17000727 RID: 1831
-	// (get) Token: 0x060018BA RID: 6330 RVA: 0x00061D1C File Offset: 0x0005FF1C
+	// Token: 0x1700077B RID: 1915
+	// (get) Token: 0x06001A4A RID: 6730 RVA: 0x00066690 File Offset: 0x00064890
 	public static ulong totalDelayMillis
 	{
 		get
 		{
-			return Interpolation._totalDelayMillis;
+			return global::Interpolation._totalDelayMillis;
 		}
 	}
 
-	// Token: 0x17000728 RID: 1832
-	// (get) Token: 0x060018BB RID: 6331 RVA: 0x00061D24 File Offset: 0x0005FF24
-	// (set) Token: 0x060018BC RID: 6332 RVA: 0x00061D2C File Offset: 0x0005FF2C
+	// Token: 0x1700077C RID: 1916
+	// (get) Token: 0x06001A4B RID: 6731 RVA: 0x00066698 File Offset: 0x00064898
+	// (set) Token: 0x06001A4C RID: 6732 RVA: 0x000666A0 File Offset: 0x000648A0
 	public static double delaySeconds
 	{
 		get
 		{
-			return Interpolation._delaySeconds;
+			return global::Interpolation._delaySeconds;
 		}
 		set
 		{
 			if (value < 0.0005)
 			{
-				Interpolation.delayMillis = 0UL;
+				global::Interpolation.delayMillis = 0UL;
 			}
 			else
 			{
-				Interpolation.delayMillis = (ulong)Math.Round(value * 1000.0);
+				global::Interpolation.delayMillis = (ulong)Math.Round(value * 1000.0);
 			}
 		}
 	}
 
-	// Token: 0x17000729 RID: 1833
-	// (get) Token: 0x060018BD RID: 6333 RVA: 0x00061D60 File Offset: 0x0005FF60
-	// (set) Token: 0x060018BE RID: 6334 RVA: 0x00061D68 File Offset: 0x0005FF68
+	// Token: 0x1700077D RID: 1917
+	// (get) Token: 0x06001A4D RID: 6733 RVA: 0x000666D4 File Offset: 0x000648D4
+	// (set) Token: 0x06001A4E RID: 6734 RVA: 0x000666DC File Offset: 0x000648DC
 	public static ulong delayMillis
 	{
 		get
 		{
-			return Interpolation._delayMillis;
+			return global::Interpolation._delayMillis;
 		}
 		set
 		{
-			if (value != Interpolation._delayMillis)
+			if (value != global::Interpolation._delayMillis)
 			{
-				Interpolation.BindTiming(value, Interpolation._ratio, Interpolation._sendRate);
+				global::Interpolation.BindTiming(value, global::Interpolation._ratio, global::Interpolation._sendRate);
 			}
 		}
 	}
 
-	// Token: 0x1700072A RID: 1834
-	// (get) Token: 0x060018BF RID: 6335 RVA: 0x00061D88 File Offset: 0x0005FF88
+	// Token: 0x1700077E RID: 1918
+	// (get) Token: 0x06001A4F RID: 6735 RVA: 0x000666FC File Offset: 0x000648FC
 	public static ulong delayFromSendRateMillis
 	{
 		get
 		{
-			return Interpolation._delayFromSendRateMillis;
+			return global::Interpolation._delayFromSendRateMillis;
 		}
 	}
 
-	// Token: 0x1700072B RID: 1835
-	// (get) Token: 0x060018C0 RID: 6336 RVA: 0x00061D90 File Offset: 0x0005FF90
+	// Token: 0x1700077F RID: 1919
+	// (get) Token: 0x06001A50 RID: 6736 RVA: 0x00066704 File Offset: 0x00064904
 	public static double delayFromSendRateSeconds
 	{
 		get
 		{
-			return Interpolation._delayFromSendRateSeconds;
+			return global::Interpolation._delayFromSendRateSeconds;
 		}
 	}
 
-	// Token: 0x1700072C RID: 1836
-	// (get) Token: 0x060018C1 RID: 6337 RVA: 0x00061D98 File Offset: 0x0005FF98
+	// Token: 0x17000780 RID: 1920
+	// (get) Token: 0x06001A51 RID: 6737 RVA: 0x0006670C File Offset: 0x0006490C
 	public static float delayFromSendRateSecondsf
 	{
 		get
 		{
-			return (float)Interpolation._delayFromSendRateSeconds;
+			return (float)global::Interpolation._delayFromSendRateSeconds;
 		}
 	}
 
-	// Token: 0x1700072D RID: 1837
-	// (get) Token: 0x060018C2 RID: 6338 RVA: 0x00061DA0 File Offset: 0x0005FFA0
-	// (set) Token: 0x060018C3 RID: 6339 RVA: 0x00061DA8 File Offset: 0x0005FFA8
+	// Token: 0x17000781 RID: 1921
+	// (get) Token: 0x06001A52 RID: 6738 RVA: 0x00066714 File Offset: 0x00064914
+	// (set) Token: 0x06001A53 RID: 6739 RVA: 0x0006671C File Offset: 0x0006491C
 	public static double sendRateRatio
 	{
 		get
 		{
-			return Interpolation._ratio;
+			return global::Interpolation._ratio;
 		}
 		set
 		{
-			if (value != Interpolation._ratio)
+			if (value != global::Interpolation._ratio)
 			{
-				Interpolation.BindTiming(Interpolation._delayMillis, value, Interpolation._sendRate);
+				global::Interpolation.BindTiming(global::Interpolation._delayMillis, value, global::Interpolation._sendRate);
 			}
 		}
 	}
 
-	// Token: 0x1700072E RID: 1838
-	// (get) Token: 0x060018C4 RID: 6340 RVA: 0x00061DC8 File Offset: 0x0005FFC8
-	// (set) Token: 0x060018C5 RID: 6341 RVA: 0x00061DD0 File Offset: 0x0005FFD0
+	// Token: 0x17000782 RID: 1922
+	// (get) Token: 0x06001A54 RID: 6740 RVA: 0x0006673C File Offset: 0x0006493C
+	// (set) Token: 0x06001A55 RID: 6741 RVA: 0x00066744 File Offset: 0x00064944
 	public static float sendRate
 	{
 		get
 		{
-			return Interpolation._sendRate;
+			return global::Interpolation._sendRate;
 		}
 		set
 		{
-			if (value != Interpolation._sendRate)
+			if (value != global::Interpolation._sendRate)
 			{
-				Interpolation.BindTiming(Interpolation._delayMillis, Interpolation._ratio, value);
+				global::Interpolation.BindTiming(global::Interpolation._delayMillis, global::Interpolation._ratio, value);
 			}
 		}
 	}
 
-	// Token: 0x1700072F RID: 1839
-	// (get) Token: 0x060018C6 RID: 6342 RVA: 0x00061DF0 File Offset: 0x0005FFF0
-	// (set) Token: 0x060018C7 RID: 6343 RVA: 0x00061DF8 File Offset: 0x0005FFF8
+	// Token: 0x17000783 RID: 1923
+	// (get) Token: 0x06001A56 RID: 6742 RVA: 0x00066764 File Offset: 0x00064964
+	// (set) Token: 0x06001A57 RID: 6743 RVA: 0x0006676C File Offset: 0x0006496C
 	public static float delaySecondsf
 	{
 		get
 		{
-			return (float)Interpolation._delaySeconds;
+			return (float)global::Interpolation._delaySeconds;
 		}
 		set
 		{
-			Interpolation.delaySeconds = (double)value;
+			global::Interpolation.delaySeconds = (double)value;
 		}
 	}
 
-	// Token: 0x17000730 RID: 1840
-	// (get) Token: 0x060018C8 RID: 6344 RVA: 0x00061E04 File Offset: 0x00060004
+	// Token: 0x17000784 RID: 1924
+	// (get) Token: 0x06001A58 RID: 6744 RVA: 0x00066778 File Offset: 0x00064978
 	public static float deltaSecondsf
 	{
 		get
 		{
-			return (float)Interpolation._deltaSeconds;
+			return (float)global::Interpolation._deltaSeconds;
 		}
 	}
 
-	// Token: 0x17000731 RID: 1841
-	// (get) Token: 0x060018C9 RID: 6345 RVA: 0x00061E0C File Offset: 0x0006000C
-	// (set) Token: 0x060018CA RID: 6346 RVA: 0x00061E14 File Offset: 0x00060014
+	// Token: 0x17000785 RID: 1925
+	// (get) Token: 0x06001A59 RID: 6745 RVA: 0x00066780 File Offset: 0x00064980
+	// (set) Token: 0x06001A5A RID: 6746 RVA: 0x00066788 File Offset: 0x00064988
 	public static float sendRateRatiof
 	{
 		get
 		{
-			return (float)Interpolation._ratio;
+			return (float)global::Interpolation._ratio;
 		}
 		set
 		{
-			Interpolation.sendRateRatio = (double)value;
+			global::Interpolation.sendRateRatio = (double)value;
 		}
 	}
 
-	// Token: 0x17000732 RID: 1842
-	// (get) Token: 0x060018CB RID: 6347 RVA: 0x00061E20 File Offset: 0x00060020
+	// Token: 0x17000786 RID: 1926
+	// (get) Token: 0x06001A5B RID: 6747 RVA: 0x00066794 File Offset: 0x00064994
 	public static float totalDelaySecondsf
 	{
 		get
 		{
-			return (float)Interpolation._totalDelaySeconds;
+			return (float)global::Interpolation._totalDelaySeconds;
 		}
 	}
 
-	// Token: 0x060018CC RID: 6348 RVA: 0x00061E28 File Offset: 0x00060028
+	// Token: 0x06001A5C RID: 6748 RVA: 0x0006679C File Offset: 0x0006499C
 	public static double AddDelayToTimeStampSeconds(double timeStamp)
 	{
-		return timeStamp + Interpolation._totalDelaySeconds;
+		return timeStamp + global::Interpolation._totalDelaySeconds;
 	}
 
-	// Token: 0x060018CD RID: 6349 RVA: 0x00061E34 File Offset: 0x00060034
+	// Token: 0x06001A5D RID: 6749 RVA: 0x000667A8 File Offset: 0x000649A8
 	public static ulong AddDelayToTimeStampMillis(ulong timestamp)
 	{
-		return timestamp + Interpolation._totalDelayMillis;
+		return timestamp + global::Interpolation._totalDelayMillis;
 	}
 
-	// Token: 0x060018CE RID: 6350 RVA: 0x00061E40 File Offset: 0x00060040
+	// Token: 0x06001A5E RID: 6750 RVA: 0x000667B4 File Offset: 0x000649B4
 	public static double GetInterpolationTimeSeconds(double timeStamp)
 	{
-		return timeStamp + Interpolation._deltaSeconds;
+		return timeStamp + global::Interpolation._deltaSeconds;
 	}
 
-	// Token: 0x060018CF RID: 6351 RVA: 0x00061E4C File Offset: 0x0006004C
+	// Token: 0x06001A5F RID: 6751 RVA: 0x000667C0 File Offset: 0x000649C0
 	public static ulong GetInterpolationTimeMillis(ulong timestamp)
 	{
-		if (timestamp < Interpolation._totalDelayMillis)
+		if (timestamp < global::Interpolation._totalDelayMillis)
 		{
 			return 0UL;
 		}
-		return timestamp - Interpolation._totalDelayMillis;
+		return timestamp - global::Interpolation._totalDelayMillis;
 	}
 
-	// Token: 0x060018D0 RID: 6352 RVA: 0x00061E64 File Offset: 0x00060064
+	// Token: 0x06001A60 RID: 6752 RVA: 0x000667D8 File Offset: 0x000649D8
 	public static void BindTiming(ulong? delayMillis, double? sendRateRatio, float? sendRate)
 	{
-		Interpolation.BindTiming((delayMillis == null) ? Interpolation._delayMillis : delayMillis.Value, (sendRateRatio == null) ? Interpolation._ratio : sendRateRatio.Value, (sendRate == null) ? Interpolation._sendRate : sendRate.Value);
+		global::Interpolation.BindTiming((delayMillis == null) ? global::Interpolation._delayMillis : delayMillis.Value, (sendRateRatio == null) ? global::Interpolation._ratio : sendRateRatio.Value, (sendRate == null) ? global::Interpolation._sendRate : sendRate.Value);
 	}
 
-	// Token: 0x060018D1 RID: 6353 RVA: 0x00061ED0 File Offset: 0x000600D0
+	// Token: 0x06001A61 RID: 6753 RVA: 0x00066844 File Offset: 0x00064A44
 	public static void BindTiming(ulong delayMillis, double sendRateRatio, float sendRate)
 	{
-		Interpolation._sendRate = sendRate;
-		Interpolation._ratio = sendRateRatio;
+		global::Interpolation._sendRate = sendRate;
+		global::Interpolation._ratio = sendRateRatio;
 		if (sendRate == 0f || sendRateRatio == 0.0 || sendRate < 0f != sendRateRatio < 0.0)
 		{
-			Interpolation._delayFromSendRateMillis = 0UL;
+			global::Interpolation._delayFromSendRateMillis = 0UL;
 		}
 		else
 		{
-			Interpolation._delayFromSendRateMillis = (ulong)Math.Ceiling(1000.0 * sendRateRatio / (double)sendRate);
+			global::Interpolation._delayFromSendRateMillis = (ulong)Math.Ceiling(1000.0 * sendRateRatio / (double)sendRate);
 		}
-		Interpolation._delayMillis = delayMillis;
-		Interpolation._totalDelayMillis = Interpolation._delayFromSendRateMillis + Interpolation._delayMillis;
-		Interpolation._delaySeconds = Interpolation._delayMillis * 0.001;
-		Interpolation._delayFromSendRateSeconds = Interpolation._delayFromSendRateMillis * 0.001;
-		Interpolation._totalDelaySeconds = Interpolation._totalDelayMillis * 0.001;
-		Interpolation._deltaSeconds = -Interpolation._totalDelaySeconds;
-		Interpolation.@struct = Interpolation.Capture();
+		global::Interpolation._delayMillis = delayMillis;
+		global::Interpolation._totalDelayMillis = global::Interpolation._delayFromSendRateMillis + global::Interpolation._delayMillis;
+		global::Interpolation._delaySeconds = global::Interpolation._delayMillis * 0.001;
+		global::Interpolation._delayFromSendRateSeconds = global::Interpolation._delayFromSendRateMillis * 0.001;
+		global::Interpolation._totalDelaySeconds = global::Interpolation._totalDelayMillis * 0.001;
+		global::Interpolation._deltaSeconds = -global::Interpolation._totalDelaySeconds;
+		global::Interpolation.@struct = global::Interpolation.Capture();
 	}
 
-	// Token: 0x060018D2 RID: 6354 RVA: 0x00061FB0 File Offset: 0x000601B0
+	// Token: 0x06001A62 RID: 6754 RVA: 0x00066924 File Offset: 0x00064B24
 	public static void BindTimingNetCull(ulong delayMillis, double sendRateRatio)
 	{
-		Interpolation.BindTiming(delayMillis, sendRateRatio, NetCull.sendRate);
+		global::Interpolation.BindTiming(delayMillis, sendRateRatio, global::NetCull.sendRate);
 	}
 
-	// Token: 0x060018D3 RID: 6355 RVA: 0x00061FC0 File Offset: 0x000601C0
+	// Token: 0x06001A63 RID: 6755 RVA: 0x00066934 File Offset: 0x00064B34
 	public static void BindTimingNetCull(ulong? delayMillis, double? sendRateRatio)
 	{
-		Interpolation.BindTiming((delayMillis == null) ? Interpolation._delayMillis : delayMillis.Value, (sendRateRatio == null) ? Interpolation._ratio : sendRateRatio.Value, NetCull.sendRate);
+		global::Interpolation.BindTiming((delayMillis == null) ? global::Interpolation._delayMillis : delayMillis.Value, (sendRateRatio == null) ? global::Interpolation._ratio : sendRateRatio.Value, global::NetCull.sendRate);
 	}
 
-	// Token: 0x060018D4 RID: 6356 RVA: 0x00062014 File Offset: 0x00060214
+	// Token: 0x06001A64 RID: 6756 RVA: 0x00066988 File Offset: 0x00064B88
 	public static void BindTiming()
 	{
-		Interpolation.BindTiming(Interpolation._delayMillis, Interpolation._ratio, Interpolation._sendRate);
+		global::Interpolation.BindTiming(global::Interpolation._delayMillis, global::Interpolation._ratio, global::Interpolation._sendRate);
 	}
 
-	// Token: 0x060018D5 RID: 6357 RVA: 0x0006202C File Offset: 0x0006022C
+	// Token: 0x06001A65 RID: 6757 RVA: 0x000669A0 File Offset: 0x00064BA0
 	public static void BindTimingNetCull()
 	{
-		Interpolation.BindTiming(Interpolation._delayMillis, Interpolation._ratio, NetCull.sendRate);
+		global::Interpolation.BindTiming(global::Interpolation._delayMillis, global::Interpolation._ratio, global::NetCull.sendRate);
 	}
 
-	// Token: 0x060018D6 RID: 6358 RVA: 0x00062044 File Offset: 0x00060244
-	public static Interpolation.TimingData Capture()
+	// Token: 0x06001A66 RID: 6758 RVA: 0x000669B8 File Offset: 0x00064BB8
+	public static global::Interpolation.TimingData Capture()
 	{
-		return new Interpolation.TimingData(Interpolation._ratio, Interpolation._deltaSeconds, Interpolation._totalDelaySeconds, Interpolation._delaySeconds, Interpolation._delayFromSendRateSeconds, Interpolation._totalDelayMillis, Interpolation._delayFromSendRateMillis, Interpolation._delayMillis, Interpolation._sendRate);
+		return new global::Interpolation.TimingData(global::Interpolation._ratio, global::Interpolation._deltaSeconds, global::Interpolation._totalDelaySeconds, global::Interpolation._delaySeconds, global::Interpolation._delayFromSendRateSeconds, global::Interpolation._totalDelayMillis, global::Interpolation._delayFromSendRateMillis, global::Interpolation._delayMillis, global::Interpolation._sendRate);
 	}
 
-	// Token: 0x17000733 RID: 1843
-	// (get) Token: 0x060018D7 RID: 6359 RVA: 0x00062084 File Offset: 0x00060284
+	// Token: 0x17000787 RID: 1927
+	// (get) Token: 0x06001A67 RID: 6759 RVA: 0x000669F8 File Offset: 0x00064BF8
 	public static double time
 	{
 		get
 		{
-			return NetCull.time + Interpolation._deltaSeconds;
+			return global::NetCull.time + global::Interpolation._deltaSeconds;
 		}
 	}
 
-	// Token: 0x17000734 RID: 1844
-	// (get) Token: 0x060018D8 RID: 6360 RVA: 0x00062094 File Offset: 0x00060294
+	// Token: 0x17000788 RID: 1928
+	// (get) Token: 0x06001A68 RID: 6760 RVA: 0x00066A08 File Offset: 0x00064C08
 	public static double localTime
 	{
 		get
 		{
-			return NetCull.localTime + Interpolation._deltaSeconds;
+			return global::NetCull.localTime + global::Interpolation._deltaSeconds;
 		}
 	}
 
-	// Token: 0x17000735 RID: 1845
-	// (get) Token: 0x060018D9 RID: 6361 RVA: 0x000620A4 File Offset: 0x000602A4
+	// Token: 0x17000789 RID: 1929
+	// (get) Token: 0x06001A69 RID: 6761 RVA: 0x00066A18 File Offset: 0x00064C18
 	public static ulong timeInMillis
 	{
 		get
 		{
-			ulong num = NetCull.timeInMillis;
-			if (num < Interpolation._totalDelayMillis)
+			ulong num = global::NetCull.timeInMillis;
+			if (num < global::Interpolation._totalDelayMillis)
 			{
 				num = 0UL;
 			}
 			else
 			{
-				num -= Interpolation._totalDelayMillis;
+				num -= global::Interpolation._totalDelayMillis;
 			}
 			return num;
 		}
 	}
 
-	// Token: 0x17000736 RID: 1846
-	// (get) Token: 0x060018DA RID: 6362 RVA: 0x000620D4 File Offset: 0x000602D4
+	// Token: 0x1700078A RID: 1930
+	// (get) Token: 0x06001A6A RID: 6762 RVA: 0x00066A48 File Offset: 0x00064C48
 	public static ulong localTimeInMillis
 	{
 		get
 		{
-			ulong num = NetCull.localTimeInMillis;
-			if (num < Interpolation._totalDelayMillis)
+			ulong num = global::NetCull.localTimeInMillis;
+			if (num < global::Interpolation._totalDelayMillis)
 			{
 				num = 0UL;
 			}
 			else
 			{
-				num -= Interpolation._totalDelayMillis;
+				num -= global::Interpolation._totalDelayMillis;
 			}
 			return num;
 		}
 	}
 
-	// Token: 0x04000D2A RID: 3370
+	// Token: 0x04000E65 RID: 3685
 	private const float kDefaultSendRateRatio = 1.5f;
 
-	// Token: 0x04000D2B RID: 3371
+	// Token: 0x04000E66 RID: 3686
 	private const int kDefaultDelayMillis = 20;
 
-	// Token: 0x04000D2C RID: 3372
+	// Token: 0x04000E67 RID: 3687
 	private const float kDefaultSendRate = 5f;
 
-	// Token: 0x04000D2D RID: 3373
+	// Token: 0x04000E68 RID: 3688
 	private static double _ratio;
 
-	// Token: 0x04000D2E RID: 3374
+	// Token: 0x04000E69 RID: 3689
 	private static ulong _totalDelayMillis;
 
-	// Token: 0x04000D2F RID: 3375
+	// Token: 0x04000E6A RID: 3690
 	private static ulong _delayFromSendRateMillis;
 
-	// Token: 0x04000D30 RID: 3376
+	// Token: 0x04000E6B RID: 3691
 	private static ulong _delayMillis;
 
-	// Token: 0x04000D31 RID: 3377
+	// Token: 0x04000E6C RID: 3692
 	private static double _delaySeconds;
 
-	// Token: 0x04000D32 RID: 3378
+	// Token: 0x04000E6D RID: 3693
 	private static double _totalDelaySeconds;
 
-	// Token: 0x04000D33 RID: 3379
+	// Token: 0x04000E6E RID: 3694
 	private static double _deltaSeconds;
 
-	// Token: 0x04000D34 RID: 3380
+	// Token: 0x04000E6F RID: 3695
 	private static double _delayFromSendRateSeconds;
 
-	// Token: 0x04000D35 RID: 3381
+	// Token: 0x04000E70 RID: 3696
 	private static float _sendRate;
 
-	// Token: 0x04000D36 RID: 3382
-	public static Interpolation.TimingData @struct;
+	// Token: 0x04000E71 RID: 3697
+	public static global::Interpolation.TimingData @struct;
 
-	// Token: 0x020002B4 RID: 692
+	// Token: 0x020002F1 RID: 753
 	public struct TimingData
 	{
-		// Token: 0x060018DB RID: 6363 RVA: 0x00062104 File Offset: 0x00060304
+		// Token: 0x06001A6B RID: 6763 RVA: 0x00066A78 File Offset: 0x00064C78
 		public TimingData(double sendRateRatio, double deltaSeconds, double totalDelaySeconds, double delaySeconds, double delayFromSendRateSeconds, ulong totalDelayMillis, ulong delayFromSendRateMillis, ulong delayMillis, float sendRate)
 		{
 			this.sendRateRatio = sendRateRatio;
@@ -400,46 +400,46 @@ public static class Interpolation
 			this.delayFromSendRateSecondsF = (float)delayFromSendRateSeconds;
 		}
 
-		// Token: 0x04000D37 RID: 3383
+		// Token: 0x04000E72 RID: 3698
 		public readonly double sendRateRatio;
 
-		// Token: 0x04000D38 RID: 3384
+		// Token: 0x04000E73 RID: 3699
 		public readonly double deltaSeconds;
 
-		// Token: 0x04000D39 RID: 3385
+		// Token: 0x04000E74 RID: 3700
 		public readonly double totalDelaySeconds;
 
-		// Token: 0x04000D3A RID: 3386
+		// Token: 0x04000E75 RID: 3701
 		public readonly double delaySeconds;
 
-		// Token: 0x04000D3B RID: 3387
+		// Token: 0x04000E76 RID: 3702
 		public readonly double delayFromSendRateSeconds;
 
-		// Token: 0x04000D3C RID: 3388
+		// Token: 0x04000E77 RID: 3703
 		public readonly float sendRateRatioF;
 
-		// Token: 0x04000D3D RID: 3389
+		// Token: 0x04000E78 RID: 3704
 		public readonly float deltaSecondsF;
 
-		// Token: 0x04000D3E RID: 3390
+		// Token: 0x04000E79 RID: 3705
 		public readonly float totalDelaySecondsF;
 
-		// Token: 0x04000D3F RID: 3391
+		// Token: 0x04000E7A RID: 3706
 		public readonly float delaySecondsF;
 
-		// Token: 0x04000D40 RID: 3392
+		// Token: 0x04000E7B RID: 3707
 		public readonly float delayFromSendRateSecondsF;
 
-		// Token: 0x04000D41 RID: 3393
+		// Token: 0x04000E7C RID: 3708
 		public readonly ulong totalDelayMillis;
 
-		// Token: 0x04000D42 RID: 3394
+		// Token: 0x04000E7D RID: 3709
 		public readonly ulong delayFromSendRateMillis;
 
-		// Token: 0x04000D43 RID: 3395
+		// Token: 0x04000E7E RID: 3710
 		public readonly ulong delayMillis;
 
-		// Token: 0x04000D44 RID: 3396
+		// Token: 0x04000E7F RID: 3711
 		public readonly float sendRate;
 	}
 }

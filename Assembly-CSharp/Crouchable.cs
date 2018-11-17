@@ -1,26 +1,26 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000142 RID: 322
-public class Crouchable : IDLocalCharacter
+// Token: 0x0200016C RID: 364
+public class Crouchable : global::IDLocalCharacter
 {
-	// Token: 0x17000269 RID: 617
-	// (get) Token: 0x0600093D RID: 2365 RVA: 0x00027240 File Offset: 0x00025440
-	protected CharacterCrouchTrait crouchTrait
+	// Token: 0x170002AB RID: 683
+	// (get) Token: 0x06000A63 RID: 2659 RVA: 0x0002AFBC File Offset: 0x000291BC
+	protected global::CharacterCrouchTrait crouchTrait
 	{
 		get
 		{
 			if (!this.didCrouchTraitTest)
 			{
-				this._crouchTrait = base.GetTrait<CharacterCrouchTrait>();
+				this._crouchTrait = base.GetTrait<global::CharacterCrouchTrait>();
 				this.didCrouchTraitTest = true;
 			}
 			return this._crouchTrait;
 		}
 	}
 
-	// Token: 0x1700026A RID: 618
-	// (get) Token: 0x0600093E RID: 2366 RVA: 0x00027274 File Offset: 0x00025474
+	// Token: 0x170002AC RID: 684
+	// (get) Token: 0x06000A64 RID: 2660 RVA: 0x0002AFF0 File Offset: 0x000291F0
 	protected AnimationCurve crouchCurve
 	{
 		get
@@ -29,8 +29,8 @@ public class Crouchable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x1700026B RID: 619
-	// (get) Token: 0x0600093F RID: 2367 RVA: 0x00027284 File Offset: 0x00025484
+	// Token: 0x170002AD RID: 685
+	// (get) Token: 0x06000A65 RID: 2661 RVA: 0x0002B000 File Offset: 0x00029200
 	protected float crouchToSpeedFraction
 	{
 		get
@@ -39,9 +39,9 @@ public class Crouchable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x1700026C RID: 620
-	// (get) Token: 0x06000940 RID: 2368 RVA: 0x00027294 File Offset: 0x00025494
-	public new Crouchable crouchable
+	// Token: 0x170002AE RID: 686
+	// (get) Token: 0x06000A66 RID: 2662 RVA: 0x0002B010 File Offset: 0x00029210
+	public new global::Crouchable crouchable
 	{
 		get
 		{
@@ -49,8 +49,8 @@ public class Crouchable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x1700026D RID: 621
-	// (get) Token: 0x06000941 RID: 2369 RVA: 0x00027298 File Offset: 0x00025498
+	// Token: 0x170002AF RID: 687
+	// (get) Token: 0x06000A67 RID: 2663 RVA: 0x0002B014 File Offset: 0x00029214
 	public new bool crouched
 	{
 		get
@@ -59,8 +59,8 @@ public class Crouchable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000942 RID: 2370 RVA: 0x000272A8 File Offset: 0x000254A8
-	public void ApplyCrouchOffset(ref CCTotem.PositionPlacement placement)
+	// Token: 0x06000A68 RID: 2664 RVA: 0x0002B024 File Offset: 0x00029224
+	public void ApplyCrouchOffset(ref global::CCTotem.PositionPlacement placement)
 	{
 		float num = placement.bottom.y + base.initialEyesOffsetY;
 		float num2 = placement.originalTop.y - num;
@@ -70,8 +70,8 @@ public class Crouchable : IDLocalCharacter
 		base.idMain.InvalidateEyesOffset();
 	}
 
-	// Token: 0x06000943 RID: 2371 RVA: 0x00027314 File Offset: 0x00025514
-	public void LocalPlayerUpdateCrouchState(ref Crouchable.CrouchState incoming, ref bool crouchFlag, ref bool crouchBlockFlag, ref Crouchable.Smoothing smoothing)
+	// Token: 0x06000A69 RID: 2665 RVA: 0x0002B090 File Offset: 0x00029290
+	public void LocalPlayerUpdateCrouchState(ref global::Crouchable.CrouchState incoming, ref bool crouchFlag, ref bool crouchBlockFlag, ref global::Crouchable.Smoothing smoothing)
 	{
 		double num = (double)base.initialEyesOffsetY;
 		double num2 = (double)incoming.BottomY + num;
@@ -93,79 +93,79 @@ public class Crouchable : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06000944 RID: 2372 RVA: 0x00027398 File Offset: 0x00025598
-	public void LocalPlayerUpdateCrouchState(CCMotor ccmotor, ref bool crouchFlag, ref bool crouchBlockFlag, ref Crouchable.Smoothing smoothing)
+	// Token: 0x06000A6A RID: 2666 RVA: 0x0002B114 File Offset: 0x00029314
+	public void LocalPlayerUpdateCrouchState(global::CCMotor ccmotor, ref bool crouchFlag, ref bool crouchBlockFlag, ref global::Crouchable.Smoothing smoothing)
 	{
-		Crouchable.CrouchState crouchState;
+		global::Crouchable.CrouchState crouchState;
 		crouchState.CrouchBlocked = ccmotor.isCrouchBlocked;
-		CCTotem.PositionPlacement? lastPositionPlacement = ccmotor.LastPositionPlacement;
-		CCTotem.PositionPlacement positionPlacement = (lastPositionPlacement == null) ? new CCTotem.PositionPlacement(base.origin, base.origin, base.origin, ccmotor.ccTotemPole.MaximumHeight) : lastPositionPlacement.Value;
+		global::CCTotem.PositionPlacement? lastPositionPlacement = ccmotor.LastPositionPlacement;
+		global::CCTotem.PositionPlacement positionPlacement = (lastPositionPlacement == null) ? new global::CCTotem.PositionPlacement(base.origin, base.origin, base.origin, ccmotor.ccTotemPole.MaximumHeight) : lastPositionPlacement.Value;
 		crouchState.BottomY = positionPlacement.bottom.y;
 		crouchState.TopY = positionPlacement.top.y;
 		crouchState.InitialStandingHeight = positionPlacement.originalHeight;
 		this.LocalPlayerUpdateCrouchState(ref crouchState, ref crouchFlag, ref crouchBlockFlag, ref smoothing);
 	}
 
-	// Token: 0x06000945 RID: 2373 RVA: 0x00027434 File Offset: 0x00025634
+	// Token: 0x06000A6B RID: 2667 RVA: 0x0002B1B0 File Offset: 0x000293B0
 	protected internal void ApplyCrouch(ref Vector3 localPosition)
 	{
 		localPosition.y += this.crouchUnits;
 	}
 
-	// Token: 0x04000668 RID: 1640
+	// Token: 0x04000777 RID: 1911
 	private const double kSmoothInterval = 0.0032239760652016921;
 
-	// Token: 0x04000669 RID: 1641
+	// Token: 0x04000778 RID: 1912
 	private const double kSmoothDamp = 0.5;
 
-	// Token: 0x0400066A RID: 1642
+	// Token: 0x04000779 RID: 1913
 	private const double kSmoothDampInput = 0.0;
 
-	// Token: 0x0400066B RID: 1643
+	// Token: 0x0400077A RID: 1914
 	private const double kSmoothStiffness = 5.0;
 
-	// Token: 0x0400066C RID: 1644
+	// Token: 0x0400077B RID: 1915
 	[NonSerialized]
-	private CharacterCrouchTrait _crouchTrait;
+	private global::CharacterCrouchTrait _crouchTrait;
 
-	// Token: 0x0400066D RID: 1645
+	// Token: 0x0400077C RID: 1916
 	[NonSerialized]
 	private bool didCrouchTraitTest;
 
-	// Token: 0x0400066E RID: 1646
+	// Token: 0x0400077D RID: 1917
 	[NonSerialized]
 	private float crouchUnits;
 
-	// Token: 0x0400066F RID: 1647
+	// Token: 0x0400077E RID: 1918
 	[NonSerialized]
 	private float crouchTime;
 
-	// Token: 0x02000143 RID: 323
+	// Token: 0x0200016D RID: 365
 	public struct CrouchState
 	{
-		// Token: 0x04000670 RID: 1648
+		// Token: 0x0400077F RID: 1919
 		public bool CrouchBlocked;
 
-		// Token: 0x04000671 RID: 1649
+		// Token: 0x04000780 RID: 1920
 		public float BottomY;
 
-		// Token: 0x04000672 RID: 1650
+		// Token: 0x04000781 RID: 1921
 		public float TopY;
 
-		// Token: 0x04000673 RID: 1651
+		// Token: 0x04000782 RID: 1922
 		public float InitialStandingHeight;
 	}
 
-	// Token: 0x02000144 RID: 324
+	// Token: 0x0200016E RID: 366
 	public struct Smoothing
 	{
-		// Token: 0x06000946 RID: 2374 RVA: 0x0002744C File Offset: 0x0002564C
+		// Token: 0x06000A6C RID: 2668 RVA: 0x0002B1C8 File Offset: 0x000293C8
 		public void Reset()
 		{
-			this = default(Crouchable.Smoothing);
+			this = default(global::Crouchable.Smoothing);
 		}
 
-		// Token: 0x06000947 RID: 2375 RVA: 0x00027468 File Offset: 0x00025668
+		// Token: 0x06000A6D RID: 2669 RVA: 0x0002B1E4 File Offset: 0x000293E4
 		public void Solve()
 		{
 			this.A = this.T;
@@ -173,7 +173,7 @@ public class Crouchable : IDLocalCharacter
 			this.I = true;
 		}
 
-		// Token: 0x06000948 RID: 2376 RVA: 0x000274AC File Offset: 0x000256AC
+		// Token: 0x06000A6E RID: 2670 RVA: 0x0002B228 File Offset: 0x00029428
 		public void AddSeconds(double elapsedSeconds)
 		{
 			if (elapsedSeconds > 0.0)
@@ -183,7 +183,7 @@ public class Crouchable : IDLocalCharacter
 			}
 		}
 
-		// Token: 0x06000949 RID: 2377 RVA: 0x000274DC File Offset: 0x000256DC
+		// Token: 0x06000A6F RID: 2671 RVA: 0x0002B258 File Offset: 0x00029458
 		public float CatchUp(double target)
 		{
 			double num;
@@ -230,22 +230,22 @@ public class Crouchable : IDLocalCharacter
 			return (num >= 1.4012984643248171E-45 || num <= -1.4012984643248171E-45) ? ((float)num) : 0f;
 		}
 
-		// Token: 0x04000674 RID: 1652
+		// Token: 0x04000783 RID: 1923
 		private bool I;
 
-		// Token: 0x04000675 RID: 1653
+		// Token: 0x04000784 RID: 1924
 		private double T;
 
-		// Token: 0x04000676 RID: 1654
+		// Token: 0x04000785 RID: 1925
 		private double A;
 
-		// Token: 0x04000677 RID: 1655
+		// Token: 0x04000786 RID: 1926
 		private double V;
 
-		// Token: 0x04000678 RID: 1656
+		// Token: 0x04000787 RID: 1927
 		private double Y;
 
-		// Token: 0x04000679 RID: 1657
+		// Token: 0x04000788 RID: 1928
 		private double Z;
 	}
 }

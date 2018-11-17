@@ -1,17 +1,17 @@
 ﻿using System;
 
-// Token: 0x020001C1 RID: 449
+// Token: 0x020001F1 RID: 497
 [Flags]
 public enum InterfaceSearchRoute
 {
-	// Token: 0x0400078D RID: 1933
+	// Token: 0x040008A1 RID: 2209
 	GameObject = 1,
-	// Token: 0x0400078E RID: 1934
+	// Token: 0x040008A2 RID: 2210
 	Children = 2,
-	// Token: 0x0400078F RID: 1935
+	// Token: 0x040008A3 RID: 2211
 	Parents = 4,
-	// Token: 0x04000790 RID: 1936
+	// Token: 0x040008A4 RID: 2212
 	Root = 8,
-	// Token: 0x04000791 RID: 1937
+	// Token: 0x040008A5 RID: 2213
 	Remote = 16
 }

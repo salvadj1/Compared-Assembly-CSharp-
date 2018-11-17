@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x02000211 RID: 529
+	// Token: 0x02000244 RID: 580
 	[DebuggerNonUserCode]
 	public sealed class objectSleepingAvatar : GeneratedMessage<objectSleepingAvatar, objectSleepingAvatar.Builder>
 	{
-		// Token: 0x06001164 RID: 4452 RVA: 0x0003EB74 File Offset: 0x0003CD74
+		// Token: 0x060012B8 RID: 4792 RVA: 0x00042F1C File Offset: 0x0004111C
 		private objectSleepingAvatar()
 		{
 		}
 
-		// Token: 0x06001165 RID: 4453 RVA: 0x0003EB84 File Offset: 0x0003CD84
+		// Token: 0x060012B9 RID: 4793 RVA: 0x00042F2C File Offset: 0x0004112C
 		static objectSleepingAvatar()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x06001166 RID: 4454 RVA: 0x0003EC00 File Offset: 0x0003CE00
-		public static Recycler<objectSleepingAvatar, objectSleepingAvatar.Builder> Recycler()
+		// Token: 0x060012BA RID: 4794 RVA: 0x00042FA8 File Offset: 0x000411A8
+		public static RustProto.Helpers.Recycler<objectSleepingAvatar, objectSleepingAvatar.Builder> Recycler()
 		{
-			return Recycler<objectSleepingAvatar, objectSleepingAvatar.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectSleepingAvatar, objectSleepingAvatar.Builder>.Manufacture();
 		}
 
-		// Token: 0x170004BA RID: 1210
-		// (get) Token: 0x06001167 RID: 4455 RVA: 0x0003EC08 File Offset: 0x0003CE08
+		// Token: 0x17000502 RID: 1282
+		// (get) Token: 0x060012BB RID: 4795 RVA: 0x00042FB0 File Offset: 0x000411B0
 		public static objectSleepingAvatar DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004BB RID: 1211
-		// (get) Token: 0x06001168 RID: 4456 RVA: 0x0003EC10 File Offset: 0x0003CE10
+		// Token: 0x17000503 RID: 1283
+		// (get) Token: 0x060012BC RID: 4796 RVA: 0x00042FB8 File Offset: 0x000411B8
 		public override objectSleepingAvatar DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004BC RID: 1212
-		// (get) Token: 0x06001169 RID: 4457 RVA: 0x0003EC18 File Offset: 0x0003CE18
+		// Token: 0x17000504 RID: 1284
+		// (get) Token: 0x060012BD RID: 4797 RVA: 0x00042FC0 File Offset: 0x000411C0
 		protected override objectSleepingAvatar ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004BD RID: 1213
-		// (get) Token: 0x0600116A RID: 4458 RVA: 0x0003EC1C File Offset: 0x0003CE1C
+		// Token: 0x17000505 RID: 1285
+		// (get) Token: 0x060012BE RID: 4798 RVA: 0x00042FC4 File Offset: 0x000411C4
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004BE RID: 1214
-		// (get) Token: 0x0600116B RID: 4459 RVA: 0x0003EC24 File Offset: 0x0003CE24
+		// Token: 0x17000506 RID: 1286
+		// (get) Token: 0x060012BF RID: 4799 RVA: 0x00042FCC File Offset: 0x000411CC
 		protected override FieldAccessorTable<objectSleepingAvatar, objectSleepingAvatar.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004BF RID: 1215
-		// (get) Token: 0x0600116C RID: 4460 RVA: 0x0003EC2C File Offset: 0x0003CE2C
+		// Token: 0x17000507 RID: 1287
+		// (get) Token: 0x060012C0 RID: 4800 RVA: 0x00042FD4 File Offset: 0x000411D4
 		public bool HasFootArmor
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C0 RID: 1216
-		// (get) Token: 0x0600116D RID: 4461 RVA: 0x0003EC34 File Offset: 0x0003CE34
+		// Token: 0x17000508 RID: 1288
+		// (get) Token: 0x060012C1 RID: 4801 RVA: 0x00042FDC File Offset: 0x000411DC
 		public int FootArmor
 		{
 			get
@@ -99,8 +99,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C1 RID: 1217
-		// (get) Token: 0x0600116E RID: 4462 RVA: 0x0003EC3C File Offset: 0x0003CE3C
+		// Token: 0x17000509 RID: 1289
+		// (get) Token: 0x060012C2 RID: 4802 RVA: 0x00042FE4 File Offset: 0x000411E4
 		public bool HasLegArmor
 		{
 			get
@@ -109,8 +109,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C2 RID: 1218
-		// (get) Token: 0x0600116F RID: 4463 RVA: 0x0003EC44 File Offset: 0x0003CE44
+		// Token: 0x1700050A RID: 1290
+		// (get) Token: 0x060012C3 RID: 4803 RVA: 0x00042FEC File Offset: 0x000411EC
 		public int LegArmor
 		{
 			get
@@ -119,8 +119,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C3 RID: 1219
-		// (get) Token: 0x06001170 RID: 4464 RVA: 0x0003EC4C File Offset: 0x0003CE4C
+		// Token: 0x1700050B RID: 1291
+		// (get) Token: 0x060012C4 RID: 4804 RVA: 0x00042FF4 File Offset: 0x000411F4
 		public bool HasTorsoArmor
 		{
 			get
@@ -129,8 +129,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C4 RID: 1220
-		// (get) Token: 0x06001171 RID: 4465 RVA: 0x0003EC54 File Offset: 0x0003CE54
+		// Token: 0x1700050C RID: 1292
+		// (get) Token: 0x060012C5 RID: 4805 RVA: 0x00042FFC File Offset: 0x000411FC
 		public int TorsoArmor
 		{
 			get
@@ -139,8 +139,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C5 RID: 1221
-		// (get) Token: 0x06001172 RID: 4466 RVA: 0x0003EC5C File Offset: 0x0003CE5C
+		// Token: 0x1700050D RID: 1293
+		// (get) Token: 0x060012C6 RID: 4806 RVA: 0x00043004 File Offset: 0x00041204
 		public bool HasHeadArmor
 		{
 			get
@@ -149,8 +149,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C6 RID: 1222
-		// (get) Token: 0x06001173 RID: 4467 RVA: 0x0003EC64 File Offset: 0x0003CE64
+		// Token: 0x1700050E RID: 1294
+		// (get) Token: 0x060012C7 RID: 4807 RVA: 0x0004300C File Offset: 0x0004120C
 		public int HeadArmor
 		{
 			get
@@ -159,8 +159,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C7 RID: 1223
-		// (get) Token: 0x06001174 RID: 4468 RVA: 0x0003EC6C File Offset: 0x0003CE6C
+		// Token: 0x1700050F RID: 1295
+		// (get) Token: 0x060012C8 RID: 4808 RVA: 0x00043014 File Offset: 0x00041214
 		public bool HasTimestamp
 		{
 			get
@@ -169,8 +169,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C8 RID: 1224
-		// (get) Token: 0x06001175 RID: 4469 RVA: 0x0003EC74 File Offset: 0x0003CE74
+		// Token: 0x17000510 RID: 1296
+		// (get) Token: 0x060012C9 RID: 4809 RVA: 0x0004301C File Offset: 0x0004121C
 		public int Timestamp
 		{
 			get
@@ -179,8 +179,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004C9 RID: 1225
-		// (get) Token: 0x06001176 RID: 4470 RVA: 0x0003EC7C File Offset: 0x0003CE7C
+		// Token: 0x17000511 RID: 1297
+		// (get) Token: 0x060012CA RID: 4810 RVA: 0x00043024 File Offset: 0x00041224
 		public bool HasVitals
 		{
 			get
@@ -189,8 +189,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004CA RID: 1226
-		// (get) Token: 0x06001177 RID: 4471 RVA: 0x0003EC84 File Offset: 0x0003CE84
+		// Token: 0x17000512 RID: 1298
+		// (get) Token: 0x060012CB RID: 4811 RVA: 0x0004302C File Offset: 0x0004122C
 		public Vitals Vitals
 		{
 			get
@@ -199,8 +199,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004CB RID: 1227
-		// (get) Token: 0x06001178 RID: 4472 RVA: 0x0003EC98 File Offset: 0x0003CE98
+		// Token: 0x17000513 RID: 1299
+		// (get) Token: 0x060012CC RID: 4812 RVA: 0x00043040 File Offset: 0x00041240
 		public override bool IsInitialized
 		{
 			get
@@ -209,7 +209,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x06001179 RID: 4473 RVA: 0x0003EC9C File Offset: 0x0003CE9C
+		// Token: 0x060012CD RID: 4813 RVA: 0x00043044 File Offset: 0x00041244
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -241,8 +241,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x170004CC RID: 1228
-		// (get) Token: 0x0600117A RID: 4474 RVA: 0x0003ED64 File Offset: 0x0003CF64
+		// Token: 0x17000514 RID: 1300
+		// (get) Token: 0x060012CE RID: 4814 RVA: 0x0004310C File Offset: 0x0004130C
 		public override int SerializedSize
 		{
 			get
@@ -283,118 +283,118 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600117B RID: 4475 RVA: 0x0003EE38 File Offset: 0x0003D038
+		// Token: 0x060012CF RID: 4815 RVA: 0x000431E0 File Offset: 0x000413E0
 		public static objectSleepingAvatar ParseFrom(ByteString data)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x0600117C RID: 4476 RVA: 0x0003EE4C File Offset: 0x0003D04C
+		// Token: 0x060012D0 RID: 4816 RVA: 0x000431F4 File Offset: 0x000413F4
 		public static objectSleepingAvatar ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600117D RID: 4477 RVA: 0x0003EE60 File Offset: 0x0003D060
+		// Token: 0x060012D1 RID: 4817 RVA: 0x00043208 File Offset: 0x00041408
 		public static objectSleepingAvatar ParseFrom(byte[] data)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x0600117E RID: 4478 RVA: 0x0003EE74 File Offset: 0x0003D074
+		// Token: 0x060012D2 RID: 4818 RVA: 0x0004321C File Offset: 0x0004141C
 		public static objectSleepingAvatar ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600117F RID: 4479 RVA: 0x0003EE88 File Offset: 0x0003D088
+		// Token: 0x060012D3 RID: 4819 RVA: 0x00043230 File Offset: 0x00041430
 		public static objectSleepingAvatar ParseFrom(Stream input)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001180 RID: 4480 RVA: 0x0003EE9C File Offset: 0x0003D09C
+		// Token: 0x060012D4 RID: 4820 RVA: 0x00043244 File Offset: 0x00041444
 		public static objectSleepingAvatar ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001181 RID: 4481 RVA: 0x0003EEB0 File Offset: 0x0003D0B0
+		// Token: 0x060012D5 RID: 4821 RVA: 0x00043258 File Offset: 0x00041458
 		public static objectSleepingAvatar ParseDelimitedFrom(Stream input)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001182 RID: 4482 RVA: 0x0003EEC4 File Offset: 0x0003D0C4
+		// Token: 0x060012D6 RID: 4822 RVA: 0x0004326C File Offset: 0x0004146C
 		public static objectSleepingAvatar ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001183 RID: 4483 RVA: 0x0003EED8 File Offset: 0x0003D0D8
+		// Token: 0x060012D7 RID: 4823 RVA: 0x00043280 File Offset: 0x00041480
 		public static objectSleepingAvatar ParseFrom(ICodedInputStream input)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001184 RID: 4484 RVA: 0x0003EEEC File Offset: 0x0003D0EC
+		// Token: 0x060012D8 RID: 4824 RVA: 0x00043294 File Offset: 0x00041494
 		public static objectSleepingAvatar ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectSleepingAvatar.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001185 RID: 4485 RVA: 0x0003EF00 File Offset: 0x0003D100
+		// Token: 0x060012D9 RID: 4825 RVA: 0x000432A8 File Offset: 0x000414A8
 		private objectSleepingAvatar MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x06001186 RID: 4486 RVA: 0x0003EF04 File Offset: 0x0003D104
+		// Token: 0x060012DA RID: 4826 RVA: 0x000432AC File Offset: 0x000414AC
 		public static objectSleepingAvatar.Builder CreateBuilder()
 		{
 			return new objectSleepingAvatar.Builder();
 		}
 
-		// Token: 0x06001187 RID: 4487 RVA: 0x0003EF0C File Offset: 0x0003D10C
+		// Token: 0x060012DB RID: 4827 RVA: 0x000432B4 File Offset: 0x000414B4
 		public override objectSleepingAvatar.Builder ToBuilder()
 		{
 			return objectSleepingAvatar.CreateBuilder(this);
 		}
 
-		// Token: 0x06001188 RID: 4488 RVA: 0x0003EF14 File Offset: 0x0003D114
+		// Token: 0x060012DC RID: 4828 RVA: 0x000432BC File Offset: 0x000414BC
 		public override objectSleepingAvatar.Builder CreateBuilderForType()
 		{
 			return new objectSleepingAvatar.Builder();
 		}
 
-		// Token: 0x06001189 RID: 4489 RVA: 0x0003EF1C File Offset: 0x0003D11C
+		// Token: 0x060012DD RID: 4829 RVA: 0x000432C4 File Offset: 0x000414C4
 		public static objectSleepingAvatar.Builder CreateBuilder(objectSleepingAvatar prototype)
 		{
 			return new objectSleepingAvatar.Builder(prototype);
 		}
 
-		// Token: 0x04000969 RID: 2409
+		// Token: 0x04000A8C RID: 2700
 		public const int FootArmorFieldNumber = 1;
 
-		// Token: 0x0400096A RID: 2410
+		// Token: 0x04000A8D RID: 2701
 		public const int LegArmorFieldNumber = 2;
 
-		// Token: 0x0400096B RID: 2411
+		// Token: 0x04000A8E RID: 2702
 		public const int TorsoArmorFieldNumber = 3;
 
-		// Token: 0x0400096C RID: 2412
+		// Token: 0x04000A8F RID: 2703
 		public const int HeadArmorFieldNumber = 4;
 
-		// Token: 0x0400096D RID: 2413
+		// Token: 0x04000A90 RID: 2704
 		public const int TimestampFieldNumber = 5;
 
-		// Token: 0x0400096E RID: 2414
+		// Token: 0x04000A91 RID: 2705
 		public const int VitalsFieldNumber = 6;
 
-		// Token: 0x0400096F RID: 2415
+		// Token: 0x04000A92 RID: 2706
 		private static readonly objectSleepingAvatar defaultInstance = new objectSleepingAvatar().MakeReadOnly();
 
-		// Token: 0x04000970 RID: 2416
+		// Token: 0x04000A93 RID: 2707
 		private static readonly string[] _objectSleepingAvatarFieldNames = new string[]
 		{
 			"footArmor",
@@ -405,7 +405,7 @@ namespace RustProto
 			"vitals"
 		};
 
-		// Token: 0x04000971 RID: 2417
+		// Token: 0x04000A94 RID: 2708
 		private static readonly uint[] _objectSleepingAvatarFieldTags = new uint[]
 		{
 			8u,
@@ -416,65 +416,65 @@ namespace RustProto
 			50u
 		};
 
-		// Token: 0x04000972 RID: 2418
+		// Token: 0x04000A95 RID: 2709
 		private bool hasFootArmor;
 
-		// Token: 0x04000973 RID: 2419
+		// Token: 0x04000A96 RID: 2710
 		private int footArmor_;
 
-		// Token: 0x04000974 RID: 2420
+		// Token: 0x04000A97 RID: 2711
 		private bool hasLegArmor;
 
-		// Token: 0x04000975 RID: 2421
+		// Token: 0x04000A98 RID: 2712
 		private int legArmor_;
 
-		// Token: 0x04000976 RID: 2422
+		// Token: 0x04000A99 RID: 2713
 		private bool hasTorsoArmor;
 
-		// Token: 0x04000977 RID: 2423
+		// Token: 0x04000A9A RID: 2714
 		private int torsoArmor_;
 
-		// Token: 0x04000978 RID: 2424
+		// Token: 0x04000A9B RID: 2715
 		private bool hasHeadArmor;
 
-		// Token: 0x04000979 RID: 2425
+		// Token: 0x04000A9C RID: 2716
 		private int headArmor_;
 
-		// Token: 0x0400097A RID: 2426
+		// Token: 0x04000A9D RID: 2717
 		private bool hasTimestamp;
 
-		// Token: 0x0400097B RID: 2427
+		// Token: 0x04000A9E RID: 2718
 		private int timestamp_;
 
-		// Token: 0x0400097C RID: 2428
+		// Token: 0x04000A9F RID: 2719
 		private bool hasVitals;
 
-		// Token: 0x0400097D RID: 2429
+		// Token: 0x04000AA0 RID: 2720
 		private Vitals vitals_;
 
-		// Token: 0x0400097E RID: 2430
+		// Token: 0x04000AA1 RID: 2721
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000212 RID: 530
+		// Token: 0x02000245 RID: 581
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectSleepingAvatar, objectSleepingAvatar.Builder>
 		{
-			// Token: 0x0600118A RID: 4490 RVA: 0x0003EF24 File Offset: 0x0003D124
+			// Token: 0x060012DE RID: 4830 RVA: 0x000432CC File Offset: 0x000414CC
 			public Builder()
 			{
 				this.result = objectSleepingAvatar.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x0600118B RID: 4491 RVA: 0x0003EF40 File Offset: 0x0003D140
+			// Token: 0x060012DF RID: 4831 RVA: 0x000432E8 File Offset: 0x000414E8
 			internal Builder(objectSleepingAvatar cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x170004CD RID: 1229
-			// (get) Token: 0x0600118C RID: 4492 RVA: 0x0003EF58 File Offset: 0x0003D158
+			// Token: 0x17000515 RID: 1301
+			// (get) Token: 0x060012E0 RID: 4832 RVA: 0x00043300 File Offset: 0x00041500
 			protected override objectSleepingAvatar.Builder ThisBuilder
 			{
 				get
@@ -483,7 +483,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600118D RID: 4493 RVA: 0x0003EF5C File Offset: 0x0003D15C
+			// Token: 0x060012E1 RID: 4833 RVA: 0x00043304 File Offset: 0x00041504
 			private objectSleepingAvatar PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -496,8 +496,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x170004CE RID: 1230
-			// (get) Token: 0x0600118E RID: 4494 RVA: 0x0003EF9C File Offset: 0x0003D19C
+			// Token: 0x17000516 RID: 1302
+			// (get) Token: 0x060012E2 RID: 4834 RVA: 0x00043344 File Offset: 0x00041544
 			public override bool IsInitialized
 			{
 				get
@@ -506,8 +506,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004CF RID: 1231
-			// (get) Token: 0x0600118F RID: 4495 RVA: 0x0003EFAC File Offset: 0x0003D1AC
+			// Token: 0x17000517 RID: 1303
+			// (get) Token: 0x060012E3 RID: 4835 RVA: 0x00043354 File Offset: 0x00041554
 			protected override objectSleepingAvatar MessageBeingBuilt
 			{
 				get
@@ -516,7 +516,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001190 RID: 4496 RVA: 0x0003EFB4 File Offset: 0x0003D1B4
+			// Token: 0x060012E4 RID: 4836 RVA: 0x0004335C File Offset: 0x0004155C
 			public override objectSleepingAvatar.Builder Clear()
 			{
 				this.result = objectSleepingAvatar.DefaultInstance;
@@ -524,7 +524,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001191 RID: 4497 RVA: 0x0003EFCC File Offset: 0x0003D1CC
+			// Token: 0x060012E5 RID: 4837 RVA: 0x00043374 File Offset: 0x00041574
 			public override objectSleepingAvatar.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -534,8 +534,8 @@ namespace RustProto
 				return new objectSleepingAvatar.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x170004D0 RID: 1232
-			// (get) Token: 0x06001192 RID: 4498 RVA: 0x0003EFF8 File Offset: 0x0003D1F8
+			// Token: 0x17000518 RID: 1304
+			// (get) Token: 0x060012E6 RID: 4838 RVA: 0x000433A0 File Offset: 0x000415A0
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -544,8 +544,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004D1 RID: 1233
-			// (get) Token: 0x06001193 RID: 4499 RVA: 0x0003F000 File Offset: 0x0003D200
+			// Token: 0x17000519 RID: 1305
+			// (get) Token: 0x060012E7 RID: 4839 RVA: 0x000433A8 File Offset: 0x000415A8
 			public override objectSleepingAvatar DefaultInstanceForType
 			{
 				get
@@ -554,7 +554,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001194 RID: 4500 RVA: 0x0003F008 File Offset: 0x0003D208
+			// Token: 0x060012E8 RID: 4840 RVA: 0x000433B0 File Offset: 0x000415B0
 			public override objectSleepingAvatar BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -565,7 +565,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x06001195 RID: 4501 RVA: 0x0003F03C File Offset: 0x0003D23C
+			// Token: 0x060012E9 RID: 4841 RVA: 0x000433E4 File Offset: 0x000415E4
 			public override objectSleepingAvatar.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectSleepingAvatar)
@@ -576,7 +576,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001196 RID: 4502 RVA: 0x0003F060 File Offset: 0x0003D260
+			// Token: 0x060012EA RID: 4842 RVA: 0x00043408 File Offset: 0x00041608
 			public override objectSleepingAvatar.Builder MergeFrom(objectSleepingAvatar other)
 			{
 				if (other == objectSleepingAvatar.DefaultInstance)
@@ -612,13 +612,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001197 RID: 4503 RVA: 0x0003F11C File Offset: 0x0003D31C
+			// Token: 0x060012EB RID: 4843 RVA: 0x000434C4 File Offset: 0x000416C4
 			public override objectSleepingAvatar.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x06001198 RID: 4504 RVA: 0x0003F12C File Offset: 0x0003D32C
+			// Token: 0x060012EC RID: 4844 RVA: 0x000434D4 File Offset: 0x000416D4
 			public override objectSleepingAvatar.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -715,8 +715,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004D2 RID: 1234
-			// (get) Token: 0x06001199 RID: 4505 RVA: 0x0003F330 File Offset: 0x0003D530
+			// Token: 0x1700051A RID: 1306
+			// (get) Token: 0x060012ED RID: 4845 RVA: 0x000436D8 File Offset: 0x000418D8
 			public bool HasFootArmor
 			{
 				get
@@ -725,9 +725,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004D3 RID: 1235
-			// (get) Token: 0x0600119A RID: 4506 RVA: 0x0003F340 File Offset: 0x0003D540
-			// (set) Token: 0x0600119B RID: 4507 RVA: 0x0003F350 File Offset: 0x0003D550
+			// Token: 0x1700051B RID: 1307
+			// (get) Token: 0x060012EE RID: 4846 RVA: 0x000436E8 File Offset: 0x000418E8
+			// (set) Token: 0x060012EF RID: 4847 RVA: 0x000436F8 File Offset: 0x000418F8
 			public int FootArmor
 			{
 				get
@@ -740,7 +740,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600119C RID: 4508 RVA: 0x0003F35C File Offset: 0x0003D55C
+			// Token: 0x060012F0 RID: 4848 RVA: 0x00043704 File Offset: 0x00041904
 			public objectSleepingAvatar.Builder SetFootArmor(int value)
 			{
 				this.PrepareBuilder();
@@ -749,7 +749,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600119D RID: 4509 RVA: 0x0003F38C File Offset: 0x0003D58C
+			// Token: 0x060012F1 RID: 4849 RVA: 0x00043734 File Offset: 0x00041934
 			public objectSleepingAvatar.Builder ClearFootArmor()
 			{
 				this.PrepareBuilder();
@@ -758,8 +758,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004D4 RID: 1236
-			// (get) Token: 0x0600119E RID: 4510 RVA: 0x0003F3BC File Offset: 0x0003D5BC
+			// Token: 0x1700051C RID: 1308
+			// (get) Token: 0x060012F2 RID: 4850 RVA: 0x00043764 File Offset: 0x00041964
 			public bool HasLegArmor
 			{
 				get
@@ -768,9 +768,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004D5 RID: 1237
-			// (get) Token: 0x0600119F RID: 4511 RVA: 0x0003F3CC File Offset: 0x0003D5CC
-			// (set) Token: 0x060011A0 RID: 4512 RVA: 0x0003F3DC File Offset: 0x0003D5DC
+			// Token: 0x1700051D RID: 1309
+			// (get) Token: 0x060012F3 RID: 4851 RVA: 0x00043774 File Offset: 0x00041974
+			// (set) Token: 0x060012F4 RID: 4852 RVA: 0x00043784 File Offset: 0x00041984
 			public int LegArmor
 			{
 				get
@@ -783,7 +783,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011A1 RID: 4513 RVA: 0x0003F3E8 File Offset: 0x0003D5E8
+			// Token: 0x060012F5 RID: 4853 RVA: 0x00043790 File Offset: 0x00041990
 			public objectSleepingAvatar.Builder SetLegArmor(int value)
 			{
 				this.PrepareBuilder();
@@ -792,7 +792,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011A2 RID: 4514 RVA: 0x0003F418 File Offset: 0x0003D618
+			// Token: 0x060012F6 RID: 4854 RVA: 0x000437C0 File Offset: 0x000419C0
 			public objectSleepingAvatar.Builder ClearLegArmor()
 			{
 				this.PrepareBuilder();
@@ -801,8 +801,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004D6 RID: 1238
-			// (get) Token: 0x060011A3 RID: 4515 RVA: 0x0003F448 File Offset: 0x0003D648
+			// Token: 0x1700051E RID: 1310
+			// (get) Token: 0x060012F7 RID: 4855 RVA: 0x000437F0 File Offset: 0x000419F0
 			public bool HasTorsoArmor
 			{
 				get
@@ -811,9 +811,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004D7 RID: 1239
-			// (get) Token: 0x060011A4 RID: 4516 RVA: 0x0003F458 File Offset: 0x0003D658
-			// (set) Token: 0x060011A5 RID: 4517 RVA: 0x0003F468 File Offset: 0x0003D668
+			// Token: 0x1700051F RID: 1311
+			// (get) Token: 0x060012F8 RID: 4856 RVA: 0x00043800 File Offset: 0x00041A00
+			// (set) Token: 0x060012F9 RID: 4857 RVA: 0x00043810 File Offset: 0x00041A10
 			public int TorsoArmor
 			{
 				get
@@ -826,7 +826,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011A6 RID: 4518 RVA: 0x0003F474 File Offset: 0x0003D674
+			// Token: 0x060012FA RID: 4858 RVA: 0x0004381C File Offset: 0x00041A1C
 			public objectSleepingAvatar.Builder SetTorsoArmor(int value)
 			{
 				this.PrepareBuilder();
@@ -835,7 +835,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011A7 RID: 4519 RVA: 0x0003F4A4 File Offset: 0x0003D6A4
+			// Token: 0x060012FB RID: 4859 RVA: 0x0004384C File Offset: 0x00041A4C
 			public objectSleepingAvatar.Builder ClearTorsoArmor()
 			{
 				this.PrepareBuilder();
@@ -844,8 +844,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004D8 RID: 1240
-			// (get) Token: 0x060011A8 RID: 4520 RVA: 0x0003F4D4 File Offset: 0x0003D6D4
+			// Token: 0x17000520 RID: 1312
+			// (get) Token: 0x060012FC RID: 4860 RVA: 0x0004387C File Offset: 0x00041A7C
 			public bool HasHeadArmor
 			{
 				get
@@ -854,9 +854,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004D9 RID: 1241
-			// (get) Token: 0x060011A9 RID: 4521 RVA: 0x0003F4E4 File Offset: 0x0003D6E4
-			// (set) Token: 0x060011AA RID: 4522 RVA: 0x0003F4F4 File Offset: 0x0003D6F4
+			// Token: 0x17000521 RID: 1313
+			// (get) Token: 0x060012FD RID: 4861 RVA: 0x0004388C File Offset: 0x00041A8C
+			// (set) Token: 0x060012FE RID: 4862 RVA: 0x0004389C File Offset: 0x00041A9C
 			public int HeadArmor
 			{
 				get
@@ -869,7 +869,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011AB RID: 4523 RVA: 0x0003F500 File Offset: 0x0003D700
+			// Token: 0x060012FF RID: 4863 RVA: 0x000438A8 File Offset: 0x00041AA8
 			public objectSleepingAvatar.Builder SetHeadArmor(int value)
 			{
 				this.PrepareBuilder();
@@ -878,7 +878,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011AC RID: 4524 RVA: 0x0003F530 File Offset: 0x0003D730
+			// Token: 0x06001300 RID: 4864 RVA: 0x000438D8 File Offset: 0x00041AD8
 			public objectSleepingAvatar.Builder ClearHeadArmor()
 			{
 				this.PrepareBuilder();
@@ -887,8 +887,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004DA RID: 1242
-			// (get) Token: 0x060011AD RID: 4525 RVA: 0x0003F560 File Offset: 0x0003D760
+			// Token: 0x17000522 RID: 1314
+			// (get) Token: 0x06001301 RID: 4865 RVA: 0x00043908 File Offset: 0x00041B08
 			public bool HasTimestamp
 			{
 				get
@@ -897,9 +897,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004DB RID: 1243
-			// (get) Token: 0x060011AE RID: 4526 RVA: 0x0003F570 File Offset: 0x0003D770
-			// (set) Token: 0x060011AF RID: 4527 RVA: 0x0003F580 File Offset: 0x0003D780
+			// Token: 0x17000523 RID: 1315
+			// (get) Token: 0x06001302 RID: 4866 RVA: 0x00043918 File Offset: 0x00041B18
+			// (set) Token: 0x06001303 RID: 4867 RVA: 0x00043928 File Offset: 0x00041B28
 			public int Timestamp
 			{
 				get
@@ -912,7 +912,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011B0 RID: 4528 RVA: 0x0003F58C File Offset: 0x0003D78C
+			// Token: 0x06001304 RID: 4868 RVA: 0x00043934 File Offset: 0x00041B34
 			public objectSleepingAvatar.Builder SetTimestamp(int value)
 			{
 				this.PrepareBuilder();
@@ -921,7 +921,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011B1 RID: 4529 RVA: 0x0003F5BC File Offset: 0x0003D7BC
+			// Token: 0x06001305 RID: 4869 RVA: 0x00043964 File Offset: 0x00041B64
 			public objectSleepingAvatar.Builder ClearTimestamp()
 			{
 				this.PrepareBuilder();
@@ -930,8 +930,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004DC RID: 1244
-			// (get) Token: 0x060011B2 RID: 4530 RVA: 0x0003F5EC File Offset: 0x0003D7EC
+			// Token: 0x17000524 RID: 1316
+			// (get) Token: 0x06001306 RID: 4870 RVA: 0x00043994 File Offset: 0x00041B94
 			public bool HasVitals
 			{
 				get
@@ -940,9 +940,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004DD RID: 1245
-			// (get) Token: 0x060011B3 RID: 4531 RVA: 0x0003F5FC File Offset: 0x0003D7FC
-			// (set) Token: 0x060011B4 RID: 4532 RVA: 0x0003F60C File Offset: 0x0003D80C
+			// Token: 0x17000525 RID: 1317
+			// (get) Token: 0x06001307 RID: 4871 RVA: 0x000439A4 File Offset: 0x00041BA4
+			// (set) Token: 0x06001308 RID: 4872 RVA: 0x000439B4 File Offset: 0x00041BB4
 			public Vitals Vitals
 			{
 				get
@@ -955,7 +955,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x060011B5 RID: 4533 RVA: 0x0003F618 File Offset: 0x0003D818
+			// Token: 0x06001309 RID: 4873 RVA: 0x000439C0 File Offset: 0x00041BC0
 			public objectSleepingAvatar.Builder SetVitals(Vitals value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -965,7 +965,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011B6 RID: 4534 RVA: 0x0003F648 File Offset: 0x0003D848
+			// Token: 0x0600130A RID: 4874 RVA: 0x000439F0 File Offset: 0x00041BF0
 			public objectSleepingAvatar.Builder SetVitals(Vitals.Builder builderForValue)
 			{
 				ThrowHelper.ThrowIfNull(builderForValue, "builderForValue");
@@ -975,7 +975,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011B7 RID: 4535 RVA: 0x0003F688 File Offset: 0x0003D888
+			// Token: 0x0600130B RID: 4875 RVA: 0x00043A30 File Offset: 0x00041C30
 			public objectSleepingAvatar.Builder MergeVitals(Vitals value)
 			{
 				ThrowHelper.ThrowIfNull(value, "value");
@@ -992,7 +992,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x060011B8 RID: 4536 RVA: 0x0003F710 File Offset: 0x0003D910
+			// Token: 0x0600130C RID: 4876 RVA: 0x00043AB8 File Offset: 0x00041CB8
 			public objectSleepingAvatar.Builder ClearVitals()
 			{
 				this.PrepareBuilder();
@@ -1001,10 +1001,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0400097F RID: 2431
+			// Token: 0x04000AA2 RID: 2722
 			private bool resultIsReadOnly;
 
-			// Token: 0x04000980 RID: 2432
+			// Token: 0x04000AA3 RID: 2723
 			private objectSleepingAvatar result;
 		}
 	}

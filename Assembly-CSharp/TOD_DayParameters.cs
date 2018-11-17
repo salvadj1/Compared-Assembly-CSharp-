@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200082D RID: 2093
+// Token: 0x02000922 RID: 2338
 [Serializable]
 public class TOD_DayParameters
 {
-	// Token: 0x06004A6B RID: 19051 RVA: 0x00142DA4 File Offset: 0x00140FA4
+	// Token: 0x06004F26 RID: 20262 RVA: 0x0014CD08 File Offset: 0x0014AF08
 	public void CheckRange()
 	{
 		this.SunLightIntensity = Mathf.Max(0f, this.SunLightIntensity);
@@ -16,33 +16,33 @@ public class TOD_DayParameters
 		this.CloudMultiplier = Mathf.Clamp01(this.CloudMultiplier);
 	}
 
-	// Token: 0x04002B2D RID: 11053
+	// Token: 0x04002D7B RID: 11643
 	public Color AdditiveColor = Color.black;
 
-	// Token: 0x04002B2E RID: 11054
+	// Token: 0x04002D7C RID: 11644
 	public Color SunMeshColor = new Color32(byte.MaxValue, 233, 180, byte.MaxValue);
 
-	// Token: 0x04002B2F RID: 11055
+	// Token: 0x04002D7D RID: 11645
 	public Color SunLightColor = new Color32(byte.MaxValue, 243, 234, byte.MaxValue);
 
-	// Token: 0x04002B30 RID: 11056
+	// Token: 0x04002D7E RID: 11646
 	public Color SunShaftColor = new Color32(byte.MaxValue, 243, 234, byte.MaxValue);
 
-	// Token: 0x04002B31 RID: 11057
+	// Token: 0x04002D7F RID: 11647
 	public float SunMeshSize = 1f;
 
-	// Token: 0x04002B32 RID: 11058
+	// Token: 0x04002D80 RID: 11648
 	public float SunLightIntensity = 0.75f;
 
-	// Token: 0x04002B33 RID: 11059
+	// Token: 0x04002D81 RID: 11649
 	public float AmbientIntensity = 0.75f;
 
-	// Token: 0x04002B34 RID: 11060
+	// Token: 0x04002D82 RID: 11650
 	public float ShadowStrength = 1f;
 
-	// Token: 0x04002B35 RID: 11061
+	// Token: 0x04002D83 RID: 11651
 	public float SkyMultiplier = 1f;
 
-	// Token: 0x04002B36 RID: 11062
+	// Token: 0x04002D84 RID: 11652
 	public float CloudMultiplier = 1f;
 }

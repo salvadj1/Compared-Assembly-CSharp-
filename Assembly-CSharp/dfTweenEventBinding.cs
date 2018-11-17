@@ -4,12 +4,12 @@ using System.Reflection;
 using System.Reflection.Emit;
 using UnityEngine;
 
-// Token: 0x02000741 RID: 1857
+// Token: 0x02000820 RID: 2080
 [AddComponentMenu("Daikon Forge/Tweens/Tween Event Binding")]
 [Serializable]
 public class dfTweenEventBinding : MonoBehaviour
 {
-	// Token: 0x060043E3 RID: 17379 RVA: 0x00107340 File Offset: 0x00105540
+	// Token: 0x06004835 RID: 18485 RVA: 0x00110A04 File Offset: 0x0010EC04
 	private void OnEnable()
 	{
 		if (this.isValid())
@@ -18,7 +18,7 @@ public class dfTweenEventBinding : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060043E4 RID: 17380 RVA: 0x00107354 File Offset: 0x00105554
+	// Token: 0x06004836 RID: 18486 RVA: 0x00110A18 File Offset: 0x0010EC18
 	private void Start()
 	{
 		if (this.isValid())
@@ -27,13 +27,13 @@ public class dfTweenEventBinding : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060043E5 RID: 17381 RVA: 0x00107368 File Offset: 0x00105568
+	// Token: 0x06004837 RID: 18487 RVA: 0x00110A2C File Offset: 0x0010EC2C
 	private void OnDisable()
 	{
 		this.Unbind();
 	}
 
-	// Token: 0x060043E6 RID: 17382 RVA: 0x00107370 File Offset: 0x00105570
+	// Token: 0x06004838 RID: 18488 RVA: 0x00110A34 File Offset: 0x0010EC34
 	public void Bind()
 	{
 		if (this.isBound && !this.isValid())
@@ -55,7 +55,7 @@ public class dfTweenEventBinding : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060043E7 RID: 17383 RVA: 0x00107424 File Offset: 0x00105624
+	// Token: 0x06004839 RID: 18489 RVA: 0x00110AE8 File Offset: 0x0010ECE8
 	public void Unbind()
 	{
 		if (!this.isBound)
@@ -83,10 +83,10 @@ public class dfTweenEventBinding : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060043E8 RID: 17384 RVA: 0x001074C8 File Offset: 0x001056C8
+	// Token: 0x0600483A RID: 18490 RVA: 0x00110B8C File Offset: 0x0010ED8C
 	private bool isValid()
 	{
-		if (this.Tween == null || !(this.Tween is dfTweenComponentBase))
+		if (this.Tween == null || !(this.Tween is global::dfTweenComponentBase))
 		{
 			return false;
 		}
@@ -103,7 +103,7 @@ public class dfTweenEventBinding : MonoBehaviour
 		return (string.IsNullOrEmpty(this.StartEvent) || this.getField(type, this.StartEvent) != null) && (string.IsNullOrEmpty(this.StopEvent) || this.getField(type, this.StopEvent) != null) && (string.IsNullOrEmpty(this.ResetEvent) || this.getField(type, this.ResetEvent) != null);
 	}
 
-	// Token: 0x060043E9 RID: 17385 RVA: 0x001075BC File Offset: 0x001057BC
+	// Token: 0x0600483B RID: 18491 RVA: 0x00110C80 File Offset: 0x0010EE80
 	private void unbindEvent(FieldInfo eventField, Delegate eventDelegate)
 	{
 		Delegate source = (Delegate)eventField.GetValue(this.EventSource);
@@ -111,7 +111,7 @@ public class dfTweenEventBinding : MonoBehaviour
 		eventField.SetValue(this.EventSource, value);
 	}
 
-	// Token: 0x060043EA RID: 17386 RVA: 0x001075F0 File Offset: 0x001057F0
+	// Token: 0x0600483C RID: 18492 RVA: 0x00110CB4 File Offset: 0x0010EEB4
 	private void bindEvent(string eventName, string handlerName, out FieldInfo eventField, out Delegate eventHandler)
 	{
 		eventField = null;
@@ -153,7 +153,7 @@ public class dfTweenEventBinding : MonoBehaviour
 		eventField.SetValue(this.EventSource, value);
 	}
 
-	// Token: 0x060043EB RID: 17387 RVA: 0x00107754 File Offset: 0x00105954
+	// Token: 0x0600483D RID: 18493 RVA: 0x00110E18 File Offset: 0x0010F018
 	private FieldInfo getField(Type type, string fieldName)
 	{
 		return (from f in type.GetAllFields()
@@ -161,7 +161,7 @@ public class dfTweenEventBinding : MonoBehaviour
 		select f).FirstOrDefault<FieldInfo>();
 	}
 
-	// Token: 0x060043EC RID: 17388 RVA: 0x0010778C File Offset: 0x0010598C
+	// Token: 0x0600483E RID: 18494 RVA: 0x00110E50 File Offset: 0x0010F050
 	private Delegate createDynamicWrapper(object target, Type delegateType, ParameterInfo[] eventParams, MethodInfo eventHandler)
 	{
 		Type[] parameterTypes = new Type[]
@@ -177,39 +177,39 @@ public class dfTweenEventBinding : MonoBehaviour
 		return dynamicMethod.CreateDelegate(delegateType, target);
 	}
 
-	// Token: 0x040023B5 RID: 9141
+	// Token: 0x040025E1 RID: 9697
 	public Component Tween;
 
-	// Token: 0x040023B6 RID: 9142
+	// Token: 0x040025E2 RID: 9698
 	public Component EventSource;
 
-	// Token: 0x040023B7 RID: 9143
+	// Token: 0x040025E3 RID: 9699
 	public string StartEvent;
 
-	// Token: 0x040023B8 RID: 9144
+	// Token: 0x040025E4 RID: 9700
 	public string StopEvent;
 
-	// Token: 0x040023B9 RID: 9145
+	// Token: 0x040025E5 RID: 9701
 	public string ResetEvent;
 
-	// Token: 0x040023BA RID: 9146
+	// Token: 0x040025E6 RID: 9702
 	private bool isBound;
 
-	// Token: 0x040023BB RID: 9147
+	// Token: 0x040025E7 RID: 9703
 	private FieldInfo startEventField;
 
-	// Token: 0x040023BC RID: 9148
+	// Token: 0x040025E8 RID: 9704
 	private FieldInfo stopEventField;
 
-	// Token: 0x040023BD RID: 9149
+	// Token: 0x040025E9 RID: 9705
 	private FieldInfo resetEventField;
 
-	// Token: 0x040023BE RID: 9150
+	// Token: 0x040025EA RID: 9706
 	private Delegate startEventHandler;
 
-	// Token: 0x040023BF RID: 9151
+	// Token: 0x040025EB RID: 9707
 	private Delegate stopEventHandler;
 
-	// Token: 0x040023C0 RID: 9152
+	// Token: 0x040025EC RID: 9708
 	private Delegate resetEventHandler;
 }

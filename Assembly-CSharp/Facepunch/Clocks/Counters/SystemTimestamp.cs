@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Facepunch.Clocks.Counters
 {
-	// Token: 0x02000341 RID: 833
+	// Token: 0x020003EE RID: 1006
 	public struct SystemTimestamp
 	{
-		// Token: 0x06001FB6 RID: 8118 RVA: 0x0007CC04 File Offset: 0x0007AE04
+		// Token: 0x06002318 RID: 8984 RVA: 0x00082000 File Offset: 0x00080200
 		public void Start()
 		{
 			if (double.IsNegativeInfinity(this.startTime))
@@ -24,7 +24,7 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x06001FB7 RID: 8119 RVA: 0x0007CC8C File Offset: 0x0007AE8C
+		// Token: 0x06002319 RID: 8985 RVA: 0x00082088 File Offset: 0x00080288
 		public void Stop()
 		{
 			if (double.IsNegativeInfinity(this.startTime))
@@ -37,8 +37,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007DD RID: 2013
-		// (get) Token: 0x06001FB8 RID: 8120 RVA: 0x0007CCC8 File Offset: 0x0007AEC8
+		// Token: 0x1700083B RID: 2107
+		// (get) Token: 0x0600231A RID: 8986 RVA: 0x000820C4 File Offset: 0x000802C4
 		public double ElapsedSeconds
 		{
 			get
@@ -55,8 +55,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007DE RID: 2014
-		// (get) Token: 0x06001FB9 RID: 8121 RVA: 0x0007CD2C File Offset: 0x0007AF2C
+		// Token: 0x1700083C RID: 2108
+		// (get) Token: 0x0600231B RID: 8987 RVA: 0x00082128 File Offset: 0x00080328
 		public long ElapsedMilliseconds
 		{
 			get
@@ -65,8 +65,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007DF RID: 2015
-		// (get) Token: 0x06001FBA RID: 8122 RVA: 0x0007CD44 File Offset: 0x0007AF44
+		// Token: 0x1700083D RID: 2109
+		// (get) Token: 0x0600231C RID: 8988 RVA: 0x00082140 File Offset: 0x00080340
 		public TimeSpan Elapsed
 		{
 			get
@@ -79,8 +79,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007E0 RID: 2016
-		// (get) Token: 0x06001FBB RID: 8123 RVA: 0x0007CD9C File Offset: 0x0007AF9C
+		// Token: 0x1700083E RID: 2110
+		// (get) Token: 0x0600231D RID: 8989 RVA: 0x00082198 File Offset: 0x00080398
 		public bool IsRunning
 		{
 			get
@@ -89,8 +89,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007E1 RID: 2017
-		// (get) Token: 0x06001FBC RID: 8124 RVA: 0x0007CDC0 File Offset: 0x0007AFC0
+		// Token: 0x1700083F RID: 2111
+		// (get) Token: 0x0600231E RID: 8990 RVA: 0x000821BC File Offset: 0x000803BC
 		public static SystemTimestamp Restart
 		{
 			get
@@ -103,8 +103,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007E2 RID: 2018
-		// (get) Token: 0x06001FBD RID: 8125 RVA: 0x0007CDFC File Offset: 0x0007AFFC
+		// Token: 0x17000840 RID: 2112
+		// (get) Token: 0x0600231F RID: 8991 RVA: 0x000821F8 File Offset: 0x000803F8
 		public static SystemTimestamp Reset
 		{
 			get
@@ -117,28 +117,28 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x04000F32 RID: 3890
+		// Token: 0x04001098 RID: 4248
 		private const double ZeroDeductions = 0.0;
 
-		// Token: 0x04000F33 RID: 3891
+		// Token: 0x04001099 RID: 4249
 		private const double OneThousand = 1000.0;
 
-		// Token: 0x04000F34 RID: 3892
+		// Token: 0x0400109A RID: 4250
 		private const double ZeroElapsed = 0.0;
 
-		// Token: 0x04000F35 RID: 3893
+		// Token: 0x0400109B RID: 4251
 		private double startTime;
 
-		// Token: 0x04000F36 RID: 3894
+		// Token: 0x0400109C RID: 4252
 		private double endTime;
 
-		// Token: 0x04000F37 RID: 3895
+		// Token: 0x0400109D RID: 4253
 		private double deductSeconds;
 
-		// Token: 0x02000342 RID: 834
+		// Token: 0x020003EF RID: 1007
 		private static class TIME_SOURCE
 		{
-			// Token: 0x06001FBE RID: 8126 RVA: 0x0007CE3C File Offset: 0x0007B03C
+			// Token: 0x06002320 RID: 8992 RVA: 0x00082238 File Offset: 0x00080438
 			static TIME_SOURCE()
 			{
 				SystemTimestamp.TIME_SOURCE.ToSeconds = (double)(1m / SystemTimestamp.TIME_SOURCE.Frequency);
@@ -149,8 +149,8 @@ namespace Facepunch.Clocks.Counters
 				}
 			}
 
-			// Token: 0x170007E3 RID: 2019
-			// (get) Token: 0x06001FBF RID: 8127 RVA: 0x0007CEC0 File Offset: 0x0007B0C0
+			// Token: 0x17000841 RID: 2113
+			// (get) Token: 0x06002321 RID: 8993 RVA: 0x000822BC File Offset: 0x000804BC
 			public static double NOW
 			{
 				get
@@ -159,16 +159,16 @@ namespace Facepunch.Clocks.Counters
 				}
 			}
 
-			// Token: 0x04000F38 RID: 3896
+			// Token: 0x0400109E RID: 4254
 			private static readonly long ThenTimestamp = Stopwatch.GetTimestamp();
 
-			// Token: 0x04000F39 RID: 3897
+			// Token: 0x0400109F RID: 4255
 			private static readonly long Frequency = Stopwatch.Frequency;
 
-			// Token: 0x04000F3A RID: 3898
+			// Token: 0x040010A0 RID: 4256
 			private static readonly double ToSeconds;
 
-			// Token: 0x04000F3B RID: 3899
+			// Token: 0x040010A1 RID: 4257
 			private static readonly bool IsHighResolution = Stopwatch.IsHighResolution;
 		}
 	}

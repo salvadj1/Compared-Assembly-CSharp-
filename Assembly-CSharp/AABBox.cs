@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200023A RID: 570
-public struct AABBox : IEquatable<AABBox>
+// Token: 0x0200026D RID: 621
+public struct AABBox : IEquatable<global::AABBox>
 {
-	// Token: 0x060014D6 RID: 5334 RVA: 0x00045FFC File Offset: 0x000441FC
+	// Token: 0x0600162A RID: 5674 RVA: 0x0004A3A4 File Offset: 0x000485A4
 	public AABBox(Vector3 min, Vector3 max)
 	{
 		if (min.x > max.x)
@@ -39,7 +39,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x060014D7 RID: 5335 RVA: 0x0004612C File Offset: 0x0004432C
+	// Token: 0x0600162B RID: 5675 RVA: 0x0004A4D4 File Offset: 0x000486D4
 	public AABBox(ref Vector3 min, ref Vector3 max)
 	{
 		if (min.x > max.x)
@@ -74,7 +74,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x060014D8 RID: 5336 RVA: 0x00046248 File Offset: 0x00044448
+	// Token: 0x0600162C RID: 5676 RVA: 0x0004A5F0 File Offset: 0x000487F0
 	public AABBox(ref Vector3 center)
 	{
 		this.m.x = (this.M.x = center.x);
@@ -82,7 +82,7 @@ public struct AABBox : IEquatable<AABBox>
 		this.m.z = (this.M.z = center.z);
 	}
 
-	// Token: 0x060014D9 RID: 5337 RVA: 0x000462B4 File Offset: 0x000444B4
+	// Token: 0x0600162D RID: 5677 RVA: 0x0004A65C File Offset: 0x0004885C
 	public AABBox(Vector3 center)
 	{
 		this.m.x = (this.M.x = center.x);
@@ -90,20 +90,20 @@ public struct AABBox : IEquatable<AABBox>
 		this.m.z = (this.M.z = center.z);
 	}
 
-	// Token: 0x060014DA RID: 5338 RVA: 0x00046324 File Offset: 0x00044524
+	// Token: 0x0600162E RID: 5678 RVA: 0x0004A6CC File Offset: 0x000488CC
 	public AABBox(Bounds bounds)
 	{
-		this = new AABBox(bounds.min, bounds.max);
+		this = new global::AABBox(bounds.min, bounds.max);
 	}
 
-	// Token: 0x060014DB RID: 5339 RVA: 0x0004633C File Offset: 0x0004453C
+	// Token: 0x0600162F RID: 5679 RVA: 0x0004A6E4 File Offset: 0x000488E4
 	public AABBox(ref Bounds bounds)
 	{
-		this = new AABBox(bounds.min, bounds.max);
+		this = new global::AABBox(bounds.min, bounds.max);
 	}
 
-	// Token: 0x17000603 RID: 1539
-	// (get) Token: 0x060014DC RID: 5340 RVA: 0x00046350 File Offset: 0x00044550
+	// Token: 0x1700064B RID: 1611
+	// (get) Token: 0x06001630 RID: 5680 RVA: 0x0004A6F8 File Offset: 0x000488F8
 	public Vector3 a
 	{
 		get
@@ -116,8 +116,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000604 RID: 1540
-	// (get) Token: 0x060014DD RID: 5341 RVA: 0x00046394 File Offset: 0x00044594
+	// Token: 0x1700064C RID: 1612
+	// (get) Token: 0x06001631 RID: 5681 RVA: 0x0004A73C File Offset: 0x0004893C
 	public Vector3 b
 	{
 		get
@@ -130,8 +130,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000605 RID: 1541
-	// (get) Token: 0x060014DE RID: 5342 RVA: 0x000463D8 File Offset: 0x000445D8
+	// Token: 0x1700064D RID: 1613
+	// (get) Token: 0x06001632 RID: 5682 RVA: 0x0004A780 File Offset: 0x00048980
 	public Vector3 c
 	{
 		get
@@ -144,8 +144,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000606 RID: 1542
-	// (get) Token: 0x060014DF RID: 5343 RVA: 0x0004641C File Offset: 0x0004461C
+	// Token: 0x1700064E RID: 1614
+	// (get) Token: 0x06001633 RID: 5683 RVA: 0x0004A7C4 File Offset: 0x000489C4
 	public Vector3 d
 	{
 		get
@@ -158,8 +158,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000607 RID: 1543
-	// (get) Token: 0x060014E0 RID: 5344 RVA: 0x00046460 File Offset: 0x00044660
+	// Token: 0x1700064F RID: 1615
+	// (get) Token: 0x06001634 RID: 5684 RVA: 0x0004A808 File Offset: 0x00048A08
 	public Vector3 e
 	{
 		get
@@ -172,8 +172,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000608 RID: 1544
-	// (get) Token: 0x060014E1 RID: 5345 RVA: 0x000464A4 File Offset: 0x000446A4
+	// Token: 0x17000650 RID: 1616
+	// (get) Token: 0x06001635 RID: 5685 RVA: 0x0004A84C File Offset: 0x00048A4C
 	public Vector3 f
 	{
 		get
@@ -186,8 +186,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000609 RID: 1545
-	// (get) Token: 0x060014E2 RID: 5346 RVA: 0x000464E8 File Offset: 0x000446E8
+	// Token: 0x17000651 RID: 1617
+	// (get) Token: 0x06001636 RID: 5686 RVA: 0x0004A890 File Offset: 0x00048A90
 	public Vector3 g
 	{
 		get
@@ -200,8 +200,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700060A RID: 1546
-	// (get) Token: 0x060014E3 RID: 5347 RVA: 0x0004652C File Offset: 0x0004472C
+	// Token: 0x17000652 RID: 1618
+	// (get) Token: 0x06001637 RID: 5687 RVA: 0x0004A8D4 File Offset: 0x00048AD4
 	public Vector3 h
 	{
 		get
@@ -214,8 +214,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700060B RID: 1547
-	// (get) Token: 0x060014E4 RID: 5348 RVA: 0x00046570 File Offset: 0x00044770
+	// Token: 0x17000653 RID: 1619
+	// (get) Token: 0x06001638 RID: 5688 RVA: 0x0004A918 File Offset: 0x00048B18
 	public Vector3 line00
 	{
 		get
@@ -224,8 +224,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700060C RID: 1548
-	// (get) Token: 0x060014E5 RID: 5349 RVA: 0x00046578 File Offset: 0x00044778
+	// Token: 0x17000654 RID: 1620
+	// (get) Token: 0x06001639 RID: 5689 RVA: 0x0004A920 File Offset: 0x00048B20
 	public Vector3 line01
 	{
 		get
@@ -234,8 +234,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700060D RID: 1549
-	// (get) Token: 0x060014E6 RID: 5350 RVA: 0x00046580 File Offset: 0x00044780
+	// Token: 0x17000655 RID: 1621
+	// (get) Token: 0x0600163A RID: 5690 RVA: 0x0004A928 File Offset: 0x00048B28
 	public Vector3 line10
 	{
 		get
@@ -244,8 +244,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700060E RID: 1550
-	// (get) Token: 0x060014E7 RID: 5351 RVA: 0x00046588 File Offset: 0x00044788
+	// Token: 0x17000656 RID: 1622
+	// (get) Token: 0x0600163B RID: 5691 RVA: 0x0004A930 File Offset: 0x00048B30
 	public Vector3 line11
 	{
 		get
@@ -254,8 +254,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700060F RID: 1551
-	// (get) Token: 0x060014E8 RID: 5352 RVA: 0x00046590 File Offset: 0x00044790
+	// Token: 0x17000657 RID: 1623
+	// (get) Token: 0x0600163C RID: 5692 RVA: 0x0004A938 File Offset: 0x00048B38
 	public Vector3 line20
 	{
 		get
@@ -264,8 +264,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000610 RID: 1552
-	// (get) Token: 0x060014E9 RID: 5353 RVA: 0x00046598 File Offset: 0x00044798
+	// Token: 0x17000658 RID: 1624
+	// (get) Token: 0x0600163D RID: 5693 RVA: 0x0004A940 File Offset: 0x00048B40
 	public Vector3 line21
 	{
 		get
@@ -274,8 +274,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000611 RID: 1553
-	// (get) Token: 0x060014EA RID: 5354 RVA: 0x000465A0 File Offset: 0x000447A0
+	// Token: 0x17000659 RID: 1625
+	// (get) Token: 0x0600163E RID: 5694 RVA: 0x0004A948 File Offset: 0x00048B48
 	public Vector3 line30
 	{
 		get
@@ -284,8 +284,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000612 RID: 1554
-	// (get) Token: 0x060014EB RID: 5355 RVA: 0x000465A8 File Offset: 0x000447A8
+	// Token: 0x1700065A RID: 1626
+	// (get) Token: 0x0600163F RID: 5695 RVA: 0x0004A950 File Offset: 0x00048B50
 	public Vector3 line31
 	{
 		get
@@ -294,8 +294,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000613 RID: 1555
-	// (get) Token: 0x060014EC RID: 5356 RVA: 0x000465B0 File Offset: 0x000447B0
+	// Token: 0x1700065B RID: 1627
+	// (get) Token: 0x06001640 RID: 5696 RVA: 0x0004A958 File Offset: 0x00048B58
 	public Vector3 line40
 	{
 		get
@@ -304,8 +304,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000614 RID: 1556
-	// (get) Token: 0x060014ED RID: 5357 RVA: 0x000465B8 File Offset: 0x000447B8
+	// Token: 0x1700065C RID: 1628
+	// (get) Token: 0x06001641 RID: 5697 RVA: 0x0004A960 File Offset: 0x00048B60
 	public Vector3 line41
 	{
 		get
@@ -314,8 +314,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000615 RID: 1557
-	// (get) Token: 0x060014EE RID: 5358 RVA: 0x000465C0 File Offset: 0x000447C0
+	// Token: 0x1700065D RID: 1629
+	// (get) Token: 0x06001642 RID: 5698 RVA: 0x0004A968 File Offset: 0x00048B68
 	public Vector3 line50
 	{
 		get
@@ -324,8 +324,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000616 RID: 1558
-	// (get) Token: 0x060014EF RID: 5359 RVA: 0x000465C8 File Offset: 0x000447C8
+	// Token: 0x1700065E RID: 1630
+	// (get) Token: 0x06001643 RID: 5699 RVA: 0x0004A970 File Offset: 0x00048B70
 	public Vector3 line51
 	{
 		get
@@ -334,8 +334,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000617 RID: 1559
-	// (get) Token: 0x060014F0 RID: 5360 RVA: 0x000465D0 File Offset: 0x000447D0
+	// Token: 0x1700065F RID: 1631
+	// (get) Token: 0x06001644 RID: 5700 RVA: 0x0004A978 File Offset: 0x00048B78
 	public Vector3 line60
 	{
 		get
@@ -344,8 +344,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000618 RID: 1560
-	// (get) Token: 0x060014F1 RID: 5361 RVA: 0x000465D8 File Offset: 0x000447D8
+	// Token: 0x17000660 RID: 1632
+	// (get) Token: 0x06001645 RID: 5701 RVA: 0x0004A980 File Offset: 0x00048B80
 	public Vector3 line61
 	{
 		get
@@ -354,8 +354,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000619 RID: 1561
-	// (get) Token: 0x060014F2 RID: 5362 RVA: 0x000465E0 File Offset: 0x000447E0
+	// Token: 0x17000661 RID: 1633
+	// (get) Token: 0x06001646 RID: 5702 RVA: 0x0004A988 File Offset: 0x00048B88
 	public Vector3 line70
 	{
 		get
@@ -364,8 +364,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700061A RID: 1562
-	// (get) Token: 0x060014F3 RID: 5363 RVA: 0x000465E8 File Offset: 0x000447E8
+	// Token: 0x17000662 RID: 1634
+	// (get) Token: 0x06001647 RID: 5703 RVA: 0x0004A990 File Offset: 0x00048B90
 	public Vector3 line71
 	{
 		get
@@ -374,8 +374,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700061B RID: 1563
-	// (get) Token: 0x060014F4 RID: 5364 RVA: 0x000465F0 File Offset: 0x000447F0
+	// Token: 0x17000663 RID: 1635
+	// (get) Token: 0x06001648 RID: 5704 RVA: 0x0004A998 File Offset: 0x00048B98
 	public Vector3 line80
 	{
 		get
@@ -384,8 +384,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700061C RID: 1564
-	// (get) Token: 0x060014F5 RID: 5365 RVA: 0x000465F8 File Offset: 0x000447F8
+	// Token: 0x17000664 RID: 1636
+	// (get) Token: 0x06001649 RID: 5705 RVA: 0x0004A9A0 File Offset: 0x00048BA0
 	public Vector3 line81
 	{
 		get
@@ -394,8 +394,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700061D RID: 1565
-	// (get) Token: 0x060014F6 RID: 5366 RVA: 0x00046600 File Offset: 0x00044800
+	// Token: 0x17000665 RID: 1637
+	// (get) Token: 0x0600164A RID: 5706 RVA: 0x0004A9A8 File Offset: 0x00048BA8
 	public Vector3 line90
 	{
 		get
@@ -404,8 +404,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700061E RID: 1566
-	// (get) Token: 0x060014F7 RID: 5367 RVA: 0x00046608 File Offset: 0x00044808
+	// Token: 0x17000666 RID: 1638
+	// (get) Token: 0x0600164B RID: 5707 RVA: 0x0004A9B0 File Offset: 0x00048BB0
 	public Vector3 line91
 	{
 		get
@@ -414,8 +414,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700061F RID: 1567
-	// (get) Token: 0x060014F8 RID: 5368 RVA: 0x00046610 File Offset: 0x00044810
+	// Token: 0x17000667 RID: 1639
+	// (get) Token: 0x0600164C RID: 5708 RVA: 0x0004A9B8 File Offset: 0x00048BB8
 	public Vector3 lineA0
 	{
 		get
@@ -424,8 +424,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000620 RID: 1568
-	// (get) Token: 0x060014F9 RID: 5369 RVA: 0x00046618 File Offset: 0x00044818
+	// Token: 0x17000668 RID: 1640
+	// (get) Token: 0x0600164D RID: 5709 RVA: 0x0004A9C0 File Offset: 0x00048BC0
 	public Vector3 lineA1
 	{
 		get
@@ -434,8 +434,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000621 RID: 1569
-	// (get) Token: 0x060014FA RID: 5370 RVA: 0x00046620 File Offset: 0x00044820
+	// Token: 0x17000669 RID: 1641
+	// (get) Token: 0x0600164E RID: 5710 RVA: 0x0004A9C8 File Offset: 0x00048BC8
 	public Vector3 lineB0
 	{
 		get
@@ -444,8 +444,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000622 RID: 1570
-	// (get) Token: 0x060014FB RID: 5371 RVA: 0x00046628 File Offset: 0x00044828
+	// Token: 0x1700066A RID: 1642
+	// (get) Token: 0x0600164F RID: 5711 RVA: 0x0004A9D0 File Offset: 0x00048BD0
 	public Vector3 lineB1
 	{
 		get
@@ -454,7 +454,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x060014FC RID: 5372 RVA: 0x00046630 File Offset: 0x00044830
+	// Token: 0x06001650 RID: 5712 RVA: 0x0004A9D8 File Offset: 0x00048BD8
 	public void SetMinMax(ref Vector3 min, ref Vector3 max)
 	{
 		if (min.x > max.x)
@@ -489,7 +489,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x060014FD RID: 5373 RVA: 0x0004674C File Offset: 0x0004494C
+	// Token: 0x06001651 RID: 5713 RVA: 0x0004AAF4 File Offset: 0x00048CF4
 	public void SetMinMax(ref Vector3 min, Vector3 max)
 	{
 		if (min.x > max.x)
@@ -524,7 +524,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x060014FE RID: 5374 RVA: 0x00046870 File Offset: 0x00044A70
+	// Token: 0x06001652 RID: 5714 RVA: 0x0004AC18 File Offset: 0x00048E18
 	public void SetMinMax(Vector3 min, ref Vector3 max)
 	{
 		if (min.x > max.x)
@@ -559,7 +559,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x060014FF RID: 5375 RVA: 0x00046994 File Offset: 0x00044B94
+	// Token: 0x06001653 RID: 5715 RVA: 0x0004AD3C File Offset: 0x00048F3C
 	public void SetMinMax(Vector3 min, Vector3 max)
 	{
 		if (min.x > max.x)
@@ -594,7 +594,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001500 RID: 5376 RVA: 0x00046AC4 File Offset: 0x00044CC4
+	// Token: 0x06001654 RID: 5716 RVA: 0x0004AE6C File Offset: 0x0004906C
 	public void SetMinMax(Bounds bounds)
 	{
 		Vector3 min = bounds.min;
@@ -631,7 +631,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001501 RID: 5377 RVA: 0x00046C04 File Offset: 0x00044E04
+	// Token: 0x06001655 RID: 5717 RVA: 0x0004AFAC File Offset: 0x000491AC
 	public void SetMinMax(ref Bounds bounds)
 	{
 		Vector3 min = bounds.min;
@@ -668,7 +668,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001502 RID: 5378 RVA: 0x00046D40 File Offset: 0x00044F40
+	// Token: 0x06001656 RID: 5718 RVA: 0x0004B0E8 File Offset: 0x000492E8
 	public void EnsureMinMax()
 	{
 		if (this.m.x > this.M.x)
@@ -691,8 +691,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000623 RID: 1571
-	// (get) Token: 0x06001503 RID: 5379 RVA: 0x00046E28 File Offset: 0x00045028
+	// Token: 0x1700066B RID: 1643
+	// (get) Token: 0x06001657 RID: 5719 RVA: 0x0004B1D0 File Offset: 0x000493D0
 	public Vector3 min
 	{
 		get
@@ -705,8 +705,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000624 RID: 1572
-	// (get) Token: 0x06001504 RID: 5380 RVA: 0x00046EF0 File Offset: 0x000450F0
+	// Token: 0x1700066C RID: 1644
+	// (get) Token: 0x06001658 RID: 5720 RVA: 0x0004B298 File Offset: 0x00049498
 	public Vector3 max
 	{
 		get
@@ -719,9 +719,9 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000625 RID: 1573
-	// (get) Token: 0x06001505 RID: 5381 RVA: 0x00046FB8 File Offset: 0x000451B8
-	// (set) Token: 0x06001506 RID: 5382 RVA: 0x000470C8 File Offset: 0x000452C8
+	// Token: 0x1700066D RID: 1645
+	// (get) Token: 0x06001659 RID: 5721 RVA: 0x0004B360 File Offset: 0x00049560
+	// (set) Token: 0x0600165A RID: 5722 RVA: 0x0004B470 File Offset: 0x00049670
 	public Vector3 size
 	{
 		get
@@ -771,9 +771,9 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000626 RID: 1574
-	// (get) Token: 0x06001507 RID: 5383 RVA: 0x000472BC File Offset: 0x000454BC
-	// (set) Token: 0x06001508 RID: 5384 RVA: 0x0004735C File Offset: 0x0004555C
+	// Token: 0x1700066E RID: 1646
+	// (get) Token: 0x0600165B RID: 5723 RVA: 0x0004B664 File Offset: 0x00049864
+	// (set) Token: 0x0600165C RID: 5724 RVA: 0x0004B704 File Offset: 0x00049904
 	public Vector3 center
 	{
 		get
@@ -798,8 +798,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000627 RID: 1575
-	// (get) Token: 0x06001509 RID: 5385 RVA: 0x00047474 File Offset: 0x00045674
+	// Token: 0x1700066F RID: 1647
+	// (get) Token: 0x0600165D RID: 5725 RVA: 0x0004B81C File Offset: 0x00049A1C
 	public bool empty
 	{
 		get
@@ -808,8 +808,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000628 RID: 1576
-	// (get) Token: 0x0600150A RID: 5386 RVA: 0x000474D4 File Offset: 0x000456D4
+	// Token: 0x17000670 RID: 1648
+	// (get) Token: 0x0600165E RID: 5726 RVA: 0x0004B87C File Offset: 0x00049A7C
 	public float volume
 	{
 		get
@@ -856,8 +856,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x17000629 RID: 1577
-	// (get) Token: 0x0600150B RID: 5387 RVA: 0x00047834 File Offset: 0x00045A34
+	// Token: 0x17000671 RID: 1649
+	// (get) Token: 0x0600165F RID: 5727 RVA: 0x0004BBDC File Offset: 0x00049DDC
 	public float surfaceArea
 	{
 		get
@@ -870,7 +870,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x0600150C RID: 5388 RVA: 0x00047984 File Offset: 0x00045B84
+	// Token: 0x06001660 RID: 5728 RVA: 0x0004BD2C File Offset: 0x00049F2C
 	public void Encapsulate(ref Vector3 v)
 	{
 		if (v.x < this.m.x)
@@ -899,7 +899,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x0600150D RID: 5389 RVA: 0x00047A7C File Offset: 0x00045C7C
+	// Token: 0x06001661 RID: 5729 RVA: 0x0004BE24 File Offset: 0x0004A024
 	public void Encapsulate(Vector3 v)
 	{
 		if (v.x < this.m.x)
@@ -928,8 +928,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x0600150E RID: 5390 RVA: 0x00047B80 File Offset: 0x00045D80
-	public void Encapsulate(ref AABBox v)
+	// Token: 0x06001662 RID: 5730 RVA: 0x0004BF28 File Offset: 0x0004A128
+	public void Encapsulate(ref global::AABBox v)
 	{
 		if (v.M.x < v.m.x)
 		{
@@ -999,8 +999,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x0600150F RID: 5391 RVA: 0x00047E3C File Offset: 0x0004603C
-	public void Encapsulate(AABBox v)
+	// Token: 0x06001663 RID: 5731 RVA: 0x0004C1E4 File Offset: 0x0004A3E4
+	public void Encapsulate(global::AABBox v)
 	{
 		if (v.M.x < v.m.x)
 		{
@@ -1070,7 +1070,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001510 RID: 5392 RVA: 0x00048114 File Offset: 0x00046314
+	// Token: 0x06001664 RID: 5732 RVA: 0x0004C4BC File Offset: 0x0004A6BC
 	public void Encapsulate(ref Vector3 min, ref Vector3 max)
 	{
 		if (max.x < min.x)
@@ -1141,7 +1141,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001511 RID: 5393 RVA: 0x00048338 File Offset: 0x00046538
+	// Token: 0x06001665 RID: 5733 RVA: 0x0004C6E0 File Offset: 0x0004A8E0
 	public void Encapsulate(Vector3 min, ref Vector3 max)
 	{
 		if (max.x < min.x)
@@ -1212,7 +1212,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001512 RID: 5394 RVA: 0x0004856C File Offset: 0x0004676C
+	// Token: 0x06001666 RID: 5734 RVA: 0x0004C914 File Offset: 0x0004AB14
 	public void Encapsulate(ref Vector3 min, Vector3 max)
 	{
 		if (max.x < min.x)
@@ -1283,7 +1283,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001513 RID: 5395 RVA: 0x000487A0 File Offset: 0x000469A0
+	// Token: 0x06001667 RID: 5735 RVA: 0x0004CB48 File Offset: 0x0004AD48
 	public void Encapsulate(Vector3 min, Vector3 max)
 	{
 		if (max.x < min.x)
@@ -1354,7 +1354,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001514 RID: 5396 RVA: 0x000489E4 File Offset: 0x00046BE4
+	// Token: 0x06001668 RID: 5736 RVA: 0x0004CD8C File Offset: 0x0004AF8C
 	public void Encapsulate(ref Bounds bounds)
 	{
 		Vector3 min = bounds.min;
@@ -1427,7 +1427,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001515 RID: 5397 RVA: 0x00048C34 File Offset: 0x00046E34
+	// Token: 0x06001669 RID: 5737 RVA: 0x0004CFDC File Offset: 0x0004B1DC
 	public void Encapsulate(Bounds bounds)
 	{
 		Vector3 min = bounds.min;
@@ -1500,13 +1500,13 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001516 RID: 5398 RVA: 0x00048E88 File Offset: 0x00047088
+	// Token: 0x0600166A RID: 5738 RVA: 0x0004D230 File Offset: 0x0004B430
 	public bool Contains(ref Vector3 v)
 	{
 		return this.m.x <= this.M.x && this.m.y <= this.M.y && this.m.z <= this.M.z && v.x >= this.m.x && v.y >= this.m.y && v.z >= this.m.z && v.x <= this.M.x && v.y <= this.M.y && v.z <= this.M.z;
 	}
 
-	// Token: 0x1700062A RID: 1578
+	// Token: 0x17000672 RID: 1650
 	public Vector3 this[int corner]
 	{
 		get
@@ -1519,7 +1519,7 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x1700062B RID: 1579
+	// Token: 0x17000673 RID: 1651
 	public float this[int corner, int axis]
 	{
 		get
@@ -1538,10 +1538,10 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001519 RID: 5401 RVA: 0x000490AC File Offset: 0x000472AC
-	public BBox ToBBox()
+	// Token: 0x0600166D RID: 5741 RVA: 0x0004D454 File Offset: 0x0004B654
+	public global::BBox ToBBox()
 	{
-		BBox result;
+		global::BBox result;
 		result.a.x = this.m.x;
 		result.a.y = this.m.y;
 		result.a.z = this.m.z;
@@ -1569,8 +1569,8 @@ public struct AABBox : IEquatable<AABBox>
 		return result;
 	}
 
-	// Token: 0x0600151A RID: 5402 RVA: 0x000492E4 File Offset: 0x000474E4
-	public void ToBBox(out BBox box)
+	// Token: 0x0600166E RID: 5742 RVA: 0x0004D68C File Offset: 0x0004B88C
+	public void ToBBox(out global::BBox box)
 	{
 		box.a.x = this.m.x;
 		box.a.y = this.m.y;
@@ -1598,8 +1598,8 @@ public struct AABBox : IEquatable<AABBox>
 		box.h.z = this.M.z;
 	}
 
-	// Token: 0x0600151B RID: 5403 RVA: 0x00049504 File Offset: 0x00047704
-	public void TransformedAABB3x4(ref Matrix4x4 t, out AABBox mM)
+	// Token: 0x0600166F RID: 5743 RVA: 0x0004D8AC File Offset: 0x0004BAAC
+	public void TransformedAABB3x4(ref Matrix4x4 t, out global::AABBox mM)
 	{
 		Vector3 vector;
 		vector.x = this.m.x;
@@ -1823,10 +1823,10 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x0600151C RID: 5404 RVA: 0x0004A0B8 File Offset: 0x000482B8
+	// Token: 0x06001670 RID: 5744 RVA: 0x0004E460 File Offset: 0x0004C660
 	public void TransformedAABB3x4(ref Matrix4x4 t, out Bounds bounds)
 	{
-		AABBox aabbox;
+		global::AABBox aabbox;
 		this.TransformedAABB3x4(ref t, out aabbox);
 		Vector3 vector;
 		vector.x = aabbox.M.x - aabbox.m.x;
@@ -1839,8 +1839,8 @@ public struct AABBox : IEquatable<AABBox>
 		bounds..ctor(vector2, vector);
 	}
 
-	// Token: 0x0600151D RID: 5405 RVA: 0x0004A19C File Offset: 0x0004839C
-	public void ToBoxCorners3x4(ref Matrix4x4 t, out BBox box, out AABBox mM)
+	// Token: 0x06001671 RID: 5745 RVA: 0x0004E544 File Offset: 0x0004C744
+	public void ToBoxCorners3x4(ref Matrix4x4 t, out global::BBox box, out global::AABBox mM)
 	{
 		Vector3 vector;
 		vector.x = this.m.x;
@@ -2063,8 +2063,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x0600151E RID: 5406 RVA: 0x0004B14C File Offset: 0x0004934C
-	public void TransformedAABB4x4(ref Matrix4x4 t, out AABBox mM)
+	// Token: 0x06001672 RID: 5746 RVA: 0x0004F4F4 File Offset: 0x0004D6F4
+	public void TransformedAABB4x4(ref Matrix4x4 t, out global::AABBox mM)
 	{
 		Vector4 vector;
 		vector.x = this.m.x;
@@ -2296,10 +2296,10 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x0600151F RID: 5407 RVA: 0x0004BFC0 File Offset: 0x0004A1C0
+	// Token: 0x06001673 RID: 5747 RVA: 0x00050368 File Offset: 0x0004E568
 	public void TransformedAABB4x4(ref Matrix4x4 t, out Bounds bounds)
 	{
-		AABBox aabbox;
+		global::AABBox aabbox;
 		this.TransformedAABB4x4(ref t, out aabbox);
 		Vector3 vector;
 		vector.x = aabbox.M.x - aabbox.m.x;
@@ -2312,8 +2312,8 @@ public struct AABBox : IEquatable<AABBox>
 		bounds..ctor(vector2, vector);
 	}
 
-	// Token: 0x06001520 RID: 5408 RVA: 0x0004C0A4 File Offset: 0x0004A2A4
-	public void ToBoxCorners4x4(ref Matrix4x4 t, out BBox box, out AABBox mM)
+	// Token: 0x06001674 RID: 5748 RVA: 0x0005044C File Offset: 0x0004E64C
+	public void ToBoxCorners4x4(ref Matrix4x4 t, out global::BBox box, out global::AABBox mM)
 	{
 		Vector4 vector;
 		vector.x = this.m.x;
@@ -2544,8 +2544,8 @@ public struct AABBox : IEquatable<AABBox>
 		}
 	}
 
-	// Token: 0x06001521 RID: 5409 RVA: 0x0004D314 File Offset: 0x0004B514
-	public void ToBoxCorners3x4(ref Matrix4x4 t, out BBox box)
+	// Token: 0x06001675 RID: 5749 RVA: 0x000516BC File Offset: 0x0004F8BC
+	public void ToBoxCorners3x4(ref Matrix4x4 t, out global::BBox box)
 	{
 		Vector3 vector;
 		vector.x = this.m.x;
@@ -2598,8 +2598,8 @@ public struct AABBox : IEquatable<AABBox>
 		box.h.z = t.m20 * vector.x + t.m21 * vector.y + t.m22 * vector.z + t.m23;
 	}
 
-	// Token: 0x06001522 RID: 5410 RVA: 0x0004DAA4 File Offset: 0x0004BCA4
-	public void ToBoxCorners4x4(ref Matrix4x4 t, out BBox box)
+	// Token: 0x06001676 RID: 5750 RVA: 0x00051E4C File Offset: 0x0005004C
+	public void ToBoxCorners4x4(ref Matrix4x4 t, out global::BBox box)
 	{
 		Vector4 vector;
 		vector.x = this.m.x;
@@ -2660,112 +2660,112 @@ public struct AABBox : IEquatable<AABBox>
 		box.h.z = (t.m20 * vector.x + t.m21 * vector.y + t.m22 * vector.z + t.m23) * vector.w;
 	}
 
-	// Token: 0x06001523 RID: 5411 RVA: 0x0004E4F4 File Offset: 0x0004C6F4
-	public static void Transform3x4(ref AABBox src, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x06001677 RID: 5751 RVA: 0x0005289C File Offset: 0x00050A9C
+	public static void Transform3x4(ref global::AABBox src, ref Matrix4x4 transform, out global::AABBox dst)
 	{
 		src.TransformedAABB3x4(ref transform, out dst);
 	}
 
-	// Token: 0x06001524 RID: 5412 RVA: 0x0004E500 File Offset: 0x0004C700
-	public static void Transform4x4(ref AABBox src, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x06001678 RID: 5752 RVA: 0x000528A8 File Offset: 0x00050AA8
+	public static void Transform4x4(ref global::AABBox src, ref Matrix4x4 transform, out global::AABBox dst)
 	{
 		src.TransformedAABB4x4(ref transform, out dst);
 	}
 
-	// Token: 0x06001525 RID: 5413 RVA: 0x0004E50C File Offset: 0x0004C70C
-	public static void Transform3x4(ref AABBox src, ref Matrix4x4 transform, out Bounds dst)
+	// Token: 0x06001679 RID: 5753 RVA: 0x000528B4 File Offset: 0x00050AB4
+	public static void Transform3x4(ref global::AABBox src, ref Matrix4x4 transform, out Bounds dst)
 	{
 		src.TransformedAABB3x4(ref transform, out dst);
 	}
 
-	// Token: 0x06001526 RID: 5414 RVA: 0x0004E518 File Offset: 0x0004C718
-	public static void Transform4x4(ref AABBox src, ref Matrix4x4 transform, out Bounds dst)
+	// Token: 0x0600167A RID: 5754 RVA: 0x000528C0 File Offset: 0x00050AC0
+	public static void Transform4x4(ref global::AABBox src, ref Matrix4x4 transform, out Bounds dst)
 	{
 		src.TransformedAABB4x4(ref transform, out dst);
 	}
 
-	// Token: 0x06001527 RID: 5415 RVA: 0x0004E524 File Offset: 0x0004C724
-	public static void Transform3x4(ref Bounds boundsSrc, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x0600167B RID: 5755 RVA: 0x000528CC File Offset: 0x00050ACC
+	public static void Transform3x4(ref Bounds boundsSrc, ref Matrix4x4 transform, out global::AABBox dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform3x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform3x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x06001528 RID: 5416 RVA: 0x0004E550 File Offset: 0x0004C750
-	public static void Transform4x4(ref Bounds boundsSrc, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x0600167C RID: 5756 RVA: 0x000528F8 File Offset: 0x00050AF8
+	public static void Transform4x4(ref Bounds boundsSrc, ref Matrix4x4 transform, out global::AABBox dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform4x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform4x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x06001529 RID: 5417 RVA: 0x0004E57C File Offset: 0x0004C77C
+	// Token: 0x0600167D RID: 5757 RVA: 0x00052924 File Offset: 0x00050B24
 	public static void Transform3x4(ref Bounds boundsSrc, ref Matrix4x4 transform, out Bounds dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform3x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform3x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x0600152A RID: 5418 RVA: 0x0004E5A8 File Offset: 0x0004C7A8
+	// Token: 0x0600167E RID: 5758 RVA: 0x00052950 File Offset: 0x00050B50
 	public static void Transform4x4(ref Bounds boundsSrc, ref Matrix4x4 transform, out Bounds dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform4x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform4x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x0600152B RID: 5419 RVA: 0x0004E5D4 File Offset: 0x0004C7D4
-	public static void Transform3x4(AABBox src, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x0600167F RID: 5759 RVA: 0x0005297C File Offset: 0x00050B7C
+	public static void Transform3x4(global::AABBox src, ref Matrix4x4 transform, out global::AABBox dst)
 	{
 		src.TransformedAABB3x4(ref transform, out dst);
 	}
 
-	// Token: 0x0600152C RID: 5420 RVA: 0x0004E5E0 File Offset: 0x0004C7E0
-	public static void Transform4x4(AABBox src, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x06001680 RID: 5760 RVA: 0x00052988 File Offset: 0x00050B88
+	public static void Transform4x4(global::AABBox src, ref Matrix4x4 transform, out global::AABBox dst)
 	{
 		src.TransformedAABB4x4(ref transform, out dst);
 	}
 
-	// Token: 0x0600152D RID: 5421 RVA: 0x0004E5EC File Offset: 0x0004C7EC
-	public static void Transform3x4(AABBox src, ref Matrix4x4 transform, out Bounds dst)
+	// Token: 0x06001681 RID: 5761 RVA: 0x00052994 File Offset: 0x00050B94
+	public static void Transform3x4(global::AABBox src, ref Matrix4x4 transform, out Bounds dst)
 	{
 		src.TransformedAABB3x4(ref transform, out dst);
 	}
 
-	// Token: 0x0600152E RID: 5422 RVA: 0x0004E5F8 File Offset: 0x0004C7F8
-	public static void Transform4x4(AABBox src, ref Matrix4x4 transform, out Bounds dst)
+	// Token: 0x06001682 RID: 5762 RVA: 0x000529A0 File Offset: 0x00050BA0
+	public static void Transform4x4(global::AABBox src, ref Matrix4x4 transform, out Bounds dst)
 	{
 		src.TransformedAABB4x4(ref transform, out dst);
 	}
 
-	// Token: 0x0600152F RID: 5423 RVA: 0x0004E604 File Offset: 0x0004C804
-	public static void Transform3x4(Bounds boundsSrc, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x06001683 RID: 5763 RVA: 0x000529AC File Offset: 0x00050BAC
+	public static void Transform3x4(Bounds boundsSrc, ref Matrix4x4 transform, out global::AABBox dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform3x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform3x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x06001530 RID: 5424 RVA: 0x0004E630 File Offset: 0x0004C830
-	public static void Transform4x4(Bounds boundsSrc, ref Matrix4x4 transform, out AABBox dst)
+	// Token: 0x06001684 RID: 5764 RVA: 0x000529D8 File Offset: 0x00050BD8
+	public static void Transform4x4(Bounds boundsSrc, ref Matrix4x4 transform, out global::AABBox dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform4x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform4x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x06001531 RID: 5425 RVA: 0x0004E65C File Offset: 0x0004C85C
+	// Token: 0x06001685 RID: 5765 RVA: 0x00052A04 File Offset: 0x00050C04
 	public static void Transform3x4(Bounds boundsSrc, ref Matrix4x4 transform, out Bounds dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform3x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform3x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x06001532 RID: 5426 RVA: 0x0004E688 File Offset: 0x0004C888
+	// Token: 0x06001686 RID: 5766 RVA: 0x00052A30 File Offset: 0x00050C30
 	public static void Transform4x4(Bounds boundsSrc, ref Matrix4x4 transform, out Bounds dst)
 	{
-		AABBox aabbox = new AABBox(boundsSrc.min, boundsSrc.max);
-		AABBox.Transform4x4(ref aabbox, ref transform, out dst);
+		global::AABBox aabbox = new global::AABBox(boundsSrc.min, boundsSrc.max);
+		global::AABBox.Transform4x4(ref aabbox, ref transform, out dst);
 	}
 
-	// Token: 0x06001533 RID: 5427 RVA: 0x0004E6B4 File Offset: 0x0004C8B4
-	public static AABBox CenterAndSize(Vector3 center, Vector3 size)
+	// Token: 0x06001687 RID: 5767 RVA: 0x00052A5C File Offset: 0x00050C5C
+	public static global::AABBox CenterAndSize(Vector3 center, Vector3 size)
 	{
 		center.x -= size.x * 0.5f;
 		center.y -= size.y * 0.5f;
@@ -2773,16 +2773,16 @@ public struct AABBox : IEquatable<AABBox>
 		size.x = center.x + size.x;
 		size.y = center.y + size.y;
 		size.z = center.z + size.z;
-		return new AABBox(ref center, ref size);
+		return new global::AABBox(ref center, ref size);
 	}
 
-	// Token: 0x06001534 RID: 5428 RVA: 0x0004E760 File Offset: 0x0004C960
+	// Token: 0x06001688 RID: 5768 RVA: 0x00052B08 File Offset: 0x00050D08
 	public override bool Equals(object obj)
 	{
-		return obj is AABBox && this.Equals((AABBox)obj);
+		return obj is global::AABBox && this.Equals((global::AABBox)obj);
 	}
 
-	// Token: 0x06001535 RID: 5429 RVA: 0x0004E77C File Offset: 0x0004C97C
+	// Token: 0x06001689 RID: 5769 RVA: 0x00052B24 File Offset: 0x00050D24
 	public override int GetHashCode()
 	{
 		int num = ((this.m.x + this.M.x) * 0.5f).GetHashCode() ^ ((this.m.y + this.M.y) * 0.5f).GetHashCode();
@@ -2790,20 +2790,20 @@ public struct AABBox : IEquatable<AABBox>
 		return num << num2 ^ num >> num2;
 	}
 
-	// Token: 0x06001536 RID: 5430 RVA: 0x0004E824 File Offset: 0x0004CA24
-	public bool Equals(AABBox other)
+	// Token: 0x0600168A RID: 5770 RVA: 0x00052BCC File Offset: 0x00050DCC
+	public bool Equals(global::AABBox other)
 	{
 		return this.m.x.Equals(other.m.x) && this.m.y.Equals(other.m.y) && this.m.z.Equals(other.m.z) && this.M.x.Equals(other.M.x) && this.M.y.Equals(other.M.y) && this.M.z.Equals(other.M.z);
 	}
 
-	// Token: 0x06001537 RID: 5431 RVA: 0x0004E8F8 File Offset: 0x0004CAF8
-	public bool Equals(ref AABBox other)
+	// Token: 0x0600168B RID: 5771 RVA: 0x00052CA0 File Offset: 0x00050EA0
+	public bool Equals(ref global::AABBox other)
 	{
 		return this.m.x.Equals(other.m.x) && this.m.y.Equals(other.m.y) && this.m.z.Equals(other.m.z) && this.M.x.Equals(other.M.x) && this.M.y.Equals(other.M.y) && this.M.z.Equals(other.M.z);
 	}
 
-	// Token: 0x06001538 RID: 5432 RVA: 0x0004E9C4 File Offset: 0x0004CBC4
-	public static explicit operator Bounds(AABBox mM)
+	// Token: 0x0600168C RID: 5772 RVA: 0x00052D6C File Offset: 0x00050F6C
+	public static explicit operator Bounds(global::AABBox mM)
 	{
 		Vector3 vector;
 		vector.x = mM.M.x - mM.m.x;
@@ -2828,12 +2828,12 @@ public struct AABBox : IEquatable<AABBox>
 		return new Bounds(vector2, vector);
 	}
 
-	// Token: 0x06001539 RID: 5433 RVA: 0x0004EAFC File Offset: 0x0004CCFC
-	public static explicit operator AABBox(Bounds bounds)
+	// Token: 0x0600168D RID: 5773 RVA: 0x00052EA4 File Offset: 0x000510A4
+	public static explicit operator global::AABBox(Bounds bounds)
 	{
 		Vector3 min = bounds.min;
 		Vector3 max = bounds.max;
-		AABBox result;
+		global::AABBox result;
 		if (min.x > max.x)
 		{
 			result.M.x = min.x;
@@ -2867,10 +2867,10 @@ public struct AABBox : IEquatable<AABBox>
 		return result;
 	}
 
-	// Token: 0x0600153A RID: 5434 RVA: 0x0004EC48 File Offset: 0x0004CE48
-	public static explicit operator BBox(AABBox mM)
+	// Token: 0x0600168E RID: 5774 RVA: 0x00052FF0 File Offset: 0x000511F0
+	public static explicit operator global::BBox(global::AABBox mM)
 	{
-		BBox result;
+		global::BBox result;
 		result.a.x = mM.m.x;
 		result.a.y = mM.m.y;
 		result.a.z = mM.m.z;
@@ -2898,10 +2898,10 @@ public struct AABBox : IEquatable<AABBox>
 		return result;
 	}
 
-	// Token: 0x0600153B RID: 5435 RVA: 0x0004EE98 File Offset: 0x0004D098
-	public static explicit operator AABBox(BBox box)
+	// Token: 0x0600168F RID: 5775 RVA: 0x00053240 File Offset: 0x00051440
+	public static explicit operator global::AABBox(global::BBox box)
 	{
-		AABBox result;
+		global::AABBox result;
 		result.m.x = (result.M.x = box.a.x);
 		result.m.y = (result.M.y = box.a.y);
 		result.m.z = (result.M.z = box.a.z);
@@ -3076,42 +3076,42 @@ public struct AABBox : IEquatable<AABBox>
 		return result;
 	}
 
-	// Token: 0x04000A7A RID: 2682
+	// Token: 0x04000B9D RID: 2973
 	public const int kX = 2;
 
-	// Token: 0x04000A7B RID: 2683
+	// Token: 0x04000B9E RID: 2974
 	public const int kY = 4;
 
-	// Token: 0x04000A7C RID: 2684
+	// Token: 0x04000B9F RID: 2975
 	public const int kZ = 1;
 
-	// Token: 0x04000A7D RID: 2685
+	// Token: 0x04000BA0 RID: 2976
 	public const int kA = 0;
 
-	// Token: 0x04000A7E RID: 2686
+	// Token: 0x04000BA1 RID: 2977
 	public const int kB = 1;
 
-	// Token: 0x04000A7F RID: 2687
+	// Token: 0x04000BA2 RID: 2978
 	public const int kC = 2;
 
-	// Token: 0x04000A80 RID: 2688
+	// Token: 0x04000BA3 RID: 2979
 	public const int kD = 3;
 
-	// Token: 0x04000A81 RID: 2689
+	// Token: 0x04000BA4 RID: 2980
 	public const int kE = 4;
 
-	// Token: 0x04000A82 RID: 2690
+	// Token: 0x04000BA5 RID: 2981
 	public const int kF = 5;
 
-	// Token: 0x04000A83 RID: 2691
+	// Token: 0x04000BA6 RID: 2982
 	public const int kG = 6;
 
-	// Token: 0x04000A84 RID: 2692
+	// Token: 0x04000BA7 RID: 2983
 	public const int kH = 7;
 
-	// Token: 0x04000A85 RID: 2693
+	// Token: 0x04000BA8 RID: 2984
 	public Vector3 m;
 
-	// Token: 0x04000A86 RID: 2694
+	// Token: 0x04000BA9 RID: 2985
 	public Vector3 M;
 }

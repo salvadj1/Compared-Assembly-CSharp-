@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200004F RID: 79
+// Token: 0x02000061 RID: 97
 public class DisableOnConnectedState : MonoBehaviour
 {
-	// Token: 0x060002B3 RID: 691 RVA: 0x0000E3C8 File Offset: 0x0000C5C8
+	// Token: 0x06000325 RID: 805 RVA: 0x0000F970 File Offset: 0x0000DB70
 	public static void OnDisconnected()
 	{
-		DisableOnConnectedState.connectedStatus = false;
-		Object[] array = Resources.FindObjectsOfTypeAll(typeof(DisableOnConnectedState));
-		foreach (DisableOnConnectedState disableOnConnectedState in array)
+		global::DisableOnConnectedState.connectedStatus = false;
+		Object[] array = global::Resources.FindObjectsOfTypeAll(typeof(global::DisableOnConnectedState));
+		foreach (global::DisableOnConnectedState disableOnConnectedState in array)
 		{
 			if (disableOnConnectedState.gameObject == null)
 			{
@@ -19,12 +19,12 @@ public class DisableOnConnectedState : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002B4 RID: 692 RVA: 0x0000E424 File Offset: 0x0000C624
+	// Token: 0x06000326 RID: 806 RVA: 0x0000F9CC File Offset: 0x0000DBCC
 	public static void OnConnected()
 	{
-		DisableOnConnectedState.connectedStatus = true;
-		Object[] array = Resources.FindObjectsOfTypeAll(typeof(DisableOnConnectedState));
-		foreach (DisableOnConnectedState disableOnConnectedState in array)
+		global::DisableOnConnectedState.connectedStatus = true;
+		Object[] array = global::Resources.FindObjectsOfTypeAll(typeof(global::DisableOnConnectedState));
+		foreach (global::DisableOnConnectedState disableOnConnectedState in array)
 		{
 			if (disableOnConnectedState.gameObject == null)
 			{
@@ -34,10 +34,10 @@ public class DisableOnConnectedState : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002B5 RID: 693 RVA: 0x0000E480 File Offset: 0x0000C680
+	// Token: 0x06000327 RID: 807 RVA: 0x0000FA28 File Offset: 0x0000DC28
 	private void Start()
 	{
-		if (DisableOnConnectedState.connectedStatus)
+		if (global::DisableOnConnectedState.connectedStatus)
 		{
 			this.DoOnConnected();
 		}
@@ -47,11 +47,11 @@ public class DisableOnConnectedState : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002B6 RID: 694 RVA: 0x0000E4A0 File Offset: 0x0000C6A0
+	// Token: 0x06000328 RID: 808 RVA: 0x0000FA48 File Offset: 0x0000DC48
 	protected void DoOnDisconnected()
 	{
 		base.gameObject.SetActive(this.disableWhenConnected);
-		dfControl component = base.gameObject.GetComponent<dfControl>();
+		global::dfControl component = base.gameObject.GetComponent<global::dfControl>();
 		if (component)
 		{
 			if (!this.disableWhenConnected)
@@ -65,11 +65,11 @@ public class DisableOnConnectedState : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060002B7 RID: 695 RVA: 0x0000E4F4 File Offset: 0x0000C6F4
+	// Token: 0x06000329 RID: 809 RVA: 0x0000FA9C File Offset: 0x0000DC9C
 	protected void DoOnConnected()
 	{
 		base.gameObject.SetActive(!this.disableWhenConnected);
-		dfControl component = base.gameObject.GetComponent<dfControl>();
+		global::dfControl component = base.gameObject.GetComponent<global::dfControl>();
 		if (component)
 		{
 			if (this.disableWhenConnected)
@@ -83,9 +83,9 @@ public class DisableOnConnectedState : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040001AE RID: 430
+	// Token: 0x04000210 RID: 528
 	protected static bool connectedStatus;
 
-	// Token: 0x040001AF RID: 431
+	// Token: 0x04000211 RID: 529
 	public bool disableWhenConnected;
 }

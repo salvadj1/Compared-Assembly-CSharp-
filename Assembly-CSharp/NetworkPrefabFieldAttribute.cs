@@ -1,11 +1,11 @@
 ﻿using System;
 using Facepunch.Attributes;
 
-// Token: 0x020003D1 RID: 977
-public sealed class NetworkPrefabFieldAttribute : ObjectLookupFieldFixedTypeAttribute
+// Token: 0x0200047E RID: 1150
+public sealed class NetworkPrefabFieldAttribute : Facepunch.Attributes.ObjectLookupFieldFixedTypeAttribute
 {
-	// Token: 0x06002496 RID: 9366 RVA: 0x0008BD58 File Offset: 0x00089F58
-	public NetworkPrefabFieldAttribute() : base(PrefabLookupKinds.Net, null, SearchMode.MainAsset, null)
+	// Token: 0x060027F8 RID: 10232 RVA: 0x00091154 File Offset: 0x0008F354
+	public NetworkPrefabFieldAttribute() : base(Facepunch.Attributes.PrefabLookupKinds.Net, null, Facepunch.Attributes.SearchMode.MainAsset, null)
 	{
 	}
 }

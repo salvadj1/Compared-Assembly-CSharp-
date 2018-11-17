@@ -3,95 +3,95 @@ using System.Collections.Generic;
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x020005A2 RID: 1442
+// Token: 0x02000660 RID: 1632
 public class DatablockDictionary
 {
-	// Token: 0x17000A4C RID: 2636
-	// (get) Token: 0x06003461 RID: 13409 RVA: 0x000BF3D4 File Offset: 0x000BD5D4
-	public static ItemDataBlock[] All
+	// Token: 0x17000AC2 RID: 2754
+	// (get) Token: 0x06003829 RID: 14377 RVA: 0x000C7630 File Offset: 0x000C5830
+	public static global::ItemDataBlock[] All
 	{
 		get
 		{
-			return DatablockDictionary._all;
+			return global::DatablockDictionary._all;
 		}
 	}
 
-	// Token: 0x06003462 RID: 13410 RVA: 0x000BF3DC File Offset: 0x000BD5DC
+	// Token: 0x0600382A RID: 14378 RVA: 0x000C7638 File Offset: 0x000C5838
 	public static void TryInitialize()
 	{
-		if (!DatablockDictionary.initializedAtLeastOnce)
+		if (!global::DatablockDictionary.initializedAtLeastOnce)
 		{
-			DatablockDictionary.Initialize();
+			global::DatablockDictionary.Initialize();
 		}
 	}
 
-	// Token: 0x06003463 RID: 13411 RVA: 0x000BF3F0 File Offset: 0x000BD5F0
+	// Token: 0x0600382B RID: 14379 RVA: 0x000C764C File Offset: 0x000C584C
 	public static void Initialize()
 	{
-		DatablockDictionary._dataBlocks = new Dictionary<string, int>();
-		DatablockDictionary._dataBlocksByUniqueID = new Dictionary<int, int>();
-		DatablockDictionary._lootSpawnLists = new Dictionary<string, LootSpawnList>();
-		List<ItemDataBlock> list = new List<ItemDataBlock>();
-		HashSet<ItemDataBlock> hashSet = new HashSet<ItemDataBlock>();
-		foreach (ItemDataBlock itemDataBlock in Bundling.LoadAll<ItemDataBlock>())
+		global::DatablockDictionary._dataBlocks = new Dictionary<string, int>();
+		global::DatablockDictionary._dataBlocksByUniqueID = new Dictionary<int, int>();
+		global::DatablockDictionary._lootSpawnLists = new Dictionary<string, global::LootSpawnList>();
+		List<global::ItemDataBlock> list = new List<global::ItemDataBlock>();
+		HashSet<global::ItemDataBlock> hashSet = new HashSet<global::ItemDataBlock>();
+		foreach (global::ItemDataBlock itemDataBlock in Facepunch.Bundling.LoadAll<global::ItemDataBlock>())
 		{
 			if (hashSet.Add(itemDataBlock))
 			{
 				int count = list.Count;
-				DatablockDictionary._dataBlocks.Add(itemDataBlock.name, count);
-				DatablockDictionary._dataBlocksByUniqueID.Add(itemDataBlock.uniqueID, count);
+				global::DatablockDictionary._dataBlocks.Add(itemDataBlock.name, count);
+				global::DatablockDictionary._dataBlocksByUniqueID.Add(itemDataBlock.uniqueID, count);
 				list.Add(itemDataBlock);
 			}
 		}
-		DatablockDictionary._all = list.ToArray();
-		foreach (LootSpawnList lootSpawnList in Bundling.LoadAll<LootSpawnList>())
+		global::DatablockDictionary._all = list.ToArray();
+		foreach (global::LootSpawnList lootSpawnList in Facepunch.Bundling.LoadAll<global::LootSpawnList>())
 		{
-			DatablockDictionary._lootSpawnLists.Add(lootSpawnList.name, lootSpawnList);
+			global::DatablockDictionary._lootSpawnLists.Add(lootSpawnList.name, lootSpawnList);
 		}
-		DatablockDictionary.initializedAtLeastOnce = true;
+		global::DatablockDictionary.initializedAtLeastOnce = true;
 	}
 
-	// Token: 0x06003464 RID: 13412 RVA: 0x000BF4D4 File Offset: 0x000BD6D4
-	public static ItemDataBlock GetByUniqueID(int uniqueID)
+	// Token: 0x0600382C RID: 14380 RVA: 0x000C7730 File Offset: 0x000C5930
+	public static global::ItemDataBlock GetByUniqueID(int uniqueID)
 	{
 		int num;
-		if (!DatablockDictionary._dataBlocksByUniqueID.TryGetValue(uniqueID, out num))
+		if (!global::DatablockDictionary._dataBlocksByUniqueID.TryGetValue(uniqueID, out num))
 		{
 			return null;
 		}
-		return DatablockDictionary._all[num];
+		return global::DatablockDictionary._all[num];
 	}
 
-	// Token: 0x06003465 RID: 13413 RVA: 0x000BF4FC File Offset: 0x000BD6FC
-	public static ItemDataBlock GetByName(string name)
+	// Token: 0x0600382D RID: 14381 RVA: 0x000C7758 File Offset: 0x000C5958
+	public static global::ItemDataBlock GetByName(string name)
 	{
 		int num;
-		if (!DatablockDictionary._dataBlocks.TryGetValue(name, out num))
+		if (!global::DatablockDictionary._dataBlocks.TryGetValue(name, out num))
 		{
 			return null;
 		}
-		return DatablockDictionary._all[num];
+		return global::DatablockDictionary._all[num];
 	}
 
-	// Token: 0x06003466 RID: 13414 RVA: 0x000BF524 File Offset: 0x000BD724
-	public static LootSpawnList GetLootSpawnListByName(string name)
+	// Token: 0x0600382E RID: 14382 RVA: 0x000C7780 File Offset: 0x000C5980
+	public static global::LootSpawnList GetLootSpawnListByName(string name)
 	{
 		if (string.IsNullOrEmpty(name))
 		{
 			return null;
 		}
-		LootSpawnList result;
-		if (!DatablockDictionary._lootSpawnLists.TryGetValue(name, out result))
+		global::LootSpawnList result;
+		if (!global::DatablockDictionary._lootSpawnLists.TryGetValue(name, out result))
 		{
 			Debug.LogError("Theres no loot spawn list with name " + name);
 		}
 		return result;
 	}
 
-	// Token: 0x06003467 RID: 13415 RVA: 0x000BF564 File Offset: 0x000BD764
-	public static TArmorModel GetArmorModelByUniqueID<TArmorModel>(int uniqueID) where TArmorModel : ArmorModel, new()
+	// Token: 0x0600382F RID: 14383 RVA: 0x000C77C0 File Offset: 0x000C59C0
+	public static TArmorModel GetArmorModelByUniqueID<TArmorModel>(int uniqueID) where TArmorModel : global::ArmorModel, new()
 	{
-		ArmorDataBlock armorDataBlock = DatablockDictionary.GetByUniqueID(uniqueID) as ArmorDataBlock;
+		global::ArmorDataBlock armorDataBlock = global::DatablockDictionary.GetByUniqueID(uniqueID) as global::ArmorDataBlock;
 		if (!armorDataBlock)
 		{
 			return (TArmorModel)((object)null);
@@ -99,10 +99,10 @@ public class DatablockDictionary
 		return armorDataBlock.GetArmorModel<TArmorModel>();
 	}
 
-	// Token: 0x06003468 RID: 13416 RVA: 0x000BF598 File Offset: 0x000BD798
-	public static ArmorModel GetArmorModelByUniqueID(int uniqueID, ArmorModelSlot slot)
+	// Token: 0x06003830 RID: 14384 RVA: 0x000C77F4 File Offset: 0x000C59F4
+	public static global::ArmorModel GetArmorModelByUniqueID(int uniqueID, global::ArmorModelSlot slot)
 	{
-		ArmorDataBlock armorDataBlock = DatablockDictionary.GetByUniqueID(uniqueID) as ArmorDataBlock;
+		global::ArmorDataBlock armorDataBlock = global::DatablockDictionary.GetByUniqueID(uniqueID) as global::ArmorDataBlock;
 		if (!armorDataBlock)
 		{
 			return null;
@@ -110,21 +110,21 @@ public class DatablockDictionary
 		return armorDataBlock.GetArmorModel(slot);
 	}
 
-	// Token: 0x04001A1C RID: 6684
+	// Token: 0x04001BED RID: 7149
 	private const int expectedDBListLength = 14;
 
-	// Token: 0x04001A1D RID: 6685
+	// Token: 0x04001BEE RID: 7150
 	private static Dictionary<string, int> _dataBlocks;
 
-	// Token: 0x04001A1E RID: 6686
+	// Token: 0x04001BEF RID: 7151
 	private static Dictionary<int, int> _dataBlocksByUniqueID;
 
-	// Token: 0x04001A1F RID: 6687
-	private static ItemDataBlock[] _all;
+	// Token: 0x04001BF0 RID: 7152
+	private static global::ItemDataBlock[] _all;
 
-	// Token: 0x04001A20 RID: 6688
-	public static Dictionary<string, LootSpawnList> _lootSpawnLists;
+	// Token: 0x04001BF1 RID: 7153
+	public static Dictionary<string, global::LootSpawnList> _lootSpawnLists;
 
-	// Token: 0x04001A21 RID: 6689
+	// Token: 0x04001BF2 RID: 7154
 	private static bool initializedAtLeastOnce;
 }

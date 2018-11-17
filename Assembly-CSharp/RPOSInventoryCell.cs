@@ -2,16 +2,16 @@
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x02000417 RID: 1047
+// Token: 0x020004CC RID: 1228
 public class RPOSInventoryCell : MonoBehaviour
 {
-	// Token: 0x170008EF RID: 2287
-	// (get) Token: 0x060026AE RID: 9902 RVA: 0x000969FC File Offset: 0x00094BFC
-	public IInventoryItem slotItem
+	// Token: 0x17000955 RID: 2389
+	// (get) Token: 0x06002A38 RID: 10808 RVA: 0x0009C8C0 File Offset: 0x0009AAC0
+	public global::IInventoryItem slotItem
 	{
 		get
 		{
-			IInventoryItem result;
+			global::IInventoryItem result;
 			if (this._displayInventory && this._displayInventory.GetItem((int)this._mySlot, out result))
 			{
 				return result;
@@ -20,12 +20,12 @@ public class RPOSInventoryCell : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026AF RID: 9903 RVA: 0x00096A34 File Offset: 0x00094C34
+	// Token: 0x06002A39 RID: 10809 RVA: 0x0009C8F8 File Offset: 0x0009AAF8
 	private void Start()
 	{
-		if (!RPOSInventoryCell._myMaterial)
+		if (!global::RPOSInventoryCell._myMaterial)
 		{
-			Bundling.Load<Material>("content/item/mat/ItemIconShader", out RPOSInventoryCell._myMaterial);
+			Facepunch.Bundling.Load<Material>("content/item/mat/ItemIconShader", out global::RPOSInventoryCell._myMaterial);
 		}
 		this._icon.enabled = false;
 		if (this.modSprites.Length > 0)
@@ -35,25 +35,25 @@ public class RPOSInventoryCell : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026B0 RID: 9904 RVA: 0x00096AB4 File Offset: 0x00094CB4
+	// Token: 0x06002A3A RID: 10810 RVA: 0x0009C978 File Offset: 0x0009AB78
 	private void Update()
 	{
 		if (this._displayInventory)
 		{
-			if (RPOS.Item_IsClickedCell(this))
+			if (global::RPOS.Item_IsClickedCell(this))
 			{
 				this.MakeEmpty();
 			}
 			else
 			{
-				IInventoryItem inventoryItem;
+				global::IInventoryItem inventoryItem;
 				this._displayInventory.GetItem((int)this._mySlot, out inventoryItem);
 				if (this._displayInventory.MarkSlotClean((int)this._mySlot) || !object.ReferenceEquals(this._myDisplayItem, inventoryItem))
 				{
 					this.SetItem(inventoryItem);
 				}
 			}
-			if (!RPOS.IsOpen && this._darkener)
+			if (!global::RPOS.IsOpen && this._darkener)
 			{
 				if (this.backupColor == Color.cyan)
 				{
@@ -71,7 +71,7 @@ public class RPOSInventoryCell : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026B1 RID: 9905 RVA: 0x00096BB0 File Offset: 0x00094DB0
+	// Token: 0x06002A3B RID: 10811 RVA: 0x0009CA74 File Offset: 0x0009AC74
 	public void SetItemLocked(bool locked)
 	{
 		this._locked = locked;
@@ -85,13 +85,13 @@ public class RPOSInventoryCell : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026B2 RID: 9906 RVA: 0x00096C08 File Offset: 0x00094E08
+	// Token: 0x06002A3C RID: 10812 RVA: 0x0009CACC File Offset: 0x0009ACCC
 	public bool IsItemLocked()
 	{
 		return this._locked;
 	}
 
-	// Token: 0x060026B3 RID: 9907 RVA: 0x00096C10 File Offset: 0x00094E10
+	// Token: 0x06002A3D RID: 10813 RVA: 0x0009CAD4 File Offset: 0x0009ACD4
 	private void MakeEmpty()
 	{
 		this._myDisplayItem = null;
@@ -111,8 +111,8 @@ public class RPOSInventoryCell : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026B4 RID: 9908 RVA: 0x00096CA4 File Offset: 0x00094EA4
-	private void SetItem(IInventoryItem item)
+	// Token: 0x06002A3E RID: 10814 RVA: 0x0009CB68 File Offset: 0x0009AD68
+	private void SetItem(global::IInventoryItem item)
 	{
 		if (item == null)
 		{
@@ -145,19 +145,19 @@ public class RPOSInventoryCell : MonoBehaviour
 			}
 			else
 			{
-				Vector2 vector = this._stackLabel.font.CalculatePrintedSize(this._stackLabel.text, true, UIFont.SymbolStyle.None);
+				Vector2 vector = this._stackLabel.font.CalculatePrintedSize(this._stackLabel.text, true, global::UIFont.SymbolStyle.None);
 				this._amountBackground.enabled = true;
 				this._amountBackground.transform.localScale = new Vector3(vector.x * this._stackLabel.transform.localScale.x + 12f, 16f, 1f);
 			}
 		}
-		if (ItemDataBlock.LoadIconOrUnknown<Texture>(item.datablock.icon, ref item.datablock.iconTex))
+		if (global::ItemDataBlock.LoadIconOrUnknown<Texture>(item.datablock.icon, ref item.datablock.iconTex))
 		{
-			Material material = TextureMaterial.GetMaterial(RPOSInventoryCell._myMaterial, item.datablock.iconTex);
-			this._icon.material = (UIMaterial)material;
+			Material material = global::TextureMaterial.GetMaterial(global::RPOSInventoryCell._myMaterial, item.datablock.iconTex);
+			this._icon.material = (global::UIMaterial)material;
 			this._icon.enabled = true;
 		}
-		IHeldItem heldItem;
-		int num = ((heldItem = (item as IHeldItem)) != null) ? heldItem.totalModSlots : 0;
+		global::IHeldItem heldItem;
+		int num = ((heldItem = (item as global::IHeldItem)) != null) ? heldItem.totalModSlots : 0;
 		int num2 = (num != 0) ? heldItem.usedModSlots : 0;
 		for (int i = 0; i < this.modSprites.Length; i++)
 		{
@@ -186,12 +186,12 @@ public class RPOSInventoryCell : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026B5 RID: 9909 RVA: 0x00096F98 File Offset: 0x00095198
+	// Token: 0x06002A3F RID: 10815 RVA: 0x0009CE5C File Offset: 0x0009B05C
 	private void OnClick()
 	{
 	}
 
-	// Token: 0x060026B6 RID: 9910 RVA: 0x00096F9C File Offset: 0x0009519C
+	// Token: 0x06002A40 RID: 10816 RVA: 0x0009CE60 File Offset: 0x0009B060
 	private void OnPress(bool start)
 	{
 		if (start)
@@ -199,24 +199,24 @@ public class RPOSInventoryCell : MonoBehaviour
 			this.startedNoItem = (this.slotItem == null || this.IsItemLocked());
 			if (this.startedNoItem)
 			{
-				UICamera.Cursor.CurrentButton.ClickNotification = UICamera.ClickNotification.None;
-				UICamera.Cursor.DropNotification = (DropNotificationFlags)0;
+				global::UICamera.Cursor.CurrentButton.ClickNotification = global::UICamera.ClickNotification.None;
+				global::UICamera.Cursor.DropNotification = (global::DropNotificationFlags)0;
 			}
 		}
 	}
 
-	// Token: 0x060026B7 RID: 9911 RVA: 0x00096FF0 File Offset: 0x000951F0
+	// Token: 0x06002A41 RID: 10817 RVA: 0x0009CEB4 File Offset: 0x0009B0B4
 	private void OnDragState(bool start)
 	{
 		if (start)
 		{
 			if (!this.dragging && !this.startedNoItem)
 			{
-				UICamera.Cursor.DropNotification = (DropNotificationFlags.DragLand | DropNotificationFlags.AltLand | DropNotificationFlags.RegularHover | DropNotificationFlags.DragLandOutside);
+				global::UICamera.Cursor.DropNotification = (global::DropNotificationFlags.DragLand | global::DropNotificationFlags.AltLand | global::DropNotificationFlags.RegularHover | global::DropNotificationFlags.DragLandOutside);
 				this.lastLanding = null;
 				this.dragging = true;
-				RPOS.Item_CellDragBegin(this);
-				UICamera.Cursor.CurrentButton.ClickNotification = UICamera.ClickNotification.BasedOnDelta;
+				global::RPOS.Item_CellDragBegin(this);
+				global::UICamera.Cursor.CurrentButton.ClickNotification = global::UICamera.ClickNotification.BasedOnDelta;
 			}
 		}
 		else if (this.dragging)
@@ -225,123 +225,123 @@ public class RPOSInventoryCell : MonoBehaviour
 			if (this.lastLanding)
 			{
 				this.dragging = false;
-				RPOS.Item_CellDragEnd(this, this.lastLanding);
-				UICamera.Cursor.Buttons.LeftValue.ClickNotification = UICamera.ClickNotification.None;
+				global::RPOS.Item_CellDragEnd(this, this.lastLanding);
+				global::UICamera.Cursor.Buttons.LeftValue.ClickNotification = global::UICamera.ClickNotification.None;
 			}
 			else
 			{
-				RPOS.Item_CellReset();
+				global::RPOS.Item_CellReset();
 			}
 		}
 	}
 
-	// Token: 0x060026B8 RID: 9912 RVA: 0x000970A8 File Offset: 0x000952A8
+	// Token: 0x06002A42 RID: 10818 RVA: 0x0009CF6C File Offset: 0x0009B16C
 	private void OnLand(GameObject landing)
 	{
-		this.lastLanding = landing.GetComponent<RPOSInventoryCell>();
+		this.lastLanding = landing.GetComponent<global::RPOSInventoryCell>();
 	}
 
-	// Token: 0x060026B9 RID: 9913 RVA: 0x000970B8 File Offset: 0x000952B8
+	// Token: 0x06002A43 RID: 10819 RVA: 0x0009CF7C File Offset: 0x0009B17C
 	private void OnTooltip(bool show)
 	{
-		IInventoryItem inventoryItem;
+		global::IInventoryItem inventoryItem;
 		if (show && this._myDisplayItem != null)
 		{
-			IInventoryItem myDisplayItem = this._myDisplayItem;
+			global::IInventoryItem myDisplayItem = this._myDisplayItem;
 			inventoryItem = myDisplayItem;
 		}
 		else
 		{
 			inventoryItem = null;
 		}
-		IInventoryItem item = inventoryItem;
-		ItemDataBlock itemdb = (!show || this._myDisplayItem == null) ? null : this._myDisplayItem.datablock;
-		ItemToolTip.SetToolTip(itemdb, item);
+		global::IInventoryItem item = inventoryItem;
+		global::ItemDataBlock itemdb = (!show || this._myDisplayItem == null) ? null : this._myDisplayItem.datablock;
+		global::ItemToolTip.SetToolTip(itemdb, item);
 	}
 
-	// Token: 0x060026BA RID: 9914 RVA: 0x00097110 File Offset: 0x00095310
+	// Token: 0x06002A44 RID: 10820 RVA: 0x0009CFD4 File Offset: 0x0009B1D4
 	private void OnLandOutside()
 	{
-		if (this._displayInventory.gameObject == RPOS.ObservedPlayer.gameObject)
+		if (this._displayInventory.gameObject == global::RPOS.ObservedPlayer.gameObject)
 		{
-			RPOS.TossItem(this._mySlot);
+			global::RPOS.TossItem(this._mySlot);
 		}
 	}
 
-	// Token: 0x060026BB RID: 9915 RVA: 0x00097148 File Offset: 0x00095348
+	// Token: 0x06002A45 RID: 10821 RVA: 0x0009D00C File Offset: 0x0009B20C
 	private void OnAltLand(GameObject landing)
 	{
-		RPOSInventoryCell component = landing.GetComponent<RPOSInventoryCell>();
+		global::RPOSInventoryCell component = landing.GetComponent<global::RPOSInventoryCell>();
 		if (!component)
 		{
 			return;
 		}
-		RPOS.ItemCellAltClicked(component);
+		global::RPOS.ItemCellAltClicked(component);
 	}
 
-	// Token: 0x060026BC RID: 9916 RVA: 0x00097170 File Offset: 0x00095370
+	// Token: 0x06002A46 RID: 10822 RVA: 0x0009D034 File Offset: 0x0009B234
 	private void OnAltClick()
 	{
 		if (this.slotItem != null)
 		{
-			RPOS.GetRightClickMenu().SetItem(this.slotItem);
+			global::RPOS.GetRightClickMenu().SetItem(this.slotItem);
 		}
 	}
 
-	// Token: 0x040012F3 RID: 4851
-	public UISprite _amountBackground;
+	// Token: 0x04001473 RID: 5235
+	public global::UISprite _amountBackground;
 
-	// Token: 0x040012F4 RID: 4852
-	public UILabel _stackLabel;
+	// Token: 0x04001474 RID: 5236
+	public global::UILabel _stackLabel;
 
-	// Token: 0x040012F5 RID: 4853
-	public UILabel _usesLabel;
+	// Token: 0x04001475 RID: 5237
+	public global::UILabel _usesLabel;
 
-	// Token: 0x040012F6 RID: 4854
-	public UILabel _numberLabel;
+	// Token: 0x04001476 RID: 5238
+	public global::UILabel _numberLabel;
 
-	// Token: 0x040012F7 RID: 4855
-	public UITexture _icon;
+	// Token: 0x04001477 RID: 5239
+	public global::UITexture _icon;
 
-	// Token: 0x040012F8 RID: 4856
-	public UISlicedSprite _background;
+	// Token: 0x04001478 RID: 5240
+	public global::UISlicedSprite _background;
 
-	// Token: 0x040012F9 RID: 4857
-	public UISprite _darkener;
+	// Token: 0x04001479 RID: 5241
+	public global::UISprite _darkener;
 
-	// Token: 0x040012FA RID: 4858
+	// Token: 0x0400147A RID: 5242
 	private Color backupColor = Color.cyan;
 
-	// Token: 0x040012FB RID: 4859
-	public Inventory _displayInventory;
+	// Token: 0x0400147B RID: 5243
+	public global::Inventory _displayInventory;
 
-	// Token: 0x040012FC RID: 4860
+	// Token: 0x0400147C RID: 5244
 	public byte _mySlot;
 
-	// Token: 0x040012FD RID: 4861
-	public IInventoryItem _myDisplayItem;
+	// Token: 0x0400147D RID: 5245
+	public global::IInventoryItem _myDisplayItem;
 
-	// Token: 0x040012FE RID: 4862
+	// Token: 0x0400147E RID: 5246
 	public static Material _myMaterial;
 
-	// Token: 0x040012FF RID: 4863
+	// Token: 0x0400147F RID: 5247
 	private bool _locked;
 
-	// Token: 0x04001300 RID: 4864
-	public UISprite[] modSprites;
+	// Token: 0x04001480 RID: 5248
+	public global::UISprite[] modSprites;
 
-	// Token: 0x04001301 RID: 4865
-	private UIAtlas.Sprite mod_empty;
+	// Token: 0x04001481 RID: 5249
+	private global::UIAtlas.Sprite mod_empty;
 
-	// Token: 0x04001302 RID: 4866
-	private UIAtlas.Sprite mod_full;
+	// Token: 0x04001482 RID: 5250
+	private global::UIAtlas.Sprite mod_full;
 
-	// Token: 0x04001303 RID: 4867
+	// Token: 0x04001483 RID: 5251
 	private bool dragging;
 
-	// Token: 0x04001304 RID: 4868
-	private RPOSInventoryCell lastLanding;
+	// Token: 0x04001484 RID: 5252
+	private global::RPOSInventoryCell lastLanding;
 
-	// Token: 0x04001305 RID: 4869
+	// Token: 0x04001485 RID: 5253
 	private bool startedNoItem;
 }

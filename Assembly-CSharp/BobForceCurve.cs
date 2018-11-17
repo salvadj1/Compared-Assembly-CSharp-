@@ -2,16 +2,16 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x020004CB RID: 1227
+// Token: 0x02000586 RID: 1414
 [Serializable]
 public class BobForceCurve
 {
-	// Token: 0x06002A94 RID: 10900 RVA: 0x000A93E4 File Offset: 0x000A75E4
+	// Token: 0x06002E46 RID: 11846 RVA: 0x000B117C File Offset: 0x000AF37C
 	private void Gasp()
 	{
-		this.infoX = new BobForceCurve.CurveInfo(this.forceX);
-		this.infoY = new BobForceCurve.CurveInfo(this.forceY);
-		this.infoZ = new BobForceCurve.CurveInfo(this.forceZ);
+		this.infoX = new global::BobForceCurve.CurveInfo(this.forceX);
+		this.infoY = new global::BobForceCurve.CurveInfo(this.forceY);
+		this.infoZ = new global::BobForceCurve.CurveInfo(this.forceZ);
 		this.calc = (this.infoX.calc || this.infoY.calc || this.infoZ.calc);
 		int length = this.sourceMask.length;
 		bool flag;
@@ -59,7 +59,7 @@ public class BobForceCurve
 		this.once = true;
 	}
 
-	// Token: 0x06002A95 RID: 10901 RVA: 0x000A956C File Offset: 0x000A776C
+	// Token: 0x06002E47 RID: 11847 RVA: 0x000B1304 File Offset: 0x000AF504
 	public void Calculate(ref Vector3G v, ref double pow, ref double dt, ref Vector3G sum)
 	{
 		if (!this.once)
@@ -143,67 +143,67 @@ public class BobForceCurve
 		}
 	}
 
-	// Token: 0x0400170A RID: 5898
+	// Token: 0x040018C7 RID: 6343
 	public Vector3 positionScale = Vector3.one;
 
-	// Token: 0x0400170B RID: 5899
+	// Token: 0x040018C8 RID: 6344
 	public AnimationCurve forceX;
 
-	// Token: 0x0400170C RID: 5900
+	// Token: 0x040018C9 RID: 6345
 	public AnimationCurve forceY;
 
-	// Token: 0x0400170D RID: 5901
+	// Token: 0x040018CA RID: 6346
 	public AnimationCurve forceZ;
 
-	// Token: 0x0400170E RID: 5902
+	// Token: 0x040018CB RID: 6347
 	public Vector3 outputScale = Vector3.one;
 
-	// Token: 0x0400170F RID: 5903
+	// Token: 0x040018CC RID: 6348
 	public AnimationCurve sourceMask;
 
-	// Token: 0x04001710 RID: 5904
+	// Token: 0x040018CD RID: 6349
 	public AnimationCurve sourceScale;
 
-	// Token: 0x04001711 RID: 5905
+	// Token: 0x040018CE RID: 6350
 	private float duration;
 
-	// Token: 0x04001712 RID: 5906
+	// Token: 0x040018CF RID: 6351
 	private float offset;
 
-	// Token: 0x04001713 RID: 5907
-	private BobForceCurve.CurveInfo infoX;
+	// Token: 0x040018D0 RID: 6352
+	private global::BobForceCurve.CurveInfo infoX;
 
-	// Token: 0x04001714 RID: 5908
-	private BobForceCurve.CurveInfo infoY;
+	// Token: 0x040018D1 RID: 6353
+	private global::BobForceCurve.CurveInfo infoY;
 
-	// Token: 0x04001715 RID: 5909
-	private BobForceCurve.CurveInfo infoZ;
+	// Token: 0x040018D2 RID: 6354
+	private global::BobForceCurve.CurveInfo infoZ;
 
-	// Token: 0x04001716 RID: 5910
+	// Token: 0x040018D3 RID: 6355
 	private bool once;
 
-	// Token: 0x04001717 RID: 5911
+	// Token: 0x040018D4 RID: 6356
 	private bool calc;
 
-	// Token: 0x04001718 RID: 5912
+	// Token: 0x040018D5 RID: 6357
 	private bool mask;
 
-	// Token: 0x04001719 RID: 5913
+	// Token: 0x040018D6 RID: 6358
 	private bool scale;
 
-	// Token: 0x0400171A RID: 5914
+	// Token: 0x040018D7 RID: 6359
 	private bool scaleFixed;
 
-	// Token: 0x0400171B RID: 5915
-	public BobForceCurveTarget target;
+	// Token: 0x040018D8 RID: 6360
+	public global::BobForceCurveTarget target;
 
-	// Token: 0x0400171C RID: 5916
-	public BobForceCurveSource source;
+	// Token: 0x040018D9 RID: 6361
+	public global::BobForceCurveSource source;
 
-	// Token: 0x020004CC RID: 1228
+	// Token: 0x02000587 RID: 1415
 	private struct CurveInfo
 	{
-		// Token: 0x06002A96 RID: 10902 RVA: 0x000A996C File Offset: 0x000A7B6C
+		// Token: 0x06002E48 RID: 11848 RVA: 0x000B1704 File Offset: 0x000AF904
 		public CurveInfo(AnimationCurve curve)
 		{
 			int num = (curve != null) ? curve.length : 0;
@@ -233,16 +233,16 @@ public class BobForceCurve
 			}
 		}
 
-		// Token: 0x0400171D RID: 5917
+		// Token: 0x040018DA RID: 6362
 		public float duration;
 
-		// Token: 0x0400171E RID: 5918
+		// Token: 0x040018DB RID: 6363
 		public float offset;
 
-		// Token: 0x0400171F RID: 5919
+		// Token: 0x040018DC RID: 6364
 		public bool calc;
 
-		// Token: 0x04001720 RID: 5920
+		// Token: 0x040018DD RID: 6365
 		public bool constant;
 	}
 }

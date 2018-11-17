@@ -1,15 +1,15 @@
 ﻿using System;
 
-// Token: 0x0200042B RID: 1067
-public class water : ConsoleSystem
+// Token: 0x020004E1 RID: 1249
+public class water : global::ConsoleSystem
 {
-	// Token: 0x0400137E RID: 4990
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Saved]
+	// Token: 0x04001501 RID: 5377
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
 	public static int level = -1;
 
-	// Token: 0x0400137F RID: 4991
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Saved]
+	// Token: 0x04001502 RID: 5378
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Saved]
 	public static bool reflection;
 }

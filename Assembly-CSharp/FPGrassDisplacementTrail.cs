@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000037 RID: 55
-public class FPGrassDisplacementTrail : FPGrassDisplacementObject
+// Token: 0x02000049 RID: 73
+public class FPGrassDisplacementTrail : global::FPGrassDisplacementObject
 {
-	// Token: 0x06000210 RID: 528 RVA: 0x0000BCDC File Offset: 0x00009EDC
+	// Token: 0x06000282 RID: 642 RVA: 0x0000D284 File Offset: 0x0000B484
 	public override void Initialize()
 	{
 		this._trail = base.GetComponent<TrailRenderer>();
 	}
 
-	// Token: 0x06000211 RID: 529 RVA: 0x0000BCEC File Offset: 0x00009EEC
+	// Token: 0x06000283 RID: 643 RVA: 0x0000D294 File Offset: 0x0000B494
 	public override void DetachAndDestroy()
 	{
 		base.transform.parent = null;
 		Object.Destroy(base.gameObject, this._trail.time * 1.5f);
 	}
 
-	// Token: 0x04000141 RID: 321
+	// Token: 0x040001A3 RID: 419
 	public TrailRenderer _trail;
 }

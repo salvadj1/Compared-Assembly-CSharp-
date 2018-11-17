@@ -2,10 +2,10 @@
 
 namespace Facepunch.Clocks.Counters
 {
-	// Token: 0x0200033F RID: 831
+	// Token: 0x020003EC RID: 1004
 	public struct DateTimeWatch
 	{
-		// Token: 0x06001FAC RID: 8108 RVA: 0x0007C948 File Offset: 0x0007AB48
+		// Token: 0x0600230E RID: 8974 RVA: 0x00081D44 File Offset: 0x0007FF44
 		public void Start()
 		{
 			if (double.IsNegativeInfinity(this.startTime))
@@ -22,7 +22,7 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x06001FAD RID: 8109 RVA: 0x0007C9D0 File Offset: 0x0007ABD0
+		// Token: 0x0600230F RID: 8975 RVA: 0x00081DCC File Offset: 0x0007FFCC
 		public void Stop()
 		{
 			if (double.IsNegativeInfinity(this.startTime))
@@ -35,8 +35,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007D6 RID: 2006
-		// (get) Token: 0x06001FAE RID: 8110 RVA: 0x0007CA0C File Offset: 0x0007AC0C
+		// Token: 0x17000834 RID: 2100
+		// (get) Token: 0x06002310 RID: 8976 RVA: 0x00081E08 File Offset: 0x00080008
 		public double ElapsedSeconds
 		{
 			get
@@ -53,8 +53,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007D7 RID: 2007
-		// (get) Token: 0x06001FAF RID: 8111 RVA: 0x0007CA70 File Offset: 0x0007AC70
+		// Token: 0x17000835 RID: 2101
+		// (get) Token: 0x06002311 RID: 8977 RVA: 0x00081E6C File Offset: 0x0008006C
 		public long ElapsedMilliseconds
 		{
 			get
@@ -63,8 +63,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007D8 RID: 2008
-		// (get) Token: 0x06001FB0 RID: 8112 RVA: 0x0007CA88 File Offset: 0x0007AC88
+		// Token: 0x17000836 RID: 2102
+		// (get) Token: 0x06002312 RID: 8978 RVA: 0x00081E84 File Offset: 0x00080084
 		public TimeSpan Elapsed
 		{
 			get
@@ -77,8 +77,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007D9 RID: 2009
-		// (get) Token: 0x06001FB1 RID: 8113 RVA: 0x0007CAE0 File Offset: 0x0007ACE0
+		// Token: 0x17000837 RID: 2103
+		// (get) Token: 0x06002313 RID: 8979 RVA: 0x00081EDC File Offset: 0x000800DC
 		public bool IsRunning
 		{
 			get
@@ -87,8 +87,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007DA RID: 2010
-		// (get) Token: 0x06001FB2 RID: 8114 RVA: 0x0007CB04 File Offset: 0x0007AD04
+		// Token: 0x17000838 RID: 2104
+		// (get) Token: 0x06002314 RID: 8980 RVA: 0x00081F00 File Offset: 0x00080100
 		public static DateTimeWatch Restart
 		{
 			get
@@ -101,8 +101,8 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x170007DB RID: 2011
-		// (get) Token: 0x06001FB3 RID: 8115 RVA: 0x0007CB40 File Offset: 0x0007AD40
+		// Token: 0x17000839 RID: 2105
+		// (get) Token: 0x06002315 RID: 8981 RVA: 0x00081F3C File Offset: 0x0008013C
 		public static DateTimeWatch Reset
 		{
 			get
@@ -115,29 +115,29 @@ namespace Facepunch.Clocks.Counters
 			}
 		}
 
-		// Token: 0x04000F29 RID: 3881
+		// Token: 0x0400108F RID: 4239
 		private const double ZeroDeductions = 0.0;
 
-		// Token: 0x04000F2A RID: 3882
+		// Token: 0x04001090 RID: 4240
 		private const double OneThousand = 1000.0;
 
-		// Token: 0x04000F2B RID: 3883
+		// Token: 0x04001091 RID: 4241
 		private const double ZeroElapsed = 0.0;
 
-		// Token: 0x04000F2C RID: 3884
+		// Token: 0x04001092 RID: 4242
 		private double startTime;
 
-		// Token: 0x04000F2D RID: 3885
+		// Token: 0x04001093 RID: 4243
 		private double endTime;
 
-		// Token: 0x04000F2E RID: 3886
+		// Token: 0x04001094 RID: 4244
 		private double deductSeconds;
 
-		// Token: 0x02000340 RID: 832
+		// Token: 0x020003ED RID: 1005
 		private static class TIME_SOURCE
 		{
-			// Token: 0x170007DC RID: 2012
-			// (get) Token: 0x06001FB5 RID: 8117 RVA: 0x0007CBC0 File Offset: 0x0007ADC0
+			// Token: 0x1700083A RID: 2106
+			// (get) Token: 0x06002317 RID: 8983 RVA: 0x00081FBC File Offset: 0x000801BC
 			public static double NOW
 			{
 				get
@@ -146,13 +146,13 @@ namespace Facepunch.Clocks.Counters
 				}
 			}
 
-			// Token: 0x04000F2F RID: 3887
+			// Token: 0x04001095 RID: 4245
 			private const decimal kTickToSecond = 0.0000001000000000000000000000m;
 
-			// Token: 0x04000F30 RID: 3888
+			// Token: 0x04001096 RID: 4246
 			public static readonly DateTime Then = DateTime.Now;
 
-			// Token: 0x04000F31 RID: 3889
+			// Token: 0x04001097 RID: 4247
 			public static readonly long ThenTicks = DateTimeWatch.TIME_SOURCE.Then.Ticks;
 		}
 	}

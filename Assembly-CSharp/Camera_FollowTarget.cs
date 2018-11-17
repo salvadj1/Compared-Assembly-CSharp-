@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200061D RID: 1565
+// Token: 0x020006DE RID: 1758
 public class Camera_FollowTarget : MonoBehaviour
 {
-	// Token: 0x06003797 RID: 14231 RVA: 0x000CBD88 File Offset: 0x000C9F88
+	// Token: 0x06003B77 RID: 15223 RVA: 0x000D4460 File Offset: 0x000D2660
 	private void Start()
 	{
 		this.quatCameraAngles = Quaternion.identity;
 	}
 
-	// Token: 0x06003798 RID: 14232 RVA: 0x000CBD98 File Offset: 0x000C9F98
+	// Token: 0x06003B78 RID: 15224 RVA: 0x000D4470 File Offset: 0x000D2670
 	private void Update()
 	{
 		if (!this.bDropCamera)
@@ -24,7 +24,7 @@ public class Camera_FollowTarget : MonoBehaviour
 		base.transform.rotation = Quaternion.LookRotation(this.goTarget.transform.position + Vector3.up - base.transform.position);
 	}
 
-	// Token: 0x06003799 RID: 14233 RVA: 0x000CBE08 File Offset: 0x000CA008
+	// Token: 0x06003B79 RID: 15225 RVA: 0x000D44E0 File Offset: 0x000D26E0
 	private void UpdateCameraPosition()
 	{
 		Vector3 vector = this.goTarget.transform.TransformDirection(Vector3.forward);
@@ -33,21 +33,21 @@ public class Camera_FollowTarget : MonoBehaviour
 		this.vecLastCameraPosition = base.transform.position;
 	}
 
-	// Token: 0x04001BB5 RID: 7093
+	// Token: 0x04001DA0 RID: 7584
 	public GameObject goTarget;
 
-	// Token: 0x04001BB6 RID: 7094
+	// Token: 0x04001DA1 RID: 7585
 	public float flDistanceFromPlayer = 4f;
 
-	// Token: 0x04001BB7 RID: 7095
+	// Token: 0x04001DA2 RID: 7586
 	public float flCameraYawOffset = 45f;
 
-	// Token: 0x04001BB8 RID: 7096
+	// Token: 0x04001DA3 RID: 7587
 	private Quaternion quatCameraAngles;
 
-	// Token: 0x04001BB9 RID: 7097
+	// Token: 0x04001DA4 RID: 7588
 	public bool bDropCamera;
 
-	// Token: 0x04001BBA RID: 7098
+	// Token: 0x04001DA5 RID: 7589
 	private Vector3 vecLastCameraPosition;
 }

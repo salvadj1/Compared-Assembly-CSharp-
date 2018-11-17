@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005F5 RID: 1525
+// Token: 0x020006B5 RID: 1717
 public class LootSpawnList : ScriptableObject
 {
-	// Token: 0x060036B0 RID: 14000 RVA: 0x000C51DC File Offset: 0x000C33DC
-	public void PopulateInventory(Inventory inven)
+	// Token: 0x06003A88 RID: 14984 RVA: 0x000CD70C File Offset: 0x000CB90C
+	public void PopulateInventory(global::Inventory inven)
 	{
-		LootSpawnList.RecursiveInventoryPopulateArgs recursiveInventoryPopulateArgs;
+		global::LootSpawnList.RecursiveInventoryPopulateArgs recursiveInventoryPopulateArgs;
 		recursiveInventoryPopulateArgs.inventory = inven;
 		recursiveInventoryPopulateArgs.spawnCount = 0;
 		recursiveInventoryPopulateArgs.inventoryExausted = inven.noVacantSlots;
@@ -17,8 +17,8 @@ public class LootSpawnList : ScriptableObject
 		}
 	}
 
-	// Token: 0x060036B1 RID: 14001 RVA: 0x000C521C File Offset: 0x000C341C
-	private void PopulateInventory_Recurse(ref LootSpawnList.RecursiveInventoryPopulateArgs args)
+	// Token: 0x06003A89 RID: 14985 RVA: 0x000CD74C File Offset: 0x000CB94C
+	private void PopulateInventory_Recurse(ref global::LootSpawnList.RecursiveInventoryPopulateArgs args)
 	{
 		if (this.maxPackagesToSpawn > this.LootPackages.Length)
 		{
@@ -36,14 +36,14 @@ public class LootSpawnList : ScriptableObject
 		int num2 = 0;
 		while (!args.inventoryExausted && num2 < num)
 		{
-			LootSpawnList.LootWeightedEntry lootWeightedEntry;
+			global::LootSpawnList.LootWeightedEntry lootWeightedEntry;
 			if (this.spawnOneOfEach)
 			{
 				lootWeightedEntry = this.LootPackages[num2];
 			}
 			else
 			{
-				lootWeightedEntry = (WeightSelection.RandomPickEntry(this.LootPackages) as LootSpawnList.LootWeightedEntry);
+				lootWeightedEntry = (global::WeightSelection.RandomPickEntry(this.LootPackages) as global::LootSpawnList.LootWeightedEntry);
 			}
 			if (lootWeightedEntry == null)
 			{
@@ -53,10 +53,10 @@ public class LootSpawnList : ScriptableObject
 			Object obj = lootWeightedEntry.obj;
 			if (obj)
 			{
-				if (obj is ItemDataBlock)
+				if (obj is global::ItemDataBlock)
 				{
-					ItemDataBlock datablock = obj as ItemDataBlock;
-					if (!object.ReferenceEquals(args.inventory.AddItem(datablock, Inventory.Slot.Preference.Define(args.spawnCount, false, Inventory.Slot.KindFlags.Default | Inventory.Slot.KindFlags.Belt), Random.Range(lootWeightedEntry.amountMin, lootWeightedEntry.amountMax + 1)), null))
+					global::ItemDataBlock datablock = obj as global::ItemDataBlock;
+					if (!object.ReferenceEquals(args.inventory.AddItem(datablock, global::Inventory.Slot.Preference.Define(args.spawnCount, false, global::Inventory.Slot.KindFlags.Default | global::Inventory.Slot.KindFlags.Belt), Random.Range(lootWeightedEntry.amountMin, lootWeightedEntry.amountMax + 1)), null))
 					{
 						args.spawnCount++;
 						if (args.inventory.noVacantSlots)
@@ -65,51 +65,51 @@ public class LootSpawnList : ScriptableObject
 						}
 					}
 				}
-				else if (obj is LootSpawnList)
+				else if (obj is global::LootSpawnList)
 				{
-					((LootSpawnList)obj).PopulateInventory_Recurse(ref args);
+					((global::LootSpawnList)obj).PopulateInventory_Recurse(ref args);
 				}
 			}
 			num2++;
 		}
 	}
 
-	// Token: 0x04001AD6 RID: 6870
-	public LootSpawnList.LootWeightedEntry[] LootPackages;
+	// Token: 0x04001CBC RID: 7356
+	public global::LootSpawnList.LootWeightedEntry[] LootPackages;
 
-	// Token: 0x04001AD7 RID: 6871
+	// Token: 0x04001CBD RID: 7357
 	public int minPackagesToSpawn = 1;
 
-	// Token: 0x04001AD8 RID: 6872
+	// Token: 0x04001CBE RID: 7358
 	public int maxPackagesToSpawn = 1;
 
-	// Token: 0x04001AD9 RID: 6873
+	// Token: 0x04001CBF RID: 7359
 	public bool noDuplicates;
 
-	// Token: 0x04001ADA RID: 6874
+	// Token: 0x04001CC0 RID: 7360
 	public bool spawnOneOfEach;
 
-	// Token: 0x020005F6 RID: 1526
+	// Token: 0x020006B6 RID: 1718
 	[Serializable]
-	public class LootWeightedEntry : WeightSelection.WeightedEntry
+	public class LootWeightedEntry : global::WeightSelection.WeightedEntry
 	{
-		// Token: 0x04001ADB RID: 6875
+		// Token: 0x04001CC1 RID: 7361
 		public int amountMin;
 
-		// Token: 0x04001ADC RID: 6876
+		// Token: 0x04001CC2 RID: 7362
 		public int amountMax = 1;
 	}
 
-	// Token: 0x020005F7 RID: 1527
+	// Token: 0x020006B7 RID: 1719
 	private struct RecursiveInventoryPopulateArgs
 	{
-		// Token: 0x04001ADD RID: 6877
-		public Inventory inventory;
+		// Token: 0x04001CC3 RID: 7363
+		public global::Inventory inventory;
 
-		// Token: 0x04001ADE RID: 6878
+		// Token: 0x04001CC4 RID: 7364
 		public int spawnCount;
 
-		// Token: 0x04001ADF RID: 6879
+		// Token: 0x04001CC5 RID: 7365
 		public bool inventoryExausted;
 	}
 }

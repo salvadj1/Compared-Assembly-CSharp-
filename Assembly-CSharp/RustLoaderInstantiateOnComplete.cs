@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200002F RID: 47
+// Token: 0x02000041 RID: 65
 public class RustLoaderInstantiateOnComplete : MonoBehaviour
 {
-	// Token: 0x060001EE RID: 494 RVA: 0x0000B4E0 File Offset: 0x000096E0
+	// Token: 0x06000260 RID: 608 RVA: 0x0000CA88 File Offset: 0x0000AC88
 	private void OnRustReady()
 	{
 		if (this.prefabs != null)
@@ -19,7 +19,7 @@ public class RustLoaderInstantiateOnComplete : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060001EF RID: 495 RVA: 0x0000B52C File Offset: 0x0000972C
+	// Token: 0x06000261 RID: 609 RVA: 0x0000CAD4 File Offset: 0x0000ACD4
 	private void InstantiatePrefab(GameObject prefab)
 	{
 		try
@@ -32,16 +32,16 @@ public class RustLoaderInstantiateOnComplete : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060001F0 RID: 496 RVA: 0x0000B578 File Offset: 0x00009778
+	// Token: 0x06000262 RID: 610 RVA: 0x0000CB20 File Offset: 0x0000AD20
 	private void Reset()
 	{
-		Object[] array = Object.FindObjectsOfType(typeof(RustLoader));
+		Object[] array = Object.FindObjectsOfType(typeof(global::RustLoader));
 		if (array.Length > 0)
 		{
-			((RustLoader)array[0]).AddMessageReceiver(base.gameObject);
+			((global::RustLoader)array[0]).AddMessageReceiver(base.gameObject);
 		}
 	}
 
-	// Token: 0x0400012E RID: 302
+	// Token: 0x04000190 RID: 400
 	public GameObject[] prefabs;
 }

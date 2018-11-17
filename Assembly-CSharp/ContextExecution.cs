@@ -1,13 +1,13 @@
 ﻿using System;
 
-// Token: 0x0200046B RID: 1131
+// Token: 0x02000521 RID: 1313
 [Flags]
 public enum ContextExecution : byte
 {
-	// Token: 0x040014EA RID: 5354
+	// Token: 0x0400166D RID: 5741
 	NotAvailable = 0,
-	// Token: 0x040014EB RID: 5355
+	// Token: 0x0400166E RID: 5742
 	Quick = 1,
-	// Token: 0x040014EC RID: 5356
+	// Token: 0x0400166F RID: 5743
 	Menu = 2
 }

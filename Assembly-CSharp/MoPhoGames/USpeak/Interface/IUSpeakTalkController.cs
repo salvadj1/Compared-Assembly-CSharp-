@@ -2,13 +2,13 @@
 
 namespace MoPhoGames.USpeak.Interface
 {
-	// Token: 0x020000C3 RID: 195
+	// Token: 0x020000D7 RID: 215
 	public interface IUSpeakTalkController
 	{
-		// Token: 0x0600041A RID: 1050
+		// Token: 0x06000498 RID: 1176
 		void OnInspectorGUI();
 
-		// Token: 0x0600041B RID: 1051
+		// Token: 0x06000499 RID: 1177
 		bool ShouldSend();
 	}
 }

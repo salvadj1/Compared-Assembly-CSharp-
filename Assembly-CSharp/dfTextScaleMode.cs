@@ -1,12 +1,12 @@
 ﻿using System;
 
-// Token: 0x020006AB RID: 1707
+// Token: 0x02000776 RID: 1910
 public enum dfTextScaleMode
 {
-	// Token: 0x04001FA4 RID: 8100
+	// Token: 0x040021A5 RID: 8613
 	None,
-	// Token: 0x04001FA5 RID: 8101
+	// Token: 0x040021A6 RID: 8614
 	ControlSize,
-	// Token: 0x04001FA6 RID: 8102
+	// Token: 0x040021A7 RID: 8615
 	ScreenResolution
 }

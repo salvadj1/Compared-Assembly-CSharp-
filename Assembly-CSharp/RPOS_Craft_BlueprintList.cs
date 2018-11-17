@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000424 RID: 1060
+// Token: 0x020004DA RID: 1242
 public class RPOS_Craft_BlueprintList : MonoBehaviour
 {
-	// Token: 0x06002763 RID: 10083 RVA: 0x0009977C File Offset: 0x0009797C
+	// Token: 0x06002AF3 RID: 10995 RVA: 0x0009F6FC File Offset: 0x0009D8FC
 	private void Awake()
 	{
 	}
 
-	// Token: 0x06002764 RID: 10084 RVA: 0x00099780 File Offset: 0x00097980
-	public bool AnyOfCategoryInList(ItemDataBlock.ItemCategory category, List<BlueprintDataBlock> checkList)
+	// Token: 0x06002AF4 RID: 10996 RVA: 0x0009F700 File Offset: 0x0009D900
+	public bool AnyOfCategoryInList(global::ItemDataBlock.ItemCategory category, List<global::BlueprintDataBlock> checkList)
 	{
-		foreach (BlueprintDataBlock blueprintDataBlock in checkList)
+		foreach (global::BlueprintDataBlock blueprintDataBlock in checkList)
 		{
 			if (blueprintDataBlock == null)
 			{
@@ -28,17 +28,17 @@ public class RPOS_Craft_BlueprintList : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06002765 RID: 10085 RVA: 0x00099814 File Offset: 0x00097A14
-	public void AddItemCategoryHeader(ItemDataBlock.ItemCategory category)
+	// Token: 0x06002AF5 RID: 10997 RVA: 0x0009F794 File Offset: 0x0009D994
+	public void AddItemCategoryHeader(global::ItemDataBlock.ItemCategory category)
 	{
 	}
 
-	// Token: 0x06002766 RID: 10086 RVA: 0x00099818 File Offset: 0x00097A18
-	public RPOSCraftItemEntry GetEntryByBP(BlueprintDataBlock bp)
+	// Token: 0x06002AF6 RID: 10998 RVA: 0x0009F798 File Offset: 0x0009D998
+	public global::RPOSCraftItemEntry GetEntryByBP(global::BlueprintDataBlock bp)
 	{
 		foreach (object obj in base.transform)
 		{
-			RPOSCraftItemEntry component = (obj as Transform).GetComponent<RPOSCraftItemEntry>();
+			global::RPOSCraftItemEntry component = (obj as Transform).GetComponent<global::RPOSCraftItemEntry>();
 			if (component && component.blueprint == bp)
 			{
 				return component;
@@ -47,42 +47,42 @@ public class RPOS_Craft_BlueprintList : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06002767 RID: 10087 RVA: 0x000998B0 File Offset: 0x00097AB0
-	public int AddItemsOfCategory(ItemDataBlock.ItemCategory category, List<BlueprintDataBlock> checkList, int yPos)
+	// Token: 0x06002AF7 RID: 10999 RVA: 0x0009F830 File Offset: 0x0009DA30
+	public int AddItemsOfCategory(global::ItemDataBlock.ItemCategory category, List<global::BlueprintDataBlock> checkList, int yPos)
 	{
 		if (!this.AnyOfCategoryInList(category, checkList))
 		{
 			return yPos;
 		}
-		GameObject gameObject = NGUITools.AddChild(base.gameObject, this.CategoryHeaderPrefab);
+		GameObject gameObject = global::NGUITools.AddChild(base.gameObject, this.CategoryHeaderPrefab);
 		gameObject.transform.localPosition = new Vector3(0f, (float)yPos, -1f);
-		gameObject.GetComponentInChildren<UILabel>().text = category.ToString();
+		gameObject.GetComponentInChildren<global::UILabel>().text = category.ToString();
 		yPos -= 16;
-		foreach (BlueprintDataBlock blueprintDataBlock in checkList)
+		foreach (global::BlueprintDataBlock blueprintDataBlock in checkList)
 		{
 			if (blueprintDataBlock.resultItem.category == category)
 			{
-				GameObject gameObject2 = NGUITools.AddChild(base.gameObject, this.ItemPlaquePrefab);
-				gameObject2.GetComponentInChildren<UILabel>().text = blueprintDataBlock.resultItem.name;
+				GameObject gameObject2 = global::NGUITools.AddChild(base.gameObject, this.ItemPlaquePrefab);
+				gameObject2.GetComponentInChildren<global::UILabel>().text = blueprintDataBlock.resultItem.name;
 				gameObject2.transform.localPosition = new Vector3(10f, (float)yPos, -1f);
-				UIEventListener uieventListener = UIEventListener.Get(gameObject2);
-				UIEventListener uieventListener2 = uieventListener;
-				uieventListener2.onClick = (UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new UIEventListener.VoidDelegate(this.craftWindow.ItemClicked));
-				gameObject2.GetComponent<RPOSCraftItemEntry>().actualItemDataBlock = blueprintDataBlock.resultItem;
-				gameObject2.GetComponent<RPOSCraftItemEntry>().blueprint = blueprintDataBlock;
-				gameObject2.GetComponent<RPOSCraftItemEntry>().craftWindow = this.craftWindow;
-				gameObject2.GetComponent<RPOSCraftItemEntry>().SetSelected(false);
+				global::UIEventListener uieventListener = global::UIEventListener.Get(gameObject2);
+				global::UIEventListener uieventListener2 = uieventListener;
+				uieventListener2.onClick = (global::UIEventListener.VoidDelegate)Delegate.Combine(uieventListener2.onClick, new global::UIEventListener.VoidDelegate(this.craftWindow.ItemClicked));
+				gameObject2.GetComponent<global::RPOSCraftItemEntry>().actualItemDataBlock = blueprintDataBlock.resultItem;
+				gameObject2.GetComponent<global::RPOSCraftItemEntry>().blueprint = blueprintDataBlock;
+				gameObject2.GetComponent<global::RPOSCraftItemEntry>().craftWindow = this.craftWindow;
+				gameObject2.GetComponent<global::RPOSCraftItemEntry>().SetSelected(false);
 				yPos -= 16;
 			}
 		}
 		return yPos;
 	}
 
-	// Token: 0x06002768 RID: 10088 RVA: 0x00099A30 File Offset: 0x00097C30
+	// Token: 0x06002AF8 RID: 11000 RVA: 0x0009F9B0 File Offset: 0x0009DBB0
 	public void UpdateItems()
 	{
-		PlayerInventory component = RPOS.ObservedPlayer.GetComponent<PlayerInventory>();
-		List<BlueprintDataBlock> boundBPs = component.GetBoundBPs();
+		global::PlayerInventory component = global::RPOS.ObservedPlayer.GetComponent<global::PlayerInventory>();
+		List<global::BlueprintDataBlock> boundBPs = component.GetBoundBPs();
 		int count = boundBPs.Count;
 		if (boundBPs == null)
 		{
@@ -98,30 +98,30 @@ public class RPOS_Craft_BlueprintList : MonoBehaviour
 		{
 			Object.Destroy((obj as Transform).gameObject);
 		}
-		int yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Survival, boundBPs, 0);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Resource, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Medical, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Ammo, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Weapons, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Armor, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Tools, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Mods, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Parts, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Food, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Blueprint, boundBPs, yPos);
-		yPos = this.AddItemsOfCategory(ItemDataBlock.ItemCategory.Misc, boundBPs, yPos);
-		base.GetComponent<UIDraggablePanel>().calculateNextChange = true;
+		int yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Survival, boundBPs, 0);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Resource, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Medical, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Ammo, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Weapons, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Armor, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Tools, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Mods, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Parts, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Food, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Blueprint, boundBPs, yPos);
+		yPos = this.AddItemsOfCategory(global::ItemDataBlock.ItemCategory.Misc, boundBPs, yPos);
+		base.GetComponent<global::UIDraggablePanel>().calculateNextChange = true;
 	}
 
-	// Token: 0x04001364 RID: 4964
+	// Token: 0x040014E7 RID: 5351
 	public GameObject CategoryHeaderPrefab;
 
-	// Token: 0x04001365 RID: 4965
+	// Token: 0x040014E8 RID: 5352
 	public GameObject ItemPlaquePrefab;
 
-	// Token: 0x04001366 RID: 4966
-	public RPOSCraftWindow craftWindow;
+	// Token: 0x040014E9 RID: 5353
+	public global::RPOSCraftWindow craftWindow;
 
-	// Token: 0x04001367 RID: 4967
+	// Token: 0x040014EA RID: 5354
 	private int lastNumBoundBPs;
 }

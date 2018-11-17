@@ -2,7 +2,7 @@
 
 namespace BreakUnityEngineBounds
 {
-	// Token: 0x0200023B RID: 571
+	// Token: 0x0200026E RID: 622
 	public static class Bounds
 	{
 	}

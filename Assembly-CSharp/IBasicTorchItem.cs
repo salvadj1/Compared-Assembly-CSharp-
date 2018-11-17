@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005B6 RID: 1462
-public interface IBasicTorchItem : IHeldItem, IInventoryItem
+// Token: 0x02000674 RID: 1652
+public interface IBasicTorchItem : global::IHeldItem, global::IInventoryItem
 {
-	// Token: 0x17000A65 RID: 2661
-	// (get) Token: 0x060034F5 RID: 13557
-	// (set) Token: 0x060034F6 RID: 13558
+	// Token: 0x17000ADB RID: 2779
+	// (get) Token: 0x060038BD RID: 14525
+	// (set) Token: 0x060038BE RID: 14526
 	bool isLit { get; set; }
 
-	// Token: 0x060034F7 RID: 13559
+	// Token: 0x060038BF RID: 14527
 	void Ignite();
 
-	// Token: 0x060034F8 RID: 13560
+	// Token: 0x060038C0 RID: 14528
 	void Extinguish();
 
-	// Token: 0x17000A66 RID: 2662
-	// (get) Token: 0x060034F9 RID: 13561
-	// (set) Token: 0x060034FA RID: 13562
+	// Token: 0x17000ADC RID: 2780
+	// (get) Token: 0x060038C1 RID: 14529
+	// (set) Token: 0x060038C2 RID: 14530
 	GameObject light { get; set; }
 }

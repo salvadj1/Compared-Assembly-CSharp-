@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004F3 RID: 1267
+// Token: 0x020005B0 RID: 1456
 public class TerrainTextureHelper
 {
-	// Token: 0x06002B14 RID: 11028 RVA: 0x000AC7CC File Offset: 0x000AA9CC
+	// Token: 0x06002ED4 RID: 11988 RVA: 0x000B4868 File Offset: 0x000B2A68
 	public static void EnsureInit()
 	{
-		if (TerrainTextureHelper.cachedTerrain == Terrain.activeTerrain)
+		if (global::TerrainTextureHelper.cachedTerrain == Terrain.activeTerrain)
 		{
 			return;
 		}
-		TerrainTextureHelper.CacheTextures();
-		TerrainTextureHelper.cachedTerrain = Terrain.activeTerrain;
+		global::TerrainTextureHelper.CacheTextures();
+		global::TerrainTextureHelper.cachedTerrain = Terrain.activeTerrain;
 	}
 
-	// Token: 0x06002B15 RID: 11029 RVA: 0x000AC800 File Offset: 0x000AAA00
+	// Token: 0x06002ED5 RID: 11989 RVA: 0x000B489C File Offset: 0x000B2A9C
 	public static void CacheTextures()
 	{
 		Debug.Log("Caching Terrain splatmap lookups, please wait...");
@@ -23,7 +23,7 @@ public class TerrainTextureHelper
 		TerrainData terrainData = activeTerrain.terrainData;
 		Vector3 position = activeTerrain.transform.position;
 		float[,,] alphamaps = terrainData.GetAlphamaps(0, 0, terrainData.alphamapWidth, terrainData.alphamapHeight);
-		TerrainTextureHelper.textures = new byte[alphamaps.GetUpperBound(0) + 1, alphamaps.GetUpperBound(1) + 1];
+		global::TerrainTextureHelper.textures = new byte[alphamaps.GetUpperBound(0) + 1, alphamaps.GetUpperBound(1) + 1];
 		for (int i = 0; i < terrainData.alphamapWidth; i++)
 		{
 			for (int j = 0; j < terrainData.alphamapHeight; j++)
@@ -38,25 +38,25 @@ public class TerrainTextureHelper
 						num = alphamaps[i, j, k];
 					}
 				}
-				TerrainTextureHelper.textures[i, j] = (byte)num2;
+				global::TerrainTextureHelper.textures[i, j] = (byte)num2;
 			}
 		}
 		GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced);
 	}
 
-	// Token: 0x06002B16 RID: 11030 RVA: 0x000AC900 File Offset: 0x000AAB00
+	// Token: 0x06002ED6 RID: 11990 RVA: 0x000B499C File Offset: 0x000B2B9C
 	public static float[] GetTextureAmounts(Vector3 worldPos)
 	{
-		return TerrainTextureHelper.OLD_GetTextureMix(worldPos);
+		return global::TerrainTextureHelper.OLD_GetTextureMix(worldPos);
 	}
 
-	// Token: 0x06002B17 RID: 11031 RVA: 0x000AC908 File Offset: 0x000AAB08
+	// Token: 0x06002ED7 RID: 11991 RVA: 0x000B49A4 File Offset: 0x000B2BA4
 	public static int GetTextureIndex(Vector3 worldPos)
 	{
-		return TerrainTextureHelper.OLD_GetMainTexture(worldPos);
+		return global::TerrainTextureHelper.OLD_GetMainTexture(worldPos);
 	}
 
-	// Token: 0x06002B18 RID: 11032 RVA: 0x000AC91C File Offset: 0x000AAB1C
+	// Token: 0x06002ED8 RID: 11992 RVA: 0x000B49B8 File Offset: 0x000B2BB8
 	public static float[] OLD_GetTextureMix(Vector3 worldPos)
 	{
 		Terrain activeTerrain = Terrain.activeTerrain;
@@ -73,10 +73,10 @@ public class TerrainTextureHelper
 		return array;
 	}
 
-	// Token: 0x06002B19 RID: 11033 RVA: 0x000AC9E0 File Offset: 0x000AABE0
+	// Token: 0x06002ED9 RID: 11993 RVA: 0x000B4A7C File Offset: 0x000B2C7C
 	public static int OLD_GetMainTexture(Vector3 worldPos)
 	{
-		float[] array = TerrainTextureHelper.OLD_GetTextureMix(worldPos);
+		float[] array = global::TerrainTextureHelper.OLD_GetTextureMix(worldPos);
 		float num = 0f;
 		int result = 0;
 		for (int i = 0; i < array.Length; i++)
@@ -90,9 +90,9 @@ public class TerrainTextureHelper
 		return result;
 	}
 
-	// Token: 0x0400179F RID: 6047
+	// Token: 0x0400196B RID: 6507
 	public static byte[,] textures;
 
-	// Token: 0x040017A0 RID: 6048
+	// Token: 0x0400196C RID: 6508
 	public static Terrain cachedTerrain;
 }

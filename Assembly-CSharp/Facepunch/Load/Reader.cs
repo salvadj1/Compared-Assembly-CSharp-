@@ -5,10 +5,10 @@ using LitJson;
 
 namespace Facepunch.Load
 {
-	// Token: 0x0200026A RID: 618
+	// Token: 0x0200029E RID: 670
 	public sealed class Reader : Stream
 	{
-		// Token: 0x06001693 RID: 5779 RVA: 0x000557E4 File Offset: 0x000539E4
+		// Token: 0x060017ED RID: 6125 RVA: 0x00059C2C File Offset: 0x00057E2C
 		private Reader(JsonReader json, string bundlePath, bool createdForThisInstance)
 		{
 			if (json == null)
@@ -32,23 +32,23 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x06001694 RID: 5780 RVA: 0x0005588C File Offset: 0x00053A8C
+		// Token: 0x060017EE RID: 6126 RVA: 0x00059CD4 File Offset: 0x00057ED4
 		private Reader(JsonReader json, string bundlePath) : this(json, bundlePath, false)
 		{
 		}
 
-		// Token: 0x06001695 RID: 5781 RVA: 0x00055898 File Offset: 0x00053A98
+		// Token: 0x060017EF RID: 6127 RVA: 0x00059CE0 File Offset: 0x00057EE0
 		private Reader(TextReader reader, string bundlePath) : this(new JsonReader(reader), bundlePath, false)
 		{
 		}
 
-		// Token: 0x06001696 RID: 5782 RVA: 0x000558A8 File Offset: 0x00053AA8
+		// Token: 0x060017F0 RID: 6128 RVA: 0x00059CF0 File Offset: 0x00057EF0
 		private Reader(string text, string bundlePath) : this(new JsonReader(text), bundlePath, true)
 		{
 		}
 
-		// Token: 0x17000674 RID: 1652
-		// (get) Token: 0x06001697 RID: 5783 RVA: 0x000558B8 File Offset: 0x00053AB8
+		// Token: 0x170006BE RID: 1726
+		// (get) Token: 0x060017F1 RID: 6129 RVA: 0x00059D00 File Offset: 0x00057F00
 		public Token Token
 		{
 			get
@@ -61,8 +61,8 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x17000675 RID: 1653
-		// (get) Token: 0x06001698 RID: 5784 RVA: 0x000558D8 File Offset: 0x00053AD8
+		// Token: 0x170006BF RID: 1727
+		// (get) Token: 0x060017F2 RID: 6130 RVA: 0x00059D20 File Offset: 0x00057F20
 		public Item Item
 		{
 			get
@@ -79,37 +79,37 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x06001699 RID: 5785 RVA: 0x00055910 File Offset: 0x00053B10
+		// Token: 0x060017F3 RID: 6131 RVA: 0x00059D58 File Offset: 0x00057F58
 		public static Reader CreateFromFile(string openFilePath, string bundlePath)
 		{
 			return new Reader(new JsonReader(File.OpenText(openFilePath)), bundlePath, true);
 		}
 
-		// Token: 0x0600169A RID: 5786 RVA: 0x00055924 File Offset: 0x00053B24
+		// Token: 0x060017F4 RID: 6132 RVA: 0x00059D6C File Offset: 0x00057F6C
 		public static Reader CreateFromFile(string openFilePath)
 		{
 			return Reader.CreateFromFile(openFilePath, Path.GetDirectoryName(openFilePath));
 		}
 
-		// Token: 0x0600169B RID: 5787 RVA: 0x00055934 File Offset: 0x00053B34
+		// Token: 0x060017F5 RID: 6133 RVA: 0x00059D7C File Offset: 0x00057F7C
 		public static Reader CreateFromText(string jsonText, string bundlePath)
 		{
 			return new Reader(jsonText, bundlePath);
 		}
 
-		// Token: 0x0600169C RID: 5788 RVA: 0x00055940 File Offset: 0x00053B40
+		// Token: 0x060017F6 RID: 6134 RVA: 0x00059D88 File Offset: 0x00057F88
 		public static Reader CreateFromReader(TextReader textReader, string bundlePath)
 		{
 			return new Reader(textReader, bundlePath);
 		}
 
-		// Token: 0x0600169D RID: 5789 RVA: 0x0005594C File Offset: 0x00053B4C
+		// Token: 0x060017F7 RID: 6135 RVA: 0x00059D94 File Offset: 0x00057F94
 		public static Reader CreateFromReader(JsonReader textReader, string bundlePath)
 		{
 			return new Reader(textReader, bundlePath);
 		}
 
-		// Token: 0x0600169E RID: 5790 RVA: 0x00055958 File Offset: 0x00053B58
+		// Token: 0x060017F8 RID: 6136 RVA: 0x00059DA0 File Offset: 0x00057FA0
 		private string PathToBundle(string incomingPathFromJson)
 		{
 			if (incomingPathFromJson.Contains("//") || incomingPathFromJson.Contains(":/") || incomingPathFromJson.Contains(":\\") || Path.IsPathRooted(incomingPathFromJson))
@@ -119,7 +119,7 @@ namespace Facepunch.Load
 			return this.prefix + incomingPathFromJson;
 		}
 
-		// Token: 0x0600169F RID: 5791 RVA: 0x000559B0 File Offset: 0x00053BB0
+		// Token: 0x060017F9 RID: 6137 RVA: 0x00059DF8 File Offset: 0x00057FF8
 		private void ReadBundleListing(string nameOfBundle)
 		{
 			if (!this.json.Read())
@@ -328,7 +328,7 @@ namespace Facepunch.Load
 			throw new JsonException("Unexpected end of stream");
 		}
 
-		// Token: 0x060016A0 RID: 5792 RVA: 0x0005602C File Offset: 0x0005422C
+		// Token: 0x060017FA RID: 6138 RVA: 0x0005A474 File Offset: 0x00058674
 		public bool Read()
 		{
 			if (this.disposed)
@@ -394,7 +394,7 @@ namespace Facepunch.Load
 			throw new JsonException("Bad json state");
 		}
 
-		// Token: 0x060016A1 RID: 5793 RVA: 0x00056168 File Offset: 0x00054368
+		// Token: 0x060017FB RID: 6139 RVA: 0x0005A5B0 File Offset: 0x000587B0
 		public override void Dispose()
 		{
 			if (!this.disposed)
@@ -428,7 +428,7 @@ namespace Facepunch.Load
 			}
 		}
 
-		// Token: 0x060016A2 RID: 5794 RVA: 0x00056220 File Offset: 0x00054420
+		// Token: 0x060017FC RID: 6140 RVA: 0x0005A668 File Offset: 0x00058868
 		private static Type ParseType(string str)
 		{
 			Type type = Type.GetType(str, false, true);
@@ -445,28 +445,28 @@ namespace Facepunch.Load
 			return Type.GetType(str, true, true);
 		}
 
-		// Token: 0x04000B74 RID: 2932
+		// Token: 0x04000C9A RID: 3226
 		private JsonReader json;
 
-		// Token: 0x04000B75 RID: 2933
+		// Token: 0x04000C9B RID: 3227
 		private bool insideOrderList;
 
-		// Token: 0x04000B76 RID: 2934
+		// Token: 0x04000C9C RID: 3228
 		private bool insideRandomList;
 
-		// Token: 0x04000B77 RID: 2935
+		// Token: 0x04000C9D RID: 3229
 		private Token token;
 
-		// Token: 0x04000B78 RID: 2936
+		// Token: 0x04000C9E RID: 3230
 		private bool disposed;
 
-		// Token: 0x04000B79 RID: 2937
+		// Token: 0x04000C9F RID: 3231
 		private readonly bool disposesTextReader;
 
-		// Token: 0x04000B7A RID: 2938
+		// Token: 0x04000CA0 RID: 3232
 		private readonly string prefix;
 
-		// Token: 0x04000B7B RID: 2939
+		// Token: 0x04000CA1 RID: 3233
 		private Item item;
 	}
 }

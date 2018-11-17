@@ -2,12 +2,12 @@
 using AnimationOrTween;
 using UnityEngine;
 
-// Token: 0x02000782 RID: 1922
+// Token: 0x02000867 RID: 2151
 [RequireComponent(typeof(Animation))]
 [AddComponentMenu("NGUI/Internal/Active Animation")]
-public class ActiveAnimation : IgnoreTimeScale
+public class ActiveAnimation : global::IgnoreTimeScale
 {
-	// Token: 0x060045A2 RID: 17826 RVA: 0x00113A78 File Offset: 0x00111C78
+	// Token: 0x06004A0F RID: 18959 RVA: 0x0011D3F8 File Offset: 0x0011B5F8
 	public void Reset()
 	{
 		if (this.mAnim != null)
@@ -15,11 +15,11 @@ public class ActiveAnimation : IgnoreTimeScale
 			foreach (object obj in this.mAnim)
 			{
 				AnimationState animationState = (AnimationState)obj;
-				if (this.mLastDirection == Direction.Reverse)
+				if (this.mLastDirection == AnimationOrTween.Direction.Reverse)
 				{
 					animationState.time = animationState.length;
 				}
-				else if (this.mLastDirection == Direction.Forward)
+				else if (this.mLastDirection == AnimationOrTween.Direction.Forward)
 				{
 					animationState.time = 0f;
 				}
@@ -27,7 +27,7 @@ public class ActiveAnimation : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x060045A3 RID: 17827 RVA: 0x00113B28 File Offset: 0x00111D28
+	// Token: 0x06004A10 RID: 18960 RVA: 0x0011D4A8 File Offset: 0x0011B6A8
 	private void Update()
 	{
 		float num = base.UpdateRealTimeDelta();
@@ -77,24 +77,24 @@ public class ActiveAnimation : IgnoreTimeScale
 				{
 					this.eventReceiver.SendMessage(this.callWhenFinished, this, 1);
 				}
-				if (this.mDisableDirection != Direction.Toggle && this.mLastDirection == this.mDisableDirection)
+				if (this.mDisableDirection != AnimationOrTween.Direction.Toggle && this.mLastDirection == this.mDisableDirection)
 				{
-					NGUITools.SetActive(base.gameObject, false);
+					global::NGUITools.SetActive(base.gameObject, false);
 				}
 			}
 		}
 		base.enabled = false;
 	}
 
-	// Token: 0x060045A4 RID: 17828 RVA: 0x00113CC8 File Offset: 0x00111EC8
-	private void Play(string clipName, Direction playDirection)
+	// Token: 0x06004A11 RID: 18961 RVA: 0x0011D648 File Offset: 0x0011B848
+	private void Play(string clipName, AnimationOrTween.Direction playDirection)
 	{
 		if (this.mAnim != null)
 		{
 			this.mAnim.enabled = false;
-			if (playDirection == Direction.Toggle)
+			if (playDirection == AnimationOrTween.Direction.Toggle)
 			{
-				playDirection = ((this.mLastDirection == Direction.Forward) ? Direction.Reverse : Direction.Forward);
+				playDirection = ((this.mLastDirection == AnimationOrTween.Direction.Forward) ? AnimationOrTween.Direction.Reverse : AnimationOrTween.Direction.Forward);
 			}
 			bool flag = string.IsNullOrEmpty(clipName);
 			if (flag)
@@ -115,11 +115,11 @@ public class ActiveAnimation : IgnoreTimeScale
 				{
 					float num = Mathf.Abs(animationState.speed);
 					animationState.speed = num * (float)playDirection;
-					if (playDirection == Direction.Reverse && animationState.time == 0f)
+					if (playDirection == AnimationOrTween.Direction.Reverse && animationState.time == 0f)
 					{
 						animationState.time = animationState.length;
 					}
-					else if (playDirection == Direction.Forward && animationState.time == animationState.length)
+					else if (playDirection == AnimationOrTween.Direction.Forward && animationState.time == animationState.length)
 					{
 						animationState.time = 0f;
 					}
@@ -130,59 +130,59 @@ public class ActiveAnimation : IgnoreTimeScale
 		}
 	}
 
-	// Token: 0x060045A5 RID: 17829 RVA: 0x00113E44 File Offset: 0x00112044
-	public static ActiveAnimation Play(Animation anim, string clipName, Direction playDirection, EnableCondition enableBeforePlay, DisableCondition disableCondition)
+	// Token: 0x06004A12 RID: 18962 RVA: 0x0011D7C4 File Offset: 0x0011B9C4
+	public static global::ActiveAnimation Play(Animation anim, string clipName, AnimationOrTween.Direction playDirection, AnimationOrTween.EnableCondition enableBeforePlay, AnimationOrTween.DisableCondition disableCondition)
 	{
 		if (!anim.gameObject.activeInHierarchy)
 		{
-			if (enableBeforePlay != EnableCondition.EnableThenPlay)
+			if (enableBeforePlay != AnimationOrTween.EnableCondition.EnableThenPlay)
 			{
 				return null;
 			}
-			NGUITools.SetActive(anim.gameObject, true);
+			global::NGUITools.SetActive(anim.gameObject, true);
 		}
-		ActiveAnimation activeAnimation = anim.GetComponent<ActiveAnimation>();
+		global::ActiveAnimation activeAnimation = anim.GetComponent<global::ActiveAnimation>();
 		if (activeAnimation != null)
 		{
 			activeAnimation.enabled = true;
 		}
 		else
 		{
-			activeAnimation = anim.gameObject.AddComponent<ActiveAnimation>();
+			activeAnimation = anim.gameObject.AddComponent<global::ActiveAnimation>();
 		}
 		activeAnimation.mAnim = anim;
-		activeAnimation.mDisableDirection = (Direction)disableCondition;
+		activeAnimation.mDisableDirection = (AnimationOrTween.Direction)disableCondition;
 		activeAnimation.Play(clipName, playDirection);
 		return activeAnimation;
 	}
 
-	// Token: 0x060045A6 RID: 17830 RVA: 0x00113EBC File Offset: 0x001120BC
-	public static ActiveAnimation Play(Animation anim, string clipName, Direction playDirection)
+	// Token: 0x06004A13 RID: 18963 RVA: 0x0011D83C File Offset: 0x0011BA3C
+	public static global::ActiveAnimation Play(Animation anim, string clipName, AnimationOrTween.Direction playDirection)
 	{
-		return ActiveAnimation.Play(anim, clipName, playDirection, EnableCondition.DoNothing, DisableCondition.DoNotDisable);
+		return global::ActiveAnimation.Play(anim, clipName, playDirection, AnimationOrTween.EnableCondition.DoNothing, AnimationOrTween.DisableCondition.DoNotDisable);
 	}
 
-	// Token: 0x060045A7 RID: 17831 RVA: 0x00113EC8 File Offset: 0x001120C8
-	public static ActiveAnimation Play(Animation anim, Direction playDirection)
+	// Token: 0x06004A14 RID: 18964 RVA: 0x0011D848 File Offset: 0x0011BA48
+	public static global::ActiveAnimation Play(Animation anim, AnimationOrTween.Direction playDirection)
 	{
-		return ActiveAnimation.Play(anim, null, playDirection, EnableCondition.DoNothing, DisableCondition.DoNotDisable);
+		return global::ActiveAnimation.Play(anim, null, playDirection, AnimationOrTween.EnableCondition.DoNothing, AnimationOrTween.DisableCondition.DoNotDisable);
 	}
 
-	// Token: 0x0400260A RID: 9738
+	// Token: 0x04002841 RID: 10305
 	public GameObject eventReceiver;
 
-	// Token: 0x0400260B RID: 9739
+	// Token: 0x04002842 RID: 10306
 	public string callWhenFinished;
 
-	// Token: 0x0400260C RID: 9740
+	// Token: 0x04002843 RID: 10307
 	private Animation mAnim;
 
-	// Token: 0x0400260D RID: 9741
-	private Direction mLastDirection;
+	// Token: 0x04002844 RID: 10308
+	private AnimationOrTween.Direction mLastDirection;
 
-	// Token: 0x0400260E RID: 9742
-	private Direction mDisableDirection;
+	// Token: 0x04002845 RID: 10309
+	private AnimationOrTween.Direction mDisableDirection;
 
-	// Token: 0x0400260F RID: 9743
+	// Token: 0x04002846 RID: 10310
 	private bool mNotify;
 }

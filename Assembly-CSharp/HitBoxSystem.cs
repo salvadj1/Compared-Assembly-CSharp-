@@ -1,10 +1,10 @@
 ﻿using System;
 using Facepunch.Intersect;
 
-// Token: 0x02000197 RID: 407
-public class HitBoxSystem : HitBoxSystem
+// Token: 0x020001C5 RID: 453
+public class HitBoxSystem : Facepunch.Intersect.HitBoxSystem
 {
-	// Token: 0x06000BFA RID: 3066 RVA: 0x0002FFF4 File Offset: 0x0002E1F4
+	// Token: 0x06000D32 RID: 3378 RVA: 0x00033EE0 File Offset: 0x000320E0
 	private void CheckLayer()
 	{
 		if (base.gameObject.layer != 17)
@@ -13,14 +13,14 @@ public class HitBoxSystem : HitBoxSystem
 		}
 	}
 
-	// Token: 0x06000BFB RID: 3067 RVA: 0x00030020 File Offset: 0x0002E220
+	// Token: 0x06000D33 RID: 3379 RVA: 0x00033F0C File Offset: 0x0003210C
 	protected void Awake()
 	{
 		base.Awake();
 		this.CheckLayer();
 	}
 
-	// Token: 0x06000BFC RID: 3068 RVA: 0x00030030 File Offset: 0x0002E230
+	// Token: 0x06000D34 RID: 3380 RVA: 0x00033F1C File Offset: 0x0003211C
 	protected void Start()
 	{
 		this.CheckLayer();

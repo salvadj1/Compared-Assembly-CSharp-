@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000830 RID: 2096
+// Token: 0x02000925 RID: 2341
 [Serializable]
 public class TOD_CloudParameters
 {
-	// Token: 0x06004A71 RID: 19057 RVA: 0x0014308C File Offset: 0x0014128C
+	// Token: 0x06004F2C RID: 20268 RVA: 0x0014CFF0 File Offset: 0x0014B1F0
 	public void CheckRange()
 	{
 		this.Scale1 = new Vector2(Mathf.Max(1f, this.Scale1.x), Mathf.Max(1f, this.Scale1.y));
@@ -16,21 +16,21 @@ public class TOD_CloudParameters
 		this.ShadowStrength = Mathf.Clamp01(this.ShadowStrength);
 	}
 
-	// Token: 0x04002B47 RID: 11079
+	// Token: 0x04002D95 RID: 11669
 	public float Density = 3f;
 
-	// Token: 0x04002B48 RID: 11080
+	// Token: 0x04002D96 RID: 11670
 	public float Sharpness = 3f;
 
-	// Token: 0x04002B49 RID: 11081
+	// Token: 0x04002D97 RID: 11671
 	public float Brightness = 1f;
 
-	// Token: 0x04002B4A RID: 11082
+	// Token: 0x04002D98 RID: 11672
 	public float ShadowStrength;
 
-	// Token: 0x04002B4B RID: 11083
+	// Token: 0x04002D99 RID: 11673
 	public Vector2 Scale1 = new Vector2(3f, 3f);
 
-	// Token: 0x04002B4C RID: 11084
+	// Token: 0x04002D9A RID: 11674
 	public Vector2 Scale2 = new Vector2(7f, 7f);
 }

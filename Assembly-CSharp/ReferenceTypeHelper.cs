@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-// Token: 0x02000105 RID: 261
+// Token: 0x02000124 RID: 292
 public static class ReferenceTypeHelper
 {
-	// Token: 0x060006BD RID: 1725 RVA: 0x0001EDB8 File Offset: 0x0001CFB8
+	// Token: 0x0600078F RID: 1935 RVA: 0x0002198C File Offset: 0x0001FB8C
 	public static bool TreatAsReferenceHolder(Type type)
 	{
 		bool flag;
-		if (!ReferenceTypeHelper.cache.TryGetValue(type, out flag))
+		if (!global::ReferenceTypeHelper.cache.TryGetValue(type, out flag))
 		{
 			if (type.IsByRef)
 			{
@@ -24,18 +24,18 @@ public static class ReferenceTypeHelper
 				foreach (FieldInfo fieldInfo in type.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
 				{
 					Type fieldType = fieldInfo.FieldType;
-					if (fieldType.IsByRef || !ReferenceTypeHelper.TreatAsReferenceHolder(fieldType))
+					if (fieldType.IsByRef || !global::ReferenceTypeHelper.TreatAsReferenceHolder(fieldType))
 					{
 						flag = false;
 						break;
 					}
 				}
 			}
-			ReferenceTypeHelper.cache[type] = flag;
+			global::ReferenceTypeHelper.cache[type] = flag;
 		}
 		return flag;
 	}
 
-	// Token: 0x0400050F RID: 1295
+	// Token: 0x040005DA RID: 1498
 	private static readonly Dictionary<Type, bool> cache = new Dictionary<Type, bool>();
 }

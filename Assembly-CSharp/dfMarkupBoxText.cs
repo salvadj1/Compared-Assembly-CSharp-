@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-// Token: 0x02000716 RID: 1814
-public class dfMarkupBoxText : dfMarkupBox
+// Token: 0x020007F2 RID: 2034
+public class dfMarkupBoxText : global::dfMarkupBox
 {
-	// Token: 0x06004281 RID: 17025 RVA: 0x00101F94 File Offset: 0x00100194
-	public dfMarkupBoxText(dfMarkupElement element, dfMarkupDisplayType display, dfMarkupStyle style) : base(element, display, style)
+	// Token: 0x060046C5 RID: 18117 RVA: 0x0010B2A4 File Offset: 0x001094A4
+	public dfMarkupBoxText(global::dfMarkupElement element, global::dfMarkupDisplayType display, global::dfMarkupStyle style) : base(element, display, style)
 	{
 	}
 
-	// Token: 0x17000D11 RID: 3345
-	// (get) Token: 0x06004283 RID: 17027 RVA: 0x00101FE0 File Offset: 0x001001E0
-	// (set) Token: 0x06004284 RID: 17028 RVA: 0x00101FE8 File Offset: 0x001001E8
+	// Token: 0x17000D9B RID: 3483
+	// (get) Token: 0x060046C7 RID: 18119 RVA: 0x0010B2F0 File Offset: 0x001094F0
+	// (set) Token: 0x060046C8 RID: 18120 RVA: 0x0010B2F8 File Offset: 0x001094F8
 	public string Text { get; private set; }
 
-	// Token: 0x17000D12 RID: 3346
-	// (get) Token: 0x06004285 RID: 17029 RVA: 0x00101FF4 File Offset: 0x001001F4
+	// Token: 0x17000D9C RID: 3484
+	// (get) Token: 0x060046C9 RID: 18121 RVA: 0x0010B304 File Offset: 0x00109504
 	public bool IsWhitespace
 	{
 		get
@@ -26,35 +26,35 @@ public class dfMarkupBoxText : dfMarkupBox
 		}
 	}
 
-	// Token: 0x06004286 RID: 17030 RVA: 0x00101FFC File Offset: 0x001001FC
-	public static dfMarkupBoxText Obtain(dfMarkupElement element, dfMarkupDisplayType display, dfMarkupStyle style)
+	// Token: 0x060046CA RID: 18122 RVA: 0x0010B30C File Offset: 0x0010950C
+	public static global::dfMarkupBoxText Obtain(global::dfMarkupElement element, global::dfMarkupDisplayType display, global::dfMarkupStyle style)
 	{
-		if (dfMarkupBoxText.objectPool.Count > 0)
+		if (global::dfMarkupBoxText.objectPool.Count > 0)
 		{
-			dfMarkupBoxText dfMarkupBoxText = dfMarkupBoxText.objectPool.Dequeue();
+			global::dfMarkupBoxText dfMarkupBoxText = global::dfMarkupBoxText.objectPool.Dequeue();
 			dfMarkupBoxText.Element = element;
 			dfMarkupBoxText.Display = display;
 			dfMarkupBoxText.Style = style;
 			dfMarkupBoxText.Position = Vector2.zero;
 			dfMarkupBoxText.Size = Vector2.zero;
 			dfMarkupBoxText.Baseline = (int)((float)style.FontSize * 1.1f);
-			dfMarkupBoxText.Margins = default(dfMarkupBorders);
-			dfMarkupBoxText.Padding = default(dfMarkupBorders);
+			dfMarkupBoxText.Margins = default(global::dfMarkupBorders);
+			dfMarkupBoxText.Padding = default(global::dfMarkupBorders);
 			return dfMarkupBoxText;
 		}
-		return new dfMarkupBoxText(element, display, style);
+		return new global::dfMarkupBoxText(element, display, style);
 	}
 
-	// Token: 0x06004287 RID: 17031 RVA: 0x0010208C File Offset: 0x0010028C
+	// Token: 0x060046CB RID: 18123 RVA: 0x0010B39C File Offset: 0x0010959C
 	public override void Release()
 	{
 		base.Release();
 		this.Text = string.Empty;
 		this.renderData.Clear();
-		dfMarkupBoxText.objectPool.Enqueue(this);
+		global::dfMarkupBoxText.objectPool.Enqueue(this);
 	}
 
-	// Token: 0x06004288 RID: 17032 RVA: 0x001020C0 File Offset: 0x001002C0
+	// Token: 0x060046CC RID: 18124 RVA: 0x0010B3D0 File Offset: 0x001095D0
 	internal void SetText(string text)
 	{
 		this.Text = text;
@@ -62,7 +62,7 @@ public class dfMarkupBoxText : dfMarkupBox
 		{
 			return;
 		}
-		this.isWhitespace = dfMarkupBoxText.whitespacePattern.IsMatch(this.Text);
+		this.isWhitespace = global::dfMarkupBoxText.whitespacePattern.IsMatch(this.Text);
 		string text2 = (!this.Style.PreserveWhitespace && this.isWhitespace) ? " " : this.Text;
 		CharacterInfo[] array = this.Style.Font.RequestCharacters(text2, this.Style.FontSize, this.Style.FontStyle);
 		int fontSize = this.Style.FontSize;
@@ -83,20 +83,20 @@ public class dfMarkupBoxText : dfMarkupBox
 			size.x += num;
 		}
 		this.Size = size;
-		dfDynamicFont font = this.Style.Font;
+		global::dfDynamicFont font = this.Style.Font;
 		float num2 = (float)fontSize / (float)font.FontSize;
 		this.Baseline = Mathf.CeilToInt((float)font.Baseline * num2);
 	}
 
-	// Token: 0x06004289 RID: 17033 RVA: 0x00102244 File Offset: 0x00100444
-	protected override dfRenderData OnRebuildRenderData()
+	// Token: 0x060046CD RID: 18125 RVA: 0x0010B554 File Offset: 0x00109754
+	protected override global::dfRenderData OnRebuildRenderData()
 	{
 		this.renderData.Clear();
 		if (this.Style.Font == null)
 		{
 			return null;
 		}
-		if (this.Style.TextDecoration == dfMarkupTextDecoration.Underline)
+		if (this.Style.TextDecoration == global::dfMarkupTextDecoration.Underline)
 		{
 			this.renderUnderline();
 		}
@@ -104,21 +104,21 @@ public class dfMarkupBoxText : dfMarkupBox
 		return this.renderData;
 	}
 
-	// Token: 0x0600428A RID: 17034 RVA: 0x001022A0 File Offset: 0x001004A0
+	// Token: 0x060046CE RID: 18126 RVA: 0x0010B5B0 File Offset: 0x001097B0
 	private void renderUnderline()
 	{
 	}
 
-	// Token: 0x0600428B RID: 17035 RVA: 0x001022A4 File Offset: 0x001004A4
+	// Token: 0x060046CF RID: 18127 RVA: 0x0010B5B4 File Offset: 0x001097B4
 	private void renderText(string text)
 	{
-		dfDynamicFont font = this.Style.Font;
+		global::dfDynamicFont font = this.Style.Font;
 		int fontSize = this.Style.FontSize;
 		FontStyle fontStyle = this.Style.FontStyle;
-		dfList<Vector3> vertices = this.renderData.Vertices;
-		dfList<int> triangles = this.renderData.Triangles;
-		dfList<Vector2> uv = this.renderData.UV;
-		dfList<Color32> colors = this.renderData.Colors;
+		global::dfList<Vector3> vertices = this.renderData.Vertices;
+		global::dfList<int> triangles = this.renderData.Triangles;
+		global::dfList<Vector2> uv = this.renderData.UV;
+		global::dfList<Color32> colors = this.renderData.Colors;
 		float num = (float)fontSize / (float)font.FontSize;
 		float num2 = (float)font.Descent * num;
 		float num3 = 0f;
@@ -127,7 +127,7 @@ public class dfMarkupBoxText : dfMarkupBox
 		for (int i = 0; i < text.Length; i++)
 		{
 			CharacterInfo characterInfo = array[i];
-			dfMarkupBoxText.addTriangleIndices(vertices, triangles);
+			global::dfMarkupBoxText.addTriangleIndices(vertices, triangles);
 			float num4 = (float)font.FontSize + characterInfo.vert.y - (float)fontSize + num2;
 			float num5 = num3 + characterInfo.vert.x;
 			float num6 = num4;
@@ -173,18 +173,18 @@ public class dfMarkupBoxText : dfMarkupBox
 		}
 	}
 
-	// Token: 0x0600428C RID: 17036 RVA: 0x00102548 File Offset: 0x00100748
-	private static void addTriangleIndices(dfList<Vector3> verts, dfList<int> triangles)
+	// Token: 0x060046D0 RID: 18128 RVA: 0x0010B858 File Offset: 0x00109A58
+	private static void addTriangleIndices(global::dfList<Vector3> verts, global::dfList<int> triangles)
 	{
 		int count = verts.Count;
-		int[] triangle_INDICES = dfMarkupBoxText.TRIANGLE_INDICES;
+		int[] triangle_INDICES = global::dfMarkupBoxText.TRIANGLE_INDICES;
 		for (int i = 0; i < triangle_INDICES.Length; i++)
 		{
 			triangles.Add(count + triangle_INDICES[i]);
 		}
 	}
 
-	// Token: 0x0400230B RID: 8971
+	// Token: 0x0400252E RID: 9518
 	private static int[] TRIANGLE_INDICES = new int[]
 	{
 		0,
@@ -195,15 +195,15 @@ public class dfMarkupBoxText : dfMarkupBox
 		3
 	};
 
-	// Token: 0x0400230C RID: 8972
-	private static Queue<dfMarkupBoxText> objectPool = new Queue<dfMarkupBoxText>();
+	// Token: 0x0400252F RID: 9519
+	private static Queue<global::dfMarkupBoxText> objectPool = new Queue<global::dfMarkupBoxText>();
 
-	// Token: 0x0400230D RID: 8973
+	// Token: 0x04002530 RID: 9520
 	private static Regex whitespacePattern = new Regex("\\s+");
 
-	// Token: 0x0400230E RID: 8974
-	private dfRenderData renderData = new dfRenderData(32);
+	// Token: 0x04002531 RID: 9521
+	private global::dfRenderData renderData = new global::dfRenderData(32);
 
-	// Token: 0x0400230F RID: 8975
+	// Token: 0x04002532 RID: 9522
 	private bool isWhitespace;
 }

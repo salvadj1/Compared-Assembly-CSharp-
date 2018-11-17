@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000055 RID: 85
-public class Radiation : IDLocalCharacter
+// Token: 0x02000067 RID: 103
+public class Radiation : global::IDLocalCharacter
 {
-	// Token: 0x060002D2 RID: 722 RVA: 0x0000EB88 File Offset: 0x0000CD88
-	public void AddRadiationZone(RadiationZone zone)
+	// Token: 0x06000344 RID: 836 RVA: 0x00010130 File Offset: 0x0000E330
+	public void AddRadiationZone(global::RadiationZone zone)
 	{
 		if (zone.CanAddToRadiation(this))
 		{
-			List<RadiationZone> list;
+			List<global::RadiationZone> list;
 			if ((list = this.radiationZones) == null)
 			{
-				list = (this.radiationZones = new List<RadiationZone>());
+				list = (this.radiationZones = new List<global::RadiationZone>());
 			}
 			list.Add(zone);
 		}
 	}
 
-	// Token: 0x060002D3 RID: 723 RVA: 0x0000EBC4 File Offset: 0x0000CDC4
-	public void RemoveRadiationZone(RadiationZone zone)
+	// Token: 0x06000345 RID: 837 RVA: 0x0001016C File Offset: 0x0000E36C
+	public void RemoveRadiationZone(global::RadiationZone zone)
 	{
 		if (this.radiationZones != null && this.radiationZones.Remove(zone))
 		{
@@ -28,7 +28,7 @@ public class Radiation : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x060002D4 RID: 724 RVA: 0x0000EBF8 File Offset: 0x0000CDF8
+	// Token: 0x06000346 RID: 838 RVA: 0x000101A0 File Offset: 0x0000E3A0
 	public float CalculateExposure(bool countArmor)
 	{
 		if (this.radiationZones == null || this.radiationZones.Count == 0)
@@ -37,13 +37,13 @@ public class Radiation : IDLocalCharacter
 		}
 		Vector3 origin = base.origin;
 		float num = 0f;
-		foreach (RadiationZone radiationZone in this.radiationZones)
+		foreach (global::RadiationZone radiationZone in this.radiationZones)
 		{
 			num += radiationZone.GetExposureForPos(origin);
 		}
 		if (countArmor)
 		{
-			HumanBodyTakeDamage humanBodyTakeDamage = base.takeDamage as HumanBodyTakeDamage;
+			global::HumanBodyTakeDamage humanBodyTakeDamage = base.takeDamage as global::HumanBodyTakeDamage;
 			if (humanBodyTakeDamage)
 			{
 				float armorValue = humanBodyTakeDamage.GetArmorValue(4);
@@ -56,18 +56,18 @@ public class Radiation : IDLocalCharacter
 		return num;
 	}
 
-	// Token: 0x060002D5 RID: 725 RVA: 0x0000ECE8 File Offset: 0x0000CEE8
+	// Token: 0x06000347 RID: 839 RVA: 0x00010290 File Offset: 0x0000E490
 	public float GetRadExposureScalar(float exposure)
 	{
 		return Mathf.Clamp01(exposure / 1000f);
 	}
 
-	// Token: 0x060002D6 RID: 726 RVA: 0x0000ECF8 File Offset: 0x0000CEF8
+	// Token: 0x06000348 RID: 840 RVA: 0x000102A0 File Offset: 0x0000E4A0
 	private void OnDestroy()
 	{
 		if (this.radiationZones != null)
 		{
-			foreach (RadiationZone radiationZone in this.radiationZones)
+			foreach (global::RadiationZone radiationZone in this.radiationZones)
 			{
 				if (radiationZone)
 				{
@@ -78,7 +78,7 @@ public class Radiation : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x040001B6 RID: 438
+	// Token: 0x04000218 RID: 536
 	[NonSerialized]
-	private List<RadiationZone> radiationZones;
+	private List<global::RadiationZone> radiationZones;
 }

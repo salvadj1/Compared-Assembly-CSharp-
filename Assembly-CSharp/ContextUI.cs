@@ -3,11 +3,11 @@ using System.Diagnostics;
 using Facepunch.Cursor;
 using UnityEngine;
 
-// Token: 0x02000486 RID: 1158
+// Token: 0x02000541 RID: 1345
 internal class ContextUI : MonoBehaviour
 {
-	// Token: 0x1700094F RID: 2383
-	// (get) Token: 0x06002924 RID: 10532 RVA: 0x000A17DC File Offset: 0x0009F9DC
+	// Token: 0x170009BF RID: 2495
+	// (get) Token: 0x06002CD6 RID: 11478 RVA: 0x000A7BD8 File Offset: 0x000A5DD8
 	internal ContextClientState clientState
 	{
 		get
@@ -16,39 +16,39 @@ internal class ContextUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002925 RID: 10533 RVA: 0x000A17E4 File Offset: 0x0009F9E4
+	// Token: 0x06002CD7 RID: 11479 RVA: 0x000A7BE0 File Offset: 0x000A5DE0
 	[Conditional("CLIENT_POPUP_LOG")]
 	private static void LOG(string shorthand, Object contextual)
 	{
 	}
 
-	// Token: 0x06002926 RID: 10534 RVA: 0x000A17E8 File Offset: 0x0009F9E8
+	// Token: 0x06002CD8 RID: 11480 RVA: 0x000A7BE4 File Offset: 0x000A5DE4
 	private void Awake()
 	{
 		base.useGUILayout = false;
 		this.clientUnlock = LockCursorManager.CreateCursorUnlockNode(false, 32, "Context Popup");
 	}
 
-	// Token: 0x06002927 RID: 10535 RVA: 0x000A1804 File Offset: 0x0009FA04
+	// Token: 0x06002CD9 RID: 11481 RVA: 0x000A7C00 File Offset: 0x000A5E00
 	private void OnDestroy()
 	{
 		this.clientUnlock.Dispose();
 		this.clientUnlock = null;
 	}
 
-	// Token: 0x06002928 RID: 10536 RVA: 0x000A1818 File Offset: 0x0009FA18
+	// Token: 0x06002CDA RID: 11482 RVA: 0x000A7C14 File Offset: 0x000A5E14
 	private void OnEnable()
 	{
 		LockCursorManager.DisableGUICheckOnEnable(this);
 	}
 
-	// Token: 0x06002929 RID: 10537 RVA: 0x000A1820 File Offset: 0x0009FA20
+	// Token: 0x06002CDB RID: 11483 RVA: 0x000A7C1C File Offset: 0x000A5E1C
 	private void OnDisable()
 	{
 		LockCursorManager.DisableGUICheckOnDisable(this);
 	}
 
-	// Token: 0x0600292A RID: 10538 RVA: 0x000A1828 File Offset: 0x0009FA28
+	// Token: 0x06002CDC RID: 11484 RVA: 0x000A7C24 File Offset: 0x000A5E24
 	private static Rect BoxRect(Vector2 contentSize, GUIStyle box, out int xOffset, out int yOffset)
 	{
 		Rect rect = box.padding.Add(new Rect(0f, 0f, contentSize.x, contentSize.y));
@@ -62,7 +62,7 @@ internal class ContextUI : MonoBehaviour
 		return rect;
 	}
 
-	// Token: 0x0600292B RID: 10539 RVA: 0x000A18DC File Offset: 0x0009FADC
+	// Token: 0x06002CDD RID: 11485 RVA: 0x000A7CD8 File Offset: 0x000A5ED8
 	private static void GUIString(string text, GUIStyle box)
 	{
 		int num;
@@ -70,7 +70,7 @@ internal class ContextUI : MonoBehaviour
 		GUI.Box(ContextUI.BoxRect(box.CalcSize(ContextUI.temp), box, out num, out num2), ContextUI.temp, box);
 	}
 
-	// Token: 0x0600292C RID: 10540 RVA: 0x000A190C File Offset: 0x0009FB0C
+	// Token: 0x06002CDE RID: 11486 RVA: 0x000A7D08 File Offset: 0x000A5F08
 	private int GUIOptions(GUIStyle box, GUIStyle button)
 	{
 		Rect[] array = new Rect[this.clientContext.length];
@@ -108,7 +108,7 @@ internal class ContextUI : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x0600292D RID: 10541 RVA: 0x000A1B4C File Offset: 0x0009FD4C
+	// Token: 0x06002CDF RID: 11487 RVA: 0x000A7F48 File Offset: 0x000A6148
 	private void OnGUI()
 	{
 		GUI.depth = 1;
@@ -128,9 +128,9 @@ internal class ContextUI : MonoBehaviour
 		else
 		{
 			num = this.GUIOptions(box, button);
-			if (num == -1 && NetCull.localTimeInMillis - this.clientQueryTime > 300UL && !Context.UICommands.IsButtonHeld(false))
+			if (num == -1 && global::NetCull.localTimeInMillis - this.clientQueryTime > 300UL && !global::Context.UICommands.IsButtonHeld(false))
 			{
-				Context.EndQuery();
+				global::Context.EndQuery();
 			}
 		}
 		if (num != -1)
@@ -139,7 +139,7 @@ internal class ContextUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600292E RID: 10542 RVA: 0x000A1BF8 File Offset: 0x0009FDF8
+	// Token: 0x06002CE0 RID: 11488 RVA: 0x000A7FF4 File Offset: 0x000A61F4
 	private void SetContextClientState(ContextClientState state)
 	{
 		if (this._clientState != state)
@@ -167,24 +167,24 @@ internal class ContextUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600292F RID: 10543 RVA: 0x000A1C6C File Offset: 0x0009FE6C
-	private void OnClientPromptBegin(NetEntityID? useID)
+	// Token: 0x06002CE1 RID: 11489 RVA: 0x000A8068 File Offset: 0x000A6268
+	private void OnClientPromptBegin(global::NetEntityID? useID)
 	{
-		NetEntityID value;
+		global::NetEntityID value;
 		if (useID != null)
 		{
 			value = useID.Value;
 		}
 		else
 		{
-			NetEntityID.Of(this.clientQuery, out value);
+			global::NetEntityID.Of(this.clientQuery, out value);
 		}
-		this.clientQueryTime = NetCull.localTimeInMillis;
-		Context.UICommands.Issue_Request(value);
+		this.clientQueryTime = global::NetCull.localTimeInMillis;
+		global::Context.UICommands.Issue_Request(value);
 		this.SetContextClientState(ContextClientState.Polling);
 	}
 
-	// Token: 0x06002930 RID: 10544 RVA: 0x000A1CB8 File Offset: 0x0009FEB8
+	// Token: 0x06002CE2 RID: 11490 RVA: 0x000A80B4 File Offset: 0x000A62B4
 	private void OnClientShowMenu()
 	{
 		this.clientSelection = -1;
@@ -192,14 +192,14 @@ internal class ContextUI : MonoBehaviour
 		base.enabled = true;
 	}
 
-	// Token: 0x06002931 RID: 10545 RVA: 0x000A1CD4 File Offset: 0x0009FED4
+	// Token: 0x06002CE3 RID: 11491 RVA: 0x000A80D0 File Offset: 0x000A62D0
 	private void OnClientOptionsMade()
 	{
 		if (this._clientState == ContextClientState.Validating)
 		{
 			return;
 		}
-		ulong num = NetCull.localTimeInMillis - this.clientQueryTime;
+		ulong num = global::NetCull.localTimeInMillis - this.clientQueryTime;
 		if (num > 300UL)
 		{
 			this.OnClientShowMenu();
@@ -211,22 +211,22 @@ internal class ContextUI : MonoBehaviour
 		this.SetContextClientState(ContextClientState.Options);
 	}
 
-	// Token: 0x06002932 RID: 10546 RVA: 0x000A1D38 File Offset: 0x0009FF38
+	// Token: 0x06002CE4 RID: 11492 RVA: 0x000A8134 File Offset: 0x000A6334
 	private void OnClientSelection(int i)
 	{
 		this.clientSelection = i;
-		Context.UICommands.Issue_Selection(this.clientContext.option[i].name);
+		global::Context.UICommands.Issue_Selection(this.clientContext.option[i].name);
 		this.validatingString = this.clientContext.option[i].text + "..";
 		this.SetContextClientState(ContextClientState.Validating);
 	}
 
-	// Token: 0x06002933 RID: 10547 RVA: 0x000A1D94 File Offset: 0x0009FF94
+	// Token: 0x06002CE5 RID: 11493 RVA: 0x000A8190 File Offset: 0x000A6390
 	private void OnClientValidated()
 	{
 		this.SetContextClientState(ContextClientState.Off);
 	}
 
-	// Token: 0x06002934 RID: 10548 RVA: 0x000A1DA0 File Offset: 0x0009FFA0
+	// Token: 0x06002CE6 RID: 11494 RVA: 0x000A819C File Offset: 0x000A639C
 	private void OnClientOptionsCleared()
 	{
 		if (this.clientSelection != -1)
@@ -236,36 +236,36 @@ internal class ContextUI : MonoBehaviour
 		this.clientContext.length = 0;
 	}
 
-	// Token: 0x06002935 RID: 10549 RVA: 0x000A1DC4 File Offset: 0x0009FFC4
+	// Token: 0x06002CE7 RID: 11495 RVA: 0x000A81C0 File Offset: 0x000A63C0
 	private void OnClientHideMenu()
 	{
 		base.CancelInvoke("OnClientShowMenu");
 		if (this.clientUnlock.TryLock() == 0)
 		{
-			Context.UICommands.IsButtonHeld(true);
+			global::Context.UICommands.IsButtonHeld(true);
 			Input.ResetInputAxes();
 		}
 		base.enabled = false;
 	}
 
-	// Token: 0x06002936 RID: 10550 RVA: 0x000A1E00 File Offset: 0x000A0000
+	// Token: 0x06002CE8 RID: 11496 RVA: 0x000A81FC File Offset: 0x000A63FC
 	private void OnClientPromptEnd()
 	{
 		this.OnClientHideMenu();
 		this.SetContextClientState(ContextClientState.Off);
 	}
 
-	// Token: 0x06002937 RID: 10551 RVA: 0x000A1E10 File Offset: 0x000A0010
-	internal void OnServerQuerySent(MonoBehaviour script, NetEntityID entID)
+	// Token: 0x06002CE9 RID: 11497 RVA: 0x000A820C File Offset: 0x000A640C
+	internal void OnServerQuerySent(MonoBehaviour script, global::NetEntityID entID)
 	{
 		this.clientQuery = script;
-		this.OnClientPromptBegin(new NetEntityID?(entID));
+		this.OnClientPromptBegin(new global::NetEntityID?(entID));
 	}
 
-	// Token: 0x06002938 RID: 10552 RVA: 0x000A1E28 File Offset: 0x000A0028
+	// Token: 0x06002CEA RID: 11498 RVA: 0x000A8224 File Offset: 0x000A6424
 	internal void OnServerQuickTapSent()
 	{
-		Context.UICommands.Issue_QuickTap();
+		global::Context.UICommands.Issue_QuickTap();
 		if (this._clientState == ContextClientState.Options)
 		{
 			this.OnClientHideMenu();
@@ -273,10 +273,10 @@ internal class ContextUI : MonoBehaviour
 		this.SetContextClientState(ContextClientState.Validating);
 	}
 
-	// Token: 0x06002939 RID: 10553 RVA: 0x000A1E48 File Offset: 0x000A0048
+	// Token: 0x06002CEB RID: 11499 RVA: 0x000A8244 File Offset: 0x000A6444
 	internal void OnServerCancelSent()
 	{
-		Context.UICommands.Issue_Cancel();
+		global::Context.UICommands.Issue_Cancel();
 		if (this._clientState == ContextClientState.Options)
 		{
 			this.OnClientHideMenu();
@@ -284,27 +284,27 @@ internal class ContextUI : MonoBehaviour
 		this.SetContextClientState(ContextClientState.Validating);
 	}
 
-	// Token: 0x0600293A RID: 10554 RVA: 0x000A1E68 File Offset: 0x000A0068
+	// Token: 0x06002CEC RID: 11500 RVA: 0x000A8264 File Offset: 0x000A6464
 	internal void OnServerMenu(ContextMenuData menu)
 	{
 		this.clientContext.Set(menu);
 		this.OnClientOptionsMade();
 	}
 
-	// Token: 0x0600293B RID: 10555 RVA: 0x000A1E7C File Offset: 0x000A007C
+	// Token: 0x06002CED RID: 11501 RVA: 0x000A8278 File Offset: 0x000A6478
 	internal void OnServerNoOp()
 	{
 		this.clientContext.length = 0;
 		this.OnClientPromptEnd();
 	}
 
-	// Token: 0x0600293C RID: 10556 RVA: 0x000A1E90 File Offset: 0x000A0090
+	// Token: 0x06002CEE RID: 11502 RVA: 0x000A828C File Offset: 0x000A648C
 	internal void OnServerCancel()
 	{
 		this.OnClientPromptEnd();
 	}
 
-	// Token: 0x0600293D RID: 10557 RVA: 0x000A1E98 File Offset: 0x000A0098
+	// Token: 0x06002CEF RID: 11503 RVA: 0x000A8294 File Offset: 0x000A6494
 	internal void OnServerSelection(bool success)
 	{
 		if (success)
@@ -319,13 +319,13 @@ internal class ContextUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600293E RID: 10558 RVA: 0x000A1EC0 File Offset: 0x000A00C0
+	// Token: 0x06002CF0 RID: 11504 RVA: 0x000A82BC File Offset: 0x000A64BC
 	internal void OnServerSelectionStale()
 	{
 		this.OnClientPromptEnd();
 	}
 
-	// Token: 0x0600293F RID: 10559 RVA: 0x000A1EC8 File Offset: 0x000A00C8
+	// Token: 0x06002CF1 RID: 11505 RVA: 0x000A82C4 File Offset: 0x000A64C4
 	internal void OnServerImmediate(bool success)
 	{
 		if (success)
@@ -340,7 +340,7 @@ internal class ContextUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002940 RID: 10560 RVA: 0x000A1EF0 File Offset: 0x000A00F0
+	// Token: 0x06002CF2 RID: 11506 RVA: 0x000A82EC File Offset: 0x000A64EC
 	internal void OnServerRestartPolling()
 	{
 		this.OnClientOptionsCleared();
@@ -348,42 +348,42 @@ internal class ContextUI : MonoBehaviour
 		this.OnClientOptionsMade();
 	}
 
-	// Token: 0x0400152E RID: 5422
+	// Token: 0x040016C4 RID: 5828
 	[SerializeField]
 	private GUISkin skin;
 
-	// Token: 0x0400152F RID: 5423
+	// Token: 0x040016C5 RID: 5829
 	[NonSerialized]
 	internal UnlockCursorNode clientUnlock;
 
-	// Token: 0x04001530 RID: 5424
+	// Token: 0x040016C6 RID: 5830
 	[NonSerialized]
 	internal ContextClientStage clientContext;
 
-	// Token: 0x04001531 RID: 5425
+	// Token: 0x040016C7 RID: 5831
 	[NonSerialized]
 	internal MonoBehaviour clientQuery;
 
-	// Token: 0x04001532 RID: 5426
+	// Token: 0x040016C8 RID: 5832
 	[NonSerialized]
 	internal ContextClientState _clientState;
 
-	// Token: 0x04001533 RID: 5427
+	// Token: 0x040016C9 RID: 5833
 	[NonSerialized]
 	internal ulong clientQueryTime;
 
-	// Token: 0x04001534 RID: 5428
+	// Token: 0x040016CA RID: 5834
 	[NonSerialized]
 	internal string validatingString;
 
-	// Token: 0x04001535 RID: 5429
+	// Token: 0x040016CB RID: 5835
 	[NonSerialized]
 	internal int clientSelection;
 
-	// Token: 0x04001536 RID: 5430
+	// Token: 0x040016CC RID: 5836
 	[NonSerialized]
-	internal static ContextClientWorkingCallback clientWorkingCallbacks;
+	internal static global::ContextClientWorkingCallback clientWorkingCallbacks;
 
-	// Token: 0x04001537 RID: 5431
+	// Token: 0x040016CD RID: 5837
 	private static GUIContent temp = new GUIContent();
 }

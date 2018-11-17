@@ -1,26 +1,26 @@
 ﻿using System;
 
-// Token: 0x02000670 RID: 1648
-public class Ragdoll : Character
+// Token: 0x02000734 RID: 1844
+public class Ragdoll : global::Character
 {
-	// Token: 0x06003947 RID: 14663 RVA: 0x000D2828 File Offset: 0x000D0A28
+	// Token: 0x06003D3B RID: 15675 RVA: 0x000DB208 File Offset: 0x000D9408
 	public Ragdoll() : this(0)
 	{
 	}
 
-	// Token: 0x06003948 RID: 14664 RVA: 0x000D2834 File Offset: 0x000D0A34
+	// Token: 0x06003D3C RID: 15676 RVA: 0x000DB214 File Offset: 0x000D9414
 	protected Ragdoll(IDFlags flags) : base(flags)
 	{
 	}
 
-	// Token: 0x06003949 RID: 14665 RVA: 0x000D2840 File Offset: 0x000D0A40
+	// Token: 0x06003D3D RID: 15677 RVA: 0x000DB220 File Offset: 0x000D9420
 	protected new void Awake()
 	{
 		base.LoadTraitMapNonNetworked();
 		base.Awake();
 	}
 
-	// Token: 0x04001D50 RID: 7504
+	// Token: 0x04001F48 RID: 8008
 	[NonSerialized]
 	public IDMain sourceMain;
 }

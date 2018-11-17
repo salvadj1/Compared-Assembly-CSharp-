@@ -1,80 +1,80 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200073A RID: 1850
+// Token: 0x02000817 RID: 2071
 public class dfEasingFunctions
 {
-	// Token: 0x0600437A RID: 17274 RVA: 0x00106118 File Offset: 0x00104318
-	public static dfEasingFunctions.EasingFunction GetFunction(dfEasingType easeType)
+	// Token: 0x060047C2 RID: 18370 RVA: 0x0010F428 File Offset: 0x0010D628
+	public static global::dfEasingFunctions.EasingFunction GetFunction(global::dfEasingType easeType)
 	{
 		switch (easeType)
 		{
-		case dfEasingType.Linear:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.linear);
-		case dfEasingType.Bounce:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.bounce);
-		case dfEasingType.BackEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInBack);
-		case dfEasingType.BackEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutBack);
-		case dfEasingType.BackEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutBack);
-		case dfEasingType.CircEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInCirc);
-		case dfEasingType.CircEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutCirc);
-		case dfEasingType.CircEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutCirc);
-		case dfEasingType.CubicEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInCubic);
-		case dfEasingType.CubicEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutCubic);
-		case dfEasingType.CubicEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutCubic);
-		case dfEasingType.ExpoEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInExpo);
-		case dfEasingType.ExpoEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutExpo);
-		case dfEasingType.ExpoEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutExpo);
-		case dfEasingType.QuadEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInQuad);
-		case dfEasingType.QuadEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutQuad);
-		case dfEasingType.QuadEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutQuad);
-		case dfEasingType.QuartEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInQuart);
-		case dfEasingType.QuartEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutQuart);
-		case dfEasingType.QuartEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutQuart);
-		case dfEasingType.QuintEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInQuint);
-		case dfEasingType.QuintEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutQuint);
-		case dfEasingType.QuintEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutQuint);
-		case dfEasingType.SineEaseIn:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInSine);
-		case dfEasingType.SineEaseOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeOutSine);
-		case dfEasingType.SineEaseInOut:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.easeInOutSine);
-		case dfEasingType.Spring:
-			return new dfEasingFunctions.EasingFunction(dfEasingFunctions.spring);
+		case global::dfEasingType.Linear:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.linear);
+		case global::dfEasingType.Bounce:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.bounce);
+		case global::dfEasingType.BackEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInBack);
+		case global::dfEasingType.BackEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutBack);
+		case global::dfEasingType.BackEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutBack);
+		case global::dfEasingType.CircEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInCirc);
+		case global::dfEasingType.CircEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutCirc);
+		case global::dfEasingType.CircEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutCirc);
+		case global::dfEasingType.CubicEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInCubic);
+		case global::dfEasingType.CubicEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutCubic);
+		case global::dfEasingType.CubicEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutCubic);
+		case global::dfEasingType.ExpoEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInExpo);
+		case global::dfEasingType.ExpoEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutExpo);
+		case global::dfEasingType.ExpoEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutExpo);
+		case global::dfEasingType.QuadEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInQuad);
+		case global::dfEasingType.QuadEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutQuad);
+		case global::dfEasingType.QuadEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutQuad);
+		case global::dfEasingType.QuartEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInQuart);
+		case global::dfEasingType.QuartEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutQuart);
+		case global::dfEasingType.QuartEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutQuart);
+		case global::dfEasingType.QuintEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInQuint);
+		case global::dfEasingType.QuintEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutQuint);
+		case global::dfEasingType.QuintEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutQuint);
+		case global::dfEasingType.SineEaseIn:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInSine);
+		case global::dfEasingType.SineEaseOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeOutSine);
+		case global::dfEasingType.SineEaseInOut:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.easeInOutSine);
+		case global::dfEasingType.Spring:
+			return new global::dfEasingFunctions.EasingFunction(global::dfEasingFunctions.spring);
 		default:
 			throw new NotImplementedException();
 		}
 	}
 
-	// Token: 0x0600437B RID: 17275 RVA: 0x00106304 File Offset: 0x00104504
+	// Token: 0x060047C3 RID: 18371 RVA: 0x0010F614 File Offset: 0x0010D814
 	private static float linear(float start, float end, float time)
 	{
 		return Mathf.Lerp(start, end, time);
 	}
 
-	// Token: 0x0600437C RID: 17276 RVA: 0x00106310 File Offset: 0x00104510
+	// Token: 0x060047C4 RID: 18372 RVA: 0x0010F620 File Offset: 0x0010D820
 	private static float clerp(float start, float end, float time)
 	{
 		float num = 0f;
@@ -98,7 +98,7 @@ public class dfEasingFunctions
 		return result;
 	}
 
-	// Token: 0x0600437D RID: 17277 RVA: 0x00106388 File Offset: 0x00104588
+	// Token: 0x060047C5 RID: 18373 RVA: 0x0010F698 File Offset: 0x0010D898
 	private static float spring(float start, float end, float time)
 	{
 		time = Mathf.Clamp01(time);
@@ -106,21 +106,21 @@ public class dfEasingFunctions
 		return start + (end - start) * time;
 	}
 
-	// Token: 0x0600437E RID: 17278 RVA: 0x001063EC File Offset: 0x001045EC
+	// Token: 0x060047C6 RID: 18374 RVA: 0x0010F6FC File Offset: 0x0010D8FC
 	private static float easeInQuad(float start, float end, float time)
 	{
 		end -= start;
 		return end * time * time + start;
 	}
 
-	// Token: 0x0600437F RID: 17279 RVA: 0x001063FC File Offset: 0x001045FC
+	// Token: 0x060047C7 RID: 18375 RVA: 0x0010F70C File Offset: 0x0010D90C
 	private static float easeOutQuad(float start, float end, float time)
 	{
 		end -= start;
 		return -end * time * (time - 2f) + start;
 	}
 
-	// Token: 0x06004380 RID: 17280 RVA: 0x00106414 File Offset: 0x00104614
+	// Token: 0x060047C8 RID: 18376 RVA: 0x0010F724 File Offset: 0x0010D924
 	private static float easeInOutQuad(float start, float end, float time)
 	{
 		time /= 0.5f;
@@ -133,14 +133,14 @@ public class dfEasingFunctions
 		return -end / 2f * (time * (time - 2f) - 1f) + start;
 	}
 
-	// Token: 0x06004381 RID: 17281 RVA: 0x0010646C File Offset: 0x0010466C
+	// Token: 0x060047C9 RID: 18377 RVA: 0x0010F77C File Offset: 0x0010D97C
 	private static float easeInCubic(float start, float end, float time)
 	{
 		end -= start;
 		return end * time * time * time + start;
 	}
 
-	// Token: 0x06004382 RID: 17282 RVA: 0x0010647C File Offset: 0x0010467C
+	// Token: 0x060047CA RID: 18378 RVA: 0x0010F78C File Offset: 0x0010D98C
 	private static float easeOutCubic(float start, float end, float time)
 	{
 		time -= 1f;
@@ -148,7 +148,7 @@ public class dfEasingFunctions
 		return end * (time * time * time + 1f) + start;
 	}
 
-	// Token: 0x06004383 RID: 17283 RVA: 0x0010649C File Offset: 0x0010469C
+	// Token: 0x060047CB RID: 18379 RVA: 0x0010F7AC File Offset: 0x0010D9AC
 	private static float easeInOutCubic(float start, float end, float time)
 	{
 		time /= 0.5f;
@@ -161,14 +161,14 @@ public class dfEasingFunctions
 		return end / 2f * (time * time * time + 2f) + start;
 	}
 
-	// Token: 0x06004384 RID: 17284 RVA: 0x001064F0 File Offset: 0x001046F0
+	// Token: 0x060047CC RID: 18380 RVA: 0x0010F800 File Offset: 0x0010DA00
 	private static float easeInQuart(float start, float end, float time)
 	{
 		end -= start;
 		return end * time * time * time * time + start;
 	}
 
-	// Token: 0x06004385 RID: 17285 RVA: 0x00106504 File Offset: 0x00104704
+	// Token: 0x060047CD RID: 18381 RVA: 0x0010F814 File Offset: 0x0010DA14
 	private static float easeOutQuart(float start, float end, float time)
 	{
 		time -= 1f;
@@ -176,7 +176,7 @@ public class dfEasingFunctions
 		return -end * (time * time * time * time - 1f) + start;
 	}
 
-	// Token: 0x06004386 RID: 17286 RVA: 0x00106534 File Offset: 0x00104734
+	// Token: 0x060047CE RID: 18382 RVA: 0x0010F844 File Offset: 0x0010DA44
 	private static float easeInOutQuart(float start, float end, float time)
 	{
 		time /= 0.5f;
@@ -189,14 +189,14 @@ public class dfEasingFunctions
 		return -end / 2f * (time * time * time * time - 2f) + start;
 	}
 
-	// Token: 0x06004387 RID: 17287 RVA: 0x00106590 File Offset: 0x00104790
+	// Token: 0x060047CF RID: 18383 RVA: 0x0010F8A0 File Offset: 0x0010DAA0
 	private static float easeInQuint(float start, float end, float time)
 	{
 		end -= start;
 		return end * time * time * time * time * time + start;
 	}
 
-	// Token: 0x06004388 RID: 17288 RVA: 0x001065A4 File Offset: 0x001047A4
+	// Token: 0x060047D0 RID: 18384 RVA: 0x0010F8B4 File Offset: 0x0010DAB4
 	private static float easeOutQuint(float start, float end, float time)
 	{
 		time -= 1f;
@@ -204,7 +204,7 @@ public class dfEasingFunctions
 		return end * (time * time * time * time * time + 1f) + start;
 	}
 
-	// Token: 0x06004389 RID: 17289 RVA: 0x001065C8 File Offset: 0x001047C8
+	// Token: 0x060047D1 RID: 18385 RVA: 0x0010F8D8 File Offset: 0x0010DAD8
 	private static float easeInOutQuint(float start, float end, float time)
 	{
 		time /= 0.5f;
@@ -217,42 +217,42 @@ public class dfEasingFunctions
 		return end / 2f * (time * time * time * time * time + 2f) + start;
 	}
 
-	// Token: 0x0600438A RID: 17290 RVA: 0x00106624 File Offset: 0x00104824
+	// Token: 0x060047D2 RID: 18386 RVA: 0x0010F934 File Offset: 0x0010DB34
 	private static float easeInSine(float start, float end, float time)
 	{
 		end -= start;
 		return -end * Mathf.Cos(time / 1f * 1.57079637f) + end + start;
 	}
 
-	// Token: 0x0600438B RID: 17291 RVA: 0x00106644 File Offset: 0x00104844
+	// Token: 0x060047D3 RID: 18387 RVA: 0x0010F954 File Offset: 0x0010DB54
 	private static float easeOutSine(float start, float end, float time)
 	{
 		end -= start;
 		return end * Mathf.Sin(time / 1f * 1.57079637f) + start;
 	}
 
-	// Token: 0x0600438C RID: 17292 RVA: 0x00106664 File Offset: 0x00104864
+	// Token: 0x060047D4 RID: 18388 RVA: 0x0010F974 File Offset: 0x0010DB74
 	private static float easeInOutSine(float start, float end, float time)
 	{
 		end -= start;
 		return -end / 2f * (Mathf.Cos(3.14159274f * time / 1f) - 1f) + start;
 	}
 
-	// Token: 0x0600438D RID: 17293 RVA: 0x0010669C File Offset: 0x0010489C
+	// Token: 0x060047D5 RID: 18389 RVA: 0x0010F9AC File Offset: 0x0010DBAC
 	private static float easeInExpo(float start, float end, float time)
 	{
 		end -= start;
 		return end * Mathf.Pow(2f, 10f * (time / 1f - 1f)) + start;
 	}
 
-	// Token: 0x0600438E RID: 17294 RVA: 0x001066D0 File Offset: 0x001048D0
+	// Token: 0x060047D6 RID: 18390 RVA: 0x0010F9E0 File Offset: 0x0010DBE0
 	private static float easeOutExpo(float start, float end, float time)
 	{
 		end -= start;
 		return end * (-Mathf.Pow(2f, -10f * time / 1f) + 1f) + start;
 	}
 
-	// Token: 0x0600438F RID: 17295 RVA: 0x001066FC File Offset: 0x001048FC
+	// Token: 0x060047D7 RID: 18391 RVA: 0x0010FA0C File Offset: 0x0010DC0C
 	private static float easeInOutExpo(float start, float end, float time)
 	{
 		time /= 0.5f;
@@ -265,14 +265,14 @@ public class dfEasingFunctions
 		return end / 2f * (-Mathf.Pow(2f, -10f * time) + 2f) + start;
 	}
 
-	// Token: 0x06004390 RID: 17296 RVA: 0x00106770 File Offset: 0x00104970
+	// Token: 0x060047D8 RID: 18392 RVA: 0x0010FA80 File Offset: 0x0010DC80
 	private static float easeInCirc(float start, float end, float time)
 	{
 		end -= start;
 		return -end * (Mathf.Sqrt(1f - time * time) - 1f) + start;
 	}
 
-	// Token: 0x06004391 RID: 17297 RVA: 0x00106790 File Offset: 0x00104990
+	// Token: 0x060047D9 RID: 18393 RVA: 0x0010FAA0 File Offset: 0x0010DCA0
 	private static float easeOutCirc(float start, float end, float time)
 	{
 		time -= 1f;
@@ -280,7 +280,7 @@ public class dfEasingFunctions
 		return end * Mathf.Sqrt(1f - time * time) + start;
 	}
 
-	// Token: 0x06004392 RID: 17298 RVA: 0x001067C0 File Offset: 0x001049C0
+	// Token: 0x060047DA RID: 18394 RVA: 0x0010FAD0 File Offset: 0x0010DCD0
 	private static float easeInOutCirc(float start, float end, float time)
 	{
 		time /= 0.5f;
@@ -293,7 +293,7 @@ public class dfEasingFunctions
 		return end / 2f * (Mathf.Sqrt(1f - time * time) + 1f) + start;
 	}
 
-	// Token: 0x06004393 RID: 17299 RVA: 0x00106830 File Offset: 0x00104A30
+	// Token: 0x060047DB RID: 18395 RVA: 0x0010FB40 File Offset: 0x0010DD40
 	private static float bounce(float start, float end, float time)
 	{
 		time /= 1f;
@@ -316,7 +316,7 @@ public class dfEasingFunctions
 		return end * (7.5625f * time * time + 0.984375f) + start;
 	}
 
-	// Token: 0x06004394 RID: 17300 RVA: 0x001068D8 File Offset: 0x00104AD8
+	// Token: 0x060047DC RID: 18396 RVA: 0x0010FBE8 File Offset: 0x0010DDE8
 	private static float easeInBack(float start, float end, float time)
 	{
 		end -= start;
@@ -325,7 +325,7 @@ public class dfEasingFunctions
 		return end * time * time * ((num + 1f) * time - num) + start;
 	}
 
-	// Token: 0x06004395 RID: 17301 RVA: 0x0010690C File Offset: 0x00104B0C
+	// Token: 0x060047DD RID: 18397 RVA: 0x0010FC1C File Offset: 0x0010DE1C
 	private static float easeOutBack(float start, float end, float time)
 	{
 		float num = 1.70158f;
@@ -334,7 +334,7 @@ public class dfEasingFunctions
 		return end * (time * time * ((num + 1f) * time + num) + 1f) + start;
 	}
 
-	// Token: 0x06004396 RID: 17302 RVA: 0x0010694C File Offset: 0x00104B4C
+	// Token: 0x060047DE RID: 18398 RVA: 0x0010FC5C File Offset: 0x0010DE5C
 	private static float easeInOutBack(float start, float end, float time)
 	{
 		float num = 1.70158f;
@@ -350,7 +350,7 @@ public class dfEasingFunctions
 		return end / 2f * (time * time * ((num + 1f) * time + num) + 2f) + start;
 	}
 
-	// Token: 0x06004397 RID: 17303 RVA: 0x001069CC File Offset: 0x00104BCC
+	// Token: 0x060047DF RID: 18399 RVA: 0x0010FCDC File Offset: 0x0010DEDC
 	private static float punch(float amplitude, float time)
 	{
 		if (time == 0f)
@@ -366,7 +366,7 @@ public class dfEasingFunctions
 		return amplitude * Mathf.Pow(2f, -10f * time) * Mathf.Sin((time * 1f - num2) * 6.28318548f / num);
 	}
 
-	// Token: 0x020008E3 RID: 2275
-	// (Invoke) Token: 0x06004D64 RID: 19812
+	// Token: 0x02000818 RID: 2072
+	// (Invoke) Token: 0x060047E1 RID: 18401
 	public delegate float EasingFunction(float start, float end, float time);
 }

@@ -2,42 +2,42 @@
 using System.Collections.Generic;
 using Facepunch;
 
-// Token: 0x02000484 RID: 1156
-public class ContextMessenger : MonoBehaviour, IContextRequestable, IContextRequestableMenu, IComponentInterface<IContextRequestable, MonoBehaviour, Contextual>, IComponentInterface<IContextRequestable, MonoBehaviour>, IComponentInterface<IContextRequestable>
+// Token: 0x0200053E RID: 1342
+public class ContextMessenger : MonoBehaviour, global::IContextRequestable, global::IContextRequestableMenu, global::IComponentInterface<global::IContextRequestable, MonoBehaviour, global::Contextual>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour>, global::IComponentInterface<global::IContextRequestable>
 {
-	// Token: 0x0600291E RID: 10526 RVA: 0x000A1748 File Offset: 0x0009F948
-	public ContextExecution ContextQuery(Controllable controllable, ulong timestamp)
+	// Token: 0x06002CC8 RID: 11464 RVA: 0x000A7A14 File Offset: 0x000A5C14
+	public global::ContextExecution ContextQuery(global::Controllable controllable, ulong timestamp)
 	{
-		return (this.messageOptions != null && this.messageOptions.Length != 0) ? ContextExecution.Menu : ContextExecution.NotAvailable;
+		return (this.messageOptions != null && this.messageOptions.Length != 0) ? global::ContextExecution.Menu : global::ContextExecution.NotAvailable;
 	}
 
-	// Token: 0x0600291F RID: 10527 RVA: 0x000A176C File Offset: 0x0009F96C
-	public IEnumerable<ContextActionPrototype> ContextQueryMenu(Controllable controllable, ulong timestamp)
+	// Token: 0x06002CC9 RID: 11465 RVA: 0x000A7A38 File Offset: 0x000A5C38
+	public IEnumerable<global::ContextActionPrototype> ContextQueryMenu(global::Controllable controllable, ulong timestamp)
 	{
 		int name = 0;
 		foreach (string message in this.messageOptions)
 		{
 			int name2;
 			name = (name2 = name) + 1;
-			yield return new ContextMessenger.MessageAction(name2, message, message);
+			yield return new global::ContextMessenger.MessageAction(name2, message, message);
 		}
 		yield break;
 	}
 
-	// Token: 0x06002920 RID: 10528 RVA: 0x000A1790 File Offset: 0x0009F990
-	public ContextResponse ContextRespondMenu(Controllable controllable, ContextActionPrototype action, ulong timestamp)
+	// Token: 0x06002CCA RID: 11466 RVA: 0x000A7A5C File Offset: 0x000A5C5C
+	public global::ContextResponse ContextRespondMenu(global::Controllable controllable, global::ContextActionPrototype action, ulong timestamp)
 	{
-		base.SendMessage(((ContextMessenger.MessageAction)action).message, controllable);
-		return ContextResponse.DoneBreak;
+		base.SendMessage(((global::ContextMessenger.MessageAction)action).message, controllable);
+		return global::ContextResponse.DoneBreak;
 	}
 
-	// Token: 0x0400152C RID: 5420
+	// Token: 0x040016BB RID: 5819
 	public string[] messageOptions;
 
-	// Token: 0x02000485 RID: 1157
-	private class MessageAction : ContextActionPrototype
+	// Token: 0x0200053F RID: 1343
+	private class MessageAction : global::ContextActionPrototype
 	{
-		// Token: 0x06002921 RID: 10529 RVA: 0x000A17A8 File Offset: 0x0009F9A8
+		// Token: 0x06002CCB RID: 11467 RVA: 0x000A7A74 File Offset: 0x000A5C74
 		public MessageAction(int name, string text, string message)
 		{
 			this.name = name;
@@ -45,7 +45,7 @@ public class ContextMessenger : MonoBehaviour, IContextRequestable, IContextRequ
 			this.message = message;
 		}
 
-		// Token: 0x0400152D RID: 5421
+		// Token: 0x040016BC RID: 5820
 		public string message;
 	}
 }

@@ -2,49 +2,49 @@
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x0200065E RID: 1630
-[NGCAutoAddScript]
-[RequireComponent(typeof(Inventory))]
-public class ItemPickup : RigidObj, IContextRequestable, IContextRequestableQuick, IContextRequestableText, IContextRequestablePointText, IComponentInterface<IContextRequestable, MonoBehaviour, Contextual>, IComponentInterface<IContextRequestable, MonoBehaviour>, IComponentInterface<IContextRequestable>
+// Token: 0x02000722 RID: 1826
+[global::NGCAutoAddScript]
+[RequireComponent(typeof(global::Inventory))]
+public class ItemPickup : global::RigidObj, global::IContextRequestable, global::IContextRequestableQuick, global::IContextRequestableText, global::IContextRequestablePointText, global::IComponentInterface<global::IContextRequestable, MonoBehaviour, global::Contextual>, global::IComponentInterface<global::IContextRequestable, MonoBehaviour>, global::IComponentInterface<global::IContextRequestable>
 {
-	// Token: 0x060038B6 RID: 14518 RVA: 0x000D0580 File Offset: 0x000CE780
-	public ItemPickup() : base(RigidObj.FeatureFlags.StreamInitialVelocity)
+	// Token: 0x06003CAA RID: 15530 RVA: 0x000D8F60 File Offset: 0x000D7160
+	public ItemPickup() : base(global::RigidObj.FeatureFlags.StreamInitialVelocity)
 	{
 	}
 
-	// Token: 0x060038B7 RID: 14519 RVA: 0x000D058C File Offset: 0x000CE78C
-	bool IContextRequestablePointText.ContextTextPoint(out Vector3 worldPoint)
+	// Token: 0x06003CAB RID: 15531 RVA: 0x000D8F6C File Offset: 0x000D716C
+	bool global::IContextRequestablePointText.ContextTextPoint(out Vector3 worldPoint)
 	{
-		ContextRequestable.PointUtil.SpriteOrOrigin(this, out worldPoint);
+		global::ContextRequestable.PointUtil.SpriteOrOrigin(this, out worldPoint);
 		return true;
 	}
 
-	// Token: 0x060038B8 RID: 14520 RVA: 0x000D0598 File Offset: 0x000CE798
-	private void StoreItemInfo(ItemDataBlock datablock, int uses)
+	// Token: 0x06003CAC RID: 15532 RVA: 0x000D8F78 File Offset: 0x000D7178
+	private void StoreItemInfo(global::ItemDataBlock datablock, int uses)
 	{
-		ItemPickup.PickupInfo value;
+		global::ItemPickup.PickupInfo value;
 		value.datablock = datablock;
 		value.amount = uses;
-		this.info = new ItemPickup.PickupInfo?(value);
+		this.info = new global::ItemPickup.PickupInfo?(value);
 		value.datablock.ConfigureItemPickup(this, uses);
 	}
 
-	// Token: 0x060038B9 RID: 14521 RVA: 0x000D05D0 File Offset: 0x000CE7D0
+	// Token: 0x06003CAD RID: 15533 RVA: 0x000D8FB0 File Offset: 0x000D71B0
 	[RPC]
 	protected void PKIS(int itemName)
 	{
-		this.StoreItemInfo(DatablockDictionary.GetByUniqueID(itemName), 1);
+		this.StoreItemInfo(global::DatablockDictionary.GetByUniqueID(itemName), 1);
 	}
 
-	// Token: 0x060038BA RID: 14522 RVA: 0x000D05E0 File Offset: 0x000CE7E0
+	// Token: 0x06003CAE RID: 15534 RVA: 0x000D8FC0 File Offset: 0x000D71C0
 	[RPC]
 	protected void PKIF(int itemName, byte itemAmount)
 	{
-		this.StoreItemInfo(DatablockDictionary.GetByUniqueID(itemName), (int)itemAmount);
+		this.StoreItemInfo(global::DatablockDictionary.GetByUniqueID(itemName), (int)itemAmount);
 	}
 
-	// Token: 0x060038BB RID: 14523 RVA: 0x000D05F0 File Offset: 0x000CE7F0
-	public string ContextText(Controllable localControllable)
+	// Token: 0x06003CAF RID: 15535 RVA: 0x000D8FD0 File Offset: 0x000D71D0
+	public string ContextText(global::Controllable localControllable)
 	{
 		if (!base.renderer.enabled)
 		{
@@ -62,12 +62,12 @@ public class ItemPickup : RigidObj, IContextRequestable, IContextRequestableQuic
 		return this.lastString;
 	}
 
-	// Token: 0x060038BC RID: 14524 RVA: 0x000D0690 File Offset: 0x000CE890
+	// Token: 0x06003CB0 RID: 15536 RVA: 0x000D9070 File Offset: 0x000D7270
 	protected override void OnDone()
 	{
 	}
 
-	// Token: 0x060038BD RID: 14525 RVA: 0x000D0694 File Offset: 0x000CE894
+	// Token: 0x06003CB1 RID: 15537 RVA: 0x000D9074 File Offset: 0x000D7274
 	protected override void OnHide()
 	{
 		if (base.renderer)
@@ -76,7 +76,7 @@ public class ItemPickup : RigidObj, IContextRequestable, IContextRequestableQuic
 		}
 	}
 
-	// Token: 0x060038BE RID: 14526 RVA: 0x000D06B4 File Offset: 0x000CE8B4
+	// Token: 0x06003CB2 RID: 15538 RVA: 0x000D9094 File Offset: 0x000D7294
 	protected override void OnShow()
 	{
 		if (base.renderer)
@@ -85,46 +85,46 @@ public class ItemPickup : RigidObj, IContextRequestable, IContextRequestableQuic
 		}
 	}
 
-	// Token: 0x04001CEC RID: 7404
+	// Token: 0x04001EE4 RID: 7908
 	private const string ItemInfoOne_RPC = "PKIS";
 
-	// Token: 0x04001CED RID: 7405
+	// Token: 0x04001EE5 RID: 7909
 	private const string ItemInfo_RPC = "PKIF";
 
-	// Token: 0x04001CEE RID: 7406
+	// Token: 0x04001EE6 RID: 7910
 	[NonSerialized]
-	private ItemPickup.PickupInfo? info;
+	private global::ItemPickup.PickupInfo? info;
 
-	// Token: 0x04001CEF RID: 7407
+	// Token: 0x04001EE7 RID: 7911
 	[NonSerialized]
-	private ItemPickup.PickupInfo? lastInfo;
+	private global::ItemPickup.PickupInfo? lastInfo;
 
-	// Token: 0x04001CF0 RID: 7408
+	// Token: 0x04001EE8 RID: 7912
 	[NonSerialized]
 	private string lastString;
 
-	// Token: 0x0200065F RID: 1631
-	private struct PickupInfo : IEquatable<ItemPickup.PickupInfo>
+	// Token: 0x02000723 RID: 1827
+	private struct PickupInfo : IEquatable<global::ItemPickup.PickupInfo>
 	{
-		// Token: 0x060038BF RID: 14527 RVA: 0x000D06D4 File Offset: 0x000CE8D4
-		public bool Equals(ItemPickup.PickupInfo other)
+		// Token: 0x06003CB3 RID: 15539 RVA: 0x000D90B4 File Offset: 0x000D72B4
+		public bool Equals(global::ItemPickup.PickupInfo other)
 		{
 			return this.datablock == other.datablock && this.amount == other.amount;
 		}
 
-		// Token: 0x060038C0 RID: 14528 RVA: 0x000D0700 File Offset: 0x000CE900
+		// Token: 0x06003CB4 RID: 15540 RVA: 0x000D90E0 File Offset: 0x000D72E0
 		public override int GetHashCode()
 		{
 			return (!this.datablock) ? this.amount : (this.datablock.GetHashCode() ^ this.amount);
 		}
 
-		// Token: 0x060038C1 RID: 14529 RVA: 0x000D0730 File Offset: 0x000CE930
+		// Token: 0x06003CB5 RID: 15541 RVA: 0x000D9110 File Offset: 0x000D7310
 		public override bool Equals(object obj)
 		{
-			return obj is ItemPickup.PickupInfo && this.Equals((ItemPickup.PickupInfo)obj);
+			return obj is global::ItemPickup.PickupInfo && this.Equals((global::ItemPickup.PickupInfo)obj);
 		}
 
-		// Token: 0x060038C2 RID: 14530 RVA: 0x000D074C File Offset: 0x000CE94C
+		// Token: 0x06003CB6 RID: 15542 RVA: 0x000D912C File Offset: 0x000D732C
 		public override string ToString()
 		{
 			if (this.datablock)
@@ -145,10 +145,10 @@ public class ItemPickup : RigidObj, IContextRequestable, IContextRequestableQuic
 			}
 		}
 
-		// Token: 0x04001CF1 RID: 7409
-		public ItemDataBlock datablock;
+		// Token: 0x04001EE9 RID: 7913
+		public global::ItemDataBlock datablock;
 
-		// Token: 0x04001CF2 RID: 7410
+		// Token: 0x04001EEA RID: 7914
 		public int amount;
 	}
 }

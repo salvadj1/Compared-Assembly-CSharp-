@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000394 RID: 916
-public class VisActionMessageEnterExit : VisActionMessageEnter
+// Token: 0x02000441 RID: 1089
+public class VisActionMessageEnterExit : global::VisActionMessageEnter
 {
-	// Token: 0x060022C7 RID: 8903 RVA: 0x00085A7C File Offset: 0x00083C7C
+	// Token: 0x06002629 RID: 9769 RVA: 0x0008AE78 File Offset: 0x00089078
 	public override void UnAcomplish(IDMain self, IDMain instigator)
 	{
 		bool flag = !self;
@@ -74,27 +74,27 @@ public class VisActionMessageEnterExit : VisActionMessageEnter
 		}
 	}
 
-	// Token: 0x04001079 RID: 4217
+	// Token: 0x040011DF RID: 4575
 	[SerializeField]
 	protected string exitSelfMessage = string.Empty;
 
-	// Token: 0x0400107A RID: 4218
+	// Token: 0x040011E0 RID: 4576
 	[SerializeField]
 	protected string exitInstigatorMessage = string.Empty;
 
-	// Token: 0x0400107B RID: 4219
+	// Token: 0x040011E1 RID: 4577
 	[SerializeField]
 	protected bool exitWithOtherAsArg = true;
 
-	// Token: 0x0400107C RID: 4220
+	// Token: 0x040011E2 RID: 4578
 	[SerializeField]
 	protected bool exitSwapMessageOrder;
 
-	// Token: 0x0400107D RID: 4221
+	// Token: 0x040011E3 RID: 4579
 	[SerializeField]
 	protected bool exitSelfNonNull;
 
-	// Token: 0x0400107E RID: 4222
+	// Token: 0x040011E4 RID: 4580
 	[SerializeField]
 	protected bool exitInstigatorNonNull;
 }

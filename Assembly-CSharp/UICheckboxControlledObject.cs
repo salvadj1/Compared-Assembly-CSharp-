@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000769 RID: 1897
+// Token: 0x0200084B RID: 2123
 [AddComponentMenu("NGUI/Interaction/Checkbox Controlled Object")]
 public class UICheckboxControlledObject : MonoBehaviour
 {
-	// Token: 0x06004504 RID: 17668 RVA: 0x0010E9E0 File Offset: 0x0010CBE0
+	// Token: 0x06004965 RID: 18789 RVA: 0x00118360 File Offset: 0x00116560
 	private void OnActivate(bool isActive)
 	{
 		if (this.target != null)
 		{
-			NGUITools.SetActive(this.target, (!this.inverse) ? isActive : (!isActive));
+			global::NGUITools.SetActive(this.target, (!this.inverse) ? isActive : (!isActive));
 		}
 	}
 
-	// Token: 0x0400254C RID: 9548
+	// Token: 0x04002783 RID: 10115
 	public GameObject target;
 
-	// Token: 0x0400254D RID: 9549
+	// Token: 0x04002784 RID: 10116
 	public bool inverse;
 }

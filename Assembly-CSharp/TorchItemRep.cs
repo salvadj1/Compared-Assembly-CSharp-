@@ -3,10 +3,10 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020005FE RID: 1534
-public class TorchItemRep : ItemRepresentation
+// Token: 0x020006BE RID: 1726
+public class TorchItemRep : global::ItemRepresentation
 {
-	// Token: 0x060036D9 RID: 14041 RVA: 0x000C5960 File Offset: 0x000C3B60
+	// Token: 0x06003AB1 RID: 15025 RVA: 0x000CDE90 File Offset: 0x000CC090
 	private void KillLight()
 	{
 		if (this._myLight)
@@ -16,21 +16,21 @@ public class TorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x060036DA RID: 14042 RVA: 0x000C5990 File Offset: 0x000C3B90
+	// Token: 0x06003AB2 RID: 15026 RVA: 0x000CDEC0 File Offset: 0x000CC0C0
 	protected new void OnDestroy()
 	{
 		this.KillLight();
 		base.OnDestroy();
 	}
 
-	// Token: 0x060036DB RID: 14043 RVA: 0x000C59A0 File Offset: 0x000C3BA0
-	protected new void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06003AB3 RID: 15027 RVA: 0x000CDED0 File Offset: 0x000CC0D0
+	protected new void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		base.uLink_OnNetworkInstantiate(info);
 		this.OnStatus(false);
 	}
 
-	// Token: 0x060036DC RID: 14044 RVA: 0x000C59B0 File Offset: 0x000C3BB0
+	// Token: 0x06003AB4 RID: 15028 RVA: 0x000CDEE0 File Offset: 0x000CC0E0
 	[RPC]
 	protected void OnStatus(bool on)
 	{
@@ -48,11 +48,11 @@ public class TorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x060036DD RID: 14045 RVA: 0x000C59E8 File Offset: 0x000C3BE8
+	// Token: 0x06003AB5 RID: 15029 RVA: 0x000CDF18 File Offset: 0x000CC118
 	private void ServerRPC_Status(bool lit)
 	{
-		NetworkView networkView = base.networkView;
-		RPCMode rpcmode;
+		Facepunch.NetworkView networkView = base.networkView;
+		uLink.RPCMode rpcmode;
 		if (!lit)
 		{
 			rpcmode = 9;
@@ -65,7 +65,7 @@ public class TorchItemRep : ItemRepresentation
 		this.lit = lit;
 	}
 
-	// Token: 0x060036DE RID: 14046 RVA: 0x000C5A24 File Offset: 0x000C3C24
+	// Token: 0x06003AB6 RID: 15030 RVA: 0x000CDF54 File Offset: 0x000CC154
 	public void RepIgnite()
 	{
 		if (!this.lit)
@@ -76,7 +76,7 @@ public class TorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x060036DF RID: 14047 RVA: 0x000C5A80 File Offset: 0x000C3C80
+	// Token: 0x06003AB7 RID: 15031 RVA: 0x000CDFB0 File Offset: 0x000CC1B0
 	public void RepExtinguish()
 	{
 		if (this.lit)
@@ -86,18 +86,18 @@ public class TorchItemRep : ItemRepresentation
 		}
 	}
 
-	// Token: 0x04001AF5 RID: 6901
+	// Token: 0x04001CDB RID: 7387
 	private const bool defaultLit = false;
 
-	// Token: 0x04001AF6 RID: 6902
+	// Token: 0x04001CDC RID: 7388
 	public GameObject _myLight;
 
-	// Token: 0x04001AF7 RID: 6903
+	// Token: 0x04001CDD RID: 7389
 	public GameObject _myLightPrefab;
 
-	// Token: 0x04001AF8 RID: 6904
+	// Token: 0x04001CDE RID: 7390
 	public AudioClip StrikeSound;
 
-	// Token: 0x04001AF9 RID: 6905
+	// Token: 0x04001CDF RID: 7391
 	private bool lit;
 }

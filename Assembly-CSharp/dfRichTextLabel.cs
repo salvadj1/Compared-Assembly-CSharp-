@@ -1,38 +1,38 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000730 RID: 1840
+// Token: 0x0200080C RID: 2060
 [RequireComponent(typeof(BoxCollider))]
 [AddComponentMenu("Daikon Forge/User Interface/Rich Text Label")]
 [ExecuteInEditMode]
 [Serializable]
-public class dfRichTextLabel : dfControl, IDFMultiRender
+public class dfRichTextLabel : global::dfControl, global::IDFMultiRender
 {
 	// Token: 0x14000062 RID: 98
-	// (add) Token: 0x0600430F RID: 17167 RVA: 0x00104CE0 File Offset: 0x00102EE0
-	// (remove) Token: 0x06004310 RID: 17168 RVA: 0x00104CFC File Offset: 0x00102EFC
-	public event PropertyChangedEventHandler<string> TextChanged;
+	// (add) Token: 0x06004753 RID: 18259 RVA: 0x0010DFF0 File Offset: 0x0010C1F0
+	// (remove) Token: 0x06004754 RID: 18260 RVA: 0x0010E00C File Offset: 0x0010C20C
+	public event global::PropertyChangedEventHandler<string> TextChanged;
 
 	// Token: 0x14000063 RID: 99
-	// (add) Token: 0x06004311 RID: 17169 RVA: 0x00104D18 File Offset: 0x00102F18
-	// (remove) Token: 0x06004312 RID: 17170 RVA: 0x00104D34 File Offset: 0x00102F34
-	public event PropertyChangedEventHandler<Vector2> ScrollPositionChanged;
+	// (add) Token: 0x06004755 RID: 18261 RVA: 0x0010E028 File Offset: 0x0010C228
+	// (remove) Token: 0x06004756 RID: 18262 RVA: 0x0010E044 File Offset: 0x0010C244
+	public event global::PropertyChangedEventHandler<Vector2> ScrollPositionChanged;
 
 	// Token: 0x14000064 RID: 100
-	// (add) Token: 0x06004313 RID: 17171 RVA: 0x00104D50 File Offset: 0x00102F50
-	// (remove) Token: 0x06004314 RID: 17172 RVA: 0x00104D6C File Offset: 0x00102F6C
-	public event dfRichTextLabel.LinkClickEventHandler LinkClicked;
+	// (add) Token: 0x06004757 RID: 18263 RVA: 0x0010E060 File Offset: 0x0010C260
+	// (remove) Token: 0x06004758 RID: 18264 RVA: 0x0010E07C File Offset: 0x0010C27C
+	public event global::dfRichTextLabel.LinkClickEventHandler LinkClicked;
 
-	// Token: 0x17000D25 RID: 3365
-	// (get) Token: 0x06004315 RID: 17173 RVA: 0x00104D88 File Offset: 0x00102F88
-	// (set) Token: 0x06004316 RID: 17174 RVA: 0x00104DD0 File Offset: 0x00102FD0
-	public dfAtlas Atlas
+	// Token: 0x17000DAF RID: 3503
+	// (get) Token: 0x06004759 RID: 18265 RVA: 0x0010E098 File Offset: 0x0010C298
+	// (set) Token: 0x0600475A RID: 18266 RVA: 0x0010E0E0 File Offset: 0x0010C2E0
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -42,7 +42,7 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -50,10 +50,10 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D26 RID: 3366
-	// (get) Token: 0x06004317 RID: 17175 RVA: 0x00104DF0 File Offset: 0x00102FF0
-	// (set) Token: 0x06004318 RID: 17176 RVA: 0x00104DF8 File Offset: 0x00102FF8
-	public dfDynamicFont Font
+	// Token: 0x17000DB0 RID: 3504
+	// (get) Token: 0x0600475B RID: 18267 RVA: 0x0010E100 File Offset: 0x0010C300
+	// (set) Token: 0x0600475C RID: 18268 RVA: 0x0010E108 File Offset: 0x0010C308
+	public global::dfDynamicFont Font
 	{
 		get
 		{
@@ -70,9 +70,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D27 RID: 3367
-	// (get) Token: 0x06004319 RID: 17177 RVA: 0x00104E30 File Offset: 0x00103030
-	// (set) Token: 0x0600431A RID: 17178 RVA: 0x00104E38 File Offset: 0x00103038
+	// Token: 0x17000DB1 RID: 3505
+	// (get) Token: 0x0600475D RID: 18269 RVA: 0x0010E140 File Offset: 0x0010C340
+	// (set) Token: 0x0600475E RID: 18270 RVA: 0x0010E148 File Offset: 0x0010C348
 	public string BlankTextureSprite
 	{
 		get
@@ -89,9 +89,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D28 RID: 3368
-	// (get) Token: 0x0600431B RID: 17179 RVA: 0x00104E58 File Offset: 0x00103058
-	// (set) Token: 0x0600431C RID: 17180 RVA: 0x00104E60 File Offset: 0x00103060
+	// Token: 0x17000DB2 RID: 3506
+	// (get) Token: 0x0600475F RID: 18271 RVA: 0x0010E168 File Offset: 0x0010C368
+	// (set) Token: 0x06004760 RID: 18272 RVA: 0x0010E170 File Offset: 0x0010C370
 	public string Text
 	{
 		get
@@ -111,9 +111,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D29 RID: 3369
-	// (get) Token: 0x0600431D RID: 17181 RVA: 0x00104EA8 File Offset: 0x001030A8
-	// (set) Token: 0x0600431E RID: 17182 RVA: 0x00104EB0 File Offset: 0x001030B0
+	// Token: 0x17000DB3 RID: 3507
+	// (get) Token: 0x06004761 RID: 18273 RVA: 0x0010E1B8 File Offset: 0x0010C3B8
+	// (set) Token: 0x06004762 RID: 18274 RVA: 0x0010E1C0 File Offset: 0x0010C3C0
 	public int FontSize
 	{
 		get
@@ -132,9 +132,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D2A RID: 3370
-	// (get) Token: 0x0600431F RID: 17183 RVA: 0x00104EDC File Offset: 0x001030DC
-	// (set) Token: 0x06004320 RID: 17184 RVA: 0x00104EE4 File Offset: 0x001030E4
+	// Token: 0x17000DB4 RID: 3508
+	// (get) Token: 0x06004763 RID: 18275 RVA: 0x0010E1EC File Offset: 0x0010C3EC
+	// (set) Token: 0x06004764 RID: 18276 RVA: 0x0010E1F4 File Offset: 0x0010C3F4
 	public int LineHeight
 	{
 		get
@@ -152,10 +152,10 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D2B RID: 3371
-	// (get) Token: 0x06004321 RID: 17185 RVA: 0x00104F10 File Offset: 0x00103110
-	// (set) Token: 0x06004322 RID: 17186 RVA: 0x00104F18 File Offset: 0x00103118
-	public dfTextScaleMode TextScaleMode
+	// Token: 0x17000DB5 RID: 3509
+	// (get) Token: 0x06004765 RID: 18277 RVA: 0x0010E220 File Offset: 0x0010C420
+	// (set) Token: 0x06004766 RID: 18278 RVA: 0x0010E228 File Offset: 0x0010C428
+	public global::dfTextScaleMode TextScaleMode
 	{
 		get
 		{
@@ -168,9 +168,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D2C RID: 3372
-	// (get) Token: 0x06004323 RID: 17187 RVA: 0x00104F28 File Offset: 0x00103128
-	// (set) Token: 0x06004324 RID: 17188 RVA: 0x00104F30 File Offset: 0x00103130
+	// Token: 0x17000DB6 RID: 3510
+	// (get) Token: 0x06004767 RID: 18279 RVA: 0x0010E238 File Offset: 0x0010C438
+	// (set) Token: 0x06004768 RID: 18280 RVA: 0x0010E240 File Offset: 0x0010C440
 	public bool PreserveWhitespace
 	{
 		get
@@ -187,9 +187,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D2D RID: 3373
-	// (get) Token: 0x06004325 RID: 17189 RVA: 0x00104F4C File Offset: 0x0010314C
-	// (set) Token: 0x06004326 RID: 17190 RVA: 0x00104F54 File Offset: 0x00103154
+	// Token: 0x17000DB7 RID: 3511
+	// (get) Token: 0x06004769 RID: 18281 RVA: 0x0010E25C File Offset: 0x0010C45C
+	// (set) Token: 0x0600476A RID: 18282 RVA: 0x0010E264 File Offset: 0x0010C464
 	public FontStyle FontStyle
 	{
 		get
@@ -206,10 +206,10 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D2E RID: 3374
-	// (get) Token: 0x06004327 RID: 17191 RVA: 0x00104F70 File Offset: 0x00103170
-	// (set) Token: 0x06004328 RID: 17192 RVA: 0x00104F78 File Offset: 0x00103178
-	public dfMarkupTextAlign TextAlignment
+	// Token: 0x17000DB8 RID: 3512
+	// (get) Token: 0x0600476B RID: 18283 RVA: 0x0010E280 File Offset: 0x0010C480
+	// (set) Token: 0x0600476C RID: 18284 RVA: 0x0010E288 File Offset: 0x0010C488
+	public global::dfMarkupTextAlign TextAlignment
 	{
 		get
 		{
@@ -225,9 +225,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D2F RID: 3375
-	// (get) Token: 0x06004329 RID: 17193 RVA: 0x00104F94 File Offset: 0x00103194
-	// (set) Token: 0x0600432A RID: 17194 RVA: 0x00104F9C File Offset: 0x0010319C
+	// Token: 0x17000DB9 RID: 3513
+	// (get) Token: 0x0600476D RID: 18285 RVA: 0x0010E2A4 File Offset: 0x0010C4A4
+	// (set) Token: 0x0600476E RID: 18286 RVA: 0x0010E2AC File Offset: 0x0010C4AC
 	public bool AllowScrolling
 	{
 		get
@@ -244,9 +244,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D30 RID: 3376
-	// (get) Token: 0x0600432B RID: 17195 RVA: 0x00104FB8 File Offset: 0x001031B8
-	// (set) Token: 0x0600432C RID: 17196 RVA: 0x00104FC0 File Offset: 0x001031C0
+	// Token: 0x17000DBA RID: 3514
+	// (get) Token: 0x0600476F RID: 18287 RVA: 0x0010E2C8 File Offset: 0x0010C4C8
+	// (set) Token: 0x06004770 RID: 18288 RVA: 0x0010E2D0 File Offset: 0x0010C4D0
 	public Vector2 ScrollPosition
 	{
 		get
@@ -272,10 +272,10 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D31 RID: 3377
-	// (get) Token: 0x0600432D RID: 17197 RVA: 0x00105040 File Offset: 0x00103240
-	// (set) Token: 0x0600432E RID: 17198 RVA: 0x00105048 File Offset: 0x00103248
-	public dfScrollbar HorizontalScrollbar
+	// Token: 0x17000DBB RID: 3515
+	// (get) Token: 0x06004771 RID: 18289 RVA: 0x0010E350 File Offset: 0x0010C550
+	// (set) Token: 0x06004772 RID: 18290 RVA: 0x0010E358 File Offset: 0x0010C558
+	public global::dfScrollbar HorizontalScrollbar
 	{
 		get
 		{
@@ -288,10 +288,10 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D32 RID: 3378
-	// (get) Token: 0x0600432F RID: 17199 RVA: 0x00105058 File Offset: 0x00103258
-	// (set) Token: 0x06004330 RID: 17200 RVA: 0x00105060 File Offset: 0x00103260
-	public dfScrollbar VerticalScrollbar
+	// Token: 0x17000DBC RID: 3516
+	// (get) Token: 0x06004773 RID: 18291 RVA: 0x0010E368 File Offset: 0x0010C568
+	// (set) Token: 0x06004774 RID: 18292 RVA: 0x0010E370 File Offset: 0x0010C570
+	public global::dfScrollbar VerticalScrollbar
 	{
 		get
 		{
@@ -304,8 +304,8 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D33 RID: 3379
-	// (get) Token: 0x06004331 RID: 17201 RVA: 0x00105070 File Offset: 0x00103270
+	// Token: 0x17000DBD RID: 3517
+	// (get) Token: 0x06004775 RID: 18293 RVA: 0x0010E380 File Offset: 0x0010C580
 	public Vector2 ContentSize
 	{
 		get
@@ -318,9 +318,9 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000D34 RID: 3380
-	// (get) Token: 0x06004332 RID: 17202 RVA: 0x00105090 File Offset: 0x00103290
-	// (set) Token: 0x06004333 RID: 17203 RVA: 0x00105098 File Offset: 0x00103298
+	// Token: 0x17000DBE RID: 3518
+	// (get) Token: 0x06004776 RID: 18294 RVA: 0x0010E3A0 File Offset: 0x0010C5A0
+	// (set) Token: 0x06004777 RID: 18295 RVA: 0x0010E3A8 File Offset: 0x0010C5A8
 	public bool UseScrollMomentum
 	{
 		get
@@ -334,28 +334,28 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004334 RID: 17204 RVA: 0x001050AC File Offset: 0x001032AC
+	// Token: 0x06004778 RID: 18296 RVA: 0x0010E3BC File Offset: 0x0010C5BC
 	protected internal override void OnLocalize()
 	{
 		base.OnLocalize();
 		this.Text = base.getLocalizedValue(this.text);
 	}
 
-	// Token: 0x06004335 RID: 17205 RVA: 0x001050C8 File Offset: 0x001032C8
+	// Token: 0x06004779 RID: 18297 RVA: 0x0010E3D8 File Offset: 0x0010C5D8
 	public override void Invalidate()
 	{
 		base.Invalidate();
 		this.isMarkupInvalidated = true;
 	}
 
-	// Token: 0x06004336 RID: 17206 RVA: 0x001050D8 File Offset: 0x001032D8
+	// Token: 0x0600477A RID: 18298 RVA: 0x0010E3E8 File Offset: 0x0010C5E8
 	public override void Awake()
 	{
 		base.Awake();
 		this.startSize = base.Size;
 	}
 
-	// Token: 0x06004337 RID: 17207 RVA: 0x001050EC File Offset: 0x001032EC
+	// Token: 0x0600477B RID: 18299 RVA: 0x0010E3FC File Offset: 0x0010C5FC
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -368,7 +368,7 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004338 RID: 17208 RVA: 0x0010513C File Offset: 0x0010333C
+	// Token: 0x0600477C RID: 18300 RVA: 0x0010E44C File Offset: 0x0010C64C
 	public override void Update()
 	{
 		base.Update();
@@ -379,14 +379,14 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004339 RID: 17209 RVA: 0x001051B0 File Offset: 0x001033B0
+	// Token: 0x0600477D RID: 18301 RVA: 0x0010E4C0 File Offset: 0x0010C6C0
 	public override void LateUpdate()
 	{
 		base.LateUpdate();
 		this.initialize();
 	}
 
-	// Token: 0x0600433A RID: 17210 RVA: 0x001051C0 File Offset: 0x001033C0
+	// Token: 0x0600477E RID: 18302 RVA: 0x0010E4D0 File Offset: 0x0010C6D0
 	protected internal void OnTextChanged()
 	{
 		this.Invalidate();
@@ -400,7 +400,7 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600433B RID: 17211 RVA: 0x0010520C File Offset: 0x0010340C
+	// Token: 0x0600477F RID: 18303 RVA: 0x0010E51C File Offset: 0x0010C71C
 	protected internal void OnScrollPositionChanged()
 	{
 		base.Invalidate();
@@ -414,8 +414,8 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600433C RID: 17212 RVA: 0x0010525C File Offset: 0x0010345C
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x06004780 RID: 18304 RVA: 0x0010E56C File Offset: 0x0010C76C
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
 		if (args.Used)
 		{
@@ -447,22 +447,22 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		base.OnKeyDown(args);
 	}
 
-	// Token: 0x0600433D RID: 17213 RVA: 0x00105370 File Offset: 0x00103570
-	internal override void OnDragEnd(dfDragEventArgs args)
+	// Token: 0x06004781 RID: 18305 RVA: 0x0010E680 File Offset: 0x0010C880
+	internal override void OnDragEnd(global::dfDragEventArgs args)
 	{
 		base.OnDragEnd(args);
 		this.isMouseDown = false;
 	}
 
-	// Token: 0x0600433E RID: 17214 RVA: 0x00105380 File Offset: 0x00103580
-	protected internal override void OnMouseEnter(dfMouseEventArgs args)
+	// Token: 0x06004782 RID: 18306 RVA: 0x0010E690 File Offset: 0x0010C890
+	protected internal override void OnMouseEnter(global::dfMouseEventArgs args)
 	{
 		base.OnMouseEnter(args);
 		this.touchStartPosition = args.Position;
 	}
 
-	// Token: 0x0600433F RID: 17215 RVA: 0x00105398 File Offset: 0x00103598
-	protected internal override void OnMouseDown(dfMouseEventArgs args)
+	// Token: 0x06004783 RID: 18307 RVA: 0x0010E6A8 File Offset: 0x0010C8A8
+	protected internal override void OnMouseDown(global::dfMouseEventArgs args)
 	{
 		base.OnMouseDown(args);
 		this.mouseDownTag = this.hitTestTag(args);
@@ -472,19 +472,19 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		this.isMouseDown = true;
 	}
 
-	// Token: 0x06004340 RID: 17216 RVA: 0x001053E4 File Offset: 0x001035E4
-	protected internal override void OnMouseUp(dfMouseEventArgs args)
+	// Token: 0x06004784 RID: 18308 RVA: 0x0010E6F4 File Offset: 0x0010C8F4
+	protected internal override void OnMouseUp(global::dfMouseEventArgs args)
 	{
 		base.OnMouseUp(args);
 		this.isMouseDown = false;
 		if (Vector2.Distance(this.scrollPosition, this.mouseDownScrollPosition) <= 2f && this.hitTestTag(args) == this.mouseDownTag)
 		{
-			dfMarkupTag dfMarkupTag = this.mouseDownTag;
-			while (dfMarkupTag != null && !(dfMarkupTag is dfMarkupTagAnchor))
+			global::dfMarkupTag dfMarkupTag = this.mouseDownTag;
+			while (dfMarkupTag != null && !(dfMarkupTag is global::dfMarkupTagAnchor))
 			{
-				dfMarkupTag = (dfMarkupTag.Parent as dfMarkupTag);
+				dfMarkupTag = (dfMarkupTag.Parent as global::dfMarkupTag);
 			}
-			if (dfMarkupTag is dfMarkupTagAnchor)
+			if (dfMarkupTag is global::dfMarkupTagAnchor)
 			{
 				base.Signal("OnLinkClicked", new object[]
 				{
@@ -492,7 +492,7 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 				});
 				if (this.LinkClicked != null)
 				{
-					this.LinkClicked(this, dfMarkupTag as dfMarkupTagAnchor);
+					this.LinkClicked(this, dfMarkupTag as global::dfMarkupTagAnchor);
 				}
 			}
 		}
@@ -500,15 +500,15 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		this.mouseDownScrollPosition = this.scrollPosition;
 	}
 
-	// Token: 0x06004341 RID: 17217 RVA: 0x001054A8 File Offset: 0x001036A8
-	protected internal override void OnMouseMove(dfMouseEventArgs args)
+	// Token: 0x06004785 RID: 18309 RVA: 0x0010E7B8 File Offset: 0x0010C9B8
+	protected internal override void OnMouseMove(global::dfMouseEventArgs args)
 	{
 		base.OnMouseMove(args);
 		if (!this.allowScrolling)
 		{
 			return;
 		}
-		bool flag = args is dfTouchEventArgs || this.isMouseDown;
+		bool flag = args is global::dfTouchEventArgs || this.isMouseDown;
 		if (flag && (args.Position - this.touchStartPosition).magnitude > 5f)
 		{
 			Vector2 vector = args.MoveDelta.Scale(-1f, 1f);
@@ -517,8 +517,8 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004342 RID: 17218 RVA: 0x0010554C File Offset: 0x0010374C
-	protected internal override void OnMouseWheel(dfMouseEventArgs args)
+	// Token: 0x06004786 RID: 18310 RVA: 0x0010E85C File Offset: 0x0010CA5C
+	protected internal override void OnMouseWheel(global::dfMouseEventArgs args)
 	{
 		try
 		{
@@ -541,32 +541,32 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004343 RID: 17219 RVA: 0x0010563C File Offset: 0x0010383C
+	// Token: 0x06004787 RID: 18311 RVA: 0x0010E94C File Offset: 0x0010CB4C
 	public void ScrollToTop()
 	{
 		this.ScrollPosition = new Vector2(this.scrollPosition.x, 0f);
 	}
 
-	// Token: 0x06004344 RID: 17220 RVA: 0x0010565C File Offset: 0x0010385C
+	// Token: 0x06004788 RID: 18312 RVA: 0x0010E96C File Offset: 0x0010CB6C
 	public void ScrollToBottom()
 	{
 		this.ScrollPosition = new Vector2(this.scrollPosition.x, 2.14748365E+09f);
 	}
 
-	// Token: 0x06004345 RID: 17221 RVA: 0x0010567C File Offset: 0x0010387C
+	// Token: 0x06004789 RID: 18313 RVA: 0x0010E98C File Offset: 0x0010CB8C
 	public void ScrollToLeft()
 	{
 		this.ScrollPosition = new Vector2(0f, this.scrollPosition.y);
 	}
 
-	// Token: 0x06004346 RID: 17222 RVA: 0x0010569C File Offset: 0x0010389C
+	// Token: 0x0600478A RID: 18314 RVA: 0x0010E9AC File Offset: 0x0010CBAC
 	public void ScrollToRight()
 	{
 		this.ScrollPosition = new Vector2(2.14748365E+09f, this.scrollPosition.y);
 	}
 
-	// Token: 0x06004347 RID: 17223 RVA: 0x001056BC File Offset: 0x001038BC
-	public dfList<dfRenderData> RenderMultiple()
+	// Token: 0x0600478B RID: 18315 RVA: 0x0010E9CC File Offset: 0x0010CBCC
+	public global::dfList<global::dfRenderData> RenderMultiple()
 	{
 		if (!this.isVisible || this.Font == null)
 		{
@@ -578,7 +578,7 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 			this.gatherRenderBuffers(this.viewportBox, this.buffers);
 			return this.buffers;
 		}
-		dfList<dfRenderData> result;
+		global::dfList<global::dfRenderData> result;
 		try
 		{
 			if (this.isMarkupInvalidated)
@@ -599,32 +599,32 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		return result;
 	}
 
-	// Token: 0x06004348 RID: 17224 RVA: 0x001057A0 File Offset: 0x001039A0
-	private dfMarkupTag hitTestTag(dfMouseEventArgs args)
+	// Token: 0x0600478C RID: 18316 RVA: 0x0010EAB0 File Offset: 0x0010CCB0
+	private global::dfMarkupTag hitTestTag(global::dfMouseEventArgs args)
 	{
 		Vector2 point = base.GetHitPosition(args) + this.scrollPosition;
-		dfMarkupBox dfMarkupBox = this.viewportBox.HitTest(point);
+		global::dfMarkupBox dfMarkupBox = this.viewportBox.HitTest(point);
 		if (dfMarkupBox != null)
 		{
-			dfMarkupElement dfMarkupElement = dfMarkupBox.Element;
-			while (dfMarkupElement != null && !(dfMarkupElement is dfMarkupTag))
+			global::dfMarkupElement dfMarkupElement = dfMarkupBox.Element;
+			while (dfMarkupElement != null && !(dfMarkupElement is global::dfMarkupTag))
 			{
 				dfMarkupElement = dfMarkupElement.Parent;
 			}
-			return dfMarkupElement as dfMarkupTag;
+			return dfMarkupElement as global::dfMarkupTag;
 		}
 		return null;
 	}
 
-	// Token: 0x06004349 RID: 17225 RVA: 0x00105800 File Offset: 0x00103A00
+	// Token: 0x0600478D RID: 18317 RVA: 0x0010EB10 File Offset: 0x0010CD10
 	private void processMarkup()
 	{
 		this.releaseMarkupReferences();
-		this.elements = dfMarkupParser.Parse(this, this.text);
+		this.elements = global::dfMarkupParser.Parse(this, this.text);
 		float textScaleMultiplier = this.getTextScaleMultiplier();
 		int num = Mathf.CeilToInt((float)this.FontSize * textScaleMultiplier);
 		int lineHeight = Mathf.CeilToInt((float)this.LineHeight * textScaleMultiplier);
-		dfMarkupStyle style = new dfMarkupStyle
+		global::dfMarkupStyle style = new global::dfMarkupStyle
 		{
 			Host = this,
 			Atlas = this.Atlas,
@@ -637,13 +637,13 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 			Align = this.TextAlignment,
 			PreserveWhitespace = this.preserveWhitespace
 		};
-		this.viewportBox = new dfMarkupBox(null, dfMarkupDisplayType.block, style)
+		this.viewportBox = new global::dfMarkupBox(null, global::dfMarkupDisplayType.block, style)
 		{
 			Size = base.Size
 		};
 		for (int i = 0; i < this.elements.Count; i++)
 		{
-			dfMarkupElement dfMarkupElement = this.elements[i];
+			global::dfMarkupElement dfMarkupElement = this.elements[i];
 			if (dfMarkupElement != null)
 			{
 				dfMarkupElement.PerformLayout(this.viewportBox, style);
@@ -651,21 +651,21 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600434A RID: 17226 RVA: 0x0010593C File Offset: 0x00103B3C
+	// Token: 0x0600478E RID: 18318 RVA: 0x0010EC4C File Offset: 0x0010CE4C
 	private float getTextScaleMultiplier()
 	{
-		if (this.textScaleMode == dfTextScaleMode.None || !Application.isPlaying)
+		if (this.textScaleMode == global::dfTextScaleMode.None || !Application.isPlaying)
 		{
 			return 1f;
 		}
-		if (this.textScaleMode == dfTextScaleMode.ScreenResolution)
+		if (this.textScaleMode == global::dfTextScaleMode.ScreenResolution)
 		{
 			return (float)Screen.height / (float)this.manager.FixedHeight;
 		}
 		return base.Size.y / this.startSize.y;
 	}
 
-	// Token: 0x0600434B RID: 17227 RVA: 0x001059A0 File Offset: 0x00103BA0
+	// Token: 0x0600478F RID: 18319 RVA: 0x0010ECB0 File Offset: 0x0010CEB0
 	private void releaseMarkupReferences()
 	{
 		this.mouseDownTag = null;
@@ -683,7 +683,7 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x0600434C RID: 17228 RVA: 0x00105A10 File Offset: 0x00103C10
+	// Token: 0x06004790 RID: 18320 RVA: 0x0010ED20 File Offset: 0x0010CF20
 	[HideInInspector]
 	private void initialize()
 	{
@@ -708,19 +708,19 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		this.updateScrollbars();
 	}
 
-	// Token: 0x0600434D RID: 17229 RVA: 0x00105AA4 File Offset: 0x00103CA4
-	private void vertScroll_ValueChanged(dfControl control, float value)
+	// Token: 0x06004791 RID: 18321 RVA: 0x0010EDB4 File Offset: 0x0010CFB4
+	private void vertScroll_ValueChanged(global::dfControl control, float value)
 	{
 		this.ScrollPosition = new Vector2(this.scrollPosition.x, value);
 	}
 
-	// Token: 0x0600434E RID: 17230 RVA: 0x00105AC0 File Offset: 0x00103CC0
-	private void horzScroll_ValueChanged(dfControl control, float value)
+	// Token: 0x06004792 RID: 18322 RVA: 0x0010EDD0 File Offset: 0x0010CFD0
+	private void horzScroll_ValueChanged(global::dfControl control, float value)
 	{
 		this.ScrollPosition = new Vector2(value, this.ScrollPosition.y);
 	}
 
-	// Token: 0x0600434F RID: 17231 RVA: 0x00105AE8 File Offset: 0x00103CE8
+	// Token: 0x06004793 RID: 18323 RVA: 0x0010EDF8 File Offset: 0x0010CFF8
 	private void updateScrollbars()
 	{
 		if (this.horzScrollbar != null)
@@ -739,15 +739,15 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004350 RID: 17232 RVA: 0x00105BD0 File Offset: 0x00103DD0
-	private void gatherRenderBuffers(dfMarkupBox box, dfList<dfRenderData> buffers)
+	// Token: 0x06004794 RID: 18324 RVA: 0x0010EEE0 File Offset: 0x0010D0E0
+	private void gatherRenderBuffers(global::dfMarkupBox box, global::dfList<global::dfRenderData> buffers)
 	{
-		dfIntersectionType viewportIntersection = this.getViewportIntersection(box);
-		if (viewportIntersection == dfIntersectionType.None)
+		global::dfIntersectionType viewportIntersection = this.getViewportIntersection(box);
+		if (viewportIntersection == global::dfIntersectionType.None)
 		{
 			return;
 		}
-		dfRenderData dfRenderData = box.Render();
+		global::dfRenderData dfRenderData = box.Render();
 		if (dfRenderData != null)
 		{
 			if (dfRenderData.Material == null && this.atlas != null)
@@ -757,13 +757,13 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 			float num = base.PixelsToUnits();
 			Vector2 vector = -this.scrollPosition.Scale(1f, -1f).RoundToInt();
 			Vector3 vector2 = vector + box.GetOffset().Scale(1f, -1f) + this.pivot.TransformToUpperLeft(base.Size);
-			dfList<Vector3> vertices = dfRenderData.Vertices;
+			global::dfList<Vector3> vertices = dfRenderData.Vertices;
 			Matrix4x4 localToWorldMatrix = base.transform.localToWorldMatrix;
 			for (int i = 0; i < dfRenderData.Vertices.Count; i++)
 			{
 				vertices[i] = localToWorldMatrix.MultiplyPoint((vector2 + vertices[i]) * num);
 			}
-			if (viewportIntersection == dfIntersectionType.Intersecting)
+			if (viewportIntersection == global::dfIntersectionType.Intersecting)
 			{
 				this.clipToViewport(dfRenderData);
 			}
@@ -775,142 +775,142 @@ public class dfRichTextLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06004351 RID: 17233 RVA: 0x00105D30 File Offset: 0x00103F30
-	private dfIntersectionType getViewportIntersection(dfMarkupBox box)
+	// Token: 0x06004795 RID: 18325 RVA: 0x0010F040 File Offset: 0x0010D240
+	private global::dfIntersectionType getViewportIntersection(global::dfMarkupBox box)
 	{
-		if (box.Display == dfMarkupDisplayType.none)
+		if (box.Display == global::dfMarkupDisplayType.none)
 		{
-			return dfIntersectionType.None;
+			return global::dfIntersectionType.None;
 		}
 		Vector2 size = base.Size;
 		Vector2 vector = box.GetOffset() - this.scrollPosition;
 		Vector2 vector2 = vector + box.Size;
 		if (vector2.x <= 0f || vector2.y <= 0f)
 		{
-			return dfIntersectionType.None;
+			return global::dfIntersectionType.None;
 		}
 		if (vector.x >= size.x || vector.y >= size.y)
 		{
-			return dfIntersectionType.None;
+			return global::dfIntersectionType.None;
 		}
 		if (vector.x < 0f || vector.y < 0f || vector2.x > size.x || vector2.y > size.y)
 		{
-			return dfIntersectionType.Intersecting;
+			return global::dfIntersectionType.Intersecting;
 		}
-		return dfIntersectionType.Inside;
+		return global::dfIntersectionType.Inside;
 	}
 
-	// Token: 0x06004352 RID: 17234 RVA: 0x00105E0C File Offset: 0x0010400C
-	private void clipToViewport(dfRenderData renderData)
+	// Token: 0x06004796 RID: 18326 RVA: 0x0010F11C File Offset: 0x0010D31C
+	private void clipToViewport(global::dfRenderData renderData)
 	{
 		Plane[] clippingPlanes = this.GetClippingPlanes();
 		Material material = renderData.Material;
 		Matrix4x4 transform = renderData.Transform;
-		dfRichTextLabel.clipBuffer.Clear();
-		dfClippingUtil.Clip(clippingPlanes, renderData, dfRichTextLabel.clipBuffer);
+		global::dfRichTextLabel.clipBuffer.Clear();
+		global::dfClippingUtil.Clip(clippingPlanes, renderData, global::dfRichTextLabel.clipBuffer);
 		renderData.Clear();
-		renderData.Merge(dfRichTextLabel.clipBuffer, false);
+		renderData.Merge(global::dfRichTextLabel.clipBuffer, false);
 		renderData.Material = material;
 		renderData.Transform = transform;
 	}
 
-	// Token: 0x04002356 RID: 9046
+	// Token: 0x04002579 RID: 9593
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x04002357 RID: 9047
+	// Token: 0x0400257A RID: 9594
 	[SerializeField]
-	protected dfDynamicFont font;
+	protected global::dfDynamicFont font;
 
-	// Token: 0x04002358 RID: 9048
+	// Token: 0x0400257B RID: 9595
 	[SerializeField]
 	protected string text = "Rich Text Label";
 
-	// Token: 0x04002359 RID: 9049
+	// Token: 0x0400257C RID: 9596
 	[SerializeField]
 	protected int fontSize = 16;
 
-	// Token: 0x0400235A RID: 9050
+	// Token: 0x0400257D RID: 9597
 	[SerializeField]
 	protected int lineheight = 16;
 
-	// Token: 0x0400235B RID: 9051
+	// Token: 0x0400257E RID: 9598
 	[SerializeField]
-	protected dfTextScaleMode textScaleMode;
+	protected global::dfTextScaleMode textScaleMode;
 
-	// Token: 0x0400235C RID: 9052
+	// Token: 0x0400257F RID: 9599
 	[SerializeField]
 	protected FontStyle fontStyle;
 
-	// Token: 0x0400235D RID: 9053
+	// Token: 0x04002580 RID: 9600
 	[SerializeField]
 	protected bool preserveWhitespace;
 
-	// Token: 0x0400235E RID: 9054
+	// Token: 0x04002581 RID: 9601
 	[SerializeField]
 	protected string blankTextureSprite;
 
-	// Token: 0x0400235F RID: 9055
+	// Token: 0x04002582 RID: 9602
 	[SerializeField]
-	protected dfMarkupTextAlign align;
+	protected global::dfMarkupTextAlign align;
 
-	// Token: 0x04002360 RID: 9056
+	// Token: 0x04002583 RID: 9603
 	[SerializeField]
 	protected bool allowScrolling;
 
-	// Token: 0x04002361 RID: 9057
+	// Token: 0x04002584 RID: 9604
 	[SerializeField]
-	protected dfScrollbar horzScrollbar;
+	protected global::dfScrollbar horzScrollbar;
 
-	// Token: 0x04002362 RID: 9058
+	// Token: 0x04002585 RID: 9605
 	[SerializeField]
-	protected dfScrollbar vertScrollbar;
+	protected global::dfScrollbar vertScrollbar;
 
-	// Token: 0x04002363 RID: 9059
+	// Token: 0x04002586 RID: 9606
 	[SerializeField]
 	protected bool useScrollMomentum;
 
-	// Token: 0x04002364 RID: 9060
-	private static dfRenderData clipBuffer = new dfRenderData(32);
+	// Token: 0x04002587 RID: 9607
+	private static global::dfRenderData clipBuffer = new global::dfRenderData(32);
 
-	// Token: 0x04002365 RID: 9061
-	private dfList<dfRenderData> buffers = new dfList<dfRenderData>();
+	// Token: 0x04002588 RID: 9608
+	private global::dfList<global::dfRenderData> buffers = new global::dfList<global::dfRenderData>();
 
-	// Token: 0x04002366 RID: 9062
-	private dfList<dfMarkupElement> elements;
+	// Token: 0x04002589 RID: 9609
+	private global::dfList<global::dfMarkupElement> elements;
 
-	// Token: 0x04002367 RID: 9063
-	private dfMarkupBox viewportBox;
+	// Token: 0x0400258A RID: 9610
+	private global::dfMarkupBox viewportBox;
 
-	// Token: 0x04002368 RID: 9064
-	private dfMarkupTag mouseDownTag;
+	// Token: 0x0400258B RID: 9611
+	private global::dfMarkupTag mouseDownTag;
 
-	// Token: 0x04002369 RID: 9065
+	// Token: 0x0400258C RID: 9612
 	private Vector2 mouseDownScrollPosition = Vector2.zero;
 
-	// Token: 0x0400236A RID: 9066
+	// Token: 0x0400258D RID: 9613
 	private Vector2 scrollPosition = Vector2.zero;
 
-	// Token: 0x0400236B RID: 9067
+	// Token: 0x0400258E RID: 9614
 	private bool initialized;
 
-	// Token: 0x0400236C RID: 9068
+	// Token: 0x0400258F RID: 9615
 	private bool isMouseDown;
 
-	// Token: 0x0400236D RID: 9069
+	// Token: 0x04002590 RID: 9616
 	private Vector2 touchStartPosition = Vector2.zero;
 
-	// Token: 0x0400236E RID: 9070
+	// Token: 0x04002591 RID: 9617
 	private Vector2 scrollMomentum = Vector2.zero;
 
-	// Token: 0x0400236F RID: 9071
+	// Token: 0x04002592 RID: 9618
 	private bool isMarkupInvalidated = true;
 
-	// Token: 0x04002370 RID: 9072
+	// Token: 0x04002593 RID: 9619
 	private Vector2 startSize = Vector2.zero;
 
-	// Token: 0x020008E2 RID: 2274
-	// (Invoke) Token: 0x06004D60 RID: 19808
-	[dfEventCategory("Markup")]
-	public delegate void LinkClickEventHandler(dfRichTextLabel sender, dfMarkupTagAnchor tag);
+	// Token: 0x0200080D RID: 2061
+	// (Invoke) Token: 0x06004798 RID: 18328
+	[global::dfEventCategory("Markup")]
+	public delegate void LinkClickEventHandler(global::dfRichTextLabel sender, global::dfMarkupTagAnchor tag);
 }

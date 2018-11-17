@@ -3,12 +3,12 @@ using Facepunch.Actor;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200066A RID: 1642
-[NGCAutoAddScript]
-public class SleepingAvatar : DeployableObject, IServerSaveable
+// Token: 0x0200072E RID: 1838
+[global::NGCAutoAddScript]
+public class SleepingAvatar : global::DeployableObject, global::IServerSaveable
 {
-	// Token: 0x17000B22 RID: 2850
-	// (get) Token: 0x06003908 RID: 14600 RVA: 0x000D1ABC File Offset: 0x000CFCBC
+	// Token: 0x17000BA4 RID: 2980
+	// (get) Token: 0x06003CFC RID: 15612 RVA: 0x000DA49C File Offset: 0x000D869C
 	public MeshRenderer footRenderer
 	{
 		get
@@ -17,8 +17,8 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x17000B23 RID: 2851
-	// (get) Token: 0x06003909 RID: 14601 RVA: 0x000D1AF0 File Offset: 0x000CFCF0
+	// Token: 0x17000BA5 RID: 2981
+	// (get) Token: 0x06003CFD RID: 15613 RVA: 0x000DA4D0 File Offset: 0x000D86D0
 	public MeshRenderer legRenderer
 	{
 		get
@@ -27,8 +27,8 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x17000B24 RID: 2852
-	// (get) Token: 0x0600390A RID: 14602 RVA: 0x000D1B24 File Offset: 0x000CFD24
+	// Token: 0x17000BA6 RID: 2982
+	// (get) Token: 0x06003CFE RID: 15614 RVA: 0x000DA504 File Offset: 0x000D8704
 	public MeshRenderer torsoRenderer
 	{
 		get
@@ -37,8 +37,8 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x17000B25 RID: 2853
-	// (get) Token: 0x0600390B RID: 14603 RVA: 0x000D1B58 File Offset: 0x000CFD58
+	// Token: 0x17000BA7 RID: 2983
+	// (get) Token: 0x06003CFF RID: 15615 RVA: 0x000DA538 File Offset: 0x000D8738
 	public MeshRenderer headRenderer
 	{
 		get
@@ -47,8 +47,8 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x0600390C RID: 14604 RVA: 0x000D1B8C File Offset: 0x000CFD8C
-	[NGCRPC]
+	// Token: 0x06003D00 RID: 15616 RVA: 0x000DA56C File Offset: 0x000D876C
+	[global::NGCRPC]
 	protected void SAAM(int footArmorUID, int legArmorUID, int torsoArmorUID, int headArmorUID)
 	{
 		if (footArmorUID == 0)
@@ -57,7 +57,7 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 		else
 		{
-			this.footArmor = (ArmorDataBlock)DatablockDictionary.GetByUniqueID(footArmorUID);
+			this.footArmor = (global::ArmorDataBlock)global::DatablockDictionary.GetByUniqueID(footArmorUID);
 		}
 		if (legArmorUID == 0)
 		{
@@ -65,7 +65,7 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 		else
 		{
-			this.legArmor = (ArmorDataBlock)DatablockDictionary.GetByUniqueID(legArmorUID);
+			this.legArmor = (global::ArmorDataBlock)global::DatablockDictionary.GetByUniqueID(legArmorUID);
 		}
 		if (torsoArmorUID == 0)
 		{
@@ -73,7 +73,7 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 		else
 		{
-			this.torsoArmor = (ArmorDataBlock)DatablockDictionary.GetByUniqueID(torsoArmorUID);
+			this.torsoArmor = (global::ArmorDataBlock)global::DatablockDictionary.GetByUniqueID(torsoArmorUID);
 		}
 		if (headArmorUID == 0)
 		{
@@ -81,14 +81,14 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 		else
 		{
-			this.headArmor = (ArmorDataBlock)DatablockDictionary.GetByUniqueID(headArmorUID);
+			this.headArmor = (global::ArmorDataBlock)global::DatablockDictionary.GetByUniqueID(headArmorUID);
 		}
 		this.RebindRenderers();
 	}
 
-	// Token: 0x0600390D RID: 14605 RVA: 0x000D1C30 File Offset: 0x000CFE30
-	[NGCRPC]
-	protected void SACH(NetEntityID makingForCharacterIDNow, NetworkMessageInfo info)
+	// Token: 0x06003D01 RID: 15617 RVA: 0x000DA610 File Offset: 0x000D8810
+	[global::NGCRPC]
+	protected void SACH(global::NetEntityID makingForCharacterIDNow, uLink.NetworkMessageInfo info)
 	{
 		AudioSource audio = base.audio;
 		if (audio)
@@ -97,9 +97,9 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x0600390E RID: 14606 RVA: 0x000D1C58 File Offset: 0x000CFE58
-	[NGCRPC]
-	protected void SAKL(NetworkMessageInfo info)
+	// Token: 0x06003D02 RID: 15618 RVA: 0x000DA638 File Offset: 0x000D8838
+	[global::NGCRPC]
+	protected void SAKL(uLink.NetworkMessageInfo info)
 	{
 		if (this.CreateRagdoll())
 		{
@@ -122,8 +122,8 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x0600390F RID: 14607 RVA: 0x000D1CF4 File Offset: 0x000CFEF4
-	private static void BindRenderer<TArmorModel>(ArmorModelRenderer prefabRenderer, ArmorDataBlock armor, MeshFilter filter, MeshRenderer renderer) where TArmorModel : ArmorModel<TArmorModel>, new()
+	// Token: 0x06003D03 RID: 15619 RVA: 0x000DA6D4 File Offset: 0x000D88D4
+	private static void BindRenderer<TArmorModel>(global::ArmorModelRenderer prefabRenderer, global::ArmorDataBlock armor, MeshFilter filter, MeshRenderer renderer) where TArmorModel : global::ArmorModel<TArmorModel>, new()
 	{
 		TArmorModel tarmorModel;
 		if (armor)
@@ -146,7 +146,7 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		{
 			return;
 		}
-		if (ArmorModelRenderer.Censored && tarmorModel.censoredModel)
+		if (global::ArmorModelRenderer.Censored && tarmorModel.censoredModel)
 		{
 			tarmorModel = tarmorModel.censoredModel;
 		}
@@ -158,22 +158,22 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x06003910 RID: 14608 RVA: 0x000D1DE0 File Offset: 0x000CFFE0
+	// Token: 0x06003D04 RID: 15620 RVA: 0x000DA7C0 File Offset: 0x000D89C0
 	private void RebindRenderers()
 	{
-		ArmorModelRenderer prefabRenderer = (!this.ragdollPrefab) ? null : this.ragdollPrefab.GetLocal<ArmorModelRenderer>();
-		SleepingAvatar.BindRenderer<ArmorModelFeet>(prefabRenderer, this.footArmor, this.footMeshFilter, this.footRenderer);
-		SleepingAvatar.BindRenderer<ArmorModelLegs>(prefabRenderer, this.legArmor, this.legMeshFilter, this.legRenderer);
-		SleepingAvatar.BindRenderer<ArmorModelTorso>(prefabRenderer, this.torsoArmor, this.torsoMeshFilter, this.torsoRenderer);
-		SleepingAvatar.BindRenderer<ArmorModelHead>(prefabRenderer, this.headArmor, this.headMeshFilter, this.headRenderer);
+		global::ArmorModelRenderer prefabRenderer = (!this.ragdollPrefab) ? null : this.ragdollPrefab.GetLocal<global::ArmorModelRenderer>();
+		global::SleepingAvatar.BindRenderer<global::ArmorModelFeet>(prefabRenderer, this.footArmor, this.footMeshFilter, this.footRenderer);
+		global::SleepingAvatar.BindRenderer<global::ArmorModelLegs>(prefabRenderer, this.legArmor, this.legMeshFilter, this.legRenderer);
+		global::SleepingAvatar.BindRenderer<global::ArmorModelTorso>(prefabRenderer, this.torsoArmor, this.torsoMeshFilter, this.torsoRenderer);
+		global::SleepingAvatar.BindRenderer<global::ArmorModelHead>(prefabRenderer, this.headArmor, this.headMeshFilter, this.headRenderer);
 	}
 
-	// Token: 0x06003911 RID: 14609 RVA: 0x000D1E70 File Offset: 0x000D0070
+	// Token: 0x06003D05 RID: 15621 RVA: 0x000DA850 File Offset: 0x000D8A50
 	public static void RebindAllRenderers()
 	{
-		foreach (Object @object in Object.FindObjectsOfType(typeof(SleepingAvatar)))
+		foreach (Object @object in Object.FindObjectsOfType(typeof(global::SleepingAvatar)))
 		{
-			SleepingAvatar sleepingAvatar = (SleepingAvatar)@object;
+			global::SleepingAvatar sleepingAvatar = (global::SleepingAvatar)@object;
 			if (sleepingAvatar)
 			{
 				sleepingAvatar.RebindRenderers();
@@ -181,8 +181,8 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		}
 	}
 
-	// Token: 0x06003912 RID: 14610 RVA: 0x000D1EC0 File Offset: 0x000D00C0
-	private static bool BindArmorMap<TArmorModel>(ArmorDataBlock armor, ref ArmorModelMemberMap map) where TArmorModel : ArmorModel, new()
+	// Token: 0x06003D06 RID: 15622 RVA: 0x000DA8A0 File Offset: 0x000D8AA0
+	private static bool BindArmorMap<TArmorModel>(global::ArmorDataBlock armor, ref global::ArmorModelMemberMap map) where TArmorModel : global::ArmorModel, new()
 	{
 		if (armor)
 		{
@@ -196,12 +196,12 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		return false;
 	}
 
-	// Token: 0x06003913 RID: 14611 RVA: 0x000D1EFC File Offset: 0x000D00FC
+	// Token: 0x06003D07 RID: 15623 RVA: 0x000DA8DC File Offset: 0x000D8ADC
 	private bool CreateRagdoll()
 	{
 		if (this.ragdollPrefab)
 		{
-			ArmorModelRenderer local = this.ragdollPrefab.GetLocal<ArmorModelRenderer>();
+			global::ArmorModelRenderer local = this.ragdollPrefab.GetLocal<global::ArmorModelRenderer>();
 			if (local)
 			{
 				ActorRig actorRig = local.actorRig;
@@ -211,18 +211,18 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 					float num;
 					if (actorRig.FindPoseClip("sleep", ref animationClip, ref num))
 					{
-						this.ragdollInstance = (Object.Instantiate(this.ragdollPrefab, base.transform.position, base.transform.rotation) as Ragdoll);
+						this.ragdollInstance = (Object.Instantiate(this.ragdollPrefab, base.transform.position, base.transform.rotation) as global::Ragdoll);
 						this.ragdollInstance.sourceMain = this;
 						GameObject gameObject = this.ragdollInstance.gameObject;
 						Object.Destroy(gameObject, 80f);
 						gameObject.SampleAnimation(animationClip, num);
-						local = this.ragdollInstance.GetLocal<ArmorModelRenderer>();
-						ArmorModelMemberMap map = default(ArmorModelMemberMap);
+						local = this.ragdollInstance.GetLocal<global::ArmorModelRenderer>();
+						global::ArmorModelMemberMap map = default(global::ArmorModelMemberMap);
 						bool flag = false;
-						flag |= SleepingAvatar.BindArmorMap<ArmorModelFeet>(this.footArmor, ref map);
-						flag |= SleepingAvatar.BindArmorMap<ArmorModelLegs>(this.legArmor, ref map);
-						flag |= SleepingAvatar.BindArmorMap<ArmorModelTorso>(this.torsoArmor, ref map);
-						flag |= SleepingAvatar.BindArmorMap<ArmorModelHead>(this.headArmor, ref map);
+						flag |= global::SleepingAvatar.BindArmorMap<global::ArmorModelFeet>(this.footArmor, ref map);
+						flag |= global::SleepingAvatar.BindArmorMap<global::ArmorModelLegs>(this.legArmor, ref map);
+						flag |= global::SleepingAvatar.BindArmorMap<global::ArmorModelTorso>(this.torsoArmor, ref map);
+						flag |= global::SleepingAvatar.BindArmorMap<global::ArmorModelHead>(this.headArmor, ref map);
 						if (flag)
 						{
 							local.BindArmorModels(map);
@@ -235,50 +235,50 @@ public class SleepingAvatar : DeployableObject, IServerSaveable
 		return false;
 	}
 
-	// Token: 0x04001D2E RID: 7470
+	// Token: 0x04001F26 RID: 7974
 	private const string kPoseName = "sleep";
 
-	// Token: 0x04001D2F RID: 7471
+	// Token: 0x04001F27 RID: 7975
 	protected const string ArmorConfigRPC = "SAAM";
 
-	// Token: 0x04001D30 RID: 7472
+	// Token: 0x04001F28 RID: 7976
 	protected const string SettingLiveCharacterNowRPC = "SACH";
 
-	// Token: 0x04001D31 RID: 7473
+	// Token: 0x04001F29 RID: 7977
 	protected const string HasDiedNowRPC = "SAKL";
 
-	// Token: 0x04001D32 RID: 7474
+	// Token: 0x04001F2A RID: 7978
 	[NonSerialized]
-	public ArmorDataBlock footArmor;
+	public global::ArmorDataBlock footArmor;
 
-	// Token: 0x04001D33 RID: 7475
+	// Token: 0x04001F2B RID: 7979
 	[NonSerialized]
-	public ArmorDataBlock legArmor;
+	public global::ArmorDataBlock legArmor;
 
-	// Token: 0x04001D34 RID: 7476
+	// Token: 0x04001F2C RID: 7980
 	[NonSerialized]
-	public ArmorDataBlock torsoArmor;
+	public global::ArmorDataBlock torsoArmor;
 
-	// Token: 0x04001D35 RID: 7477
+	// Token: 0x04001F2D RID: 7981
 	[NonSerialized]
-	public ArmorDataBlock headArmor;
+	public global::ArmorDataBlock headArmor;
 
-	// Token: 0x04001D36 RID: 7478
+	// Token: 0x04001F2E RID: 7982
 	public MeshFilter footMeshFilter;
 
-	// Token: 0x04001D37 RID: 7479
+	// Token: 0x04001F2F RID: 7983
 	public MeshFilter legMeshFilter;
 
-	// Token: 0x04001D38 RID: 7480
+	// Token: 0x04001F30 RID: 7984
 	public MeshFilter torsoMeshFilter;
 
-	// Token: 0x04001D39 RID: 7481
+	// Token: 0x04001F31 RID: 7985
 	public MeshFilter headMeshFilter;
 
-	// Token: 0x04001D3A RID: 7482
-	public Ragdoll ragdollPrefab;
+	// Token: 0x04001F32 RID: 7986
+	public global::Ragdoll ragdollPrefab;
 
-	// Token: 0x04001D3B RID: 7483
+	// Token: 0x04001F33 RID: 7987
 	[NonSerialized]
-	private Ragdoll ragdollInstance;
+	private global::Ragdoll ragdollInstance;
 }

@@ -1,32 +1,32 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000147 RID: 327
+// Token: 0x02000171 RID: 369
 public abstract class IDLocalCharacter : IDLocal
 {
-	// Token: 0x17000274 RID: 628
-	// (get) Token: 0x06000953 RID: 2387 RVA: 0x00027820 File Offset: 0x00025A20
-	public Character idMain
+	// Token: 0x170002B6 RID: 694
+	// (get) Token: 0x06000A79 RID: 2681 RVA: 0x0002B59C File Offset: 0x0002979C
+	public global::Character idMain
 	{
 		get
 		{
-			return (Character)this.idMain;
+			return (global::Character)this.idMain;
 		}
 	}
 
-	// Token: 0x17000275 RID: 629
-	// (get) Token: 0x06000954 RID: 2388 RVA: 0x00027830 File Offset: 0x00025A30
-	public Character character
+	// Token: 0x170002B7 RID: 695
+	// (get) Token: 0x06000A7A RID: 2682 RVA: 0x0002B5AC File Offset: 0x000297AC
+	public global::Character character
 	{
 		get
 		{
-			return (Character)this.idMain;
+			return (global::Character)this.idMain;
 		}
 	}
 
-	// Token: 0x17000276 RID: 630
-	// (get) Token: 0x06000955 RID: 2389 RVA: 0x00027840 File Offset: 0x00025A40
-	public HitBoxSystem hitBoxSystem
+	// Token: 0x170002B8 RID: 696
+	// (get) Token: 0x06000A7B RID: 2683 RVA: 0x0002B5BC File Offset: 0x000297BC
+	public global::HitBoxSystem hitBoxSystem
 	{
 		get
 		{
@@ -34,9 +34,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000277 RID: 631
-	// (get) Token: 0x06000956 RID: 2390 RVA: 0x00027850 File Offset: 0x00025A50
-	public RecoilSimulation recoilSimulation
+	// Token: 0x170002B9 RID: 697
+	// (get) Token: 0x06000A7C RID: 2684 RVA: 0x0002B5CC File Offset: 0x000297CC
+	public global::RecoilSimulation recoilSimulation
 	{
 		get
 		{
@@ -44,9 +44,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000278 RID: 632
-	// (get) Token: 0x06000957 RID: 2391 RVA: 0x00027860 File Offset: 0x00025A60
-	public PlayerClient playerClient
+	// Token: 0x170002BA RID: 698
+	// (get) Token: 0x06000A7D RID: 2685 RVA: 0x0002B5DC File Offset: 0x000297DC
+	public global::PlayerClient playerClient
 	{
 		get
 		{
@@ -54,8 +54,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000279 RID: 633
-	// (get) Token: 0x06000958 RID: 2392 RVA: 0x00027870 File Offset: 0x00025A70
+	// Token: 0x170002BB RID: 699
+	// (get) Token: 0x06000A7E RID: 2686 RVA: 0x0002B5EC File Offset: 0x000297EC
 	public bool controlled
 	{
 		get
@@ -64,8 +64,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700027A RID: 634
-	// (get) Token: 0x06000959 RID: 2393 RVA: 0x00027880 File Offset: 0x00025A80
+	// Token: 0x170002BC RID: 700
+	// (get) Token: 0x06000A7F RID: 2687 RVA: 0x0002B5FC File Offset: 0x000297FC
 	public bool playerControlled
 	{
 		get
@@ -74,8 +74,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700027B RID: 635
-	// (get) Token: 0x0600095A RID: 2394 RVA: 0x00027890 File Offset: 0x00025A90
+	// Token: 0x170002BD RID: 701
+	// (get) Token: 0x06000A80 RID: 2688 RVA: 0x0002B60C File Offset: 0x0002980C
 	public bool aiControlled
 	{
 		get
@@ -84,8 +84,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700027C RID: 636
-	// (get) Token: 0x0600095B RID: 2395 RVA: 0x000278A0 File Offset: 0x00025AA0
+	// Token: 0x170002BE RID: 702
+	// (get) Token: 0x06000A81 RID: 2689 RVA: 0x0002B61C File Offset: 0x0002981C
 	public bool localPlayerControlled
 	{
 		get
@@ -94,8 +94,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700027D RID: 637
-	// (get) Token: 0x0600095C RID: 2396 RVA: 0x000278B0 File Offset: 0x00025AB0
+	// Token: 0x170002BF RID: 703
+	// (get) Token: 0x06000A82 RID: 2690 RVA: 0x0002B62C File Offset: 0x0002982C
 	public bool remotePlayerControlled
 	{
 		get
@@ -104,8 +104,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700027E RID: 638
-	// (get) Token: 0x0600095D RID: 2397 RVA: 0x000278C0 File Offset: 0x00025AC0
+	// Token: 0x170002C0 RID: 704
+	// (get) Token: 0x06000A83 RID: 2691 RVA: 0x0002B63C File Offset: 0x0002983C
 	public bool localAIControlled
 	{
 		get
@@ -114,8 +114,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700027F RID: 639
-	// (get) Token: 0x0600095E RID: 2398 RVA: 0x000278D0 File Offset: 0x00025AD0
+	// Token: 0x170002C1 RID: 705
+	// (get) Token: 0x06000A84 RID: 2692 RVA: 0x0002B64C File Offset: 0x0002984C
 	public bool remoteAIControlled
 	{
 		get
@@ -124,8 +124,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000280 RID: 640
-	// (get) Token: 0x0600095F RID: 2399 RVA: 0x000278E0 File Offset: 0x00025AE0
+	// Token: 0x170002C2 RID: 706
+	// (get) Token: 0x06000A85 RID: 2693 RVA: 0x0002B65C File Offset: 0x0002985C
 	public bool localControlled
 	{
 		get
@@ -134,8 +134,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000281 RID: 641
-	// (get) Token: 0x06000960 RID: 2400 RVA: 0x000278F0 File Offset: 0x00025AF0
+	// Token: 0x170002C3 RID: 707
+	// (get) Token: 0x06000A86 RID: 2694 RVA: 0x0002B66C File Offset: 0x0002986C
 	public bool remoteControlled
 	{
 		get
@@ -144,9 +144,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000282 RID: 642
-	// (get) Token: 0x06000961 RID: 2401 RVA: 0x00027900 File Offset: 0x00025B00
-	public Controllable controllable
+	// Token: 0x170002C4 RID: 708
+	// (get) Token: 0x06000A87 RID: 2695 RVA: 0x0002B67C File Offset: 0x0002987C
+	public global::Controllable controllable
 	{
 		get
 		{
@@ -154,9 +154,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000283 RID: 643
-	// (get) Token: 0x06000962 RID: 2402 RVA: 0x00027910 File Offset: 0x00025B10
-	public Controllable controlledControllable
+	// Token: 0x170002C5 RID: 709
+	// (get) Token: 0x06000A88 RID: 2696 RVA: 0x0002B68C File Offset: 0x0002988C
+	public global::Controllable controlledControllable
 	{
 		get
 		{
@@ -164,9 +164,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000284 RID: 644
-	// (get) Token: 0x06000963 RID: 2403 RVA: 0x00027920 File Offset: 0x00025B20
-	public Controllable playerControlledControllable
+	// Token: 0x170002C6 RID: 710
+	// (get) Token: 0x06000A89 RID: 2697 RVA: 0x0002B69C File Offset: 0x0002989C
+	public global::Controllable playerControlledControllable
 	{
 		get
 		{
@@ -174,9 +174,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000285 RID: 645
-	// (get) Token: 0x06000964 RID: 2404 RVA: 0x00027930 File Offset: 0x00025B30
-	public Controllable aiControlledControllable
+	// Token: 0x170002C7 RID: 711
+	// (get) Token: 0x06000A8A RID: 2698 RVA: 0x0002B6AC File Offset: 0x000298AC
+	public global::Controllable aiControlledControllable
 	{
 		get
 		{
@@ -184,9 +184,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000286 RID: 646
-	// (get) Token: 0x06000965 RID: 2405 RVA: 0x00027940 File Offset: 0x00025B40
-	public Controllable localPlayerControlledControllable
+	// Token: 0x170002C8 RID: 712
+	// (get) Token: 0x06000A8B RID: 2699 RVA: 0x0002B6BC File Offset: 0x000298BC
+	public global::Controllable localPlayerControlledControllable
 	{
 		get
 		{
@@ -194,9 +194,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000287 RID: 647
-	// (get) Token: 0x06000966 RID: 2406 RVA: 0x00027950 File Offset: 0x00025B50
-	public Controllable localAIControlledControllable
+	// Token: 0x170002C9 RID: 713
+	// (get) Token: 0x06000A8C RID: 2700 RVA: 0x0002B6CC File Offset: 0x000298CC
+	public global::Controllable localAIControlledControllable
 	{
 		get
 		{
@@ -204,9 +204,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000288 RID: 648
-	// (get) Token: 0x06000967 RID: 2407 RVA: 0x00027960 File Offset: 0x00025B60
-	public Controllable remotePlayerControlledControllable
+	// Token: 0x170002CA RID: 714
+	// (get) Token: 0x06000A8D RID: 2701 RVA: 0x0002B6DC File Offset: 0x000298DC
+	public global::Controllable remotePlayerControlledControllable
 	{
 		get
 		{
@@ -214,9 +214,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000289 RID: 649
-	// (get) Token: 0x06000968 RID: 2408 RVA: 0x00027970 File Offset: 0x00025B70
-	public Controllable remoteAIControlledControllable
+	// Token: 0x170002CB RID: 715
+	// (get) Token: 0x06000A8E RID: 2702 RVA: 0x0002B6EC File Offset: 0x000298EC
+	public global::Controllable remoteAIControlledControllable
 	{
 		get
 		{
@@ -224,8 +224,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700028A RID: 650
-	// (get) Token: 0x06000969 RID: 2409 RVA: 0x00027980 File Offset: 0x00025B80
+	// Token: 0x170002CC RID: 716
+	// (get) Token: 0x06000A8F RID: 2703 RVA: 0x0002B6FC File Offset: 0x000298FC
 	public string npcName
 	{
 		get
@@ -234,9 +234,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700028B RID: 651
-	// (get) Token: 0x0600096A RID: 2410 RVA: 0x00027990 File Offset: 0x00025B90
-	public Character previousCharacter
+	// Token: 0x170002CD RID: 717
+	// (get) Token: 0x06000A90 RID: 2704 RVA: 0x0002B70C File Offset: 0x0002990C
+	public global::Character previousCharacter
 	{
 		get
 		{
@@ -244,9 +244,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700028C RID: 652
-	// (get) Token: 0x0600096B RID: 2411 RVA: 0x000279A0 File Offset: 0x00025BA0
-	public Character rootCharacter
+	// Token: 0x170002CE RID: 718
+	// (get) Token: 0x06000A91 RID: 2705 RVA: 0x0002B71C File Offset: 0x0002991C
+	public global::Character rootCharacter
 	{
 		get
 		{
@@ -254,9 +254,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700028D RID: 653
-	// (get) Token: 0x0600096C RID: 2412 RVA: 0x000279B0 File Offset: 0x00025BB0
-	public Character nextCharacter
+	// Token: 0x170002CF RID: 719
+	// (get) Token: 0x06000A92 RID: 2706 RVA: 0x0002B72C File Offset: 0x0002992C
+	public global::Character nextCharacter
 	{
 		get
 		{
@@ -264,9 +264,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700028E RID: 654
-	// (get) Token: 0x0600096D RID: 2413 RVA: 0x000279C0 File Offset: 0x00025BC0
-	public Character masterCharacter
+	// Token: 0x170002D0 RID: 720
+	// (get) Token: 0x06000A93 RID: 2707 RVA: 0x0002B73C File Offset: 0x0002993C
+	public global::Character masterCharacter
 	{
 		get
 		{
@@ -274,9 +274,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700028F RID: 655
-	// (get) Token: 0x0600096E RID: 2414 RVA: 0x000279D0 File Offset: 0x00025BD0
-	public Controllable masterControllable
+	// Token: 0x170002D1 RID: 721
+	// (get) Token: 0x06000A94 RID: 2708 RVA: 0x0002B74C File Offset: 0x0002994C
+	public global::Controllable masterControllable
 	{
 		get
 		{
@@ -284,9 +284,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000290 RID: 656
-	// (get) Token: 0x0600096F RID: 2415 RVA: 0x000279E0 File Offset: 0x00025BE0
-	public Controllable rootControllable
+	// Token: 0x170002D2 RID: 722
+	// (get) Token: 0x06000A95 RID: 2709 RVA: 0x0002B75C File Offset: 0x0002995C
+	public global::Controllable rootControllable
 	{
 		get
 		{
@@ -294,9 +294,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000291 RID: 657
-	// (get) Token: 0x06000970 RID: 2416 RVA: 0x000279F0 File Offset: 0x00025BF0
-	public Controllable nextControllable
+	// Token: 0x170002D3 RID: 723
+	// (get) Token: 0x06000A96 RID: 2710 RVA: 0x0002B76C File Offset: 0x0002996C
+	public global::Controllable nextControllable
 	{
 		get
 		{
@@ -304,9 +304,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000292 RID: 658
-	// (get) Token: 0x06000971 RID: 2417 RVA: 0x00027A00 File Offset: 0x00025C00
-	public Controllable previousControllable
+	// Token: 0x170002D4 RID: 724
+	// (get) Token: 0x06000A97 RID: 2711 RVA: 0x0002B77C File Offset: 0x0002997C
+	public global::Controllable previousControllable
 	{
 		get
 		{
@@ -314,8 +314,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000293 RID: 659
-	// (get) Token: 0x06000972 RID: 2418 RVA: 0x00027A10 File Offset: 0x00025C10
+	// Token: 0x170002D5 RID: 725
+	// (get) Token: 0x06000A98 RID: 2712 RVA: 0x0002B78C File Offset: 0x0002998C
 	public int controlDepth
 	{
 		get
@@ -324,8 +324,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000294 RID: 660
-	// (get) Token: 0x06000973 RID: 2419 RVA: 0x00027A20 File Offset: 0x00025C20
+	// Token: 0x170002D6 RID: 726
+	// (get) Token: 0x06000A99 RID: 2713 RVA: 0x0002B79C File Offset: 0x0002999C
 	public int controlCount
 	{
 		get
@@ -334,8 +334,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000295 RID: 661
-	// (get) Token: 0x06000974 RID: 2420 RVA: 0x00027A30 File Offset: 0x00025C30
+	// Token: 0x170002D7 RID: 727
+	// (get) Token: 0x06000A9A RID: 2714 RVA: 0x0002B7AC File Offset: 0x000299AC
 	public string controllerClassName
 	{
 		get
@@ -344,8 +344,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x17000296 RID: 662
-	// (get) Token: 0x06000975 RID: 2421 RVA: 0x00027A40 File Offset: 0x00025C40
+	// Token: 0x170002D8 RID: 728
+	// (get) Token: 0x06000A9B RID: 2715 RVA: 0x0002B7BC File Offset: 0x000299BC
 	public bool controlOverridden
 	{
 		get
@@ -354,44 +354,44 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x06000976 RID: 2422 RVA: 0x00027A50 File Offset: 0x00025C50
-	public bool ControlOverriddenBy(Controllable controllable)
+	// Token: 0x06000A9C RID: 2716 RVA: 0x0002B7CC File Offset: 0x000299CC
+	public bool ControlOverriddenBy(global::Controllable controllable)
 	{
 		return this.idMain.ControlOverriddenBy(controllable);
 	}
 
-	// Token: 0x06000977 RID: 2423 RVA: 0x00027A60 File Offset: 0x00025C60
-	public bool ControlOverriddenBy(Controller controller)
+	// Token: 0x06000A9D RID: 2717 RVA: 0x0002B7DC File Offset: 0x000299DC
+	public bool ControlOverriddenBy(global::Controller controller)
 	{
 		return this.idMain.ControlOverriddenBy(controller);
 	}
 
-	// Token: 0x06000978 RID: 2424 RVA: 0x00027A70 File Offset: 0x00025C70
-	public bool ControlOverriddenBy(Character character)
+	// Token: 0x06000A9E RID: 2718 RVA: 0x0002B7EC File Offset: 0x000299EC
+	public bool ControlOverriddenBy(global::Character character)
 	{
 		return this.idMain.ControlOverriddenBy(character);
 	}
 
-	// Token: 0x06000979 RID: 2425 RVA: 0x00027A80 File Offset: 0x00025C80
+	// Token: 0x06000A9F RID: 2719 RVA: 0x0002B7FC File Offset: 0x000299FC
 	public bool ControlOverriddenBy(IDMain main)
 	{
 		return this.idMain.ControlOverriddenBy(main);
 	}
 
-	// Token: 0x0600097A RID: 2426 RVA: 0x00027A90 File Offset: 0x00025C90
+	// Token: 0x06000AA0 RID: 2720 RVA: 0x0002B80C File Offset: 0x00029A0C
 	public bool ControlOverriddenBy(IDBase idBase)
 	{
 		return this.idMain.ControlOverriddenBy(idBase);
 	}
 
-	// Token: 0x0600097B RID: 2427 RVA: 0x00027AA0 File Offset: 0x00025CA0
-	public bool ControlOverriddenBy(IDLocalCharacter idLocal)
+	// Token: 0x06000AA1 RID: 2721 RVA: 0x0002B81C File Offset: 0x00029A1C
+	public bool ControlOverriddenBy(global::IDLocalCharacter idLocal)
 	{
 		return this.idMain.ControlOverriddenBy(idLocal);
 	}
 
-	// Token: 0x17000297 RID: 663
-	// (get) Token: 0x0600097C RID: 2428 RVA: 0x00027AB0 File Offset: 0x00025CB0
+	// Token: 0x170002D9 RID: 729
+	// (get) Token: 0x06000AA2 RID: 2722 RVA: 0x0002B82C File Offset: 0x00029A2C
 	public bool overridingControl
 	{
 		get
@@ -400,44 +400,44 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x0600097D RID: 2429 RVA: 0x00027AC0 File Offset: 0x00025CC0
-	public bool OverridingControlOf(Controllable controllable)
+	// Token: 0x06000AA3 RID: 2723 RVA: 0x0002B83C File Offset: 0x00029A3C
+	public bool OverridingControlOf(global::Controllable controllable)
 	{
 		return this.idMain.OverridingControlOf(controllable);
 	}
 
-	// Token: 0x0600097E RID: 2430 RVA: 0x00027AD0 File Offset: 0x00025CD0
-	public bool OverridingControlOf(Controller controller)
+	// Token: 0x06000AA4 RID: 2724 RVA: 0x0002B84C File Offset: 0x00029A4C
+	public bool OverridingControlOf(global::Controller controller)
 	{
 		return this.idMain.OverridingControlOf(controller);
 	}
 
-	// Token: 0x0600097F RID: 2431 RVA: 0x00027AE0 File Offset: 0x00025CE0
-	public bool OverridingControlOf(Character character)
+	// Token: 0x06000AA5 RID: 2725 RVA: 0x0002B85C File Offset: 0x00029A5C
+	public bool OverridingControlOf(global::Character character)
 	{
 		return this.idMain.OverridingControlOf(character);
 	}
 
-	// Token: 0x06000980 RID: 2432 RVA: 0x00027AF0 File Offset: 0x00025CF0
+	// Token: 0x06000AA6 RID: 2726 RVA: 0x0002B86C File Offset: 0x00029A6C
 	public bool OverridingControlOf(IDMain main)
 	{
 		return this.idMain.OverridingControlOf(main);
 	}
 
-	// Token: 0x06000981 RID: 2433 RVA: 0x00027B00 File Offset: 0x00025D00
+	// Token: 0x06000AA7 RID: 2727 RVA: 0x0002B87C File Offset: 0x00029A7C
 	public bool OverridingControlOf(IDBase idBase)
 	{
 		return this.idMain.OverridingControlOf(idBase);
 	}
 
-	// Token: 0x06000982 RID: 2434 RVA: 0x00027B10 File Offset: 0x00025D10
-	public bool OverridingControlOf(IDLocalCharacter idLocal)
+	// Token: 0x06000AA8 RID: 2728 RVA: 0x0002B88C File Offset: 0x00029A8C
+	public bool OverridingControlOf(global::IDLocalCharacter idLocal)
 	{
 		return this.idMain.OverridingControlOf(idLocal);
 	}
 
-	// Token: 0x17000298 RID: 664
-	// (get) Token: 0x06000983 RID: 2435 RVA: 0x00027B20 File Offset: 0x00025D20
+	// Token: 0x170002DA RID: 730
+	// (get) Token: 0x06000AA9 RID: 2729 RVA: 0x0002B89C File Offset: 0x00029A9C
 	public bool assignedControl
 	{
 		get
@@ -446,105 +446,105 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x06000984 RID: 2436 RVA: 0x00027B30 File Offset: 0x00025D30
-	public bool AssignedControlOf(Controllable controllable)
+	// Token: 0x06000AAA RID: 2730 RVA: 0x0002B8AC File Offset: 0x00029AAC
+	public bool AssignedControlOf(global::Controllable controllable)
 	{
 		return this.idMain.AssignedControlOf(controllable);
 	}
 
-	// Token: 0x06000985 RID: 2437 RVA: 0x00027B40 File Offset: 0x00025D40
-	public bool AssignedControlOf(Controller controller)
+	// Token: 0x06000AAB RID: 2731 RVA: 0x0002B8BC File Offset: 0x00029ABC
+	public bool AssignedControlOf(global::Controller controller)
 	{
 		return this.idMain.AssignedControlOf(controller);
 	}
 
-	// Token: 0x06000986 RID: 2438 RVA: 0x00027B50 File Offset: 0x00025D50
+	// Token: 0x06000AAC RID: 2732 RVA: 0x0002B8CC File Offset: 0x00029ACC
 	public bool AssignedControlOf(IDMain character)
 	{
 		return this.idMain.AssignedControlOf(character);
 	}
 
-	// Token: 0x06000987 RID: 2439 RVA: 0x00027B60 File Offset: 0x00025D60
+	// Token: 0x06000AAD RID: 2733 RVA: 0x0002B8DC File Offset: 0x00029ADC
 	public bool AssignedControlOf(IDBase idBase)
 	{
 		return this.idMain.AssignedControlOf(idBase);
 	}
 
-	// Token: 0x06000988 RID: 2440 RVA: 0x00027B70 File Offset: 0x00025D70
-	public RelativeControl RelativeControlTo(Controllable controllable)
+	// Token: 0x06000AAE RID: 2734 RVA: 0x0002B8EC File Offset: 0x00029AEC
+	public global::RelativeControl RelativeControlTo(global::Controllable controllable)
 	{
 		return this.idMain.RelativeControlTo(controllable);
 	}
 
-	// Token: 0x06000989 RID: 2441 RVA: 0x00027B80 File Offset: 0x00025D80
-	public RelativeControl RelativeControlTo(Controller controller)
+	// Token: 0x06000AAF RID: 2735 RVA: 0x0002B8FC File Offset: 0x00029AFC
+	public global::RelativeControl RelativeControlTo(global::Controller controller)
 	{
 		return this.idMain.RelativeControlTo(controller);
 	}
 
-	// Token: 0x0600098A RID: 2442 RVA: 0x00027B90 File Offset: 0x00025D90
-	public RelativeControl RelativeControlTo(Character character)
+	// Token: 0x06000AB0 RID: 2736 RVA: 0x0002B90C File Offset: 0x00029B0C
+	public global::RelativeControl RelativeControlTo(global::Character character)
 	{
 		return this.idMain.RelativeControlTo(character);
 	}
 
-	// Token: 0x0600098B RID: 2443 RVA: 0x00027BA0 File Offset: 0x00025DA0
-	public RelativeControl RelativeControlTo(IDMain main)
+	// Token: 0x06000AB1 RID: 2737 RVA: 0x0002B91C File Offset: 0x00029B1C
+	public global::RelativeControl RelativeControlTo(IDMain main)
 	{
 		return this.idMain.RelativeControlTo(main);
 	}
 
-	// Token: 0x0600098C RID: 2444 RVA: 0x00027BB0 File Offset: 0x00025DB0
-	public RelativeControl RelativeControlTo(IDLocalCharacter idLocal)
+	// Token: 0x06000AB2 RID: 2738 RVA: 0x0002B92C File Offset: 0x00029B2C
+	public global::RelativeControl RelativeControlTo(global::IDLocalCharacter idLocal)
 	{
 		return this.idMain.RelativeControlTo(idLocal);
 	}
 
-	// Token: 0x0600098D RID: 2445 RVA: 0x00027BC0 File Offset: 0x00025DC0
-	public RelativeControl RelativeControlTo(IDBase idBase)
+	// Token: 0x06000AB3 RID: 2739 RVA: 0x0002B93C File Offset: 0x00029B3C
+	public global::RelativeControl RelativeControlTo(IDBase idBase)
 	{
 		return this.idMain.RelativeControlTo(idBase);
 	}
 
-	// Token: 0x0600098E RID: 2446 RVA: 0x00027BD0 File Offset: 0x00025DD0
-	public RelativeControl RelativeControlFrom(Controllable controllable)
+	// Token: 0x06000AB4 RID: 2740 RVA: 0x0002B94C File Offset: 0x00029B4C
+	public global::RelativeControl RelativeControlFrom(global::Controllable controllable)
 	{
 		return this.idMain.RelativeControlFrom(controllable);
 	}
 
-	// Token: 0x0600098F RID: 2447 RVA: 0x00027BE0 File Offset: 0x00025DE0
-	public RelativeControl RelativeControlFrom(Controller controller)
+	// Token: 0x06000AB5 RID: 2741 RVA: 0x0002B95C File Offset: 0x00029B5C
+	public global::RelativeControl RelativeControlFrom(global::Controller controller)
 	{
 		return this.idMain.RelativeControlFrom(controller);
 	}
 
-	// Token: 0x06000990 RID: 2448 RVA: 0x00027BF0 File Offset: 0x00025DF0
-	public RelativeControl RelativeControlFrom(Character character)
+	// Token: 0x06000AB6 RID: 2742 RVA: 0x0002B96C File Offset: 0x00029B6C
+	public global::RelativeControl RelativeControlFrom(global::Character character)
 	{
 		return this.idMain.RelativeControlFrom(character);
 	}
 
-	// Token: 0x06000991 RID: 2449 RVA: 0x00027C00 File Offset: 0x00025E00
-	public RelativeControl RelativeControlFrom(IDMain main)
+	// Token: 0x06000AB7 RID: 2743 RVA: 0x0002B97C File Offset: 0x00029B7C
+	public global::RelativeControl RelativeControlFrom(IDMain main)
 	{
 		return this.idMain.RelativeControlFrom(main);
 	}
 
-	// Token: 0x06000992 RID: 2450 RVA: 0x00027C10 File Offset: 0x00025E10
-	public RelativeControl RelativeControlFrom(IDLocalCharacter idLocal)
+	// Token: 0x06000AB8 RID: 2744 RVA: 0x0002B98C File Offset: 0x00029B8C
+	public global::RelativeControl RelativeControlFrom(global::IDLocalCharacter idLocal)
 	{
 		return this.idMain.RelativeControlFrom(idLocal);
 	}
 
-	// Token: 0x06000993 RID: 2451 RVA: 0x00027C20 File Offset: 0x00025E20
-	public RelativeControl RelativeControlFrom(IDBase idBase)
+	// Token: 0x06000AB9 RID: 2745 RVA: 0x0002B99C File Offset: 0x00029B9C
+	public global::RelativeControl RelativeControlFrom(IDBase idBase)
 	{
 		return this.idMain.RelativeControlFrom(idBase);
 	}
 
-	// Token: 0x17000299 RID: 665
-	// (get) Token: 0x06000994 RID: 2452 RVA: 0x00027C30 File Offset: 0x00025E30
-	public Controller controller
+	// Token: 0x170002DB RID: 731
+	// (get) Token: 0x06000ABA RID: 2746 RVA: 0x0002B9AC File Offset: 0x00029BAC
+	public global::Controller controller
 	{
 		get
 		{
@@ -552,9 +552,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700029A RID: 666
-	// (get) Token: 0x06000995 RID: 2453 RVA: 0x00027C40 File Offset: 0x00025E40
-	public Controller controlledController
+	// Token: 0x170002DC RID: 732
+	// (get) Token: 0x06000ABB RID: 2747 RVA: 0x0002B9BC File Offset: 0x00029BBC
+	public global::Controller controlledController
 	{
 		get
 		{
@@ -562,9 +562,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700029B RID: 667
-	// (get) Token: 0x06000996 RID: 2454 RVA: 0x00027C50 File Offset: 0x00025E50
-	public Controller playerControlledController
+	// Token: 0x170002DD RID: 733
+	// (get) Token: 0x06000ABC RID: 2748 RVA: 0x0002B9CC File Offset: 0x00029BCC
+	public global::Controller playerControlledController
 	{
 		get
 		{
@@ -572,9 +572,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700029C RID: 668
-	// (get) Token: 0x06000997 RID: 2455 RVA: 0x00027C60 File Offset: 0x00025E60
-	public Controller aiControlledController
+	// Token: 0x170002DE RID: 734
+	// (get) Token: 0x06000ABD RID: 2749 RVA: 0x0002B9DC File Offset: 0x00029BDC
+	public global::Controller aiControlledController
 	{
 		get
 		{
@@ -582,9 +582,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700029D RID: 669
-	// (get) Token: 0x06000998 RID: 2456 RVA: 0x00027C70 File Offset: 0x00025E70
-	public Controller localPlayerControlledController
+	// Token: 0x170002DF RID: 735
+	// (get) Token: 0x06000ABE RID: 2750 RVA: 0x0002B9EC File Offset: 0x00029BEC
+	public global::Controller localPlayerControlledController
 	{
 		get
 		{
@@ -592,9 +592,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700029E RID: 670
-	// (get) Token: 0x06000999 RID: 2457 RVA: 0x00027C80 File Offset: 0x00025E80
-	public Controller localAIControlledController
+	// Token: 0x170002E0 RID: 736
+	// (get) Token: 0x06000ABF RID: 2751 RVA: 0x0002B9FC File Offset: 0x00029BFC
+	public global::Controller localAIControlledController
 	{
 		get
 		{
@@ -602,9 +602,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x1700029F RID: 671
-	// (get) Token: 0x0600099A RID: 2458 RVA: 0x00027C90 File Offset: 0x00025E90
-	public Controller remotePlayerControlledController
+	// Token: 0x170002E1 RID: 737
+	// (get) Token: 0x06000AC0 RID: 2752 RVA: 0x0002BA0C File Offset: 0x00029C0C
+	public global::Controller remotePlayerControlledController
 	{
 		get
 		{
@@ -612,9 +612,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A0 RID: 672
-	// (get) Token: 0x0600099B RID: 2459 RVA: 0x00027CA0 File Offset: 0x00025EA0
-	public Controller remoteAIControlledController
+	// Token: 0x170002E2 RID: 738
+	// (get) Token: 0x06000AC1 RID: 2753 RVA: 0x0002BA1C File Offset: 0x00029C1C
+	public global::Controller remoteAIControlledController
 	{
 		get
 		{
@@ -622,9 +622,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A1 RID: 673
-	// (get) Token: 0x0600099C RID: 2460 RVA: 0x00027CB0 File Offset: 0x00025EB0
-	public Controller masterController
+	// Token: 0x170002E3 RID: 739
+	// (get) Token: 0x06000AC2 RID: 2754 RVA: 0x0002BA2C File Offset: 0x00029C2C
+	public global::Controller masterController
 	{
 		get
 		{
@@ -632,9 +632,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A2 RID: 674
-	// (get) Token: 0x0600099D RID: 2461 RVA: 0x00027CC0 File Offset: 0x00025EC0
-	public Controller rootController
+	// Token: 0x170002E4 RID: 740
+	// (get) Token: 0x06000AC3 RID: 2755 RVA: 0x0002BA3C File Offset: 0x00029C3C
+	public global::Controller rootController
 	{
 		get
 		{
@@ -642,9 +642,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A3 RID: 675
-	// (get) Token: 0x0600099E RID: 2462 RVA: 0x00027CD0 File Offset: 0x00025ED0
-	public Controller nextController
+	// Token: 0x170002E5 RID: 741
+	// (get) Token: 0x06000AC4 RID: 2756 RVA: 0x0002BA4C File Offset: 0x00029C4C
+	public global::Controller nextController
 	{
 		get
 		{
@@ -652,9 +652,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A4 RID: 676
-	// (get) Token: 0x0600099F RID: 2463 RVA: 0x00027CE0 File Offset: 0x00025EE0
-	public Controller previousController
+	// Token: 0x170002E6 RID: 742
+	// (get) Token: 0x06000AC5 RID: 2757 RVA: 0x0002BA5C File Offset: 0x00029C5C
+	public global::Controller previousController
 	{
 		get
 		{
@@ -662,8 +662,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A5 RID: 677
-	// (get) Token: 0x060009A0 RID: 2464 RVA: 0x00027CF0 File Offset: 0x00025EF0
+	// Token: 0x170002E7 RID: 743
+	// (get) Token: 0x06000AC6 RID: 2758 RVA: 0x0002BA6C File Offset: 0x00029C6C
 	public float maxPitch
 	{
 		get
@@ -672,8 +672,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A6 RID: 678
-	// (get) Token: 0x060009A1 RID: 2465 RVA: 0x00027D00 File Offset: 0x00025F00
+	// Token: 0x170002E8 RID: 744
+	// (get) Token: 0x06000AC7 RID: 2759 RVA: 0x0002BA7C File Offset: 0x00029C7C
 	public float minPitch
 	{
 		get
@@ -682,34 +682,34 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x060009A2 RID: 2466 RVA: 0x00027D10 File Offset: 0x00025F10
+	// Token: 0x06000AC8 RID: 2760 RVA: 0x0002BA8C File Offset: 0x00029C8C
 	public float ClampPitch(float v)
 	{
 		return this.idMain.ClampPitch(v);
 	}
 
-	// Token: 0x060009A3 RID: 2467 RVA: 0x00027D20 File Offset: 0x00025F20
+	// Token: 0x06000AC9 RID: 2761 RVA: 0x0002BA9C File Offset: 0x00029C9C
 	public void ClampPitch(ref float v)
 	{
 		this.idMain.ClampPitch(ref v);
 	}
 
-	// Token: 0x060009A4 RID: 2468 RVA: 0x00027D30 File Offset: 0x00025F30
-	public Angle2 ClampPitch(Angle2 v)
+	// Token: 0x06000ACA RID: 2762 RVA: 0x0002BAAC File Offset: 0x00029CAC
+	public global::Angle2 ClampPitch(global::Angle2 v)
 	{
 		return this.idMain.ClampPitch(v);
 	}
 
-	// Token: 0x060009A5 RID: 2469 RVA: 0x00027D40 File Offset: 0x00025F40
-	public void ClampPitch(ref Angle2 v)
+	// Token: 0x06000ACB RID: 2763 RVA: 0x0002BABC File Offset: 0x00029CBC
+	public void ClampPitch(ref global::Angle2 v)
 	{
 		this.idMain.ClampPitch(ref v);
 	}
 
-	// Token: 0x170002A7 RID: 679
-	// (get) Token: 0x060009A6 RID: 2470 RVA: 0x00027D50 File Offset: 0x00025F50
-	// (set) Token: 0x060009A7 RID: 2471 RVA: 0x00027D60 File Offset: 0x00025F60
-	public CharacterStateFlags stateFlags
+	// Token: 0x170002E9 RID: 745
+	// (get) Token: 0x06000ACC RID: 2764 RVA: 0x0002BACC File Offset: 0x00029CCC
+	// (set) Token: 0x06000ACD RID: 2765 RVA: 0x0002BADC File Offset: 0x00029CDC
+	public global::CharacterStateFlags stateFlags
 	{
 		get
 		{
@@ -721,9 +721,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A8 RID: 680
-	// (get) Token: 0x060009A8 RID: 2472 RVA: 0x00027D70 File Offset: 0x00025F70
-	// (set) Token: 0x060009A9 RID: 2473 RVA: 0x00027D80 File Offset: 0x00025F80
+	// Token: 0x170002EA RID: 746
+	// (get) Token: 0x06000ACE RID: 2766 RVA: 0x0002BAEC File Offset: 0x00029CEC
+	// (set) Token: 0x06000ACF RID: 2767 RVA: 0x0002BAFC File Offset: 0x00029CFC
 	public bool lockMovement
 	{
 		get
@@ -736,9 +736,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002A9 RID: 681
-	// (get) Token: 0x060009AA RID: 2474 RVA: 0x00027D90 File Offset: 0x00025F90
-	// (set) Token: 0x060009AB RID: 2475 RVA: 0x00027DA0 File Offset: 0x00025FA0
+	// Token: 0x170002EB RID: 747
+	// (get) Token: 0x06000AD0 RID: 2768 RVA: 0x0002BB0C File Offset: 0x00029D0C
+	// (set) Token: 0x06000AD1 RID: 2769 RVA: 0x0002BB1C File Offset: 0x00029D1C
 	public bool lockLook
 	{
 		get
@@ -751,9 +751,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002AA RID: 682
-	// (get) Token: 0x060009AC RID: 2476 RVA: 0x00027DB0 File Offset: 0x00025FB0
-	// (set) Token: 0x060009AD RID: 2477 RVA: 0x00027DC0 File Offset: 0x00025FC0
+	// Token: 0x170002EC RID: 748
+	// (get) Token: 0x06000AD2 RID: 2770 RVA: 0x0002BB2C File Offset: 0x00029D2C
+	// (set) Token: 0x06000AD3 RID: 2771 RVA: 0x0002BB3C File Offset: 0x00029D3C
 	public float eyesPitch
 	{
 		get
@@ -766,9 +766,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002AB RID: 683
-	// (get) Token: 0x060009AE RID: 2478 RVA: 0x00027DD0 File Offset: 0x00025FD0
-	// (set) Token: 0x060009AF RID: 2479 RVA: 0x00027DE0 File Offset: 0x00025FE0
+	// Token: 0x170002ED RID: 749
+	// (get) Token: 0x06000AD4 RID: 2772 RVA: 0x0002BB4C File Offset: 0x00029D4C
+	// (set) Token: 0x06000AD5 RID: 2773 RVA: 0x0002BB5C File Offset: 0x00029D5C
 	public float eyesYaw
 	{
 		get
@@ -781,10 +781,10 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002AC RID: 684
-	// (get) Token: 0x060009B0 RID: 2480 RVA: 0x00027DF0 File Offset: 0x00025FF0
-	// (set) Token: 0x060009B1 RID: 2481 RVA: 0x00027E00 File Offset: 0x00026000
-	public Angle2 eyesAngles
+	// Token: 0x170002EE RID: 750
+	// (get) Token: 0x06000AD6 RID: 2774 RVA: 0x0002BB6C File Offset: 0x00029D6C
+	// (set) Token: 0x06000AD7 RID: 2775 RVA: 0x0002BB7C File Offset: 0x00029D7C
+	public global::Angle2 eyesAngles
 	{
 		get
 		{
@@ -796,8 +796,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002AD RID: 685
-	// (get) Token: 0x060009B2 RID: 2482 RVA: 0x00027E10 File Offset: 0x00026010
+	// Token: 0x170002EF RID: 751
+	// (get) Token: 0x06000AD8 RID: 2776 RVA: 0x0002BB8C File Offset: 0x00029D8C
 	public Vector3 eyesOrigin
 	{
 		get
@@ -806,8 +806,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002AE RID: 686
-	// (get) Token: 0x060009B3 RID: 2483 RVA: 0x00027E20 File Offset: 0x00026020
+	// Token: 0x170002F0 RID: 752
+	// (get) Token: 0x06000AD9 RID: 2777 RVA: 0x0002BB9C File Offset: 0x00029D9C
 	public Vector3 eyesOriginAtInitialOffset
 	{
 		get
@@ -816,9 +816,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002AF RID: 687
-	// (get) Token: 0x060009B4 RID: 2484 RVA: 0x00027E30 File Offset: 0x00026030
-	// (set) Token: 0x060009B5 RID: 2485 RVA: 0x00027E40 File Offset: 0x00026040
+	// Token: 0x170002F1 RID: 753
+	// (get) Token: 0x06000ADA RID: 2778 RVA: 0x0002BBAC File Offset: 0x00029DAC
+	// (set) Token: 0x06000ADB RID: 2779 RVA: 0x0002BBBC File Offset: 0x00029DBC
 	public Vector3 eyesOffset
 	{
 		get
@@ -831,8 +831,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B0 RID: 688
-	// (get) Token: 0x060009B6 RID: 2486 RVA: 0x00027E50 File Offset: 0x00026050
+	// Token: 0x170002F2 RID: 754
+	// (get) Token: 0x06000ADC RID: 2780 RVA: 0x0002BBCC File Offset: 0x00029DCC
 	public Vector3 initialEyesOffset
 	{
 		get
@@ -841,8 +841,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B1 RID: 689
-	// (get) Token: 0x060009B7 RID: 2487 RVA: 0x00027E60 File Offset: 0x00026060
+	// Token: 0x170002F3 RID: 755
+	// (get) Token: 0x06000ADD RID: 2781 RVA: 0x0002BBDC File Offset: 0x00029DDC
 	public float initialEyesOffsetX
 	{
 		get
@@ -851,8 +851,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B2 RID: 690
-	// (get) Token: 0x060009B8 RID: 2488 RVA: 0x00027E70 File Offset: 0x00026070
+	// Token: 0x170002F4 RID: 756
+	// (get) Token: 0x06000ADE RID: 2782 RVA: 0x0002BBEC File Offset: 0x00029DEC
 	public float initialEyesOffsetY
 	{
 		get
@@ -861,8 +861,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B3 RID: 691
-	// (get) Token: 0x060009B9 RID: 2489 RVA: 0x00027E80 File Offset: 0x00026080
+	// Token: 0x170002F5 RID: 757
+	// (get) Token: 0x06000ADF RID: 2783 RVA: 0x0002BBFC File Offset: 0x00029DFC
 	public float initialEyesOffsetZ
 	{
 		get
@@ -871,8 +871,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B4 RID: 692
-	// (get) Token: 0x060009BA RID: 2490 RVA: 0x00027E90 File Offset: 0x00026090
+	// Token: 0x170002F6 RID: 758
+	// (get) Token: 0x06000AE0 RID: 2784 RVA: 0x0002BC0C File Offset: 0x00029E0C
 	public Ray eyesRay
 	{
 		get
@@ -881,9 +881,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B5 RID: 693
-	// (get) Token: 0x060009BB RID: 2491 RVA: 0x00027EA0 File Offset: 0x000260A0
-	// (set) Token: 0x060009BC RID: 2492 RVA: 0x00027EB0 File Offset: 0x000260B0
+	// Token: 0x170002F7 RID: 759
+	// (get) Token: 0x06000AE1 RID: 2785 RVA: 0x0002BC1C File Offset: 0x00029E1C
+	// (set) Token: 0x06000AE2 RID: 2786 RVA: 0x0002BC2C File Offset: 0x00029E2C
 	public Quaternion eyesRotation
 	{
 		get
@@ -896,8 +896,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B6 RID: 694
-	// (get) Token: 0x060009BD RID: 2493 RVA: 0x00027EC0 File Offset: 0x000260C0
+	// Token: 0x170002F8 RID: 760
+	// (get) Token: 0x06000AE3 RID: 2787 RVA: 0x0002BC3C File Offset: 0x00029E3C
 	public Transform eyesTransformReadOnly
 	{
 		get
@@ -906,9 +906,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B7 RID: 695
-	// (get) Token: 0x060009BE RID: 2494 RVA: 0x00027ED0 File Offset: 0x000260D0
-	// (set) Token: 0x060009BF RID: 2495 RVA: 0x00027EE0 File Offset: 0x000260E0
+	// Token: 0x170002F9 RID: 761
+	// (get) Token: 0x06000AE4 RID: 2788 RVA: 0x0002BC4C File Offset: 0x00029E4C
+	// (set) Token: 0x06000AE5 RID: 2789 RVA: 0x0002BC5C File Offset: 0x00029E5C
 	public Vector3 origin
 	{
 		get
@@ -921,8 +921,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B8 RID: 696
-	// (get) Token: 0x060009C0 RID: 2496 RVA: 0x00027EF0 File Offset: 0x000260F0
+	// Token: 0x170002FA RID: 762
+	// (get) Token: 0x06000AE6 RID: 2790 RVA: 0x0002BC6C File Offset: 0x00029E6C
 	public Vector3 forward
 	{
 		get
@@ -931,8 +931,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002B9 RID: 697
-	// (get) Token: 0x060009C1 RID: 2497 RVA: 0x00027F00 File Offset: 0x00026100
+	// Token: 0x170002FB RID: 763
+	// (get) Token: 0x06000AE7 RID: 2791 RVA: 0x0002BC7C File Offset: 0x00029E7C
 	public Vector3 right
 	{
 		get
@@ -941,8 +941,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002BA RID: 698
-	// (get) Token: 0x060009C2 RID: 2498 RVA: 0x00027F10 File Offset: 0x00026110
+	// Token: 0x170002FC RID: 764
+	// (get) Token: 0x06000AE8 RID: 2792 RVA: 0x0002BC8C File Offset: 0x00029E8C
 	public Vector3 up
 	{
 		get
@@ -951,9 +951,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002BB RID: 699
-	// (get) Token: 0x060009C3 RID: 2499 RVA: 0x00027F20 File Offset: 0x00026120
-	// (set) Token: 0x060009C4 RID: 2500 RVA: 0x00027F30 File Offset: 0x00026130
+	// Token: 0x170002FD RID: 765
+	// (get) Token: 0x06000AE9 RID: 2793 RVA: 0x0002BC9C File Offset: 0x00029E9C
+	// (set) Token: 0x06000AEA RID: 2794 RVA: 0x0002BCAC File Offset: 0x00029EAC
 	public Quaternion rotation
 	{
 		get
@@ -966,8 +966,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002BC RID: 700
-	// (get) Token: 0x060009C5 RID: 2501 RVA: 0x00027F40 File Offset: 0x00026140
+	// Token: 0x170002FE RID: 766
+	// (get) Token: 0x06000AEB RID: 2795 RVA: 0x0002BCBC File Offset: 0x00029EBC
 	public bool signaledDeath
 	{
 		get
@@ -976,85 +976,85 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x060009C6 RID: 2502 RVA: 0x00027F50 File Offset: 0x00026150
-	public void ApplyAdditiveEyeAngles(Angle2 angles)
+	// Token: 0x06000AEC RID: 2796 RVA: 0x0002BCCC File Offset: 0x00029ECC
+	public void ApplyAdditiveEyeAngles(global::Angle2 angles)
 	{
 		this.idMain.ApplyAdditiveEyeAngles(angles);
 	}
 
-	// Token: 0x060009C7 RID: 2503 RVA: 0x00027F60 File Offset: 0x00026160
-	public T AddAddon<T>() where T : IDLocalCharacterAddon, new()
+	// Token: 0x06000AED RID: 2797 RVA: 0x0002BCDC File Offset: 0x00029EDC
+	public T AddAddon<T>() where T : global::IDLocalCharacterAddon, new()
 	{
 		return this.idMain.AddAddon<T>();
 	}
 
-	// Token: 0x060009C8 RID: 2504 RVA: 0x00027F70 File Offset: 0x00026170
-	public TBase AddAddon<TBase, T>() where TBase : IDLocalCharacterAddon where T : TBase, new()
+	// Token: 0x06000AEE RID: 2798 RVA: 0x0002BCEC File Offset: 0x00029EEC
+	public TBase AddAddon<TBase, T>() where TBase : global::IDLocalCharacterAddon where T : TBase, new()
 	{
 		return this.idMain.AddAddon<TBase, T>();
 	}
 
-	// Token: 0x060009C9 RID: 2505 RVA: 0x00027F80 File Offset: 0x00026180
-	public IDLocalCharacterAddon AddAddon(Type addonType)
+	// Token: 0x06000AEF RID: 2799 RVA: 0x0002BCFC File Offset: 0x00029EFC
+	public global::IDLocalCharacterAddon AddAddon(Type addonType)
 	{
 		return this.idMain.AddAddon(addonType);
 	}
 
-	// Token: 0x060009CA RID: 2506 RVA: 0x00027F90 File Offset: 0x00026190
-	public IDLocalCharacterAddon AddAddon(Type addonType, Type minimumType)
+	// Token: 0x06000AF0 RID: 2800 RVA: 0x0002BD0C File Offset: 0x00029F0C
+	public global::IDLocalCharacterAddon AddAddon(Type addonType, Type minimumType)
 	{
 		return this.idMain.AddAddon(addonType, minimumType);
 	}
 
-	// Token: 0x060009CB RID: 2507 RVA: 0x00027FA0 File Offset: 0x000261A0
-	public TBase AddAddon<TBase>(Type addonType) where TBase : IDLocalCharacterAddon
+	// Token: 0x06000AF1 RID: 2801 RVA: 0x0002BD1C File Offset: 0x00029F1C
+	public TBase AddAddon<TBase>(Type addonType) where TBase : global::IDLocalCharacterAddon
 	{
 		return this.idMain.AddAddon<TBase>(addonType);
 	}
 
-	// Token: 0x060009CC RID: 2508 RVA: 0x00027FB0 File Offset: 0x000261B0
-	public IDLocalCharacterAddon AddAddon(string addonTypeName)
+	// Token: 0x06000AF2 RID: 2802 RVA: 0x0002BD2C File Offset: 0x00029F2C
+	public global::IDLocalCharacterAddon AddAddon(string addonTypeName)
 	{
 		return this.idMain.AddAddon(addonTypeName);
 	}
 
-	// Token: 0x060009CD RID: 2509 RVA: 0x00027FC0 File Offset: 0x000261C0
-	public IDLocalCharacterAddon AddAddon(string addonTypeName, Type minimumType)
+	// Token: 0x06000AF3 RID: 2803 RVA: 0x0002BD3C File Offset: 0x00029F3C
+	public global::IDLocalCharacterAddon AddAddon(string addonTypeName, Type minimumType)
 	{
 		return this.idMain.AddAddon(addonTypeName, minimumType);
 	}
 
-	// Token: 0x060009CE RID: 2510 RVA: 0x00027FD0 File Offset: 0x000261D0
-	public TBase AddAddon<TBase>(string addonTypeName) where TBase : IDLocalCharacterAddon
+	// Token: 0x06000AF4 RID: 2804 RVA: 0x0002BD4C File Offset: 0x00029F4C
+	public TBase AddAddon<TBase>(string addonTypeName) where TBase : global::IDLocalCharacterAddon
 	{
 		return this.idMain.AddAddon<TBase>(addonTypeName);
 	}
 
-	// Token: 0x060009CF RID: 2511 RVA: 0x00027FE0 File Offset: 0x000261E0
-	public void RemoveAddon(IDLocalCharacterAddon addon)
+	// Token: 0x06000AF5 RID: 2805 RVA: 0x0002BD5C File Offset: 0x00029F5C
+	public void RemoveAddon(global::IDLocalCharacterAddon addon)
 	{
 		this.idMain.RemoveAddon(addon);
 	}
 
-	// Token: 0x060009D0 RID: 2512 RVA: 0x00027FF0 File Offset: 0x000261F0
-	public void RemoveAddon<T>(ref T addon) where T : IDLocalCharacterAddon
+	// Token: 0x06000AF6 RID: 2806 RVA: 0x0002BD6C File Offset: 0x00029F6C
+	public void RemoveAddon<T>(ref T addon) where T : global::IDLocalCharacterAddon
 	{
 		this.idMain.RemoveAddon<T>(ref addon);
 	}
 
-	// Token: 0x170002BD RID: 701
-	// (get) Token: 0x060009D1 RID: 2513 RVA: 0x00028000 File Offset: 0x00026200
-	// (set) Token: 0x060009D2 RID: 2514 RVA: 0x0002802C File Offset: 0x0002622C
-	protected RPOSLimitFlags rposLimitFlags
+	// Token: 0x170002FF RID: 767
+	// (get) Token: 0x06000AF7 RID: 2807 RVA: 0x0002BD7C File Offset: 0x00029F7C
+	// (set) Token: 0x06000AF8 RID: 2808 RVA: 0x0002BDA8 File Offset: 0x00029FA8
+	protected global::RPOSLimitFlags rposLimitFlags
 	{
 		get
 		{
-			Controller controller = this.controller;
-			return (!controller) ? ((RPOSLimitFlags)(-1)) : controller.rposLimitFlags;
+			global::Controller controller = this.controller;
+			return (!controller) ? ((global::RPOSLimitFlags)-1) : controller.rposLimitFlags;
 		}
 		set
 		{
-			Controller controller = this.controller;
+			global::Controller controller = this.controller;
 			if (controller)
 			{
 				controller.rposLimitFlags = value;
@@ -1062,20 +1062,20 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x060009D3 RID: 2515 RVA: 0x00028054 File Offset: 0x00026254
-	public CharacterTrait GetTrait(Type characterTraitType)
+	// Token: 0x06000AF9 RID: 2809 RVA: 0x0002BDD0 File Offset: 0x00029FD0
+	public global::CharacterTrait GetTrait(Type characterTraitType)
 	{
 		return this.idMain.GetTrait(characterTraitType);
 	}
 
-	// Token: 0x060009D4 RID: 2516 RVA: 0x00028064 File Offset: 0x00026264
-	public TCharacterTrait GetTrait<TCharacterTrait>() where TCharacterTrait : CharacterTrait
+	// Token: 0x06000AFA RID: 2810 RVA: 0x0002BDE0 File Offset: 0x00029FE0
+	public TCharacterTrait GetTrait<TCharacterTrait>() where TCharacterTrait : global::CharacterTrait
 	{
 		return this.idMain.GetTrait<TCharacterTrait>();
 	}
 
-	// Token: 0x170002BE RID: 702
-	// (get) Token: 0x060009D5 RID: 2517 RVA: 0x00028074 File Offset: 0x00026274
+	// Token: 0x17000300 RID: 768
+	// (get) Token: 0x06000AFB RID: 2811 RVA: 0x0002BDF0 File Offset: 0x00029FF0
 	public bool? idle
 	{
 		get
@@ -1084,9 +1084,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002BF RID: 703
-	// (get) Token: 0x060009D6 RID: 2518 RVA: 0x00028084 File Offset: 0x00026284
-	public IDLocalCharacterIdleControl idleControl
+	// Token: 0x17000301 RID: 769
+	// (get) Token: 0x06000AFC RID: 2812 RVA: 0x0002BE00 File Offset: 0x0002A000
+	public global::IDLocalCharacterIdleControl idleControl
 	{
 		get
 		{
@@ -1094,9 +1094,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C0 RID: 704
-	// (get) Token: 0x060009D7 RID: 2519 RVA: 0x00028094 File Offset: 0x00026294
-	public Crouchable crouchable
+	// Token: 0x17000302 RID: 770
+	// (get) Token: 0x06000AFD RID: 2813 RVA: 0x0002BE10 File Offset: 0x0002A010
+	public global::Crouchable crouchable
 	{
 		get
 		{
@@ -1104,8 +1104,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C1 RID: 705
-	// (get) Token: 0x060009D8 RID: 2520 RVA: 0x000280A4 File Offset: 0x000262A4
+	// Token: 0x17000303 RID: 771
+	// (get) Token: 0x06000AFE RID: 2814 RVA: 0x0002BE20 File Offset: 0x0002A020
 	public bool crouched
 	{
 		get
@@ -1114,9 +1114,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C2 RID: 706
-	// (get) Token: 0x060009D9 RID: 2521 RVA: 0x000280B4 File Offset: 0x000262B4
-	public TakeDamage takeDamage
+	// Token: 0x17000304 RID: 772
+	// (get) Token: 0x06000AFF RID: 2815 RVA: 0x0002BE30 File Offset: 0x0002A030
+	public global::TakeDamage takeDamage
 	{
 		get
 		{
@@ -1124,8 +1124,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C3 RID: 707
-	// (get) Token: 0x060009DA RID: 2522 RVA: 0x000280C4 File Offset: 0x000262C4
+	// Token: 0x17000305 RID: 773
+	// (get) Token: 0x06000B00 RID: 2816 RVA: 0x0002BE40 File Offset: 0x0002A040
 	public float health
 	{
 		get
@@ -1134,8 +1134,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C4 RID: 708
-	// (get) Token: 0x060009DB RID: 2523 RVA: 0x000280D4 File Offset: 0x000262D4
+	// Token: 0x17000306 RID: 774
+	// (get) Token: 0x06000B01 RID: 2817 RVA: 0x0002BE50 File Offset: 0x0002A050
 	public float healthFraction
 	{
 		get
@@ -1144,8 +1144,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C5 RID: 709
-	// (get) Token: 0x060009DC RID: 2524 RVA: 0x000280E4 File Offset: 0x000262E4
+	// Token: 0x17000307 RID: 775
+	// (get) Token: 0x06000B02 RID: 2818 RVA: 0x0002BE60 File Offset: 0x0002A060
 	public bool alive
 	{
 		get
@@ -1154,8 +1154,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C6 RID: 710
-	// (get) Token: 0x060009DD RID: 2525 RVA: 0x000280F4 File Offset: 0x000262F4
+	// Token: 0x17000308 RID: 776
+	// (get) Token: 0x06000B03 RID: 2819 RVA: 0x0002BE70 File Offset: 0x0002A070
 	public bool dead
 	{
 		get
@@ -1164,8 +1164,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C7 RID: 711
-	// (get) Token: 0x060009DE RID: 2526 RVA: 0x00028104 File Offset: 0x00026304
+	// Token: 0x17000309 RID: 777
+	// (get) Token: 0x06000B04 RID: 2820 RVA: 0x0002BE80 File Offset: 0x0002A080
 	public float healthLoss
 	{
 		get
@@ -1174,8 +1174,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C8 RID: 712
-	// (get) Token: 0x060009DF RID: 2527 RVA: 0x00028114 File Offset: 0x00026314
+	// Token: 0x1700030A RID: 778
+	// (get) Token: 0x06000B05 RID: 2821 RVA: 0x0002BE90 File Offset: 0x0002A090
 	public float healthLossFraction
 	{
 		get
@@ -1184,8 +1184,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002C9 RID: 713
-	// (get) Token: 0x060009E0 RID: 2528 RVA: 0x00028124 File Offset: 0x00026324
+	// Token: 0x1700030B RID: 779
+	// (get) Token: 0x06000B06 RID: 2822 RVA: 0x0002BEA0 File Offset: 0x0002A0A0
 	public float maxHealth
 	{
 		get
@@ -1194,15 +1194,15 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x060009E1 RID: 2529 RVA: 0x00028134 File Offset: 0x00026334
+	// Token: 0x06000B07 RID: 2823 RVA: 0x0002BEB0 File Offset: 0x0002A0B0
 	public void AdjustClientSideHealth(float newHealthValue)
 	{
 		this.idMain.AdjustClientSideHealth(newHealthValue);
 	}
 
-	// Token: 0x170002CA RID: 714
-	// (get) Token: 0x060009E2 RID: 2530 RVA: 0x00028144 File Offset: 0x00026344
-	public VisNode visNode
+	// Token: 0x1700030C RID: 780
+	// (get) Token: 0x06000B08 RID: 2824 RVA: 0x0002BEC0 File Offset: 0x0002A0C0
+	public global::VisNode visNode
 	{
 		get
 		{
@@ -1210,160 +1210,160 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x060009E3 RID: 2531 RVA: 0x00028154 File Offset: 0x00026354
-	public bool CanSee(VisNode other)
+	// Token: 0x06000B09 RID: 2825 RVA: 0x0002BED0 File Offset: 0x0002A0D0
+	public bool CanSee(global::VisNode other)
 	{
 		return this.idMain.CanSee(other);
 	}
 
-	// Token: 0x060009E4 RID: 2532 RVA: 0x00028164 File Offset: 0x00026364
-	public bool CanSee(Character other)
+	// Token: 0x06000B0A RID: 2826 RVA: 0x0002BEE0 File Offset: 0x0002A0E0
+	public bool CanSee(global::Character other)
 	{
 		return this.idMain.CanSee(other);
 	}
 
-	// Token: 0x060009E5 RID: 2533 RVA: 0x00028174 File Offset: 0x00026374
+	// Token: 0x06000B0B RID: 2827 RVA: 0x0002BEF0 File Offset: 0x0002A0F0
 	public bool CanSee(IDMain other)
 	{
 		return this.idMain.CanSee(other);
 	}
 
-	// Token: 0x060009E6 RID: 2534 RVA: 0x00028184 File Offset: 0x00026384
-	public bool CanSeeUnobstructed(VisNode other)
+	// Token: 0x06000B0C RID: 2828 RVA: 0x0002BF00 File Offset: 0x0002A100
+	public bool CanSeeUnobstructed(global::VisNode other)
 	{
 		return this.idMain.CanSeeUnobstructed(other);
 	}
 
-	// Token: 0x060009E7 RID: 2535 RVA: 0x00028194 File Offset: 0x00026394
-	public bool CanSeeUnobstructed(Character other)
+	// Token: 0x06000B0D RID: 2829 RVA: 0x0002BF10 File Offset: 0x0002A110
+	public bool CanSeeUnobstructed(global::Character other)
 	{
 		return this.idMain.CanSeeUnobstructed(other);
 	}
 
-	// Token: 0x060009E8 RID: 2536 RVA: 0x000281A4 File Offset: 0x000263A4
+	// Token: 0x06000B0E RID: 2830 RVA: 0x0002BF20 File Offset: 0x0002A120
 	public bool CanSeeUnobstructed(IDMain other)
 	{
 		return this.idMain.CanSeeUnobstructed(other);
 	}
 
-	// Token: 0x060009E9 RID: 2537 RVA: 0x000281B4 File Offset: 0x000263B4
-	public bool CanSee(VisNode other, bool unobstructed)
+	// Token: 0x06000B0F RID: 2831 RVA: 0x0002BF30 File Offset: 0x0002A130
+	public bool CanSee(global::VisNode other, bool unobstructed)
 	{
 		return this.idMain.CanSee(other, unobstructed);
 	}
 
-	// Token: 0x060009EA RID: 2538 RVA: 0x000281C4 File Offset: 0x000263C4
-	public bool CanSee(Character other, bool unobstructed)
+	// Token: 0x06000B10 RID: 2832 RVA: 0x0002BF40 File Offset: 0x0002A140
+	public bool CanSee(global::Character other, bool unobstructed)
 	{
 		return this.idMain.CanSee(other, unobstructed);
 	}
 
-	// Token: 0x060009EB RID: 2539 RVA: 0x000281D4 File Offset: 0x000263D4
+	// Token: 0x06000B11 RID: 2833 RVA: 0x0002BF50 File Offset: 0x0002A150
 	public bool CanSee(IDMain other, bool unobstructed)
 	{
 		return this.idMain.CanSee(other, unobstructed);
 	}
 
-	// Token: 0x060009EC RID: 2540 RVA: 0x000281E4 File Offset: 0x000263E4
+	// Token: 0x06000B12 RID: 2834 RVA: 0x0002BF60 File Offset: 0x0002A160
 	public bool AudibleMessage(Vector3 point, float hearRadius, string message, object arg)
 	{
 		return this.idMain.AudibleMessage(point, hearRadius, message, arg);
 	}
 
-	// Token: 0x060009ED RID: 2541 RVA: 0x000281F8 File Offset: 0x000263F8
+	// Token: 0x06000B13 RID: 2835 RVA: 0x0002BF74 File Offset: 0x0002A174
 	public bool AudibleMessage(Vector3 point, float hearRadius, string message)
 	{
 		return this.idMain.AudibleMessage(point, hearRadius, message);
 	}
 
-	// Token: 0x060009EE RID: 2542 RVA: 0x00028208 File Offset: 0x00026408
+	// Token: 0x06000B14 RID: 2836 RVA: 0x0002BF84 File Offset: 0x0002A184
 	public bool AudibleMessage(float hearRadius, string message, object arg)
 	{
 		return this.idMain.AudibleMessage(hearRadius, message, arg);
 	}
 
-	// Token: 0x060009EF RID: 2543 RVA: 0x00028218 File Offset: 0x00026418
+	// Token: 0x06000B15 RID: 2837 RVA: 0x0002BF94 File Offset: 0x0002A194
 	public bool AudibleMessage(float hearRadius, string message)
 	{
 		return this.idMain.AudibleMessage(hearRadius, message);
 	}
 
-	// Token: 0x060009F0 RID: 2544 RVA: 0x00028228 File Offset: 0x00026428
+	// Token: 0x06000B16 RID: 2838 RVA: 0x0002BFA4 File Offset: 0x0002A1A4
 	public bool GestureMessage(string message)
 	{
 		return this.idMain.GestureMessage(message);
 	}
 
-	// Token: 0x060009F1 RID: 2545 RVA: 0x00028238 File Offset: 0x00026438
+	// Token: 0x06000B17 RID: 2839 RVA: 0x0002BFB4 File Offset: 0x0002A1B4
 	public bool GestureMessage(string message, object arg)
 	{
 		return this.idMain.GestureMessage(message, arg);
 	}
 
-	// Token: 0x060009F2 RID: 2546 RVA: 0x00028248 File Offset: 0x00026448
+	// Token: 0x06000B18 RID: 2840 RVA: 0x0002BFC4 File Offset: 0x0002A1C4
 	public bool AttentionMessage(string message)
 	{
 		return this.idMain.AttentionMessage(message);
 	}
 
-	// Token: 0x060009F3 RID: 2547 RVA: 0x00028258 File Offset: 0x00026458
+	// Token: 0x06000B19 RID: 2841 RVA: 0x0002BFD4 File Offset: 0x0002A1D4
 	public bool AttentionMessage(string message, object arg)
 	{
 		return this.idMain.AttentionMessage(message, arg);
 	}
 
-	// Token: 0x060009F4 RID: 2548 RVA: 0x00028268 File Offset: 0x00026468
+	// Token: 0x06000B1A RID: 2842 RVA: 0x0002BFE4 File Offset: 0x0002A1E4
 	public bool ContactMessage(string message)
 	{
 		return this.idMain.ContactMessage(message);
 	}
 
-	// Token: 0x060009F5 RID: 2549 RVA: 0x00028278 File Offset: 0x00026478
+	// Token: 0x06000B1B RID: 2843 RVA: 0x0002BFF4 File Offset: 0x0002A1F4
 	public bool ContactMessage(string message, object arg)
 	{
 		return this.idMain.ContactMessage(message, arg);
 	}
 
-	// Token: 0x060009F6 RID: 2550 RVA: 0x00028288 File Offset: 0x00026488
+	// Token: 0x06000B1C RID: 2844 RVA: 0x0002C004 File Offset: 0x0002A204
 	public bool StealthMessage(string message)
 	{
 		return this.idMain.StealthMessage(message);
 	}
 
-	// Token: 0x060009F7 RID: 2551 RVA: 0x00028298 File Offset: 0x00026498
+	// Token: 0x06000B1D RID: 2845 RVA: 0x0002C014 File Offset: 0x0002A214
 	public bool StealthMessage(string message, object arg)
 	{
 		return this.idMain.StealthMessage(message, arg);
 	}
 
-	// Token: 0x060009F8 RID: 2552 RVA: 0x000282A8 File Offset: 0x000264A8
+	// Token: 0x06000B1E RID: 2846 RVA: 0x0002C024 File Offset: 0x0002A224
 	public bool PreyMessage(string message)
 	{
 		return this.idMain.PreyMessage(message);
 	}
 
-	// Token: 0x060009F9 RID: 2553 RVA: 0x000282B8 File Offset: 0x000264B8
+	// Token: 0x06000B1F RID: 2847 RVA: 0x0002C034 File Offset: 0x0002A234
 	public bool PreyMessage(string message, object arg)
 	{
 		return this.idMain.PreyMessage(message, arg);
 	}
 
-	// Token: 0x060009FA RID: 2554 RVA: 0x000282C8 File Offset: 0x000264C8
+	// Token: 0x06000B20 RID: 2848 RVA: 0x0002C044 File Offset: 0x0002A244
 	public bool ObliviousMessage(string message)
 	{
 		return this.idMain.ObliviousMessage(message);
 	}
 
-	// Token: 0x060009FB RID: 2555 RVA: 0x000282D8 File Offset: 0x000264D8
+	// Token: 0x06000B21 RID: 2849 RVA: 0x0002C054 File Offset: 0x0002A254
 	public bool ObliviousMessage(string message, object arg)
 	{
 		return this.idMain.ObliviousMessage(message, arg);
 	}
 
-	// Token: 0x170002CB RID: 715
-	// (get) Token: 0x060009FC RID: 2556 RVA: 0x000282E8 File Offset: 0x000264E8
-	// (set) Token: 0x060009FD RID: 2557 RVA: 0x000282F8 File Offset: 0x000264F8
-	public Vis.Mask viewMask
+	// Token: 0x1700030D RID: 781
+	// (get) Token: 0x06000B22 RID: 2850 RVA: 0x0002C064 File Offset: 0x0002A264
+	// (set) Token: 0x06000B23 RID: 2851 RVA: 0x0002C074 File Offset: 0x0002A274
+	public global::Vis.Mask viewMask
 	{
 		get
 		{
@@ -1375,10 +1375,10 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002CC RID: 716
-	// (get) Token: 0x060009FE RID: 2558 RVA: 0x00028308 File Offset: 0x00026508
-	// (set) Token: 0x060009FF RID: 2559 RVA: 0x00028318 File Offset: 0x00026518
-	public Vis.Mask traitMask
+	// Token: 0x1700030E RID: 782
+	// (get) Token: 0x06000B24 RID: 2852 RVA: 0x0002C084 File Offset: 0x0002A284
+	// (set) Token: 0x06000B25 RID: 2853 RVA: 0x0002C094 File Offset: 0x0002A294
+	public global::Vis.Mask traitMask
 	{
 		get
 		{
@@ -1390,9 +1390,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002CD RID: 717
-	// (get) Token: 0x06000A00 RID: 2560 RVA: 0x00028328 File Offset: 0x00026528
-	// (set) Token: 0x06000A01 RID: 2561 RVA: 0x00028338 File Offset: 0x00026538
+	// Token: 0x1700030F RID: 783
+	// (get) Token: 0x06000B26 RID: 2854 RVA: 0x0002C0A4 File Offset: 0x0002A2A4
+	// (set) Token: 0x06000B27 RID: 2855 RVA: 0x0002C0B4 File Offset: 0x0002A2B4
 	public bool blind
 	{
 		get
@@ -1405,9 +1405,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002CE RID: 718
-	// (get) Token: 0x06000A02 RID: 2562 RVA: 0x00028348 File Offset: 0x00026548
-	// (set) Token: 0x06000A03 RID: 2563 RVA: 0x00028358 File Offset: 0x00026558
+	// Token: 0x17000310 RID: 784
+	// (get) Token: 0x06000B28 RID: 2856 RVA: 0x0002C0C4 File Offset: 0x0002A2C4
+	// (set) Token: 0x06000B29 RID: 2857 RVA: 0x0002C0D4 File Offset: 0x0002A2D4
 	public bool deaf
 	{
 		get
@@ -1420,9 +1420,9 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002CF RID: 719
-	// (get) Token: 0x06000A04 RID: 2564 RVA: 0x00028368 File Offset: 0x00026568
-	// (set) Token: 0x06000A05 RID: 2565 RVA: 0x00028378 File Offset: 0x00026578
+	// Token: 0x17000311 RID: 785
+	// (get) Token: 0x06000B2A RID: 2858 RVA: 0x0002C0E4 File Offset: 0x0002A2E4
+	// (set) Token: 0x06000B2B RID: 2859 RVA: 0x0002C0F4 File Offset: 0x0002A2F4
 	public bool mute
 	{
 		get
@@ -1435,8 +1435,8 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x170002D0 RID: 720
-	// (get) Token: 0x06000A06 RID: 2566 RVA: 0x00028388 File Offset: 0x00026588
+	// Token: 0x17000312 RID: 786
+	// (get) Token: 0x06000B2C RID: 2860 RVA: 0x0002C104 File Offset: 0x0002A304
 	public NavMeshAgent agent
 	{
 		get
@@ -1445,15 +1445,15 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x06000A07 RID: 2567 RVA: 0x00028398 File Offset: 0x00026598
+	// Token: 0x06000B2D RID: 2861 RVA: 0x0002C114 File Offset: 0x0002A314
 	public bool CreateNavMeshAgent()
 	{
 		return this.idMain.CreateNavMeshAgent();
 	}
 
-	// Token: 0x170002D1 RID: 721
-	// (get) Token: 0x06000A08 RID: 2568 RVA: 0x000283A8 File Offset: 0x000265A8
-	public CharacterInterpolatorBase interpolator
+	// Token: 0x17000313 RID: 787
+	// (get) Token: 0x06000B2E RID: 2862 RVA: 0x0002C124 File Offset: 0x0002A324
+	public global::CharacterInterpolatorBase interpolator
 	{
 		get
 		{
@@ -1461,15 +1461,15 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x06000A09 RID: 2569 RVA: 0x000283B8 File Offset: 0x000265B8
+	// Token: 0x06000B2F RID: 2863 RVA: 0x0002C134 File Offset: 0x0002A334
 	public bool CreateInterpolator()
 	{
 		return this.idMain.CreateInterpolator();
 	}
 
-	// Token: 0x170002D2 RID: 722
-	// (get) Token: 0x06000A0A RID: 2570 RVA: 0x000283C8 File Offset: 0x000265C8
-	public CCMotor ccmotor
+	// Token: 0x17000314 RID: 788
+	// (get) Token: 0x06000B30 RID: 2864 RVA: 0x0002C144 File Offset: 0x0002A344
+	public global::CCMotor ccmotor
 	{
 		get
 		{
@@ -1477,15 +1477,15 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x06000A0B RID: 2571 RVA: 0x000283D8 File Offset: 0x000265D8
+	// Token: 0x06000B31 RID: 2865 RVA: 0x0002C154 File Offset: 0x0002A354
 	public bool CreateCCMotor()
 	{
 		return this.idMain.CreateCCMotor();
 	}
 
-	// Token: 0x170002D3 RID: 723
-	// (get) Token: 0x06000A0C RID: 2572 RVA: 0x000283E8 File Offset: 0x000265E8
-	public IDLocalCharacterAddon overlay
+	// Token: 0x17000315 RID: 789
+	// (get) Token: 0x06000B32 RID: 2866 RVA: 0x0002C164 File Offset: 0x0002A364
+	public global::IDLocalCharacterAddon overlay
 	{
 		get
 		{
@@ -1493,7 +1493,7 @@ public abstract class IDLocalCharacter : IDLocal
 		}
 	}
 
-	// Token: 0x06000A0D RID: 2573 RVA: 0x000283F8 File Offset: 0x000265F8
+	// Token: 0x06000B33 RID: 2867 RVA: 0x0002C174 File Offset: 0x0002A374
 	public bool CreateOverlay()
 	{
 		return this.idMain.CreateOverlay();

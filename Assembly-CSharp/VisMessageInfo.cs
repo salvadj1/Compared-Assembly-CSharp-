@@ -1,49 +1,49 @@
 ﻿using System;
 
-// Token: 0x0200039F RID: 927
+// Token: 0x0200044C RID: 1100
 public sealed class VisMessageInfo : IDisposable
 {
-	// Token: 0x06002328 RID: 9000 RVA: 0x000876C0 File Offset: 0x000858C0
+	// Token: 0x0600268A RID: 9866 RVA: 0x0008CABC File Offset: 0x0008ACBC
 	private VisMessageInfo()
 	{
 	}
 
-	// Token: 0x06002329 RID: 9001 RVA: 0x000876C8 File Offset: 0x000858C8
+	// Token: 0x0600268B RID: 9867 RVA: 0x0008CAC4 File Offset: 0x0008ACC4
 	void IDisposable.Dispose()
 	{
-		if (this._kind != (VisMessageInfo.Kind)0)
+		if (this._kind != (global::VisMessageInfo.Kind)0)
 		{
-			this._kind = (VisMessageInfo.Kind)0;
-			this.next = VisMessageInfo.dump;
-			VisMessageInfo.dump = this;
+			this._kind = (global::VisMessageInfo.Kind)0;
+			this.next = global::VisMessageInfo.dump;
+			global::VisMessageInfo.dump = this;
 			this._other = null;
 			this._self = null;
 		}
 	}
 
-	// Token: 0x17000890 RID: 2192
-	// (get) Token: 0x0600232A RID: 9002 RVA: 0x000876FC File Offset: 0x000858FC
+	// Token: 0x170008EE RID: 2286
+	// (get) Token: 0x0600268C RID: 9868 RVA: 0x0008CAF8 File Offset: 0x0008ACF8
 	public bool isSpectatingEvent
 	{
 		get
 		{
-			return (this._kind - VisMessageInfo.Kind.SeeEnter & 1) == 1;
+			return (this._kind - global::VisMessageInfo.Kind.SeeEnter & 1) == 1;
 		}
 	}
 
-	// Token: 0x17000891 RID: 2193
-	// (get) Token: 0x0600232B RID: 9003 RVA: 0x0008770C File Offset: 0x0008590C
+	// Token: 0x170008EF RID: 2287
+	// (get) Token: 0x0600268D RID: 9869 RVA: 0x0008CB08 File Offset: 0x0008AD08
 	public bool isSeeEvent
 	{
 		get
 		{
-			return (this._kind & VisMessageInfo.Kind.SeeEnter) == VisMessageInfo.Kind.SeeEnter;
+			return (this._kind & global::VisMessageInfo.Kind.SeeEnter) == global::VisMessageInfo.Kind.SeeEnter;
 		}
 	}
 
-	// Token: 0x17000892 RID: 2194
-	// (get) Token: 0x0600232C RID: 9004 RVA: 0x0008771C File Offset: 0x0008591C
-	public VisMessageInfo.Kind kind
+	// Token: 0x170008F0 RID: 2288
+	// (get) Token: 0x0600268E RID: 9870 RVA: 0x0008CB18 File Offset: 0x0008AD18
+	public global::VisMessageInfo.Kind kind
 	{
 		get
 		{
@@ -51,9 +51,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x17000893 RID: 2195
-	// (get) Token: 0x0600232D RID: 9005 RVA: 0x00087724 File Offset: 0x00085924
-	public VisNode sender
+	// Token: 0x170008F1 RID: 2289
+	// (get) Token: 0x0600268F RID: 9871 RVA: 0x0008CB20 File Offset: 0x0008AD20
+	public global::VisNode sender
 	{
 		get
 		{
@@ -61,9 +61,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x17000894 RID: 2196
-	// (get) Token: 0x0600232E RID: 9006 RVA: 0x00087734 File Offset: 0x00085934
-	public VisNode self
+	// Token: 0x170008F2 RID: 2290
+	// (get) Token: 0x06002690 RID: 9872 RVA: 0x0008CB30 File Offset: 0x0008AD30
+	public global::VisNode self
 	{
 		get
 		{
@@ -71,9 +71,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x17000895 RID: 2197
-	// (get) Token: 0x0600232F RID: 9007 RVA: 0x00087744 File Offset: 0x00085944
-	public VisReactor issuer
+	// Token: 0x170008F3 RID: 2291
+	// (get) Token: 0x06002691 RID: 9873 RVA: 0x0008CB40 File Offset: 0x0008AD40
+	public global::VisReactor issuer
 	{
 		get
 		{
@@ -81,9 +81,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x17000896 RID: 2198
-	// (get) Token: 0x06002330 RID: 9008 RVA: 0x0008774C File Offset: 0x0008594C
-	public VisNode target
+	// Token: 0x170008F4 RID: 2292
+	// (get) Token: 0x06002692 RID: 9874 RVA: 0x0008CB48 File Offset: 0x0008AD48
+	public global::VisNode target
 	{
 		get
 		{
@@ -91,9 +91,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x17000897 RID: 2199
-	// (get) Token: 0x06002331 RID: 9009 RVA: 0x00087754 File Offset: 0x00085954
-	public VisNode other
+	// Token: 0x170008F5 RID: 2293
+	// (get) Token: 0x06002693 RID: 9875 RVA: 0x0008CB50 File Offset: 0x0008AD50
+	public global::VisNode other
 	{
 		get
 		{
@@ -101,19 +101,19 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x17000898 RID: 2200
-	// (get) Token: 0x06002332 RID: 9010 RVA: 0x0008775C File Offset: 0x0008595C
+	// Token: 0x170008F6 RID: 2294
+	// (get) Token: 0x06002694 RID: 9876 RVA: 0x0008CB58 File Offset: 0x0008AD58
 	public bool isTwoNodeEvent
 	{
 		get
 		{
-			return this._kind > VisMessageInfo.Kind.SpectatorExit;
+			return this._kind > global::VisMessageInfo.Kind.SpectatorExit;
 		}
 	}
 
-	// Token: 0x17000899 RID: 2201
-	// (get) Token: 0x06002333 RID: 9011 RVA: 0x00087768 File Offset: 0x00085968
-	public VisNode spectator
+	// Token: 0x170008F7 RID: 2295
+	// (get) Token: 0x06002695 RID: 9877 RVA: 0x0008CB64 File Offset: 0x0008AD64
+	public global::VisNode spectator
 	{
 		get
 		{
@@ -121,9 +121,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x1700089A RID: 2202
-	// (get) Token: 0x06002334 RID: 9012 RVA: 0x00087788 File Offset: 0x00085988
-	public VisNode spectated
+	// Token: 0x170008F8 RID: 2296
+	// (get) Token: 0x06002696 RID: 9878 RVA: 0x0008CB84 File Offset: 0x0008AD84
+	public global::VisNode spectated
 	{
 		get
 		{
@@ -131,9 +131,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x1700089B RID: 2203
-	// (get) Token: 0x06002335 RID: 9013 RVA: 0x000877A8 File Offset: 0x000859A8
-	public VisNode seenNode
+	// Token: 0x170008F9 RID: 2297
+	// (get) Token: 0x06002697 RID: 9879 RVA: 0x0008CBA4 File Offset: 0x0008ADA4
+	public global::VisNode seenNode
 	{
 		get
 		{
@@ -141,9 +141,9 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x1700089C RID: 2204
-	// (get) Token: 0x06002336 RID: 9014 RVA: 0x000877B0 File Offset: 0x000859B0
-	public VisNode seeer
+	// Token: 0x170008FA RID: 2298
+	// (get) Token: 0x06002698 RID: 9880 RVA: 0x0008CBAC File Offset: 0x0008ADAC
+	public global::VisNode seeer
 	{
 		get
 		{
@@ -151,19 +151,19 @@ public sealed class VisMessageInfo : IDisposable
 		}
 	}
 
-	// Token: 0x06002337 RID: 9015 RVA: 0x000877B8 File Offset: 0x000859B8
-	public static VisMessageInfo Create(VisReactor issuer, VisNode other, VisMessageInfo.Kind kind)
+	// Token: 0x06002699 RID: 9881 RVA: 0x0008CBB4 File Offset: 0x0008ADB4
+	public static global::VisMessageInfo Create(global::VisReactor issuer, global::VisNode other, global::VisMessageInfo.Kind kind)
 	{
-		VisMessageInfo visMessageInfo;
-		if (VisMessageInfo.dump != null)
+		global::VisMessageInfo visMessageInfo;
+		if (global::VisMessageInfo.dump != null)
 		{
-			visMessageInfo = VisMessageInfo.dump;
-			VisMessageInfo.dump = visMessageInfo.next;
+			visMessageInfo = global::VisMessageInfo.dump;
+			global::VisMessageInfo.dump = visMessageInfo.next;
 			visMessageInfo.next = null;
 		}
 		else
 		{
-			visMessageInfo = new VisMessageInfo();
+			visMessageInfo = new global::VisMessageInfo();
 		}
 		visMessageInfo._self = issuer;
 		visMessageInfo._other = other;
@@ -171,19 +171,19 @@ public sealed class VisMessageInfo : IDisposable
 		return visMessageInfo;
 	}
 
-	// Token: 0x06002338 RID: 9016 RVA: 0x00087808 File Offset: 0x00085A08
-	public static VisMessageInfo Create(VisReactor issuer, VisMessageInfo.Kind kind)
+	// Token: 0x0600269A RID: 9882 RVA: 0x0008CC04 File Offset: 0x0008AE04
+	public static global::VisMessageInfo Create(global::VisReactor issuer, global::VisMessageInfo.Kind kind)
 	{
-		VisMessageInfo visMessageInfo;
-		if (VisMessageInfo.dump != null)
+		global::VisMessageInfo visMessageInfo;
+		if (global::VisMessageInfo.dump != null)
 		{
-			visMessageInfo = VisMessageInfo.dump;
-			VisMessageInfo.dump = visMessageInfo.next;
+			visMessageInfo = global::VisMessageInfo.dump;
+			global::VisMessageInfo.dump = visMessageInfo.next;
 			visMessageInfo.next = null;
 		}
 		else
 		{
-			visMessageInfo = new VisMessageInfo();
+			visMessageInfo = new global::VisMessageInfo();
 		}
 		visMessageInfo._self = issuer;
 		visMessageInfo._other = null;
@@ -191,39 +191,39 @@ public sealed class VisMessageInfo : IDisposable
 		return visMessageInfo;
 	}
 
-	// Token: 0x040010B5 RID: 4277
-	private VisNode _other;
+	// Token: 0x0400121B RID: 4635
+	private global::VisNode _other;
 
-	// Token: 0x040010B6 RID: 4278
-	private VisReactor _self;
+	// Token: 0x0400121C RID: 4636
+	private global::VisReactor _self;
 
-	// Token: 0x040010B7 RID: 4279
-	private VisMessageInfo next;
+	// Token: 0x0400121D RID: 4637
+	private global::VisMessageInfo next;
 
-	// Token: 0x040010B8 RID: 4280
-	private VisMessageInfo.Kind _kind;
+	// Token: 0x0400121E RID: 4638
+	private global::VisMessageInfo.Kind _kind;
 
-	// Token: 0x040010B9 RID: 4281
-	private static VisMessageInfo dump;
+	// Token: 0x0400121F RID: 4639
+	private static global::VisMessageInfo dump;
 
-	// Token: 0x020003A0 RID: 928
+	// Token: 0x0200044D RID: 1101
 	public enum Kind : byte
 	{
-		// Token: 0x040010BB RID: 4283
+		// Token: 0x04001221 RID: 4641
 		SeeEnter = 1,
-		// Token: 0x040010BC RID: 4284
+		// Token: 0x04001222 RID: 4642
 		SeeExit = 3,
-		// Token: 0x040010BD RID: 4285
+		// Token: 0x04001223 RID: 4643
 		SeeAdd = 5,
-		// Token: 0x040010BE RID: 4286
+		// Token: 0x04001224 RID: 4644
 		SeeRemove = 7,
-		// Token: 0x040010BF RID: 4287
+		// Token: 0x04001225 RID: 4645
 		SpectatedEnter = 2,
-		// Token: 0x040010C0 RID: 4288
+		// Token: 0x04001226 RID: 4646
 		SpectatorExit = 4,
-		// Token: 0x040010C1 RID: 4289
+		// Token: 0x04001227 RID: 4647
 		SpectatorAdd = 8,
-		// Token: 0x040010C2 RID: 4290
+		// Token: 0x04001228 RID: 4648
 		SpectatorRemove = 10
 	}
 }

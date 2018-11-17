@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006C1 RID: 1729
-public class dfMouseEventArgs : dfControlEventArgs
+// Token: 0x0200078C RID: 1932
+public class dfMouseEventArgs : global::dfControlEventArgs
 {
-	// Token: 0x06003C8B RID: 15499 RVA: 0x000E4024 File Offset: 0x000E2224
-	public dfMouseEventArgs(dfControl Source, dfMouseButtons button, int clicks, Ray ray, Vector2 location, float wheel) : base(Source)
+	// Token: 0x06004095 RID: 16533 RVA: 0x000ECB68 File Offset: 0x000EAD68
+	public dfMouseEventArgs(global::dfControl Source, global::dfMouseButtons button, int clicks, Ray ray, Vector2 location, float wheel) : base(Source)
 	{
 		this.Buttons = button;
 		this.Clicks = clicks;
@@ -14,42 +14,42 @@ public class dfMouseEventArgs : dfControlEventArgs
 		this.Ray = ray;
 	}
 
-	// Token: 0x06003C8C RID: 15500 RVA: 0x000E4060 File Offset: 0x000E2260
-	public dfMouseEventArgs(dfControl Source) : base(Source)
+	// Token: 0x06004096 RID: 16534 RVA: 0x000ECBA4 File Offset: 0x000EADA4
+	public dfMouseEventArgs(global::dfControl Source) : base(Source)
 	{
-		this.Buttons = dfMouseButtons.None;
+		this.Buttons = global::dfMouseButtons.None;
 		this.Clicks = 0;
 		this.Position = Vector2.zero;
 		this.WheelDelta = 0f;
 	}
 
-	// Token: 0x17000BBC RID: 3004
-	// (get) Token: 0x06003C8D RID: 15501 RVA: 0x000E4098 File Offset: 0x000E2298
-	// (set) Token: 0x06003C8E RID: 15502 RVA: 0x000E40A0 File Offset: 0x000E22A0
-	public dfMouseButtons Buttons { get; private set; }
+	// Token: 0x17000C40 RID: 3136
+	// (get) Token: 0x06004097 RID: 16535 RVA: 0x000ECBDC File Offset: 0x000EADDC
+	// (set) Token: 0x06004098 RID: 16536 RVA: 0x000ECBE4 File Offset: 0x000EADE4
+	public global::dfMouseButtons Buttons { get; private set; }
 
-	// Token: 0x17000BBD RID: 3005
-	// (get) Token: 0x06003C8F RID: 15503 RVA: 0x000E40AC File Offset: 0x000E22AC
-	// (set) Token: 0x06003C90 RID: 15504 RVA: 0x000E40B4 File Offset: 0x000E22B4
+	// Token: 0x17000C41 RID: 3137
+	// (get) Token: 0x06004099 RID: 16537 RVA: 0x000ECBF0 File Offset: 0x000EADF0
+	// (set) Token: 0x0600409A RID: 16538 RVA: 0x000ECBF8 File Offset: 0x000EADF8
 	public int Clicks { get; private set; }
 
-	// Token: 0x17000BBE RID: 3006
-	// (get) Token: 0x06003C91 RID: 15505 RVA: 0x000E40C0 File Offset: 0x000E22C0
-	// (set) Token: 0x06003C92 RID: 15506 RVA: 0x000E40C8 File Offset: 0x000E22C8
+	// Token: 0x17000C42 RID: 3138
+	// (get) Token: 0x0600409B RID: 16539 RVA: 0x000ECC04 File Offset: 0x000EAE04
+	// (set) Token: 0x0600409C RID: 16540 RVA: 0x000ECC0C File Offset: 0x000EAE0C
 	public float WheelDelta { get; private set; }
 
-	// Token: 0x17000BBF RID: 3007
-	// (get) Token: 0x06003C93 RID: 15507 RVA: 0x000E40D4 File Offset: 0x000E22D4
-	// (set) Token: 0x06003C94 RID: 15508 RVA: 0x000E40DC File Offset: 0x000E22DC
+	// Token: 0x17000C43 RID: 3139
+	// (get) Token: 0x0600409D RID: 16541 RVA: 0x000ECC18 File Offset: 0x000EAE18
+	// (set) Token: 0x0600409E RID: 16542 RVA: 0x000ECC20 File Offset: 0x000EAE20
 	public Vector2 MoveDelta { get; set; }
 
-	// Token: 0x17000BC0 RID: 3008
-	// (get) Token: 0x06003C95 RID: 15509 RVA: 0x000E40E8 File Offset: 0x000E22E8
-	// (set) Token: 0x06003C96 RID: 15510 RVA: 0x000E40F0 File Offset: 0x000E22F0
+	// Token: 0x17000C44 RID: 3140
+	// (get) Token: 0x0600409F RID: 16543 RVA: 0x000ECC2C File Offset: 0x000EAE2C
+	// (set) Token: 0x060040A0 RID: 16544 RVA: 0x000ECC34 File Offset: 0x000EAE34
 	public Vector2 Position { get; set; }
 
-	// Token: 0x17000BC1 RID: 3009
-	// (get) Token: 0x06003C97 RID: 15511 RVA: 0x000E40FC File Offset: 0x000E22FC
-	// (set) Token: 0x06003C98 RID: 15512 RVA: 0x000E4104 File Offset: 0x000E2304
+	// Token: 0x17000C45 RID: 3141
+	// (get) Token: 0x060040A1 RID: 16545 RVA: 0x000ECC40 File Offset: 0x000EAE40
+	// (set) Token: 0x060040A2 RID: 16546 RVA: 0x000ECC48 File Offset: 0x000EAE48
 	public Ray Ray { get; set; }
 }

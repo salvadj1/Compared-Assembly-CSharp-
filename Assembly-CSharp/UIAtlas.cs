@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020007C0 RID: 1984
+// Token: 0x020008AD RID: 2221
 [AddComponentMenu("NGUI/UI/Atlas")]
 public class UIAtlas : MonoBehaviour
 {
-	// Token: 0x17000DC8 RID: 3528
-	// (get) Token: 0x06004771 RID: 18289 RVA: 0x0011F920 File Offset: 0x0011DB20
-	// (set) Token: 0x06004772 RID: 18290 RVA: 0x0011F94C File Offset: 0x0011DB4C
+	// Token: 0x17000E5A RID: 3674
+	// (get) Token: 0x06004C00 RID: 19456 RVA: 0x00129344 File Offset: 0x00127544
+	// (set) Token: 0x06004C01 RID: 19457 RVA: 0x00129370 File Offset: 0x00127570
 	public Material spriteMaterial
 	{
 		get
@@ -34,10 +34,10 @@ public class UIAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DC9 RID: 3529
-	// (get) Token: 0x06004773 RID: 18291 RVA: 0x0011F9AC File Offset: 0x0011DBAC
-	// (set) Token: 0x06004774 RID: 18292 RVA: 0x0011F9D8 File Offset: 0x0011DBD8
-	public List<UIAtlas.Sprite> spriteList
+	// Token: 0x17000E5B RID: 3675
+	// (get) Token: 0x06004C02 RID: 19458 RVA: 0x001293D0 File Offset: 0x001275D0
+	// (set) Token: 0x06004C03 RID: 19459 RVA: 0x001293FC File Offset: 0x001275FC
+	public List<global::UIAtlas.Sprite> spriteList
 	{
 		get
 		{
@@ -56,8 +56,8 @@ public class UIAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DCA RID: 3530
-	// (get) Token: 0x06004775 RID: 18293 RVA: 0x0011FA04 File Offset: 0x0011DC04
+	// Token: 0x17000E5C RID: 3676
+	// (get) Token: 0x06004C04 RID: 19460 RVA: 0x00129428 File Offset: 0x00127628
 	public Texture texture
 	{
 		get
@@ -66,10 +66,10 @@ public class UIAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DCB RID: 3531
-	// (get) Token: 0x06004776 RID: 18294 RVA: 0x0011FA54 File Offset: 0x0011DC54
-	// (set) Token: 0x06004777 RID: 18295 RVA: 0x0011FA80 File Offset: 0x0011DC80
-	public UIAtlas.Coordinates coordinates
+	// Token: 0x17000E5D RID: 3677
+	// (get) Token: 0x06004C05 RID: 19461 RVA: 0x00129478 File Offset: 0x00127678
+	// (set) Token: 0x06004C06 RID: 19462 RVA: 0x001294A4 File Offset: 0x001276A4
+	public global::UIAtlas.Coordinates coordinates
 	{
 		get
 		{
@@ -94,16 +94,16 @@ public class UIAtlas : MonoBehaviour
 				int count = this.sprites.Count;
 				while (i < count)
 				{
-					UIAtlas.Sprite sprite = this.sprites[i];
-					if (this.mCoordinates == UIAtlas.Coordinates.TexCoords)
+					global::UIAtlas.Sprite sprite = this.sprites[i];
+					if (this.mCoordinates == global::UIAtlas.Coordinates.TexCoords)
 					{
-						sprite.outer = NGUIMath.ConvertToTexCoords(sprite.outer, mainTexture.width, mainTexture.height);
-						sprite.inner = NGUIMath.ConvertToTexCoords(sprite.inner, mainTexture.width, mainTexture.height);
+						sprite.outer = global::NGUIMath.ConvertToTexCoords(sprite.outer, mainTexture.width, mainTexture.height);
+						sprite.inner = global::NGUIMath.ConvertToTexCoords(sprite.inner, mainTexture.width, mainTexture.height);
 					}
 					else
 					{
-						sprite.outer = NGUIMath.ConvertToPixels(sprite.outer, mainTexture.width, mainTexture.height, true);
-						sprite.inner = NGUIMath.ConvertToPixels(sprite.inner, mainTexture.width, mainTexture.height, true);
+						sprite.outer = global::NGUIMath.ConvertToPixels(sprite.outer, mainTexture.width, mainTexture.height, true);
+						sprite.inner = global::NGUIMath.ConvertToPixels(sprite.inner, mainTexture.width, mainTexture.height, true);
 					}
 					i++;
 				}
@@ -111,9 +111,9 @@ public class UIAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DCC RID: 3532
-	// (get) Token: 0x06004778 RID: 18296 RVA: 0x0011FBB4 File Offset: 0x0011DDB4
-	// (set) Token: 0x06004779 RID: 18297 RVA: 0x0011FBE0 File Offset: 0x0011DDE0
+	// Token: 0x17000E5E RID: 3678
+	// (get) Token: 0x06004C07 RID: 19463 RVA: 0x001295D8 File Offset: 0x001277D8
+	// (set) Token: 0x06004C08 RID: 19464 RVA: 0x00129604 File Offset: 0x00127804
 	public float pixelSize
 	{
 		get
@@ -138,10 +138,10 @@ public class UIAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000DCD RID: 3533
-	// (get) Token: 0x0600477A RID: 18298 RVA: 0x0011FC3C File Offset: 0x0011DE3C
-	// (set) Token: 0x0600477B RID: 18299 RVA: 0x0011FC44 File Offset: 0x0011DE44
-	public UIAtlas replacement
+	// Token: 0x17000E5F RID: 3679
+	// (get) Token: 0x06004C09 RID: 19465 RVA: 0x00129660 File Offset: 0x00127860
+	// (set) Token: 0x06004C0A RID: 19466 RVA: 0x00129668 File Offset: 0x00127868
+	public global::UIAtlas replacement
 	{
 		get
 		{
@@ -149,7 +149,7 @@ public class UIAtlas : MonoBehaviour
 		}
 		set
 		{
-			UIAtlas uiatlas = value;
+			global::UIAtlas uiatlas = value;
 			if (uiatlas == this)
 			{
 				uiatlas = null;
@@ -170,8 +170,8 @@ public class UIAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600477C RID: 18300 RVA: 0x0011FCBC File Offset: 0x0011DEBC
-	public UIAtlas.Sprite GetSprite(string name)
+	// Token: 0x06004C0B RID: 19467 RVA: 0x001296E0 File Offset: 0x001278E0
+	public global::UIAtlas.Sprite GetSprite(string name)
 	{
 		if (this.mReplacement != null)
 		{
@@ -183,7 +183,7 @@ public class UIAtlas : MonoBehaviour
 			int count = this.sprites.Count;
 			while (i < count)
 			{
-				UIAtlas.Sprite sprite = this.sprites[i];
+				global::UIAtlas.Sprite sprite = this.sprites[i];
 				if (!string.IsNullOrEmpty(sprite.name) && name == sprite.name)
 				{
 					return sprite;
@@ -198,7 +198,7 @@ public class UIAtlas : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x0600477D RID: 18301 RVA: 0x0011FD50 File Offset: 0x0011DF50
+	// Token: 0x06004C0C RID: 19468 RVA: 0x00129774 File Offset: 0x00127974
 	public List<string> GetListOfSprites()
 	{
 		if (this.mReplacement != null)
@@ -210,7 +210,7 @@ public class UIAtlas : MonoBehaviour
 		int count = this.sprites.Count;
 		while (i < count)
 		{
-			UIAtlas.Sprite sprite = this.sprites[i];
+			global::UIAtlas.Sprite sprite = this.sprites[i];
 			if (sprite != null && !string.IsNullOrEmpty(sprite.name))
 			{
 				list.Add(sprite.name);
@@ -221,58 +221,58 @@ public class UIAtlas : MonoBehaviour
 		return list;
 	}
 
-	// Token: 0x0600477E RID: 18302 RVA: 0x0011FDD4 File Offset: 0x0011DFD4
-	private bool References(UIAtlas atlas)
+	// Token: 0x06004C0D RID: 19469 RVA: 0x001297F8 File Offset: 0x001279F8
+	private bool References(global::UIAtlas atlas)
 	{
 		return !(atlas == null) && (atlas == this || (this.mReplacement != null && this.mReplacement.References(atlas)));
 	}
 
-	// Token: 0x0600477F RID: 18303 RVA: 0x0011FE20 File Offset: 0x0011E020
-	public static bool CheckIfRelated(UIAtlas a, UIAtlas b)
+	// Token: 0x06004C0E RID: 19470 RVA: 0x00129844 File Offset: 0x00127A44
+	public static bool CheckIfRelated(global::UIAtlas a, global::UIAtlas b)
 	{
 		return !(a == null) && !(b == null) && (a == b || a.References(b) || b.References(a));
 	}
 
-	// Token: 0x06004780 RID: 18304 RVA: 0x0011FE6C File Offset: 0x0011E06C
+	// Token: 0x06004C0F RID: 19471 RVA: 0x00129890 File Offset: 0x00127A90
 	public void MarkAsDirty()
 	{
-		UISprite[] array = NGUITools.FindActive<UISprite>();
+		global::UISprite[] array = global::NGUITools.FindActive<global::UISprite>();
 		int i = 0;
 		int num = array.Length;
 		while (i < num)
 		{
-			UISprite uisprite = array[i];
-			if (UIAtlas.CheckIfRelated(this, uisprite.atlas))
+			global::UISprite uisprite = array[i];
+			if (global::UIAtlas.CheckIfRelated(this, uisprite.atlas))
 			{
-				UIAtlas atlas = uisprite.atlas;
+				global::UIAtlas atlas = uisprite.atlas;
 				uisprite.atlas = null;
 				uisprite.atlas = atlas;
 			}
 			i++;
 		}
-		UIFont[] array2 = Resources.FindObjectsOfTypeAll(typeof(UIFont)) as UIFont[];
+		global::UIFont[] array2 = global::Resources.FindObjectsOfTypeAll(typeof(global::UIFont)) as global::UIFont[];
 		int j = 0;
 		int num2 = array2.Length;
 		while (j < num2)
 		{
-			UIFont uifont = array2[j];
-			if (UIAtlas.CheckIfRelated(this, uifont.atlas))
+			global::UIFont uifont = array2[j];
+			if (global::UIAtlas.CheckIfRelated(this, uifont.atlas))
 			{
-				UIAtlas atlas2 = uifont.atlas;
+				global::UIAtlas atlas2 = uifont.atlas;
 				uifont.atlas = null;
 				uifont.atlas = atlas2;
 			}
 			j++;
 		}
-		UILabel[] array3 = NGUITools.FindActive<UILabel>();
+		global::UILabel[] array3 = global::NGUITools.FindActive<global::UILabel>();
 		int k = 0;
 		int num3 = array3.Length;
 		while (k < num3)
 		{
-			UILabel uilabel = array3[k];
-			if (uilabel.font != null && UIAtlas.CheckIfRelated(this, uilabel.font.atlas))
+			global::UILabel uilabel = array3[k];
+			if (uilabel.font != null && global::UIAtlas.CheckIfRelated(this, uilabel.font.atlas))
 			{
-				UIFont font = uilabel.font;
+				global::UIFont font = uilabel.font;
 				uilabel.font = null;
 				uilabel.font = font;
 			}
@@ -280,37 +280,37 @@ public class UIAtlas : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400277D RID: 10109
-	[SerializeField]
+	// Token: 0x040029B7 RID: 10679
 	[HideInInspector]
+	[SerializeField]
 	private Material material;
 
-	// Token: 0x0400277E RID: 10110
+	// Token: 0x040029B8 RID: 10680
 	[SerializeField]
 	[HideInInspector]
-	private List<UIAtlas.Sprite> sprites = new List<UIAtlas.Sprite>();
+	private List<global::UIAtlas.Sprite> sprites = new List<global::UIAtlas.Sprite>();
 
-	// Token: 0x0400277F RID: 10111
+	// Token: 0x040029B9 RID: 10681
 	[SerializeField]
 	[HideInInspector]
-	private UIAtlas.Coordinates mCoordinates;
+	private global::UIAtlas.Coordinates mCoordinates;
 
-	// Token: 0x04002780 RID: 10112
-	[SerializeField]
+	// Token: 0x040029BA RID: 10682
 	[HideInInspector]
+	[SerializeField]
 	private float mPixelSize = 1f;
 
-	// Token: 0x04002781 RID: 10113
+	// Token: 0x040029BB RID: 10683
 	[HideInInspector]
 	[SerializeField]
-	private UIAtlas mReplacement;
+	private global::UIAtlas mReplacement;
 
-	// Token: 0x020007C1 RID: 1985
+	// Token: 0x020008AE RID: 2222
 	[Serializable]
 	public class Sprite
 	{
-		// Token: 0x17000DCE RID: 3534
-		// (get) Token: 0x06004782 RID: 18306 RVA: 0x0011FFF4 File Offset: 0x0011E1F4
+		// Token: 0x17000E60 RID: 3680
+		// (get) Token: 0x06004C11 RID: 19473 RVA: 0x00129A18 File Offset: 0x00127C18
 		public bool hasPadding
 		{
 			get
@@ -319,34 +319,34 @@ public class UIAtlas : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04002782 RID: 10114
+		// Token: 0x040029BC RID: 10684
 		public string name = "Unity Bug";
 
-		// Token: 0x04002783 RID: 10115
+		// Token: 0x040029BD RID: 10685
 		public Rect outer = new Rect(0f, 0f, 1f, 1f);
 
-		// Token: 0x04002784 RID: 10116
+		// Token: 0x040029BE RID: 10686
 		public Rect inner = new Rect(0f, 0f, 1f, 1f);
 
-		// Token: 0x04002785 RID: 10117
+		// Token: 0x040029BF RID: 10687
 		public float paddingLeft;
 
-		// Token: 0x04002786 RID: 10118
+		// Token: 0x040029C0 RID: 10688
 		public float paddingRight;
 
-		// Token: 0x04002787 RID: 10119
+		// Token: 0x040029C1 RID: 10689
 		public float paddingTop;
 
-		// Token: 0x04002788 RID: 10120
+		// Token: 0x040029C2 RID: 10690
 		public float paddingBottom;
 	}
 
-	// Token: 0x020007C2 RID: 1986
+	// Token: 0x020008AF RID: 2223
 	public enum Coordinates
 	{
-		// Token: 0x0400278A RID: 10122
+		// Token: 0x040029C4 RID: 10692
 		Pixels,
-		// Token: 0x0400278B RID: 10123
+		// Token: 0x040029C5 RID: 10693
 		TexCoords
 	}
 }

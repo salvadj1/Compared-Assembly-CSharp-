@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x02000152 RID: 338
+// Token: 0x0200017C RID: 380
 public struct RepairEvent
 {
-	// Token: 0x170002E2 RID: 738
-	// (get) Token: 0x06000A3E RID: 2622 RVA: 0x00028F80 File Offset: 0x00027180
+	// Token: 0x17000324 RID: 804
+	// (get) Token: 0x06000B64 RID: 2916 RVA: 0x0002CCFC File Offset: 0x0002AEFC
 	public IDMain beneficiary
 	{
 		get
@@ -13,7 +13,7 @@ public struct RepairEvent
 		}
 	}
 
-	// Token: 0x06000A3F RID: 2623 RVA: 0x00028FA4 File Offset: 0x000271A4
+	// Token: 0x06000B65 RID: 2917 RVA: 0x0002CD20 File Offset: 0x0002AF20
 	public override string ToString()
 	{
 		return string.Format("[RepairEvent: beneficiary={0} givenAmount={1} usedAmount={5} status={2} doner={3} receiver={4}]", new object[]
@@ -27,18 +27,18 @@ public struct RepairEvent
 		});
 	}
 
-	// Token: 0x040006A3 RID: 1699
+	// Token: 0x040007B2 RID: 1970
 	public IDBase doner;
 
-	// Token: 0x040006A4 RID: 1700
-	public TakeDamage receiver;
+	// Token: 0x040007B3 RID: 1971
+	public global::TakeDamage receiver;
 
-	// Token: 0x040006A5 RID: 1701
+	// Token: 0x040007B4 RID: 1972
 	public float givenAmount;
 
-	// Token: 0x040006A6 RID: 1702
+	// Token: 0x040007B5 RID: 1973
 	public float usedAmount;
 
-	// Token: 0x040006A7 RID: 1703
-	public RepairStatus status;
+	// Token: 0x040007B6 RID: 1974
+	public global::RepairStatus status;
 }

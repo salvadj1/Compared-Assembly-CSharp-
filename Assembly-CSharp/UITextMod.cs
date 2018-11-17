@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x020007E3 RID: 2019
+// Token: 0x020008D4 RID: 2260
 public enum UITextMod : byte
 {
-	// Token: 0x04002897 RID: 10391
+	// Token: 0x04002AE5 RID: 10981
 	End,
-	// Token: 0x04002898 RID: 10392
+	// Token: 0x04002AE6 RID: 10982
 	Removed,
-	// Token: 0x04002899 RID: 10393
+	// Token: 0x04002AE7 RID: 10983
 	Replaced,
-	// Token: 0x0400289A RID: 10394
+	// Token: 0x04002AE8 RID: 10984
 	Added
 }

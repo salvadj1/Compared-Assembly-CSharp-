@@ -1,27 +1,27 @@
 ﻿using System;
 
-// Token: 0x0200040E RID: 1038
-public class RPOSArmorWindow : RPOSWindow
+// Token: 0x020004C3 RID: 1219
+public class RPOSArmorWindow : global::RPOSWindow
 {
-	// Token: 0x06002670 RID: 9840 RVA: 0x000955B0 File Offset: 0x000937B0
+	// Token: 0x060029FA RID: 10746 RVA: 0x0009B474 File Offset: 0x00099674
 	protected override void WindowAwake()
 	{
 		base.WindowAwake();
-		this.cellMan = base.GetComponentInChildren<RPOSInvCellManager>();
+		this.cellMan = base.GetComponentInChildren<global::RPOSInvCellManager>();
 	}
 
-	// Token: 0x06002671 RID: 9841 RVA: 0x000955C4 File Offset: 0x000937C4
+	// Token: 0x060029FB RID: 10747 RVA: 0x0009B488 File Offset: 0x00099688
 	public void ForceUpdate()
 	{
-		HumanBodyTakeDamage humanBodyTakeDamage;
-		DamageTypeList damageTypeList;
-		if (RPOS.GetObservedPlayerComponent<HumanBodyTakeDamage>(out humanBodyTakeDamage))
+		global::HumanBodyTakeDamage humanBodyTakeDamage;
+		global::DamageTypeList damageTypeList;
+		if (global::RPOS.GetObservedPlayerComponent<global::HumanBodyTakeDamage>(out humanBodyTakeDamage))
 		{
 			damageTypeList = humanBodyTakeDamage.GetArmorValues();
 		}
 		else
 		{
-			damageTypeList = new DamageTypeList();
+			damageTypeList = new global::DamageTypeList();
 		}
 		this.leftText.text = string.Empty;
 		this.rightText.text = string.Empty;
@@ -29,9 +29,9 @@ public class RPOSArmorWindow : RPOSWindow
 		{
 			if (damageTypeList[i] != 0f)
 			{
-				UILabel uilabel = this.leftText;
-				uilabel.text = uilabel.text + TakeDamage.DamageIndexToString((DamageTypeIndex)i) + "\n";
-				UILabel uilabel2 = this.rightText;
+				global::UILabel uilabel = this.leftText;
+				uilabel.text = uilabel.text + global::TakeDamage.DamageIndexToString((global::DamageTypeIndex)i) + "\n";
+				global::UILabel uilabel2 = this.rightText;
 				string text = uilabel2.text;
 				uilabel2.text = string.Concat(new object[]
 				{
@@ -44,12 +44,12 @@ public class RPOSArmorWindow : RPOSWindow
 		}
 	}
 
-	// Token: 0x040012BE RID: 4798
-	public UILabel leftText;
+	// Token: 0x0400143E RID: 5182
+	public global::UILabel leftText;
 
-	// Token: 0x040012BF RID: 4799
-	public UILabel rightText;
+	// Token: 0x0400143F RID: 5183
+	public global::UILabel rightText;
 
-	// Token: 0x040012C0 RID: 4800
-	public RPOSInvCellManager cellMan;
+	// Token: 0x04001440 RID: 5184
+	public global::RPOSInvCellManager cellMan;
 }

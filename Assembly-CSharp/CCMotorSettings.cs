@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000289 RID: 649
+// Token: 0x020002C0 RID: 704
 public sealed class CCMotorSettings : ScriptableObject
 {
-	// Token: 0x170006CE RID: 1742
-	// (get) Token: 0x06001773 RID: 6003 RVA: 0x0005AC38 File Offset: 0x00058E38
-	// (set) Token: 0x06001774 RID: 6004 RVA: 0x0005AD10 File Offset: 0x00058F10
-	public CCMotor.Movement movement
+	// Token: 0x1700071A RID: 1818
+	// (get) Token: 0x060018DB RID: 6363 RVA: 0x0005F18C File Offset: 0x0005D38C
+	// (set) Token: 0x060018DC RID: 6364 RVA: 0x0005F264 File Offset: 0x0005D464
+	public global::CCMotor.Movement movement
 	{
 		get
 		{
-			CCMotor.Movement result;
+			global::CCMotor.Movement result;
 			result.maxForwardSpeed = this.maxForwardSpeed;
 			result.maxSidewaysSpeed = this.maxSidewaysSpeed;
 			result.maxBackwardsSpeed = this.maxBackwardsSpeed;
@@ -44,14 +44,14 @@ public sealed class CCMotorSettings : ScriptableObject
 		}
 	}
 
-	// Token: 0x170006CF RID: 1743
-	// (get) Token: 0x06001775 RID: 6005 RVA: 0x0005ADD8 File Offset: 0x00058FD8
-	// (set) Token: 0x06001776 RID: 6006 RVA: 0x0005AE28 File Offset: 0x00059028
-	public CCMotor.Jumping jumping
+	// Token: 0x1700071B RID: 1819
+	// (get) Token: 0x060018DD RID: 6365 RVA: 0x0005F32C File Offset: 0x0005D52C
+	// (set) Token: 0x060018DE RID: 6366 RVA: 0x0005F37C File Offset: 0x0005D57C
+	public global::CCMotor.Jumping jumping
 	{
 		get
 		{
-			CCMotor.Jumping result;
+			global::CCMotor.Jumping result;
 			result.enable = this.jumpEnable;
 			result.baseHeight = this.jumpBaseHeight;
 			result.extraHeight = this.jumpExtraHeight;
@@ -69,14 +69,14 @@ public sealed class CCMotorSettings : ScriptableObject
 		}
 	}
 
-	// Token: 0x170006D0 RID: 1744
-	// (get) Token: 0x06001777 RID: 6007 RVA: 0x0005AE78 File Offset: 0x00059078
-	// (set) Token: 0x06001778 RID: 6008 RVA: 0x0005AEBC File Offset: 0x000590BC
-	public CCMotor.Sliding sliding
+	// Token: 0x1700071C RID: 1820
+	// (get) Token: 0x060018DF RID: 6367 RVA: 0x0005F3CC File Offset: 0x0005D5CC
+	// (set) Token: 0x060018E0 RID: 6368 RVA: 0x0005F410 File Offset: 0x0005D610
+	public global::CCMotor.Sliding sliding
 	{
 		get
 		{
-			CCMotor.Sliding result;
+			global::CCMotor.Sliding result;
 			result.enable = this.slidingEnable;
 			result.slidingSpeed = this.slidingSpeed;
 			result.sidewaysControl = this.slidingSidewaysControl;
@@ -92,14 +92,14 @@ public sealed class CCMotorSettings : ScriptableObject
 		}
 	}
 
-	// Token: 0x170006D1 RID: 1745
-	// (get) Token: 0x06001779 RID: 6009 RVA: 0x0005AF00 File Offset: 0x00059100
-	// (set) Token: 0x0600177A RID: 6010 RVA: 0x0005AF28 File Offset: 0x00059128
-	public CCMotor.MovingPlatform movingPlatform
+	// Token: 0x1700071D RID: 1821
+	// (get) Token: 0x060018E1 RID: 6369 RVA: 0x0005F454 File Offset: 0x0005D654
+	// (set) Token: 0x060018E2 RID: 6370 RVA: 0x0005F47C File Offset: 0x0005D67C
+	public global::CCMotor.MovingPlatform movingPlatform
 	{
 		get
 		{
-			CCMotor.MovingPlatform result;
+			global::CCMotor.MovingPlatform result;
 			result.enable = this.platformMovementEnable;
 			result.movementTransfer = this.platformMovementTransfer;
 			return result;
@@ -111,8 +111,8 @@ public sealed class CCMotorSettings : ScriptableObject
 		}
 	}
 
-	// Token: 0x0600177B RID: 6011 RVA: 0x0005AF44 File Offset: 0x00059144
-	public void BindSettingsTo(CCMotor motor)
+	// Token: 0x060018E3 RID: 6371 RVA: 0x0005F498 File Offset: 0x0005D698
+	public void BindSettingsTo(global::CCMotor motor)
 	{
 		motor.jumping.setup = this.jumping;
 		motor.movement.setup = this.movement;
@@ -121,8 +121,8 @@ public sealed class CCMotorSettings : ScriptableObject
 		motor.OnBindCCMotorSettings();
 	}
 
-	// Token: 0x0600177C RID: 6012 RVA: 0x0005AF98 File Offset: 0x00059198
-	public void CopySettingsFrom(CCMotor motor)
+	// Token: 0x060018E4 RID: 6372 RVA: 0x0005F4EC File Offset: 0x0005D6EC
+	public void CopySettingsFrom(global::CCMotor motor)
 	{
 		this.jumping = motor.jumping.setup;
 		this.movement = motor.movement.setup;
@@ -130,7 +130,7 @@ public sealed class CCMotorSettings : ScriptableObject
 		this.sliding = motor.sliding;
 	}
 
-	// Token: 0x0600177D RID: 6013 RVA: 0x0005AFE4 File Offset: 0x000591E4
+	// Token: 0x060018E5 RID: 6373 RVA: 0x0005F538 File Offset: 0x0005D738
 	public override string ToString()
 	{
 		return string.Format("[CCMotorSettings: movement={0}, jumping={1}, sliding={2}, movingPlatform={3}]", new object[]
@@ -142,72 +142,72 @@ public sealed class CCMotorSettings : ScriptableObject
 		});
 	}
 
-	// Token: 0x04000C30 RID: 3120
-	private static readonly CCMotor.Movement Movement_init = CCMotor.Movement.init;
+	// Token: 0x04000D5B RID: 3419
+	private static readonly global::CCMotor.Movement Movement_init = global::CCMotor.Movement.init;
 
-	// Token: 0x04000C31 RID: 3121
-	public float maxForwardSpeed = CCMotorSettings.Movement_init.maxForwardSpeed;
+	// Token: 0x04000D5C RID: 3420
+	public float maxForwardSpeed = global::CCMotorSettings.Movement_init.maxForwardSpeed;
 
-	// Token: 0x04000C32 RID: 3122
-	public float maxSidewaysSpeed = CCMotorSettings.Movement_init.maxSidewaysSpeed;
+	// Token: 0x04000D5D RID: 3421
+	public float maxSidewaysSpeed = global::CCMotorSettings.Movement_init.maxSidewaysSpeed;
 
-	// Token: 0x04000C33 RID: 3123
-	public float maxBackwardsSpeed = CCMotorSettings.Movement_init.maxBackwardsSpeed;
+	// Token: 0x04000D5E RID: 3422
+	public float maxBackwardsSpeed = global::CCMotorSettings.Movement_init.maxBackwardsSpeed;
 
-	// Token: 0x04000C34 RID: 3124
-	public float maxGroundAcceleration = CCMotorSettings.Movement_init.maxGroundAcceleration;
+	// Token: 0x04000D5F RID: 3423
+	public float maxGroundAcceleration = global::CCMotorSettings.Movement_init.maxGroundAcceleration;
 
-	// Token: 0x04000C35 RID: 3125
-	public float maxAirAcceleration = CCMotorSettings.Movement_init.maxAirAcceleration;
+	// Token: 0x04000D60 RID: 3424
+	public float maxAirAcceleration = global::CCMotorSettings.Movement_init.maxAirAcceleration;
 
-	// Token: 0x04000C36 RID: 3126
-	public float inputAirVelocityRatio = CCMotorSettings.Movement_init.inputAirVelocityRatio;
+	// Token: 0x04000D61 RID: 3425
+	public float inputAirVelocityRatio = global::CCMotorSettings.Movement_init.inputAirVelocityRatio;
 
-	// Token: 0x04000C37 RID: 3127
-	public float gravity = CCMotorSettings.Movement_init.gravity;
+	// Token: 0x04000D62 RID: 3426
+	public float gravity = global::CCMotorSettings.Movement_init.gravity;
 
-	// Token: 0x04000C38 RID: 3128
-	public float maxFallSpeed = CCMotorSettings.Movement_init.maxFallSpeed;
+	// Token: 0x04000D63 RID: 3427
+	public float maxFallSpeed = global::CCMotorSettings.Movement_init.maxFallSpeed;
 
-	// Token: 0x04000C39 RID: 3129
-	public float maxAirHorizontalSpeed = CCMotorSettings.Movement_init.maxAirHorizontalSpeed;
+	// Token: 0x04000D64 RID: 3428
+	public float maxAirHorizontalSpeed = global::CCMotorSettings.Movement_init.maxAirHorizontalSpeed;
 
-	// Token: 0x04000C3A RID: 3130
-	public float maxUnblockingHeightDifference = CCMotorSettings.Movement_init.maxUnblockingHeightDifference;
+	// Token: 0x04000D65 RID: 3429
+	public float maxUnblockingHeightDifference = global::CCMotorSettings.Movement_init.maxUnblockingHeightDifference;
 
-	// Token: 0x04000C3B RID: 3131
-	public AnimationCurve slopeSpeedMultiplier = CCMotor.Movement.init.slopeSpeedMultiplier;
+	// Token: 0x04000D66 RID: 3430
+	public AnimationCurve slopeSpeedMultiplier = global::CCMotor.Movement.init.slopeSpeedMultiplier;
 
-	// Token: 0x04000C3C RID: 3132
-	public bool jumpEnable = CCMotor.Jumping.init.enable;
+	// Token: 0x04000D67 RID: 3431
+	public bool jumpEnable = global::CCMotor.Jumping.init.enable;
 
-	// Token: 0x04000C3D RID: 3133
-	public float jumpBaseHeight = CCMotor.Jumping.init.baseHeight;
+	// Token: 0x04000D68 RID: 3432
+	public float jumpBaseHeight = global::CCMotor.Jumping.init.baseHeight;
 
-	// Token: 0x04000C3E RID: 3134
-	public float jumpExtraHeight = CCMotor.Jumping.init.extraHeight;
+	// Token: 0x04000D69 RID: 3433
+	public float jumpExtraHeight = global::CCMotor.Jumping.init.extraHeight;
 
-	// Token: 0x04000C3F RID: 3135
-	public float jumpPerpAmount = CCMotor.Jumping.init.perpAmount;
+	// Token: 0x04000D6A RID: 3434
+	public float jumpPerpAmount = global::CCMotor.Jumping.init.perpAmount;
 
-	// Token: 0x04000C40 RID: 3136
-	public float jumpSteepPerpAmount = CCMotor.Jumping.init.steepPerpAmount;
+	// Token: 0x04000D6B RID: 3435
+	public float jumpSteepPerpAmount = global::CCMotor.Jumping.init.steepPerpAmount;
 
-	// Token: 0x04000C41 RID: 3137
-	public bool slidingEnable = CCMotor.Sliding.init.enable;
+	// Token: 0x04000D6C RID: 3436
+	public bool slidingEnable = global::CCMotor.Sliding.init.enable;
 
-	// Token: 0x04000C42 RID: 3138
-	public float slidingSpeed = CCMotor.Sliding.init.slidingSpeed;
+	// Token: 0x04000D6D RID: 3437
+	public float slidingSpeed = global::CCMotor.Sliding.init.slidingSpeed;
 
-	// Token: 0x04000C43 RID: 3139
-	public float slidingSidewaysControl = CCMotor.Sliding.init.sidewaysControl;
+	// Token: 0x04000D6E RID: 3438
+	public float slidingSidewaysControl = global::CCMotor.Sliding.init.sidewaysControl;
 
-	// Token: 0x04000C44 RID: 3140
-	public float slidingSpeedControl = CCMotor.Sliding.init.speedControl;
+	// Token: 0x04000D6F RID: 3439
+	public float slidingSpeedControl = global::CCMotor.Sliding.init.speedControl;
 
-	// Token: 0x04000C45 RID: 3141
-	public bool platformMovementEnable = CCMotor.MovingPlatform.init.enable;
+	// Token: 0x04000D70 RID: 3440
+	public bool platformMovementEnable = global::CCMotor.MovingPlatform.init.enable;
 
-	// Token: 0x04000C46 RID: 3142
-	public CCMotor.JumpMovementTransfer platformMovementTransfer = CCMotor.MovingPlatform.init.movementTransfer;
+	// Token: 0x04000D71 RID: 3441
+	public global::CCMotor.JumpMovementTransfer platformMovementTransfer = global::CCMotor.MovingPlatform.init.movementTransfer;
 }

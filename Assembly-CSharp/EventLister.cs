@@ -3,28 +3,28 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x020001B2 RID: 434
+// Token: 0x020001E0 RID: 480
 public struct EventLister<T>
 {
-	// Token: 0x06000C50 RID: 3152 RVA: 0x00030DF8 File Offset: 0x0002EFF8
+	// Token: 0x06000D88 RID: 3464 RVA: 0x00034CE4 File Offset: 0x00032EE4
 	static EventLister()
 	{
 		if (!typeof(T).IsSubclassOf(typeof(Delegate)))
 		{
 			throw new InvalidOperationException("T is not a delegate");
 		}
-		EventListerInvokeAttribute eventListerInvokeAttribute = (EventListerInvokeAttribute)Attribute.GetCustomAttribute(typeof(T), typeof(EventListerInvokeAttribute), false);
-		EventLister<T>.InvokeCallType = eventListerInvokeAttribute.InvokeCall;
-		EventLister<T>.CalleeType = eventListerInvokeAttribute.InvokeClass;
-		MethodInfo method = EventLister<T>.InvokeCallType.GetMethod("Invoke");
+		global::EventListerInvokeAttribute eventListerInvokeAttribute = (global::EventListerInvokeAttribute)Attribute.GetCustomAttribute(typeof(T), typeof(global::EventListerInvokeAttribute), false);
+		global::EventLister<T>.InvokeCallType = eventListerInvokeAttribute.InvokeCall;
+		global::EventLister<T>.CalleeType = eventListerInvokeAttribute.InvokeClass;
+		MethodInfo method = global::EventLister<T>.InvokeCallType.GetMethod("Invoke");
 		ParameterInfo[] parameters = method.GetParameters();
 		Type[] array = new Type[parameters.Length];
 		for (int i = 0; i < parameters.Length; i++)
 		{
 			array[i] = parameters[i].ParameterType;
 		}
-		EventLister<T>.CalleeMethod = EventLister<T>.CalleeType.GetMethod(eventListerInvokeAttribute.InvokeMember, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, null, method.CallingConvention, array, null);
-		ParameterInfo[] parameters2 = EventLister<T>.CalleeMethod.GetParameters();
+		global::EventLister<T>.CalleeMethod = global::EventLister<T>.CalleeType.GetMethod(eventListerInvokeAttribute.InvokeMember, BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic, null, method.CallingConvention, array, null);
+		ParameterInfo[] parameters2 = global::EventLister<T>.CalleeMethod.GetParameters();
 		for (int j = 0; j < parameters2.Length; j++)
 		{
 			if ((parameters2[j].Attributes & parameters[j].Attributes) != parameters[j].Attributes)
@@ -34,8 +34,8 @@ public struct EventLister<T>
 		}
 	}
 
-	// Token: 0x1700031A RID: 794
-	// (get) Token: 0x06000C51 RID: 3153 RVA: 0x00030F28 File Offset: 0x0002F128
+	// Token: 0x1700035E RID: 862
+	// (get) Token: 0x06000D89 RID: 3465 RVA: 0x00034E14 File Offset: 0x00033014
 	public bool empty
 	{
 		get
@@ -44,12 +44,12 @@ public struct EventLister<T>
 		}
 	}
 
-	// Token: 0x06000C52 RID: 3154 RVA: 0x00030F38 File Offset: 0x0002F138
+	// Token: 0x06000D8A RID: 3466 RVA: 0x00034E24 File Offset: 0x00033024
 	public bool Add(T callback)
 	{
 		if (object.ReferenceEquals(this.node, null))
 		{
-			this.node = new EventLister<T>.Node(callback);
+			this.node = new global::EventLister<T>.Node(callback);
 			return true;
 		}
 		if (this.node.hashSet.Add(callback))
@@ -61,7 +61,7 @@ public struct EventLister<T>
 		return false;
 	}
 
-	// Token: 0x06000C53 RID: 3155 RVA: 0x00030FA4 File Offset: 0x0002F1A4
+	// Token: 0x06000D8B RID: 3467 RVA: 0x00034E90 File Offset: 0x00033090
 	public bool Remove(T callback)
 	{
 		if (object.ReferenceEquals(this.node, null) || !this.node.hashSet.Remove(callback))
@@ -84,13 +84,13 @@ public struct EventLister<T>
 		return true;
 	}
 
-	// Token: 0x06000C54 RID: 3156 RVA: 0x0003105C File Offset: 0x0002F25C
+	// Token: 0x06000D8C RID: 3468 RVA: 0x00034F48 File Offset: 0x00033148
 	public void Clear()
 	{
 		this.node = null;
 	}
 
-	// Token: 0x06000C55 RID: 3157 RVA: 0x00031068 File Offset: 0x0002F268
+	// Token: 0x06000D8D RID: 3469 RVA: 0x00034F54 File Offset: 0x00033154
 	public bool Invoke<C>(C caller)
 	{
 		if (object.ReferenceEquals(this.node, null))
@@ -101,7 +101,7 @@ public struct EventLister<T>
 		{
 			throw new InvalidOperationException("This lister is invoking already");
 		}
-		EventLister<T>.ExecCall<C> invoke = EventLister<T>.Invocation<C>.Invoke;
+		global::EventLister<T>.ExecCall<C> invoke = global::EventLister<T>.Invocation<C>.Invoke;
 		try
 		{
 			this.node.invoking = true;
@@ -133,12 +133,12 @@ public struct EventLister<T>
 		return true;
 	}
 
-	// Token: 0x06000C56 RID: 3158 RVA: 0x00031184 File Offset: 0x0002F384
+	// Token: 0x06000D8E RID: 3470 RVA: 0x00035070 File Offset: 0x00033270
 	public void InvokeManual<C>(T callback, C caller)
 	{
 		try
 		{
-			EventLister<T>.Invocation<C>.Invoke(caller, callback);
+			global::EventLister<T>.Invocation<C>.Invoke(caller, callback);
 		}
 		catch (Exception ex)
 		{
@@ -146,7 +146,7 @@ public struct EventLister<T>
 		}
 	}
 
-	// Token: 0x06000C57 RID: 3159 RVA: 0x000311CC File Offset: 0x0002F3CC
+	// Token: 0x06000D8F RID: 3471 RVA: 0x000350B8 File Offset: 0x000332B8
 	public bool Invoke<C, D>(C caller, ref D data)
 	{
 		if (object.ReferenceEquals(this.node, null))
@@ -157,7 +157,7 @@ public struct EventLister<T>
 		{
 			throw new InvalidOperationException("This lister is invoking already");
 		}
-		EventLister<T>.ExecCall<C, D> invoke = EventLister<T>.Invocation<C, D>.Invoke;
+		global::EventLister<T>.ExecCall<C, D> invoke = global::EventLister<T>.Invocation<C, D>.Invoke;
 		try
 		{
 			this.node.invoking = true;
@@ -189,12 +189,12 @@ public struct EventLister<T>
 		return true;
 	}
 
-	// Token: 0x06000C58 RID: 3160 RVA: 0x000312EC File Offset: 0x0002F4EC
+	// Token: 0x06000D90 RID: 3472 RVA: 0x000351D8 File Offset: 0x000333D8
 	public void InvokeManual<C, D>(T callback, C caller, ref D data)
 	{
 		try
 		{
-			EventLister<T>.Invocation<C, D>.Invoke(caller, ref data, callback);
+			global::EventLister<T>.Invocation<C, D>.Invoke(caller, ref data, callback);
 		}
 		catch (Exception ex)
 		{
@@ -202,56 +202,56 @@ public struct EventLister<T>
 		}
 	}
 
-	// Token: 0x0400077B RID: 1915
+	// Token: 0x0400088F RID: 2191
 	public static readonly Type InvokeCallType;
 
-	// Token: 0x0400077C RID: 1916
+	// Token: 0x04000890 RID: 2192
 	public static readonly Type CalleeType;
 
-	// Token: 0x0400077D RID: 1917
+	// Token: 0x04000891 RID: 2193
 	public static readonly MethodInfo CalleeMethod;
 
-	// Token: 0x0400077E RID: 1918
-	private EventLister<T>.Node node;
+	// Token: 0x04000892 RID: 2194
+	private global::EventLister<T>.Node node;
 
-	// Token: 0x020001B3 RID: 435
+	// Token: 0x020001E1 RID: 481
 	internal static class Invocation<C>
 	{
-		// Token: 0x06000C59 RID: 3161 RVA: 0x00031334 File Offset: 0x0002F534
+		// Token: 0x06000D91 RID: 3473 RVA: 0x00035220 File Offset: 0x00033420
 		static Invocation()
 		{
-			if (EventLister<T>.InvokeCallType != typeof(EventLister<T>.ExecCall<C>))
+			if (global::EventLister<T>.InvokeCallType != typeof(global::EventLister<T>.ExecCall<C>))
 			{
-				throw new InvalidOperationException(EventLister<T>.InvokeCallType.Name + " should have been used.");
+				throw new InvalidOperationException(global::EventLister<T>.InvokeCallType.Name + " should have been used.");
 			}
-			EventLister<T>.Invocation<C>.Invoke = (EventLister<T>.ExecCall<C>)Delegate.CreateDelegate(typeof(EventLister<T>.ExecCall<C>), EventLister<T>.CalleeMethod);
+			global::EventLister<T>.Invocation<C>.Invoke = (global::EventLister<T>.ExecCall<C>)Delegate.CreateDelegate(typeof(global::EventLister<T>.ExecCall<C>), global::EventLister<T>.CalleeMethod);
 		}
 
-		// Token: 0x0400077F RID: 1919
-		public static readonly EventLister<T>.ExecCall<C> Invoke;
+		// Token: 0x04000893 RID: 2195
+		public static readonly global::EventLister<T>.ExecCall<C> Invoke;
 	}
 
-	// Token: 0x020001B4 RID: 436
+	// Token: 0x020001E2 RID: 482
 	internal static class Invocation<C, D>
 	{
-		// Token: 0x06000C5A RID: 3162 RVA: 0x00031390 File Offset: 0x0002F590
+		// Token: 0x06000D92 RID: 3474 RVA: 0x0003527C File Offset: 0x0003347C
 		static Invocation()
 		{
-			if (EventLister<T>.InvokeCallType != typeof(EventLister<T>.ExecCall<C, D>))
+			if (global::EventLister<T>.InvokeCallType != typeof(global::EventLister<T>.ExecCall<C, D>))
 			{
-				throw new InvalidOperationException(EventLister<T>.InvokeCallType.Name + " should have been used.");
+				throw new InvalidOperationException(global::EventLister<T>.InvokeCallType.Name + " should have been used.");
 			}
-			EventLister<T>.Invocation<C, D>.Invoke = (EventLister<T>.ExecCall<C, D>)Delegate.CreateDelegate(typeof(EventLister<T>.ExecCall<C, D>), EventLister<T>.CalleeMethod);
+			global::EventLister<T>.Invocation<C, D>.Invoke = (global::EventLister<T>.ExecCall<C, D>)Delegate.CreateDelegate(typeof(global::EventLister<T>.ExecCall<C, D>), global::EventLister<T>.CalleeMethod);
 		}
 
-		// Token: 0x04000780 RID: 1920
-		public static readonly EventLister<T>.ExecCall<C, D> Invoke;
+		// Token: 0x04000894 RID: 2196
+		public static readonly global::EventLister<T>.ExecCall<C, D> Invoke;
 	}
 
-	// Token: 0x020001B5 RID: 437
+	// Token: 0x020001E3 RID: 483
 	private sealed class Node
 	{
-		// Token: 0x06000C5B RID: 3163 RVA: 0x000313EC File Offset: 0x0002F5EC
+		// Token: 0x06000D93 RID: 3475 RVA: 0x000352D8 File Offset: 0x000334D8
 		internal Node(T callback)
 		{
 			this.hashSet.Add(callback);
@@ -259,27 +259,27 @@ public struct EventLister<T>
 			this.count = 1;
 		}
 
-		// Token: 0x04000781 RID: 1921
+		// Token: 0x04000895 RID: 2197
 		internal readonly HashSet<T> hashSet = new HashSet<T>();
 
-		// Token: 0x04000782 RID: 1922
+		// Token: 0x04000896 RID: 2198
 		internal readonly List<T> list = new List<T>();
 
-		// Token: 0x04000783 RID: 1923
+		// Token: 0x04000897 RID: 2199
 		internal int count;
 
-		// Token: 0x04000784 RID: 1924
+		// Token: 0x04000898 RID: 2200
 		internal int iter;
 
-		// Token: 0x04000785 RID: 1925
+		// Token: 0x04000899 RID: 2201
 		internal bool invoking;
 	}
 
-	// Token: 0x02000866 RID: 2150
-	// (Invoke) Token: 0x06004B70 RID: 19312
+	// Token: 0x020001E4 RID: 484
+	// (Invoke) Token: 0x06000D95 RID: 3477
 	public delegate void ExecCall<C>(C caller, T callback);
 
-	// Token: 0x02000867 RID: 2151
-	// (Invoke) Token: 0x06004B74 RID: 19316
+	// Token: 0x020001E5 RID: 485
+	// (Invoke) Token: 0x06000D99 RID: 3481
 	public delegate void ExecCall<C, D>(C caller, ref D data, T callback);
 }

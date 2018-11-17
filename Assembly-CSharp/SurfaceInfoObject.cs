@@ -2,24 +2,24 @@
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x020004A5 RID: 1189
+// Token: 0x02000560 RID: 1376
 public class SurfaceInfoObject : ScriptableObject
 {
-	// Token: 0x060029EF RID: 10735 RVA: 0x000A4088 File Offset: 0x000A2288
-	public GameObject GetImpactEffect(SurfaceInfoObject.ImpactType type)
+	// Token: 0x06002DA1 RID: 11681 RVA: 0x000ABE20 File Offset: 0x000AA020
+	public GameObject GetImpactEffect(global::SurfaceInfoObject.ImpactType type)
 	{
-		if (type == SurfaceInfoObject.ImpactType.Bullet)
+		if (type == global::SurfaceInfoObject.ImpactType.Bullet)
 		{
 			return this.bulletEffects[Random.Range(0, this.bulletEffects.Length)];
 		}
-		if (type == SurfaceInfoObject.ImpactType.Melee)
+		if (type == global::SurfaceInfoObject.ImpactType.Melee)
 		{
 			return this.meleeEffects[Random.Range(0, this.meleeEffects.Length)];
 		}
 		return null;
 	}
 
-	// Token: 0x060029F0 RID: 10736 RVA: 0x000A40D0 File Offset: 0x000A22D0
+	// Token: 0x06002DA2 RID: 11682 RVA: 0x000ABE68 File Offset: 0x000AA068
 	public AudioClip GetFootstepBiped(AudioClip last)
 	{
 		int num = Random.Range(0, this.bipedFootsteps.Length);
@@ -39,53 +39,53 @@ public class SurfaceInfoObject : ScriptableObject
 		return this.bipedFootsteps[num];
 	}
 
-	// Token: 0x060029F1 RID: 10737 RVA: 0x000A4154 File Offset: 0x000A2354
+	// Token: 0x06002DA3 RID: 11683 RVA: 0x000ABEEC File Offset: 0x000AA0EC
 	public AudioClip GetFootstepBiped()
 	{
 		return this.bipedFootsteps[Random.Range(0, this.bipedFootsteps.Length)];
 	}
 
-	// Token: 0x060029F2 RID: 10738 RVA: 0x000A4174 File Offset: 0x000A2374
+	// Token: 0x06002DA4 RID: 11684 RVA: 0x000ABF0C File Offset: 0x000AA10C
 	public AudioClip GetFootstepAnimal()
 	{
 		return this.animalFootsteps[Random.Range(0, this.animalFootsteps.Length)];
 	}
 
-	// Token: 0x060029F3 RID: 10739 RVA: 0x000A4194 File Offset: 0x000A2394
-	public static SurfaceInfoObject GetDefault()
+	// Token: 0x06002DA5 RID: 11685 RVA: 0x000ABF2C File Offset: 0x000AA12C
+	public static global::SurfaceInfoObject GetDefault()
 	{
-		if (SurfaceInfoObject._default == null)
+		if (global::SurfaceInfoObject._default == null)
 		{
-			Bundling.Load<SurfaceInfoObject>("rust/effects/impact/default", out SurfaceInfoObject._default);
-			if (SurfaceInfoObject._default == null)
+			Facepunch.Bundling.Load<global::SurfaceInfoObject>("rust/effects/impact/default", out global::SurfaceInfoObject._default);
+			if (global::SurfaceInfoObject._default == null)
 			{
 				Debug.Log("COULD NOT GET DEFAULT!");
 			}
 		}
-		return SurfaceInfoObject._default;
+		return global::SurfaceInfoObject._default;
 	}
 
-	// Token: 0x040015D2 RID: 5586
-	public static SurfaceInfoObject _default;
+	// Token: 0x0400178F RID: 6031
+	public static global::SurfaceInfoObject _default;
 
-	// Token: 0x040015D3 RID: 5587
+	// Token: 0x04001790 RID: 6032
 	public GameObject[] bulletEffects;
 
-	// Token: 0x040015D4 RID: 5588
+	// Token: 0x04001791 RID: 6033
 	public GameObject[] meleeEffects;
 
-	// Token: 0x040015D5 RID: 5589
-	public AudioClipArray bipedFootsteps;
+	// Token: 0x04001792 RID: 6034
+	public global::AudioClipArray bipedFootsteps;
 
-	// Token: 0x040015D6 RID: 5590
-	public AudioClipArray animalFootsteps;
+	// Token: 0x04001793 RID: 6035
+	public global::AudioClipArray animalFootsteps;
 
-	// Token: 0x020004A6 RID: 1190
+	// Token: 0x02000561 RID: 1377
 	public enum ImpactType
 	{
-		// Token: 0x040015D8 RID: 5592
+		// Token: 0x04001795 RID: 6037
 		Melee,
-		// Token: 0x040015D9 RID: 5593
+		// Token: 0x04001796 RID: 6038
 		Bullet
 	}
 }

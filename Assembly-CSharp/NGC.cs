@@ -6,15 +6,15 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020002BE RID: 702
+// Token: 0x020002FB RID: 763
 [AddComponentMenu("")]
 public sealed class NGC : MonoBehaviour
 {
-	// Token: 0x060018FE RID: 6398 RVA: 0x000626E4 File Offset: 0x000608E4
-	private void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06001A8E RID: 6798 RVA: 0x00067058 File Offset: 0x00065258
+	private void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
-		NGC ngc;
-		if (NGC.Global.byGroup.TryGetValue(this.groupNumber, out ngc))
+		global::NGC ngc;
+		if (global::NGC.Global.byGroup.TryGetValue(this.groupNumber, out ngc))
 		{
 			if (ngc == this)
 			{
@@ -25,28 +25,28 @@ public sealed class NGC : MonoBehaviour
 				ngc.Release();
 			}
 		}
-		NGC.Global.all.Add(this);
+		global::NGC.Global.all.Add(this);
 		this.groupNumber = (ushort)this.networkView.group.id;
-		NGC.Global.byGroup[this.groupNumber] = this;
+		global::NGC.Global.byGroup[this.groupNumber] = this;
 		this.added = true;
 		this.creation = info;
 	}
 
-	// Token: 0x060018FF RID: 6399 RVA: 0x0006276C File Offset: 0x0006096C
+	// Token: 0x06001A8F RID: 6799 RVA: 0x000670E0 File Offset: 0x000652E0
 	private void Release()
 	{
 		if (this.added)
 		{
-			if (NGC.Global.all.Remove(this))
+			if (global::NGC.Global.all.Remove(this))
 			{
-				NGC.Global.byGroup.Remove(this.groupNumber);
+				global::NGC.Global.byGroup.Remove(this.groupNumber);
 			}
 			this.added = false;
 		}
 	}
 
-	// Token: 0x06001900 RID: 6400 RVA: 0x000627A4 File Offset: 0x000609A4
-	private void DestroyView(NGCView view, bool andGameObject, bool skipPreDestroy)
+	// Token: 0x06001A90 RID: 6800 RVA: 0x00067118 File Offset: 0x00065318
+	private void DestroyView(global::NGCView view, bool andGameObject, bool skipPreDestroy)
 	{
 		if (!view)
 		{
@@ -74,34 +74,34 @@ public sealed class NGC : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001901 RID: 6401 RVA: 0x00062820 File Offset: 0x00060A20
+	// Token: 0x06001A91 RID: 6801 RVA: 0x00067194 File Offset: 0x00065394
 	private void PreDestroy()
 	{
-		List<NGCView> list = new List<NGCView>(this.views.Values);
-		foreach (NGCView view in list)
+		List<global::NGCView> list = new List<global::NGCView>(this.views.Values);
+		foreach (global::NGCView view in list)
 		{
 			this.DestroyView(view, false, false);
 		}
-		foreach (NGCView view2 in list)
+		foreach (global::NGCView view2 in list)
 		{
 			this.DestroyView(view2, true, true);
 		}
 	}
 
-	// Token: 0x06001902 RID: 6402 RVA: 0x000628E8 File Offset: 0x00060AE8
+	// Token: 0x06001A92 RID: 6802 RVA: 0x0006725C File Offset: 0x0006545C
 	private void OnDestroy()
 	{
 		this.Release();
 	}
 
-	// Token: 0x06001903 RID: 6403 RVA: 0x000628F0 File Offset: 0x00060AF0
-	internal Dictionary<ushort, NGCView>.ValueCollection GetViews()
+	// Token: 0x06001A93 RID: 6803 RVA: 0x00067264 File Offset: 0x00065464
+	internal Dictionary<ushort, global::NGCView>.ValueCollection GetViews()
 	{
 		return this.views.Values;
 	}
 
-	// Token: 0x06001904 RID: 6404 RVA: 0x00062900 File Offset: 0x00060B00
-	private NGCView Add(byte[] data, int offset, int length, NetworkMessageInfo info)
+	// Token: 0x06001A94 RID: 6804 RVA: 0x00067274 File Offset: 0x00065474
+	private global::NGCView Add(byte[] data, int offset, int length, uLink.NetworkMessageInfo info)
 	{
 		int index = BitConverter.ToInt32(data, offset);
 		int num = offset + 4;
@@ -122,9 +122,9 @@ public sealed class NGC : MonoBehaviour
 		vector2.z = BitConverter.ToSingle(data, num);
 		num += 4;
 		Quaternion quaternion = Quaternion.Euler(vector2);
-		NGC.Prefab prefab;
-		NGC.Prefab.Register.Find(index, out prefab);
-		NGCView ngcview = (NGCView)Object.Instantiate(prefab.prefab, vector, quaternion);
+		global::NGC.Prefab prefab;
+		global::NGC.Prefab.Register.Find(index, out prefab);
+		global::NGCView ngcview = (global::NGCView)Object.Instantiate(prefab.prefab, vector, quaternion);
 		ngcview.creation = info;
 		ngcview.innerID = innerID;
 		ngcview.prefab = prefab;
@@ -147,23 +147,23 @@ public sealed class NGC : MonoBehaviour
 			while (num < num2);
 			ngcview.initialData = new BitStream(array, false);
 		}
-		ngcview.install = new NGC.Prefab.Installation.Instance(prefab.installation);
+		ngcview.install = new global::NGC.Prefab.Installation.Instance(prefab.installation);
 		return ngcview;
 	}
 
-	// Token: 0x06001905 RID: 6405 RVA: 0x00062A54 File Offset: 0x00060C54
-	private NGCView Delete(ushort id, NetworkMessageInfo info)
+	// Token: 0x06001A95 RID: 6805 RVA: 0x000673C8 File Offset: 0x000655C8
+	private global::NGCView Delete(ushort id, uLink.NetworkMessageInfo info)
 	{
-		NGCView ngcview = this.views[id];
+		global::NGCView ngcview = this.views[id];
 		this.DestroyView(ngcview, false, false);
 		this.views.Remove(id);
 		return ngcview;
 	}
 
-	// Token: 0x06001906 RID: 6406 RVA: 0x00062A88 File Offset: 0x00060C88
-	private NGC.Procedure Message(int id, int msg, byte[] args, int argByteSize, NetworkMessageInfo info)
+	// Token: 0x06001A96 RID: 6806 RVA: 0x000673FC File Offset: 0x000655FC
+	private global::NGC.Procedure Message(int id, int msg, byte[] args, int argByteSize, uLink.NetworkMessageInfo info)
 	{
-		return new NGC.Procedure
+		return new global::NGC.Procedure
 		{
 			outer = this,
 			target = id,
@@ -174,14 +174,14 @@ public sealed class NGC : MonoBehaviour
 		};
 	}
 
-	// Token: 0x06001907 RID: 6407 RVA: 0x00062AC8 File Offset: 0x00060CC8
-	private NGC.Procedure Message(int id_msg, byte[] args, int argByteSize, NetworkMessageInfo info)
+	// Token: 0x06001A97 RID: 6807 RVA: 0x0006743C File Offset: 0x0006563C
+	private global::NGC.Procedure Message(int id_msg, byte[] args, int argByteSize, uLink.NetworkMessageInfo info)
 	{
 		return this.Message(id_msg >> 16 & 65535, id_msg & 65535, args, argByteSize, info);
 	}
 
-	// Token: 0x06001908 RID: 6408 RVA: 0x00062AE8 File Offset: 0x00060CE8
-	private NGC.Procedure Message(byte[] data, int offset, int length, NetworkMessageInfo info)
+	// Token: 0x06001A98 RID: 6808 RVA: 0x0006745C File Offset: 0x0006565C
+	private global::NGC.Procedure Message(byte[] data, int offset, int length, uLink.NetworkMessageInfo info)
 	{
 		int id_msg = BitConverter.ToInt32(data, offset);
 		int num = offset + 4;
@@ -207,11 +207,11 @@ public sealed class NGC : MonoBehaviour
 		return this.Message(id_msg, array, num3, info);
 	}
 
-	// Token: 0x06001909 RID: 6409 RVA: 0x00062B4C File Offset: 0x00060D4C
+	// Token: 0x06001A99 RID: 6809 RVA: 0x000674C0 File Offset: 0x000656C0
 	[RPC]
-	internal void A(byte[] data, NetworkMessageInfo info)
+	internal void A(byte[] data, uLink.NetworkMessageInfo info)
 	{
-		NGCView ngcview = this.Add(data, 0, data.Length, info);
+		global::NGCView ngcview = this.Add(data, 0, data.Length, info);
 		this.views[ngcview.innerID] = ngcview;
 		try
 		{
@@ -223,19 +223,19 @@ public sealed class NGC : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600190A RID: 6410 RVA: 0x00062BAC File Offset: 0x00060DAC
+	// Token: 0x06001A9A RID: 6810 RVA: 0x00067520 File Offset: 0x00065720
 	[RPC]
-	internal void D(ushort id, NetworkMessageInfo info)
+	internal void D(ushort id, uLink.NetworkMessageInfo info)
 	{
-		NGCView view = this.Delete(id, info);
+		global::NGCView view = this.Delete(id, info);
 		this.DestroyView(view, true, true);
 	}
 
-	// Token: 0x0600190B RID: 6411 RVA: 0x00062BCC File Offset: 0x00060DCC
+	// Token: 0x06001A9B RID: 6811 RVA: 0x00067540 File Offset: 0x00065740
 	[RPC]
-	internal void C(byte[] data, NetworkMessageInfo info)
+	internal void C(byte[] data, uLink.NetworkMessageInfo info)
 	{
-		NGC.Procedure procedure = this.Message(data, 0, data.Length, info);
+		global::NGC.Procedure procedure = this.Message(data, 0, data.Length, info);
 		if (!procedure.Call())
 		{
 			if (procedure.view)
@@ -248,14 +248,14 @@ public sealed class NGC : MonoBehaviour
 					procedure.message
 				}), this);
 			}
-			else if (NGC.log_nonexistant_ngc_errors)
+			else if (global::NGC.log_nonexistant_ngc_errors)
 			{
 				Debug.LogWarning(string.Format("Did not call rpc to non existant view# {0}. ( message id was {1} )", procedure.target, procedure.message), this);
 			}
 		}
 	}
 
-	// Token: 0x0600190C RID: 6412 RVA: 0x00062CA8 File Offset: 0x00060EA8
+	// Token: 0x06001A9C RID: 6812 RVA: 0x0006761C File Offset: 0x0006581C
 	private byte[] RPCData(int viewID, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
 	{
 		byte[] bytes = BitConverter.GetBytes(viewID << 16 | (messageID & 65535));
@@ -276,8 +276,8 @@ public sealed class NGC : MonoBehaviour
 		return array;
 	}
 
-	// Token: 0x0600190D RID: 6413 RVA: 0x00062D20 File Offset: 0x00060F20
-	private void ShootRPC(NGC.RPCName rpc, RPCMode mode, byte[] data)
+	// Token: 0x06001A9D RID: 6813 RVA: 0x00067694 File Offset: 0x00065894
+	private void ShootRPC(global::NGC.RPCName rpc, uLink.RPCMode mode, byte[] data)
 	{
 		if (rpc.flags == null)
 		{
@@ -289,8 +289,8 @@ public sealed class NGC : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600190E RID: 6414 RVA: 0x00062D70 File Offset: 0x00060F70
-	private void ShootRPC(NGC.RPCName rpc, NetworkPlayer target, byte[] data)
+	// Token: 0x06001A9E RID: 6814 RVA: 0x000676E4 File Offset: 0x000658E4
+	private void ShootRPC(global::NGC.RPCName rpc, uLink.NetworkPlayer target, byte[] data)
 	{
 		if (rpc.flags == null)
 		{
@@ -302,8 +302,8 @@ public sealed class NGC : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600190F RID: 6415 RVA: 0x00062DC0 File Offset: 0x00060FC0
-	private void ShootRPC(NGC.RPCName rpc, IEnumerable<NetworkPlayer> targets, byte[] data)
+	// Token: 0x06001A9F RID: 6815 RVA: 0x00067734 File Offset: 0x00065934
+	private void ShootRPC(global::NGC.RPCName rpc, IEnumerable<uLink.NetworkPlayer> targets, byte[] data)
 	{
 		if (rpc.flags == null)
 		{
@@ -315,87 +315,87 @@ public sealed class NGC : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001910 RID: 6416 RVA: 0x00062E10 File Offset: 0x00061010
-	private static NGC.RPCName CallRPCName(NetworkFlags? flags, NGCView view, int messageID)
+	// Token: 0x06001AA0 RID: 6816 RVA: 0x00067784 File Offset: 0x00065984
+	private static global::NGC.RPCName CallRPCName(NetworkFlags? flags, global::NGCView view, int messageID)
 	{
-		return new NGC.RPCName(view, messageID, "C", (flags == null) ? view.prefab.DefaultNetworkFlags(messageID) : flags.Value);
+		return new global::NGC.RPCName(view, messageID, "C", (flags == null) ? view.prefab.DefaultNetworkFlags(messageID) : flags.Value);
 	}
 
-	// Token: 0x06001911 RID: 6417 RVA: 0x00062E50 File Offset: 0x00061050
-	private static NGC.RPCName CallRPCName(NetworkFlags? flags, NGCView view, int messageID, ref NetworkPlayer target)
+	// Token: 0x06001AA1 RID: 6817 RVA: 0x000677C4 File Offset: 0x000659C4
+	private static global::NGC.RPCName CallRPCName(NetworkFlags? flags, global::NGCView view, int messageID, ref uLink.NetworkPlayer target)
 	{
-		return NGC.CallRPCName(flags, view, messageID);
+		return global::NGC.CallRPCName(flags, view, messageID);
 	}
 
-	// Token: 0x06001912 RID: 6418 RVA: 0x00062E5C File Offset: 0x0006105C
-	private static NGC.RPCName CallRPCName(NetworkFlags? flags, NGCView view, int messageID, ref IEnumerable<NetworkPlayer> targets)
+	// Token: 0x06001AA2 RID: 6818 RVA: 0x000677D0 File Offset: 0x000659D0
+	private static global::NGC.RPCName CallRPCName(NetworkFlags? flags, global::NGCView view, int messageID, ref IEnumerable<uLink.NetworkPlayer> targets)
 	{
-		return NGC.CallRPCName(flags, view, messageID);
+		return global::NGC.CallRPCName(flags, view, messageID);
 	}
 
-	// Token: 0x06001913 RID: 6419 RVA: 0x00062E68 File Offset: 0x00061068
-	private static NGC.RPCName CallRPCName(NetworkFlags? flags, NGCView view, int messageID, ref RPCMode mode)
+	// Token: 0x06001AA3 RID: 6819 RVA: 0x000677DC File Offset: 0x000659DC
+	private static global::NGC.RPCName CallRPCName(NetworkFlags? flags, global::NGCView view, int messageID, ref uLink.RPCMode mode)
 	{
-		return NGC.CallRPCName(flags, view, messageID);
+		return global::NGC.CallRPCName(flags, view, messageID);
 	}
 
-	// Token: 0x06001914 RID: 6420 RVA: 0x00062E74 File Offset: 0x00061074
-	internal void NGCViewRPC(NetworkFlags flags, RPCMode mode, NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
+	// Token: 0x06001AA4 RID: 6820 RVA: 0x000677E8 File Offset: 0x000659E8
+	internal void NGCViewRPC(NetworkFlags flags, uLink.RPCMode mode, global::NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
 	{
-		this.ShootRPC(NGC.CallRPCName(new NetworkFlags?(flags), view, messageID, ref mode), mode, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
+		this.ShootRPC(global::NGC.CallRPCName(new NetworkFlags?(flags), view, messageID, ref mode), mode, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
 	}
 
-	// Token: 0x06001915 RID: 6421 RVA: 0x00062EAC File Offset: 0x000610AC
-	internal void NGCViewRPC(NetworkFlags flags, NetworkPlayer target, NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
+	// Token: 0x06001AA5 RID: 6821 RVA: 0x00067820 File Offset: 0x00065A20
+	internal void NGCViewRPC(NetworkFlags flags, uLink.NetworkPlayer target, global::NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
 	{
-		this.ShootRPC(NGC.CallRPCName(new NetworkFlags?(flags), view, messageID, ref target), target, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
+		this.ShootRPC(global::NGC.CallRPCName(new NetworkFlags?(flags), view, messageID, ref target), target, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
 	}
 
-	// Token: 0x06001916 RID: 6422 RVA: 0x00062EE4 File Offset: 0x000610E4
-	internal void NGCViewRPC(NetworkFlags flags, IEnumerable<NetworkPlayer> targets, NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
+	// Token: 0x06001AA6 RID: 6822 RVA: 0x00067858 File Offset: 0x00065A58
+	internal void NGCViewRPC(NetworkFlags flags, IEnumerable<uLink.NetworkPlayer> targets, global::NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
 	{
-		this.ShootRPC(NGC.CallRPCName(new NetworkFlags?(flags), view, messageID, ref targets), targets, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
+		this.ShootRPC(global::NGC.CallRPCName(new NetworkFlags?(flags), view, messageID, ref targets), targets, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
 	}
 
-	// Token: 0x06001917 RID: 6423 RVA: 0x00062F1C File Offset: 0x0006111C
-	internal void NGCViewRPC(RPCMode mode, NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
+	// Token: 0x06001AA7 RID: 6823 RVA: 0x00067890 File Offset: 0x00065A90
+	internal void NGCViewRPC(uLink.RPCMode mode, global::NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
 	{
-		this.ShootRPC(NGC.CallRPCName(null, view, messageID, ref mode), mode, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
+		this.ShootRPC(global::NGC.CallRPCName(null, view, messageID, ref mode), mode, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
 	}
 
-	// Token: 0x06001918 RID: 6424 RVA: 0x00062F58 File Offset: 0x00061158
-	internal void NGCViewRPC(NetworkPlayer target, NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
+	// Token: 0x06001AA8 RID: 6824 RVA: 0x000678CC File Offset: 0x00065ACC
+	internal void NGCViewRPC(uLink.NetworkPlayer target, global::NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
 	{
-		this.ShootRPC(NGC.CallRPCName(null, view, messageID, ref target), target, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
+		this.ShootRPC(global::NGC.CallRPCName(null, view, messageID, ref target), target, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
 	}
 
-	// Token: 0x06001919 RID: 6425 RVA: 0x00062F94 File Offset: 0x00061194
-	internal void NGCViewRPC(IEnumerable<NetworkPlayer> targets, NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
+	// Token: 0x06001AA9 RID: 6825 RVA: 0x00067908 File Offset: 0x00065B08
+	internal void NGCViewRPC(IEnumerable<uLink.NetworkPlayer> targets, global::NGCView view, int messageID, byte[] arguments, int argumentsOffset, int argumentsLength)
 	{
-		this.ShootRPC(NGC.CallRPCName(null, view, messageID, ref targets), targets, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
+		this.ShootRPC(global::NGC.CallRPCName(null, view, messageID, ref targets), targets, this.RPCData((int)view.innerID, messageID, arguments, argumentsOffset, argumentsLength));
 	}
 
-	// Token: 0x0600191A RID: 6426 RVA: 0x00062FD0 File Offset: 0x000611D0
+	// Token: 0x06001AAA RID: 6826 RVA: 0x00067944 File Offset: 0x00065B44
 	[Obsolete("NO, Use net cull making sure the prefab name string you must use starts with ;", true)]
 	public static Object Instantiate(Object obj)
 	{
 		return Object.Instantiate(obj);
 	}
 
-	// Token: 0x0600191B RID: 6427 RVA: 0x00062FD8 File Offset: 0x000611D8
+	// Token: 0x06001AAB RID: 6827 RVA: 0x0006794C File Offset: 0x00065B4C
 	[Obsolete("NO, Use net cull making sure the prefab name string you must use starts with ;", true)]
 	public static Object Instantiate(Object obj, Vector3 position, Quaternion rotation)
 	{
 		return Object.Instantiate(obj, position, rotation);
 	}
 
-	// Token: 0x0600191C RID: 6428 RVA: 0x00062FE4 File Offset: 0x000611E4
-	private static NetworkView SpawnNGC_NetworkView(string prefabName, NetworkInstantiateArgs args, NetworkMessageInfo info)
+	// Token: 0x06001AAC RID: 6828 RVA: 0x00067958 File Offset: 0x00065B58
+	private static uLink.NetworkView SpawnNGC_NetworkView(string prefabName, NetworkInstantiateArgs args, uLink.NetworkMessageInfo info)
 	{
 		NetworkInstantiatorUtility.AutoSetupNetworkViewOnAwake(args);
 		GameObject gameObject = new GameObject(string.Format("__NGC-{0:X}", args.group), new Type[]
 		{
-			typeof(NGC),
+			typeof(global::NGC),
 			typeof(NGCInternalView)
 		})
 		{
@@ -403,32 +403,32 @@ public sealed class NGC : MonoBehaviour
 		};
 		NetworkInstantiatorUtility.ClearAutoSetupNetworkViewOnAwake();
 		uLinkNetworkView component = gameObject.GetComponent<uLinkNetworkView>();
-		NGC component2 = gameObject.GetComponent<NGC>();
+		global::NGC component2 = gameObject.GetComponent<global::NGC>();
 		component.observed = component2;
 		component.rpcReceiver = 1;
 		component.stateSynchronization = 0;
-		NetworkMessageInfo info2 = new NetworkMessageInfo(info, component);
+		uLink.NetworkMessageInfo info2 = new uLink.NetworkMessageInfo(info, component);
 		component2.uLink_OnNetworkInstantiate(info2);
 		return component;
 	}
 
-	// Token: 0x0600191D RID: 6429 RVA: 0x00063078 File Offset: 0x00061278
-	private static void DestroyNGC_NetworkView(NetworkView view)
+	// Token: 0x06001AAD RID: 6829 RVA: 0x000679EC File Offset: 0x00065BEC
+	private static void DestroyNGC_NetworkView(uLink.NetworkView view)
 	{
-		NGC component = view.GetComponent<NGC>();
+		global::NGC component = view.GetComponent<global::NGC>();
 		component.PreDestroy();
 		Object.Destroy(component);
 		NetworkInstantiator.defaultDestroyer.Invoke(view);
 	}
 
-	// Token: 0x0600191E RID: 6430 RVA: 0x000630A4 File Offset: 0x000612A4
-	public static void Register(NGCConfiguration configuration)
+	// Token: 0x06001AAE RID: 6830 RVA: 0x00067A18 File Offset: 0x00065C18
+	public static void Register(global::NGCConfiguration configuration)
 	{
-		NetworkInstantiator.Add("!Ng", new NetworkInstantiator.Creator(NGC.SpawnNGC_NetworkView), new NetworkInstantiator.Destroyer(NGC.DestroyNGC_NetworkView));
+		NetworkInstantiator.Add("!Ng", new NetworkInstantiator.Creator(global::NGC.SpawnNGC_NetworkView), new NetworkInstantiator.Destroyer(global::NGC.DestroyNGC_NetworkView));
 		configuration.Install();
 	}
 
-	// Token: 0x0600191F RID: 6431 RVA: 0x000630DC File Offset: 0x000612DC
+	// Token: 0x06001AAF RID: 6831 RVA: 0x00067A50 File Offset: 0x00065C50
 	internal static int PackID(int groupNumber, int innerID)
 	{
 		if (groupNumber < 0 || innerID <= 0)
@@ -438,7 +438,7 @@ public sealed class NGC : MonoBehaviour
 		return (groupNumber & 65535) << 16 | innerID;
 	}
 
-	// Token: 0x06001920 RID: 6432 RVA: 0x000630FC File Offset: 0x000612FC
+	// Token: 0x06001AB0 RID: 6832 RVA: 0x00067A70 File Offset: 0x00065C70
 	internal static bool UnpackID(int packed, out ushort groupNumber, out ushort innerID)
 	{
 		if (packed == 0)
@@ -452,56 +452,56 @@ public sealed class NGC : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06001921 RID: 6433 RVA: 0x00063130 File Offset: 0x00061330
-	public static NGCView Find(int id)
+	// Token: 0x06001AB1 RID: 6833 RVA: 0x00067AA4 File Offset: 0x00065CA4
+	public static global::NGCView Find(int id)
 	{
 		ushort key;
 		ushort key2;
-		if (!NGC.UnpackID(id, out key, out key2))
+		if (!global::NGC.UnpackID(id, out key, out key2))
 		{
 			return null;
 		}
-		NGC ngc;
-		if (!NGC.Global.byGroup.TryGetValue(key, out ngc))
+		global::NGC ngc;
+		if (!global::NGC.Global.byGroup.TryGetValue(key, out ngc))
 		{
 			return null;
 		}
-		NGCView result;
+		global::NGCView result;
 		ngc.views.TryGetValue(key2, out result);
 		return result;
 	}
 
-	// Token: 0x06001922 RID: 6434 RVA: 0x00063174 File Offset: 0x00061374
-	public static NGC.callf<P0>.Block BlockArgs<P0>(P0 p0)
+	// Token: 0x06001AB2 RID: 6834 RVA: 0x00067AE8 File Offset: 0x00065CE8
+	public static global::NGC.callf<P0>.Block BlockArgs<P0>(P0 p0)
 	{
-		NGC.callf<P0>.Block result;
+		global::NGC.callf<P0>.Block result;
 		result.p0 = p0;
 		return result;
 	}
 
-	// Token: 0x06001923 RID: 6435 RVA: 0x0006318C File Offset: 0x0006138C
-	public static NGC.callf<P0, P1>.Block BlockArgs<P0, P1>(P0 p0, P1 p1)
+	// Token: 0x06001AB3 RID: 6835 RVA: 0x00067B00 File Offset: 0x00065D00
+	public static global::NGC.callf<P0, P1>.Block BlockArgs<P0, P1>(P0 p0, P1 p1)
 	{
-		NGC.callf<P0, P1>.Block result;
+		global::NGC.callf<P0, P1>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		return result;
 	}
 
-	// Token: 0x06001924 RID: 6436 RVA: 0x000631AC File Offset: 0x000613AC
-	public static NGC.callf<P0, P1, P2>.Block BlockArgs<P0, P1, P2>(P0 p0, P1 p1, P2 p2)
+	// Token: 0x06001AB4 RID: 6836 RVA: 0x00067B20 File Offset: 0x00065D20
+	public static global::NGC.callf<P0, P1, P2>.Block BlockArgs<P0, P1, P2>(P0 p0, P1 p1, P2 p2)
 	{
-		NGC.callf<P0, P1, P2>.Block result;
+		global::NGC.callf<P0, P1, P2>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
 		return result;
 	}
 
-	// Token: 0x06001925 RID: 6437 RVA: 0x000631D4 File Offset: 0x000613D4
-	public static NGC.callf<P0, P1, P2, P3>.Block BlockArgs<P0, P1, P2, P3>(P0 p0, P1 p1, P2 p2, P3 p3)
+	// Token: 0x06001AB5 RID: 6837 RVA: 0x00067B48 File Offset: 0x00065D48
+	public static global::NGC.callf<P0, P1, P2, P3>.Block BlockArgs<P0, P1, P2, P3>(P0 p0, P1 p1, P2 p2, P3 p3)
 	{
-		NGC.callf<P0, P1, P2, P3>.Block result;
+		global::NGC.callf<P0, P1, P2, P3>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -509,10 +509,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06001926 RID: 6438 RVA: 0x00063204 File Offset: 0x00061404
-	public static NGC.callf<P0, P1, P2, P3, P4>.Block BlockArgs<P0, P1, P2, P3, P4>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
+	// Token: 0x06001AB6 RID: 6838 RVA: 0x00067B78 File Offset: 0x00065D78
+	public static global::NGC.callf<P0, P1, P2, P3, P4>.Block BlockArgs<P0, P1, P2, P3, P4>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4)
 	{
-		NGC.callf<P0, P1, P2, P3, P4>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -521,10 +521,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06001927 RID: 6439 RVA: 0x0006323C File Offset: 0x0006143C
-	public static NGC.callf<P0, P1, P2, P3, P4, P5>.Block BlockArgs<P0, P1, P2, P3, P4, P5>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
+	// Token: 0x06001AB7 RID: 6839 RVA: 0x00067BB0 File Offset: 0x00065DB0
+	public static global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block BlockArgs<P0, P1, P2, P3, P4, P5>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5)
 	{
-		NGC.callf<P0, P1, P2, P3, P4, P5>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -534,10 +534,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06001928 RID: 6440 RVA: 0x0006327C File Offset: 0x0006147C
-	public static NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
+	// Token: 0x06001AB8 RID: 6840 RVA: 0x00067BF0 File Offset: 0x00065DF0
+	public static global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6)
 	{
-		NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -548,10 +548,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06001929 RID: 6441 RVA: 0x000632C8 File Offset: 0x000614C8
-	public static NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
+	// Token: 0x06001AB9 RID: 6841 RVA: 0x00067C3C File Offset: 0x00065E3C
+	public static global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7)
 	{
-		NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -563,10 +563,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x0600192A RID: 6442 RVA: 0x0006331C File Offset: 0x0006151C
-	public static NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
+	// Token: 0x06001ABA RID: 6842 RVA: 0x00067C90 File Offset: 0x00065E90
+	public static global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8)
 	{
-		NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -579,10 +579,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x0600192B RID: 6443 RVA: 0x00063378 File Offset: 0x00061578
-	public static NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
+	// Token: 0x06001ABB RID: 6843 RVA: 0x00067CEC File Offset: 0x00065EEC
+	public static global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9)
 	{
-		NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -596,10 +596,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x0600192C RID: 6444 RVA: 0x000633DC File Offset: 0x000615DC
-	public static NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
+	// Token: 0x06001ABC RID: 6844 RVA: 0x00067D50 File Offset: 0x00065F50
+	public static global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10)
 	{
-		NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -614,10 +614,10 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x0600192D RID: 6445 RVA: 0x0006344C File Offset: 0x0006164C
-	public static NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
+	// Token: 0x06001ABD RID: 6845 RVA: 0x00067DC0 File Offset: 0x00065FC0
+	public static global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block BlockArgs<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11)
 	{
-		NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block result;
+		global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block result;
 		result.p0 = p0;
 		result.p1 = p1;
 		result.p2 = p2;
@@ -633,123 +633,123 @@ public sealed class NGC : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x0600192E RID: 6446 RVA: 0x000634C4 File Offset: 0x000616C4
-	private static NGC.IExecuter FindExecuter(Type[] argumentTypes)
+	// Token: 0x06001ABE RID: 6846 RVA: 0x00067E38 File Offset: 0x00066038
+	private static global::NGC.IExecuter FindExecuter(Type[] argumentTypes)
 	{
 		switch (argumentTypes.Length)
 		{
 		case 0:
-			return typeof(NGC.callf).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 1:
-			return typeof(NGC.callf<>).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<>).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 2:
-			return typeof(NGC.callf<, >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 3:
-			return typeof(NGC.callf<, , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 4:
-			return typeof(NGC.callf<, , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 5:
-			return typeof(NGC.callf<, , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 6:
-			return typeof(NGC.callf<, , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 7:
-			return typeof(NGC.callf<, , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 8:
-			return typeof(NGC.callf<, , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 9:
-			return typeof(NGC.callf<, , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 10:
-			return typeof(NGC.callf<, , , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 11:
-			return typeof(NGC.callf<, , , , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		case 12:
-			return typeof(NGC.callf<, , , , , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as NGC.IExecuter;
+			return typeof(global::NGC.callf<, , , , , , , , , , , >).MakeGenericType(argumentTypes).GetProperty("Exec", BindingFlags.Static | BindingFlags.Public).GetValue(null, null) as global::NGC.IExecuter;
 		default:
 			throw new ArgumentOutOfRangeException("argumentTypes.Length > {0}");
 		}
 	}
 
-	// Token: 0x04000D52 RID: 3410
+	// Token: 0x04000E8D RID: 3725
 	private const string kAddRPC = "A";
 
-	// Token: 0x04000D53 RID: 3411
+	// Token: 0x04000E8E RID: 3726
 	private const string kDeleteRPC = "D";
 
-	// Token: 0x04000D54 RID: 3412
+	// Token: 0x04000E8F RID: 3727
 	private const string kCallRPC = "C";
 
-	// Token: 0x04000D55 RID: 3413
+	// Token: 0x04000E90 RID: 3728
 	private const string kPrefabIdentifier = "!Ng";
 
-	// Token: 0x04000D56 RID: 3414
+	// Token: 0x04000E91 RID: 3729
 	[NonSerialized]
 	private bool added;
 
-	// Token: 0x04000D57 RID: 3415
+	// Token: 0x04000E92 RID: 3730
 	[NonSerialized]
 	internal ushort groupNumber;
 
-	// Token: 0x04000D58 RID: 3416
+	// Token: 0x04000E93 RID: 3731
 	[NonSerialized]
-	private NetworkMessageInfo creation;
+	private uLink.NetworkMessageInfo creation;
 
-	// Token: 0x04000D59 RID: 3417
+	// Token: 0x04000E94 RID: 3732
 	[NonSerialized]
 	internal NGCInternalView networkView;
 
-	// Token: 0x04000D5A RID: 3418
+	// Token: 0x04000E95 RID: 3733
 	[NonSerialized]
-	internal NetworkViewID networkViewID;
+	internal uLink.NetworkViewID networkViewID;
 
-	// Token: 0x04000D5B RID: 3419
+	// Token: 0x04000E96 RID: 3734
 	[NonSerialized]
-	private readonly Dictionary<ushort, NGCView> views = new Dictionary<ushort, NGCView>();
+	private readonly Dictionary<ushort, global::NGCView> views = new Dictionary<ushort, global::NGCView>();
 
-	// Token: 0x04000D5C RID: 3420
+	// Token: 0x04000E97 RID: 3735
 	private static bool log_nonexistant_ngc_errors;
 
-	// Token: 0x020002BF RID: 703
+	// Token: 0x020002FC RID: 764
 	private static class Global
 	{
-		// Token: 0x04000D5D RID: 3421
-		public static readonly Dictionary<ushort, NGC> byGroup = new Dictionary<ushort, NGC>();
+		// Token: 0x04000E98 RID: 3736
+		public static readonly Dictionary<ushort, global::NGC> byGroup = new Dictionary<ushort, global::NGC>();
 
-		// Token: 0x04000D5E RID: 3422
-		public static readonly List<NGC> all = new List<NGC>();
+		// Token: 0x04000E99 RID: 3737
+		public static readonly List<global::NGC> all = new List<global::NGC>();
 	}
 
-	// Token: 0x020002C0 RID: 704
+	// Token: 0x020002FD RID: 765
 	public interface IExecuter
 	{
-		// Token: 0x06001930 RID: 6448
+		// Token: 0x06001AC0 RID: 6848
 		void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance);
 
-		// Token: 0x06001931 RID: 6449
+		// Token: 0x06001AC1 RID: 6849
 		IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance);
 
-		// Token: 0x06001932 RID: 6450
-		void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info);
+		// Token: 0x06001AC2 RID: 6850
+		void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info);
 
-		// Token: 0x06001933 RID: 6451
-		IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info);
+		// Token: 0x06001AC3 RID: 6851
+		IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info);
 
-		// Token: 0x06001934 RID: 6452
+		// Token: 0x06001AC4 RID: 6852
 		void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance);
 
-		// Token: 0x06001935 RID: 6453
+		// Token: 0x06001AC5 RID: 6853
 		IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance);
 
-		// Token: 0x06001936 RID: 6454
-		void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info);
+		// Token: 0x06001AC6 RID: 6854
+		void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info);
 
-		// Token: 0x06001937 RID: 6455
-		IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info);
+		// Token: 0x06001AC7 RID: 6855
+		IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info);
 	}
 
-	// Token: 0x020002C1 RID: 705
+	// Token: 0x020002FE RID: 766
 	public sealed class Prefab
 	{
-		// Token: 0x06001938 RID: 6456 RVA: 0x00063748 File Offset: 0x00061948
+		// Token: 0x06001AC8 RID: 6856 RVA: 0x000680BC File Offset: 0x000662BC
 		private Prefab(string contentPath, int key, string handle)
 		{
 			this.contentPath = contentPath;
@@ -757,7 +757,7 @@ public sealed class NGC : MonoBehaviour
 			this.handle = handle;
 		}
 
-		// Token: 0x06001939 RID: 6457 RVA: 0x00063768 File Offset: 0x00061968
+		// Token: 0x06001AC9 RID: 6857 RVA: 0x000680DC File Offset: 0x000662DC
 		public int MessageIndex(string message)
 		{
 			int result;
@@ -778,7 +778,7 @@ public sealed class NGC : MonoBehaviour
 			return num;
 		}
 
-		// Token: 0x0600193A RID: 6458 RVA: 0x000637D4 File Offset: 0x000619D4
+		// Token: 0x06001ACA RID: 6858 RVA: 0x00068148 File Offset: 0x00066348
 		private int MessageIndexFind(string message)
 		{
 			int num = message.LastIndexOf(':');
@@ -805,9 +805,9 @@ public sealed class NGC : MonoBehaviour
 			return -1;
 		}
 
-		// Token: 0x1700073E RID: 1854
-		// (get) Token: 0x0600193B RID: 6459 RVA: 0x000638C0 File Offset: 0x00061AC0
-		public NGC.Prefab.Installation installation
+		// Token: 0x17000792 RID: 1938
+		// (get) Token: 0x06001ACB RID: 6859 RVA: 0x00068234 File Offset: 0x00066434
+		public global::NGC.Prefab.Installation installation
 		{
 			get
 			{
@@ -819,22 +819,22 @@ public sealed class NGC : MonoBehaviour
 			}
 		}
 
-		// Token: 0x1700073F RID: 1855
-		// (get) Token: 0x0600193C RID: 6460 RVA: 0x000638FC File Offset: 0x00061AFC
-		public NGCView prefab
+		// Token: 0x17000793 RID: 1939
+		// (get) Token: 0x06001ACC RID: 6860 RVA: 0x00068270 File Offset: 0x00066470
+		public global::NGCView prefab
 		{
 			get
 			{
-				NGCView ngcview;
-				if (this.weakReference == null || !(ngcview = (NGCView)this.weakReference.Target) || !this.weakReference.IsAlive)
+				global::NGCView ngcview;
+				if (this.weakReference == null || !(ngcview = (global::NGCView)this.weakReference.Target) || !this.weakReference.IsAlive)
 				{
-					if (!Bundling.Load<NGCView>(this.contentPath, typeof(NGCView), out ngcview))
+					if (!Facepunch.Bundling.Load<global::NGCView>(this.contentPath, typeof(global::NGCView), out ngcview))
 					{
 						throw new MissingReferenceException("Could not load NGCView at " + this.contentPath);
 					}
 					if (this._installation == null)
 					{
-						this._installation = NGC.Prefab.Installation.Create(ngcview);
+						this._installation = global::NGC.Prefab.Installation.Create(ngcview);
 					}
 					this.weakReference = new WeakReference(ngcview);
 				}
@@ -842,90 +842,90 @@ public sealed class NGC : MonoBehaviour
 			}
 		}
 
-		// Token: 0x0600193D RID: 6461 RVA: 0x00063998 File Offset: 0x00061B98
+		// Token: 0x06001ACD RID: 6861 RVA: 0x0006830C File Offset: 0x0006650C
 		internal NetworkFlags DefaultNetworkFlags(int messageIndex)
 		{
 			return this.installation.methods[messageIndex].defaultNetworkFlags;
 		}
 
-		// Token: 0x04000D5F RID: 3423
+		// Token: 0x04000E9A RID: 3738
 		[NonSerialized]
 		public readonly string contentPath;
 
-		// Token: 0x04000D60 RID: 3424
+		// Token: 0x04000E9B RID: 3739
 		[NonSerialized]
 		public readonly int key;
 
-		// Token: 0x04000D61 RID: 3425
+		// Token: 0x04000E9C RID: 3740
 		[NonSerialized]
 		public readonly string handle;
 
-		// Token: 0x04000D62 RID: 3426
+		// Token: 0x04000E9D RID: 3741
 		[NonSerialized]
-		private NGC.Prefab.Installation _installation;
+		private global::NGC.Prefab.Installation _installation;
 
-		// Token: 0x04000D63 RID: 3427
+		// Token: 0x04000E9E RID: 3742
 		private Dictionary<string, int> cachedMessageIndices;
 
-		// Token: 0x04000D64 RID: 3428
+		// Token: 0x04000E9F RID: 3743
 		private WeakReference weakReference;
 
-		// Token: 0x020002C2 RID: 706
+		// Token: 0x020002FF RID: 767
 		public sealed class Installation
 		{
-			// Token: 0x0600193E RID: 6462 RVA: 0x000639B0 File Offset: 0x00061BB0
-			private Installation(NGC.Prefab.Installation.Method[] methods, ushort[] methodScriptIndices)
+			// Token: 0x06001ACE RID: 6862 RVA: 0x00068324 File Offset: 0x00066524
+			private Installation(global::NGC.Prefab.Installation.Method[] methods, ushort[] methodScriptIndices)
 			{
 				this.methods = methods;
 				this.methodScriptIndices = methodScriptIndices;
 			}
 
-			// Token: 0x06001940 RID: 6464 RVA: 0x000639D4 File Offset: 0x00061BD4
-			public static NGC.Prefab.Installation Create(NGCView view)
+			// Token: 0x06001AD0 RID: 6864 RVA: 0x00068348 File Offset: 0x00066548
+			public static global::NGC.Prefab.Installation Create(global::NGCView view)
 			{
 				int num = 0;
-				List<NGC.Prefab.Installation.Method[]> list = new List<NGC.Prefab.Installation.Method[]>();
+				List<global::NGC.Prefab.Installation.Method[]> list = new List<global::NGC.Prefab.Installation.Method[]>();
 				foreach (MonoBehaviour monoBehaviour in view.scripts)
 				{
 					Type type = monoBehaviour.GetType();
-					NGC.Prefab.Installation.Method[] array;
-					if (!NGC.Prefab.Installation.methodsForType.TryGetValue(type, out array))
+					global::NGC.Prefab.Installation.Method[] array;
+					if (!global::NGC.Prefab.Installation.methodsForType.TryGetValue(type, out array))
 					{
-						List<NGC.Prefab.Installation.Method> list2 = new List<NGC.Prefab.Installation.Method>();
+						List<global::NGC.Prefab.Installation.Method> list2 = new List<global::NGC.Prefab.Installation.Method>();
 						MethodInfo[] array2 = type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 						foreach (MethodInfo methodInfo in array2)
 						{
 							bool flag = false;
 							if (methodInfo.IsDefined(typeof(RPC), true))
 							{
-								if (!methodInfo.IsDefined(typeof(NGCRPCSkipAttribute), false) || methodInfo.IsDefined(typeof(NGCRPCAttribute), true))
+								if (!methodInfo.IsDefined(typeof(global::NGCRPCSkipAttribute), false) || methodInfo.IsDefined(typeof(global::NGCRPCAttribute), true))
 								{
 									flag = true;
 								}
 							}
-							else if (methodInfo.IsDefined(typeof(NGCRPCAttribute), true))
+							else if (methodInfo.IsDefined(typeof(global::NGCRPCAttribute), true))
 							{
 								flag = true;
 							}
 							if (flag)
 							{
-								list2.Add(NGC.Prefab.Installation.Method.Create(methodInfo));
+								list2.Add(global::NGC.Prefab.Installation.Method.Create(methodInfo));
 							}
 						}
-						list2.Sort((NGC.Prefab.Installation.Method x, NGC.Prefab.Installation.Method y) => x.method.Name.CompareTo(y.method.Name));
+						list2.Sort((global::NGC.Prefab.Installation.Method x, global::NGC.Prefab.Installation.Method y) => x.method.Name.CompareTo(y.method.Name));
 						array = list2.ToArray();
-						NGC.Prefab.Installation.methodsForType[type] = array;
+						global::NGC.Prefab.Installation.methodsForType[type] = array;
 					}
 					num += array.Length;
 					list.Add(array);
 				}
-				NGC.Prefab.Installation.Method[] array4 = new NGC.Prefab.Installation.Method[num];
+				global::NGC.Prefab.Installation.Method[] array4 = new global::NGC.Prefab.Installation.Method[num];
 				ushort[] array5 = new ushort[num];
 				int num2 = 0;
 				ushort num3 = 0;
-				foreach (NGC.Prefab.Installation.Method[] array6 in list)
+				foreach (global::NGC.Prefab.Installation.Method[] array6 in list)
 				{
-					foreach (NGC.Prefab.Installation.Method method in array6)
+					foreach (global::NGC.Prefab.Installation.Method method in array6)
 					{
 						array4[num2] = method;
 						array5[num2] = num3;
@@ -933,50 +933,50 @@ public sealed class NGC : MonoBehaviour
 					}
 					num3 += 1;
 				}
-				return new NGC.Prefab.Installation(array4, array5);
+				return new global::NGC.Prefab.Installation(array4, array5);
 			}
 
-			// Token: 0x04000D65 RID: 3429
-			public readonly NGC.Prefab.Installation.Method[] methods;
+			// Token: 0x04000EA0 RID: 3744
+			public readonly global::NGC.Prefab.Installation.Method[] methods;
 
-			// Token: 0x04000D66 RID: 3430
+			// Token: 0x04000EA1 RID: 3745
 			public readonly ushort[] methodScriptIndices;
 
-			// Token: 0x04000D67 RID: 3431
-			private static readonly Dictionary<Type, NGC.Prefab.Installation.Method[]> methodsForType = new Dictionary<Type, NGC.Prefab.Installation.Method[]>();
+			// Token: 0x04000EA2 RID: 3746
+			private static readonly Dictionary<Type, global::NGC.Prefab.Installation.Method[]> methodsForType = new Dictionary<Type, global::NGC.Prefab.Installation.Method[]>();
 
-			// Token: 0x020002C3 RID: 707
+			// Token: 0x02000300 RID: 768
 			public sealed class Instance
 			{
-				// Token: 0x06001942 RID: 6466 RVA: 0x00063C08 File Offset: 0x00061E08
-				public Instance(NGC.Prefab.Installation installation)
+				// Token: 0x06001AD2 RID: 6866 RVA: 0x0006857C File Offset: 0x0006677C
+				public Instance(global::NGC.Prefab.Installation installation)
 				{
 					this.delegates = new Delegate[installation.methods.Length];
 				}
 
-				// Token: 0x06001943 RID: 6467 RVA: 0x00063C24 File Offset: 0x00061E24
-				public void Invoke(NGC.Procedure procedure)
+				// Token: 0x06001AD3 RID: 6867 RVA: 0x00068598 File Offset: 0x00066798
+				public void Invoke(global::NGC.Procedure procedure)
 				{
 					procedure.view.prefab.installation.methods[procedure.message].Invoke(ref this.delegates[procedure.message], procedure, procedure.view.prefab.installation.methodScriptIndices[procedure.message]);
 				}
 
-				// Token: 0x04000D69 RID: 3433
+				// Token: 0x04000EA4 RID: 3748
 				public readonly Delegate[] delegates;
 			}
 
-			// Token: 0x020002C4 RID: 708
+			// Token: 0x02000301 RID: 769
 			public struct Method
 			{
-				// Token: 0x06001944 RID: 6468 RVA: 0x00063C84 File Offset: 0x00061E84
-				private Method(MethodInfo method, byte flags, NGC.IExecuter executer)
+				// Token: 0x06001AD4 RID: 6868 RVA: 0x000685F8 File Offset: 0x000667F8
+				private Method(MethodInfo method, byte flags, global::NGC.IExecuter executer)
 				{
 					this.method = method;
 					this.flags = flags;
 					this.executer = executer;
 				}
 
-				// Token: 0x17000740 RID: 1856
-				// (get) Token: 0x06001945 RID: 6469 RVA: 0x00063C9C File Offset: 0x00061E9C
+				// Token: 0x17000794 RID: 1940
+				// (get) Token: 0x06001AD5 RID: 6869 RVA: 0x00068610 File Offset: 0x00066810
 				public NetworkFlags defaultNetworkFlags
 				{
 					get
@@ -1006,8 +1006,8 @@ public sealed class NGC : MonoBehaviour
 					}
 				}
 
-				// Token: 0x06001946 RID: 6470 RVA: 0x00063D20 File Offset: 0x00061F20
-				public void Invoke(ref Delegate d, NGC.Procedure procedure, ushort scriptIndex)
+				// Token: 0x06001AD6 RID: 6870 RVA: 0x00068694 File Offset: 0x00066894
+				public void Invoke(ref Delegate d, global::NGC.Procedure procedure, ushort scriptIndex)
 				{
 					MonoBehaviour monoBehaviour = procedure.view.scripts[(int)scriptIndex];
 					IEnumerator enumerator;
@@ -1054,8 +1054,8 @@ public sealed class NGC : MonoBehaviour
 					}
 				}
 
-				// Token: 0x06001947 RID: 6471 RVA: 0x00063EC0 File Offset: 0x000620C0
-				public static NGC.Prefab.Installation.Method Create(MethodInfo info)
+				// Token: 0x06001AD7 RID: 6871 RVA: 0x00068834 File Offset: 0x00066A34
+				public static global::NGC.Prefab.Installation.Method Create(MethodInfo info)
 				{
 					Type returnType = info.ReturnType;
 					byte b;
@@ -1083,7 +1083,7 @@ public sealed class NGC : MonoBehaviour
 					if (num > 0)
 					{
 						Type parameterType;
-						if ((parameterType = parameters[parameters.Length - 1].ParameterType) == typeof(NetworkMessageInfo))
+						if ((parameterType = parameters[parameters.Length - 1].ParameterType) == typeof(uLink.NetworkMessageInfo))
 						{
 							num--;
 							if (num > 0 && parameters[num - 1].ParameterType == typeof(BitStream))
@@ -1107,91 +1107,91 @@ public sealed class NGC : MonoBehaviour
 					{
 						array[j] = parameters[j].ParameterType;
 					}
-					NGC.IExecuter executer = NGC.FindExecuter(array);
+					global::NGC.IExecuter executer = global::NGC.FindExecuter(array);
 					if (executer != null)
 					{
-						return new NGC.Prefab.Installation.Method(info, b, executer);
+						return new global::NGC.Prefab.Installation.Method(info, b, executer);
 					}
 					throw new InvalidProgramException();
 				}
 
-				// Token: 0x04000D6A RID: 3434
+				// Token: 0x04000EA5 RID: 3749
 				private const byte FLAG_INFO = 1;
 
-				// Token: 0x04000D6B RID: 3435
+				// Token: 0x04000EA6 RID: 3750
 				private const byte FLAG_STREAM = 2;
 
-				// Token: 0x04000D6C RID: 3436
+				// Token: 0x04000EA7 RID: 3751
 				private const byte FLAG_ENUMERATOR = 4;
 
-				// Token: 0x04000D6D RID: 3437
+				// Token: 0x04000EA8 RID: 3752
 				private const byte FLAG_FORCE_UNBUFFERED = 8;
 
-				// Token: 0x04000D6E RID: 3438
+				// Token: 0x04000EA9 RID: 3753
 				private const byte FLAG_FORCE_INSECURE = 16;
 
-				// Token: 0x04000D6F RID: 3439
+				// Token: 0x04000EAA RID: 3754
 				private const byte FLAG_FORCE_NO_TIMESTAMP = 32;
 
-				// Token: 0x04000D70 RID: 3440
+				// Token: 0x04000EAB RID: 3755
 				private const byte FLAG_FORCE_UNRELIABLE = 64;
 
-				// Token: 0x04000D71 RID: 3441
+				// Token: 0x04000EAC RID: 3756
 				private const byte FLAG_FORCE_TYPE_UNSAFE = 128;
 
-				// Token: 0x04000D72 RID: 3442
+				// Token: 0x04000EAD RID: 3757
 				private const byte INVOKE_FLAGS = 7;
 
-				// Token: 0x04000D73 RID: 3443
+				// Token: 0x04000EAE RID: 3758
 				public readonly MethodInfo method;
 
-				// Token: 0x04000D74 RID: 3444
+				// Token: 0x04000EAF RID: 3759
 				public readonly byte flags;
 
-				// Token: 0x04000D75 RID: 3445
-				private readonly NGC.IExecuter executer;
+				// Token: 0x04000EB0 RID: 3760
+				private readonly global::NGC.IExecuter executer;
 			}
 		}
 
-		// Token: 0x020002C5 RID: 709
+		// Token: 0x02000302 RID: 770
 		public static class Register
 		{
-			// Token: 0x06001949 RID: 6473 RVA: 0x00064058 File Offset: 0x00062258
-			public static bool Find(int index, out NGC.Prefab prefab)
+			// Token: 0x06001AD9 RID: 6873 RVA: 0x000689CC File Offset: 0x00066BCC
+			public static bool Find(int index, out global::NGC.Prefab prefab)
 			{
-				return NGC.Prefab.Register.PrefabByIndex.TryGetValue(index, out prefab);
+				return global::NGC.Prefab.Register.PrefabByIndex.TryGetValue(index, out prefab);
 			}
 
-			// Token: 0x0600194A RID: 6474 RVA: 0x00064068 File Offset: 0x00062268
+			// Token: 0x06001ADA RID: 6874 RVA: 0x000689DC File Offset: 0x00066BDC
 			public static string FindName(int iIndex)
 			{
-				return NGC.Prefab.Register.PrefabByIndex[iIndex].handle;
+				return global::NGC.Prefab.Register.PrefabByIndex[iIndex].handle;
 			}
 
-			// Token: 0x0600194B RID: 6475 RVA: 0x0006407C File Offset: 0x0006227C
-			public static bool Find(string handle, out NGC.Prefab prefab)
+			// Token: 0x06001ADB RID: 6875 RVA: 0x000689F0 File Offset: 0x00066BF0
+			public static bool Find(string handle, out global::NGC.Prefab prefab)
 			{
-				return NGC.Prefab.Register.PrefabByName.TryGetValue(handle, out prefab);
+				return global::NGC.Prefab.Register.PrefabByName.TryGetValue(handle, out prefab);
 			}
 
-			// Token: 0x0600194C RID: 6476 RVA: 0x0006408C File Offset: 0x0006228C
+			// Token: 0x06001ADC RID: 6876 RVA: 0x00068A00 File Offset: 0x00066C00
 			public static bool Add(string contentPath, int index, string handle)
 			{
 				bool result;
 				try
 				{
-					NGC.Prefab prefab = new NGC.Prefab(contentPath, index, handle);
-					NGC.Prefab.Register.PrefabByIndex.Add(index, prefab);
+					global::NGC.Prefab prefab = new global::NGC.Prefab(contentPath, index, handle);
+					global::NGC.Prefab.Register.PrefabByIndex.Add(index, prefab);
 					try
 					{
-						NGC.Prefab.Register.PrefabByName.Add(handle, prefab);
+						global::NGC.Prefab.Register.PrefabByName.Add(handle, prefab);
 					}
 					catch
 					{
-						NGC.Prefab.Register.PrefabByIndex.Remove(index);
+						global::NGC.Prefab.Register.PrefabByIndex.Remove(index);
 						throw;
 					}
-					NGC.Prefab.Register.Prefabs.Add(prefab);
+					global::NGC.Prefab.Register.Prefabs.Add(prefab);
 					result = true;
 				}
 				catch
@@ -1201,21 +1201,21 @@ public sealed class NGC : MonoBehaviour
 				return result;
 			}
 
-			// Token: 0x04000D76 RID: 3446
-			private static readonly Dictionary<int, NGC.Prefab> PrefabByIndex = new Dictionary<int, NGC.Prefab>();
+			// Token: 0x04000EB1 RID: 3761
+			private static readonly Dictionary<int, global::NGC.Prefab> PrefabByIndex = new Dictionary<int, global::NGC.Prefab>();
 
-			// Token: 0x04000D77 RID: 3447
-			private static readonly Dictionary<string, NGC.Prefab> PrefabByName = new Dictionary<string, NGC.Prefab>();
+			// Token: 0x04000EB2 RID: 3762
+			private static readonly Dictionary<string, global::NGC.Prefab> PrefabByName = new Dictionary<string, global::NGC.Prefab>();
 
-			// Token: 0x04000D78 RID: 3448
-			private static readonly List<NGC.Prefab> Prefabs = new List<NGC.Prefab>();
+			// Token: 0x04000EB3 RID: 3763
+			private static readonly List<global::NGC.Prefab> Prefabs = new List<global::NGC.Prefab>();
 		}
 	}
 
-	// Token: 0x020002C6 RID: 710
+	// Token: 0x02000303 RID: 771
 	public sealed class Procedure
 	{
-		// Token: 0x0600194E RID: 6478 RVA: 0x00064134 File Offset: 0x00062334
+		// Token: 0x06001ADE RID: 6878 RVA: 0x00068AA8 File Offset: 0x00066CA8
 		public BitStream CreateBitStream()
 		{
 			if (this.dataLength == 0)
@@ -1225,7 +1225,7 @@ public sealed class NGC : MonoBehaviour
 			return new BitStream(this.data, false);
 		}
 
-		// Token: 0x0600194F RID: 6479 RVA: 0x00064154 File Offset: 0x00062354
+		// Token: 0x06001ADF RID: 6879 RVA: 0x00068AC8 File Offset: 0x00066CC8
 		public bool Call()
 		{
 			if (!this.view)
@@ -1250,701 +1250,701 @@ public sealed class NGC : MonoBehaviour
 			return true;
 		}
 
-		// Token: 0x04000D79 RID: 3449
-		public NGC outer;
+		// Token: 0x04000EB4 RID: 3764
+		public global::NGC outer;
 
-		// Token: 0x04000D7A RID: 3450
+		// Token: 0x04000EB5 RID: 3765
 		public int target;
 
-		// Token: 0x04000D7B RID: 3451
+		// Token: 0x04000EB6 RID: 3766
 		public int message;
 
-		// Token: 0x04000D7C RID: 3452
+		// Token: 0x04000EB7 RID: 3767
 		public byte[] data;
 
-		// Token: 0x04000D7D RID: 3453
+		// Token: 0x04000EB8 RID: 3768
 		public int dataLength;
 
-		// Token: 0x04000D7E RID: 3454
-		public NetworkMessageInfo info;
+		// Token: 0x04000EB9 RID: 3769
+		public uLink.NetworkMessageInfo info;
 
-		// Token: 0x04000D7F RID: 3455
-		public NGCView view;
+		// Token: 0x04000EBA RID: 3770
+		public global::NGCView view;
 	}
 
-	// Token: 0x020002C7 RID: 711
+	// Token: 0x02000304 RID: 772
 	private struct RPCName
 	{
-		// Token: 0x06001950 RID: 6480 RVA: 0x00064200 File Offset: 0x00062400
-		public RPCName(NGCView view, int message, string name, NetworkFlags flags)
+		// Token: 0x06001AE0 RID: 6880 RVA: 0x00068B74 File Offset: 0x00066D74
+		public RPCName(global::NGCView view, int message, string name, NetworkFlags flags)
 		{
 			this.name = name;
 			this.flags = flags;
 		}
 
-		// Token: 0x04000D80 RID: 3456
+		// Token: 0x04000EBB RID: 3771
 		public readonly string name;
 
-		// Token: 0x04000D81 RID: 3457
+		// Token: 0x04000EBC RID: 3772
 		public readonly NetworkFlags flags;
 	}
 
-	// Token: 0x020002C8 RID: 712
+	// Token: 0x02000305 RID: 773
 	public static class callf
 	{
-		// Token: 0x06001951 RID: 6481 RVA: 0x00064214 File Offset: 0x00062414
+		// Token: 0x06001AE1 RID: 6881 RVA: 0x00068B88 File Offset: 0x00066D88
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.Call), instance, method, true);
 			}
-			((NGC.callf.Call)d)();
+			((global::NGC.callf.Call)d)();
 		}
 
-		// Token: 0x06001952 RID: 6482 RVA: 0x00064240 File Offset: 0x00062440
+		// Token: 0x06001AE2 RID: 6882 RVA: 0x00068BB4 File Offset: 0x00066DB4
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.Routine), instance, method, true);
 			}
-			return ((NGC.callf.Routine)d)();
+			return ((global::NGC.callf.Routine)d)();
 		}
 
-		// Token: 0x06001953 RID: 6483 RVA: 0x0006426C File Offset: 0x0006246C
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001AE3 RID: 6883 RVA: 0x00068BE0 File Offset: 0x00066DE0
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.InfoCall), instance, method, true);
 			}
-			((NGC.callf.InfoCall)d)(info);
+			((global::NGC.callf.InfoCall)d)(info);
 		}
 
-		// Token: 0x06001954 RID: 6484 RVA: 0x00064298 File Offset: 0x00062498
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001AE4 RID: 6884 RVA: 0x00068C0C File Offset: 0x00066E0C
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf.InfoRoutine)d)(info);
+			return ((global::NGC.callf.InfoRoutine)d)(info);
 		}
 
-		// Token: 0x06001955 RID: 6485 RVA: 0x000642C4 File Offset: 0x000624C4
+		// Token: 0x06001AE5 RID: 6885 RVA: 0x00068C38 File Offset: 0x00066E38
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.StreamCall), instance, method, true);
 			}
-			((NGC.callf.StreamCall)d)(stream);
+			((global::NGC.callf.StreamCall)d)(stream);
 		}
 
-		// Token: 0x06001956 RID: 6486 RVA: 0x000642FC File Offset: 0x000624FC
+		// Token: 0x06001AE6 RID: 6886 RVA: 0x00068C70 File Offset: 0x00066E70
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf.StreamRoutine)d)(stream);
+			return ((global::NGC.callf.StreamRoutine)d)(stream);
 		}
 
-		// Token: 0x06001957 RID: 6487 RVA: 0x00064334 File Offset: 0x00062534
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001AE7 RID: 6887 RVA: 0x00068CA8 File Offset: 0x00066EA8
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf.StreamInfoCall)d)(info, stream);
+			((global::NGC.callf.StreamInfoCall)d)(info, stream);
 		}
 
-		// Token: 0x06001958 RID: 6488 RVA: 0x0006436C File Offset: 0x0006256C
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001AE8 RID: 6888 RVA: 0x00068CE0 File Offset: 0x00066EE0
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf.StreamInfoRoutine)d)(info, stream);
+			return ((global::NGC.callf.StreamInfoRoutine)d)(info, stream);
 		}
 
-		// Token: 0x17000741 RID: 1857
-		// (get) Token: 0x06001959 RID: 6489 RVA: 0x000643A4 File Offset: 0x000625A4
-		public static NGC.IExecuter Exec
+		// Token: 0x17000795 RID: 1941
+		// (get) Token: 0x06001AE9 RID: 6889 RVA: 0x00068D18 File Offset: 0x00066F18
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf.Executer.Singleton;
+				return global::NGC.callf.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002C9 RID: 713
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000306 RID: 774
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x0600195C RID: 6492 RVA: 0x000643C0 File Offset: 0x000625C0
+			// Token: 0x06001AEC RID: 6892 RVA: 0x00068D34 File Offset: 0x00066F34
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x0600195D RID: 6493 RVA: 0x000643CC File Offset: 0x000625CC
+			// Token: 0x06001AED RID: 6893 RVA: 0x00068D40 File Offset: 0x00066F40
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x0600195E RID: 6494 RVA: 0x000643D8 File Offset: 0x000625D8
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001AEE RID: 6894 RVA: 0x00068D4C File Offset: 0x00066F4C
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x0600195F RID: 6495 RVA: 0x000643E8 File Offset: 0x000625E8
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001AEF RID: 6895 RVA: 0x00068D5C File Offset: 0x00066F5C
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001960 RID: 6496 RVA: 0x000643F8 File Offset: 0x000625F8
+			// Token: 0x06001AF0 RID: 6896 RVA: 0x00068D6C File Offset: 0x00066F6C
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001961 RID: 6497 RVA: 0x00064404 File Offset: 0x00062604
+			// Token: 0x06001AF1 RID: 6897 RVA: 0x00068D78 File Offset: 0x00066F78
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001962 RID: 6498 RVA: 0x00064410 File Offset: 0x00062610
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001AF2 RID: 6898 RVA: 0x00068D84 File Offset: 0x00066F84
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001963 RID: 6499 RVA: 0x00064420 File Offset: 0x00062620
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001AF3 RID: 6899 RVA: 0x00068D94 File Offset: 0x00066F94
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000D82 RID: 3458
-			public static readonly NGC.IExecuter Singleton = new NGC.callf.Executer();
+			// Token: 0x04000EBD RID: 3773
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf.Executer();
 		}
 
-		// Token: 0x0200086C RID: 2156
-		// (Invoke) Token: 0x06004B88 RID: 19336
+		// Token: 0x02000307 RID: 775
+		// (Invoke) Token: 0x06001AF5 RID: 6901
 		public delegate void Call();
 
-		// Token: 0x0200086D RID: 2157
-		// (Invoke) Token: 0x06004B8C RID: 19340
+		// Token: 0x02000308 RID: 776
+		// (Invoke) Token: 0x06001AF9 RID: 6905
 		public delegate IEnumerator Routine();
 
-		// Token: 0x0200086E RID: 2158
-		// (Invoke) Token: 0x06004B90 RID: 19344
-		public delegate void InfoCall(NetworkMessageInfo info);
+		// Token: 0x02000309 RID: 777
+		// (Invoke) Token: 0x06001AFD RID: 6909
+		public delegate void InfoCall(uLink.NetworkMessageInfo info);
 
-		// Token: 0x0200086F RID: 2159
-		// (Invoke) Token: 0x06004B94 RID: 19348
-		public delegate IEnumerator InfoRoutine(NetworkMessageInfo info);
+		// Token: 0x0200030A RID: 778
+		// (Invoke) Token: 0x06001B01 RID: 6913
+		public delegate IEnumerator InfoRoutine(uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000870 RID: 2160
-		// (Invoke) Token: 0x06004B98 RID: 19352
+		// Token: 0x0200030B RID: 779
+		// (Invoke) Token: 0x06001B05 RID: 6917
 		public delegate void StreamCall(BitStream stream);
 
-		// Token: 0x02000871 RID: 2161
-		// (Invoke) Token: 0x06004B9C RID: 19356
+		// Token: 0x0200030C RID: 780
+		// (Invoke) Token: 0x06001B09 RID: 6921
 		public delegate IEnumerator StreamRoutine(BitStream stream);
 
-		// Token: 0x02000872 RID: 2162
-		// (Invoke) Token: 0x06004BA0 RID: 19360
-		public delegate void StreamInfoCall(NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200030D RID: 781
+		// (Invoke) Token: 0x06001B0D RID: 6925
+		public delegate void StreamInfoCall(uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x02000873 RID: 2163
-		// (Invoke) Token: 0x06004BA4 RID: 19364
-		public delegate IEnumerator StreamInfoRoutine(NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200030E RID: 782
+		// (Invoke) Token: 0x06001B11 RID: 6929
+		public delegate IEnumerator StreamInfoRoutine(uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002CA RID: 714
+	// Token: 0x0200030F RID: 783
 	public static class callf<P0>
 	{
-		// Token: 0x06001964 RID: 6500 RVA: 0x00064430 File Offset: 0x00062630
+		// Token: 0x06001B14 RID: 6932 RVA: 0x00068DA4 File Offset: 0x00066FA4
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0>.Serializer));
 		}
 
-		// Token: 0x06001965 RID: 6501 RVA: 0x00064450 File Offset: 0x00062650
+		// Token: 0x06001B15 RID: 6933 RVA: 0x00068DC4 File Offset: 0x00066FC4
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0>.Block block;
+			global::NGC.callf<P0>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			return block;
 		}
 
-		// Token: 0x06001966 RID: 6502 RVA: 0x00064474 File Offset: 0x00062674
+		// Token: 0x06001B16 RID: 6934 RVA: 0x00068DE8 File Offset: 0x00066FE8
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			stream.Write<P0>(((NGC.callf<P0>.Block)value).p0, codecOptions);
+			stream.Write<P0>(((global::NGC.callf<P0>.Block)value).p0, codecOptions);
 		}
 
-		// Token: 0x06001967 RID: 6503 RVA: 0x00064498 File Offset: 0x00062698
+		// Token: 0x06001B17 RID: 6935 RVA: 0x00068E0C File Offset: 0x0006700C
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.Call), instance, method, true);
 			}
-			((NGC.callf<P0>.Call)d)(p);
+			((global::NGC.callf<P0>.Call)d)(p);
 		}
 
-		// Token: 0x06001968 RID: 6504 RVA: 0x000644DC File Offset: 0x000626DC
+		// Token: 0x06001B18 RID: 6936 RVA: 0x00068E50 File Offset: 0x00067050
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0>.Routine)d)(p);
+			return ((global::NGC.callf<P0>.Routine)d)(p);
 		}
 
-		// Token: 0x06001969 RID: 6505 RVA: 0x00064520 File Offset: 0x00062720
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B19 RID: 6937 RVA: 0x00068E94 File Offset: 0x00067094
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0>.InfoCall)d)(p, info);
+			((global::NGC.callf<P0>.InfoCall)d)(p, info);
 		}
 
-		// Token: 0x0600196A RID: 6506 RVA: 0x00064564 File Offset: 0x00062764
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B1A RID: 6938 RVA: 0x00068ED8 File Offset: 0x000670D8
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0>.InfoRoutine)d)(p, info);
+			return ((global::NGC.callf<P0>.InfoRoutine)d)(p, info);
 		}
 
-		// Token: 0x0600196B RID: 6507 RVA: 0x000645A8 File Offset: 0x000627A8
+		// Token: 0x06001B1B RID: 6939 RVA: 0x00068F1C File Offset: 0x0006711C
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0>.StreamCall)d)(p, stream);
+			((global::NGC.callf<P0>.StreamCall)d)(p, stream);
 		}
 
-		// Token: 0x0600196C RID: 6508 RVA: 0x000645EC File Offset: 0x000627EC
+		// Token: 0x06001B1C RID: 6940 RVA: 0x00068F60 File Offset: 0x00067160
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0>.StreamRoutine)d)(p, stream);
+			return ((global::NGC.callf<P0>.StreamRoutine)d)(p, stream);
 		}
 
-		// Token: 0x0600196D RID: 6509 RVA: 0x00064630 File Offset: 0x00062830
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B1D RID: 6941 RVA: 0x00068FA4 File Offset: 0x000671A4
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0>.StreamInfoCall)d)(p, info, stream);
+			((global::NGC.callf<P0>.StreamInfoCall)d)(p, info, stream);
 		}
 
-		// Token: 0x0600196E RID: 6510 RVA: 0x00064678 File Offset: 0x00062878
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B1E RID: 6942 RVA: 0x00068FEC File Offset: 0x000671EC
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0>.StreamInfoRoutine)d)(p, info, stream);
+			return ((global::NGC.callf<P0>.StreamInfoRoutine)d)(p, info, stream);
 		}
 
-		// Token: 0x17000742 RID: 1858
-		// (get) Token: 0x0600196F RID: 6511 RVA: 0x000646C0 File Offset: 0x000628C0
-		public static NGC.IExecuter Exec
+		// Token: 0x17000796 RID: 1942
+		// (get) Token: 0x06001B1F RID: 6943 RVA: 0x00069034 File Offset: 0x00067234
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0>.Executer.Singleton;
+				return global::NGC.callf<P0>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002CB RID: 715
+		// Token: 0x02000310 RID: 784
 		public struct Block
 		{
-			// Token: 0x04000D83 RID: 3459
+			// Token: 0x04000EBE RID: 3774
 			public P0 p0;
 		}
 
-		// Token: 0x020002CC RID: 716
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000311 RID: 785
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x06001972 RID: 6514 RVA: 0x000646DC File Offset: 0x000628DC
+			// Token: 0x06001B22 RID: 6946 RVA: 0x00069050 File Offset: 0x00067250
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001973 RID: 6515 RVA: 0x000646E8 File Offset: 0x000628E8
+			// Token: 0x06001B23 RID: 6947 RVA: 0x0006905C File Offset: 0x0006725C
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001974 RID: 6516 RVA: 0x000646F4 File Offset: 0x000628F4
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B24 RID: 6948 RVA: 0x00069068 File Offset: 0x00067268
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001975 RID: 6517 RVA: 0x00064704 File Offset: 0x00062904
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B25 RID: 6949 RVA: 0x00069078 File Offset: 0x00067278
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001976 RID: 6518 RVA: 0x00064714 File Offset: 0x00062914
+			// Token: 0x06001B26 RID: 6950 RVA: 0x00069088 File Offset: 0x00067288
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001977 RID: 6519 RVA: 0x00064720 File Offset: 0x00062920
+			// Token: 0x06001B27 RID: 6951 RVA: 0x00069094 File Offset: 0x00067294
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001978 RID: 6520 RVA: 0x0006472C File Offset: 0x0006292C
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B28 RID: 6952 RVA: 0x000690A0 File Offset: 0x000672A0
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001979 RID: 6521 RVA: 0x0006473C File Offset: 0x0006293C
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B29 RID: 6953 RVA: 0x000690B0 File Offset: 0x000672B0
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000D84 RID: 3460
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0>.Executer();
+			// Token: 0x04000EBF RID: 3775
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0>.Executer();
 		}
 
-		// Token: 0x02000874 RID: 2164
-		// (Invoke) Token: 0x06004BA8 RID: 19368
+		// Token: 0x02000312 RID: 786
+		// (Invoke) Token: 0x06001B2B RID: 6955
 		public delegate void Call(P0 p0);
 
-		// Token: 0x02000875 RID: 2165
-		// (Invoke) Token: 0x06004BAC RID: 19372
+		// Token: 0x02000313 RID: 787
+		// (Invoke) Token: 0x06001B2F RID: 6959
 		public delegate IEnumerator Routine(P0 p0);
 
-		// Token: 0x02000876 RID: 2166
-		// (Invoke) Token: 0x06004BB0 RID: 19376
-		public delegate void InfoCall(P0 p0, NetworkMessageInfo info);
+		// Token: 0x02000314 RID: 788
+		// (Invoke) Token: 0x06001B33 RID: 6963
+		public delegate void InfoCall(P0 p0, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000877 RID: 2167
-		// (Invoke) Token: 0x06004BB4 RID: 19380
-		public delegate IEnumerator InfoRoutine(P0 p0, NetworkMessageInfo info);
+		// Token: 0x02000315 RID: 789
+		// (Invoke) Token: 0x06001B37 RID: 6967
+		public delegate IEnumerator InfoRoutine(P0 p0, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000878 RID: 2168
-		// (Invoke) Token: 0x06004BB8 RID: 19384
+		// Token: 0x02000316 RID: 790
+		// (Invoke) Token: 0x06001B3B RID: 6971
 		public delegate void StreamCall(P0 p0, BitStream stream);
 
-		// Token: 0x02000879 RID: 2169
-		// (Invoke) Token: 0x06004BBC RID: 19388
+		// Token: 0x02000317 RID: 791
+		// (Invoke) Token: 0x06001B3F RID: 6975
 		public delegate IEnumerator StreamRoutine(P0 p0, BitStream stream);
 
-		// Token: 0x0200087A RID: 2170
-		// (Invoke) Token: 0x06004BC0 RID: 19392
-		public delegate void StreamInfoCall(P0 p0, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000318 RID: 792
+		// (Invoke) Token: 0x06001B43 RID: 6979
+		public delegate void StreamInfoCall(P0 p0, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x0200087B RID: 2171
-		// (Invoke) Token: 0x06004BC4 RID: 19396
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000319 RID: 793
+		// (Invoke) Token: 0x06001B47 RID: 6983
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002CD RID: 717
+	// Token: 0x0200031A RID: 794
 	public static class callf<P0, P1>
 	{
-		// Token: 0x0600197A RID: 6522 RVA: 0x0006474C File Offset: 0x0006294C
+		// Token: 0x06001B4A RID: 6986 RVA: 0x000690C0 File Offset: 0x000672C0
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1>.Serializer));
 		}
 
-		// Token: 0x0600197B RID: 6523 RVA: 0x0006476C File Offset: 0x0006296C
+		// Token: 0x06001B4B RID: 6987 RVA: 0x000690E0 File Offset: 0x000672E0
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1>.Block block;
+			global::NGC.callf<P0, P1>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			return block;
 		}
 
-		// Token: 0x0600197C RID: 6524 RVA: 0x0006479C File Offset: 0x0006299C
+		// Token: 0x06001B4C RID: 6988 RVA: 0x00069110 File Offset: 0x00067310
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1>.Block block = (NGC.callf<P0, P1>.Block)value;
+			global::NGC.callf<P0, P1>.Block block = (global::NGC.callf<P0, P1>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 		}
 
-		// Token: 0x0600197D RID: 6525 RVA: 0x000647CC File Offset: 0x000629CC
+		// Token: 0x06001B4D RID: 6989 RVA: 0x00069140 File Offset: 0x00067340
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1>.Call)d)(p, p2);
+			((global::NGC.callf<P0, P1>.Call)d)(p, p2);
 		}
 
-		// Token: 0x0600197E RID: 6526 RVA: 0x0006481C File Offset: 0x00062A1C
+		// Token: 0x06001B4E RID: 6990 RVA: 0x00069190 File Offset: 0x00067390
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1>.Routine)d)(p, p2);
+			return ((global::NGC.callf<P0, P1>.Routine)d)(p, p2);
 		}
 
-		// Token: 0x0600197F RID: 6527 RVA: 0x0006486C File Offset: 0x00062A6C
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B4F RID: 6991 RVA: 0x000691E0 File Offset: 0x000673E0
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1>.InfoCall)d)(p, p2, info);
+			((global::NGC.callf<P0, P1>.InfoCall)d)(p, p2, info);
 		}
 
-		// Token: 0x06001980 RID: 6528 RVA: 0x000648C0 File Offset: 0x00062AC0
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B50 RID: 6992 RVA: 0x00069234 File Offset: 0x00067434
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1>.InfoRoutine)d)(p, p2, info);
+			return ((global::NGC.callf<P0, P1>.InfoRoutine)d)(p, p2, info);
 		}
 
-		// Token: 0x06001981 RID: 6529 RVA: 0x00064914 File Offset: 0x00062B14
+		// Token: 0x06001B51 RID: 6993 RVA: 0x00069288 File Offset: 0x00067488
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1>.StreamCall)d)(p, p2, stream);
+			((global::NGC.callf<P0, P1>.StreamCall)d)(p, p2, stream);
 		}
 
-		// Token: 0x06001982 RID: 6530 RVA: 0x00064968 File Offset: 0x00062B68
+		// Token: 0x06001B52 RID: 6994 RVA: 0x000692DC File Offset: 0x000674DC
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1>.StreamRoutine)d)(p, p2, stream);
+			return ((global::NGC.callf<P0, P1>.StreamRoutine)d)(p, p2, stream);
 		}
 
-		// Token: 0x06001983 RID: 6531 RVA: 0x000649BC File Offset: 0x00062BBC
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B53 RID: 6995 RVA: 0x00069330 File Offset: 0x00067530
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1>.StreamInfoCall)d)(p, p2, info, stream);
+			((global::NGC.callf<P0, P1>.StreamInfoCall)d)(p, p2, info, stream);
 		}
 
-		// Token: 0x06001984 RID: 6532 RVA: 0x00064A10 File Offset: 0x00062C10
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B54 RID: 6996 RVA: 0x00069384 File Offset: 0x00067584
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1>.StreamInfoRoutine)d)(p, p2, info, stream);
+			return ((global::NGC.callf<P0, P1>.StreamInfoRoutine)d)(p, p2, info, stream);
 		}
 
-		// Token: 0x17000743 RID: 1859
-		// (get) Token: 0x06001985 RID: 6533 RVA: 0x00064A64 File Offset: 0x00062C64
-		public static NGC.IExecuter Exec
+		// Token: 0x17000797 RID: 1943
+		// (get) Token: 0x06001B55 RID: 6997 RVA: 0x000693D8 File Offset: 0x000675D8
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1>.Executer.Singleton;
+				return global::NGC.callf<P0, P1>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002CE RID: 718
+		// Token: 0x0200031B RID: 795
 		public struct Block
 		{
-			// Token: 0x04000D85 RID: 3461
+			// Token: 0x04000EC0 RID: 3776
 			public P0 p0;
 
-			// Token: 0x04000D86 RID: 3462
+			// Token: 0x04000EC1 RID: 3777
 			public P1 p1;
 		}
 
-		// Token: 0x020002CF RID: 719
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x0200031C RID: 796
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x06001988 RID: 6536 RVA: 0x00064A80 File Offset: 0x00062C80
+			// Token: 0x06001B58 RID: 7000 RVA: 0x000693F4 File Offset: 0x000675F4
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001989 RID: 6537 RVA: 0x00064A8C File Offset: 0x00062C8C
+			// Token: 0x06001B59 RID: 7001 RVA: 0x00069400 File Offset: 0x00067600
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x0600198A RID: 6538 RVA: 0x00064A98 File Offset: 0x00062C98
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B5A RID: 7002 RVA: 0x0006940C File Offset: 0x0006760C
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x0600198B RID: 6539 RVA: 0x00064AA8 File Offset: 0x00062CA8
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B5B RID: 7003 RVA: 0x0006941C File Offset: 0x0006761C
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x0600198C RID: 6540 RVA: 0x00064AB8 File Offset: 0x00062CB8
+			// Token: 0x06001B5C RID: 7004 RVA: 0x0006942C File Offset: 0x0006762C
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x0600198D RID: 6541 RVA: 0x00064AC4 File Offset: 0x00062CC4
+			// Token: 0x06001B5D RID: 7005 RVA: 0x00069438 File Offset: 0x00067638
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x0600198E RID: 6542 RVA: 0x00064AD0 File Offset: 0x00062CD0
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B5E RID: 7006 RVA: 0x00069444 File Offset: 0x00067644
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x0600198F RID: 6543 RVA: 0x00064AE0 File Offset: 0x00062CE0
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B5F RID: 7007 RVA: 0x00069454 File Offset: 0x00067654
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000D87 RID: 3463
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1>.Executer();
+			// Token: 0x04000EC2 RID: 3778
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1>.Executer();
 		}
 
-		// Token: 0x0200087C RID: 2172
-		// (Invoke) Token: 0x06004BC8 RID: 19400
+		// Token: 0x0200031D RID: 797
+		// (Invoke) Token: 0x06001B61 RID: 7009
 		public delegate void Call(P0 p0, P1 p1);
 
-		// Token: 0x0200087D RID: 2173
-		// (Invoke) Token: 0x06004BCC RID: 19404
+		// Token: 0x0200031E RID: 798
+		// (Invoke) Token: 0x06001B65 RID: 7013
 		public delegate IEnumerator Routine(P0 p0, P1 p1);
 
-		// Token: 0x0200087E RID: 2174
-		// (Invoke) Token: 0x06004BD0 RID: 19408
-		public delegate void InfoCall(P0 p0, P1 p1, NetworkMessageInfo info);
+		// Token: 0x0200031F RID: 799
+		// (Invoke) Token: 0x06001B69 RID: 7017
+		public delegate void InfoCall(P0 p0, P1 p1, uLink.NetworkMessageInfo info);
 
-		// Token: 0x0200087F RID: 2175
-		// (Invoke) Token: 0x06004BD4 RID: 19412
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, NetworkMessageInfo info);
+		// Token: 0x02000320 RID: 800
+		// (Invoke) Token: 0x06001B6D RID: 7021
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000880 RID: 2176
-		// (Invoke) Token: 0x06004BD8 RID: 19416
+		// Token: 0x02000321 RID: 801
+		// (Invoke) Token: 0x06001B71 RID: 7025
 		public delegate void StreamCall(P0 p0, P1 p1, BitStream stream);
 
-		// Token: 0x02000881 RID: 2177
-		// (Invoke) Token: 0x06004BDC RID: 19420
+		// Token: 0x02000322 RID: 802
+		// (Invoke) Token: 0x06001B75 RID: 7029
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, BitStream stream);
 
-		// Token: 0x02000882 RID: 2178
-		// (Invoke) Token: 0x06004BE0 RID: 19424
-		public delegate void StreamInfoCall(P0 p0, P1 p1, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000323 RID: 803
+		// (Invoke) Token: 0x06001B79 RID: 7033
+		public delegate void StreamInfoCall(P0 p0, P1 p1, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x02000883 RID: 2179
-		// (Invoke) Token: 0x06004BE4 RID: 19428
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000324 RID: 804
+		// (Invoke) Token: 0x06001B7D RID: 7037
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002D0 RID: 720
+	// Token: 0x02000325 RID: 805
 	public static class callf<P0, P1, P2>
 	{
-		// Token: 0x06001990 RID: 6544 RVA: 0x00064AF0 File Offset: 0x00062CF0
+		// Token: 0x06001B80 RID: 7040 RVA: 0x00069464 File Offset: 0x00067664
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2>.Serializer));
 		}
 
-		// Token: 0x06001991 RID: 6545 RVA: 0x00064B10 File Offset: 0x00062D10
+		// Token: 0x06001B81 RID: 7041 RVA: 0x00069484 File Offset: 0x00067684
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2>.Block block;
+			global::NGC.callf<P0, P1, P2>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
 			return block;
 		}
 
-		// Token: 0x06001992 RID: 6546 RVA: 0x00064B50 File Offset: 0x00062D50
+		// Token: 0x06001B82 RID: 7042 RVA: 0x000694C4 File Offset: 0x000676C4
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2>.Block block = (NGC.callf<P0, P1, P2>.Block)value;
+			global::NGC.callf<P0, P1, P2>.Block block = (global::NGC.callf<P0, P1, P2>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
 		}
 
-		// Token: 0x06001993 RID: 6547 RVA: 0x00064B90 File Offset: 0x00062D90
+		// Token: 0x06001B83 RID: 7043 RVA: 0x00069504 File Offset: 0x00067704
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -1952,12 +1952,12 @@ public sealed class NGC : MonoBehaviour
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2>.Call)d)(p, p2, p3);
+			((global::NGC.callf<P0, P1, P2>.Call)d)(p, p2, p3);
 		}
 
-		// Token: 0x06001994 RID: 6548 RVA: 0x00064BF0 File Offset: 0x00062DF0
+		// Token: 0x06001B84 RID: 7044 RVA: 0x00069564 File Offset: 0x00067764
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -1965,38 +1965,38 @@ public sealed class NGC : MonoBehaviour
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2>.Routine)d)(p, p2, p3);
+			return ((global::NGC.callf<P0, P1, P2>.Routine)d)(p, p2, p3);
 		}
 
-		// Token: 0x06001995 RID: 6549 RVA: 0x00064C50 File Offset: 0x00062E50
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B85 RID: 7045 RVA: 0x000695C4 File Offset: 0x000677C4
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2>.InfoCall)d)(p, p2, p3, info);
+			((global::NGC.callf<P0, P1, P2>.InfoCall)d)(p, p2, p3, info);
 		}
 
-		// Token: 0x06001996 RID: 6550 RVA: 0x00064CB0 File Offset: 0x00062EB0
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B86 RID: 7046 RVA: 0x00069624 File Offset: 0x00067824
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2>.InfoRoutine)d)(p, p2, p3, info);
+			return ((global::NGC.callf<P0, P1, P2>.InfoRoutine)d)(p, p2, p3, info);
 		}
 
-		// Token: 0x06001997 RID: 6551 RVA: 0x00064D10 File Offset: 0x00062F10
+		// Token: 0x06001B87 RID: 7047 RVA: 0x00069684 File Offset: 0x00067884
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2004,12 +2004,12 @@ public sealed class NGC : MonoBehaviour
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2>.StreamCall)d)(p, p2, p3, stream);
+			((global::NGC.callf<P0, P1, P2>.StreamCall)d)(p, p2, p3, stream);
 		}
 
-		// Token: 0x06001998 RID: 6552 RVA: 0x00064D70 File Offset: 0x00062F70
+		// Token: 0x06001B88 RID: 7048 RVA: 0x000696E4 File Offset: 0x000678E4
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2017,161 +2017,161 @@ public sealed class NGC : MonoBehaviour
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2>.StreamRoutine)d)(p, p2, p3, stream);
+			return ((global::NGC.callf<P0, P1, P2>.StreamRoutine)d)(p, p2, p3, stream);
 		}
 
-		// Token: 0x06001999 RID: 6553 RVA: 0x00064DD0 File Offset: 0x00062FD0
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B89 RID: 7049 RVA: 0x00069744 File Offset: 0x00067944
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2>.StreamInfoCall)d)(p, p2, p3, info, stream);
+			((global::NGC.callf<P0, P1, P2>.StreamInfoCall)d)(p, p2, p3, info, stream);
 		}
 
-		// Token: 0x0600199A RID: 6554 RVA: 0x00064E34 File Offset: 0x00063034
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001B8A RID: 7050 RVA: 0x000697A8 File Offset: 0x000679A8
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
 			P2 p3 = stream.Read<P2>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2>.StreamInfoRoutine)d)(p, p2, p3, info, stream);
+			return ((global::NGC.callf<P0, P1, P2>.StreamInfoRoutine)d)(p, p2, p3, info, stream);
 		}
 
-		// Token: 0x17000744 RID: 1860
-		// (get) Token: 0x0600199B RID: 6555 RVA: 0x00064E98 File Offset: 0x00063098
-		public static NGC.IExecuter Exec
+		// Token: 0x17000798 RID: 1944
+		// (get) Token: 0x06001B8B RID: 7051 RVA: 0x0006980C File Offset: 0x00067A0C
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002D1 RID: 721
+		// Token: 0x02000326 RID: 806
 		public struct Block
 		{
-			// Token: 0x04000D88 RID: 3464
+			// Token: 0x04000EC3 RID: 3779
 			public P0 p0;
 
-			// Token: 0x04000D89 RID: 3465
+			// Token: 0x04000EC4 RID: 3780
 			public P1 p1;
 
-			// Token: 0x04000D8A RID: 3466
+			// Token: 0x04000EC5 RID: 3781
 			public P2 p2;
 		}
 
-		// Token: 0x020002D2 RID: 722
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000327 RID: 807
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x0600199E RID: 6558 RVA: 0x00064EB4 File Offset: 0x000630B4
+			// Token: 0x06001B8E RID: 7054 RVA: 0x00069828 File Offset: 0x00067A28
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x0600199F RID: 6559 RVA: 0x00064EC0 File Offset: 0x000630C0
+			// Token: 0x06001B8F RID: 7055 RVA: 0x00069834 File Offset: 0x00067A34
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019A0 RID: 6560 RVA: 0x00064ECC File Offset: 0x000630CC
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B90 RID: 7056 RVA: 0x00069840 File Offset: 0x00067A40
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019A1 RID: 6561 RVA: 0x00064EDC File Offset: 0x000630DC
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B91 RID: 7057 RVA: 0x00069850 File Offset: 0x00067A50
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019A2 RID: 6562 RVA: 0x00064EEC File Offset: 0x000630EC
+			// Token: 0x06001B92 RID: 7058 RVA: 0x00069860 File Offset: 0x00067A60
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019A3 RID: 6563 RVA: 0x00064EF8 File Offset: 0x000630F8
+			// Token: 0x06001B93 RID: 7059 RVA: 0x0006986C File Offset: 0x00067A6C
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019A4 RID: 6564 RVA: 0x00064F04 File Offset: 0x00063104
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B94 RID: 7060 RVA: 0x00069878 File Offset: 0x00067A78
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019A5 RID: 6565 RVA: 0x00064F14 File Offset: 0x00063114
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001B95 RID: 7061 RVA: 0x00069888 File Offset: 0x00067A88
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000D8B RID: 3467
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2>.Executer();
+			// Token: 0x04000EC6 RID: 3782
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2>.Executer();
 		}
 
-		// Token: 0x02000884 RID: 2180
-		// (Invoke) Token: 0x06004BE8 RID: 19432
+		// Token: 0x02000328 RID: 808
+		// (Invoke) Token: 0x06001B97 RID: 7063
 		public delegate void Call(P0 p0, P1 p1, P2 p2);
 
-		// Token: 0x02000885 RID: 2181
-		// (Invoke) Token: 0x06004BEC RID: 19436
+		// Token: 0x02000329 RID: 809
+		// (Invoke) Token: 0x06001B9B RID: 7067
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2);
 
-		// Token: 0x02000886 RID: 2182
-		// (Invoke) Token: 0x06004BF0 RID: 19440
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, NetworkMessageInfo info);
+		// Token: 0x0200032A RID: 810
+		// (Invoke) Token: 0x06001B9F RID: 7071
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000887 RID: 2183
-		// (Invoke) Token: 0x06004BF4 RID: 19444
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, NetworkMessageInfo info);
+		// Token: 0x0200032B RID: 811
+		// (Invoke) Token: 0x06001BA3 RID: 7075
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000888 RID: 2184
-		// (Invoke) Token: 0x06004BF8 RID: 19448
+		// Token: 0x0200032C RID: 812
+		// (Invoke) Token: 0x06001BA7 RID: 7079
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, BitStream stream);
 
-		// Token: 0x02000889 RID: 2185
-		// (Invoke) Token: 0x06004BFC RID: 19452
+		// Token: 0x0200032D RID: 813
+		// (Invoke) Token: 0x06001BAB RID: 7083
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, BitStream stream);
 
-		// Token: 0x0200088A RID: 2186
-		// (Invoke) Token: 0x06004C00 RID: 19456
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200032E RID: 814
+		// (Invoke) Token: 0x06001BAF RID: 7087
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x0200088B RID: 2187
-		// (Invoke) Token: 0x06004C04 RID: 19460
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200032F RID: 815
+		// (Invoke) Token: 0x06001BB3 RID: 7091
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002D3 RID: 723
+	// Token: 0x02000330 RID: 816
 	public static class callf<P0, P1, P2, P3>
 	{
-		// Token: 0x060019A6 RID: 6566 RVA: 0x00064F24 File Offset: 0x00063124
+		// Token: 0x06001BB6 RID: 7094 RVA: 0x00069898 File Offset: 0x00067A98
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3>.Serializer));
 		}
 
-		// Token: 0x060019A7 RID: 6567 RVA: 0x00064F44 File Offset: 0x00063144
+		// Token: 0x06001BB7 RID: 7095 RVA: 0x000698B8 File Offset: 0x00067AB8
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3>.Block block;
+			global::NGC.callf<P0, P1, P2, P3>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -2179,17 +2179,17 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x060019A8 RID: 6568 RVA: 0x00064F90 File Offset: 0x00063190
+		// Token: 0x06001BB8 RID: 7096 RVA: 0x00069904 File Offset: 0x00067B04
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3>.Block block = (NGC.callf<P0, P1, P2, P3>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3>.Block block = (global::NGC.callf<P0, P1, P2, P3>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
 			stream.Write<P3>(block.p3, codecOptions);
 		}
 
-		// Token: 0x060019A9 RID: 6569 RVA: 0x00064FDC File Offset: 0x000631DC
+		// Token: 0x06001BB9 RID: 7097 RVA: 0x00069950 File Offset: 0x00067B50
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2198,12 +2198,12 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3>.Call)d)(p, p2, p3, p4);
+			((global::NGC.callf<P0, P1, P2, P3>.Call)d)(p, p2, p3, p4);
 		}
 
-		// Token: 0x060019AA RID: 6570 RVA: 0x00065048 File Offset: 0x00063248
+		// Token: 0x06001BBA RID: 7098 RVA: 0x000699BC File Offset: 0x00067BBC
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2212,13 +2212,13 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3>.Routine)d)(p, p2, p3, p4);
+			return ((global::NGC.callf<P0, P1, P2, P3>.Routine)d)(p, p2, p3, p4);
 		}
 
-		// Token: 0x060019AB RID: 6571 RVA: 0x000650B4 File Offset: 0x000632B4
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BBB RID: 7099 RVA: 0x00069A28 File Offset: 0x00067C28
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2226,13 +2226,13 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3>.InfoCall)d)(p, p2, p3, p4, info);
+			((global::NGC.callf<P0, P1, P2, P3>.InfoCall)d)(p, p2, p3, p4, info);
 		}
 
-		// Token: 0x060019AC RID: 6572 RVA: 0x00065124 File Offset: 0x00063324
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BBC RID: 7100 RVA: 0x00069A98 File Offset: 0x00067C98
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2240,12 +2240,12 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3>.InfoRoutine)d)(p, p2, p3, p4, info);
+			return ((global::NGC.callf<P0, P1, P2, P3>.InfoRoutine)d)(p, p2, p3, p4, info);
 		}
 
-		// Token: 0x060019AD RID: 6573 RVA: 0x00065194 File Offset: 0x00063394
+		// Token: 0x06001BBD RID: 7101 RVA: 0x00069B08 File Offset: 0x00067D08
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2254,12 +2254,12 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3>.StreamCall)d)(p, p2, p3, p4, stream);
+			((global::NGC.callf<P0, P1, P2, P3>.StreamCall)d)(p, p2, p3, p4, stream);
 		}
 
-		// Token: 0x060019AE RID: 6574 RVA: 0x00065204 File Offset: 0x00063404
+		// Token: 0x06001BBE RID: 7102 RVA: 0x00069B78 File Offset: 0x00067D78
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2268,13 +2268,13 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3>.StreamRoutine)d)(p, p2, p3, p4, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3>.StreamRoutine)d)(p, p2, p3, p4, stream);
 		}
 
-		// Token: 0x060019AF RID: 6575 RVA: 0x00065274 File Offset: 0x00063474
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BBF RID: 7103 RVA: 0x00069BE8 File Offset: 0x00067DE8
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2282,13 +2282,13 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3>.StreamInfoCall)d)(p, p2, p3, p4, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3>.StreamInfoCall)d)(p, p2, p3, p4, info, stream);
 		}
 
-		// Token: 0x060019B0 RID: 6576 RVA: 0x000652E4 File Offset: 0x000634E4
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BC0 RID: 7104 RVA: 0x00069C58 File Offset: 0x00067E58
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2296,138 +2296,138 @@ public sealed class NGC : MonoBehaviour
 			P3 p4 = stream.Read<P3>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3>.StreamInfoRoutine)d)(p, p2, p3, p4, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3>.StreamInfoRoutine)d)(p, p2, p3, p4, info, stream);
 		}
 
-		// Token: 0x17000745 RID: 1861
-		// (get) Token: 0x060019B1 RID: 6577 RVA: 0x00065354 File Offset: 0x00063554
-		public static NGC.IExecuter Exec
+		// Token: 0x17000799 RID: 1945
+		// (get) Token: 0x06001BC1 RID: 7105 RVA: 0x00069CC8 File Offset: 0x00067EC8
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002D4 RID: 724
+		// Token: 0x02000331 RID: 817
 		public struct Block
 		{
-			// Token: 0x04000D8C RID: 3468
+			// Token: 0x04000EC7 RID: 3783
 			public P0 p0;
 
-			// Token: 0x04000D8D RID: 3469
+			// Token: 0x04000EC8 RID: 3784
 			public P1 p1;
 
-			// Token: 0x04000D8E RID: 3470
+			// Token: 0x04000EC9 RID: 3785
 			public P2 p2;
 
-			// Token: 0x04000D8F RID: 3471
+			// Token: 0x04000ECA RID: 3786
 			public P3 p3;
 		}
 
-		// Token: 0x020002D5 RID: 725
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000332 RID: 818
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x060019B4 RID: 6580 RVA: 0x00065370 File Offset: 0x00063570
+			// Token: 0x06001BC4 RID: 7108 RVA: 0x00069CE4 File Offset: 0x00067EE4
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019B5 RID: 6581 RVA: 0x0006537C File Offset: 0x0006357C
+			// Token: 0x06001BC5 RID: 7109 RVA: 0x00069CF0 File Offset: 0x00067EF0
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019B6 RID: 6582 RVA: 0x00065388 File Offset: 0x00063588
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001BC6 RID: 7110 RVA: 0x00069CFC File Offset: 0x00067EFC
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019B7 RID: 6583 RVA: 0x00065398 File Offset: 0x00063598
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001BC7 RID: 7111 RVA: 0x00069D0C File Offset: 0x00067F0C
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019B8 RID: 6584 RVA: 0x000653A8 File Offset: 0x000635A8
+			// Token: 0x06001BC8 RID: 7112 RVA: 0x00069D1C File Offset: 0x00067F1C
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019B9 RID: 6585 RVA: 0x000653B4 File Offset: 0x000635B4
+			// Token: 0x06001BC9 RID: 7113 RVA: 0x00069D28 File Offset: 0x00067F28
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019BA RID: 6586 RVA: 0x000653C0 File Offset: 0x000635C0
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001BCA RID: 7114 RVA: 0x00069D34 File Offset: 0x00067F34
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019BB RID: 6587 RVA: 0x000653D0 File Offset: 0x000635D0
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001BCB RID: 7115 RVA: 0x00069D44 File Offset: 0x00067F44
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000D90 RID: 3472
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3>.Executer();
+			// Token: 0x04000ECB RID: 3787
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3>.Executer();
 		}
 
-		// Token: 0x0200088C RID: 2188
-		// (Invoke) Token: 0x06004C08 RID: 19464
+		// Token: 0x02000333 RID: 819
+		// (Invoke) Token: 0x06001BCD RID: 7117
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3);
 
-		// Token: 0x0200088D RID: 2189
-		// (Invoke) Token: 0x06004C0C RID: 19468
+		// Token: 0x02000334 RID: 820
+		// (Invoke) Token: 0x06001BD1 RID: 7121
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3);
 
-		// Token: 0x0200088E RID: 2190
-		// (Invoke) Token: 0x06004C10 RID: 19472
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, NetworkMessageInfo info);
+		// Token: 0x02000335 RID: 821
+		// (Invoke) Token: 0x06001BD5 RID: 7125
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, uLink.NetworkMessageInfo info);
 
-		// Token: 0x0200088F RID: 2191
-		// (Invoke) Token: 0x06004C14 RID: 19476
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, NetworkMessageInfo info);
+		// Token: 0x02000336 RID: 822
+		// (Invoke) Token: 0x06001BD9 RID: 7129
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000890 RID: 2192
-		// (Invoke) Token: 0x06004C18 RID: 19480
+		// Token: 0x02000337 RID: 823
+		// (Invoke) Token: 0x06001BDD RID: 7133
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, BitStream stream);
 
-		// Token: 0x02000891 RID: 2193
-		// (Invoke) Token: 0x06004C1C RID: 19484
+		// Token: 0x02000338 RID: 824
+		// (Invoke) Token: 0x06001BE1 RID: 7137
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, BitStream stream);
 
-		// Token: 0x02000892 RID: 2194
-		// (Invoke) Token: 0x06004C20 RID: 19488
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000339 RID: 825
+		// (Invoke) Token: 0x06001BE5 RID: 7141
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x02000893 RID: 2195
-		// (Invoke) Token: 0x06004C24 RID: 19492
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200033A RID: 826
+		// (Invoke) Token: 0x06001BE9 RID: 7145
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002D6 RID: 726
+	// Token: 0x0200033B RID: 827
 	public static class callf<P0, P1, P2, P3, P4>
 	{
-		// Token: 0x060019BC RID: 6588 RVA: 0x000653E0 File Offset: 0x000635E0
+		// Token: 0x06001BEC RID: 7148 RVA: 0x00069D54 File Offset: 0x00067F54
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4>.Serializer));
 		}
 
-		// Token: 0x060019BD RID: 6589 RVA: 0x00065400 File Offset: 0x00063600
+		// Token: 0x06001BED RID: 7149 RVA: 0x00069D74 File Offset: 0x00067F74
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -2436,10 +2436,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x060019BE RID: 6590 RVA: 0x0006545C File Offset: 0x0006365C
+		// Token: 0x06001BEE RID: 7150 RVA: 0x00069DD0 File Offset: 0x00067FD0
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4>.Block block = (NGC.callf<P0, P1, P2, P3, P4>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -2447,7 +2447,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P4>(block.p4, codecOptions);
 		}
 
-		// Token: 0x060019BF RID: 6591 RVA: 0x000654B8 File Offset: 0x000636B8
+		// Token: 0x06001BEF RID: 7151 RVA: 0x00069E2C File Offset: 0x0006802C
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2457,12 +2457,12 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4>.Call)d)(p, p2, p3, p4, p5);
+			((global::NGC.callf<P0, P1, P2, P3, P4>.Call)d)(p, p2, p3, p4, p5);
 		}
 
-		// Token: 0x060019C0 RID: 6592 RVA: 0x00065534 File Offset: 0x00063734
+		// Token: 0x06001BF0 RID: 7152 RVA: 0x00069EA8 File Offset: 0x000680A8
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2472,13 +2472,13 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4>.Routine)d)(p, p2, p3, p4, p5);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4>.Routine)d)(p, p2, p3, p4, p5);
 		}
 
-		// Token: 0x060019C1 RID: 6593 RVA: 0x000655B0 File Offset: 0x000637B0
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BF1 RID: 7153 RVA: 0x00069F24 File Offset: 0x00068124
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2487,13 +2487,13 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4>.InfoCall)d)(p, p2, p3, p4, p5, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4>.InfoCall)d)(p, p2, p3, p4, p5, info);
 		}
 
-		// Token: 0x060019C2 RID: 6594 RVA: 0x00065630 File Offset: 0x00063830
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BF2 RID: 7154 RVA: 0x00069FA4 File Offset: 0x000681A4
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2502,12 +2502,12 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4>.InfoRoutine)d)(p, p2, p3, p4, p5, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4>.InfoRoutine)d)(p, p2, p3, p4, p5, info);
 		}
 
-		// Token: 0x060019C3 RID: 6595 RVA: 0x000656B0 File Offset: 0x000638B0
+		// Token: 0x06001BF3 RID: 7155 RVA: 0x0006A024 File Offset: 0x00068224
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2517,12 +2517,12 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4>.StreamCall)d)(p, p2, p3, p4, p5, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4>.StreamCall)d)(p, p2, p3, p4, p5, stream);
 		}
 
-		// Token: 0x060019C4 RID: 6596 RVA: 0x00065730 File Offset: 0x00063930
+		// Token: 0x06001BF4 RID: 7156 RVA: 0x0006A0A4 File Offset: 0x000682A4
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2532,13 +2532,13 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4>.StreamRoutine)d)(p, p2, p3, p4, p5, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4>.StreamRoutine)d)(p, p2, p3, p4, p5, stream);
 		}
 
-		// Token: 0x060019C5 RID: 6597 RVA: 0x000657B0 File Offset: 0x000639B0
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BF5 RID: 7157 RVA: 0x0006A124 File Offset: 0x00068324
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2547,13 +2547,13 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4>.StreamInfoCall)d)(p, p2, p3, p4, p5, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4>.StreamInfoCall)d)(p, p2, p3, p4, p5, info, stream);
 		}
 
-		// Token: 0x060019C6 RID: 6598 RVA: 0x00065830 File Offset: 0x00063A30
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001BF6 RID: 7158 RVA: 0x0006A1A4 File Offset: 0x000683A4
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2562,141 +2562,141 @@ public sealed class NGC : MonoBehaviour
 			P4 p5 = stream.Read<P4>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, info, stream);
 		}
 
-		// Token: 0x17000746 RID: 1862
-		// (get) Token: 0x060019C7 RID: 6599 RVA: 0x000658B0 File Offset: 0x00063AB0
-		public static NGC.IExecuter Exec
+		// Token: 0x1700079A RID: 1946
+		// (get) Token: 0x06001BF7 RID: 7159 RVA: 0x0006A224 File Offset: 0x00068424
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002D7 RID: 727
+		// Token: 0x0200033C RID: 828
 		public struct Block
 		{
-			// Token: 0x04000D91 RID: 3473
+			// Token: 0x04000ECC RID: 3788
 			public P0 p0;
 
-			// Token: 0x04000D92 RID: 3474
+			// Token: 0x04000ECD RID: 3789
 			public P1 p1;
 
-			// Token: 0x04000D93 RID: 3475
+			// Token: 0x04000ECE RID: 3790
 			public P2 p2;
 
-			// Token: 0x04000D94 RID: 3476
+			// Token: 0x04000ECF RID: 3791
 			public P3 p3;
 
-			// Token: 0x04000D95 RID: 3477
+			// Token: 0x04000ED0 RID: 3792
 			public P4 p4;
 		}
 
-		// Token: 0x020002D8 RID: 728
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x0200033D RID: 829
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x060019CA RID: 6602 RVA: 0x000658CC File Offset: 0x00063ACC
+			// Token: 0x06001BFA RID: 7162 RVA: 0x0006A240 File Offset: 0x00068440
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019CB RID: 6603 RVA: 0x000658D8 File Offset: 0x00063AD8
+			// Token: 0x06001BFB RID: 7163 RVA: 0x0006A24C File Offset: 0x0006844C
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019CC RID: 6604 RVA: 0x000658E4 File Offset: 0x00063AE4
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001BFC RID: 7164 RVA: 0x0006A258 File Offset: 0x00068458
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019CD RID: 6605 RVA: 0x000658F4 File Offset: 0x00063AF4
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001BFD RID: 7165 RVA: 0x0006A268 File Offset: 0x00068468
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019CE RID: 6606 RVA: 0x00065904 File Offset: 0x00063B04
+			// Token: 0x06001BFE RID: 7166 RVA: 0x0006A278 File Offset: 0x00068478
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019CF RID: 6607 RVA: 0x00065910 File Offset: 0x00063B10
+			// Token: 0x06001BFF RID: 7167 RVA: 0x0006A284 File Offset: 0x00068484
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019D0 RID: 6608 RVA: 0x0006591C File Offset: 0x00063B1C
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C00 RID: 7168 RVA: 0x0006A290 File Offset: 0x00068490
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019D1 RID: 6609 RVA: 0x0006592C File Offset: 0x00063B2C
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C01 RID: 7169 RVA: 0x0006A2A0 File Offset: 0x000684A0
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000D96 RID: 3478
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4>.Executer();
+			// Token: 0x04000ED1 RID: 3793
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4>.Executer();
 		}
 
-		// Token: 0x02000894 RID: 2196
-		// (Invoke) Token: 0x06004C28 RID: 19496
+		// Token: 0x0200033E RID: 830
+		// (Invoke) Token: 0x06001C03 RID: 7171
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4);
 
-		// Token: 0x02000895 RID: 2197
-		// (Invoke) Token: 0x06004C2C RID: 19500
+		// Token: 0x0200033F RID: 831
+		// (Invoke) Token: 0x06001C07 RID: 7175
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4);
 
-		// Token: 0x02000896 RID: 2198
-		// (Invoke) Token: 0x06004C30 RID: 19504
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, NetworkMessageInfo info);
+		// Token: 0x02000340 RID: 832
+		// (Invoke) Token: 0x06001C0B RID: 7179
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000897 RID: 2199
-		// (Invoke) Token: 0x06004C34 RID: 19508
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, NetworkMessageInfo info);
+		// Token: 0x02000341 RID: 833
+		// (Invoke) Token: 0x06001C0F RID: 7183
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, uLink.NetworkMessageInfo info);
 
-		// Token: 0x02000898 RID: 2200
-		// (Invoke) Token: 0x06004C38 RID: 19512
+		// Token: 0x02000342 RID: 834
+		// (Invoke) Token: 0x06001C13 RID: 7187
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, BitStream stream);
 
-		// Token: 0x02000899 RID: 2201
-		// (Invoke) Token: 0x06004C3C RID: 19516
+		// Token: 0x02000343 RID: 835
+		// (Invoke) Token: 0x06001C17 RID: 7191
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, BitStream stream);
 
-		// Token: 0x0200089A RID: 2202
-		// (Invoke) Token: 0x06004C40 RID: 19520
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000344 RID: 836
+		// (Invoke) Token: 0x06001C1B RID: 7195
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x0200089B RID: 2203
-		// (Invoke) Token: 0x06004C44 RID: 19524
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000345 RID: 837
+		// (Invoke) Token: 0x06001C1F RID: 7199
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002D9 RID: 729
+	// Token: 0x02000346 RID: 838
 	public static class callf<P0, P1, P2, P3, P4, P5>
 	{
-		// Token: 0x060019D2 RID: 6610 RVA: 0x0006593C File Offset: 0x00063B3C
+		// Token: 0x06001C22 RID: 7202 RVA: 0x0006A2B0 File Offset: 0x000684B0
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4, P5>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4, P5>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4, P5>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4, P5>.Serializer));
 		}
 
-		// Token: 0x060019D3 RID: 6611 RVA: 0x0006595C File Offset: 0x00063B5C
+		// Token: 0x06001C23 RID: 7203 RVA: 0x0006A2D0 File Offset: 0x000684D0
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -2706,10 +2706,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x060019D4 RID: 6612 RVA: 0x000659C4 File Offset: 0x00063BC4
+		// Token: 0x06001C24 RID: 7204 RVA: 0x0006A338 File Offset: 0x00068538
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5>.Block block = (NGC.callf<P0, P1, P2, P3, P4, P5>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4, P5>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -2718,7 +2718,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P5>(block.p5, codecOptions);
 		}
 
-		// Token: 0x060019D5 RID: 6613 RVA: 0x00065A2C File Offset: 0x00063C2C
+		// Token: 0x06001C25 RID: 7205 RVA: 0x0006A3A0 File Offset: 0x000685A0
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2729,12 +2729,12 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5>.Call)d)(p, p2, p3, p4, p5, p6);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5>.Call)d)(p, p2, p3, p4, p5, p6);
 		}
 
-		// Token: 0x060019D6 RID: 6614 RVA: 0x00065AB8 File Offset: 0x00063CB8
+		// Token: 0x06001C26 RID: 7206 RVA: 0x0006A42C File Offset: 0x0006862C
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2745,13 +2745,13 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5>.Routine)d)(p, p2, p3, p4, p5, p6);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5>.Routine)d)(p, p2, p3, p4, p5, p6);
 		}
 
-		// Token: 0x060019D7 RID: 6615 RVA: 0x00065B44 File Offset: 0x00063D44
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C27 RID: 7207 RVA: 0x0006A4B8 File Offset: 0x000686B8
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2761,13 +2761,13 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5>.InfoCall)d)(p, p2, p3, p4, p5, p6, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5>.InfoCall)d)(p, p2, p3, p4, p5, p6, info);
 		}
 
-		// Token: 0x060019D8 RID: 6616 RVA: 0x00065BD4 File Offset: 0x00063DD4
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C28 RID: 7208 RVA: 0x0006A548 File Offset: 0x00068748
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2777,12 +2777,12 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, info);
 		}
 
-		// Token: 0x060019D9 RID: 6617 RVA: 0x00065C64 File Offset: 0x00063E64
+		// Token: 0x06001C29 RID: 7209 RVA: 0x0006A5D8 File Offset: 0x000687D8
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2793,12 +2793,12 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5>.StreamCall)d)(p, p2, p3, p4, p5, p6, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamCall)d)(p, p2, p3, p4, p5, p6, stream);
 		}
 
-		// Token: 0x060019DA RID: 6618 RVA: 0x00065CF4 File Offset: 0x00063EF4
+		// Token: 0x06001C2A RID: 7210 RVA: 0x0006A668 File Offset: 0x00068868
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -2809,13 +2809,13 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, stream);
 		}
 
-		// Token: 0x060019DB RID: 6619 RVA: 0x00065D84 File Offset: 0x00063F84
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C2B RID: 7211 RVA: 0x0006A6F8 File Offset: 0x000688F8
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2825,13 +2825,13 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, info, stream);
 		}
 
-		// Token: 0x060019DC RID: 6620 RVA: 0x00065E14 File Offset: 0x00064014
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C2C RID: 7212 RVA: 0x0006A788 File Offset: 0x00068988
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -2841,144 +2841,144 @@ public sealed class NGC : MonoBehaviour
 			P5 p6 = stream.Read<P5>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, info, stream);
 		}
 
-		// Token: 0x17000747 RID: 1863
-		// (get) Token: 0x060019DD RID: 6621 RVA: 0x00065EA4 File Offset: 0x000640A4
-		public static NGC.IExecuter Exec
+		// Token: 0x1700079B RID: 1947
+		// (get) Token: 0x06001C2D RID: 7213 RVA: 0x0006A818 File Offset: 0x00068A18
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002DA RID: 730
+		// Token: 0x02000347 RID: 839
 		public struct Block
 		{
-			// Token: 0x04000D97 RID: 3479
+			// Token: 0x04000ED2 RID: 3794
 			public P0 p0;
 
-			// Token: 0x04000D98 RID: 3480
+			// Token: 0x04000ED3 RID: 3795
 			public P1 p1;
 
-			// Token: 0x04000D99 RID: 3481
+			// Token: 0x04000ED4 RID: 3796
 			public P2 p2;
 
-			// Token: 0x04000D9A RID: 3482
+			// Token: 0x04000ED5 RID: 3797
 			public P3 p3;
 
-			// Token: 0x04000D9B RID: 3483
+			// Token: 0x04000ED6 RID: 3798
 			public P4 p4;
 
-			// Token: 0x04000D9C RID: 3484
+			// Token: 0x04000ED7 RID: 3799
 			public P5 p5;
 		}
 
-		// Token: 0x020002DB RID: 731
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000348 RID: 840
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x060019E0 RID: 6624 RVA: 0x00065EC0 File Offset: 0x000640C0
+			// Token: 0x06001C30 RID: 7216 RVA: 0x0006A834 File Offset: 0x00068A34
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019E1 RID: 6625 RVA: 0x00065ECC File Offset: 0x000640CC
+			// Token: 0x06001C31 RID: 7217 RVA: 0x0006A840 File Offset: 0x00068A40
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019E2 RID: 6626 RVA: 0x00065ED8 File Offset: 0x000640D8
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C32 RID: 7218 RVA: 0x0006A84C File Offset: 0x00068A4C
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019E3 RID: 6627 RVA: 0x00065EE8 File Offset: 0x000640E8
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C33 RID: 7219 RVA: 0x0006A85C File Offset: 0x00068A5C
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019E4 RID: 6628 RVA: 0x00065EF8 File Offset: 0x000640F8
+			// Token: 0x06001C34 RID: 7220 RVA: 0x0006A86C File Offset: 0x00068A6C
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019E5 RID: 6629 RVA: 0x00065F04 File Offset: 0x00064104
+			// Token: 0x06001C35 RID: 7221 RVA: 0x0006A878 File Offset: 0x00068A78
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019E6 RID: 6630 RVA: 0x00065F10 File Offset: 0x00064110
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C36 RID: 7222 RVA: 0x0006A884 File Offset: 0x00068A84
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019E7 RID: 6631 RVA: 0x00065F20 File Offset: 0x00064120
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C37 RID: 7223 RVA: 0x0006A894 File Offset: 0x00068A94
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000D9D RID: 3485
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4, P5>.Executer();
+			// Token: 0x04000ED8 RID: 3800
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4, P5>.Executer();
 		}
 
-		// Token: 0x0200089C RID: 2204
-		// (Invoke) Token: 0x06004C48 RID: 19528
+		// Token: 0x02000349 RID: 841
+		// (Invoke) Token: 0x06001C39 RID: 7225
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5);
 
-		// Token: 0x0200089D RID: 2205
-		// (Invoke) Token: 0x06004C4C RID: 19532
+		// Token: 0x0200034A RID: 842
+		// (Invoke) Token: 0x06001C3D RID: 7229
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5);
 
-		// Token: 0x0200089E RID: 2206
-		// (Invoke) Token: 0x06004C50 RID: 19536
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, NetworkMessageInfo info);
+		// Token: 0x0200034B RID: 843
+		// (Invoke) Token: 0x06001C41 RID: 7233
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, uLink.NetworkMessageInfo info);
 
-		// Token: 0x0200089F RID: 2207
-		// (Invoke) Token: 0x06004C54 RID: 19540
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, NetworkMessageInfo info);
+		// Token: 0x0200034C RID: 844
+		// (Invoke) Token: 0x06001C45 RID: 7237
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008A0 RID: 2208
-		// (Invoke) Token: 0x06004C58 RID: 19544
+		// Token: 0x0200034D RID: 845
+		// (Invoke) Token: 0x06001C49 RID: 7241
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, BitStream stream);
 
-		// Token: 0x020008A1 RID: 2209
-		// (Invoke) Token: 0x06004C5C RID: 19548
+		// Token: 0x0200034E RID: 846
+		// (Invoke) Token: 0x06001C4D RID: 7245
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, BitStream stream);
 
-		// Token: 0x020008A2 RID: 2210
-		// (Invoke) Token: 0x06004C60 RID: 19552
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200034F RID: 847
+		// (Invoke) Token: 0x06001C51 RID: 7249
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x020008A3 RID: 2211
-		// (Invoke) Token: 0x06004C64 RID: 19556
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000350 RID: 848
+		// (Invoke) Token: 0x06001C55 RID: 7253
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002DC RID: 732
+	// Token: 0x02000351 RID: 849
 	public static class callf<P0, P1, P2, P3, P4, P5, P6>
 	{
-		// Token: 0x060019E8 RID: 6632 RVA: 0x00065F30 File Offset: 0x00064130
+		// Token: 0x06001C58 RID: 7256 RVA: 0x0006A8A4 File Offset: 0x00068AA4
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Serializer));
 		}
 
-		// Token: 0x060019E9 RID: 6633 RVA: 0x00065F50 File Offset: 0x00064150
+		// Token: 0x06001C59 RID: 7257 RVA: 0x0006A8C4 File Offset: 0x00068AC4
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -2989,10 +2989,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x060019EA RID: 6634 RVA: 0x00065FC8 File Offset: 0x000641C8
+		// Token: 0x06001C5A RID: 7258 RVA: 0x0006A93C File Offset: 0x00068B3C
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block = (NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -3002,7 +3002,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P6>(block.p6, codecOptions);
 		}
 
-		// Token: 0x060019EB RID: 6635 RVA: 0x00066040 File Offset: 0x00064240
+		// Token: 0x06001C5B RID: 7259 RVA: 0x0006A9B4 File Offset: 0x00068BB4
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3014,12 +3014,12 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Call)d)(p, p2, p3, p4, p5, p6, p7);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Call)d)(p, p2, p3, p4, p5, p6, p7);
 		}
 
-		// Token: 0x060019EC RID: 6636 RVA: 0x000660DC File Offset: 0x000642DC
+		// Token: 0x06001C5C RID: 7260 RVA: 0x0006AA50 File Offset: 0x00068C50
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3031,13 +3031,13 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Routine)d)(p, p2, p3, p4, p5, p6, p7);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Routine)d)(p, p2, p3, p4, p5, p6, p7);
 		}
 
-		// Token: 0x060019ED RID: 6637 RVA: 0x00066178 File Offset: 0x00064378
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C5D RID: 7261 RVA: 0x0006AAEC File Offset: 0x00068CEC
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3048,13 +3048,13 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, info);
 		}
 
-		// Token: 0x060019EE RID: 6638 RVA: 0x00066218 File Offset: 0x00064418
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C5E RID: 7262 RVA: 0x0006AB8C File Offset: 0x00068D8C
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3065,12 +3065,12 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, info);
 		}
 
-		// Token: 0x060019EF RID: 6639 RVA: 0x000662B8 File Offset: 0x000644B8
+		// Token: 0x06001C5F RID: 7263 RVA: 0x0006AC2C File Offset: 0x00068E2C
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3082,12 +3082,12 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, stream);
 		}
 
-		// Token: 0x060019F0 RID: 6640 RVA: 0x00066358 File Offset: 0x00064558
+		// Token: 0x06001C60 RID: 7264 RVA: 0x0006ACCC File Offset: 0x00068ECC
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3099,13 +3099,13 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, stream);
 		}
 
-		// Token: 0x060019F1 RID: 6641 RVA: 0x000663F8 File Offset: 0x000645F8
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C61 RID: 7265 RVA: 0x0006AD6C File Offset: 0x00068F6C
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3116,13 +3116,13 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, info, stream);
 		}
 
-		// Token: 0x060019F2 RID: 6642 RVA: 0x00066498 File Offset: 0x00064698
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C62 RID: 7266 RVA: 0x0006AE0C File Offset: 0x0006900C
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3133,147 +3133,147 @@ public sealed class NGC : MonoBehaviour
 			P6 p7 = stream.Read<P6>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, info, stream);
 		}
 
-		// Token: 0x17000748 RID: 1864
-		// (get) Token: 0x060019F3 RID: 6643 RVA: 0x00066538 File Offset: 0x00064738
-		public static NGC.IExecuter Exec
+		// Token: 0x1700079C RID: 1948
+		// (get) Token: 0x06001C63 RID: 7267 RVA: 0x0006AEAC File Offset: 0x000690AC
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002DD RID: 733
+		// Token: 0x02000352 RID: 850
 		public struct Block
 		{
-			// Token: 0x04000D9E RID: 3486
+			// Token: 0x04000ED9 RID: 3801
 			public P0 p0;
 
-			// Token: 0x04000D9F RID: 3487
+			// Token: 0x04000EDA RID: 3802
 			public P1 p1;
 
-			// Token: 0x04000DA0 RID: 3488
+			// Token: 0x04000EDB RID: 3803
 			public P2 p2;
 
-			// Token: 0x04000DA1 RID: 3489
+			// Token: 0x04000EDC RID: 3804
 			public P3 p3;
 
-			// Token: 0x04000DA2 RID: 3490
+			// Token: 0x04000EDD RID: 3805
 			public P4 p4;
 
-			// Token: 0x04000DA3 RID: 3491
+			// Token: 0x04000EDE RID: 3806
 			public P5 p5;
 
-			// Token: 0x04000DA4 RID: 3492
+			// Token: 0x04000EDF RID: 3807
 			public P6 p6;
 		}
 
-		// Token: 0x020002DE RID: 734
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000353 RID: 851
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x060019F6 RID: 6646 RVA: 0x00066554 File Offset: 0x00064754
+			// Token: 0x06001C66 RID: 7270 RVA: 0x0006AEC8 File Offset: 0x000690C8
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019F7 RID: 6647 RVA: 0x00066560 File Offset: 0x00064760
+			// Token: 0x06001C67 RID: 7271 RVA: 0x0006AED4 File Offset: 0x000690D4
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019F8 RID: 6648 RVA: 0x0006656C File Offset: 0x0006476C
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C68 RID: 7272 RVA: 0x0006AEE0 File Offset: 0x000690E0
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019F9 RID: 6649 RVA: 0x0006657C File Offset: 0x0006477C
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C69 RID: 7273 RVA: 0x0006AEF0 File Offset: 0x000690F0
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019FA RID: 6650 RVA: 0x0006658C File Offset: 0x0006478C
+			// Token: 0x06001C6A RID: 7274 RVA: 0x0006AF00 File Offset: 0x00069100
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019FB RID: 6651 RVA: 0x00066598 File Offset: 0x00064798
+			// Token: 0x06001C6B RID: 7275 RVA: 0x0006AF0C File Offset: 0x0006910C
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x060019FC RID: 6652 RVA: 0x000665A4 File Offset: 0x000647A4
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C6C RID: 7276 RVA: 0x0006AF18 File Offset: 0x00069118
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x060019FD RID: 6653 RVA: 0x000665B4 File Offset: 0x000647B4
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C6D RID: 7277 RVA: 0x0006AF28 File Offset: 0x00069128
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000DA5 RID: 3493
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Executer();
+			// Token: 0x04000EE0 RID: 3808
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4, P5, P6>.Executer();
 		}
 
-		// Token: 0x020008A4 RID: 2212
-		// (Invoke) Token: 0x06004C68 RID: 19560
+		// Token: 0x02000354 RID: 852
+		// (Invoke) Token: 0x06001C6F RID: 7279
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6);
 
-		// Token: 0x020008A5 RID: 2213
-		// (Invoke) Token: 0x06004C6C RID: 19564
+		// Token: 0x02000355 RID: 853
+		// (Invoke) Token: 0x06001C73 RID: 7283
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6);
 
-		// Token: 0x020008A6 RID: 2214
-		// (Invoke) Token: 0x06004C70 RID: 19568
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, NetworkMessageInfo info);
+		// Token: 0x02000356 RID: 854
+		// (Invoke) Token: 0x06001C77 RID: 7287
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008A7 RID: 2215
-		// (Invoke) Token: 0x06004C74 RID: 19572
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, NetworkMessageInfo info);
+		// Token: 0x02000357 RID: 855
+		// (Invoke) Token: 0x06001C7B RID: 7291
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008A8 RID: 2216
-		// (Invoke) Token: 0x06004C78 RID: 19576
+		// Token: 0x02000358 RID: 856
+		// (Invoke) Token: 0x06001C7F RID: 7295
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, BitStream stream);
 
-		// Token: 0x020008A9 RID: 2217
-		// (Invoke) Token: 0x06004C7C RID: 19580
+		// Token: 0x02000359 RID: 857
+		// (Invoke) Token: 0x06001C83 RID: 7299
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, BitStream stream);
 
-		// Token: 0x020008AA RID: 2218
-		// (Invoke) Token: 0x06004C80 RID: 19584
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200035A RID: 858
+		// (Invoke) Token: 0x06001C87 RID: 7303
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x020008AB RID: 2219
-		// (Invoke) Token: 0x06004C84 RID: 19588
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200035B RID: 859
+		// (Invoke) Token: 0x06001C8B RID: 7307
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002DF RID: 735
+	// Token: 0x0200035C RID: 860
 	public static class callf<P0, P1, P2, P3, P4, P5, P6, P7>
 	{
-		// Token: 0x060019FE RID: 6654 RVA: 0x000665C4 File Offset: 0x000647C4
+		// Token: 0x06001C8E RID: 7310 RVA: 0x0006AF38 File Offset: 0x00069138
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Serializer));
 		}
 
-		// Token: 0x060019FF RID: 6655 RVA: 0x000665E4 File Offset: 0x000647E4
+		// Token: 0x06001C8F RID: 7311 RVA: 0x0006AF58 File Offset: 0x00069158
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -3285,10 +3285,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x06001A00 RID: 6656 RVA: 0x00066668 File Offset: 0x00064868
+		// Token: 0x06001C90 RID: 7312 RVA: 0x0006AFDC File Offset: 0x000691DC
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block = (NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -3299,7 +3299,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P7>(block.p7, codecOptions);
 		}
 
-		// Token: 0x06001A01 RID: 6657 RVA: 0x000666EC File Offset: 0x000648EC
+		// Token: 0x06001C91 RID: 7313 RVA: 0x0006B060 File Offset: 0x00069260
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3312,12 +3312,12 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8);
 		}
 
-		// Token: 0x06001A02 RID: 6658 RVA: 0x00066798 File Offset: 0x00064998
+		// Token: 0x06001C92 RID: 7314 RVA: 0x0006B10C File Offset: 0x0006930C
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3330,13 +3330,13 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8);
 		}
 
-		// Token: 0x06001A03 RID: 6659 RVA: 0x00066844 File Offset: 0x00064A44
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C93 RID: 7315 RVA: 0x0006B1B8 File Offset: 0x000693B8
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3348,13 +3348,13 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, info);
 		}
 
-		// Token: 0x06001A04 RID: 6660 RVA: 0x000668F4 File Offset: 0x00064AF4
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C94 RID: 7316 RVA: 0x0006B268 File Offset: 0x00069468
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3366,12 +3366,12 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, info);
 		}
 
-		// Token: 0x06001A05 RID: 6661 RVA: 0x000669A4 File Offset: 0x00064BA4
+		// Token: 0x06001C95 RID: 7317 RVA: 0x0006B318 File Offset: 0x00069518
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3384,12 +3384,12 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, stream);
 		}
 
-		// Token: 0x06001A06 RID: 6662 RVA: 0x00066A54 File Offset: 0x00064C54
+		// Token: 0x06001C96 RID: 7318 RVA: 0x0006B3C8 File Offset: 0x000695C8
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3402,13 +3402,13 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, stream);
 		}
 
-		// Token: 0x06001A07 RID: 6663 RVA: 0x00066B04 File Offset: 0x00064D04
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C97 RID: 7319 RVA: 0x0006B478 File Offset: 0x00069678
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3420,13 +3420,13 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, info, stream);
 		}
 
-		// Token: 0x06001A08 RID: 6664 RVA: 0x00066BB4 File Offset: 0x00064DB4
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001C98 RID: 7320 RVA: 0x0006B528 File Offset: 0x00069728
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3438,150 +3438,150 @@ public sealed class NGC : MonoBehaviour
 			P7 p8 = stream.Read<P7>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, info, stream);
 		}
 
-		// Token: 0x17000749 RID: 1865
-		// (get) Token: 0x06001A09 RID: 6665 RVA: 0x00066C64 File Offset: 0x00064E64
-		public static NGC.IExecuter Exec
+		// Token: 0x1700079D RID: 1949
+		// (get) Token: 0x06001C99 RID: 7321 RVA: 0x0006B5D8 File Offset: 0x000697D8
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002E0 RID: 736
+		// Token: 0x0200035D RID: 861
 		public struct Block
 		{
-			// Token: 0x04000DA6 RID: 3494
+			// Token: 0x04000EE1 RID: 3809
 			public P0 p0;
 
-			// Token: 0x04000DA7 RID: 3495
+			// Token: 0x04000EE2 RID: 3810
 			public P1 p1;
 
-			// Token: 0x04000DA8 RID: 3496
+			// Token: 0x04000EE3 RID: 3811
 			public P2 p2;
 
-			// Token: 0x04000DA9 RID: 3497
+			// Token: 0x04000EE4 RID: 3812
 			public P3 p3;
 
-			// Token: 0x04000DAA RID: 3498
+			// Token: 0x04000EE5 RID: 3813
 			public P4 p4;
 
-			// Token: 0x04000DAB RID: 3499
+			// Token: 0x04000EE6 RID: 3814
 			public P5 p5;
 
-			// Token: 0x04000DAC RID: 3500
+			// Token: 0x04000EE7 RID: 3815
 			public P6 p6;
 
-			// Token: 0x04000DAD RID: 3501
+			// Token: 0x04000EE8 RID: 3816
 			public P7 p7;
 		}
 
-		// Token: 0x020002E1 RID: 737
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x0200035E RID: 862
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x06001A0C RID: 6668 RVA: 0x00066C80 File Offset: 0x00064E80
+			// Token: 0x06001C9C RID: 7324 RVA: 0x0006B5F4 File Offset: 0x000697F4
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A0D RID: 6669 RVA: 0x00066C8C File Offset: 0x00064E8C
+			// Token: 0x06001C9D RID: 7325 RVA: 0x0006B600 File Offset: 0x00069800
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A0E RID: 6670 RVA: 0x00066C98 File Offset: 0x00064E98
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C9E RID: 7326 RVA: 0x0006B60C File Offset: 0x0006980C
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A0F RID: 6671 RVA: 0x00066CA8 File Offset: 0x00064EA8
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001C9F RID: 7327 RVA: 0x0006B61C File Offset: 0x0006981C
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A10 RID: 6672 RVA: 0x00066CB8 File Offset: 0x00064EB8
+			// Token: 0x06001CA0 RID: 7328 RVA: 0x0006B62C File Offset: 0x0006982C
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A11 RID: 6673 RVA: 0x00066CC4 File Offset: 0x00064EC4
+			// Token: 0x06001CA1 RID: 7329 RVA: 0x0006B638 File Offset: 0x00069838
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A12 RID: 6674 RVA: 0x00066CD0 File Offset: 0x00064ED0
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001CA2 RID: 7330 RVA: 0x0006B644 File Offset: 0x00069844
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A13 RID: 6675 RVA: 0x00066CE0 File Offset: 0x00064EE0
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001CA3 RID: 7331 RVA: 0x0006B654 File Offset: 0x00069854
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000DAE RID: 3502
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Executer();
+			// Token: 0x04000EE9 RID: 3817
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7>.Executer();
 		}
 
-		// Token: 0x020008AC RID: 2220
-		// (Invoke) Token: 0x06004C88 RID: 19592
+		// Token: 0x0200035F RID: 863
+		// (Invoke) Token: 0x06001CA5 RID: 7333
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7);
 
-		// Token: 0x020008AD RID: 2221
-		// (Invoke) Token: 0x06004C8C RID: 19596
+		// Token: 0x02000360 RID: 864
+		// (Invoke) Token: 0x06001CA9 RID: 7337
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7);
 
-		// Token: 0x020008AE RID: 2222
-		// (Invoke) Token: 0x06004C90 RID: 19600
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, NetworkMessageInfo info);
+		// Token: 0x02000361 RID: 865
+		// (Invoke) Token: 0x06001CAD RID: 7341
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008AF RID: 2223
-		// (Invoke) Token: 0x06004C94 RID: 19604
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, NetworkMessageInfo info);
+		// Token: 0x02000362 RID: 866
+		// (Invoke) Token: 0x06001CB1 RID: 7345
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008B0 RID: 2224
-		// (Invoke) Token: 0x06004C98 RID: 19608
+		// Token: 0x02000363 RID: 867
+		// (Invoke) Token: 0x06001CB5 RID: 7349
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, BitStream stream);
 
-		// Token: 0x020008B1 RID: 2225
-		// (Invoke) Token: 0x06004C9C RID: 19612
+		// Token: 0x02000364 RID: 868
+		// (Invoke) Token: 0x06001CB9 RID: 7353
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, BitStream stream);
 
-		// Token: 0x020008B2 RID: 2226
-		// (Invoke) Token: 0x06004CA0 RID: 19616
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000365 RID: 869
+		// (Invoke) Token: 0x06001CBD RID: 7357
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x020008B3 RID: 2227
-		// (Invoke) Token: 0x06004CA4 RID: 19620
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000366 RID: 870
+		// (Invoke) Token: 0x06001CC1 RID: 7361
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002E2 RID: 738
+	// Token: 0x02000367 RID: 871
 	public static class callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>
 	{
-		// Token: 0x06001A14 RID: 6676 RVA: 0x00066CF0 File Offset: 0x00064EF0
+		// Token: 0x06001CC4 RID: 7364 RVA: 0x0006B664 File Offset: 0x00069864
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Serializer));
 		}
 
-		// Token: 0x06001A15 RID: 6677 RVA: 0x00066D10 File Offset: 0x00064F10
+		// Token: 0x06001CC5 RID: 7365 RVA: 0x0006B684 File Offset: 0x00069884
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -3594,10 +3594,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x06001A16 RID: 6678 RVA: 0x00066DA4 File Offset: 0x00064FA4
+		// Token: 0x06001CC6 RID: 7366 RVA: 0x0006B718 File Offset: 0x00069918
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block = (NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -3609,7 +3609,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P8>(block.p8, codecOptions);
 		}
 
-		// Token: 0x06001A17 RID: 6679 RVA: 0x00066E38 File Offset: 0x00065038
+		// Token: 0x06001CC7 RID: 7367 RVA: 0x0006B7AC File Offset: 0x000699AC
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3623,12 +3623,12 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9);
 		}
 
-		// Token: 0x06001A18 RID: 6680 RVA: 0x00066EF4 File Offset: 0x000650F4
+		// Token: 0x06001CC8 RID: 7368 RVA: 0x0006B868 File Offset: 0x00069A68
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3642,13 +3642,13 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9);
 		}
 
-		// Token: 0x06001A19 RID: 6681 RVA: 0x00066FB0 File Offset: 0x000651B0
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001CC9 RID: 7369 RVA: 0x0006B924 File Offset: 0x00069B24
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3661,13 +3661,13 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info);
 		}
 
-		// Token: 0x06001A1A RID: 6682 RVA: 0x00067070 File Offset: 0x00065270
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001CCA RID: 7370 RVA: 0x0006B9E4 File Offset: 0x00069BE4
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3680,12 +3680,12 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info);
 		}
 
-		// Token: 0x06001A1B RID: 6683 RVA: 0x00067130 File Offset: 0x00065330
+		// Token: 0x06001CCB RID: 7371 RVA: 0x0006BAA4 File Offset: 0x00069CA4
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3699,12 +3699,12 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, stream);
 		}
 
-		// Token: 0x06001A1C RID: 6684 RVA: 0x000671F0 File Offset: 0x000653F0
+		// Token: 0x06001CCC RID: 7372 RVA: 0x0006BB64 File Offset: 0x00069D64
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3718,13 +3718,13 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, stream);
 		}
 
-		// Token: 0x06001A1D RID: 6685 RVA: 0x000672B0 File Offset: 0x000654B0
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001CCD RID: 7373 RVA: 0x0006BC24 File Offset: 0x00069E24
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3737,13 +3737,13 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info, stream);
 		}
 
-		// Token: 0x06001A1E RID: 6686 RVA: 0x00067370 File Offset: 0x00065570
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001CCE RID: 7374 RVA: 0x0006BCE4 File Offset: 0x00069EE4
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3756,153 +3756,153 @@ public sealed class NGC : MonoBehaviour
 			P8 p9 = stream.Read<P8>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, info, stream);
 		}
 
-		// Token: 0x1700074A RID: 1866
-		// (get) Token: 0x06001A1F RID: 6687 RVA: 0x00067430 File Offset: 0x00065630
-		public static NGC.IExecuter Exec
+		// Token: 0x1700079E RID: 1950
+		// (get) Token: 0x06001CCF RID: 7375 RVA: 0x0006BDA4 File Offset: 0x00069FA4
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002E3 RID: 739
+		// Token: 0x02000368 RID: 872
 		public struct Block
 		{
-			// Token: 0x04000DAF RID: 3503
+			// Token: 0x04000EEA RID: 3818
 			public P0 p0;
 
-			// Token: 0x04000DB0 RID: 3504
+			// Token: 0x04000EEB RID: 3819
 			public P1 p1;
 
-			// Token: 0x04000DB1 RID: 3505
+			// Token: 0x04000EEC RID: 3820
 			public P2 p2;
 
-			// Token: 0x04000DB2 RID: 3506
+			// Token: 0x04000EED RID: 3821
 			public P3 p3;
 
-			// Token: 0x04000DB3 RID: 3507
+			// Token: 0x04000EEE RID: 3822
 			public P4 p4;
 
-			// Token: 0x04000DB4 RID: 3508
+			// Token: 0x04000EEF RID: 3823
 			public P5 p5;
 
-			// Token: 0x04000DB5 RID: 3509
+			// Token: 0x04000EF0 RID: 3824
 			public P6 p6;
 
-			// Token: 0x04000DB6 RID: 3510
+			// Token: 0x04000EF1 RID: 3825
 			public P7 p7;
 
-			// Token: 0x04000DB7 RID: 3511
+			// Token: 0x04000EF2 RID: 3826
 			public P8 p8;
 		}
 
-		// Token: 0x020002E4 RID: 740
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000369 RID: 873
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x06001A22 RID: 6690 RVA: 0x0006744C File Offset: 0x0006564C
+			// Token: 0x06001CD2 RID: 7378 RVA: 0x0006BDC0 File Offset: 0x00069FC0
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A23 RID: 6691 RVA: 0x00067458 File Offset: 0x00065658
+			// Token: 0x06001CD3 RID: 7379 RVA: 0x0006BDCC File Offset: 0x00069FCC
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A24 RID: 6692 RVA: 0x00067464 File Offset: 0x00065664
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001CD4 RID: 7380 RVA: 0x0006BDD8 File Offset: 0x00069FD8
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A25 RID: 6693 RVA: 0x00067474 File Offset: 0x00065674
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001CD5 RID: 7381 RVA: 0x0006BDE8 File Offset: 0x00069FE8
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A26 RID: 6694 RVA: 0x00067484 File Offset: 0x00065684
+			// Token: 0x06001CD6 RID: 7382 RVA: 0x0006BDF8 File Offset: 0x00069FF8
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A27 RID: 6695 RVA: 0x00067490 File Offset: 0x00065690
+			// Token: 0x06001CD7 RID: 7383 RVA: 0x0006BE04 File Offset: 0x0006A004
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A28 RID: 6696 RVA: 0x0006749C File Offset: 0x0006569C
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001CD8 RID: 7384 RVA: 0x0006BE10 File Offset: 0x0006A010
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A29 RID: 6697 RVA: 0x000674AC File Offset: 0x000656AC
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001CD9 RID: 7385 RVA: 0x0006BE20 File Offset: 0x0006A020
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000DB8 RID: 3512
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Executer();
+			// Token: 0x04000EF3 RID: 3827
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8>.Executer();
 		}
 
-		// Token: 0x020008B4 RID: 2228
-		// (Invoke) Token: 0x06004CA8 RID: 19624
+		// Token: 0x0200036A RID: 874
+		// (Invoke) Token: 0x06001CDB RID: 7387
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8);
 
-		// Token: 0x020008B5 RID: 2229
-		// (Invoke) Token: 0x06004CAC RID: 19628
+		// Token: 0x0200036B RID: 875
+		// (Invoke) Token: 0x06001CDF RID: 7391
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8);
 
-		// Token: 0x020008B6 RID: 2230
-		// (Invoke) Token: 0x06004CB0 RID: 19632
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, NetworkMessageInfo info);
+		// Token: 0x0200036C RID: 876
+		// (Invoke) Token: 0x06001CE3 RID: 7395
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008B7 RID: 2231
-		// (Invoke) Token: 0x06004CB4 RID: 19636
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, NetworkMessageInfo info);
+		// Token: 0x0200036D RID: 877
+		// (Invoke) Token: 0x06001CE7 RID: 7399
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008B8 RID: 2232
-		// (Invoke) Token: 0x06004CB8 RID: 19640
+		// Token: 0x0200036E RID: 878
+		// (Invoke) Token: 0x06001CEB RID: 7403
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, BitStream stream);
 
-		// Token: 0x020008B9 RID: 2233
-		// (Invoke) Token: 0x06004CBC RID: 19644
+		// Token: 0x0200036F RID: 879
+		// (Invoke) Token: 0x06001CEF RID: 7407
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, BitStream stream);
 
-		// Token: 0x020008BA RID: 2234
-		// (Invoke) Token: 0x06004CC0 RID: 19648
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000370 RID: 880
+		// (Invoke) Token: 0x06001CF3 RID: 7411
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x020008BB RID: 2235
-		// (Invoke) Token: 0x06004CC4 RID: 19652
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000371 RID: 881
+		// (Invoke) Token: 0x06001CF7 RID: 7415
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002E5 RID: 741
+	// Token: 0x02000372 RID: 882
 	public static class callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>
 	{
-		// Token: 0x06001A2A RID: 6698 RVA: 0x000674BC File Offset: 0x000656BC
+		// Token: 0x06001CFA RID: 7418 RVA: 0x0006BE30 File Offset: 0x0006A030
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Serializer));
 		}
 
-		// Token: 0x06001A2B RID: 6699 RVA: 0x000674DC File Offset: 0x000656DC
+		// Token: 0x06001CFB RID: 7419 RVA: 0x0006BE50 File Offset: 0x0006A050
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -3916,10 +3916,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x06001A2C RID: 6700 RVA: 0x0006757C File Offset: 0x0006577C
+		// Token: 0x06001CFC RID: 7420 RVA: 0x0006BEF0 File Offset: 0x0006A0F0
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block = (NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -3932,7 +3932,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P9>(block.p9, codecOptions);
 		}
 
-		// Token: 0x06001A2D RID: 6701 RVA: 0x0006761C File Offset: 0x0006581C
+		// Token: 0x06001CFD RID: 7421 RVA: 0x0006BF90 File Offset: 0x0006A190
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3947,12 +3947,12 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 		}
 
-		// Token: 0x06001A2E RID: 6702 RVA: 0x000676E8 File Offset: 0x000658E8
+		// Token: 0x06001CFE RID: 7422 RVA: 0x0006C05C File Offset: 0x0006A25C
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -3967,13 +3967,13 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10);
 		}
 
-		// Token: 0x06001A2F RID: 6703 RVA: 0x000677B4 File Offset: 0x000659B4
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001CFF RID: 7423 RVA: 0x0006C128 File Offset: 0x0006A328
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -3987,13 +3987,13 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info);
 		}
 
-		// Token: 0x06001A30 RID: 6704 RVA: 0x00067884 File Offset: 0x00065A84
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D00 RID: 7424 RVA: 0x0006C1F8 File Offset: 0x0006A3F8
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4007,12 +4007,12 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info);
 		}
 
-		// Token: 0x06001A31 RID: 6705 RVA: 0x00067954 File Offset: 0x00065B54
+		// Token: 0x06001D01 RID: 7425 RVA: 0x0006C2C8 File Offset: 0x0006A4C8
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4027,12 +4027,12 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, stream);
 		}
 
-		// Token: 0x06001A32 RID: 6706 RVA: 0x00067A24 File Offset: 0x00065C24
+		// Token: 0x06001D02 RID: 7426 RVA: 0x0006C398 File Offset: 0x0006A598
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4047,13 +4047,13 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, stream);
 		}
 
-		// Token: 0x06001A33 RID: 6707 RVA: 0x00067AF4 File Offset: 0x00065CF4
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D03 RID: 7427 RVA: 0x0006C468 File Offset: 0x0006A668
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4067,13 +4067,13 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info, stream);
 		}
 
-		// Token: 0x06001A34 RID: 6708 RVA: 0x00067BC4 File Offset: 0x00065DC4
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D04 RID: 7428 RVA: 0x0006C538 File Offset: 0x0006A738
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4087,156 +4087,156 @@ public sealed class NGC : MonoBehaviour
 			P9 p10 = stream.Read<P9>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, info, stream);
 		}
 
-		// Token: 0x1700074B RID: 1867
-		// (get) Token: 0x06001A35 RID: 6709 RVA: 0x00067C94 File Offset: 0x00065E94
-		public static NGC.IExecuter Exec
+		// Token: 0x1700079F RID: 1951
+		// (get) Token: 0x06001D05 RID: 7429 RVA: 0x0006C608 File Offset: 0x0006A808
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002E6 RID: 742
+		// Token: 0x02000373 RID: 883
 		public struct Block
 		{
-			// Token: 0x04000DB9 RID: 3513
+			// Token: 0x04000EF4 RID: 3828
 			public P0 p0;
 
-			// Token: 0x04000DBA RID: 3514
+			// Token: 0x04000EF5 RID: 3829
 			public P1 p1;
 
-			// Token: 0x04000DBB RID: 3515
+			// Token: 0x04000EF6 RID: 3830
 			public P2 p2;
 
-			// Token: 0x04000DBC RID: 3516
+			// Token: 0x04000EF7 RID: 3831
 			public P3 p3;
 
-			// Token: 0x04000DBD RID: 3517
+			// Token: 0x04000EF8 RID: 3832
 			public P4 p4;
 
-			// Token: 0x04000DBE RID: 3518
+			// Token: 0x04000EF9 RID: 3833
 			public P5 p5;
 
-			// Token: 0x04000DBF RID: 3519
+			// Token: 0x04000EFA RID: 3834
 			public P6 p6;
 
-			// Token: 0x04000DC0 RID: 3520
+			// Token: 0x04000EFB RID: 3835
 			public P7 p7;
 
-			// Token: 0x04000DC1 RID: 3521
+			// Token: 0x04000EFC RID: 3836
 			public P8 p8;
 
-			// Token: 0x04000DC2 RID: 3522
+			// Token: 0x04000EFD RID: 3837
 			public P9 p9;
 		}
 
-		// Token: 0x020002E7 RID: 743
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x02000374 RID: 884
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x06001A38 RID: 6712 RVA: 0x00067CB0 File Offset: 0x00065EB0
+			// Token: 0x06001D08 RID: 7432 RVA: 0x0006C624 File Offset: 0x0006A824
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A39 RID: 6713 RVA: 0x00067CBC File Offset: 0x00065EBC
+			// Token: 0x06001D09 RID: 7433 RVA: 0x0006C630 File Offset: 0x0006A830
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A3A RID: 6714 RVA: 0x00067CC8 File Offset: 0x00065EC8
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D0A RID: 7434 RVA: 0x0006C63C File Offset: 0x0006A83C
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A3B RID: 6715 RVA: 0x00067CD8 File Offset: 0x00065ED8
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D0B RID: 7435 RVA: 0x0006C64C File Offset: 0x0006A84C
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A3C RID: 6716 RVA: 0x00067CE8 File Offset: 0x00065EE8
+			// Token: 0x06001D0C RID: 7436 RVA: 0x0006C65C File Offset: 0x0006A85C
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A3D RID: 6717 RVA: 0x00067CF4 File Offset: 0x00065EF4
+			// Token: 0x06001D0D RID: 7437 RVA: 0x0006C668 File Offset: 0x0006A868
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A3E RID: 6718 RVA: 0x00067D00 File Offset: 0x00065F00
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D0E RID: 7438 RVA: 0x0006C674 File Offset: 0x0006A874
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A3F RID: 6719 RVA: 0x00067D10 File Offset: 0x00065F10
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D0F RID: 7439 RVA: 0x0006C684 File Offset: 0x0006A884
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000DC3 RID: 3523
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Executer();
+			// Token: 0x04000EFE RID: 3838
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9>.Executer();
 		}
 
-		// Token: 0x020008BC RID: 2236
-		// (Invoke) Token: 0x06004CC8 RID: 19656
+		// Token: 0x02000375 RID: 885
+		// (Invoke) Token: 0x06001D11 RID: 7441
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9);
 
-		// Token: 0x020008BD RID: 2237
-		// (Invoke) Token: 0x06004CCC RID: 19660
+		// Token: 0x02000376 RID: 886
+		// (Invoke) Token: 0x06001D15 RID: 7445
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9);
 
-		// Token: 0x020008BE RID: 2238
-		// (Invoke) Token: 0x06004CD0 RID: 19664
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, NetworkMessageInfo info);
+		// Token: 0x02000377 RID: 887
+		// (Invoke) Token: 0x06001D19 RID: 7449
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008BF RID: 2239
-		// (Invoke) Token: 0x06004CD4 RID: 19668
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, NetworkMessageInfo info);
+		// Token: 0x02000378 RID: 888
+		// (Invoke) Token: 0x06001D1D RID: 7453
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008C0 RID: 2240
-		// (Invoke) Token: 0x06004CD8 RID: 19672
+		// Token: 0x02000379 RID: 889
+		// (Invoke) Token: 0x06001D21 RID: 7457
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, BitStream stream);
 
-		// Token: 0x020008C1 RID: 2241
-		// (Invoke) Token: 0x06004CDC RID: 19676
+		// Token: 0x0200037A RID: 890
+		// (Invoke) Token: 0x06001D25 RID: 7461
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, BitStream stream);
 
-		// Token: 0x020008C2 RID: 2242
-		// (Invoke) Token: 0x06004CE0 RID: 19680
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200037B RID: 891
+		// (Invoke) Token: 0x06001D29 RID: 7465
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x020008C3 RID: 2243
-		// (Invoke) Token: 0x06004CE4 RID: 19684
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x0200037C RID: 892
+		// (Invoke) Token: 0x06001D2D RID: 7469
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002E8 RID: 744
+	// Token: 0x0200037D RID: 893
 	public static class callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>
 	{
-		// Token: 0x06001A40 RID: 6720 RVA: 0x00067D20 File Offset: 0x00065F20
+		// Token: 0x06001D30 RID: 7472 RVA: 0x0006C694 File Offset: 0x0006A894
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Serializer));
 		}
 
-		// Token: 0x06001A41 RID: 6721 RVA: 0x00067D40 File Offset: 0x00065F40
+		// Token: 0x06001D31 RID: 7473 RVA: 0x0006C6B4 File Offset: 0x0006A8B4
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -4251,10 +4251,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x06001A42 RID: 6722 RVA: 0x00067DF0 File Offset: 0x00065FF0
+		// Token: 0x06001D32 RID: 7474 RVA: 0x0006C764 File Offset: 0x0006A964
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block = (NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -4268,7 +4268,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P10>(block.p10, codecOptions);
 		}
 
-		// Token: 0x06001A43 RID: 6723 RVA: 0x00067EA0 File Offset: 0x000660A0
+		// Token: 0x06001D33 RID: 7475 RVA: 0x0006C814 File Offset: 0x0006AA14
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4284,12 +4284,12 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 		}
 
-		// Token: 0x06001A44 RID: 6724 RVA: 0x00067F7C File Offset: 0x0006617C
+		// Token: 0x06001D34 RID: 7476 RVA: 0x0006C8F0 File Offset: 0x0006AAF0
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4305,13 +4305,13 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11);
 		}
 
-		// Token: 0x06001A45 RID: 6725 RVA: 0x00068058 File Offset: 0x00066258
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D35 RID: 7477 RVA: 0x0006C9CC File Offset: 0x0006ABCC
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4326,13 +4326,13 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info);
 		}
 
-		// Token: 0x06001A46 RID: 6726 RVA: 0x00068138 File Offset: 0x00066338
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D36 RID: 7478 RVA: 0x0006CAAC File Offset: 0x0006ACAC
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4347,12 +4347,12 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info);
 		}
 
-		// Token: 0x06001A47 RID: 6727 RVA: 0x00068218 File Offset: 0x00066418
+		// Token: 0x06001D37 RID: 7479 RVA: 0x0006CB8C File Offset: 0x0006AD8C
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4368,12 +4368,12 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, stream);
 		}
 
-		// Token: 0x06001A48 RID: 6728 RVA: 0x000682F8 File Offset: 0x000664F8
+		// Token: 0x06001D38 RID: 7480 RVA: 0x0006CC6C File Offset: 0x0006AE6C
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4389,13 +4389,13 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, stream);
 		}
 
-		// Token: 0x06001A49 RID: 6729 RVA: 0x000683D8 File Offset: 0x000665D8
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D39 RID: 7481 RVA: 0x0006CD4C File Offset: 0x0006AF4C
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4410,13 +4410,13 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info, stream);
 		}
 
-		// Token: 0x06001A4A RID: 6730 RVA: 0x000684B8 File Offset: 0x000666B8
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D3A RID: 7482 RVA: 0x0006CE2C File Offset: 0x0006B02C
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4431,159 +4431,159 @@ public sealed class NGC : MonoBehaviour
 			P10 p11 = stream.Read<P10>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, info, stream);
 		}
 
-		// Token: 0x1700074C RID: 1868
-		// (get) Token: 0x06001A4B RID: 6731 RVA: 0x00068598 File Offset: 0x00066798
-		public static NGC.IExecuter Exec
+		// Token: 0x170007A0 RID: 1952
+		// (get) Token: 0x06001D3B RID: 7483 RVA: 0x0006CF0C File Offset: 0x0006B10C
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002E9 RID: 745
+		// Token: 0x0200037E RID: 894
 		public struct Block
 		{
-			// Token: 0x04000DC4 RID: 3524
+			// Token: 0x04000EFF RID: 3839
 			public P0 p0;
 
-			// Token: 0x04000DC5 RID: 3525
+			// Token: 0x04000F00 RID: 3840
 			public P1 p1;
 
-			// Token: 0x04000DC6 RID: 3526
+			// Token: 0x04000F01 RID: 3841
 			public P2 p2;
 
-			// Token: 0x04000DC7 RID: 3527
+			// Token: 0x04000F02 RID: 3842
 			public P3 p3;
 
-			// Token: 0x04000DC8 RID: 3528
+			// Token: 0x04000F03 RID: 3843
 			public P4 p4;
 
-			// Token: 0x04000DC9 RID: 3529
+			// Token: 0x04000F04 RID: 3844
 			public P5 p5;
 
-			// Token: 0x04000DCA RID: 3530
+			// Token: 0x04000F05 RID: 3845
 			public P6 p6;
 
-			// Token: 0x04000DCB RID: 3531
+			// Token: 0x04000F06 RID: 3846
 			public P7 p7;
 
-			// Token: 0x04000DCC RID: 3532
+			// Token: 0x04000F07 RID: 3847
 			public P8 p8;
 
-			// Token: 0x04000DCD RID: 3533
+			// Token: 0x04000F08 RID: 3848
 			public P9 p9;
 
-			// Token: 0x04000DCE RID: 3534
+			// Token: 0x04000F09 RID: 3849
 			public P10 p10;
 		}
 
-		// Token: 0x020002EA RID: 746
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x0200037F RID: 895
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x06001A4E RID: 6734 RVA: 0x000685B4 File Offset: 0x000667B4
+			// Token: 0x06001D3E RID: 7486 RVA: 0x0006CF28 File Offset: 0x0006B128
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A4F RID: 6735 RVA: 0x000685C0 File Offset: 0x000667C0
+			// Token: 0x06001D3F RID: 7487 RVA: 0x0006CF34 File Offset: 0x0006B134
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A50 RID: 6736 RVA: 0x000685CC File Offset: 0x000667CC
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D40 RID: 7488 RVA: 0x0006CF40 File Offset: 0x0006B140
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A51 RID: 6737 RVA: 0x000685DC File Offset: 0x000667DC
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D41 RID: 7489 RVA: 0x0006CF50 File Offset: 0x0006B150
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A52 RID: 6738 RVA: 0x000685EC File Offset: 0x000667EC
+			// Token: 0x06001D42 RID: 7490 RVA: 0x0006CF60 File Offset: 0x0006B160
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A53 RID: 6739 RVA: 0x000685F8 File Offset: 0x000667F8
+			// Token: 0x06001D43 RID: 7491 RVA: 0x0006CF6C File Offset: 0x0006B16C
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A54 RID: 6740 RVA: 0x00068604 File Offset: 0x00066804
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D44 RID: 7492 RVA: 0x0006CF78 File Offset: 0x0006B178
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A55 RID: 6741 RVA: 0x00068614 File Offset: 0x00066814
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D45 RID: 7493 RVA: 0x0006CF88 File Offset: 0x0006B188
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000DCF RID: 3535
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Executer();
+			// Token: 0x04000F0A RID: 3850
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10>.Executer();
 		}
 
-		// Token: 0x020008C4 RID: 2244
-		// (Invoke) Token: 0x06004CE8 RID: 19688
+		// Token: 0x02000380 RID: 896
+		// (Invoke) Token: 0x06001D47 RID: 7495
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10);
 
-		// Token: 0x020008C5 RID: 2245
-		// (Invoke) Token: 0x06004CEC RID: 19692
+		// Token: 0x02000381 RID: 897
+		// (Invoke) Token: 0x06001D4B RID: 7499
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10);
 
-		// Token: 0x020008C6 RID: 2246
-		// (Invoke) Token: 0x06004CF0 RID: 19696
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, NetworkMessageInfo info);
+		// Token: 0x02000382 RID: 898
+		// (Invoke) Token: 0x06001D4F RID: 7503
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008C7 RID: 2247
-		// (Invoke) Token: 0x06004CF4 RID: 19700
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, NetworkMessageInfo info);
+		// Token: 0x02000383 RID: 899
+		// (Invoke) Token: 0x06001D53 RID: 7507
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008C8 RID: 2248
-		// (Invoke) Token: 0x06004CF8 RID: 19704
+		// Token: 0x02000384 RID: 900
+		// (Invoke) Token: 0x06001D57 RID: 7511
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, BitStream stream);
 
-		// Token: 0x020008C9 RID: 2249
-		// (Invoke) Token: 0x06004CFC RID: 19708
+		// Token: 0x02000385 RID: 901
+		// (Invoke) Token: 0x06001D5B RID: 7515
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, BitStream stream);
 
-		// Token: 0x020008CA RID: 2250
-		// (Invoke) Token: 0x06004D00 RID: 19712
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000386 RID: 902
+		// (Invoke) Token: 0x06001D5F RID: 7519
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x020008CB RID: 2251
-		// (Invoke) Token: 0x06004D04 RID: 19716
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000387 RID: 903
+		// (Invoke) Token: 0x06001D63 RID: 7523
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020002EB RID: 747
+	// Token: 0x02000388 RID: 904
 	public static class callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>
 	{
-		// Token: 0x06001A56 RID: 6742 RVA: 0x00068624 File Offset: 0x00066824
+		// Token: 0x06001D66 RID: 7526 RVA: 0x0006CF98 File Offset: 0x0006B198
 		static callf()
 		{
-			BitStreamCodec.Add<NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(new BitStreamCodec.Deserializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Deserializer), new BitStreamCodec.Serializer(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Serializer));
+			BitStreamCodec.Add<global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block>(new BitStreamCodec.Deserializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Deserializer), new BitStreamCodec.Serializer(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Serializer));
 		}
 
-		// Token: 0x06001A57 RID: 6743 RVA: 0x00068644 File Offset: 0x00066844
+		// Token: 0x06001D67 RID: 7527 RVA: 0x0006CFB8 File Offset: 0x0006B1B8
 		private static object Deserializer(BitStream stream, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block;
 			block.p0 = stream.Read<P0>(codecOptions);
 			block.p1 = stream.Read<P1>(codecOptions);
 			block.p2 = stream.Read<P2>(codecOptions);
@@ -4599,10 +4599,10 @@ public sealed class NGC : MonoBehaviour
 			return block;
 		}
 
-		// Token: 0x06001A58 RID: 6744 RVA: 0x00068700 File Offset: 0x00066900
+		// Token: 0x06001D68 RID: 7528 RVA: 0x0006D074 File Offset: 0x0006B274
 		private static void Serializer(BitStream stream, object value, params object[] codecOptions)
 		{
-			NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block = (NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block)value;
+			global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block block = (global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Block)value;
 			stream.Write<P0>(block.p0, codecOptions);
 			stream.Write<P1>(block.p1, codecOptions);
 			stream.Write<P2>(block.p2, codecOptions);
@@ -4617,7 +4617,7 @@ public sealed class NGC : MonoBehaviour
 			stream.Write<P11>(block.p11, codecOptions);
 		}
 
-		// Token: 0x06001A59 RID: 6745 RVA: 0x000687BC File Offset: 0x000669BC
+		// Token: 0x06001D69 RID: 7529 RVA: 0x0006D130 File Offset: 0x0006B330
 		public static void InvokeCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4634,12 +4634,12 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Call), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Call), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Call)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 		}
 
-		// Token: 0x06001A5A RID: 6746 RVA: 0x000688A8 File Offset: 0x00066AA8
+		// Token: 0x06001D6A RID: 7530 RVA: 0x0006D21C File Offset: 0x0006B41C
 		public static IEnumerator InvokeRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4656,13 +4656,13 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Routine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Routine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Routine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12);
 		}
 
-		// Token: 0x06001A5B RID: 6747 RVA: 0x00068994 File Offset: 0x00066B94
-		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D6B RID: 7531 RVA: 0x0006D308 File Offset: 0x0006B508
+		public static void InvokeInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4678,13 +4678,13 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info);
 		}
 
-		// Token: 0x06001A5C RID: 6748 RVA: 0x00068A84 File Offset: 0x00066C84
-		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D6C RID: 7532 RVA: 0x0006D3F8 File Offset: 0x0006B5F8
+		public static IEnumerator InvokeInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4700,12 +4700,12 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info);
 		}
 
-		// Token: 0x06001A5D RID: 6749 RVA: 0x00068B74 File Offset: 0x00066D74
+		// Token: 0x06001D6D RID: 7533 RVA: 0x0006D4E8 File Offset: 0x0006B6E8
 		public static void InvokeStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4722,12 +4722,12 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, stream);
 		}
 
-		// Token: 0x06001A5E RID: 6750 RVA: 0x00068C64 File Offset: 0x00066E64
+		// Token: 0x06001D6E RID: 7534 RVA: 0x0006D5D8 File Offset: 0x0006B7D8
 		public static IEnumerator InvokeStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
@@ -4744,13 +4744,13 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, stream);
 		}
 
-		// Token: 0x06001A5F RID: 6751 RVA: 0x00068D54 File Offset: 0x00066F54
-		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D6F RID: 7535 RVA: 0x0006D6C8 File Offset: 0x0006B8C8
+		public static void InvokeStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4766,13 +4766,13 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoCall), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoCall), instance, method, true);
 			}
-			((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info, stream);
+			((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoCall)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info, stream);
 		}
 
-		// Token: 0x06001A60 RID: 6752 RVA: 0x00068E44 File Offset: 0x00067044
-		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+		// Token: 0x06001D70 RID: 7536 RVA: 0x0006D7B8 File Offset: 0x0006B9B8
+		public static IEnumerator InvokeStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 		{
 			P0 p = stream.Read<P0>(new object[0]);
 			P1 p2 = stream.Read<P1>(new object[0]);
@@ -4788,150 +4788,150 @@ public sealed class NGC : MonoBehaviour
 			P11 p12 = stream.Read<P11>(new object[0]);
 			if (d == null)
 			{
-				d = Delegate.CreateDelegate(typeof(NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoRoutine), instance, method, true);
+				d = Delegate.CreateDelegate(typeof(global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoRoutine), instance, method, true);
 			}
-			return ((NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info, stream);
+			return ((global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.StreamInfoRoutine)d)(p, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, info, stream);
 		}
 
-		// Token: 0x1700074D RID: 1869
-		// (get) Token: 0x06001A61 RID: 6753 RVA: 0x00068F34 File Offset: 0x00067134
-		public static NGC.IExecuter Exec
+		// Token: 0x170007A1 RID: 1953
+		// (get) Token: 0x06001D71 RID: 7537 RVA: 0x0006D8A8 File Offset: 0x0006BAA8
+		public static global::NGC.IExecuter Exec
 		{
 			get
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Executer.Singleton;
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Executer.Singleton;
 			}
 		}
 
-		// Token: 0x020002EC RID: 748
+		// Token: 0x02000389 RID: 905
 		public struct Block
 		{
-			// Token: 0x04000DD0 RID: 3536
+			// Token: 0x04000F0B RID: 3851
 			public P0 p0;
 
-			// Token: 0x04000DD1 RID: 3537
+			// Token: 0x04000F0C RID: 3852
 			public P1 p1;
 
-			// Token: 0x04000DD2 RID: 3538
+			// Token: 0x04000F0D RID: 3853
 			public P2 p2;
 
-			// Token: 0x04000DD3 RID: 3539
+			// Token: 0x04000F0E RID: 3854
 			public P3 p3;
 
-			// Token: 0x04000DD4 RID: 3540
+			// Token: 0x04000F0F RID: 3855
 			public P4 p4;
 
-			// Token: 0x04000DD5 RID: 3541
+			// Token: 0x04000F10 RID: 3856
 			public P5 p5;
 
-			// Token: 0x04000DD6 RID: 3542
+			// Token: 0x04000F11 RID: 3857
 			public P6 p6;
 
-			// Token: 0x04000DD7 RID: 3543
+			// Token: 0x04000F12 RID: 3858
 			public P7 p7;
 
-			// Token: 0x04000DD8 RID: 3544
+			// Token: 0x04000F13 RID: 3859
 			public P8 p8;
 
-			// Token: 0x04000DD9 RID: 3545
+			// Token: 0x04000F14 RID: 3860
 			public P9 p9;
 
-			// Token: 0x04000DDA RID: 3546
+			// Token: 0x04000F15 RID: 3861
 			public P10 p10;
 
-			// Token: 0x04000DDB RID: 3547
+			// Token: 0x04000F16 RID: 3862
 			public P11 p11;
 		}
 
-		// Token: 0x020002ED RID: 749
-		private sealed class Executer : NGC.IExecuter
+		// Token: 0x0200038A RID: 906
+		private sealed class Executer : global::NGC.IExecuter
 		{
-			// Token: 0x06001A64 RID: 6756 RVA: 0x00068F50 File Offset: 0x00067150
+			// Token: 0x06001D74 RID: 7540 RVA: 0x0006D8C4 File Offset: 0x0006BAC4
 			public void ExecuteCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A65 RID: 6757 RVA: 0x00068F5C File Offset: 0x0006715C
+			// Token: 0x06001D75 RID: 7541 RVA: 0x0006D8D0 File Offset: 0x0006BAD0
 			public IEnumerator ExecuteRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A66 RID: 6758 RVA: 0x00068F68 File Offset: 0x00067168
-			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D76 RID: 7542 RVA: 0x0006D8DC File Offset: 0x0006BADC
+			public void ExecuteInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A67 RID: 6759 RVA: 0x00068F78 File Offset: 0x00067178
-			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D77 RID: 7543 RVA: 0x0006D8EC File Offset: 0x0006BAEC
+			public IEnumerator ExecuteInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A68 RID: 6760 RVA: 0x00068F88 File Offset: 0x00067188
+			// Token: 0x06001D78 RID: 7544 RVA: 0x0006D8FC File Offset: 0x0006BAFC
 			public void ExecuteStreamCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamCall(stream, ref d, method, instance);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamCall(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A69 RID: 6761 RVA: 0x00068F94 File Offset: 0x00067194
+			// Token: 0x06001D79 RID: 7545 RVA: 0x0006D908 File Offset: 0x0006BB08
 			public IEnumerator ExecuteStreamRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamRoutine(stream, ref d, method, instance);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamRoutine(stream, ref d, method, instance);
 			}
 
-			// Token: 0x06001A6A RID: 6762 RVA: 0x00068FA0 File Offset: 0x000671A0
-			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D7A RID: 7546 RVA: 0x0006D914 File Offset: 0x0006BB14
+			public void ExecuteStreamInfoCall(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
+				global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamInfoCall(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x06001A6B RID: 6763 RVA: 0x00068FB0 File Offset: 0x000671B0
-			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, NetworkMessageInfo info)
+			// Token: 0x06001D7B RID: 7547 RVA: 0x0006D924 File Offset: 0x0006BB24
+			public IEnumerator ExecuteStreamInfoRoutine(BitStream stream, ref Delegate d, MethodInfo method, MonoBehaviour instance, uLink.NetworkMessageInfo info)
 			{
-				return NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
+				return global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.InvokeStreamInfoRoutine(stream, ref d, method, instance, info);
 			}
 
-			// Token: 0x04000DDC RID: 3548
-			public static readonly NGC.IExecuter Singleton = new NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Executer();
+			// Token: 0x04000F17 RID: 3863
+			public static readonly global::NGC.IExecuter Singleton = new global::NGC.callf<P0, P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11>.Executer();
 		}
 
-		// Token: 0x020008CC RID: 2252
-		// (Invoke) Token: 0x06004D08 RID: 19720
+		// Token: 0x0200038B RID: 907
+		// (Invoke) Token: 0x06001D7D RID: 7549
 		public delegate void Call(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11);
 
-		// Token: 0x020008CD RID: 2253
-		// (Invoke) Token: 0x06004D0C RID: 19724
+		// Token: 0x0200038C RID: 908
+		// (Invoke) Token: 0x06001D81 RID: 7553
 		public delegate IEnumerator Routine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11);
 
-		// Token: 0x020008CE RID: 2254
-		// (Invoke) Token: 0x06004D10 RID: 19728
-		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, NetworkMessageInfo info);
+		// Token: 0x0200038D RID: 909
+		// (Invoke) Token: 0x06001D85 RID: 7557
+		public delegate void InfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008CF RID: 2255
-		// (Invoke) Token: 0x06004D14 RID: 19732
-		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, NetworkMessageInfo info);
+		// Token: 0x0200038E RID: 910
+		// (Invoke) Token: 0x06001D89 RID: 7561
+		public delegate IEnumerator InfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, uLink.NetworkMessageInfo info);
 
-		// Token: 0x020008D0 RID: 2256
-		// (Invoke) Token: 0x06004D18 RID: 19736
+		// Token: 0x0200038F RID: 911
+		// (Invoke) Token: 0x06001D8D RID: 7565
 		public delegate void StreamCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, BitStream stream);
 
-		// Token: 0x020008D1 RID: 2257
-		// (Invoke) Token: 0x06004D1C RID: 19740
+		// Token: 0x02000390 RID: 912
+		// (Invoke) Token: 0x06001D91 RID: 7569
 		public delegate IEnumerator StreamRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, BitStream stream);
 
-		// Token: 0x020008D2 RID: 2258
-		// (Invoke) Token: 0x06004D20 RID: 19744
-		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000391 RID: 913
+		// (Invoke) Token: 0x06001D95 RID: 7573
+		public delegate void StreamInfoCall(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, uLink.NetworkMessageInfo info, BitStream stream);
 
-		// Token: 0x020008D3 RID: 2259
-		// (Invoke) Token: 0x06004D24 RID: 19748
-		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, NetworkMessageInfo info, BitStream stream);
+		// Token: 0x02000392 RID: 914
+		// (Invoke) Token: 0x06001D99 RID: 7577
+		public delegate IEnumerator StreamInfoRoutine(P0 p0, P1 p1, P2 p2, P3 p3, P4 p4, P5 p5, P6 p6, P7 p7, P8 p8, P9 p9, P10 p10, P11 p11, uLink.NetworkMessageInfo info, BitStream stream);
 	}
 
-	// Token: 0x020008D4 RID: 2260
-	// (Invoke) Token: 0x06004D28 RID: 19752
-	public delegate void EventCallback(NGCView view);
+	// Token: 0x02000393 RID: 915
+	// (Invoke) Token: 0x06001D9D RID: 7581
+	public delegate void EventCallback(global::NGCView view);
 }

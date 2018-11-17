@@ -3,34 +3,34 @@ using Facepunch;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020005A5 RID: 1445
-public class InventoryHolder : IDLocalCharacter
+// Token: 0x02000663 RID: 1635
+public class InventoryHolder : global::IDLocalCharacter
 {
-	// Token: 0x17000A4E RID: 2638
-	// (get) Token: 0x0600346E RID: 13422 RVA: 0x000BF68C File Offset: 0x000BD88C
-	public Inventory inventory
+	// Token: 0x17000AC4 RID: 2756
+	// (get) Token: 0x06003836 RID: 14390 RVA: 0x000C78E8 File Offset: 0x000C5AE8
+	public global::Inventory inventory
 	{
 		get
 		{
 			if (!this._inventory.cached)
 			{
-				this._inventory = base.GetLocal<Inventory>();
+				this._inventory = base.GetLocal<global::Inventory>();
 			}
 			return this._inventory.value;
 		}
 	}
 
-	// Token: 0x17000A4F RID: 2639
-	// (get) Token: 0x0600346F RID: 13423 RVA: 0x000BF6C8 File Offset: 0x000BD8C8
-	public IInventoryItem inputItem
+	// Token: 0x17000AC5 RID: 2757
+	// (get) Token: 0x06003837 RID: 14391 RVA: 0x000C7924 File Offset: 0x000C5B24
+	public global::IInventoryItem inputItem
 	{
 		get
 		{
-			Inventory inventory = this.inventory;
-			IInventoryItem result;
+			global::Inventory inventory = this.inventory;
+			global::IInventoryItem result;
 			if (inventory)
 			{
-				IInventoryItem activeItem = inventory.activeItem;
+				global::IInventoryItem activeItem = inventory.activeItem;
 				result = activeItem;
 			}
 			else
@@ -41,9 +41,9 @@ public class InventoryHolder : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x17000A50 RID: 2640
-	// (get) Token: 0x06003470 RID: 13424 RVA: 0x000BF6F8 File Offset: 0x000BD8F8
-	public ItemModFlags modFlags
+	// Token: 0x17000AC6 RID: 2758
+	// (get) Token: 0x06003838 RID: 14392 RVA: 0x000C7954 File Offset: 0x000C5B54
+	public global::ItemModFlags modFlags
 	{
 		get
 		{
@@ -51,17 +51,17 @@ public class InventoryHolder : IDLocalCharacter
 			{
 				return this.itemRep.modFlags;
 			}
-			IHeldItem heldItem = this.inputItem as IHeldItem;
+			global::IHeldItem heldItem = this.inputItem as global::IHeldItem;
 			if (!object.ReferenceEquals(heldItem, null))
 			{
 				return heldItem.modFlags;
 			}
-			return ItemModFlags.Other;
+			return global::ItemModFlags.Other;
 		}
 	}
 
-	// Token: 0x17000A51 RID: 2641
-	// (get) Token: 0x06003471 RID: 13425 RVA: 0x000BF74C File Offset: 0x000BD94C
+	// Token: 0x17000AC7 RID: 2759
+	// (get) Token: 0x06003839 RID: 14393 RVA: 0x000C79A8 File Offset: 0x000C5BA8
 	public bool hasItemRepresentation
 	{
 		get
@@ -70,9 +70,9 @@ public class InventoryHolder : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x17000A52 RID: 2642
-	// (get) Token: 0x06003472 RID: 13426 RVA: 0x000BF754 File Offset: 0x000BD954
-	public ItemRepresentation itemRepresentation
+	// Token: 0x17000AC8 RID: 2760
+	// (get) Token: 0x0600383A RID: 14394 RVA: 0x000C79B0 File Offset: 0x000C5BB0
+	public global::ItemRepresentation itemRepresentation
 	{
 		get
 		{
@@ -80,8 +80,8 @@ public class InventoryHolder : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x17000A53 RID: 2643
-	// (get) Token: 0x06003473 RID: 13427 RVA: 0x000BF75C File Offset: 0x000BD95C
+	// Token: 0x17000AC9 RID: 2761
+	// (get) Token: 0x0600383B RID: 14395 RVA: 0x000C79B8 File Offset: 0x000C5BB8
 	public string animationGroupName
 	{
 		get
@@ -90,8 +90,8 @@ public class InventoryHolder : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06003474 RID: 13428 RVA: 0x000BF764 File Offset: 0x000BD964
-	private void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x0600383C RID: 14396 RVA: 0x000C79C0 File Offset: 0x000C5BC0
+	private void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		if (info.networkView.isMine)
 		{
@@ -99,8 +99,8 @@ public class InventoryHolder : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06003475 RID: 13429 RVA: 0x000BF784 File Offset: 0x000BD984
-	internal void SetItemRepresentation(ItemRepresentation value)
+	// Token: 0x0600383D RID: 14397 RVA: 0x000C79E0 File Offset: 0x000C5BE0
+	internal void SetItemRepresentation(global::ItemRepresentation value)
 	{
 		if (this.itemRep != value)
 		{
@@ -121,8 +121,8 @@ public class InventoryHolder : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06003476 RID: 13430 RVA: 0x000BF808 File Offset: 0x000BDA08
-	internal void ClearItemRepresentation(ItemRepresentation value)
+	// Token: 0x0600383E RID: 14398 RVA: 0x000C7A64 File Offset: 0x000C5C64
+	internal void ClearItemRepresentation(global::ItemRepresentation value)
 	{
 		if (this.hasItem && this.itemRep == value)
 		{
@@ -132,10 +132,10 @@ public class InventoryHolder : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x06003477 RID: 13431 RVA: 0x000BF83C File Offset: 0x000BDA3C
+	// Token: 0x0600383F RID: 14399 RVA: 0x000C7A98 File Offset: 0x000C5C98
 	private bool ValidateAntiBeltSpam(ulong timestamp)
 	{
-		ulong timeInMillis = NetCull.timeInMillis;
+		ulong timeInMillis = global::NetCull.timeInMillis;
 		if (timeInMillis + 800UL >= this.lastItemUseTime)
 		{
 			this.lastItemUseTime = timeInMillis;
@@ -144,39 +144,39 @@ public class InventoryHolder : IDLocalCharacter
 		return false;
 	}
 
-	// Token: 0x06003478 RID: 13432 RVA: 0x000BF86C File Offset: 0x000BDA6C
-	private bool GetPlayerInventory(out PlayerInventory inventory)
+	// Token: 0x06003840 RID: 14400 RVA: 0x000C7AC8 File Offset: 0x000C5CC8
+	private bool GetPlayerInventory(out global::PlayerInventory inventory)
 	{
-		inventory = (this.inventory as PlayerInventory);
+		inventory = (this.inventory as global::PlayerInventory);
 		if (!inventory)
 		{
 			inventory = null;
 			return false;
 		}
-		inventory = (PlayerInventory)this.inventory;
+		inventory = (global::PlayerInventory)this.inventory;
 		return inventory;
 	}
 
-	// Token: 0x06003479 RID: 13433 RVA: 0x000BF8AC File Offset: 0x000BDAAC
+	// Token: 0x06003841 RID: 14401 RVA: 0x000C7B08 File Offset: 0x000C5D08
 	public void InventoryModified()
 	{
 		if (base.localControlled)
 		{
-			RPOS.LocalInventoryModified();
+			global::RPOS.LocalInventoryModified();
 		}
 	}
 
-	// Token: 0x0600347A RID: 13434 RVA: 0x000BF8C0 File Offset: 0x000BDAC0
+	// Token: 0x06003842 RID: 14402 RVA: 0x000C7B1C File Offset: 0x000C5D1C
 	public bool BeltUse(int beltNum)
 	{
 		if (base.dead)
 		{
 			return false;
 		}
-		PlayerInventory playerInventory;
-		IInventoryItem inventoryItem;
-		IHeldItem heldItem;
-		if (this.GetPlayerInventory(out playerInventory) && playerInventory.GetItem(30 + beltNum, out inventoryItem) && (!(inventoryItem is IHeldItem) || ((!(heldItem = (IHeldItem)inventoryItem).active) ? heldItem.canActivate : heldItem.canDeactivate)) && this.ValidateAntiBeltSpam(NetCull.timeInMillis))
+		global::PlayerInventory playerInventory;
+		global::IInventoryItem inventoryItem;
+		global::IHeldItem heldItem;
+		if (this.GetPlayerInventory(out playerInventory) && playerInventory.GetItem(30 + beltNum, out inventoryItem) && (!(inventoryItem is global::IHeldItem) || ((!(heldItem = (global::IHeldItem)inventoryItem).active) ? heldItem.canActivate : heldItem.canDeactivate)) && this.ValidateAntiBeltSpam(global::NetCull.timeInMillis))
 		{
 			base.networkView.RPC<int>("DoBeltUse", 0, beltNum);
 			return true;
@@ -184,42 +184,42 @@ public class InventoryHolder : IDLocalCharacter
 		return false;
 	}
 
-	// Token: 0x0600347B RID: 13435 RVA: 0x000BF950 File Offset: 0x000BDB50
-	[NGCRPCSkip]
+	// Token: 0x06003843 RID: 14403 RVA: 0x000C7BAC File Offset: 0x000C5DAC
 	[RPC]
-	protected void TOSS(BitStream stream, NetworkMessageInfo info)
+	[global::NGCRPCSkip]
+	protected void TOSS(BitStream stream, uLink.NetworkMessageInfo info)
 	{
 	}
 
-	// Token: 0x0600347C RID: 13436 RVA: 0x000BF954 File Offset: 0x000BDB54
+	// Token: 0x06003844 RID: 14404 RVA: 0x000C7BB0 File Offset: 0x000C5DB0
 	public bool TossItem(int slot)
 	{
-		NetworkView networkView = base.networkView;
+		Facepunch.NetworkView networkView = base.networkView;
 		if (!networkView || !networkView.isMine)
 		{
 			return false;
 		}
-		Inventory inventory = this.inventory;
-		IInventoryItem inventoryItem;
+		global::Inventory inventory = this.inventory;
+		global::IInventoryItem inventoryItem;
 		if (!inventory || !inventory.GetItem(slot, out inventoryItem))
 		{
 			return false;
 		}
-		NetCull.RPC<byte>(this, "TOSS", 0, Inventory.RPCInteger(slot));
+		global::NetCull.RPC<byte>(this, "TOSS", 0, global::Inventory.RPCInteger(slot));
 		inventory.NULL_SLOT_FIX_ME(slot);
 		return true;
 	}
 
-	// Token: 0x0600347D RID: 13437 RVA: 0x000BF9C0 File Offset: 0x000BDBC0
+	// Token: 0x06003845 RID: 14405 RVA: 0x000C7C1C File Offset: 0x000C5E1C
 	[RPC]
 	protected void DoBeltUse(int beltNum)
 	{
 	}
 
-	// Token: 0x0600347E RID: 13438 RVA: 0x000BF9C4 File Offset: 0x000BDBC4
-	public object InvokeInputItemPreFrame(ref HumanController.InputSample sample)
+	// Token: 0x06003846 RID: 14406 RVA: 0x000C7C20 File Offset: 0x000C5E20
+	public object InvokeInputItemPreFrame(ref global::HumanController.InputSample sample)
 	{
-		IHeldItem heldItem = this.inputItem as IHeldItem;
+		global::IHeldItem heldItem = this.inputItem as global::IHeldItem;
 		if (heldItem != null)
 		{
 			heldItem.ItemPreFrame(ref sample);
@@ -227,50 +227,50 @@ public class InventoryHolder : IDLocalCharacter
 		return heldItem;
 	}
 
-	// Token: 0x0600347F RID: 13439 RVA: 0x000BF9EC File Offset: 0x000BDBEC
-	public void InvokeInputItemPostFrame(object item, ref HumanController.InputSample sample)
+	// Token: 0x06003847 RID: 14407 RVA: 0x000C7C48 File Offset: 0x000C5E48
+	public void InvokeInputItemPostFrame(object item, ref global::HumanController.InputSample sample)
 	{
-		IHeldItem heldItem = item as IHeldItem;
+		global::IHeldItem heldItem = item as global::IHeldItem;
 		if (heldItem != null)
 		{
 			heldItem.ItemPostFrame(ref sample);
 		}
 	}
 
-	// Token: 0x06003480 RID: 13440 RVA: 0x000BFA10 File Offset: 0x000BDC10
+	// Token: 0x06003848 RID: 14408 RVA: 0x000C7C6C File Offset: 0x000C5E6C
 	public void InvokeInputItemPreRender()
 	{
-		IHeldItem heldItem = this.inputItem as IHeldItem;
+		global::IHeldItem heldItem = this.inputItem as global::IHeldItem;
 		if (heldItem != null)
 		{
 			heldItem.PreCameraRender();
 		}
 	}
 
-	// Token: 0x04001A25 RID: 6693
+	// Token: 0x04001BF6 RID: 7158
 	private const string TossItem_RPC = "TOSS";
 
-	// Token: 0x04001A26 RID: 6694
+	// Token: 0x04001BF7 RID: 7159
 	[NonSerialized]
-	private CacheRef<Inventory> _inventory;
+	private global::CacheRef<global::Inventory> _inventory;
 
-	// Token: 0x04001A27 RID: 6695
+	// Token: 0x04001BF8 RID: 7160
 	[NonSerialized]
-	private ItemRepresentation itemRep;
+	private global::ItemRepresentation itemRep;
 
-	// Token: 0x04001A28 RID: 6696
+	// Token: 0x04001BF9 RID: 7161
 	[NonSerialized]
 	private string _animationGroupNameCached;
 
-	// Token: 0x04001A29 RID: 6697
+	// Token: 0x04001BFA RID: 7162
 	[NonSerialized]
 	private ulong lastItemUseTime;
 
-	// Token: 0x04001A2A RID: 6698
+	// Token: 0x04001BFB RID: 7163
 	[NonSerialized]
 	private bool hasItem;
 
-	// Token: 0x04001A2B RID: 6699
+	// Token: 0x04001BFC RID: 7164
 	[NonSerialized]
 	private bool isPlayerInventory;
 }

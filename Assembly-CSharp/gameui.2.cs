@@ -1,19 +1,19 @@
 ﻿using System;
 
-// Token: 0x020003FE RID: 1022
-public class gameui : ConsoleSystem
+// Token: 0x020004AF RID: 1199
+public class gameui : global::ConsoleSystem
 {
-	// Token: 0x06002593 RID: 9619 RVA: 0x000906B8 File Offset: 0x0008E8B8
-	[ConsoleSystem.Client]
-	public static void hide(ref ConsoleSystem.Arg arg)
+	// Token: 0x0600290B RID: 10507 RVA: 0x000964F0 File Offset: 0x000946F0
+	[global::ConsoleSystem.Client]
+	public static void hide(ref global::ConsoleSystem.Arg arg)
 	{
-		MainMenu.singleton.Hide();
+		global::MainMenu.singleton.Hide();
 	}
 
-	// Token: 0x06002594 RID: 9620 RVA: 0x000906C4 File Offset: 0x0008E8C4
-	[ConsoleSystem.Client]
-	public static void show(ref ConsoleSystem.Arg arg)
+	// Token: 0x0600290C RID: 10508 RVA: 0x000964FC File Offset: 0x000946FC
+	[global::ConsoleSystem.Client]
+	public static void show(ref global::ConsoleSystem.Arg arg)
 	{
-		MainMenu.singleton.Show();
+		global::MainMenu.singleton.Show();
 	}
 }

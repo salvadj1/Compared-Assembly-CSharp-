@@ -2,78 +2,78 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// Token: 0x02000168 RID: 360
+// Token: 0x02000194 RID: 404
 public static class EmptyArray<T>
 {
-	// Token: 0x17000307 RID: 775
-	// (get) Token: 0x06000B0B RID: 2827 RVA: 0x0002B940 File Offset: 0x00029B40
+	// Token: 0x1700034B RID: 843
+	// (get) Token: 0x06000C3B RID: 3131 RVA: 0x0002F82C File Offset: 0x0002DA2C
 	public static object defaultBoxedValue
 	{
 		get
 		{
-			return (!EmptyArray<T>.isByRef) ? EmptyArray<T>.DefaultBoxedValue.value : null;
+			return (!global::EmptyArray<T>.isByRef) ? global::EmptyArray<T>.DefaultBoxedValue.value : null;
 		}
 	}
 
-	// Token: 0x17000308 RID: 776
-	// (get) Token: 0x06000B0C RID: 2828 RVA: 0x0002B958 File Offset: 0x00029B58
+	// Token: 0x1700034C RID: 844
+	// (get) Token: 0x06000C3C RID: 3132 RVA: 0x0002F844 File Offset: 0x0002DA44
 	public static IEnumerator<T> emptyEnumerator
 	{
 		get
 		{
-			return EmptyArray<T>.EmptyEnumerator.singleton;
+			return global::EmptyArray<T>.EmptyEnumerator.singleton;
 		}
 	}
 
-	// Token: 0x17000309 RID: 777
-	// (get) Token: 0x06000B0D RID: 2829 RVA: 0x0002B960 File Offset: 0x00029B60
+	// Token: 0x1700034D RID: 845
+	// (get) Token: 0x06000C3D RID: 3133 RVA: 0x0002F84C File Offset: 0x0002DA4C
 	public static IEnumerable<T> emptyEnumerable
 	{
 		get
 		{
-			return EmptyArray<T>.EmptyEnumerable.singleton;
+			return global::EmptyArray<T>.EmptyEnumerable.singleton;
 		}
 	}
 
-	// Token: 0x040006F9 RID: 1785
+	// Token: 0x0400080D RID: 2061
 	public static readonly T[] array = new T[0];
 
-	// Token: 0x040006FA RID: 1786
+	// Token: 0x0400080E RID: 2062
 	public static readonly bool isByRef = typeof(T).IsByRef;
 
-	// Token: 0x02000169 RID: 361
+	// Token: 0x02000195 RID: 405
 	private static class DefaultBoxedValue
 	{
-		// Token: 0x040006FB RID: 1787
+		// Token: 0x0400080F RID: 2063
 		public static object value = default(T);
 	}
 
-	// Token: 0x0200016A RID: 362
+	// Token: 0x02000196 RID: 406
 	private class EmptyEnumerator : IDisposable, IEnumerator, IEnumerator<T>
 	{
-		// Token: 0x06000B0F RID: 2831 RVA: 0x0002B988 File Offset: 0x00029B88
+		// Token: 0x06000C3F RID: 3135 RVA: 0x0002F874 File Offset: 0x0002DA74
 		private EmptyEnumerator()
 		{
 		}
 
-		// Token: 0x1700030A RID: 778
-		// (get) Token: 0x06000B11 RID: 2833 RVA: 0x0002B99C File Offset: 0x00029B9C
+		// Token: 0x1700034E RID: 846
+		// (get) Token: 0x06000C41 RID: 3137 RVA: 0x0002F888 File Offset: 0x0002DA88
 		object IEnumerator.Current
 		{
 			get
 			{
-				return EmptyArray<T>.defaultBoxedValue;
+				return global::EmptyArray<T>.defaultBoxedValue;
 			}
 		}
 
-		// Token: 0x06000B12 RID: 2834 RVA: 0x0002B9A4 File Offset: 0x00029BA4
+		// Token: 0x06000C42 RID: 3138 RVA: 0x0002F890 File Offset: 0x0002DA90
 		public bool MoveNext()
 		{
 			return false;
 		}
 
-		// Token: 0x1700030B RID: 779
-		// (get) Token: 0x06000B13 RID: 2835 RVA: 0x0002B9A8 File Offset: 0x00029BA8
+		// Token: 0x1700034F RID: 847
+		// (get) Token: 0x06000C43 RID: 3139 RVA: 0x0002F894 File Offset: 0x0002DA94
 		public T Current
 		{
 			get
@@ -82,36 +82,36 @@ public static class EmptyArray<T>
 			}
 		}
 
-		// Token: 0x06000B14 RID: 2836 RVA: 0x0002B9C0 File Offset: 0x00029BC0
+		// Token: 0x06000C44 RID: 3140 RVA: 0x0002F8AC File Offset: 0x0002DAAC
 		public void Reset()
 		{
 		}
 
-		// Token: 0x06000B15 RID: 2837 RVA: 0x0002B9C4 File Offset: 0x00029BC4
+		// Token: 0x06000C45 RID: 3141 RVA: 0x0002F8B0 File Offset: 0x0002DAB0
 		public void Dispose()
 		{
 		}
 
-		// Token: 0x040006FC RID: 1788
-		public static IEnumerator<T> singleton = new EmptyArray<T>.EmptyEnumerator();
+		// Token: 0x04000810 RID: 2064
+		public static IEnumerator<T> singleton = new global::EmptyArray<T>.EmptyEnumerator();
 	}
 
-	// Token: 0x0200016B RID: 363
+	// Token: 0x02000197 RID: 407
 	private class EmptyEnumerable : IEnumerable, IEnumerable<T>
 	{
-		// Token: 0x06000B18 RID: 2840 RVA: 0x0002B9DC File Offset: 0x00029BDC
+		// Token: 0x06000C48 RID: 3144 RVA: 0x0002F8C8 File Offset: 0x0002DAC8
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return EmptyArray<T>.EmptyEnumerator.singleton;
+			return global::EmptyArray<T>.EmptyEnumerator.singleton;
 		}
 
-		// Token: 0x06000B19 RID: 2841 RVA: 0x0002B9E4 File Offset: 0x00029BE4
+		// Token: 0x06000C49 RID: 3145 RVA: 0x0002F8D0 File Offset: 0x0002DAD0
 		public IEnumerator<T> GetEnumerator()
 		{
-			return EmptyArray<T>.EmptyEnumerator.singleton;
+			return global::EmptyArray<T>.EmptyEnumerator.singleton;
 		}
 
-		// Token: 0x040006FD RID: 1789
-		public static IEnumerable<T> singleton = new EmptyArray<T>.EmptyEnumerable();
+		// Token: 0x04000811 RID: 2065
+		public static IEnumerable<T> singleton = new global::EmptyArray<T>.EmptyEnumerable();
 	}
 }

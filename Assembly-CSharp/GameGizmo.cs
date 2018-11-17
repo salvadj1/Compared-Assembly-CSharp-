@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020004AE RID: 1198
+// Token: 0x02000569 RID: 1385
 public class GameGizmo : ScriptableObject
 {
-	// Token: 0x1700095D RID: 2397
-	// (get) Token: 0x06002A0F RID: 10767 RVA: 0x000A4C8C File Offset: 0x000A2E8C
+	// Token: 0x170009CD RID: 2509
+	// (get) Token: 0x06002DC1 RID: 11713 RVA: 0x000ACA24 File Offset: 0x000AAC24
 	public float minAlpha
 	{
 		get
@@ -15,8 +15,8 @@ public class GameGizmo : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700095E RID: 2398
-	// (get) Token: 0x06002A10 RID: 10768 RVA: 0x000A4C94 File Offset: 0x000A2E94
+	// Token: 0x170009CE RID: 2510
+	// (get) Token: 0x06002DC2 RID: 11714 RVA: 0x000ACA2C File Offset: 0x000AAC2C
 	public float maxAlpha
 	{
 		get
@@ -25,8 +25,8 @@ public class GameGizmo : ScriptableObject
 		}
 	}
 
-	// Token: 0x1700095F RID: 2399
-	// (get) Token: 0x06002A11 RID: 10769 RVA: 0x000A4C9C File Offset: 0x000A2E9C
+	// Token: 0x170009CF RID: 2511
+	// (get) Token: 0x06002DC3 RID: 11715 RVA: 0x000ACA34 File Offset: 0x000AAC34
 	public Color goodColor
 	{
 		get
@@ -35,8 +35,8 @@ public class GameGizmo : ScriptableObject
 		}
 	}
 
-	// Token: 0x17000960 RID: 2400
-	// (get) Token: 0x06002A12 RID: 10770 RVA: 0x000A4CA4 File Offset: 0x000A2EA4
+	// Token: 0x170009D0 RID: 2512
+	// (get) Token: 0x06002DC4 RID: 11716 RVA: 0x000ACA3C File Offset: 0x000AAC3C
 	public Color badColor
 	{
 		get
@@ -45,14 +45,14 @@ public class GameGizmo : ScriptableObject
 		}
 	}
 
-	// Token: 0x06002A13 RID: 10771 RVA: 0x000A4CAC File Offset: 0x000A2EAC
-	protected virtual GameGizmo.Instance ConstructInstance()
+	// Token: 0x06002DC5 RID: 11717 RVA: 0x000ACA44 File Offset: 0x000AAC44
+	protected virtual global::GameGizmo.Instance ConstructInstance()
 	{
-		return new GameGizmo.Instance(this);
+		return new global::GameGizmo.Instance(this);
 	}
 
-	// Token: 0x06002A14 RID: 10772 RVA: 0x000A4CB4 File Offset: 0x000A2EB4
-	private bool CreateInstance(out GameGizmo.Instance instance, Type type)
+	// Token: 0x06002DC6 RID: 11718 RVA: 0x000ACA4C File Offset: 0x000AAC4C
+	private bool CreateInstance(out global::GameGizmo.Instance instance, Type type)
 	{
 		try
 		{
@@ -63,7 +63,7 @@ public class GameGizmo : ScriptableObject
 			}
 			if (this._instances == null)
 			{
-				this._instances = new HashSet<GameGizmo.Instance>();
+				this._instances = new HashSet<global::GameGizmo.Instance>();
 			}
 			this._instances.Add(instance);
 			if (!type.IsAssignableFrom(instance.GetType()))
@@ -81,10 +81,10 @@ public class GameGizmo : ScriptableObject
 		return true;
 	}
 
-	// Token: 0x06002A15 RID: 10773 RVA: 0x000A4D60 File Offset: 0x000A2F60
-	public bool Create<TInstance>(out TInstance instance) where TInstance : GameGizmo.Instance
+	// Token: 0x06002DC7 RID: 11719 RVA: 0x000ACAF8 File Offset: 0x000AACF8
+	public bool Create<TInstance>(out TInstance instance) where TInstance : global::GameGizmo.Instance
 	{
-		GameGizmo.Instance instance2;
+		global::GameGizmo.Instance instance2;
 		if (this.CreateInstance(out instance2, typeof(TInstance)))
 		{
 			instance = (TInstance)((object)instance2);
@@ -94,13 +94,13 @@ public class GameGizmo : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x06002A16 RID: 10774 RVA: 0x000A4DA0 File Offset: 0x000A2FA0
-	protected virtual void DeconstructInstance(GameGizmo.Instance instance)
+	// Token: 0x06002DC8 RID: 11720 RVA: 0x000ACB38 File Offset: 0x000AAD38
+	protected virtual void DeconstructInstance(global::GameGizmo.Instance instance)
 	{
 	}
 
-	// Token: 0x06002A17 RID: 10775 RVA: 0x000A4DA4 File Offset: 0x000A2FA4
-	private bool DestroyInstance(GameGizmo.Instance instance)
+	// Token: 0x06002DC9 RID: 11721 RVA: 0x000ACB3C File Offset: 0x000AAD3C
+	private bool DestroyInstance(global::GameGizmo.Instance instance)
 	{
 		if (!object.ReferenceEquals(instance, null) && this._instances != null && this._instances.Remove(instance))
 		{
@@ -118,8 +118,8 @@ public class GameGizmo : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x06002A18 RID: 10776 RVA: 0x000A4E18 File Offset: 0x000A3018
-	public bool Destroy<TInstance>(ref TInstance instance) where TInstance : GameGizmo.Instance
+	// Token: 0x06002DCA RID: 11722 RVA: 0x000ACBB0 File Offset: 0x000AADB0
+	public bool Destroy<TInstance>(ref TInstance instance) where TInstance : global::GameGizmo.Instance
 	{
 		if (this.DestroyInstance(instance))
 		{
@@ -129,54 +129,54 @@ public class GameGizmo : ScriptableObject
 		return false;
 	}
 
-	// Token: 0x04001600 RID: 5632
+	// Token: 0x040017BD RID: 6077
 	[SerializeField]
 	private Mesh _mesh;
 
-	// Token: 0x04001601 RID: 5633
+	// Token: 0x040017BE RID: 6078
 	[SerializeField]
 	private Material[] _materials;
 
-	// Token: 0x04001602 RID: 5634
+	// Token: 0x040017BF RID: 6079
 	[SerializeField]
 	private bool _castShadows;
 
-	// Token: 0x04001603 RID: 5635
+	// Token: 0x040017C0 RID: 6080
 	[SerializeField]
 	private bool _receiveShadows;
 
-	// Token: 0x04001604 RID: 5636
+	// Token: 0x040017C1 RID: 6081
 	[SerializeField]
 	private int _layer;
 
-	// Token: 0x04001605 RID: 5637
+	// Token: 0x040017C2 RID: 6082
 	[SerializeField]
 	private Color _good = Color.green;
 
-	// Token: 0x04001606 RID: 5638
+	// Token: 0x040017C3 RID: 6083
 	[SerializeField]
 	private Color _bad = Color.red;
 
-	// Token: 0x04001607 RID: 5639
+	// Token: 0x040017C4 RID: 6084
 	[SerializeField]
 	private float _minAlpha = 0.9f;
 
-	// Token: 0x04001608 RID: 5640
+	// Token: 0x040017C5 RID: 6085
 	[SerializeField]
 	private float _maxAlpha = 1f;
 
-	// Token: 0x04001609 RID: 5641
+	// Token: 0x040017C6 RID: 6086
 	[SerializeField]
 	private Vector3 alternateArrowDirection;
 
-	// Token: 0x0400160A RID: 5642
-	private HashSet<GameGizmo.Instance> _instances;
+	// Token: 0x040017C7 RID: 6087
+	private HashSet<global::GameGizmo.Instance> _instances;
 
-	// Token: 0x020004AF RID: 1199
+	// Token: 0x0200056A RID: 1386
 	public class Instance
 	{
-		// Token: 0x06002A19 RID: 10777 RVA: 0x000A4E40 File Offset: 0x000A3040
-		protected internal Instance(GameGizmo gizmo)
+		// Token: 0x06002DCB RID: 11723 RVA: 0x000ACBD8 File Offset: 0x000AADD8
+		protected internal Instance(global::GameGizmo gizmo)
 		{
 			this.localPosition = Vector3.zero;
 			this.localRotation = Quaternion.identity;
@@ -185,8 +185,8 @@ public class GameGizmo : ScriptableObject
 			this.propertyBlock = new MaterialPropertyBlock();
 		}
 
-		// Token: 0x17000961 RID: 2401
-		// (get) Token: 0x06002A1A RID: 10778 RVA: 0x000A4E94 File Offset: 0x000A3094
+		// Token: 0x170009D1 RID: 2513
+		// (get) Token: 0x06002DCC RID: 11724 RVA: 0x000ACC2C File Offset: 0x000AAE2C
 		protected int layer
 		{
 			get
@@ -195,8 +195,8 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000962 RID: 2402
-		// (get) Token: 0x06002A1B RID: 10779 RVA: 0x000A4EA4 File Offset: 0x000A30A4
+		// Token: 0x170009D2 RID: 2514
+		// (get) Token: 0x06002DCD RID: 11725 RVA: 0x000ACC3C File Offset: 0x000AAE3C
 		protected bool castShadows
 		{
 			get
@@ -205,8 +205,8 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000963 RID: 2403
-		// (get) Token: 0x06002A1C RID: 10780 RVA: 0x000A4EB4 File Offset: 0x000A30B4
+		// Token: 0x170009D3 RID: 2515
+		// (get) Token: 0x06002DCE RID: 11726 RVA: 0x000ACC4C File Offset: 0x000AAE4C
 		protected bool receiveShadows
 		{
 			get
@@ -215,7 +215,7 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x06002A1D RID: 10781 RVA: 0x000A4EC4 File Offset: 0x000A30C4
+		// Token: 0x06002DCF RID: 11727 RVA: 0x000ACC5C File Offset: 0x000AAE5C
 		public void AddResourceToDelete(Object resource)
 		{
 			if (resource)
@@ -229,7 +229,7 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x06002A1E RID: 10782 RVA: 0x000A4F00 File Offset: 0x000A3100
+		// Token: 0x06002DD0 RID: 11728 RVA: 0x000ACC98 File Offset: 0x000AAE98
 		internal void ClearResources()
 		{
 			List<Object> list = this.resources;
@@ -243,9 +243,9 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000964 RID: 2404
-		// (get) Token: 0x06002A1F RID: 10783 RVA: 0x000A4F74 File Offset: 0x000A3174
-		// (set) Token: 0x06002A20 RID: 10784 RVA: 0x000A4FB0 File Offset: 0x000A31B0
+		// Token: 0x170009D4 RID: 2516
+		// (get) Token: 0x06002DD1 RID: 11729 RVA: 0x000ACD0C File Offset: 0x000AAF0C
+		// (set) Token: 0x06002DD2 RID: 11730 RVA: 0x000ACD48 File Offset: 0x000AAF48
 		public Vector3 position
 		{
 			get
@@ -265,9 +265,9 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000965 RID: 2405
-		// (get) Token: 0x06002A21 RID: 10785 RVA: 0x000A4FEC File Offset: 0x000A31EC
-		// (set) Token: 0x06002A22 RID: 10786 RVA: 0x000A5020 File Offset: 0x000A3220
+		// Token: 0x170009D5 RID: 2517
+		// (get) Token: 0x06002DD3 RID: 11731 RVA: 0x000ACD84 File Offset: 0x000AAF84
+		// (set) Token: 0x06002DD4 RID: 11732 RVA: 0x000ACDB8 File Offset: 0x000AAFB8
 		public Quaternion rotation
 		{
 			get
@@ -287,9 +287,9 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x17000966 RID: 2406
-		// (get) Token: 0x06002A23 RID: 10787 RVA: 0x000A5068 File Offset: 0x000A3268
-		// (set) Token: 0x06002A24 RID: 10788 RVA: 0x000A5070 File Offset: 0x000A3270
+		// Token: 0x170009D6 RID: 2518
+		// (get) Token: 0x06002DD5 RID: 11733 RVA: 0x000ACE00 File Offset: 0x000AB000
+		// (set) Token: 0x06002DD6 RID: 11734 RVA: 0x000ACE08 File Offset: 0x000AB008
 		public Transform parent
 		{
 			get
@@ -314,7 +314,7 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x06002A25 RID: 10789 RVA: 0x000A50DC File Offset: 0x000A32DC
+		// Token: 0x06002DD7 RID: 11735 RVA: 0x000ACE74 File Offset: 0x000AB074
 		protected Matrix4x4 DefaultMatrix()
 		{
 			Matrix4x4 matrix4x = Matrix4x4.TRS(this.localPosition, this.localRotation, this.localScale);
@@ -325,19 +325,19 @@ public class GameGizmo : ScriptableObject
 			return matrix4x;
 		}
 
-		// Token: 0x06002A26 RID: 10790 RVA: 0x000A5124 File Offset: 0x000A3324
+		// Token: 0x06002DD8 RID: 11736 RVA: 0x000ACEBC File Offset: 0x000AB0BC
 		public void Render()
 		{
 			this.Render(false, null);
 		}
 
-		// Token: 0x06002A27 RID: 10791 RVA: 0x000A5130 File Offset: 0x000A3330
+		// Token: 0x06002DD9 RID: 11737 RVA: 0x000ACEC8 File Offset: 0x000AB0C8
 		public void Render(Camera camera)
 		{
 			this.Render(camera, camera);
 		}
 
-		// Token: 0x06002A28 RID: 10792 RVA: 0x000A5140 File Offset: 0x000A3340
+		// Token: 0x06002DDA RID: 11738 RVA: 0x000ACED8 File Offset: 0x000AB0D8
 		protected virtual void Render(bool useCamera, Camera camera)
 		{
 			if (this.hideMesh)
@@ -377,44 +377,44 @@ public class GameGizmo : ScriptableObject
 			}
 		}
 
-		// Token: 0x0400160B RID: 5643
+		// Token: 0x040017C8 RID: 6088
 		[NonSerialized]
-		public readonly GameGizmo gameGizmo;
+		public readonly global::GameGizmo gameGizmo;
 
-		// Token: 0x0400160C RID: 5644
+		// Token: 0x040017C9 RID: 6089
 		[NonSerialized]
 		public readonly MaterialPropertyBlock propertyBlock;
 
-		// Token: 0x0400160D RID: 5645
+		// Token: 0x040017CA RID: 6090
 		[NonSerialized]
 		public Vector3 localPosition;
 
-		// Token: 0x0400160E RID: 5646
+		// Token: 0x040017CB RID: 6091
 		[NonSerialized]
 		public Quaternion localRotation;
 
-		// Token: 0x0400160F RID: 5647
+		// Token: 0x040017CC RID: 6092
 		[NonSerialized]
 		public Vector3 localScale;
 
-		// Token: 0x04001610 RID: 5648
+		// Token: 0x040017CD RID: 6093
 		[NonSerialized]
 		public Matrix4x4? overrideMatrix;
 
-		// Token: 0x04001611 RID: 5649
+		// Token: 0x040017CE RID: 6094
 		[NonSerialized]
 		public MeshRenderer carrierRenderer;
 
-		// Token: 0x04001612 RID: 5650
+		// Token: 0x040017CF RID: 6095
 		protected Matrix4x4? ultimateMatrix;
 
-		// Token: 0x04001613 RID: 5651
+		// Token: 0x040017D0 RID: 6096
 		protected bool hideMesh;
 
-		// Token: 0x04001614 RID: 5652
+		// Token: 0x040017D1 RID: 6097
 		private List<Object> resources = new List<Object>();
 
-		// Token: 0x04001615 RID: 5653
+		// Token: 0x040017D2 RID: 6098
 		private Transform _parent;
 	}
 }

@@ -1,39 +1,39 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000408 RID: 1032
+// Token: 0x020004BC RID: 1212
 public class ServerItem : MonoBehaviour
 {
-	// Token: 0x060025D6 RID: 9686 RVA: 0x00091D74 File Offset: 0x0008FF74
-	public void Init(ref ServerBrowser.Server s)
+	// Token: 0x0600295C RID: 10588 RVA: 0x00097C38 File Offset: 0x00095E38
+	public void Init(ref global::ServerBrowser.Server s)
 	{
 		this.server = s;
 		this.textLabel.Text = this.server.name;
 		this.textPlayers.Text = this.server.currentplayers.ToString() + " / " + this.server.maxplayers.ToString();
 		this.textPing.Text = this.server.ping.ToString();
-		dfScrollPanel component = base.transform.parent.GetComponent<dfScrollPanel>();
+		global::dfScrollPanel component = base.transform.parent.GetComponent<global::dfScrollPanel>();
 		if (component)
 		{
-			base.GetComponent<dfControl>().Width = component.Width;
-			base.GetComponent<dfControl>().ResetLayout(true, false);
+			base.GetComponent<global::dfControl>().Width = component.Width;
+			base.GetComponent<global::dfControl>().ResetLayout(true, false);
 		}
 		this.UpdateColours();
 	}
 
-	// Token: 0x060025D7 RID: 9687 RVA: 0x00091E30 File Offset: 0x00090030
+	// Token: 0x0600295D RID: 10589 RVA: 0x00097CF4 File Offset: 0x00095EF4
 	public void Connect()
 	{
 		Debug.Log("> net.connect " + this.server.address + ":" + this.server.port.ToString());
-		ConsoleSystem.Run("net.connect " + this.server.address + ":" + this.server.port.ToString(), false);
+		global::ConsoleSystem.Run("net.connect " + this.server.address + ":" + this.server.port.ToString(), false);
 	}
 
-	// Token: 0x060025D8 RID: 9688 RVA: 0x00091EA0 File Offset: 0x000900A0
+	// Token: 0x0600295E RID: 10590 RVA: 0x00097D64 File Offset: 0x00095F64
 	public void SelectThis()
 	{
 		this.selectedItem = this;
 	}
 
-	// Token: 0x060025D9 RID: 9689 RVA: 0x00091EAC File Offset: 0x000900AC
+	// Token: 0x0600295F RID: 10591 RVA: 0x00097D70 File Offset: 0x00095F70
 	public void OnClickFave()
 	{
 		this.server.fave = !this.server.fave;
@@ -41,16 +41,16 @@ public class ServerItem : MonoBehaviour
 		base.SendMessageUpwards("UpdateServerList");
 		if (this.server.fave)
 		{
-			ConsoleSystem.Run("serverfavourite.add " + this.server.address + ":" + this.server.port.ToString(), false);
+			global::ConsoleSystem.Run("serverfavourite.add " + this.server.address + ":" + this.server.port.ToString(), false);
 		}
 		else
 		{
-			ConsoleSystem.Run("serverfavourite.remove " + this.server.address + ":" + this.server.port.ToString(), false);
+			global::ConsoleSystem.Run("serverfavourite.remove " + this.server.address + ":" + this.server.port.ToString(), false);
 		}
-		ConsoleSystem.Run("serverfavourite.save", false);
+		global::ConsoleSystem.Run("serverfavourite.save", false);
 	}
 
-	// Token: 0x060025DA RID: 9690 RVA: 0x00091F68 File Offset: 0x00090168
+	// Token: 0x06002960 RID: 10592 RVA: 0x00097E2C File Offset: 0x0009602C
 	protected void UpdateColours()
 	{
 		if (this.server.fave)
@@ -63,21 +63,21 @@ public class ServerItem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400126F RID: 4719
-	public ServerItem selectedItem;
+	// Token: 0x040013EF RID: 5103
+	public global::ServerItem selectedItem;
 
-	// Token: 0x04001270 RID: 4720
-	public dfButton textLabel;
+	// Token: 0x040013F0 RID: 5104
+	public global::dfButton textLabel;
 
-	// Token: 0x04001271 RID: 4721
-	public dfLabel textPlayers;
+	// Token: 0x040013F1 RID: 5105
+	public global::dfLabel textPlayers;
 
-	// Token: 0x04001272 RID: 4722
-	public dfLabel textPing;
+	// Token: 0x040013F2 RID: 5106
+	public global::dfLabel textPing;
 
-	// Token: 0x04001273 RID: 4723
-	public dfButton btnFave;
+	// Token: 0x040013F3 RID: 5107
+	public global::dfButton btnFave;
 
-	// Token: 0x04001274 RID: 4724
-	public ServerBrowser.Server server;
+	// Token: 0x040013F4 RID: 5108
+	public global::ServerBrowser.Server server;
 }

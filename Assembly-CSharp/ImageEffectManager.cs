@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000455 RID: 1109
+// Token: 0x0200050B RID: 1291
 public class ImageEffectManager : MonoBehaviour
 {
-	// Token: 0x06002884 RID: 10372 RVA: 0x0009F3DC File Offset: 0x0009D5DC
+	// Token: 0x06002C14 RID: 11284 RVA: 0x000A535C File Offset: 0x000A355C
 	protected void OnEnable()
 	{
-		ImageEffectManager.singleton = this;
+		global::ImageEffectManager.singleton = this;
 	}
 
-	// Token: 0x06002885 RID: 10373 RVA: 0x0009F3E4 File Offset: 0x0009D5E4
+	// Token: 0x06002C15 RID: 11285 RVA: 0x000A5364 File Offset: 0x000A3564
 	protected void OnDisable()
 	{
-		if (ImageEffectManager.singleton == this)
+		if (global::ImageEffectManager.singleton == this)
 		{
-			ImageEffectManager.singleton = null;
+			global::ImageEffectManager.singleton = null;
 		}
 	}
 
-	// Token: 0x06002886 RID: 10374 RVA: 0x0009F3FC File Offset: 0x0009D5FC
+	// Token: 0x06002C16 RID: 11286 RVA: 0x000A537C File Offset: 0x000A357C
 	protected void Start()
 	{
 		foreach (MonoBehaviour monoBehaviour in base.GetComponents<MonoBehaviour>())
@@ -30,46 +30,46 @@ public class ImageEffectManager : MonoBehaviour
 				return;
 			}
 			Type type = monoBehaviour.GetType();
-			if (ImageEffectManager.states.ContainsKey(type))
+			if (global::ImageEffectManager.states.ContainsKey(type))
 			{
-				monoBehaviour.enabled = ImageEffectManager.states[type];
+				monoBehaviour.enabled = global::ImageEffectManager.states[type];
 			}
 		}
 	}
 
-	// Token: 0x06002887 RID: 10375 RVA: 0x0009F45C File Offset: 0x0009D65C
+	// Token: 0x06002C17 RID: 11287 RVA: 0x000A53DC File Offset: 0x000A35DC
 	public static T GetInstance<T>() where T : MonoBehaviour
 	{
-		return (!(ImageEffectManager.singleton != null)) ? ((T)((object)null)) : ImageEffectManager.singleton.GetComponent<T>();
+		return (!(global::ImageEffectManager.singleton != null)) ? ((T)((object)null)) : global::ImageEffectManager.singleton.GetComponent<T>();
 	}
 
-	// Token: 0x06002888 RID: 10376 RVA: 0x0009F484 File Offset: 0x0009D684
+	// Token: 0x06002C18 RID: 11288 RVA: 0x000A5404 File Offset: 0x000A3604
 	public static bool GetEnabled<T>() where T : MonoBehaviour
 	{
-		return !ImageEffectManager.states.ContainsKey(typeof(T)) || ImageEffectManager.states[typeof(T)];
+		return !global::ImageEffectManager.states.ContainsKey(typeof(T)) || global::ImageEffectManager.states[typeof(T)];
 	}
 
-	// Token: 0x06002889 RID: 10377 RVA: 0x0009F4BC File Offset: 0x0009D6BC
+	// Token: 0x06002C19 RID: 11289 RVA: 0x000A543C File Offset: 0x000A363C
 	public static void SetEnabled<T>(bool value) where T : MonoBehaviour
 	{
-		if (ImageEffectManager.GetInstance<T>() != null)
+		if (global::ImageEffectManager.GetInstance<T>() != null)
 		{
-			T instance = ImageEffectManager.GetInstance<T>();
+			T instance = global::ImageEffectManager.GetInstance<T>();
 			instance.enabled = value;
 		}
-		if (!ImageEffectManager.states.ContainsKey(typeof(T)))
+		if (!global::ImageEffectManager.states.ContainsKey(typeof(T)))
 		{
-			ImageEffectManager.states.Add(typeof(T), value);
+			global::ImageEffectManager.states.Add(typeof(T), value);
 		}
 		else
 		{
-			ImageEffectManager.states[typeof(T)] = value;
+			global::ImageEffectManager.states[typeof(T)] = value;
 		}
 	}
 
-	// Token: 0x04001485 RID: 5253
-	private static ImageEffectManager singleton;
+	// Token: 0x04001608 RID: 5640
+	private static global::ImageEffectManager singleton;
 
-	// Token: 0x04001486 RID: 5254
+	// Token: 0x04001609 RID: 5641
 	private static Dictionary<Type, bool> states = new Dictionary<Type, bool>();
 }

@@ -1,72 +1,72 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200042D RID: 1069
+// Token: 0x020004E3 RID: 1251
 public class BaseAIMovement : MonoBehaviour
 {
-	// Token: 0x0600279E RID: 10142 RVA: 0x0009ABAC File Offset: 0x00098DAC
+	// Token: 0x06002B2E RID: 11054 RVA: 0x000A0B2C File Offset: 0x0009ED2C
 	public virtual bool IsStuck()
 	{
 		return false;
 	}
 
-	// Token: 0x0600279F RID: 10143 RVA: 0x0009ABB0 File Offset: 0x00098DB0
+	// Token: 0x06002B2F RID: 11055 RVA: 0x000A0B30 File Offset: 0x0009ED30
 	public virtual void SetMoveDirection(Vector3 worldDir, float speed)
 	{
 	}
 
-	// Token: 0x060027A0 RID: 10144 RVA: 0x0009ABB4 File Offset: 0x00098DB4
+	// Token: 0x06002B30 RID: 11056 RVA: 0x000A0B34 File Offset: 0x0009ED34
 	public virtual void SetLookDirection(Vector3 worldDir)
 	{
 	}
 
-	// Token: 0x060027A1 RID: 10145 RVA: 0x0009ABB8 File Offset: 0x00098DB8
+	// Token: 0x06002B31 RID: 11057 RVA: 0x000A0B38 File Offset: 0x0009ED38
 	public virtual void SetMovePosition(Vector3 worldPos, float speed)
 	{
 	}
 
-	// Token: 0x060027A2 RID: 10146 RVA: 0x0009ABBC File Offset: 0x00098DBC
+	// Token: 0x06002B32 RID: 11058 RVA: 0x000A0B3C File Offset: 0x0009ED3C
 	public virtual void SetMoveTarget(GameObject target, float speed)
 	{
 	}
 
-	// Token: 0x060027A3 RID: 10147 RVA: 0x0009ABC0 File Offset: 0x00098DC0
+	// Token: 0x06002B33 RID: 11059 RVA: 0x000A0B40 File Offset: 0x0009ED40
 	public virtual void Stop()
 	{
 	}
 
-	// Token: 0x060027A4 RID: 10148 RVA: 0x0009ABC4 File Offset: 0x00098DC4
+	// Token: 0x06002B34 RID: 11060 RVA: 0x000A0B44 File Offset: 0x0009ED44
 	public virtual void ProcessNetworkUpdate(ref Vector3 origin, ref Quaternion rotation)
 	{
 		origin = origin;
 		rotation = rotation;
 	}
 
-	// Token: 0x060027A5 RID: 10149 RVA: 0x0009ABE0 File Offset: 0x00098DE0
-	public virtual void DoMove(BasicWildLifeAI ai, ulong simMillis)
+	// Token: 0x06002B35 RID: 11061 RVA: 0x000A0B60 File Offset: 0x0009ED60
+	public virtual void DoMove(global::BasicWildLifeAI ai, ulong simMillis)
 	{
 	}
 
-	// Token: 0x060027A6 RID: 10150 RVA: 0x0009ABE4 File Offset: 0x00098DE4
-	public virtual void InitializeMovement(BasicWildLifeAI ai)
+	// Token: 0x06002B36 RID: 11062 RVA: 0x000A0B64 File Offset: 0x0009ED64
+	public virtual void InitializeMovement(global::BasicWildLifeAI ai)
 	{
 	}
 
-	// Token: 0x060027A7 RID: 10151 RVA: 0x0009ABE8 File Offset: 0x00098DE8
+	// Token: 0x06002B37 RID: 11063 RVA: 0x000A0B68 File Offset: 0x0009ED68
 	public virtual float GetActualMovementSpeed()
 	{
 		return 0f;
 	}
 
-	// Token: 0x04001380 RID: 4992
+	// Token: 0x04001503 RID: 5379
 	protected float desiredSpeed;
 
-	// Token: 0x04001381 RID: 4993
+	// Token: 0x04001504 RID: 5380
 	protected float collisionRadius = 0.3f;
 
-	// Token: 0x04001382 RID: 4994
+	// Token: 0x04001505 RID: 5381
 	public float lookDegreeSpeed = 80f;
 
-	// Token: 0x04001383 RID: 4995
+	// Token: 0x04001506 RID: 5382
 	public float maxSlope = 45f;
 }

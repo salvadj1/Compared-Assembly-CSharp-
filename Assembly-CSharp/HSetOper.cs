@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x02000364 RID: 868
+// Token: 0x02000411 RID: 1041
 public enum HSetOper
 {
-	// Token: 0x04000F96 RID: 3990
+	// Token: 0x040010FC RID: 4348
 	Union,
-	// Token: 0x04000F97 RID: 3991
+	// Token: 0x040010FD RID: 4349
 	Intersect,
-	// Token: 0x04000F98 RID: 3992
+	// Token: 0x040010FE RID: 4350
 	Except,
-	// Token: 0x04000F99 RID: 3993
+	// Token: 0x040010FF RID: 4351
 	SymmetricExcept
 }

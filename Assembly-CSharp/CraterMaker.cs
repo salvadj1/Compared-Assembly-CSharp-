@@ -2,22 +2,22 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000849 RID: 2121
+// Token: 0x0200093E RID: 2366
 public class CraterMaker : MonoBehaviour
 {
-	// Token: 0x06004AD9 RID: 19161 RVA: 0x00146C68 File Offset: 0x00144E68
+	// Token: 0x06004F94 RID: 20372 RVA: 0x00150BCC File Offset: 0x0014EDCC
 	public void Create(Vector3 position, float radius, float depth, float noise)
 	{
 		this.Create(new Vector2(position.x, position.z), radius, depth, noise);
 	}
 
-	// Token: 0x06004ADA RID: 19162 RVA: 0x00146C88 File Offset: 0x00144E88
+	// Token: 0x06004F95 RID: 20373 RVA: 0x00150BEC File Offset: 0x0014EDEC
 	public void Create(Vector2 position, float radius, float depth, float noise)
 	{
 		base.StartCoroutine(this.RealCreate(position, radius, depth, noise));
 	}
 
-	// Token: 0x06004ADB RID: 19163 RVA: 0x00146C9C File Offset: 0x00144E9C
+	// Token: 0x06004F96 RID: 20374 RVA: 0x00150C00 File Offset: 0x0014EE00
 	public IEnumerator RealCreate(Vector2 position, float radius, float depth, float noise)
 	{
 		TerrainData tdata = this.MyTerrain.terrainData;
@@ -85,9 +85,9 @@ public class CraterMaker : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x04002BF2 RID: 11250
+	// Token: 0x04002E40 RID: 11840
 	public Terrain MyTerrain;
 
-	// Token: 0x04002BF3 RID: 11251
+	// Token: 0x04002E41 RID: 11841
 	public int insidetextureindex;
 }

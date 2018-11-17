@@ -8,29 +8,29 @@ using RustProto.Helpers;
 
 namespace RustProto
 {
-	// Token: 0x0200020F RID: 527
+	// Token: 0x02000242 RID: 578
 	[DebuggerNonUserCode]
 	public sealed class objectDeployable : GeneratedMessage<objectDeployable, objectDeployable.Builder>
 	{
-		// Token: 0x0600112D RID: 4397 RVA: 0x0003E520 File Offset: 0x0003C720
+		// Token: 0x06001281 RID: 4737 RVA: 0x000428C8 File Offset: 0x00040AC8
 		private objectDeployable()
 		{
 		}
 
-		// Token: 0x0600112E RID: 4398 RVA: 0x0003E530 File Offset: 0x0003C730
+		// Token: 0x06001282 RID: 4738 RVA: 0x000428D8 File Offset: 0x00040AD8
 		static objectDeployable()
 		{
 			object.ReferenceEquals(Worldsave.Descriptor, null);
 		}
 
-		// Token: 0x0600112F RID: 4399 RVA: 0x0003E588 File Offset: 0x0003C788
-		public static Recycler<objectDeployable, objectDeployable.Builder> Recycler()
+		// Token: 0x06001283 RID: 4739 RVA: 0x00042930 File Offset: 0x00040B30
+		public static RustProto.Helpers.Recycler<objectDeployable, objectDeployable.Builder> Recycler()
 		{
-			return Recycler<objectDeployable, objectDeployable.Builder>.Manufacture();
+			return RustProto.Helpers.Recycler<objectDeployable, objectDeployable.Builder>.Manufacture();
 		}
 
-		// Token: 0x170004A6 RID: 1190
-		// (get) Token: 0x06001130 RID: 4400 RVA: 0x0003E590 File Offset: 0x0003C790
+		// Token: 0x170004EE RID: 1262
+		// (get) Token: 0x06001284 RID: 4740 RVA: 0x00042938 File Offset: 0x00040B38
 		public static objectDeployable DefaultInstance
 		{
 			get
@@ -39,8 +39,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004A7 RID: 1191
-		// (get) Token: 0x06001131 RID: 4401 RVA: 0x0003E598 File Offset: 0x0003C798
+		// Token: 0x170004EF RID: 1263
+		// (get) Token: 0x06001285 RID: 4741 RVA: 0x00042940 File Offset: 0x00040B40
 		public override objectDeployable DefaultInstanceForType
 		{
 			get
@@ -49,8 +49,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004A8 RID: 1192
-		// (get) Token: 0x06001132 RID: 4402 RVA: 0x0003E5A0 File Offset: 0x0003C7A0
+		// Token: 0x170004F0 RID: 1264
+		// (get) Token: 0x06001286 RID: 4742 RVA: 0x00042948 File Offset: 0x00040B48
 		protected override objectDeployable ThisMessage
 		{
 			get
@@ -59,8 +59,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004A9 RID: 1193
-		// (get) Token: 0x06001133 RID: 4403 RVA: 0x0003E5A4 File Offset: 0x0003C7A4
+		// Token: 0x170004F1 RID: 1265
+		// (get) Token: 0x06001287 RID: 4743 RVA: 0x0004294C File Offset: 0x00040B4C
 		public static MessageDescriptor Descriptor
 		{
 			get
@@ -69,8 +69,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004AA RID: 1194
-		// (get) Token: 0x06001134 RID: 4404 RVA: 0x0003E5AC File Offset: 0x0003C7AC
+		// Token: 0x170004F2 RID: 1266
+		// (get) Token: 0x06001288 RID: 4744 RVA: 0x00042954 File Offset: 0x00040B54
 		protected override FieldAccessorTable<objectDeployable, objectDeployable.Builder> InternalFieldAccessors
 		{
 			get
@@ -79,8 +79,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004AB RID: 1195
-		// (get) Token: 0x06001135 RID: 4405 RVA: 0x0003E5B4 File Offset: 0x0003C7B4
+		// Token: 0x170004F3 RID: 1267
+		// (get) Token: 0x06001289 RID: 4745 RVA: 0x0004295C File Offset: 0x00040B5C
 		public bool HasCreatorID
 		{
 			get
@@ -89,8 +89,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004AC RID: 1196
-		// (get) Token: 0x06001136 RID: 4406 RVA: 0x0003E5BC File Offset: 0x0003C7BC
+		// Token: 0x170004F4 RID: 1268
+		// (get) Token: 0x0600128A RID: 4746 RVA: 0x00042964 File Offset: 0x00040B64
 		[CLSCompliant(false)]
 		public ulong CreatorID
 		{
@@ -100,8 +100,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004AD RID: 1197
-		// (get) Token: 0x06001137 RID: 4407 RVA: 0x0003E5C4 File Offset: 0x0003C7C4
+		// Token: 0x170004F5 RID: 1269
+		// (get) Token: 0x0600128B RID: 4747 RVA: 0x0004296C File Offset: 0x00040B6C
 		public bool HasOwnerID
 		{
 			get
@@ -110,8 +110,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004AE RID: 1198
-		// (get) Token: 0x06001138 RID: 4408 RVA: 0x0003E5CC File Offset: 0x0003C7CC
+		// Token: 0x170004F6 RID: 1270
+		// (get) Token: 0x0600128C RID: 4748 RVA: 0x00042974 File Offset: 0x00040B74
 		[CLSCompliant(false)]
 		public ulong OwnerID
 		{
@@ -121,8 +121,8 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x170004AF RID: 1199
-		// (get) Token: 0x06001139 RID: 4409 RVA: 0x0003E5D4 File Offset: 0x0003C7D4
+		// Token: 0x170004F7 RID: 1271
+		// (get) Token: 0x0600128D RID: 4749 RVA: 0x0004297C File Offset: 0x00040B7C
 		public override bool IsInitialized
 		{
 			get
@@ -131,7 +131,7 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600113A RID: 4410 RVA: 0x0003E5D8 File Offset: 0x0003C7D8
+		// Token: 0x0600128E RID: 4750 RVA: 0x00042980 File Offset: 0x00040B80
 		public override void WriteTo(ICodedOutputStream output)
 		{
 			int serializedSize = this.SerializedSize;
@@ -147,8 +147,8 @@ namespace RustProto
 			this.UnknownFields.WriteTo(output);
 		}
 
-		// Token: 0x170004B0 RID: 1200
-		// (get) Token: 0x0600113B RID: 4411 RVA: 0x0003E634 File Offset: 0x0003C834
+		// Token: 0x170004F8 RID: 1272
+		// (get) Token: 0x0600128F RID: 4751 RVA: 0x000429DC File Offset: 0x00040BDC
 		public override int SerializedSize
 		{
 			get
@@ -173,154 +173,154 @@ namespace RustProto
 			}
 		}
 
-		// Token: 0x0600113C RID: 4412 RVA: 0x0003E6A0 File Offset: 0x0003C8A0
+		// Token: 0x06001290 RID: 4752 RVA: 0x00042A48 File Offset: 0x00040C48
 		public static objectDeployable ParseFrom(ByteString data)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x0600113D RID: 4413 RVA: 0x0003E6B4 File Offset: 0x0003C8B4
+		// Token: 0x06001291 RID: 4753 RVA: 0x00042A5C File Offset: 0x00040C5C
 		public static objectDeployable ParseFrom(ByteString data, ExtensionRegistry extensionRegistry)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x0600113E RID: 4414 RVA: 0x0003E6C8 File Offset: 0x0003C8C8
+		// Token: 0x06001292 RID: 4754 RVA: 0x00042A70 File Offset: 0x00040C70
 		public static objectDeployable ParseFrom(byte[] data)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(data).BuildParsed();
 		}
 
-		// Token: 0x0600113F RID: 4415 RVA: 0x0003E6DC File Offset: 0x0003C8DC
+		// Token: 0x06001293 RID: 4755 RVA: 0x00042A84 File Offset: 0x00040C84
 		public static objectDeployable ParseFrom(byte[] data, ExtensionRegistry extensionRegistry)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(data, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001140 RID: 4416 RVA: 0x0003E6F0 File Offset: 0x0003C8F0
+		// Token: 0x06001294 RID: 4756 RVA: 0x00042A98 File Offset: 0x00040C98
 		public static objectDeployable ParseFrom(Stream input)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001141 RID: 4417 RVA: 0x0003E704 File Offset: 0x0003C904
+		// Token: 0x06001295 RID: 4757 RVA: 0x00042AAC File Offset: 0x00040CAC
 		public static objectDeployable ParseFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001142 RID: 4418 RVA: 0x0003E718 File Offset: 0x0003C918
+		// Token: 0x06001296 RID: 4758 RVA: 0x00042AC0 File Offset: 0x00040CC0
 		public static objectDeployable ParseDelimitedFrom(Stream input)
 		{
 			return objectDeployable.CreateBuilder().MergeDelimitedFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001143 RID: 4419 RVA: 0x0003E72C File Offset: 0x0003C92C
+		// Token: 0x06001297 RID: 4759 RVA: 0x00042AD4 File Offset: 0x00040CD4
 		public static objectDeployable ParseDelimitedFrom(Stream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectDeployable.CreateBuilder().MergeDelimitedFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001144 RID: 4420 RVA: 0x0003E740 File Offset: 0x0003C940
+		// Token: 0x06001298 RID: 4760 RVA: 0x00042AE8 File Offset: 0x00040CE8
 		public static objectDeployable ParseFrom(ICodedInputStream input)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(input).BuildParsed();
 		}
 
-		// Token: 0x06001145 RID: 4421 RVA: 0x0003E754 File Offset: 0x0003C954
+		// Token: 0x06001299 RID: 4761 RVA: 0x00042AFC File Offset: 0x00040CFC
 		public static objectDeployable ParseFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 		{
 			return objectDeployable.CreateBuilder().MergeFrom(input, extensionRegistry).BuildParsed();
 		}
 
-		// Token: 0x06001146 RID: 4422 RVA: 0x0003E768 File Offset: 0x0003C968
+		// Token: 0x0600129A RID: 4762 RVA: 0x00042B10 File Offset: 0x00040D10
 		private objectDeployable MakeReadOnly()
 		{
 			return this;
 		}
 
-		// Token: 0x06001147 RID: 4423 RVA: 0x0003E76C File Offset: 0x0003C96C
+		// Token: 0x0600129B RID: 4763 RVA: 0x00042B14 File Offset: 0x00040D14
 		public static objectDeployable.Builder CreateBuilder()
 		{
 			return new objectDeployable.Builder();
 		}
 
-		// Token: 0x06001148 RID: 4424 RVA: 0x0003E774 File Offset: 0x0003C974
+		// Token: 0x0600129C RID: 4764 RVA: 0x00042B1C File Offset: 0x00040D1C
 		public override objectDeployable.Builder ToBuilder()
 		{
 			return objectDeployable.CreateBuilder(this);
 		}
 
-		// Token: 0x06001149 RID: 4425 RVA: 0x0003E77C File Offset: 0x0003C97C
+		// Token: 0x0600129D RID: 4765 RVA: 0x00042B24 File Offset: 0x00040D24
 		public override objectDeployable.Builder CreateBuilderForType()
 		{
 			return new objectDeployable.Builder();
 		}
 
-		// Token: 0x0600114A RID: 4426 RVA: 0x0003E784 File Offset: 0x0003C984
+		// Token: 0x0600129E RID: 4766 RVA: 0x00042B2C File Offset: 0x00040D2C
 		public static objectDeployable.Builder CreateBuilder(objectDeployable prototype)
 		{
 			return new objectDeployable.Builder(prototype);
 		}
 
-		// Token: 0x0400095D RID: 2397
+		// Token: 0x04000A80 RID: 2688
 		public const int CreatorIDFieldNumber = 1;
 
-		// Token: 0x0400095E RID: 2398
+		// Token: 0x04000A81 RID: 2689
 		public const int OwnerIDFieldNumber = 2;
 
-		// Token: 0x0400095F RID: 2399
+		// Token: 0x04000A82 RID: 2690
 		private static readonly objectDeployable defaultInstance = new objectDeployable().MakeReadOnly();
 
-		// Token: 0x04000960 RID: 2400
+		// Token: 0x04000A83 RID: 2691
 		private static readonly string[] _objectDeployableFieldNames = new string[]
 		{
 			"CreatorID",
 			"OwnerID"
 		};
 
-		// Token: 0x04000961 RID: 2401
+		// Token: 0x04000A84 RID: 2692
 		private static readonly uint[] _objectDeployableFieldTags = new uint[]
 		{
 			8u,
 			16u
 		};
 
-		// Token: 0x04000962 RID: 2402
+		// Token: 0x04000A85 RID: 2693
 		private bool hasCreatorID;
 
-		// Token: 0x04000963 RID: 2403
+		// Token: 0x04000A86 RID: 2694
 		private ulong creatorID_;
 
-		// Token: 0x04000964 RID: 2404
+		// Token: 0x04000A87 RID: 2695
 		private bool hasOwnerID;
 
-		// Token: 0x04000965 RID: 2405
+		// Token: 0x04000A88 RID: 2696
 		private ulong ownerID_;
 
-		// Token: 0x04000966 RID: 2406
+		// Token: 0x04000A89 RID: 2697
 		private int memoizedSerializedSize = -1;
 
-		// Token: 0x02000210 RID: 528
+		// Token: 0x02000243 RID: 579
 		[DebuggerNonUserCode]
 		public sealed class Builder : GeneratedBuilder<objectDeployable, objectDeployable.Builder>
 		{
-			// Token: 0x0600114B RID: 4427 RVA: 0x0003E78C File Offset: 0x0003C98C
+			// Token: 0x0600129F RID: 4767 RVA: 0x00042B34 File Offset: 0x00040D34
 			public Builder()
 			{
 				this.result = objectDeployable.DefaultInstance;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x0600114C RID: 4428 RVA: 0x0003E7A8 File Offset: 0x0003C9A8
+			// Token: 0x060012A0 RID: 4768 RVA: 0x00042B50 File Offset: 0x00040D50
 			internal Builder(objectDeployable cloneFrom)
 			{
 				this.result = cloneFrom;
 				this.resultIsReadOnly = true;
 			}
 
-			// Token: 0x170004B1 RID: 1201
-			// (get) Token: 0x0600114D RID: 4429 RVA: 0x0003E7C0 File Offset: 0x0003C9C0
+			// Token: 0x170004F9 RID: 1273
+			// (get) Token: 0x060012A1 RID: 4769 RVA: 0x00042B68 File Offset: 0x00040D68
 			protected override objectDeployable.Builder ThisBuilder
 			{
 				get
@@ -329,7 +329,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600114E RID: 4430 RVA: 0x0003E7C4 File Offset: 0x0003C9C4
+			// Token: 0x060012A2 RID: 4770 RVA: 0x00042B6C File Offset: 0x00040D6C
 			private objectDeployable PrepareBuilder()
 			{
 				if (this.resultIsReadOnly)
@@ -342,8 +342,8 @@ namespace RustProto
 				return this.result;
 			}
 
-			// Token: 0x170004B2 RID: 1202
-			// (get) Token: 0x0600114F RID: 4431 RVA: 0x0003E804 File Offset: 0x0003CA04
+			// Token: 0x170004FA RID: 1274
+			// (get) Token: 0x060012A3 RID: 4771 RVA: 0x00042BAC File Offset: 0x00040DAC
 			public override bool IsInitialized
 			{
 				get
@@ -352,8 +352,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004B3 RID: 1203
-			// (get) Token: 0x06001150 RID: 4432 RVA: 0x0003E814 File Offset: 0x0003CA14
+			// Token: 0x170004FB RID: 1275
+			// (get) Token: 0x060012A4 RID: 4772 RVA: 0x00042BBC File Offset: 0x00040DBC
 			protected override objectDeployable MessageBeingBuilt
 			{
 				get
@@ -362,7 +362,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001151 RID: 4433 RVA: 0x0003E81C File Offset: 0x0003CA1C
+			// Token: 0x060012A5 RID: 4773 RVA: 0x00042BC4 File Offset: 0x00040DC4
 			public override objectDeployable.Builder Clear()
 			{
 				this.result = objectDeployable.DefaultInstance;
@@ -370,7 +370,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001152 RID: 4434 RVA: 0x0003E834 File Offset: 0x0003CA34
+			// Token: 0x060012A6 RID: 4774 RVA: 0x00042BDC File Offset: 0x00040DDC
 			public override objectDeployable.Builder Clone()
 			{
 				if (this.resultIsReadOnly)
@@ -380,8 +380,8 @@ namespace RustProto
 				return new objectDeployable.Builder().MergeFrom(this.result);
 			}
 
-			// Token: 0x170004B4 RID: 1204
-			// (get) Token: 0x06001153 RID: 4435 RVA: 0x0003E860 File Offset: 0x0003CA60
+			// Token: 0x170004FC RID: 1276
+			// (get) Token: 0x060012A7 RID: 4775 RVA: 0x00042C08 File Offset: 0x00040E08
 			public override MessageDescriptor DescriptorForType
 			{
 				get
@@ -390,8 +390,8 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004B5 RID: 1205
-			// (get) Token: 0x06001154 RID: 4436 RVA: 0x0003E868 File Offset: 0x0003CA68
+			// Token: 0x170004FD RID: 1277
+			// (get) Token: 0x060012A8 RID: 4776 RVA: 0x00042C10 File Offset: 0x00040E10
 			public override objectDeployable DefaultInstanceForType
 			{
 				get
@@ -400,7 +400,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001155 RID: 4437 RVA: 0x0003E870 File Offset: 0x0003CA70
+			// Token: 0x060012A9 RID: 4777 RVA: 0x00042C18 File Offset: 0x00040E18
 			public override objectDeployable BuildPartial()
 			{
 				if (this.resultIsReadOnly)
@@ -411,7 +411,7 @@ namespace RustProto
 				return this.result.MakeReadOnly();
 			}
 
-			// Token: 0x06001156 RID: 4438 RVA: 0x0003E8A4 File Offset: 0x0003CAA4
+			// Token: 0x060012AA RID: 4778 RVA: 0x00042C4C File Offset: 0x00040E4C
 			public override objectDeployable.Builder MergeFrom(IMessage other)
 			{
 				if (other is objectDeployable)
@@ -422,7 +422,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001157 RID: 4439 RVA: 0x0003E8C8 File Offset: 0x0003CAC8
+			// Token: 0x060012AB RID: 4779 RVA: 0x00042C70 File Offset: 0x00040E70
 			public override objectDeployable.Builder MergeFrom(objectDeployable other)
 			{
 				if (other == objectDeployable.DefaultInstance)
@@ -442,13 +442,13 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001158 RID: 4440 RVA: 0x0003E928 File Offset: 0x0003CB28
+			// Token: 0x060012AC RID: 4780 RVA: 0x00042CD0 File Offset: 0x00040ED0
 			public override objectDeployable.Builder MergeFrom(ICodedInputStream input)
 			{
 				return this.MergeFrom(input, ExtensionRegistry.Empty);
 			}
 
-			// Token: 0x06001159 RID: 4441 RVA: 0x0003E938 File Offset: 0x0003CB38
+			// Token: 0x060012AD RID: 4781 RVA: 0x00042CE0 File Offset: 0x00040EE0
 			public override objectDeployable.Builder MergeFrom(ICodedInputStream input, ExtensionRegistry extensionRegistry)
 			{
 				this.PrepareBuilder();
@@ -511,8 +511,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004B6 RID: 1206
-			// (get) Token: 0x0600115A RID: 4442 RVA: 0x0003EA74 File Offset: 0x0003CC74
+			// Token: 0x170004FE RID: 1278
+			// (get) Token: 0x060012AE RID: 4782 RVA: 0x00042E1C File Offset: 0x0004101C
 			public bool HasCreatorID
 			{
 				get
@@ -521,9 +521,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004B7 RID: 1207
-			// (get) Token: 0x0600115B RID: 4443 RVA: 0x0003EA84 File Offset: 0x0003CC84
-			// (set) Token: 0x0600115C RID: 4444 RVA: 0x0003EA94 File Offset: 0x0003CC94
+			// Token: 0x170004FF RID: 1279
+			// (get) Token: 0x060012AF RID: 4783 RVA: 0x00042E2C File Offset: 0x0004102C
+			// (set) Token: 0x060012B0 RID: 4784 RVA: 0x00042E3C File Offset: 0x0004103C
 			[CLSCompliant(false)]
 			public ulong CreatorID
 			{
@@ -537,7 +537,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x0600115D RID: 4445 RVA: 0x0003EAA0 File Offset: 0x0003CCA0
+			// Token: 0x060012B1 RID: 4785 RVA: 0x00042E48 File Offset: 0x00041048
 			[CLSCompliant(false)]
 			public objectDeployable.Builder SetCreatorID(ulong value)
 			{
@@ -547,7 +547,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x0600115E RID: 4446 RVA: 0x0003EAD0 File Offset: 0x0003CCD0
+			// Token: 0x060012B2 RID: 4786 RVA: 0x00042E78 File Offset: 0x00041078
 			public objectDeployable.Builder ClearCreatorID()
 			{
 				this.PrepareBuilder();
@@ -556,8 +556,8 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x170004B8 RID: 1208
-			// (get) Token: 0x0600115F RID: 4447 RVA: 0x0003EAF4 File Offset: 0x0003CCF4
+			// Token: 0x17000500 RID: 1280
+			// (get) Token: 0x060012B3 RID: 4787 RVA: 0x00042E9C File Offset: 0x0004109C
 			public bool HasOwnerID
 			{
 				get
@@ -566,9 +566,9 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x170004B9 RID: 1209
-			// (get) Token: 0x06001160 RID: 4448 RVA: 0x0003EB04 File Offset: 0x0003CD04
-			// (set) Token: 0x06001161 RID: 4449 RVA: 0x0003EB14 File Offset: 0x0003CD14
+			// Token: 0x17000501 RID: 1281
+			// (get) Token: 0x060012B4 RID: 4788 RVA: 0x00042EAC File Offset: 0x000410AC
+			// (set) Token: 0x060012B5 RID: 4789 RVA: 0x00042EBC File Offset: 0x000410BC
 			[CLSCompliant(false)]
 			public ulong OwnerID
 			{
@@ -582,7 +582,7 @@ namespace RustProto
 				}
 			}
 
-			// Token: 0x06001162 RID: 4450 RVA: 0x0003EB20 File Offset: 0x0003CD20
+			// Token: 0x060012B6 RID: 4790 RVA: 0x00042EC8 File Offset: 0x000410C8
 			[CLSCompliant(false)]
 			public objectDeployable.Builder SetOwnerID(ulong value)
 			{
@@ -592,7 +592,7 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x06001163 RID: 4451 RVA: 0x0003EB50 File Offset: 0x0003CD50
+			// Token: 0x060012B7 RID: 4791 RVA: 0x00042EF8 File Offset: 0x000410F8
 			public objectDeployable.Builder ClearOwnerID()
 			{
 				this.PrepareBuilder();
@@ -601,10 +601,10 @@ namespace RustProto
 				return this;
 			}
 
-			// Token: 0x04000967 RID: 2407
+			// Token: 0x04000A8A RID: 2698
 			private bool resultIsReadOnly;
 
-			// Token: 0x04000968 RID: 2408
+			// Token: 0x04000A8B RID: 2699
 			private objectDeployable result;
 		}
 	}

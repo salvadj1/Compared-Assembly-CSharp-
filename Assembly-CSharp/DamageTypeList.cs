@@ -1,17 +1,17 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000155 RID: 341
+// Token: 0x0200017F RID: 383
 [Serializable]
 public sealed class DamageTypeList
 {
-	// Token: 0x06000A40 RID: 2624 RVA: 0x00029008 File Offset: 0x00027208
+	// Token: 0x06000B66 RID: 2918 RVA: 0x0002CD84 File Offset: 0x0002AF84
 	public DamageTypeList()
 	{
 	}
 
-	// Token: 0x06000A41 RID: 2625 RVA: 0x00029010 File Offset: 0x00027210
-	public DamageTypeList(DamageTypeList copyFrom) : this()
+	// Token: 0x06000B67 RID: 2919 RVA: 0x0002CD8C File Offset: 0x0002AF8C
+	public DamageTypeList(global::DamageTypeList copyFrom) : this()
 	{
 		if (copyFrom == null || copyFrom.damageArray == null)
 		{
@@ -41,7 +41,7 @@ public sealed class DamageTypeList
 		}
 	}
 
-	// Token: 0x06000A42 RID: 2626 RVA: 0x000290D8 File Offset: 0x000272D8
+	// Token: 0x06000B68 RID: 2920 RVA: 0x0002CE54 File Offset: 0x0002B054
 	public DamageTypeList(float generic, float bullet, float melee, float explosion, float radiation, float cold)
 	{
 		this.damageArray = new float[6];
@@ -53,7 +53,7 @@ public sealed class DamageTypeList
 		this.damageArray[5] = cold;
 	}
 
-	// Token: 0x170002E3 RID: 739
+	// Token: 0x17000325 RID: 805
 	public float this[int index]
 	{
 		get
@@ -78,8 +78,8 @@ public sealed class DamageTypeList
 		}
 	}
 
-	// Token: 0x170002E4 RID: 740
-	public float this[DamageTypeIndex index]
+	// Token: 0x17000326 RID: 806
+	public float this[global::DamageTypeIndex index]
 	{
 		get
 		{
@@ -91,8 +91,8 @@ public sealed class DamageTypeList
 		}
 	}
 
-	// Token: 0x06000A47 RID: 2631 RVA: 0x000291E4 File Offset: 0x000273E4
-	public void SetArmorValues(DamageTypeList copyFrom)
+	// Token: 0x06000B6D RID: 2925 RVA: 0x0002CF60 File Offset: 0x0002B160
+	public void SetArmorValues(global::DamageTypeList copyFrom)
 	{
 		if (this.damageArray == null || this.damageArray.Length != 6)
 		{
@@ -158,10 +158,10 @@ public sealed class DamageTypeList
 		}
 	}
 
-	// Token: 0x040006B7 RID: 1719
+	// Token: 0x040007C6 RID: 1990
 	private const int kDamageIndexCount = 6;
 
-	// Token: 0x040006B8 RID: 1720
+	// Token: 0x040007C7 RID: 1991
 	[SerializeField]
 	private float[] damageArray;
 }

@@ -3,59 +3,59 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// Token: 0x020006CC RID: 1740
+// Token: 0x02000797 RID: 1943
+[RequireComponent(typeof(global::dfInputManager))]
 [RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(dfInputManager))]
 [RequireComponent(typeof(MeshRenderer))]
-[AddComponentMenu("Daikon Forge/User Interface/GUI Manager")]
 [RequireComponent(typeof(MeshFilter))]
 [ExecuteInEditMode]
+[AddComponentMenu("Daikon Forge/User Interface/GUI Manager")]
 [Serializable]
 public class dfGUIManager : MonoBehaviour
 {
 	// Token: 0x14000049 RID: 73
-	// (add) Token: 0x06003D2C RID: 15660 RVA: 0x000E61D4 File Offset: 0x000E43D4
-	// (remove) Token: 0x06003D2D RID: 15661 RVA: 0x000E61EC File Offset: 0x000E43EC
-	public static event dfGUIManager.RenderCallback BeforeRender;
+	// (add) Token: 0x06004136 RID: 16694 RVA: 0x000EED18 File Offset: 0x000ECF18
+	// (remove) Token: 0x06004137 RID: 16695 RVA: 0x000EED30 File Offset: 0x000ECF30
+	public static event global::dfGUIManager.RenderCallback BeforeRender;
 
 	// Token: 0x1400004A RID: 74
-	// (add) Token: 0x06003D2E RID: 15662 RVA: 0x000E6204 File Offset: 0x000E4404
-	// (remove) Token: 0x06003D2F RID: 15663 RVA: 0x000E621C File Offset: 0x000E441C
-	public static event dfGUIManager.RenderCallback AfterRender;
+	// (add) Token: 0x06004138 RID: 16696 RVA: 0x000EED48 File Offset: 0x000ECF48
+	// (remove) Token: 0x06004139 RID: 16697 RVA: 0x000EED60 File Offset: 0x000ECF60
+	public static event global::dfGUIManager.RenderCallback AfterRender;
 
-	// Token: 0x17000BF5 RID: 3061
-	// (get) Token: 0x06003D30 RID: 15664 RVA: 0x000E6234 File Offset: 0x000E4434
-	// (set) Token: 0x06003D31 RID: 15665 RVA: 0x000E623C File Offset: 0x000E443C
+	// Token: 0x17000C79 RID: 3193
+	// (get) Token: 0x0600413A RID: 16698 RVA: 0x000EED78 File Offset: 0x000ECF78
+	// (set) Token: 0x0600413B RID: 16699 RVA: 0x000EED80 File Offset: 0x000ECF80
 	public int TotalDrawCalls { get; private set; }
 
-	// Token: 0x17000BF6 RID: 3062
-	// (get) Token: 0x06003D32 RID: 15666 RVA: 0x000E6248 File Offset: 0x000E4448
-	// (set) Token: 0x06003D33 RID: 15667 RVA: 0x000E6250 File Offset: 0x000E4450
+	// Token: 0x17000C7A RID: 3194
+	// (get) Token: 0x0600413C RID: 16700 RVA: 0x000EED8C File Offset: 0x000ECF8C
+	// (set) Token: 0x0600413D RID: 16701 RVA: 0x000EED94 File Offset: 0x000ECF94
 	public int TotalTriangles { get; private set; }
 
-	// Token: 0x17000BF7 RID: 3063
-	// (get) Token: 0x06003D34 RID: 15668 RVA: 0x000E625C File Offset: 0x000E445C
-	// (set) Token: 0x06003D35 RID: 15669 RVA: 0x000E6264 File Offset: 0x000E4464
+	// Token: 0x17000C7B RID: 3195
+	// (get) Token: 0x0600413E RID: 16702 RVA: 0x000EEDA0 File Offset: 0x000ECFA0
+	// (set) Token: 0x0600413F RID: 16703 RVA: 0x000EEDA8 File Offset: 0x000ECFA8
 	public int ControlsRendered { get; private set; }
 
-	// Token: 0x17000BF8 RID: 3064
-	// (get) Token: 0x06003D36 RID: 15670 RVA: 0x000E6270 File Offset: 0x000E4470
-	// (set) Token: 0x06003D37 RID: 15671 RVA: 0x000E6278 File Offset: 0x000E4478
+	// Token: 0x17000C7C RID: 3196
+	// (get) Token: 0x06004140 RID: 16704 RVA: 0x000EEDB4 File Offset: 0x000ECFB4
+	// (set) Token: 0x06004141 RID: 16705 RVA: 0x000EEDBC File Offset: 0x000ECFBC
 	public int FramesRendered { get; private set; }
 
-	// Token: 0x17000BF9 RID: 3065
-	// (get) Token: 0x06003D38 RID: 15672 RVA: 0x000E6284 File Offset: 0x000E4484
-	public static dfControl ActiveControl
+	// Token: 0x17000C7D RID: 3197
+	// (get) Token: 0x06004142 RID: 16706 RVA: 0x000EEDC8 File Offset: 0x000ECFC8
+	public static global::dfControl ActiveControl
 	{
 		get
 		{
-			return dfGUIManager.activeControl;
+			return global::dfGUIManager.activeControl;
 		}
 	}
 
-	// Token: 0x17000BFA RID: 3066
-	// (get) Token: 0x06003D39 RID: 15673 RVA: 0x000E628C File Offset: 0x000E448C
-	// (set) Token: 0x06003D3A RID: 15674 RVA: 0x000E6294 File Offset: 0x000E4494
+	// Token: 0x17000C7E RID: 3198
+	// (get) Token: 0x06004143 RID: 16707 RVA: 0x000EEDD0 File Offset: 0x000ECFD0
+	// (set) Token: 0x06004144 RID: 16708 RVA: 0x000EEDD8 File Offset: 0x000ECFD8
 	public float UIScale
 	{
 		get
@@ -72,9 +72,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000BFB RID: 3067
-	// (get) Token: 0x06003D3B RID: 15675 RVA: 0x000E62B4 File Offset: 0x000E44B4
-	// (set) Token: 0x06003D3C RID: 15676 RVA: 0x000E62BC File Offset: 0x000E44BC
+	// Token: 0x17000C7F RID: 3199
+	// (get) Token: 0x06004145 RID: 16709 RVA: 0x000EEDF8 File Offset: 0x000ECFF8
+	// (set) Token: 0x06004146 RID: 16710 RVA: 0x000EEE00 File Offset: 0x000ED000
 	public Vector2 UIOffset
 	{
 		get
@@ -91,9 +91,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000BFC RID: 3068
-	// (get) Token: 0x06003D3D RID: 15677 RVA: 0x000E62F4 File Offset: 0x000E44F4
-	// (set) Token: 0x06003D3E RID: 15678 RVA: 0x000E62FC File Offset: 0x000E44FC
+	// Token: 0x17000C80 RID: 3200
+	// (get) Token: 0x06004147 RID: 16711 RVA: 0x000EEE38 File Offset: 0x000ED038
+	// (set) Token: 0x06004148 RID: 16712 RVA: 0x000EEE40 File Offset: 0x000ED040
 	public Camera RenderCamera
 	{
 		get
@@ -106,9 +106,9 @@ public class dfGUIManager : MonoBehaviour
 			{
 				this.renderCamera = value;
 				this.Invalidate();
-				if (value != null && value.gameObject.GetComponent<dfGUICamera>() == null)
+				if (value != null && value.gameObject.GetComponent<global::dfGUICamera>() == null)
 				{
-					value.gameObject.AddComponent<dfGUICamera>();
+					value.gameObject.AddComponent<global::dfGUICamera>();
 				}
 				if (this.inputManager != null)
 				{
@@ -118,9 +118,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000BFD RID: 3069
-	// (get) Token: 0x06003D3F RID: 15679 RVA: 0x000E6374 File Offset: 0x000E4574
-	// (set) Token: 0x06003D40 RID: 15680 RVA: 0x000E637C File Offset: 0x000E457C
+	// Token: 0x17000C81 RID: 3201
+	// (get) Token: 0x06004149 RID: 16713 RVA: 0x000EEEB8 File Offset: 0x000ED0B8
+	// (set) Token: 0x0600414A RID: 16714 RVA: 0x000EEEC0 File Offset: 0x000ED0C0
 	public bool MergeMaterials
 	{
 		get
@@ -137,9 +137,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000BFE RID: 3070
-	// (get) Token: 0x06003D41 RID: 15681 RVA: 0x000E6398 File Offset: 0x000E4598
-	// (set) Token: 0x06003D42 RID: 15682 RVA: 0x000E63A0 File Offset: 0x000E45A0
+	// Token: 0x17000C82 RID: 3202
+	// (get) Token: 0x0600414B RID: 16715 RVA: 0x000EEEDC File Offset: 0x000ED0DC
+	// (set) Token: 0x0600414C RID: 16716 RVA: 0x000EEEE4 File Offset: 0x000ED0E4
 	public bool GenerateNormals
 	{
 		get
@@ -156,15 +156,15 @@ public class dfGUIManager : MonoBehaviour
 					this.renderMesh[0].Clear();
 					this.renderMesh[1].Clear();
 				}
-				dfRenderData.FlushObjectPool();
+				global::dfRenderData.FlushObjectPool();
 				this.invalidateAllControls();
 			}
 		}
 	}
 
-	// Token: 0x17000BFF RID: 3071
-	// (get) Token: 0x06003D43 RID: 15683 RVA: 0x000E63F0 File Offset: 0x000E45F0
-	// (set) Token: 0x06003D44 RID: 15684 RVA: 0x000E63F8 File Offset: 0x000E45F8
+	// Token: 0x17000C83 RID: 3203
+	// (get) Token: 0x0600414D RID: 16717 RVA: 0x000EEF34 File Offset: 0x000ED134
+	// (set) Token: 0x0600414E RID: 16718 RVA: 0x000EEF3C File Offset: 0x000ED13C
 	public bool PixelPerfectMode
 	{
 		get
@@ -182,10 +182,10 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C00 RID: 3072
-	// (get) Token: 0x06003D45 RID: 15685 RVA: 0x000E641C File Offset: 0x000E461C
-	// (set) Token: 0x06003D46 RID: 15686 RVA: 0x000E6424 File Offset: 0x000E4624
-	public dfAtlas DefaultAtlas
+	// Token: 0x17000C84 RID: 3204
+	// (get) Token: 0x0600414F RID: 16719 RVA: 0x000EEF60 File Offset: 0x000ED160
+	// (set) Token: 0x06004150 RID: 16720 RVA: 0x000EEF68 File Offset: 0x000ED168
+	public global::dfAtlas DefaultAtlas
 	{
 		get
 		{
@@ -193,7 +193,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.invalidateAllControls();
@@ -201,10 +201,10 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C01 RID: 3073
-	// (get) Token: 0x06003D47 RID: 15687 RVA: 0x000E6444 File Offset: 0x000E4644
-	// (set) Token: 0x06003D48 RID: 15688 RVA: 0x000E644C File Offset: 0x000E464C
-	public dfFont DefaultFont
+	// Token: 0x17000C85 RID: 3205
+	// (get) Token: 0x06004151 RID: 16721 RVA: 0x000EEF88 File Offset: 0x000ED188
+	// (set) Token: 0x06004152 RID: 16722 RVA: 0x000EEF90 File Offset: 0x000ED190
+	public global::dfFont DefaultFont
 	{
 		get
 		{
@@ -220,9 +220,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C02 RID: 3074
-	// (get) Token: 0x06003D49 RID: 15689 RVA: 0x000E646C File Offset: 0x000E466C
-	// (set) Token: 0x06003D4A RID: 15690 RVA: 0x000E6474 File Offset: 0x000E4674
+	// Token: 0x17000C86 RID: 3206
+	// (get) Token: 0x06004153 RID: 16723 RVA: 0x000EEFB0 File Offset: 0x000ED1B0
+	// (set) Token: 0x06004154 RID: 16724 RVA: 0x000EEFB8 File Offset: 0x000ED1B8
 	public int FixedWidth
 	{
 		get
@@ -239,9 +239,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C03 RID: 3075
-	// (get) Token: 0x06003D4B RID: 15691 RVA: 0x000E6490 File Offset: 0x000E4690
-	// (set) Token: 0x06003D4C RID: 15692 RVA: 0x000E6498 File Offset: 0x000E4698
+	// Token: 0x17000C87 RID: 3207
+	// (get) Token: 0x06004155 RID: 16725 RVA: 0x000EEFD4 File Offset: 0x000ED1D4
+	// (set) Token: 0x06004156 RID: 16726 RVA: 0x000EEFDC File Offset: 0x000ED1DC
 	public int FixedHeight
 	{
 		get
@@ -259,9 +259,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C04 RID: 3076
-	// (get) Token: 0x06003D4D RID: 15693 RVA: 0x000E64C8 File Offset: 0x000E46C8
-	// (set) Token: 0x06003D4E RID: 15694 RVA: 0x000E64D0 File Offset: 0x000E46D0
+	// Token: 0x17000C88 RID: 3208
+	// (get) Token: 0x06004157 RID: 16727 RVA: 0x000EF00C File Offset: 0x000ED20C
+	// (set) Token: 0x06004158 RID: 16728 RVA: 0x000EF014 File Offset: 0x000ED214
 	public bool ConsumeMouseEvents
 	{
 		get
@@ -274,9 +274,9 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000C05 RID: 3077
-	// (get) Token: 0x06003D4F RID: 15695 RVA: 0x000E64DC File Offset: 0x000E46DC
-	// (set) Token: 0x06003D50 RID: 15696 RVA: 0x000E64E4 File Offset: 0x000E46E4
+	// Token: 0x17000C89 RID: 3209
+	// (get) Token: 0x06004159 RID: 16729 RVA: 0x000EF020 File Offset: 0x000ED220
+	// (set) Token: 0x0600415A RID: 16730 RVA: 0x000EF028 File Offset: 0x000ED228
 	public bool OverrideCamera
 	{
 		get
@@ -289,7 +289,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D51 RID: 15697 RVA: 0x000E64F0 File Offset: 0x000E46F0
+	// Token: 0x0600415B RID: 16731 RVA: 0x000EF034 File Offset: 0x000ED234
 	public void OnGUI()
 	{
 		if (this.overrideCamera || !this.consumeMouseEvents || !Application.isPlaying || this.occluders == null)
@@ -298,7 +298,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 		Vector3 mousePosition = Input.mousePosition;
 		mousePosition.y = (float)Screen.height - mousePosition.y;
-		if (dfGUIManager.modalControlStack.Count > 0)
+		if (global::dfGUIManager.modalControlStack.Count > 0)
 		{
 			GUI.Box(new Rect(0f, 0f, (float)Screen.width, (float)Screen.height), GUIContent.none, GUIStyle.none);
 		}
@@ -330,7 +330,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D52 RID: 15698 RVA: 0x000E667C File Offset: 0x000E487C
+	// Token: 0x0600415C RID: 16732 RVA: 0x000EF1C0 File Offset: 0x000ED3C0
 	public virtual void OnDestroy()
 	{
 		if (this.meshRenderer != null)
@@ -342,13 +342,13 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D53 RID: 15699 RVA: 0x000E66C8 File Offset: 0x000E48C8
+	// Token: 0x0600415D RID: 16733 RVA: 0x000EF20C File Offset: 0x000ED40C
 	public virtual void Awake()
 	{
-		dfRenderData.FlushObjectPool();
+		global::dfRenderData.FlushObjectPool();
 	}
 
-	// Token: 0x06003D54 RID: 15700 RVA: 0x000E66D0 File Offset: 0x000E48D0
+	// Token: 0x0600415E RID: 16734 RVA: 0x000EF214 File Offset: 0x000ED414
 	public virtual void OnEnable()
 	{
 		this.FramesRendered = 0;
@@ -364,7 +364,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D55 RID: 15701 RVA: 0x000E6720 File Offset: 0x000E4920
+	// Token: 0x0600415F RID: 16735 RVA: 0x000EF264 File Offset: 0x000ED464
 	public virtual void OnDisable()
 	{
 		if (this.meshRenderer != null)
@@ -373,7 +373,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D56 RID: 15702 RVA: 0x000E6740 File Offset: 0x000E4940
+	// Token: 0x06004160 RID: 16736 RVA: 0x000EF284 File Offset: 0x000ED484
 	public virtual void Start()
 	{
 		Camera[] array = Object.FindObjectsOfType(typeof(Camera)) as Camera[];
@@ -381,7 +381,7 @@ public class dfGUIManager : MonoBehaviour
 		{
 			array[i].eventMask &= ~(1 << base.gameObject.layer);
 		}
-		this.inputManager = (base.GetComponent<dfInputManager>() ?? base.gameObject.AddComponent<dfInputManager>());
+		this.inputManager = (base.GetComponent<global::dfInputManager>() ?? base.gameObject.AddComponent<global::dfInputManager>());
 		this.inputManager.RenderCamera = this.RenderCamera;
 		this.FramesRendered = 0;
 		this.invalidateAllControls();
@@ -392,7 +392,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D57 RID: 15703 RVA: 0x000E67FC File Offset: 0x000E49FC
+	// Token: 0x06004161 RID: 16737 RVA: 0x000EF340 File Offset: 0x000ED540
 	public virtual void Update()
 	{
 		if (this.renderCamera == null || !base.enabled)
@@ -424,7 +424,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D58 RID: 15704 RVA: 0x000E68E4 File Offset: 0x000E4AE4
+	// Token: 0x06004162 RID: 16738 RVA: 0x000EF428 File Offset: 0x000ED628
 	public virtual void LateUpdate()
 	{
 		if (this.renderMesh == null || this.renderMesh.Length == 0)
@@ -448,17 +448,17 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D59 RID: 15705 RVA: 0x000E6974 File Offset: 0x000E4B74
-	public dfControl HitTest(Vector2 screenPosition)
+	// Token: 0x06004163 RID: 16739 RVA: 0x000EF4B8 File Offset: 0x000ED6B8
+	public global::dfControl HitTest(Vector2 screenPosition)
 	{
 		Ray ray = this.renderCamera.ScreenPointToRay(screenPosition);
 		float num = this.renderCamera.farClipPlane - this.renderCamera.nearClipPlane;
 		RaycastHit[] array = Physics.RaycastAll(ray, num, this.renderCamera.cullingMask);
-		Array.Sort<RaycastHit>(array, new Comparison<RaycastHit>(dfInputManager.raycastHitSorter));
+		Array.Sort<RaycastHit>(array, new Comparison<RaycastHit>(global::dfInputManager.raycastHitSorter));
 		return this.inputManager.clipCast(array);
 	}
 
-	// Token: 0x06003D5A RID: 15706 RVA: 0x000E69DC File Offset: 0x000E4BDC
+	// Token: 0x06004164 RID: 16740 RVA: 0x000EF520 File Offset: 0x000ED720
 	public Vector2 WorldPointToGUI(Vector3 worldPoint)
 	{
 		Vector2 screenSize = this.GetScreenSize();
@@ -469,14 +469,14 @@ public class dfGUIManager : MonoBehaviour
 		return this.ScreenToGui(vector);
 	}
 
-	// Token: 0x06003D5B RID: 15707 RVA: 0x000E6A48 File Offset: 0x000E4C48
+	// Token: 0x06004165 RID: 16741 RVA: 0x000EF58C File Offset: 0x000ED78C
 	public float PixelsToUnits()
 	{
 		float num = 2f / (float)this.FixedHeight;
 		return num * this.UIScale;
 	}
 
-	// Token: 0x06003D5C RID: 15708 RVA: 0x000E6A6C File Offset: 0x000E4C6C
+	// Token: 0x06004166 RID: 16742 RVA: 0x000EF5B0 File Offset: 0x000ED7B0
 	public virtual Plane[] GetClippingPlanes()
 	{
 		Vector3[] array = this.GetCorners();
@@ -493,7 +493,7 @@ public class dfGUIManager : MonoBehaviour
 		};
 	}
 
-	// Token: 0x06003D5D RID: 15709 RVA: 0x000E6B44 File Offset: 0x000E4D44
+	// Token: 0x06004167 RID: 16743 RVA: 0x000EF688 File Offset: 0x000ED888
 	public Vector3[] GetCorners()
 	{
 		float num = this.PixelsToUnits();
@@ -513,7 +513,7 @@ public class dfGUIManager : MonoBehaviour
 		return this.corners;
 	}
 
-	// Token: 0x06003D5E RID: 15710 RVA: 0x000E6C44 File Offset: 0x000E4E44
+	// Token: 0x06004168 RID: 16744 RVA: 0x000EF788 File Offset: 0x000ED988
 	public Vector2 GetScreenSize()
 	{
 		Camera camera = this.RenderCamera;
@@ -526,20 +526,20 @@ public class dfGUIManager : MonoBehaviour
 		return new Vector2((float)this.FixedWidth, (float)this.FixedHeight);
 	}
 
-	// Token: 0x06003D5F RID: 15711 RVA: 0x000E6CD0 File Offset: 0x000E4ED0
-	public T AddControl<T>() where T : dfControl
+	// Token: 0x06004169 RID: 16745 RVA: 0x000EF814 File Offset: 0x000EDA14
+	public T AddControl<T>() where T : global::dfControl
 	{
 		return (T)((object)this.AddControl(typeof(T)));
 	}
 
-	// Token: 0x06003D60 RID: 15712 RVA: 0x000E6CE8 File Offset: 0x000E4EE8
-	public dfControl AddControl(Type type)
+	// Token: 0x0600416A RID: 16746 RVA: 0x000EF82C File Offset: 0x000EDA2C
+	public global::dfControl AddControl(Type type)
 	{
-		if (!typeof(dfControl).IsAssignableFrom(type))
+		if (!typeof(global::dfControl).IsAssignableFrom(type))
 		{
 			throw new InvalidCastException();
 		}
-		dfControl dfControl = new GameObject(type.Name, new Type[]
+		global::dfControl dfControl = new GameObject(type.Name, new Type[]
 		{
 			type
 		})
@@ -549,16 +549,16 @@ public class dfGUIManager : MonoBehaviour
 				parent = base.transform
 			},
 			layer = base.gameObject.layer
-		}.GetComponent(type) as dfControl;
+		}.GetComponent(type) as global::dfControl;
 		dfControl.ZOrder = this.getMaxZOrder() + 1;
 		return dfControl;
 	}
 
-	// Token: 0x06003D61 RID: 15713 RVA: 0x000E6D64 File Offset: 0x000E4F64
+	// Token: 0x0600416B RID: 16747 RVA: 0x000EF8A8 File Offset: 0x000EDAA8
 	private int getMaxZOrder()
 	{
 		int num = -1;
-		using (dfList<dfControl> topLevelControls = this.getTopLevelControls())
+		using (global::dfList<global::dfControl> topLevelControls = this.getTopLevelControls())
 		{
 			for (int i = 0; i < topLevelControls.Count; i++)
 			{
@@ -568,77 +568,77 @@ public class dfGUIManager : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06003D62 RID: 15714 RVA: 0x000E6DD4 File Offset: 0x000E4FD4
-	public dfRenderData GetDrawCallBuffer(int drawCallNumber)
+	// Token: 0x0600416C RID: 16748 RVA: 0x000EF918 File Offset: 0x000EDB18
+	public global::dfRenderData GetDrawCallBuffer(int drawCallNumber)
 	{
 		return this.drawCallBuffers[drawCallNumber];
 	}
 
-	// Token: 0x06003D63 RID: 15715 RVA: 0x000E6DE4 File Offset: 0x000E4FE4
-	public static dfControl GetModalControl()
+	// Token: 0x0600416D RID: 16749 RVA: 0x000EF928 File Offset: 0x000EDB28
+	public static global::dfControl GetModalControl()
 	{
-		return (dfGUIManager.modalControlStack.Count <= 0) ? null : dfGUIManager.modalControlStack.Peek().control;
+		return (global::dfGUIManager.modalControlStack.Count <= 0) ? null : global::dfGUIManager.modalControlStack.Peek().control;
 	}
 
-	// Token: 0x06003D64 RID: 15716 RVA: 0x000E6E1C File Offset: 0x000E501C
+	// Token: 0x0600416E RID: 16750 RVA: 0x000EF960 File Offset: 0x000EDB60
 	public Vector2 ScreenToGui(Vector2 position)
 	{
 		position.y = this.GetScreenSize().y - position.y;
 		return position;
 	}
 
-	// Token: 0x06003D65 RID: 15717 RVA: 0x000E6E48 File Offset: 0x000E5048
-	public static void PushModal(dfControl control, dfGUIManager.ModalPoppedCallback callback = null)
+	// Token: 0x0600416F RID: 16751 RVA: 0x000EF98C File Offset: 0x000EDB8C
+	public static void PushModal(global::dfControl control, global::dfGUIManager.ModalPoppedCallback callback = null)
 	{
 		if (control == null)
 		{
 			throw new NullReferenceException("Cannot call PushModal() with a null reference");
 		}
-		dfGUIManager.modalControlStack.Push(new dfGUIManager.ModalControlReference
+		global::dfGUIManager.modalControlStack.Push(new global::dfGUIManager.ModalControlReference
 		{
 			control = control,
 			callback = callback
 		});
 	}
 
-	// Token: 0x06003D66 RID: 15718 RVA: 0x000E6E90 File Offset: 0x000E5090
+	// Token: 0x06004170 RID: 16752 RVA: 0x000EF9D4 File Offset: 0x000EDBD4
 	public static void PopModal()
 	{
-		if (dfGUIManager.modalControlStack.Count == 0)
+		if (global::dfGUIManager.modalControlStack.Count == 0)
 		{
 			throw new InvalidOperationException("Modal stack is empty");
 		}
-		dfGUIManager.ModalControlReference modalControlReference = dfGUIManager.modalControlStack.Pop();
+		global::dfGUIManager.ModalControlReference modalControlReference = global::dfGUIManager.modalControlStack.Pop();
 		if (modalControlReference.callback != null)
 		{
 			modalControlReference.callback(modalControlReference.control);
 		}
 	}
 
-	// Token: 0x06003D67 RID: 15719 RVA: 0x000E6EE4 File Offset: 0x000E50E4
-	public static void SetFocus(dfControl control)
+	// Token: 0x06004171 RID: 16753 RVA: 0x000EFA28 File Offset: 0x000EDC28
+	public static void SetFocus(global::dfControl control)
 	{
-		if (dfGUIManager.activeControl == control)
+		if (global::dfGUIManager.activeControl == control)
 		{
 			return;
 		}
-		dfControl dfControl = dfGUIManager.activeControl;
-		dfGUIManager.activeControl = control;
-		dfFocusEventArgs args = new dfFocusEventArgs(control, dfControl);
-		dfList<dfControl> prevFocusChain = dfList<dfControl>.Obtain();
+		global::dfControl dfControl = global::dfGUIManager.activeControl;
+		global::dfGUIManager.activeControl = control;
+		global::dfFocusEventArgs args = new global::dfFocusEventArgs(control, dfControl);
+		global::dfList<global::dfControl> prevFocusChain = global::dfList<global::dfControl>.Obtain();
 		if (dfControl != null)
 		{
-			dfControl dfControl2 = dfControl;
+			global::dfControl dfControl2 = dfControl;
 			while (dfControl2 != null)
 			{
 				prevFocusChain.Add(dfControl2);
 				dfControl2 = dfControl2.Parent;
 			}
 		}
-		dfList<dfControl> newFocusChain = dfList<dfControl>.Obtain();
+		global::dfList<global::dfControl> newFocusChain = global::dfList<global::dfControl>.Obtain();
 		if (control != null)
 		{
-			dfControl dfControl3 = control;
+			global::dfControl dfControl3 = control;
 			while (dfControl3 != null)
 			{
 				newFocusChain.Add(dfControl3);
@@ -647,7 +647,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 		if (dfControl != null)
 		{
-			prevFocusChain.ForEach(delegate(dfControl c)
+			prevFocusChain.ForEach(delegate(global::dfControl c)
 			{
 				if (!newFocusChain.Contains(c))
 				{
@@ -658,7 +658,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 		if (control != null)
 		{
-			newFocusChain.ForEach(delegate(dfControl c)
+			newFocusChain.ForEach(delegate(global::dfControl c)
 			{
 				if (!prevFocusChain.Contains(c))
 				{
@@ -671,31 +671,31 @@ public class dfGUIManager : MonoBehaviour
 		prevFocusChain.Release();
 	}
 
-	// Token: 0x06003D68 RID: 15720 RVA: 0x000E7010 File Offset: 0x000E5210
-	public static bool HasFocus(dfControl control)
+	// Token: 0x06004172 RID: 16754 RVA: 0x000EFB54 File Offset: 0x000EDD54
+	public static bool HasFocus(global::dfControl control)
 	{
-		return !(control == null) && dfGUIManager.activeControl == control;
+		return !(control == null) && global::dfGUIManager.activeControl == control;
 	}
 
-	// Token: 0x06003D69 RID: 15721 RVA: 0x000E702C File Offset: 0x000E522C
-	public static bool ContainsFocus(dfControl control)
+	// Token: 0x06004173 RID: 16755 RVA: 0x000EFB70 File Offset: 0x000EDD70
+	public static bool ContainsFocus(global::dfControl control)
 	{
-		return dfGUIManager.activeControl == control || (!(dfGUIManager.activeControl == null) && !(control == null) && dfGUIManager.activeControl.transform.IsChildOf(control.transform));
+		return global::dfGUIManager.activeControl == control || (!(global::dfGUIManager.activeControl == null) && !(control == null) && global::dfGUIManager.activeControl.transform.IsChildOf(control.transform));
 	}
 
-	// Token: 0x06003D6A RID: 15722 RVA: 0x000E7080 File Offset: 0x000E5280
-	public void BringToFront(dfControl control)
+	// Token: 0x06004174 RID: 16756 RVA: 0x000EFBC4 File Offset: 0x000EDDC4
+	public void BringToFront(global::dfControl control)
 	{
 		if (control.Parent != null)
 		{
 			control = control.GetRootContainer();
 		}
-		using (dfList<dfControl> topLevelControls = this.getTopLevelControls())
+		using (global::dfList<global::dfControl> topLevelControls = this.getTopLevelControls())
 		{
 			int zorder = 0;
 			for (int i = 0; i < topLevelControls.Count; i++)
 			{
-				dfControl dfControl = topLevelControls[i];
+				global::dfControl dfControl = topLevelControls[i];
 				if (dfControl != control)
 				{
 					dfControl.ZOrder = zorder++;
@@ -706,19 +706,19 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D6B RID: 15723 RVA: 0x000E7120 File Offset: 0x000E5320
-	public void SendToBack(dfControl control)
+	// Token: 0x06004175 RID: 16757 RVA: 0x000EFC64 File Offset: 0x000EDE64
+	public void SendToBack(global::dfControl control)
 	{
 		if (control.Parent != null)
 		{
 			control = control.GetRootContainer();
 		}
-		using (dfList<dfControl> topLevelControls = this.getTopLevelControls())
+		using (global::dfList<global::dfControl> topLevelControls = this.getTopLevelControls())
 		{
 			int num = 1;
 			for (int i = 0; i < topLevelControls.Count; i++)
 			{
-				dfControl dfControl = topLevelControls[i];
+				global::dfControl dfControl = topLevelControls[i];
 				if (dfControl != control)
 				{
 					dfControl.ZOrder = num++;
@@ -729,7 +729,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D6C RID: 15724 RVA: 0x000E71C0 File Offset: 0x000E53C0
+	// Token: 0x06004176 RID: 16758 RVA: 0x000EFD04 File Offset: 0x000EDF04
 	public void Invalidate()
 	{
 		if (this.isDirty)
@@ -740,10 +740,10 @@ public class dfGUIManager : MonoBehaviour
 		this.updateRenderSettings();
 	}
 
-	// Token: 0x06003D6D RID: 15725 RVA: 0x000E71DC File Offset: 0x000E53DC
+	// Token: 0x06004177 RID: 16759 RVA: 0x000EFD20 File Offset: 0x000EDF20
 	public static void RefreshAll(bool force = false)
 	{
-		dfGUIManager[] array = Object.FindObjectsOfType(typeof(dfGUIManager)) as dfGUIManager[];
+		global::dfGUIManager[] array = Object.FindObjectsOfType(typeof(global::dfGUIManager)) as global::dfGUIManager[];
 		for (int i = 0; i < array.Length; i++)
 		{
 			array[i].invalidateAllControls();
@@ -754,13 +754,13 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D6E RID: 15726 RVA: 0x000E7234 File Offset: 0x000E5434
+	// Token: 0x06004178 RID: 16760 RVA: 0x000EFD78 File Offset: 0x000EDF78
 	public void Render()
 	{
 		this.FramesRendered++;
-		if (dfGUIManager.BeforeRender != null)
+		if (global::dfGUIManager.BeforeRender != null)
 		{
-			dfGUIManager.BeforeRender(this);
+			global::dfGUIManager.BeforeRender(this);
 		}
 		try
 		{
@@ -789,20 +789,20 @@ public class dfGUIManager : MonoBehaviour
 				else
 				{
 					this.resetDrawCalls();
-					dfRenderData dfRenderData = null;
+					global::dfRenderData dfRenderData = null;
 					this.clipStack.Clear();
-					this.clipStack.Push(dfGUIManager.ClipRegion.Obtain());
+					this.clipStack.Push(global::dfGUIManager.ClipRegion.Obtain());
 					uint start_VALUE = dfChecksumUtil.START_VALUE;
-					using (dfList<dfControl> topLevelControls = this.getTopLevelControls())
+					using (global::dfList<global::dfControl> topLevelControls = this.getTopLevelControls())
 					{
 						this.updateRenderOrder(topLevelControls);
 						for (int i = 0; i < topLevelControls.Count; i++)
 						{
-							dfControl control = topLevelControls[i];
+							global::dfControl control = topLevelControls[i];
 							this.renderControl(ref dfRenderData, control, start_VALUE, 1f);
 						}
 					}
-					this.drawCallBuffers.RemoveAll((dfRenderData x) => x.Vertices.Count == 0);
+					this.drawCallBuffers.RemoveAll((global::dfRenderData x) => x.Vertices.Count == 0);
 					this.drawCallCount = this.drawCallBuffers.Count;
 					this.TotalDrawCalls = this.drawCallCount;
 					if (this.drawCallBuffers.Count == 0)
@@ -815,7 +815,7 @@ public class dfGUIManager : MonoBehaviour
 					else
 					{
 						this.meshRenderer.sharedMaterials = this.gatherMaterials();
-						dfRenderData dfRenderData2 = this.compileMasterBuffer();
+						global::dfRenderData dfRenderData2 = this.compileMasterBuffer();
 						this.TotalTriangles = dfRenderData2.Triangles.Count / 3;
 						Mesh mesh = this.getRenderMesh();
 						this.renderFilter.sharedMesh = mesh;
@@ -852,27 +852,27 @@ public class dfGUIManager : MonoBehaviour
 				}
 			}
 		}
-		catch (dfAbortRenderingException)
+		catch (global::dfAbortRenderingException)
 		{
 			this.isDirty = true;
 		}
 		finally
 		{
-			if (dfGUIManager.AfterRender != null)
+			if (global::dfGUIManager.AfterRender != null)
 			{
-				dfGUIManager.AfterRender(this);
+				global::dfGUIManager.AfterRender(this);
 			}
 		}
 	}
 
-	// Token: 0x06003D6F RID: 15727 RVA: 0x000E7638 File Offset: 0x000E5838
-	private dfList<dfControl> getTopLevelControls()
+	// Token: 0x06004179 RID: 16761 RVA: 0x000F017C File Offset: 0x000EE37C
+	private global::dfList<global::dfControl> getTopLevelControls()
 	{
 		int childCount = base.transform.childCount;
-		dfList<dfControl> dfList = dfList<dfControl>.Obtain(childCount);
+		global::dfList<global::dfControl> dfList = global::dfList<global::dfControl>.Obtain(childCount);
 		for (int i = 0; i < childCount; i++)
 		{
-			dfControl component = base.transform.GetChild(i).GetComponent<dfControl>();
+			global::dfControl component = base.transform.GetChild(i).GetComponent<global::dfControl>();
 			if (component != null)
 			{
 				dfList.Add(component);
@@ -882,7 +882,7 @@ public class dfGUIManager : MonoBehaviour
 		return dfList;
 	}
 
-	// Token: 0x06003D70 RID: 15728 RVA: 0x000E7698 File Offset: 0x000E5898
+	// Token: 0x0600417A RID: 16762 RVA: 0x000F01DC File Offset: 0x000EE3DC
 	private void updateRenderSettings()
 	{
 		Camera camera = this.RenderCamera;
@@ -926,7 +926,7 @@ public class dfGUIManager : MonoBehaviour
 		base.transform.hasChanged = false;
 	}
 
-	// Token: 0x06003D71 RID: 15729 RVA: 0x000E780C File Offset: 0x000E5A0C
+	// Token: 0x0600417B RID: 16763 RVA: 0x000F0350 File Offset: 0x000EE550
 	private void updateRenderCamera(Camera camera)
 	{
 		if (Application.isPlaying && camera.targetTexture != null)
@@ -972,27 +972,27 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D72 RID: 15730 RVA: 0x000E79DC File Offset: 0x000E5BDC
-	private dfRenderData compileMasterBuffer()
+	// Token: 0x0600417C RID: 16764 RVA: 0x000F0520 File Offset: 0x000EE720
+	private global::dfRenderData compileMasterBuffer()
 	{
 		this.submeshes.Clear();
-		dfGUIManager.masterBuffer.Clear();
+		global::dfGUIManager.masterBuffer.Clear();
 		for (int i = 0; i < this.drawCallCount; i++)
 		{
-			this.submeshes.Add(dfGUIManager.masterBuffer.Triangles.Count);
-			dfRenderData dfRenderData = this.drawCallBuffers[i];
+			this.submeshes.Add(global::dfGUIManager.masterBuffer.Triangles.Count);
+			global::dfRenderData dfRenderData = this.drawCallBuffers[i];
 			if (this.generateNormals && dfRenderData.Normals.Count == 0)
 			{
 				this.generateNormalsAndTangents(dfRenderData);
 			}
-			dfGUIManager.masterBuffer.Merge(dfRenderData, false);
+			global::dfGUIManager.masterBuffer.Merge(dfRenderData, false);
 		}
-		dfGUIManager.masterBuffer.ApplyTransform(base.transform.worldToLocalMatrix);
-		return dfGUIManager.masterBuffer;
+		global::dfGUIManager.masterBuffer.ApplyTransform(base.transform.worldToLocalMatrix);
+		return global::dfGUIManager.masterBuffer;
 	}
 
-	// Token: 0x06003D73 RID: 15731 RVA: 0x000E7A84 File Offset: 0x000E5C84
-	private void generateNormalsAndTangents(dfRenderData buffer)
+	// Token: 0x0600417D RID: 16765 RVA: 0x000F05C8 File Offset: 0x000EE7C8
+	private void generateNormalsAndTangents(global::dfRenderData buffer)
 	{
 		Vector3 normalized = buffer.Transform.MultiplyVector(Vector3.back).normalized;
 		Vector4 item = buffer.Transform.MultiplyVector(Vector3.right).normalized;
@@ -1004,7 +1004,7 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D74 RID: 15732 RVA: 0x000E7B14 File Offset: 0x000E5D14
+	// Token: 0x0600417E RID: 16766 RVA: 0x000F0658 File Offset: 0x000EE858
 	private bool needHalfPixelOffset()
 	{
 		if (this.applyHalfPixelOffset != null)
@@ -1017,19 +1017,19 @@ public class dfGUIManager : MonoBehaviour
 		return flag;
 	}
 
-	// Token: 0x06003D75 RID: 15733 RVA: 0x000E7B8C File Offset: 0x000E5D8C
+	// Token: 0x0600417F RID: 16767 RVA: 0x000F06D0 File Offset: 0x000EE8D0
 	private Material[] gatherMaterials()
 	{
 		int num = this.renderQueueBase;
-		dfGUIManager.MaterialCache.Reset();
-		int num2 = this.drawCallBuffers.Matching((dfRenderData buff) => buff != null && buff.Material != null);
+		global::dfGUIManager.MaterialCache.Reset();
+		int num2 = this.drawCallBuffers.Matching((global::dfRenderData buff) => buff != null && buff.Material != null);
 		int num3 = 0;
 		Material[] array = new Material[num2];
 		for (int i = 0; i < this.drawCallBuffers.Count; i++)
 		{
 			if (!(this.drawCallBuffers[i].Material == null))
 			{
-				Material material = dfGUIManager.MaterialCache.Lookup(this.drawCallBuffers[i].Material);
+				Material material = global::dfGUIManager.MaterialCache.Lookup(this.drawCallBuffers[i].Material);
 				material.renderQueue = num++;
 				array[num3++] = material;
 			}
@@ -1037,7 +1037,7 @@ public class dfGUIManager : MonoBehaviour
 		return array;
 	}
 
-	// Token: 0x06003D76 RID: 15734 RVA: 0x000E7C48 File Offset: 0x000E5E48
+	// Token: 0x06004180 RID: 16768 RVA: 0x000F078C File Offset: 0x000EE98C
 	private void resetDrawCalls()
 	{
 		this.drawCallCount = 0;
@@ -1048,10 +1048,10 @@ public class dfGUIManager : MonoBehaviour
 		this.drawCallBuffers.Clear();
 	}
 
-	// Token: 0x06003D77 RID: 15735 RVA: 0x000E7C94 File Offset: 0x000E5E94
-	private dfRenderData getDrawCallBuffer(Material material)
+	// Token: 0x06004181 RID: 16769 RVA: 0x000F07D8 File Offset: 0x000EE9D8
+	private global::dfRenderData getDrawCallBuffer(Material material)
 	{
-		dfRenderData dfRenderData;
+		global::dfRenderData dfRenderData;
 		if (this.MergeMaterials && material != null)
 		{
 			dfRenderData = this.findDrawCallBufferByMaterial(material);
@@ -1060,15 +1060,15 @@ public class dfGUIManager : MonoBehaviour
 				return dfRenderData;
 			}
 		}
-		dfRenderData = dfRenderData.Obtain();
+		dfRenderData = global::dfRenderData.Obtain();
 		dfRenderData.Material = material;
 		this.drawCallBuffers.Add(dfRenderData);
 		this.drawCallCount++;
 		return dfRenderData;
 	}
 
-	// Token: 0x06003D78 RID: 15736 RVA: 0x000E7CF4 File Offset: 0x000E5EF4
-	private dfRenderData findDrawCallBufferByMaterial(Material material)
+	// Token: 0x06004182 RID: 16770 RVA: 0x000F0838 File Offset: 0x000EEA38
+	private global::dfRenderData findDrawCallBufferByMaterial(Material material)
 	{
 		for (int i = 0; i < this.drawCallCount; i++)
 		{
@@ -1080,15 +1080,15 @@ public class dfGUIManager : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06003D79 RID: 15737 RVA: 0x000E7D44 File Offset: 0x000E5F44
+	// Token: 0x06004183 RID: 16771 RVA: 0x000F0888 File Offset: 0x000EEA88
 	private Mesh getRenderMesh()
 	{
 		this.activeRenderMesh = ((this.activeRenderMesh != 1) ? 1 : 0);
 		return this.renderMesh[this.activeRenderMesh];
 	}
 
-	// Token: 0x06003D7A RID: 15738 RVA: 0x000E7D78 File Offset: 0x000E5F78
-	private void renderControl(ref dfRenderData buffer, dfControl control, uint checksum, float opacity)
+	// Token: 0x06004184 RID: 16772 RVA: 0x000F08BC File Offset: 0x000EEABC
+	private void renderControl(ref global::dfRenderData buffer, global::dfControl control, uint checksum, float opacity)
 	{
 		if (!control.GetIsVisibleRaw())
 		{
@@ -1099,13 +1099,13 @@ public class dfGUIManager : MonoBehaviour
 		{
 			return;
 		}
-		dfGUIManager.ClipRegion clipRegion = this.clipStack.Peek();
+		global::dfGUIManager.ClipRegion clipRegion = this.clipStack.Peek();
 		checksum = dfChecksumUtil.Calculate(checksum, control.Version);
 		Bounds bounds = control.GetBounds();
 		bool flag = false;
-		if (!(control is IDFMultiRender))
+		if (!(control is global::IDFMultiRender))
 		{
-			dfRenderData dfRenderData = control.Render();
+			global::dfRenderData dfRenderData = control.Render();
 			if (dfRenderData == null)
 			{
 				return;
@@ -1117,12 +1117,12 @@ public class dfGUIManager : MonoBehaviour
 		}
 		else
 		{
-			dfList<dfRenderData> dfList = ((IDFMultiRender)control).RenderMultiple();
+			global::dfList<global::dfRenderData> dfList = ((global::IDFMultiRender)control).RenderMultiple();
 			if (dfList != null)
 			{
 				for (int i = 0; i < dfList.Count; i++)
 				{
-					dfRenderData controlData = dfList[i];
+					global::dfRenderData controlData = dfList[i];
 					if (this.processRenderData(ref buffer, controlData, bounds, checksum, clipRegion))
 					{
 						flag = true;
@@ -1137,12 +1137,12 @@ public class dfGUIManager : MonoBehaviour
 		}
 		if (control.ClipChildren)
 		{
-			clipRegion = dfGUIManager.ClipRegion.Obtain(clipRegion, control);
+			clipRegion = global::dfGUIManager.ClipRegion.Obtain(clipRegion, control);
 			this.clipStack.Push(clipRegion);
 		}
 		for (int j = 0; j < control.Controls.Count; j++)
 		{
-			dfControl control2 = control.Controls[j];
+			global::dfControl control2 = control.Controls[j];
 			this.renderControl(ref buffer, control2, checksum, opacity2);
 		}
 		if (control.ClipChildren)
@@ -1151,8 +1151,8 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D7B RID: 15739 RVA: 0x000E7EE8 File Offset: 0x000E60E8
-	private Rect getControlOccluder(dfControl control)
+	// Token: 0x06004185 RID: 16773 RVA: 0x000F0A2C File Offset: 0x000EEC2C
+	private Rect getControlOccluder(global::dfControl control)
 	{
 		Rect screenRect = control.GetScreenRect();
 		Vector2 vector;
@@ -1161,8 +1161,8 @@ public class dfGUIManager : MonoBehaviour
 		return new Rect(screenRect.x - vector2.x, screenRect.y - vector2.y, vector.x, vector.y);
 	}
 
-	// Token: 0x06003D7C RID: 15740 RVA: 0x000E7F90 File Offset: 0x000E6190
-	private bool processRenderData(ref dfRenderData buffer, dfRenderData controlData, Bounds bounds, uint checksum, dfGUIManager.ClipRegion clipInfo)
+	// Token: 0x06004186 RID: 16774 RVA: 0x000F0AD4 File Offset: 0x000EECD4
+	private bool processRenderData(ref global::dfRenderData buffer, global::dfRenderData controlData, Bounds bounds, uint checksum, global::dfGUIManager.ClipRegion clipInfo)
 	{
 		bool flag = buffer == null || (controlData.IsValid() && (!object.Equals(buffer.Shader, controlData.Shader) || (controlData.Material != null && !controlData.Material.Equals(buffer.Material))));
 		if (flag && controlData.IsValid())
@@ -1172,7 +1172,7 @@ public class dfGUIManager : MonoBehaviour
 		return controlData != null && controlData.IsValid() && clipInfo.PerformClipping(buffer, bounds, checksum, controlData);
 	}
 
-	// Token: 0x06003D7D RID: 15741 RVA: 0x000E8040 File Offset: 0x000E6240
+	// Token: 0x06004187 RID: 16775 RVA: 0x000F0B84 File Offset: 0x000EED84
 	private void initialize()
 	{
 		if (this.renderCamera == null)
@@ -1200,15 +1200,15 @@ public class dfGUIManager : MonoBehaviour
 		if (this.fixedWidth < 0)
 		{
 			this.fixedWidth = Mathf.RoundToInt((float)this.fixedHeight * 1.33333f);
-			base.GetComponentsInChildren<dfControl>().ToList<dfControl>().ForEach(delegate(dfControl x)
+			base.GetComponentsInChildren<global::dfControl>().ToList<global::dfControl>().ForEach(delegate(global::dfControl x)
 			{
 				x.ResetLayout(false, false);
 			});
 		}
 	}
 
-	// Token: 0x06003D7E RID: 15742 RVA: 0x000E8134 File Offset: 0x000E6334
-	private dfGUICamera findCameraComponent()
+	// Token: 0x06004188 RID: 16776 RVA: 0x000F0C78 File Offset: 0x000EEE78
+	private global::dfGUICamera findCameraComponent()
 	{
 		if (this.guiCamera != null)
 		{
@@ -1218,23 +1218,23 @@ public class dfGUIManager : MonoBehaviour
 		{
 			return null;
 		}
-		this.guiCamera = this.renderCamera.GetComponent<dfGUICamera>();
+		this.guiCamera = this.renderCamera.GetComponent<global::dfGUICamera>();
 		if (this.guiCamera == null)
 		{
-			this.guiCamera = this.renderCamera.gameObject.AddComponent<dfGUICamera>();
+			this.guiCamera = this.renderCamera.gameObject.AddComponent<global::dfGUICamera>();
 			this.guiCamera.transform.position = base.transform.position;
 		}
 		return this.guiCamera;
 	}
 
-	// Token: 0x06003D7F RID: 15743 RVA: 0x000E81C8 File Offset: 0x000E63C8
+	// Token: 0x06004189 RID: 16777 RVA: 0x000F0D0C File Offset: 0x000EEF0C
 	private void onResolutionChanged()
 	{
 		int currentSize = (!Application.isPlaying) ? this.FixedHeight : ((int)this.renderCamera.pixelHeight);
 		this.onResolutionChanged(this.FixedHeight, currentSize);
 	}
 
-	// Token: 0x06003D80 RID: 15744 RVA: 0x000E8204 File Offset: 0x000E6404
+	// Token: 0x0600418A RID: 16778 RVA: 0x000F0D48 File Offset: 0x000EEF48
 	private void onResolutionChanged(int oldSize, int currentSize)
 	{
 		float aspect = this.RenderCamera.aspect;
@@ -1247,7 +1247,7 @@ public class dfGUIManager : MonoBehaviour
 		this.onResolutionChanged(oldSize2, currentSize2);
 	}
 
-	// Token: 0x06003D81 RID: 15745 RVA: 0x000E8244 File Offset: 0x000E6444
+	// Token: 0x0600418B RID: 16779 RVA: 0x000F0D88 File Offset: 0x000EEF88
 	private void onResolutionChanged(Vector2 oldSize, Vector2 currentSize)
 	{
 		this.cachedScreenSize = currentSize;
@@ -1259,8 +1259,8 @@ public class dfGUIManager : MonoBehaviour
 		previousResolution..ctor(num, oldSize.y);
 		Vector2 currentResolution;
 		currentResolution..ctor(num2, currentSize.y);
-		dfControl[] componentsInChildren = base.GetComponentsInChildren<dfControl>();
-		Array.Sort<dfControl>(componentsInChildren, new Comparison<dfControl>(this.renderSortFunc));
+		global::dfControl[] componentsInChildren = base.GetComponentsInChildren<global::dfControl>();
+		Array.Sort<global::dfControl>(componentsInChildren, new Comparison<global::dfControl>(this.renderSortFunc));
 		for (int i = 0; i < componentsInChildren.Length; i++)
 		{
 			if (this.pixelPerfectMode && componentsInChildren[i].Parent == null)
@@ -1284,10 +1284,10 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003D82 RID: 15746 RVA: 0x000E837C File Offset: 0x000E657C
+	// Token: 0x0600418C RID: 16780 RVA: 0x000F0EC0 File Offset: 0x000EF0C0
 	private void invalidateAllControls()
 	{
-		dfControl[] componentsInChildren = base.GetComponentsInChildren<dfControl>();
+		global::dfControl[] componentsInChildren = base.GetComponentsInChildren<global::dfControl>();
 		for (int i = 0; i < componentsInChildren.Length; i++)
 		{
 			componentsInChildren[i].Invalidate();
@@ -1295,21 +1295,21 @@ public class dfGUIManager : MonoBehaviour
 		this.updateRenderOrder(null);
 	}
 
-	// Token: 0x06003D83 RID: 15747 RVA: 0x000E83B4 File Offset: 0x000E65B4
-	private int renderSortFunc(dfControl lhs, dfControl rhs)
+	// Token: 0x0600418D RID: 16781 RVA: 0x000F0EF8 File Offset: 0x000EF0F8
+	private int renderSortFunc(global::dfControl lhs, global::dfControl rhs)
 	{
 		return lhs.RenderOrder.CompareTo(rhs.RenderOrder);
 	}
 
-	// Token: 0x06003D84 RID: 15748 RVA: 0x000E83D8 File Offset: 0x000E65D8
-	private void updateRenderOrder(dfList<dfControl> list = null)
+	// Token: 0x0600418E RID: 16782 RVA: 0x000F0F1C File Offset: 0x000EF11C
+	private void updateRenderOrder(global::dfList<global::dfControl> list = null)
 	{
-		dfList<dfControl> dfList = (list == null) ? this.getTopLevelControls() : list;
+		global::dfList<global::dfControl> dfList = (list == null) ? this.getTopLevelControls() : list;
 		dfList.Sort();
 		int num = 0;
 		for (int i = 0; i < dfList.Count; i++)
 		{
-			dfControl dfControl = dfList[i];
+			global::dfControl dfControl = dfList[i];
 			if (dfControl.Parent == null)
 			{
 				dfControl.setRenderOrder(ref num);
@@ -1317,134 +1317,134 @@ public class dfGUIManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400203E RID: 8254
+	// Token: 0x0400223F RID: 8767
 	[SerializeField]
 	protected float uiScale = 1f;
 
-	// Token: 0x0400203F RID: 8255
+	// Token: 0x04002240 RID: 8768
 	[SerializeField]
-	protected dfInputManager inputManager;
+	protected global::dfInputManager inputManager;
 
-	// Token: 0x04002040 RID: 8256
+	// Token: 0x04002241 RID: 8769
 	[SerializeField]
 	protected int fixedWidth = -1;
 
-	// Token: 0x04002041 RID: 8257
+	// Token: 0x04002242 RID: 8770
 	[SerializeField]
 	protected int fixedHeight = 600;
 
-	// Token: 0x04002042 RID: 8258
+	// Token: 0x04002243 RID: 8771
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x04002043 RID: 8259
+	// Token: 0x04002244 RID: 8772
 	[SerializeField]
-	protected dfFont defaultFont;
+	protected global::dfFont defaultFont;
 
-	// Token: 0x04002044 RID: 8260
+	// Token: 0x04002245 RID: 8773
 	[SerializeField]
 	protected bool mergeMaterials;
 
-	// Token: 0x04002045 RID: 8261
+	// Token: 0x04002246 RID: 8774
 	[SerializeField]
 	protected bool pixelPerfectMode = true;
 
-	// Token: 0x04002046 RID: 8262
+	// Token: 0x04002247 RID: 8775
 	[SerializeField]
 	protected Camera renderCamera;
 
-	// Token: 0x04002047 RID: 8263
+	// Token: 0x04002248 RID: 8776
 	[SerializeField]
 	protected bool generateNormals;
 
-	// Token: 0x04002048 RID: 8264
+	// Token: 0x04002249 RID: 8777
 	[SerializeField]
 	protected bool consumeMouseEvents = true;
 
-	// Token: 0x04002049 RID: 8265
+	// Token: 0x0400224A RID: 8778
 	[SerializeField]
 	protected bool overrideCamera;
 
-	// Token: 0x0400204A RID: 8266
+	// Token: 0x0400224B RID: 8779
 	[SerializeField]
 	protected int renderQueueBase = 3000;
 
-	// Token: 0x0400204B RID: 8267
-	private static dfControl activeControl = null;
+	// Token: 0x0400224C RID: 8780
+	private static global::dfControl activeControl = null;
 
-	// Token: 0x0400204C RID: 8268
-	private static Stack<dfGUIManager.ModalControlReference> modalControlStack = new Stack<dfGUIManager.ModalControlReference>();
+	// Token: 0x0400224D RID: 8781
+	private static Stack<global::dfGUIManager.ModalControlReference> modalControlStack = new Stack<global::dfGUIManager.ModalControlReference>();
 
-	// Token: 0x0400204D RID: 8269
-	private dfGUICamera guiCamera;
+	// Token: 0x0400224E RID: 8782
+	private global::dfGUICamera guiCamera;
 
-	// Token: 0x0400204E RID: 8270
+	// Token: 0x0400224F RID: 8783
 	private Mesh[] renderMesh;
 
-	// Token: 0x0400204F RID: 8271
+	// Token: 0x04002250 RID: 8784
 	private MeshFilter renderFilter;
 
-	// Token: 0x04002050 RID: 8272
+	// Token: 0x04002251 RID: 8785
 	private MeshRenderer meshRenderer;
 
-	// Token: 0x04002051 RID: 8273
+	// Token: 0x04002252 RID: 8786
 	private int activeRenderMesh;
 
-	// Token: 0x04002052 RID: 8274
+	// Token: 0x04002253 RID: 8787
 	private int cachedChildCount;
 
-	// Token: 0x04002053 RID: 8275
+	// Token: 0x04002254 RID: 8788
 	private bool isDirty;
 
-	// Token: 0x04002054 RID: 8276
+	// Token: 0x04002255 RID: 8789
 	private Vector2 cachedScreenSize;
 
-	// Token: 0x04002055 RID: 8277
+	// Token: 0x04002256 RID: 8790
 	private Vector3[] corners = new Vector3[4];
 
-	// Token: 0x04002056 RID: 8278
-	private dfList<Rect> occluders = new dfList<Rect>(256);
+	// Token: 0x04002257 RID: 8791
+	private global::dfList<Rect> occluders = new global::dfList<Rect>(256);
 
-	// Token: 0x04002057 RID: 8279
-	private Stack<dfGUIManager.ClipRegion> clipStack = new Stack<dfGUIManager.ClipRegion>();
+	// Token: 0x04002258 RID: 8792
+	private Stack<global::dfGUIManager.ClipRegion> clipStack = new Stack<global::dfGUIManager.ClipRegion>();
 
-	// Token: 0x04002058 RID: 8280
-	private static dfRenderData masterBuffer = new dfRenderData(4096);
+	// Token: 0x04002259 RID: 8793
+	private static global::dfRenderData masterBuffer = new global::dfRenderData(4096);
 
-	// Token: 0x04002059 RID: 8281
-	private dfList<dfRenderData> drawCallBuffers = new dfList<dfRenderData>();
+	// Token: 0x0400225A RID: 8794
+	private global::dfList<global::dfRenderData> drawCallBuffers = new global::dfList<global::dfRenderData>();
 
-	// Token: 0x0400205A RID: 8282
+	// Token: 0x0400225B RID: 8795
 	private List<int> submeshes = new List<int>();
 
-	// Token: 0x0400205B RID: 8283
+	// Token: 0x0400225C RID: 8796
 	private int drawCallCount;
 
-	// Token: 0x0400205C RID: 8284
+	// Token: 0x0400225D RID: 8797
 	private Vector2 uiOffset = Vector2.zero;
 
-	// Token: 0x0400205D RID: 8285
+	// Token: 0x0400225E RID: 8798
 	private bool? applyHalfPixelOffset;
 
-	// Token: 0x020006CD RID: 1741
+	// Token: 0x02000798 RID: 1944
 	private class ClipRegion
 	{
-		// Token: 0x06003D88 RID: 15752 RVA: 0x000E846C File Offset: 0x000E666C
+		// Token: 0x06004192 RID: 16786 RVA: 0x000F0FB0 File Offset: 0x000EF1B0
 		private ClipRegion()
 		{
-			this.planes = new dfList<Plane>();
+			this.planes = new global::dfList<Plane>();
 		}
 
-		// Token: 0x06003D8A RID: 15754 RVA: 0x000E848C File Offset: 0x000E668C
-		public static dfGUIManager.ClipRegion Obtain()
+		// Token: 0x06004194 RID: 16788 RVA: 0x000F0FD0 File Offset: 0x000EF1D0
+		public static global::dfGUIManager.ClipRegion Obtain()
 		{
-			return (dfGUIManager.ClipRegion.pool.Count <= 0) ? new dfGUIManager.ClipRegion() : dfGUIManager.ClipRegion.pool.Dequeue();
+			return (global::dfGUIManager.ClipRegion.pool.Count <= 0) ? new global::dfGUIManager.ClipRegion() : global::dfGUIManager.ClipRegion.pool.Dequeue();
 		}
 
-		// Token: 0x06003D8B RID: 15755 RVA: 0x000E84C0 File Offset: 0x000E66C0
-		public static dfGUIManager.ClipRegion Obtain(dfGUIManager.ClipRegion parent, dfControl control)
+		// Token: 0x06004195 RID: 16789 RVA: 0x000F1004 File Offset: 0x000EF204
+		public static global::dfGUIManager.ClipRegion Obtain(global::dfGUIManager.ClipRegion parent, global::dfControl control)
 		{
-			dfGUIManager.ClipRegion clipRegion = (dfGUIManager.ClipRegion.pool.Count <= 0) ? new dfGUIManager.ClipRegion() : dfGUIManager.ClipRegion.pool.Dequeue();
+			global::dfGUIManager.ClipRegion clipRegion = (global::dfGUIManager.ClipRegion.pool.Count <= 0) ? new global::dfGUIManager.ClipRegion() : global::dfGUIManager.ClipRegion.pool.Dequeue();
 			clipRegion.planes.AddRange(control.GetClippingPlanes());
 			if (parent != null)
 			{
@@ -1453,38 +1453,38 @@ public class dfGUIManager : MonoBehaviour
 			return clipRegion;
 		}
 
-		// Token: 0x06003D8C RID: 15756 RVA: 0x000E851C File Offset: 0x000E671C
+		// Token: 0x06004196 RID: 16790 RVA: 0x000F1060 File Offset: 0x000EF260
 		public void Release()
 		{
 			this.planes.Clear();
-			dfGUIManager.ClipRegion.pool.Enqueue(this);
+			global::dfGUIManager.ClipRegion.pool.Enqueue(this);
 		}
 
-		// Token: 0x06003D8D RID: 15757 RVA: 0x000E8534 File Offset: 0x000E6734
-		public bool PerformClipping(dfRenderData dest, Bounds bounds, uint checksum, dfRenderData controlData)
+		// Token: 0x06004197 RID: 16791 RVA: 0x000F1078 File Offset: 0x000EF278
+		public bool PerformClipping(global::dfRenderData dest, Bounds bounds, uint checksum, global::dfRenderData controlData)
 		{
 			if (controlData.Checksum == checksum)
 			{
-				if (controlData.Intersection == dfIntersectionType.Inside)
+				if (controlData.Intersection == global::dfIntersectionType.Inside)
 				{
 					dest.Merge(controlData, true);
 					return true;
 				}
-				if (controlData.Intersection == dfIntersectionType.None)
+				if (controlData.Intersection == global::dfIntersectionType.None)
 				{
 					return false;
 				}
 			}
 			bool result = false;
-			dfIntersectionType dfIntersectionType;
-			using (dfList<Plane> dfList = this.TestIntersection(bounds, out dfIntersectionType))
+			global::dfIntersectionType dfIntersectionType;
+			using (global::dfList<Plane> dfList = this.TestIntersection(bounds, out dfIntersectionType))
 			{
-				if (dfIntersectionType == dfIntersectionType.Inside)
+				if (dfIntersectionType == global::dfIntersectionType.Inside)
 				{
 					dest.Merge(controlData, true);
 					result = true;
 				}
-				else if (dfIntersectionType == dfIntersectionType.Intersecting)
+				else if (dfIntersectionType == global::dfIntersectionType.Intersecting)
 				{
 					this.clipToPlanes(dfList, controlData, dest, checksum);
 					result = true;
@@ -1495,15 +1495,15 @@ public class dfGUIManager : MonoBehaviour
 			return result;
 		}
 
-		// Token: 0x06003D8E RID: 15758 RVA: 0x000E85EC File Offset: 0x000E67EC
-		public dfList<Plane> TestIntersection(Bounds bounds, out dfIntersectionType type)
+		// Token: 0x06004198 RID: 16792 RVA: 0x000F1130 File Offset: 0x000EF330
+		public global::dfList<Plane> TestIntersection(Bounds bounds, out global::dfIntersectionType type)
 		{
 			if (this.planes == null || this.planes.Count == 0)
 			{
-				type = dfIntersectionType.Inside;
+				type = global::dfIntersectionType.Inside;
 				return null;
 			}
-			dfList<Plane> dfList = dfList<Plane>.Obtain(this.planes.Count);
+			global::dfList<Plane> dfList = global::dfList<Plane>.Obtain(this.planes.Count);
 			Vector3 center = bounds.center;
 			Vector3 extents = bounds.extents;
 			bool flag = false;
@@ -1521,23 +1521,23 @@ public class dfGUIManager : MonoBehaviour
 				}
 				else if (num2 < -num)
 				{
-					type = dfIntersectionType.None;
+					type = global::dfIntersectionType.None;
 					dfList.Release();
 					return null;
 				}
 			}
 			if (flag)
 			{
-				type = dfIntersectionType.Intersecting;
+				type = global::dfIntersectionType.Intersecting;
 				return dfList;
 			}
-			type = dfIntersectionType.Inside;
+			type = global::dfIntersectionType.Inside;
 			dfList.Release();
 			return null;
 		}
 
-		// Token: 0x06003D8F RID: 15759 RVA: 0x000E8714 File Offset: 0x000E6914
-		public void clipToPlanes(dfList<Plane> planes, dfRenderData data, dfRenderData dest, uint controlChecksum)
+		// Token: 0x06004199 RID: 16793 RVA: 0x000F1258 File Offset: 0x000EF458
+		public void clipToPlanes(global::dfList<Plane> planes, global::dfRenderData data, global::dfRenderData dest, uint controlChecksum)
 		{
 			if (data == null || data.Vertices.Count == 0)
 			{
@@ -1548,36 +1548,36 @@ public class dfGUIManager : MonoBehaviour
 				dest.Merge(data, true);
 				return;
 			}
-			dfClippingUtil.Clip(planes, data, dest);
+			global::dfClippingUtil.Clip(planes, data, dest);
 		}
 
-		// Token: 0x06003D90 RID: 15760 RVA: 0x000E875C File Offset: 0x000E695C
+		// Token: 0x0600419A RID: 16794 RVA: 0x000F12A0 File Offset: 0x000EF4A0
 		private static int sortClipPlanes(Plane lhs, Plane rhs)
 		{
 			return lhs.distance.CompareTo(rhs.distance);
 		}
 
-		// Token: 0x04002067 RID: 8295
-		private static Queue<dfGUIManager.ClipRegion> pool = new Queue<dfGUIManager.ClipRegion>();
+		// Token: 0x04002268 RID: 8808
+		private static Queue<global::dfGUIManager.ClipRegion> pool = new Queue<global::dfGUIManager.ClipRegion>();
 
-		// Token: 0x04002068 RID: 8296
-		private dfList<Plane> planes;
+		// Token: 0x04002269 RID: 8809
+		private global::dfList<Plane> planes;
 	}
 
-	// Token: 0x020006CE RID: 1742
+	// Token: 0x02000799 RID: 1945
 	private struct ModalControlReference
 	{
-		// Token: 0x04002069 RID: 8297
-		public dfControl control;
+		// Token: 0x0400226A RID: 8810
+		public global::dfControl control;
 
-		// Token: 0x0400206A RID: 8298
-		public dfGUIManager.ModalPoppedCallback callback;
+		// Token: 0x0400226B RID: 8811
+		public global::dfGUIManager.ModalPoppedCallback callback;
 	}
 
-	// Token: 0x020006CF RID: 1743
+	// Token: 0x0200079A RID: 1946
 	private class MaterialCache
 	{
-		// Token: 0x06003D93 RID: 15763 RVA: 0x000E8794 File Offset: 0x000E6994
+		// Token: 0x0600419D RID: 16797 RVA: 0x000F12D8 File Offset: 0x000EF4D8
 		public static Material Lookup(Material BaseMaterial)
 		{
 			if (BaseMaterial == null)
@@ -1585,53 +1585,53 @@ public class dfGUIManager : MonoBehaviour
 				Debug.LogError("Cache lookup on null material");
 				return null;
 			}
-			dfGUIManager.MaterialCache.Cache cache = null;
-			if (dfGUIManager.MaterialCache.cache.TryGetValue(BaseMaterial, out cache))
+			global::dfGUIManager.MaterialCache.Cache cache = null;
+			if (global::dfGUIManager.MaterialCache.cache.TryGetValue(BaseMaterial, out cache))
 			{
 				return cache.Obtain();
 			}
-			dfGUIManager.MaterialCache.Cache cache2 = new dfGUIManager.MaterialCache.Cache(BaseMaterial);
-			dfGUIManager.MaterialCache.cache[BaseMaterial] = cache2;
+			global::dfGUIManager.MaterialCache.Cache cache2 = new global::dfGUIManager.MaterialCache.Cache(BaseMaterial);
+			global::dfGUIManager.MaterialCache.cache[BaseMaterial] = cache2;
 			cache = cache2;
 			return cache.Obtain();
 		}
 
-		// Token: 0x06003D94 RID: 15764 RVA: 0x000E87F0 File Offset: 0x000E69F0
+		// Token: 0x0600419E RID: 16798 RVA: 0x000F1334 File Offset: 0x000EF534
 		public static void Reset()
 		{
-			dfGUIManager.MaterialCache.Cache.ResetAll();
+			global::dfGUIManager.MaterialCache.Cache.ResetAll();
 		}
 
-		// Token: 0x0400206B RID: 8299
-		private static Dictionary<Material, dfGUIManager.MaterialCache.Cache> cache = new Dictionary<Material, dfGUIManager.MaterialCache.Cache>();
+		// Token: 0x0400226C RID: 8812
+		private static Dictionary<Material, global::dfGUIManager.MaterialCache.Cache> cache = new Dictionary<Material, global::dfGUIManager.MaterialCache.Cache>();
 
-		// Token: 0x020006D0 RID: 1744
+		// Token: 0x0200079B RID: 1947
 		private class Cache
 		{
-			// Token: 0x06003D95 RID: 15765 RVA: 0x000E87F8 File Offset: 0x000E69F8
+			// Token: 0x0600419F RID: 16799 RVA: 0x000F133C File Offset: 0x000EF53C
 			private Cache()
 			{
 				throw new NotImplementedException();
 			}
 
-			// Token: 0x06003D96 RID: 15766 RVA: 0x000E8814 File Offset: 0x000E6A14
+			// Token: 0x060041A0 RID: 16800 RVA: 0x000F1358 File Offset: 0x000EF558
 			public Cache(Material BaseMaterial)
 			{
 				this.baseMaterial = BaseMaterial;
 				this.instances.Add(BaseMaterial);
-				dfGUIManager.MaterialCache.Cache.cacheInstances.Add(this);
+				global::dfGUIManager.MaterialCache.Cache.cacheInstances.Add(this);
 			}
 
-			// Token: 0x06003D98 RID: 15768 RVA: 0x000E8854 File Offset: 0x000E6A54
+			// Token: 0x060041A2 RID: 16802 RVA: 0x000F1398 File Offset: 0x000EF598
 			public static void ResetAll()
 			{
-				for (int i = 0; i < dfGUIManager.MaterialCache.Cache.cacheInstances.Count; i++)
+				for (int i = 0; i < global::dfGUIManager.MaterialCache.Cache.cacheInstances.Count; i++)
 				{
-					dfGUIManager.MaterialCache.Cache.cacheInstances[i].Reset();
+					global::dfGUIManager.MaterialCache.Cache.cacheInstances[i].Reset();
 				}
 			}
 
-			// Token: 0x06003D99 RID: 15769 RVA: 0x000E888C File Offset: 0x000E6A8C
+			// Token: 0x060041A3 RID: 16803 RVA: 0x000F13D0 File Offset: 0x000EF5D0
 			public Material Obtain()
 			{
 				if (this.currentIndex < this.instances.Count)
@@ -1648,33 +1648,33 @@ public class dfGUIManager : MonoBehaviour
 				return material;
 			}
 
-			// Token: 0x06003D9A RID: 15770 RVA: 0x000E8924 File Offset: 0x000E6B24
+			// Token: 0x060041A4 RID: 16804 RVA: 0x000F1468 File Offset: 0x000EF668
 			public void Reset()
 			{
 				this.currentIndex = 0;
 			}
 
-			// Token: 0x0400206C RID: 8300
-			private static List<dfGUIManager.MaterialCache.Cache> cacheInstances = new List<dfGUIManager.MaterialCache.Cache>();
+			// Token: 0x0400226D RID: 8813
+			private static List<global::dfGUIManager.MaterialCache.Cache> cacheInstances = new List<global::dfGUIManager.MaterialCache.Cache>();
 
-			// Token: 0x0400206D RID: 8301
+			// Token: 0x0400226E RID: 8814
 			private Material baseMaterial;
 
-			// Token: 0x0400206E RID: 8302
+			// Token: 0x0400226F RID: 8815
 			private List<Material> instances = new List<Material>(10);
 
-			// Token: 0x0400206F RID: 8303
+			// Token: 0x04002270 RID: 8816
 			private int currentIndex;
 		}
 	}
 
-	// Token: 0x020008DD RID: 2269
-	// (Invoke) Token: 0x06004D4C RID: 19788
-	[dfEventCategory("Modal Dialog")]
-	public delegate void ModalPoppedCallback(dfControl control);
+	// Token: 0x0200079C RID: 1948
+	// (Invoke) Token: 0x060041A6 RID: 16806
+	[global::dfEventCategory("Modal Dialog")]
+	public delegate void ModalPoppedCallback(global::dfControl control);
 
-	// Token: 0x020008DE RID: 2270
-	// (Invoke) Token: 0x06004D50 RID: 19792
-	[dfEventCategory("Global Callbacks")]
-	public delegate void RenderCallback(dfGUIManager manager);
+	// Token: 0x0200079D RID: 1949
+	// (Invoke) Token: 0x060041AA RID: 16810
+	[global::dfEventCategory("Global Callbacks")]
+	public delegate void RenderCallback(global::dfGUIManager manager);
 }

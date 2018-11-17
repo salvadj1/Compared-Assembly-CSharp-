@@ -1,69 +1,69 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000032 RID: 50
+// Token: 0x02000044 RID: 68
 [ExecuteInEditMode]
 public class FPGrassDisplacementCamera : MonoBehaviour
 {
-	// Token: 0x17000059 RID: 89
-	// (get) Token: 0x060001FB RID: 507 RVA: 0x0000B9A8 File Offset: 0x00009BA8
-	public static FPGrassDisplacementCamera singleton
+	// Token: 0x1700006F RID: 111
+	// (get) Token: 0x0600026D RID: 621 RVA: 0x0000CF50 File Offset: 0x0000B150
+	public static global::FPGrassDisplacementCamera singleton
 	{
 		get
 		{
-			return FPGrassDisplacementCamera.Global.singleton;
+			return global::FPGrassDisplacementCamera.Global.singleton;
 		}
 	}
 
-	// Token: 0x060001FC RID: 508 RVA: 0x0000B9B0 File Offset: 0x00009BB0
+	// Token: 0x0600026E RID: 622 RVA: 0x0000CF58 File Offset: 0x0000B158
 	public void Awake()
 	{
 	}
 
-	// Token: 0x060001FD RID: 509 RVA: 0x0000B9B4 File Offset: 0x00009BB4
-	public static FPGrassDisplacementCamera Get()
+	// Token: 0x0600026F RID: 623 RVA: 0x0000CF5C File Offset: 0x0000B15C
+	public static global::FPGrassDisplacementCamera Get()
 	{
-		return FPGrassDisplacementCamera.singleton;
+		return global::FPGrassDisplacementCamera.singleton;
 	}
 
-	// Token: 0x060001FE RID: 510 RVA: 0x0000B9BC File Offset: 0x00009BBC
+	// Token: 0x06000270 RID: 624 RVA: 0x0000CF64 File Offset: 0x0000B164
 	public static RenderTexture GetRT()
 	{
-		return FPGrassDisplacementCamera.singleton.camera.targetTexture;
+		return global::FPGrassDisplacementCamera.singleton.camera.targetTexture;
 	}
 
-	// Token: 0x060001FF RID: 511 RVA: 0x0000B9D0 File Offset: 0x00009BD0
+	// Token: 0x06000271 RID: 625 RVA: 0x0000CF78 File Offset: 0x0000B178
 	public static Material GetBlitMat()
 	{
-		return FPGrassDisplacementCamera.singleton.blitMat;
+		return global::FPGrassDisplacementCamera.singleton.blitMat;
 	}
 
-	// Token: 0x06000200 RID: 512 RVA: 0x0000B9DC File Offset: 0x00009BDC
+	// Token: 0x06000272 RID: 626 RVA: 0x0000CF84 File Offset: 0x0000B184
 	public void OnDestroy()
 	{
 		Object.DestroyImmediate(base.camera.targetTexture);
 		Object.DestroyImmediate(this.blitMat);
 	}
 
-	// Token: 0x0400013B RID: 315
+	// Token: 0x0400019D RID: 413
 	[NonSerialized]
 	public Material blitMat;
 
-	// Token: 0x02000033 RID: 51
+	// Token: 0x02000045 RID: 69
 	private static class Global
 	{
-		// Token: 0x06000201 RID: 513 RVA: 0x0000B9FC File Offset: 0x00009BFC
+		// Token: 0x06000273 RID: 627 RVA: 0x0000CFA4 File Offset: 0x0000B1A4
 		static Global()
 		{
 			GameObject gameObject = GameObject.FindWithTag("DisplacementCamera");
 			if (gameObject)
 			{
-				FPGrassDisplacementCamera.Global.singleton = gameObject.GetComponent<FPGrassDisplacementCamera>();
-				if (FPGrassDisplacementCamera.Global.singleton)
+				global::FPGrassDisplacementCamera.Global.singleton = gameObject.GetComponent<global::FPGrassDisplacementCamera>();
+				if (global::FPGrassDisplacementCamera.Global.singleton)
 				{
 					Object.DestroyImmediate(gameObject);
 				}
-				FPGrassDisplacementCamera.Global.singleton = null;
+				global::FPGrassDisplacementCamera.Global.singleton = null;
 			}
 			GameObject gameObject2 = new GameObject("FPGrassDisplacementCamera")
 			{
@@ -81,21 +81,21 @@ public class FPGrassDisplacementCamera : MonoBehaviour
 			gameObject2.camera.enabled = false;
 			gameObject2.camera.cullingMask = 1 << LayerMask.NameToLayer("GrassDisplacement");
 			gameObject2.camera.tag = "DisplacementCamera";
-			FPGrassDisplacementCamera.Global.singleton = gameObject2.AddComponent<FPGrassDisplacementCamera>();
-			RenderTexture renderTexture = new RenderTexture(512, 512, 0, FPGrass.Support.ProbabilityRenderTextureFormat1Channel)
+			global::FPGrassDisplacementCamera.Global.singleton = gameObject2.AddComponent<global::FPGrassDisplacementCamera>();
+			RenderTexture renderTexture = new RenderTexture(512, 512, 0, global::FPGrass.Support.ProbabilityRenderTextureFormat1Channel)
 			{
 				hideFlags = 4
 			};
 			renderTexture.Create();
 			renderTexture.name = "FPGrassDisplacement_RT";
 			gameObject2.camera.targetTexture = renderTexture;
-			FPGrassDisplacementCamera.Global.singleton.blitMat = new Material(Shader.Find("Custom/DisplacementBlit"))
+			global::FPGrassDisplacementCamera.Global.singleton.blitMat = new Material(Shader.Find("Custom/DisplacementBlit"))
 			{
 				hideFlags = 4
 			};
 		}
 
-		// Token: 0x0400013C RID: 316
-		public static FPGrassDisplacementCamera singleton;
+		// Token: 0x0400019E RID: 414
+		public static global::FPGrassDisplacementCamera singleton;
 	}
 }

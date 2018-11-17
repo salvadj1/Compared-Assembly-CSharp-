@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004BA RID: 1210
-public class HUDDirectionalDamage : HUDIndicator
+// Token: 0x02000575 RID: 1397
+public class HUDDirectionalDamage : global::HUDIndicator
 {
-	// Token: 0x06002A3E RID: 10814 RVA: 0x000A584C File Offset: 0x000A3A4C
+	// Token: 0x06002DF0 RID: 11760 RVA: 0x000AD5E4 File Offset: 0x000AB7E4
 	private void Awake()
 	{
 		this.lastBoundMin = this.skeletonMaterial.GetVector("_MinChannels");
 		this.lastBoundMax = this.skeletonMaterial.GetVector("_MaxChannels");
 	}
 
-	// Token: 0x06002A3F RID: 10815 RVA: 0x000A5888 File Offset: 0x000A3A88
+	// Token: 0x06002DF1 RID: 11761 RVA: 0x000AD620 File Offset: 0x000AB820
 	protected new void OnDestroy()
 	{
 		base.OnDestroy();
 	}
 
-	// Token: 0x06002A40 RID: 10816 RVA: 0x000A5890 File Offset: 0x000A3A90
+	// Token: 0x06002DF2 RID: 11762 RVA: 0x000AD628 File Offset: 0x000AB828
 	protected new void Start()
 	{
 		this.randMin.x = Random.Range(0f, 0.06f);
@@ -46,14 +46,14 @@ public class HUDDirectionalDamage : HUDIndicator
 		base.Start();
 	}
 
-	// Token: 0x06002A41 RID: 10817 RVA: 0x000A5ADC File Offset: 0x000A3CDC
+	// Token: 0x06002DF3 RID: 11763 RVA: 0x000AD874 File Offset: 0x000ABA74
 	protected sealed override bool Continue()
 	{
 		if (this.duration <= 0.0)
 		{
 			return false;
 		}
-		double num = HUDIndicator.stepTime - this.damageTime;
+		double num = global::HUDIndicator.stepTime - this.damageTime;
 		if (num > this.duration)
 		{
 			return false;
@@ -75,8 +75,8 @@ public class HUDDirectionalDamage : HUDIndicator
 		{
 			num5 = 1.0 - (num5 - 1.0);
 		}
-		double num6 = TransitionFunctions.Spline(num3, 1.0, 0.0);
-		double num7 = (num4 >= 0.10000000149011612) ? TransitionFunctions.Spline((num4 - 0.1) / 0.9, 1.0, 0.0) : TransitionFunctions.Spline(num4 / 0.1, 0.0, 1.0);
+		double num6 = global::TransitionFunctions.Spline(num3, 1.0, 0.0);
+		double num7 = (num4 >= 0.10000000149011612) ? global::TransitionFunctions.Spline((num4 - 0.1) / 0.9, 1.0, 0.0) : global::TransitionFunctions.Spline(num4 / 0.1, 0.0, 1.0);
 		double num8 = Math.Cos(num5 * 1.5707963267948966);
 		Vector4 vector;
 		vector.x = (float)num8;
@@ -128,7 +128,7 @@ public class HUDDirectionalDamage : HUDIndicator
 			this.lastBoundMax = vector2;
 			this.propBlock.Set("_MaxChannels", this.lastBoundMax);
 		}
-		Vector3 vector3 = HUDIndicator.worldToCameraLocalMatrix.MultiplyVector(this.worldDirection);
+		Vector3 vector3 = global::HUDIndicator.worldToCameraLocalMatrix.MultiplyVector(this.worldDirection);
 		vector3.Normalize();
 		if (vector3.y * vector3.y <= 0.99f)
 		{
@@ -138,10 +138,10 @@ public class HUDDirectionalDamage : HUDIndicator
 		return true;
 	}
 
-	// Token: 0x06002A42 RID: 10818 RVA: 0x000A5E70 File Offset: 0x000A4070
-	public static void CreateIndicator(Vector3 worldDamageDirection, double damageAmount, double timestamp, double duration, HUDDirectionalDamage prefab)
+	// Token: 0x06002DF4 RID: 11764 RVA: 0x000ADC08 File Offset: 0x000ABE08
+	public static void CreateIndicator(Vector3 worldDamageDirection, double damageAmount, double timestamp, double duration, global::HUDDirectionalDamage prefab)
 	{
-		HUDDirectionalDamage huddirectionalDamage = (HUDDirectionalDamage)HUDIndicator.InstantiateIndicator(HUDIndicator.ScratchTarget.CenteredFixed3000Tall, prefab, HUDIndicator.PlacementSpace.DoNotModify, Vector3.zero);
+		global::HUDDirectionalDamage huddirectionalDamage = (global::HUDDirectionalDamage)global::HUDIndicator.InstantiateIndicator(global::HUDIndicator.ScratchTarget.CenteredFixed3000Tall, prefab, global::HUDIndicator.PlacementSpace.DoNotModify, Vector3.zero);
 		huddirectionalDamage.damageTime = timestamp;
 		huddirectionalDamage.duration = duration;
 		huddirectionalDamage.damageAmount = damageAmount;
@@ -152,82 +152,82 @@ public class HUDDirectionalDamage : HUDIndicator
 		huddirectionalDamage.texture.ForceReloadMaterial();
 	}
 
-	// Token: 0x04001644 RID: 5700
+	// Token: 0x04001801 RID: 6145
 	private const string materialProp_MIN = "_MinChannels";
 
-	// Token: 0x04001645 RID: 5701
+	// Token: 0x04001802 RID: 6146
 	private const string materialProp_MAX = "_MaxChannels";
 
-	// Token: 0x04001646 RID: 5702
+	// Token: 0x04001803 RID: 6147
 	[SerializeField]
 	private Material skeletonMaterial;
 
-	// Token: 0x04001647 RID: 5703
+	// Token: 0x04001804 RID: 6148
 	private Vector4 lastBoundMin;
 
-	// Token: 0x04001648 RID: 5704
+	// Token: 0x04001805 RID: 6149
 	private Vector4 lastBoundMax;
 
-	// Token: 0x04001649 RID: 5705
+	// Token: 0x04001806 RID: 6150
 	[NonSerialized]
 	public Vector3 worldDirection = Vector3.left;
 
-	// Token: 0x0400164A RID: 5706
+	// Token: 0x04001807 RID: 6151
 	[NonSerialized]
 	public double damageTime;
 
-	// Token: 0x0400164B RID: 5707
+	// Token: 0x04001808 RID: 6152
 	[NonSerialized]
 	public double duration;
 
-	// Token: 0x0400164C RID: 5708
+	// Token: 0x04001809 RID: 6153
 	[NonSerialized]
 	public double damageAmount;
 
-	// Token: 0x0400164D RID: 5709
+	// Token: 0x0400180A RID: 6154
 	private Vector4 randMin;
 
-	// Token: 0x0400164E RID: 5710
+	// Token: 0x0400180B RID: 6155
 	private Vector4 randMax;
 
-	// Token: 0x0400164F RID: 5711
+	// Token: 0x0400180C RID: 6156
 	private double speedModX;
 
-	// Token: 0x04001650 RID: 5712
+	// Token: 0x0400180D RID: 6157
 	private double speedModY;
 
-	// Token: 0x04001651 RID: 5713
+	// Token: 0x0400180E RID: 6158
 	private double speedModZ;
 
-	// Token: 0x04001652 RID: 5714
+	// Token: 0x0400180F RID: 6159
 	private double speedModW;
 
-	// Token: 0x04001653 RID: 5715
+	// Token: 0x04001810 RID: 6160
 	private bool swapX;
 
-	// Token: 0x04001654 RID: 5716
+	// Token: 0x04001811 RID: 6161
 	private bool swapY;
 
-	// Token: 0x04001655 RID: 5717
+	// Token: 0x04001812 RID: 6162
 	private bool swapZ;
 
-	// Token: 0x04001656 RID: 5718
+	// Token: 0x04001813 RID: 6163
 	private bool inverseX;
 
-	// Token: 0x04001657 RID: 5719
+	// Token: 0x04001814 RID: 6164
 	private bool inverseY;
 
-	// Token: 0x04001658 RID: 5720
+	// Token: 0x04001815 RID: 6165
 	private bool inverseZ;
 
-	// Token: 0x04001659 RID: 5721
+	// Token: 0x04001816 RID: 6166
 	[SerializeField]
-	private UIPanel panel;
+	private global::UIPanel panel;
 
-	// Token: 0x0400165A RID: 5722
+	// Token: 0x04001817 RID: 6167
 	[SerializeField]
-	private UITexture texture;
+	private global::UITexture texture;
 
-	// Token: 0x0400165B RID: 5723
-	private UIPanelMaterialPropertyBlock propBlock = new UIPanelMaterialPropertyBlock();
+	// Token: 0x04001818 RID: 6168
+	private global::UIPanelMaterialPropertyBlock propBlock = new global::UIPanelMaterialPropertyBlock();
 }

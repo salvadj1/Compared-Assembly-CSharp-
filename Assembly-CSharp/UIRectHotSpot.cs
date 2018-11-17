@@ -1,34 +1,34 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000758 RID: 1880
-public class UIRectHotSpot : UIHotSpot
+// Token: 0x0200083A RID: 2106
+public class UIRectHotSpot : global::UIHotSpot
 {
-	// Token: 0x060044A2 RID: 17570 RVA: 0x0010CC6C File Offset: 0x0010AE6C
-	public UIRectHotSpot() : base(UIHotSpot.Kind.Rect, true)
+	// Token: 0x06004903 RID: 18691 RVA: 0x001165EC File Offset: 0x001147EC
+	public UIRectHotSpot() : base(global::UIHotSpot.Kind.Rect, true)
 	{
 	}
 
-	// Token: 0x060044A3 RID: 17571 RVA: 0x0010CC84 File Offset: 0x0010AE84
+	// Token: 0x06004904 RID: 18692 RVA: 0x00116604 File Offset: 0x00114804
 	internal Bounds? Internal_CalculateBounds(bool moved)
 	{
 		return new Bounds?(new Bounds(this.center, this.size));
 	}
 
-	// Token: 0x060044A4 RID: 17572 RVA: 0x0010CCA4 File Offset: 0x0010AEA4
-	internal bool Internal_RaycastRef(Ray ray, ref UIHotSpot.Hit hit)
+	// Token: 0x06004905 RID: 18693 RVA: 0x00116624 File Offset: 0x00114824
+	internal bool Internal_RaycastRef(Ray ray, ref global::UIHotSpot.Hit hit)
 	{
 		if (this.size.x < 2.802597E-45f || this.size.y < 2.802597E-45f)
 		{
 			return false;
 		}
-		hit.normal = UIHotSpot.forward;
+		hit.normal = global::UIHotSpot.forward;
 		Plane plane;
-		plane..ctor(UIHotSpot.forward, this.center);
+		plane..ctor(global::UIHotSpot.forward, this.center);
 		float num;
 		if (!plane.Raycast(ray, ref num))
 		{
-			hit = default(UIHotSpot.Hit);
+			hit = default(global::UIHotSpot.Hit);
 			return false;
 		}
 		hit.point = ray.GetPoint(num);
@@ -43,7 +43,7 @@ public class UIRectHotSpot : UIHotSpot
 		return false;
 	}
 
-	// Token: 0x060044A5 RID: 17573 RVA: 0x0010CE3C File Offset: 0x0010B03C
+	// Token: 0x06004906 RID: 18694 RVA: 0x001167BC File Offset: 0x001149BC
 	private void OnDrawGizmos()
 	{
 		Gizmos.matrix = base.gizmoMatrix;
@@ -51,15 +51,15 @@ public class UIRectHotSpot : UIHotSpot
 		Gizmos.DrawWireCube(this.center, this.size);
 	}
 
-	// Token: 0x040024DF RID: 9439
-	private const UIHotSpot.Kind kKind = UIHotSpot.Kind.Rect;
+	// Token: 0x04002716 RID: 10006
+	private const global::UIHotSpot.Kind kKind = global::UIHotSpot.Kind.Rect;
 
-	// Token: 0x040024E0 RID: 9440
+	// Token: 0x04002717 RID: 10007
 	private const float kEpsilon = 2.802597E-45f;
 
-	// Token: 0x040024E1 RID: 9441
+	// Token: 0x04002718 RID: 10008
 	public new Vector3 center;
 
-	// Token: 0x040024E2 RID: 9442
+	// Token: 0x04002719 RID: 10009
 	public new Vector2 size = Vector2.one;
 }

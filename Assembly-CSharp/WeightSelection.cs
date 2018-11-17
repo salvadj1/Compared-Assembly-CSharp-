@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004F4 RID: 1268
+// Token: 0x020005B1 RID: 1457
 public class WeightSelection
 {
-	// Token: 0x06002B1B RID: 11035 RVA: 0x000ACA28 File Offset: 0x000AAC28
-	public static object RandomPick(WeightSelection.WeightedEntry[] array)
+	// Token: 0x06002EDB RID: 11995 RVA: 0x000B4AC4 File Offset: 0x000B2CC4
+	public static object RandomPick(global::WeightSelection.WeightedEntry[] array)
 	{
-		return WeightSelection.RandomPickEntry(array).obj;
+		return global::WeightSelection.RandomPickEntry(array).obj;
 	}
 
-	// Token: 0x06002B1C RID: 11036 RVA: 0x000ACA38 File Offset: 0x000AAC38
-	public static WeightSelection.WeightedEntry RandomPickEntry(WeightSelection.WeightedEntry[] array)
+	// Token: 0x06002EDC RID: 11996 RVA: 0x000B4AD4 File Offset: 0x000B2CD4
+	public static global::WeightSelection.WeightedEntry RandomPickEntry(global::WeightSelection.WeightedEntry[] array)
 	{
 		float num = 0f;
-		foreach (WeightSelection.WeightedEntry weightedEntry in array)
+		foreach (global::WeightSelection.WeightedEntry weightedEntry in array)
 		{
 			num += weightedEntry.weight;
 		}
@@ -23,7 +23,7 @@ public class WeightSelection
 			return null;
 		}
 		float num2 = Random.Range(0f, num);
-		foreach (WeightSelection.WeightedEntry weightedEntry2 in array)
+		foreach (global::WeightSelection.WeightedEntry weightedEntry2 in array)
 		{
 			if ((num2 -= weightedEntry2.weight) <= 0f)
 			{
@@ -33,17 +33,17 @@ public class WeightSelection
 		return array[array.Length - 1];
 	}
 
-	// Token: 0x06002B1D RID: 11037 RVA: 0x000ACACC File Offset: 0x000AACCC
-	public static T RandomPick<T>(WeightSelection.WeightedEntry<T>[] array)
+	// Token: 0x06002EDD RID: 11997 RVA: 0x000B4B68 File Offset: 0x000B2D68
+	public static T RandomPick<T>(global::WeightSelection.WeightedEntry<T>[] array)
 	{
-		return WeightSelection.RandomPickEntry<T>(array).obj;
+		return global::WeightSelection.RandomPickEntry<T>(array).obj;
 	}
 
-	// Token: 0x06002B1E RID: 11038 RVA: 0x000ACADC File Offset: 0x000AACDC
-	public static WeightSelection.WeightedEntry<T> RandomPickEntry<T>(WeightSelection.WeightedEntry<T>[] array)
+	// Token: 0x06002EDE RID: 11998 RVA: 0x000B4B78 File Offset: 0x000B2D78
+	public static global::WeightSelection.WeightedEntry<T> RandomPickEntry<T>(global::WeightSelection.WeightedEntry<T>[] array)
 	{
 		float num = 0f;
-		foreach (WeightSelection.WeightedEntry<T> weightedEntry in array)
+		foreach (global::WeightSelection.WeightedEntry<T> weightedEntry in array)
 		{
 			num += weightedEntry.weight;
 		}
@@ -52,7 +52,7 @@ public class WeightSelection
 			return null;
 		}
 		float num2 = Random.Range(0f, num);
-		foreach (WeightSelection.WeightedEntry<T> weightedEntry2 in array)
+		foreach (global::WeightSelection.WeightedEntry<T> weightedEntry2 in array)
 		{
 			if ((num2 -= weightedEntry2.weight) <= 0f)
 			{
@@ -62,25 +62,25 @@ public class WeightSelection
 		return array[array.Length - 1];
 	}
 
-	// Token: 0x020004F5 RID: 1269
+	// Token: 0x020005B2 RID: 1458
 	[Serializable]
 	public class WeightedEntry
 	{
-		// Token: 0x040017A1 RID: 6049
+		// Token: 0x0400196D RID: 6509
 		public float weight;
 
-		// Token: 0x040017A2 RID: 6050
+		// Token: 0x0400196E RID: 6510
 		public Object obj;
 	}
 
-	// Token: 0x020004F6 RID: 1270
+	// Token: 0x020005B3 RID: 1459
 	[Serializable]
 	public class WeightedEntry<T>
 	{
-		// Token: 0x040017A3 RID: 6051
+		// Token: 0x0400196F RID: 6511
 		public float weight;
 
-		// Token: 0x040017A4 RID: 6052
+		// Token: 0x04001970 RID: 6512
 		public T obj;
 	}
 }

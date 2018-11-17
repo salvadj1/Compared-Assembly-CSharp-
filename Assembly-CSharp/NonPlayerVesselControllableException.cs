@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-// Token: 0x0200012D RID: 301
+// Token: 0x02000151 RID: 337
 [Serializable]
-public class NonPlayerVesselControllableException : InstantiateControllableException
+public class NonPlayerVesselControllableException : global::InstantiateControllableException
 {
-	// Token: 0x0600088F RID: 2191 RVA: 0x0002551C File Offset: 0x0002371C
+	// Token: 0x06000985 RID: 2437 RVA: 0x00028790 File Offset: 0x00026990
 	public NonPlayerVesselControllableException()
 	{
 	}
 
-	// Token: 0x06000890 RID: 2192 RVA: 0x00025524 File Offset: 0x00023724
+	// Token: 0x06000986 RID: 2438 RVA: 0x00028798 File Offset: 0x00026998
 	public NonPlayerVesselControllableException(string message) : base(message)
 	{
 	}
 
-	// Token: 0x06000891 RID: 2193 RVA: 0x00025530 File Offset: 0x00023730
+	// Token: 0x06000987 RID: 2439 RVA: 0x000287A4 File Offset: 0x000269A4
 	public NonPlayerVesselControllableException(string message, Exception inner) : base(message, inner)
 	{
 	}
 
-	// Token: 0x06000892 RID: 2194 RVA: 0x0002553C File Offset: 0x0002373C
+	// Token: 0x06000988 RID: 2440 RVA: 0x000287B0 File Offset: 0x000269B0
 	protected NonPlayerVesselControllableException(SerializationInfo info, StreamingContext context) : base(info, context)
 	{
 	}

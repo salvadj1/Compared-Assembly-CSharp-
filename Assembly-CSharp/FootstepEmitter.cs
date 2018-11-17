@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004AC RID: 1196
-public class FootstepEmitter : IDLocalCharacter
+// Token: 0x02000567 RID: 1383
+public class FootstepEmitter : global::IDLocalCharacter
 {
-	// Token: 0x06002A09 RID: 10761 RVA: 0x000A4944 File Offset: 0x000A2B44
+	// Token: 0x06002DBB RID: 11707 RVA: 0x000AC6DC File Offset: 0x000AA8DC
 	private void Start()
 	{
 		this.lastFootstepPos = base.origin;
-		this.trait = base.GetTrait<CharacterFootstepTrait>();
+		this.trait = base.GetTrait<global::CharacterFootstepTrait>();
 		if (!this.trait || !this.trait.defaultFootsteps || this.trait.defaultFootsteps.Length == 0)
 		{
 			base.enabled = false;
 		}
 	}
 
-	// Token: 0x06002A0A RID: 10762 RVA: 0x000A49AC File Offset: 0x000A2BAC
+	// Token: 0x06002DBC RID: 11708 RVA: 0x000AC744 File Offset: 0x000AA944
 	private Collider GetBelowObj()
 	{
 		RaycastHit raycastHit;
@@ -26,12 +26,12 @@ public class FootstepEmitter : IDLocalCharacter
 		return null;
 	}
 
-	// Token: 0x06002A0B RID: 10763 RVA: 0x000A4A04 File Offset: 0x000A2C04
+	// Token: 0x06002DBD RID: 11709 RVA: 0x000AC79C File Offset: 0x000AA99C
 	private void Update()
 	{
 		if (this.terraincheck)
 		{
-			int textureIndex = TerrainTextureHelper.GetTextureIndex(base.origin);
+			int textureIndex = global::TerrainTextureHelper.GetTextureIndex(base.origin);
 		}
 		bool timeLimited;
 		if (!base.stateFlags.grounded || ((timeLimited = this.trait.timeLimited) && this.nextAllowTime > Time.time) || (base.masterControllable && base.masterControllable.idMain != base.idMain))
@@ -46,12 +46,12 @@ public class FootstepEmitter : IDLocalCharacter
 		{
 			this.movedAmount = 0f;
 			AudioClip audioClip = null;
-			if (footsteps.quality >= 2 || (footsteps.quality == 1 && base.character.localControlled))
+			if (global::footsteps.quality >= 2 || (global::footsteps.quality == 1 && base.character.localControlled))
 			{
 				Collider belowObj = this.GetBelowObj();
 				if (belowObj)
 				{
-					SurfaceInfoObject surfaceInfoFor = SurfaceInfo.GetSurfaceInfoFor(belowObj, origin);
+					global::SurfaceInfoObject surfaceInfoFor = global::SurfaceInfo.GetSurfaceInfoFor(belowObj, origin);
 					if (surfaceInfoFor)
 					{
 						audioClip = ((!this.trait.animal) ? surfaceInfoFor.GetFootstepBiped(this.lastPlayed) : surfaceInfoFor.GetFootstepAnimal());
@@ -84,25 +84,25 @@ public class FootstepEmitter : IDLocalCharacter
 		}
 	}
 
-	// Token: 0x040015F9 RID: 5625
+	// Token: 0x040017B6 RID: 6070
 	[NonSerialized]
-	private CharacterFootstepTrait trait;
+	private global::CharacterFootstepTrait trait;
 
-	// Token: 0x040015FA RID: 5626
+	// Token: 0x040017B7 RID: 6071
 	[NonSerialized]
 	private Vector3 lastFootstepPos;
 
-	// Token: 0x040015FB RID: 5627
+	// Token: 0x040017B8 RID: 6072
 	[NonSerialized]
 	private float nextAllowTime;
 
-	// Token: 0x040015FC RID: 5628
+	// Token: 0x040017B9 RID: 6073
 	[NonSerialized]
 	private float movedAmount;
 
-	// Token: 0x040015FD RID: 5629
+	// Token: 0x040017BA RID: 6074
 	public bool terraincheck;
 
-	// Token: 0x040015FE RID: 5630
+	// Token: 0x040017BB RID: 6075
 	private AudioClip lastPlayed;
 }

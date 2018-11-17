@@ -3,79 +3,79 @@ using Facepunch;
 using RustProto;
 using UnityEngine;
 
-// Token: 0x0200048F RID: 1167
-public class Metabolism : IDLocalCharacter
+// Token: 0x0200054A RID: 1354
+public class Metabolism : global::IDLocalCharacter
 {
-	// Token: 0x06002985 RID: 10629 RVA: 0x000A301C File Offset: 0x000A121C
+	// Token: 0x06002D37 RID: 11575 RVA: 0x000AADB4 File Offset: 0x000A8FB4
 	public void SetTargetActivityLevel(float level)
 	{
 		this._targetActivityLevel = level;
 	}
 
-	// Token: 0x06002986 RID: 10630 RVA: 0x000A3028 File Offset: 0x000A1228
+	// Token: 0x06002D38 RID: 11576 RVA: 0x000AADC0 File Offset: 0x000A8FC0
 	public float GetActivityLevel()
 	{
 		return this._activityLevel;
 	}
 
-	// Token: 0x06002987 RID: 10631 RVA: 0x000A3030 File Offset: 0x000A1230
+	// Token: 0x06002D39 RID: 11577 RVA: 0x000AADC8 File Offset: 0x000A8FC8
 	public float GetNextConsumeTime()
 	{
 		return this._lastConsumeTime + 3f;
 	}
 
-	// Token: 0x06002988 RID: 10632 RVA: 0x000A3040 File Offset: 0x000A1240
+	// Token: 0x06002D3A RID: 11578 RVA: 0x000AADD8 File Offset: 0x000A8FD8
 	public void MarkConsumptionTime()
 	{
 		this._lastConsumeTime = Time.time;
 	}
 
-	// Token: 0x06002989 RID: 10633 RVA: 0x000A3050 File Offset: 0x000A1250
+	// Token: 0x06002D3B RID: 11579 RVA: 0x000AADE8 File Offset: 0x000A8FE8
 	public bool CanConsumeYet()
 	{
 		return this.GetNextConsumeTime() < Time.time;
 	}
 
-	// Token: 0x0600298A RID: 10634 RVA: 0x000A3060 File Offset: 0x000A1260
+	// Token: 0x06002D3C RID: 11580 RVA: 0x000AADF8 File Offset: 0x000A8FF8
 	public float GetCalorieLevel()
 	{
 		return this.caloricLevel;
 	}
 
-	// Token: 0x0600298B RID: 10635 RVA: 0x000A3068 File Offset: 0x000A1268
+	// Token: 0x06002D3D RID: 11581 RVA: 0x000AAE00 File Offset: 0x000A9000
 	public float GetRemainingCaloricSpace()
 	{
 		return this.maxCaloricLevel - this.caloricLevel;
 	}
 
-	// Token: 0x0600298C RID: 10636 RVA: 0x000A3078 File Offset: 0x000A1278
+	// Token: 0x06002D3E RID: 11582 RVA: 0x000AAE10 File Offset: 0x000A9010
 	public float GetRadLevel()
 	{
 		return this.radiationLevel;
 	}
 
-	// Token: 0x0600298D RID: 10637 RVA: 0x000A3080 File Offset: 0x000A1280
+	// Token: 0x06002D3F RID: 11583 RVA: 0x000AAE18 File Offset: 0x000A9018
 	public bool IsCold()
 	{
 		return this.coreTemperature < 0f;
 	}
 
-	// Token: 0x0600298E RID: 10638 RVA: 0x000A3090 File Offset: 0x000A1290
+	// Token: 0x06002D40 RID: 11584 RVA: 0x000AAE28 File Offset: 0x000A9028
 	public bool HasRadiationPoisoning()
 	{
 		return this.radiationLevel > 500f;
 	}
 
-	// Token: 0x0600298F RID: 10639 RVA: 0x000A30A0 File Offset: 0x000A12A0
+	// Token: 0x06002D41 RID: 11585 RVA: 0x000AAE38 File Offset: 0x000A9038
 	public bool IsPoisoned()
 	{
 		return this.poisonLevel > 1f;
 	}
 
-	// Token: 0x06002990 RID: 10640 RVA: 0x000A30B0 File Offset: 0x000A12B0
+	// Token: 0x06002D42 RID: 11586 RVA: 0x000AAE48 File Offset: 0x000A9048
 	private void Awake()
 	{
-		CharacterMetabolismTrait trait = base.GetTrait<CharacterMetabolismTrait>();
+		global::CharacterMetabolismTrait trait = base.GetTrait<global::CharacterMetabolismTrait>();
 		if (trait)
 		{
 			this.hungerDamagePerMin = trait.hungerDamagePerMin;
@@ -85,25 +85,25 @@ public class Metabolism : IDLocalCharacter
 		this._lastTickTime = Time.time;
 	}
 
-	// Token: 0x06002991 RID: 10641 RVA: 0x000A3100 File Offset: 0x000A1300
+	// Token: 0x06002D43 RID: 11587 RVA: 0x000AAE98 File Offset: 0x000A9098
 	public void MakeDirty()
 	{
 		this._dirty = true;
 	}
 
-	// Token: 0x06002992 RID: 10642 RVA: 0x000A310C File Offset: 0x000A130C
+	// Token: 0x06002D44 RID: 11588 RVA: 0x000AAEA4 File Offset: 0x000A90A4
 	public void MakeClean()
 	{
 		this._dirty = false;
 	}
 
-	// Token: 0x06002993 RID: 10643 RVA: 0x000A3118 File Offset: 0x000A1318
+	// Token: 0x06002D45 RID: 11589 RVA: 0x000AAEB0 File Offset: 0x000A90B0
 	public bool IsDirty()
 	{
 		return this._dirty;
 	}
 
-	// Token: 0x06002994 RID: 10644 RVA: 0x000A3120 File Offset: 0x000A1320
+	// Token: 0x06002D46 RID: 11590 RVA: 0x000AAEB8 File Offset: 0x000A90B8
 	public void SubtractCalories(float numCalories)
 	{
 		this.caloricLevel -= numCalories;
@@ -114,7 +114,7 @@ public class Metabolism : IDLocalCharacter
 		this.MakeDirty();
 	}
 
-	// Token: 0x06002995 RID: 10645 RVA: 0x000A3154 File Offset: 0x000A1354
+	// Token: 0x06002D47 RID: 11591 RVA: 0x000AAEEC File Offset: 0x000A90EC
 	public void AddCalories(float numCalories)
 	{
 		this.caloricLevel += numCalories;
@@ -125,7 +125,7 @@ public class Metabolism : IDLocalCharacter
 		this.MakeDirty();
 	}
 
-	// Token: 0x06002996 RID: 10646 RVA: 0x000A3188 File Offset: 0x000A1388
+	// Token: 0x06002D48 RID: 11592 RVA: 0x000AAF20 File Offset: 0x000A9120
 	public void AddWater(float litres)
 	{
 		this.waterLevelLitre += litres;
@@ -136,21 +136,21 @@ public class Metabolism : IDLocalCharacter
 		this.MakeDirty();
 	}
 
-	// Token: 0x06002997 RID: 10647 RVA: 0x000A31BC File Offset: 0x000A13BC
+	// Token: 0x06002D49 RID: 11593 RVA: 0x000AAF54 File Offset: 0x000A9154
 	public void AddAntiRad(float addAntiRad)
 	{
 		this.antiRads += addAntiRad;
 		this.MakeDirty();
 	}
 
-	// Token: 0x06002998 RID: 10648 RVA: 0x000A31D4 File Offset: 0x000A13D4
+	// Token: 0x06002D4A RID: 11594 RVA: 0x000AAF6C File Offset: 0x000A916C
 	public void AddRads(float rads)
 	{
 		this.radiationLevel += rads;
 		this.MakeDirty();
 	}
 
-	// Token: 0x06002999 RID: 10649 RVA: 0x000A31EC File Offset: 0x000A13EC
+	// Token: 0x06002D4B RID: 11595 RVA: 0x000AAF84 File Offset: 0x000A9184
 	public void AddPoison(float amount)
 	{
 		this.poisonLevel += amount;
@@ -161,7 +161,7 @@ public class Metabolism : IDLocalCharacter
 		this.MakeDirty();
 	}
 
-	// Token: 0x0600299A RID: 10650 RVA: 0x000A3224 File Offset: 0x000A1424
+	// Token: 0x06002D4C RID: 11596 RVA: 0x000AAFBC File Offset: 0x000A91BC
 	public void SubtractPosion(float amount)
 	{
 		this.poisonLevel -= amount;
@@ -172,60 +172,60 @@ public class Metabolism : IDLocalCharacter
 		this.MakeDirty();
 	}
 
-	// Token: 0x0600299B RID: 10651 RVA: 0x000A3258 File Offset: 0x000A1458
+	// Token: 0x06002D4D RID: 11597 RVA: 0x000AAFF0 File Offset: 0x000A91F0
 	public void MarkWarm()
 	{
 		this._lastWarmTime = Time.time;
 	}
 
-	// Token: 0x0600299C RID: 10652 RVA: 0x000A3268 File Offset: 0x000A1468
+	// Token: 0x06002D4E RID: 11598 RVA: 0x000AB000 File Offset: 0x000A9200
 	public bool IsWarm()
 	{
 		return Time.time - this._lastWarmTime <= 1f;
 	}
 
-	// Token: 0x0600299D RID: 10653 RVA: 0x000A3280 File Offset: 0x000A1480
+	// Token: 0x06002D4F RID: 11599 RVA: 0x000AB018 File Offset: 0x000A9218
 	private void MetabolicFrame()
 	{
 		this.MetabolicUpdateFrame();
 	}
 
-	// Token: 0x0600299E RID: 10654 RVA: 0x000A328C File Offset: 0x000A148C
-	public LifeStatus MetabolicUpdateFrame()
+	// Token: 0x06002D50 RID: 11600 RVA: 0x000AB024 File Offset: 0x000A9224
+	public global::LifeStatus MetabolicUpdateFrame()
 	{
-		return (!base.alive) ? LifeStatus.IsDead : LifeStatus.IsAlive;
+		return (!base.alive) ? global::LifeStatus.IsDead : global::LifeStatus.IsAlive;
 	}
 
-	// Token: 0x0600299F RID: 10655 RVA: 0x000A32B0 File Offset: 0x000A14B0
+	// Token: 0x06002D51 RID: 11601 RVA: 0x000AB048 File Offset: 0x000A9248
 	[RPC]
 	public void Vomit()
 	{
-		if (Metabolism.vomitSound == null)
+		if (global::Metabolism.vomitSound == null)
 		{
-			Bundling.Load<AudioClip>("content/shared/sfx/vomit", out Metabolism.vomitSound);
+			Facepunch.Bundling.Load<AudioClip>("content/shared/sfx/vomit", out global::Metabolism.vomitSound);
 		}
-		Metabolism.vomitSound.Play(1f);
+		global::Metabolism.vomitSound.Play(1f);
 	}
 
-	// Token: 0x060029A0 RID: 10656 RVA: 0x000A32E4 File Offset: 0x000A14E4
+	// Token: 0x06002D52 RID: 11602 RVA: 0x000AB07C File Offset: 0x000A927C
 	public void MarkDamageTime()
 	{
 		this._lastDamageTime = Time.time;
 	}
 
-	// Token: 0x060029A1 RID: 10657 RVA: 0x000A32F4 File Offset: 0x000A14F4
+	// Token: 0x06002D53 RID: 11603 RVA: 0x000AB08C File Offset: 0x000A928C
 	public float TimeSinceHurt()
 	{
 		return Time.time - this._lastDamageTime;
 	}
 
-	// Token: 0x060029A2 RID: 10658 RVA: 0x000A3304 File Offset: 0x000A1504
-	public void OnHurt(DamageEvent damage)
+	// Token: 0x06002D54 RID: 11604 RVA: 0x000AB09C File Offset: 0x000A929C
+	public void OnHurt(global::DamageEvent damage)
 	{
 		this.MarkDamageTime();
 	}
 
-	// Token: 0x060029A3 RID: 10659 RVA: 0x000A330C File Offset: 0x000A150C
+	// Token: 0x06002D55 RID: 11605 RVA: 0x000AB0A4 File Offset: 0x000A92A4
 	public void DoNetworkUpdate()
 	{
 		if (this.IsDirty())
@@ -243,7 +243,7 @@ public class Metabolism : IDLocalCharacter
 		this.MakeClean();
 	}
 
-	// Token: 0x060029A4 RID: 10660 RVA: 0x000A33A0 File Offset: 0x000A15A0
+	// Token: 0x06002D56 RID: 11606 RVA: 0x000AB138 File Offset: 0x000A9338
 	[RPC]
 	public void RecieveNetwork(float calories, float water, float rad, float anti, float temp, float poison)
 	{
@@ -261,11 +261,11 @@ public class Metabolism : IDLocalCharacter
 		{
 			this._lastWarmTime = -1000f;
 		}
-		RPOS.MetabolismUpdate();
+		global::RPOS.MetabolismUpdate();
 	}
 
-	// Token: 0x060029A5 RID: 10661 RVA: 0x000A3414 File Offset: 0x000A1614
-	public void SaveVitals(ref Vitals.Builder vitals)
+	// Token: 0x06002D57 RID: 11607 RVA: 0x000AB1AC File Offset: 0x000A93AC
+	public void SaveVitals(ref RustProto.Vitals.Builder vitals)
 	{
 		vitals.SetCalories(this.caloricLevel);
 		vitals.SetHydration(this.waterLevelLitre);
@@ -274,8 +274,8 @@ public class Metabolism : IDLocalCharacter
 		vitals.SetTemperature(this.coreTemperature);
 	}
 
-	// Token: 0x060029A6 RID: 10662 RVA: 0x000A3468 File Offset: 0x000A1668
-	public void LoadVitals(Vitals vitals)
+	// Token: 0x06002D58 RID: 11608 RVA: 0x000AB200 File Offset: 0x000A9400
+	public void LoadVitals(RustProto.Vitals vitals)
 	{
 		this.caloricLevel = vitals.Calories;
 		this.waterLevelLitre = vitals.Hydration;
@@ -284,102 +284,102 @@ public class Metabolism : IDLocalCharacter
 		this.coreTemperature = vitals.Temperature;
 	}
 
-	// Token: 0x0400156D RID: 5485
+	// Token: 0x0400172A RID: 5930
 	private bool _dirty;
 
-	// Token: 0x0400156E RID: 5486
+	// Token: 0x0400172B RID: 5931
 	private float _lastTickTime;
 
-	// Token: 0x0400156F RID: 5487
+	// Token: 0x0400172C RID: 5932
 	[NonSerialized]
 	public float tickRate = 3f;
 
-	// Token: 0x04001570 RID: 5488
+	// Token: 0x0400172D RID: 5933
 	[NonSerialized]
 	public bool selfTick;
 
-	// Token: 0x04001571 RID: 5489
+	// Token: 0x0400172E RID: 5934
 	[NonSerialized]
 	public float hungerDamagePerMin = 5f;
 
-	// Token: 0x04001572 RID: 5490
+	// Token: 0x0400172F RID: 5935
 	private float caloricLevel = 1250f;
 
-	// Token: 0x04001573 RID: 5491
+	// Token: 0x04001730 RID: 5936
 	private float maxCaloricLevel = 3000f;
 
-	// Token: 0x04001574 RID: 5492
+	// Token: 0x04001731 RID: 5937
 	private float caloriesPerHP = 5f;
 
-	// Token: 0x04001575 RID: 5493
+	// Token: 0x04001732 RID: 5938
 	private float starvingDamagePerMin = 10f;
 
-	// Token: 0x04001576 RID: 5494
+	// Token: 0x04001733 RID: 5939
 	private float waterLevelLitre = 30f;
 
-	// Token: 0x04001577 RID: 5495
+	// Token: 0x04001734 RID: 5940
 	private float maxWaterLevelLitre = 30f;
 
-	// Token: 0x04001578 RID: 5496
+	// Token: 0x04001735 RID: 5941
 	private float caloricMetabolicRate = 300f;
 
-	// Token: 0x04001579 RID: 5497
+	// Token: 0x04001736 RID: 5942
 	private float caloricMetabolicRateMax = 3000f;
 
-	// Token: 0x0400157A RID: 5498
+	// Token: 0x04001737 RID: 5943
 	private float hydrationMetablicRate = 0.125f;
 
-	// Token: 0x0400157B RID: 5499
+	// Token: 0x04001738 RID: 5944
 	private float sweatWaterLossMax = 1.5f;
 
-	// Token: 0x0400157C RID: 5500
+	// Token: 0x04001739 RID: 5945
 	private float radMetabolizationRate = 800f;
 
-	// Token: 0x0400157D RID: 5501
+	// Token: 0x0400173A RID: 5946
 	private float damagePerRad = 0.06f;
 
-	// Token: 0x0400157E RID: 5502
+	// Token: 0x0400173B RID: 5947
 	private float radiationLevel;
 
-	// Token: 0x0400157F RID: 5503
+	// Token: 0x0400173C RID: 5948
 	private float maxRadiationLevel = 3000f;
 
-	// Token: 0x04001580 RID: 5504
+	// Token: 0x0400173D RID: 5949
 	private float antiRads;
 
-	// Token: 0x04001581 RID: 5505
+	// Token: 0x0400173E RID: 5950
 	private float antiRadUsePerMin = 3000f;
 
-	// Token: 0x04001582 RID: 5506
+	// Token: 0x0400173F RID: 5951
 	private float _activityLevel;
 
-	// Token: 0x04001583 RID: 5507
+	// Token: 0x04001740 RID: 5952
 	private float _targetActivityLevel;
 
-	// Token: 0x04001584 RID: 5508
+	// Token: 0x04001741 RID: 5953
 	private float _lastConsumeTime;
 
-	// Token: 0x04001585 RID: 5509
+	// Token: 0x04001742 RID: 5954
 	private float coreTemperature;
 
-	// Token: 0x04001586 RID: 5510
+	// Token: 0x04001743 RID: 5955
 	private float _lastWarmTime = -1000f;
 
-	// Token: 0x04001587 RID: 5511
+	// Token: 0x04001744 RID: 5956
 	private float lastVomitTime;
 
-	// Token: 0x04001588 RID: 5512
+	// Token: 0x04001745 RID: 5957
 	private float nextVomitTime;
 
-	// Token: 0x04001589 RID: 5513
+	// Token: 0x04001746 RID: 5958
 	private float poisonLevel;
 
-	// Token: 0x0400158A RID: 5514
+	// Token: 0x04001747 RID: 5959
 	private float _lastDamageTime;
 
-	// Token: 0x0400158B RID: 5515
+	// Token: 0x04001748 RID: 5960
 	private static bool dmg_metabolism = true;
 
-	// Token: 0x0400158C RID: 5516
+	// Token: 0x04001749 RID: 5961
 	private static AudioClip vomitSound;
 }

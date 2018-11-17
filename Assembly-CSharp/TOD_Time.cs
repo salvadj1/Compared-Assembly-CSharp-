@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200083B RID: 2107
+// Token: 0x02000930 RID: 2352
 public class TOD_Time : MonoBehaviour
 {
-	// Token: 0x06004AB6 RID: 19126 RVA: 0x001460C0 File Offset: 0x001442C0
+	// Token: 0x06004F71 RID: 20337 RVA: 0x00150024 File Offset: 0x0014E224
 	protected void Start()
 	{
-		this.sky = base.GetComponent<TOD_Sky>();
+		this.sky = base.GetComponent<global::TOD_Sky>();
 	}
 
-	// Token: 0x06004AB7 RID: 19127 RVA: 0x001460D0 File Offset: 0x001442D0
+	// Token: 0x06004F72 RID: 20338 RVA: 0x00150034 File Offset: 0x0014E234
 	protected void Update()
 	{
 		float num = this.DayLengthInMinutes * 60f;
@@ -49,15 +49,15 @@ public class TOD_Time : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002BAE RID: 11182
+	// Token: 0x04002DFC RID: 11772
 	public float DayLengthInMinutes = 30f;
 
-	// Token: 0x04002BAF RID: 11183
+	// Token: 0x04002DFD RID: 11773
 	public bool ProgressDate = true;
 
-	// Token: 0x04002BB0 RID: 11184
+	// Token: 0x04002DFE RID: 11774
 	public bool ProgressMoonPhase = true;
 
-	// Token: 0x04002BB1 RID: 11185
-	private TOD_Sky sky;
+	// Token: 0x04002DFF RID: 11775
+	private global::TOD_Sky sky;
 }

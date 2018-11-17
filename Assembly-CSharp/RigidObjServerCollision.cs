@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000319 RID: 793
+// Token: 0x020003C2 RID: 962
 [AddComponentMenu("")]
 public sealed class RigidObjServerCollision : MonoBehaviour
 {
-	// Token: 0x06001E84 RID: 7812 RVA: 0x00077C08 File Offset: 0x00075E08
+	// Token: 0x060021C6 RID: 8646 RVA: 0x0007C688 File Offset: 0x0007A888
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (this.rigidObj)
@@ -14,7 +14,7 @@ public sealed class RigidObjServerCollision : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E85 RID: 7813 RVA: 0x00077C28 File Offset: 0x00075E28
+	// Token: 0x060021C7 RID: 8647 RVA: 0x0007C6A8 File Offset: 0x0007A8A8
 	private void OnCollisionExit(Collision collision)
 	{
 		if (this.rigidObj)
@@ -23,7 +23,7 @@ public sealed class RigidObjServerCollision : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06001E86 RID: 7814 RVA: 0x00077C48 File Offset: 0x00075E48
+	// Token: 0x060021C8 RID: 8648 RVA: 0x0007C6C8 File Offset: 0x0007A8C8
 	private void OnCollisionStay(Collision collision)
 	{
 		if (this.rigidObj)
@@ -32,16 +32,16 @@ public sealed class RigidObjServerCollision : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04000EC0 RID: 3776
+	// Token: 0x04001000 RID: 4096
 	public const byte Enter = 0;
 
-	// Token: 0x04000EC1 RID: 3777
+	// Token: 0x04001001 RID: 4097
 	public const byte Exit = 1;
 
-	// Token: 0x04000EC2 RID: 3778
+	// Token: 0x04001002 RID: 4098
 	public const byte Stay = 2;
 
-	// Token: 0x04000EC3 RID: 3779
+	// Token: 0x04001003 RID: 4099
 	[NonSerialized]
-	public RigidObj rigidObj;
+	public global::RigidObj rigidObj;
 }

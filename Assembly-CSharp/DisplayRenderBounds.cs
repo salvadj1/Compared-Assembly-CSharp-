@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000497 RID: 1175
+// Token: 0x02000552 RID: 1362
 public class DisplayRenderBounds : MonoBehaviour
 {
-	// Token: 0x060029BE RID: 10686 RVA: 0x000A37A0 File Offset: 0x000A19A0
+	// Token: 0x06002D70 RID: 11632 RVA: 0x000AB538 File Offset: 0x000A9738
 	private void OnDrawGizmos()
 	{
 		Renderer renderer = base.renderer;

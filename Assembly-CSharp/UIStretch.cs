@@ -1,25 +1,25 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000803 RID: 2051
-[ExecuteInEditMode]
+// Token: 0x020008F5 RID: 2293
 [AddComponentMenu("NGUI/UI/Stretch")]
+[ExecuteInEditMode]
 public class UIStretch : MonoBehaviour
 {
-	// Token: 0x060049B9 RID: 18873 RVA: 0x001397D4 File Offset: 0x001379D4
+	// Token: 0x06004E68 RID: 20072 RVA: 0x00143738 File Offset: 0x00141938
 	private void OnEnable()
 	{
 		if (this.uiCamera == null)
 		{
-			this.uiCamera = NGUITools.FindCameraForLayer(base.gameObject.layer);
+			this.uiCamera = global::NGUITools.FindCameraForLayer(base.gameObject.layer);
 		}
-		this.mRoot = NGUITools.FindInParents<UIRoot>(base.gameObject);
+		this.mRoot = global::NGUITools.FindInParents<global::UIRoot>(base.gameObject);
 	}
 
-	// Token: 0x060049BA RID: 18874 RVA: 0x0013981C File Offset: 0x00137A1C
+	// Token: 0x06004E69 RID: 20073 RVA: 0x00143780 File Offset: 0x00141980
 	private void Update()
 	{
-		if (this.uiCamera != null && this.style != UIStretch.Style.None)
+		if (this.uiCamera != null && this.style != global::UIStretch.Style.None)
 		{
 			if (this.mTrans == null)
 			{
@@ -35,18 +35,18 @@ public class UIStretch : MonoBehaviour
 				num2 *= num3;
 			}
 			Vector3 localScale = this.mTrans.localScale;
-			if (this.style == UIStretch.Style.BasedOnHeight)
+			if (this.style == global::UIStretch.Style.BasedOnHeight)
 			{
 				localScale.x = this.relativeSize.x * num2;
 				localScale.y = this.relativeSize.y * num2;
 			}
 			else
 			{
-				if (this.style == UIStretch.Style.Both || this.style == UIStretch.Style.Horizontal)
+				if (this.style == global::UIStretch.Style.Both || this.style == global::UIStretch.Style.Horizontal)
 				{
 					localScale.x = this.relativeSize.x * num;
 				}
-				if (this.style == UIStretch.Style.Both || this.style == UIStretch.Style.Vertical)
+				if (this.style == global::UIStretch.Style.Both || this.style == global::UIStretch.Style.Vertical)
 				{
 					localScale.y = this.relativeSize.y * num2;
 				}
@@ -58,33 +58,33 @@ public class UIStretch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x040029A6 RID: 10662
+	// Token: 0x04002BF4 RID: 11252
 	public Camera uiCamera;
 
-	// Token: 0x040029A7 RID: 10663
-	public UIStretch.Style style;
+	// Token: 0x04002BF5 RID: 11253
+	public global::UIStretch.Style style;
 
-	// Token: 0x040029A8 RID: 10664
+	// Token: 0x04002BF6 RID: 11254
 	public Vector2 relativeSize = Vector2.one;
 
-	// Token: 0x040029A9 RID: 10665
+	// Token: 0x04002BF7 RID: 11255
 	private Transform mTrans;
 
-	// Token: 0x040029AA RID: 10666
-	private UIRoot mRoot;
+	// Token: 0x04002BF8 RID: 11256
+	private global::UIRoot mRoot;
 
-	// Token: 0x02000804 RID: 2052
+	// Token: 0x020008F6 RID: 2294
 	public enum Style
 	{
-		// Token: 0x040029AC RID: 10668
+		// Token: 0x04002BFA RID: 11258
 		None,
-		// Token: 0x040029AD RID: 10669
+		// Token: 0x04002BFB RID: 11259
 		Horizontal,
-		// Token: 0x040029AE RID: 10670
+		// Token: 0x04002BFC RID: 11260
 		Vertical,
-		// Token: 0x040029AF RID: 10671
+		// Token: 0x04002BFD RID: 11261
 		Both,
-		// Token: 0x040029B0 RID: 10672
+		// Token: 0x04002BFE RID: 11262
 		BasedOnHeight
 	}
 }

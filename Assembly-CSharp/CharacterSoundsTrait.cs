@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000111 RID: 273
-public class CharacterSoundsTrait : CharacterTrait
+// Token: 0x02000130 RID: 304
+public class CharacterSoundsTrait : global::CharacterTrait
 {
-	// Token: 0x170001A6 RID: 422
-	// (get) Token: 0x06000718 RID: 1816 RVA: 0x0001FC48 File Offset: 0x0001DE48
-	public AudioClipArray attack
+	// Token: 0x170001D4 RID: 468
+	// (get) Token: 0x060007EA RID: 2026 RVA: 0x0002281C File Offset: 0x00020A1C
+	public global::AudioClipArray attack
 	{
 		get
 		{
@@ -14,9 +14,9 @@ public class CharacterSoundsTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A7 RID: 423
-	// (get) Token: 0x06000719 RID: 1817 RVA: 0x0001FC50 File Offset: 0x0001DE50
-	public AudioClipArray alert
+	// Token: 0x170001D5 RID: 469
+	// (get) Token: 0x060007EB RID: 2027 RVA: 0x00022824 File Offset: 0x00020A24
+	public global::AudioClipArray alert
 	{
 		get
 		{
@@ -24,9 +24,9 @@ public class CharacterSoundsTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A8 RID: 424
-	// (get) Token: 0x0600071A RID: 1818 RVA: 0x0001FC58 File Offset: 0x0001DE58
-	public AudioClipArray idle
+	// Token: 0x170001D6 RID: 470
+	// (get) Token: 0x060007EC RID: 2028 RVA: 0x0002282C File Offset: 0x00020A2C
+	public global::AudioClipArray idle
 	{
 		get
 		{
@@ -34,9 +34,9 @@ public class CharacterSoundsTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001A9 RID: 425
-	// (get) Token: 0x0600071B RID: 1819 RVA: 0x0001FC60 File Offset: 0x0001DE60
-	public AudioClipArray persuit
+	// Token: 0x170001D7 RID: 471
+	// (get) Token: 0x060007ED RID: 2029 RVA: 0x00022834 File Offset: 0x00020A34
+	public global::AudioClipArray persuit
 	{
 		get
 		{
@@ -44,9 +44,9 @@ public class CharacterSoundsTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001AA RID: 426
-	// (get) Token: 0x0600071C RID: 1820 RVA: 0x0001FC68 File Offset: 0x0001DE68
-	public AudioClipArray impact
+	// Token: 0x170001D8 RID: 472
+	// (get) Token: 0x060007EE RID: 2030 RVA: 0x0002283C File Offset: 0x00020A3C
+	public global::AudioClipArray impact
 	{
 		get
 		{
@@ -54,9 +54,9 @@ public class CharacterSoundsTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x170001AB RID: 427
-	// (get) Token: 0x0600071D RID: 1821 RVA: 0x0001FC70 File Offset: 0x0001DE70
-	public AudioClipArray death
+	// Token: 0x170001D9 RID: 473
+	// (get) Token: 0x060007EF RID: 2031 RVA: 0x00022844 File Offset: 0x00020A44
+	public global::AudioClipArray death
 	{
 		get
 		{
@@ -64,27 +64,27 @@ public class CharacterSoundsTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x0400053D RID: 1341
+	// Token: 0x04000608 RID: 1544
 	[SerializeField]
-	private AudioClipArray _attack;
+	private global::AudioClipArray _attack;
 
-	// Token: 0x0400053E RID: 1342
+	// Token: 0x04000609 RID: 1545
 	[SerializeField]
-	private AudioClipArray _alert;
+	private global::AudioClipArray _alert;
 
-	// Token: 0x0400053F RID: 1343
+	// Token: 0x0400060A RID: 1546
 	[SerializeField]
-	private AudioClipArray _idle;
+	private global::AudioClipArray _idle;
 
-	// Token: 0x04000540 RID: 1344
+	// Token: 0x0400060B RID: 1547
 	[SerializeField]
-	private AudioClipArray _persuit;
+	private global::AudioClipArray _persuit;
 
-	// Token: 0x04000541 RID: 1345
+	// Token: 0x0400060C RID: 1548
 	[SerializeField]
-	private AudioClipArray _impact;
+	private global::AudioClipArray _impact;
 
-	// Token: 0x04000542 RID: 1346
+	// Token: 0x0400060D RID: 1549
 	[SerializeField]
-	private AudioClipArray _death;
+	private global::AudioClipArray _death;
 }

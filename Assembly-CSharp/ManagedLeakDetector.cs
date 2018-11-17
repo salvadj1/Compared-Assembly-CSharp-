@@ -3,35 +3,35 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x0200018A RID: 394
+// Token: 0x020001B6 RID: 438
 [ExecuteInEditMode]
 public class ManagedLeakDetector : MonoBehaviour
 {
-	// Token: 0x06000BD8 RID: 3032 RVA: 0x0002EA80 File Offset: 0x0002CC80
+	// Token: 0x06000D08 RID: 3336 RVA: 0x0003296C File Offset: 0x00030B6C
 	private static bool CheckRelation(Type a, Type b)
 	{
 		return a.IsAssignableFrom(b) || b.IsAssignableFrom(a);
 	}
 
-	// Token: 0x06000BD9 RID: 3033 RVA: 0x0002EA98 File Offset: 0x0002CC98
+	// Token: 0x06000D09 RID: 3337 RVA: 0x00032984 File Offset: 0x00030B84
 	public static string Poll()
 	{
-		return ManagedLeakDetector.Poll(typeof(Object));
+		return global::ManagedLeakDetector.Poll(typeof(Object));
 	}
 
-	// Token: 0x06000BDA RID: 3034 RVA: 0x0002EAAC File Offset: 0x0002CCAC
+	// Token: 0x06000D0A RID: 3338 RVA: 0x00032998 File Offset: 0x00030B98
 	public static string Poll(Type searchType)
 	{
-		return ManagedLeakDetector.Poll(searchType, typeof(Object));
+		return global::ManagedLeakDetector.Poll(searchType, typeof(Object));
 	}
 
-	// Token: 0x06000BDB RID: 3035 RVA: 0x0002EAC0 File Offset: 0x0002CCC0
+	// Token: 0x06000D0B RID: 3339 RVA: 0x000329AC File Offset: 0x00030BAC
 	public static string Poll(Type searchType, Type minType)
 	{
-		return new ManagedLeakDetector.ReadResult(searchType, minType).ToString();
+		return new global::ManagedLeakDetector.ReadResult(searchType, minType).ToString();
 	}
 
-	// Token: 0x06000BDC RID: 3036 RVA: 0x0002EAD0 File Offset: 0x0002CCD0
+	// Token: 0x06000D0C RID: 3340 RVA: 0x000329BC File Offset: 0x00030BBC
 	private void OnGUI()
 	{
 		if (Event.current.type == 7)
@@ -40,13 +40,13 @@ public class ManagedLeakDetector : MonoBehaviour
 			{
 				GUI.Box(new Rect(-5f, -5f, (float)(Screen.width + 10), (float)(Screen.height + 10)), GUIContent.none);
 			}
-			ManagedLeakDetector.ReadResult readResult = new ManagedLeakDetector.ReadResult();
+			global::ManagedLeakDetector.ReadResult readResult = new global::ManagedLeakDetector.ReadResult();
 			readResult.Read();
-			ManagedLeakDetector.Counter[] counters = readResult.counters;
+			global::ManagedLeakDetector.Counter[] counters = readResult.counters;
 			float num = (float)(Screen.width - 10);
 			this.scroll = GUI.BeginScrollView(new Rect(5f, 5f, num, (float)(Screen.height - 10)), this.scroll, new Rect(0f, 0f, num, (float)(counters.Length * 20)));
 			int num2 = 0;
-			foreach (ManagedLeakDetector.Counter counter in counters)
+			foreach (global::ManagedLeakDetector.Counter counter in counters)
 			{
 				GUI.Label(new Rect(0f, (float)num2, num, 20f), string.Format("{0:000} [{1:0000}] {2}", counter.actualInstanceCount, counter.derivedInstanceCount, counter.type));
 				num2 += 20;
@@ -54,29 +54,29 @@ public class ManagedLeakDetector : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400073B RID: 1851
+	// Token: 0x0400084F RID: 2127
 	private Vector2 scroll;
 
-	// Token: 0x0200018B RID: 395
+	// Token: 0x020001B7 RID: 439
 	private class Counter
 	{
-		// Token: 0x0400073C RID: 1852
+		// Token: 0x04000850 RID: 2128
 		public int actualInstanceCount;
 
-		// Token: 0x0400073D RID: 1853
+		// Token: 0x04000851 RID: 2129
 		public int derivedInstanceCount;
 
-		// Token: 0x0400073E RID: 1854
+		// Token: 0x04000852 RID: 2130
 		public int enabledCount;
 
-		// Token: 0x0400073F RID: 1855
+		// Token: 0x04000853 RID: 2131
 		public Type type;
 	}
 
-	// Token: 0x0200018C RID: 396
+	// Token: 0x020001B8 RID: 440
 	private class ReadResult
 	{
-		// Token: 0x06000BDE RID: 3038 RVA: 0x0002EBF8 File Offset: 0x0002CDF8
+		// Token: 0x06000D0E RID: 3342 RVA: 0x00032AE4 File Offset: 0x00030CE4
 		public ReadResult(Type searchType, Type minType)
 		{
 			this.minType = (minType ?? typeof(Object));
@@ -96,48 +96,48 @@ public class ManagedLeakDetector : MonoBehaviour
 			this.sumAnimationClip.name = "Animation Clips";
 			this.sumParticleEmitter.name = "Particle Emitters (Legacy)";
 			this.sumParticleSystem.name = "Particle Systems";
-			this.sumComponent.check = ManagedLeakDetector.CheckRelation(searchType, typeof(Component));
-			this.sumBehaviour.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Behaviour), searchType));
-			this.sumRenderer.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Renderer), searchType));
-			this.sumCollider.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Collider), searchType));
-			this.sumCloth.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Cloth), searchType));
-			this.sumParticleSystem.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(ParticleSystem), searchType));
-			this.sumAnimation.check = (this.sumBehaviour.check && ManagedLeakDetector.CheckRelation(typeof(Animation), searchType));
-			this.sumParticleEmitter.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(ParticleEmitter), searchType));
-			this.sumGameObject.check = ManagedLeakDetector.CheckRelation(typeof(GameObject), searchType);
-			this.sumScriptableObject.check = ManagedLeakDetector.CheckRelation(typeof(ScriptableObject), searchType);
-			this.sumMaterial.check = ManagedLeakDetector.CheckRelation(typeof(Material), searchType);
-			this.sumTexture.check = ManagedLeakDetector.CheckRelation(typeof(Texture), searchType);
-			this.sumMesh.check = ManagedLeakDetector.CheckRelation(typeof(Mesh), searchType);
-			this.sumAudioClip.check = ManagedLeakDetector.CheckRelation(typeof(AudioClip), searchType);
-			this.sumAnimationClip.check = ManagedLeakDetector.CheckRelation(typeof(AnimationClip), searchType);
+			this.sumComponent.check = global::ManagedLeakDetector.CheckRelation(searchType, typeof(Component));
+			this.sumBehaviour.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Behaviour), searchType));
+			this.sumRenderer.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Renderer), searchType));
+			this.sumCollider.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Collider), searchType));
+			this.sumCloth.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Cloth), searchType));
+			this.sumParticleSystem.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(ParticleSystem), searchType));
+			this.sumAnimation.check = (this.sumBehaviour.check && global::ManagedLeakDetector.CheckRelation(typeof(Animation), searchType));
+			this.sumParticleEmitter.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(ParticleEmitter), searchType));
+			this.sumGameObject.check = global::ManagedLeakDetector.CheckRelation(typeof(GameObject), searchType);
+			this.sumScriptableObject.check = global::ManagedLeakDetector.CheckRelation(typeof(ScriptableObject), searchType);
+			this.sumMaterial.check = global::ManagedLeakDetector.CheckRelation(typeof(Material), searchType);
+			this.sumTexture.check = global::ManagedLeakDetector.CheckRelation(typeof(Texture), searchType);
+			this.sumMesh.check = global::ManagedLeakDetector.CheckRelation(typeof(Mesh), searchType);
+			this.sumAudioClip.check = global::ManagedLeakDetector.CheckRelation(typeof(AudioClip), searchType);
+			this.sumAnimationClip.check = global::ManagedLeakDetector.CheckRelation(typeof(AnimationClip), searchType);
 		}
 
-		// Token: 0x06000BDF RID: 3039 RVA: 0x0002EF48 File Offset: 0x0002D148
+		// Token: 0x06000D0F RID: 3343 RVA: 0x00032E34 File Offset: 0x00031034
 		public ReadResult(Type searchType) : this(searchType, typeof(Object))
 		{
 		}
 
-		// Token: 0x06000BE0 RID: 3040 RVA: 0x0002EF5C File Offset: 0x0002D15C
+		// Token: 0x06000D10 RID: 3344 RVA: 0x00032E48 File Offset: 0x00031048
 		public ReadResult() : this(typeof(Object))
 		{
 		}
 
-		// Token: 0x06000BE1 RID: 3041 RVA: 0x0002EF70 File Offset: 0x0002D170
+		// Token: 0x06000D11 RID: 3345 RVA: 0x00032E5C File Offset: 0x0003105C
 		public void Read()
 		{
 			this.Read(false);
 		}
 
-		// Token: 0x06000BE2 RID: 3042 RVA: 0x0002EF7C File Offset: 0x0002D17C
+		// Token: 0x06000D12 RID: 3346 RVA: 0x00032E68 File Offset: 0x00031068
 		public void Read(bool forceUpdate)
 		{
 			if (this.complete && !forceUpdate)
 			{
 				return;
 			}
-			Dictionary<Type, ManagedLeakDetector.Counter> dictionary = new Dictionary<Type, ManagedLeakDetector.Counter>();
-			ManagedLeakDetector.Counter counter = new ManagedLeakDetector.Counter();
+			Dictionary<Type, global::ManagedLeakDetector.Counter> dictionary = new Dictionary<Type, global::ManagedLeakDetector.Counter>();
+			global::ManagedLeakDetector.Counter counter = new global::ManagedLeakDetector.Counter();
 			counter.type = this.minType;
 			dictionary.Add(this.minType, counter);
 			this.sumComponent.Reset();
@@ -155,32 +155,32 @@ public class ManagedLeakDetector : MonoBehaviour
 			this.sumAnimationClip.Reset();
 			this.sumParticleSystem.Reset();
 			this.sumParticleEmitter.Reset();
-			this.sumComponent.check = ManagedLeakDetector.CheckRelation(this.searchType, typeof(Component));
-			this.sumBehaviour.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Behaviour), this.searchType));
-			this.sumRenderer.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Renderer), this.searchType));
-			this.sumCollider.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Collider), this.searchType));
-			this.sumCloth.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(Cloth), this.searchType));
-			this.sumParticleSystem.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(ParticleSystem), this.searchType));
-			this.sumAnimation.check = (this.sumBehaviour.check && ManagedLeakDetector.CheckRelation(typeof(Animation), this.searchType));
-			this.sumParticleEmitter.check = (this.sumComponent.check && ManagedLeakDetector.CheckRelation(typeof(ParticleEmitter), this.searchType));
-			this.sumGameObject.check = ManagedLeakDetector.CheckRelation(typeof(GameObject), this.searchType);
-			this.sumScriptableObject.check = ManagedLeakDetector.CheckRelation(typeof(ScriptableObject), this.searchType);
-			this.sumMaterial.check = ManagedLeakDetector.CheckRelation(typeof(Material), this.searchType);
-			this.sumTexture.check = ManagedLeakDetector.CheckRelation(typeof(Texture), this.searchType);
-			this.sumMesh.check = ManagedLeakDetector.CheckRelation(typeof(Mesh), this.searchType);
-			this.sumAudioClip.check = ManagedLeakDetector.CheckRelation(typeof(AudioClip), this.searchType);
-			this.sumAnimationClip.check = ManagedLeakDetector.CheckRelation(typeof(AnimationClip), this.searchType);
+			this.sumComponent.check = global::ManagedLeakDetector.CheckRelation(this.searchType, typeof(Component));
+			this.sumBehaviour.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Behaviour), this.searchType));
+			this.sumRenderer.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Renderer), this.searchType));
+			this.sumCollider.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Collider), this.searchType));
+			this.sumCloth.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(Cloth), this.searchType));
+			this.sumParticleSystem.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(ParticleSystem), this.searchType));
+			this.sumAnimation.check = (this.sumBehaviour.check && global::ManagedLeakDetector.CheckRelation(typeof(Animation), this.searchType));
+			this.sumParticleEmitter.check = (this.sumComponent.check && global::ManagedLeakDetector.CheckRelation(typeof(ParticleEmitter), this.searchType));
+			this.sumGameObject.check = global::ManagedLeakDetector.CheckRelation(typeof(GameObject), this.searchType);
+			this.sumScriptableObject.check = global::ManagedLeakDetector.CheckRelation(typeof(ScriptableObject), this.searchType);
+			this.sumMaterial.check = global::ManagedLeakDetector.CheckRelation(typeof(Material), this.searchType);
+			this.sumTexture.check = global::ManagedLeakDetector.CheckRelation(typeof(Texture), this.searchType);
+			this.sumMesh.check = global::ManagedLeakDetector.CheckRelation(typeof(Mesh), this.searchType);
+			this.sumAudioClip.check = global::ManagedLeakDetector.CheckRelation(typeof(AudioClip), this.searchType);
+			this.sumAnimationClip.check = global::ManagedLeakDetector.CheckRelation(typeof(AnimationClip), this.searchType);
 			foreach (Object @object in Object.FindObjectsOfType(this.searchType))
 			{
 				Type type = @object.GetType();
-				ManagedLeakDetector.Counter counter2;
+				global::ManagedLeakDetector.Counter counter2;
 				if (dictionary.TryGetValue(type, out counter2))
 				{
 					counter2.actualInstanceCount++;
 				}
 				else
 				{
-					dictionary.Add(type, counter2 = new ManagedLeakDetector.Counter
+					dictionary.Add(type, counter2 = new global::ManagedLeakDetector.Counter
 					{
 						type = type,
 						actualInstanceCount = 1
@@ -302,7 +302,7 @@ public class ManagedLeakDetector : MonoBehaviour
 						}
 						else
 						{
-							dictionary.Add(type, new ManagedLeakDetector.Counter
+							dictionary.Add(type, new global::ManagedLeakDetector.Counter
 							{
 								type = type,
 								derivedInstanceCount = 1
@@ -312,8 +312,8 @@ public class ManagedLeakDetector : MonoBehaviour
 					counter.derivedInstanceCount++;
 				}
 			}
-			List<ManagedLeakDetector.Counter> list = new List<ManagedLeakDetector.Counter>(dictionary.Values);
-			list.Sort(delegate(ManagedLeakDetector.Counter firstPair, ManagedLeakDetector.Counter nextPair)
+			List<global::ManagedLeakDetector.Counter> list = new List<global::ManagedLeakDetector.Counter>(dictionary.Values);
+			list.Sort(delegate(global::ManagedLeakDetector.Counter firstPair, global::ManagedLeakDetector.Counter nextPair)
 			{
 				int num = nextPair.actualInstanceCount.CompareTo(firstPair.actualInstanceCount);
 				if (num == 0)
@@ -326,8 +326,8 @@ public class ManagedLeakDetector : MonoBehaviour
 			this.complete = true;
 		}
 
-		// Token: 0x06000BE3 RID: 3043 RVA: 0x0002F9C4 File Offset: 0x0002DBC4
-		private static void Print(StringBuilder sb, ref ManagedLeakDetector.SumEnable en)
+		// Token: 0x06000D13 RID: 3347 RVA: 0x000338B0 File Offset: 0x00031AB0
+		private static void Print(StringBuilder sb, ref global::ManagedLeakDetector.SumEnable en)
 		{
 			if (en.check)
 			{
@@ -342,13 +342,13 @@ public class ManagedLeakDetector : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06000BE4 RID: 3044 RVA: 0x0002FA3C File Offset: 0x0002DC3C
+		// Token: 0x06000D14 RID: 3348 RVA: 0x00033928 File Offset: 0x00031B28
 		public override string ToString()
 		{
 			this.Read();
 			StringBuilder stringBuilder = new StringBuilder();
 			stringBuilder.AppendLine("Instances, Deriving Instances, Type, (# Enabled [if not shown 0] )");
-			foreach (ManagedLeakDetector.Counter counter in this.counters)
+			foreach (global::ManagedLeakDetector.Counter counter in this.counters)
 			{
 				if (counter.enabledCount != 0)
 				{
@@ -366,88 +366,88 @@ public class ManagedLeakDetector : MonoBehaviour
 				}
 			}
 			stringBuilder.AppendLine("basic counters: if not there, there is none.");
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumComponent);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumBehaviour);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumRenderer);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumCollider);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumCloth);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumGameObject);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumScriptableObject);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumMaterial);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumTexture);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumAnimation);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumMesh);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumAudioClip);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumAnimationClip);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumParticleSystem);
-			ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumParticleEmitter);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumComponent);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumBehaviour);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumRenderer);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumCollider);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumCloth);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumGameObject);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumScriptableObject);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumMaterial);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumTexture);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumAnimation);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumMesh);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumAudioClip);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumAnimationClip);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumParticleSystem);
+			global::ManagedLeakDetector.ReadResult.Print(stringBuilder, ref this.sumParticleEmitter);
 			stringBuilder.AppendFormat("Count done for search {0} (min:{1})", this.searchType, this.minType);
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x04000740 RID: 1856
-		public ManagedLeakDetector.SumEnable sumComponent;
+		// Token: 0x04000854 RID: 2132
+		public global::ManagedLeakDetector.SumEnable sumComponent;
 
-		// Token: 0x04000741 RID: 1857
-		public ManagedLeakDetector.SumEnable sumBehaviour;
+		// Token: 0x04000855 RID: 2133
+		public global::ManagedLeakDetector.SumEnable sumBehaviour;
 
-		// Token: 0x04000742 RID: 1858
-		public ManagedLeakDetector.SumEnable sumRenderer;
+		// Token: 0x04000856 RID: 2134
+		public global::ManagedLeakDetector.SumEnable sumRenderer;
 
-		// Token: 0x04000743 RID: 1859
-		public ManagedLeakDetector.SumEnable sumCollider;
+		// Token: 0x04000857 RID: 2135
+		public global::ManagedLeakDetector.SumEnable sumCollider;
 
-		// Token: 0x04000744 RID: 1860
-		public ManagedLeakDetector.SumEnable sumCloth;
+		// Token: 0x04000858 RID: 2136
+		public global::ManagedLeakDetector.SumEnable sumCloth;
 
-		// Token: 0x04000745 RID: 1861
-		public ManagedLeakDetector.SumEnable sumGameObject;
+		// Token: 0x04000859 RID: 2137
+		public global::ManagedLeakDetector.SumEnable sumGameObject;
 
-		// Token: 0x04000746 RID: 1862
-		public ManagedLeakDetector.SumEnable sumScriptableObject;
+		// Token: 0x0400085A RID: 2138
+		public global::ManagedLeakDetector.SumEnable sumScriptableObject;
 
-		// Token: 0x04000747 RID: 1863
-		public ManagedLeakDetector.SumEnable sumMaterial;
+		// Token: 0x0400085B RID: 2139
+		public global::ManagedLeakDetector.SumEnable sumMaterial;
 
-		// Token: 0x04000748 RID: 1864
-		public ManagedLeakDetector.SumEnable sumTexture;
+		// Token: 0x0400085C RID: 2140
+		public global::ManagedLeakDetector.SumEnable sumTexture;
 
-		// Token: 0x04000749 RID: 1865
-		public ManagedLeakDetector.SumEnable sumAnimation;
+		// Token: 0x0400085D RID: 2141
+		public global::ManagedLeakDetector.SumEnable sumAnimation;
 
-		// Token: 0x0400074A RID: 1866
-		public ManagedLeakDetector.SumEnable sumMesh;
+		// Token: 0x0400085E RID: 2142
+		public global::ManagedLeakDetector.SumEnable sumMesh;
 
-		// Token: 0x0400074B RID: 1867
-		public ManagedLeakDetector.SumEnable sumAudioClip;
+		// Token: 0x0400085F RID: 2143
+		public global::ManagedLeakDetector.SumEnable sumAudioClip;
 
-		// Token: 0x0400074C RID: 1868
-		public ManagedLeakDetector.SumEnable sumAnimationClip;
+		// Token: 0x04000860 RID: 2144
+		public global::ManagedLeakDetector.SumEnable sumAnimationClip;
 
-		// Token: 0x0400074D RID: 1869
-		public ManagedLeakDetector.SumEnable sumParticleEmitter;
+		// Token: 0x04000861 RID: 2145
+		public global::ManagedLeakDetector.SumEnable sumParticleEmitter;
 
-		// Token: 0x0400074E RID: 1870
-		public ManagedLeakDetector.SumEnable sumParticleSystem;
+		// Token: 0x04000862 RID: 2146
+		public global::ManagedLeakDetector.SumEnable sumParticleSystem;
 
-		// Token: 0x0400074F RID: 1871
+		// Token: 0x04000863 RID: 2147
 		public bool complete;
 
-		// Token: 0x04000750 RID: 1872
-		public ManagedLeakDetector.Counter[] counters;
+		// Token: 0x04000864 RID: 2148
+		public global::ManagedLeakDetector.Counter[] counters;
 
-		// Token: 0x04000751 RID: 1873
+		// Token: 0x04000865 RID: 2149
 		public readonly Type searchType;
 
-		// Token: 0x04000752 RID: 1874
+		// Token: 0x04000866 RID: 2150
 		public readonly Type minType;
 	}
 
-	// Token: 0x0200018D RID: 397
+	// Token: 0x020001B9 RID: 441
 	private struct SumEnable
 	{
-		// Token: 0x17000317 RID: 791
-		// (get) Token: 0x06000BE6 RID: 3046 RVA: 0x0002FC14 File Offset: 0x0002DE14
+		// Token: 0x1700035B RID: 859
+		// (get) Token: 0x06000D16 RID: 3350 RVA: 0x00033B00 File Offset: 0x00031D00
 		public int disabled
 		{
 			get
@@ -456,26 +456,26 @@ public class ManagedLeakDetector : MonoBehaviour
 			}
 		}
 
-		// Token: 0x06000BE7 RID: 3047 RVA: 0x0002FC24 File Offset: 0x0002DE24
+		// Token: 0x06000D17 RID: 3351 RVA: 0x00033B10 File Offset: 0x00031D10
 		public void Reset()
 		{
 			this.total = 0;
 			this.enabled = 0;
 		}
 
-		// Token: 0x04000754 RID: 1876
+		// Token: 0x04000868 RID: 2152
 		public bool check;
 
-		// Token: 0x04000755 RID: 1877
+		// Token: 0x04000869 RID: 2153
 		public int total;
 
-		// Token: 0x04000756 RID: 1878
+		// Token: 0x0400086A RID: 2154
 		public int enabled;
 
-		// Token: 0x04000757 RID: 1879
+		// Token: 0x0400086B RID: 2155
 		public string name;
 
-		// Token: 0x04000758 RID: 1880
+		// Token: 0x0400086C RID: 2156
 		public Type type;
 	}
 }

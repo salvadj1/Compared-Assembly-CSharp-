@@ -1,35 +1,35 @@
 ﻿using System;
 
-// Token: 0x020002B5 RID: 693
-public class interp : ConsoleSystem
+// Token: 0x020002F2 RID: 754
+public class interp : global::ConsoleSystem
 {
-	// Token: 0x17000737 RID: 1847
-	// (get) Token: 0x060018DD RID: 6365 RVA: 0x00062188 File Offset: 0x00060388
-	// (set) Token: 0x060018DE RID: 6366 RVA: 0x00062190 File Offset: 0x00060390
-	[ConsoleSystem.Admin]
-	[ConsoleSystem.Help("This value determins how much time to append to interp delay ( on clients ) based on server.sendrate", "")]
+	// Token: 0x1700078B RID: 1931
+	// (get) Token: 0x06001A6D RID: 6765 RVA: 0x00066AFC File Offset: 0x00064CFC
+	// (set) Token: 0x06001A6E RID: 6766 RVA: 0x00066B04 File Offset: 0x00064D04
+	[global::ConsoleSystem.Admin]
+	[global::ConsoleSystem.Help("This value determins how much time to append to interp delay ( on clients ) based on server.sendrate", "")]
 	public static float ratio
 	{
 		get
 		{
-			return Interpolation.sendRateRatiof;
+			return global::Interpolation.sendRateRatiof;
 		}
 		set
 		{
-			Interpolation.sendRateRatiof = value;
+			global::Interpolation.sendRateRatiof = value;
 		}
 	}
 
-	// Token: 0x17000738 RID: 1848
-	// (get) Token: 0x060018DF RID: 6367 RVA: 0x00062198 File Offset: 0x00060398
-	// (set) Token: 0x060018E0 RID: 6368 RVA: 0x000621C0 File Offset: 0x000603C0
-	[ConsoleSystem.Help("This value adds a fixed amount of delay ( in milliseconds ) to interp delay ( on clients ).", "")]
-	[ConsoleSystem.Admin]
+	// Token: 0x1700078C RID: 1932
+	// (get) Token: 0x06001A6F RID: 6767 RVA: 0x00066B0C File Offset: 0x00064D0C
+	// (set) Token: 0x06001A70 RID: 6768 RVA: 0x00066B34 File Offset: 0x00064D34
+	[global::ConsoleSystem.Help("This value adds a fixed amount of delay ( in milliseconds ) to interp delay ( on clients ).", "")]
+	[global::ConsoleSystem.Admin]
 	public static int delayms
 	{
 		get
 		{
-			ulong delayMillis = Interpolation.delayMillis;
+			ulong delayMillis = global::Interpolation.delayMillis;
 			if (delayMillis > 2147483647UL)
 			{
 				return int.MaxValue;
@@ -40,11 +40,11 @@ public class interp : ConsoleSystem
 		{
 			if (value < 0)
 			{
-				Interpolation.delayMillis = 0UL;
+				global::Interpolation.delayMillis = 0UL;
 			}
 			else
 			{
-				Interpolation.delayMillis = (ulong)((long)value);
+				global::Interpolation.delayMillis = (ulong)((long)value);
 			}
 		}
 	}

@@ -1,11 +1,11 @@
 ﻿using System;
 
-// Token: 0x0200050B RID: 1291
-[ArmorModelSlotClass(ArmorModelSlot.Legs)]
-public sealed class ArmorModelLegs : ArmorModel<ArmorModelLegs>
+// Token: 0x020005C8 RID: 1480
+[global::ArmorModelSlotClass(global::ArmorModelSlot.Legs)]
+public sealed class ArmorModelLegs : global::ArmorModel<global::ArmorModelLegs>
 {
-	// Token: 0x06002BAD RID: 11181 RVA: 0x000AE8E0 File Offset: 0x000ACAE0
-	public ArmorModelLegs() : base(ArmorModelSlot.Legs)
+	// Token: 0x06002F6D RID: 12141 RVA: 0x000B697C File Offset: 0x000B4B7C
+	public ArmorModelLegs() : base(global::ArmorModelSlot.Legs)
 	{
 	}
 }

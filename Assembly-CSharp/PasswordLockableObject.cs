@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000666 RID: 1638
-public class PasswordLockableObject : LockableObject
+// Token: 0x0200072A RID: 1834
+public class PasswordLockableObject : global::LockableObject
 {
 }

@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000643 RID: 1603
-public class TransCarrier : IDLocal, ICarriableTrans
+// Token: 0x02000706 RID: 1798
+public class TransCarrier : IDLocal, global::ICarriableTrans
 {
-	// Token: 0x060037FC RID: 14332 RVA: 0x000CD3F4 File Offset: 0x000CB5F4
+	// Token: 0x06003BE8 RID: 15336 RVA: 0x000D5CA4 File Offset: 0x000D3EA4
 	public void TryInit()
 	{
 		if (this._objs == null)
 		{
-			this._objs = new HashSet<ICarriableTrans>();
+			this._objs = new HashSet<global::ICarriableTrans>();
 		}
 	}
 
-	// Token: 0x060037FD RID: 14333 RVA: 0x000CD40C File Offset: 0x000CB60C
-	public virtual void AddObject(ICarriableTrans obj)
+	// Token: 0x06003BE9 RID: 15337 RVA: 0x000D5CBC File Offset: 0x000D3EBC
+	public virtual void AddObject(global::ICarriableTrans obj)
 	{
 		if (object.ReferenceEquals(obj, this))
 		{
@@ -33,8 +33,8 @@ public class TransCarrier : IDLocal, ICarriableTrans
 		}
 	}
 
-	// Token: 0x060037FE RID: 14334 RVA: 0x000CD45C File Offset: 0x000CB65C
-	public virtual void RemoveObject(ICarriableTrans obj)
+	// Token: 0x06003BEA RID: 15338 RVA: 0x000D5D0C File Offset: 0x000D3F0C
+	public virtual void RemoveObject(global::ICarriableTrans obj)
 	{
 		if (this._objs != null)
 		{
@@ -42,16 +42,16 @@ public class TransCarrier : IDLocal, ICarriableTrans
 		}
 	}
 
-	// Token: 0x060037FF RID: 14335 RVA: 0x000CD478 File Offset: 0x000CB678
+	// Token: 0x06003BEB RID: 15339 RVA: 0x000D5D28 File Offset: 0x000D3F28
 	public virtual void DropObjects()
 	{
 		if (this._objs == null)
 		{
 			return;
 		}
-		HashSet<ICarriableTrans> objs = this._objs;
+		HashSet<global::ICarriableTrans> objs = this._objs;
 		this._objs = null;
-		foreach (ICarriableTrans carriableTrans in objs)
+		foreach (global::ICarriableTrans carriableTrans in objs)
 		{
 			if (!(carriableTrans is Object) || (Object)carriableTrans)
 			{
@@ -60,7 +60,7 @@ public class TransCarrier : IDLocal, ICarriableTrans
 		}
 	}
 
-	// Token: 0x06003800 RID: 14336 RVA: 0x000CD510 File Offset: 0x000CB710
+	// Token: 0x06003BEC RID: 15340 RVA: 0x000D5DC0 File Offset: 0x000D3FC0
 	public void DropObjects(bool andDisableAddingAfter)
 	{
 		try
@@ -76,20 +76,20 @@ public class TransCarrier : IDLocal, ICarriableTrans
 		}
 	}
 
-	// Token: 0x06003801 RID: 14337 RVA: 0x000CD554 File Offset: 0x000CB754
-	public virtual void OnAddedToCarrier(TransCarrier carrier)
+	// Token: 0x06003BED RID: 15341 RVA: 0x000D5E04 File Offset: 0x000D4004
+	public virtual void OnAddedToCarrier(global::TransCarrier carrier)
 	{
 	}
 
-	// Token: 0x06003802 RID: 14338 RVA: 0x000CD558 File Offset: 0x000CB758
-	public virtual void OnDroppedFromCarrier(TransCarrier carrier)
+	// Token: 0x06003BEE RID: 15342 RVA: 0x000D5E08 File Offset: 0x000D4008
+	public virtual void OnDroppedFromCarrier(global::TransCarrier carrier)
 	{
 		this.DropObjects();
 	}
 
-	// Token: 0x04001C1A RID: 7194
-	public HashSet<ICarriableTrans> _objs;
+	// Token: 0x04001E0F RID: 7695
+	public HashSet<global::ICarriableTrans> _objs;
 
-	// Token: 0x04001C1B RID: 7195
+	// Token: 0x04001E10 RID: 7696
 	private bool destroying;
 }

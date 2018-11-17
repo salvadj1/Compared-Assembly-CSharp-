@@ -2,16 +2,16 @@
 
 namespace MoPhoGames.USpeak.Codec
 {
-	// Token: 0x020000B2 RID: 178
+	// Token: 0x020000C5 RID: 197
 	public interface ICodec
 	{
-		// Token: 0x060003CC RID: 972
-		byte[] Encode(short[] data, BandMode bandMode);
+		// Token: 0x06000444 RID: 1092
+		byte[] Encode(short[] data, global::BandMode bandMode);
 
-		// Token: 0x060003CD RID: 973
-		short[] Decode(byte[] data, BandMode bandMode);
+		// Token: 0x06000445 RID: 1093
+		short[] Decode(byte[] data, global::BandMode bandMode);
 
-		// Token: 0x060003CE RID: 974
+		// Token: 0x06000446 RID: 1094
 		int GetSampleSize(int recordingFrequency);
 	}
 }

@@ -1,24 +1,24 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200069A RID: 1690
+// Token: 0x02000760 RID: 1888
 public class WaterMesh : MonoBehaviour
 {
-	// Token: 0x04001EE6 RID: 7910
-	public WaterMesher root;
+	// Token: 0x040020E2 RID: 8418
+	public global::WaterMesher root;
 
-	// Token: 0x04001EE7 RID: 7911
+	// Token: 0x040020E3 RID: 8419
 	public float underFlow;
 
-	// Token: 0x04001EE8 RID: 7912
+	// Token: 0x040020E4 RID: 8420
 	public float minDistance = 2f;
 
-	// Token: 0x04001EE9 RID: 7913
+	// Token: 0x040020E5 RID: 8421
 	public int sensitivity = 256;
 
-	// Token: 0x04001EEA RID: 7914
+	// Token: 0x040020E6 RID: 8422
 	public bool smooth;
 
-	// Token: 0x04001EEB RID: 7915
+	// Token: 0x040020E7 RID: 8423
 	public bool reverseOrder;
 }

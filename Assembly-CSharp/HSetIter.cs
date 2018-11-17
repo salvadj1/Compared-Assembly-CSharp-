@@ -2,17 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 
-// Token: 0x02000363 RID: 867
+// Token: 0x02000410 RID: 1040
 public struct HSetIter<T> : IDisposable, IEnumerator, IEnumerator<T>
 {
-	// Token: 0x0600212E RID: 8494 RVA: 0x00081E50 File Offset: 0x00080050
+	// Token: 0x06002490 RID: 9360 RVA: 0x0008724C File Offset: 0x0008544C
 	public HSetIter(HashSet<T>.Enumerator enumerator)
 	{
 		this.enumerator = enumerator;
 	}
 
-	// Token: 0x17000825 RID: 2085
-	// (get) Token: 0x0600212F RID: 8495 RVA: 0x00081E5C File Offset: 0x0008005C
+	// Token: 0x17000883 RID: 2179
+	// (get) Token: 0x06002491 RID: 9361 RVA: 0x00087258 File Offset: 0x00085458
 	object IEnumerator.Current
 	{
 		get
@@ -21,14 +21,14 @@ public struct HSetIter<T> : IDisposable, IEnumerator, IEnumerator<T>
 		}
 	}
 
-	// Token: 0x06002130 RID: 8496 RVA: 0x00081E70 File Offset: 0x00080070
+	// Token: 0x06002492 RID: 9362 RVA: 0x0008726C File Offset: 0x0008546C
 	public bool MoveNext()
 	{
 		return this.enumerator.MoveNext();
 	}
 
-	// Token: 0x17000826 RID: 2086
-	// (get) Token: 0x06002131 RID: 8497 RVA: 0x00081E80 File Offset: 0x00080080
+	// Token: 0x17000884 RID: 2180
+	// (get) Token: 0x06002493 RID: 9363 RVA: 0x0008727C File Offset: 0x0008547C
 	public T Current
 	{
 		get
@@ -37,18 +37,18 @@ public struct HSetIter<T> : IDisposable, IEnumerator, IEnumerator<T>
 		}
 	}
 
-	// Token: 0x06002132 RID: 8498 RVA: 0x00081E90 File Offset: 0x00080090
+	// Token: 0x06002494 RID: 9364 RVA: 0x0008728C File Offset: 0x0008548C
 	public void Reset()
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06002133 RID: 8499 RVA: 0x00081E98 File Offset: 0x00080098
+	// Token: 0x06002495 RID: 9365 RVA: 0x00087294 File Offset: 0x00085494
 	public void Dispose()
 	{
 		this.enumerator.Dispose();
 	}
 
-	// Token: 0x04000F94 RID: 3988
+	// Token: 0x040010FA RID: 4346
 	private HashSet<T>.Enumerator enumerator;
 }

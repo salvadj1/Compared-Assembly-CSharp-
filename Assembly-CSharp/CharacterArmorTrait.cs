@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000457 RID: 1111
-public class CharacterArmorTrait : CharacterTrait
+// Token: 0x0200050D RID: 1293
+public class CharacterArmorTrait : global::CharacterTrait
 {
-	// Token: 0x1700092F RID: 2351
-	// (get) Token: 0x06002896 RID: 10390 RVA: 0x0009FA10 File Offset: 0x0009DC10
-	public ArmorModelGroup defaultGroup
+	// Token: 0x17000997 RID: 2455
+	// (get) Token: 0x06002C26 RID: 11302 RVA: 0x000A5990 File Offset: 0x000A3B90
+	public global::ArmorModelGroup defaultGroup
 	{
 		get
 		{
@@ -14,7 +14,7 @@ public class CharacterArmorTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x04001494 RID: 5268
+	// Token: 0x04001617 RID: 5655
 	[SerializeField]
-	private ArmorModelGroup _defaultGroup;
+	private global::ArmorModelGroup _defaultGroup;
 }

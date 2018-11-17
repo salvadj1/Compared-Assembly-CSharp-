@@ -3,54 +3,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200036B RID: 875
-public struct ODBReverseEnumerable<T> : IEnumerable, ODBEnumerable<T, ODBReverseEnumerator<T>>, IEnumerable<T> where T : Object
+// Token: 0x02000418 RID: 1048
+public struct ODBReverseEnumerable<T> : IEnumerable, global::ODBEnumerable<T, global::ODBReverseEnumerator<T>>, IEnumerable<T> where T : Object
 {
-	// Token: 0x06002158 RID: 8536 RVA: 0x00082308 File Offset: 0x00080508
-	public ODBReverseEnumerable(ODBNode<T> node)
+	// Token: 0x060024BA RID: 9402 RVA: 0x00087704 File Offset: 0x00085904
+	public ODBReverseEnumerable(global::ODBNode<T> node)
 	{
 		this.sibling.has = true;
 		this.sibling.item = node;
 	}
 
-	// Token: 0x06002159 RID: 8537 RVA: 0x00082324 File Offset: 0x00080524
-	public ODBReverseEnumerable(ODBList<T> list)
+	// Token: 0x060024BB RID: 9403 RVA: 0x00087720 File Offset: 0x00085920
+	public ODBReverseEnumerable(global::ODBList<T> list)
 	{
-		this = new ODBReverseEnumerable<T>(list.last);
+		this = new global::ODBReverseEnumerable<T>(list.last);
 	}
 
-	// Token: 0x0600215A RID: 8538 RVA: 0x00082334 File Offset: 0x00080534
-	public ODBReverseEnumerable(ODBSibling<T> sibling)
+	// Token: 0x060024BC RID: 9404 RVA: 0x00087730 File Offset: 0x00085930
+	public ODBReverseEnumerable(global::ODBSibling<T> sibling)
 	{
 		this.sibling = sibling;
 	}
 
-	// Token: 0x0600215B RID: 8539 RVA: 0x00082340 File Offset: 0x00080540
+	// Token: 0x060024BD RID: 9405 RVA: 0x0008773C File Offset: 0x0008593C
 	IEnumerator<T> IEnumerable<T>.GetEnumerator()
 	{
-		ODBReverseEnumerator<T> enumerator = this.GetEnumerator();
-		return ODBCachedEnumerator<T, ODBReverseEnumerator<T>>.Cache(ref enumerator);
+		global::ODBReverseEnumerator<T> enumerator = this.GetEnumerator();
+		return global::ODBCachedEnumerator<T, global::ODBReverseEnumerator<T>>.Cache(ref enumerator);
 	}
 
-	// Token: 0x0600215C RID: 8540 RVA: 0x0008235C File Offset: 0x0008055C
+	// Token: 0x060024BE RID: 9406 RVA: 0x00087758 File Offset: 0x00085958
 	IEnumerator IEnumerable.GetEnumerator()
 	{
 		return this.GetEnumerator();
 	}
 
-	// Token: 0x0600215D RID: 8541 RVA: 0x0008236C File Offset: 0x0008056C
-	public ODBReverseEnumerator<T> GetEnumerator()
+	// Token: 0x060024BF RID: 9407 RVA: 0x00087768 File Offset: 0x00085968
+	public global::ODBReverseEnumerator<T> GetEnumerator()
 	{
-		return new ODBReverseEnumerator<T>(this.sibling);
+		return new global::ODBReverseEnumerator<T>(this.sibling);
 	}
 
-	// Token: 0x0600215E RID: 8542 RVA: 0x0008237C File Offset: 0x0008057C
+	// Token: 0x060024C0 RID: 9408 RVA: 0x00087778 File Offset: 0x00085978
 	public IEnumerable<T> ToGeneric()
 	{
-		ODBReverseEnumerable<T> odbreverseEnumerable = this;
-		return ODBGenericEnumerable<T, ODBReverseEnumerator<T>, ODBReverseEnumerable<T>>.Open(ref odbreverseEnumerable);
+		global::ODBReverseEnumerable<T> odbreverseEnumerable = this;
+		return global::ODBGenericEnumerable<T, global::ODBReverseEnumerator<T>, global::ODBReverseEnumerable<T>>.Open(ref odbreverseEnumerable);
 	}
 
-	// Token: 0x04000FA1 RID: 4001
-	private ODBSibling<T> sibling;
+	// Token: 0x04001107 RID: 4359
+	private global::ODBSibling<T> sibling;
 }

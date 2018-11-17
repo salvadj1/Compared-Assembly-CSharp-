@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200041A RID: 1050
+// Token: 0x020004CF RID: 1231
 public class RPOSPlaqueManager : MonoBehaviour
 {
-	// Token: 0x060026D1 RID: 9937 RVA: 0x00097734 File Offset: 0x00095934
+	// Token: 0x06002A5B RID: 10843 RVA: 0x0009D5F8 File Offset: 0x0009B7F8
 	public void Awake()
 	{
 		foreach (object obj in base.transform)
@@ -14,7 +14,7 @@ public class RPOSPlaqueManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060026D2 RID: 9938 RVA: 0x000977A8 File Offset: 0x000959A8
+	// Token: 0x06002A5C RID: 10844 RVA: 0x0009D66C File Offset: 0x0009B86C
 	public void SetPlaqueActive(string plaqueName, bool on)
 	{
 		GameObject gameObject = null;
@@ -42,9 +42,9 @@ public class RPOSPlaqueManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400130F RID: 4879
+	// Token: 0x0400148F RID: 5263
 	public GameObject coldPlaque;
 
-	// Token: 0x04001310 RID: 4880
+	// Token: 0x04001490 RID: 5264
 	public GameObject bleedingPlaque;
 }

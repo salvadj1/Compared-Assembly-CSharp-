@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x0200078C RID: 1932
+// Token: 0x02000871 RID: 2161
 public class ByteReader
 {
-	// Token: 0x060045C6 RID: 17862 RVA: 0x001147A4 File Offset: 0x001129A4
+	// Token: 0x06004A33 RID: 18995 RVA: 0x0011E124 File Offset: 0x0011C324
 	public ByteReader(byte[] bytes)
 	{
 		this.mBuffer = bytes;
 	}
 
-	// Token: 0x060045C7 RID: 17863 RVA: 0x001147B4 File Offset: 0x001129B4
+	// Token: 0x06004A34 RID: 18996 RVA: 0x0011E134 File Offset: 0x0011C334
 	public ByteReader(TextAsset asset)
 	{
 		this.mBuffer = asset.bytes;
 	}
 
-	// Token: 0x17000D90 RID: 3472
-	// (get) Token: 0x060045C8 RID: 17864 RVA: 0x001147C8 File Offset: 0x001129C8
+	// Token: 0x17000E20 RID: 3616
+	// (get) Token: 0x06004A35 RID: 18997 RVA: 0x0011E148 File Offset: 0x0011C348
 	public bool canRead
 	{
 		get
@@ -28,13 +28,13 @@ public class ByteReader
 		}
 	}
 
-	// Token: 0x060045C9 RID: 17865 RVA: 0x001147E8 File Offset: 0x001129E8
+	// Token: 0x06004A36 RID: 18998 RVA: 0x0011E168 File Offset: 0x0011C368
 	private static string ReadLine(byte[] buffer, int start, int count)
 	{
 		return Encoding.UTF8.GetString(buffer, start, count);
 	}
 
-	// Token: 0x060045CA RID: 17866 RVA: 0x001147F8 File Offset: 0x001129F8
+	// Token: 0x06004A37 RID: 18999 RVA: 0x0011E178 File Offset: 0x0011C378
 	public string ReadLine()
 	{
 		int num = this.mBuffer.Length;
@@ -51,7 +51,7 @@ public class ByteReader
 				if (num2 == 10 || num2 == 13)
 				{
 					IL_81:
-					string result = ByteReader.ReadLine(this.mBuffer, this.mOffset, i - this.mOffset - 1);
+					string result = global::ByteReader.ReadLine(this.mBuffer, this.mOffset, i - this.mOffset - 1);
 					this.mOffset = i;
 					return result;
 				}
@@ -63,7 +63,7 @@ public class ByteReader
 		return null;
 	}
 
-	// Token: 0x060045CB RID: 17867 RVA: 0x001148B8 File Offset: 0x00112AB8
+	// Token: 0x06004A38 RID: 19000 RVA: 0x0011E238 File Offset: 0x0011C438
 	public Dictionary<string, string> ReadDictionary()
 	{
 		Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -89,9 +89,9 @@ public class ByteReader
 		return dictionary;
 	}
 
-	// Token: 0x0400264A RID: 9802
+	// Token: 0x04002881 RID: 10369
 	private byte[] mBuffer;
 
-	// Token: 0x0400264B RID: 9803
+	// Token: 0x04002882 RID: 10370
 	private int mOffset;
 }

@@ -3,36 +3,36 @@ using System.Collections.Generic;
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x02000038 RID: 56
+// Token: 0x0200004A RID: 74
 [ExecuteInEditMode]
-public class FPGrass : MonoBehaviour, IFPGrassAsset
+public class FPGrass : MonoBehaviour, global::IFPGrassAsset
 {
-	// Token: 0x1700005A RID: 90
-	// (get) Token: 0x06000214 RID: 532 RVA: 0x0000BDD0 File Offset: 0x00009FD0
+	// Token: 0x17000070 RID: 112
+	// (get) Token: 0x06000286 RID: 646 RVA: 0x0000D378 File Offset: 0x0000B578
 	public static bool anyEnabled
 	{
 		get
 		{
-			return FPGrass.AllEnabledFPGrass.Count > 0;
+			return global::FPGrass.AllEnabledFPGrass.Count > 0;
 		}
 	}
 
-	// Token: 0x06000215 RID: 533 RVA: 0x0000BDE0 File Offset: 0x00009FE0
+	// Token: 0x06000287 RID: 647 RVA: 0x0000D388 File Offset: 0x0000B588
 	private void Awake()
 	{
 		if (!this.material)
 		{
-			this.material = (Material)Object.Instantiate(Bundling.Load("rust/fpgrass/grassmaterial", typeof(Material)));
+			this.material = (Material)Object.Instantiate(Facepunch.Bundling.Load("rust/fpgrass/grassmaterial", typeof(Material)));
 		}
 	}
 
-	// Token: 0x06000216 RID: 534 RVA: 0x0000BE24 File Offset: 0x0000A024
+	// Token: 0x06000288 RID: 648 RVA: 0x0000D3CC File Offset: 0x0000B5CC
 	private void Start()
 	{
 		this.Initialize();
 	}
 
-	// Token: 0x06000217 RID: 535 RVA: 0x0000BE2C File Offset: 0x0000A02C
+	// Token: 0x06000289 RID: 649 RVA: 0x0000D3D4 File Offset: 0x0000B5D4
 	private void Reset()
 	{
 		for (int i = base.transform.childCount - 1; i >= 0; i--)
@@ -50,27 +50,27 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		this.Initialize();
 	}
 
-	// Token: 0x06000218 RID: 536 RVA: 0x0000BEAC File Offset: 0x0000A0AC
+	// Token: 0x0600028A RID: 650 RVA: 0x0000D454 File Offset: 0x0000B654
 	private void OnValidate()
 	{
 		this.Initialize();
 	}
 
-	// Token: 0x06000219 RID: 537 RVA: 0x0000BEB4 File Offset: 0x0000A0B4
+	// Token: 0x0600028B RID: 651 RVA: 0x0000D45C File Offset: 0x0000B65C
 	private void Initialize()
 	{
-		if (!FPGrass.Support.Supported)
+		if (!global::FPGrass.Support.Supported)
 		{
 			return;
 		}
 		if (!this.grassProbabilities)
 		{
-			this.grassProbabilities = ScriptableObject.CreateInstance<FPGrassProbabilities>();
+			this.grassProbabilities = ScriptableObject.CreateInstance<global::FPGrassProbabilities>();
 			this.grassProbabilities.name = "FPGrassProbabilities";
 		}
 		if (!this.grassAtlas)
 		{
-			this.grassAtlas = ScriptableObject.CreateInstance<FPGrassAtlas>();
+			this.grassAtlas = ScriptableObject.CreateInstance<global::FPGrassAtlas>();
 			this.grassAtlas.name = "FPGrassAtlas";
 		}
 		this.settingsDirty = true;
@@ -78,14 +78,14 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		this.UpdateGrassProperties();
 	}
 
-	// Token: 0x0600021A RID: 538 RVA: 0x0000BF38 File Offset: 0x0000A138
+	// Token: 0x0600028C RID: 652 RVA: 0x0000D4E0 File Offset: 0x0000B6E0
 	private void Update()
 	{
-		if (!FPGrass.Support.Supported)
+		if (!global::FPGrass.Support.Supported)
 		{
 			return;
 		}
-		if (!grass.on)
+		if (!global::grass.on)
 		{
 			this.ExitList();
 			return;
@@ -110,34 +110,34 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x0600021B RID: 539 RVA: 0x0000BFD0 File Offset: 0x0000A1D0
+	// Token: 0x0600028D RID: 653 RVA: 0x0000D578 File Offset: 0x0000B778
 	private bool EnterList()
 	{
 		if (!this.inList)
 		{
-			FPGrass.AllEnabledFPGrass.Add(this);
+			global::FPGrass.AllEnabledFPGrass.Add(this);
 			this.inList = true;
 			return true;
 		}
 		return false;
 	}
 
-	// Token: 0x0600021C RID: 540 RVA: 0x0000C000 File Offset: 0x0000A200
+	// Token: 0x0600028E RID: 654 RVA: 0x0000D5A8 File Offset: 0x0000B7A8
 	private bool ExitList()
 	{
 		if (this.inList)
 		{
-			bool result = FPGrass.AllEnabledFPGrass.Remove(this);
+			bool result = global::FPGrass.AllEnabledFPGrass.Remove(this);
 			this.inList = false;
 			return result;
 		}
 		return false;
 	}
 
-	// Token: 0x0600021D RID: 541 RVA: 0x0000C030 File Offset: 0x0000A230
+	// Token: 0x0600028F RID: 655 RVA: 0x0000D5D8 File Offset: 0x0000B7D8
 	private void OnEnable()
 	{
-		if (!FPGrass.Support.Supported)
+		if (!global::FPGrass.Support.Supported)
 		{
 			return;
 		}
@@ -150,7 +150,7 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		Terrain.activeTerrain.detailObjectDensity = 0f;
 	}
 
-	// Token: 0x0600021E RID: 542 RVA: 0x0000C080 File Offset: 0x0000A280
+	// Token: 0x06000290 RID: 656 RVA: 0x0000D628 File Offset: 0x0000B828
 	private void OnDisable()
 	{
 		this.ExitList();
@@ -162,32 +162,32 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		Terrain.activeTerrain.detailObjectDensity = 1f;
 	}
 
-	// Token: 0x0600021F RID: 543 RVA: 0x0000C0C4 File Offset: 0x0000A2C4
-	internal static void DrawAllGrass(ref FPGrass.RenderArguments renderArgs)
+	// Token: 0x06000291 RID: 657 RVA: 0x0000D66C File Offset: 0x0000B86C
+	internal static void DrawAllGrass(ref global::FPGrass.RenderArguments renderArgs)
 	{
-		List<FPGrass> allEnabledFPGrass = FPGrass.AllEnabledFPGrass;
-		FPGrass.AllEnabledFPGrassInstancesSwap.AddRange(allEnabledFPGrass);
-		FPGrass.AllEnabledFPGrass = FPGrass.AllEnabledFPGrassInstancesSwap;
-		FPGrass.AllEnabledFPGrassInstancesSwap = allEnabledFPGrass;
+		List<global::FPGrass> allEnabledFPGrass = global::FPGrass.AllEnabledFPGrass;
+		global::FPGrass.AllEnabledFPGrassInstancesSwap.AddRange(allEnabledFPGrass);
+		global::FPGrass.AllEnabledFPGrass = global::FPGrass.AllEnabledFPGrassInstancesSwap;
+		global::FPGrass.AllEnabledFPGrassInstancesSwap = allEnabledFPGrass;
 		try
 		{
-			foreach (FPGrass fpgrass in FPGrass.AllEnabledFPGrassInstancesSwap)
+			foreach (global::FPGrass fpgrass in global::FPGrass.AllEnabledFPGrassInstancesSwap)
 			{
 				fpgrass.Render(ref renderArgs);
 			}
 		}
 		finally
 		{
-			FPGrass.AllEnabledFPGrassInstancesSwap.Clear();
+			global::FPGrass.AllEnabledFPGrassInstancesSwap.Clear();
 		}
 	}
 
-	// Token: 0x06000220 RID: 544 RVA: 0x0000C174 File Offset: 0x0000A374
-	private void Render(ref FPGrass.RenderArguments renderArgs)
+	// Token: 0x06000292 RID: 658 RVA: 0x0000D71C File Offset: 0x0000B91C
+	private void Render(ref global::FPGrass.RenderArguments renderArgs)
 	{
 		if (base.enabled)
 		{
-			foreach (FPGrassLevel fpgrassLevel in this.children)
+			foreach (global::FPGrassLevel fpgrassLevel in this.children)
 			{
 				if (fpgrassLevel.enabled)
 				{
@@ -204,30 +204,30 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x06000221 RID: 545 RVA: 0x0000C218 File Offset: 0x0000A418
+	// Token: 0x06000293 RID: 659 RVA: 0x0000D7C0 File Offset: 0x0000B9C0
 	public void UpdateLevels(Vector3 position)
 	{
 		base.transform.position = Vector3.zero;
 		Terrain activeTerrain = Terrain.activeTerrain;
 		if (activeTerrain)
 		{
-			foreach (FPGrassLevel fpgrassLevel in this.children)
+			foreach (global::FPGrassLevel fpgrassLevel in this.children)
 			{
 				fpgrassLevel.UpdateLevel(position, activeTerrain);
 			}
 		}
 	}
 
-	// Token: 0x06000222 RID: 546 RVA: 0x0000C2A0 File Offset: 0x0000A4A0
+	// Token: 0x06000294 RID: 660 RVA: 0x0000D848 File Offset: 0x0000BA48
 	public void UpdateProbabilities()
 	{
-		foreach (FPGrassLevel fpgrassLevel in this.children)
+		foreach (global::FPGrassLevel fpgrassLevel in this.children)
 		{
 			fpgrassLevel.probabilityGenerator.SetDetailProbabilities(this.grassProbabilities.GetTexture());
 		}
 	}
 
-	// Token: 0x06000223 RID: 547 RVA: 0x0000C318 File Offset: 0x0000A518
+	// Token: 0x06000295 RID: 661 RVA: 0x0000D8C0 File Offset: 0x0000BAC0
 	public void UpdateGrassProperties()
 	{
 		if (!this.grassAtlas || !this.material)
@@ -236,7 +236,7 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 		for (int i = 0; i < 16; i++)
 		{
-			FPGrassProperty fpgrassProperty = this.grassAtlas.properties[i];
+			global::FPGrassProperty fpgrassProperty = this.grassAtlas.properties[i];
 			this.material.SetColor("_GrassColorsOne" + i, fpgrassProperty.Color1);
 			this.material.SetColor("_GrassColorsTwo" + i, fpgrassProperty.Color2);
 			this.material.SetVector("_GrassSizes" + i, new Vector4(fpgrassProperty.MinWidth, fpgrassProperty.MaxWidth, fpgrassProperty.MinHeight, fpgrassProperty.MaxHeight));
@@ -245,7 +245,7 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		{
 			for (int k = 0; k < 16; k++)
 			{
-				FPGrassProperty fpgrassProperty2 = this.grassAtlas.properties[k];
+				global::FPGrassProperty fpgrassProperty2 = this.grassAtlas.properties[k];
 				this.children[j].levelMaterial.SetColor("_GrassColorsOne" + k, fpgrassProperty2.Color1);
 				this.children[j].levelMaterial.SetColor("_GrassColorsTwo" + k, fpgrassProperty2.Color2);
 				this.children[j].levelMaterial.SetVector("_GrassSizes" + k, new Vector4(fpgrassProperty2.MinWidth, fpgrassProperty2.MaxWidth, fpgrassProperty2.MinHeight, fpgrassProperty2.MaxHeight));
@@ -253,9 +253,9 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x1700005B RID: 91
-	// (get) Token: 0x06000225 RID: 549 RVA: 0x0000C51C File Offset: 0x0000A71C
-	// (set) Token: 0x06000224 RID: 548 RVA: 0x0000C4C8 File Offset: 0x0000A6C8
+	// Token: 0x17000071 RID: 113
+	// (get) Token: 0x06000297 RID: 663 RVA: 0x0000DAC4 File Offset: 0x0000BCC4
+	// (set) Token: 0x06000296 RID: 662 RVA: 0x0000DA70 File Offset: 0x0000BC70
 	public float ScatterAmount
 	{
 		get
@@ -272,9 +272,9 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x1700005C RID: 92
-	// (get) Token: 0x06000227 RID: 551 RVA: 0x0000C58C File Offset: 0x0000A78C
-	// (set) Token: 0x06000226 RID: 550 RVA: 0x0000C524 File Offset: 0x0000A724
+	// Token: 0x17000072 RID: 114
+	// (get) Token: 0x06000299 RID: 665 RVA: 0x0000DB34 File Offset: 0x0000BD34
+	// (set) Token: 0x06000298 RID: 664 RVA: 0x0000DACC File Offset: 0x0000BCCC
 	public float NormalBias
 	{
 		get
@@ -292,9 +292,9 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x1700005D RID: 93
-	// (get) Token: 0x06000228 RID: 552 RVA: 0x0000C594 File Offset: 0x0000A794
-	// (set) Token: 0x06000229 RID: 553 RVA: 0x0000C59C File Offset: 0x0000A79C
+	// Token: 0x17000073 RID: 115
+	// (get) Token: 0x0600029A RID: 666 RVA: 0x0000DB3C File Offset: 0x0000BD3C
+	// (set) Token: 0x0600029B RID: 667 RVA: 0x0000DB44 File Offset: 0x0000BD44
 	public float WindSpeed
 	{
 		get
@@ -308,9 +308,9 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x1700005E RID: 94
-	// (get) Token: 0x0600022A RID: 554 RVA: 0x0000C5AC File Offset: 0x0000A7AC
-	// (set) Token: 0x0600022B RID: 555 RVA: 0x0000C5B4 File Offset: 0x0000A7B4
+	// Token: 0x17000074 RID: 116
+	// (get) Token: 0x0600029C RID: 668 RVA: 0x0000DB54 File Offset: 0x0000BD54
+	// (set) Token: 0x0600029D RID: 669 RVA: 0x0000DB5C File Offset: 0x0000BD5C
 	public float WindSize
 	{
 		get
@@ -323,9 +323,9 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x1700005F RID: 95
-	// (get) Token: 0x0600022C RID: 556 RVA: 0x0000C5C0 File Offset: 0x0000A7C0
-	// (set) Token: 0x0600022D RID: 557 RVA: 0x0000C5C8 File Offset: 0x0000A7C8
+	// Token: 0x17000075 RID: 117
+	// (get) Token: 0x0600029E RID: 670 RVA: 0x0000DB68 File Offset: 0x0000BD68
+	// (set) Token: 0x0600029F RID: 671 RVA: 0x0000DB70 File Offset: 0x0000BD70
 	public float WindBending
 	{
 		get
@@ -339,9 +339,9 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x17000060 RID: 96
-	// (get) Token: 0x0600022E RID: 558 RVA: 0x0000C5D8 File Offset: 0x0000A7D8
-	// (set) Token: 0x0600022F RID: 559 RVA: 0x0000C5E0 File Offset: 0x0000A7E0
+	// Token: 0x17000076 RID: 118
+	// (get) Token: 0x060002A0 RID: 672 RVA: 0x0000DB80 File Offset: 0x0000BD80
+	// (set) Token: 0x060002A1 RID: 673 RVA: 0x0000DB88 File Offset: 0x0000BD88
 	public Color WindTint
 	{
 		get
@@ -355,7 +355,7 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x06000230 RID: 560 RVA: 0x0000C5F0 File Offset: 0x0000A7F0
+	// Token: 0x060002A2 RID: 674 RVA: 0x0000DB98 File Offset: 0x0000BD98
 	public void UpdateWindSettings()
 	{
 		for (int i = 0; i < this.children.Count; i++)
@@ -365,180 +365,180 @@ public class FPGrass : MonoBehaviour, IFPGrassAsset
 		}
 	}
 
-	// Token: 0x04000142 RID: 322
+	// Token: 0x040001A4 RID: 420
 	[SerializeField]
-	private List<FPGrassLevel> children = new List<FPGrassLevel>();
+	private List<global::FPGrassLevel> children = new List<global::FPGrassLevel>();
 
-	// Token: 0x04000143 RID: 323
+	// Token: 0x040001A5 RID: 421
 	public Camera parentCamera;
 
-	// Token: 0x04000144 RID: 324
+	// Token: 0x040001A6 RID: 422
 	public int numberOfLevels = 4;
 
-	// Token: 0x04000145 RID: 325
+	// Token: 0x040001A7 RID: 423
 	public float baseLevelSize = 20f;
 
-	// Token: 0x04000146 RID: 326
+	// Token: 0x040001A8 RID: 424
 	public int gridSizePerLevel = 28;
 
-	// Token: 0x04000147 RID: 327
+	// Token: 0x040001A9 RID: 425
 	[SerializeField]
 	private float gridSizeAtFinestLevel;
 
-	// Token: 0x04000148 RID: 328
+	// Token: 0x040001AA RID: 426
 	public Material material;
 
-	// Token: 0x04000149 RID: 329
+	// Token: 0x040001AB RID: 427
 	[SerializeField]
 	private float scatterAmount = 1f;
 
-	// Token: 0x0400014A RID: 330
+	// Token: 0x040001AC RID: 428
 	[SerializeField]
 	private float normalBias = 0.7f;
 
-	// Token: 0x0400014B RID: 331
-	public FPGrassProbabilities grassProbabilities;
+	// Token: 0x040001AD RID: 429
+	public global::FPGrassProbabilities grassProbabilities;
 
-	// Token: 0x0400014C RID: 332
-	public FPGrassAtlas grassAtlas;
+	// Token: 0x040001AE RID: 430
+	public global::FPGrassAtlas grassAtlas;
 
-	// Token: 0x0400014D RID: 333
+	// Token: 0x040001AF RID: 431
 	public bool followSceneCamera;
 
-	// Token: 0x0400014E RID: 334
+	// Token: 0x040001B0 RID: 432
 	public bool toggleWireframe;
 
-	// Token: 0x0400014F RID: 335
+	// Token: 0x040001B1 RID: 433
 	[SerializeField]
 	private float windSpeed = 0.1f;
 
-	// Token: 0x04000150 RID: 336
+	// Token: 0x040001B2 RID: 434
 	[SerializeField]
 	private float windSize = 1f;
 
-	// Token: 0x04000151 RID: 337
+	// Token: 0x040001B3 RID: 435
 	[SerializeField]
 	private float windBending = 1f;
 
-	// Token: 0x04000152 RID: 338
+	// Token: 0x040001B4 RID: 436
 	[SerializeField]
 	private Color windTint = Color.white;
 
-	// Token: 0x04000153 RID: 339
-	[HideInInspector]
+	// Token: 0x040001B5 RID: 437
 	[SerializeField]
+	[HideInInspector]
 	private Texture2D heightMap;
 
-	// Token: 0x04000154 RID: 340
-	[HideInInspector]
+	// Token: 0x040001B6 RID: 438
 	[SerializeField]
+	[HideInInspector]
 	private Texture2D normalMap;
 
-	// Token: 0x04000155 RID: 341
-	[SerializeField]
+	// Token: 0x040001B7 RID: 439
 	[HideInInspector]
+	[SerializeField]
 	private Texture2D splatMap;
 
-	// Token: 0x04000156 RID: 342
+	// Token: 0x040001B8 RID: 440
 	[NonSerialized]
 	private bool settingsDirty;
 
-	// Token: 0x04000157 RID: 343
-	private static List<FPGrass> AllEnabledFPGrass = new List<FPGrass>();
+	// Token: 0x040001B9 RID: 441
+	private static List<global::FPGrass> AllEnabledFPGrass = new List<global::FPGrass>();
 
-	// Token: 0x04000158 RID: 344
-	private static List<FPGrass> AllEnabledFPGrassInstancesSwap = new List<FPGrass>();
+	// Token: 0x040001BA RID: 442
+	private static List<global::FPGrass> AllEnabledFPGrassInstancesSwap = new List<global::FPGrass>();
 
-	// Token: 0x04000159 RID: 345
+	// Token: 0x040001BB RID: 443
 	[NonSerialized]
 	private bool inList;
 
-	// Token: 0x0400015A RID: 346
+	// Token: 0x040001BC RID: 444
 	public static bool castShadows = false;
 
-	// Token: 0x0400015B RID: 347
+	// Token: 0x040001BD RID: 445
 	public static bool receiveShadows = true;
 
-	// Token: 0x02000039 RID: 57
+	// Token: 0x0200004B RID: 75
 	internal struct RenderArguments
 	{
-		// Token: 0x0400015C RID: 348
+		// Token: 0x040001BE RID: 446
 		public Plane[] frustum;
 
-		// Token: 0x0400015D RID: 349
+		// Token: 0x040001BF RID: 447
 		public Camera camera;
 
-		// Token: 0x0400015E RID: 350
+		// Token: 0x040001C0 RID: 448
 		public Terrain terrain;
 
-		// Token: 0x0400015F RID: 351
+		// Token: 0x040001C1 RID: 449
 		public Vector3 center;
 
-		// Token: 0x04000160 RID: 352
+		// Token: 0x040001C2 RID: 450
 		public bool immediate;
 	}
 
-	// Token: 0x0200003A RID: 58
+	// Token: 0x0200004C RID: 76
 	public static class Support
 	{
-		// Token: 0x06000231 RID: 561 RVA: 0x0000C674 File Offset: 0x0000A874
+		// Token: 0x060002A3 RID: 675 RVA: 0x0000DC1C File Offset: 0x0000BE1C
 		static Support()
 		{
 			bool flag;
 			if (SystemInfo.SupportsRenderTextureFormat(0))
 			{
-				FPGrass.Support.ProbabilityRenderTextureFormat4Channel = 0;
+				global::FPGrass.Support.ProbabilityRenderTextureFormat4Channel = 0;
 				flag = true;
 			}
 			else
 			{
-				FPGrass.Support.ProbabilityRenderTextureFormat4Channel = 7;
+				global::FPGrass.Support.ProbabilityRenderTextureFormat4Channel = 7;
 				flag = SystemInfo.SupportsRenderTextureFormat(7);
 			}
 			bool flag2;
 			if (SystemInfo.SupportsRenderTextureFormat(16))
 			{
-				FPGrass.Support.ProbabilityRenderTextureFormat1Channel = 16;
+				global::FPGrass.Support.ProbabilityRenderTextureFormat1Channel = 16;
 				flag2 = true;
 			}
 			else
 			{
 				flag2 = false;
-				FPGrass.Support.ProbabilityRenderTextureFormat1Channel = 7;
+				global::FPGrass.Support.ProbabilityRenderTextureFormat1Channel = 7;
 			}
 			if (flag && !flag2)
 			{
-				FPGrass.Support.DisplacementExpensive = true;
-				FPGrass.Support.ProbabilityRenderTextureFormat1Channel = FPGrass.Support.ProbabilityRenderTextureFormat4Channel;
+				global::FPGrass.Support.DisplacementExpensive = true;
+				global::FPGrass.Support.ProbabilityRenderTextureFormat1Channel = global::FPGrass.Support.ProbabilityRenderTextureFormat4Channel;
 			}
 			else
 			{
-				FPGrass.Support.DisplacementExpensive = false;
+				global::FPGrass.Support.DisplacementExpensive = false;
 			}
-			FPGrass.Support.Supported = (flag2 || flag);
+			global::FPGrass.Support.Supported = (flag2 || flag);
 			if (!SystemInfo.supportsComputeShaders)
 			{
-				FPGrass.Support.DetailProbabilityFilterMode = 1;
+				global::FPGrass.Support.DetailProbabilityFilterMode = 1;
 			}
 			else
 			{
-				FPGrass.Support.DetailProbabilityFilterMode = 0;
+				global::FPGrass.Support.DetailProbabilityFilterMode = 0;
 			}
 		}
 
-		// Token: 0x04000161 RID: 353
+		// Token: 0x040001C3 RID: 451
 		public static readonly bool Supported;
 
-		// Token: 0x04000162 RID: 354
+		// Token: 0x040001C4 RID: 452
 		public static readonly bool DisplacementExpensive;
 
-		// Token: 0x04000163 RID: 355
+		// Token: 0x040001C5 RID: 453
 		public static FilterMode DetailProbabilityFilterMode;
 
-		// Token: 0x04000164 RID: 356
+		// Token: 0x040001C6 RID: 454
 		public static readonly RenderTextureFormat ProbabilityRenderTextureFormat4Channel;
 
-		// Token: 0x04000165 RID: 357
+		// Token: 0x040001C7 RID: 455
 		public static readonly RenderTextureFormat ProbabilityRenderTextureFormat1Channel;
 	}
 }

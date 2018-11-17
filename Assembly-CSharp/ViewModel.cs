@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000692 RID: 1682
-public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
+// Token: 0x02000757 RID: 1879
+public class ViewModel : IDRemote, global::Socket.Source, global::Socket.Mapped, global::Socket.Provider
 {
-	// Token: 0x06003A24 RID: 14884 RVA: 0x000D8680 File Offset: 0x000D6880
+	// Token: 0x06003E1C RID: 15900 RVA: 0x000E1060 File Offset: 0x000DF260
 	public ViewModel()
 	{
-		this.socketNames = ViewModel.defaultSocketNames;
+		this.socketNames = global::ViewModel.defaultSocketNames;
 		base..ctor();
 	}
 
-	// Token: 0x06003A26 RID: 14886 RVA: 0x000D8814 File Offset: 0x000D6A14
-	bool Socket.Source.GetSocket(string name, out Socket socket)
+	// Token: 0x06003E1E RID: 15902 RVA: 0x000E11F4 File Offset: 0x000DF3F4
+	bool global::Socket.Source.GetSocket(string name, out global::Socket socket)
 	{
 		switch (name)
 		{
@@ -40,10 +40,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		return false;
 	}
 
-	// Token: 0x06003A27 RID: 14887 RVA: 0x000D8900 File Offset: 0x000D6B00
-	bool Socket.Source.ReplaceSocket(string name, Socket socket)
+	// Token: 0x06003E1F RID: 15903 RVA: 0x000E12E0 File Offset: 0x000DF4E0
+	bool global::Socket.Source.ReplaceSocket(string name, global::Socket socket)
 	{
-		Socket.CameraSpace cameraSpace = (Socket.CameraSpace)socket;
+		global::Socket.CameraSpace cameraSpace = (global::Socket.CameraSpace)socket;
 		switch (name)
 		{
 		case "muzzle":
@@ -68,9 +68,9 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		return false;
 	}
 
-	// Token: 0x17000B3E RID: 2878
-	// (get) Token: 0x06003A28 RID: 14888 RVA: 0x000D89E8 File Offset: 0x000D6BE8
-	IEnumerable<string> Socket.Source.SocketNames
+	// Token: 0x17000BC0 RID: 3008
+	// (get) Token: 0x06003E20 RID: 15904 RVA: 0x000E13C8 File Offset: 0x000DF5C8
+	IEnumerable<string> global::Socket.Source.SocketNames
 	{
 		get
 		{
@@ -78,9 +78,9 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x17000B3F RID: 2879
-	// (get) Token: 0x06003A29 RID: 14889 RVA: 0x000D89F0 File Offset: 0x000D6BF0
-	int Socket.Source.SocketsVersion
+	// Token: 0x17000BC1 RID: 3009
+	// (get) Token: 0x06003E21 RID: 15905 RVA: 0x000E13D0 File Offset: 0x000DF5D0
+	int global::Socket.Source.SocketsVersion
 	{
 		get
 		{
@@ -88,29 +88,29 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A2A RID: 14890 RVA: 0x000D89F8 File Offset: 0x000D6BF8
-	Socket.CameraConversion Socket.Source.CameraSpaceSetup()
+	// Token: 0x06003E22 RID: 15906 RVA: 0x000E13D8 File Offset: 0x000DF5D8
+	global::Socket.CameraConversion global::Socket.Source.CameraSpaceSetup()
 	{
-		return new Socket.CameraConversion(this.eye, this.shelf);
+		return new global::Socket.CameraConversion(this.eye, this.shelf);
 	}
 
-	// Token: 0x06003A2B RID: 14891 RVA: 0x000D8A0C File Offset: 0x000D6C0C
-	Type Socket.Source.ProxyScriptType(string name)
+	// Token: 0x06003E23 RID: 15907 RVA: 0x000E13EC File Offset: 0x000DF5EC
+	Type global::Socket.Source.ProxyScriptType(string name)
 	{
-		return typeof(SocketProxy);
+		return typeof(global::SocketProxy);
 	}
 
-	// Token: 0x17000B40 RID: 2880
-	// (get) Token: 0x06003A2C RID: 14892 RVA: 0x000D8A18 File Offset: 0x000D6C18
-	public Socket.Map socketMap
+	// Token: 0x17000BC2 RID: 3010
+	// (get) Token: 0x06003E24 RID: 15908 RVA: 0x000E13F8 File Offset: 0x000DF5F8
+	public global::Socket.Map socketMap
 	{
 		get
 		{
-			return this._socketMap.Get<ViewModel>(this);
+			return this._socketMap.Get<global::ViewModel>(this);
 		}
 	}
 
-	// Token: 0x06003A2D RID: 14893 RVA: 0x000D8A28 File Offset: 0x000D6C28
+	// Token: 0x06003E25 RID: 15909 RVA: 0x000E1408 File Offset: 0x000DF608
 	protected void BindCameraSpaceTransforms(Transform newShelf, Transform newEye)
 	{
 		Transform transform = this.eye;
@@ -123,24 +123,24 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A2E RID: 14894 RVA: 0x000D8A78 File Offset: 0x000D6C78
+	// Token: 0x06003E26 RID: 15910 RVA: 0x000E1458 File Offset: 0x000DF658
 	protected void DeleteSocketMap()
 	{
-		this._socketMap.DeleteBy<ViewModel>(this);
+		this._socketMap.DeleteBy<global::ViewModel>(this);
 	}
 
-	// Token: 0x17000B41 RID: 2881
-	// (get) Token: 0x06003A2F RID: 14895 RVA: 0x000D8A88 File Offset: 0x000D6C88
-	public Character idMain
+	// Token: 0x17000BC3 RID: 3011
+	// (get) Token: 0x06003E27 RID: 15911 RVA: 0x000E1468 File Offset: 0x000DF668
+	public global::Character idMain
 	{
 		get
 		{
-			return (Character)base.idMain;
+			return (global::Character)base.idMain;
 		}
 	}
 
-	// Token: 0x17000B42 RID: 2882
-	// (get) Token: 0x06003A30 RID: 14896 RVA: 0x000D8A98 File Offset: 0x000D6C98
+	// Token: 0x17000BC4 RID: 3012
+	// (get) Token: 0x06003E28 RID: 15912 RVA: 0x000E1478 File Offset: 0x000DF678
 	public bool drawCrosshair
 	{
 		get
@@ -149,7 +149,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A31 RID: 14897 RVA: 0x000D8AB0 File Offset: 0x000D6CB0
+	// Token: 0x06003E29 RID: 15913 RVA: 0x000E1490 File Offset: 0x000DF690
 	protected void Awake()
 	{
 		this.originalRootOffset = this.root.localPosition;
@@ -165,10 +165,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				}
 			}
 		}
-		this.idleMixer = this.idleFrame.Alias(this.animation, new AnimationBlender.ChannelConfig[9].Define(0, "idle", this.idleChannel).Define(1, "move", this.movementIdleChannel).Define(4, "bowi", this.bowChannel).Define(5, "bowm", this.bowMovementChannel).Define(2, "dcki", this.crouchChannel).Define(3, "dckm", this.crouchMovementChannel).Define(6, "fall", this.fallChannel).Define(7, "slip", this.slipChannel).Define(8, "zoom", this.zoomChannel)).Create();
+		this.idleMixer = this.idleFrame.Alias(this.animation, new global::AnimationBlender.ChannelConfig[9].Define(0, "idle", this.idleChannel).Define(1, "move", this.movementIdleChannel).Define(4, "bowi", this.bowChannel).Define(5, "bowm", this.bowMovementChannel).Define(2, "dcki", this.crouchChannel).Define(3, "dckm", this.crouchMovementChannel).Define(6, "fall", this.fallChannel).Define(7, "slip", this.slipChannel).Define(8, "zoom", this.zoomChannel)).Create();
 	}
 
-	// Token: 0x06003A32 RID: 14898 RVA: 0x000D8BE4 File Offset: 0x000D6DE4
+	// Token: 0x06003E2A RID: 15914 RVA: 0x000E15C4 File Offset: 0x000DF7C4
 	public void Flip()
 	{
 		if (!this.flipped)
@@ -180,10 +180,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x17000B43 RID: 2883
-	// (get) Token: 0x06003A33 RID: 14899 RVA: 0x000D8C2C File Offset: 0x000D6E2C
-	// (set) Token: 0x06003A34 RID: 14900 RVA: 0x000D8C34 File Offset: 0x000D6E34
-	public HeadBob headBob
+	// Token: 0x17000BC5 RID: 3013
+	// (get) Token: 0x06003E2B RID: 15915 RVA: 0x000E160C File Offset: 0x000DF80C
+	// (set) Token: 0x06003E2C RID: 15916 RVA: 0x000E1614 File Offset: 0x000DF814
+	public global::HeadBob headBob
 	{
 		get
 		{
@@ -195,10 +195,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x17000B44 RID: 2884
-	// (get) Token: 0x06003A35 RID: 14901 RVA: 0x000D8C40 File Offset: 0x000D6E40
-	// (set) Token: 0x06003A36 RID: 14902 RVA: 0x000D8C48 File Offset: 0x000D6E48
-	public LazyCam lazyCam
+	// Token: 0x17000BC6 RID: 3014
+	// (get) Token: 0x06003E2D RID: 15917 RVA: 0x000E1620 File Offset: 0x000DF820
+	// (set) Token: 0x06003E2E RID: 15918 RVA: 0x000E1628 File Offset: 0x000DF828
+	public global::LazyCam lazyCam
 	{
 		get
 		{
@@ -210,9 +210,9 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x17000B45 RID: 2885
-	// (get) Token: 0x06003A37 RID: 14903 RVA: 0x000D8C54 File Offset: 0x000D6E54
-	// (set) Token: 0x06003A38 RID: 14904 RVA: 0x000D8C5C File Offset: 0x000D6E5C
+	// Token: 0x17000BC7 RID: 3015
+	// (get) Token: 0x06003E2F RID: 15919 RVA: 0x000E1634 File Offset: 0x000DF834
+	// (set) Token: 0x06003E30 RID: 15920 RVA: 0x000E163C File Offset: 0x000DF83C
 	public Quaternion lazyRotation
 	{
 		get
@@ -232,8 +232,8 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x17000B46 RID: 2886
-	// (get) Token: 0x06003A39 RID: 14905 RVA: 0x000D8CBC File Offset: 0x000D6EBC
+	// Token: 0x17000BC8 RID: 3016
+	// (get) Token: 0x06003E31 RID: 15921 RVA: 0x000E169C File Offset: 0x000DF89C
 	public Quaternion muzzleRotation
 	{
 		get
@@ -242,8 +242,8 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x17000B47 RID: 2887
-	// (get) Token: 0x06003A3A RID: 14906 RVA: 0x000D8CCC File Offset: 0x000D6ECC
+	// Token: 0x17000BC9 RID: 3017
+	// (get) Token: 0x06003E32 RID: 15922 RVA: 0x000E16AC File Offset: 0x000DF8AC
 	public Vector3 muzzlePosition
 	{
 		get
@@ -252,110 +252,110 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A3B RID: 14907 RVA: 0x000D8CDC File Offset: 0x000D6EDC
+	// Token: 0x06003E33 RID: 15923 RVA: 0x000E16BC File Offset: 0x000DF8BC
 	public bool Play(string name)
 	{
 		return this.idleMixer.Play(name);
 	}
 
-	// Token: 0x06003A3C RID: 14908 RVA: 0x000D8CEC File Offset: 0x000D6EEC
+	// Token: 0x06003E34 RID: 15924 RVA: 0x000E16CC File Offset: 0x000DF8CC
 	public bool Play(string name, PlayMode playMode)
 	{
 		return this.idleMixer.Play(name, playMode);
 	}
 
-	// Token: 0x06003A3D RID: 14909 RVA: 0x000D8CFC File Offset: 0x000D6EFC
+	// Token: 0x06003E35 RID: 15925 RVA: 0x000E16DC File Offset: 0x000DF8DC
 	public bool Play(string name, float speed)
 	{
 		return this.idleMixer.Play(name, speed);
 	}
 
-	// Token: 0x06003A3E RID: 14910 RVA: 0x000D8D0C File Offset: 0x000D6F0C
+	// Token: 0x06003E36 RID: 15926 RVA: 0x000E16EC File Offset: 0x000DF8EC
 	public bool Play(string name, float speed, float time)
 	{
 		return this.idleMixer.Play(name, speed, time);
 	}
 
-	// Token: 0x06003A3F RID: 14911 RVA: 0x000D8D1C File Offset: 0x000D6F1C
+	// Token: 0x06003E37 RID: 15927 RVA: 0x000E16FC File Offset: 0x000DF8FC
 	public bool Play(string name, PlayMode playMode, float speed)
 	{
 		return this.idleMixer.Play(name, playMode, speed);
 	}
 
-	// Token: 0x06003A40 RID: 14912 RVA: 0x000D8D2C File Offset: 0x000D6F2C
+	// Token: 0x06003E38 RID: 15928 RVA: 0x000E170C File Offset: 0x000DF90C
 	public bool Play(string name, PlayMode playMode, float speed, float time)
 	{
 		return this.idleMixer.Play(name, playMode, speed, time);
 	}
 
-	// Token: 0x06003A41 RID: 14913 RVA: 0x000D8D40 File Offset: 0x000D6F40
+	// Token: 0x06003E39 RID: 15929 RVA: 0x000E1720 File Offset: 0x000DF920
 	public bool PlayQueued(string name)
 	{
 		return this.idleMixer.PlayQueued(name);
 	}
 
-	// Token: 0x06003A42 RID: 14914 RVA: 0x000D8D50 File Offset: 0x000D6F50
+	// Token: 0x06003E3A RID: 15930 RVA: 0x000E1730 File Offset: 0x000DF930
 	public bool PlayQueued(string name, QueueMode queueMode)
 	{
 		return this.idleMixer.PlayQueued(name, queueMode);
 	}
 
-	// Token: 0x06003A43 RID: 14915 RVA: 0x000D8D60 File Offset: 0x000D6F60
+	// Token: 0x06003E3B RID: 15931 RVA: 0x000E1740 File Offset: 0x000DF940
 	public bool PlayQueued(string name, QueueMode queueMode, PlayMode playMode)
 	{
 		return this.idleMixer.PlayQueued(name, queueMode, playMode);
 	}
 
-	// Token: 0x06003A44 RID: 14916 RVA: 0x000D8D70 File Offset: 0x000D6F70
+	// Token: 0x06003E3C RID: 15932 RVA: 0x000E1750 File Offset: 0x000DF950
 	public void CrossFade(string name)
 	{
 		this.idleMixer.CrossFade(name);
 	}
 
-	// Token: 0x06003A45 RID: 14917 RVA: 0x000D8D80 File Offset: 0x000D6F80
+	// Token: 0x06003E3D RID: 15933 RVA: 0x000E1760 File Offset: 0x000DF960
 	public void CrossFade(string name, float fadeLength)
 	{
 		this.idleMixer.CrossFade(name, fadeLength);
 	}
 
-	// Token: 0x06003A46 RID: 14918 RVA: 0x000D8D90 File Offset: 0x000D6F90
+	// Token: 0x06003E3E RID: 15934 RVA: 0x000E1770 File Offset: 0x000DF970
 	public void CrossFade(string name, float fadeLength, PlayMode playMode)
 	{
 		this.idleMixer.CrossFade(name, fadeLength, playMode);
 	}
 
-	// Token: 0x06003A47 RID: 14919 RVA: 0x000D8DA4 File Offset: 0x000D6FA4
+	// Token: 0x06003E3F RID: 15935 RVA: 0x000E1784 File Offset: 0x000DF984
 	public void CrossFade(string name, float fadeLength, PlayMode playMode, float speed)
 	{
 		this.idleMixer.CrossFade(name, fadeLength, playMode, speed);
 	}
 
-	// Token: 0x06003A48 RID: 14920 RVA: 0x000D8DB8 File Offset: 0x000D6FB8
+	// Token: 0x06003E40 RID: 15936 RVA: 0x000E1798 File Offset: 0x000DF998
 	public void PlayFireAnimation(float speed)
 	{
 		this.Play(this.fireAnimName, speed);
 		this.punchTime = Time.time;
 	}
 
-	// Token: 0x06003A49 RID: 14921 RVA: 0x000D8DD4 File Offset: 0x000D6FD4
+	// Token: 0x06003E41 RID: 15937 RVA: 0x000E17B4 File Offset: 0x000DF9B4
 	public void PlayFireAnimation()
 	{
 		this.PlayFireAnimation(this.fireAnimScaleSpeed);
 	}
 
-	// Token: 0x06003A4A RID: 14922 RVA: 0x000D8DE4 File Offset: 0x000D6FE4
+	// Token: 0x06003E42 RID: 15938 RVA: 0x000E17C4 File Offset: 0x000DF9C4
 	public void PlayDeployAnimation()
 	{
 		this.Play(this.deployAnimName);
 	}
 
-	// Token: 0x06003A4B RID: 14923 RVA: 0x000D8DF4 File Offset: 0x000D6FF4
+	// Token: 0x06003E43 RID: 15939 RVA: 0x000E17D4 File Offset: 0x000DF9D4
 	public void PlayReloadAnimation()
 	{
 		this.Play(this.reloadAnimName);
 	}
 
-	// Token: 0x06003A4C RID: 14924 RVA: 0x000D8E04 File Offset: 0x000D7004
+	// Token: 0x06003E44 RID: 15940 RVA: 0x000E17E4 File Offset: 0x000DF9E4
 	public void AddRenderers(SkinnedMeshRenderer[] renderers)
 	{
 		if (renderers != null)
@@ -367,7 +367,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A4D RID: 14925 RVA: 0x000D8E40 File Offset: 0x000D7040
+	// Token: 0x06003E45 RID: 15941 RVA: 0x000E1820 File Offset: 0x000DFA20
 	public void RemoveRenderers(SkinnedMeshRenderer[] renderers)
 	{
 		if (renderers != null)
@@ -379,14 +379,14 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A4E RID: 14926 RVA: 0x000D8E7C File Offset: 0x000D707C
+	// Token: 0x06003E46 RID: 15942 RVA: 0x000E185C File Offset: 0x000DFA5C
 	public void BindTransforms(Transform shelf, Transform eye)
 	{
 		this.punchTime = Time.time - 20f;
 		this.BindCameraSpaceTransforms(shelf, eye);
 	}
 
-	// Token: 0x06003A4F RID: 14927 RVA: 0x000D8E98 File Offset: 0x000D7098
+	// Token: 0x06003E47 RID: 15943 RVA: 0x000E1878 File Offset: 0x000DFA78
 	private void ClearProxies()
 	{
 		this.DeleteSocketMap();
@@ -403,13 +403,13 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		this.destroyOnUnbind = null;
 	}
 
-	// Token: 0x06003A50 RID: 14928 RVA: 0x000D8F20 File Offset: 0x000D7120
+	// Token: 0x06003E48 RID: 15944 RVA: 0x000E1900 File Offset: 0x000DFB00
 	public void UnBindTransforms()
 	{
 		this.ClearProxies();
-		if (CameraFX.mainViewModel == this)
+		if (global::CameraFX.mainViewModel == this)
 		{
-			CameraFX mainCameraFX = CameraFX.mainCameraFX;
+			global::CameraFX mainCameraFX = global::CameraFX.mainCameraFX;
 			if (mainCameraFX)
 			{
 				mainCameraFX.SetFieldOfView(320432f, 0f);
@@ -417,7 +417,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A51 RID: 14929 RVA: 0x000D8F64 File Offset: 0x000D7164
+	// Token: 0x06003E49 RID: 15945 RVA: 0x000E1944 File Offset: 0x000DFB44
 	private static void SolveTriangleSAS(float angleA, float lengthB, float lengthC, out float lengthA, out float angleB, out float angleC)
 	{
 		lengthA = Mathf.Sqrt(lengthB * lengthB + lengthC * lengthC - 2f * lengthB * lengthC * Mathf.Cos(angleA * 0.0174532924f));
@@ -433,7 +433,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A52 RID: 14930 RVA: 0x000D9008 File Offset: 0x000D7208
+	// Token: 0x06003E4A RID: 15946 RVA: 0x000E19E8 File Offset: 0x000DFBE8
 	private static void SolveTriangleSSA(float angleB, float lengthB, float lengthC, out float lengthA, out float angleA, out float angleC)
 	{
 		float num = Mathf.Sin(angleB * 0.0174532924f);
@@ -446,8 +446,8 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		lengthA = Mathf.Sin(angleA * 0.0174532924f) * lengthB / num;
 	}
 
-	// Token: 0x06003A53 RID: 14931 RVA: 0x000D9080 File Offset: 0x000D7280
-	private ViewModel.BarrelTransform BarrelAim(Vector3 offset, ref ViewModel.BarrelParameters barrel)
+	// Token: 0x06003E4B RID: 15947 RVA: 0x000E1A60 File Offset: 0x000DFC60
+	private global::ViewModel.BarrelTransform BarrelAim(Vector3 offset, ref global::ViewModel.BarrelParameters barrel)
 	{
 		Ray eyesRay = this.idMain.eyesRay;
 		RaycastHit2 raycastHit;
@@ -482,7 +482,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		barrel.bc = num3;
 		barrel.ca = ca;
 		barrel.a = 90f;
-		ViewModel.SolveTriangleSSA(barrel.a, barrel.bc, barrel.ca, out barrel.ab, out barrel.c, out barrel.b);
+		global::ViewModel.SolveTriangleSSA(barrel.a, barrel.bc, barrel.ca, out barrel.ab, out barrel.c, out barrel.b);
 		barrel.ir = true;
 		float num4 = -(90f - barrel.c);
 		if (!barrel.once)
@@ -541,7 +541,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			vector4 = this.barrelPivot;
 			vector3 = offset;
 		}
-		ViewModel.BarrelTransform result;
+		global::ViewModel.BarrelTransform result;
 		result.origin = quaternion3 * -vector4 + vector4;
 		result.angles = quaternion3.eulerAngles;
 		result.origin += vector3;
@@ -551,10 +551,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		return result;
 	}
 
-	// Token: 0x06003A54 RID: 14932 RVA: 0x000D947C File Offset: 0x000D767C
+	// Token: 0x06003E4C RID: 15948 RVA: 0x000E1E5C File Offset: 0x000E005C
 	protected void LateUpdate()
 	{
-		Character idMain = this.idMain;
+		global::Character idMain = this.idMain;
 		if (!idMain)
 		{
 			return;
@@ -566,7 +566,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		bool flag4;
 		bool flag5;
 		bool flag6;
-		Angle2 eyesAngles;
+		global::Angle2 eyesAngles;
 		bool flag7;
 		if (idMain)
 		{
@@ -597,7 +597,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 		else
 		{
-			num = Angle2.AngleDistance(this.lastLook, eyesAngles) / deltaTime;
+			num = global::Angle2.AngleDistance(this.lastLook, eyesAngles) / deltaTime;
 			this.lastLook = eyesAngles;
 		}
 		if (flag2)
@@ -734,7 +734,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		this.lastZoomFraction = num3;
 		if (this._headBob)
 		{
-			CameraFX mainCameraFX = CameraFX.mainCameraFX;
+			global::CameraFX mainCameraFX = global::CameraFX.mainCameraFX;
 			if (mainCameraFX)
 			{
 				mainCameraFX.SetFieldOfView(this.zoomFieldOfView, num3);
@@ -757,7 +757,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A55 RID: 14933 RVA: 0x000D9CC4 File Offset: 0x000D7EC4
+	// Token: 0x06003E4D RID: 15949 RVA: 0x000E26A4 File Offset: 0x000E08A4
 	private void OnDrawGizmosSelected()
 	{
 		if (!this.root)
@@ -770,7 +770,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		this.sight.DrawGizmos("sights");
 		this.bowPivot.DrawGizmos("bow");
 		Gizmos.matrix = this.root.localToWorldMatrix;
-		Vector3 vector = Angle2.Direction(this.barrelRotation.x, this.barrelRotation.y);
+		Vector3 vector = global::Angle2.Direction(this.barrelRotation.x, this.barrelRotation.y);
 		Gizmos.DrawSphere(this.barrelPivot, 0.001f);
 		Gizmos.DrawLine(this.barrelPivot, this.barrelPivot + vector);
 		Gizmos.matrix *= Matrix4x4.TRS(this.barrelPivot, Quaternion.Euler(-this.barrelRotation.x, this.barrelRotation.y, 0f), Vector3.one);
@@ -817,33 +817,33 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		Gizmos.DrawLine(vector5, vector3);
 	}
 
-	// Token: 0x06003A56 RID: 14934 RVA: 0x000DA008 File Offset: 0x000D8208
+	// Token: 0x06003E4E RID: 15950 RVA: 0x000E29E8 File Offset: 0x000E0BE8
 	[ContextMenu("Set as current view model")]
 	private void SetAsCurrentViewModel()
 	{
 		if (base.enabled)
 		{
-			CameraFX.ReplaceViewModel(this, this.itemRep, this.item, false);
+			global::CameraFX.ReplaceViewModel(this, this.itemRep, this.item, false);
 		}
 	}
 
-	// Token: 0x06003A57 RID: 14935 RVA: 0x000DA028 File Offset: 0x000D8228
+	// Token: 0x06003E4F RID: 15951 RVA: 0x000E2A08 File Offset: 0x000E0C08
 	public void UpdateProxies()
 	{
-		Socket.Map socketMap = this.socketMap;
+		global::Socket.Map socketMap = this.socketMap;
 		if (!object.ReferenceEquals(socketMap, null))
 		{
 			socketMap.SnapProxies();
 		}
 	}
 
-	// Token: 0x06003A58 RID: 14936 RVA: 0x000DA050 File Offset: 0x000D8250
+	// Token: 0x06003E50 RID: 15952 RVA: 0x000E2A30 File Offset: 0x000E0C30
 	protected void Update()
 	{
 		this.idleMixer.Update(1f, Time.deltaTime);
 	}
 
-	// Token: 0x06003A59 RID: 14937 RVA: 0x000DA068 File Offset: 0x000D8268
+	// Token: 0x06003E51 RID: 15953 RVA: 0x000E2A48 File Offset: 0x000E0C48
 	private void DrawShadowed(ref Rect r, Texture texture)
 	{
 		Color color = GUI.color;
@@ -885,10 +885,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		GUI.color = color;
 	}
 
-	// Token: 0x06003A5A RID: 14938 RVA: 0x000DA308 File Offset: 0x000D8508
+	// Token: 0x06003E52 RID: 15954 RVA: 0x000E2CE8 File Offset: 0x000E0EE8
 	public void ModifyAiming(Ray ray, ref Vector3 p, ref Quaternion q)
 	{
-		if (ViewModel.modifyAiming)
+		if (global::ViewModel.modifyAiming)
 		{
 			RaycastHit2 raycastHit;
 			float distance;
@@ -909,7 +909,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A5B RID: 14939 RVA: 0x000DA3FC File Offset: 0x000D85FC
+	// Token: 0x06003E53 RID: 15955 RVA: 0x000E2DDC File Offset: 0x000E0FDC
 	protected void OnDestroy()
 	{
 		base.OnDestroy();
@@ -917,10 +917,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		this.meshInstances.Dispose();
 	}
 
-	// Token: 0x06003A5C RID: 14940 RVA: 0x000DA418 File Offset: 0x000D8618
+	// Token: 0x06003E54 RID: 15956 RVA: 0x000E2DF8 File Offset: 0x000E0FF8
 	private void OnGUI()
 	{
-		if (Event.current.type != 7 || RPOS.IsOpen || !this.drawCrosshair || !this.crosshairTexture || !this.dotTexture)
+		if (Event.current.type != 7 || global::RPOS.IsOpen || !this.drawCrosshair || !this.crosshairTexture || !this.dotTexture)
 		{
 			return;
 		}
@@ -937,7 +937,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			}
 			camera = this._lazyCam.camera;
 		}
-		if (camera && (camera.enabled || MountedCamera.IsCameraBeingUsed(camera)))
+		if (camera && (camera.enabled || global::MountedCamera.IsCameraBeingUsed(camera)))
 		{
 			Color color;
 			color.r = 1f;
@@ -973,7 +973,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			float num;
 			plane.Raycast(ray, ref num);
 			Vector3 point = ray.GetPoint(num);
-			Vector3? vector = CameraFX.World2Screen(point);
+			Vector3? vector = global::CameraFX.World2Screen(point);
 			if (vector != null)
 			{
 				Vector3 value = vector.Value;
@@ -985,7 +985,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			RaycastHit2 raycastHit;
 			if (Physics2.Raycast2(ray, ref raycastHit))
 			{
-				vector = CameraFX.World2Screen(raycastHit.point);
+				vector = global::CameraFX.World2Screen(raycastHit.point);
 				if (vector != null)
 				{
 					Vector3 value2 = vector.Value;
@@ -998,8 +998,8 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x06003A5D RID: 14941 RVA: 0x000DA72C File Offset: 0x000D892C
-	public void ModifyPerspective(ref PerspectiveMatrixBuilder perspective)
+	// Token: 0x06003E55 RID: 15957 RVA: 0x000E310C File Offset: 0x000E130C
+	public void ModifyPerspective(ref global::PerspectiveMatrixBuilder perspective)
 	{
 		if ((this.caps & 1) == 1)
 		{
@@ -1019,100 +1019,100 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		}
 	}
 
-	// Token: 0x04001E42 RID: 7746
+	// Token: 0x0400203A RID: 8250
 	public const int kCap_PerspectiveNear = 1;
 
-	// Token: 0x04001E43 RID: 7747
+	// Token: 0x0400203B RID: 8251
 	public const int kCap_PerspectiveFar = 2;
 
-	// Token: 0x04001E44 RID: 7748
+	// Token: 0x0400203C RID: 8252
 	public const int kCap_PerspectiveFOV = 4;
 
-	// Token: 0x04001E45 RID: 7749
+	// Token: 0x0400203D RID: 8253
 	public const int kCap_PerspectiveAspect = 8;
 
-	// Token: 0x04001E46 RID: 7750
+	// Token: 0x0400203E RID: 8254
 	protected const int kIdleChannel_Idle = 0;
 
-	// Token: 0x04001E47 RID: 7751
+	// Token: 0x0400203F RID: 8255
 	protected const int kIdleChannel_IdleMovement = 1;
 
-	// Token: 0x04001E48 RID: 7752
+	// Token: 0x04002040 RID: 8256
 	protected const int kIdleChannel_Crouch = 2;
 
-	// Token: 0x04001E49 RID: 7753
+	// Token: 0x04002041 RID: 8257
 	protected const int kIdleChannel_CrouchMovement = 3;
 
-	// Token: 0x04001E4A RID: 7754
+	// Token: 0x04002042 RID: 8258
 	protected const int kIdleChannel_Bow = 4;
 
-	// Token: 0x04001E4B RID: 7755
+	// Token: 0x04002043 RID: 8259
 	protected const int kIdleChannel_BowMovement = 5;
 
-	// Token: 0x04001E4C RID: 7756
+	// Token: 0x04002044 RID: 8260
 	protected const int kIdleChannel_Fall = 6;
 
-	// Token: 0x04001E4D RID: 7757
+	// Token: 0x04002045 RID: 8261
 	protected const int kIdleChannel_Slip = 7;
 
-	// Token: 0x04001E4E RID: 7758
+	// Token: 0x04002046 RID: 8262
 	protected const int kIdleChannel_Zoom = 8;
 
-	// Token: 0x04001E4F RID: 7759
+	// Token: 0x04002047 RID: 8263
 	protected const int kIdleChannelCount = 9;
 
-	// Token: 0x04001E50 RID: 7760
+	// Token: 0x04002048 RID: 8264
 	protected const string kIdleChannel_Idle_Name = "idle";
 
-	// Token: 0x04001E51 RID: 7761
+	// Token: 0x04002049 RID: 8265
 	protected const string kIdleChannel_IdleMovement_Name = "move";
 
-	// Token: 0x04001E52 RID: 7762
+	// Token: 0x0400204A RID: 8266
 	protected const string kIdleChannel_Bow_Name = "bowi";
 
-	// Token: 0x04001E53 RID: 7763
+	// Token: 0x0400204B RID: 8267
 	protected const string kIdleChannel_BowMovement_Name = "bowm";
 
-	// Token: 0x04001E54 RID: 7764
+	// Token: 0x0400204C RID: 8268
 	protected const string kIdleChannel_Crouch_Name = "dcki";
 
-	// Token: 0x04001E55 RID: 7765
+	// Token: 0x0400204D RID: 8269
 	protected const string kIdleChannel_CrouchMovement_Name = "dckm";
 
-	// Token: 0x04001E56 RID: 7766
+	// Token: 0x0400204E RID: 8270
 	protected const string kIdleChannel_Fall_Name = "fall";
 
-	// Token: 0x04001E57 RID: 7767
+	// Token: 0x0400204F RID: 8271
 	protected const string kIdleChannel_Slip_Name = "slip";
 
-	// Token: 0x04001E58 RID: 7768
+	// Token: 0x04002050 RID: 8272
 	protected const string kIdleChannel_Zoom_Name = "zoom";
 
-	// Token: 0x04001E59 RID: 7769
+	// Token: 0x04002051 RID: 8273
 	[SerializeField]
-	public Socket.CameraSpace pivot;
+	public global::Socket.CameraSpace pivot;
 
-	// Token: 0x04001E5A RID: 7770
+	// Token: 0x04002052 RID: 8274
 	[SerializeField]
-	public Socket.CameraSpace pivot2;
+	public global::Socket.CameraSpace pivot2;
 
-	// Token: 0x04001E5B RID: 7771
+	// Token: 0x04002053 RID: 8275
 	[SerializeField]
-	public Socket.CameraSpace muzzle;
+	public global::Socket.CameraSpace muzzle;
 
-	// Token: 0x04001E5C RID: 7772
+	// Token: 0x04002054 RID: 8276
 	[SerializeField]
-	public Socket.CameraSpace sight;
+	public global::Socket.CameraSpace sight;
 
-	// Token: 0x04001E5D RID: 7773
+	// Token: 0x04002055 RID: 8277
 	[SerializeField]
-	public Socket.CameraSpace optics;
+	public global::Socket.CameraSpace optics;
 
-	// Token: 0x04001E5E RID: 7774
+	// Token: 0x04002056 RID: 8278
 	[SerializeField]
-	public Socket.CameraSpace bowPivot;
+	public global::Socket.CameraSpace bowPivot;
 
-	// Token: 0x04001E5F RID: 7775
+	// Token: 0x04002057 RID: 8279
 	protected static readonly string[] defaultSocketNames = new string[]
 	{
 		"muzzle",
@@ -1123,325 +1123,325 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 		"bowPivot"
 	};
 
-	// Token: 0x04001E60 RID: 7776
+	// Token: 0x04002058 RID: 8280
 	[NonSerialized]
 	protected IEnumerable<string> socketNames;
 
-	// Token: 0x04001E61 RID: 7777
+	// Token: 0x04002059 RID: 8281
 	[NonSerialized]
 	protected int socketVersion;
 
-	// Token: 0x04001E62 RID: 7778
+	// Token: 0x0400205A RID: 8282
 	[NonSerialized]
-	private Socket.Map.Member _socketMap;
+	private global::Socket.Map.Member _socketMap;
 
-	// Token: 0x04001E63 RID: 7779
+	// Token: 0x0400205B RID: 8283
 	private Vector3 originalRootOffset;
 
-	// Token: 0x04001E64 RID: 7780
+	// Token: 0x0400205C RID: 8284
 	private Quaternion originalRootRotation;
 
-	// Token: 0x04001E65 RID: 7781
+	// Token: 0x0400205D RID: 8285
 	private bool flipped;
 
-	// Token: 0x04001E66 RID: 7782
-	private Dictionary<Socket, Transform> proxies;
+	// Token: 0x0400205E RID: 8286
+	private Dictionary<global::Socket, Transform> proxies;
 
-	// Token: 0x04001E67 RID: 7783
+	// Token: 0x0400205F RID: 8287
 	private bool madeProxyDict;
 
-	// Token: 0x04001E68 RID: 7784
+	// Token: 0x04002060 RID: 8288
 	public int caps;
 
-	// Token: 0x04001E69 RID: 7785
+	// Token: 0x04002061 RID: 8289
 	public float perspectiveNearOverride = 0.1f;
 
-	// Token: 0x04001E6A RID: 7786
+	// Token: 0x04002062 RID: 8290
 	public float perspectiveFarOverride = 25f;
 
-	// Token: 0x04001E6B RID: 7787
+	// Token: 0x04002063 RID: 8291
 	public float perspectiveFOVOverride = 60f;
 
-	// Token: 0x04001E6C RID: 7788
+	// Token: 0x04002064 RID: 8292
 	public float perspectiveAspectOverride = 1f;
 
-	// Token: 0x04001E6D RID: 7789
+	// Token: 0x04002065 RID: 8293
 	public float lazyAngle = 5f;
 
-	// Token: 0x04001E6E RID: 7790
+	// Token: 0x04002066 RID: 8294
 	public float zoomFieldOfView = 40f;
 
-	// Token: 0x04001E6F RID: 7791
+	// Token: 0x04002067 RID: 8295
 	public AnimationCurve zoomCurve;
 
-	// Token: 0x04001E70 RID: 7792
+	// Token: 0x04002068 RID: 8296
 	public Vector3 zoomOffset;
 
-	// Token: 0x04001E71 RID: 7793
+	// Token: 0x04002069 RID: 8297
 	public Vector3 zoomRotate;
 
-	// Token: 0x04001E72 RID: 7794
+	// Token: 0x0400206A RID: 8298
 	public Vector3 offset;
 
-	// Token: 0x04001E73 RID: 7795
+	// Token: 0x0400206B RID: 8299
 	public Vector3 rotate;
 
-	// Token: 0x04001E74 RID: 7796
+	// Token: 0x0400206C RID: 8300
 	public Transform root;
 
-	// Token: 0x04001E75 RID: 7797
+	// Token: 0x0400206D RID: 8301
 	public Animation animation;
 
-	// Token: 0x04001E76 RID: 7798
+	// Token: 0x0400206E RID: 8302
 	public Texture crosshairTexture;
 
-	// Token: 0x04001E77 RID: 7799
+	// Token: 0x0400206F RID: 8303
 	public Texture dotTexture;
 
-	// Token: 0x04001E78 RID: 7800
+	// Token: 0x04002070 RID: 8304
 	public float zoomInDuration = 0.5f;
 
-	// Token: 0x04001E79 RID: 7801
+	// Token: 0x04002071 RID: 8305
 	public float zoomOutDuration = 0.4f;
 
-	// Token: 0x04001E7A RID: 7802
+	// Token: 0x04002072 RID: 8306
 	public bool showCrosshairZoom;
 
-	// Token: 0x04001E7B RID: 7803
+	// Token: 0x04002073 RID: 8307
 	public bool showCrosshairNotZoomed = true;
 
-	// Token: 0x04001E7C RID: 7804
+	// Token: 0x04002074 RID: 8308
 	public Color crosshairColor = Color.white;
 
-	// Token: 0x04001E7D RID: 7805
+	// Token: 0x04002075 RID: 8309
 	public Color crosshairOutline = Color.black;
 
-	// Token: 0x04001E7E RID: 7806
+	// Token: 0x04002076 RID: 8310
 	public LayerMask aimMask;
 
-	// Token: 0x04001E7F RID: 7807
+	// Token: 0x04002077 RID: 8311
 	public AnimationCurve headBobOffsetScale;
 
-	// Token: 0x04001E80 RID: 7808
+	// Token: 0x04002078 RID: 8312
 	public AnimationCurve headBobRotationScale;
 
-	// Token: 0x04001E81 RID: 7809
+	// Token: 0x04002079 RID: 8313
 	public bool barrelAiming = true;
 
-	// Token: 0x04001E82 RID: 7810
+	// Token: 0x0400207A RID: 8314
 	public bool barrelWhileZoom;
 
-	// Token: 0x04001E83 RID: 7811
+	// Token: 0x0400207B RID: 8315
 	public bool barrelWhileBowing;
 
-	// Token: 0x04001E84 RID: 7812
+	// Token: 0x0400207C RID: 8316
 	public Vector3 barrelPivot;
 
-	// Token: 0x04001E85 RID: 7813
+	// Token: 0x0400207D RID: 8317
 	public Vector2 barrelRotation;
 
-	// Token: 0x04001E86 RID: 7814
+	// Token: 0x0400207E RID: 8318
 	public float barrelLimit;
 
-	// Token: 0x04001E87 RID: 7815
+	// Token: 0x0400207F RID: 8319
 	public float noHitPlane = 20f;
 
-	// Token: 0x04001E88 RID: 7816
+	// Token: 0x04002080 RID: 8320
 	public float barrelAngleSmoothDamp = 0.01f;
 
-	// Token: 0x04001E89 RID: 7817
+	// Token: 0x04002081 RID: 8321
 	public float barrelAngleMaxSpeed = float.PositiveInfinity;
 
-	// Token: 0x04001E8A RID: 7818
+	// Token: 0x04002082 RID: 8322
 	public float barrelLimitOffsetFactor = 1f;
 
-	// Token: 0x04001E8B RID: 7819
+	// Token: 0x04002083 RID: 8323
 	public float barrelLimitPivotFactor;
 
-	// Token: 0x04001E8C RID: 7820
+	// Token: 0x04002084 RID: 8324
 	public bool bowAllowed;
 
-	// Token: 0x04001E8D RID: 7821
+	// Token: 0x04002085 RID: 8325
 	public Vector3 bowOffsetPoint;
 
-	// Token: 0x04001E8E RID: 7822
+	// Token: 0x04002086 RID: 8326
 	public Vector3 bowOffsetAngles;
 
-	// Token: 0x04001E8F RID: 7823
+	// Token: 0x04002087 RID: 8327
 	public AnimationCurve bowCurve = AnimationCurve.Linear(0f, 0f, 1f, 1f);
 
-	// Token: 0x04001E90 RID: 7824
+	// Token: 0x04002088 RID: 8328
 	public bool bowCurveIs01Fraction;
 
-	// Token: 0x04001E91 RID: 7825
+	// Token: 0x04002089 RID: 8329
 	public float bowEnterDuration = 1f;
 
-	// Token: 0x04001E92 RID: 7826
+	// Token: 0x0400208A RID: 8330
 	public float bowExitDuration = 1f;
 
-	// Token: 0x04001E93 RID: 7827
+	// Token: 0x0400208B RID: 8331
 	private float bowTime;
 
-	// Token: 0x04001E94 RID: 7828
+	// Token: 0x0400208C RID: 8332
 	public AnimationCurve zoomPunch;
 
-	// Token: 0x04001E95 RID: 7829
+	// Token: 0x0400208D RID: 8333
 	public float punchScalar = 1f;
 
-	// Token: 0x04001E96 RID: 7830
+	// Token: 0x0400208E RID: 8334
 	private float punchTime = -2000f;
 
-	// Token: 0x04001E97 RID: 7831
+	// Token: 0x0400208F RID: 8335
 	private float zoomPunchValue;
 
-	// Token: 0x04001E98 RID: 7832
+	// Token: 0x04002090 RID: 8336
 	public string fireAnimName = "fire_1";
 
-	// Token: 0x04001E99 RID: 7833
+	// Token: 0x04002091 RID: 8337
 	public string deployAnimName = "deploy";
 
-	// Token: 0x04001E9A RID: 7834
+	// Token: 0x04002092 RID: 8338
 	public string reloadAnimName = "reload";
 
-	// Token: 0x04001E9B RID: 7835
+	// Token: 0x04002093 RID: 8339
 	public float fireAnimScaleSpeed = 1f;
 
-	// Token: 0x04001E9C RID: 7836
+	// Token: 0x04002094 RID: 8340
 	[SerializeField]
-	protected AnimationBlender.ResidualField idleFrame;
+	protected global::AnimationBlender.ResidualField idleFrame;
 
-	// Token: 0x04001E9D RID: 7837
+	// Token: 0x04002095 RID: 8341
 	[SerializeField]
-	protected AnimationBlender.ChannelField idleChannel;
+	protected global::AnimationBlender.ChannelField idleChannel;
 
-	// Token: 0x04001E9E RID: 7838
+	// Token: 0x04002096 RID: 8342
 	[SerializeField]
-	protected AnimationBlender.ChannelField movementIdleChannel;
+	protected global::AnimationBlender.ChannelField movementIdleChannel;
 
-	// Token: 0x04001E9F RID: 7839
+	// Token: 0x04002097 RID: 8343
 	[SerializeField]
-	protected AnimationBlender.ChannelField bowChannel;
+	protected global::AnimationBlender.ChannelField bowChannel;
 
-	// Token: 0x04001EA0 RID: 7840
+	// Token: 0x04002098 RID: 8344
 	[SerializeField]
-	protected AnimationBlender.ChannelField bowMovementChannel;
+	protected global::AnimationBlender.ChannelField bowMovementChannel;
 
-	// Token: 0x04001EA1 RID: 7841
+	// Token: 0x04002099 RID: 8345
 	[SerializeField]
-	protected AnimationBlender.ChannelField crouchChannel;
+	protected global::AnimationBlender.ChannelField crouchChannel;
 
-	// Token: 0x04001EA2 RID: 7842
+	// Token: 0x0400209A RID: 8346
 	[SerializeField]
-	protected AnimationBlender.ChannelField crouchMovementChannel;
+	protected global::AnimationBlender.ChannelField crouchMovementChannel;
 
-	// Token: 0x04001EA3 RID: 7843
+	// Token: 0x0400209B RID: 8347
 	[SerializeField]
-	protected AnimationBlender.ChannelField fallChannel;
+	protected global::AnimationBlender.ChannelField fallChannel;
 
-	// Token: 0x04001EA4 RID: 7844
+	// Token: 0x0400209C RID: 8348
 	[SerializeField]
-	protected AnimationBlender.ChannelField slipChannel;
+	protected global::AnimationBlender.ChannelField slipChannel;
 
-	// Token: 0x04001EA5 RID: 7845
+	// Token: 0x0400209D RID: 8349
 	[SerializeField]
-	protected AnimationBlender.ChannelField zoomChannel;
+	protected global::AnimationBlender.ChannelField zoomChannel;
 
-	// Token: 0x04001EA6 RID: 7846
+	// Token: 0x0400209E RID: 8350
 	[NonSerialized]
-	protected AnimationBlender.Mixer idleMixer;
+	protected global::AnimationBlender.Mixer idleMixer;
 
-	// Token: 0x04001EA7 RID: 7847
+	// Token: 0x0400209F RID: 8351
 	[NonSerialized]
-	public ItemRepresentation itemRep;
+	public global::ItemRepresentation itemRep;
 
-	// Token: 0x04001EA8 RID: 7848
+	// Token: 0x040020A0 RID: 8352
 	[NonSerialized]
-	public IHeldItem item;
+	public global::IHeldItem item;
 
-	// Token: 0x04001EA9 RID: 7849
+	// Token: 0x040020A1 RID: 8353
 	[NonSerialized]
-	private Angle2 lastLook;
+	private global::Angle2 lastLook;
 
-	// Token: 0x04001EAA RID: 7850
+	// Token: 0x040020A2 RID: 8354
 	[SerializeField]
 	private SkinnedMeshRenderer[] builtinRenderers;
 
-	// Token: 0x04001EAB RID: 7851
+	// Token: 0x040020A3 RID: 8355
 	[NonSerialized]
-	private ViewModel.MeshInstance.Holder meshInstances;
+	private global::ViewModel.MeshInstance.Holder meshInstances;
 
-	// Token: 0x04001EAC RID: 7852
+	// Token: 0x040020A4 RID: 8356
 	[NonSerialized]
-	private ViewModel.BarrelParameters bpHip;
+	private global::ViewModel.BarrelParameters bpHip;
 
-	// Token: 0x04001EAD RID: 7853
+	// Token: 0x040020A5 RID: 8357
 	[NonSerialized]
-	private ViewModel.BarrelParameters bpZoom;
+	private global::ViewModel.BarrelParameters bpZoom;
 
-	// Token: 0x04001EAE RID: 7854
+	// Token: 0x040020A6 RID: 8358
 	[NonSerialized]
-	private ViewModel.BarrelParameters bpBow;
+	private global::ViewModel.BarrelParameters bpBow;
 
-	// Token: 0x04001EAF RID: 7855
+	// Token: 0x040020A7 RID: 8359
 	private static bool force_legacy_fallback;
 
-	// Token: 0x04001EB0 RID: 7856
-	private HeadBob _headBob;
+	// Token: 0x040020A8 RID: 8360
+	private global::HeadBob _headBob;
 
-	// Token: 0x04001EB1 RID: 7857
-	private LazyCam _lazyCam;
+	// Token: 0x040020A9 RID: 8361
+	private global::LazyCam _lazyCam;
 
-	// Token: 0x04001EB2 RID: 7858
+	// Token: 0x040020AA RID: 8362
 	private Quaternion _additiveRotation = Quaternion.identity;
 
-	// Token: 0x04001EB3 RID: 7859
+	// Token: 0x040020AB RID: 8363
 	private float zoomTime;
 
-	// Token: 0x04001EB4 RID: 7860
+	// Token: 0x040020AC RID: 8364
 	private float headBobLinearTime;
 
-	// Token: 0x04001EB5 RID: 7861
+	// Token: 0x040020AD RID: 8365
 	private float headBobAngularTime;
 
-	// Token: 0x04001EB6 RID: 7862
+	// Token: 0x040020AE RID: 8366
 	private float lastZoomFraction = float.NaN;
 
-	// Token: 0x04001EB7 RID: 7863
+	// Token: 0x040020AF RID: 8367
 	private float lastHeadBobLinearFraction;
 
-	// Token: 0x04001EB8 RID: 7864
+	// Token: 0x040020B0 RID: 8368
 	private float lastHeadBobAngular;
 
-	// Token: 0x04001EB9 RID: 7865
+	// Token: 0x040020B1 RID: 8369
 	private Vector3 lastLocalPositionOffset;
 
-	// Token: 0x04001EBA RID: 7866
+	// Token: 0x040020B2 RID: 8370
 	private Vector3 lastLocalRotationOffset;
 
-	// Token: 0x04001EBB RID: 7867
+	// Token: 0x040020B3 RID: 8371
 	private Vector3 lastSightRotation;
 
-	// Token: 0x04001EBC RID: 7868
+	// Token: 0x040020B4 RID: 8372
 	private Transform eye;
 
-	// Token: 0x04001EBD RID: 7869
+	// Token: 0x040020B5 RID: 8373
 	private Transform shelf;
 
-	// Token: 0x04001EBE RID: 7870
+	// Token: 0x040020B6 RID: 8374
 	private List<GameObject> destroyOnUnbind;
 
-	// Token: 0x04001EBF RID: 7871
+	// Token: 0x040020B7 RID: 8375
 	private static bool modifyAiming;
 
-	// Token: 0x02000693 RID: 1683
+	// Token: 0x02000758 RID: 1880
 	private class MeshInstance
 	{
-		// Token: 0x06003A5E RID: 14942 RVA: 0x000DA7A8 File Offset: 0x000D89A8
+		// Token: 0x06003E56 RID: 15958 RVA: 0x000E3188 File Offset: 0x000E1388
 		private MeshInstance()
 		{
 		}
 
-		// Token: 0x06003A5F RID: 14943 RVA: 0x000DA7B0 File Offset: 0x000D89B0
+		// Token: 0x06003E57 RID: 15959 RVA: 0x000E3190 File Offset: 0x000E1390
 		private void Delete()
 		{
 			if (!this.disposed)
@@ -1454,11 +1454,11 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 					this.renderer.sharedMaterials = this.originalMaterials;
 				}
 				this.renderer = null;
-				if (ViewModel.MeshInstance.dumpCount < 8)
+				if (global::ViewModel.MeshInstance.dumpCount < 8)
 				{
-					this.next = ViewModel.MeshInstance.dump;
-					ViewModel.MeshInstance.dump = this;
-					this.hasNext = (ViewModel.MeshInstance.dumpCount++ > 0);
+					this.next = global::ViewModel.MeshInstance.dump;
+					global::ViewModel.MeshInstance.dump = this;
+					this.hasNext = (global::ViewModel.MeshInstance.dumpCount++ > 0);
 				}
 				else
 				{
@@ -1468,24 +1468,24 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			}
 		}
 
-		// Token: 0x06003A60 RID: 14944 RVA: 0x000DA854 File Offset: 0x000D8A54
-		private static bool New(ViewModel.MeshInstance ptr, SkinnedMeshRenderer renderer, out ViewModel.MeshInstance newInstance)
+		// Token: 0x06003E58 RID: 15960 RVA: 0x000E3234 File Offset: 0x000E1434
+		private static bool New(global::ViewModel.MeshInstance ptr, SkinnedMeshRenderer renderer, out global::ViewModel.MeshInstance newInstance)
 		{
 			if (!renderer)
 			{
 				newInstance = null;
 				return false;
 			}
-			if (ViewModel.MeshInstance.dumpCount > 0)
+			if (global::ViewModel.MeshInstance.dumpCount > 0)
 			{
-				newInstance = ViewModel.MeshInstance.dump;
-				if (--ViewModel.MeshInstance.dumpCount > 0)
+				newInstance = global::ViewModel.MeshInstance.dump;
+				if (--global::ViewModel.MeshInstance.dumpCount > 0)
 				{
-					ViewModel.MeshInstance.dump = newInstance.next;
+					global::ViewModel.MeshInstance.dump = newInstance.next;
 				}
 				else
 				{
-					ViewModel.MeshInstance.dump = null;
+					global::ViewModel.MeshInstance.dump = null;
 				}
 				newInstance.next = null;
 				newInstance.hasNext = false;
@@ -1494,7 +1494,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			}
 			else
 			{
-				newInstance = new ViewModel.MeshInstance();
+				newInstance = new global::ViewModel.MeshInstance();
 			}
 			if (ptr != null)
 			{
@@ -1520,14 +1520,14 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			return true;
 		}
 
-		// Token: 0x06003A61 RID: 14945 RVA: 0x000DA97C File Offset: 0x000D8B7C
-		private void SetReplacementRenderMaterial(ref ViewModel.MeshInstance.ReplacementRenderer rr, int itsa, Material mat)
+		// Token: 0x06003E59 RID: 15961 RVA: 0x000E335C File Offset: 0x000E155C
+		private void SetReplacementRenderMaterial(ref global::ViewModel.MeshInstance.ReplacementRenderer rr, int itsa, Material mat)
 		{
 			if (!this.disposed)
 			{
 				if (!rr.initialized)
 				{
-					this.legacy = (ViewModel.force_legacy_fallback || this.renderer.sharedMesh.subMeshCount > 1);
+					this.legacy = (global::ViewModel.force_legacy_fallback || this.renderer.sharedMesh.subMeshCount > 1);
 					rr.Initialize(this.renderer, this.renderer, this.originalMaterials, mat, itsa, this.legacy);
 				}
 				else
@@ -1570,83 +1570,83 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 			}
 		}
 
-		// Token: 0x06003A62 RID: 14946 RVA: 0x000DAB08 File Offset: 0x000D8D08
+		// Token: 0x06003E5A RID: 15962 RVA: 0x000E34E8 File Offset: 0x000E16E8
 		public void SetPredrawMaterial(Material mat)
 		{
 			this.SetReplacementRenderMaterial(ref this.predraw, 1, mat);
 		}
 
-		// Token: 0x06003A63 RID: 14947 RVA: 0x000DAB18 File Offset: 0x000D8D18
+		// Token: 0x06003E5B RID: 15963 RVA: 0x000E34F8 File Offset: 0x000E16F8
 		public void SetPostdrawMaterial(Material mat)
 		{
 			this.SetReplacementRenderMaterial(ref this.postdraw, 2, mat);
 		}
 
-		// Token: 0x04001EC2 RID: 7874
+		// Token: 0x040020BA RID: 8378
 		private const int kMaxDumpCount = 8;
 
-		// Token: 0x04001EC3 RID: 7875
-		public ViewModel.MeshInstance next;
+		// Token: 0x040020BB RID: 8379
+		public global::ViewModel.MeshInstance next;
 
-		// Token: 0x04001EC4 RID: 7876
+		// Token: 0x040020BC RID: 8380
 		public SkinnedMeshRenderer renderer;
 
-		// Token: 0x04001EC5 RID: 7877
+		// Token: 0x040020BD RID: 8381
 		public bool legacy;
 
-		// Token: 0x04001EC6 RID: 7878
-		public ViewModel.MeshInstance.ReplacementRenderer predraw;
+		// Token: 0x040020BE RID: 8382
+		public global::ViewModel.MeshInstance.ReplacementRenderer predraw;
 
-		// Token: 0x04001EC7 RID: 7879
-		public ViewModel.MeshInstance.ReplacementRenderer postdraw;
+		// Token: 0x040020BF RID: 8383
+		public global::ViewModel.MeshInstance.ReplacementRenderer postdraw;
 
-		// Token: 0x04001EC8 RID: 7880
+		// Token: 0x040020C0 RID: 8384
 		public bool disposed;
 
-		// Token: 0x04001EC9 RID: 7881
+		// Token: 0x040020C1 RID: 8385
 		public bool hasNext;
 
-		// Token: 0x04001ECA RID: 7882
+		// Token: 0x040020C2 RID: 8386
 		private Material[] originalMaterials;
 
-		// Token: 0x04001ECB RID: 7883
+		// Token: 0x040020C3 RID: 8387
 		private Material[] modifiedMaterials;
 
-		// Token: 0x04001ECC RID: 7884
-		private static ViewModel.MeshInstance dump;
+		// Token: 0x040020C4 RID: 8388
+		private static global::ViewModel.MeshInstance dump;
 
-		// Token: 0x04001ECD RID: 7885
+		// Token: 0x040020C5 RID: 8389
 		private static int dumpCount;
 
-		// Token: 0x02000694 RID: 1684
+		// Token: 0x02000759 RID: 1881
 		public struct Holder : IDisposable
 		{
-			// Token: 0x06003A64 RID: 14948 RVA: 0x000DAB28 File Offset: 0x000D8D28
-			private void IterDelete(ViewModel.MeshInstance iter)
+			// Token: 0x06003E5C RID: 15964 RVA: 0x000E3508 File Offset: 0x000E1708
+			private void IterDelete(global::ViewModel.MeshInstance iter)
 			{
-				ViewModel.MeshInstance next = iter.next;
+				global::ViewModel.MeshInstance next = iter.next;
 				iter.hasNext = next.hasNext;
 				iter.next = next.next;
 				this.InstanceDeleteShared(next);
 			}
 
-			// Token: 0x06003A65 RID: 14949 RVA: 0x000DAB5C File Offset: 0x000D8D5C
+			// Token: 0x06003E5D RID: 15965 RVA: 0x000E353C File Offset: 0x000E173C
 			private void FirstDelete()
 			{
-				ViewModel.MeshInstance instance = this.first;
+				global::ViewModel.MeshInstance instance = this.first;
 				this.first = this.first.next;
 				this.InstanceDeleteShared(instance);
 			}
 
-			// Token: 0x06003A66 RID: 14950 RVA: 0x000DAB88 File Offset: 0x000D8D88
-			private void InstanceDeleteShared(ViewModel.MeshInstance instance)
+			// Token: 0x06003E5E RID: 15966 RVA: 0x000E3568 File Offset: 0x000E1768
+			private void InstanceDeleteShared(global::ViewModel.MeshInstance instance)
 			{
 				this.count--;
 				instance.Delete();
 			}
 
-			// Token: 0x06003A67 RID: 14951 RVA: 0x000DABA0 File Offset: 0x000D8DA0
-			public bool Delete(ViewModel.MeshInstance instance)
+			// Token: 0x06003E5F RID: 15967 RVA: 0x000E3580 File Offset: 0x000E1780
+			public bool Delete(global::ViewModel.MeshInstance instance)
 			{
 				if (this.disposed)
 				{
@@ -1660,7 +1660,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 						return true;
 					}
 					int num = this.count - 1;
-					ViewModel.MeshInstance meshInstance = this.first;
+					global::ViewModel.MeshInstance meshInstance = this.first;
 					for (int i = 0; i < num; i++)
 					{
 						if (meshInstance.next == instance)
@@ -1673,7 +1673,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				return false;
 			}
 
-			// Token: 0x06003A68 RID: 14952 RVA: 0x000DAC24 File Offset: 0x000D8E24
+			// Token: 0x06003E60 RID: 15968 RVA: 0x000E3604 File Offset: 0x000E1804
 			public bool Delete(SkinnedMeshRenderer renderer)
 			{
 				if (this.disposed)
@@ -1688,7 +1688,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 						return true;
 					}
 					int num = this.count - 1;
-					ViewModel.MeshInstance next = this.first;
+					global::ViewModel.MeshInstance next = this.first;
 					for (int i = 0; i < num; i++)
 					{
 						if (object.ReferenceEquals(next.next.renderer, renderer))
@@ -1702,14 +1702,14 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				return false;
 			}
 
-			// Token: 0x06003A69 RID: 14953 RVA: 0x000DACB4 File Offset: 0x000D8EB4
-			private bool AddShared(bool didIt, ViewModel.MeshInstance meshInstance)
+			// Token: 0x06003E61 RID: 15969 RVA: 0x000E3694 File Offset: 0x000E1894
+			private bool AddShared(bool didIt, global::ViewModel.MeshInstance meshInstance)
 			{
 				if (didIt && this.count++ == 0)
 				{
 					this.first = meshInstance;
 				}
-				CameraFX mainCameraFX = CameraFX.mainCameraFX;
+				global::CameraFX mainCameraFX = global::CameraFX.mainCameraFX;
 				if (mainCameraFX)
 				{
 					Material material;
@@ -1725,15 +1725,15 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				return didIt;
 			}
 
-			// Token: 0x06003A6A RID: 14954 RVA: 0x000DAD28 File Offset: 0x000D8F28
+			// Token: 0x06003E62 RID: 15970 RVA: 0x000E3708 File Offset: 0x000E1908
 			public bool Add(SkinnedMeshRenderer renderer)
 			{
-				ViewModel.MeshInstance meshInstance;
+				global::ViewModel.MeshInstance meshInstance;
 				return renderer && this.Add(renderer, out meshInstance);
 			}
 
-			// Token: 0x06003A6B RID: 14955 RVA: 0x000DAD4C File Offset: 0x000D8F4C
-			public bool Add(SkinnedMeshRenderer renderer, out ViewModel.MeshInstance newOrExistingInstance)
+			// Token: 0x06003E63 RID: 15971 RVA: 0x000E372C File Offset: 0x000E192C
+			public bool Add(SkinnedMeshRenderer renderer, out global::ViewModel.MeshInstance newOrExistingInstance)
 			{
 				if (this.disposed)
 				{
@@ -1742,7 +1742,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				}
 				if (this.count == 0)
 				{
-					return this.AddShared(ViewModel.MeshInstance.New(null, renderer, out newOrExistingInstance), newOrExistingInstance);
+					return this.AddShared(global::ViewModel.MeshInstance.New(null, renderer, out newOrExistingInstance), newOrExistingInstance);
 				}
 				if (object.ReferenceEquals(this.first.renderer, renderer))
 				{
@@ -1750,7 +1750,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 					return false;
 				}
 				int num = this.count - 1;
-				ViewModel.MeshInstance next = this.first;
+				global::ViewModel.MeshInstance next = this.first;
 				for (int i = 0; i < num; i++)
 				{
 					if (object.ReferenceEquals(next.next.renderer, renderer))
@@ -1760,10 +1760,10 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 					}
 					next = next.next;
 				}
-				return this.AddShared(ViewModel.MeshInstance.New(next, renderer, out newOrExistingInstance), newOrExistingInstance);
+				return this.AddShared(global::ViewModel.MeshInstance.New(next, renderer, out newOrExistingInstance), newOrExistingInstance);
 			}
 
-			// Token: 0x06003A6C RID: 14956 RVA: 0x000DAE00 File Offset: 0x000D9000
+			// Token: 0x06003E64 RID: 15972 RVA: 0x000E37E0 File Offset: 0x000E19E0
 			public void Clear()
 			{
 				while (this.count > 0)
@@ -1772,7 +1772,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				}
 			}
 
-			// Token: 0x06003A6D RID: 14957 RVA: 0x000DAE1C File Offset: 0x000D901C
+			// Token: 0x06003E65 RID: 15973 RVA: 0x000E37FC File Offset: 0x000E19FC
 			public void Dispose()
 			{
 				if (!this.disposed)
@@ -1788,20 +1788,20 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				}
 			}
 
-			// Token: 0x04001ECE RID: 7886
-			public ViewModel.MeshInstance first;
+			// Token: 0x040020C6 RID: 8390
+			public global::ViewModel.MeshInstance first;
 
-			// Token: 0x04001ECF RID: 7887
+			// Token: 0x040020C7 RID: 8391
 			public int count;
 
-			// Token: 0x04001ED0 RID: 7888
+			// Token: 0x040020C8 RID: 8392
 			public bool disposed;
 		}
 
-		// Token: 0x02000695 RID: 1685
+		// Token: 0x0200075A RID: 1882
 		public struct ReplacementRenderer
 		{
-			// Token: 0x06003A6E RID: 14958 RVA: 0x000DAE64 File Offset: 0x000D9064
+			// Token: 0x06003E66 RID: 15974 RVA: 0x000E3844 File Offset: 0x000E1A44
 			public Material[] UpdateMaterials(bool legacy)
 			{
 				if (this.initialized)
@@ -1815,7 +1815,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				return null;
 			}
 
-			// Token: 0x06003A6F RID: 14959 RVA: 0x000DAEAC File Offset: 0x000D90AC
+			// Token: 0x06003E67 RID: 15975 RVA: 0x000E388C File Offset: 0x000E1A8C
 			public void Shutdown()
 			{
 				if (this.initialized)
@@ -1824,11 +1824,11 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 					{
 						Object.Destroy(this.renderer.gameObject);
 					}
-					this = default(ViewModel.MeshInstance.ReplacementRenderer);
+					this = default(global::ViewModel.MeshInstance.ReplacementRenderer);
 				}
 			}
 
-			// Token: 0x06003A70 RID: 14960 RVA: 0x000DAEF4 File Offset: 0x000D90F4
+			// Token: 0x06003E68 RID: 15976 RVA: 0x000E38D4 File Offset: 0x000E1AD4
 			public void Initialize(SkinnedMeshRenderer owner, SkinnedMeshRenderer source, Material[] originalMaterials, Material overrideMaterial, int itsa, bool legacy)
 			{
 				this.Shutdown();
@@ -1857,7 +1857,7 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				}
 			}
 
-			// Token: 0x06003A71 RID: 14961 RVA: 0x000DAFC4 File Offset: 0x000D91C4
+			// Token: 0x06003E69 RID: 15977 RVA: 0x000E39A4 File Offset: 0x000E1BA4
 			public bool SetOverride(Material[] originals, Material material, int itsa)
 			{
 				bool result = false;
@@ -1917,74 +1917,74 @@ public class ViewModel : IDRemote, Socket.Source, Socket.Mapped, Socket.Provider
 				return result;
 			}
 
-			// Token: 0x04001ED1 RID: 7889
+			// Token: 0x040020C9 RID: 8393
 			public const int kItsaPreDraw = 1;
 
-			// Token: 0x04001ED2 RID: 7890
+			// Token: 0x040020CA RID: 8394
 			public const int kItsaPostDraw = 2;
 
-			// Token: 0x04001ED3 RID: 7891
+			// Token: 0x040020CB RID: 8395
 			public Material[] materials;
 
-			// Token: 0x04001ED4 RID: 7892
+			// Token: 0x040020CC RID: 8396
 			public SkinnedMeshRenderer renderer;
 
-			// Token: 0x04001ED5 RID: 7893
+			// Token: 0x040020CD RID: 8397
 			public bool initialized;
 
-			// Token: 0x04001ED6 RID: 7894
+			// Token: 0x040020CE RID: 8398
 			public int offset;
 		}
 	}
 
-	// Token: 0x02000696 RID: 1686
+	// Token: 0x0200075B RID: 1883
 	private struct BarrelTransform
 	{
-		// Token: 0x06003A72 RID: 14962 RVA: 0x000DB0EC File Offset: 0x000D92EC
+		// Token: 0x06003E6A RID: 15978 RVA: 0x000E3ACC File Offset: 0x000E1CCC
 		public void Get(out Vector3 origin, out Vector3 angles)
 		{
 			origin = this.origin;
 			angles = this.angles;
 		}
 
-		// Token: 0x04001ED7 RID: 7895
+		// Token: 0x040020CF RID: 8399
 		public Vector3 origin;
 
-		// Token: 0x04001ED8 RID: 7896
+		// Token: 0x040020D0 RID: 8400
 		public Vector3 angles;
 	}
 
-	// Token: 0x02000697 RID: 1687
+	// Token: 0x0200075C RID: 1884
 	private struct BarrelParameters
 	{
-		// Token: 0x04001ED9 RID: 7897
+		// Token: 0x040020D1 RID: 8401
 		public float a;
 
-		// Token: 0x04001EDA RID: 7898
+		// Token: 0x040020D2 RID: 8402
 		public float b;
 
-		// Token: 0x04001EDB RID: 7899
+		// Token: 0x040020D3 RID: 8403
 		public float c;
 
-		// Token: 0x04001EDC RID: 7900
+		// Token: 0x040020D4 RID: 8404
 		public float bc;
 
-		// Token: 0x04001EDD RID: 7901
+		// Token: 0x040020D5 RID: 8405
 		public float ca;
 
-		// Token: 0x04001EDE RID: 7902
+		// Token: 0x040020D6 RID: 8406
 		public float ab;
 
-		// Token: 0x04001EDF RID: 7903
+		// Token: 0x040020D7 RID: 8407
 		public bool once;
 
-		// Token: 0x04001EE0 RID: 7904
+		// Token: 0x040020D8 RID: 8408
 		public bool ir;
 
-		// Token: 0x04001EE1 RID: 7905
+		// Token: 0x040020D9 RID: 8409
 		public float angle;
 
-		// Token: 0x04001EE2 RID: 7906
+		// Token: 0x040020DA RID: 8410
 		public float angularVelocity;
 	}
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200075B RID: 1883
+// Token: 0x0200083D RID: 2109
 [AddComponentMenu("NGUI/Interaction/Button")]
-public class UIButton : UIButtonColor
+public class UIButton : global::UIButtonColor
 {
-	// Token: 0x060044B1 RID: 17585 RVA: 0x0010D0F0 File Offset: 0x0010B2F0
+	// Token: 0x06004912 RID: 18706 RVA: 0x00116A70 File Offset: 0x00114C70
 	protected override void OnEnable()
 	{
 		if (this.isEnabled)
@@ -18,7 +18,7 @@ public class UIButton : UIButtonColor
 		}
 	}
 
-	// Token: 0x060044B2 RID: 17586 RVA: 0x0010D110 File Offset: 0x0010B310
+	// Token: 0x06004913 RID: 18707 RVA: 0x00116A90 File Offset: 0x00114C90
 	protected override void OnHover(bool isOver)
 	{
 		if (this.isEnabled)
@@ -27,7 +27,7 @@ public class UIButton : UIButtonColor
 		}
 	}
 
-	// Token: 0x060044B3 RID: 17587 RVA: 0x0010D124 File Offset: 0x0010B324
+	// Token: 0x06004914 RID: 18708 RVA: 0x00116AA4 File Offset: 0x00114CA4
 	protected override void OnPress(bool isPressed)
 	{
 		if (this.isEnabled)
@@ -36,32 +36,32 @@ public class UIButton : UIButtonColor
 		}
 	}
 
-	// Token: 0x17000D6D RID: 3437
-	// (get) Token: 0x060044B4 RID: 17588 RVA: 0x0010D138 File Offset: 0x0010B338
-	// (set) Token: 0x060044B5 RID: 17589 RVA: 0x0010D140 File Offset: 0x0010B340
+	// Token: 0x17000DFD RID: 3581
+	// (get) Token: 0x06004915 RID: 18709 RVA: 0x00116AB8 File Offset: 0x00114CB8
+	// (set) Token: 0x06004916 RID: 18710 RVA: 0x00116AC0 File Offset: 0x00114CC0
 	public bool isEnabled
 	{
 		get
 		{
-			return NGUITools.GetAllowClick(this);
+			return global::NGUITools.GetAllowClick(this);
 		}
 		set
 		{
 			bool flag;
-			bool allowClick = NGUITools.GetAllowClick(this, out flag);
+			bool allowClick = global::NGUITools.GetAllowClick(this, out flag);
 			if (!flag)
 			{
 				return;
 			}
 			if (allowClick != value)
 			{
-				NGUITools.SetAllowClick(this, value);
+				global::NGUITools.SetAllowClick(this, value);
 				this.UpdateColor(value, false);
 			}
 		}
 	}
 
-	// Token: 0x060044B6 RID: 17590 RVA: 0x0010D174 File Offset: 0x0010B374
+	// Token: 0x06004917 RID: 18711 RVA: 0x00116AF4 File Offset: 0x00114CF4
 	public void UpdateColor(bool shouldBeEnabled, bool immediate)
 	{
 		if (this.tweenTarget)
@@ -71,7 +71,7 @@ public class UIButton : UIButtonColor
 				base.Init();
 			}
 			Color color = (!shouldBeEnabled) ? this.disabledColor : base.defaultColor;
-			TweenColor tweenColor = TweenColor.Begin(this.tweenTarget, 0.15f, color);
+			global::TweenColor tweenColor = global::TweenColor.Begin(this.tweenTarget, 0.15f, color);
 			if (immediate)
 			{
 				tweenColor.color = color;
@@ -80,6 +80,6 @@ public class UIButton : UIButtonColor
 		}
 	}
 
-	// Token: 0x040024E7 RID: 9447
+	// Token: 0x0400271E RID: 10014
 	public Color disabledColor = Color.grey;
 }

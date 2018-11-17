@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000834 RID: 2100
+// Token: 0x02000929 RID: 2345
 [ExecuteInEditMode]
 public class TOD_Sky : MonoBehaviour
 {
-	// Token: 0x06004A81 RID: 19073 RVA: 0x001436AC File Offset: 0x001418AC
+	// Token: 0x06004F3C RID: 20284 RVA: 0x0014D610 File Offset: 0x0014B810
 	internal Vector3 OrbitalToUnity(float radius, float theta, float phi)
 	{
 		float num = Mathf.Sin(theta);
@@ -19,7 +19,7 @@ public class TOD_Sky : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06004A82 RID: 19074 RVA: 0x001436FC File Offset: 0x001418FC
+	// Token: 0x06004F3D RID: 20285 RVA: 0x0014D660 File Offset: 0x0014B860
 	internal Vector3 OrbitalToLocal(float theta, float phi)
 	{
 		float num = Mathf.Sin(theta);
@@ -33,7 +33,7 @@ public class TOD_Sky : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x06004A83 RID: 19075 RVA: 0x00143744 File Offset: 0x00141944
+	// Token: 0x06004F3E RID: 20286 RVA: 0x0014D6A8 File Offset: 0x0014B8A8
 	internal Color SampleAtmosphere(Vector3 direction, bool clampAlpha = true)
 	{
 		direction = this.Components.DomeTransform.InverseTransformDirection(direction);
@@ -99,7 +99,7 @@ public class TOD_Sky : MonoBehaviour
 		return color;
 	}
 
-	// Token: 0x06004A84 RID: 19076 RVA: 0x00143B04 File Offset: 0x00141D04
+	// Token: 0x06004F3F RID: 20287 RVA: 0x0014DA68 File Offset: 0x0014BC68
 	private void SetupScattering()
 	{
 		float num = 0.001f + this.Atmosphere.RayleighMultiplier * this.Atmosphere.ScatteringColor.r;
@@ -130,7 +130,7 @@ public class TOD_Sky : MonoBehaviour
 		this.betaNight = Vector3.Scale(this.betaRayleighTheta + this.betaMieTheta / Mathf.Pow(this.betaMiePhase.x, 1.5f), this.oneOverBeta);
 	}
 
-	// Token: 0x06004A85 RID: 19077 RVA: 0x00143DF4 File Offset: 0x00141FF4
+	// Token: 0x06004F40 RID: 20288 RVA: 0x0014DD58 File Offset: 0x0014BF58
 	private void SetupSunAndMoon()
 	{
 		float num = 0.0174532924f * this.Cycle.Latitude;
@@ -224,7 +224,7 @@ public class TOD_Sky : MonoBehaviour
 		this.SetupLightSource(num53, phi);
 	}
 
-	// Token: 0x06004A86 RID: 19078 RVA: 0x0014436C File Offset: 0x0014256C
+	// Token: 0x06004F41 RID: 20289 RVA: 0x0014E2D0 File Offset: 0x0014C4D0
 	private void SetupLightSource(float theta, float phi)
 	{
 		float num = Mathf.Cos(Mathf.Pow(theta / 6.28318548f, 2f - this.Light.Falloff) * 2f * 3.14159274f);
@@ -303,7 +303,7 @@ public class TOD_Sky : MonoBehaviour
 		this.Components.LightSource.shadows = shadows;
 	}
 
-	// Token: 0x06004A87 RID: 19079 RVA: 0x00144B88 File Offset: 0x00142D88
+	// Token: 0x06004F42 RID: 20290 RVA: 0x0014EAEC File Offset: 0x0014CCEC
 	private Color SampleFogColor()
 	{
 		Vector3 vector = (!(this.Components.CameraTransform != null)) ? Vector3.forward : this.Components.CameraTransform.forward;
@@ -312,47 +312,47 @@ public class TOD_Sky : MonoBehaviour
 		return new Color(color.a * color.r, color.a * color.g, color.a * color.b, 1f);
 	}
 
-	// Token: 0x06004A88 RID: 19080 RVA: 0x00144C34 File Offset: 0x00142E34
+	// Token: 0x06004F43 RID: 20291 RVA: 0x0014EB98 File Offset: 0x0014CD98
 	private Color PowRGB(Color c, float p)
 	{
 		return new Color(Mathf.Pow(c.r, p), Mathf.Pow(c.g, p), Mathf.Pow(c.b, p), c.a);
 	}
 
-	// Token: 0x06004A89 RID: 19081 RVA: 0x00144C6C File Offset: 0x00142E6C
+	// Token: 0x06004F44 RID: 20292 RVA: 0x0014EBD0 File Offset: 0x0014CDD0
 	private Color PowRGBA(Color c, float p)
 	{
 		return new Color(Mathf.Pow(c.r, p), Mathf.Pow(c.g, p), Mathf.Pow(c.b, p), Mathf.Pow(c.a, p));
 	}
 
-	// Token: 0x06004A8A RID: 19082 RVA: 0x00144CB4 File Offset: 0x00142EB4
+	// Token: 0x06004F45 RID: 20293 RVA: 0x0014EC18 File Offset: 0x0014CE18
 	private float Max3(float a, float b, float c)
 	{
 		return (a < b || a < c) ? ((b < c) ? c : b) : a;
 	}
 
-	// Token: 0x06004A8B RID: 19083 RVA: 0x00144CE4 File Offset: 0x00142EE4
+	// Token: 0x06004F46 RID: 20294 RVA: 0x0014EC48 File Offset: 0x0014CE48
 	private Vector3 Inverse(Vector3 v)
 	{
 		return new Vector3(1f / v.x, 1f / v.y, 1f / v.z);
 	}
 
-	// Token: 0x06004A8C RID: 19084 RVA: 0x00144D20 File Offset: 0x00142F20
+	// Token: 0x06004F47 RID: 20295 RVA: 0x0014EC84 File Offset: 0x0014CE84
 	private void SetupQualitySettings()
 	{
-		TOD_Resources resources = this.Components.Resources;
+		global::TOD_Resources resources = this.Components.Resources;
 		Material material = null;
 		Material material2 = null;
 		switch (this.CloudQuality)
 		{
-		case TOD_Sky.CloudQualityType.Fastest:
+		case global::TOD_Sky.CloudQualityType.Fastest:
 			material = resources.CloudMaterialFastest;
 			material2 = resources.ShadowMaterialFastest;
 			break;
-		case TOD_Sky.CloudQualityType.Density:
+		case global::TOD_Sky.CloudQualityType.Density:
 			material = resources.CloudMaterialDensity;
 			material2 = resources.ShadowMaterialDensity;
 			break;
-		case TOD_Sky.CloudQualityType.Bumped:
+		case global::TOD_Sky.CloudQualityType.Bumped:
 			material = resources.CloudMaterialBumped;
 			material2 = resources.ShadowMaterialBumped;
 			break;
@@ -368,7 +368,7 @@ public class TOD_Sky : MonoBehaviour
 		Mesh mesh6 = null;
 		switch (this.MeshQuality)
 		{
-		case TOD_Sky.MeshQualityType.Low:
+		case global::TOD_Sky.MeshQualityType.Low:
 			mesh = resources.IcosphereLow;
 			mesh2 = resources.IcosphereLow;
 			mesh3 = resources.IcosphereLow;
@@ -376,7 +376,7 @@ public class TOD_Sky : MonoBehaviour
 			mesh5 = resources.Quad;
 			mesh6 = resources.SphereLow;
 			break;
-		case TOD_Sky.MeshQualityType.Medium:
+		case global::TOD_Sky.MeshQualityType.Medium:
 			mesh = resources.IcosphereMedium;
 			mesh2 = resources.IcosphereMedium;
 			mesh3 = resources.IcosphereLow;
@@ -384,7 +384,7 @@ public class TOD_Sky : MonoBehaviour
 			mesh5 = resources.Quad;
 			mesh6 = resources.SphereMedium;
 			break;
-		case TOD_Sky.MeshQualityType.High:
+		case global::TOD_Sky.MeshQualityType.High:
 			mesh = resources.IcosphereHigh;
 			mesh2 = resources.IcosphereHigh;
 			mesh3 = resources.IcosphereLow;
@@ -398,49 +398,49 @@ public class TOD_Sky : MonoBehaviour
 		}
 		if (!this.Components.SpaceShader || this.Components.SpaceShader.name != resources.SpaceMaterial.name)
 		{
-			TOD_Components components = this.Components;
+			global::TOD_Components components = this.Components;
 			Material material3 = resources.SpaceMaterial;
 			this.Components.SpaceRenderer.sharedMaterial = material3;
 			components.SpaceShader = material3;
 		}
 		if (!this.Components.AtmosphereShader || this.Components.AtmosphereShader.name != resources.AtmosphereMaterial.name)
 		{
-			TOD_Components components2 = this.Components;
+			global::TOD_Components components2 = this.Components;
 			Material material3 = resources.AtmosphereMaterial;
 			this.Components.AtmosphereRenderer.sharedMaterial = material3;
 			components2.AtmosphereShader = material3;
 		}
 		if (!this.Components.ClearShader || this.Components.ClearShader.name != resources.ClearMaterial.name)
 		{
-			TOD_Components components3 = this.Components;
+			global::TOD_Components components3 = this.Components;
 			Material material3 = resources.ClearMaterial;
 			this.Components.ClearRenderer.sharedMaterial = material3;
 			components3.ClearShader = material3;
 		}
 		if (!this.Components.CloudShader || this.Components.CloudShader.name != material.name)
 		{
-			TOD_Components components4 = this.Components;
+			global::TOD_Components components4 = this.Components;
 			Material material3 = material;
 			this.Components.CloudRenderer.sharedMaterial = material3;
 			components4.CloudShader = material3;
 		}
 		if (!this.Components.ShadowShader || this.Components.ShadowShader.name != material2.name)
 		{
-			TOD_Components components5 = this.Components;
+			global::TOD_Components components5 = this.Components;
 			Material material3 = material2;
 			this.Components.ShadowProjector.material = material3;
 			components5.ShadowShader = material3;
 		}
 		if (!this.Components.SunShader || this.Components.SunShader.name != resources.SunMaterial.name)
 		{
-			TOD_Components components6 = this.Components;
+			global::TOD_Components components6 = this.Components;
 			Material material3 = resources.SunMaterial;
 			this.Components.SunRenderer.sharedMaterial = material3;
 			components6.SunShader = material3;
 		}
 		if (!this.Components.MoonShader || this.Components.MoonShader.name != resources.MoonMaterial.name)
 		{
-			TOD_Components components7 = this.Components;
+			global::TOD_Components components7 = this.Components;
 			Material material3 = resources.MoonMaterial;
 			this.Components.MoonRenderer.sharedMaterial = material3;
 			components7.MoonShader = material3;
@@ -471,10 +471,10 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A8D RID: 19085 RVA: 0x00145228 File Offset: 0x00143428
+	// Token: 0x06004F48 RID: 20296 RVA: 0x0014F18C File Offset: 0x0014D38C
 	protected void OnEnable()
 	{
-		this.Components = base.GetComponent<TOD_Components>();
+		this.Components = base.GetComponent<global::TOD_Components>();
 		if (!this.Components)
 		{
 			Debug.LogError("TOD_Components not found. Disabling script.");
@@ -483,7 +483,7 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004A8E RID: 19086 RVA: 0x00145264 File Offset: 0x00143464
+	// Token: 0x06004F49 RID: 20297 RVA: 0x0014F1C8 File Offset: 0x0014D3C8
 	protected void Update()
 	{
 		if (this.Components.SunShafts != null && this.Components.SunShafts.enabled)
@@ -589,13 +589,13 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E8E RID: 3726
-	// (get) Token: 0x06004A8F RID: 19087 RVA: 0x00145A00 File Offset: 0x00143C00
-	// (set) Token: 0x06004A90 RID: 19088 RVA: 0x00145A08 File Offset: 0x00143C08
-	internal TOD_Components Components { get; private set; }
+	// Token: 0x17000F28 RID: 3880
+	// (get) Token: 0x06004F4A RID: 20298 RVA: 0x0014F964 File Offset: 0x0014DB64
+	// (set) Token: 0x06004F4B RID: 20299 RVA: 0x0014F96C File Offset: 0x0014DB6C
+	internal global::TOD_Components Components { get; private set; }
 
-	// Token: 0x17000E8F RID: 3727
-	// (get) Token: 0x06004A91 RID: 19089 RVA: 0x00145A14 File Offset: 0x00143C14
+	// Token: 0x17000F29 RID: 3881
+	// (get) Token: 0x06004F4C RID: 20300 RVA: 0x0014F978 File Offset: 0x0014DB78
 	internal bool IsDay
 	{
 		get
@@ -604,8 +604,8 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E90 RID: 3728
-	// (get) Token: 0x06004A92 RID: 19090 RVA: 0x00145A24 File Offset: 0x00143C24
+	// Token: 0x17000F2A RID: 3882
+	// (get) Token: 0x06004F4D RID: 20301 RVA: 0x0014F988 File Offset: 0x0014DB88
 	internal bool IsNight
 	{
 		get
@@ -614,8 +614,8 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E91 RID: 3729
-	// (get) Token: 0x06004A93 RID: 19091 RVA: 0x00145A34 File Offset: 0x00143C34
+	// Token: 0x17000F2B RID: 3883
+	// (get) Token: 0x06004F4E RID: 20302 RVA: 0x0014F998 File Offset: 0x0014DB98
 	internal float Radius
 	{
 		get
@@ -624,43 +624,43 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E92 RID: 3730
-	// (get) Token: 0x06004A94 RID: 19092 RVA: 0x00145A5C File Offset: 0x00143C5C
+	// Token: 0x17000F2C RID: 3884
+	// (get) Token: 0x06004F4F RID: 20303 RVA: 0x0014F9C0 File Offset: 0x0014DBC0
 	internal float Gamma
 	{
 		get
 		{
-			return ((this.UnityColorSpace != TOD_Sky.ColorSpaceDetection.Auto || QualitySettings.activeColorSpace != 1) && this.UnityColorSpace != TOD_Sky.ColorSpaceDetection.Linear) ? 2.2f : 1f;
+			return ((this.UnityColorSpace != global::TOD_Sky.ColorSpaceDetection.Auto || QualitySettings.activeColorSpace != 1) && this.UnityColorSpace != global::TOD_Sky.ColorSpaceDetection.Linear) ? 2.2f : 1f;
 		}
 	}
 
-	// Token: 0x17000E93 RID: 3731
-	// (get) Token: 0x06004A95 RID: 19093 RVA: 0x00145A90 File Offset: 0x00143C90
+	// Token: 0x17000F2D RID: 3885
+	// (get) Token: 0x06004F50 RID: 20304 RVA: 0x0014F9F4 File Offset: 0x0014DBF4
 	internal float OneOverGamma
 	{
 		get
 		{
-			return ((this.UnityColorSpace != TOD_Sky.ColorSpaceDetection.Auto || QualitySettings.activeColorSpace != 1) && this.UnityColorSpace != TOD_Sky.ColorSpaceDetection.Linear) ? 0.454545438f : 1f;
+			return ((this.UnityColorSpace != global::TOD_Sky.ColorSpaceDetection.Auto || QualitySettings.activeColorSpace != 1) && this.UnityColorSpace != global::TOD_Sky.ColorSpaceDetection.Linear) ? 0.454545438f : 1f;
 		}
 	}
 
-	// Token: 0x17000E94 RID: 3732
-	// (get) Token: 0x06004A96 RID: 19094 RVA: 0x00145AC4 File Offset: 0x00143CC4
-	// (set) Token: 0x06004A97 RID: 19095 RVA: 0x00145ACC File Offset: 0x00143CCC
+	// Token: 0x17000F2E RID: 3886
+	// (get) Token: 0x06004F51 RID: 20305 RVA: 0x0014FA28 File Offset: 0x0014DC28
+	// (set) Token: 0x06004F52 RID: 20306 RVA: 0x0014FA30 File Offset: 0x0014DC30
 	internal float LerpValue { get; private set; }
 
-	// Token: 0x17000E95 RID: 3733
-	// (get) Token: 0x06004A98 RID: 19096 RVA: 0x00145AD8 File Offset: 0x00143CD8
-	// (set) Token: 0x06004A99 RID: 19097 RVA: 0x00145AE0 File Offset: 0x00143CE0
+	// Token: 0x17000F2F RID: 3887
+	// (get) Token: 0x06004F53 RID: 20307 RVA: 0x0014FA3C File Offset: 0x0014DC3C
+	// (set) Token: 0x06004F54 RID: 20308 RVA: 0x0014FA44 File Offset: 0x0014DC44
 	internal float SunZenith { get; private set; }
 
-	// Token: 0x17000E96 RID: 3734
-	// (get) Token: 0x06004A9A RID: 19098 RVA: 0x00145AEC File Offset: 0x00143CEC
-	// (set) Token: 0x06004A9B RID: 19099 RVA: 0x00145AF4 File Offset: 0x00143CF4
+	// Token: 0x17000F30 RID: 3888
+	// (get) Token: 0x06004F55 RID: 20309 RVA: 0x0014FA50 File Offset: 0x0014DC50
+	// (set) Token: 0x06004F56 RID: 20310 RVA: 0x0014FA58 File Offset: 0x0014DC58
 	internal float MoonZenith { get; private set; }
 
-	// Token: 0x17000E97 RID: 3735
-	// (get) Token: 0x06004A9C RID: 19100 RVA: 0x00145B00 File Offset: 0x00143D00
+	// Token: 0x17000F31 RID: 3889
+	// (get) Token: 0x06004F57 RID: 20311 RVA: 0x0014FA64 File Offset: 0x0014DC64
 	internal float LightZenith
 	{
 		get
@@ -669,8 +669,8 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E98 RID: 3736
-	// (get) Token: 0x06004A9D RID: 19101 RVA: 0x00145B14 File Offset: 0x00143D14
+	// Token: 0x17000F32 RID: 3890
+	// (get) Token: 0x06004F58 RID: 20312 RVA: 0x0014FA78 File Offset: 0x0014DC78
 	internal float LightIntensity
 	{
 		get
@@ -679,8 +679,8 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E99 RID: 3737
-	// (get) Token: 0x06004A9E RID: 19102 RVA: 0x00145B28 File Offset: 0x00143D28
+	// Token: 0x17000F33 RID: 3891
+	// (get) Token: 0x06004F59 RID: 20313 RVA: 0x0014FA8C File Offset: 0x0014DC8C
 	internal Vector3 MoonDirection
 	{
 		get
@@ -689,8 +689,8 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E9A RID: 3738
-	// (get) Token: 0x06004A9F RID: 19103 RVA: 0x00145B3C File Offset: 0x00143D3C
+	// Token: 0x17000F34 RID: 3892
+	// (get) Token: 0x06004F5A RID: 20314 RVA: 0x0014FAA0 File Offset: 0x0014DCA0
 	internal Vector3 SunDirection
 	{
 		get
@@ -699,8 +699,8 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E9B RID: 3739
-	// (get) Token: 0x06004AA0 RID: 19104 RVA: 0x00145B50 File Offset: 0x00143D50
+	// Token: 0x17000F35 RID: 3893
+	// (get) Token: 0x06004F5B RID: 20315 RVA: 0x0014FAB4 File Offset: 0x0014DCB4
 	internal Vector3 LightDirection
 	{
 		get
@@ -709,8 +709,8 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E9C RID: 3740
-	// (get) Token: 0x06004AA1 RID: 19105 RVA: 0x00145B7C File Offset: 0x00143D7C
+	// Token: 0x17000F36 RID: 3894
+	// (get) Token: 0x06004F5C RID: 20316 RVA: 0x0014FAE0 File Offset: 0x0014DCE0
 	internal Color LightColor
 	{
 		get
@@ -719,43 +719,43 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E9D RID: 3741
-	// (get) Token: 0x06004AA2 RID: 19106 RVA: 0x00145B90 File Offset: 0x00143D90
-	// (set) Token: 0x06004AA3 RID: 19107 RVA: 0x00145B98 File Offset: 0x00143D98
+	// Token: 0x17000F37 RID: 3895
+	// (get) Token: 0x06004F5D RID: 20317 RVA: 0x0014FAF4 File Offset: 0x0014DCF4
+	// (set) Token: 0x06004F5E RID: 20318 RVA: 0x0014FAFC File Offset: 0x0014DCFC
 	internal Color SunShaftColor { get; private set; }
 
-	// Token: 0x17000E9E RID: 3742
-	// (get) Token: 0x06004AA4 RID: 19108 RVA: 0x00145BA4 File Offset: 0x00143DA4
-	// (set) Token: 0x06004AA5 RID: 19109 RVA: 0x00145BAC File Offset: 0x00143DAC
+	// Token: 0x17000F38 RID: 3896
+	// (get) Token: 0x06004F5F RID: 20319 RVA: 0x0014FB08 File Offset: 0x0014DD08
+	// (set) Token: 0x06004F60 RID: 20320 RVA: 0x0014FB10 File Offset: 0x0014DD10
 	internal Color SunColor { get; private set; }
 
-	// Token: 0x17000E9F RID: 3743
-	// (get) Token: 0x06004AA6 RID: 19110 RVA: 0x00145BB8 File Offset: 0x00143DB8
-	// (set) Token: 0x06004AA7 RID: 19111 RVA: 0x00145BC0 File Offset: 0x00143DC0
+	// Token: 0x17000F39 RID: 3897
+	// (get) Token: 0x06004F61 RID: 20321 RVA: 0x0014FB1C File Offset: 0x0014DD1C
+	// (set) Token: 0x06004F62 RID: 20322 RVA: 0x0014FB24 File Offset: 0x0014DD24
 	internal Color MoonColor { get; private set; }
 
-	// Token: 0x17000EA0 RID: 3744
-	// (get) Token: 0x06004AA8 RID: 19112 RVA: 0x00145BCC File Offset: 0x00143DCC
-	// (set) Token: 0x06004AA9 RID: 19113 RVA: 0x00145BD4 File Offset: 0x00143DD4
+	// Token: 0x17000F3A RID: 3898
+	// (get) Token: 0x06004F63 RID: 20323 RVA: 0x0014FB30 File Offset: 0x0014DD30
+	// (set) Token: 0x06004F64 RID: 20324 RVA: 0x0014FB38 File Offset: 0x0014DD38
 	internal Color MoonHaloColor { get; private set; }
 
-	// Token: 0x17000EA1 RID: 3745
-	// (get) Token: 0x06004AAA RID: 19114 RVA: 0x00145BE0 File Offset: 0x00143DE0
-	// (set) Token: 0x06004AAB RID: 19115 RVA: 0x00145BE8 File Offset: 0x00143DE8
+	// Token: 0x17000F3B RID: 3899
+	// (get) Token: 0x06004F65 RID: 20325 RVA: 0x0014FB44 File Offset: 0x0014DD44
+	// (set) Token: 0x06004F66 RID: 20326 RVA: 0x0014FB4C File Offset: 0x0014DD4C
 	internal Color CloudColor { get; private set; }
 
-	// Token: 0x17000EA2 RID: 3746
-	// (get) Token: 0x06004AAC RID: 19116 RVA: 0x00145BF4 File Offset: 0x00143DF4
-	// (set) Token: 0x06004AAD RID: 19117 RVA: 0x00145BFC File Offset: 0x00143DFC
+	// Token: 0x17000F3C RID: 3900
+	// (get) Token: 0x06004F67 RID: 20327 RVA: 0x0014FB58 File Offset: 0x0014DD58
+	// (set) Token: 0x06004F68 RID: 20328 RVA: 0x0014FB60 File Offset: 0x0014DD60
 	internal Color AdditiveColor { get; private set; }
 
-	// Token: 0x17000EA3 RID: 3747
-	// (get) Token: 0x06004AAE RID: 19118 RVA: 0x00145C08 File Offset: 0x00143E08
-	// (set) Token: 0x06004AAF RID: 19119 RVA: 0x00145C10 File Offset: 0x00143E10
+	// Token: 0x17000F3D RID: 3901
+	// (get) Token: 0x06004F69 RID: 20329 RVA: 0x0014FB6C File Offset: 0x0014DD6C
+	// (set) Token: 0x06004F6A RID: 20330 RVA: 0x0014FB74 File Offset: 0x0014DD74
 	internal Color AmbientColor { get; private set; }
 
-	// Token: 0x17000EA4 RID: 3748
-	// (get) Token: 0x06004AB0 RID: 19120 RVA: 0x00145C1C File Offset: 0x00143E1C
+	// Token: 0x17000F3E RID: 3902
+	// (get) Token: 0x06004F6B RID: 20331 RVA: 0x0014FB80 File Offset: 0x0014DD80
 	internal Color FogColor
 	{
 		get
@@ -764,105 +764,105 @@ public class TOD_Sky : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002B68 RID: 11112
+	// Token: 0x04002DB6 RID: 11702
 	private const float pi = 3.14159274f;
 
-	// Token: 0x04002B69 RID: 11113
+	// Token: 0x04002DB7 RID: 11703
 	private const float pi2 = 9.869605f;
 
-	// Token: 0x04002B6A RID: 11114
+	// Token: 0x04002DB8 RID: 11704
 	private const float pi3 = 31.006279f;
 
-	// Token: 0x04002B6B RID: 11115
+	// Token: 0x04002DB9 RID: 11705
 	private const float pi4 = 97.4091f;
 
-	// Token: 0x04002B6C RID: 11116
+	// Token: 0x04002DBA RID: 11706
 	private Vector2 opticalDepth;
 
-	// Token: 0x04002B6D RID: 11117
+	// Token: 0x04002DBB RID: 11707
 	private Vector3 oneOverBeta;
 
-	// Token: 0x04002B6E RID: 11118
+	// Token: 0x04002DBC RID: 11708
 	private Vector3 betaRayleigh;
 
-	// Token: 0x04002B6F RID: 11119
+	// Token: 0x04002DBD RID: 11709
 	private Vector3 betaRayleighTheta;
 
-	// Token: 0x04002B70 RID: 11120
+	// Token: 0x04002DBE RID: 11710
 	private Vector3 betaMie;
 
-	// Token: 0x04002B71 RID: 11121
+	// Token: 0x04002DBF RID: 11711
 	private Vector3 betaMieTheta;
 
-	// Token: 0x04002B72 RID: 11122
+	// Token: 0x04002DC0 RID: 11712
 	private Vector2 betaMiePhase;
 
-	// Token: 0x04002B73 RID: 11123
+	// Token: 0x04002DC1 RID: 11713
 	private Vector3 betaNight;
 
-	// Token: 0x04002B74 RID: 11124
-	public TOD_Sky.ColorSpaceDetection UnityColorSpace;
+	// Token: 0x04002DC2 RID: 11714
+	public global::TOD_Sky.ColorSpaceDetection UnityColorSpace;
 
-	// Token: 0x04002B75 RID: 11125
-	public TOD_Sky.CloudQualityType CloudQuality = TOD_Sky.CloudQualityType.Bumped;
+	// Token: 0x04002DC3 RID: 11715
+	public global::TOD_Sky.CloudQualityType CloudQuality = global::TOD_Sky.CloudQualityType.Bumped;
 
-	// Token: 0x04002B76 RID: 11126
-	public TOD_Sky.MeshQualityType MeshQuality = TOD_Sky.MeshQualityType.High;
+	// Token: 0x04002DC4 RID: 11716
+	public global::TOD_Sky.MeshQualityType MeshQuality = global::TOD_Sky.MeshQualityType.High;
 
-	// Token: 0x04002B77 RID: 11127
-	public TOD_CycleParameters Cycle;
+	// Token: 0x04002DC5 RID: 11717
+	public global::TOD_CycleParameters Cycle;
 
-	// Token: 0x04002B78 RID: 11128
-	public TOD_AtmosphereParameters Atmosphere;
+	// Token: 0x04002DC6 RID: 11718
+	public global::TOD_AtmosphereParameters Atmosphere;
 
-	// Token: 0x04002B79 RID: 11129
-	public TOD_DayParameters Day;
+	// Token: 0x04002DC7 RID: 11719
+	public global::TOD_DayParameters Day;
 
-	// Token: 0x04002B7A RID: 11130
-	public TOD_NightParameters Night;
+	// Token: 0x04002DC8 RID: 11720
+	public global::TOD_NightParameters Night;
 
-	// Token: 0x04002B7B RID: 11131
-	public TOD_LightParameters Light;
+	// Token: 0x04002DC9 RID: 11721
+	public global::TOD_LightParameters Light;
 
-	// Token: 0x04002B7C RID: 11132
-	public TOD_StarParameters Stars;
+	// Token: 0x04002DCA RID: 11722
+	public global::TOD_StarParameters Stars;
 
-	// Token: 0x04002B7D RID: 11133
-	public TOD_CloudParameters Clouds;
+	// Token: 0x04002DCB RID: 11723
+	public global::TOD_CloudParameters Clouds;
 
-	// Token: 0x04002B7E RID: 11134
-	public TOD_WorldParameters World;
+	// Token: 0x04002DCC RID: 11724
+	public global::TOD_WorldParameters World;
 
-	// Token: 0x02000835 RID: 2101
+	// Token: 0x0200092A RID: 2346
 	public enum ColorSpaceDetection
 	{
-		// Token: 0x04002B8B RID: 11147
+		// Token: 0x04002DD9 RID: 11737
 		Auto,
-		// Token: 0x04002B8C RID: 11148
+		// Token: 0x04002DDA RID: 11738
 		Linear,
-		// Token: 0x04002B8D RID: 11149
+		// Token: 0x04002DDB RID: 11739
 		Gamma
 	}
 
-	// Token: 0x02000836 RID: 2102
+	// Token: 0x0200092B RID: 2347
 	public enum CloudQualityType
 	{
-		// Token: 0x04002B8F RID: 11151
+		// Token: 0x04002DDD RID: 11741
 		Fastest,
-		// Token: 0x04002B90 RID: 11152
+		// Token: 0x04002DDE RID: 11742
 		Density,
-		// Token: 0x04002B91 RID: 11153
+		// Token: 0x04002DDF RID: 11743
 		Bumped
 	}
 
-	// Token: 0x02000837 RID: 2103
+	// Token: 0x0200092C RID: 2348
 	public enum MeshQualityType
 	{
-		// Token: 0x04002B93 RID: 11155
+		// Token: 0x04002DE1 RID: 11745
 		Low,
-		// Token: 0x04002B94 RID: 11156
+		// Token: 0x04002DE2 RID: 11746
 		Medium,
-		// Token: 0x04002B95 RID: 11157
+		// Token: 0x04002DE3 RID: 11747
 		High
 	}
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Text;
 
-// Token: 0x02000464 RID: 1124
+// Token: 0x0200051A RID: 1306
 internal struct ContextClientStage
 {
-	// Token: 0x060028D9 RID: 10457 RVA: 0x000A0328 File Offset: 0x0009E528
+	// Token: 0x06002C69 RID: 11369 RVA: 0x000A62A8 File Offset: 0x000A44A8
 	public void Set(ContextMenuData data)
 	{
 		if (this.length < data.options_length)
@@ -33,11 +33,11 @@ internal struct ContextClientStage
 		}
 	}
 
-	// Token: 0x040014D7 RID: 5335
+	// Token: 0x0400165A RID: 5722
 	[NonSerialized]
 	public ContextClientStageMenuItem[] option;
 
-	// Token: 0x040014D8 RID: 5336
+	// Token: 0x0400165B RID: 5723
 	[NonSerialized]
 	public int length;
 }

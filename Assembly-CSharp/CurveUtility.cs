@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000488 RID: 1160
+// Token: 0x02000543 RID: 1347
 public static class CurveUtility
 {
-	// Token: 0x06002956 RID: 10582 RVA: 0x000A2378 File Offset: 0x000A0578
+	// Token: 0x06002D08 RID: 11528 RVA: 0x000A8774 File Offset: 0x000A6974
 	public static float EvaluateClampedTime(this AnimationCurve curve, ref float time, float advance)
 	{
 		int length = curve.length;
@@ -43,7 +43,7 @@ public static class CurveUtility
 		return curve.Evaluate(time);
 	}
 
-	// Token: 0x06002957 RID: 10583 RVA: 0x000A2430 File Offset: 0x000A0630
+	// Token: 0x06002D09 RID: 11529 RVA: 0x000A882C File Offset: 0x000A6A2C
 	public static float GetEndTime(this AnimationCurve curve)
 	{
 		if (curve.length == 0)
@@ -53,7 +53,7 @@ public static class CurveUtility
 		return curve[curve.length - 1].time;
 	}
 
-	// Token: 0x06002958 RID: 10584 RVA: 0x000A2464 File Offset: 0x000A0664
+	// Token: 0x06002D0A RID: 11530 RVA: 0x000A8860 File Offset: 0x000A6A60
 	public static float GetStartTime(this AnimationCurve curve)
 	{
 		if (curve.length == 0)

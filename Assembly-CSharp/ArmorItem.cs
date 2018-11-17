@@ -1,39 +1,39 @@
 ﻿using System;
 
-// Token: 0x020005B1 RID: 1457
-public abstract class ArmorItem<T> : EquipmentItem<T> where T : ArmorDataBlock
+// Token: 0x0200066F RID: 1647
+public abstract class ArmorItem<T> : global::EquipmentItem<T> where T : global::ArmorDataBlock
 {
-	// Token: 0x060034DB RID: 13531 RVA: 0x000C1254 File Offset: 0x000BF454
+	// Token: 0x060038A3 RID: 14499 RVA: 0x000C94B0 File Offset: 0x000C76B0
 	protected ArmorItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x060034DC RID: 13532 RVA: 0x000C1260 File Offset: 0x000BF460
-	public override void OnMovedTo(Inventory toInv, int toSlot)
+	// Token: 0x060038A4 RID: 14500 RVA: 0x000C94BC File Offset: 0x000C76BC
+	public override void OnMovedTo(global::Inventory toInv, int toSlot)
 	{
 		base.OnMovedTo(toInv, toSlot);
 		this.ArmorUpdate(toInv, toSlot);
 	}
 
-	// Token: 0x060034DD RID: 13533 RVA: 0x000C1274 File Offset: 0x000BF474
-	public override void OnAddedTo(Inventory newInventory, int targetSlot)
+	// Token: 0x060038A5 RID: 14501 RVA: 0x000C94D0 File Offset: 0x000C76D0
+	public override void OnAddedTo(global::Inventory newInventory, int targetSlot)
 	{
 		base.OnAddedTo(newInventory, targetSlot);
 		this.ArmorUpdate(newInventory, targetSlot);
 	}
 
-	// Token: 0x060034DE RID: 13534 RVA: 0x000C1288 File Offset: 0x000BF488
-	public virtual void ArmorUpdate(Inventory belongInv, int belongSlot)
+	// Token: 0x060038A6 RID: 14502 RVA: 0x000C94E4 File Offset: 0x000C76E4
+	public virtual void ArmorUpdate(global::Inventory belongInv, int belongSlot)
 	{
 	}
 
-	// Token: 0x060034DF RID: 13535 RVA: 0x000C128C File Offset: 0x000BF48C
-	public override bool CanMoveToSlot(Inventory toinv, int toslot)
+	// Token: 0x060038A7 RID: 14503 RVA: 0x000C94E8 File Offset: 0x000C76E8
+	public override bool CanMoveToSlot(global::Inventory toinv, int toslot)
 	{
 		if (base.IsBroken())
 		{
-			PlayerInventory playerInventory = toinv as PlayerInventory;
-			if (playerInventory != null && PlayerInventory.IsEquipmentSlot(toslot))
+			global::PlayerInventory playerInventory = toinv as global::PlayerInventory;
+			if (playerInventory != null && global::PlayerInventory.IsEquipmentSlot(toslot))
 			{
 				return false;
 			}
@@ -41,7 +41,7 @@ public abstract class ArmorItem<T> : EquipmentItem<T> where T : ArmorDataBlock
 		return true;
 	}
 
-	// Token: 0x060034E0 RID: 13536 RVA: 0x000C12C8 File Offset: 0x000BF4C8
+	// Token: 0x060038A8 RID: 14504 RVA: 0x000C9524 File Offset: 0x000C7724
 	public override void ConditionChanged(float oldCondition)
 	{
 	}

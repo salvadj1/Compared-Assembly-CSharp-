@@ -1,11 +1,11 @@
 ﻿using System;
 
-// Token: 0x02000311 RID: 785
+// Token: 0x020003BA RID: 954
 public interface IPrefabCustomInstantiate
 {
-	// Token: 0x06001E48 RID: 7752
-	IDMain CustomInstantiatePrefab(ref CustomInstantiationArgs args);
+	// Token: 0x0600218A RID: 8586
+	IDMain CustomInstantiatePrefab(ref global::CustomInstantiationArgs args);
 
-	// Token: 0x06001E49 RID: 7753
-	bool InitializePrefabInstance(NetInstance net);
+	// Token: 0x0600218B RID: 8587
+	bool InitializePrefabInstance(global::NetInstance net);
 }

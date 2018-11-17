@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000617 RID: 1559
+// Token: 0x020006D7 RID: 1751
 public class LightStyleTest : MonoBehaviour
 {
-	// Token: 0x06003774 RID: 14196 RVA: 0x000C9654 File Offset: 0x000C7854
+	// Token: 0x06003B4C RID: 15180 RVA: 0x000D1B84 File Offset: 0x000CFD84
 	private void Update()
 	{
 		if (Input.GetKeyDown(274))
@@ -30,7 +30,7 @@ public class LightStyleTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003775 RID: 14197 RVA: 0x000C9754 File Offset: 0x000C7954
+	// Token: 0x06003B4D RID: 15181 RVA: 0x000D1C84 File Offset: 0x000CFE84
 	private void OnGUI()
 	{
 		for (int i = 0; i < this.tests.Length; i++)
@@ -64,7 +64,7 @@ public class LightStyleTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003776 RID: 14198 RVA: 0x000C9890 File Offset: 0x000C7A90
+	// Token: 0x06003B4E RID: 15182 RVA: 0x000D1DC0 File Offset: 0x000CFFC0
 	private void Reset()
 	{
 		this.tests = new string[]
@@ -73,24 +73,24 @@ public class LightStyleTest : MonoBehaviour
 		};
 	}
 
-	// Token: 0x04001B97 RID: 7063
-	public LightStylist stylist;
+	// Token: 0x04001D7D RID: 7549
+	public global::LightStylist stylist;
 
-	// Token: 0x04001B98 RID: 7064
+	// Token: 0x04001D7E RID: 7550
 	public string[] tests;
 
-	// Token: 0x04001B99 RID: 7065
+	// Token: 0x04001D7F RID: 7551
 	public float spacebarTargetWeight = 1f;
 
-	// Token: 0x04001B9A RID: 7066
+	// Token: 0x04001D80 RID: 7552
 	public float spacebarFadeLength = 1.3f;
 
-	// Token: 0x04001B9B RID: 7067
+	// Token: 0x04001D81 RID: 7553
 	public float enterCrossfadeLength = 0.3f;
 
-	// Token: 0x04001B9C RID: 7068
+	// Token: 0x04001D82 RID: 7554
 	private int index;
 
-	// Token: 0x04001B9D RID: 7069
+	// Token: 0x04001D83 RID: 7555
 	private List<float> weights;
 }

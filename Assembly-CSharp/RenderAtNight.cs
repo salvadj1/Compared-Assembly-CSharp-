@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000847 RID: 2119
+// Token: 0x0200093C RID: 2364
 [RequireComponent(typeof(Renderer))]
 public class RenderAtNight : MonoBehaviour
 {
-	// Token: 0x06004AD3 RID: 19155 RVA: 0x00146BA8 File Offset: 0x00144DA8
+	// Token: 0x06004F8E RID: 20366 RVA: 0x00150B0C File Offset: 0x0014ED0C
 	protected void OnEnable()
 	{
 		if (!this.sky)
@@ -16,15 +16,15 @@ public class RenderAtNight : MonoBehaviour
 		this.rendererComponent = base.renderer;
 	}
 
-	// Token: 0x06004AD4 RID: 19156 RVA: 0x00146BD8 File Offset: 0x00144DD8
+	// Token: 0x06004F8F RID: 20367 RVA: 0x00150B3C File Offset: 0x0014ED3C
 	protected void Update()
 	{
 		this.rendererComponent.enabled = this.sky.IsNight;
 	}
 
-	// Token: 0x04002BED RID: 11245
-	public TOD_Sky sky;
+	// Token: 0x04002E3B RID: 11835
+	public global::TOD_Sky sky;
 
-	// Token: 0x04002BEE RID: 11246
+	// Token: 0x04002E3C RID: 11836
 	private Renderer rendererComponent;
 }

@@ -1,24 +1,24 @@
 ﻿using System;
 
-// Token: 0x0200043B RID: 1083
+// Token: 0x020004F1 RID: 1265
 public enum ActivationResult
 {
-	// Token: 0x040013D3 RID: 5075
+	// Token: 0x04001556 RID: 5462
 	Success,
-	// Token: 0x040013D4 RID: 5076
+	// Token: 0x04001557 RID: 5463
 	Fail_Busy,
-	// Token: 0x040013D5 RID: 5077
+	// Token: 0x04001558 RID: 5464
 	Fail_Broken,
-	// Token: 0x040013D6 RID: 5078
+	// Token: 0x04001559 RID: 5465
 	Fail_Access,
-	// Token: 0x040013D7 RID: 5079
+	// Token: 0x0400155A RID: 5466
 	Fail_Redundant,
-	// Token: 0x040013D8 RID: 5080
+	// Token: 0x0400155B RID: 5467
 	Fail_BadToggle,
-	// Token: 0x040013D9 RID: 5081
+	// Token: 0x0400155C RID: 5468
 	Fail_RequiresInstigator,
-	// Token: 0x040013DA RID: 5082
+	// Token: 0x0400155D RID: 5469
 	Error_Implementation,
-	// Token: 0x040013DB RID: 5083
+	// Token: 0x0400155E RID: 5470
 	Error_Destroyed
 }

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000790 RID: 1936
+// Token: 0x02000875 RID: 2165
 public static class NGUIMath
 {
-	// Token: 0x060045DF RID: 17887 RVA: 0x00114EC8 File Offset: 0x001130C8
+	// Token: 0x06004A4C RID: 19020 RVA: 0x0011E848 File Offset: 0x0011CA48
 	public static float WrapAngle(float angle)
 	{
 		while (angle > 180f)
@@ -19,7 +19,7 @@ public static class NGUIMath
 		return angle;
 	}
 
-	// Token: 0x060045E0 RID: 17888 RVA: 0x00114F00 File Offset: 0x00113100
+	// Token: 0x06004A4D RID: 19021 RVA: 0x0011E880 File Offset: 0x0011CA80
 	public static int HexToDecimal(char ch)
 	{
 		switch (ch)
@@ -79,7 +79,7 @@ public static class NGUIMath
 		return 10;
 	}
 
-	// Token: 0x060045E1 RID: 17889 RVA: 0x00114FC4 File Offset: 0x001131C4
+	// Token: 0x06004A4E RID: 19022 RVA: 0x0011E944 File Offset: 0x0011CB44
 	public static int ColorToInt(Color c)
 	{
 		int num = 0;
@@ -89,7 +89,7 @@ public static class NGUIMath
 		return num | Mathf.RoundToInt(c.a * 255f);
 	}
 
-	// Token: 0x060045E2 RID: 17890 RVA: 0x00115030 File Offset: 0x00113230
+	// Token: 0x06004A4F RID: 19023 RVA: 0x0011E9B0 File Offset: 0x0011CBB0
 	public static Color IntToColor(int val)
 	{
 		float num = 0.003921569f;
@@ -101,7 +101,7 @@ public static class NGUIMath
 		return black;
 	}
 
-	// Token: 0x060045E3 RID: 17891 RVA: 0x00115098 File Offset: 0x00113298
+	// Token: 0x06004A50 RID: 19024 RVA: 0x0011EA18 File Offset: 0x0011CC18
 	public static string IntToBinary(int val, int bits)
 	{
 		string text = string.Empty;
@@ -117,13 +117,13 @@ public static class NGUIMath
 		return text;
 	}
 
-	// Token: 0x060045E4 RID: 17892 RVA: 0x00115108 File Offset: 0x00113308
+	// Token: 0x06004A51 RID: 19025 RVA: 0x0011EA88 File Offset: 0x0011CC88
 	public static Color HexToColor(uint val)
 	{
-		return NGUIMath.IntToColor((int)val);
+		return global::NGUIMath.IntToColor((int)val);
 	}
 
-	// Token: 0x060045E5 RID: 17893 RVA: 0x00115110 File Offset: 0x00113310
+	// Token: 0x06004A52 RID: 19026 RVA: 0x0011EA90 File Offset: 0x0011CC90
 	public static Rect ConvertToTexCoords(Rect rect, int width, int height)
 	{
 		Rect result = rect;
@@ -137,7 +137,7 @@ public static class NGUIMath
 		return result;
 	}
 
-	// Token: 0x060045E6 RID: 17894 RVA: 0x00115188 File Offset: 0x00113388
+	// Token: 0x06004A53 RID: 19027 RVA: 0x0011EB08 File Offset: 0x0011CD08
 	public static Rect ConvertToPixels(Rect rect, int width, int height, bool round)
 	{
 		Rect result = rect;
@@ -158,7 +158,7 @@ public static class NGUIMath
 		return result;
 	}
 
-	// Token: 0x060045E7 RID: 17895 RVA: 0x0011525C File Offset: 0x0011345C
+	// Token: 0x06004A54 RID: 19028 RVA: 0x0011EBDC File Offset: 0x0011CDDC
 	public static Rect MakePixelPerfect(Rect rect)
 	{
 		rect.xMin = (float)Mathf.RoundToInt(rect.xMin);
@@ -168,18 +168,18 @@ public static class NGUIMath
 		return rect;
 	}
 
-	// Token: 0x060045E8 RID: 17896 RVA: 0x001152BC File Offset: 0x001134BC
+	// Token: 0x06004A55 RID: 19029 RVA: 0x0011EC3C File Offset: 0x0011CE3C
 	public static Rect MakePixelPerfect(Rect rect, int width, int height)
 	{
-		rect = NGUIMath.ConvertToPixels(rect, width, height, true);
+		rect = global::NGUIMath.ConvertToPixels(rect, width, height, true);
 		rect.xMin = (float)Mathf.RoundToInt(rect.xMin);
 		rect.yMin = (float)Mathf.RoundToInt(rect.yMin);
 		rect.xMax = (float)Mathf.RoundToInt(rect.xMax);
 		rect.yMax = (float)Mathf.RoundToInt(rect.yMax);
-		return NGUIMath.ConvertToTexCoords(rect, width, height);
+		return global::NGUIMath.ConvertToTexCoords(rect, width, height);
 	}
 
-	// Token: 0x060045E9 RID: 17897 RVA: 0x0011532C File Offset: 0x0011352C
+	// Token: 0x06004A56 RID: 19030 RVA: 0x0011ECAC File Offset: 0x0011CEAC
 	public static Vector3 ApplyHalfPixelOffset(Vector3 pos)
 	{
 		RuntimePlatform platform = Application.platform;
@@ -191,7 +191,7 @@ public static class NGUIMath
 		return pos;
 	}
 
-	// Token: 0x060045EA RID: 17898 RVA: 0x00115380 File Offset: 0x00113580
+	// Token: 0x06004A57 RID: 19031 RVA: 0x0011ED00 File Offset: 0x0011CF00
 	public static Vector3 ApplyHalfPixelOffset(Vector3 pos, Vector3 scale)
 	{
 		RuntimePlatform platform = Application.platform;
@@ -209,7 +209,7 @@ public static class NGUIMath
 		return pos;
 	}
 
-	// Token: 0x060045EB RID: 17899 RVA: 0x0011541C File Offset: 0x0011361C
+	// Token: 0x06004A58 RID: 19032 RVA: 0x0011ED9C File Offset: 0x0011CF9C
 	public static Vector2 ConstrainRect(Vector2 minRect, Vector2 maxRect, Vector2 minArea, Vector2 maxArea)
 	{
 		Vector2 zero = Vector2.zero;
@@ -248,21 +248,21 @@ public static class NGUIMath
 		return zero;
 	}
 
-	// Token: 0x060045EC RID: 17900 RVA: 0x0011558C File Offset: 0x0011378C
-	public static AABBox CalculateAbsoluteWidgetBounds(Transform trans)
+	// Token: 0x06004A59 RID: 19033 RVA: 0x0011EF0C File Offset: 0x0011D10C
+	public static global::AABBox CalculateAbsoluteWidgetBounds(Transform trans)
 	{
-		AABBox result;
-		using (NGUIMath.WidgetList widgetsInChildren = NGUIMath.GetWidgetsInChildren(trans))
+		global::AABBox result;
+		using (global::NGUIMath.WidgetList widgetsInChildren = global::NGUIMath.GetWidgetsInChildren(trans))
 		{
 			if (widgetsInChildren.empty)
 			{
-				result = default(AABBox);
+				result = default(global::AABBox);
 			}
 			else
 			{
-				AABBox aabbox = default(AABBox);
+				global::AABBox aabbox = default(global::AABBox);
 				bool flag = true;
-				foreach (UIWidget uiwidget in widgetsInChildren)
+				foreach (global::UIWidget uiwidget in widgetsInChildren)
 				{
 					Vector2 vector;
 					Vector2 vector2;
@@ -277,9 +277,9 @@ public static class NGUIMath
 					vector3.y -= vector2.y * 0.5f;
 					vector3.z = 0f;
 					vector4.z = 0f;
-					AABBox aabbox2 = new AABBox(ref vector3, ref vector4);
+					global::AABBox aabbox2 = new global::AABBox(ref vector3, ref vector4);
 					Matrix4x4 localToWorldMatrix = uiwidget.cachedTransform.localToWorldMatrix;
-					AABBox aabbox3;
+					global::AABBox aabbox3;
 					aabbox2.TransformedAABB3x4(ref localToWorldMatrix, out aabbox3);
 					if (flag)
 					{
@@ -293,7 +293,7 @@ public static class NGUIMath
 				}
 				if (flag)
 				{
-					result = new AABBox(trans.position);
+					result = new global::AABBox(trans.position);
 				}
 				else
 				{
@@ -304,15 +304,15 @@ public static class NGUIMath
 		return result;
 	}
 
-	// Token: 0x060045ED RID: 17901 RVA: 0x0011576C File Offset: 0x0011396C
-	private static void FillWidgetListWithChildren(Transform trans, ref NGUIMath.WidgetList list, ref bool madeList)
+	// Token: 0x06004A5A RID: 19034 RVA: 0x0011F0EC File Offset: 0x0011D2EC
+	private static void FillWidgetListWithChildren(Transform trans, ref global::NGUIMath.WidgetList list, ref bool madeList)
 	{
-		UIWidget component = trans.GetComponent<UIWidget>();
+		global::UIWidget component = trans.GetComponent<global::UIWidget>();
 		if (component)
 		{
 			if (!madeList)
 			{
-				list = NGUIMath.WidgetList.Generate();
+				list = global::NGUIMath.WidgetList.Generate();
 				madeList = true;
 			}
 			list.Add(component);
@@ -320,42 +320,42 @@ public static class NGUIMath
 		int childCount = trans.childCount;
 		while (childCount-- > 0)
 		{
-			NGUIMath.FillWidgetListWithChildren(trans.GetChild(childCount), ref list, ref madeList);
+			global::NGUIMath.FillWidgetListWithChildren(trans.GetChild(childCount), ref list, ref madeList);
 		}
 	}
 
-	// Token: 0x060045EE RID: 17902 RVA: 0x001157CC File Offset: 0x001139CC
-	private static NGUIMath.WidgetList GetWidgetsInChildren(Transform trans)
+	// Token: 0x06004A5B RID: 19035 RVA: 0x0011F14C File Offset: 0x0011D34C
+	private static global::NGUIMath.WidgetList GetWidgetsInChildren(Transform trans)
 	{
 		if (trans)
 		{
 			bool flag = false;
-			NGUIMath.WidgetList result = null;
-			NGUIMath.FillWidgetListWithChildren(trans, ref result, ref flag);
+			global::NGUIMath.WidgetList result = null;
+			global::NGUIMath.FillWidgetListWithChildren(trans, ref result, ref flag);
 			if (flag)
 			{
 				return result;
 			}
 		}
-		return NGUIMath.WidgetList.Empty;
+		return global::NGUIMath.WidgetList.Empty;
 	}
 
-	// Token: 0x060045EF RID: 17903 RVA: 0x00115800 File Offset: 0x00113A00
-	public static AABBox CalculateRelativeWidgetBounds(Transform root, Transform child)
+	// Token: 0x06004A5C RID: 19036 RVA: 0x0011F180 File Offset: 0x0011D380
+	public static global::AABBox CalculateRelativeWidgetBounds(Transform root, Transform child)
 	{
-		AABBox result;
-		using (NGUIMath.WidgetList widgetsInChildren = NGUIMath.GetWidgetsInChildren(child))
+		global::AABBox result;
+		using (global::NGUIMath.WidgetList widgetsInChildren = global::NGUIMath.GetWidgetsInChildren(child))
 		{
 			if (widgetsInChildren.empty)
 			{
-				result = default(AABBox);
+				result = default(global::AABBox);
 			}
 			else
 			{
 				bool flag = true;
-				AABBox aabbox = default(AABBox);
+				global::AABBox aabbox = default(global::AABBox);
 				Matrix4x4 worldToLocalMatrix = root.worldToLocalMatrix;
-				foreach (UIWidget uiwidget in widgetsInChildren)
+				foreach (global::UIWidget uiwidget in widgetsInChildren)
 				{
 					Vector2 vector;
 					Vector2 vector2;
@@ -371,8 +371,8 @@ public static class NGUIMath
 					vector3.x -= vector2.x * 0.5f;
 					vector3.y -= vector2.y * 0.5f;
 					Matrix4x4 matrix4x = worldToLocalMatrix * uiwidget.cachedTransform.localToWorldMatrix;
-					AABBox aabbox2 = new AABBox(ref vector3, ref vector4);
-					AABBox aabbox3;
+					global::AABBox aabbox2 = new global::AABBox(ref vector3, ref vector4);
+					global::AABBox aabbox3;
 					aabbox2.TransformedAABB3x4(ref matrix4x, out aabbox3);
 					if (flag)
 					{
@@ -390,8 +390,8 @@ public static class NGUIMath
 		return result;
 	}
 
-	// Token: 0x060045F0 RID: 17904 RVA: 0x001159D4 File Offset: 0x00113BD4
-	public static AABBox CalculateRelativeInnerBounds(Transform root, UISlicedSprite sprite)
+	// Token: 0x06004A5D RID: 19037 RVA: 0x0011F354 File Offset: 0x0011D554
+	public static global::AABBox CalculateRelativeInnerBounds(Transform root, global::UISlicedSprite sprite)
 	{
 		Transform cachedTransform = sprite.cachedTransform;
 		Matrix4x4 matrix4x = root.worldToLocalMatrix * cachedTransform.localToWorldMatrix;
@@ -422,29 +422,29 @@ public static class NGUIMath
 		vector3.y = num2 - vector2.y + border.y;
 		vector4.y = num2 + vector2.y - border.w;
 		vector3.z = (vector4.z = 0f);
-		AABBox aabbox = new AABBox(ref vector3, ref vector4);
-		AABBox result;
+		global::AABBox aabbox = new global::AABBox(ref vector3, ref vector4);
+		global::AABBox result;
 		aabbox.TransformedAABB3x4(ref matrix4x, out result);
 		return result;
 	}
 
-	// Token: 0x060045F1 RID: 17905 RVA: 0x00115B4C File Offset: 0x00113D4C
-	public static AABBox CalculateRelativeInnerBounds(Transform root, UISprite sprite)
+	// Token: 0x06004A5E RID: 19038 RVA: 0x0011F4CC File Offset: 0x0011D6CC
+	public static global::AABBox CalculateRelativeInnerBounds(Transform root, global::UISprite sprite)
 	{
-		if (sprite is UISlicedSprite)
+		if (sprite is global::UISlicedSprite)
 		{
-			return NGUIMath.CalculateRelativeInnerBounds(root, sprite as UISlicedSprite);
+			return global::NGUIMath.CalculateRelativeInnerBounds(root, sprite as global::UISlicedSprite);
 		}
-		return NGUIMath.CalculateRelativeWidgetBounds(root, sprite.cachedTransform);
+		return global::NGUIMath.CalculateRelativeWidgetBounds(root, sprite.cachedTransform);
 	}
 
-	// Token: 0x060045F2 RID: 17906 RVA: 0x00115B80 File Offset: 0x00113D80
-	public static AABBox CalculateRelativeWidgetBounds(Transform trans)
+	// Token: 0x06004A5F RID: 19039 RVA: 0x0011F500 File Offset: 0x0011D700
+	public static global::AABBox CalculateRelativeWidgetBounds(Transform trans)
 	{
-		return NGUIMath.CalculateRelativeWidgetBounds(trans, trans);
+		return global::NGUIMath.CalculateRelativeWidgetBounds(trans, trans);
 	}
 
-	// Token: 0x060045F3 RID: 17907 RVA: 0x00115B8C File Offset: 0x00113D8C
+	// Token: 0x06004A60 RID: 19040 RVA: 0x0011F50C File Offset: 0x0011D70C
 	public static Vector3 SpringDampen(ref Vector3 velocity, float strength, float deltaTime)
 	{
 		if (Mathf.Approximately(velocity.x, 0f) && Mathf.Approximately(velocity.y, 0f) && Mathf.Approximately(velocity.z, 0f))
@@ -463,7 +463,7 @@ public static class NGUIMath
 		return vector;
 	}
 
-	// Token: 0x060045F4 RID: 17908 RVA: 0x00115C48 File Offset: 0x00113E48
+	// Token: 0x06004A61 RID: 19041 RVA: 0x0011F5C8 File Offset: 0x0011D7C8
 	public static Vector2 SpringDampen(ref Vector2 velocity, float strength, float deltaTime)
 	{
 		float num = 1f - strength * 0.001f;
@@ -477,7 +477,7 @@ public static class NGUIMath
 		return vector;
 	}
 
-	// Token: 0x060045F5 RID: 17909 RVA: 0x00115CB4 File Offset: 0x00113EB4
+	// Token: 0x06004A62 RID: 19042 RVA: 0x0011F634 File Offset: 0x0011D834
 	public static float SpringLerp(float strength, float deltaTime)
 	{
 		int num = Mathf.RoundToInt(deltaTime * 1000f);
@@ -490,7 +490,7 @@ public static class NGUIMath
 		return num2;
 	}
 
-	// Token: 0x060045F6 RID: 17910 RVA: 0x00115D00 File Offset: 0x00113F00
+	// Token: 0x06004A63 RID: 19043 RVA: 0x0011F680 File Offset: 0x0011D880
 	public static float SpringLerp(float from, float to, float strength, float deltaTime)
 	{
 		int num = Mathf.RoundToInt(deltaTime * 1000f);
@@ -502,28 +502,28 @@ public static class NGUIMath
 		return from;
 	}
 
-	// Token: 0x060045F7 RID: 17911 RVA: 0x00115D40 File Offset: 0x00113F40
+	// Token: 0x06004A64 RID: 19044 RVA: 0x0011F6C0 File Offset: 0x0011D8C0
 	public static Vector2 SpringLerp(Vector2 from, Vector2 to, float strength, float deltaTime)
 	{
-		return Vector2.Lerp(from, to, NGUIMath.SpringLerp(strength, deltaTime));
+		return Vector2.Lerp(from, to, global::NGUIMath.SpringLerp(strength, deltaTime));
 	}
 
-	// Token: 0x060045F8 RID: 17912 RVA: 0x00115D50 File Offset: 0x00113F50
+	// Token: 0x06004A65 RID: 19045 RVA: 0x0011F6D0 File Offset: 0x0011D8D0
 	public static Vector3 SpringLerp(Vector3 from, Vector3 to, float strength, float deltaTime)
 	{
-		return Vector3.Lerp(from, to, NGUIMath.SpringLerp(strength, deltaTime));
+		return Vector3.Lerp(from, to, global::NGUIMath.SpringLerp(strength, deltaTime));
 	}
 
-	// Token: 0x060045F9 RID: 17913 RVA: 0x00115D60 File Offset: 0x00113F60
+	// Token: 0x06004A66 RID: 19046 RVA: 0x0011F6E0 File Offset: 0x0011D8E0
 	public static Quaternion SpringLerp(Quaternion from, Quaternion to, float strength, float deltaTime)
 	{
-		return Quaternion.Slerp(from, to, NGUIMath.SpringLerp(strength, deltaTime));
+		return Quaternion.Slerp(from, to, global::NGUIMath.SpringLerp(strength, deltaTime));
 	}
 
-	// Token: 0x060045FA RID: 17914 RVA: 0x00115D70 File Offset: 0x00113F70
+	// Token: 0x06004A67 RID: 19047 RVA: 0x0011F6F0 File Offset: 0x0011D8F0
 	public static float RotateTowards(float from, float to, float maxAngle)
 	{
-		float num = NGUIMath.WrapAngle(to - from);
+		float num = global::NGUIMath.WrapAngle(to - from);
 		if (Mathf.Abs(num) > maxAngle)
 		{
 			num = maxAngle * Mathf.Sign(num);
@@ -531,17 +531,17 @@ public static class NGUIMath
 		return from + num;
 	}
 
-	// Token: 0x02000791 RID: 1937
-	private class WidgetList : List<UIWidget>, IDisposable
+	// Token: 0x02000876 RID: 2166
+	private class WidgetList : List<global::UIWidget>, IDisposable
 	{
-		// Token: 0x060045FB RID: 17915 RVA: 0x00115DA0 File Offset: 0x00113FA0
+		// Token: 0x06004A68 RID: 19048 RVA: 0x0011F720 File Offset: 0x0011D920
 		private WidgetList(bool staticEmpty)
 		{
 			this.staticEmpty = staticEmpty;
 		}
 
-		// Token: 0x17000D94 RID: 3476
-		// (get) Token: 0x060045FD RID: 17917 RVA: 0x00115DC8 File Offset: 0x00113FC8
+		// Token: 0x17000E24 RID: 3620
+		// (get) Token: 0x06004A6A RID: 19050 RVA: 0x0011F748 File Offset: 0x0011D948
 		public bool empty
 		{
 			get
@@ -550,21 +550,21 @@ public static class NGUIMath
 			}
 		}
 
-		// Token: 0x060045FE RID: 17918 RVA: 0x00115DD0 File Offset: 0x00113FD0
-		public static NGUIMath.WidgetList Generate()
+		// Token: 0x06004A6B RID: 19051 RVA: 0x0011F750 File Offset: 0x0011D950
+		public static global::NGUIMath.WidgetList Generate()
 		{
-			if (NGUIMath.WidgetList.tempWidgetListsSize == 0)
+			if (global::NGUIMath.WidgetList.tempWidgetListsSize == 0)
 			{
-				return new NGUIMath.WidgetList(false);
+				return new global::NGUIMath.WidgetList(false);
 			}
-			NGUIMath.WidgetList widgetList = NGUIMath.WidgetList.tempWidgetLists.Dequeue();
+			global::NGUIMath.WidgetList widgetList = global::NGUIMath.WidgetList.tempWidgetLists.Dequeue();
 			widgetList.disposed = false;
-			NGUIMath.WidgetList.tempWidgetListsSize--;
+			global::NGUIMath.WidgetList.tempWidgetListsSize--;
 			return widgetList;
 		}
 
-		// Token: 0x060045FF RID: 17919 RVA: 0x00115E10 File Offset: 0x00114010
-		public new void Add(UIWidget widget)
+		// Token: 0x06004A6C RID: 19052 RVA: 0x0011F790 File Offset: 0x0011D990
+		public new void Add(global::UIWidget widget)
 		{
 			if (this.staticEmpty)
 			{
@@ -573,31 +573,31 @@ public static class NGUIMath
 			base.Add(widget);
 		}
 
-		// Token: 0x06004600 RID: 17920 RVA: 0x00115E2C File Offset: 0x0011402C
+		// Token: 0x06004A6D RID: 19053 RVA: 0x0011F7AC File Offset: 0x0011D9AC
 		public void Dispose()
 		{
 			if (!this.disposed && !this.staticEmpty)
 			{
 				this.Clear();
-				NGUIMath.WidgetList.tempWidgetLists.Enqueue(this);
-				NGUIMath.WidgetList.tempWidgetListsSize++;
+				global::NGUIMath.WidgetList.tempWidgetLists.Enqueue(this);
+				global::NGUIMath.WidgetList.tempWidgetListsSize++;
 				this.disposed = true;
 			}
 		}
 
-		// Token: 0x04002657 RID: 9815
+		// Token: 0x0400288E RID: 10382
 		private readonly bool staticEmpty;
 
-		// Token: 0x04002658 RID: 9816
+		// Token: 0x0400288F RID: 10383
 		private bool disposed;
 
-		// Token: 0x04002659 RID: 9817
+		// Token: 0x04002890 RID: 10384
 		private static int tempWidgetListsSize;
 
-		// Token: 0x0400265A RID: 9818
-		private static Queue<NGUIMath.WidgetList> tempWidgetLists = new Queue<NGUIMath.WidgetList>();
+		// Token: 0x04002891 RID: 10385
+		private static Queue<global::NGUIMath.WidgetList> tempWidgetLists = new Queue<global::NGUIMath.WidgetList>();
 
-		// Token: 0x0400265B RID: 9819
-		public static readonly NGUIMath.WidgetList Empty = new NGUIMath.WidgetList(true);
+		// Token: 0x04002892 RID: 10386
+		public static readonly global::NGUIMath.WidgetList Empty = new global::NGUIMath.WidgetList(true);
 	}
 }

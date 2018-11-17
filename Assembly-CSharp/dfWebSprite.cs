@@ -2,15 +2,15 @@
 using System.Collections;
 using UnityEngine;
 
-// Token: 0x02000701 RID: 1793
+// Token: 0x020007D4 RID: 2004
 [AddComponentMenu("Daikon Forge/User Interface/Sprite/Web")]
 [ExecuteInEditMode]
 [Serializable]
-public class dfWebSprite : dfTextureSprite
+public class dfWebSprite : global::dfTextureSprite
 {
-	// Token: 0x17000CE2 RID: 3298
-	// (get) Token: 0x06004168 RID: 16744 RVA: 0x000FCA18 File Offset: 0x000FAC18
-	// (set) Token: 0x06004169 RID: 16745 RVA: 0x000FCA20 File Offset: 0x000FAC20
+	// Token: 0x17000D68 RID: 3432
+	// (get) Token: 0x0600458A RID: 17802 RVA: 0x00105704 File Offset: 0x00103904
+	// (set) Token: 0x0600458B RID: 17803 RVA: 0x0010570C File Offset: 0x0010390C
 	public string URL
 	{
 		get
@@ -31,9 +31,9 @@ public class dfWebSprite : dfTextureSprite
 		}
 	}
 
-	// Token: 0x17000CE3 RID: 3299
-	// (get) Token: 0x0600416A RID: 16746 RVA: 0x000FCA64 File Offset: 0x000FAC64
-	// (set) Token: 0x0600416B RID: 16747 RVA: 0x000FCA6C File Offset: 0x000FAC6C
+	// Token: 0x17000D69 RID: 3433
+	// (get) Token: 0x0600458C RID: 17804 RVA: 0x00105750 File Offset: 0x00103950
+	// (set) Token: 0x0600458D RID: 17805 RVA: 0x00105758 File Offset: 0x00103958
 	public Texture2D LoadingImage
 	{
 		get
@@ -46,9 +46,9 @@ public class dfWebSprite : dfTextureSprite
 		}
 	}
 
-	// Token: 0x17000CE4 RID: 3300
-	// (get) Token: 0x0600416C RID: 16748 RVA: 0x000FCA78 File Offset: 0x000FAC78
-	// (set) Token: 0x0600416D RID: 16749 RVA: 0x000FCA80 File Offset: 0x000FAC80
+	// Token: 0x17000D6A RID: 3434
+	// (get) Token: 0x0600458E RID: 17806 RVA: 0x00105764 File Offset: 0x00103964
+	// (set) Token: 0x0600458F RID: 17807 RVA: 0x0010576C File Offset: 0x0010396C
 	public Texture2D ErrorImage
 	{
 		get
@@ -61,7 +61,7 @@ public class dfWebSprite : dfTextureSprite
 		}
 	}
 
-	// Token: 0x0600416E RID: 16750 RVA: 0x000FCA8C File Offset: 0x000FAC8C
+	// Token: 0x06004590 RID: 17808 RVA: 0x00105778 File Offset: 0x00103978
 	public override void Start()
 	{
 		base.Start();
@@ -75,7 +75,7 @@ public class dfWebSprite : dfTextureSprite
 		}
 	}
 
-	// Token: 0x0600416F RID: 16751 RVA: 0x000FCAD4 File Offset: 0x000FACD4
+	// Token: 0x06004591 RID: 17809 RVA: 0x001057C0 File Offset: 0x001039C0
 	private IEnumerator downloadTexture()
 	{
 		base.Texture = this.loadingImage;
@@ -95,15 +95,15 @@ public class dfWebSprite : dfTextureSprite
 		yield break;
 	}
 
-	// Token: 0x04002289 RID: 8841
+	// Token: 0x04002495 RID: 9365
 	[SerializeField]
 	protected string url = string.Empty;
 
-	// Token: 0x0400228A RID: 8842
+	// Token: 0x04002496 RID: 9366
 	[SerializeField]
 	protected Texture2D loadingImage;
 
-	// Token: 0x0400228B RID: 8843
+	// Token: 0x04002497 RID: 9367
 	[SerializeField]
 	protected Texture2D errorImage;
 }

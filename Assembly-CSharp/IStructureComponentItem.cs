@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020005E6 RID: 1510
-public interface IStructureComponentItem : IHeldItem, IInventoryItem
+// Token: 0x020006A4 RID: 1700
+public interface IStructureComponentItem : global::IHeldItem, global::IInventoryItem
 {
 }

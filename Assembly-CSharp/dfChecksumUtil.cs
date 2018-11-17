@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020006A3 RID: 1699
+// Token: 0x02000769 RID: 1897
 internal class dfChecksumUtil
 {
-	// Token: 0x06003AFA RID: 15098 RVA: 0x000DCCE8 File Offset: 0x000DAEE8
+	// Token: 0x06003EF8 RID: 16120 RVA: 0x000E5778 File Offset: 0x000E3978
 	internal static uint Calculate(uint checksum, uint value)
 	{
 		checksum = (dfChecksumUtil.crcTable[(int)((UIntPtr)((checksum ^ (uint)((byte)(value & 255u))) & 255u))] ^ checksum >> 8);
@@ -13,7 +13,7 @@ internal class dfChecksumUtil
 		return checksum;
 	}
 
-	// Token: 0x04001F26 RID: 7974
+	// Token: 0x04002122 RID: 8482
 	private static readonly uint[] crcTable = new uint[]
 	{
 		0u,
@@ -274,6 +274,6 @@ internal class dfChecksumUtil
 		755167117u
 	};
 
-	// Token: 0x04001F27 RID: 7975
+	// Token: 0x04002123 RID: 8483
 	public static uint START_VALUE = uint.MaxValue;
 }

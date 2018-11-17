@@ -4,14 +4,14 @@ using System.Text;
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x020007EB RID: 2027
+// Token: 0x020008DC RID: 2268
 [ExecuteInEditMode]
 [AddComponentMenu("NGUI/UI/Font")]
 public class UIFont : MonoBehaviour
 {
-	// Token: 0x17000E14 RID: 3604
-	// (get) Token: 0x06004872 RID: 18546 RVA: 0x0012633C File Offset: 0x0012453C
-	public BMFont bmFont
+	// Token: 0x17000EAE RID: 3758
+	// (get) Token: 0x06004D1D RID: 19741 RVA: 0x001302A0 File Offset: 0x0012E4A0
+	public global::BMFont bmFont
 	{
 		get
 		{
@@ -19,8 +19,8 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E15 RID: 3605
-	// (get) Token: 0x06004873 RID: 18547 RVA: 0x00126368 File Offset: 0x00124568
+	// Token: 0x17000EAF RID: 3759
+	// (get) Token: 0x06004D1E RID: 19742 RVA: 0x001302CC File Offset: 0x0012E4CC
 	public int texWidth
 	{
 		get
@@ -29,8 +29,8 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E16 RID: 3606
-	// (get) Token: 0x06004874 RID: 18548 RVA: 0x001263A8 File Offset: 0x001245A8
+	// Token: 0x17000EB0 RID: 3760
+	// (get) Token: 0x06004D1F RID: 19743 RVA: 0x0013030C File Offset: 0x0012E50C
 	public int texHeight
 	{
 		get
@@ -39,10 +39,10 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E17 RID: 3607
-	// (get) Token: 0x06004875 RID: 18549 RVA: 0x001263E8 File Offset: 0x001245E8
-	// (set) Token: 0x06004876 RID: 18550 RVA: 0x00126414 File Offset: 0x00124614
-	public UIAtlas atlas
+	// Token: 0x17000EB1 RID: 3761
+	// (get) Token: 0x06004D20 RID: 19744 RVA: 0x0013034C File Offset: 0x0012E54C
+	// (set) Token: 0x06004D21 RID: 19745 RVA: 0x00130378 File Offset: 0x0012E578
+	public global::UIAtlas atlas
 	{
 		get
 		{
@@ -73,9 +73,9 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E18 RID: 3608
-	// (get) Token: 0x06004877 RID: 18551 RVA: 0x001264A8 File Offset: 0x001246A8
-	// (set) Token: 0x06004878 RID: 18552 RVA: 0x001264FC File Offset: 0x001246FC
+	// Token: 0x17000EB2 RID: 3762
+	// (get) Token: 0x06004D22 RID: 19746 RVA: 0x0013040C File Offset: 0x0012E60C
+	// (set) Token: 0x06004D23 RID: 19747 RVA: 0x00130460 File Offset: 0x0012E660
 	public Material material
 	{
 		get
@@ -100,8 +100,8 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E19 RID: 3609
-	// (get) Token: 0x06004879 RID: 18553 RVA: 0x0012655C File Offset: 0x0012475C
+	// Token: 0x17000EB3 RID: 3763
+	// (get) Token: 0x06004D24 RID: 19748 RVA: 0x001304C0 File Offset: 0x0012E6C0
 	public Texture2D texture
 	{
 		get
@@ -115,9 +115,9 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E1A RID: 3610
-	// (get) Token: 0x0600487A RID: 18554 RVA: 0x001265AC File Offset: 0x001247AC
-	// (set) Token: 0x0600487B RID: 18555 RVA: 0x00126720 File Offset: 0x00124920
+	// Token: 0x17000EB4 RID: 3764
+	// (get) Token: 0x06004D25 RID: 19749 RVA: 0x00130510 File Offset: 0x0012E710
+	// (set) Token: 0x06004D26 RID: 19750 RVA: 0x00130684 File Offset: 0x0012E884
 	public Rect uvRect
 	{
 		get
@@ -132,9 +132,9 @@ public class UIFont : MonoBehaviour
 				if (texture != null)
 				{
 					this.mUVRect = this.mSprite.outer;
-					if (this.mAtlas.coordinates == UIAtlas.Coordinates.Pixels)
+					if (this.mAtlas.coordinates == global::UIAtlas.Coordinates.Pixels)
 					{
-						this.mUVRect = NGUIMath.ConvertToTexCoords(this.mUVRect, texture.width, texture.height);
+						this.mUVRect = global::NGUIMath.ConvertToTexCoords(this.mUVRect, texture.width, texture.height);
 					}
 					if (this.mSprite.hasPadding)
 					{
@@ -166,9 +166,9 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E1B RID: 3611
-	// (get) Token: 0x0600487C RID: 18556 RVA: 0x00126778 File Offset: 0x00124978
-	// (set) Token: 0x0600487D RID: 18557 RVA: 0x001267B4 File Offset: 0x001249B4
+	// Token: 0x17000EB5 RID: 3765
+	// (get) Token: 0x06004D27 RID: 19751 RVA: 0x001306DC File Offset: 0x0012E8DC
+	// (set) Token: 0x06004D28 RID: 19752 RVA: 0x00130718 File Offset: 0x0012E918
 	public string spriteName
 	{
 		get
@@ -189,9 +189,9 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E1C RID: 3612
-	// (get) Token: 0x0600487E RID: 18558 RVA: 0x0012680C File Offset: 0x00124A0C
-	// (set) Token: 0x0600487F RID: 18559 RVA: 0x00126838 File Offset: 0x00124A38
+	// Token: 0x17000EB6 RID: 3766
+	// (get) Token: 0x06004D29 RID: 19753 RVA: 0x00130770 File Offset: 0x0012E970
+	// (set) Token: 0x06004D2A RID: 19754 RVA: 0x0013079C File Offset: 0x0012E99C
 	public int horizontalSpacing
 	{
 		get
@@ -212,9 +212,9 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E1D RID: 3613
-	// (get) Token: 0x06004880 RID: 18560 RVA: 0x00126878 File Offset: 0x00124A78
-	// (set) Token: 0x06004881 RID: 18561 RVA: 0x001268A4 File Offset: 0x00124AA4
+	// Token: 0x17000EB7 RID: 3767
+	// (get) Token: 0x06004D2B RID: 19755 RVA: 0x001307DC File Offset: 0x0012E9DC
+	// (set) Token: 0x06004D2C RID: 19756 RVA: 0x00130808 File Offset: 0x0012EA08
 	public int verticalSpacing
 	{
 		get
@@ -235,8 +235,8 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E1E RID: 3614
-	// (get) Token: 0x06004882 RID: 18562 RVA: 0x001268E4 File Offset: 0x00124AE4
+	// Token: 0x17000EB8 RID: 3768
+	// (get) Token: 0x06004D2D RID: 19757 RVA: 0x00130848 File Offset: 0x0012EA48
 	public int size
 	{
 		get
@@ -245,9 +245,9 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E1F RID: 3615
-	// (get) Token: 0x06004883 RID: 18563 RVA: 0x00126920 File Offset: 0x00124B20
-	public UIAtlas.Sprite sprite
+	// Token: 0x17000EB9 RID: 3769
+	// (get) Token: 0x06004D2E RID: 19758 RVA: 0x00130884 File Offset: 0x0012EA84
+	public global::UIAtlas.Sprite sprite
 	{
 		get
 		{
@@ -269,7 +269,7 @@ public class UIFont : MonoBehaviour
 				this.mSpriteSet = true;
 				if (this.mSprite == null)
 				{
-					Debug.LogError("Can't find the sprite '" + this.mFont.spriteName + "' in UIAtlas on " + NGUITools.GetHierarchy(this.mAtlas.gameObject));
+					Debug.LogError("Can't find the sprite '" + this.mFont.spriteName + "' in UIAtlas on " + global::NGUITools.GetHierarchy(this.mAtlas.gameObject));
 					this.mFont.spriteName = null;
 				}
 			}
@@ -277,10 +277,10 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E20 RID: 3616
-	// (get) Token: 0x06004884 RID: 18564 RVA: 0x00126A20 File Offset: 0x00124C20
-	// (set) Token: 0x06004885 RID: 18565 RVA: 0x00126A28 File Offset: 0x00124C28
-	public UIFont replacement
+	// Token: 0x17000EBA RID: 3770
+	// (get) Token: 0x06004D2F RID: 19759 RVA: 0x00130984 File Offset: 0x0012EB84
+	// (set) Token: 0x06004D30 RID: 19760 RVA: 0x0013098C File Offset: 0x0012EB8C
+	public global::UIFont replacement
 	{
 		get
 		{
@@ -288,7 +288,7 @@ public class UIFont : MonoBehaviour
 		}
 		set
 		{
-			UIFont uifont = value;
+			global::UIFont uifont = value;
 			if (uifont == this)
 			{
 				uifont = null;
@@ -309,14 +309,14 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004886 RID: 18566 RVA: 0x00126AA0 File Offset: 0x00124CA0
+	// Token: 0x06004D31 RID: 19761 RVA: 0x00130A04 File Offset: 0x0012EC04
 	private void Trim()
 	{
 		Texture texture = this.mAtlas.texture;
 		if (texture != null && this.mSprite != null)
 		{
-			Rect rect = NGUIMath.ConvertToPixels(this.mUVRect, this.texture.width, this.texture.height, true);
-			Rect rect2 = (this.mAtlas.coordinates != UIAtlas.Coordinates.TexCoords) ? this.mSprite.outer : NGUIMath.ConvertToPixels(this.mSprite.outer, texture.width, texture.height, true);
+			Rect rect = global::NGUIMath.ConvertToPixels(this.mUVRect, this.texture.width, this.texture.height, true);
+			Rect rect2 = (this.mAtlas.coordinates != global::UIAtlas.Coordinates.TexCoords) ? this.mSprite.outer : global::NGUIMath.ConvertToPixels(this.mSprite.outer, texture.width, texture.height, true);
 			int xMin = Mathf.RoundToInt(rect2.xMin - rect.xMin);
 			int yMin = Mathf.RoundToInt(rect2.yMin - rect.yMin);
 			int xMax = Mathf.RoundToInt(rect2.xMax - rect.xMin);
@@ -325,31 +325,31 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004887 RID: 18567 RVA: 0x00126B9C File Offset: 0x00124D9C
-	private bool References(UIFont font)
+	// Token: 0x06004D32 RID: 19762 RVA: 0x00130B00 File Offset: 0x0012ED00
+	private bool References(global::UIFont font)
 	{
 		return !(font == null) && (font == this || (this.mReplacement != null && this.mReplacement.References(font)));
 	}
 
-	// Token: 0x06004888 RID: 18568 RVA: 0x00126BE8 File Offset: 0x00124DE8
-	public static bool CheckIfRelated(UIFont a, UIFont b)
+	// Token: 0x06004D33 RID: 19763 RVA: 0x00130B4C File Offset: 0x0012ED4C
+	public static bool CheckIfRelated(global::UIFont a, global::UIFont b)
 	{
 		return !(a == null) && !(b == null) && (a == b || a.References(b) || b.References(a));
 	}
 
-	// Token: 0x06004889 RID: 18569 RVA: 0x00126C34 File Offset: 0x00124E34
+	// Token: 0x06004D34 RID: 19764 RVA: 0x00130B98 File Offset: 0x0012ED98
 	public void MarkAsDirty()
 	{
 		this.mSprite = null;
-		UILabel[] array = NGUITools.FindActive<UILabel>();
+		global::UILabel[] array = global::NGUITools.FindActive<global::UILabel>();
 		int i = 0;
 		int num = array.Length;
 		while (i < num)
 		{
-			UILabel uilabel = array[i];
-			if (uilabel.enabled && uilabel.gameObject.activeInHierarchy && UIFont.CheckIfRelated(this, uilabel.font))
+			global::UILabel uilabel = array[i];
+			if (uilabel.enabled && uilabel.gameObject.activeInHierarchy && global::UIFont.CheckIfRelated(this, uilabel.font))
 			{
-				UIFont font = uilabel.font;
+				global::UIFont font = uilabel.font;
 				uilabel.font = null;
 				uilabel.font = font;
 			}
@@ -357,8 +357,8 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600488A RID: 18570 RVA: 0x00126CAC File Offset: 0x00124EAC
-	public Vector2 CalculatePrintedSize(string text, bool encoding, UIFont.SymbolStyle symbolStyle)
+	// Token: 0x06004D35 RID: 19765 RVA: 0x00130C10 File Offset: 0x0012EE10
+	public Vector2 CalculatePrintedSize(string text, bool encoding, global::UIFont.SymbolStyle symbolStyle)
 	{
 		if (this.mReplacement != null)
 		{
@@ -369,7 +369,7 @@ public class UIFont : MonoBehaviour
 		{
 			if (encoding)
 			{
-				text = NGUITools.StripSymbols(text);
+				text = global::NGUITools.StripSymbols(text);
 			}
 			int length = text.Length;
 			int num = 0;
@@ -380,8 +380,8 @@ public class UIFont : MonoBehaviour
 			for (int i = 0; i < length; i++)
 			{
 				char c = text[i];
-				BMSymbol bmsymbol;
-				BMGlyph bmglyph;
+				global::BMSymbol bmsymbol;
+				global::BMGlyph bmglyph;
 				if (c == '\n')
 				{
 					if (num2 > num)
@@ -415,42 +415,42 @@ public class UIFont : MonoBehaviour
 		return zero;
 	}
 
-	// Token: 0x0600488B RID: 18571 RVA: 0x00126E78 File Offset: 0x00125078
-	private static UITextMod EndLine(ref StringBuilder s)
+	// Token: 0x06004D36 RID: 19766 RVA: 0x00130DDC File Offset: 0x0012EFDC
+	private static global::UITextMod EndLine(ref StringBuilder s)
 	{
 		int num = s.Length - 1;
 		if (num > 0 && s[num] == ' ')
 		{
 			s[num] = '\n';
-			return UITextMod.Replaced;
+			return global::UITextMod.Replaced;
 		}
 		s.Append('\n');
-		return UITextMod.Added;
+		return global::UITextMod.Added;
 	}
 
-	// Token: 0x17000E21 RID: 3617
-	// (get) Token: 0x0600488C RID: 18572 RVA: 0x00126EBC File Offset: 0x001250BC
-	public static List<UITextMarkup> tempMarkup
+	// Token: 0x17000EBB RID: 3771
+	// (get) Token: 0x06004D37 RID: 19767 RVA: 0x00130E20 File Offset: 0x0012F020
+	public static List<global::UITextMarkup> tempMarkup
 	{
 		get
 		{
-			List<UITextMarkup> result;
-			if ((result = UIFont._tempMarkup) == null)
+			List<global::UITextMarkup> result;
+			if ((result = global::UIFont._tempMarkup) == null)
 			{
-				result = (UIFont._tempMarkup = new List<UITextMarkup>());
+				result = (global::UIFont._tempMarkup = new List<global::UITextMarkup>());
 			}
 			return result;
 		}
 	}
 
-	// Token: 0x0600488D RID: 18573 RVA: 0x00126ED8 File Offset: 0x001250D8
-	public string WrapText(List<UITextMarkup> markups, string text, float maxWidth, int maxLineCount, bool encoding, UIFont.SymbolStyle symbolStyle)
+	// Token: 0x06004D38 RID: 19768 RVA: 0x00130E3C File Offset: 0x0012F03C
+	public string WrapText(List<global::UITextMarkup> markups, string text, float maxWidth, int maxLineCount, bool encoding, global::UIFont.SymbolStyle symbolStyle)
 	{
 		if (this.mReplacement != null)
 		{
 			return this.mReplacement.WrapText(markups, text, maxWidth, maxLineCount, encoding, symbolStyle);
 		}
-		markups = (markups ?? UIFont.tempMarkup);
+		markups = (markups ?? global::UIFont.tempMarkup);
 		markups.Clear();
 		int num = Mathf.RoundToInt(maxWidth * (float)this.size);
 		if (num < 1)
@@ -466,7 +466,7 @@ public class UIFont : MonoBehaviour
 		bool flag = true;
 		bool flag2 = maxLineCount != 1;
 		int num5 = 1;
-		BMSymbol bmsymbol = null;
+		global::BMSymbol bmsymbol = null;
 		int num6 = 0;
 		while (i < length)
 		{
@@ -482,15 +482,15 @@ public class UIFont : MonoBehaviour
 					stringBuilder.Append(c);
 				}
 				stringBuilder.Remove(stringBuilder.Length - 1, 1);
-				markups.Add(new UITextMarkup
+				markups.Add(new global::UITextMarkup
 				{
 					index = i - 1,
-					mod = UITextMod.Removed
+					mod = global::UITextMod.Removed
 				});
-				markups.Add(new UITextMarkup
+				markups.Add(new global::UITextMarkup
 				{
 					index = i,
-					mod = UITextMod.Replaced,
+					mod = global::UITextMod.Replaced,
 					value = '\n'
 				});
 				num4 = i + 1;
@@ -500,7 +500,7 @@ public class UIFont : MonoBehaviour
 			{
 				if (!flag2 || num5 == maxLineCount)
 				{
-					markups.Add(new UITextMarkup
+					markups.Add(new global::UITextMarkup
 					{
 						index = i
 					});
@@ -537,20 +537,20 @@ public class UIFont : MonoBehaviour
 						{
 							if (num6 == 0)
 							{
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i,
-									mod = UITextMod.Removed
+									mod = global::UITextMod.Removed
 								});
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i + 1,
-									mod = UITextMod.Removed
+									mod = global::UITextMod.Removed
 								});
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i + 2,
-									mod = UITextMod.Removed
+									mod = global::UITextMod.Removed
 								});
 								i += 2;
 								goto IL_8B0;
@@ -560,20 +560,20 @@ public class UIFont : MonoBehaviour
 						{
 							if (num6++ == 0)
 							{
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i,
-									mod = UITextMod.Removed
+									mod = global::UITextMod.Removed
 								});
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i + 1,
-									mod = UITextMod.Removed
+									mod = global::UITextMod.Removed
 								});
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i + 2,
-									mod = UITextMod.Removed
+									mod = global::UITextMod.Removed
 								});
 								i += 2;
 								goto IL_8B0;
@@ -581,20 +581,20 @@ public class UIFont : MonoBehaviour
 						}
 						else if (text[i + 1] == '«' && --num6 == 0)
 						{
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i,
-								mod = UITextMod.Removed
+								mod = global::UITextMod.Removed
 							});
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i + 1,
-								mod = UITextMod.Removed
+								mod = global::UITextMod.Removed
 							});
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i + 2,
-								mod = UITextMod.Removed
+								mod = global::UITextMod.Removed
 							});
 							i += 2;
 							goto IL_8B0;
@@ -602,51 +602,51 @@ public class UIFont : MonoBehaviour
 					}
 					else if (i + 7 < length && text[i + 7] == ']' && num6 == 0)
 					{
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + 1,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + 2,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + 3,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + 4,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + 5,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + 6,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + 7,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
 						i += 7;
 						goto IL_8B0;
 					}
 				}
-				bool flag3 = encoding && symbolStyle != UIFont.SymbolStyle.None && this.mFont.MatchSymbol(text, i, length, out bmsymbol);
+				bool flag3 = encoding && symbolStyle != global::UIFont.SymbolStyle.None && this.mFont.MatchSymbol(text, i, length, out bmsymbol);
 				int num7;
 				if (flag3)
 				{
@@ -654,13 +654,13 @@ public class UIFont : MonoBehaviour
 				}
 				else
 				{
-					BMGlyph bmglyph;
+					global::BMGlyph bmglyph;
 					if (!this.mFont.GetGlyph((int)c, out bmglyph))
 					{
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
 						goto IL_8B0;
 					}
@@ -675,30 +675,30 @@ public class UIFont : MonoBehaviour
 						if (!flag2 || num5 == maxLineCount)
 						{
 							num4 = i;
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i
 							});
 							break;
 						}
-						UITextMod uitextMod = UIFont.EndLine(ref stringBuilder);
-						if (uitextMod != UITextMod.Replaced)
+						global::UITextMod uitextMod = global::UIFont.EndLine(ref stringBuilder);
+						if (uitextMod != global::UITextMod.Replaced)
 						{
-							if (uitextMod == UITextMod.Added)
+							if (uitextMod == global::UITextMod.Added)
 							{
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i,
-									mod = UITextMod.Added
+									mod = global::UITextMod.Added
 								});
 							}
 						}
 						else
 						{
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i,
-								mod = UITextMod.Replaced,
+								mod = global::UITextMod.Replaced,
 								value = '\n'
 							});
 						}
@@ -708,10 +708,10 @@ public class UIFont : MonoBehaviour
 						{
 							num4 = i + 1;
 							num2 = num;
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i,
-								mod = UITextMod.Removed
+								mod = global::UITextMod.Removed
 							});
 						}
 						else
@@ -725,10 +725,10 @@ public class UIFont : MonoBehaviour
 					{
 						while (num4 < length && text[num4] == ' ')
 						{
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = num4,
-								mod = UITextMod.Removed
+								mod = global::UITextMod.Removed
 							});
 							num4++;
 						}
@@ -747,31 +747,31 @@ public class UIFont : MonoBehaviour
 						num3 = 0;
 						if (!flag2 || num5 == maxLineCount)
 						{
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i
 							});
 							break;
 						}
 						num5++;
-						UITextMod uitextMod = UIFont.EndLine(ref stringBuilder);
-						if (uitextMod != UITextMod.Replaced)
+						global::UITextMod uitextMod = global::UIFont.EndLine(ref stringBuilder);
+						if (uitextMod != global::UITextMod.Replaced)
 						{
-							if (uitextMod == UITextMod.Added)
+							if (uitextMod == global::UITextMod.Added)
 							{
-								markups.Add(new UITextMarkup
+								markups.Add(new global::UITextMarkup
 								{
 									index = i,
-									mod = UITextMod.Added
+									mod = global::UITextMod.Added
 								});
 							}
 						}
 						else
 						{
-							markups.Add(new UITextMarkup
+							markups.Add(new global::UITextMarkup
 							{
 								index = i,
-								mod = UITextMod.Replaced,
+								mod = global::UITextMod.Replaced,
 								value = '\n'
 							});
 						}
@@ -786,10 +786,10 @@ public class UIFont : MonoBehaviour
 				{
 					for (int k = 0; k < bmsymbol.sequence.Length; k++)
 					{
-						markups.Add(new UITextMarkup
+						markups.Add(new global::UITextMarkup
 						{
 							index = i + k,
-							mod = UITextMod.Removed
+							mod = global::UITextMod.Removed
 						});
 					}
 					i += bmsymbol.sequence.Length - 1;
@@ -806,27 +806,27 @@ public class UIFont : MonoBehaviour
 		return stringBuilder.ToString();
 	}
 
-	// Token: 0x0600488E RID: 18574 RVA: 0x001277C8 File Offset: 0x001259C8
-	public string WrapText(List<UITextMarkup> markups, string text, float maxWidth, int maxLineCount, bool encoding)
+	// Token: 0x06004D39 RID: 19769 RVA: 0x0013172C File Offset: 0x0012F92C
+	public string WrapText(List<global::UITextMarkup> markups, string text, float maxWidth, int maxLineCount, bool encoding)
 	{
-		return this.WrapText(markups, text, maxWidth, maxLineCount, encoding, UIFont.SymbolStyle.None);
+		return this.WrapText(markups, text, maxWidth, maxLineCount, encoding, global::UIFont.SymbolStyle.None);
 	}
 
-	// Token: 0x0600488F RID: 18575 RVA: 0x001277D8 File Offset: 0x001259D8
-	public string WrapText(List<UITextMarkup> markups, string text, float maxWidth, int maxLineCount)
+	// Token: 0x06004D3A RID: 19770 RVA: 0x0013173C File Offset: 0x0012F93C
+	public string WrapText(List<global::UITextMarkup> markups, string text, float maxWidth, int maxLineCount)
 	{
-		return this.WrapText(markups, text, maxWidth, maxLineCount, false, UIFont.SymbolStyle.None);
+		return this.WrapText(markups, text, maxWidth, maxLineCount, false, global::UIFont.SymbolStyle.None);
 	}
 
-	// Token: 0x06004890 RID: 18576 RVA: 0x001277E8 File Offset: 0x001259E8
+	// Token: 0x06004D3B RID: 19771 RVA: 0x0013174C File Offset: 0x0012F94C
 	private void MangleSort(int len)
 	{
-		UIFont.mangleSort.SetLineSizing((double)this.bmFont.charSize, (double)this.verticalSpacing);
-		Array.Sort<Vector3, int>(UIFont.manglePoints, UIFont.mangleIndices, 0, len, UIFont.mangleSort);
+		global::UIFont.mangleSort.SetLineSizing((double)this.bmFont.charSize, (double)this.verticalSpacing);
+		Array.Sort<Vector3, int>(global::UIFont.manglePoints, global::UIFont.mangleIndices, 0, len, global::UIFont.mangleSort);
 	}
 
-	// Token: 0x06004891 RID: 18577 RVA: 0x00127828 File Offset: 0x00125A28
-	private int FillMangle(Vector2[] points, int pointsOffset, UITextPosition[] positions, int positionsOffset, int len)
+	// Token: 0x06004D3C RID: 19772 RVA: 0x0013178C File Offset: 0x0012F98C
+	private int FillMangle(Vector2[] points, int pointsOffset, global::UITextPosition[] positions, int positionsOffset, int len)
 	{
 		if (positions == null || points == null)
 		{
@@ -836,24 +836,24 @@ public class UIFont : MonoBehaviour
 		{
 			throw new ArgumentOutOfRangeException();
 		}
-		if (len > UIFont.mangleIndices.Length)
+		if (len > global::UIFont.mangleIndices.Length)
 		{
-			Array.Resize<Vector3>(ref UIFont.manglePoints, len);
-			Array.Resize<int>(ref UIFont.mangleIndices, len);
-			Array.Resize<UITextPosition>(ref UIFont.manglePositions, len);
+			Array.Resize<Vector3>(ref global::UIFont.manglePoints, len);
+			Array.Resize<int>(ref global::UIFont.mangleIndices, len);
+			Array.Resize<global::UITextPosition>(ref global::UIFont.manglePositions, len);
 		}
 		for (int i = 0; i < len; i++)
 		{
-			UIFont.manglePoints[i].x = points[i + pointsOffset].x;
-			UIFont.manglePoints[i].y = points[i + pointsOffset].y;
-			UIFont.manglePoints[i].z = 0f;
-			UIFont.mangleIndices[i] = i;
+			global::UIFont.manglePoints[i].x = points[i + pointsOffset].x;
+			global::UIFont.manglePoints[i].y = points[i + pointsOffset].y;
+			global::UIFont.manglePoints[i].z = 0f;
+			global::UIFont.mangleIndices[i] = i;
 		}
 		return len;
 	}
 
-	// Token: 0x06004892 RID: 18578 RVA: 0x00127904 File Offset: 0x00125B04
-	private int FillMangle(Vector3[] points, int pointsOffset, UITextPosition[] positions, int positionsOffset, int len)
+	// Token: 0x06004D3D RID: 19773 RVA: 0x00131868 File Offset: 0x0012FA68
+	private int FillMangle(Vector3[] points, int pointsOffset, global::UITextPosition[] positions, int positionsOffset, int len)
 	{
 		if (points == null)
 		{
@@ -867,31 +867,31 @@ public class UIFont : MonoBehaviour
 		{
 			throw new ArgumentException("not large enough", "positions");
 		}
-		if (len > UIFont.mangleIndices.Length)
+		if (len > global::UIFont.mangleIndices.Length)
 		{
-			Array.Resize<Vector3>(ref UIFont.manglePoints, len);
-			Array.Resize<int>(ref UIFont.mangleIndices, len);
-			Array.Resize<UITextPosition>(ref UIFont.manglePositions, len);
+			Array.Resize<Vector3>(ref global::UIFont.manglePoints, len);
+			Array.Resize<int>(ref global::UIFont.mangleIndices, len);
+			Array.Resize<global::UITextPosition>(ref global::UIFont.manglePositions, len);
 		}
 		for (int i = 0; i < len; i++)
 		{
-			UIFont.manglePoints[i] = points[i + pointsOffset];
-			UIFont.mangleIndices[i] = i;
+			global::UIFont.manglePoints[i] = points[i + pointsOffset];
+			global::UIFont.mangleIndices[i] = i;
 		}
 		return len;
 	}
 
-	// Token: 0x06004893 RID: 18579 RVA: 0x001279D4 File Offset: 0x00125BD4
-	private int ProcessShared(int len, ref UITextPosition[] positions, string text)
+	// Token: 0x06004D3E RID: 19774 RVA: 0x00131938 File Offset: 0x0012FB38
+	private int ProcessShared(int len, ref global::UITextPosition[] positions, string text)
 	{
 		if (this.mFont.charSize > 0)
 		{
 			for (int i = 0; i < len; i++)
 			{
-				Vector3[] array = UIFont.manglePoints;
+				Vector3[] array = global::UIFont.manglePoints;
 				int num = i;
 				array[num].x = array[num].x * (float)this.mFont.charSize;
-				Vector3[] array2 = UIFont.manglePoints;
+				Vector3[] array2 = global::UIFont.manglePoints;
 				int num2 = i;
 				array2[num2].y = array2[num2].y * (float)this.mFont.charSize;
 			}
@@ -902,25 +902,25 @@ public class UIFont : MonoBehaviour
 		{
 			if (positions == null)
 			{
-				positions = new UITextPosition[len];
+				positions = new global::UITextPosition[len];
 			}
 			for (int j = 0; j < len; j++)
 			{
-				positions[UIFont.mangleIndices[j]] = UIFont.manglePositions[j];
+				positions[global::UIFont.mangleIndices[j]] = global::UIFont.manglePositions[j];
 			}
 		}
 		return len;
 	}
 
-	// Token: 0x06004894 RID: 18580 RVA: 0x00127AA8 File Offset: 0x00125CA8
+	// Token: 0x06004D3F RID: 19775 RVA: 0x00131A0C File Offset: 0x0012FC0C
 	[Obsolete("You must specify some point", true)]
-	public UITextPosition[] CalculatePlacement(string text)
+	public global::UITextPosition[] CalculatePlacement(string text)
 	{
-		return UIFont.empty;
+		return global::UIFont.empty;
 	}
 
-	// Token: 0x06004895 RID: 18581 RVA: 0x00127AB0 File Offset: 0x00125CB0
-	private int CalculatePlacement(Vector2[] points, ref UITextPosition[] positions, string text)
+	// Token: 0x06004D40 RID: 19776 RVA: 0x00131A14 File Offset: 0x0012FC14
+	private int CalculatePlacement(Vector2[] points, ref global::UITextPosition[] positions, string text)
 	{
 		if (this.mReplacement != null)
 		{
@@ -934,8 +934,8 @@ public class UIFont : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06004896 RID: 18582 RVA: 0x00127B08 File Offset: 0x00125D08
-	public int CalculatePlacement(Vector2[] points, UITextPosition[] positions, string text)
+	// Token: 0x06004D41 RID: 19777 RVA: 0x00131A6C File Offset: 0x0012FC6C
+	public int CalculatePlacement(Vector2[] points, global::UITextPosition[] positions, string text)
 	{
 		if (positions == null)
 		{
@@ -944,30 +944,30 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, ref positions, text, base.transform);
 	}
 
-	// Token: 0x06004897 RID: 18583 RVA: 0x00127B2C File Offset: 0x00125D2C
-	public UITextPosition CalculatePlacement(string text, Vector2 point)
+	// Token: 0x06004D42 RID: 19778 RVA: 0x00131A90 File Offset: 0x0012FC90
+	public global::UITextPosition CalculatePlacement(string text, Vector2 point)
 	{
 		Vector2[] points = new Vector2[]
 		{
 			point
 		};
-		UITextPosition[] array = new UITextPosition[]
+		global::UITextPosition[] array = new global::UITextPosition[]
 		{
-			default(UITextPosition)
+			default(global::UITextPosition)
 		};
 		this.CalculatePlacement(points, array, text);
 		return array[0];
 	}
 
-	// Token: 0x06004898 RID: 18584 RVA: 0x00127B80 File Offset: 0x00125D80
-	public UITextPosition[] CalculatePlacement(string text, params Vector2[] points)
+	// Token: 0x06004D43 RID: 19779 RVA: 0x00131AE4 File Offset: 0x0012FCE4
+	public global::UITextPosition[] CalculatePlacement(string text, params Vector2[] points)
 	{
-		UITextPosition[] array = null;
-		return (this.CalculatePlacement(points, ref array, text) <= 0) ? UIFont.empty : array;
+		global::UITextPosition[] array = null;
+		return (this.CalculatePlacement(points, ref array, text) <= 0) ? global::UIFont.empty : array;
 	}
 
-	// Token: 0x06004899 RID: 18585 RVA: 0x00127BAC File Offset: 0x00125DAC
-	private int CalculatePlacement(Vector3[] points, ref UITextPosition[] positions, string text)
+	// Token: 0x06004D44 RID: 19780 RVA: 0x00131B10 File Offset: 0x0012FD10
+	private int CalculatePlacement(Vector3[] points, ref global::UITextPosition[] positions, string text)
 	{
 		if (this.mReplacement != null)
 		{
@@ -981,8 +981,8 @@ public class UIFont : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x0600489A RID: 18586 RVA: 0x00127C04 File Offset: 0x00125E04
-	public int CalculatePlacement(Vector3[] points, UITextPosition[] positions, string text)
+	// Token: 0x06004D45 RID: 19781 RVA: 0x00131B68 File Offset: 0x0012FD68
+	public int CalculatePlacement(Vector3[] points, global::UITextPosition[] positions, string text)
 	{
 		if (positions == null)
 		{
@@ -991,15 +991,15 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, ref positions, text, base.transform);
 	}
 
-	// Token: 0x0600489B RID: 18587 RVA: 0x00127C28 File Offset: 0x00125E28
-	public UITextPosition[] CalculatePlacement(string text, params Vector3[] points)
+	// Token: 0x06004D46 RID: 19782 RVA: 0x00131B8C File Offset: 0x0012FD8C
+	public global::UITextPosition[] CalculatePlacement(string text, params Vector3[] points)
 	{
-		UITextPosition[] array = null;
-		return (this.CalculatePlacement(points, ref array, text) <= 0) ? UIFont.empty : array;
+		global::UITextPosition[] array = null;
+		return (this.CalculatePlacement(points, ref array, text) <= 0) ? global::UIFont.empty : array;
 	}
 
-	// Token: 0x0600489C RID: 18588 RVA: 0x00127C54 File Offset: 0x00125E54
-	private int CalculatePlacement(Vector3[] points, ref UITextPosition[] positions, string text, Matrix4x4 transform)
+	// Token: 0x06004D47 RID: 19783 RVA: 0x00131BB8 File Offset: 0x0012FDB8
+	private int CalculatePlacement(Vector3[] points, ref global::UITextPosition[] positions, string text, Matrix4x4 transform)
 	{
 		if (this.mReplacement != null)
 		{
@@ -1010,15 +1010,15 @@ public class UIFont : MonoBehaviour
 		{
 			for (int i = 0; i < num; i++)
 			{
-				UIFont.manglePoints[i] = transform.MultiplyPoint(UIFont.manglePoints[i]);
+				global::UIFont.manglePoints[i] = transform.MultiplyPoint(global::UIFont.manglePoints[i]);
 			}
 			return this.ProcessShared(num, ref positions, text);
 		}
 		return num;
 	}
 
-	// Token: 0x0600489D RID: 18589 RVA: 0x00127CDC File Offset: 0x00125EDC
-	public int CalculatePlacement(Vector3[] points, UITextPosition[] positions, string text, Matrix4x4 transform)
+	// Token: 0x06004D48 RID: 19784 RVA: 0x00131C40 File Offset: 0x0012FE40
+	public int CalculatePlacement(Vector3[] points, global::UITextPosition[] positions, string text, Matrix4x4 transform)
 	{
 		if (positions == null)
 		{
@@ -1027,38 +1027,38 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, ref positions, text, transform);
 	}
 
-	// Token: 0x0600489E RID: 18590 RVA: 0x00127CFC File Offset: 0x00125EFC
-	public UITextPosition CalculatePlacement(string text, Matrix4x4 transform, Vector3 point)
+	// Token: 0x06004D49 RID: 19785 RVA: 0x00131C60 File Offset: 0x0012FE60
+	public global::UITextPosition CalculatePlacement(string text, Matrix4x4 transform, Vector3 point)
 	{
 		Vector3[] points = new Vector3[]
 		{
 			point
 		};
-		UITextPosition[] array = new UITextPosition[]
+		global::UITextPosition[] array = new global::UITextPosition[]
 		{
-			default(UITextPosition)
+			default(global::UITextPosition)
 		};
 		this.CalculatePlacement(points, array, text, transform);
 		return array[0];
 	}
 
-	// Token: 0x0600489F RID: 18591 RVA: 0x00127D50 File Offset: 0x00125F50
-	public UITextPosition[] CalculatePlacement(string text, Matrix4x4 transform, params Vector3[] points)
+	// Token: 0x06004D4A RID: 19786 RVA: 0x00131CB4 File Offset: 0x0012FEB4
+	public global::UITextPosition[] CalculatePlacement(string text, Matrix4x4 transform, params Vector3[] points)
 	{
-		UITextPosition[] array = null;
+		global::UITextPosition[] array = null;
 		if (points == null)
 		{
 			return null;
 		}
 		if (points.Length == 0)
 		{
-			return UIFont.empty;
+			return global::UIFont.empty;
 		}
-		return (this.CalculatePlacement(points, ref array, text, transform) <= 0) ? UIFont.empty : array;
+		return (this.CalculatePlacement(points, ref array, text, transform) <= 0) ? global::UIFont.empty : array;
 	}
 
-	// Token: 0x060048A0 RID: 18592 RVA: 0x00127D94 File Offset: 0x00125F94
-	private int CalculatePlacement(Vector2[] points, ref UITextPosition[] positions, string text, Matrix4x4 transform)
+	// Token: 0x06004D4B RID: 19787 RVA: 0x00131CF8 File Offset: 0x0012FEF8
+	private int CalculatePlacement(Vector2[] points, ref global::UITextPosition[] positions, string text, Matrix4x4 transform)
 	{
 		if (this.mReplacement != null)
 		{
@@ -1069,15 +1069,15 @@ public class UIFont : MonoBehaviour
 		{
 			for (int i = 0; i < num; i++)
 			{
-				UIFont.manglePoints[i] = transform.MultiplyPoint(UIFont.manglePoints[i]);
+				global::UIFont.manglePoints[i] = transform.MultiplyPoint(global::UIFont.manglePoints[i]);
 			}
 			return this.ProcessShared(num, ref positions, text);
 		}
 		return num;
 	}
 
-	// Token: 0x060048A1 RID: 18593 RVA: 0x00127E28 File Offset: 0x00126028
-	public int CalculatePlacement(Vector2[] points, UITextPosition[] positions, string text, Matrix4x4 transform)
+	// Token: 0x06004D4C RID: 19788 RVA: 0x00131D8C File Offset: 0x0012FF8C
+	public int CalculatePlacement(Vector2[] points, global::UITextPosition[] positions, string text, Matrix4x4 transform)
 	{
 		if (positions == null)
 		{
@@ -1086,23 +1086,23 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, ref positions, text, transform);
 	}
 
-	// Token: 0x060048A2 RID: 18594 RVA: 0x00127E48 File Offset: 0x00126048
-	public UITextPosition[] CalculatePlacement(string text, Matrix4x4 transform, params Vector2[] points)
+	// Token: 0x06004D4D RID: 19789 RVA: 0x00131DAC File Offset: 0x0012FFAC
+	public global::UITextPosition[] CalculatePlacement(string text, Matrix4x4 transform, params Vector2[] points)
 	{
-		UITextPosition[] array = null;
+		global::UITextPosition[] array = null;
 		if (points == null)
 		{
 			return null;
 		}
 		if (points.Length == 0)
 		{
-			return UIFont.empty;
+			return global::UIFont.empty;
 		}
-		return (this.CalculatePlacement(points, ref array, text, transform) <= 0) ? UIFont.empty : array;
+		return (this.CalculatePlacement(points, ref array, text, transform) <= 0) ? global::UIFont.empty : array;
 	}
 
-	// Token: 0x060048A3 RID: 18595 RVA: 0x00127E8C File Offset: 0x0012608C
-	private int CalculatePlacement(Vector3[] points, ref UITextPosition[] positions, string text, Transform self)
+	// Token: 0x06004D4E RID: 19790 RVA: 0x00131DF0 File Offset: 0x0012FFF0
+	private int CalculatePlacement(Vector3[] points, ref global::UITextPosition[] positions, string text, Transform self)
 	{
 		if (!self)
 		{
@@ -1111,8 +1111,8 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, positions, text, self.worldToLocalMatrix);
 	}
 
-	// Token: 0x060048A4 RID: 18596 RVA: 0x00127EC4 File Offset: 0x001260C4
-	public int CalculatePlacement(Vector3[] points, UITextPosition[] positions, string text, Transform self)
+	// Token: 0x06004D4F RID: 19791 RVA: 0x00131E28 File Offset: 0x00130028
+	public int CalculatePlacement(Vector3[] points, global::UITextPosition[] positions, string text, Transform self)
 	{
 		if (positions == null)
 		{
@@ -1121,8 +1121,8 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, ref positions, text, base.transform);
 	}
 
-	// Token: 0x060048A5 RID: 18597 RVA: 0x00127EE8 File Offset: 0x001260E8
-	private int CalculatePlacement(Vector2[] points, ref UITextPosition[] positions, string text, Transform self)
+	// Token: 0x06004D50 RID: 19792 RVA: 0x00131E4C File Offset: 0x0013004C
+	private int CalculatePlacement(Vector2[] points, ref global::UITextPosition[] positions, string text, Transform self)
 	{
 		if (!self)
 		{
@@ -1131,8 +1131,8 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, positions, text, self.worldToLocalMatrix);
 	}
 
-	// Token: 0x060048A6 RID: 18598 RVA: 0x00127F20 File Offset: 0x00126120
-	public int CalculatePlacement(Vector2[] points, UITextPosition[] positions, string text, Transform self)
+	// Token: 0x06004D51 RID: 19793 RVA: 0x00131E84 File Offset: 0x00130084
+	public int CalculatePlacement(Vector2[] points, global::UITextPosition[] positions, string text, Transform self)
 	{
 		if (positions == null)
 		{
@@ -1141,97 +1141,97 @@ public class UIFont : MonoBehaviour
 		return this.CalculatePlacement(points, ref positions, text, base.transform);
 	}
 
-	// Token: 0x060048A7 RID: 18599 RVA: 0x00127F44 File Offset: 0x00126144
-	public UITextPosition CalculatePlacement(string text, Transform self, Vector2 point)
+	// Token: 0x06004D52 RID: 19794 RVA: 0x00131EA8 File Offset: 0x001300A8
+	public global::UITextPosition CalculatePlacement(string text, Transform self, Vector2 point)
 	{
 		Vector2[] points = new Vector2[]
 		{
 			point
 		};
-		UITextPosition[] array = new UITextPosition[]
+		global::UITextPosition[] array = new global::UITextPosition[]
 		{
-			default(UITextPosition)
+			default(global::UITextPosition)
 		};
 		this.CalculatePlacement(points, array, text, self);
 		return array[0];
 	}
 
-	// Token: 0x060048A8 RID: 18600 RVA: 0x00127F98 File Offset: 0x00126198
-	public UITextPosition[] CalculatePlacement(string text, Transform self, params Vector2[] points)
+	// Token: 0x06004D53 RID: 19795 RVA: 0x00131EFC File Offset: 0x001300FC
+	public global::UITextPosition[] CalculatePlacement(string text, Transform self, params Vector2[] points)
 	{
-		UITextPosition[] array = null;
+		global::UITextPosition[] array = null;
 		if (points == null)
 		{
 			return null;
 		}
 		if (points.Length == 0)
 		{
-			return UIFont.empty;
+			return global::UIFont.empty;
 		}
-		return (this.CalculatePlacement(points, ref array, text, self) <= 0) ? UIFont.empty : array;
+		return (this.CalculatePlacement(points, ref array, text, self) <= 0) ? global::UIFont.empty : array;
 	}
 
-	// Token: 0x060048A9 RID: 18601 RVA: 0x00127FDC File Offset: 0x001261DC
-	public UITextPosition CalculatePlacement(string text, Vector3 point)
+	// Token: 0x06004D54 RID: 19796 RVA: 0x00131F40 File Offset: 0x00130140
+	public global::UITextPosition CalculatePlacement(string text, Vector3 point)
 	{
 		Vector3[] points = new Vector3[]
 		{
 			point
 		};
-		UITextPosition[] array = new UITextPosition[]
+		global::UITextPosition[] array = new global::UITextPosition[]
 		{
-			default(UITextPosition)
+			default(global::UITextPosition)
 		};
 		this.CalculatePlacement(points, array, text);
 		return array[0];
 	}
 
-	// Token: 0x060048AA RID: 18602 RVA: 0x00128030 File Offset: 0x00126230
-	public UITextPosition CalculatePlacement(string text, Matrix4x4 transform, Vector2 point)
+	// Token: 0x06004D55 RID: 19797 RVA: 0x00131F94 File Offset: 0x00130194
+	public global::UITextPosition CalculatePlacement(string text, Matrix4x4 transform, Vector2 point)
 	{
 		Vector2[] points = new Vector2[]
 		{
 			point
 		};
-		UITextPosition[] array = new UITextPosition[]
+		global::UITextPosition[] array = new global::UITextPosition[]
 		{
-			default(UITextPosition)
+			default(global::UITextPosition)
 		};
 		this.CalculatePlacement(points, array, text, transform);
 		return array[0];
 	}
 
-	// Token: 0x060048AB RID: 18603 RVA: 0x00128084 File Offset: 0x00126284
-	public UITextPosition CalculatePlacement(string text, Transform self, Vector3 point)
+	// Token: 0x06004D56 RID: 19798 RVA: 0x00131FE8 File Offset: 0x001301E8
+	public global::UITextPosition CalculatePlacement(string text, Transform self, Vector3 point)
 	{
 		Vector3[] points = new Vector3[]
 		{
 			point
 		};
-		UITextPosition[] array = new UITextPosition[]
+		global::UITextPosition[] array = new global::UITextPosition[]
 		{
-			default(UITextPosition)
+			default(global::UITextPosition)
 		};
 		this.CalculatePlacement(points, array, text, self);
 		return array[0];
 	}
 
-	// Token: 0x060048AC RID: 18604 RVA: 0x001280D8 File Offset: 0x001262D8
-	public UITextPosition[] CalculatePlacement(string text, Transform self, params Vector3[] points)
+	// Token: 0x06004D57 RID: 19799 RVA: 0x0013203C File Offset: 0x0013023C
+	public global::UITextPosition[] CalculatePlacement(string text, Transform self, params Vector3[] points)
 	{
-		UITextPosition[] array = null;
+		global::UITextPosition[] array = null;
 		if (points == null)
 		{
 			return null;
 		}
 		if (points.Length == 0)
 		{
-			return UIFont.empty;
+			return global::UIFont.empty;
 		}
-		return (this.CalculatePlacement(points, ref array, text, self) <= 0) ? UIFont.empty : array;
+		return (this.CalculatePlacement(points, ref array, text, self) <= 0) ? global::UIFont.empty : array;
 	}
 
-	// Token: 0x060048AD RID: 18605 RVA: 0x0012811C File Offset: 0x0012631C
+	// Token: 0x06004D58 RID: 19800 RVA: 0x00132080 File Offset: 0x00130280
 	private int ProcessPlacement(int count, string text)
 	{
 		if (this.mReplacement != null)
@@ -1239,13 +1239,13 @@ public class UIFont : MonoBehaviour
 			return this.mReplacement.ProcessPlacement(count, text);
 		}
 		int i = 0;
-		if (UIFont.manglePoints[UIFont.mangleIndices[i]].y < 0f)
+		if (global::UIFont.manglePoints[global::UIFont.mangleIndices[i]].y < 0f)
 		{
 			do
 			{
-				UIFont.manglePositions[i] = new UITextPosition(UITextRegion.Before);
+				global::UIFont.manglePositions[i] = new global::UITextPosition(global::UITextRegion.Before);
 			}
-			while (++i < count && UIFont.manglePoints[UIFont.mangleIndices[i]].y < 0f);
+			while (++i < count && global::UIFont.manglePoints[global::UIFont.mangleIndices[i]].y < 0f);
 			if (i >= count)
 			{
 				return count;
@@ -1255,15 +1255,15 @@ public class UIFont : MonoBehaviour
 		int num = this.verticalSpacing + this.bmFont.charSize;
 		if (length == 0)
 		{
-			while (UIFont.manglePoints[UIFont.mangleIndices[i]].y <= (float)num)
+			while (global::UIFont.manglePoints[global::UIFont.mangleIndices[i]].y <= (float)num)
 			{
-				if (UIFont.manglePoints[UIFont.mangleIndices[i]].x < 0f)
+				if (global::UIFont.manglePoints[global::UIFont.mangleIndices[i]].x < 0f)
 				{
-					UIFont.manglePositions[i] = new UITextPosition(UITextRegion.Pre);
+					global::UIFont.manglePositions[i] = new global::UITextPosition(global::UITextRegion.Pre);
 				}
 				else
 				{
-					UIFont.manglePositions[i] = new UITextPosition(UITextRegion.Past);
+					global::UIFont.manglePositions[i] = new global::UITextPosition(global::UITextRegion.Past);
 				}
 				if (++i >= count)
 				{
@@ -1272,7 +1272,7 @@ public class UIFont : MonoBehaviour
 			}
 			while (i < count)
 			{
-				UIFont.manglePositions[i++] = new UITextPosition(UITextRegion.End);
+				global::UIFont.manglePositions[i++] = new global::UITextPosition(global::UITextRegion.End);
 			}
 			return count;
 		}
@@ -1288,7 +1288,7 @@ public class UIFont : MonoBehaviour
 		IL_389:
 		while (i < count)
 		{
-			Vector3 vector = UIFont.manglePoints[UIFont.mangleIndices[i]];
+			Vector3 vector = global::UIFont.manglePoints[global::UIFont.mangleIndices[i]];
 			int num8 = Mathf.FloorToInt(vector.y);
 			int num9 = num8 / num;
 			IL_19E:
@@ -1326,12 +1326,12 @@ public class UIFont : MonoBehaviour
 				}
 				if (vector.x < 0f)
 				{
-					UIFont.manglePositions[i++] = new UITextPosition(num2, 0, num5, UITextRegion.Pre);
+					global::UIFont.manglePositions[i++] = new global::UITextPosition(num2, 0, num5, global::UITextRegion.Pre);
 					goto IL_389;
 				}
 				if (flag)
 				{
-					UIFont.manglePositions[i++] = new UITextPosition(num2, column, num6, UITextRegion.Past);
+					global::UIFont.manglePositions[i++] = new global::UITextPosition(num2, column, num6, global::UITextRegion.Past);
 					goto IL_389;
 				}
 				while ((float)num7 < vector.x)
@@ -1351,7 +1351,7 @@ public class UIFont : MonoBehaviour
 						flag = true;
 						goto IL_19E;
 					}
-					BMGlyph bmglyph;
+					global::BMGlyph bmglyph;
 					if (this.mFont.GetGlyph(num10, out bmglyph))
 					{
 						if (num6 >= num5)
@@ -1363,18 +1363,18 @@ public class UIFont : MonoBehaviour
 					num6 = num4++;
 					column = num3++;
 				}
-				UIFont.manglePositions[i++] = new UITextPosition(num2, column, num6, UITextRegion.Inside);
+				global::UIFont.manglePositions[i++] = new global::UITextPosition(num2, column, num6, global::UITextRegion.Inside);
 				goto IL_389;
 			}
 			if (num9 == num2)
 			{
-				UIFont.manglePositions[i++] = new UITextPosition(num2, num3, num4, UITextRegion.Past);
+				global::UIFont.manglePositions[i++] = new global::UITextPosition(num2, num3, num4, global::UITextRegion.Past);
 			}
 			else
 			{
 				while (i < count)
 				{
-					UIFont.manglePositions[i++] = new UITextPosition(num2, num3, num4, UITextRegion.End);
+					global::UIFont.manglePositions[i++] = new global::UITextPosition(num2, num3, num4, global::UITextRegion.End);
 				}
 			}
 		}
@@ -1385,24 +1385,24 @@ public class UIFont : MonoBehaviour
 		return count;
 	}
 
-	// Token: 0x060048AE RID: 18606 RVA: 0x001284D8 File Offset: 0x001266D8
-	private void Align(ref UIFont.PrintContext ctx)
+	// Token: 0x06004D59 RID: 19801 RVA: 0x0013243C File Offset: 0x0013063C
+	private void Align(ref global::UIFont.PrintContext ctx)
 	{
 		if (this.mFont.charSize > 0)
 		{
 			int num;
 			switch (ctx.alignment)
 			{
-			case UIFont.Alignment.Left:
+			case global::UIFont.Alignment.Left:
 				num = 0;
 				break;
-			case UIFont.Alignment.Center:
+			case global::UIFont.Alignment.Center:
 				num = Mathf.Max(0, Mathf.RoundToInt((float)(ctx.lineWidth - ctx.x) * 0.5f));
 				break;
-			case UIFont.Alignment.Right:
+			case global::UIFont.Alignment.Right:
 				num = Mathf.Max(0, Mathf.RoundToInt((float)(ctx.lineWidth - ctx.x)));
 				break;
-			case UIFont.Alignment.LeftOverflowRight:
+			case global::UIFont.Alignment.LeftOverflowRight:
 				num = Mathf.Max(0, Mathf.RoundToInt((float)(ctx.x - ctx.lineWidth)));
 				break;
 			default:
@@ -1415,22 +1415,22 @@ public class UIFont : MonoBehaviour
 			float num2 = (float)((double)num / (double)this.mFont.charSize);
 			for (int i = ctx.indexOffset; i < ctx.m.vSize; i++)
 			{
-				Vertex[] v = ctx.m.v;
+				NGUI.Meshing.Vertex[] v = ctx.m.v;
 				int num3 = i;
 				v[num3].x = v[num3].x + num2;
 			}
 		}
 	}
 
-	// Token: 0x060048AF RID: 18607 RVA: 0x001285E0 File Offset: 0x001267E0
-	public void Print(string text, Color color, MeshBuffer m, bool encoding, UIFont.SymbolStyle symbolStyle, UIFont.Alignment alignment, int lineWidth)
+	// Token: 0x06004D5A RID: 19802 RVA: 0x00132544 File Offset: 0x00130744
+	public void Print(string text, Color color, NGUI.Meshing.MeshBuffer m, bool encoding, global::UIFont.SymbolStyle symbolStyle, global::UIFont.Alignment alignment, int lineWidth)
 	{
-		UITextSelection uitextSelection = default(UITextSelection);
+		global::UITextSelection uitextSelection = default(global::UITextSelection);
 		this.Print(text, color, m, encoding, symbolStyle, alignment, lineWidth, ref uitextSelection, '\0', color, Color.clear, '\0', -1f);
 	}
 
-	// Token: 0x060048B0 RID: 18608 RVA: 0x00128618 File Offset: 0x00126818
-	public void Print(string text, Color normalColor, MeshBuffer m, bool encoding, UIFont.SymbolStyle symbolStyle, UIFont.Alignment alignment, int lineWidth, ref UITextSelection selection, char carratChar, Color highlightTextColor, Color highlightBarColor, char highlightChar, float highlightSplit)
+	// Token: 0x06004D5B RID: 19803 RVA: 0x0013257C File Offset: 0x0013077C
+	public void Print(string text, Color normalColor, NGUI.Meshing.MeshBuffer m, bool encoding, global::UIFont.SymbolStyle symbolStyle, global::UIFont.Alignment alignment, int lineWidth, ref global::UITextSelection selection, char carratChar, Color highlightTextColor, Color highlightBarColor, char highlightChar, float highlightSplit)
 	{
 		if (this.mReplacement != null)
 		{
@@ -1446,7 +1446,7 @@ public class UIFont : MonoBehaviour
 			int num = 0;
 			this.mColors.Clear();
 			this.mColors.Add(normalColor);
-			UIFont.PrintContext printContext;
+			global::UIFont.PrintContext printContext;
 			printContext.m = m;
 			printContext.lineWidth = lineWidth;
 			printContext.alignment = alignment;
@@ -1489,7 +1489,7 @@ public class UIFont : MonoBehaviour
 			printContext.highlightBarDraw = (printContext.highlightChar != '\0' && printContext.highlightSplit >= 0f && printContext.highlightSplit <= 1f && highlightBarColor.a > 0f);
 			if (!printContext.highlightBarDraw && printContext.highlightTextColor == printContext.normalColor)
 			{
-				printContext.highlight = UIHighlight.invalid;
+				printContext.highlight = global::UIHighlight.invalid;
 				printContext.highlightGlyph = null;
 			}
 			else if (!selection.GetHighlight(out printContext.highlight))
@@ -1499,7 +1499,7 @@ public class UIFont : MonoBehaviour
 			}
 			else if ((printContext.highlightChar != printContext.carratChar) ? (!this.mFont.GetGlyph((int)printContext.highlightChar, out printContext.highlightGlyph)) : ((printContext.highlightGlyph = printContext.carratGlyph) == null))
 			{
-				printContext.highlight = UIHighlight.invalid;
+				printContext.highlight = global::UIHighlight.invalid;
 			}
 			printContext.j = 0;
 			printContext.previousX = 0;
@@ -1507,7 +1507,7 @@ public class UIFont : MonoBehaviour
 			printContext.highlightVertex = -1;
 			printContext.glyph = null;
 			printContext.c = '\0';
-			printContext.skipSymbols = (!encoding || symbolStyle == UIFont.SymbolStyle.None);
+			printContext.skipSymbols = (!encoding || symbolStyle == global::UIFont.SymbolStyle.None);
 			printContext.printChar = false;
 			printContext.printColor = normalColor;
 			printContext.symbol = null;
@@ -1525,7 +1525,7 @@ public class UIFont : MonoBehaviour
 				{
 					if (encoding && printContext.c == '[')
 					{
-						int num2 = NGUITools.ParseSymbol(text, printContext.i, this.mColors, ref num);
+						int num2 = global::NGUITools.ParseSymbol(text, printContext.i, this.mColors, ref num);
 						if (num2 > 0)
 						{
 							printContext.nonHighlightColor = this.mColors[this.mColors.Count - 1];
@@ -1609,7 +1609,7 @@ public class UIFont : MonoBehaviour
 						printContext.x += this.mSpacingX + printContext.symbol.width;
 						printContext.i += printContext.symbol.sequence.Length - 1;
 						printContext.prev = 0;
-						if (symbolStyle == UIFont.SymbolStyle.Colored)
+						if (symbolStyle == global::UIFont.SymbolStyle.Colored)
 						{
 							printContext.printColor = ((printContext.highlight.b.i <= printContext.j || printContext.highlight.a.i > printContext.j) ? printContext.nonHighlightColor : printContext.highlightTextColor);
 						}
@@ -1712,8 +1712,8 @@ public class UIFont : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060048B1 RID: 18609 RVA: 0x001294D8 File Offset: 0x001276D8
-	private void PutHighlightStart(ref UIFont.PrintContext ctx)
+	// Token: 0x06004D5C RID: 19804 RVA: 0x0013343C File Offset: 0x0013163C
+	private void PutHighlightStart(ref global::UIFont.PrintContext ctx)
 	{
 		if (ctx.highlightVertex != -1)
 		{
@@ -1746,8 +1746,8 @@ public class UIFont : MonoBehaviour
 		ctx.m.FastQuad(xy, xy2, uv, uv2, ctx.highlightBarColor);
 	}
 
-	// Token: 0x060048B2 RID: 18610 RVA: 0x00129744 File Offset: 0x00127944
-	private void PutHighlightEnd(ref UIFont.PrintContext ctx)
+	// Token: 0x06004D5D RID: 19805 RVA: 0x001336A8 File Offset: 0x001318A8
+	private void PutHighlightEnd(ref global::UIFont.PrintContext ctx)
 	{
 		if (ctx.highlightVertex == -1)
 		{
@@ -1756,30 +1756,30 @@ public class UIFont : MonoBehaviour
 		float num = ctx.scale.x * (float)(ctx.previousX + ctx.highlightGlyph.offsetX) - ctx.m.v[ctx.highlightVertex].x;
 		if (num > 0f)
 		{
-			Vertex[] v = ctx.m.v;
+			NGUI.Meshing.Vertex[] v = ctx.m.v;
 			int highlightVertex = ctx.highlightVertex;
 			v[highlightVertex].x = v[highlightVertex].x + num;
-			Vertex[] v2 = ctx.m.v;
+			NGUI.Meshing.Vertex[] v2 = ctx.m.v;
 			int num2 = ctx.highlightVertex + 1;
 			v2[num2].x = v2[num2].x + num;
-			Vertex[] v3 = ctx.m.v;
+			NGUI.Meshing.Vertex[] v3 = ctx.m.v;
 			int num3 = ctx.highlightVertex + 4;
 			v3[num3].x = v3[num3].x + num;
-			Vertex[] v4 = ctx.m.v;
+			NGUI.Meshing.Vertex[] v4 = ctx.m.v;
 			int num4 = ctx.highlightVertex + 4 + 1;
 			v4[num4].x = v4[num4].x + num;
-			Vertex[] v5 = ctx.m.v;
+			NGUI.Meshing.Vertex[] v5 = ctx.m.v;
 			int num5 = ctx.highlightVertex + 4 + 2;
 			v5[num5].x = v5[num5].x + num;
-			Vertex[] v6 = ctx.m.v;
+			NGUI.Meshing.Vertex[] v6 = ctx.m.v;
 			int num6 = ctx.highlightVertex + 4 + 3;
 			v6[num6].x = v6[num6].x + num;
 		}
 		ctx.highlightVertex = -1;
 	}
 
-	// Token: 0x060048B3 RID: 18611 RVA: 0x00129890 File Offset: 0x00127A90
-	private void DrawCarat(ref UIFont.PrintContext ctx)
+	// Token: 0x06004D5E RID: 19806 RVA: 0x001337F4 File Offset: 0x001319F4
+	private void DrawCarat(ref global::UIFont.PrintContext ctx)
 	{
 		Vector2 xy;
 		xy.x = ctx.scale.x * (float)(ctx.previousX + ctx.carratGlyph.offsetX);
@@ -1796,99 +1796,99 @@ public class UIFont : MonoBehaviour
 		ctx.m.FastQuad(xy, xy2, uv, uv2, ctx.normalColor);
 	}
 
-	// Token: 0x040028BF RID: 10431
+	// Token: 0x04002B0D RID: 11021
 	private const int mangleStartSize = 8;
 
-	// Token: 0x040028C0 RID: 10432
-	[SerializeField]
+	// Token: 0x04002B0E RID: 11022
 	[HideInInspector]
+	[SerializeField]
 	private Material mMat;
 
-	// Token: 0x040028C1 RID: 10433
-	[SerializeField]
+	// Token: 0x04002B0F RID: 11023
 	[HideInInspector]
+	[SerializeField]
 	private Rect mUVRect = new Rect(0f, 0f, 1f, 1f);
 
-	// Token: 0x040028C2 RID: 10434
-	[HideInInspector]
+	// Token: 0x04002B10 RID: 11024
 	[SerializeField]
-	private BMFont mFont = new BMFont();
+	[HideInInspector]
+	private global::BMFont mFont = new global::BMFont();
 
-	// Token: 0x040028C3 RID: 10435
+	// Token: 0x04002B11 RID: 11025
 	[HideInInspector]
 	[SerializeField]
 	private int mSpacingX;
 
-	// Token: 0x040028C4 RID: 10436
-	[SerializeField]
+	// Token: 0x04002B12 RID: 11026
 	[HideInInspector]
+	[SerializeField]
 	private int mSpacingY;
 
-	// Token: 0x040028C5 RID: 10437
+	// Token: 0x04002B13 RID: 11027
+	[HideInInspector]
+	[SerializeField]
+	private global::UIAtlas mAtlas;
+
+	// Token: 0x04002B14 RID: 11028
 	[SerializeField]
 	[HideInInspector]
-	private UIAtlas mAtlas;
+	private global::UIFont mReplacement;
 
-	// Token: 0x040028C6 RID: 10438
-	[SerializeField]
-	[HideInInspector]
-	private UIFont mReplacement;
+	// Token: 0x04002B15 RID: 11029
+	private global::UIAtlas.Sprite mSprite;
 
-	// Token: 0x040028C7 RID: 10439
-	private UIAtlas.Sprite mSprite;
-
-	// Token: 0x040028C8 RID: 10440
+	// Token: 0x04002B16 RID: 11030
 	private bool mSpriteSet;
 
-	// Token: 0x040028C9 RID: 10441
+	// Token: 0x04002B17 RID: 11031
 	private List<Color> mColors = new List<Color>();
 
-	// Token: 0x040028CA RID: 10442
-	private static List<UITextMarkup> _tempMarkup;
+	// Token: 0x04002B18 RID: 11032
+	private static List<global::UITextMarkup> _tempMarkup;
 
-	// Token: 0x040028CB RID: 10443
+	// Token: 0x04002B19 RID: 11033
 	private static Vector3[] manglePoints = new Vector3[8];
 
-	// Token: 0x040028CC RID: 10444
+	// Token: 0x04002B1A RID: 11034
 	private static int[] mangleIndices = new int[8];
 
-	// Token: 0x040028CD RID: 10445
-	private static UITextPosition[] manglePositions = new UITextPosition[8];
+	// Token: 0x04002B1B RID: 11035
+	private static global::UITextPosition[] manglePositions = new global::UITextPosition[8];
 
-	// Token: 0x040028CE RID: 10446
-	private static readonly UIFont.MangleSorter mangleSort = new UIFont.MangleSorter();
+	// Token: 0x04002B1C RID: 11036
+	private static readonly global::UIFont.MangleSorter mangleSort = new global::UIFont.MangleSorter();
 
-	// Token: 0x040028CF RID: 10447
-	private static readonly UITextPosition[] empty = new UITextPosition[0];
+	// Token: 0x04002B1D RID: 11037
+	private static readonly global::UITextPosition[] empty = new global::UITextPosition[0];
 
-	// Token: 0x020007EC RID: 2028
+	// Token: 0x020008DD RID: 2269
 	public enum Alignment
 	{
-		// Token: 0x040028D1 RID: 10449
+		// Token: 0x04002B1F RID: 11039
 		Left,
-		// Token: 0x040028D2 RID: 10450
+		// Token: 0x04002B20 RID: 11040
 		Center,
-		// Token: 0x040028D3 RID: 10451
+		// Token: 0x04002B21 RID: 11041
 		Right,
-		// Token: 0x040028D4 RID: 10452
+		// Token: 0x04002B22 RID: 11042
 		LeftOverflowRight
 	}
 
-	// Token: 0x020007ED RID: 2029
+	// Token: 0x020008DE RID: 2270
 	public enum SymbolStyle
 	{
-		// Token: 0x040028D6 RID: 10454
+		// Token: 0x04002B24 RID: 11044
 		None,
-		// Token: 0x040028D7 RID: 10455
+		// Token: 0x04002B25 RID: 11045
 		Uncolored,
-		// Token: 0x040028D8 RID: 10456
+		// Token: 0x04002B26 RID: 11046
 		Colored
 	}
 
-	// Token: 0x020007EE RID: 2030
+	// Token: 0x020008DF RID: 2271
 	private class MangleSorter : Comparer<Vector3>
 	{
-		// Token: 0x060048B5 RID: 18613 RVA: 0x00129A14 File Offset: 0x00127C14
+		// Token: 0x06004D60 RID: 19808 RVA: 0x00133978 File Offset: 0x00131B78
 		public void SetLineSizing(double height, double spacing)
 		{
 			if (height == 0.0)
@@ -1926,7 +1926,7 @@ public class UIFont : MonoBehaviour
 			}
 		}
 
-		// Token: 0x060048B6 RID: 18614 RVA: 0x00129AC0 File Offset: 0x00127CC0
+		// Token: 0x06004D61 RID: 19809 RVA: 0x00133A24 File Offset: 0x00131C24
 		public override int Compare(Vector3 x, Vector3 y)
 		{
 			int num3;
@@ -1978,143 +1978,143 @@ public class UIFont : MonoBehaviour
 			return num3;
 		}
 
-		// Token: 0x040028D9 RID: 10457
+		// Token: 0x04002B27 RID: 11047
 		public double lineHeight = 12.0;
 
-		// Token: 0x040028DA RID: 10458
+		// Token: 0x04002B28 RID: 11048
 		public double vSpacing = 12.0;
 
-		// Token: 0x040028DB RID: 10459
+		// Token: 0x04002B29 RID: 11049
 		private bool noLineSize;
 
-		// Token: 0x040028DC RID: 10460
+		// Token: 0x04002B2A RID: 11050
 		private bool noVSpacing;
 	}
 
-	// Token: 0x020007EF RID: 2031
+	// Token: 0x020008E0 RID: 2272
 	private struct PrintContext
 	{
-		// Token: 0x040028DD RID: 10461
-		public MeshBuffer m;
+		// Token: 0x04002B2B RID: 11051
+		public NGUI.Meshing.MeshBuffer m;
 
-		// Token: 0x040028DE RID: 10462
-		public BMGlyph glyph;
+		// Token: 0x04002B2C RID: 11052
+		public global::BMGlyph glyph;
 
-		// Token: 0x040028DF RID: 10463
-		public BMGlyph highlightGlyph;
+		// Token: 0x04002B2D RID: 11053
+		public global::BMGlyph highlightGlyph;
 
-		// Token: 0x040028E0 RID: 10464
-		public BMGlyph carratGlyph;
+		// Token: 0x04002B2E RID: 11054
+		public global::BMGlyph carratGlyph;
 
-		// Token: 0x040028E1 RID: 10465
-		public BMSymbol symbol;
+		// Token: 0x04002B2F RID: 11055
+		public global::BMSymbol symbol;
 
-		// Token: 0x040028E2 RID: 10466
+		// Token: 0x04002B30 RID: 11056
 		public string text;
 
-		// Token: 0x040028E3 RID: 10467
-		public UIHighlight highlight;
+		// Token: 0x04002B31 RID: 11057
+		public global::UIHighlight highlight;
 
-		// Token: 0x040028E4 RID: 10468
+		// Token: 0x04002B32 RID: 11058
 		public Color printColor;
 
-		// Token: 0x040028E5 RID: 10469
+		// Token: 0x04002B33 RID: 11059
 		public Color nonHighlightColor;
 
-		// Token: 0x040028E6 RID: 10470
+		// Token: 0x04002B34 RID: 11060
 		public Color normalColor;
 
-		// Token: 0x040028E7 RID: 10471
+		// Token: 0x04002B35 RID: 11061
 		public Color highlightTextColor;
 
-		// Token: 0x040028E8 RID: 10472
+		// Token: 0x04002B36 RID: 11062
 		public Color highlightBarColor;
 
-		// Token: 0x040028E9 RID: 10473
+		// Token: 0x04002B37 RID: 11063
 		public Vector3 v0;
 
-		// Token: 0x040028EA RID: 10474
+		// Token: 0x04002B38 RID: 11064
 		public Vector3 v1;
 
-		// Token: 0x040028EB RID: 10475
+		// Token: 0x04002B39 RID: 11065
 		public Vector2 u0;
 
-		// Token: 0x040028EC RID: 10476
+		// Token: 0x04002B3A RID: 11066
 		public Vector2 u1;
 
-		// Token: 0x040028ED RID: 10477
+		// Token: 0x04002B3B RID: 11067
 		public Vector2 scale;
 
-		// Token: 0x040028EE RID: 10478
+		// Token: 0x04002B3C RID: 11068
 		public float invX;
 
-		// Token: 0x040028EF RID: 10479
+		// Token: 0x04002B3D RID: 11069
 		public float invY;
 
-		// Token: 0x040028F0 RID: 10480
+		// Token: 0x04002B3E RID: 11070
 		public float highlightSplit;
 
-		// Token: 0x040028F1 RID: 10481
+		// Token: 0x04002B3F RID: 11071
 		public int x;
 
-		// Token: 0x040028F2 RID: 10482
+		// Token: 0x04002B40 RID: 11072
 		public int maxX;
 
-		// Token: 0x040028F3 RID: 10483
+		// Token: 0x04002B41 RID: 11073
 		public int previousX;
 
-		// Token: 0x040028F4 RID: 10484
+		// Token: 0x04002B42 RID: 11074
 		public int y;
 
-		// Token: 0x040028F5 RID: 10485
+		// Token: 0x04002B43 RID: 11075
 		public int highlightVertex;
 
-		// Token: 0x040028F6 RID: 10486
+		// Token: 0x04002B44 RID: 11076
 		public int prev;
 
-		// Token: 0x040028F7 RID: 10487
+		// Token: 0x04002B45 RID: 11077
 		public int lineHeight;
 
-		// Token: 0x040028F8 RID: 10488
+		// Token: 0x04002B46 RID: 11078
 		public int lineWidth;
 
-		// Token: 0x040028F9 RID: 10489
+		// Token: 0x04002B47 RID: 11079
 		public int indexOffset;
 
-		// Token: 0x040028FA RID: 10490
+		// Token: 0x04002B48 RID: 11080
 		public int textLength;
 
-		// Token: 0x040028FB RID: 10491
+		// Token: 0x04002B49 RID: 11081
 		public int i;
 
-		// Token: 0x040028FC RID: 10492
+		// Token: 0x04002B4A RID: 11082
 		public int carratIndex;
 
-		// Token: 0x040028FD RID: 10493
+		// Token: 0x04002B4B RID: 11083
 		public int j;
 
-		// Token: 0x040028FE RID: 10494
-		public UIFont.Alignment alignment;
+		// Token: 0x04002B4C RID: 11084
+		public global::UIFont.Alignment alignment;
 
-		// Token: 0x040028FF RID: 10495
+		// Token: 0x04002B4D RID: 11085
 		public char carratChar;
 
-		// Token: 0x04002900 RID: 10496
+		// Token: 0x04002B4E RID: 11086
 		public char highlightChar;
 
-		// Token: 0x04002901 RID: 10497
+		// Token: 0x04002B4F RID: 11087
 		public char c;
 
-		// Token: 0x04002902 RID: 10498
+		// Token: 0x04002B50 RID: 11088
 		public bool highlightBarDraw;
 
-		// Token: 0x04002903 RID: 10499
+		// Token: 0x04002B51 RID: 11089
 		public bool isLineEnd;
 
-		// Token: 0x04002904 RID: 10500
+		// Token: 0x04002B52 RID: 11090
 		public bool skipSymbols;
 
-		// Token: 0x04002905 RID: 10501
+		// Token: 0x04002B53 RID: 11091
 		public bool printChar;
 	}
 }

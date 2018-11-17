@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-// Token: 0x020006C2 RID: 1730
-public class dfTouchEventArgs : dfMouseEventArgs
+// Token: 0x0200078D RID: 1933
+public class dfTouchEventArgs : global::dfMouseEventArgs
 {
-	// Token: 0x06003C99 RID: 15513 RVA: 0x000E4110 File Offset: 0x000E2310
-	public dfTouchEventArgs(dfControl Source, Touch touch, Ray ray) : base(Source, dfMouseButtons.Left, touch.tapCount, ray, touch.position, 0f)
+	// Token: 0x060040A3 RID: 16547 RVA: 0x000ECC54 File Offset: 0x000EAE54
+	public dfTouchEventArgs(global::dfControl Source, Touch touch, Ray ray) : base(Source, global::dfMouseButtons.Left, touch.tapCount, ray, touch.position, 0f)
 	{
 		this.Touch = touch;
 		this.Touches = new List<Touch>
@@ -20,30 +20,30 @@ public class dfTouchEventArgs : dfMouseEventArgs
 		}
 	}
 
-	// Token: 0x06003C9A RID: 15514 RVA: 0x000E4184 File Offset: 0x000E2384
-	public dfTouchEventArgs(dfControl source, List<Touch> touches, Ray ray) : this(source, touches.First<Touch>(), ray)
+	// Token: 0x060040A4 RID: 16548 RVA: 0x000ECCC8 File Offset: 0x000EAEC8
+	public dfTouchEventArgs(global::dfControl source, List<Touch> touches, Ray ray) : this(source, touches.First<Touch>(), ray)
 	{
 		this.Touches = touches;
 	}
 
-	// Token: 0x06003C9B RID: 15515 RVA: 0x000E419C File Offset: 0x000E239C
-	public dfTouchEventArgs(dfControl Source) : base(Source)
+	// Token: 0x060040A5 RID: 16549 RVA: 0x000ECCE0 File Offset: 0x000EAEE0
+	public dfTouchEventArgs(global::dfControl Source) : base(Source)
 	{
 		base.Position = Vector2.zero;
 	}
 
-	// Token: 0x17000BC2 RID: 3010
-	// (get) Token: 0x06003C9C RID: 15516 RVA: 0x000E41B0 File Offset: 0x000E23B0
-	// (set) Token: 0x06003C9D RID: 15517 RVA: 0x000E41B8 File Offset: 0x000E23B8
+	// Token: 0x17000C46 RID: 3142
+	// (get) Token: 0x060040A6 RID: 16550 RVA: 0x000ECCF4 File Offset: 0x000EAEF4
+	// (set) Token: 0x060040A7 RID: 16551 RVA: 0x000ECCFC File Offset: 0x000EAEFC
 	public Touch Touch { get; private set; }
 
-	// Token: 0x17000BC3 RID: 3011
-	// (get) Token: 0x06003C9E RID: 15518 RVA: 0x000E41C4 File Offset: 0x000E23C4
-	// (set) Token: 0x06003C9F RID: 15519 RVA: 0x000E41CC File Offset: 0x000E23CC
+	// Token: 0x17000C47 RID: 3143
+	// (get) Token: 0x060040A8 RID: 16552 RVA: 0x000ECD08 File Offset: 0x000EAF08
+	// (set) Token: 0x060040A9 RID: 16553 RVA: 0x000ECD10 File Offset: 0x000EAF10
 	public List<Touch> Touches { get; private set; }
 
-	// Token: 0x17000BC4 RID: 3012
-	// (get) Token: 0x06003CA0 RID: 15520 RVA: 0x000E41D8 File Offset: 0x000E23D8
+	// Token: 0x17000C48 RID: 3144
+	// (get) Token: 0x060040AA RID: 16554 RVA: 0x000ECD1C File Offset: 0x000EAF1C
 	public bool IsMultiTouch
 	{
 		get

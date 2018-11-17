@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000715 RID: 1813
-public class dfMarkupBoxTexture : dfMarkupBox
+// Token: 0x020007F1 RID: 2033
+public class dfMarkupBoxTexture : global::dfMarkupBox
 {
-	// Token: 0x06004279 RID: 17017 RVA: 0x00101C5C File Offset: 0x000FFE5C
-	public dfMarkupBoxTexture(dfMarkupElement element, dfMarkupDisplayType display, dfMarkupStyle style) : base(element, display, style)
+	// Token: 0x060046BD RID: 18109 RVA: 0x0010AF6C File Offset: 0x0010916C
+	public dfMarkupBoxTexture(global::dfMarkupElement element, global::dfMarkupDisplayType display, global::dfMarkupStyle style) : base(element, display, style)
 	{
 	}
 
-	// Token: 0x17000D10 RID: 3344
-	// (get) Token: 0x0600427B RID: 17019 RVA: 0x00101C8C File Offset: 0x000FFE8C
-	// (set) Token: 0x0600427C RID: 17020 RVA: 0x00101C94 File Offset: 0x000FFE94
+	// Token: 0x17000D9A RID: 3482
+	// (get) Token: 0x060046BF RID: 18111 RVA: 0x0010AF9C File Offset: 0x0010919C
+	// (set) Token: 0x060046C0 RID: 18112 RVA: 0x0010AFA4 File Offset: 0x001091A4
 	public Texture Texture { get; set; }
 
-	// Token: 0x0600427D RID: 17021 RVA: 0x00101CA0 File Offset: 0x000FFEA0
+	// Token: 0x060046C1 RID: 18113 RVA: 0x0010AFB0 File Offset: 0x001091B0
 	internal void LoadTexture(Texture texture)
 	{
 		if (texture == null)
@@ -26,8 +26,8 @@ public class dfMarkupBoxTexture : dfMarkupBox
 		this.Baseline = (int)this.Size.y;
 	}
 
-	// Token: 0x0600427E RID: 17022 RVA: 0x00101CF4 File Offset: 0x000FFEF4
-	protected override dfRenderData OnRebuildRenderData()
+	// Token: 0x060046C2 RID: 18114 RVA: 0x0010B004 File Offset: 0x00109204
+	protected override global::dfRenderData OnRebuildRenderData()
 	{
 		this.renderData.Clear();
 		this.ensureMaterial();
@@ -41,7 +41,7 @@ public class dfMarkupBoxTexture : dfMarkupBox
 		this.renderData.Vertices.Add(vector);
 		this.renderData.Vertices.Add(item);
 		this.renderData.Vertices.Add(item2);
-		this.renderData.Triangles.AddRange(dfMarkupBoxTexture.TRIANGLE_INDICES);
+		this.renderData.Triangles.AddRange(global::dfMarkupBoxTexture.TRIANGLE_INDICES);
 		this.renderData.UV.Add(new Vector2(0f, 1f));
 		this.renderData.UV.Add(new Vector2(1f, 1f));
 		this.renderData.UV.Add(new Vector2(1f, 0f));
@@ -54,7 +54,7 @@ public class dfMarkupBoxTexture : dfMarkupBox
 		return this.renderData;
 	}
 
-	// Token: 0x0600427F RID: 17023 RVA: 0x00101ED8 File Offset: 0x001000D8
+	// Token: 0x060046C3 RID: 18115 RVA: 0x0010B1E8 File Offset: 0x001093E8
 	private void ensureMaterial()
 	{
 		if (this.material != null || this.Texture == null)
@@ -75,18 +75,18 @@ public class dfMarkupBoxTexture : dfMarkupBox
 		};
 	}
 
-	// Token: 0x06004280 RID: 17024 RVA: 0x00101F58 File Offset: 0x00100158
-	private static void addTriangleIndices(dfList<Vector3> verts, dfList<int> triangles)
+	// Token: 0x060046C4 RID: 18116 RVA: 0x0010B268 File Offset: 0x00109468
+	private static void addTriangleIndices(global::dfList<Vector3> verts, global::dfList<int> triangles)
 	{
 		int count = verts.Count;
-		int[] triangle_INDICES = dfMarkupBoxTexture.TRIANGLE_INDICES;
+		int[] triangle_INDICES = global::dfMarkupBoxTexture.TRIANGLE_INDICES;
 		for (int i = 0; i < triangle_INDICES.Length; i++)
 		{
 			triangles.Add(count + triangle_INDICES[i]);
 		}
 	}
 
-	// Token: 0x04002307 RID: 8967
+	// Token: 0x0400252A RID: 9514
 	private static int[] TRIANGLE_INDICES = new int[]
 	{
 		0,
@@ -97,9 +97,9 @@ public class dfMarkupBoxTexture : dfMarkupBox
 		3
 	};
 
-	// Token: 0x04002308 RID: 8968
-	private dfRenderData renderData = new dfRenderData(32);
+	// Token: 0x0400252B RID: 9515
+	private global::dfRenderData renderData = new global::dfRenderData(32);
 
-	// Token: 0x04002309 RID: 8969
+	// Token: 0x0400252C RID: 9516
 	private Material material;
 }

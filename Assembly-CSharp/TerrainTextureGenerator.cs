@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000691 RID: 1681
+// Token: 0x02000756 RID: 1878
 public class TerrainTextureGenerator : MonoBehaviour
 {
 }

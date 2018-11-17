@@ -2,13 +2,13 @@
 using AnimationOrTween;
 using UnityEngine;
 
-// Token: 0x02000767 RID: 1895
+// Token: 0x02000849 RID: 2121
 [AddComponentMenu("NGUI/Interaction/Checkbox")]
 public class UICheckbox : MonoBehaviour
 {
-	// Token: 0x17000D6F RID: 3439
-	// (get) Token: 0x060044FB RID: 17659 RVA: 0x0010E6B0 File Offset: 0x0010C8B0
-	// (set) Token: 0x060044FC RID: 17660 RVA: 0x0010E6B8 File Offset: 0x0010C8B8
+	// Token: 0x17000DFF RID: 3583
+	// (get) Token: 0x0600495C RID: 18780 RVA: 0x00118030 File Offset: 0x00116230
+	// (set) Token: 0x0600495D RID: 18781 RVA: 0x00118038 File Offset: 0x00116238
 	public bool isChecked
 	{
 		get
@@ -24,7 +24,7 @@ public class UICheckbox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044FD RID: 17661 RVA: 0x0010E6FC File Offset: 0x0010C8FC
+	// Token: 0x0600495E RID: 18782 RVA: 0x0011807C File Offset: 0x0011627C
 	private void Awake()
 	{
 		this.mTrans = base.transform;
@@ -42,7 +42,7 @@ public class UICheckbox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044FE RID: 17662 RVA: 0x0010E780 File Offset: 0x0010C980
+	// Token: 0x0600495F RID: 18783 RVA: 0x00118100 File Offset: 0x00116300
 	private void Start()
 	{
 		if (this.eventReceiver == null)
@@ -54,7 +54,7 @@ public class UICheckbox : MonoBehaviour
 		this.Set(this.startsChecked);
 	}
 
-	// Token: 0x060044FF RID: 17663 RVA: 0x0010E7CC File Offset: 0x0010C9CC
+	// Token: 0x06004960 RID: 18784 RVA: 0x0011814C File Offset: 0x0011634C
 	private void OnClick()
 	{
 		if (base.enabled)
@@ -63,7 +63,7 @@ public class UICheckbox : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004500 RID: 17664 RVA: 0x0010E7E8 File Offset: 0x0010C9E8
+	// Token: 0x06004961 RID: 18785 RVA: 0x00118168 File Offset: 0x00116368
 	private void Set(bool state)
 	{
 		if (!this.mStarted)
@@ -79,12 +79,12 @@ public class UICheckbox : MonoBehaviour
 		{
 			if (this.radioButtonRoot != null && state)
 			{
-				UICheckbox[] componentsInChildren = this.radioButtonRoot.GetComponentsInChildren<UICheckbox>(true);
+				global::UICheckbox[] componentsInChildren = this.radioButtonRoot.GetComponentsInChildren<global::UICheckbox>(true);
 				int i = 0;
 				int num = componentsInChildren.Length;
 				while (i < num)
 				{
-					UICheckbox uicheckbox = componentsInChildren[i];
+					global::UICheckbox uicheckbox = componentsInChildren[i];
 					if (uicheckbox != this && uicheckbox.radioButtonRoot == this.radioButtonRoot)
 					{
 						uicheckbox.Set(false);
@@ -97,55 +97,55 @@ public class UICheckbox : MonoBehaviour
 			{
 				Color color = this.checkSprite.color;
 				color.a = ((!this.mChecked) ? 0f : 1f);
-				TweenColor.Begin(this.checkSprite.gameObject, 0.2f, color);
+				global::TweenColor.Begin(this.checkSprite.gameObject, 0.2f, color);
 			}
 			if (this.eventReceiver != null && !string.IsNullOrEmpty(this.functionName))
 			{
-				UICheckbox.current = this;
+				global::UICheckbox.current = this;
 				this.eventReceiver.SendMessage(this.functionName, this.mChecked, 1);
 			}
 			if (this.checkAnimation != null)
 			{
-				ActiveAnimation.Play(this.checkAnimation, (!state) ? Direction.Reverse : Direction.Forward);
+				global::ActiveAnimation.Play(this.checkAnimation, (!state) ? AnimationOrTween.Direction.Reverse : AnimationOrTween.Direction.Forward);
 			}
 		}
 	}
 
-	// Token: 0x0400253E RID: 9534
-	public static UICheckbox current;
+	// Token: 0x04002775 RID: 10101
+	public static global::UICheckbox current;
 
-	// Token: 0x0400253F RID: 9535
-	public UISprite checkSprite;
+	// Token: 0x04002776 RID: 10102
+	public global::UISprite checkSprite;
 
-	// Token: 0x04002540 RID: 9536
+	// Token: 0x04002777 RID: 10103
 	public Animation checkAnimation;
 
-	// Token: 0x04002541 RID: 9537
+	// Token: 0x04002778 RID: 10104
 	public GameObject eventReceiver;
 
-	// Token: 0x04002542 RID: 9538
+	// Token: 0x04002779 RID: 10105
 	public string functionName = "OnActivate";
 
-	// Token: 0x04002543 RID: 9539
+	// Token: 0x0400277A RID: 10106
 	public bool startsChecked = true;
 
-	// Token: 0x04002544 RID: 9540
+	// Token: 0x0400277B RID: 10107
 	public Transform radioButtonRoot;
 
-	// Token: 0x04002545 RID: 9541
+	// Token: 0x0400277C RID: 10108
 	public bool optionCanBeNone;
 
-	// Token: 0x04002546 RID: 9542
+	// Token: 0x0400277D RID: 10109
 	[HideInInspector]
 	[SerializeField]
 	private bool option;
 
-	// Token: 0x04002547 RID: 9543
+	// Token: 0x0400277E RID: 10110
 	private bool mChecked = true;
 
-	// Token: 0x04002548 RID: 9544
+	// Token: 0x0400277F RID: 10111
 	private bool mStarted;
 
-	// Token: 0x04002549 RID: 9545
+	// Token: 0x04002780 RID: 10112
 	private Transform mTrans;
 }

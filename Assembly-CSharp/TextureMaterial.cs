@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200080A RID: 2058
+// Token: 0x020008FC RID: 2300
 public static class TextureMaterial
 {
-	// Token: 0x060049CD RID: 18893 RVA: 0x0013A72C File Offset: 0x0013892C
+	// Token: 0x06004E7C RID: 20092 RVA: 0x00144690 File Offset: 0x00142890
 	public static Material GetMaterial(Material skeleton, Texture mainTex)
 	{
 		if (!skeleton)
@@ -13,13 +13,13 @@ public static class TextureMaterial
 			return null;
 		}
 		Dictionary<Texture, Material> dictionary;
-		if (!TextureMaterial.dict.TryGetValue(skeleton, out dictionary))
+		if (!global::TextureMaterial.dict.TryGetValue(skeleton, out dictionary))
 		{
 			Material material = new Material(skeleton);
 			material.mainTexture = mainTex;
 			dictionary = new Dictionary<Texture, Material>();
 			dictionary.Add(mainTex, material);
-			TextureMaterial.dict.Add(skeleton, dictionary);
+			global::TextureMaterial.dict.Add(skeleton, dictionary);
 			return material;
 		}
 		Material result;
@@ -33,6 +33,6 @@ public static class TextureMaterial
 		return result;
 	}
 
-	// Token: 0x040029C3 RID: 10691
+	// Token: 0x04002C11 RID: 11281
 	private static Dictionary<Material, Dictionary<Texture, Material>> dict = new Dictionary<Material, Dictionary<Texture, Material>>();
 }

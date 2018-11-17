@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000429 RID: 1065
+// Token: 0x020004DF RID: 1247
 [ExecuteInEditMode]
 public class WaterColor : MonoBehaviour
 {
-	// Token: 0x06002790 RID: 10128 RVA: 0x0009A91C File Offset: 0x00098B1C
+	// Token: 0x06002B20 RID: 11040 RVA: 0x000A089C File Offset: 0x0009EA9C
 	private void Start()
 	{
-		this.sky = (TOD_Sky)Object.FindObjectOfType(typeof(TOD_Sky));
+		this.sky = (global::TOD_Sky)Object.FindObjectOfType(typeof(global::TOD_Sky));
 		this.water = base.GetComponent<WaterBase>();
 	}
 
-	// Token: 0x06002791 RID: 10129 RVA: 0x0009A950 File Offset: 0x00098B50
+	// Token: 0x06002B21 RID: 11041 RVA: 0x000A08D0 File Offset: 0x0009EAD0
 	private void Update()
 	{
 		if (!this.sky || !this.water)
@@ -29,15 +29,15 @@ public class WaterColor : MonoBehaviour
 		this.water.sharedMaterial.SetColor("_BaseColor", color3);
 	}
 
-	// Token: 0x04001379 RID: 4985
+	// Token: 0x040014FC RID: 5372
 	public Color colorMain = Color.green;
 
-	// Token: 0x0400137A RID: 4986
+	// Token: 0x040014FD RID: 5373
 	public float colorLerp = 0.5f;
 
-	// Token: 0x0400137B RID: 4987
-	private TOD_Sky sky;
+	// Token: 0x040014FE RID: 5374
+	private global::TOD_Sky sky;
 
-	// Token: 0x0400137C RID: 4988
+	// Token: 0x040014FF RID: 5375
 	private WaterBase water;
 }

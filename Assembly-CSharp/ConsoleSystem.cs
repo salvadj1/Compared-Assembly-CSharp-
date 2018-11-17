@@ -6,139 +6,139 @@ using Facepunch.Util;
 using Facepunch.Utility;
 using UnityEngine;
 
-// Token: 0x0200017D RID: 381
+// Token: 0x020001A9 RID: 425
 public class ConsoleSystem
 {
-	// Token: 0x06000B86 RID: 2950 RVA: 0x0002D120 File Offset: 0x0002B320
+	// Token: 0x06000CB6 RID: 3254 RVA: 0x0003100C File Offset: 0x0002F20C
 	public static void RegisterLogCallback(Application.LogCallback Callback, bool CallbackWritesToConsole = false)
 	{
-		if (ConsoleSystem.RegisteredLogCallback)
+		if (global::ConsoleSystem.RegisteredLogCallback)
 		{
-			if (Callback != ConsoleSystem.LogCallback)
+			if (Callback != global::ConsoleSystem.LogCallback)
 			{
 				if (object.ReferenceEquals(Callback, null))
 				{
 					Application.RegisterLogCallback(null);
-					ConsoleSystem.LogCallbackWritesToConsole = (ConsoleSystem.RegisteredLogCallback = false);
-					ConsoleSystem.LogCallback = null;
+					global::ConsoleSystem.LogCallbackWritesToConsole = (global::ConsoleSystem.RegisteredLogCallback = false);
+					global::ConsoleSystem.LogCallback = null;
 				}
 				else
 				{
 					Application.RegisterLogCallback(Callback);
-					ConsoleSystem.LogCallback = Callback;
-					ConsoleSystem.LogCallbackWritesToConsole = CallbackWritesToConsole;
+					global::ConsoleSystem.LogCallback = Callback;
+					global::ConsoleSystem.LogCallbackWritesToConsole = CallbackWritesToConsole;
 				}
 			}
 			else
 			{
-				ConsoleSystem.LogCallbackWritesToConsole = CallbackWritesToConsole;
+				global::ConsoleSystem.LogCallbackWritesToConsole = CallbackWritesToConsole;
 			}
 		}
 		else if (!object.ReferenceEquals(Callback, null))
 		{
 			Application.RegisterLogCallback(Callback);
-			ConsoleSystem.RegisteredLogCallback = true;
-			ConsoleSystem.LogCallbackWritesToConsole = CallbackWritesToConsole;
-			ConsoleSystem.LogCallback = Callback;
+			global::ConsoleSystem.RegisteredLogCallback = true;
+			global::ConsoleSystem.LogCallbackWritesToConsole = CallbackWritesToConsole;
+			global::ConsoleSystem.LogCallback = Callback;
 		}
 	}
 
-	// Token: 0x06000B87 RID: 2951 RVA: 0x0002D1B8 File Offset: 0x0002B3B8
+	// Token: 0x06000CB7 RID: 3255 RVA: 0x000310A4 File Offset: 0x0002F2A4
 	public static bool UnregisterLogCallback(Application.LogCallback Callback)
 	{
-		if (ConsoleSystem.RegisteredLogCallback && Callback == ConsoleSystem.LogCallback)
+		if (global::ConsoleSystem.RegisteredLogCallback && Callback == global::ConsoleSystem.LogCallback)
 		{
-			ConsoleSystem.RegisterLogCallback(null, false);
+			global::ConsoleSystem.RegisterLogCallback(null, false);
 			return true;
 		}
 		return false;
 	}
 
-	// Token: 0x06000B88 RID: 2952 RVA: 0x0002D1EC File Offset: 0x0002B3EC
+	// Token: 0x06000CB8 RID: 3256 RVA: 0x000310D8 File Offset: 0x0002F2D8
 	public static void Print(object message, bool toLogFile = false)
 	{
-		ConsoleSystem.PrintLogType(3, message, toLogFile);
+		global::ConsoleSystem.PrintLogType(3, message, toLogFile);
 	}
 
-	// Token: 0x06000B89 RID: 2953 RVA: 0x0002D1F8 File Offset: 0x0002B3F8
+	// Token: 0x06000CB9 RID: 3257 RVA: 0x000310E4 File Offset: 0x0002F2E4
 	public static void PrintWarning(object message, bool toLogFile = false)
 	{
-		ConsoleSystem.PrintLogType(2, message, toLogFile);
+		global::ConsoleSystem.PrintLogType(2, message, toLogFile);
 	}
 
-	// Token: 0x06000B8A RID: 2954 RVA: 0x0002D204 File Offset: 0x0002B404
+	// Token: 0x06000CBA RID: 3258 RVA: 0x000310F0 File Offset: 0x0002F2F0
 	public static void PrintError(object message, bool toLogFile = false)
 	{
-		ConsoleSystem.PrintLogType(0, message, toLogFile);
+		global::ConsoleSystem.PrintLogType(0, message, toLogFile);
 	}
 
-	// Token: 0x06000B8B RID: 2955 RVA: 0x0002D210 File Offset: 0x0002B410
+	// Token: 0x06000CBB RID: 3259 RVA: 0x000310FC File Offset: 0x0002F2FC
 	public static void Log(object message)
 	{
 		Debug.Log(message);
 	}
 
-	// Token: 0x06000B8C RID: 2956 RVA: 0x0002D218 File Offset: 0x0002B418
+	// Token: 0x06000CBC RID: 3260 RVA: 0x00031104 File Offset: 0x0002F304
 	public static void Log(object message, Object context)
 	{
 		Debug.Log(message, context);
 	}
 
-	// Token: 0x06000B8D RID: 2957 RVA: 0x0002D224 File Offset: 0x0002B424
+	// Token: 0x06000CBD RID: 3261 RVA: 0x00031110 File Offset: 0x0002F310
 	public static void LogWarning(object message)
 	{
 		Debug.LogWarning(message);
 	}
 
-	// Token: 0x06000B8E RID: 2958 RVA: 0x0002D22C File Offset: 0x0002B42C
+	// Token: 0x06000CBE RID: 3262 RVA: 0x00031118 File Offset: 0x0002F318
 	public static void LogWarning(object message, Object context)
 	{
 		Debug.LogWarning(message, context);
 	}
 
-	// Token: 0x06000B8F RID: 2959 RVA: 0x0002D238 File Offset: 0x0002B438
+	// Token: 0x06000CBF RID: 3263 RVA: 0x00031124 File Offset: 0x0002F324
 	public static void LogError(object message)
 	{
 		Debug.LogError(message);
 	}
 
-	// Token: 0x06000B90 RID: 2960 RVA: 0x0002D240 File Offset: 0x0002B440
+	// Token: 0x06000CC0 RID: 3264 RVA: 0x0003112C File Offset: 0x0002F32C
 	public static void LogError(object message, Object context)
 	{
 		Debug.LogError(message, context);
 	}
 
-	// Token: 0x06000B91 RID: 2961 RVA: 0x0002D24C File Offset: 0x0002B44C
+	// Token: 0x06000CC1 RID: 3265 RVA: 0x00031138 File Offset: 0x0002F338
 	public static void LogException(Exception exception)
 	{
 		Debug.LogException(exception);
 	}
 
-	// Token: 0x06000B92 RID: 2962 RVA: 0x0002D254 File Offset: 0x0002B454
+	// Token: 0x06000CC2 RID: 3266 RVA: 0x00031140 File Offset: 0x0002F340
 	public static void LogException(Exception exception, Object context)
 	{
 		Debug.LogException(exception, context);
 	}
 
-	// Token: 0x06000B93 RID: 2963 RVA: 0x0002D260 File Offset: 0x0002B460
+	// Token: 0x06000CC3 RID: 3267 RVA: 0x0003114C File Offset: 0x0002F34C
 	private static void PrintLogType(LogType logType, string message, bool log = false)
 	{
-		if (global.logprint)
+		if (global::global.logprint)
 		{
 			switch (logType)
 			{
 			case 0:
-				ConsoleSystem.LogError(message);
+				global::ConsoleSystem.LogError(message);
 				return;
 			case 2:
-				ConsoleSystem.LogWarning(message);
+				global::ConsoleSystem.LogWarning(message);
 				return;
 			case 3:
-				ConsoleSystem.Log(message);
+				global::ConsoleSystem.Log(message);
 				return;
 			}
 		}
-		if (log && !ConsoleSystem.LogCallbackWritesToConsole)
+		if (log && !global::ConsoleSystem.LogCallbackWritesToConsole)
 		{
 			try
 			{
@@ -149,11 +149,11 @@ public class ConsoleSystem
 				Console.Error.WriteLine("PrintLogType Log Exception\n:{0}", arg);
 			}
 		}
-		if (ConsoleSystem.RegisteredLogCallback)
+		if (global::ConsoleSystem.RegisteredLogCallback)
 		{
 			try
 			{
-				ConsoleSystem.LogCallback.Invoke(message, string.Empty, logType);
+				global::ConsoleSystem.LogCallback.Invoke(message, string.Empty, logType);
 			}
 			catch (Exception arg2)
 			{
@@ -162,13 +162,13 @@ public class ConsoleSystem
 		}
 	}
 
-	// Token: 0x06000B94 RID: 2964 RVA: 0x0002D368 File Offset: 0x0002B568
+	// Token: 0x06000CC4 RID: 3268 RVA: 0x00031254 File Offset: 0x0002F454
 	private static void PrintLogType(LogType logType, object obj, bool log = false)
 	{
-		ConsoleSystem.PrintLogType(logType, string.Concat(obj ?? "Null"), log);
+		global::ConsoleSystem.PrintLogType(logType, string.Concat(obj ?? "Null"), log);
 	}
 
-	// Token: 0x06000B95 RID: 2965 RVA: 0x0002D384 File Offset: 0x0002B584
+	// Token: 0x06000CC5 RID: 3269 RVA: 0x00031270 File Offset: 0x0002F470
 	public static string CollectSavedFields(Type type)
 	{
 		string text = string.Empty;
@@ -177,7 +177,7 @@ public class ConsoleSystem
 		{
 			if (fields[i].IsStatic)
 			{
-				if (Reflection.HasAttribute(fields[i], typeof(ConsoleSystem.Saved)))
+				if (Facepunch.Util.Reflection.HasAttribute(fields[i], typeof(global::ConsoleSystem.Saved)))
 				{
 					string text2 = type.Name + ".";
 					if (text2 == "global.")
@@ -200,7 +200,7 @@ public class ConsoleSystem
 		return text;
 	}
 
-	// Token: 0x06000B96 RID: 2966 RVA: 0x0002D44C File Offset: 0x0002B64C
+	// Token: 0x06000CC6 RID: 3270 RVA: 0x00031338 File Offset: 0x0002F538
 	public static string CollectSavedProperties(Type type)
 	{
 		string text = string.Empty;
@@ -209,7 +209,7 @@ public class ConsoleSystem
 		{
 			if (properties[i].GetGetMethod().IsStatic)
 			{
-				if (Reflection.HasAttribute(properties[i], typeof(ConsoleSystem.Saved)))
+				if (Facepunch.Util.Reflection.HasAttribute(properties[i], typeof(global::ConsoleSystem.Saved)))
 				{
 					string text2 = type.Name + ".";
 					if (text2 == "global.")
@@ -232,7 +232,7 @@ public class ConsoleSystem
 		return text;
 	}
 
-	// Token: 0x06000B97 RID: 2967 RVA: 0x0002D51C File Offset: 0x0002B71C
+	// Token: 0x06000CC7 RID: 3271 RVA: 0x00031408 File Offset: 0x0002F608
 	public static string CollectSavedFunctions(Type type)
 	{
 		string text = string.Empty;
@@ -241,7 +241,7 @@ public class ConsoleSystem
 		{
 			if (methods[i].IsStatic)
 			{
-				if (Reflection.HasAttribute(methods[i], typeof(ConsoleSystem.Saved)))
+				if (Facepunch.Util.Reflection.HasAttribute(methods[i], typeof(global::ConsoleSystem.Saved)))
 				{
 					if (methods[i].ReturnType == typeof(string))
 					{
@@ -253,7 +253,7 @@ public class ConsoleSystem
 		return text;
 	}
 
-	// Token: 0x06000B98 RID: 2968 RVA: 0x0002D5A8 File Offset: 0x0002B7A8
+	// Token: 0x06000CC8 RID: 3272 RVA: 0x00031494 File Offset: 0x0002F694
 	public static string SaveToConfigString()
 	{
 		string text = string.Empty;
@@ -263,18 +263,18 @@ public class ConsoleSystem
 			Type[] types = assemblies[i].GetTypes();
 			for (int j = 0; j < types.Length; j++)
 			{
-				if (types[j].IsSubclassOf(typeof(ConsoleSystem)))
+				if (types[j].IsSubclassOf(typeof(global::ConsoleSystem)))
 				{
-					text += ConsoleSystem.CollectSavedFields(types[j]);
-					text += ConsoleSystem.CollectSavedProperties(types[j]);
-					text += ConsoleSystem.CollectSavedFunctions(types[j]);
+					text += global::ConsoleSystem.CollectSavedFields(types[j]);
+					text += global::ConsoleSystem.CollectSavedProperties(types[j]);
+					text += global::ConsoleSystem.CollectSavedFunctions(types[j]);
 				}
 			}
 		}
 		return text;
 	}
 
-	// Token: 0x06000B99 RID: 2969 RVA: 0x0002D64C File Offset: 0x0002B84C
+	// Token: 0x06000CC9 RID: 3273 RVA: 0x00031538 File Offset: 0x0002F738
 	public static void RunFile(string strFile)
 	{
 		string[] array = strFile.Split(new char[]
@@ -285,16 +285,16 @@ public class ConsoleSystem
 		{
 			if (text[0] != '#')
 			{
-				ConsoleSystem.Run(text, false);
+				global::ConsoleSystem.Run(text, false);
 			}
 		}
 	}
 
-	// Token: 0x06000B9A RID: 2970 RVA: 0x0002D6A4 File Offset: 0x0002B8A4
+	// Token: 0x06000CCA RID: 3274 RVA: 0x00031590 File Offset: 0x0002F790
 	public static bool Run(string strCommand, bool bWantsFeedback = false)
 	{
 		string empty = string.Empty;
-		bool result = ConsoleSystem.RunCommand_Clientside(strCommand, out empty, bWantsFeedback);
+		bool result = global::ConsoleSystem.RunCommand_Clientside(strCommand, out empty, bWantsFeedback);
 		if (empty.Length > 0)
 		{
 			Debug.Log(empty);
@@ -302,16 +302,16 @@ public class ConsoleSystem
 		return result;
 	}
 
-	// Token: 0x06000B9B RID: 2971 RVA: 0x0002D6D4 File Offset: 0x0002B8D4
+	// Token: 0x06000CCB RID: 3275 RVA: 0x000315C0 File Offset: 0x0002F7C0
 	public static bool RunCommand_Clientside(string strCommand, out string StrOutput, bool bWantsFeedback = false)
 	{
 		StrOutput = string.Empty;
-		ConsoleSystem.Arg arg = new ConsoleSystem.Arg(strCommand);
+		global::ConsoleSystem.Arg arg = new global::ConsoleSystem.Arg(strCommand);
 		if (arg.Invalid)
 		{
 			return false;
 		}
-		if (!ConsoleSystem.RunCommand(ref arg, bWantsFeedback))
+		if (!global::ConsoleSystem.RunCommand(ref arg, bWantsFeedback))
 		{
 			return false;
 		}
@@ -322,10 +322,10 @@ public class ConsoleSystem
 		return true;
 	}
 
-	// Token: 0x06000B9C RID: 2972 RVA: 0x0002D730 File Offset: 0x0002B930
-	public static bool RunCommand(ref ConsoleSystem.Arg arg, bool bWantReply = true)
+	// Token: 0x06000CCC RID: 3276 RVA: 0x0003161C File Offset: 0x0002F81C
+	public static bool RunCommand(ref global::ConsoleSystem.Arg arg, bool bWantReply = true)
 	{
-		Type[] array = ConsoleSystem.FindTypes(arg.Class);
+		Type[] array = global::ConsoleSystem.FindTypes(arg.Class);
 		if (array.Length == 0)
 		{
 			if (bWantReply)
@@ -361,7 +361,7 @@ public class ConsoleSystem
 					}
 					return false;
 				}
-				object[] array3 = new ConsoleSystem.Arg[]
+				object[] array3 = new global::ConsoleSystem.Arg[]
 				{
 					arg
 				};
@@ -391,7 +391,7 @@ public class ConsoleSystem
 					}));
 					return false;
 				}
-				arg = (array3[0] as ConsoleSystem.Arg);
+				arg = (array3[0] as global::ConsoleSystem.Arg);
 				return true;
 			}
 			else
@@ -560,7 +560,7 @@ public class ConsoleSystem
 		return false;
 	}
 
-	// Token: 0x06000B9D RID: 2973 RVA: 0x0002DE38 File Offset: 0x0002C038
+	// Token: 0x06000CCD RID: 3277 RVA: 0x00031D24 File Offset: 0x0002FF24
 	public static Type[] FindTypes(string className)
 	{
 		List<Type> list = new List<Type>();
@@ -570,7 +570,7 @@ public class ConsoleSystem
 			Type type = assemblies[i].GetType(className);
 			if (type != null)
 			{
-				if (type.IsSubclassOf(typeof(ConsoleSystem)))
+				if (type.IsSubclassOf(typeof(global::ConsoleSystem)))
 				{
 					list.Add(type);
 				}
@@ -579,22 +579,22 @@ public class ConsoleSystem
 		return list.ToArray();
 	}
 
-	// Token: 0x0400072D RID: 1837
+	// Token: 0x04000841 RID: 2113
 	private static bool RegisteredLogCallback;
 
-	// Token: 0x0400072E RID: 1838
+	// Token: 0x04000842 RID: 2114
 	private static bool LogCallbackWritesToConsole;
 
-	// Token: 0x0400072F RID: 1839
+	// Token: 0x04000843 RID: 2115
 	private static Application.LogCallback LogCallback;
 
-	// Token: 0x0200017E RID: 382
+	// Token: 0x020001AA RID: 426
 	public class Arg
 	{
-		// Token: 0x06000B9E RID: 2974 RVA: 0x0002DEA8 File Offset: 0x0002C0A8
+		// Token: 0x06000CCE RID: 3278 RVA: 0x00031D94 File Offset: 0x0002FF94
 		public Arg(string rconCommand)
 		{
-			rconCommand = ConsoleSystem.Arg.RemoveInvalidCharacters(rconCommand);
+			rconCommand = global::ConsoleSystem.Arg.RemoveInvalidCharacters(rconCommand);
 			if (rconCommand.IndexOf('.') <= 0 || rconCommand.IndexOf(' ', 0, rconCommand.IndexOf('.')) != -1)
 			{
 				rconCommand = "global." + rconCommand;
@@ -626,7 +626,7 @@ public class ConsoleSystem
 			this.Function.ToLower();
 		}
 
-		// Token: 0x06000B9F RID: 2975 RVA: 0x0002E020 File Offset: 0x0002C220
+		// Token: 0x06000CCF RID: 3279 RVA: 0x00031F0C File Offset: 0x0003010C
 		private static string RemoveInvalidCharacters(string str)
 		{
 			if (str == null)
@@ -644,12 +644,12 @@ public class ConsoleSystem
 			return stringBuilder.ToString();
 		}
 
-		// Token: 0x06000BA0 RID: 2976 RVA: 0x0002E094 File Offset: 0x0002C294
+		// Token: 0x06000CD0 RID: 3280 RVA: 0x00031F80 File Offset: 0x00030180
 		public bool CheckPermissions(object[] attributes)
 		{
 			foreach (object obj in attributes)
 			{
-				if (obj is ConsoleSystem.Client)
+				if (obj is global::ConsoleSystem.Client)
 				{
 					return true;
 				}
@@ -657,133 +657,133 @@ public class ConsoleSystem
 			return false;
 		}
 
-		// Token: 0x06000BA1 RID: 2977 RVA: 0x0002E0CC File Offset: 0x0002C2CC
+		// Token: 0x06000CD1 RID: 3281 RVA: 0x00031FB8 File Offset: 0x000301B8
 		public void ReplyWith(string strValue)
 		{
 			this.Reply = strValue;
 		}
 
-		// Token: 0x06000BA2 RID: 2978 RVA: 0x0002E0D8 File Offset: 0x0002C2D8
+		// Token: 0x06000CD2 RID: 3282 RVA: 0x00031FC4 File Offset: 0x000301C4
 		public bool HasArgs(int iMinimum = 1)
 		{
 			return this.Args != null && this.Args.Length >= iMinimum;
 		}
 
-		// Token: 0x06000BA3 RID: 2979 RVA: 0x0002E0F8 File Offset: 0x0002C2F8
+		// Token: 0x06000CD3 RID: 3283 RVA: 0x00031FE4 File Offset: 0x000301E4
 		public string GetString(int iArg, string def = "")
 		{
 			if (this.HasArgs(iArg + 1))
 			{
-				return ConsoleSystem.Parse.DefaultString(this.Args[iArg], def);
+				return global::ConsoleSystem.Parse.DefaultString(this.Args[iArg], def);
 			}
 			return def;
 		}
 
-		// Token: 0x06000BA4 RID: 2980 RVA: 0x0002E118 File Offset: 0x0002C318
+		// Token: 0x06000CD4 RID: 3284 RVA: 0x00032004 File Offset: 0x00030204
 		public int GetInt(int iArg, int def = 0)
 		{
-			return ConsoleSystem.Parse.DefaultInt(this.GetString(iArg, null), def);
+			return global::ConsoleSystem.Parse.DefaultInt(this.GetString(iArg, null), def);
 		}
 
-		// Token: 0x06000BA5 RID: 2981 RVA: 0x0002E128 File Offset: 0x0002C328
+		// Token: 0x06000CD5 RID: 3285 RVA: 0x00032014 File Offset: 0x00030214
 		public ulong GetUInt64(int iArg, ulong def = 0UL)
 		{
-			return ConsoleSystem.Parse.DefaultUInt64(this.GetString(iArg, null), def);
+			return global::ConsoleSystem.Parse.DefaultUInt64(this.GetString(iArg, null), def);
 		}
 
-		// Token: 0x06000BA6 RID: 2982 RVA: 0x0002E138 File Offset: 0x0002C338
+		// Token: 0x06000CD6 RID: 3286 RVA: 0x00032024 File Offset: 0x00030224
 		public float GetFloat(int iArg, float def = 0f)
 		{
-			return ConsoleSystem.Parse.DefaultFloat(this.GetString(iArg, null), def);
+			return global::ConsoleSystem.Parse.DefaultFloat(this.GetString(iArg, null), def);
 		}
 
-		// Token: 0x06000BA7 RID: 2983 RVA: 0x0002E148 File Offset: 0x0002C348
+		// Token: 0x06000CD7 RID: 3287 RVA: 0x00032034 File Offset: 0x00030234
 		public bool GetBool(int iArg, bool def = false)
 		{
-			return ConsoleSystem.Parse.DefaultBool(this.GetString(iArg, null), def);
+			return global::ConsoleSystem.Parse.DefaultBool(this.GetString(iArg, null), def);
 		}
 
-		// Token: 0x06000BA8 RID: 2984 RVA: 0x0002E158 File Offset: 0x0002C358
+		// Token: 0x06000CD8 RID: 3288 RVA: 0x00032044 File Offset: 0x00030244
 		public Enum GetEnum(Type enumType, int iArg, Enum def)
 		{
-			return ConsoleSystem.Parse.DefaultEnum(enumType, this.GetString(iArg, null), def);
+			return global::ConsoleSystem.Parse.DefaultEnum(enumType, this.GetString(iArg, null), def);
 		}
 
-		// Token: 0x04000730 RID: 1840
+		// Token: 0x04000844 RID: 2116
 		public string Class = string.Empty;
 
-		// Token: 0x04000731 RID: 1841
+		// Token: 0x04000845 RID: 2117
 		public string Function = string.Empty;
 
-		// Token: 0x04000732 RID: 1842
+		// Token: 0x04000846 RID: 2118
 		public string ArgsStr = string.Empty;
 
-		// Token: 0x04000733 RID: 1843
+		// Token: 0x04000847 RID: 2119
 		public string[] Args;
 
-		// Token: 0x04000734 RID: 1844
+		// Token: 0x04000848 RID: 2120
 		public bool Invalid = true;
 
-		// Token: 0x04000735 RID: 1845
+		// Token: 0x04000849 RID: 2121
 		public string Reply = string.Empty;
 	}
 
-	// Token: 0x0200017F RID: 383
+	// Token: 0x020001AB RID: 427
 	public static class Parse
 	{
-		// Token: 0x06000BA9 RID: 2985 RVA: 0x0002E16C File Offset: 0x0002C36C
+		// Token: 0x06000CD9 RID: 3289 RVA: 0x00032058 File Offset: 0x00030258
 		public static float Float(string text)
 		{
 			return float.Parse(text);
 		}
 
-		// Token: 0x06000BAA RID: 2986 RVA: 0x0002E174 File Offset: 0x0002C374
+		// Token: 0x06000CDA RID: 3290 RVA: 0x00032060 File Offset: 0x00030260
 		public static bool AttemptFloat(string text, out float value)
 		{
 			return float.TryParse(text, out value);
 		}
 
-		// Token: 0x06000BAB RID: 2987 RVA: 0x0002E180 File Offset: 0x0002C380
+		// Token: 0x06000CDB RID: 3291 RVA: 0x0003206C File Offset: 0x0003026C
 		public static float DefaultFloat(string text, float @default)
 		{
 			float result;
-			if (object.ReferenceEquals(text, null) || !ConsoleSystem.Parse.AttemptFloat(text, out result))
+			if (object.ReferenceEquals(text, null) || !global::ConsoleSystem.Parse.AttemptFloat(text, out result))
 			{
 				result = @default;
 			}
 			return result;
 		}
 
-		// Token: 0x06000BAC RID: 2988 RVA: 0x0002E1AC File Offset: 0x0002C3AC
+		// Token: 0x06000CDC RID: 3292 RVA: 0x00032098 File Offset: 0x00030298
 		public static float DefaultFloat(string text)
 		{
-			return ConsoleSystem.Parse.DefaultFloat(text, 0f);
+			return global::ConsoleSystem.Parse.DefaultFloat(text, 0f);
 		}
 
-		// Token: 0x06000BAD RID: 2989 RVA: 0x0002E1BC File Offset: 0x0002C3BC
+		// Token: 0x06000CDD RID: 3293 RVA: 0x000320A8 File Offset: 0x000302A8
 		public static int Int(string text)
 		{
 			return int.Parse(text);
 		}
 
-		// Token: 0x06000BAE RID: 2990 RVA: 0x0002E1C4 File Offset: 0x0002C3C4
+		// Token: 0x06000CDE RID: 3294 RVA: 0x000320B0 File Offset: 0x000302B0
 		public static bool AttemptInt(string text, out int value)
 		{
 			return int.TryParse(text, out value);
 		}
 
-		// Token: 0x06000BAF RID: 2991 RVA: 0x0002E1D0 File Offset: 0x0002C3D0
+		// Token: 0x06000CDF RID: 3295 RVA: 0x000320BC File Offset: 0x000302BC
 		public static int DefaultInt(string text, int @default)
 		{
 			int result;
-			if (object.ReferenceEquals(text, null) || !ConsoleSystem.Parse.AttemptInt(text, out result))
+			if (object.ReferenceEquals(text, null) || !global::ConsoleSystem.Parse.AttemptInt(text, out result))
 			{
 				result = @default;
 			}
 			return result;
 		}
 
-		// Token: 0x06000BB0 RID: 2992 RVA: 0x0002E1FC File Offset: 0x0002C3FC
+		// Token: 0x06000CE0 RID: 3296 RVA: 0x000320E8 File Offset: 0x000302E8
 		public static ulong DefaultUInt64(string text, ulong @default)
 		{
 			if (text == null)
@@ -795,13 +795,13 @@ public class ConsoleSystem
 			return result;
 		}
 
-		// Token: 0x06000BB1 RID: 2993 RVA: 0x0002E220 File Offset: 0x0002C420
+		// Token: 0x06000CE1 RID: 3297 RVA: 0x0003210C File Offset: 0x0003030C
 		public static int DefaultInt(string text)
 		{
-			return ConsoleSystem.Parse.DefaultInt(text, 0);
+			return global::ConsoleSystem.Parse.DefaultInt(text, 0);
 		}
 
-		// Token: 0x06000BB2 RID: 2994 RVA: 0x0002E22C File Offset: 0x0002C42C
+		// Token: 0x06000CE2 RID: 3298 RVA: 0x00032118 File Offset: 0x00030318
 		public static bool AttemptBool(string text, out bool value)
 		{
 			if (bool.TryParse(text, out value))
@@ -845,64 +845,64 @@ public class ConsoleSystem
 			return false;
 		}
 
-		// Token: 0x06000BB3 RID: 2995 RVA: 0x0002E2F4 File Offset: 0x0002C4F4
+		// Token: 0x06000CE3 RID: 3299 RVA: 0x000321E0 File Offset: 0x000303E0
 		public static bool Bool(string text)
 		{
 			bool result;
-			if (!ConsoleSystem.Parse.AttemptBool(text, out result))
+			if (!global::ConsoleSystem.Parse.AttemptBool(text, out result))
 			{
 				throw new FormatException("not in the correct format.");
 			}
 			return result;
 		}
 
-		// Token: 0x06000BB4 RID: 2996 RVA: 0x0002E31C File Offset: 0x0002C51C
+		// Token: 0x06000CE4 RID: 3300 RVA: 0x00032208 File Offset: 0x00030408
 		public static bool DefaultBool(string text, bool @default)
 		{
 			bool result;
-			if (object.ReferenceEquals(text, null) || !ConsoleSystem.Parse.AttemptBool(text, out result))
+			if (object.ReferenceEquals(text, null) || !global::ConsoleSystem.Parse.AttemptBool(text, out result))
 			{
 				result = @default;
 			}
 			return result;
 		}
 
-		// Token: 0x06000BB5 RID: 2997 RVA: 0x0002E348 File Offset: 0x0002C548
+		// Token: 0x06000CE5 RID: 3301 RVA: 0x00032234 File Offset: 0x00030434
 		public static bool DefaultBool(string text)
 		{
-			return ConsoleSystem.Parse.DefaultBool(text, false);
+			return global::ConsoleSystem.Parse.DefaultBool(text, false);
 		}
 
-		// Token: 0x06000BB6 RID: 2998 RVA: 0x0002E354 File Offset: 0x0002C554
+		// Token: 0x06000CE6 RID: 3302 RVA: 0x00032240 File Offset: 0x00030440
 		public static TEnum Enum<TEnum>(string text) where TEnum : struct, IComparable, IFormattable, IConvertible
 		{
-			return ConsoleSystem.Parse.VerifyEnum<TEnum>.Parse(text);
+			return global::ConsoleSystem.Parse.VerifyEnum<TEnum>.Parse(text);
 		}
 
-		// Token: 0x06000BB7 RID: 2999 RVA: 0x0002E35C File Offset: 0x0002C55C
+		// Token: 0x06000CE7 RID: 3303 RVA: 0x00032248 File Offset: 0x00030448
 		public static bool AttemptEnum<TEnum>(string text, out TEnum value) where TEnum : struct, IComparable, IFormattable, IConvertible
 		{
-			return ConsoleSystem.Parse.VerifyEnum<TEnum>.TryParse(text, out value);
+			return global::ConsoleSystem.Parse.VerifyEnum<TEnum>.TryParse(text, out value);
 		}
 
-		// Token: 0x06000BB8 RID: 3000 RVA: 0x0002E368 File Offset: 0x0002C568
+		// Token: 0x06000CE8 RID: 3304 RVA: 0x00032254 File Offset: 0x00030454
 		public static TEnum DefaultEnum<TEnum>(string text, TEnum @default) where TEnum : struct, IComparable, IFormattable, IConvertible
 		{
 			TEnum result;
-			if (object.ReferenceEquals(text, null) || !ConsoleSystem.Parse.AttemptEnum<TEnum>(text, out result))
+			if (object.ReferenceEquals(text, null) || !global::ConsoleSystem.Parse.AttemptEnum<TEnum>(text, out result))
 			{
 				result = @default;
 			}
 			return result;
 		}
 
-		// Token: 0x06000BB9 RID: 3001 RVA: 0x0002E394 File Offset: 0x0002C594
+		// Token: 0x06000CE9 RID: 3305 RVA: 0x00032280 File Offset: 0x00030480
 		public static TEnum DefaultEnum<TEnum>(string text) where TEnum : struct, IComparable, IFormattable, IConvertible
 		{
-			return ConsoleSystem.Parse.DefaultEnum<TEnum>(text, default(TEnum));
+			return global::ConsoleSystem.Parse.DefaultEnum<TEnum>(text, default(TEnum));
 		}
 
-		// Token: 0x06000BBA RID: 3002 RVA: 0x0002E3B0 File Offset: 0x0002C5B0
+		// Token: 0x06000CEA RID: 3306 RVA: 0x0003229C File Offset: 0x0003049C
 		public static Enum Enum(Type enumType, string text)
 		{
 			Enum result;
@@ -924,7 +924,7 @@ public class ConsoleSystem
 			return result;
 		}
 
-		// Token: 0x06000BBB RID: 3003 RVA: 0x0002E434 File Offset: 0x0002C634
+		// Token: 0x06000CEB RID: 3307 RVA: 0x00032320 File Offset: 0x00030520
 		public static bool AttemptEnum(Type enumType, string text, out Enum value)
 		{
 			bool result;
@@ -949,24 +949,24 @@ public class ConsoleSystem
 			return result;
 		}
 
-		// Token: 0x06000BBC RID: 3004 RVA: 0x0002E4C8 File Offset: 0x0002C6C8
+		// Token: 0x06000CEC RID: 3308 RVA: 0x000323B4 File Offset: 0x000305B4
 		public static Enum DefaultEnum(Type enumType, string text, Enum @default)
 		{
 			Enum result;
-			if (object.ReferenceEquals(text, null) || !ConsoleSystem.Parse.AttemptEnum(enumType, text, out result))
+			if (object.ReferenceEquals(text, null) || !global::ConsoleSystem.Parse.AttemptEnum(enumType, text, out result))
 			{
 				result = @default;
 			}
 			return result;
 		}
 
-		// Token: 0x06000BBD RID: 3005 RVA: 0x0002E4F4 File Offset: 0x0002C6F4
+		// Token: 0x06000CED RID: 3309 RVA: 0x000323E0 File Offset: 0x000305E0
 		public static Enum DefaultEnum(Type enumType, string text)
 		{
-			return ConsoleSystem.Parse.DefaultEnum(enumType, text, null);
+			return global::ConsoleSystem.Parse.DefaultEnum(enumType, text, null);
 		}
 
-		// Token: 0x06000BBE RID: 3006 RVA: 0x0002E500 File Offset: 0x0002C700
+		// Token: 0x06000CEE RID: 3310 RVA: 0x000323EC File Offset: 0x000305EC
 		public static string String(string text)
 		{
 			if (object.ReferenceEquals(text, null))
@@ -980,7 +980,7 @@ public class ConsoleSystem
 			return text;
 		}
 
-		// Token: 0x06000BBF RID: 3007 RVA: 0x0002E534 File Offset: 0x0002C734
+		// Token: 0x06000CEF RID: 3311 RVA: 0x00032420 File Offset: 0x00030620
 		public static bool AttemptString(string text, out string value)
 		{
 			if (string.IsNullOrEmpty(text))
@@ -992,24 +992,24 @@ public class ConsoleSystem
 			return true;
 		}
 
-		// Token: 0x06000BC0 RID: 3008 RVA: 0x0002E550 File Offset: 0x0002C750
+		// Token: 0x06000CF0 RID: 3312 RVA: 0x0003243C File Offset: 0x0003063C
 		public static string DefaultString(string text, string @default)
 		{
 			string result;
-			if (!ConsoleSystem.Parse.AttemptString(text, out result))
+			if (!global::ConsoleSystem.Parse.AttemptString(text, out result))
 			{
 				result = @default;
 			}
 			return result;
 		}
 
-		// Token: 0x06000BC1 RID: 3009 RVA: 0x0002E570 File Offset: 0x0002C770
+		// Token: 0x06000CF1 RID: 3313 RVA: 0x0003245C File Offset: 0x0003065C
 		public static string DefaultString(string text)
 		{
-			return ConsoleSystem.Parse.DefaultString(text, string.Empty);
+			return global::ConsoleSystem.Parse.DefaultString(text, string.Empty);
 		}
 
-		// Token: 0x06000BC2 RID: 3010 RVA: 0x0002E580 File Offset: 0x0002C780
+		// Token: 0x06000CF2 RID: 3314 RVA: 0x0003246C File Offset: 0x0003066C
 		public static bool IsSupported(Type type)
 		{
 			if (object.ReferenceEquals(type, null))
@@ -1038,13 +1038,13 @@ public class ConsoleSystem
 			return false;
 		}
 
-		// Token: 0x06000BC3 RID: 3011 RVA: 0x0002E63C File Offset: 0x0002C83C
+		// Token: 0x06000CF3 RID: 3315 RVA: 0x00032528 File Offset: 0x00030728
 		public static bool IsSupported<T>()
 		{
-			return ConsoleSystem.Parse.PrecachedSupport<T>.IsSupported;
+			return global::ConsoleSystem.Parse.PrecachedSupport<T>.IsSupported;
 		}
 
-		// Token: 0x06000BC4 RID: 3012 RVA: 0x0002E644 File Offset: 0x0002C844
+		// Token: 0x06000CF4 RID: 3316 RVA: 0x00032530 File Offset: 0x00030730
 		public static bool AttemptObject(Type type, string value, out object boxed)
 		{
 			try
@@ -1054,7 +1054,7 @@ public class ConsoleSystem
 				case TypeCode.Boolean:
 					if (typeof(bool) == type)
 					{
-						boxed = ConsoleSystem.Parse.Bool(value);
+						boxed = global::ConsoleSystem.Parse.Bool(value);
 						return true;
 					}
 					break;
@@ -1067,14 +1067,14 @@ public class ConsoleSystem
 				case TypeCode.UInt64:
 					if (type.IsEnum)
 					{
-						boxed = ConsoleSystem.Parse.Enum(type, value);
+						boxed = global::ConsoleSystem.Parse.Enum(type, value);
 						return true;
 					}
 					break;
 				case TypeCode.Int32:
 					if (type == typeof(int))
 					{
-						boxed = ConsoleSystem.Parse.Int(value);
+						boxed = global::ConsoleSystem.Parse.Int(value);
 					}
 					else
 					{
@@ -1082,20 +1082,20 @@ public class ConsoleSystem
 						{
 							break;
 						}
-						boxed = ConsoleSystem.Parse.Enum(type, value);
+						boxed = global::ConsoleSystem.Parse.Enum(type, value);
 					}
 					return true;
 				case TypeCode.Single:
 					if (typeof(float) == type)
 					{
-						boxed = ConsoleSystem.Parse.Float(value);
+						boxed = global::ConsoleSystem.Parse.Float(value);
 						return true;
 					}
 					break;
 				case TypeCode.String:
 					if (typeof(string) == type)
 					{
-						boxed = ConsoleSystem.Parse.String(value);
+						boxed = global::ConsoleSystem.Parse.String(value);
 						return true;
 					}
 					break;
@@ -1110,13 +1110,13 @@ public class ConsoleSystem
 			return false;
 		}
 
-		// Token: 0x04000736 RID: 1846
+		// Token: 0x0400084A RID: 2122
 		private const bool kEnumCaseInsensitive = true;
 
-		// Token: 0x02000180 RID: 384
+		// Token: 0x020001AC RID: 428
 		private static class VerifyEnum<TEnum> where TEnum : struct, IComparable, IFormattable, IConvertible
 		{
-			// Token: 0x06000BC5 RID: 3013 RVA: 0x0002E7C0 File Offset: 0x0002C9C0
+			// Token: 0x06000CF5 RID: 3317 RVA: 0x000326AC File Offset: 0x000308AC
 			static VerifyEnum()
 			{
 				if (!typeof(TEnum).IsEnum)
@@ -1125,7 +1125,7 @@ public class ConsoleSystem
 				}
 			}
 
-			// Token: 0x06000BC6 RID: 3014 RVA: 0x0002E7F4 File Offset: 0x0002C9F4
+			// Token: 0x06000CF6 RID: 3318 RVA: 0x000326E0 File Offset: 0x000308E0
 			public static bool TryParse(string text, out TEnum value)
 			{
 				bool result;
@@ -1150,7 +1150,7 @@ public class ConsoleSystem
 				return result;
 			}
 
-			// Token: 0x06000BC7 RID: 3015 RVA: 0x0002E8AC File Offset: 0x0002CAAC
+			// Token: 0x06000CF7 RID: 3319 RVA: 0x00032798 File Offset: 0x00030998
 			public static TEnum Parse(string text)
 			{
 				TEnum result;
@@ -1173,53 +1173,53 @@ public class ConsoleSystem
 			}
 		}
 
-		// Token: 0x02000181 RID: 385
+		// Token: 0x020001AD RID: 429
 		private static class PrecachedSupport<T>
 		{
-			// Token: 0x04000737 RID: 1847
-			public static readonly bool IsSupported = ConsoleSystem.Parse.IsSupported(typeof(T));
+			// Token: 0x0400084B RID: 2123
+			public static readonly bool IsSupported = global::ConsoleSystem.Parse.IsSupported(typeof(T));
 		}
 	}
 
-	// Token: 0x02000182 RID: 386
+	// Token: 0x020001AE RID: 430
 	[AttributeUsage(AttributeTargets.All)]
 	public sealed class Admin : Attribute
 	{
 	}
 
-	// Token: 0x02000183 RID: 387
+	// Token: 0x020001AF RID: 431
 	[AttributeUsage(AttributeTargets.All)]
 	public sealed class User : Attribute
 	{
 	}
 
-	// Token: 0x02000184 RID: 388
+	// Token: 0x020001B0 RID: 432
 	[AttributeUsage(AttributeTargets.All)]
 	public sealed class Client : Attribute
 	{
 	}
 
-	// Token: 0x02000185 RID: 389
+	// Token: 0x020001B1 RID: 433
 	[AttributeUsage(AttributeTargets.All)]
 	public sealed class Saved : Attribute
 	{
 	}
 
-	// Token: 0x02000186 RID: 390
+	// Token: 0x020001B2 RID: 434
 	[AttributeUsage(AttributeTargets.All)]
 	public sealed class Help : Attribute
 	{
-		// Token: 0x06000BCD RID: 3021 RVA: 0x0002E97C File Offset: 0x0002CB7C
+		// Token: 0x06000CFD RID: 3325 RVA: 0x00032868 File Offset: 0x00030A68
 		public Help(string strHelp, string strArgs = "")
 		{
 			this.helpDescription = strHelp;
 			this.argsDescription = strArgs;
 		}
 
-		// Token: 0x04000738 RID: 1848
+		// Token: 0x0400084C RID: 2124
 		public string helpDescription;
 
-		// Token: 0x04000739 RID: 1849
+		// Token: 0x0400084D RID: 2125
 		public string argsDescription;
 	}
 }

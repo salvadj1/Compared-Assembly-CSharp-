@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000119 RID: 281
+// Token: 0x02000138 RID: 312
 public struct CharacterTransformInterpolatorData
 {
-	// Token: 0x0400056A RID: 1386
+	// Token: 0x04000635 RID: 1589
 	public Vector3 origin;
 
-	// Token: 0x0400056B RID: 1387
-	public Angle2 eyesAngles;
+	// Token: 0x04000636 RID: 1590
+	public global::Angle2 eyesAngles;
 }

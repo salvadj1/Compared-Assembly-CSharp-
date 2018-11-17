@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200029E RID: 670
+// Token: 0x020002DB RID: 731
 [AddComponentMenu("")]
-[RequireComponent(typeof(CCDesc))]
-public sealed class CCTotemicFigure : CCTotem<CCTotem.TotemicFigure, CCTotemicFigure>
+[RequireComponent(typeof(global::CCDesc))]
+public sealed class CCTotemicFigure : global::CCTotem<global::CCTotem.TotemicFigure, global::CCTotemicFigure>
 {
-	// Token: 0x060017F6 RID: 6134 RVA: 0x0005D8A0 File Offset: 0x0005BAA0
+	// Token: 0x06001986 RID: 6534 RVA: 0x00062214 File Offset: 0x00060414
 	private void OnDrawGizmos()
 	{
 		if (this.totemicObject != null)

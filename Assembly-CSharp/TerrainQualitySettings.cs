@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200084C RID: 2124
+// Token: 0x02000942 RID: 2370
 public class TerrainQualitySettings : MonoBehaviour
 {
-	// Token: 0x06004AE1 RID: 19169 RVA: 0x00146FB0 File Offset: 0x001451B0
+	// Token: 0x06004FA2 RID: 20386 RVA: 0x00151574 File Offset: 0x0014F774
 	private void Start()
 	{
 		this.UpdateQuality();
 	}
 
-	// Token: 0x06004AE2 RID: 19170 RVA: 0x00146FB8 File Offset: 0x001451B8
+	// Token: 0x06004FA3 RID: 20387 RVA: 0x0015157C File Offset: 0x0014F77C
 	private void UpdateQuality()
 	{
 		Debug.Log("updating terrain quality");

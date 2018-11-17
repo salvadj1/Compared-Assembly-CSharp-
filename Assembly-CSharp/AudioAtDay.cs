@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200083F RID: 2111
+// Token: 0x02000934 RID: 2356
 [RequireComponent(typeof(AudioSource))]
 public class AudioAtDay : MonoBehaviour
 {
-	// Token: 0x06004ABC RID: 19132 RVA: 0x001465E4 File Offset: 0x001447E4
+	// Token: 0x06004F77 RID: 20343 RVA: 0x00150548 File Offset: 0x0014E748
 	protected void OnEnable()
 	{
 		if (!this.sky)
@@ -17,7 +17,7 @@ public class AudioAtDay : MonoBehaviour
 		this.audioVolume = this.audioComponent.volume;
 	}
 
-	// Token: 0x06004ABD RID: 19133 RVA: 0x00146630 File Offset: 0x00144830
+	// Token: 0x06004F78 RID: 20344 RVA: 0x00150594 File Offset: 0x0014E794
 	protected void Update()
 	{
 		int num = (!this.sky.IsDay) ? -1 : 1;
@@ -25,18 +25,18 @@ public class AudioAtDay : MonoBehaviour
 		this.audioComponent.volume = Mathf.Lerp(0f, this.audioVolume, this.lerpTime);
 	}
 
-	// Token: 0x04002BCA RID: 11210
-	public TOD_Sky sky;
+	// Token: 0x04002E18 RID: 11800
+	public global::TOD_Sky sky;
 
-	// Token: 0x04002BCB RID: 11211
+	// Token: 0x04002E19 RID: 11801
 	public float fadeTime = 1f;
 
-	// Token: 0x04002BCC RID: 11212
+	// Token: 0x04002E1A RID: 11802
 	private float lerpTime;
 
-	// Token: 0x04002BCD RID: 11213
+	// Token: 0x04002E1B RID: 11803
 	private AudioSource audioComponent;
 
-	// Token: 0x04002BCE RID: 11214
+	// Token: 0x04002E1C RID: 11804
 	private float audioVolume;
 }

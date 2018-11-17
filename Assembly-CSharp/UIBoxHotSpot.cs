@@ -1,22 +1,22 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200074F RID: 1871
-public class UIBoxHotSpot : UIHotSpot
+// Token: 0x02000831 RID: 2097
+public class UIBoxHotSpot : global::UIHotSpot
 {
-	// Token: 0x0600444E RID: 17486 RVA: 0x0010A894 File Offset: 0x00108A94
-	public UIBoxHotSpot() : base(UIHotSpot.Kind.Box, true)
+	// Token: 0x060048AF RID: 18607 RVA: 0x00114214 File Offset: 0x00112414
+	public UIBoxHotSpot() : base(global::UIHotSpot.Kind.Box, true)
 	{
 	}
 
-	// Token: 0x0600444F RID: 17487 RVA: 0x0010A8A4 File Offset: 0x00108AA4
+	// Token: 0x060048B0 RID: 18608 RVA: 0x00114224 File Offset: 0x00112424
 	internal Bounds? Internal_CalculateBounds(bool moved)
 	{
 		return new Bounds?(new Bounds(this.center, this.size));
 	}
 
-	// Token: 0x06004450 RID: 17488 RVA: 0x0010A8BC File Offset: 0x00108ABC
-	internal bool Internal_RaycastRef(Ray ray, ref UIHotSpot.Hit hit)
+	// Token: 0x060048B1 RID: 18609 RVA: 0x0011423C File Offset: 0x0011243C
+	internal bool Internal_RaycastRef(Ray ray, ref global::UIHotSpot.Hit hit)
 	{
 		Bounds bounds;
 		bounds..ctor(this.center, this.size);
@@ -29,7 +29,7 @@ public class UIBoxHotSpot : UIHotSpot
 		return false;
 	}
 
-	// Token: 0x06004451 RID: 17489 RVA: 0x0010A918 File Offset: 0x00108B18
+	// Token: 0x060048B2 RID: 18610 RVA: 0x00114298 File Offset: 0x00112498
 	private void OnDrawGizmos()
 	{
 		Gizmos.matrix = base.gizmoMatrix;
@@ -37,12 +37,12 @@ public class UIBoxHotSpot : UIHotSpot
 		Gizmos.DrawWireCube(this.center, this.size);
 	}
 
-	// Token: 0x040024A2 RID: 9378
-	private const UIHotSpot.Kind kKind = UIHotSpot.Kind.Box;
+	// Token: 0x040026D9 RID: 9945
+	private const global::UIHotSpot.Kind kKind = global::UIHotSpot.Kind.Box;
 
-	// Token: 0x040024A3 RID: 9379
+	// Token: 0x040026DA RID: 9946
 	public new Vector3 center;
 
-	// Token: 0x040024A4 RID: 9380
+	// Token: 0x040026DB RID: 9947
 	public new Vector3 size;
 }

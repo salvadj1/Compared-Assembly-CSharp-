@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000831 RID: 2097
+// Token: 0x02000926 RID: 2342
 [Serializable]
 public class TOD_WorldParameters
 {
-	// Token: 0x06004A73 RID: 19059 RVA: 0x00143160 File Offset: 0x00141360
+	// Token: 0x06004F2E RID: 20270 RVA: 0x0014D0C4 File Offset: 0x0014B2C4
 	public void CheckRange()
 	{
 		this.FogColorBias = Mathf.Clamp01(this.FogColorBias);
@@ -13,18 +13,18 @@ public class TOD_WorldParameters
 		this.HorizonOffset = Mathf.Clamp01(this.HorizonOffset);
 	}
 
-	// Token: 0x04002B4D RID: 11085
+	// Token: 0x04002D9B RID: 11675
 	public bool SetAmbientLight;
 
-	// Token: 0x04002B4E RID: 11086
+	// Token: 0x04002D9C RID: 11676
 	public bool SetFogColor;
 
-	// Token: 0x04002B4F RID: 11087
+	// Token: 0x04002D9D RID: 11677
 	public float FogColorBias;
 
-	// Token: 0x04002B50 RID: 11088
+	// Token: 0x04002D9E RID: 11678
 	public float ViewerHeight;
 
-	// Token: 0x04002B51 RID: 11089
+	// Token: 0x04002D9F RID: 11679
 	public float HorizonOffset;
 }

@@ -4,24 +4,24 @@ using Rust;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000315 RID: 789
+// Token: 0x020003BE RID: 958
 [RequireComponent(typeof(uLinkNetworkView))]
 public class PlayerClient : IDMain
 {
-	// Token: 0x06001E53 RID: 7763 RVA: 0x00077080 File Offset: 0x00075280
+	// Token: 0x06002195 RID: 8597 RVA: 0x0007BB00 File Offset: 0x00079D00
 	public PlayerClient() : base(0)
 	{
 	}
 
-	// Token: 0x06001E54 RID: 7764 RVA: 0x00077094 File Offset: 0x00075294
-	public static PlayerClient GetLocalPlayer()
+	// Token: 0x06002196 RID: 8598 RVA: 0x0007BB14 File Offset: 0x00079D14
+	public static global::PlayerClient GetLocalPlayer()
 	{
-		return PlayerClient.localPlayerClient;
+		return global::PlayerClient.localPlayerClient;
 	}
 
-	// Token: 0x17000799 RID: 1945
-	// (get) Token: 0x06001E55 RID: 7765 RVA: 0x0007709C File Offset: 0x0007529C
-	public Controllable controllable
+	// Token: 0x170007EF RID: 2031
+	// (get) Token: 0x06002197 RID: 8599 RVA: 0x0007BB1C File Offset: 0x00079D1C
+	public global::Controllable controllable
 	{
 		get
 		{
@@ -29,8 +29,8 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x1700079A RID: 1946
-	// (get) Token: 0x06001E56 RID: 7766 RVA: 0x000770A4 File Offset: 0x000752A4
+	// Token: 0x170007F0 RID: 2032
+	// (get) Token: 0x06002198 RID: 8600 RVA: 0x0007BB24 File Offset: 0x00079D24
 	public double instantiationTimeStamp
 	{
 		get
@@ -39,9 +39,9 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x1700079B RID: 1947
-	// (get) Token: 0x06001E57 RID: 7767 RVA: 0x000770B4 File Offset: 0x000752B4
-	public Controllable rootControllable
+	// Token: 0x170007F1 RID: 2033
+	// (get) Token: 0x06002199 RID: 8601 RVA: 0x0007BB34 File Offset: 0x00079D34
+	public global::Controllable rootControllable
 	{
 		get
 		{
@@ -49,9 +49,9 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x1700079C RID: 1948
-	// (get) Token: 0x06001E58 RID: 7768 RVA: 0x000770BC File Offset: 0x000752BC
-	public Controllable topControllable
+	// Token: 0x170007F2 RID: 2034
+	// (get) Token: 0x0600219A RID: 8602 RVA: 0x0007BB3C File Offset: 0x00079D3C
+	public global::Controllable topControllable
 	{
 		get
 		{
@@ -59,25 +59,25 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x1700079D RID: 1949
-	// (get) Token: 0x06001E59 RID: 7769 RVA: 0x000770C4 File Offset: 0x000752C4
+	// Token: 0x170007F3 RID: 2035
+	// (get) Token: 0x0600219B RID: 8603 RVA: 0x0007BB44 File Offset: 0x00079D44
 	public bool local
 	{
 		get
 		{
-			return PlayerClient.localPlayerClient && PlayerClient.localPlayerClient == this;
+			return global::PlayerClient.localPlayerClient && global::PlayerClient.localPlayerClient == this;
 		}
 	}
 
-	// Token: 0x06001E5A RID: 7770 RVA: 0x000770E4 File Offset: 0x000752E4
+	// Token: 0x0600219C RID: 8604 RVA: 0x0007BB64 File Offset: 0x00079D64
 	private void Awake()
 	{
-		NetworkPlayer unassigned = NetworkPlayer.unassigned;
+		uLink.NetworkPlayer unassigned = uLink.NetworkPlayer.unassigned;
 		this._playerID = unassigned.id;
 	}
 
-	// Token: 0x06001E5B RID: 7771 RVA: 0x00077104 File Offset: 0x00075304
-	private void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x0600219D RID: 8605 RVA: 0x0007BB84 File Offset: 0x00079D84
+	private void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		this.netPlayer = info.networkView.owner;
 		BitStream initialData = info.networkView.initialData;
@@ -93,14 +93,14 @@ public class PlayerClient : IDMain
 		});
 		this.instantiationinfo = info;
 		this._playerID = this.netPlayer.id;
-		PlayerClient.g.playerIDDict[this._playerID] = this;
-		PlayerClient.g.userIDDict[this.userID] = this;
+		global::PlayerClient.g.playerIDDict[this._playerID] = this;
+		global::PlayerClient.g.userIDDict[this.userID] = this;
 		this.boundUserID = true;
-		if (!PlayerClient.localPlayerClient && base.networkView.isMine)
+		if (!global::PlayerClient.localPlayerClient && base.networkView.isMine)
 		{
-			PlayerClient.localPlayerClient = this;
+			global::PlayerClient.localPlayerClient = this;
 			base.enabled = true;
-			this.nextAutoReclockTime = NetCull.localTimeInMillis + 8000UL;
+			this.nextAutoReclockTime = global::NetCull.localTimeInMillis + 8000UL;
 		}
 		else
 		{
@@ -108,16 +108,16 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x06001E5C RID: 7772 RVA: 0x00077214 File Offset: 0x00075414
+	// Token: 0x0600219E RID: 8606 RVA: 0x0007BC94 File Offset: 0x00079E94
 	private void OnDisable()
 	{
-		if (this.local && !base.destroying && !NetInstance.IsCurrentlyDestroying(this))
+		if (this.local && !base.destroying && !global::NetInstance.IsCurrentlyDestroying(this))
 		{
 			Debug.LogWarning("The local player got disabled", this);
 		}
 	}
 
-	// Token: 0x06001E5D RID: 7773 RVA: 0x00077250 File Offset: 0x00075450
+	// Token: 0x0600219F RID: 8607 RVA: 0x0007BCD0 File Offset: 0x00079ED0
 	private void OnEnable()
 	{
 		if (!this.local)
@@ -127,21 +127,21 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x06001E5E RID: 7774 RVA: 0x00077270 File Offset: 0x00075470
+	// Token: 0x060021A0 RID: 8608 RVA: 0x0007BCF0 File Offset: 0x00079EF0
 	protected void OnDestroy()
 	{
 		try
 		{
-			NetworkPlayer unassigned = NetworkPlayer.unassigned;
+			uLink.NetworkPlayer unassigned = uLink.NetworkPlayer.unassigned;
 			int id = unassigned.id;
 			if (this._playerID != id)
 			{
 				try
 				{
-					PlayerClient objA = PlayerClient.g.playerIDDict[this._playerID];
+					global::PlayerClient objA = global::PlayerClient.g.playerIDDict[this._playerID];
 					if (object.ReferenceEquals(objA, this))
 					{
-						PlayerClient.g.playerIDDict.Remove(this._playerID);
+						global::PlayerClient.g.playerIDDict.Remove(this._playerID);
 					}
 				}
 				catch (Exception ex)
@@ -157,10 +157,10 @@ public class PlayerClient : IDMain
 			{
 				try
 				{
-					PlayerClient objA2 = PlayerClient.g.userIDDict[this.userID];
+					global::PlayerClient objA2 = global::PlayerClient.g.userIDDict[this.userID];
 					if (object.ReferenceEquals(objA2, this))
 					{
-						PlayerClient.g.userIDDict.Remove(this.userID);
+						global::PlayerClient.g.userIDDict.Remove(this.userID);
 					}
 				}
 				catch (Exception ex2)
@@ -172,9 +172,9 @@ public class PlayerClient : IDMain
 					this.boundUserID = false;
 				}
 			}
-			if (PlayerClient.localPlayerClient == this)
+			if (global::PlayerClient.localPlayerClient == this)
 			{
-				PlayerClient.localPlayerClient = null;
+				global::PlayerClient.localPlayerClient = null;
 			}
 		}
 		finally
@@ -183,22 +183,22 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x06001E5F RID: 7775 RVA: 0x000773D4 File Offset: 0x000755D4
+	// Token: 0x060021A1 RID: 8609 RVA: 0x0007BE54 File Offset: 0x0007A054
 	public static void InputFunction(GameObject req)
 	{
-		if (req && PlayerClient.localPlayerClient && PlayerClient.localPlayerClient._controllable && PlayerClient.localPlayerClient._controllable.gameObject == req && PlayerClient.localPlayerClient.lastInputFrame != Time.frameCount)
+		if (req && global::PlayerClient.localPlayerClient && global::PlayerClient.localPlayerClient._controllable && global::PlayerClient.localPlayerClient._controllable.gameObject == req && global::PlayerClient.localPlayerClient.lastInputFrame != Time.frameCount)
 		{
-			PlayerClient.localPlayerClient.lastInputFrame = Time.frameCount;
-			PlayerClient.localPlayerClient.ClientInput();
+			global::PlayerClient.localPlayerClient.lastInputFrame = Time.frameCount;
+			global::PlayerClient.localPlayerClient.ClientInput();
 		}
 	}
 
-	// Token: 0x06001E60 RID: 7776 RVA: 0x00077458 File Offset: 0x00075658
+	// Token: 0x060021A2 RID: 8610 RVA: 0x0007BED8 File Offset: 0x0007A0D8
 	protected virtual void ClientInput()
 	{
 	}
 
-	// Token: 0x06001E61 RID: 7777 RVA: 0x0007745C File Offset: 0x0007565C
+	// Token: 0x060021A3 RID: 8611 RVA: 0x0007BEDC File Offset: 0x0007A0DC
 	private void Update()
 	{
 		if (this.lastInputFrame != Time.frameCount && (!this._controllable || !this._controllable.masterControllable.forwardsPlayerClientInput))
@@ -206,15 +206,15 @@ public class PlayerClient : IDMain
 			this.lastInputFrame = Time.frameCount;
 			this.ClientInput();
 		}
-		if (NetCull.isClientRunning && !Globals.isLoading)
+		if (global::NetCull.isClientRunning && !Rust.Globals.isLoading)
 		{
-			ulong num = NetCull.localTimeInMillis;
+			ulong num = global::NetCull.localTimeInMillis;
 			if (num >= this.nextAutoReclockTime)
 			{
 				try
 				{
 					ulong num2 = Math.Min(num - this.nextAutoReclockTime, 500UL);
-					NetCull.ResynchronizeClock((3000UL + num2) / 1000.0);
+					global::NetCull.ResynchronizeClock((3000UL + num2) / 1000.0);
 					num += num2;
 				}
 				finally
@@ -225,8 +225,8 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x06001E62 RID: 7778 RVA: 0x00077538 File Offset: 0x00075738
-	internal void OnRootControllableEntered(Controllable controllable)
+	// Token: 0x060021A4 RID: 8612 RVA: 0x0007BFB8 File Offset: 0x0007A1B8
+	internal void OnRootControllableEntered(global::Controllable controllable)
 	{
 		if (this._controllable)
 		{
@@ -235,8 +235,8 @@ public class PlayerClient : IDMain
 		this._controllable = controllable;
 	}
 
-	// Token: 0x06001E63 RID: 7779 RVA: 0x00077568 File Offset: 0x00075768
-	internal void OnRootControllableExited(Controllable controllable)
+	// Token: 0x060021A5 RID: 8613 RVA: 0x0007BFE8 File Offset: 0x0007A1E8
+	internal void OnRootControllableExited(global::Controllable controllable)
 	{
 		if (this._controllable != controllable)
 		{
@@ -248,93 +248,93 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x06001E64 RID: 7780 RVA: 0x000775A0 File Offset: 0x000757A0
-	public static bool Find(NetworkPlayer player, out PlayerClient pc)
+	// Token: 0x060021A6 RID: 8614 RVA: 0x0007C020 File Offset: 0x0007A220
+	public static bool Find(uLink.NetworkPlayer player, out global::PlayerClient pc)
 	{
 		int id = player.id;
 		int num = id;
-		NetworkPlayer unassigned = NetworkPlayer.unassigned;
-		if (num == unassigned.id || player == NetworkPlayer.server)
+		uLink.NetworkPlayer unassigned = uLink.NetworkPlayer.unassigned;
+		if (num == unassigned.id || player == uLink.NetworkPlayer.server)
 		{
 			pc = null;
 			return false;
 		}
-		return PlayerClient.g.playerIDDict.TryGetValue(id, out pc);
+		return global::PlayerClient.g.playerIDDict.TryGetValue(id, out pc);
 	}
 
-	// Token: 0x06001E65 RID: 7781 RVA: 0x000775EC File Offset: 0x000757EC
-	public static bool Find(NetworkPlayer player, out PlayerClient pc, bool throwIfNotFound)
+	// Token: 0x060021A7 RID: 8615 RVA: 0x0007C06C File Offset: 0x0007A26C
+	public static bool Find(uLink.NetworkPlayer player, out global::PlayerClient pc, bool throwIfNotFound)
 	{
 		if (!throwIfNotFound)
 		{
-			return PlayerClient.Find(player, out pc);
+			return global::PlayerClient.Find(player, out pc);
 		}
-		if (!PlayerClient.Find(player, out pc))
+		if (!global::PlayerClient.Find(player, out pc))
 		{
 			throw new ArgumentException("There was no PlayerClient for that player", "player");
 		}
 		return true;
 	}
 
-	// Token: 0x06001E66 RID: 7782 RVA: 0x0007761C File Offset: 0x0007581C
-	public static IEnumerable<PlayerClient> FindAllWithName(string name, StringComparison comparison)
+	// Token: 0x060021A8 RID: 8616 RVA: 0x0007C09C File Offset: 0x0007A29C
+	public static IEnumerable<global::PlayerClient> FindAllWithName(string name, StringComparison comparison)
 	{
-		ServerManagement serverManagement;
-		if (!string.IsNullOrEmpty(name) && (serverManagement = ServerManagement.Get()))
+		global::ServerManagement serverManagement;
+		if (!string.IsNullOrEmpty(name) && (serverManagement = global::ServerManagement.Get()))
 		{
 			return serverManagement.FindPlayerClientsByName(name, comparison);
 		}
-		return EmptyArray<PlayerClient>.emptyEnumerable;
+		return global::EmptyArray<global::PlayerClient>.emptyEnumerable;
 	}
 
-	// Token: 0x06001E67 RID: 7783 RVA: 0x00077654 File Offset: 0x00075854
-	public static IEnumerable<PlayerClient> FindAllWithName(string name)
+	// Token: 0x060021A9 RID: 8617 RVA: 0x0007C0D4 File Offset: 0x0007A2D4
+	public static IEnumerable<global::PlayerClient> FindAllWithName(string name)
 	{
-		return PlayerClient.FindAllWithName(name, StringComparison.InvariantCultureIgnoreCase);
+		return global::PlayerClient.FindAllWithName(name, StringComparison.InvariantCultureIgnoreCase);
 	}
 
-	// Token: 0x06001E68 RID: 7784 RVA: 0x00077660 File Offset: 0x00075860
-	public static IEnumerable<PlayerClient> FindAllWithString(string partialNameOrIDInt)
+	// Token: 0x060021AA RID: 8618 RVA: 0x0007C0E0 File Offset: 0x0007A2E0
+	public static IEnumerable<global::PlayerClient> FindAllWithString(string partialNameOrIDInt)
 	{
-		ServerManagement serverManagement = ServerManagement.Get();
+		global::ServerManagement serverManagement = global::ServerManagement.Get();
 		if (serverManagement == null)
 		{
-			return EmptyArray<PlayerClient>.emptyEnumerable;
+			return global::EmptyArray<global::PlayerClient>.emptyEnumerable;
 		}
 		if (!string.IsNullOrEmpty(partialNameOrIDInt))
 		{
 			return serverManagement.FindPlayerClientsByString(partialNameOrIDInt);
 		}
-		return EmptyArray<PlayerClient>.emptyEnumerable;
+		return global::EmptyArray<global::PlayerClient>.emptyEnumerable;
 	}
 
-	// Token: 0x06001E69 RID: 7785 RVA: 0x000776A0 File Offset: 0x000758A0
-	public static bool FindByUserID(ulong userID, out PlayerClient client)
+	// Token: 0x060021AB RID: 8619 RVA: 0x0007C120 File Offset: 0x0007A320
+	public static bool FindByUserID(ulong userID, out global::PlayerClient client)
 	{
 		if (userID == 0UL)
 		{
 			client = null;
 			return false;
 		}
-		return PlayerClient.g.userIDDict.TryGetValue(userID, out client);
+		return global::PlayerClient.g.userIDDict.TryGetValue(userID, out client);
 	}
 
-	// Token: 0x1700079E RID: 1950
-	// (get) Token: 0x06001E6A RID: 7786 RVA: 0x000776BC File Offset: 0x000758BC
-	public static LockedList<PlayerClient> All
+	// Token: 0x170007F4 RID: 2036
+	// (get) Token: 0x060021AC RID: 8620 RVA: 0x0007C13C File Offset: 0x0007A33C
+	public static global::LockedList<global::PlayerClient> All
 	{
 		get
 		{
-			ServerManagement serverManagement = ServerManagement.Get();
+			global::ServerManagement serverManagement = global::ServerManagement.Get();
 			if (serverManagement)
 			{
 				return serverManagement.lockedPlayerClientList;
 			}
-			return LockedList<PlayerClient>.Empty;
+			return global::LockedList<global::PlayerClient>.Empty;
 		}
 	}
 
-	// Token: 0x06001E6B RID: 7787 RVA: 0x000776E8 File Offset: 0x000758E8
+	// Token: 0x060021AD RID: 8621 RVA: 0x0007C168 File Offset: 0x0007A368
 	public void ProcessLocalPlayerPreRender()
 	{
 		if (this._controllable)
@@ -343,60 +343,60 @@ public class PlayerClient : IDMain
 		}
 	}
 
-	// Token: 0x04000E99 RID: 3737
+	// Token: 0x04000FD9 RID: 4057
 	private const ulong kAutoReclockInitialDelay = 8000UL;
 
-	// Token: 0x04000E9A RID: 3738
+	// Token: 0x04000FDA RID: 4058
 	private const ulong kAutoReclockInterval = 420000UL;
 
-	// Token: 0x04000E9B RID: 3739
+	// Token: 0x04000FDB RID: 4059
 	private const ulong kAutoReclockMS_Base = 3000UL;
 
-	// Token: 0x04000E9C RID: 3740
+	// Token: 0x04000FDC RID: 4060
 	private const ulong kAutoReclockMS_AddMax = 500UL;
 
-	// Token: 0x04000E9D RID: 3741
-	public static PlayerClient localPlayerClient;
+	// Token: 0x04000FDD RID: 4061
+	public static global::PlayerClient localPlayerClient;
 
-	// Token: 0x04000E9E RID: 3742
-	private Controllable _controllable;
+	// Token: 0x04000FDE RID: 4062
+	private global::Controllable _controllable;
 
-	// Token: 0x04000E9F RID: 3743
-	public NetworkPlayer netPlayer;
+	// Token: 0x04000FDF RID: 4063
+	public uLink.NetworkPlayer netPlayer;
 
-	// Token: 0x04000EA0 RID: 3744
-	private NetworkMessageInfo instantiationinfo;
+	// Token: 0x04000FE0 RID: 4064
+	private uLink.NetworkMessageInfo instantiationinfo;
 
-	// Token: 0x04000EA1 RID: 3745
+	// Token: 0x04000FE1 RID: 4065
 	private int _playerID;
 
-	// Token: 0x04000EA2 RID: 3746
+	// Token: 0x04000FE2 RID: 4066
 	[NonSerialized]
 	private bool boundUserID;
 
-	// Token: 0x04000EA3 RID: 3747
+	// Token: 0x04000FE3 RID: 4067
 	public ulong userID;
 
-	// Token: 0x04000EA4 RID: 3748
+	// Token: 0x04000FE4 RID: 4068
 	public string userName;
 
-	// Token: 0x04000EA5 RID: 3749
+	// Token: 0x04000FE5 RID: 4069
 	[NonSerialized]
 	public bool firstReady;
 
-	// Token: 0x04000EA6 RID: 3750
+	// Token: 0x04000FE6 RID: 4070
 	private int lastInputFrame = int.MinValue;
 
-	// Token: 0x04000EA7 RID: 3751
+	// Token: 0x04000FE7 RID: 4071
 	private ulong nextAutoReclockTime;
 
-	// Token: 0x02000316 RID: 790
+	// Token: 0x020003BF RID: 959
 	private static class g
 	{
-		// Token: 0x04000EA8 RID: 3752
-		public static Dictionary<int, PlayerClient> playerIDDict = new Dictionary<int, PlayerClient>();
+		// Token: 0x04000FE8 RID: 4072
+		public static Dictionary<int, global::PlayerClient> playerIDDict = new Dictionary<int, global::PlayerClient>();
 
-		// Token: 0x04000EA9 RID: 3753
-		public static Dictionary<ulong, PlayerClient> userIDDict = new Dictionary<ulong, PlayerClient>();
+		// Token: 0x04000FE9 RID: 4073
+		public static Dictionary<ulong, global::PlayerClient> userIDDict = new Dictionary<ulong, global::PlayerClient>();
 	}
 }

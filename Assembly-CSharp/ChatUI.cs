@@ -3,16 +3,16 @@ using Facepunch.Cursor;
 using Facepunch.Utility;
 using UnityEngine;
 
-// Token: 0x020003ED RID: 1005
+// Token: 0x0200049D RID: 1181
 public class ChatUI : MonoBehaviour
 {
-	// Token: 0x0600251D RID: 9501 RVA: 0x0008EB58 File Offset: 0x0008CD58
+	// Token: 0x0600288F RID: 10383 RVA: 0x00094544 File Offset: 0x00092744
 	private void Awake()
 	{
 		this.unlockNode = LockCursorManager.CreateCursorUnlockNode(false, "ChatUI");
 	}
 
-	// Token: 0x0600251E RID: 9502 RVA: 0x0008EB6C File Offset: 0x0008CD6C
+	// Token: 0x06002890 RID: 10384 RVA: 0x00094558 File Offset: 0x00092758
 	private void OnDestroy()
 	{
 		if (this.unlockNode != null)
@@ -22,70 +22,70 @@ public class ChatUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600251F RID: 9503 RVA: 0x0008EB8C File Offset: 0x0008CD8C
+	// Token: 0x06002891 RID: 10385 RVA: 0x00094578 File Offset: 0x00092778
 	private void Start()
 	{
-		ChatUI.singleton = this;
+		global::ChatUI.singleton = this;
 		this.textInput.Hide();
 	}
 
-	// Token: 0x06002520 RID: 9504 RVA: 0x0008EBA0 File Offset: 0x0008CDA0
+	// Token: 0x06002892 RID: 10386 RVA: 0x0009458C File Offset: 0x0009278C
 	public static bool IsVisible()
 	{
-		return !(ChatUI.singleton == null) && ChatUI.singleton.textInput.IsVisible;
+		return !(global::ChatUI.singleton == null) && global::ChatUI.singleton.textInput.IsVisible;
 	}
 
-	// Token: 0x06002521 RID: 9505 RVA: 0x0008EBC4 File Offset: 0x0008CDC4
+	// Token: 0x06002893 RID: 10387 RVA: 0x000945B0 File Offset: 0x000927B0
 	public static void Open()
 	{
-		if (ChatUI.singleton == null)
+		if (global::ChatUI.singleton == null)
 		{
 			return;
 		}
-		ChatUI.singleton.textInput.Text = string.Empty;
-		ChatUI.singleton.textInput.Show();
-		ChatUI.singleton.textInput.Focus();
-		ChatUI.singleton.Invoke("ClearText", 0.05f);
-		if (ChatUI.singleton.unlockNode != null)
+		global::ChatUI.singleton.textInput.Text = string.Empty;
+		global::ChatUI.singleton.textInput.Show();
+		global::ChatUI.singleton.textInput.Focus();
+		global::ChatUI.singleton.Invoke("ClearText", 0.05f);
+		if (global::ChatUI.singleton.unlockNode != null)
 		{
-			ChatUI.singleton.unlockNode.On = true;
+			global::ChatUI.singleton.unlockNode.On = true;
 		}
 	}
 
-	// Token: 0x06002522 RID: 9506 RVA: 0x0008EC48 File Offset: 0x0008CE48
+	// Token: 0x06002894 RID: 10388 RVA: 0x00094634 File Offset: 0x00092834
 	public static void Close()
 	{
-		if (ChatUI.singleton == null)
+		if (global::ChatUI.singleton == null)
 		{
 			return;
 		}
-		ChatUI.singleton.CancelChatting();
+		global::ChatUI.singleton.CancelChatting();
 	}
 
-	// Token: 0x06002523 RID: 9507 RVA: 0x0008EC68 File Offset: 0x0008CE68
+	// Token: 0x06002895 RID: 10389 RVA: 0x00094654 File Offset: 0x00092854
 	public static void AddLine(string name, string text)
 	{
-		if (ChatUI.singleton == null)
+		if (global::ChatUI.singleton == null)
 		{
 			return;
 		}
-		GameObject gameObject = (GameObject)Object.Instantiate(ChatUI.singleton.chatLine);
+		GameObject gameObject = (GameObject)Object.Instantiate(global::ChatUI.singleton.chatLine);
 		if (gameObject == null)
 		{
 			return;
 		}
-		ChatLine component = gameObject.GetComponent<ChatLine>();
+		global::ChatLine component = gameObject.GetComponent<global::ChatLine>();
 		component.Setup(name + ":", text);
-		ChatUI.singleton.chatContainer.AddControl(component.GetComponent<dfPanel>());
+		global::ChatUI.singleton.chatContainer.AddControl(component.GetComponent<global::dfPanel>());
 	}
 
-	// Token: 0x06002524 RID: 9508 RVA: 0x0008ECD8 File Offset: 0x0008CED8
+	// Token: 0x06002896 RID: 10390 RVA: 0x000946C4 File Offset: 0x000928C4
 	public void ReLayout()
 	{
 		this.chatContainer.RelativePosition = new Vector2(0f, 0f);
-		dfPanel[] componentsInChildren = this.chatContainer.GetComponentsInChildren<dfPanel>();
+		global::dfPanel[] componentsInChildren = this.chatContainer.GetComponentsInChildren<global::dfPanel>();
 		float num = 0f;
-		foreach (dfPanel dfPanel in componentsInChildren)
+		foreach (global::dfPanel dfPanel in componentsInChildren)
 		{
 			if (!(dfPanel.gameObject == this.chatContainer.gameObject))
 			{
@@ -94,7 +94,7 @@ public class ChatUI : MonoBehaviour
 		}
 		Vector2 vector;
 		vector..ctor(0f, this.chatContainer.Height - num);
-		foreach (dfPanel dfPanel2 in componentsInChildren)
+		foreach (global::dfPanel dfPanel2 in componentsInChildren)
 		{
 			if (!(dfPanel2.gameObject == this.chatContainer.gameObject))
 			{
@@ -104,14 +104,14 @@ public class ChatUI : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002525 RID: 9509 RVA: 0x0008EDE0 File Offset: 0x0008CFE0
+	// Token: 0x06002897 RID: 10391 RVA: 0x000947CC File Offset: 0x000929CC
 	public void CancelChatting()
 	{
 		this.textInput.Text = string.Empty;
-		ChatUI.singleton.Invoke("CancelChatting_Delayed", 0.2f);
+		global::ChatUI.singleton.Invoke("CancelChatting_Delayed", 0.2f);
 	}
 
-	// Token: 0x06002526 RID: 9510 RVA: 0x0008EE14 File Offset: 0x0008D014
+	// Token: 0x06002898 RID: 10392 RVA: 0x00094800 File Offset: 0x00092A00
 	public void CancelChatting_Delayed()
 	{
 		this.unlockNode.TryLock();
@@ -120,41 +120,41 @@ public class ChatUI : MonoBehaviour
 		this.textInput.Hide();
 	}
 
-	// Token: 0x06002527 RID: 9511 RVA: 0x0008EE54 File Offset: 0x0008D054
+	// Token: 0x06002899 RID: 10393 RVA: 0x00094840 File Offset: 0x00092A40
 	public void ClearText()
 	{
 		this.textInput.Text = string.Empty;
 	}
 
-	// Token: 0x06002528 RID: 9512 RVA: 0x0008EE68 File Offset: 0x0008D068
+	// Token: 0x0600289A RID: 10394 RVA: 0x00094854 File Offset: 0x00092A54
 	public void SendChat()
 	{
 		if (this.textInput.Text != string.Empty)
 		{
-			ConsoleNetworker.SendCommandToServer("chat.say " + Facepunch.Utility.String.QuoteSafe(this.textInput.Text));
+			global::ConsoleNetworker.SendCommandToServer("chat.say " + Facepunch.Utility.String.QuoteSafe(this.textInput.Text));
 		}
 		this.CancelChatting();
 	}
 
-	// Token: 0x06002529 RID: 9513 RVA: 0x0008EEB4 File Offset: 0x0008D0B4
+	// Token: 0x0600289B RID: 10395 RVA: 0x000948A0 File Offset: 0x00092AA0
 	private void OnLoseFocus()
 	{
 		this.CancelChatting();
 	}
 
-	// Token: 0x04001207 RID: 4615
-	public dfTextbox textInput;
+	// Token: 0x04001381 RID: 4993
+	public global::dfTextbox textInput;
 
-	// Token: 0x04001208 RID: 4616
-	public dfPanel chatContainer;
+	// Token: 0x04001382 RID: 4994
+	public global::dfPanel chatContainer;
 
-	// Token: 0x04001209 RID: 4617
+	// Token: 0x04001383 RID: 4995
 	public Object chatLine;
 
-	// Token: 0x0400120A RID: 4618
-	public static ChatUI singleton;
+	// Token: 0x04001384 RID: 4996
+	public static global::ChatUI singleton;
 
-	// Token: 0x0400120B RID: 4619
+	// Token: 0x04001385 RID: 4997
 	[NonSerialized]
 	private UnlockCursorNode unlockNode;
 }

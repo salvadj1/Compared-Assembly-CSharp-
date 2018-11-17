@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003D6 RID: 982
+// Token: 0x02000483 RID: 1155
 public static class Gizmos2
 {
-	// Token: 0x170008D4 RID: 2260
-	// (get) Token: 0x0600249B RID: 9371 RVA: 0x0008BDC8 File Offset: 0x00089FC8
-	// (set) Token: 0x0600249C RID: 9372 RVA: 0x0008BDD0 File Offset: 0x00089FD0
+	// Token: 0x17000932 RID: 2354
+	// (get) Token: 0x060027FD RID: 10237 RVA: 0x000911C4 File Offset: 0x0008F3C4
+	// (set) Token: 0x060027FE RID: 10238 RVA: 0x000911CC File Offset: 0x0008F3CC
 	public static Color color
 	{
 		get
@@ -19,9 +19,9 @@ public static class Gizmos2
 		}
 	}
 
-	// Token: 0x170008D5 RID: 2261
-	// (get) Token: 0x0600249D RID: 9373 RVA: 0x0008BDD8 File Offset: 0x00089FD8
-	// (set) Token: 0x0600249E RID: 9374 RVA: 0x0008BDE0 File Offset: 0x00089FE0
+	// Token: 0x17000933 RID: 2355
+	// (get) Token: 0x060027FF RID: 10239 RVA: 0x000911D4 File Offset: 0x0008F3D4
+	// (set) Token: 0x06002800 RID: 10240 RVA: 0x000911DC File Offset: 0x0008F3DC
 	public static Matrix4x4 matrix
 	{
 		get
@@ -34,91 +34,91 @@ public static class Gizmos2
 		}
 	}
 
-	// Token: 0x0600249F RID: 9375 RVA: 0x0008BDE8 File Offset: 0x00089FE8
+	// Token: 0x06002801 RID: 10241 RVA: 0x000911E4 File Offset: 0x0008F3E4
 	public static void DrawRay(Ray r)
 	{
 		Gizmos.DrawRay(r);
 	}
 
-	// Token: 0x060024A0 RID: 9376 RVA: 0x0008BDF0 File Offset: 0x00089FF0
+	// Token: 0x06002802 RID: 10242 RVA: 0x000911EC File Offset: 0x0008F3EC
 	public static void DrawRay(Vector3 from, Vector3 direction)
 	{
 		Gizmos.DrawRay(from, direction);
 	}
 
-	// Token: 0x060024A1 RID: 9377 RVA: 0x0008BDFC File Offset: 0x00089FFC
+	// Token: 0x06002803 RID: 10243 RVA: 0x000911F8 File Offset: 0x0008F3F8
 	public static void DrawLine(Vector3 from, Vector3 to)
 	{
 		Gizmos.DrawLine(from, to);
 	}
 
-	// Token: 0x060024A2 RID: 9378 RVA: 0x0008BE08 File Offset: 0x0008A008
+	// Token: 0x06002804 RID: 10244 RVA: 0x00091204 File Offset: 0x0008F404
 	public static void DrawWireSphere(Vector3 center, float radius)
 	{
 		Gizmos.DrawWireSphere(center, radius);
 	}
 
-	// Token: 0x060024A3 RID: 9379 RVA: 0x0008BE14 File Offset: 0x0008A014
+	// Token: 0x06002805 RID: 10245 RVA: 0x00091210 File Offset: 0x0008F410
 	public static void DrawSphere(Vector3 center, float radius)
 	{
 		Gizmos.DrawSphere(center, radius);
 	}
 
-	// Token: 0x060024A4 RID: 9380 RVA: 0x0008BE20 File Offset: 0x0008A020
+	// Token: 0x06002806 RID: 10246 RVA: 0x0009121C File Offset: 0x0008F41C
 	public static void DrawWireCube(Vector3 center, Vector3 size)
 	{
 		Gizmos.DrawWireCube(center, size);
 	}
 
-	// Token: 0x060024A5 RID: 9381 RVA: 0x0008BE2C File Offset: 0x0008A02C
+	// Token: 0x06002807 RID: 10247 RVA: 0x00091228 File Offset: 0x0008F428
 	public static void DrawCube(Vector3 center, Vector3 size)
 	{
 		Gizmos.DrawCube(center, size);
 	}
 
-	// Token: 0x060024A6 RID: 9382 RVA: 0x0008BE38 File Offset: 0x0008A038
+	// Token: 0x06002808 RID: 10248 RVA: 0x00091234 File Offset: 0x0008F434
 	public static void DrawIcon(Vector3 center, string name, bool allowScaling)
 	{
 		Gizmos.DrawIcon(center, name, allowScaling);
 	}
 
-	// Token: 0x060024A7 RID: 9383 RVA: 0x0008BE44 File Offset: 0x0008A044
+	// Token: 0x06002809 RID: 10249 RVA: 0x00091240 File Offset: 0x0008F440
 	public static void DrawIcon(Vector3 center, string name)
 	{
 		Gizmos.DrawIcon(center, name);
 	}
 
-	// Token: 0x060024A8 RID: 9384 RVA: 0x0008BE50 File Offset: 0x0008A050
+	// Token: 0x0600280A RID: 10250 RVA: 0x0009124C File Offset: 0x0008F44C
 	public static void DrawGUITexture(Rect screenRect, Texture texture)
 	{
 		Gizmos.DrawGUITexture(screenRect, texture);
 	}
 
-	// Token: 0x060024A9 RID: 9385 RVA: 0x0008BE5C File Offset: 0x0008A05C
+	// Token: 0x0600280B RID: 10251 RVA: 0x00091258 File Offset: 0x0008F458
 	public static void DrawGUITexture(Rect screenRect, Texture texture, Material mat)
 	{
 		Gizmos.DrawGUITexture(screenRect, texture, mat);
 	}
 
-	// Token: 0x060024AA RID: 9386 RVA: 0x0008BE68 File Offset: 0x0008A068
+	// Token: 0x0600280C RID: 10252 RVA: 0x00091264 File Offset: 0x0008F464
 	public static void DrawGUITexture(Rect screenRect, Texture texture, int leftBorder, int rightBorder, int topBorder, int bottomBorder, Material mat)
 	{
-		Gizmos2.DrawGUITexture(screenRect, texture, leftBorder, rightBorder, topBorder, bottomBorder, mat);
+		global::Gizmos2.DrawGUITexture(screenRect, texture, leftBorder, rightBorder, topBorder, bottomBorder, mat);
 	}
 
-	// Token: 0x060024AB RID: 9387 RVA: 0x0008BE7C File Offset: 0x0008A07C
+	// Token: 0x0600280D RID: 10253 RVA: 0x00091278 File Offset: 0x0008F478
 	public static void DrawGUITexture(Rect screenRect, Texture texture, int leftBorder, int rightBorder, int topBorder, int bottomBorder)
 	{
-		Gizmos2.DrawGUITexture(screenRect, texture, leftBorder, rightBorder, topBorder, bottomBorder);
+		global::Gizmos2.DrawGUITexture(screenRect, texture, leftBorder, rightBorder, topBorder, bottomBorder);
 	}
 
-	// Token: 0x060024AC RID: 9388 RVA: 0x0008BE8C File Offset: 0x0008A08C
+	// Token: 0x0600280E RID: 10254 RVA: 0x00091288 File Offset: 0x0008F488
 	public static void DrawFrustum(Vector3 center, float fov, float maxRange, float minRange, float aspect)
 	{
 		Gizmos.DrawFrustum(center, fov, maxRange, minRange, aspect);
 	}
 
-	// Token: 0x060024AD RID: 9389 RVA: 0x0008BE9C File Offset: 0x0008A09C
+	// Token: 0x0600280F RID: 10255 RVA: 0x00091298 File Offset: 0x0008F498
 	public static void DrawWireCapsule(Vector3 center, float radius, float height, int axis)
 	{
 		int num = axis % 3;

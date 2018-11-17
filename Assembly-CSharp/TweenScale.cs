@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007B6 RID: 1974
+// Token: 0x020008A3 RID: 2211
 [AddComponentMenu("NGUI/Tween/Scale")]
-public class TweenScale : UITweener
+public class TweenScale : global::UITweener
 {
-	// Token: 0x17000DC0 RID: 3520
-	// (get) Token: 0x06004744 RID: 18244 RVA: 0x0011E89C File Offset: 0x0011CA9C
+	// Token: 0x17000E52 RID: 3666
+	// (get) Token: 0x06004BD3 RID: 19411 RVA: 0x001282C0 File Offset: 0x001264C0
 	public Transform cachedTransform
 	{
 		get
@@ -19,9 +19,9 @@ public class TweenScale : UITweener
 		}
 	}
 
-	// Token: 0x17000DC1 RID: 3521
-	// (get) Token: 0x06004745 RID: 18245 RVA: 0x0011E8C4 File Offset: 0x0011CAC4
-	// (set) Token: 0x06004746 RID: 18246 RVA: 0x0011E8D4 File Offset: 0x0011CAD4
+	// Token: 0x17000E53 RID: 3667
+	// (get) Token: 0x06004BD4 RID: 19412 RVA: 0x001282E8 File Offset: 0x001264E8
+	// (set) Token: 0x06004BD5 RID: 19413 RVA: 0x001282F8 File Offset: 0x001264F8
 	public Vector3 scale
 	{
 		get
@@ -34,7 +34,7 @@ public class TweenScale : UITweener
 		}
 	}
 
-	// Token: 0x06004747 RID: 18247 RVA: 0x0011E8E4 File Offset: 0x0011CAE4
+	// Token: 0x06004BD6 RID: 19414 RVA: 0x00128308 File Offset: 0x00126508
 	protected override void OnUpdate(float factor)
 	{
 		this.cachedTransform.localScale = this.from * (1f - factor) + this.to * factor;
@@ -42,7 +42,7 @@ public class TweenScale : UITweener
 		{
 			if (this.mTable == null)
 			{
-				this.mTable = NGUITools.FindInParents<UITable>(base.gameObject);
+				this.mTable = global::NGUITools.FindInParents<global::UITable>(base.gameObject);
 				if (this.mTable == null)
 				{
 					this.updateTable = false;
@@ -53,27 +53,27 @@ public class TweenScale : UITweener
 		}
 	}
 
-	// Token: 0x06004748 RID: 18248 RVA: 0x0011E974 File Offset: 0x0011CB74
-	public static TweenScale Begin(GameObject go, float duration, Vector3 scale)
+	// Token: 0x06004BD7 RID: 19415 RVA: 0x00128398 File Offset: 0x00126598
+	public static global::TweenScale Begin(GameObject go, float duration, Vector3 scale)
 	{
-		TweenScale tweenScale = UITweener.Begin<TweenScale>(go, duration);
+		global::TweenScale tweenScale = global::UITweener.Begin<global::TweenScale>(go, duration);
 		tweenScale.from = tweenScale.scale;
 		tweenScale.to = scale;
 		return tweenScale;
 	}
 
-	// Token: 0x04002745 RID: 10053
+	// Token: 0x0400297F RID: 10623
 	public Vector3 from = Vector3.one;
 
-	// Token: 0x04002746 RID: 10054
+	// Token: 0x04002980 RID: 10624
 	public Vector3 to = Vector3.one;
 
-	// Token: 0x04002747 RID: 10055
+	// Token: 0x04002981 RID: 10625
 	public bool updateTable;
 
-	// Token: 0x04002748 RID: 10056
+	// Token: 0x04002982 RID: 10626
 	private Transform mTrans;
 
-	// Token: 0x04002749 RID: 10057
-	private UITable mTable;
+	// Token: 0x04002983 RID: 10627
+	private global::UITable mTable;
 }

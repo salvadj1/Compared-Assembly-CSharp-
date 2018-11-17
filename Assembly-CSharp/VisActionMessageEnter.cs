@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000393 RID: 915
-public class VisActionMessageEnter : VisAction
+// Token: 0x02000440 RID: 1088
+public class VisActionMessageEnter : global::VisAction
 {
-	// Token: 0x060022C4 RID: 8900 RVA: 0x0008591C File Offset: 0x00083B1C
+	// Token: 0x06002626 RID: 9766 RVA: 0x0008AD18 File Offset: 0x00088F18
 	public override void Accomplish(IDMain self, IDMain instigator)
 	{
 		bool flag = !self;
@@ -74,32 +74,32 @@ public class VisActionMessageEnter : VisAction
 		}
 	}
 
-	// Token: 0x060022C5 RID: 8901 RVA: 0x00085A50 File Offset: 0x00083C50
+	// Token: 0x06002627 RID: 9767 RVA: 0x0008AE4C File Offset: 0x0008904C
 	public override void UnAcomplish(IDMain self, IDMain instigator)
 	{
 	}
 
-	// Token: 0x04001073 RID: 4211
+	// Token: 0x040011D9 RID: 4569
 	[SerializeField]
 	protected string selfMessage = string.Empty;
 
-	// Token: 0x04001074 RID: 4212
+	// Token: 0x040011DA RID: 4570
 	[SerializeField]
 	protected string instigatorMessage = string.Empty;
 
-	// Token: 0x04001075 RID: 4213
+	// Token: 0x040011DB RID: 4571
 	[SerializeField]
 	protected bool withOtherAsArg = true;
 
-	// Token: 0x04001076 RID: 4214
+	// Token: 0x040011DC RID: 4572
 	[SerializeField]
 	protected bool swapMessageOrder;
 
-	// Token: 0x04001077 RID: 4215
+	// Token: 0x040011DD RID: 4573
 	[SerializeField]
 	protected bool selfNonNull;
 
-	// Token: 0x04001078 RID: 4216
+	// Token: 0x040011DE RID: 4574
 	[SerializeField]
 	protected bool instigatorNonNull;
 }

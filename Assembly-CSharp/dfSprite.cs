@@ -1,28 +1,28 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006F3 RID: 1779
-[RequireComponent(typeof(BoxCollider))]
+// Token: 0x020007C5 RID: 1989
 [AddComponentMenu("Daikon Forge/User Interface/Sprite/Basic")]
+[RequireComponent(typeof(BoxCollider))]
 [ExecuteInEditMode]
 [Serializable]
-public class dfSprite : dfControl
+public class dfSprite : global::dfControl
 {
 	// Token: 0x14000052 RID: 82
-	// (add) Token: 0x06004053 RID: 16467 RVA: 0x000F6CAC File Offset: 0x000F4EAC
-	// (remove) Token: 0x06004054 RID: 16468 RVA: 0x000F6CC8 File Offset: 0x000F4EC8
-	public event PropertyChangedEventHandler<string> SpriteNameChanged;
+	// (add) Token: 0x0600446F RID: 17519 RVA: 0x000FF8B0 File Offset: 0x000FDAB0
+	// (remove) Token: 0x06004470 RID: 17520 RVA: 0x000FF8CC File Offset: 0x000FDACC
+	public event global::PropertyChangedEventHandler<string> SpriteNameChanged;
 
-	// Token: 0x17000CAB RID: 3243
-	// (get) Token: 0x06004055 RID: 16469 RVA: 0x000F6CE4 File Offset: 0x000F4EE4
-	// (set) Token: 0x06004056 RID: 16470 RVA: 0x000F6D2C File Offset: 0x000F4F2C
-	public dfAtlas Atlas
+	// Token: 0x17000D2F RID: 3375
+	// (get) Token: 0x06004471 RID: 17521 RVA: 0x000FF8E8 File Offset: 0x000FDAE8
+	// (set) Token: 0x06004472 RID: 17522 RVA: 0x000FF930 File Offset: 0x000FDB30
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -32,7 +32,7 @@ public class dfSprite : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -40,9 +40,9 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CAC RID: 3244
-	// (get) Token: 0x06004057 RID: 16471 RVA: 0x000F6D4C File Offset: 0x000F4F4C
-	// (set) Token: 0x06004058 RID: 16472 RVA: 0x000F6D54 File Offset: 0x000F4F54
+	// Token: 0x17000D30 RID: 3376
+	// (get) Token: 0x06004473 RID: 17523 RVA: 0x000FF950 File Offset: 0x000FDB50
+	// (set) Token: 0x06004474 RID: 17524 RVA: 0x000FF958 File Offset: 0x000FDB58
 	public string SpriteName
 	{
 		get
@@ -57,7 +57,7 @@ public class dfSprite : dfControl
 				this.spriteName = value;
 				if (!Application.isPlaying)
 				{
-					dfAtlas.ItemInfo spriteInfo = this.SpriteInfo;
+					global::dfAtlas.ItemInfo spriteInfo = this.SpriteInfo;
 					if (this.size == Vector2.zero && spriteInfo != null)
 					{
 						this.size = spriteInfo.sizeInPixels;
@@ -70,9 +70,9 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CAD RID: 3245
-	// (get) Token: 0x06004059 RID: 16473 RVA: 0x000F6DD4 File Offset: 0x000F4FD4
-	public dfAtlas.ItemInfo SpriteInfo
+	// Token: 0x17000D31 RID: 3377
+	// (get) Token: 0x06004475 RID: 17525 RVA: 0x000FF9D8 File Offset: 0x000FDBD8
+	public global::dfAtlas.ItemInfo SpriteInfo
 	{
 		get
 		{
@@ -84,10 +84,10 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CAE RID: 3246
-	// (get) Token: 0x0600405A RID: 16474 RVA: 0x000F6E0C File Offset: 0x000F500C
-	// (set) Token: 0x0600405B RID: 16475 RVA: 0x000F6E14 File Offset: 0x000F5014
-	public dfSpriteFlip Flip
+	// Token: 0x17000D32 RID: 3378
+	// (get) Token: 0x06004476 RID: 17526 RVA: 0x000FFA10 File Offset: 0x000FDC10
+	// (set) Token: 0x06004477 RID: 17527 RVA: 0x000FFA18 File Offset: 0x000FDC18
+	public global::dfSpriteFlip Flip
 	{
 		get
 		{
@@ -103,10 +103,10 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CAF RID: 3247
-	// (get) Token: 0x0600405C RID: 16476 RVA: 0x000F6E30 File Offset: 0x000F5030
-	// (set) Token: 0x0600405D RID: 16477 RVA: 0x000F6E38 File Offset: 0x000F5038
-	public dfFillDirection FillDirection
+	// Token: 0x17000D33 RID: 3379
+	// (get) Token: 0x06004478 RID: 17528 RVA: 0x000FFA34 File Offset: 0x000FDC34
+	// (set) Token: 0x06004479 RID: 17529 RVA: 0x000FFA3C File Offset: 0x000FDC3C
+	public global::dfFillDirection FillDirection
 	{
 		get
 		{
@@ -122,9 +122,9 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CB0 RID: 3248
-	// (get) Token: 0x0600405E RID: 16478 RVA: 0x000F6E54 File Offset: 0x000F5054
-	// (set) Token: 0x0600405F RID: 16479 RVA: 0x000F6E5C File Offset: 0x000F505C
+	// Token: 0x17000D34 RID: 3380
+	// (get) Token: 0x0600447A RID: 17530 RVA: 0x000FFA58 File Offset: 0x000FDC58
+	// (set) Token: 0x0600447B RID: 17531 RVA: 0x000FFA60 File Offset: 0x000FDC60
 	public float FillAmount
 	{
 		get
@@ -141,9 +141,9 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x17000CB1 RID: 3249
-	// (get) Token: 0x06004060 RID: 16480 RVA: 0x000F6E9C File Offset: 0x000F509C
-	// (set) Token: 0x06004061 RID: 16481 RVA: 0x000F6EA4 File Offset: 0x000F50A4
+	// Token: 0x17000D35 RID: 3381
+	// (get) Token: 0x0600447C RID: 17532 RVA: 0x000FFAA0 File Offset: 0x000FDCA0
+	// (set) Token: 0x0600447D RID: 17533 RVA: 0x000FFAA8 File Offset: 0x000FDCA8
 	public bool InvertFill
 	{
 		get
@@ -160,14 +160,14 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004062 RID: 16482 RVA: 0x000F6EC0 File Offset: 0x000F50C0
+	// Token: 0x0600447E RID: 17534 RVA: 0x000FFAC4 File Offset: 0x000FDCC4
 	protected internal override void OnLocalize()
 	{
 		base.OnLocalize();
 		this.SpriteName = base.getLocalizedValue(this.spriteName);
 	}
 
-	// Token: 0x06004063 RID: 16483 RVA: 0x000F6EDC File Offset: 0x000F50DC
+	// Token: 0x0600447F RID: 17535 RVA: 0x000FFAE0 File Offset: 0x000FDCE0
 	protected internal virtual void OnSpriteNameChanged(string value)
 	{
 		base.Signal("OnSpriteNameChanged", new object[]
@@ -180,10 +180,10 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004064 RID: 16484 RVA: 0x000F6F18 File Offset: 0x000F5118
+	// Token: 0x06004480 RID: 17536 RVA: 0x000FFB1C File Offset: 0x000FDD1C
 	public override Vector2 CalculateMinimumSize()
 	{
-		dfAtlas.ItemInfo spriteInfo = this.SpriteInfo;
+		global::dfAtlas.ItemInfo spriteInfo = this.SpriteInfo;
 		if (spriteInfo == null)
 		{
 			return Vector2.zero;
@@ -196,7 +196,7 @@ public class dfSprite : dfControl
 		return base.CalculateMinimumSize();
 	}
 
-	// Token: 0x06004065 RID: 16485 RVA: 0x000F6F88 File Offset: 0x000F5188
+	// Token: 0x06004481 RID: 17537 RVA: 0x000FFB8C File Offset: 0x000FDD8C
 	protected override void OnRebuildRenderData()
 	{
 		if (!(this.Atlas != null) || !(this.Atlas.Material != null) || !base.IsVisible)
@@ -209,7 +209,7 @@ public class dfSprite : dfControl
 		}
 		this.renderData.Material = this.Atlas.Material;
 		Color32 color = base.ApplyOpacity((!base.IsEnabled) ? this.disabledColor : this.color);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.Atlas,
 			color = color,
@@ -222,39 +222,39 @@ public class dfSprite : dfControl
 			size = base.Size,
 			spriteInfo = this.SpriteInfo
 		};
-		dfSprite.renderSprite(this.renderData, options);
+		global::dfSprite.renderSprite(this.renderData, options);
 	}
 
-	// Token: 0x06004066 RID: 16486 RVA: 0x000F70B8 File Offset: 0x000F52B8
-	internal static void renderSprite(dfRenderData data, dfSprite.RenderOptions options)
+	// Token: 0x06004482 RID: 17538 RVA: 0x000FFCBC File Offset: 0x000FDEBC
+	internal static void renderSprite(global::dfRenderData data, global::dfSprite.RenderOptions options)
 	{
 		options.baseIndex = data.Vertices.Count;
-		dfSprite.rebuildTriangles(data, options);
-		dfSprite.rebuildVertices(data, options);
-		dfSprite.rebuildUV(data, options);
-		dfSprite.rebuildColors(data, options);
+		global::dfSprite.rebuildTriangles(data, options);
+		global::dfSprite.rebuildVertices(data, options);
+		global::dfSprite.rebuildUV(data, options);
+		global::dfSprite.rebuildColors(data, options);
 		if (options.fillAmount > -1f && options.fillAmount < 1f)
 		{
-			dfSprite.doFill(data, options);
+			global::dfSprite.doFill(data, options);
 		}
 	}
 
-	// Token: 0x06004067 RID: 16487 RVA: 0x000F711C File Offset: 0x000F531C
-	private static void rebuildTriangles(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x06004483 RID: 17539 RVA: 0x000FFD20 File Offset: 0x000FDF20
+	private static void rebuildTriangles(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		int baseIndex = options.baseIndex;
-		dfList<int> triangles = renderData.Triangles;
-		triangles.EnsureCapacity(triangles.Count + dfSprite.TRIANGLE_INDICES.Length);
-		for (int i = 0; i < dfSprite.TRIANGLE_INDICES.Length; i++)
+		global::dfList<int> triangles = renderData.Triangles;
+		triangles.EnsureCapacity(triangles.Count + global::dfSprite.TRIANGLE_INDICES.Length);
+		for (int i = 0; i < global::dfSprite.TRIANGLE_INDICES.Length; i++)
 		{
-			triangles.Add(baseIndex + dfSprite.TRIANGLE_INDICES[i]);
+			triangles.Add(baseIndex + global::dfSprite.TRIANGLE_INDICES[i]);
 		}
 	}
 
-	// Token: 0x06004068 RID: 16488 RVA: 0x000F7174 File Offset: 0x000F5374
-	private static void rebuildVertices(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x06004484 RID: 17540 RVA: 0x000FFD78 File Offset: 0x000FDF78
+	private static void rebuildVertices(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
-		dfList<Vector3> vertices = renderData.Vertices;
+		global::dfList<Vector3> vertices = renderData.Vertices;
 		int baseIndex = options.baseIndex;
 		float num = 0f;
 		float num2 = 0f;
@@ -271,27 +271,27 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x06004069 RID: 16489 RVA: 0x000F7298 File Offset: 0x000F5498
-	private static void rebuildColors(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x06004485 RID: 17541 RVA: 0x000FFE9C File Offset: 0x000FE09C
+	private static void rebuildColors(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
-		dfList<Color32> colors = renderData.Colors;
+		global::dfList<Color32> colors = renderData.Colors;
 		colors.Add(options.color);
 		colors.Add(options.color);
 		colors.Add(options.color);
 		colors.Add(options.color);
 	}
 
-	// Token: 0x0600406A RID: 16490 RVA: 0x000F72E0 File Offset: 0x000F54E0
-	private static void rebuildUV(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x06004486 RID: 17542 RVA: 0x000FFEE4 File Offset: 0x000FE0E4
+	private static void rebuildUV(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		Rect region = options.spriteInfo.region;
-		dfList<Vector2> uv = renderData.UV;
+		global::dfList<Vector2> uv = renderData.UV;
 		uv.Add(new Vector2(region.x, region.yMax));
 		uv.Add(new Vector2(region.xMax, region.yMax));
 		uv.Add(new Vector2(region.xMax, region.y));
 		uv.Add(new Vector2(region.x, region.y));
 		Vector2 value = Vector2.zero;
-		if (options.flip.IsSet(dfSpriteFlip.FlipHorizontal))
+		if (options.flip.IsSet(global::dfSpriteFlip.FlipHorizontal))
 		{
 			value = uv[1];
 			uv[1] = uv[0];
@@ -300,7 +300,7 @@ public class dfSprite : dfControl
 			uv[3] = uv[2];
 			uv[2] = value;
 		}
-		if (options.flip.IsSet(dfSpriteFlip.FlipVertical))
+		if (options.flip.IsSet(global::dfSpriteFlip.FlipVertical))
 		{
 			value = uv[0];
 			uv[0] = uv[3];
@@ -311,19 +311,19 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x0600406B RID: 16491 RVA: 0x000F7408 File Offset: 0x000F5608
-	private static void doFill(dfRenderData renderData, dfSprite.RenderOptions options)
+	// Token: 0x06004487 RID: 17543 RVA: 0x0010000C File Offset: 0x000FE20C
+	private static void doFill(global::dfRenderData renderData, global::dfSprite.RenderOptions options)
 	{
 		int baseIndex = options.baseIndex;
-		dfList<Vector3> vertices = renderData.Vertices;
-		dfList<Vector2> uv = renderData.UV;
+		global::dfList<Vector3> vertices = renderData.Vertices;
+		global::dfList<Vector2> uv = renderData.UV;
 		int index = baseIndex;
 		int index2 = baseIndex + 1;
 		int index3 = baseIndex + 3;
 		int index4 = baseIndex + 2;
 		if (options.invertFill)
 		{
-			if (options.fillDirection == dfFillDirection.Horizontal)
+			if (options.fillDirection == global::dfFillDirection.Horizontal)
 			{
 				index = baseIndex + 1;
 				index2 = baseIndex;
@@ -338,7 +338,7 @@ public class dfSprite : dfControl
 				index4 = baseIndex + 1;
 			}
 		}
-		if (options.fillDirection == dfFillDirection.Horizontal)
+		if (options.fillDirection == global::dfFillDirection.Horizontal)
 		{
 			vertices[index2] = Vector3.Lerp(vertices[index2], vertices[index], 1f - options.fillAmount);
 			vertices[index4] = Vector3.Lerp(vertices[index4], vertices[index3], 1f - options.fillAmount);
@@ -354,7 +354,7 @@ public class dfSprite : dfControl
 		}
 	}
 
-	// Token: 0x0600406C RID: 16492 RVA: 0x000F75D8 File Offset: 0x000F57D8
+	// Token: 0x06004488 RID: 17544 RVA: 0x001001DC File Offset: 0x000FE3DC
 	public override string ToString()
 	{
 		if (!string.IsNullOrEmpty(this.spriteName))
@@ -364,7 +364,7 @@ public class dfSprite : dfControl
 		return base.ToString();
 	}
 
-	// Token: 0x0400222C RID: 8748
+	// Token: 0x04002435 RID: 9269
 	private static int[] TRIANGLE_INDICES = new int[]
 	{
 		0,
@@ -375,64 +375,64 @@ public class dfSprite : dfControl
 		2
 	};
 
-	// Token: 0x0400222D RID: 8749
+	// Token: 0x04002436 RID: 9270
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x0400222E RID: 8750
+	// Token: 0x04002437 RID: 9271
 	[SerializeField]
 	protected string spriteName;
 
-	// Token: 0x0400222F RID: 8751
+	// Token: 0x04002438 RID: 9272
 	[SerializeField]
-	protected dfSpriteFlip flip;
+	protected global::dfSpriteFlip flip;
 
-	// Token: 0x04002230 RID: 8752
+	// Token: 0x04002439 RID: 9273
 	[SerializeField]
-	protected dfFillDirection fillDirection;
+	protected global::dfFillDirection fillDirection;
 
-	// Token: 0x04002231 RID: 8753
+	// Token: 0x0400243A RID: 9274
 	[SerializeField]
 	protected float fillAmount = 1f;
 
-	// Token: 0x04002232 RID: 8754
+	// Token: 0x0400243B RID: 9275
 	[SerializeField]
 	protected bool invertFill;
 
-	// Token: 0x020006F4 RID: 1780
+	// Token: 0x020007C6 RID: 1990
 	internal struct RenderOptions
 	{
-		// Token: 0x04002234 RID: 8756
-		public dfAtlas atlas;
+		// Token: 0x0400243D RID: 9277
+		public global::dfAtlas atlas;
 
-		// Token: 0x04002235 RID: 8757
-		public dfAtlas.ItemInfo spriteInfo;
+		// Token: 0x0400243E RID: 9278
+		public global::dfAtlas.ItemInfo spriteInfo;
 
-		// Token: 0x04002236 RID: 8758
+		// Token: 0x0400243F RID: 9279
 		public Color32 color;
 
-		// Token: 0x04002237 RID: 8759
+		// Token: 0x04002440 RID: 9280
 		public float pixelsToUnits;
 
-		// Token: 0x04002238 RID: 8760
+		// Token: 0x04002441 RID: 9281
 		public Vector2 size;
 
-		// Token: 0x04002239 RID: 8761
-		public dfSpriteFlip flip;
+		// Token: 0x04002442 RID: 9282
+		public global::dfSpriteFlip flip;
 
-		// Token: 0x0400223A RID: 8762
+		// Token: 0x04002443 RID: 9283
 		public bool invertFill;
 
-		// Token: 0x0400223B RID: 8763
-		public dfFillDirection fillDirection;
+		// Token: 0x04002444 RID: 9284
+		public global::dfFillDirection fillDirection;
 
-		// Token: 0x0400223C RID: 8764
+		// Token: 0x04002445 RID: 9285
 		public float fillAmount;
 
-		// Token: 0x0400223D RID: 8765
+		// Token: 0x04002446 RID: 9286
 		public Vector3 offset;
 
-		// Token: 0x0400223E RID: 8766
+		// Token: 0x04002447 RID: 9287
 		public int baseIndex;
 	}
 }

@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200061E RID: 1566
+// Token: 0x020006DF RID: 1759
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement_Mecanim : MonoBehaviour
 {
-	// Token: 0x0600379B RID: 14235 RVA: 0x000CBEF8 File Offset: 0x000CA0F8
+	// Token: 0x06003B7B RID: 15227 RVA: 0x000D45D0 File Offset: 0x000D27D0
 	private void Start()
 	{
 		this.playerController = base.GetComponent<CharacterController>();
 		this.playerAnimController = base.GetComponent<Animator>();
 	}
 
-	// Token: 0x0600379C RID: 14236 RVA: 0x000CBF14 File Offset: 0x000CA114
+	// Token: 0x06003B7C RID: 15228 RVA: 0x000D45EC File Offset: 0x000D27EC
 	private void Update()
 	{
 		this.SetUpperBodyAimState();
@@ -89,7 +89,7 @@ public class PlayerMovement_Mecanim : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600379D RID: 14237 RVA: 0x000CC284 File Offset: 0x000CA484
+	// Token: 0x06003B7D RID: 15229 RVA: 0x000D495C File Offset: 0x000D2B5C
 	private void CheckLanding()
 	{
 		if (this.playerController.isGrounded)
@@ -99,7 +99,7 @@ public class PlayerMovement_Mecanim : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600379E RID: 14238 RVA: 0x000CC2B0 File Offset: 0x000CA4B0
+	// Token: 0x06003B7E RID: 15230 RVA: 0x000D4988 File Offset: 0x000D2B88
 	private void SetUpperBodyAimState()
 	{
 		if (Input.GetKeyDown(49))
@@ -129,28 +129,28 @@ public class PlayerMovement_Mecanim : MonoBehaviour
 		this.playerAnimController.SetInteger("UpperBodyAimState", this.iUpperBodyAimState);
 	}
 
-	// Token: 0x04001BBB RID: 7099
+	// Token: 0x04001DA6 RID: 7590
 	public float flSprintSpeed = 6.2f;
 
-	// Token: 0x04001BBC RID: 7100
+	// Token: 0x04001DA7 RID: 7591
 	public float flWalkSpeed = 2.55f;
 
-	// Token: 0x04001BBD RID: 7101
+	// Token: 0x04001DA8 RID: 7592
 	public float flCrouchWalkSpeed = 1.54f;
 
-	// Token: 0x04001BBE RID: 7102
+	// Token: 0x04001DA9 RID: 7593
 	public float flRotateSpeed = 9f;
 
-	// Token: 0x04001BBF RID: 7103
+	// Token: 0x04001DAA RID: 7594
 	public int iUpperBodyAimState;
 
-	// Token: 0x04001BC0 RID: 7104
+	// Token: 0x04001DAB RID: 7595
 	private float flPlayerAimPitch;
 
-	// Token: 0x04001BC1 RID: 7105
+	// Token: 0x04001DAC RID: 7596
 	private float flUpperBodyAimLayerWeight = 1f;
 
-	// Token: 0x04001BC2 RID: 7106
+	// Token: 0x04001DAD RID: 7597
 	private float[] flAttackTimers = new float[]
 	{
 		0f,
@@ -161,21 +161,21 @@ public class PlayerMovement_Mecanim : MonoBehaviour
 		1f
 	};
 
-	// Token: 0x04001BC3 RID: 7107
+	// Token: 0x04001DAE RID: 7598
 	private float flCanAttackAgainTime = -1f;
 
-	// Token: 0x04001BC4 RID: 7108
+	// Token: 0x04001DAF RID: 7599
 	private bool bIsInAir;
 
-	// Token: 0x04001BC5 RID: 7109
+	// Token: 0x04001DB0 RID: 7600
 	private bool bCrouching;
 
-	// Token: 0x04001BC6 RID: 7110
+	// Token: 0x04001DB1 RID: 7601
 	private bool bSprinting;
 
-	// Token: 0x04001BC7 RID: 7111
+	// Token: 0x04001DB2 RID: 7602
 	private CharacterController playerController;
 
-	// Token: 0x04001BC8 RID: 7112
+	// Token: 0x04001DB3 RID: 7603
 	private Animator playerAnimController;
 }

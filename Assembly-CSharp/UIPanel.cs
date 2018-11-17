@@ -4,21 +4,21 @@ using System.Collections.Specialized;
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x020007F8 RID: 2040
-[ExecuteInEditMode]
+// Token: 0x020008EA RID: 2282
 [AddComponentMenu("NGUI/UI/Panel")]
+[ExecuteInEditMode]
 public class UIPanel : MonoBehaviour
 {
-	// Token: 0x06004923 RID: 18723 RVA: 0x0012C0EC File Offset: 0x0012A2EC
+	// Token: 0x06004DD2 RID: 19922 RVA: 0x00136050 File Offset: 0x00134250
 	public static void GlobalUpdate()
 	{
-		UIPanel.Global.PanelUpdate();
+		global::UIPanel.Global.PanelUpdate();
 	}
 
-	// Token: 0x17000E46 RID: 3654
-	// (get) Token: 0x06004924 RID: 18724 RVA: 0x0012C0F4 File Offset: 0x0012A2F4
-	// (set) Token: 0x06004925 RID: 18725 RVA: 0x0012C114 File Offset: 0x0012A314
-	public UIPanel RootPanel
+	// Token: 0x17000EE0 RID: 3808
+	// (get) Token: 0x06004DD3 RID: 19923 RVA: 0x00136058 File Offset: 0x00134258
+	// (set) Token: 0x06004DD4 RID: 19924 RVA: 0x00136078 File Offset: 0x00134278
+	public global::UIPanel RootPanel
 	{
 		get
 		{
@@ -37,8 +37,8 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E47 RID: 3655
-	// (get) Token: 0x06004926 RID: 18726 RVA: 0x0012C138 File Offset: 0x0012A338
+	// Token: 0x17000EE1 RID: 3809
+	// (get) Token: 0x06004DD5 RID: 19925 RVA: 0x0013609C File Offset: 0x0013429C
 	public Transform cachedTransform
 	{
 		get
@@ -51,8 +51,8 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E48 RID: 3656
-	// (get) Token: 0x06004927 RID: 18727 RVA: 0x0012C160 File Offset: 0x0012A360
+	// Token: 0x17000EE2 RID: 3810
+	// (get) Token: 0x06004DD6 RID: 19926 RVA: 0x001360C4 File Offset: 0x001342C4
 	public bool changedLastFrame
 	{
 		get
@@ -61,10 +61,10 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E49 RID: 3657
-	// (get) Token: 0x06004928 RID: 18728 RVA: 0x0012C168 File Offset: 0x0012A368
-	// (set) Token: 0x06004929 RID: 18729 RVA: 0x0012C170 File Offset: 0x0012A370
-	public UIPanel.DebugInfo debugInfo
+	// Token: 0x17000EE3 RID: 3811
+	// (get) Token: 0x06004DD7 RID: 19927 RVA: 0x001360CC File Offset: 0x001342CC
+	// (set) Token: 0x06004DD8 RID: 19928 RVA: 0x001360D4 File Offset: 0x001342D4
+	public global::UIPanel.DebugInfo debugInfo
 	{
 		get
 		{
@@ -75,8 +75,8 @@ public class UIPanel : MonoBehaviour
 			if (this.mDebugInfo != value)
 			{
 				this.mDebugInfo = value;
-				UIDrawCall.Iterator iterator = (UIDrawCall.Iterator)this.mDrawCalls;
-				HideFlags hideFlags = (this.mDebugInfo != UIPanel.DebugInfo.Geometry) ? 13 : 12;
+				global::UIDrawCall.Iterator iterator = (global::UIDrawCall.Iterator)this.mDrawCalls;
+				HideFlags hideFlags = (this.mDebugInfo != global::UIPanel.DebugInfo.Geometry) ? 13 : 12;
 				while (iterator.Has)
 				{
 					GameObject gameObject = iterator.Current.gameObject;
@@ -89,10 +89,10 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E4A RID: 3658
-	// (get) Token: 0x0600492A RID: 18730 RVA: 0x0012C1F0 File Offset: 0x0012A3F0
-	// (set) Token: 0x0600492B RID: 18731 RVA: 0x0012C1F8 File Offset: 0x0012A3F8
-	public UIDrawCall.Clipping clipping
+	// Token: 0x17000EE4 RID: 3812
+	// (get) Token: 0x06004DD9 RID: 19929 RVA: 0x00136154 File Offset: 0x00134354
+	// (set) Token: 0x06004DDA RID: 19930 RVA: 0x0013615C File Offset: 0x0013435C
+	public global::UIDrawCall.Clipping clipping
 	{
 		get
 		{
@@ -109,9 +109,9 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E4B RID: 3659
-	// (get) Token: 0x0600492C RID: 18732 RVA: 0x0012C228 File Offset: 0x0012A428
-	// (set) Token: 0x0600492D RID: 18733 RVA: 0x0012C230 File Offset: 0x0012A430
+	// Token: 0x17000EE5 RID: 3813
+	// (get) Token: 0x06004DDB RID: 19931 RVA: 0x0013618C File Offset: 0x0013438C
+	// (set) Token: 0x06004DDC RID: 19932 RVA: 0x00136194 File Offset: 0x00134394
 	public Vector4 clipRange
 	{
 		get
@@ -130,9 +130,9 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E4C RID: 3660
-	// (get) Token: 0x0600492E RID: 18734 RVA: 0x0012C290 File Offset: 0x0012A490
-	// (set) Token: 0x0600492F RID: 18735 RVA: 0x0012C298 File Offset: 0x0012A498
+	// Token: 0x17000EE6 RID: 3814
+	// (get) Token: 0x06004DDD RID: 19933 RVA: 0x001361F4 File Offset: 0x001343F4
+	// (set) Token: 0x06004DDE RID: 19934 RVA: 0x001361FC File Offset: 0x001343FC
 	public Vector2 clipSoftness
 	{
 		get
@@ -149,9 +149,9 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E4D RID: 3661
-	// (get) Token: 0x06004930 RID: 18736 RVA: 0x0012C2B8 File Offset: 0x0012A4B8
-	public List<UIWidget> widgets
+	// Token: 0x17000EE7 RID: 3815
+	// (get) Token: 0x06004DDF RID: 19935 RVA: 0x0013621C File Offset: 0x0013441C
+	public List<global::UIWidget> widgets
 	{
 		get
 		{
@@ -159,18 +159,18 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E4E RID: 3662
-	// (get) Token: 0x06004931 RID: 18737 RVA: 0x0012C2C0 File Offset: 0x0012A4C0
-	public UIDrawCall.Iterator drawCalls
+	// Token: 0x17000EE8 RID: 3816
+	// (get) Token: 0x06004DE0 RID: 19936 RVA: 0x00136224 File Offset: 0x00134424
+	public global::UIDrawCall.Iterator drawCalls
 	{
 		get
 		{
-			return (UIDrawCall.Iterator)this.mDrawCalls;
+			return (global::UIDrawCall.Iterator)this.mDrawCalls;
 		}
 	}
 
-	// Token: 0x17000E4F RID: 3663
-	// (get) Token: 0x06004932 RID: 18738 RVA: 0x0012C2D0 File Offset: 0x0012A4D0
+	// Token: 0x17000EE9 RID: 3817
+	// (get) Token: 0x06004DE1 RID: 19937 RVA: 0x00136234 File Offset: 0x00134434
 	public int drawCallCount
 	{
 		get
@@ -179,8 +179,8 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E50 RID: 3664
-	// (get) Token: 0x06004933 RID: 18739 RVA: 0x0012C2D8 File Offset: 0x0012A4D8
+	// Token: 0x17000EEA RID: 3818
+	// (get) Token: 0x06004DE2 RID: 19938 RVA: 0x0013623C File Offset: 0x0013443C
 	public bool manUp
 	{
 		get
@@ -189,18 +189,18 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004934 RID: 18740 RVA: 0x0012C2E0 File Offset: 0x0012A4E0
-	private UINode GetNode(Transform t)
+	// Token: 0x06004DE3 RID: 19939 RVA: 0x00136244 File Offset: 0x00134444
+	private global::UINode GetNode(Transform t)
 	{
-		UINode result = null;
+		global::UINode result = null;
 		if (t != null && this.mChildren.Contains(t))
 		{
-			result = (UINode)this.mChildren[t];
+			result = (global::UINode)this.mChildren[t];
 		}
 		return result;
 	}
 
-	// Token: 0x06004935 RID: 18741 RVA: 0x0012C320 File Offset: 0x0012A520
+	// Token: 0x06004DE4 RID: 19940 RVA: 0x00136284 File Offset: 0x00134484
 	private bool IsVisible(Vector3 a, Vector3 b, Vector3 c, Vector3 d)
 	{
 		this.UpdateTransformMatrix();
@@ -208,29 +208,29 @@ public class UIPanel : MonoBehaviour
 		b = this.mWorldToLocal.MultiplyPoint3x4(b);
 		c = this.mWorldToLocal.MultiplyPoint3x4(c);
 		d = this.mWorldToLocal.MultiplyPoint3x4(d);
-		UIPanel.mTemp[0] = a.x;
-		UIPanel.mTemp[1] = b.x;
-		UIPanel.mTemp[2] = c.x;
-		UIPanel.mTemp[3] = d.x;
-		float num = Mathf.Min(UIPanel.mTemp);
-		float num2 = Mathf.Max(UIPanel.mTemp);
-		UIPanel.mTemp[0] = a.y;
-		UIPanel.mTemp[1] = b.y;
-		UIPanel.mTemp[2] = c.y;
-		UIPanel.mTemp[3] = d.y;
-		float num3 = Mathf.Min(UIPanel.mTemp);
-		float num4 = Mathf.Max(UIPanel.mTemp);
+		global::UIPanel.mTemp[0] = a.x;
+		global::UIPanel.mTemp[1] = b.x;
+		global::UIPanel.mTemp[2] = c.x;
+		global::UIPanel.mTemp[3] = d.x;
+		float num = Mathf.Min(global::UIPanel.mTemp);
+		float num2 = Mathf.Max(global::UIPanel.mTemp);
+		global::UIPanel.mTemp[0] = a.y;
+		global::UIPanel.mTemp[1] = b.y;
+		global::UIPanel.mTemp[2] = c.y;
+		global::UIPanel.mTemp[3] = d.y;
+		float num3 = Mathf.Min(global::UIPanel.mTemp);
+		float num4 = Mathf.Max(global::UIPanel.mTemp);
 		return num2 >= this.mMin.x && num4 >= this.mMin.y && num <= this.mMax.x && num3 <= this.mMax.y;
 	}
 
-	// Token: 0x06004936 RID: 18742 RVA: 0x0012C458 File Offset: 0x0012A658
-	public bool IsVisible(UIWidget w)
+	// Token: 0x06004DE5 RID: 19941 RVA: 0x001363BC File Offset: 0x001345BC
+	public bool IsVisible(global::UIWidget w)
 	{
 		if (!w.enabled || !w.gameObject.activeInHierarchy || w.color.a < 0.001f)
 		{
 			return false;
 		}
-		if (this.mClipping == UIDrawCall.Clipping.None)
+		if (this.mClipping == global::UIDrawCall.Clipping.None)
 		{
 			return true;
 		}
@@ -247,8 +247,8 @@ public class UIPanel : MonoBehaviour
 		return this.IsVisible(a, b, c, d);
 	}
 
-	// Token: 0x06004937 RID: 18743 RVA: 0x0012C55C File Offset: 0x0012A75C
-	public void MarkMaterialAsChanged(UIMaterial mat, bool sort)
+	// Token: 0x06004DE6 RID: 19942 RVA: 0x001364C0 File Offset: 0x001346C0
+	public void MarkMaterialAsChanged(global::UIMaterial mat, bool sort)
 	{
 		if (mat)
 		{
@@ -263,27 +263,27 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004938 RID: 18744 RVA: 0x0012C59C File Offset: 0x0012A79C
+	// Token: 0x06004DE7 RID: 19943 RVA: 0x00136500 File Offset: 0x00134700
 	public bool WatchesTransform(Transform t)
 	{
 		return t == this.cachedTransform || this.mChildren.Contains(t);
 	}
 
-	// Token: 0x06004939 RID: 18745 RVA: 0x0012C5CC File Offset: 0x0012A7CC
-	private UINode AddTransform(Transform t)
+	// Token: 0x06004DE8 RID: 19944 RVA: 0x00136530 File Offset: 0x00134730
+	private global::UINode AddTransform(Transform t)
 	{
-		UINode uinode = null;
+		global::UINode uinode = null;
 		while (t != null && t != this.cachedTransform)
 		{
 			if (this.mChildren.Contains(t))
 			{
 				if (uinode == null)
 				{
-					uinode = (UINode)this.mChildren[t];
+					uinode = (global::UINode)this.mChildren[t];
 				}
 				break;
 			}
-			UINode uinode2 = new UINode(t);
+			global::UINode uinode2 = new global::UINode(t);
 			if (uinode == null)
 			{
 				uinode = uinode2;
@@ -294,7 +294,7 @@ public class UIPanel : MonoBehaviour
 		return uinode;
 	}
 
-	// Token: 0x0600493A RID: 18746 RVA: 0x0012C654 File Offset: 0x0012A854
+	// Token: 0x06004DE9 RID: 19945 RVA: 0x001365B8 File Offset: 0x001347B8
 	private void RemoveTransform(Transform t)
 	{
 		if (t != null)
@@ -311,12 +311,12 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600493B RID: 18747 RVA: 0x0012C6C8 File Offset: 0x0012A8C8
-	public void AddWidget(UIWidget w)
+	// Token: 0x06004DEA RID: 19946 RVA: 0x0013662C File Offset: 0x0013482C
+	public void AddWidget(global::UIWidget w)
 	{
 		if (w != null)
 		{
-			UINode uinode = this.AddTransform(w.cachedTransform);
+			global::UINode uinode = this.AddTransform(w.cachedTransform);
 			if (uinode != null)
 			{
 				uinode.widget = w;
@@ -333,17 +333,17 @@ public class UIPanel : MonoBehaviour
 			}
 			else
 			{
-				Debug.LogError("Unable to find an appropriate UIRoot for " + NGUITools.GetHierarchy(w.gameObject) + "\nPlease make sure that there is at least one game object above this widget!", w.gameObject);
+				Debug.LogError("Unable to find an appropriate UIRoot for " + global::NGUITools.GetHierarchy(w.gameObject) + "\nPlease make sure that there is at least one game object above this widget!", w.gameObject);
 			}
 		}
 	}
 
-	// Token: 0x0600493C RID: 18748 RVA: 0x0012C778 File Offset: 0x0012A978
-	public void RemoveWidget(UIWidget w)
+	// Token: 0x06004DEB RID: 19947 RVA: 0x001366DC File Offset: 0x001348DC
+	public void RemoveWidget(global::UIWidget w)
 	{
 		if (w != null)
 		{
-			UINode node = this.GetNode(w.cachedTransform);
+			global::UINode node = this.GetNode(w.cachedTransform);
 			if (node != null)
 			{
 				if (node.visibleFlag == 1 && !this.mChanged.Contains(w.material))
@@ -357,10 +357,10 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600493D RID: 18749 RVA: 0x0012C7F8 File Offset: 0x0012A9F8
-	private UIDrawCall.Iterator GetDrawCall(UIMaterial mat, bool createIfMissing)
+	// Token: 0x06004DEC RID: 19948 RVA: 0x0013675C File Offset: 0x0013495C
+	private global::UIDrawCall.Iterator GetDrawCall(global::UIMaterial mat, bool createIfMissing)
 	{
-		UIDrawCall.Iterator result = (UIDrawCall.Iterator)this.mDrawCalls;
+		global::UIDrawCall.Iterator result = (global::UIDrawCall.Iterator)this.mDrawCalls;
 		while (result.Has)
 		{
 			if (result.Current.material == mat)
@@ -369,42 +369,42 @@ public class UIPanel : MonoBehaviour
 			}
 			result = result.Next;
 		}
-		UIDrawCall uidrawCall = null;
+		global::UIDrawCall uidrawCall = null;
 		if (createIfMissing)
 		{
 			uidrawCall = new GameObject("_UIDrawCall [" + mat.name + "]")
 			{
 				hideFlags = 4,
 				layer = base.gameObject.layer
-			}.AddComponent<UIDrawCall>();
+			}.AddComponent<global::UIDrawCall>();
 			uidrawCall.material = mat;
 			uidrawCall.LinkedList__Insert(ref this.mDrawCalls);
 			this.mDrawCallCount++;
 		}
-		return (UIDrawCall.Iterator)uidrawCall;
+		return (global::UIDrawCall.Iterator)uidrawCall;
 	}
 
-	// Token: 0x0600493E RID: 18750 RVA: 0x0012C8AC File Offset: 0x0012AAAC
+	// Token: 0x06004DED RID: 19949 RVA: 0x00136810 File Offset: 0x00134A10
 	protected void Awake()
 	{
-		UIPanel.Global.RegisterPanel(this);
+		global::UIPanel.Global.RegisterPanel(this);
 	}
 
-	// Token: 0x0600493F RID: 18751 RVA: 0x0012C8B4 File Offset: 0x0012AAB4
+	// Token: 0x06004DEE RID: 19950 RVA: 0x00136818 File Offset: 0x00134A18
 	protected void Start()
 	{
 		this.mLayer = base.gameObject.layer;
-		UICamera uicamera = UICamera.FindCameraForLayer(this.mLayer);
-		this.mCam = ((!(uicamera != null)) ? NGUITools.FindCameraForLayer(this.mLayer) : uicamera.cachedCamera);
+		global::UICamera uicamera = global::UICamera.FindCameraForLayer(this.mLayer);
+		this.mCam = ((!(uicamera != null)) ? global::NGUITools.FindCameraForLayer(this.mLayer) : uicamera.cachedCamera);
 	}
 
-	// Token: 0x06004940 RID: 18752 RVA: 0x0012C908 File Offset: 0x0012AB08
+	// Token: 0x06004DEF RID: 19951 RVA: 0x0013686C File Offset: 0x00134A6C
 	protected void OnEnable()
 	{
-		UIPanel.Global.PanelEnabled(this);
+		global::UIPanel.Global.PanelEnabled(this);
 		if (this.mHotSpots != null)
 		{
-			foreach (UIHotSpot uihotSpot in this.mHotSpots)
+			foreach (global::UIHotSpot uihotSpot in this.mHotSpots)
 			{
 				uihotSpot.OnPanelEnable();
 			}
@@ -419,46 +419,46 @@ public class UIPanel : MonoBehaviour
 		this.mRebuildAll = true;
 	}
 
-	// Token: 0x06004941 RID: 18753 RVA: 0x0012C9B8 File Offset: 0x0012ABB8
+	// Token: 0x06004DF0 RID: 19952 RVA: 0x0013691C File Offset: 0x00134B1C
 	protected void OnDisable()
 	{
-		UIPanel.Global.PanelDisabled(this);
+		global::UIPanel.Global.PanelDisabled(this);
 		if (this.mHotSpots != null)
 		{
-			foreach (UIHotSpot uihotSpot in this.mHotSpots)
+			foreach (global::UIHotSpot uihotSpot in this.mHotSpots)
 			{
 				uihotSpot.OnPanelDisable();
 			}
 		}
-		UIDrawCall.Iterator iterator = (UIDrawCall.Iterator)this.mDrawCalls;
+		global::UIDrawCall.Iterator iterator = (global::UIDrawCall.Iterator)this.mDrawCalls;
 		while (iterator.Has)
 		{
-			UIDrawCall current = iterator.Current;
+			global::UIDrawCall current = iterator.Current;
 			iterator = iterator.Next;
-			NGUITools.DestroyImmediate(current.gameObject);
+			global::NGUITools.DestroyImmediate(current.gameObject);
 		}
 		this.mDrawCalls = null;
 		this.mChanged.Clear();
 		this.mChildren.Clear();
 	}
 
-	// Token: 0x06004942 RID: 18754 RVA: 0x0012CA84 File Offset: 0x0012AC84
+	// Token: 0x06004DF1 RID: 19953 RVA: 0x001369E8 File Offset: 0x00134BE8
 	protected void OnDestroy()
 	{
-		UIPanel.Global.UnregisterPanel(this);
+		global::UIPanel.Global.UnregisterPanel(this);
 		if (this.mHotSpots != null)
 		{
-			HashSet<UIHotSpot> hashSet = this.mHotSpots;
+			HashSet<global::UIHotSpot> hashSet = this.mHotSpots;
 			this.mHotSpots = null;
-			foreach (UIHotSpot uihotSpot in hashSet)
+			foreach (global::UIHotSpot uihotSpot in hashSet)
 			{
 				uihotSpot.OnPanelDestroy();
 			}
 		}
 	}
 
-	// Token: 0x06004943 RID: 18755 RVA: 0x0012CB04 File Offset: 0x0012AD04
-	private int GetChangeFlag(UINode start)
+	// Token: 0x06004DF2 RID: 19954 RVA: 0x00136A68 File Offset: 0x00134C68
+	private int GetChangeFlag(global::UINode start)
 	{
 		int num = start.changeFlag;
 		if (num == -1)
@@ -466,24 +466,24 @@ public class UIPanel : MonoBehaviour
 			Transform parent = start.trans.parent;
 			while (this.mChildren.Contains(parent))
 			{
-				UINode uinode = (UINode)this.mChildren[parent];
+				global::UINode uinode = (global::UINode)this.mChildren[parent];
 				num = uinode.changeFlag;
 				parent = parent.parent;
 				if (num != -1)
 				{
 					IL_7D:
 					int i = 0;
-					int count = UIPanel.mHierarchy.Count;
+					int count = global::UIPanel.mHierarchy.Count;
 					while (i < count)
 					{
-						UINode uinode2 = UIPanel.mHierarchy[i];
+						global::UINode uinode2 = global::UIPanel.mHierarchy[i];
 						uinode2.changeFlag = num;
 						i++;
 					}
-					UIPanel.mHierarchy.Clear();
+					global::UIPanel.mHierarchy.Clear();
 					return num;
 				}
-				UIPanel.mHierarchy.Add(uinode);
+				global::UIPanel.mHierarchy.Add(uinode);
 			}
 			num = 0;
 			goto IL_7D;
@@ -491,7 +491,7 @@ public class UIPanel : MonoBehaviour
 		return num;
 	}
 
-	// Token: 0x06004944 RID: 18756 RVA: 0x0012CBD0 File Offset: 0x0012ADD0
+	// Token: 0x06004DF3 RID: 19955 RVA: 0x00136B34 File Offset: 0x00134D34
 	private void UpdateTransformMatrix()
 	{
 		float realtimeSinceStartup = Time.realtimeSinceStartup;
@@ -499,7 +499,7 @@ public class UIPanel : MonoBehaviour
 		{
 			this.mMatrixTime = realtimeSinceStartup;
 			this.mWorldToLocal = this.cachedTransform.worldToLocalMatrix;
-			if (this.mClipping != UIDrawCall.Clipping.None)
+			if (this.mClipping != global::UIDrawCall.Clipping.None)
 			{
 				Vector2 vector;
 				vector..ctor(this.mClipRange.z, this.mClipRange.w);
@@ -520,7 +520,7 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004945 RID: 18757 RVA: 0x0012CD3C File Offset: 0x0012AF3C
+	// Token: 0x06004DF4 RID: 19956 RVA: 0x00136CA0 File Offset: 0x00134EA0
 	private void UpdateTransforms()
 	{
 		this.mChangedLastFrame = false;
@@ -532,7 +532,7 @@ public class UIPanel : MonoBehaviour
 			int count = this.mChildren.Count;
 			while (i < count)
 			{
-				UINode uinode = (UINode)this.mChildren[i];
+				global::UINode uinode = (global::UINode)this.mChildren[i];
 				if (uinode.trans == null)
 				{
 					this.mRemoved.Add(uinode.trans);
@@ -567,7 +567,7 @@ public class UIPanel : MonoBehaviour
 			int count3 = this.mChildren.Count;
 			while (k < count3)
 			{
-				UINode uinode2 = (UINode)this.mChildren[k];
+				global::UINode uinode2 = (global::UINode)this.mChildren[k];
 				if (uinode2.widget != null)
 				{
 					int num = 1;
@@ -589,7 +589,7 @@ public class UIPanel : MonoBehaviour
 					if (uinode2.changeFlag == 1 && (num == 1 || uinode2.visibleFlag != 0))
 					{
 						uinode2.visibleFlag = num;
-						UIMaterial material = uinode2.widget.material;
+						global::UIMaterial material = uinode2.widget.material;
 						if (!this.mChanged.Contains(material))
 						{
 							this.mChanged.Add(material);
@@ -604,15 +604,15 @@ public class UIPanel : MonoBehaviour
 		this.mCheckVisibility = false;
 	}
 
-	// Token: 0x06004946 RID: 18758 RVA: 0x0012CFAC File Offset: 0x0012B1AC
+	// Token: 0x06004DF5 RID: 19957 RVA: 0x00136F10 File Offset: 0x00135110
 	private void UpdateWidgets()
 	{
 		int i = 0;
 		int count = this.mChildren.Count;
 		while (i < count)
 		{
-			UINode uinode = (UINode)this.mChildren[i];
-			UIWidget widget = uinode.widget;
+			global::UINode uinode = (global::UINode)this.mChildren[i];
+			global::UIWidget widget = uinode.widget;
 			if (uinode.visibleFlag == 1 && widget != null && widget.UpdateGeometry(ref this.mWorldToLocal, uinode.changeFlag == 1, this.generateNormals) && !this.mChanged.Contains(widget.material))
 			{
 				this.mChanged.Add(widget.material);
@@ -623,11 +623,11 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004947 RID: 18759 RVA: 0x0012D060 File Offset: 0x0012B260
+	// Token: 0x06004DF6 RID: 19958 RVA: 0x00136FC4 File Offset: 0x001351C4
 	public void UpdateDrawcalls()
 	{
 		Vector4 zero = Vector4.zero;
-		if (this.mClipping != UIDrawCall.Clipping.None)
+		if (this.mClipping != global::UIDrawCall.Clipping.None)
 		{
 			zero..ctor(this.mClipRange.x, this.mClipRange.y, this.mClipRange.z * 0.5f, this.mClipRange.w * 0.5f);
 		}
@@ -648,10 +648,10 @@ public class UIPanel : MonoBehaviour
 		Vector3 position = this.cachedTransform.position;
 		Quaternion rotation = this.cachedTransform.rotation;
 		Vector3 lossyScale = this.cachedTransform.lossyScale;
-		UIDrawCall.Iterator iterator = (UIDrawCall.Iterator)this.mDrawCalls;
+		global::UIDrawCall.Iterator iterator = (global::UIDrawCall.Iterator)this.mDrawCalls;
 		while (iterator.Has)
 		{
-			UIDrawCall current = iterator.Current;
+			global::UIDrawCall current = iterator.Current;
 			iterator = iterator.Next;
 			current.clipping = this.mClipping;
 			current.clipRange = zero;
@@ -665,8 +665,8 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004948 RID: 18760 RVA: 0x0012D1FC File Offset: 0x0012B3FC
-	private void Fill(UIMaterial mat)
+	// Token: 0x06004DF7 RID: 19959 RVA: 0x00137160 File Offset: 0x00135360
+	private void Fill(global::UIMaterial mat)
 	{
 		int i = this.mWidgets.Count;
 		while (i > 0)
@@ -680,31 +680,31 @@ public class UIPanel : MonoBehaviour
 		int count = this.mWidgets.Count;
 		while (j < count)
 		{
-			UIWidget uiwidget = this.mWidgets[j];
+			global::UIWidget uiwidget = this.mWidgets[j];
 			if (uiwidget.visibleFlag == 1 && uiwidget.material == mat)
 			{
-				UINode node = this.GetNode(uiwidget.cachedTransform);
+				global::UINode node = this.GetNode(uiwidget.cachedTransform);
 				if (node != null)
 				{
 					uiwidget.WriteToBuffers(this.mCacheBuffer);
 				}
 				else
 				{
-					Debug.LogError("No transform found for " + NGUITools.GetHierarchy(uiwidget.gameObject), this);
+					Debug.LogError("No transform found for " + global::NGUITools.GetHierarchy(uiwidget.gameObject), this);
 				}
 			}
 			j++;
 		}
 		if (this.mCacheBuffer.vSize > 0)
 		{
-			UIDrawCall current = this.GetDrawCall(mat, true).Current;
+			global::UIDrawCall current = this.GetDrawCall(mat, true).Current;
 			current.depthPass = this.depthPass;
 			current.panelPropertyBlock = this.propertyBlock;
 			current.Set(this.mCacheBuffer);
 		}
 		else
 		{
-			UIDrawCall.Iterator drawCall = this.GetDrawCall(mat, false);
+			global::UIDrawCall.Iterator drawCall = this.GetDrawCall(mat, false);
 			if (drawCall.Has)
 			{
 				this.Delete(ref drawCall);
@@ -713,12 +713,12 @@ public class UIPanel : MonoBehaviour
 		this.mCacheBuffer.Clear();
 	}
 
-	// Token: 0x06004949 RID: 18761 RVA: 0x0012D34C File Offset: 0x0012B54C
-	private void Delete(ref UIDrawCall.Iterator iter)
+	// Token: 0x06004DF8 RID: 19960 RVA: 0x001372B0 File Offset: 0x001354B0
+	private void Delete(ref global::UIDrawCall.Iterator iter)
 	{
 		if (iter.Has)
 		{
-			UIDrawCall current = iter.Current;
+			global::UIDrawCall current = iter.Current;
 			if (object.ReferenceEquals(current, this.mDrawCalls))
 			{
 				this.mDrawCalls = iter.Next.Current;
@@ -726,11 +726,11 @@ public class UIPanel : MonoBehaviour
 			iter = iter.Next;
 			current.LinkedList__Remove();
 			this.mDrawCallCount--;
-			NGUITools.DestroyImmediate(current.gameObject);
+			global::NGUITools.DestroyImmediate(current.gameObject);
 		}
 	}
 
-	// Token: 0x0600494A RID: 18762 RVA: 0x0012D3BC File Offset: 0x0012B5BC
+	// Token: 0x06004DF9 RID: 19961 RVA: 0x00137320 File Offset: 0x00135520
 	private void PanelUpdate(bool letFill)
 	{
 		this.UpdateTransformMatrix();
@@ -738,10 +738,10 @@ public class UIPanel : MonoBehaviour
 		if (this.mLayer != base.gameObject.layer)
 		{
 			this.mLayer = base.gameObject.layer;
-			UICamera uicamera = UICamera.FindCameraForLayer(this.mLayer);
-			this.mCam = ((!(uicamera != null)) ? NGUITools.FindCameraForLayer(this.mLayer) : uicamera.cachedCamera);
-			UIPanel.SetChildLayer(this.cachedTransform, this.mLayer);
-			UIDrawCall.Iterator iterator = (UIDrawCall.Iterator)this.mDrawCalls;
+			global::UICamera uicamera = global::UICamera.FindCameraForLayer(this.mLayer);
+			this.mCam = ((!(uicamera != null)) ? global::NGUITools.FindCameraForLayer(this.mLayer) : uicamera.cachedCamera);
+			global::UIPanel.SetChildLayer(this.cachedTransform, this.mLayer);
+			global::UIDrawCall.Iterator iterator = (global::UIDrawCall.Iterator)this.mDrawCalls;
 			while (iterator.Has)
 			{
 				iterator.Current.gameObject.layer = this.mLayer;
@@ -752,7 +752,7 @@ public class UIPanel : MonoBehaviour
 		if (this.mDepthChanged)
 		{
 			this.mDepthChanged = false;
-			this.mWidgets.Sort(new Comparison<UIWidget>(UIWidget.CompareFunc));
+			this.mWidgets.Sort(new Comparison<global::UIWidget>(global::UIWidget.CompareFunc));
 		}
 		if (letFill)
 		{
@@ -765,10 +765,10 @@ public class UIPanel : MonoBehaviour
 		this.mRebuildAll = false;
 	}
 
-	// Token: 0x0600494B RID: 18763 RVA: 0x0012D4CC File Offset: 0x0012B6CC
-	public bool Contains(UIDrawCall drawcall)
+	// Token: 0x06004DFA RID: 19962 RVA: 0x00137430 File Offset: 0x00135630
+	public bool Contains(global::UIDrawCall drawcall)
 	{
-		UIDrawCall.Iterator iterator = (UIDrawCall.Iterator)this.mDrawCalls;
+		global::UIDrawCall.Iterator iterator = (global::UIDrawCall.Iterator)this.mDrawCalls;
 		while (iterator.Has)
 		{
 			if (object.ReferenceEquals(drawcall, iterator.Current))
@@ -780,10 +780,10 @@ public class UIPanel : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600494C RID: 18764 RVA: 0x0012D514 File Offset: 0x0012B714
+	// Token: 0x06004DFB RID: 19963 RVA: 0x00137478 File Offset: 0x00135678
 	private void FillUpdate()
 	{
-		foreach (UIMaterial mat in this.mChanged)
+		foreach (global::UIMaterial mat in this.mChanged)
 		{
 			this.Fill(mat);
 		}
@@ -791,7 +791,7 @@ public class UIPanel : MonoBehaviour
 		this.mChanged.Clear();
 	}
 
-	// Token: 0x0600494D RID: 18765 RVA: 0x0012D58C File Offset: 0x0012B78C
+	// Token: 0x06004DFC RID: 19964 RVA: 0x001374F0 File Offset: 0x001356F0
 	private void DefaultLateUpdate()
 	{
 		if (!this.manualPanelUpdate)
@@ -804,7 +804,7 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600494E RID: 18766 RVA: 0x0012D5AC File Offset: 0x0012B7AC
+	// Token: 0x06004DFD RID: 19965 RVA: 0x00137510 File Offset: 0x00135710
 	public bool ManualPanelUpdate()
 	{
 		if (this.manualPanelUpdate && base.enabled)
@@ -815,14 +815,14 @@ public class UIPanel : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x0600494F RID: 18767 RVA: 0x0012D5DC File Offset: 0x0012B7DC
+	// Token: 0x06004DFE RID: 19966 RVA: 0x00137540 File Offset: 0x00135740
 	public void Refresh()
 	{
 		base.BroadcastMessage("Update", 1);
 		this.DefaultLateUpdate();
 	}
 
-	// Token: 0x06004950 RID: 18768 RVA: 0x0012D5F0 File Offset: 0x0012B7F0
+	// Token: 0x06004DFF RID: 19967 RVA: 0x00137554 File Offset: 0x00135754
 	private static bool CheckRayEnterClippingRect(Ray ray, Transform transform, Vector4 clipRange)
 	{
 		Plane plane;
@@ -840,10 +840,10 @@ public class UIPanel : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06004951 RID: 18769 RVA: 0x0012D6A0 File Offset: 0x0012B8A0
+	// Token: 0x06004E00 RID: 19968 RVA: 0x00137604 File Offset: 0x00135804
 	internal bool InsideClippingRect(Ray ray, int traceID)
 	{
-		if (this.clipping == UIDrawCall.Clipping.None)
+		if (this.clipping == global::UIDrawCall.Clipping.None)
 		{
 			return true;
 		}
@@ -851,12 +851,12 @@ public class UIPanel : MonoBehaviour
 		{
 			this.traceID = traceID;
 			this.lastRayTrace = ray;
-			this.lastRayTraceInside = UIPanel.CheckRayEnterClippingRect(ray, base.transform, this.clipRange);
+			this.lastRayTraceInside = global::UIPanel.CheckRayEnterClippingRect(ray, base.transform, this.clipRange);
 		}
 		return this.lastRayTraceInside;
 	}
 
-	// Token: 0x06004952 RID: 18770 RVA: 0x0012D72C File Offset: 0x0012B92C
+	// Token: 0x06004E01 RID: 19969 RVA: 0x00137690 File Offset: 0x00135890
 	public Vector3 CalculateConstrainOffset(Vector2 min, Vector2 max)
 	{
 		float num = this.clipRange.z * 0.5f;
@@ -869,18 +869,18 @@ public class UIPanel : MonoBehaviour
 		minArea..ctor(this.clipRange.x - num, this.clipRange.y - num2);
 		Vector2 maxArea;
 		maxArea..ctor(this.clipRange.x + num, this.clipRange.y + num2);
-		if (this.clipping == UIDrawCall.Clipping.SoftClip)
+		if (this.clipping == global::UIDrawCall.Clipping.SoftClip)
 		{
 			minArea.x += this.clipSoftness.x;
 			minArea.y += this.clipSoftness.y;
 			maxArea.x -= this.clipSoftness.x;
 			maxArea.y -= this.clipSoftness.y;
 		}
-		return NGUIMath.ConstrainRect(minRect, maxRect, minArea, maxArea);
+		return global::NGUIMath.ConstrainRect(minRect, maxRect, minArea, maxArea);
 	}
 
-	// Token: 0x06004953 RID: 18771 RVA: 0x0012D874 File Offset: 0x0012BA74
-	public bool ConstrainTargetToBounds(Transform target, ref AABBox targetBounds, bool immediate)
+	// Token: 0x06004E02 RID: 19970 RVA: 0x001377D8 File Offset: 0x001359D8
+	public bool ConstrainTargetToBounds(Transform target, ref global::AABBox targetBounds, bool immediate)
 	{
 		Vector3 vector = this.CalculateConstrainOffset(targetBounds.min, targetBounds.max);
 		if (vector.magnitude > 0f)
@@ -889,7 +889,7 @@ public class UIPanel : MonoBehaviour
 			{
 				target.localPosition += vector;
 				targetBounds.center += vector;
-				SpringPosition component = target.GetComponent<SpringPosition>();
+				global::SpringPosition component = target.GetComponent<global::SpringPosition>();
 				if (component != null)
 				{
 					component.enabled = false;
@@ -897,7 +897,7 @@ public class UIPanel : MonoBehaviour
 			}
 			else
 			{
-				SpringPosition springPosition = SpringPosition.Begin(target.gameObject, target.localPosition + vector, 13f);
+				global::SpringPosition springPosition = global::SpringPosition.Begin(target.gameObject, target.localPosition + vector, 13f);
 				springPosition.ignoreTimeScale = true;
 				springPosition.worldSpace = false;
 			}
@@ -906,35 +906,35 @@ public class UIPanel : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06004954 RID: 18772 RVA: 0x0012D928 File Offset: 0x0012BB28
+	// Token: 0x06004E03 RID: 19971 RVA: 0x0013788C File Offset: 0x00135A8C
 	public bool ConstrainTargetToBounds(Transform target, bool immediate)
 	{
-		AABBox aabbox = NGUIMath.CalculateRelativeWidgetBounds(this.cachedTransform, target);
+		global::AABBox aabbox = global::NGUIMath.CalculateRelativeWidgetBounds(this.cachedTransform, target);
 		return this.ConstrainTargetToBounds(target, ref aabbox, immediate);
 	}
 
-	// Token: 0x06004955 RID: 18773 RVA: 0x0012D94C File Offset: 0x0012BB4C
+	// Token: 0x06004E04 RID: 19972 RVA: 0x001378B0 File Offset: 0x00135AB0
 	private static void SetChildLayer(Transform t, int layer)
 	{
 		for (int i = 0; i < t.childCount; i++)
 		{
 			Transform child = t.GetChild(i);
-			if (child.GetComponent<UIPanel>() == null)
+			if (child.GetComponent<global::UIPanel>() == null)
 			{
 				child.gameObject.layer = layer;
-				UIPanel.SetChildLayer(child, layer);
+				global::UIPanel.SetChildLayer(child, layer);
 			}
 		}
 	}
 
-	// Token: 0x06004956 RID: 18774 RVA: 0x0012D99C File Offset: 0x0012BB9C
-	public static UIPanel Find(Transform trans, bool createIfMissing)
+	// Token: 0x06004E05 RID: 19973 RVA: 0x00137900 File Offset: 0x00135B00
+	public static global::UIPanel Find(Transform trans, bool createIfMissing)
 	{
 		Transform transform = trans;
-		UIPanel uipanel = null;
+		global::UIPanel uipanel = null;
 		while (uipanel == null && trans != null)
 		{
-			uipanel = trans.GetComponent<UIPanel>();
+			uipanel = trans.GetComponent<global::UIPanel>();
 			if (uipanel != null)
 			{
 				break;
@@ -947,31 +947,31 @@ public class UIPanel : MonoBehaviour
 		}
 		if (createIfMissing && uipanel == null && trans != transform)
 		{
-			uipanel = trans.gameObject.AddComponent<UIPanel>();
-			UIPanel.SetChildLayer(uipanel.cachedTransform, uipanel.gameObject.layer);
+			uipanel = trans.gameObject.AddComponent<global::UIPanel>();
+			global::UIPanel.SetChildLayer(uipanel.cachedTransform, uipanel.gameObject.layer);
 		}
 		return uipanel;
 	}
 
-	// Token: 0x06004957 RID: 18775 RVA: 0x0012DA44 File Offset: 0x0012BC44
-	public static UIPanel Find(Transform trans)
+	// Token: 0x06004E06 RID: 19974 RVA: 0x001379A8 File Offset: 0x00135BA8
+	public static global::UIPanel Find(Transform trans)
 	{
-		return UIPanel.Find(trans, true);
+		return global::UIPanel.Find(trans, true);
 	}
 
-	// Token: 0x06004958 RID: 18776 RVA: 0x0012DA50 File Offset: 0x0012BC50
-	public static UIPanel FindRoot(Transform trans)
+	// Token: 0x06004E07 RID: 19975 RVA: 0x001379B4 File Offset: 0x00135BB4
+	public static global::UIPanel FindRoot(Transform trans)
 	{
-		UIPanel uipanel = UIPanel.Find(trans);
+		global::UIPanel uipanel = global::UIPanel.Find(trans);
 		return (!uipanel) ? null : uipanel.RootPanel;
 	}
 
-	// Token: 0x06004959 RID: 18777 RVA: 0x0012DA7C File Offset: 0x0012BC7C
-	internal static void RegisterHotSpot(UIPanel panel, UIHotSpot hotSpot)
+	// Token: 0x06004E08 RID: 19976 RVA: 0x001379E0 File Offset: 0x00135BE0
+	internal static void RegisterHotSpot(global::UIPanel panel, global::UIHotSpot hotSpot)
 	{
 		if (panel.mHotSpots == null)
 		{
-			panel.mHotSpots = new HashSet<UIHotSpot>();
+			panel.mHotSpots = new HashSet<global::UIHotSpot>();
 		}
 		if (panel.mHotSpots.Add(hotSpot))
 		{
@@ -986,8 +986,8 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600495A RID: 18778 RVA: 0x0012DACC File Offset: 0x0012BCCC
-	internal static void UnregisterHotSpot(UIPanel panel, UIHotSpot hotSpot)
+	// Token: 0x06004E09 RID: 19977 RVA: 0x00137A30 File Offset: 0x00135C30
+	internal static void UnregisterHotSpot(global::UIPanel panel, global::UIHotSpot hotSpot)
 	{
 		if (panel.mHotSpots == null || !panel.mHotSpots.Remove(hotSpot))
 		{
@@ -999,10 +999,10 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000E51 RID: 3665
-	// (get) Token: 0x0600495B RID: 18779 RVA: 0x0012DB08 File Offset: 0x0012BD08
-	// (set) Token: 0x0600495C RID: 18780 RVA: 0x0012DB10 File Offset: 0x0012BD10
-	public UIPanelMaterialPropertyBlock propertyBlock
+	// Token: 0x17000EEB RID: 3819
+	// (get) Token: 0x06004E0A RID: 19978 RVA: 0x00137A6C File Offset: 0x00135C6C
+	// (set) Token: 0x06004E0B RID: 19979 RVA: 0x00137A74 File Offset: 0x00135C74
+	public global::UIPanelMaterialPropertyBlock propertyBlock
 	{
 		get
 		{
@@ -1014,137 +1014,137 @@ public class UIPanel : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04002950 RID: 10576
+	// Token: 0x04002B9E RID: 11166
 	[SerializeField]
-	private UIPanel _rootPanel;
+	private global::UIPanel _rootPanel;
 
-	// Token: 0x04002951 RID: 10577
+	// Token: 0x04002B9F RID: 11167
 	public bool showInPanelTool = true;
 
-	// Token: 0x04002952 RID: 10578
+	// Token: 0x04002BA0 RID: 11168
 	public bool generateNormals;
 
-	// Token: 0x04002953 RID: 10579
+	// Token: 0x04002BA1 RID: 11169
 	public bool depthPass;
 
-	// Token: 0x04002954 RID: 10580
+	// Token: 0x04002BA2 RID: 11170
 	public bool widgetsAreStatic;
 
-	// Token: 0x04002955 RID: 10581
-	[SerializeField]
+	// Token: 0x04002BA3 RID: 11171
 	[HideInInspector]
-	private UIPanel.DebugInfo mDebugInfo = UIPanel.DebugInfo.Gizmos;
-
-	// Token: 0x04002956 RID: 10582
 	[SerializeField]
-	[HideInInspector]
-	private UIDrawCall.Clipping mClipping;
+	private global::UIPanel.DebugInfo mDebugInfo = global::UIPanel.DebugInfo.Gizmos;
 
-	// Token: 0x04002957 RID: 10583
+	// Token: 0x04002BA4 RID: 11172
+	[HideInInspector]
+	[SerializeField]
+	private global::UIDrawCall.Clipping mClipping;
+
+	// Token: 0x04002BA5 RID: 11173
 	[SerializeField]
 	[HideInInspector]
 	private Vector4 mClipRange = Vector4.zero;
 
-	// Token: 0x04002958 RID: 10584
+	// Token: 0x04002BA6 RID: 11174
 	[HideInInspector]
 	[SerializeField]
 	private Vector2 mClipSoftness = new Vector2(40f, 40f);
 
-	// Token: 0x04002959 RID: 10585
-	[HideInInspector]
+	// Token: 0x04002BA7 RID: 11175
 	[SerializeField]
+	[HideInInspector]
 	private bool manualPanelUpdate;
 
-	// Token: 0x0400295A RID: 10586
+	// Token: 0x04002BA8 RID: 11176
 	private OrderedDictionary mChildren = new OrderedDictionary();
 
-	// Token: 0x0400295B RID: 10587
-	private List<UIWidget> mWidgets = new List<UIWidget>();
+	// Token: 0x04002BA9 RID: 11177
+	private List<global::UIWidget> mWidgets = new List<global::UIWidget>();
 
-	// Token: 0x0400295C RID: 10588
-	private HashSet<UIMaterial> mChanged = new HashSet<UIMaterial>();
+	// Token: 0x04002BAA RID: 11178
+	private HashSet<global::UIMaterial> mChanged = new HashSet<global::UIMaterial>();
 
-	// Token: 0x0400295D RID: 10589
-	private UIDrawCall mDrawCalls;
+	// Token: 0x04002BAB RID: 11179
+	private global::UIDrawCall mDrawCalls;
 
-	// Token: 0x0400295E RID: 10590
+	// Token: 0x04002BAC RID: 11180
 	private int mDrawCallCount;
 
-	// Token: 0x0400295F RID: 10591
-	private MeshBuffer mCacheBuffer = new MeshBuffer();
+	// Token: 0x04002BAD RID: 11181
+	private NGUI.Meshing.MeshBuffer mCacheBuffer = new NGUI.Meshing.MeshBuffer();
 
-	// Token: 0x04002960 RID: 10592
-	private HashSet<UIHotSpot> mHotSpots;
+	// Token: 0x04002BAE RID: 11182
+	private HashSet<global::UIHotSpot> mHotSpots;
 
-	// Token: 0x04002961 RID: 10593
+	// Token: 0x04002BAF RID: 11183
 	private Transform mTrans;
 
-	// Token: 0x04002962 RID: 10594
+	// Token: 0x04002BB0 RID: 11184
 	private Camera mCam;
 
-	// Token: 0x04002963 RID: 10595
+	// Token: 0x04002BB1 RID: 11185
 	private int mLayer = -1;
 
-	// Token: 0x04002964 RID: 10596
+	// Token: 0x04002BB2 RID: 11186
 	private bool mDepthChanged;
 
-	// Token: 0x04002965 RID: 10597
+	// Token: 0x04002BB3 RID: 11187
 	private bool mRebuildAll;
 
-	// Token: 0x04002966 RID: 10598
+	// Token: 0x04002BB4 RID: 11188
 	private bool mChangedLastFrame;
 
-	// Token: 0x04002967 RID: 10599
+	// Token: 0x04002BB5 RID: 11189
 	private float mMatrixTime;
 
-	// Token: 0x04002968 RID: 10600
+	// Token: 0x04002BB6 RID: 11190
 	private Matrix4x4 mWorldToLocal = Matrix4x4.identity;
 
-	// Token: 0x04002969 RID: 10601
+	// Token: 0x04002BB7 RID: 11191
 	private static float[] mTemp = new float[4];
 
-	// Token: 0x0400296A RID: 10602
+	// Token: 0x04002BB8 RID: 11192
 	private Vector2 mMin = Vector2.zero;
 
-	// Token: 0x0400296B RID: 10603
+	// Token: 0x04002BB9 RID: 11193
 	private Vector2 mMax = Vector2.zero;
 
-	// Token: 0x0400296C RID: 10604
+	// Token: 0x04002BBA RID: 11194
 	private List<Transform> mRemoved = new List<Transform>();
 
-	// Token: 0x0400296D RID: 10605
+	// Token: 0x04002BBB RID: 11195
 	private bool mCheckVisibility;
 
-	// Token: 0x0400296E RID: 10606
+	// Token: 0x04002BBC RID: 11196
 	private float mCullTime;
 
-	// Token: 0x0400296F RID: 10607
+	// Token: 0x04002BBD RID: 11197
 	private bool mCulled;
 
-	// Token: 0x04002970 RID: 10608
+	// Token: 0x04002BBE RID: 11198
 	private int globalIndex = -1;
 
-	// Token: 0x04002971 RID: 10609
-	private static List<UINode> mHierarchy = new List<UINode>();
+	// Token: 0x04002BBF RID: 11199
+	private static List<global::UINode> mHierarchy = new List<global::UINode>();
 
-	// Token: 0x04002972 RID: 10610
+	// Token: 0x04002BC0 RID: 11200
 	private int traceID;
 
-	// Token: 0x04002973 RID: 10611
+	// Token: 0x04002BC1 RID: 11201
 	private Ray lastRayTrace;
 
-	// Token: 0x04002974 RID: 10612
+	// Token: 0x04002BC2 RID: 11202
 	private bool lastRayTraceInside;
 
-	// Token: 0x04002975 RID: 10613
+	// Token: 0x04002BC3 RID: 11203
 	[NonSerialized]
-	private UIPanelMaterialPropertyBlock _propertyBlock;
+	private global::UIPanelMaterialPropertyBlock _propertyBlock;
 
-	// Token: 0x020007F9 RID: 2041
+	// Token: 0x020008EB RID: 2283
 	private static class Global
 	{
-		// Token: 0x17000E52 RID: 3666
-		// (get) Token: 0x0600495D RID: 18781 RVA: 0x0012DB1C File Offset: 0x0012BD1C
+		// Token: 0x17000EEC RID: 3820
+		// (get) Token: 0x06004E0C RID: 19980 RVA: 0x00137A80 File Offset: 0x00135C80
 		public static bool noGlobal
 		{
 			get
@@ -1153,73 +1153,73 @@ public class UIPanel : MonoBehaviour
 			}
 		}
 
-		// Token: 0x0600495E RID: 18782 RVA: 0x0012DB28 File Offset: 0x0012BD28
-		public static void RegisterPanel(UIPanel panel)
+		// Token: 0x06004E0D RID: 19981 RVA: 0x00137A8C File Offset: 0x00135C8C
+		public static void RegisterPanel(global::UIPanel panel)
 		{
-			if (UIPanel.Global.noGlobal)
+			if (global::UIPanel.Global.noGlobal)
 			{
 				return;
 			}
-			UIGlobal.EnsureGlobal();
+			global::UIGlobal.EnsureGlobal();
 			if (panel.globalIndex == -1)
 			{
-				panel.globalIndex = UIPanel.Global.g.allPanels.Count;
-				UIPanel.Global.g.allPanels.Add(panel);
+				panel.globalIndex = global::UIPanel.Global.g.allPanels.Count;
+				global::UIPanel.Global.g.allPanels.Add(panel);
 			}
 		}
 
-		// Token: 0x0600495F RID: 18783 RVA: 0x0012DB64 File Offset: 0x0012BD64
-		public static void UnregisterPanel(UIPanel panel)
+		// Token: 0x06004E0E RID: 19982 RVA: 0x00137AC8 File Offset: 0x00135CC8
+		public static void UnregisterPanel(global::UIPanel panel)
 		{
-			if (UIPanel.Global.noGlobal)
+			if (global::UIPanel.Global.noGlobal)
 			{
 				return;
 			}
 			if (panel.globalIndex != -1)
 			{
-				UIPanel.Global.g.allPanels.RemoveAt(panel.globalIndex);
+				global::UIPanel.Global.g.allPanels.RemoveAt(panel.globalIndex);
 				int i = panel.globalIndex;
-				int count = UIPanel.Global.g.allPanels.Count;
+				int count = global::UIPanel.Global.g.allPanels.Count;
 				while (i < count)
 				{
-					UIPanel.Global.g.allPanels[i].globalIndex = i;
+					global::UIPanel.Global.g.allPanels[i].globalIndex = i;
 					i++;
 				}
 				panel.globalIndex = -1;
 			}
 		}
 
-		// Token: 0x06004960 RID: 18784 RVA: 0x0012DBD4 File Offset: 0x0012BDD4
-		public static void PanelEnabled(UIPanel panel)
+		// Token: 0x06004E0F RID: 19983 RVA: 0x00137B38 File Offset: 0x00135D38
+		public static void PanelEnabled(global::UIPanel panel)
 		{
-			if (UIPanel.Global.noGlobal)
+			if (global::UIPanel.Global.noGlobal)
 			{
 				return;
 			}
-			UIPanel.Global.g.allEnabled.Add(panel);
+			global::UIPanel.Global.g.allEnabled.Add(panel);
 		}
 
-		// Token: 0x06004961 RID: 18785 RVA: 0x0012DBF0 File Offset: 0x0012BDF0
-		public static void PanelDisabled(UIPanel panel)
+		// Token: 0x06004E10 RID: 19984 RVA: 0x00137B54 File Offset: 0x00135D54
+		public static void PanelDisabled(global::UIPanel panel)
 		{
-			if (UIPanel.Global.noGlobal)
+			if (global::UIPanel.Global.noGlobal)
 			{
 				return;
 			}
-			UIPanel.Global.g.allEnabled.Remove(panel);
+			global::UIPanel.Global.g.allEnabled.Remove(panel);
 		}
 
-		// Token: 0x06004962 RID: 18786 RVA: 0x0012DC0C File Offset: 0x0012BE0C
+		// Token: 0x06004E11 RID: 19985 RVA: 0x00137B70 File Offset: 0x00135D70
 		public static void PanelUpdate()
 		{
-			if (UIPanel.Global.noGlobal)
+			if (global::UIPanel.Global.noGlobal)
 			{
 				return;
 			}
 			try
 			{
-				UIPanel.Global.g.allEnableSwap.AddRange(UIPanel.Global.g.allEnabled);
-				foreach (UIPanel uipanel in UIPanel.Global.g.allEnableSwap)
+				global::UIPanel.Global.g.allEnableSwap.AddRange(global::UIPanel.Global.g.allEnabled);
+				foreach (global::UIPanel uipanel in global::UIPanel.Global.g.allEnableSwap)
 				{
 					if (uipanel && uipanel.enabled)
 					{
@@ -1229,38 +1229,38 @@ public class UIPanel : MonoBehaviour
 			}
 			finally
 			{
-				UIPanel.Global.g.allEnableSwap.Clear();
+				global::UIPanel.Global.g.allEnableSwap.Clear();
 			}
 		}
 
-		// Token: 0x020007FA RID: 2042
+		// Token: 0x020008EC RID: 2284
 		private static class g
 		{
-			// Token: 0x06004963 RID: 18787 RVA: 0x0012DCC8 File Offset: 0x0012BEC8
+			// Token: 0x06004E12 RID: 19986 RVA: 0x00137C2C File Offset: 0x00135E2C
 			static g()
 			{
-				UIGlobal.EnsureGlobal();
+				global::UIGlobal.EnsureGlobal();
 			}
 
-			// Token: 0x04002976 RID: 10614
-			public static HashSet<UIPanel> allEnabled = new HashSet<UIPanel>();
+			// Token: 0x04002BC4 RID: 11204
+			public static HashSet<global::UIPanel> allEnabled = new HashSet<global::UIPanel>();
 
-			// Token: 0x04002977 RID: 10615
-			public static List<UIPanel> allEnableSwap = new List<UIPanel>();
+			// Token: 0x04002BC5 RID: 11205
+			public static List<global::UIPanel> allEnableSwap = new List<global::UIPanel>();
 
-			// Token: 0x04002978 RID: 10616
-			public static List<UIPanel> allPanels = new List<UIPanel>();
+			// Token: 0x04002BC6 RID: 11206
+			public static List<global::UIPanel> allPanels = new List<global::UIPanel>();
 		}
 	}
 
-	// Token: 0x020007FB RID: 2043
+	// Token: 0x020008ED RID: 2285
 	public enum DebugInfo
 	{
-		// Token: 0x0400297A RID: 10618
+		// Token: 0x04002BC8 RID: 11208
 		None,
-		// Token: 0x0400297B RID: 10619
+		// Token: 0x04002BC9 RID: 11209
 		Gizmos,
-		// Token: 0x0400297C RID: 10620
+		// Token: 0x04002BCA RID: 11210
 		Geometry
 	}
 }

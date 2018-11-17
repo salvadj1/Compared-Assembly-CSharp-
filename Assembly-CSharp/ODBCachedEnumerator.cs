@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000370 RID: 880
-public class ODBCachedEnumerator<T, TEnumerator> : IDisposable, IEnumerator, ODBEnumerator<T>, IEnumerator<T> where T : Object where TEnumerator : struct, ODBEnumerator<T>
+// Token: 0x0200041D RID: 1053
+public class ODBCachedEnumerator<T, TEnumerator> : IDisposable, IEnumerator, global::ODBEnumerator<T>, IEnumerator<T> where T : Object where TEnumerator : struct, global::ODBEnumerator<T>
 {
-	// Token: 0x0600216F RID: 8559 RVA: 0x00082528 File Offset: 0x00080728
+	// Token: 0x060024D1 RID: 9425 RVA: 0x00087924 File Offset: 0x00085B24
 	private ODBCachedEnumerator(ref TEnumerator enumerator)
 	{
 		this.enumerator = enumerator;
 	}
 
-	// Token: 0x1700082E RID: 2094
-	// (get) Token: 0x06002170 RID: 8560 RVA: 0x0008253C File Offset: 0x0008073C
-	T ODBEnumerator<T>.ExplicitCurrent
+	// Token: 0x1700088C RID: 2188
+	// (get) Token: 0x060024D2 RID: 9426 RVA: 0x00087938 File Offset: 0x00085B38
+	T global::ODBEnumerator<T>.ExplicitCurrent
 	{
 		get
 		{
@@ -22,8 +22,8 @@ public class ODBCachedEnumerator<T, TEnumerator> : IDisposable, IEnumerator, ODB
 		}
 	}
 
-	// Token: 0x1700082F RID: 2095
-	// (get) Token: 0x06002171 RID: 8561 RVA: 0x00082544 File Offset: 0x00080744
+	// Token: 0x1700088D RID: 2189
+	// (get) Token: 0x060024D3 RID: 9427 RVA: 0x00087940 File Offset: 0x00085B40
 	object IEnumerator.Current
 	{
 		get
@@ -32,14 +32,14 @@ public class ODBCachedEnumerator<T, TEnumerator> : IDisposable, IEnumerator, ODB
 		}
 	}
 
-	// Token: 0x06002172 RID: 8562 RVA: 0x00082550 File Offset: 0x00080750
-	IEnumerator<T> ODBEnumerator<T>.ToGeneric()
+	// Token: 0x060024D4 RID: 9428 RVA: 0x0008794C File Offset: 0x00085B4C
+	IEnumerator<T> global::ODBEnumerator<T>.ToGeneric()
 	{
 		return this;
 	}
 
-	// Token: 0x17000830 RID: 2096
-	// (get) Token: 0x06002173 RID: 8563 RVA: 0x00082554 File Offset: 0x00080754
+	// Token: 0x1700088E RID: 2190
+	// (get) Token: 0x060024D5 RID: 9429 RVA: 0x00087950 File Offset: 0x00085B50
 	public T Current
 	{
 		get
@@ -48,55 +48,55 @@ public class ODBCachedEnumerator<T, TEnumerator> : IDisposable, IEnumerator, ODB
 		}
 	}
 
-	// Token: 0x06002174 RID: 8564 RVA: 0x00082568 File Offset: 0x00080768
+	// Token: 0x060024D6 RID: 9430 RVA: 0x00087964 File Offset: 0x00085B64
 	public bool MoveNext()
 	{
 		return this.enumerator.MoveNext();
 	}
 
-	// Token: 0x06002175 RID: 8565 RVA: 0x0008257C File Offset: 0x0008077C
+	// Token: 0x060024D7 RID: 9431 RVA: 0x00087978 File Offset: 0x00085B78
 	public void Reset()
 	{
 		this.enumerator.Reset();
 	}
 
-	// Token: 0x06002176 RID: 8566 RVA: 0x00082590 File Offset: 0x00080790
+	// Token: 0x060024D8 RID: 9432 RVA: 0x0008798C File Offset: 0x00085B8C
 	public void Dispose()
 	{
 		if (!this.disposed)
 		{
 			this.disposed = true;
-			this.next = ODBCachedEnumerator<T, TEnumerator>.recycle;
-			ODBCachedEnumerator<T, TEnumerator>.recycle = this;
+			this.next = global::ODBCachedEnumerator<T, TEnumerator>.recycle;
+			global::ODBCachedEnumerator<T, TEnumerator>.recycle = this;
 			this.enumerator.Dispose();
 			this.enumerator = default(TEnumerator);
 		}
 	}
 
-	// Token: 0x06002177 RID: 8567 RVA: 0x000825E0 File Offset: 0x000807E0
+	// Token: 0x060024D9 RID: 9433 RVA: 0x000879DC File Offset: 0x00085BDC
 	public static IEnumerator<T> Cache(ref TEnumerator enumerator)
 	{
-		if (ODBCachedEnumerator<T, TEnumerator>.recycle == null)
+		if (global::ODBCachedEnumerator<T, TEnumerator>.recycle == null)
 		{
-			return new ODBCachedEnumerator<T, TEnumerator>(ref enumerator);
+			return new global::ODBCachedEnumerator<T, TEnumerator>(ref enumerator);
 		}
-		ODBCachedEnumerator<T, TEnumerator> odbcachedEnumerator = ODBCachedEnumerator<T, TEnumerator>.recycle;
-		ODBCachedEnumerator<T, TEnumerator>.recycle = odbcachedEnumerator.next;
+		global::ODBCachedEnumerator<T, TEnumerator> odbcachedEnumerator = global::ODBCachedEnumerator<T, TEnumerator>.recycle;
+		global::ODBCachedEnumerator<T, TEnumerator>.recycle = odbcachedEnumerator.next;
 		odbcachedEnumerator.disposed = false;
 		odbcachedEnumerator.enumerator = enumerator;
 		odbcachedEnumerator.next = null;
 		return odbcachedEnumerator;
 	}
 
-	// Token: 0x04000FA7 RID: 4007
-	private ODBCachedEnumerator<T, TEnumerator> next;
+	// Token: 0x0400110D RID: 4365
+	private global::ODBCachedEnumerator<T, TEnumerator> next;
 
-	// Token: 0x04000FA8 RID: 4008
-	private static ODBCachedEnumerator<T, TEnumerator> recycle;
+	// Token: 0x0400110E RID: 4366
+	private static global::ODBCachedEnumerator<T, TEnumerator> recycle;
 
-	// Token: 0x04000FA9 RID: 4009
+	// Token: 0x0400110F RID: 4367
 	private TEnumerator enumerator;
 
-	// Token: 0x04000FAA RID: 4010
+	// Token: 0x04001110 RID: 4368
 	private bool disposed;
 }

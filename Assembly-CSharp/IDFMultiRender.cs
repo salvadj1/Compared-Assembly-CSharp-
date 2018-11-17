@@ -1,8 +1,8 @@
 ﻿using System;
 
-// Token: 0x0200069C RID: 1692
+// Token: 0x02000762 RID: 1890
 public interface IDFMultiRender
 {
-	// Token: 0x06003A83 RID: 14979
-	dfList<dfRenderData> RenderMultiple();
+	// Token: 0x06003E81 RID: 16001
+	global::dfList<global::dfRenderData> RenderMultiple();
 }

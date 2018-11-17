@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x0200030B RID: 779
+// Token: 0x020003B3 RID: 947
 public static class NetErrorHelper
 {
-	// Token: 0x06001DFB RID: 7675 RVA: 0x00075AEC File Offset: 0x00073CEC
+	// Token: 0x06002139 RID: 8505 RVA: 0x0007A56C File Offset: 0x0007876C
 	static NetErrorHelper()
 	{
-		NetErrorHelper.CacheNiceStrings();
-		NetworkConnectionError networkConnectionError = 0;
-		foreach (object obj in Enum.GetValues(typeof(NetworkConnectionError)))
+		global::NetErrorHelper.CacheNiceStrings();
+		uLink.NetworkConnectionError networkConnectionError = 0;
+		foreach (object obj in Enum.GetValues(typeof(uLink.NetworkConnectionError)))
 		{
 			if ((int)obj < networkConnectionError)
 			{
@@ -31,41 +31,41 @@ public static class NetErrorHelper
 		}
 	}
 
-	// Token: 0x06001DFC RID: 7676 RVA: 0x00075BD4 File Offset: 0x00073DD4
-	public static NetError ToNetError(this NetworkConnectionError error)
+	// Token: 0x0600213A RID: 8506 RVA: 0x0007A654 File Offset: 0x00078854
+	public static global::NetError ToNetError(this uLink.NetworkConnectionError error)
 	{
 		int num = error;
 		if (num < -5 && num >> 7 == -1)
 		{
 			num &= 255;
 		}
-		return (NetError)num;
+		return (global::NetError)num;
 	}
 
-	// Token: 0x06001DFD RID: 7677 RVA: 0x00075C00 File Offset: 0x00073E00
-	internal static NetworkConnectionError _uLink(this NetError error)
+	// Token: 0x0600213B RID: 8507 RVA: 0x0007A680 File Offset: 0x00078880
+	internal static uLink.NetworkConnectionError _uLink(this global::NetError error)
 	{
 		return error;
 	}
 
-	// Token: 0x06001DFE RID: 7678 RVA: 0x00075C04 File Offset: 0x00073E04
+	// Token: 0x0600213C RID: 8508 RVA: 0x0007A684 File Offset: 0x00078884
 	private static void CacheNiceStrings()
 	{
-		foreach (object obj in Enum.GetValues(typeof(NetError)))
+		foreach (object obj in Enum.GetValues(typeof(global::NetError)))
 		{
-			NetError netError = (NetError)((int)obj);
-			string text = NetErrorHelper.BuildNiceString(netError);
-			if (text == null && netError != NetError.NoError)
+			global::NetError netError = (global::NetError)((int)obj);
+			string text = global::NetErrorHelper.BuildNiceString(netError);
+			if (text == null && netError != global::NetError.NoError)
 			{
 				Debug.LogWarning("NetError." + obj + " has no nice string");
-				text = NetErrorHelper.FallbackNiceString(netError);
+				text = global::NetErrorHelper.FallbackNiceString(netError);
 			}
-			NetErrorHelper.niceStrings[netError] = text;
+			global::NetErrorHelper.niceStrings[netError] = text;
 		}
 	}
 
-	// Token: 0x06001DFF RID: 7679 RVA: 0x00075CB8 File Offset: 0x00073EB8
-	private static string FallbackNiceString(NetError error)
+	// Token: 0x0600213D RID: 8509 RVA: 0x0007A738 File Offset: 0x00078938
+	private static string FallbackNiceString(global::NetError error)
 	{
 		string str = error.ToString().Replace("Facepunch_", string.Empty);
 		string str2 = "(";
@@ -73,182 +73,182 @@ public static class NetErrorHelper
 		return (str + str2 + num.ToString("X") + ")").Replace("_", " ");
 	}
 
-	// Token: 0x06001E00 RID: 7680 RVA: 0x00075D0C File Offset: 0x00073F0C
-	public static string NiceString(this NetError value)
+	// Token: 0x0600213E RID: 8510 RVA: 0x0007A78C File Offset: 0x0007898C
+	public static string NiceString(this global::NetError value)
 	{
 		string result;
-		if (NetErrorHelper.niceStrings.TryGetValue(value, out result))
+		if (global::NetErrorHelper.niceStrings.TryGetValue(value, out result))
 		{
 			return result;
 		}
-		return NetErrorHelper.FallbackNiceString(value);
+		return global::NetErrorHelper.FallbackNiceString(value);
 	}
 
-	// Token: 0x06001E01 RID: 7681 RVA: 0x00075D34 File Offset: 0x00073F34
-	private static string BuildNiceString(NetError value)
+	// Token: 0x0600213F RID: 8511 RVA: 0x0007A7B4 File Offset: 0x000789B4
+	private static string BuildNiceString(global::NetError value)
 	{
 		switch (value)
 		{
-		case NetError.ProxyTargetNotConnected:
+		case global::NetError.ProxyTargetNotConnected:
 			return "Proxy target not connected";
-		case NetError.ProxyTargetNotRegistered:
+		case global::NetError.ProxyTargetNotRegistered:
 			return "Proxy target not registered";
-		case NetError.ProxyServerNotEnabled:
+		case global::NetError.ProxyServerNotEnabled:
 			return "Proxy server not enabled";
-		case NetError.ProxyServerOutOfPorts:
+		case global::NetError.ProxyServerOutOfPorts:
 			return "Proxy server out of ports";
 		default:
 			switch (value)
 			{
-			case NetError.NATTargetNotConnected:
+			case global::NetError.NATTargetNotConnected:
 				return "NAT target not connected";
-			case NetError.NATTargetConnectionLost:
+			case global::NetError.NATTargetConnectionLost:
 				return "NAT target connection lost";
-			case NetError.NATPunchthroughFailed:
+			case global::NetError.NATPunchthroughFailed:
 				return "NAT punchthrough";
-			case NetError.IncompatibleVersions:
+			case global::NetError.IncompatibleVersions:
 				return "Version incompatible";
 			default:
 				switch (value)
 				{
-				case NetError.ConnectionFailed:
+				case global::NetError.ConnectionFailed:
 					return "Could not reach the server";
 				default:
 					switch (value + 5)
 					{
-					case NetError.NoError:
+					case global::NetError.NoError:
 						return "Direct connect failed";
-					case (NetError)1:
+					case (global::NetError)1:
 						return "Invalid server";
-					case (NetError)2:
+					case (global::NetError)2:
 						return "Incorrect parameters";
-					case (NetError)3:
+					case (global::NetError)3:
 						return "Could not create socket or thread";
-					case (NetError)4:
+					case (global::NetError)4:
 						return "Already connected to different server";
-					case (NetError)5:
+					case (global::NetError)5:
 						return null;
 					default:
-						if (value == NetError.IsAuthoritativeServer)
+						if (value == global::NetError.IsAuthoritativeServer)
 						{
 							return "Authoritative server";
 						}
-						if (value != NetError.ApprovalDenied)
+						if (value != global::NetError.ApprovalDenied)
 						{
 							return null;
 						}
 						return "You've been denied from connecting";
 					}
 					break;
-				case NetError.TooManyConnectedPlayers:
+				case global::NetError.TooManyConnectedPlayers:
 					return "Full";
-				case NetError.RSAPublicKeyMismatch:
+				case global::NetError.RSAPublicKeyMismatch:
 					return "RSA public key mismatch";
-				case NetError.ConnectionBanned:
+				case global::NetError.ConnectionBanned:
 					return "Banned from connecting";
-				case NetError.InvalidPassword:
+				case global::NetError.InvalidPassword:
 					return "Invalid password";
-				case NetError.DetectedDuplicatePlayerID:
+				case global::NetError.DetectedDuplicatePlayerID:
 					return "Duplicate players identified";
 				}
 				break;
-			case NetError.ConnectionTimeout:
+			case global::NetError.ConnectionTimeout:
 				return "Timed out";
-			case NetError.LimitedPlayers:
+			case global::NetError.LimitedPlayers:
 				return "Server has limited players";
 			}
 			break;
-		case NetError.Facepunch_Kick_ServerRestarting:
+		case global::NetError.Facepunch_Kick_ServerRestarting:
 			return "Server restarting";
-		case NetError.Facepunch_Approval_Closed:
+		case global::NetError.Facepunch_Approval_Closed:
 			return "Not accepting new connections.";
-		case NetError.Facepunch_Approval_TooManyConnectedPlayersNow:
+		case global::NetError.Facepunch_Approval_TooManyConnectedPlayersNow:
 			return "Authorization busy";
-		case NetError.Facepunch_Approval_ConnectorAuthorizeException:
+		case global::NetError.Facepunch_Approval_ConnectorAuthorizeException:
 			return "Server exception with authorization";
-		case NetError.Facepunch_Approval_ConnectorAuthorizeExecution:
+		case global::NetError.Facepunch_Approval_ConnectorAuthorizeExecution:
 			return "Aborted starting of authorization";
-		case NetError.Facepunch_Approval_ConnectorDidNothing:
+		case global::NetError.Facepunch_Approval_ConnectorDidNothing:
 			return "Server failed to start authorization";
-		case NetError.Facepunch_Approval_ConnectorCreateFailure:
+		case global::NetError.Facepunch_Approval_ConnectorCreateFailure:
 			return "Server was unable to start authorization";
-		case NetError.Facepunch_Approval_ServerDoesNotSupportConnector:
+		case global::NetError.Facepunch_Approval_ServerDoesNotSupportConnector:
 			return "Unsupported ticket";
-		case NetError.Facepunch_Approval_MissingServerManagement:
+		case global::NetError.Facepunch_Approval_MissingServerManagement:
 			return "Server is not prepared";
-		case NetError.Facepunch_Approval_ServerLoginException:
+		case global::NetError.Facepunch_Approval_ServerLoginException:
 			return "Server exception";
-		case NetError.Facepunch_Approval_DisposedWait:
+		case global::NetError.Facepunch_Approval_DisposedWait:
 			return "Aborted authorization";
-		case NetError.Facepunch_Approval_DisposedLimbo:
+		case global::NetError.Facepunch_Approval_DisposedLimbo:
 			return "Failed to run authorization";
-		case NetError.Facepunch_Kick_MultipleConnections:
+		case global::NetError.Facepunch_Kick_MultipleConnections:
 			return "Started a different connection";
-		case NetError.Facepunch_Kick_Violation:
+		case global::NetError.Facepunch_Kick_Violation:
 			return "Kicked because of violation";
-		case NetError.Facepunch_Kick_RCON:
+		case global::NetError.Facepunch_Kick_RCON:
 			return "Kicked by admin";
-		case NetError.Facepunch_Kick_Ban:
+		case global::NetError.Facepunch_Kick_Ban:
 			return "Kicked and Banned by admin";
-		case NetError.Facepunch_Kick_BadName:
+		case global::NetError.Facepunch_Kick_BadName:
 			return "Rejected name";
-		case NetError.Facepunch_Connector_InLimboState:
+		case global::NetError.Facepunch_Connector_InLimboState:
 			return "Lost connection during authorization";
-		case NetError.Facepunch_Connector_WaitedLimbo:
+		case global::NetError.Facepunch_Connector_WaitedLimbo:
 			return "Server lost you while processing ticket";
-		case NetError.Facepunch_Connector_RoutineMoveException:
+		case global::NetError.Facepunch_Connector_RoutineMoveException:
 			return "Server exception occured while awaiting authorization";
-		case NetError.Facepunch_Connector_RoutineYieldException:
+		case global::NetError.Facepunch_Connector_RoutineYieldException:
 			return "Server exception occured when checking authorization";
-		case NetError.Facepunch_Connector_MissingFeatureImplementation:
+		case global::NetError.Facepunch_Connector_MissingFeatureImplementation:
 			return "Authorization produced an unhandled message";
-		case NetError.Facepunch_Connector_Cancelled:
+		case global::NetError.Facepunch_Connector_Cancelled:
 			return "A ticket was cancelled - try again";
-		case NetError.Facepunch_Connector_AuthFailure:
+		case global::NetError.Facepunch_Connector_AuthFailure:
 			return "Authorization failed";
-		case NetError.Facepunch_Connector_AuthException:
+		case global::NetError.Facepunch_Connector_AuthException:
 			return "Server exception while starting authorization";
-		case NetError.Facepunch_Connector_MultipleAttempts:
+		case global::NetError.Facepunch_Connector_MultipleAttempts:
 			return "Multiple authorization attempts";
-		case NetError.Facepunch_Connector_VAC_Banned:
+		case global::NetError.Facepunch_Connector_VAC_Banned:
 			return "VAC banned";
-		case NetError.Facepunch_Connector_AuthTimeout:
+		case global::NetError.Facepunch_Connector_AuthTimeout:
 			return "Timed out authorizing your ticket";
-		case NetError.Facepunch_Connector_Old:
+		case global::NetError.Facepunch_Connector_Old:
 			return "Ticket already used";
-		case NetError.Facepunch_Connector_NoConnect:
+		case global::NetError.Facepunch_Connector_NoConnect:
 			return "Lost authorization";
-		case NetError.Facepunch_Connector_Invalid:
+		case global::NetError.Facepunch_Connector_Invalid:
 			return "Ticket invalid";
-		case NetError.Facepunch_Connector_Expired:
+		case global::NetError.Facepunch_Connector_Expired:
 			return "Ticket expired";
-		case NetError.Facepunch_Connector_ConnectedElsewhere:
+		case global::NetError.Facepunch_Connector_ConnectedElsewhere:
 			return "Changed connection";
-		case NetError.Facepunch_API_Failure:
+		case global::NetError.Facepunch_API_Failure:
 			return "API Failure";
-		case NetError.Facepunch_Whitelist_Failure:
+		case global::NetError.Facepunch_Whitelist_Failure:
 			return "Not in whitelist";
 		}
 	}
 
-	// Token: 0x04000E6D RID: 3693
+	// Token: 0x04000FAD RID: 4013
 	private const int mostNegativeNoErrorValue = -5;
 
-	// Token: 0x04000E6E RID: 3694
+	// Token: 0x04000FAE RID: 4014
 	private const int userDefined1Value = 128;
 
-	// Token: 0x04000E6F RID: 3695
+	// Token: 0x04000FAF RID: 4015
 	private const int noErrorValue = 0;
 
-	// Token: 0x04000E70 RID: 3696
+	// Token: 0x04000FB0 RID: 4016
 	private const int fixErrorSignageMask = 255;
 
-	// Token: 0x04000E71 RID: 3697
+	// Token: 0x04000FB1 RID: 4017
 	private const int maxUserDefinedErrorCount = 119;
 
-	// Token: 0x04000E72 RID: 3698
+	// Token: 0x04000FB2 RID: 4018
 	private const string kConnectFailServerSide = "Server failed to approve the connection ";
 
-	// Token: 0x04000E73 RID: 3699
-	private static readonly Dictionary<NetError, string> niceStrings = new Dictionary<NetError, string>(Enum.GetValues(typeof(NetError)).Length);
+	// Token: 0x04000FB3 RID: 4019
+	private static readonly Dictionary<global::NetError, string> niceStrings = new Dictionary<global::NetError, string>(Enum.GetValues(typeof(global::NetError)).Length);
 }

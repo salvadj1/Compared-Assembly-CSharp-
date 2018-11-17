@@ -2,11 +2,11 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x020001C6 RID: 454
+// Token: 0x020001F6 RID: 502
 public struct QueuedShotDeathInfo
 {
-	// Token: 0x17000337 RID: 823
-	// (get) Token: 0x06000CD8 RID: 3288 RVA: 0x0003214C File Offset: 0x0003034C
+	// Token: 0x1700037B RID: 891
+	// (get) Token: 0x06000E18 RID: 3608 RVA: 0x00036038 File Offset: 0x00034238
 	public bool exists
 	{
 		get
@@ -15,32 +15,32 @@ public struct QueuedShotDeathInfo
 		}
 	}
 
-	// Token: 0x06000CD9 RID: 3289 RVA: 0x00032168 File Offset: 0x00030368
-	public void Set(Character character, ref Vector3 localPoint, ref Angle2 localNormal, byte bodyPart, ref NetworkMessageInfo info)
+	// Token: 0x06000E19 RID: 3609 RVA: 0x00036054 File Offset: 0x00034254
+	public void Set(global::Character character, ref Vector3 localPoint, ref global::Angle2 localNormal, byte bodyPart, ref uLink.NetworkMessageInfo info)
 	{
 		this.Set(character.hitBoxSystem, ref localPoint, ref localNormal, bodyPart, ref info);
 	}
 
-	// Token: 0x06000CDA RID: 3290 RVA: 0x00032188 File Offset: 0x00030388
-	public void Set(IDMain idMain, ref Vector3 localPoint, ref Angle2 localNormal, byte bodyPart, ref NetworkMessageInfo info)
+	// Token: 0x06000E1A RID: 3610 RVA: 0x00036074 File Offset: 0x00034274
+	public void Set(IDMain idMain, ref Vector3 localPoint, ref global::Angle2 localNormal, byte bodyPart, ref uLink.NetworkMessageInfo info)
 	{
-		if (idMain is Character)
+		if (idMain is global::Character)
 		{
-			this.Set((Character)idMain, ref localPoint, ref localNormal, bodyPart, ref info);
+			this.Set((global::Character)idMain, ref localPoint, ref localNormal, bodyPart, ref info);
 		}
 		else
 		{
-			this.Set(idMain.GetRemote<HitBoxSystem>(), ref localPoint, ref localNormal, bodyPart, ref info);
+			this.Set(idMain.GetRemote<global::HitBoxSystem>(), ref localPoint, ref localNormal, bodyPart, ref info);
 		}
 	}
 
-	// Token: 0x06000CDB RID: 3291 RVA: 0x000321CC File Offset: 0x000303CC
+	// Token: 0x06000E1B RID: 3611 RVA: 0x000360B8 File Offset: 0x000342B8
 	public void LinkRagdoll(Transform thisRoot, GameObject ragdoll)
 	{
 		if (this.exists)
 		{
 			Transform transform;
-			if (RagdollHelper.RecursiveLinkTransformsByName(ragdoll.transform, thisRoot, this.transform, out transform))
+			if (global::RagdollHelper.RecursiveLinkTransformsByName(ragdoll.transform, thisRoot, this.transform, out transform))
 			{
 				Transform transform2 = transform;
 				Rigidbody rigidbody = transform2.rigidbody;
@@ -54,12 +54,12 @@ public struct QueuedShotDeathInfo
 		}
 		else
 		{
-			RagdollHelper.RecursiveLinkTransformsByName(ragdoll.transform, thisRoot);
+			global::RagdollHelper.RecursiveLinkTransformsByName(ragdoll.transform, thisRoot);
 		}
 	}
 
-	// Token: 0x06000CDC RID: 3292 RVA: 0x00032250 File Offset: 0x00030450
-	public void Set(HitBoxSystem hitBoxSystem, ref Vector3 localPoint, ref Angle2 localNormal, byte bodyPart, ref NetworkMessageInfo info)
+	// Token: 0x06000E1C RID: 3612 RVA: 0x0003613C File Offset: 0x0003433C
+	public void Set(global::HitBoxSystem hitBoxSystem, ref Vector3 localPoint, ref global::Angle2 localNormal, byte bodyPart, ref uLink.NetworkMessageInfo info)
 	{
 		this.queued = true;
 		this.localPoint = localPoint;
@@ -83,18 +83,18 @@ public struct QueuedShotDeathInfo
 		}
 	}
 
-	// Token: 0x0400079C RID: 1948
+	// Token: 0x040008B0 RID: 2224
 	public bool queued;
 
-	// Token: 0x0400079D RID: 1949
+	// Token: 0x040008B1 RID: 2225
 	public Vector3 localPoint;
 
-	// Token: 0x0400079E RID: 1950
+	// Token: 0x040008B2 RID: 2226
 	public Vector3 localNormal;
 
-	// Token: 0x0400079F RID: 1951
+	// Token: 0x040008B3 RID: 2227
 	public BodyPart bodyPart;
 
-	// Token: 0x040007A0 RID: 1952
+	// Token: 0x040008B4 RID: 2228
 	public Transform transform;
 }

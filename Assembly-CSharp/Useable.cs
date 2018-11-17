@@ -2,17 +2,17 @@
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x020001EB RID: 491
-[InterfaceDriverComponent(typeof(IUseable), "_implementation", "implementation", SearchRoute = InterfaceSearchRoute.GameObject, UnityType = typeof(MonoBehaviour), AlwaysSaveDisabled = true)]
-public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable, MonoBehaviour, Useable>
+// Token: 0x0200021D RID: 541
+[global::InterfaceDriverComponent(typeof(global::IUseable), "_implementation", "implementation", SearchRoute = global::InterfaceSearchRoute.GameObject, UnityType = typeof(MonoBehaviour), AlwaysSaveDisabled = true)]
+public sealed class Useable : MonoBehaviour, global::IComponentInterfaceDriver<global::IUseable, MonoBehaviour, global::Useable>
 {
 	// Token: 0x14000007 RID: 7
-	// (add) Token: 0x06000D81 RID: 3457 RVA: 0x00034D68 File Offset: 0x00032F68
-	// (remove) Token: 0x06000D82 RID: 3458 RVA: 0x00034D84 File Offset: 0x00032F84
-	public event Useable.UseExitCallback onUseExited;
+	// (add) Token: 0x06000ED1 RID: 3793 RVA: 0x00039110 File Offset: 0x00037310
+	// (remove) Token: 0x06000ED2 RID: 3794 RVA: 0x0003912C File Offset: 0x0003732C
+	public event global::Useable.UseExitCallback onUseExited;
 
-	// Token: 0x17000347 RID: 839
-	// (get) Token: 0x06000D83 RID: 3459 RVA: 0x00034DA0 File Offset: 0x00032FA0
+	// Token: 0x1700038F RID: 911
+	// (get) Token: 0x06000ED3 RID: 3795 RVA: 0x00039148 File Offset: 0x00037348
 	public MonoBehaviour implementor
 	{
 		get
@@ -32,9 +32,9 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x17000348 RID: 840
-	// (get) Token: 0x06000D84 RID: 3460 RVA: 0x00034DF0 File Offset: 0x00032FF0
-	public IUseable @interface
+	// Token: 0x17000390 RID: 912
+	// (get) Token: 0x06000ED4 RID: 3796 RVA: 0x00039198 File Offset: 0x00037398
+	public global::IUseable @interface
 	{
 		get
 		{
@@ -53,8 +53,8 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x17000349 RID: 841
-	// (get) Token: 0x06000D85 RID: 3461 RVA: 0x00034E40 File Offset: 0x00033040
+	// Token: 0x17000391 RID: 913
+	// (get) Token: 0x06000ED5 RID: 3797 RVA: 0x000391E8 File Offset: 0x000373E8
 	public bool exists
 	{
 		get
@@ -63,9 +63,9 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x1700034A RID: 842
-	// (get) Token: 0x06000D86 RID: 3462 RVA: 0x00034E70 File Offset: 0x00033070
-	public Useable driver
+	// Token: 0x17000392 RID: 914
+	// (get) Token: 0x06000ED6 RID: 3798 RVA: 0x00039218 File Offset: 0x00037418
+	public global::Useable driver
 	{
 		get
 		{
@@ -73,9 +73,9 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x1700034B RID: 843
-	// (get) Token: 0x06000D87 RID: 3463 RVA: 0x00034E74 File Offset: 0x00033074
-	public Character user
+	// Token: 0x17000393 RID: 915
+	// (get) Token: 0x06000ED7 RID: 3799 RVA: 0x0003921C File Offset: 0x0003741C
+	public global::Character user
 	{
 		get
 		{
@@ -83,8 +83,8 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x1700034C RID: 844
-	// (get) Token: 0x06000D88 RID: 3464 RVA: 0x00034E7C File Offset: 0x0003307C
+	// Token: 0x17000394 RID: 916
+	// (get) Token: 0x06000ED8 RID: 3800 RVA: 0x00039224 File Offset: 0x00037424
 	public bool occupied
 	{
 		get
@@ -93,27 +93,27 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D89 RID: 3465 RVA: 0x00034E8C File Offset: 0x0003308C
+	// Token: 0x06000ED9 RID: 3801 RVA: 0x00039234 File Offset: 0x00037434
 	private void OnEnable()
 	{
 		Debug.LogError("Something is trying to enable useable on client.", this);
 		base.enabled = false;
 	}
 
-	// Token: 0x06000D8A RID: 3466 RVA: 0x00034EA0 File Offset: 0x000330A0
+	// Token: 0x06000EDA RID: 3802 RVA: 0x00039248 File Offset: 0x00037448
 	private void Refresh()
 	{
 		this.implementation = this._implementation;
 		this._implementation = null;
-		this.use = (this.implementation as IUseable);
+		this.use = (this.implementation as global::IUseable);
 		this.canUse = (this.use != null);
 		if (this.canUse)
 		{
 			base.enabled = false;
 			this.useDecline = null;
 			this.useCheck = null;
-			this.updateFlags = UseUpdateFlags.None;
-			IUseableAwake useableAwake = this.implementation as IUseableAwake;
+			this.updateFlags = global::UseUpdateFlags.None;
+			global::IUseableAwake useableAwake = this.implementation as global::IUseableAwake;
 			if (useableAwake != null)
 			{
 				useableAwake.OnUseableAwake(this);
@@ -125,7 +125,7 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D8B RID: 3467 RVA: 0x00034F34 File Offset: 0x00033134
+	// Token: 0x06000EDB RID: 3803 RVA: 0x000392DC File Offset: 0x000374DC
 	private void Awake()
 	{
 		if (!this._awoke)
@@ -141,13 +141,13 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D8C RID: 3468 RVA: 0x00034F7C File Offset: 0x0003317C
+	// Token: 0x06000EDC RID: 3804 RVA: 0x00039324 File Offset: 0x00037524
 	private void RunUpdate()
 	{
-		Useable.FunctionCallState functionCallState = this.callState;
+		global::Useable.FunctionCallState functionCallState = this.callState;
 		try
 		{
-			this.callState = Useable.FunctionCallState.OnUseUpdate;
+			this.callState = global::Useable.FunctionCallState.OnUseUpdate;
 			this.useUpdate.OnUseUpdate(this);
 		}
 		catch (Exception arg)
@@ -160,12 +160,12 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D8D RID: 3469 RVA: 0x00035000 File Offset: 0x00033200
+	// Token: 0x06000EDD RID: 3805 RVA: 0x000393A8 File Offset: 0x000375A8
 	private void Update()
 	{
 		if (!this._user)
 		{
-			if ((this.updateFlags & UseUpdateFlags.UpdateWithoutUser) == UseUpdateFlags.UpdateWithoutUser)
+			if ((this.updateFlags & global::UseUpdateFlags.UpdateWithoutUser) == global::UseUpdateFlags.UpdateWithoutUser)
 			{
 				if (this.implementation)
 				{
@@ -192,48 +192,48 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D8E RID: 3470 RVA: 0x00035090 File Offset: 0x00033290
+	// Token: 0x06000EDE RID: 3806 RVA: 0x00039438 File Offset: 0x00037638
 	private static void EnsureServer()
 	{
 		throw new InvalidOperationException("A function ( Enter, Exit or Eject ) in Useable was called client side. Should have only been called server side.");
 	}
 
-	// Token: 0x06000D8F RID: 3471 RVA: 0x0003509C File Offset: 0x0003329C
-	public UseResponse EnterFromElsewhere(Character attempt)
+	// Token: 0x06000EDF RID: 3807 RVA: 0x00039444 File Offset: 0x00037644
+	public global::UseResponse EnterFromElsewhere(global::Character attempt)
 	{
-		return this.Enter(attempt, UseEnterRequest.Elsewhere);
+		return this.Enter(attempt, global::UseEnterRequest.Elsewhere);
 	}
 
-	// Token: 0x06000D90 RID: 3472 RVA: 0x000350A8 File Offset: 0x000332A8
-	public UseResponse EnterFromContext(Character attempt)
+	// Token: 0x06000EE0 RID: 3808 RVA: 0x00039450 File Offset: 0x00037650
+	public global::UseResponse EnterFromContext(global::Character attempt)
 	{
-		return this.Enter(attempt, UseEnterRequest.Context);
+		return this.Enter(attempt, global::UseEnterRequest.Context);
 	}
 
-	// Token: 0x06000D91 RID: 3473 RVA: 0x000350B4 File Offset: 0x000332B4
-	private UseResponse Enter(Character attempt, UseEnterRequest request)
+	// Token: 0x06000EE1 RID: 3809 RVA: 0x0003945C File Offset: 0x0003765C
+	private global::UseResponse Enter(global::Character attempt, global::UseEnterRequest request)
 	{
 		if (!this.canUse)
 		{
-			return UseResponse.Fail_NotIUseable;
+			return global::UseResponse.Fail_NotIUseable;
 		}
-		Useable.EnsureServer();
+		global::Useable.EnsureServer();
 		if ((int)this.callState != 0)
 		{
 			Debug.LogWarning("Some how Enter got called from a call stack originating with " + this.callState + " fix your script to not do this.", this);
-			return UseResponse.Fail_InvalidOperation;
+			return global::UseResponse.Fail_InvalidOperation;
 		}
-		if (Useable.hasException)
+		if (global::Useable.hasException)
 		{
-			Useable.ClearException(false);
+			global::Useable.ClearException(false);
 		}
 		if (!attempt)
 		{
-			return UseResponse.Fail_NullOrMissingUser;
+			return global::UseResponse.Fail_NullOrMissingUser;
 		}
 		if (attempt.signaledDeath)
 		{
-			return UseResponse.Fail_UserDead;
+			return global::UseResponse.Fail_UserDead;
 		}
 		if (!this._user)
 		{
@@ -241,25 +241,25 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 			{
 				try
 				{
-					this.callState = Useable.FunctionCallState.Enter;
-					UseResponse useResponse;
+					this.callState = global::Useable.FunctionCallState.Enter;
+					global::UseResponse useResponse;
 					if (this.canCheck)
 					{
 						try
 						{
-							useResponse = (UseResponse)this.useCheck.CanUse(attempt, request);
+							useResponse = (global::UseResponse)this.useCheck.CanUse(attempt, request);
 						}
 						catch (Exception ex)
 						{
-							Useable.lastException = ex;
-							return UseResponse.Fail_CheckException;
+							global::Useable.lastException = ex;
+							return global::UseResponse.Fail_CheckException;
 						}
 						if ((int)useResponse != 1)
 						{
 							if (useResponse.Succeeded())
 							{
 								Debug.LogError("A IUseableChecked return a invalid value that should have cause success [" + useResponse + "], but it was not UseCheck.Success! fix your script.", this.implementation);
-								return UseResponse.Fail_Checked_BadResult;
+								return global::UseResponse.Fail_Checked_BadResult;
 							}
 							if (this.wantDeclines)
 							{
@@ -283,7 +283,7 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 					}
 					else
 					{
-						useResponse = UseResponse.Pass_Unchecked;
+						useResponse = global::UseResponse.Pass_Unchecked;
 					}
 					try
 					{
@@ -294,8 +294,8 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 					{
 						this._user = null;
 						Debug.LogError("Exception thrown during Useable.Enter. Object not set as used!\r\n" + arg, attempt);
-						Useable.lastException = arg;
-						return UseResponse.Fail_EnterException;
+						global::Useable.lastException = arg;
+						return global::UseResponse.Fail_EnterException;
 					}
 					if (useResponse.Succeeded())
 					{
@@ -305,11 +305,11 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 				}
 				finally
 				{
-					this.callState = Useable.FunctionCallState.None;
+					this.callState = global::Useable.FunctionCallState.None;
 				}
-				return UseResponse.Fail_Destroyed;
+				return global::UseResponse.Fail_Destroyed;
 			}
-			return UseResponse.Fail_Destroyed;
+			return global::UseResponse.Fail_Destroyed;
 		}
 		if (this._user == attempt)
 		{
@@ -317,33 +317,33 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 			{
 				try
 				{
-					this.useDecline.OnUseDeclined(attempt, UseResponse.Fail_Redundant, request);
+					this.useDecline.OnUseDeclined(attempt, global::UseResponse.Fail_Redundant, request);
 				}
 				catch (Exception arg2)
 				{
 					Debug.LogError("Caught exception in OnUseDeclined \r\n (response was Fail_Redundant)" + arg2, this.implementation);
 				}
 			}
-			return UseResponse.Fail_Redundant;
+			return global::UseResponse.Fail_Redundant;
 		}
 		if (this.wantDeclines && this.implementation)
 		{
 			try
 			{
-				this.useDecline.OnUseDeclined(attempt, UseResponse.Fail_Vacancy, request);
+				this.useDecline.OnUseDeclined(attempt, global::UseResponse.Fail_Vacancy, request);
 			}
 			catch (Exception arg3)
 			{
 				Debug.LogError("Caught exception in OnUseDeclined \r\n (response was Fail_Vacancy)" + arg3, this.implementation);
 			}
 		}
-		return UseResponse.Fail_Vacancy;
+		return global::UseResponse.Fail_Vacancy;
 	}
 
-	// Token: 0x06000D92 RID: 3474 RVA: 0x000353E0 File Offset: 0x000335E0
-	public bool Exit(Character attempt)
+	// Token: 0x06000EE2 RID: 3810 RVA: 0x00039788 File Offset: 0x00037988
+	public bool Exit(global::Character attempt)
 	{
-		Useable.EnsureServer();
+		global::Useable.EnsureServer();
 		if ((int)this.callState != 0)
 		{
 			Debug.LogWarning("Some how Exit got called from a call stack originating with " + this.callState + " fix your script to not do this.", this);
@@ -357,13 +357,13 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 				{
 					try
 					{
-						this.callState = Useable.FunctionCallState.Exit;
-						this.use.OnUseExit(this, UseExitReason.Manual);
+						this.callState = global::Useable.FunctionCallState.Exit;
+						this.use.OnUseExit(this, global::UseExitReason.Manual);
 					}
 					finally
 					{
 						this.InvokeUseExitCallback();
-						this.callState = Useable.FunctionCallState.None;
+						this.callState = global::Useable.FunctionCallState.None;
 					}
 				}
 				return true;
@@ -378,7 +378,7 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		return false;
 	}
 
-	// Token: 0x06000D93 RID: 3475 RVA: 0x000354C4 File Offset: 0x000336C4
+	// Token: 0x06000EE3 RID: 3811 RVA: 0x0003986C File Offset: 0x00037A6C
 	private void InvokeUseExitCallback()
 	{
 		if (this.onUseExited != null)
@@ -387,11 +387,11 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D94 RID: 3476 RVA: 0x000354E8 File Offset: 0x000336E8
+	// Token: 0x06000EE4 RID: 3812 RVA: 0x00039890 File Offset: 0x00037A90
 	public bool Eject()
 	{
-		Useable.EnsureServer();
-		UseExitReason reason;
+		global::Useable.EnsureServer();
+		global::UseExitReason reason;
 		if ((int)this.callState != 0)
 		{
 			if ((int)this.callState != 4)
@@ -399,11 +399,11 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 				Debug.LogWarning("Some how Eject got called from a call stack originating with " + this.callState + " fix your script to not do this.", this);
 				return false;
 			}
-			reason = UseExitReason.Manual;
+			reason = global::UseExitReason.Manual;
 		}
 		else
 		{
-			reason = ((!this.inDestroy) ? ((!this.inKillCallback) ? UseExitReason.Forced : UseExitReason.Killed) : UseExitReason.Destroy);
+			reason = ((!this.inDestroy) ? ((!this.inKillCallback) ? global::UseExitReason.Forced : global::UseExitReason.Killed) : global::UseExitReason.Destroy);
 		}
 		if (this._user)
 		{
@@ -413,7 +413,7 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 				{
 					try
 					{
-						this.callState = Useable.FunctionCallState.Eject;
+						this.callState = global::Useable.FunctionCallState.Eject;
 						this.use.OnUseExit(this, reason);
 					}
 					finally
@@ -424,7 +424,7 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 						}
 						finally
 						{
-							this.callState = Useable.FunctionCallState.None;
+							this.callState = global::Useable.FunctionCallState.None;
 						}
 					}
 				}
@@ -444,8 +444,8 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		return false;
 	}
 
-	// Token: 0x06000D95 RID: 3477 RVA: 0x00035638 File Offset: 0x00033838
-	private void KilledCallback(Character user, CharacterDeathSignalReason reason)
+	// Token: 0x06000EE5 RID: 3813 RVA: 0x000399E0 File Offset: 0x00037BE0
+	private void KilledCallback(global::Character user, global::CharacterDeathSignalReason reason)
 	{
 		if (!user)
 		{
@@ -476,7 +476,7 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D96 RID: 3478 RVA: 0x000356F4 File Offset: 0x000338F4
+	// Token: 0x06000EE6 RID: 3814 RVA: 0x00039A9C File Offset: 0x00037C9C
 	private void OnDestroy()
 	{
 		this.inDestroy = true;
@@ -494,14 +494,14 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		this.useDecline = null;
 	}
 
-	// Token: 0x06000D97 RID: 3479 RVA: 0x00035758 File Offset: 0x00033958
+	// Token: 0x06000EE7 RID: 3815 RVA: 0x00039B00 File Offset: 0x00037D00
 	private void LatchUse()
 	{
 		this._user.signal_death += this.onDeathCallback;
-		base.enabled = ((this.updateFlags & UseUpdateFlags.UpdateWithUser) == UseUpdateFlags.UpdateWithUser);
+		base.enabled = ((this.updateFlags & global::UseUpdateFlags.UpdateWithUser) == global::UseUpdateFlags.UpdateWithUser);
 	}
 
-	// Token: 0x06000D98 RID: 3480 RVA: 0x00035788 File Offset: 0x00033988
+	// Token: 0x06000EE8 RID: 3816 RVA: 0x00039B30 File Offset: 0x00037D30
 	private void UnlatchUse()
 	{
 		try
@@ -521,15 +521,15 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		}
 	}
 
-	// Token: 0x06000D99 RID: 3481 RVA: 0x00035810 File Offset: 0x00033A10
+	// Token: 0x06000EE9 RID: 3817 RVA: 0x00039BB8 File Offset: 0x00037DB8
 	public static bool GetLastException<E>(out E exception, bool doNotClear) where E : Exception
 	{
-		if (Useable.hasException && Useable.lastException is E)
+		if (global::Useable.hasException && global::Useable.lastException is E)
 		{
-			exception = (E)((object)Useable.lastException);
+			exception = (E)((object)global::Useable.lastException);
 			if (!doNotClear)
 			{
-				Useable.ClearException(true);
+				global::Useable.ClearException(true);
 			}
 			return true;
 		}
@@ -537,21 +537,21 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		return false;
 	}
 
-	// Token: 0x06000D9A RID: 3482 RVA: 0x00035864 File Offset: 0x00033A64
+	// Token: 0x06000EEA RID: 3818 RVA: 0x00039C0C File Offset: 0x00037E0C
 	public static bool GetLastException<E>(out E exception) where E : Exception
 	{
-		return Useable.GetLastException<E>(out exception, false);
+		return global::Useable.GetLastException<E>(out exception, false);
 	}
 
-	// Token: 0x06000D9B RID: 3483 RVA: 0x00035870 File Offset: 0x00033A70
+	// Token: 0x06000EEB RID: 3819 RVA: 0x00039C18 File Offset: 0x00037E18
 	public static bool GetLastException(out Exception exception, bool doNotClear)
 	{
-		if (Useable.hasException)
+		if (global::Useable.hasException)
 		{
-			exception = Useable.lastException;
+			exception = global::Useable.lastException;
 			if (!doNotClear)
 			{
-				Useable.ClearException(true);
+				global::Useable.ClearException(true);
 			}
 			return true;
 		}
@@ -559,129 +559,129 @@ public sealed class Useable : MonoBehaviour, IComponentInterfaceDriver<IUseable,
 		return true;
 	}
 
-	// Token: 0x06000D9C RID: 3484 RVA: 0x00035898 File Offset: 0x00033A98
+	// Token: 0x06000EEC RID: 3820 RVA: 0x00039C40 File Offset: 0x00037E40
 	public static bool GetLastException(out Exception exception)
 	{
-		return Useable.GetLastException(out exception, false);
+		return global::Useable.GetLastException(out exception, false);
 	}
 
-	// Token: 0x06000D9D RID: 3485 RVA: 0x000358A4 File Offset: 0x00033AA4
+	// Token: 0x06000EED RID: 3821 RVA: 0x00039C4C File Offset: 0x00037E4C
 	private static void ClearException(bool got)
 	{
 		if (!got)
 		{
-			Debug.LogWarning("Nothing got previous now clearing exception \r\n" + Useable.lastException);
+			Debug.LogWarning("Nothing got previous now clearing exception \r\n" + global::Useable.lastException);
 		}
-		Useable.lastException = null;
-		Useable.hasException = false;
+		global::Useable.lastException = null;
+		global::Useable.hasException = false;
 	}
 
-	// Token: 0x06000D9E RID: 3486 RVA: 0x000358D8 File Offset: 0x00033AD8
+	// Token: 0x06000EEE RID: 3822 RVA: 0x00039C80 File Offset: 0x00037E80
 	private void Reset()
 	{
 		foreach (MonoBehaviour monoBehaviour in base.GetComponents<MonoBehaviour>())
 		{
-			if (monoBehaviour is IUseable)
+			if (monoBehaviour is global::IUseable)
 			{
 				this._implementation = monoBehaviour;
 			}
 		}
 	}
 
-	// Token: 0x04000835 RID: 2101
+	// Token: 0x04000958 RID: 2392
 	[SerializeField]
 	private MonoBehaviour _implementation;
 
-	// Token: 0x04000836 RID: 2102
+	// Token: 0x04000959 RID: 2393
 	[NonSerialized]
 	private MonoBehaviour implementation;
 
-	// Token: 0x04000837 RID: 2103
+	// Token: 0x0400095A RID: 2394
 	[NonSerialized]
-	private IUseable use;
+	private global::IUseable use;
 
-	// Token: 0x04000838 RID: 2104
+	// Token: 0x0400095B RID: 2395
 	[NonSerialized]
-	private IUseableChecked useCheck;
+	private global::IUseableChecked useCheck;
 
-	// Token: 0x04000839 RID: 2105
+	// Token: 0x0400095C RID: 2396
 	[NonSerialized]
-	private IUseableNotifyDecline useDecline;
+	private global::IUseableNotifyDecline useDecline;
 
-	// Token: 0x0400083A RID: 2106
+	// Token: 0x0400095D RID: 2397
 	[NonSerialized]
-	private IUseableUpdated useUpdate;
+	private global::IUseableUpdated useUpdate;
 
-	// Token: 0x0400083B RID: 2107
+	// Token: 0x0400095E RID: 2398
 	[NonSerialized]
 	private bool canUse;
 
-	// Token: 0x0400083C RID: 2108
+	// Token: 0x0400095F RID: 2399
 	[NonSerialized]
 	private bool canCheck;
 
-	// Token: 0x0400083D RID: 2109
+	// Token: 0x04000960 RID: 2400
 	[NonSerialized]
 	private bool wantDeclines;
 
-	// Token: 0x0400083E RID: 2110
+	// Token: 0x04000961 RID: 2401
 	[NonSerialized]
 	private bool canUpdate;
 
-	// Token: 0x0400083F RID: 2111
+	// Token: 0x04000962 RID: 2402
 	[NonSerialized]
 	private bool inKillCallback;
 
-	// Token: 0x04000840 RID: 2112
+	// Token: 0x04000963 RID: 2403
 	[NonSerialized]
 	private bool inDestroy;
 
-	// Token: 0x04000841 RID: 2113
+	// Token: 0x04000964 RID: 2404
 	[NonSerialized]
 	private bool _implemented;
 
-	// Token: 0x04000842 RID: 2114
+	// Token: 0x04000965 RID: 2405
 	[NonSerialized]
 	private bool _awoke;
 
-	// Token: 0x04000843 RID: 2115
+	// Token: 0x04000966 RID: 2406
 	[NonSerialized]
-	private UseUpdateFlags updateFlags;
+	private global::UseUpdateFlags updateFlags;
 
-	// Token: 0x04000844 RID: 2116
+	// Token: 0x04000967 RID: 2407
 	[NonSerialized]
-	private Character _user;
+	private global::Character _user;
 
-	// Token: 0x04000845 RID: 2117
+	// Token: 0x04000968 RID: 2408
 	[NonSerialized]
-	private CharacterDeathSignal onDeathCallback;
+	private global::CharacterDeathSignal onDeathCallback;
 
-	// Token: 0x04000846 RID: 2118
+	// Token: 0x04000969 RID: 2409
 	[NonSerialized]
-	private Useable.FunctionCallState callState;
+	private global::Useable.FunctionCallState callState;
 
-	// Token: 0x04000847 RID: 2119
+	// Token: 0x0400096A RID: 2410
 	private static bool hasException;
 
-	// Token: 0x04000848 RID: 2120
+	// Token: 0x0400096B RID: 2411
 	private static Exception lastException;
 
-	// Token: 0x020001EC RID: 492
+	// Token: 0x0200021E RID: 542
 	private enum FunctionCallState : sbyte
 	{
-		// Token: 0x0400084B RID: 2123
+		// Token: 0x0400096E RID: 2414
 		None,
-		// Token: 0x0400084C RID: 2124
+		// Token: 0x0400096F RID: 2415
 		Enter,
-		// Token: 0x0400084D RID: 2125
+		// Token: 0x04000970 RID: 2416
 		Exit,
-		// Token: 0x0400084E RID: 2126
+		// Token: 0x04000971 RID: 2417
 		Eject,
-		// Token: 0x0400084F RID: 2127
+		// Token: 0x04000972 RID: 2418
 		OnUseUpdate
 	}
 
-	// Token: 0x02000860 RID: 2144
-	// (Invoke) Token: 0x06004B58 RID: 19288
-	public delegate void UseExitCallback(Useable useable, bool wasEjected);
+	// Token: 0x0200021F RID: 543
+	// (Invoke) Token: 0x06000EF0 RID: 3824
+	public delegate void UseExitCallback(global::Useable useable, bool wasEjected);
 }

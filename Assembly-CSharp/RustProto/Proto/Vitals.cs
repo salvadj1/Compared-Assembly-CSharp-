@@ -6,11 +6,11 @@ using Google.ProtocolBuffers.FieldAccess;
 
 namespace RustProto.Proto
 {
-	// Token: 0x02000238 RID: 568
+	// Token: 0x0200026B RID: 619
 	[DebuggerNonUserCode]
 	public static class Vitals
 	{
-		// Token: 0x060014CE RID: 5326 RVA: 0x00045AB8 File Offset: 0x00043CB8
+		// Token: 0x06001622 RID: 5666 RVA: 0x00049E60 File Offset: 0x00048060
 		static Vitals()
 		{
 			byte[] array = Convert.FromBase64String("ChFydXN0L3ZpdGFscy5wcm90bxIJUnVzdFByb3RvIu8BCgZWaXRhbHMSEwoGaGVhbHRoGAEgASgCOgMxMDASFQoJaHlkcmF0aW9uGAIgASgCOgIzMBIWCghjYWxvcmllcxgDIAEoAjoEMTAwMBIUCglyYWRpYXRpb24YBCABKAI6ATASGQoOcmFkaWF0aW9uX2FudGkYBSABKAI6ATASFgoLYmxlZWRfc3BlZWQYBiABKAI6ATASFAoJYmxlZWRfbWF4GAcgASgCOgEwEhUKCmhlYWxfc3BlZWQYCCABKAI6ATASEwoIaGVhbF9tYXgYCSABKAI6ATASFgoLdGVtcGVyYXR1cmUYCiABKAI6ATBCAkgB");
@@ -36,13 +36,13 @@ namespace RustProto.Proto
 			FileDescriptor.InternalBuildGeneratedFileFrom(array, new FileDescriptor[0], internalDescriptorAssigner);
 		}
 
-		// Token: 0x060014CF RID: 5327 RVA: 0x00045AFC File Offset: 0x00043CFC
+		// Token: 0x06001623 RID: 5667 RVA: 0x00049EA4 File Offset: 0x000480A4
 		public static void RegisterAllExtensions(ExtensionRegistry registry)
 		{
 		}
 
-		// Token: 0x17000601 RID: 1537
-		// (get) Token: 0x060014D0 RID: 5328 RVA: 0x00045B00 File Offset: 0x00043D00
+		// Token: 0x17000649 RID: 1609
+		// (get) Token: 0x06001624 RID: 5668 RVA: 0x00049EA8 File Offset: 0x000480A8
 		public static FileDescriptor Descriptor
 		{
 			get
@@ -51,13 +51,13 @@ namespace RustProto.Proto
 			}
 		}
 
-		// Token: 0x04000A58 RID: 2648
+		// Token: 0x04000B7B RID: 2939
 		internal static MessageDescriptor internal__static_RustProto_Vitals__Descriptor;
 
-		// Token: 0x04000A59 RID: 2649
+		// Token: 0x04000B7C RID: 2940
 		internal static FieldAccessorTable<Vitals, Vitals.Builder> internal__static_RustProto_Vitals__FieldAccessorTable;
 
-		// Token: 0x04000A5A RID: 2650
+		// Token: 0x04000B7D RID: 2941
 		private static FileDescriptor descriptor;
 	}
 }

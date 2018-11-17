@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200069D RID: 1693
+// Token: 0x02000763 RID: 1891
 [AddComponentMenu("Daikon Forge/User Interface/Animation Clip")]
 [Serializable]
 public class dfAnimationClip : MonoBehaviour
 {
-	// Token: 0x17000B4D RID: 2893
-	// (get) Token: 0x06003A85 RID: 14981 RVA: 0x000DB654 File Offset: 0x000D9854
-	// (set) Token: 0x06003A86 RID: 14982 RVA: 0x000DB65C File Offset: 0x000D985C
-	public dfAtlas Atlas
+	// Token: 0x17000BD1 RID: 3025
+	// (get) Token: 0x06003E83 RID: 16003 RVA: 0x000E40E4 File Offset: 0x000E22E4
+	// (set) Token: 0x06003E84 RID: 16004 RVA: 0x000E40EC File Offset: 0x000E22EC
+	public global::dfAtlas Atlas
 	{
 		get
 		{
@@ -22,8 +22,8 @@ public class dfAnimationClip : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B4E RID: 2894
-	// (get) Token: 0x06003A87 RID: 14983 RVA: 0x000DB668 File Offset: 0x000D9868
+	// Token: 0x17000BD2 RID: 3026
+	// (get) Token: 0x06003E85 RID: 16005 RVA: 0x000E40F8 File Offset: 0x000E22F8
 	public List<string> Sprites
 	{
 		get
@@ -32,11 +32,11 @@ public class dfAnimationClip : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001EF2 RID: 7922
+	// Token: 0x040020EE RID: 8430
 	[SerializeField]
-	private dfAtlas atlas;
+	private global::dfAtlas atlas;
 
-	// Token: 0x04001EF3 RID: 7923
+	// Token: 0x040020EF RID: 8431
 	[SerializeField]
 	private List<string> sprites = new List<string>();
 }

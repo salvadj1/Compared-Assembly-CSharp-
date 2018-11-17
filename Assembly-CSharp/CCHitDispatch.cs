@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000279 RID: 633
-[RequireComponent(typeof(CCDesc))]
+// Token: 0x020002AF RID: 687
+[RequireComponent(typeof(global::CCDesc))]
 public sealed class CCHitDispatch : MonoBehaviour
 {
 	// Token: 0x1400000C RID: 12
-	// (add) Token: 0x06001707 RID: 5895 RVA: 0x000579B4 File Offset: 0x00055BB4
-	// (remove) Token: 0x06001708 RID: 5896 RVA: 0x000579DC File Offset: 0x00055BDC
-	public event CCDesc.HitFilter OnHit
+	// (add) Token: 0x06001869 RID: 6249 RVA: 0x0005BDFC File Offset: 0x00059FFC
+	// (remove) Token: 0x0600186A RID: 6250 RVA: 0x0005BE24 File Offset: 0x0005A024
+	public event global::CCDesc.HitFilter OnHit
 	{
 		add
 		{
-			CCDesc.HitManager hits = this.Hits;
+			global::CCDesc.HitManager hits = this.Hits;
 			if (!object.ReferenceEquals(hits, null))
 			{
 				hits.OnHit += value;
@@ -20,7 +20,7 @@ public sealed class CCHitDispatch : MonoBehaviour
 		}
 		remove
 		{
-			CCDesc.HitManager hits = this.Hits;
+			global::CCDesc.HitManager hits = this.Hits;
 			if (!object.ReferenceEquals(hits, null))
 			{
 				hits.OnHit -= value;
@@ -28,9 +28,9 @@ public sealed class CCHitDispatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006B1 RID: 1713
-	// (get) Token: 0x06001709 RID: 5897 RVA: 0x00057A04 File Offset: 0x00055C04
-	public CCDesc.HitManager Hits
+	// Token: 0x170006FB RID: 1787
+	// (get) Token: 0x0600186B RID: 6251 RVA: 0x0005BE4C File Offset: 0x0005A04C
+	public global::CCDesc.HitManager Hits
 	{
 		get
 		{
@@ -42,15 +42,15 @@ public sealed class CCHitDispatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x170006B2 RID: 1714
-	// (get) Token: 0x0600170A RID: 5898 RVA: 0x00057A20 File Offset: 0x00055C20
-	public CCDesc CCDesc
+	// Token: 0x170006FC RID: 1788
+	// (get) Token: 0x0600186C RID: 6252 RVA: 0x0005BE68 File Offset: 0x0005A068
+	public global::CCDesc CCDesc
 	{
 		get
 		{
 			if (!Application.isPlaying)
 			{
-				return (!this.ccdesc) ? base.GetComponent<CCDesc>() : this.ccdesc;
+				return (!this.ccdesc) ? base.GetComponent<global::CCDesc>() : this.ccdesc;
 			}
 			if (!this.didSetup)
 			{
@@ -60,7 +60,7 @@ public sealed class CCHitDispatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600170B RID: 5899 RVA: 0x00057A70 File Offset: 0x00055C70
+	// Token: 0x0600186D RID: 6253 RVA: 0x0005BEB8 File Offset: 0x0005A0B8
 	private void DoSetup()
 	{
 		if (!this.didSetup)
@@ -70,16 +70,16 @@ public sealed class CCHitDispatch : MonoBehaviour
 				return;
 			}
 			this.didSetup = true;
-			(this.ccdesc = base.GetComponent<CCDesc>()).AssignedHitManager = (this.hitManager = new CCDesc.HitManager());
+			(this.ccdesc = base.GetComponent<global::CCDesc>()).AssignedHitManager = (this.hitManager = new global::CCDesc.HitManager());
 		}
 	}
 
-	// Token: 0x0600170C RID: 5900 RVA: 0x00057ABC File Offset: 0x00055CBC
+	// Token: 0x0600186E RID: 6254 RVA: 0x0005BF04 File Offset: 0x0005A104
 	private void OnDestroy()
 	{
 		if (this.didSetup && !object.ReferenceEquals(this.hitManager, null))
 		{
-			CCDesc.HitManager hitManager = this.hitManager;
+			global::CCDesc.HitManager hitManager = this.hitManager;
 			this.hitManager = null;
 			if (this.ccdesc)
 			{
@@ -89,18 +89,18 @@ public sealed class CCHitDispatch : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600170D RID: 5901 RVA: 0x00057B18 File Offset: 0x00055D18
+	// Token: 0x0600186F RID: 6255 RVA: 0x0005BF60 File Offset: 0x0005A160
 	private void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		CCDesc.HitManager hits = this.Hits;
+		global::CCDesc.HitManager hits = this.Hits;
 		if (!object.ReferenceEquals(hits, null))
 		{
 			hits.Push(hit);
 		}
 	}
 
-	// Token: 0x0600170E RID: 5902 RVA: 0x00057B40 File Offset: 0x00055D40
-	public static CCHitDispatch GetHitDispatch(CCDesc CCDesc)
+	// Token: 0x06001870 RID: 6256 RVA: 0x0005BF88 File Offset: 0x0005A188
+	public static global::CCHitDispatch GetHitDispatch(global::CCDesc CCDesc)
 	{
 		if (!CCDesc)
 		{
@@ -108,25 +108,25 @@ public sealed class CCHitDispatch : MonoBehaviour
 		}
 		if (!object.ReferenceEquals(CCDesc.AssignedHitManager, null))
 		{
-			return CCDesc.GetComponent<CCHitDispatch>();
+			return CCDesc.GetComponent<global::CCHitDispatch>();
 		}
-		CCHitDispatch component = CCDesc.GetComponent<CCHitDispatch>();
+		global::CCHitDispatch component = CCDesc.GetComponent<global::CCHitDispatch>();
 		if (component)
 		{
 			return component;
 		}
-		return CCDesc.gameObject.AddComponent<CCHitDispatch>();
+		return CCDesc.gameObject.AddComponent<global::CCHitDispatch>();
 	}
 
-	// Token: 0x04000BC7 RID: 3015
+	// Token: 0x04000CED RID: 3309
 	[NonSerialized]
-	private CCDesc ccdesc;
+	private global::CCDesc ccdesc;
 
-	// Token: 0x04000BC8 RID: 3016
+	// Token: 0x04000CEE RID: 3310
 	[NonSerialized]
-	private CCDesc.HitManager hitManager;
+	private global::CCDesc.HitManager hitManager;
 
-	// Token: 0x04000BC9 RID: 3017
+	// Token: 0x04000CEF RID: 3311
 	[NonSerialized]
 	private bool didSetup;
 }

@@ -1,10 +1,10 @@
 ﻿using System;
 
-// Token: 0x020006B1 RID: 1713
+// Token: 0x0200077C RID: 1916
 public enum dfProgressFillMode
 {
-	// Token: 0x04001FB9 RID: 8121
+	// Token: 0x040021BA RID: 8634
 	Stretch,
-	// Token: 0x04001FBA RID: 8122
+	// Token: 0x040021BB RID: 8635
 	Fill
 }

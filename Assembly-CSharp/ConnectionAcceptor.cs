@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020002A0 RID: 672
+// Token: 0x020002DD RID: 733
 public class ConnectionAcceptor : MonoBehaviour
 {
 }

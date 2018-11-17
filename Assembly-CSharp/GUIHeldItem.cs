@@ -1,45 +1,45 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020003E5 RID: 997
+// Token: 0x02000495 RID: 1173
 public class GUIHeldItem : MonoBehaviour
 {
-	// Token: 0x060024FD RID: 9469 RVA: 0x0008DE60 File Offset: 0x0008C060
-	public static GUIHeldItem Get()
+	// Token: 0x0600286F RID: 10351 RVA: 0x0009384C File Offset: 0x00091A4C
+	public static global::GUIHeldItem Get()
 	{
-		return GUIHeldItem._guiHeldItem;
+		return global::GUIHeldItem._guiHeldItem;
 	}
 
-	// Token: 0x060024FE RID: 9470 RVA: 0x0008DE68 File Offset: 0x0008C068
-	public static IInventoryItem CurrentItem()
+	// Token: 0x06002870 RID: 10352 RVA: 0x00093854 File Offset: 0x00091A54
+	public static global::IInventoryItem CurrentItem()
 	{
-		return GUIHeldItem.Get()._itemHolding;
+		return global::GUIHeldItem.Get()._itemHolding;
 	}
 
-	// Token: 0x060024FF RID: 9471 RVA: 0x0008DE74 File Offset: 0x0008C074
+	// Token: 0x06002871 RID: 10353 RVA: 0x00093860 File Offset: 0x00091A60
 	private void Start()
 	{
 		this.startingIconColor = this._icon.color;
 		this._icon.enabled = false;
-		GUIHeldItem._guiHeldItem = this;
+		global::GUIHeldItem._guiHeldItem = this;
 		this._myMaterial = this._icon.material.Clone();
 		this._icon.material = this._myMaterial;
 		this.mTrans = base.transform;
 		if (this.uiCamera == null)
 		{
-			this.uiCamera = NGUITools.FindCameraForLayer(base.gameObject.layer);
+			this.uiCamera = global::NGUITools.FindCameraForLayer(base.gameObject.layer);
 		}
 		this.planeTest = new Plane(this.uiCamera.transform.forward * 1f, new Vector3(0f, 0f, 2f));
 		this.started = true;
 	}
 
-	// Token: 0x06002500 RID: 9472 RVA: 0x0008DF40 File Offset: 0x0008C140
+	// Token: 0x06002872 RID: 10354 RVA: 0x0009392C File Offset: 0x00091B2C
 	private void OnDestroy()
 	{
 		Object.Destroy(this._myMaterial);
 	}
 
-	// Token: 0x06002501 RID: 9473 RVA: 0x0008DF50 File Offset: 0x0008C150
+	// Token: 0x06002873 RID: 10355 RVA: 0x0009393C File Offset: 0x00091B3C
 	private void SetPosition(Vector3 world)
 	{
 		Vector3 localPosition = this.mTrans.localPosition + this.mTrans.InverseTransformPoint(world);
@@ -47,12 +47,12 @@ public class GUIHeldItem : MonoBehaviour
 		this.mTrans.localPosition = localPosition;
 	}
 
-	// Token: 0x06002502 RID: 9474 RVA: 0x0008DF94 File Offset: 0x0008C194
+	// Token: 0x06002874 RID: 10356 RVA: 0x00093980 File Offset: 0x00091B80
 	private void Update()
 	{
 		if (this.hasItem)
 		{
-			Vector3 vector = UICamera.lastMousePosition + this.offsetPoint;
+			Vector3 vector = global::UICamera.lastMousePosition + this.offsetPoint;
 			Ray ray = this.uiCamera.ScreenPointToRay(vector);
 			float num = 0f;
 			if (this.planeTest.Raycast(ray, ref num))
@@ -80,7 +80,7 @@ public class GUIHeldItem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002503 RID: 9475 RVA: 0x0008E0FC File Offset: 0x0008C2FC
+	// Token: 0x06002875 RID: 10357 RVA: 0x00093AE8 File Offset: 0x00091CE8
 	private void Opaque()
 	{
 		this.fadeOutAlpha = 1f;
@@ -97,8 +97,8 @@ public class GUIHeldItem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002504 RID: 9476 RVA: 0x0008E17C File Offset: 0x0008C37C
-	public bool SetHeldItem(IInventoryItem item)
+	// Token: 0x06002876 RID: 10358 RVA: 0x00093B68 File Offset: 0x00091D68
+	public bool SetHeldItem(global::IInventoryItem item)
 	{
 		if (item == null)
 		{
@@ -111,7 +111,7 @@ public class GUIHeldItem : MonoBehaviour
 		}
 		this.hasItem = true;
 		Texture iconTex = item.datablock.iconTex;
-		ItemDataBlock.LoadIconOrUnknown<Texture>(item.datablock.icon, ref iconTex);
+		global::ItemDataBlock.LoadIconOrUnknown<Texture>(item.datablock.icon, ref iconTex);
 		this._icon.enabled = true;
 		this._myMaterial.Set("_MainTex", iconTex);
 		this._itemHolding = item;
@@ -120,13 +120,13 @@ public class GUIHeldItem : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x06002505 RID: 9477 RVA: 0x0008E218 File Offset: 0x0008C418
-	public bool SetHeldItem(RPOSInventoryCell cell)
+	// Token: 0x06002877 RID: 10359 RVA: 0x00093C04 File Offset: 0x00091E04
+	public bool SetHeldItem(global::RPOSInventoryCell cell)
 	{
-		IInventoryItem heldItem;
+		global::IInventoryItem heldItem;
 		if (cell)
 		{
-			IInventoryItem slotItem = cell.slotItem;
+			global::IInventoryItem slotItem = cell.slotItem;
 			heldItem = slotItem;
 		}
 		else
@@ -138,10 +138,10 @@ public class GUIHeldItem : MonoBehaviour
 			try
 			{
 				Vector3 vector;
-				if (NGUITools.GetCentroid(cell, out vector))
+				if (global::NGUITools.GetCentroid(cell, out vector))
 				{
-					Vector2 vector2 = UICamera.FindCameraForLayer(cell.gameObject.layer).cachedCamera.WorldToScreenPoint(vector);
-					this.offsetPoint = vector2 - UICamera.lastMousePosition;
+					Vector2 vector2 = global::UICamera.FindCameraForLayer(cell.gameObject.layer).cachedCamera.WorldToScreenPoint(vector);
+					this.offsetPoint = vector2 - global::UICamera.lastMousePosition;
 				}
 			}
 			catch
@@ -153,7 +153,7 @@ public class GUIHeldItem : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x06002506 RID: 9478 RVA: 0x0008E2C4 File Offset: 0x0008C4C4
+	// Token: 0x06002878 RID: 10360 RVA: 0x00093CB0 File Offset: 0x00091EB0
 	public void FadeOutToPoint(Vector3 worldPoint)
 	{
 		this.Opaque();
@@ -173,7 +173,7 @@ public class GUIHeldItem : MonoBehaviour
 		this.fadeOutPoint = this.fadeOutPointStart;
 	}
 
-	// Token: 0x06002507 RID: 9479 RVA: 0x0008E3B8 File Offset: 0x0008C5B8
+	// Token: 0x06002879 RID: 10361 RVA: 0x00093DA4 File Offset: 0x00091FA4
 	public void ClearHeldItem()
 	{
 		if (this.hasItem)
@@ -186,8 +186,8 @@ public class GUIHeldItem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002508 RID: 9480 RVA: 0x0008E3EC File Offset: 0x0008C5EC
-	public void ClearHeldItem(RPOSInventoryCell fadeToCell)
+	// Token: 0x0600287A RID: 10362 RVA: 0x00093DD8 File Offset: 0x00091FD8
+	public void ClearHeldItem(global::RPOSInventoryCell fadeToCell)
 	{
 		if (this.hasItem)
 		{
@@ -196,7 +196,7 @@ public class GUIHeldItem : MonoBehaviour
 			try
 			{
 				Vector3 worldPoint;
-				if (NGUITools.GetCentroid(fadeToCell, out worldPoint))
+				if (global::NGUITools.GetCentroid(fadeToCell, out worldPoint))
 				{
 					this.FadeOutToPoint(worldPoint);
 				}
@@ -209,7 +209,7 @@ public class GUIHeldItem : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002509 RID: 9481 RVA: 0x0008E458 File Offset: 0x0008C658
+	// Token: 0x0600287B RID: 10363 RVA: 0x00093E44 File Offset: 0x00092044
 	private void MakeEmpty()
 	{
 		if (this._icon)
@@ -220,81 +220,81 @@ public class GUIHeldItem : MonoBehaviour
 		this.hasItem = false;
 	}
 
-	// Token: 0x040011DC RID: 4572
+	// Token: 0x04001356 RID: 4950
 	private const float kOffsetSpeed = 600f;
 
-	// Token: 0x040011DD RID: 4573
+	// Token: 0x04001357 RID: 4951
 	private const float kFadeSpeed = 50f;
 
-	// Token: 0x040011DE RID: 4574
+	// Token: 0x04001358 RID: 4952
 	private const float kOffsetSmoothTime = 0.06f;
 
-	// Token: 0x040011DF RID: 4575
+	// Token: 0x04001359 RID: 4953
 	private const float kFadeSmoothTime = 0.1f;
 
-	// Token: 0x040011E0 RID: 4576
-	private static GUIHeldItem _guiHeldItem;
+	// Token: 0x0400135A RID: 4954
+	private static global::GUIHeldItem _guiHeldItem;
 
-	// Token: 0x040011E1 RID: 4577
-	public UITexture _icon;
+	// Token: 0x0400135B RID: 4955
+	public global::UITexture _icon;
 
-	// Token: 0x040011E2 RID: 4578
-	private UIMaterial _myMaterial;
+	// Token: 0x0400135C RID: 4956
+	private global::UIMaterial _myMaterial;
 
-	// Token: 0x040011E3 RID: 4579
+	// Token: 0x0400135D RID: 4957
 	public Camera uiCamera;
 
-	// Token: 0x040011E4 RID: 4580
+	// Token: 0x0400135E RID: 4958
 	private Transform mTrans;
 
-	// Token: 0x040011E5 RID: 4581
+	// Token: 0x0400135F RID: 4959
 	private Plane planeTest;
 
-	// Token: 0x040011E6 RID: 4582
-	private IInventoryItem _itemHolding;
+	// Token: 0x04001360 RID: 4960
+	private global::IInventoryItem _itemHolding;
 
-	// Token: 0x040011E7 RID: 4583
+	// Token: 0x04001361 RID: 4961
 	private Vector3 offsetPoint;
 
-	// Token: 0x040011E8 RID: 4584
+	// Token: 0x04001362 RID: 4962
 	private Vector3 offsetVelocity;
 
-	// Token: 0x040011E9 RID: 4585
+	// Token: 0x04001363 RID: 4963
 	private float lastTime;
 
-	// Token: 0x040011EA RID: 4586
+	// Token: 0x04001364 RID: 4964
 	private bool hasItem;
 
-	// Token: 0x040011EB RID: 4587
+	// Token: 0x04001365 RID: 4965
 	private bool fadingOut;
 
-	// Token: 0x040011EC RID: 4588
+	// Token: 0x04001366 RID: 4966
 	private Vector3 fadeOutPointStart;
 
-	// Token: 0x040011ED RID: 4589
+	// Token: 0x04001367 RID: 4967
 	private Vector3 fadeOutPointEnd;
 
-	// Token: 0x040011EE RID: 4590
+	// Token: 0x04001368 RID: 4968
 	private Vector3 fadeOutPoint;
 
-	// Token: 0x040011EF RID: 4591
+	// Token: 0x04001369 RID: 4969
 	private Vector3 fadeOutVelocity;
 
-	// Token: 0x040011F0 RID: 4592
+	// Token: 0x0400136A RID: 4970
 	private Vector3 fadeOutPointNormal;
 
-	// Token: 0x040011F1 RID: 4593
+	// Token: 0x0400136B RID: 4971
 	private float fadeOutPointDistance;
 
-	// Token: 0x040011F2 RID: 4594
+	// Token: 0x0400136C RID: 4972
 	private float fadeOutPointMagnitude;
 
-	// Token: 0x040011F3 RID: 4595
+	// Token: 0x0400136D RID: 4973
 	private float fadeOutAlpha;
 
-	// Token: 0x040011F4 RID: 4596
+	// Token: 0x0400136E RID: 4974
 	private Color startingIconColor = Color.white;
 
-	// Token: 0x040011F5 RID: 4597
+	// Token: 0x0400136F RID: 4975
 	private bool started;
 }

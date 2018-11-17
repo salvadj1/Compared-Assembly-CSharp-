@@ -1,23 +1,23 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200003F RID: 63
+// Token: 0x02000051 RID: 81
 [ExecuteInEditMode]
 public class FPGrassLayer : MonoBehaviour
 {
-	// Token: 0x06000238 RID: 568 RVA: 0x0000C7E0 File Offset: 0x0000A9E0
+	// Token: 0x060002AA RID: 682 RVA: 0x0000DD88 File Offset: 0x0000BF88
 	private void OnEnable()
 	{
 		this._enabled = true;
 	}
 
-	// Token: 0x06000239 RID: 569 RVA: 0x0000C7EC File Offset: 0x0000A9EC
+	// Token: 0x060002AB RID: 683 RVA: 0x0000DD94 File Offset: 0x0000BF94
 	private void OnDisable()
 	{
 		this._enabled = false;
 	}
 
-	// Token: 0x0600023A RID: 570 RVA: 0x0000C7F8 File Offset: 0x0000A9F8
+	// Token: 0x060002AC RID: 684 RVA: 0x0000DDA0 File Offset: 0x0000BFA0
 	private void UpdateDisplacement(bool on)
 	{
 		if (!on)
@@ -26,7 +26,7 @@ public class FPGrassLayer : MonoBehaviour
 			Shader.SetGlobalVector("_DisplacementWorldMax", Vector2.zero);
 			return;
 		}
-		FPGrassDisplacementCamera fpgrassDisplacementCamera = FPGrassDisplacementCamera.Get();
+		global::FPGrassDisplacementCamera fpgrassDisplacementCamera = global::FPGrassDisplacementCamera.Get();
 		Camera camera = (!(fpgrassDisplacementCamera != null)) ? null : fpgrassDisplacementCamera.camera;
 		if (camera == null)
 		{
@@ -35,7 +35,7 @@ public class FPGrassLayer : MonoBehaviour
 		float orthographicSize = camera.orthographicSize;
 		float num = orthographicSize / (float)camera.targetTexture.width;
 		Vector3 position = base.camera.transform.position;
-		bool flag = TransformHelpers.Dist2D(position, camera.transform.position) > 5f;
+		bool flag = global::TransformHelpers.Dist2D(position, camera.transform.position) > 5f;
 		if (flag)
 		{
 			Vector3 vector;
@@ -56,37 +56,37 @@ public class FPGrassLayer : MonoBehaviour
 		camera.Render();
 	}
 
-	// Token: 0x0600023B RID: 571 RVA: 0x0000C98C File Offset: 0x0000AB8C
+	// Token: 0x060002AD RID: 685 RVA: 0x0000DF34 File Offset: 0x0000C134
 	private void OnPreCull()
 	{
 		if (!Terrain.activeTerrain || !Terrain.activeTerrain.terrainData)
 		{
 			return;
 		}
-		if (this._enabled && grass.on && FPGrass.anyEnabled)
+		if (this._enabled && global::grass.on && global::FPGrass.anyEnabled)
 		{
 			Terrain activeTerrain = Terrain.activeTerrain;
-			this.UpdateDisplacement(grass.displacement);
+			this.UpdateDisplacement(global::grass.displacement);
 			if (activeTerrain)
 			{
 				Camera camera = base.camera;
 				this._frustum = GeometryUtility.CalculateFrustumPlanes(camera);
-				FPGrass.RenderArguments renderArguments;
+				global::FPGrass.RenderArguments renderArguments;
 				renderArguments.frustum = this._frustum;
 				renderArguments.camera = camera;
 				renderArguments.immediate = false;
 				renderArguments.terrain = activeTerrain;
 				renderArguments.center = camera.transform.position;
-				FPGrass.DrawAllGrass(ref renderArguments);
+				global::FPGrass.DrawAllGrass(ref renderArguments);
 			}
 		}
 	}
 
-	// Token: 0x0400016B RID: 363
+	// Token: 0x040001CD RID: 461
 	[NonSerialized]
 	private bool _enabled;
 
-	// Token: 0x0400016C RID: 364
+	// Token: 0x040001CE RID: 462
 	[NonSerialized]
 	private Plane[] _frustum;
 }

@@ -2,28 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006D9 RID: 1753
-[ExecuteInEditMode]
+// Token: 0x020007AB RID: 1963
 [RequireComponent(typeof(BoxCollider))]
 [AddComponentMenu("Daikon Forge/User Interface/Label")]
+[ExecuteInEditMode]
 [Serializable]
-public class dfLabel : dfControl, IDFMultiRender
+public class dfLabel : global::dfControl, global::IDFMultiRender
 {
 	// Token: 0x1400004B RID: 75
-	// (add) Token: 0x06003DFA RID: 15866 RVA: 0x000EAAB8 File Offset: 0x000E8CB8
-	// (remove) Token: 0x06003DFB RID: 15867 RVA: 0x000EAAD4 File Offset: 0x000E8CD4
-	public event PropertyChangedEventHandler<string> TextChanged;
+	// (add) Token: 0x06004216 RID: 16918 RVA: 0x000F36BC File Offset: 0x000F18BC
+	// (remove) Token: 0x06004217 RID: 16919 RVA: 0x000F36D8 File Offset: 0x000F18D8
+	public event global::PropertyChangedEventHandler<string> TextChanged;
 
-	// Token: 0x17000C1A RID: 3098
-	// (get) Token: 0x06003DFC RID: 15868 RVA: 0x000EAAF0 File Offset: 0x000E8CF0
-	// (set) Token: 0x06003DFD RID: 15869 RVA: 0x000EAB38 File Offset: 0x000E8D38
-	public dfAtlas Atlas
+	// Token: 0x17000C9E RID: 3230
+	// (get) Token: 0x06004218 RID: 16920 RVA: 0x000F36F4 File Offset: 0x000F18F4
+	// (set) Token: 0x06004219 RID: 16921 RVA: 0x000F373C File Offset: 0x000F193C
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -33,7 +33,7 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -41,16 +41,16 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C1B RID: 3099
-	// (get) Token: 0x06003DFE RID: 15870 RVA: 0x000EAB58 File Offset: 0x000E8D58
-	// (set) Token: 0x06003DFF RID: 15871 RVA: 0x000EAB9C File Offset: 0x000E8D9C
-	public dfFontBase Font
+	// Token: 0x17000C9F RID: 3231
+	// (get) Token: 0x0600421A RID: 16922 RVA: 0x000F375C File Offset: 0x000F195C
+	// (set) Token: 0x0600421B RID: 16923 RVA: 0x000F37A0 File Offset: 0x000F19A0
+	public global::dfFontBase Font
 	{
 		get
 		{
 			if (this.font == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					this.font = manager.DefaultFont;
@@ -68,9 +68,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C1C RID: 3100
-	// (get) Token: 0x06003E00 RID: 15872 RVA: 0x000EABBC File Offset: 0x000E8DBC
-	// (set) Token: 0x06003E01 RID: 15873 RVA: 0x000EABC4 File Offset: 0x000E8DC4
+	// Token: 0x17000CA0 RID: 3232
+	// (get) Token: 0x0600421C RID: 16924 RVA: 0x000F37C0 File Offset: 0x000F19C0
+	// (set) Token: 0x0600421D RID: 16925 RVA: 0x000F37C8 File Offset: 0x000F19C8
 	public string BackgroundSprite
 	{
 		get
@@ -87,9 +87,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C1D RID: 3101
-	// (get) Token: 0x06003E02 RID: 15874 RVA: 0x000EABE4 File Offset: 0x000E8DE4
-	// (set) Token: 0x06003E03 RID: 15875 RVA: 0x000EABEC File Offset: 0x000E8DEC
+	// Token: 0x17000CA1 RID: 3233
+	// (get) Token: 0x0600421E RID: 16926 RVA: 0x000F37E8 File Offset: 0x000F19E8
+	// (set) Token: 0x0600421F RID: 16927 RVA: 0x000F37F0 File Offset: 0x000F19F0
 	public Color32 BackgroundColor
 	{
 		get
@@ -106,9 +106,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C1E RID: 3102
-	// (get) Token: 0x06003E04 RID: 15876 RVA: 0x000EAC24 File Offset: 0x000E8E24
-	// (set) Token: 0x06003E05 RID: 15877 RVA: 0x000EAC2C File Offset: 0x000E8E2C
+	// Token: 0x17000CA2 RID: 3234
+	// (get) Token: 0x06004220 RID: 16928 RVA: 0x000F3828 File Offset: 0x000F1A28
+	// (set) Token: 0x06004221 RID: 16929 RVA: 0x000F3830 File Offset: 0x000F1A30
 	public float TextScale
 	{
 		get
@@ -126,10 +126,10 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C1F RID: 3103
-	// (get) Token: 0x06003E06 RID: 15878 RVA: 0x000EAC5C File Offset: 0x000E8E5C
-	// (set) Token: 0x06003E07 RID: 15879 RVA: 0x000EAC64 File Offset: 0x000E8E64
-	public dfTextScaleMode TextScaleMode
+	// Token: 0x17000CA3 RID: 3235
+	// (get) Token: 0x06004222 RID: 16930 RVA: 0x000F3860 File Offset: 0x000F1A60
+	// (set) Token: 0x06004223 RID: 16931 RVA: 0x000F3868 File Offset: 0x000F1A68
+	public global::dfTextScaleMode TextScaleMode
 	{
 		get
 		{
@@ -142,9 +142,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C20 RID: 3104
-	// (get) Token: 0x06003E08 RID: 15880 RVA: 0x000EAC74 File Offset: 0x000E8E74
-	// (set) Token: 0x06003E09 RID: 15881 RVA: 0x000EAC7C File Offset: 0x000E8E7C
+	// Token: 0x17000CA4 RID: 3236
+	// (get) Token: 0x06004224 RID: 16932 RVA: 0x000F3878 File Offset: 0x000F1A78
+	// (set) Token: 0x06004225 RID: 16933 RVA: 0x000F3880 File Offset: 0x000F1A80
 	public int CharacterSpacing
 	{
 		get
@@ -162,9 +162,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C21 RID: 3105
-	// (get) Token: 0x06003E0A RID: 15882 RVA: 0x000EACAC File Offset: 0x000E8EAC
-	// (set) Token: 0x06003E0B RID: 15883 RVA: 0x000EACB4 File Offset: 0x000E8EB4
+	// Token: 0x17000CA5 RID: 3237
+	// (get) Token: 0x06004226 RID: 16934 RVA: 0x000F38B0 File Offset: 0x000F1AB0
+	// (set) Token: 0x06004227 RID: 16935 RVA: 0x000F38B8 File Offset: 0x000F1AB8
 	public bool ColorizeSymbols
 	{
 		get
@@ -181,9 +181,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C22 RID: 3106
-	// (get) Token: 0x06003E0C RID: 15884 RVA: 0x000EACD0 File Offset: 0x000E8ED0
-	// (set) Token: 0x06003E0D RID: 15885 RVA: 0x000EACD8 File Offset: 0x000E8ED8
+	// Token: 0x17000CA6 RID: 3238
+	// (get) Token: 0x06004228 RID: 16936 RVA: 0x000F38D4 File Offset: 0x000F1AD4
+	// (set) Token: 0x06004229 RID: 16937 RVA: 0x000F38DC File Offset: 0x000F1ADC
 	public bool ProcessMarkup
 	{
 		get
@@ -200,9 +200,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C23 RID: 3107
-	// (get) Token: 0x06003E0E RID: 15886 RVA: 0x000EACF4 File Offset: 0x000E8EF4
-	// (set) Token: 0x06003E0F RID: 15887 RVA: 0x000EACFC File Offset: 0x000E8EFC
+	// Token: 0x17000CA7 RID: 3239
+	// (get) Token: 0x0600422A RID: 16938 RVA: 0x000F38F8 File Offset: 0x000F1AF8
+	// (set) Token: 0x0600422B RID: 16939 RVA: 0x000F3900 File Offset: 0x000F1B00
 	public bool ShowGradient
 	{
 		get
@@ -219,9 +219,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C24 RID: 3108
-	// (get) Token: 0x06003E10 RID: 15888 RVA: 0x000EAD18 File Offset: 0x000E8F18
-	// (set) Token: 0x06003E11 RID: 15889 RVA: 0x000EAD20 File Offset: 0x000E8F20
+	// Token: 0x17000CA8 RID: 3240
+	// (get) Token: 0x0600422C RID: 16940 RVA: 0x000F391C File Offset: 0x000F1B1C
+	// (set) Token: 0x0600422D RID: 16941 RVA: 0x000F3924 File Offset: 0x000F1B24
 	public Color32 BottomColor
 	{
 		get
@@ -238,9 +238,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C25 RID: 3109
-	// (get) Token: 0x06003E12 RID: 15890 RVA: 0x000EAD58 File Offset: 0x000E8F58
-	// (set) Token: 0x06003E13 RID: 15891 RVA: 0x000EAD60 File Offset: 0x000E8F60
+	// Token: 0x17000CA9 RID: 3241
+	// (get) Token: 0x0600422E RID: 16942 RVA: 0x000F395C File Offset: 0x000F1B5C
+	// (set) Token: 0x0600422F RID: 16943 RVA: 0x000F3964 File Offset: 0x000F1B64
 	public string Text
 	{
 		get
@@ -258,9 +258,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C26 RID: 3110
-	// (get) Token: 0x06003E14 RID: 15892 RVA: 0x000EADB4 File Offset: 0x000E8FB4
-	// (set) Token: 0x06003E15 RID: 15893 RVA: 0x000EADBC File Offset: 0x000E8FBC
+	// Token: 0x17000CAA RID: 3242
+	// (get) Token: 0x06004230 RID: 16944 RVA: 0x000F39B8 File Offset: 0x000F1BB8
+	// (set) Token: 0x06004231 RID: 16945 RVA: 0x000F39C0 File Offset: 0x000F1BC0
 	public bool AutoSize
 	{
 		get
@@ -281,9 +281,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C27 RID: 3111
-	// (get) Token: 0x06003E16 RID: 15894 RVA: 0x000EADF0 File Offset: 0x000E8FF0
-	// (set) Token: 0x06003E17 RID: 15895 RVA: 0x000EAE0C File Offset: 0x000E900C
+	// Token: 0x17000CAB RID: 3243
+	// (get) Token: 0x06004232 RID: 16946 RVA: 0x000F39F4 File Offset: 0x000F1BF4
+	// (set) Token: 0x06004233 RID: 16947 RVA: 0x000F3A10 File Offset: 0x000F1C10
 	public bool AutoHeight
 	{
 		get
@@ -304,9 +304,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C28 RID: 3112
-	// (get) Token: 0x06003E18 RID: 15896 RVA: 0x000EAE40 File Offset: 0x000E9040
-	// (set) Token: 0x06003E19 RID: 15897 RVA: 0x000EAE48 File Offset: 0x000E9048
+	// Token: 0x17000CAC RID: 3244
+	// (get) Token: 0x06004234 RID: 16948 RVA: 0x000F3A44 File Offset: 0x000F1C44
+	// (set) Token: 0x06004235 RID: 16949 RVA: 0x000F3A4C File Offset: 0x000F1C4C
 	public bool WordWrap
 	{
 		get
@@ -323,9 +323,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C29 RID: 3113
-	// (get) Token: 0x06003E1A RID: 15898 RVA: 0x000EAE64 File Offset: 0x000E9064
-	// (set) Token: 0x06003E1B RID: 15899 RVA: 0x000EAE6C File Offset: 0x000E906C
+	// Token: 0x17000CAD RID: 3245
+	// (get) Token: 0x06004236 RID: 16950 RVA: 0x000F3A68 File Offset: 0x000F1C68
+	// (set) Token: 0x06004237 RID: 16951 RVA: 0x000F3A70 File Offset: 0x000F1C70
 	public TextAlignment TextAlignment
 	{
 		get
@@ -342,10 +342,10 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C2A RID: 3114
-	// (get) Token: 0x06003E1C RID: 15900 RVA: 0x000EAE88 File Offset: 0x000E9088
-	// (set) Token: 0x06003E1D RID: 15901 RVA: 0x000EAE90 File Offset: 0x000E9090
-	public dfVerticalAlignment VerticalAlignment
+	// Token: 0x17000CAE RID: 3246
+	// (get) Token: 0x06004238 RID: 16952 RVA: 0x000F3A8C File Offset: 0x000F1C8C
+	// (set) Token: 0x06004239 RID: 16953 RVA: 0x000F3A94 File Offset: 0x000F1C94
+	public global::dfVerticalAlignment VerticalAlignment
 	{
 		get
 		{
@@ -361,9 +361,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C2B RID: 3115
-	// (get) Token: 0x06003E1E RID: 15902 RVA: 0x000EAEAC File Offset: 0x000E90AC
-	// (set) Token: 0x06003E1F RID: 15903 RVA: 0x000EAEB4 File Offset: 0x000E90B4
+	// Token: 0x17000CAF RID: 3247
+	// (get) Token: 0x0600423A RID: 16954 RVA: 0x000F3AB0 File Offset: 0x000F1CB0
+	// (set) Token: 0x0600423B RID: 16955 RVA: 0x000F3AB8 File Offset: 0x000F1CB8
 	public bool Outline
 	{
 		get
@@ -380,9 +380,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C2C RID: 3116
-	// (get) Token: 0x06003E20 RID: 15904 RVA: 0x000EAED0 File Offset: 0x000E90D0
-	// (set) Token: 0x06003E21 RID: 15905 RVA: 0x000EAED8 File Offset: 0x000E90D8
+	// Token: 0x17000CB0 RID: 3248
+	// (get) Token: 0x0600423C RID: 16956 RVA: 0x000F3AD4 File Offset: 0x000F1CD4
+	// (set) Token: 0x0600423D RID: 16957 RVA: 0x000F3ADC File Offset: 0x000F1CDC
 	public int OutlineSize
 	{
 		get
@@ -400,9 +400,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C2D RID: 3117
-	// (get) Token: 0x06003E22 RID: 15906 RVA: 0x000EAF08 File Offset: 0x000E9108
-	// (set) Token: 0x06003E23 RID: 15907 RVA: 0x000EAF10 File Offset: 0x000E9110
+	// Token: 0x17000CB1 RID: 3249
+	// (get) Token: 0x0600423E RID: 16958 RVA: 0x000F3B0C File Offset: 0x000F1D0C
+	// (set) Token: 0x0600423F RID: 16959 RVA: 0x000F3B14 File Offset: 0x000F1D14
 	public Color32 OutlineColor
 	{
 		get
@@ -419,9 +419,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C2E RID: 3118
-	// (get) Token: 0x06003E24 RID: 15908 RVA: 0x000EAF48 File Offset: 0x000E9148
-	// (set) Token: 0x06003E25 RID: 15909 RVA: 0x000EAF50 File Offset: 0x000E9150
+	// Token: 0x17000CB2 RID: 3250
+	// (get) Token: 0x06004240 RID: 16960 RVA: 0x000F3B4C File Offset: 0x000F1D4C
+	// (set) Token: 0x06004241 RID: 16961 RVA: 0x000F3B54 File Offset: 0x000F1D54
 	public bool Shadow
 	{
 		get
@@ -438,9 +438,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C2F RID: 3119
-	// (get) Token: 0x06003E26 RID: 15910 RVA: 0x000EAF6C File Offset: 0x000E916C
-	// (set) Token: 0x06003E27 RID: 15911 RVA: 0x000EAF74 File Offset: 0x000E9174
+	// Token: 0x17000CB3 RID: 3251
+	// (get) Token: 0x06004242 RID: 16962 RVA: 0x000F3B70 File Offset: 0x000F1D70
+	// (set) Token: 0x06004243 RID: 16963 RVA: 0x000F3B78 File Offset: 0x000F1D78
 	public Color32 ShadowColor
 	{
 		get
@@ -457,9 +457,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C30 RID: 3120
-	// (get) Token: 0x06003E28 RID: 15912 RVA: 0x000EAFAC File Offset: 0x000E91AC
-	// (set) Token: 0x06003E29 RID: 15913 RVA: 0x000EAFB4 File Offset: 0x000E91B4
+	// Token: 0x17000CB4 RID: 3252
+	// (get) Token: 0x06004244 RID: 16964 RVA: 0x000F3BB0 File Offset: 0x000F1DB0
+	// (set) Token: 0x06004245 RID: 16965 RVA: 0x000F3BB8 File Offset: 0x000F1DB8
 	public Vector2 ShadowOffset
 	{
 		get
@@ -476,9 +476,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C31 RID: 3121
-	// (get) Token: 0x06003E2A RID: 15914 RVA: 0x000EAFD4 File Offset: 0x000E91D4
-	// (set) Token: 0x06003E2B RID: 15915 RVA: 0x000EAFF4 File Offset: 0x000E91F4
+	// Token: 0x17000CB5 RID: 3253
+	// (get) Token: 0x06004246 RID: 16966 RVA: 0x000F3BD8 File Offset: 0x000F1DD8
+	// (set) Token: 0x06004247 RID: 16967 RVA: 0x000F3BF8 File Offset: 0x000F1DF8
 	public RectOffset Padding
 	{
 		get
@@ -500,9 +500,9 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C32 RID: 3122
-	// (get) Token: 0x06003E2C RID: 15916 RVA: 0x000EB028 File Offset: 0x000E9228
-	// (set) Token: 0x06003E2D RID: 15917 RVA: 0x000EB030 File Offset: 0x000E9230
+	// Token: 0x17000CB6 RID: 3254
+	// (get) Token: 0x06004248 RID: 16968 RVA: 0x000F3C2C File Offset: 0x000F1E2C
+	// (set) Token: 0x06004249 RID: 16969 RVA: 0x000F3C34 File Offset: 0x000F1E34
 	public int TabSize
 	{
 		get
@@ -520,8 +520,8 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x17000C33 RID: 3123
-	// (get) Token: 0x06003E2E RID: 15918 RVA: 0x000EB060 File Offset: 0x000E9260
+	// Token: 0x17000CB7 RID: 3255
+	// (get) Token: 0x0600424A RID: 16970 RVA: 0x000F3C64 File Offset: 0x000F1E64
 	public List<int> TabStops
 	{
 		get
@@ -530,14 +530,14 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003E2F RID: 15919 RVA: 0x000EB068 File Offset: 0x000E9268
+	// Token: 0x0600424B RID: 16971 RVA: 0x000F3C6C File Offset: 0x000F1E6C
 	protected internal override void OnLocalize()
 	{
 		base.OnLocalize();
 		this.Text = base.getLocalizedValue(this.text);
 	}
 
-	// Token: 0x06003E30 RID: 15920 RVA: 0x000EB084 File Offset: 0x000E9284
+	// Token: 0x0600424C RID: 16972 RVA: 0x000F3C88 File Offset: 0x000F1E88
 	protected internal void OnTextChanged()
 	{
 		this.Invalidate();
@@ -551,7 +551,7 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003E31 RID: 15921 RVA: 0x000EB0D0 File Offset: 0x000E92D0
+	// Token: 0x0600424D RID: 16973 RVA: 0x000F3CD4 File Offset: 0x000F1ED4
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -566,7 +566,7 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003E32 RID: 15922 RVA: 0x000EB150 File Offset: 0x000E9350
+	// Token: 0x0600424E RID: 16974 RVA: 0x000F3D54 File Offset: 0x000F1F54
 	public override void Update()
 	{
 		if (this.autoSize)
@@ -580,14 +580,14 @@ public class dfLabel : dfControl, IDFMultiRender
 		base.Update();
 	}
 
-	// Token: 0x06003E33 RID: 15923 RVA: 0x000EB198 File Offset: 0x000E9398
+	// Token: 0x0600424F RID: 16975 RVA: 0x000F3D9C File Offset: 0x000F1F9C
 	public override void Awake()
 	{
 		base.Awake();
 		this.startSize = ((!Application.isPlaying) ? Vector2.zero : base.Size);
 	}
 
-	// Token: 0x06003E34 RID: 15924 RVA: 0x000EB1CC File Offset: 0x000E93CC
+	// Token: 0x06004250 RID: 16976 RVA: 0x000F3DD0 File Offset: 0x000F1FD0
 	public override Vector2 CalculateMinimumSize()
 	{
 		if (this.Font != null)
@@ -598,7 +598,7 @@ public class dfLabel : dfControl, IDFMultiRender
 		return base.CalculateMinimumSize();
 	}
 
-	// Token: 0x06003E35 RID: 15925 RVA: 0x000EB220 File Offset: 0x000E9420
+	// Token: 0x06004251 RID: 16977 RVA: 0x000F3E24 File Offset: 0x000F2024
 	public override void Invalidate()
 	{
 		base.Invalidate();
@@ -623,7 +623,7 @@ public class dfLabel : dfControl, IDFMultiRender
 			}
 			return;
 		}
-		using (dfFontRendererBase dfFontRendererBase = this.obtainRenderer())
+		using (global::dfFontRendererBase dfFontRendererBase = this.obtainRenderer())
 		{
 			Vector2 vector = dfFontRendererBase.MeasureString(this.text).RoundToInt();
 			if (this.AutoSize || flag)
@@ -637,8 +637,8 @@ public class dfLabel : dfControl, IDFMultiRender
 		}
 	}
 
-	// Token: 0x06003E36 RID: 15926 RVA: 0x000EB3A4 File Offset: 0x000E95A4
-	private dfFontRendererBase obtainRenderer()
+	// Token: 0x06004252 RID: 16978 RVA: 0x000F3FA8 File Offset: 0x000F21A8
+	private global::dfFontRendererBase obtainRenderer()
 	{
 		bool flag = base.Size.sqrMagnitude <= float.Epsilon;
 		Vector2 vector = base.Size - new Vector2((float)this.padding.horizontal, (float)this.padding.vertical);
@@ -650,7 +650,7 @@ public class dfLabel : dfControl, IDFMultiRender
 		float num = base.PixelsToUnits();
 		Vector3 vector2 = (this.pivot.TransformToUpperLeft(base.Size) + new Vector3((float)this.padding.left, (float)(-(float)this.padding.top))) * num;
 		float num2 = this.TextScale * this.getTextScaleMultiplier();
-		dfFontRendererBase dfFontRendererBase = this.Font.ObtainRenderer();
+		global::dfFontRendererBase dfFontRendererBase = this.Font.ObtainRenderer();
 		dfFontRendererBase.WordWrap = this.WordWrap;
 		dfFontRendererBase.MaxSize = maxSize;
 		dfFontRendererBase.PixelRatio = num;
@@ -673,27 +673,27 @@ public class dfLabel : dfControl, IDFMultiRender
 		dfFontRendererBase.Shadow = this.Shadow;
 		dfFontRendererBase.ShadowColor = this.ShadowColor;
 		dfFontRendererBase.ShadowOffset = this.ShadowOffset;
-		dfDynamicFont.DynamicFontRenderer dynamicFontRenderer = dfFontRendererBase as dfDynamicFont.DynamicFontRenderer;
+		global::dfDynamicFont.DynamicFontRenderer dynamicFontRenderer = dfFontRendererBase as global::dfDynamicFont.DynamicFontRenderer;
 		if (dynamicFontRenderer != null)
 		{
 			dynamicFontRenderer.SpriteAtlas = this.Atlas;
 			dynamicFontRenderer.SpriteBuffer = this.renderData;
 		}
-		if (this.vertAlign != dfVerticalAlignment.Top)
+		if (this.vertAlign != global::dfVerticalAlignment.Top)
 		{
 			dfFontRendererBase.VectorOffset = this.getVertAlignOffset(dfFontRendererBase);
 		}
 		return dfFontRendererBase;
 	}
 
-	// Token: 0x06003E37 RID: 15927 RVA: 0x000EB62C File Offset: 0x000E982C
+	// Token: 0x06004253 RID: 16979 RVA: 0x000F4230 File Offset: 0x000F2430
 	private float getTextScaleMultiplier()
 	{
-		if (this.textScaleMode == dfTextScaleMode.None || !Application.isPlaying)
+		if (this.textScaleMode == global::dfTextScaleMode.None || !Application.isPlaying)
 		{
 			return 1f;
 		}
-		if (this.textScaleMode == dfTextScaleMode.ScreenResolution)
+		if (this.textScaleMode == global::dfTextScaleMode.ScreenResolution)
 		{
 			return (float)Screen.height / (float)this.manager.FixedHeight;
 		}
@@ -704,7 +704,7 @@ public class dfLabel : dfControl, IDFMultiRender
 		return base.Size.y / this.startSize.y;
 	}
 
-	// Token: 0x06003E38 RID: 15928 RVA: 0x000EB6A0 File Offset: 0x000E98A0
+	// Token: 0x06004254 RID: 16980 RVA: 0x000F42A4 File Offset: 0x000F24A4
 	private Vector2 getAutoSizeDefault()
 	{
 		float num = (this.maxSize.x <= float.Epsilon) ? 2.14748365E+09f : this.maxSize.x;
@@ -714,8 +714,8 @@ public class dfLabel : dfControl, IDFMultiRender
 		return result;
 	}
 
-	// Token: 0x06003E39 RID: 15929 RVA: 0x000EB710 File Offset: 0x000E9910
-	private Vector3 getVertAlignOffset(dfFontRendererBase textRenderer)
+	// Token: 0x06004255 RID: 16981 RVA: 0x000F4314 File Offset: 0x000F2514
+	private Vector3 getVertAlignOffset(global::dfFontRendererBase textRenderer)
 	{
 		float num = base.PixelsToUnits();
 		Vector2 vector = textRenderer.MeasureString(this.text) * num;
@@ -725,10 +725,10 @@ public class dfLabel : dfControl, IDFMultiRender
 		{
 			return vectorOffset;
 		}
-		dfVerticalAlignment dfVerticalAlignment = this.vertAlign;
-		if (dfVerticalAlignment != dfVerticalAlignment.Middle)
+		global::dfVerticalAlignment dfVerticalAlignment = this.vertAlign;
+		if (dfVerticalAlignment != global::dfVerticalAlignment.Middle)
 		{
-			if (dfVerticalAlignment == dfVerticalAlignment.Bottom)
+			if (dfVerticalAlignment == global::dfVerticalAlignment.Bottom)
 			{
 				vectorOffset.y -= num2 - vector.y;
 			}
@@ -740,20 +740,20 @@ public class dfLabel : dfControl, IDFMultiRender
 		return vectorOffset;
 	}
 
-	// Token: 0x06003E3A RID: 15930 RVA: 0x000EB7C0 File Offset: 0x000E99C0
+	// Token: 0x06004256 RID: 16982 RVA: 0x000F43C4 File Offset: 0x000F25C4
 	protected internal virtual void renderBackground()
 	{
 		if (this.Atlas == null)
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
 		if (itemInfo == null)
 		{
 			return;
 		}
 		Color32 color = base.ApplyOpacity(this.BackgroundColor);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -765,18 +765,18 @@ public class dfLabel : dfControl, IDFMultiRender
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x06003E3B RID: 15931 RVA: 0x000EB8B0 File Offset: 0x000E9AB0
-	public dfList<dfRenderData> RenderMultiple()
+	// Token: 0x06004257 RID: 16983 RVA: 0x000F44B4 File Offset: 0x000F26B4
+	public global::dfList<global::dfRenderData> RenderMultiple()
 	{
-		dfList<dfRenderData> result;
+		global::dfList<global::dfRenderData> result;
 		try
 		{
 			if (this.Atlas == null || this.Font == null || !this.isVisible || !this.Font.IsValid)
@@ -787,8 +787,8 @@ public class dfLabel : dfControl, IDFMultiRender
 			{
 				if (this.renderData == null)
 				{
-					this.renderData = dfRenderData.Obtain();
-					this.textRenderData = dfRenderData.Obtain();
+					this.renderData = global::dfRenderData.Obtain();
+					this.textRenderData = global::dfRenderData.Obtain();
 					this.isControlInvalidated = true;
 				}
 				if (!this.isControlInvalidated)
@@ -822,7 +822,7 @@ public class dfLabel : dfControl, IDFMultiRender
 					else
 					{
 						bool flag = this.size.sqrMagnitude <= float.Epsilon;
-						using (dfFontRendererBase dfFontRendererBase = this.obtainRenderer())
+						using (global::dfFontRendererBase dfFontRendererBase = this.obtainRenderer())
 						{
 							dfFontRendererBase.Render(this.text, this.textRenderData);
 							if (this.AutoSize || flag)
@@ -847,116 +847,116 @@ public class dfLabel : dfControl, IDFMultiRender
 		return result;
 	}
 
-	// Token: 0x040020A4 RID: 8356
+	// Token: 0x040022AD RID: 8877
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x040020A5 RID: 8357
+	// Token: 0x040022AE RID: 8878
 	[SerializeField]
-	protected dfFontBase font;
+	protected global::dfFontBase font;
 
-	// Token: 0x040020A6 RID: 8358
+	// Token: 0x040022AF RID: 8879
 	[SerializeField]
 	protected string backgroundSprite;
 
-	// Token: 0x040020A7 RID: 8359
+	// Token: 0x040022B0 RID: 8880
 	[SerializeField]
 	protected Color32 backgroundColor = UnityEngine.Color.white;
 
-	// Token: 0x040020A8 RID: 8360
+	// Token: 0x040022B1 RID: 8881
 	[SerializeField]
 	protected bool autoSize;
 
-	// Token: 0x040020A9 RID: 8361
+	// Token: 0x040022B2 RID: 8882
 	[SerializeField]
 	protected bool autoHeight;
 
-	// Token: 0x040020AA RID: 8362
+	// Token: 0x040022B3 RID: 8883
 	[SerializeField]
 	protected bool wordWrap;
 
-	// Token: 0x040020AB RID: 8363
+	// Token: 0x040022B4 RID: 8884
 	[SerializeField]
 	protected string text = "Label";
 
-	// Token: 0x040020AC RID: 8364
+	// Token: 0x040022B5 RID: 8885
 	[SerializeField]
 	protected Color32 bottomColor = new Color32(byte.MaxValue, byte.MaxValue, byte.MaxValue, byte.MaxValue);
 
-	// Token: 0x040020AD RID: 8365
+	// Token: 0x040022B6 RID: 8886
 	[SerializeField]
 	protected TextAlignment align;
 
-	// Token: 0x040020AE RID: 8366
+	// Token: 0x040022B7 RID: 8887
 	[SerializeField]
-	protected dfVerticalAlignment vertAlign;
+	protected global::dfVerticalAlignment vertAlign;
 
-	// Token: 0x040020AF RID: 8367
+	// Token: 0x040022B8 RID: 8888
 	[SerializeField]
 	protected float textScale = 1f;
 
-	// Token: 0x040020B0 RID: 8368
+	// Token: 0x040022B9 RID: 8889
 	[SerializeField]
-	protected dfTextScaleMode textScaleMode;
+	protected global::dfTextScaleMode textScaleMode;
 
-	// Token: 0x040020B1 RID: 8369
+	// Token: 0x040022BA RID: 8890
 	[SerializeField]
 	protected int charSpacing;
 
-	// Token: 0x040020B2 RID: 8370
+	// Token: 0x040022BB RID: 8891
 	[SerializeField]
 	protected bool colorizeSymbols;
 
-	// Token: 0x040020B3 RID: 8371
+	// Token: 0x040022BC RID: 8892
 	[SerializeField]
 	protected bool processMarkup;
 
-	// Token: 0x040020B4 RID: 8372
+	// Token: 0x040022BD RID: 8893
 	[SerializeField]
 	protected bool outline;
 
-	// Token: 0x040020B5 RID: 8373
+	// Token: 0x040022BE RID: 8894
 	[SerializeField]
 	protected int outlineWidth = 1;
 
-	// Token: 0x040020B6 RID: 8374
+	// Token: 0x040022BF RID: 8895
 	[SerializeField]
 	protected bool enableGradient;
 
-	// Token: 0x040020B7 RID: 8375
+	// Token: 0x040022C0 RID: 8896
 	[SerializeField]
 	protected Color32 outlineColor = UnityEngine.Color.black;
 
-	// Token: 0x040020B8 RID: 8376
+	// Token: 0x040022C1 RID: 8897
 	[SerializeField]
 	protected bool shadow;
 
-	// Token: 0x040020B9 RID: 8377
+	// Token: 0x040022C2 RID: 8898
 	[SerializeField]
 	protected Color32 shadowColor = UnityEngine.Color.black;
 
-	// Token: 0x040020BA RID: 8378
+	// Token: 0x040022C3 RID: 8899
 	[SerializeField]
 	protected Vector2 shadowOffset = new Vector2(1f, -1f);
 
-	// Token: 0x040020BB RID: 8379
+	// Token: 0x040022C4 RID: 8900
 	[SerializeField]
 	protected RectOffset padding = new RectOffset();
 
-	// Token: 0x040020BC RID: 8380
+	// Token: 0x040022C5 RID: 8901
 	[SerializeField]
 	protected int tabSize = 48;
 
-	// Token: 0x040020BD RID: 8381
+	// Token: 0x040022C6 RID: 8902
 	[SerializeField]
 	protected List<int> tabStops = new List<int>();
 
-	// Token: 0x040020BE RID: 8382
+	// Token: 0x040022C7 RID: 8903
 	private Vector2 startSize = Vector2.zero;
 
-	// Token: 0x040020BF RID: 8383
-	private dfRenderData textRenderData;
+	// Token: 0x040022C8 RID: 8904
+	private global::dfRenderData textRenderData;
 
-	// Token: 0x040020C0 RID: 8384
-	private dfList<dfRenderData> buffers = dfList<dfRenderData>.Obtain();
+	// Token: 0x040022C9 RID: 8905
+	private global::dfList<global::dfRenderData> buffers = global::dfList<global::dfRenderData>.Obtain();
 }

@@ -2,10 +2,10 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x0200068C RID: 1676
+// Token: 0x02000751 RID: 1873
 public class TransformTest : MonoBehaviour
 {
-	// Token: 0x06003A03 RID: 14851 RVA: 0x000D7BBC File Offset: 0x000D5DBC
+	// Token: 0x06003DFB RID: 15867 RVA: 0x000E059C File Offset: 0x000DE79C
 	private void OnDrawGizmos()
 	{
 		Matrix4x4G matrix4x4G;

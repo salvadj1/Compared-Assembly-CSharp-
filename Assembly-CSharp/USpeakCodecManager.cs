@@ -2,44 +2,44 @@
 using MoPhoGames.USpeak.Codec;
 using UnityEngine;
 
-// Token: 0x020000BD RID: 189
+// Token: 0x020000D1 RID: 209
 public class USpeakCodecManager : ScriptableObject
 {
-	// Token: 0x17000095 RID: 149
-	// (get) Token: 0x06000407 RID: 1031 RVA: 0x00015138 File Offset: 0x00013338
-	public static USpeakCodecManager Instance
+	// Token: 0x170000AF RID: 175
+	// (get) Token: 0x06000485 RID: 1157 RVA: 0x00016B00 File Offset: 0x00014D00
+	public static global::USpeakCodecManager Instance
 	{
 		get
 		{
-			if (USpeakCodecManager.instance == null)
+			if (global::USpeakCodecManager.instance == null)
 			{
-				USpeakCodecManager.instance = (USpeakCodecManager)Resources.Load("CodecManager");
-				if (USpeakCodecManager.instance == null)
+				global::USpeakCodecManager.instance = (global::USpeakCodecManager)global::Resources.Load("CodecManager");
+				if (global::USpeakCodecManager.instance == null)
 				{
 					Debug.LogError("Couldn't load Resources/CodecManager!");
 				}
 				if (Application.isPlaying)
 				{
-					USpeakCodecManager.instance.Codecs = new ICodec[USpeakCodecManager.instance.CodecNames.Length];
-					for (int i = 0; i < USpeakCodecManager.instance.Codecs.Length; i++)
+					global::USpeakCodecManager.instance.Codecs = new MoPhoGames.USpeak.Codec.ICodec[global::USpeakCodecManager.instance.CodecNames.Length];
+					for (int i = 0; i < global::USpeakCodecManager.instance.Codecs.Length; i++)
 					{
-						USpeakCodecManager.instance.Codecs[i] = (ICodec)Activator.CreateInstance(Type.GetType(USpeakCodecManager.instance.CodecNames[i]));
+						global::USpeakCodecManager.instance.Codecs[i] = (MoPhoGames.USpeak.Codec.ICodec)Activator.CreateInstance(Type.GetType(global::USpeakCodecManager.instance.CodecNames[i]));
 					}
 				}
 			}
-			return USpeakCodecManager.instance;
+			return global::USpeakCodecManager.instance;
 		}
 	}
 
-	// Token: 0x04000397 RID: 919
-	private static USpeakCodecManager instance;
+	// Token: 0x04000406 RID: 1030
+	private static global::USpeakCodecManager instance;
 
-	// Token: 0x04000398 RID: 920
-	public ICodec[] Codecs;
+	// Token: 0x04000407 RID: 1031
+	public MoPhoGames.USpeak.Codec.ICodec[] Codecs;
 
-	// Token: 0x04000399 RID: 921
+	// Token: 0x04000408 RID: 1032
 	public string[] CodecNames = new string[0];
 
-	// Token: 0x0400039A RID: 922
+	// Token: 0x04000409 RID: 1033
 	public string[] FriendlyNames = new string[0];
 }

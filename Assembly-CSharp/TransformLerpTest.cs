@@ -1,25 +1,25 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200068A RID: 1674
+// Token: 0x0200074F RID: 1871
 public class TransformLerpTest : MonoBehaviour
 {
-	// Token: 0x060039FD RID: 14845 RVA: 0x000D76D0 File Offset: 0x000D58D0
+	// Token: 0x06003DF5 RID: 15861 RVA: 0x000E00B0 File Offset: 0x000DE2B0
 	private Matrix4x4 Interp(float t, Matrix4x4 a, Matrix4x4 b)
 	{
 		Matrix4x4 result;
 		switch (this.mode)
 		{
 		default:
-			result = TransitionFunctions.Slerp(t, a, b);
+			result = global::TransitionFunctions.Slerp(t, a, b);
 			break;
-		case TransformLerpTest.SlerpMode.TransformLerp:
-		case TransformLerpTest.SlerpMode.WorldToCameraLerp:
-		case TransformLerpTest.SlerpMode.CameraToWorldLerp:
-			result = TransitionFunctions.Linear(t, a, b);
+		case global::TransformLerpTest.SlerpMode.TransformLerp:
+		case global::TransformLerpTest.SlerpMode.WorldToCameraLerp:
+		case global::TransformLerpTest.SlerpMode.CameraToWorldLerp:
+			result = global::TransitionFunctions.Linear(t, a, b);
 			break;
-		case TransformLerpTest.SlerpMode.WorldToCameraSlerp2:
-			result = TransitionFunctions.SlerpWorldToCamera(t, a, b);
+		case global::TransformLerpTest.SlerpMode.WorldToCameraSlerp2:
+			result = global::TransitionFunctions.SlerpWorldToCamera(t, a, b);
 			break;
 		}
 		if (this.inverse0)
@@ -59,8 +59,8 @@ public class TransformLerpTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x17000B3B RID: 2875
-	// (get) Token: 0x060039FE RID: 14846 RVA: 0x000D77E8 File Offset: 0x000D59E8
+	// Token: 0x17000BBD RID: 3005
+	// (get) Token: 0x06003DF6 RID: 15862 RVA: 0x000E01C8 File Offset: 0x000DE3C8
 	private bool ready
 	{
 		get
@@ -69,16 +69,16 @@ public class TransformLerpTest : MonoBehaviour
 			{
 			default:
 				return this.a && this.b;
-			case TransformLerpTest.SlerpMode.WorldToCameraSlerp:
-			case TransformLerpTest.SlerpMode.WorldToCameraLerp:
-			case TransformLerpTest.SlerpMode.CameraToWorldSlerp:
-			case TransformLerpTest.SlerpMode.CameraToWorldLerp:
+			case global::TransformLerpTest.SlerpMode.WorldToCameraSlerp:
+			case global::TransformLerpTest.SlerpMode.WorldToCameraLerp:
+			case global::TransformLerpTest.SlerpMode.CameraToWorldSlerp:
+			case global::TransformLerpTest.SlerpMode.CameraToWorldLerp:
 				return this.a && this.b && this.a.camera && this.b.camera;
 			}
 		}
 	}
 
-	// Token: 0x060039FF RID: 14847 RVA: 0x000D7888 File Offset: 0x000D5A88
+	// Token: 0x06003DF7 RID: 15863 RVA: 0x000E0268 File Offset: 0x000DE468
 	private Matrix4x4 GetMatrix(Transform a)
 	{
 		switch (this.mode)
@@ -89,17 +89,17 @@ public class TransformLerpTest : MonoBehaviour
 				return a.camera.worldToCameraMatrix * a.localToWorldMatrix;
 			}
 			return a.localToWorldMatrix;
-		case TransformLerpTest.SlerpMode.WorldToCameraSlerp:
-		case TransformLerpTest.SlerpMode.WorldToCameraLerp:
-		case TransformLerpTest.SlerpMode.WorldToCameraSlerp2:
+		case global::TransformLerpTest.SlerpMode.WorldToCameraSlerp:
+		case global::TransformLerpTest.SlerpMode.WorldToCameraLerp:
+		case global::TransformLerpTest.SlerpMode.WorldToCameraSlerp2:
 			return a.camera.worldToCameraMatrix;
-		case TransformLerpTest.SlerpMode.CameraToWorldSlerp:
-		case TransformLerpTest.SlerpMode.CameraToWorldLerp:
+		case global::TransformLerpTest.SlerpMode.CameraToWorldSlerp:
+		case global::TransformLerpTest.SlerpMode.CameraToWorldLerp:
 			return a.camera.cameraToWorldMatrix;
 		}
 	}
 
-	// Token: 0x06003A00 RID: 14848 RVA: 0x000D7908 File Offset: 0x000D5B08
+	// Token: 0x06003DF8 RID: 15864 RVA: 0x000E02E8 File Offset: 0x000DE4E8
 	private static void DrawAxes(Matrix4x4 m, float alpha)
 	{
 		Vector3 vector = m.MultiplyPoint(Vector3.zero);
@@ -113,7 +113,7 @@ public class TransformLerpTest : MonoBehaviour
 		Gizmos.DrawLine(vector, m.MultiplyPoint(Vector3.forward));
 	}
 
-	// Token: 0x06003A01 RID: 14849 RVA: 0x000D79CC File Offset: 0x000D5BCC
+	// Token: 0x06003DF9 RID: 15865 RVA: 0x000E03AC File Offset: 0x000DE5AC
 	private void OnDrawGizmos()
 	{
 		if (this.ready)
@@ -122,7 +122,7 @@ public class TransformLerpTest : MonoBehaviour
 			Matrix4x4 matrix2 = this.GetMatrix(this.b);
 			float num = (!this.cap) ? this.t : Mathf.Clamp01(this.t);
 			Matrix4x4 m = this.Interp(0f, matrix, matrix2);
-			TransformLerpTest.DrawAxes(m, 0.5f);
+			global::TransformLerpTest.DrawAxes(m, 0.5f);
 			for (int i = 1; i <= 32; i++)
 			{
 				Matrix4x4 matrix4x = this.Interp((float)i / 32f, matrix, matrix2);
@@ -136,65 +136,65 @@ public class TransformLerpTest : MonoBehaviour
 				Gizmos.DrawLine(m.MultiplyPoint(Vector3.forward), matrix4x.MultiplyPoint(Vector3.forward));
 				m = matrix4x;
 			}
-			TransformLerpTest.DrawAxes(m, 0.5f);
+			global::TransformLerpTest.DrawAxes(m, 0.5f);
 			m = this.Interp(num, matrix, matrix2);
-			TransformLerpTest.DrawAxes(m, 1f);
+			global::TransformLerpTest.DrawAxes(m, 1f);
 			this.angleXY = Vector3.Angle(m.MultiplyVector(Vector3.right), m.MultiplyVector(Vector3.up));
 			this.angleYZ = Vector3.Angle(m.MultiplyVector(Vector3.up), m.MultiplyVector(Vector3.forward));
 			this.angleZX = Vector3.Angle(m.MultiplyVector(Vector3.forward), m.MultiplyVector(Vector3.right));
 		}
 	}
 
-	// Token: 0x04001E0F RID: 7695
+	// Token: 0x04002007 RID: 8199
 	public Transform a;
 
-	// Token: 0x04001E10 RID: 7696
+	// Token: 0x04002008 RID: 8200
 	public Transform b;
 
-	// Token: 0x04001E11 RID: 7697
+	// Token: 0x04002009 RID: 8201
 	public float t;
 
-	// Token: 0x04001E12 RID: 7698
+	// Token: 0x0400200A RID: 8202
 	public float angleXY;
 
-	// Token: 0x04001E13 RID: 7699
+	// Token: 0x0400200B RID: 8203
 	public float angleYZ;
 
-	// Token: 0x04001E14 RID: 7700
+	// Token: 0x0400200C RID: 8204
 	public float angleZX;
 
-	// Token: 0x04001E15 RID: 7701
+	// Token: 0x0400200D RID: 8205
 	public bool cap;
 
-	// Token: 0x04001E16 RID: 7702
+	// Token: 0x0400200E RID: 8206
 	public bool inverse0;
 
-	// Token: 0x04001E17 RID: 7703
+	// Token: 0x0400200F RID: 8207
 	public bool transpose;
 
-	// Token: 0x04001E18 RID: 7704
+	// Token: 0x04002010 RID: 8208
 	public bool inverse1;
 
-	// Token: 0x04001E19 RID: 7705
+	// Token: 0x04002011 RID: 8209
 	[SerializeField]
-	private TransformLerpTest.SlerpMode mode;
+	private global::TransformLerpTest.SlerpMode mode;
 
-	// Token: 0x0200068B RID: 1675
+	// Token: 0x02000750 RID: 1872
 	private enum SlerpMode
 	{
-		// Token: 0x04001E1B RID: 7707
+		// Token: 0x04002013 RID: 8211
 		TransformSlerp,
-		// Token: 0x04001E1C RID: 7708
+		// Token: 0x04002014 RID: 8212
 		TransformLerp,
-		// Token: 0x04001E1D RID: 7709
+		// Token: 0x04002015 RID: 8213
 		WorldToCameraSlerp,
-		// Token: 0x04001E1E RID: 7710
+		// Token: 0x04002016 RID: 8214
 		WorldToCameraLerp,
-		// Token: 0x04001E1F RID: 7711
+		// Token: 0x04002017 RID: 8215
 		CameraToWorldSlerp,
-		// Token: 0x04001E20 RID: 7712
+		// Token: 0x04002018 RID: 8216
 		CameraToWorldLerp,
-		// Token: 0x04001E21 RID: 7713
+		// Token: 0x04002019 RID: 8217
 		WorldToCameraSlerp2
 	}
 }

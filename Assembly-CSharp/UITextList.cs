@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000806 RID: 2054
+// Token: 0x020008F8 RID: 2296
 [AddComponentMenu("NGUI/UI/Text List")]
 public class UITextList : MonoBehaviour
 {
-	// Token: 0x060049BD RID: 18877 RVA: 0x001399C0 File Offset: 0x00137BC0
+	// Token: 0x06004E6C RID: 20076 RVA: 0x00143924 File Offset: 0x00141B24
 	public void Clear()
 	{
 		this.mParagraphs.Clear();
 		this.UpdateVisibleText();
 	}
 
-	// Token: 0x060049BE RID: 18878 RVA: 0x001399D4 File Offset: 0x00137BD4
+	// Token: 0x06004E6D RID: 20077 RVA: 0x00143938 File Offset: 0x00141B38
 	public void Add(string text)
 	{
 		this.Add(text, true);
 	}
 
-	// Token: 0x060049BF RID: 18879 RVA: 0x001399E0 File Offset: 0x00137BE0
+	// Token: 0x06004E6E RID: 20078 RVA: 0x00143944 File Offset: 0x00141B44
 	protected void Add(string text, bool updateVisible)
 	{
-		UITextList.Paragraph paragraph;
+		global::UITextList.Paragraph paragraph;
 		if (this.mParagraphs.Count < this.maxEntries)
 		{
-			paragraph = new UITextList.Paragraph();
+			paragraph = new global::UITextList.Paragraph();
 		}
 		else
 		{
@@ -36,7 +36,7 @@ public class UITextList : MonoBehaviour
 		this.mParagraphs.Add(paragraph);
 		if (this.textLabel != null && this.textLabel.font != null)
 		{
-			paragraph.lines = this.textLabel.font.WrapText(UIFont.tempMarkup, paragraph.text, this.maxWidth / this.textLabel.transform.localScale.y, this.textLabel.maxLineCount, this.textLabel.supportEncoding, this.textLabel.symbolStyle).Split(this.mSeparator);
+			paragraph.lines = this.textLabel.font.WrapText(global::UIFont.tempMarkup, paragraph.text, this.maxWidth / this.textLabel.transform.localScale.y, this.textLabel.maxLineCount, this.textLabel.supportEncoding, this.textLabel.symbolStyle).Split(this.mSeparator);
 			this.mTotalLines = 0;
 			int i = 0;
 			int count = this.mParagraphs.Count;
@@ -52,12 +52,12 @@ public class UITextList : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049C0 RID: 18880 RVA: 0x00139B20 File Offset: 0x00137D20
+	// Token: 0x06004E6F RID: 20079 RVA: 0x00143A84 File Offset: 0x00141C84
 	private void Awake()
 	{
 		if (this.textLabel == null)
 		{
-			this.textLabel = base.GetComponentInChildren<UILabel>();
+			this.textLabel = base.GetComponentInChildren<global::UILabel>();
 		}
 		if (this.textLabel != null)
 		{
@@ -77,18 +77,18 @@ public class UITextList : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049C1 RID: 18881 RVA: 0x00139C00 File Offset: 0x00137E00
+	// Token: 0x06004E70 RID: 20080 RVA: 0x00143B64 File Offset: 0x00141D64
 	private void OnSelect(bool selected)
 	{
 		this.mSelected = selected;
 	}
 
-	// Token: 0x060049C2 RID: 18882 RVA: 0x00139C0C File Offset: 0x00137E0C
+	// Token: 0x06004E71 RID: 20081 RVA: 0x00143B70 File Offset: 0x00141D70
 	protected void UpdateVisibleText()
 	{
 		if (this.textLabel != null)
 		{
-			UIFont font = this.textLabel.font;
+			global::UIFont font = this.textLabel.font;
 			if (font != null)
 			{
 				int num = 0;
@@ -99,7 +99,7 @@ public class UITextList : MonoBehaviour
 					num3 = Mathf.Max(0, this.mTotalLines - num2);
 					this.mScroll = (float)num3;
 				}
-				if (this.style == UITextList.Style.Chat)
+				if (this.style == global::UITextList.Style.Chat)
 				{
 					num3 = Mathf.Max(0, this.mTotalLines - num2 - num3);
 				}
@@ -108,7 +108,7 @@ public class UITextList : MonoBehaviour
 				int count = this.mParagraphs.Count;
 				while (i < count)
 				{
-					UITextList.Paragraph paragraph = this.mParagraphs[i];
+					global::UITextList.Paragraph paragraph = this.mParagraphs[i];
 					int j = 0;
 					int num4 = paragraph.lines.Length;
 					while (j < num4)
@@ -144,69 +144,69 @@ public class UITextList : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049C3 RID: 18883 RVA: 0x00139D9C File Offset: 0x00137F9C
+	// Token: 0x06004E72 RID: 20082 RVA: 0x00143D00 File Offset: 0x00141F00
 	private void OnScroll(float val)
 	{
 		if (this.mSelected && this.supportScrollWheel)
 		{
-			val *= ((this.style != UITextList.Style.Chat) ? -10f : 10f);
+			val *= ((this.style != global::UITextList.Style.Chat) ? -10f : 10f);
 			this.mScroll = Mathf.Max(0f, this.mScroll + val);
 			this.UpdateVisibleText();
 		}
 	}
 
-	// Token: 0x040029B1 RID: 10673
-	public UITextList.Style style;
+	// Token: 0x04002BFF RID: 11263
+	public global::UITextList.Style style;
 
-	// Token: 0x040029B2 RID: 10674
-	public UILabel textLabel;
+	// Token: 0x04002C00 RID: 11264
+	public global::UILabel textLabel;
 
-	// Token: 0x040029B3 RID: 10675
+	// Token: 0x04002C01 RID: 11265
 	public float maxWidth;
 
-	// Token: 0x040029B4 RID: 10676
+	// Token: 0x04002C02 RID: 11266
 	public float maxHeight;
 
-	// Token: 0x040029B5 RID: 10677
+	// Token: 0x04002C03 RID: 11267
 	public int maxEntries = 50;
 
-	// Token: 0x040029B6 RID: 10678
+	// Token: 0x04002C04 RID: 11268
 	public bool supportScrollWheel = true;
 
-	// Token: 0x040029B7 RID: 10679
+	// Token: 0x04002C05 RID: 11269
 	protected char[] mSeparator = new char[]
 	{
 		'\n'
 	};
 
-	// Token: 0x040029B8 RID: 10680
-	protected List<UITextList.Paragraph> mParagraphs = new List<UITextList.Paragraph>();
+	// Token: 0x04002C06 RID: 11270
+	protected List<global::UITextList.Paragraph> mParagraphs = new List<global::UITextList.Paragraph>();
 
-	// Token: 0x040029B9 RID: 10681
+	// Token: 0x04002C07 RID: 11271
 	protected float mScroll;
 
-	// Token: 0x040029BA RID: 10682
+	// Token: 0x04002C08 RID: 11272
 	protected bool mSelected;
 
-	// Token: 0x040029BB RID: 10683
+	// Token: 0x04002C09 RID: 11273
 	protected int mTotalLines;
 
-	// Token: 0x02000807 RID: 2055
+	// Token: 0x020008F9 RID: 2297
 	public enum Style
 	{
-		// Token: 0x040029BD RID: 10685
+		// Token: 0x04002C0B RID: 11275
 		Text,
-		// Token: 0x040029BE RID: 10686
+		// Token: 0x04002C0C RID: 11276
 		Chat
 	}
 
-	// Token: 0x02000808 RID: 2056
+	// Token: 0x020008FA RID: 2298
 	protected class Paragraph
 	{
-		// Token: 0x040029BF RID: 10687
+		// Token: 0x04002C0D RID: 11277
 		public string text;
 
-		// Token: 0x040029C0 RID: 10688
+		// Token: 0x04002C0E RID: 11278
 		public string[] lines;
 	}
 }

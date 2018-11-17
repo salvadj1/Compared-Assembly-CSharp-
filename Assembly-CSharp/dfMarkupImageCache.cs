@@ -2,43 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200071C RID: 1820
+// Token: 0x020007F8 RID: 2040
 public class dfMarkupImageCache
 {
-	// Token: 0x060042AF RID: 17071 RVA: 0x00102AC8 File Offset: 0x00100CC8
+	// Token: 0x060046F3 RID: 18163 RVA: 0x0010BDD8 File Offset: 0x00109FD8
 	public static void Clear()
 	{
-		dfMarkupImageCache.cache.Clear();
+		global::dfMarkupImageCache.cache.Clear();
 	}
 
-	// Token: 0x060042B0 RID: 17072 RVA: 0x00102AD4 File Offset: 0x00100CD4
+	// Token: 0x060046F4 RID: 18164 RVA: 0x0010BDE4 File Offset: 0x00109FE4
 	public static void Load(string name, Texture image)
 	{
-		dfMarkupImageCache.cache[name.ToLowerInvariant()] = image;
+		global::dfMarkupImageCache.cache[name.ToLowerInvariant()] = image;
 	}
 
-	// Token: 0x060042B1 RID: 17073 RVA: 0x00102AE8 File Offset: 0x00100CE8
+	// Token: 0x060046F5 RID: 18165 RVA: 0x0010BDF8 File Offset: 0x00109FF8
 	public static void Unload(string name)
 	{
-		dfMarkupImageCache.cache.Remove(name.ToLowerInvariant());
+		global::dfMarkupImageCache.cache.Remove(name.ToLowerInvariant());
 	}
 
-	// Token: 0x060042B2 RID: 17074 RVA: 0x00102AFC File Offset: 0x00100CFC
+	// Token: 0x060046F6 RID: 18166 RVA: 0x0010BE0C File Offset: 0x0010A00C
 	public static Texture Load(string path)
 	{
 		path = path.ToLowerInvariant();
-		if (dfMarkupImageCache.cache.ContainsKey(path))
+		if (global::dfMarkupImageCache.cache.ContainsKey(path))
 		{
-			return dfMarkupImageCache.cache[path];
+			return global::dfMarkupImageCache.cache[path];
 		}
-		Texture texture = Resources.Load(path) as Texture;
+		Texture texture = global::Resources.Load(path) as Texture;
 		if (texture != null)
 		{
-			dfMarkupImageCache.cache[path] = texture;
+			global::dfMarkupImageCache.cache[path] = texture;
 		}
 		return texture;
 	}
 
-	// Token: 0x0400231F RID: 8991
+	// Token: 0x04002542 RID: 9538
 	private static Dictionary<string, Texture> cache = new Dictionary<string, Texture>();
 }

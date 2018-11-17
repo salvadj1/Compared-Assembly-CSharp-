@@ -1,9 +1,9 @@
 ﻿using System;
 
-// Token: 0x020002AA RID: 682
+// Token: 0x020002E7 RID: 743
 public interface IDeployedObjectMain
 {
-	// Token: 0x17000715 RID: 1813
-	// (get) Token: 0x06001875 RID: 6261
-	DeployedObjectInfo DeployedObjectInfo { get; }
+	// Token: 0x17000769 RID: 1897
+	// (get) Token: 0x06001A05 RID: 6661
+	global::DeployedObjectInfo DeployedObjectInfo { get; }
 }

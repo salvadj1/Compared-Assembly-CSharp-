@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020001B0 RID: 432
+// Token: 0x020001DE RID: 478
 public struct CacheRef<T> where T : Object
 {
-	// Token: 0x06000C4B RID: 3147 RVA: 0x00030D2C File Offset: 0x0002EF2C
+	// Token: 0x06000D83 RID: 3459 RVA: 0x00034C18 File Offset: 0x00032E18
 	private CacheRef(T value)
 	{
 		this.value = value;
@@ -12,8 +12,8 @@ public struct CacheRef<T> where T : Object
 		this.cached = true;
 	}
 
-	// Token: 0x17000319 RID: 793
-	// (get) Token: 0x06000C4C RID: 3148 RVA: 0x00030D50 File Offset: 0x0002EF50
+	// Token: 0x1700035D RID: 861
+	// (get) Token: 0x06000D84 RID: 3460 RVA: 0x00034C3C File Offset: 0x00032E3C
 	public bool alive
 	{
 		get
@@ -22,28 +22,28 @@ public struct CacheRef<T> where T : Object
 		}
 	}
 
-	// Token: 0x06000C4D RID: 3149 RVA: 0x00030D84 File Offset: 0x0002EF84
+	// Token: 0x06000D85 RID: 3461 RVA: 0x00034C70 File Offset: 0x00032E70
 	public bool Get(out T value)
 	{
 		value = this.value;
 		return this.cached && this.existed && (this.existed = value);
 	}
 
-	// Token: 0x06000C4E RID: 3150 RVA: 0x00030DD0 File Offset: 0x0002EFD0
-	public static implicit operator CacheRef<T>(T value)
+	// Token: 0x06000D86 RID: 3462 RVA: 0x00034CBC File Offset: 0x00032EBC
+	public static implicit operator global::CacheRef<T>(T value)
 	{
-		return new CacheRef<T>(value);
+		return new global::CacheRef<T>(value);
 	}
 
-	// Token: 0x04000775 RID: 1909
+	// Token: 0x04000889 RID: 2185
 	[NonSerialized]
 	public T value;
 
-	// Token: 0x04000776 RID: 1910
+	// Token: 0x0400088A RID: 2186
 	[NonSerialized]
 	public readonly bool cached;
 
-	// Token: 0x04000777 RID: 1911
+	// Token: 0x0400088B RID: 2187
 	[NonSerialized]
 	private bool existed;
 }

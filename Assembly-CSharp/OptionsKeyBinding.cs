@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000401 RID: 1025
+// Token: 0x020004B2 RID: 1202
 public class OptionsKeyBinding : MonoBehaviour
 {
-	// Token: 0x0600259E RID: 9630 RVA: 0x00090934 File Offset: 0x0008EB34
-	public void Setup(GameInput.GameButton button)
+	// Token: 0x06002916 RID: 10518 RVA: 0x0009676C File Offset: 0x0009496C
+	public void Setup(global::GameInput.GameButton button)
 	{
 		this.labelName.Text = button.Name;
 		this.keyOne.Text = button.bindingOne.ToString();
@@ -20,34 +20,34 @@ public class OptionsKeyBinding : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600259F RID: 9631 RVA: 0x000909DC File Offset: 0x0008EBDC
+	// Token: 0x06002917 RID: 10519 RVA: 0x00096814 File Offset: 0x00094A14
 	public void OnClickOne()
 	{
 		this.StartKeyListen(this.keyOne);
 	}
 
-	// Token: 0x060025A0 RID: 9632 RVA: 0x000909EC File Offset: 0x0008EBEC
+	// Token: 0x06002918 RID: 10520 RVA: 0x00096824 File Offset: 0x00094A24
 	public void OnClickTwo()
 	{
 		this.StartKeyListen(this.keyTwo);
 	}
 
-	// Token: 0x060025A1 RID: 9633 RVA: 0x000909FC File Offset: 0x0008EBFC
-	private void StartKeyListen(dfRichTextLabel key)
+	// Token: 0x06002919 RID: 10521 RVA: 0x00096834 File Offset: 0x00094A34
+	private void StartKeyListen(global::dfRichTextLabel key)
 	{
-		if (OptionsKeyBinding.doingKeyListen != null)
+		if (global::OptionsKeyBinding.doingKeyListen != null)
 		{
 			return;
 		}
-		OptionsKeyBinding.strPreviousValue = key.Text;
+		global::OptionsKeyBinding.strPreviousValue = key.Text;
 		key.Text = "...";
-		OptionsKeyBinding.doingKeyListen = key;
+		global::OptionsKeyBinding.doingKeyListen = key;
 	}
 
-	// Token: 0x060025A2 RID: 9634 RVA: 0x00090A2C File Offset: 0x0008EC2C
+	// Token: 0x0600291A RID: 10522 RVA: 0x00096864 File Offset: 0x00094A64
 	private void Update()
 	{
-		if (OptionsKeyBinding.doingKeyListen != this.keyOne && OptionsKeyBinding.doingKeyListen != this.keyTwo)
+		if (global::OptionsKeyBinding.doingKeyListen != this.keyOne && global::OptionsKeyBinding.doingKeyListen != this.keyTwo)
 		{
 			return;
 		}
@@ -62,16 +62,16 @@ public class OptionsKeyBinding : MonoBehaviour
 		}
 		if (keyCode == 27)
 		{
-			OptionsKeyBinding.doingKeyListen.Text = " ";
+			global::OptionsKeyBinding.doingKeyListen.Text = " ";
 		}
 		else
 		{
-			OptionsKeyBinding.doingKeyListen.Text = keyCode.ToString();
+			global::OptionsKeyBinding.doingKeyListen.Text = keyCode.ToString();
 		}
-		OptionsKeyBinding.doingKeyListen = null;
+		global::OptionsKeyBinding.doingKeyListen = null;
 	}
 
-	// Token: 0x060025A3 RID: 9635 RVA: 0x00090AB4 File Offset: 0x0008ECB4
+	// Token: 0x0600291B RID: 10523 RVA: 0x000968EC File Offset: 0x00094AEC
 	private KeyCode FetchKey()
 	{
 		for (int i = 0; i < 429; i++)
@@ -84,7 +84,7 @@ public class OptionsKeyBinding : MonoBehaviour
 		return 0;
 	}
 
-	// Token: 0x060025A4 RID: 9636 RVA: 0x00090AE8 File Offset: 0x0008ECE8
+	// Token: 0x0600291C RID: 10524 RVA: 0x00096920 File Offset: 0x00094B20
 	public void UpdateConVars()
 	{
 		string text = "None";
@@ -97,7 +97,7 @@ public class OptionsKeyBinding : MonoBehaviour
 		{
 			text2 = this.keyTwo.Text;
 		}
-		ConsoleSystem.Run(string.Concat(new string[]
+		global::ConsoleSystem.Run(string.Concat(new string[]
 		{
 			"input.bind ",
 			this.labelName.Text,
@@ -109,18 +109,18 @@ public class OptionsKeyBinding : MonoBehaviour
 		}), false);
 	}
 
-	// Token: 0x0400123B RID: 4667
-	public dfRichTextLabel keyOne;
+	// Token: 0x040013B8 RID: 5048
+	public global::dfRichTextLabel keyOne;
 
-	// Token: 0x0400123C RID: 4668
-	public dfRichTextLabel keyTwo;
+	// Token: 0x040013B9 RID: 5049
+	public global::dfRichTextLabel keyTwo;
 
-	// Token: 0x0400123D RID: 4669
-	public dfRichTextLabel labelName;
+	// Token: 0x040013BA RID: 5050
+	public global::dfRichTextLabel labelName;
 
-	// Token: 0x0400123E RID: 4670
-	protected static dfRichTextLabel doingKeyListen;
+	// Token: 0x040013BB RID: 5051
+	protected static global::dfRichTextLabel doingKeyListen;
 
-	// Token: 0x0400123F RID: 4671
+	// Token: 0x040013BC RID: 5052
 	protected static string strPreviousValue = string.Empty;
 }

@@ -5,22 +5,22 @@ using System.Text;
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000130 RID: 304
-public abstract class Controller : IDLocalCharacterAddon
+// Token: 0x02000154 RID: 340
+public abstract class Controller : global::IDLocalCharacterAddon
 {
-	// Token: 0x060008A9 RID: 2217 RVA: 0x00025BAC File Offset: 0x00023DAC
-	protected Controller(Controller.ControllerFlags controllerFlags) : this(controllerFlags, (IDLocalCharacterAddon.AddonFlags)0)
+	// Token: 0x0600099F RID: 2463 RVA: 0x00028E20 File Offset: 0x00027020
+	protected Controller(global::Controller.ControllerFlags controllerFlags) : this(controllerFlags, (global::IDLocalCharacterAddon.AddonFlags)0)
 	{
 	}
 
-	// Token: 0x060008AA RID: 2218 RVA: 0x00025BB8 File Offset: 0x00023DB8
-	protected Controller(Controller.ControllerFlags controllerFlags, IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
+	// Token: 0x060009A0 RID: 2464 RVA: 0x00028E2C File Offset: 0x0002702C
+	protected Controller(global::Controller.ControllerFlags controllerFlags, global::IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags)
 	{
 		this.controllerFlags = controllerFlags;
 	}
 
-	// Token: 0x17000213 RID: 531
-	// (get) Token: 0x060008AB RID: 2219 RVA: 0x00025BC8 File Offset: 0x00023DC8
+	// Token: 0x17000249 RID: 585
+	// (get) Token: 0x060009A1 RID: 2465 RVA: 0x00028E3C File Offset: 0x0002703C
 	public new bool controlled
 	{
 		get
@@ -29,8 +29,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000214 RID: 532
-	// (get) Token: 0x060008AC RID: 2220 RVA: 0x00025BD8 File Offset: 0x00023DD8
+	// Token: 0x1700024A RID: 586
+	// (get) Token: 0x060009A2 RID: 2466 RVA: 0x00028E4C File Offset: 0x0002704C
 	public new bool playerControlled
 	{
 		get
@@ -39,8 +39,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000215 RID: 533
-	// (get) Token: 0x060008AD RID: 2221 RVA: 0x00025BE8 File Offset: 0x00023DE8
+	// Token: 0x1700024B RID: 587
+	// (get) Token: 0x060009A3 RID: 2467 RVA: 0x00028E5C File Offset: 0x0002705C
 	public new bool aiControlled
 	{
 		get
@@ -49,8 +49,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000216 RID: 534
-	// (get) Token: 0x060008AE RID: 2222 RVA: 0x00025BF8 File Offset: 0x00023DF8
+	// Token: 0x1700024C RID: 588
+	// (get) Token: 0x060009A4 RID: 2468 RVA: 0x00028E6C File Offset: 0x0002706C
 	public new bool localPlayerControlled
 	{
 		get
@@ -59,8 +59,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000217 RID: 535
-	// (get) Token: 0x060008AF RID: 2223 RVA: 0x00025C08 File Offset: 0x00023E08
+	// Token: 0x1700024D RID: 589
+	// (get) Token: 0x060009A5 RID: 2469 RVA: 0x00028E7C File Offset: 0x0002707C
 	public new bool remotePlayerControlled
 	{
 		get
@@ -69,8 +69,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000218 RID: 536
-	// (get) Token: 0x060008B0 RID: 2224 RVA: 0x00025C18 File Offset: 0x00023E18
+	// Token: 0x1700024E RID: 590
+	// (get) Token: 0x060009A6 RID: 2470 RVA: 0x00028E8C File Offset: 0x0002708C
 	public new bool localAIControlled
 	{
 		get
@@ -79,8 +79,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000219 RID: 537
-	// (get) Token: 0x060008B1 RID: 2225 RVA: 0x00025C28 File Offset: 0x00023E28
+	// Token: 0x1700024F RID: 591
+	// (get) Token: 0x060009A7 RID: 2471 RVA: 0x00028E9C File Offset: 0x0002709C
 	public new bool remoteAIControlled
 	{
 		get
@@ -89,8 +89,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700021A RID: 538
-	// (get) Token: 0x060008B2 RID: 2226 RVA: 0x00025C38 File Offset: 0x00023E38
+	// Token: 0x17000250 RID: 592
+	// (get) Token: 0x060009A8 RID: 2472 RVA: 0x00028EAC File Offset: 0x000270AC
 	public new bool localControlled
 	{
 		get
@@ -99,8 +99,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700021B RID: 539
-	// (get) Token: 0x060008B3 RID: 2227 RVA: 0x00025C48 File Offset: 0x00023E48
+	// Token: 0x17000251 RID: 593
+	// (get) Token: 0x060009A9 RID: 2473 RVA: 0x00028EBC File Offset: 0x000270BC
 	public new bool remoteControlled
 	{
 		get
@@ -109,9 +109,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700021C RID: 540
-	// (get) Token: 0x060008B4 RID: 2228 RVA: 0x00025C58 File Offset: 0x00023E58
-	public new PlayerClient playerClient
+	// Token: 0x17000252 RID: 594
+	// (get) Token: 0x060009AA RID: 2474 RVA: 0x00028ECC File Offset: 0x000270CC
+	public new global::PlayerClient playerClient
 	{
 		get
 		{
@@ -119,9 +119,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700021D RID: 541
-	// (get) Token: 0x060008B5 RID: 2229 RVA: 0x00025C68 File Offset: 0x00023E68
-	public new Controller controller
+	// Token: 0x17000253 RID: 595
+	// (get) Token: 0x060009AB RID: 2475 RVA: 0x00028EDC File Offset: 0x000270DC
+	public new global::Controller controller
 	{
 		get
 		{
@@ -129,9 +129,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700021E RID: 542
-	// (get) Token: 0x060008B6 RID: 2230 RVA: 0x00025C6C File Offset: 0x00023E6C
-	public new Controller controlledController
+	// Token: 0x17000254 RID: 596
+	// (get) Token: 0x060009AC RID: 2476 RVA: 0x00028EE0 File Offset: 0x000270E0
+	public new global::Controller controlledController
 	{
 		get
 		{
@@ -139,9 +139,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700021F RID: 543
-	// (get) Token: 0x060008B7 RID: 2231 RVA: 0x00025C88 File Offset: 0x00023E88
-	public new Controller localPlayerControlledController
+	// Token: 0x17000255 RID: 597
+	// (get) Token: 0x060009AD RID: 2477 RVA: 0x00028EFC File Offset: 0x000270FC
+	public new global::Controller localPlayerControlledController
 	{
 		get
 		{
@@ -149,9 +149,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000220 RID: 544
-	// (get) Token: 0x060008B8 RID: 2232 RVA: 0x00025C98 File Offset: 0x00023E98
-	public new Controller remotePlayerControlledController
+	// Token: 0x17000256 RID: 598
+	// (get) Token: 0x060009AE RID: 2478 RVA: 0x00028F0C File Offset: 0x0002710C
+	public new global::Controller remotePlayerControlledController
 	{
 		get
 		{
@@ -159,9 +159,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000221 RID: 545
-	// (get) Token: 0x060008B9 RID: 2233 RVA: 0x00025CA8 File Offset: 0x00023EA8
-	public new Controller localAIControlledController
+	// Token: 0x17000257 RID: 599
+	// (get) Token: 0x060009AF RID: 2479 RVA: 0x00028F1C File Offset: 0x0002711C
+	public new global::Controller localAIControlledController
 	{
 		get
 		{
@@ -169,9 +169,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000222 RID: 546
-	// (get) Token: 0x060008BA RID: 2234 RVA: 0x00025CB8 File Offset: 0x00023EB8
-	public new Controller remoteAIControlledController
+	// Token: 0x17000258 RID: 600
+	// (get) Token: 0x060009B0 RID: 2480 RVA: 0x00028F2C File Offset: 0x0002712C
+	public new global::Controller remoteAIControlledController
 	{
 		get
 		{
@@ -179,9 +179,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000223 RID: 547
-	// (get) Token: 0x060008BB RID: 2235 RVA: 0x00025CC8 File Offset: 0x00023EC8
-	public new Controllable controllable
+	// Token: 0x17000259 RID: 601
+	// (get) Token: 0x060009B1 RID: 2481 RVA: 0x00028F3C File Offset: 0x0002713C
+	public new global::Controllable controllable
 	{
 		get
 		{
@@ -189,9 +189,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000224 RID: 548
-	// (get) Token: 0x060008BC RID: 2236 RVA: 0x00025CD0 File Offset: 0x00023ED0
-	public new Controllable controlledControllable
+	// Token: 0x1700025A RID: 602
+	// (get) Token: 0x060009B2 RID: 2482 RVA: 0x00028F44 File Offset: 0x00027144
+	public new global::Controllable controlledControllable
 	{
 		get
 		{
@@ -199,9 +199,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000225 RID: 549
-	// (get) Token: 0x060008BD RID: 2237 RVA: 0x00025CF0 File Offset: 0x00023EF0
-	public new Controllable localPlayerControlledControllable
+	// Token: 0x1700025B RID: 603
+	// (get) Token: 0x060009B3 RID: 2483 RVA: 0x00028F64 File Offset: 0x00027164
+	public new global::Controllable localPlayerControlledControllable
 	{
 		get
 		{
@@ -209,9 +209,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000226 RID: 550
-	// (get) Token: 0x060008BE RID: 2238 RVA: 0x00025D00 File Offset: 0x00023F00
-	public new Controllable remotePlayerControlledControllable
+	// Token: 0x1700025C RID: 604
+	// (get) Token: 0x060009B4 RID: 2484 RVA: 0x00028F74 File Offset: 0x00027174
+	public new global::Controllable remotePlayerControlledControllable
 	{
 		get
 		{
@@ -219,9 +219,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000227 RID: 551
-	// (get) Token: 0x060008BF RID: 2239 RVA: 0x00025D10 File Offset: 0x00023F10
-	public new Controllable localAIControlledControllable
+	// Token: 0x1700025D RID: 605
+	// (get) Token: 0x060009B5 RID: 2485 RVA: 0x00028F84 File Offset: 0x00027184
+	public new global::Controllable localAIControlledControllable
 	{
 		get
 		{
@@ -229,9 +229,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000228 RID: 552
-	// (get) Token: 0x060008C0 RID: 2240 RVA: 0x00025D20 File Offset: 0x00023F20
-	public new Controllable remoteAIControlledControllable
+	// Token: 0x1700025E RID: 606
+	// (get) Token: 0x060009B6 RID: 2486 RVA: 0x00028F94 File Offset: 0x00027194
+	public new global::Controllable remoteAIControlledControllable
 	{
 		get
 		{
@@ -239,8 +239,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000229 RID: 553
-	// (get) Token: 0x060008C1 RID: 2241 RVA: 0x00025D30 File Offset: 0x00023F30
+	// Token: 0x1700025F RID: 607
+	// (get) Token: 0x060009B7 RID: 2487 RVA: 0x00028FA4 File Offset: 0x000271A4
 	public new bool controlOverridden
 	{
 		get
@@ -249,44 +249,44 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x060008C2 RID: 2242 RVA: 0x00025D40 File Offset: 0x00023F40
-	public new bool ControlOverriddenBy(Controllable controllable)
+	// Token: 0x060009B8 RID: 2488 RVA: 0x00028FB4 File Offset: 0x000271B4
+	public new bool ControlOverriddenBy(global::Controllable controllable)
 	{
 		return this._controllable.ControlOverriddenBy(controllable);
 	}
 
-	// Token: 0x060008C3 RID: 2243 RVA: 0x00025D50 File Offset: 0x00023F50
-	public new bool ControlOverriddenBy(Controller controller)
+	// Token: 0x060009B9 RID: 2489 RVA: 0x00028FC4 File Offset: 0x000271C4
+	public new bool ControlOverriddenBy(global::Controller controller)
 	{
 		return this._controllable.ControlOverriddenBy(controller);
 	}
 
-	// Token: 0x060008C4 RID: 2244 RVA: 0x00025D60 File Offset: 0x00023F60
-	public new bool ControlOverriddenBy(Character character)
+	// Token: 0x060009BA RID: 2490 RVA: 0x00028FD4 File Offset: 0x000271D4
+	public new bool ControlOverriddenBy(global::Character character)
 	{
 		return this._controllable.ControlOverriddenBy(character);
 	}
 
-	// Token: 0x060008C5 RID: 2245 RVA: 0x00025D70 File Offset: 0x00023F70
+	// Token: 0x060009BB RID: 2491 RVA: 0x00028FE4 File Offset: 0x000271E4
 	public new bool ControlOverriddenBy(IDMain main)
 	{
 		return this._controllable.ControlOverriddenBy(main);
 	}
 
-	// Token: 0x060008C6 RID: 2246 RVA: 0x00025D80 File Offset: 0x00023F80
+	// Token: 0x060009BC RID: 2492 RVA: 0x00028FF4 File Offset: 0x000271F4
 	public new bool ControlOverriddenBy(IDBase idBase)
 	{
 		return this._controllable.ControlOverriddenBy(idBase);
 	}
 
-	// Token: 0x060008C7 RID: 2247 RVA: 0x00025D90 File Offset: 0x00023F90
-	public new bool ControlOverriddenBy(IDLocalCharacter idLocal)
+	// Token: 0x060009BD RID: 2493 RVA: 0x00029004 File Offset: 0x00027204
+	public new bool ControlOverriddenBy(global::IDLocalCharacter idLocal)
 	{
 		return this._controllable.ControlOverriddenBy(idLocal);
 	}
 
-	// Token: 0x1700022A RID: 554
-	// (get) Token: 0x060008C8 RID: 2248 RVA: 0x00025DA0 File Offset: 0x00023FA0
+	// Token: 0x17000260 RID: 608
+	// (get) Token: 0x060009BE RID: 2494 RVA: 0x00029014 File Offset: 0x00027214
 	public new bool overridingControl
 	{
 		get
@@ -295,44 +295,44 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x060008C9 RID: 2249 RVA: 0x00025DB0 File Offset: 0x00023FB0
-	public new bool OverridingControlOf(Controllable controllable)
+	// Token: 0x060009BF RID: 2495 RVA: 0x00029024 File Offset: 0x00027224
+	public new bool OverridingControlOf(global::Controllable controllable)
 	{
 		return this._controllable.OverridingControlOf(controllable);
 	}
 
-	// Token: 0x060008CA RID: 2250 RVA: 0x00025DC0 File Offset: 0x00023FC0
-	public new bool OverridingControlOf(Controller controller)
+	// Token: 0x060009C0 RID: 2496 RVA: 0x00029034 File Offset: 0x00027234
+	public new bool OverridingControlOf(global::Controller controller)
 	{
 		return this._controllable.OverridingControlOf(controller);
 	}
 
-	// Token: 0x060008CB RID: 2251 RVA: 0x00025DD0 File Offset: 0x00023FD0
-	public new bool OverridingControlOf(Character character)
+	// Token: 0x060009C1 RID: 2497 RVA: 0x00029044 File Offset: 0x00027244
+	public new bool OverridingControlOf(global::Character character)
 	{
 		return this._controllable.OverridingControlOf(character);
 	}
 
-	// Token: 0x060008CC RID: 2252 RVA: 0x00025DE0 File Offset: 0x00023FE0
+	// Token: 0x060009C2 RID: 2498 RVA: 0x00029054 File Offset: 0x00027254
 	public new bool OverridingControlOf(IDMain main)
 	{
 		return this._controllable.OverridingControlOf(main);
 	}
 
-	// Token: 0x060008CD RID: 2253 RVA: 0x00025DF0 File Offset: 0x00023FF0
+	// Token: 0x060009C3 RID: 2499 RVA: 0x00029064 File Offset: 0x00027264
 	public new bool OverridingControlOf(IDBase idBase)
 	{
 		return this._controllable.OverridingControlOf(idBase);
 	}
 
-	// Token: 0x060008CE RID: 2254 RVA: 0x00025E00 File Offset: 0x00024000
-	public new bool OverridingControlOf(IDLocalCharacter idLocal)
+	// Token: 0x060009C4 RID: 2500 RVA: 0x00029074 File Offset: 0x00027274
+	public new bool OverridingControlOf(global::IDLocalCharacter idLocal)
 	{
 		return this._controllable.OverridingControlOf(idLocal);
 	}
 
-	// Token: 0x1700022B RID: 555
-	// (get) Token: 0x060008CF RID: 2255 RVA: 0x00025E10 File Offset: 0x00024010
+	// Token: 0x17000261 RID: 609
+	// (get) Token: 0x060009C5 RID: 2501 RVA: 0x00029084 File Offset: 0x00027284
 	public new bool assignedControl
 	{
 		get
@@ -341,105 +341,105 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x060008D0 RID: 2256 RVA: 0x00025E20 File Offset: 0x00024020
-	public new bool AssignedControlOf(Controllable controllable)
+	// Token: 0x060009C6 RID: 2502 RVA: 0x00029094 File Offset: 0x00027294
+	public new bool AssignedControlOf(global::Controllable controllable)
 	{
 		return this._controllable.AssignedControlOf(controllable);
 	}
 
-	// Token: 0x060008D1 RID: 2257 RVA: 0x00025E30 File Offset: 0x00024030
-	public new bool AssignedControlOf(Controller controller)
+	// Token: 0x060009C7 RID: 2503 RVA: 0x000290A4 File Offset: 0x000272A4
+	public new bool AssignedControlOf(global::Controller controller)
 	{
 		return this._controllable.AssignedControlOf(controller);
 	}
 
-	// Token: 0x060008D2 RID: 2258 RVA: 0x00025E40 File Offset: 0x00024040
+	// Token: 0x060009C8 RID: 2504 RVA: 0x000290B4 File Offset: 0x000272B4
 	public new bool AssignedControlOf(IDMain character)
 	{
 		return this._controllable.AssignedControlOf(character);
 	}
 
-	// Token: 0x060008D3 RID: 2259 RVA: 0x00025E50 File Offset: 0x00024050
+	// Token: 0x060009C9 RID: 2505 RVA: 0x000290C4 File Offset: 0x000272C4
 	public new bool AssignedControlOf(IDBase idBase)
 	{
 		return this._controllable.AssignedControlOf(idBase);
 	}
 
-	// Token: 0x060008D4 RID: 2260 RVA: 0x00025E60 File Offset: 0x00024060
-	public new RelativeControl RelativeControlTo(Controllable controllable)
+	// Token: 0x060009CA RID: 2506 RVA: 0x000290D4 File Offset: 0x000272D4
+	public new global::RelativeControl RelativeControlTo(global::Controllable controllable)
 	{
 		return this._controllable.RelativeControlTo(controllable);
 	}
 
-	// Token: 0x060008D5 RID: 2261 RVA: 0x00025E70 File Offset: 0x00024070
-	public new RelativeControl RelativeControlTo(Controller controller)
+	// Token: 0x060009CB RID: 2507 RVA: 0x000290E4 File Offset: 0x000272E4
+	public new global::RelativeControl RelativeControlTo(global::Controller controller)
 	{
 		return this._controllable.RelativeControlTo(controller);
 	}
 
-	// Token: 0x060008D6 RID: 2262 RVA: 0x00025E80 File Offset: 0x00024080
-	public new RelativeControl RelativeControlTo(Character character)
+	// Token: 0x060009CC RID: 2508 RVA: 0x000290F4 File Offset: 0x000272F4
+	public new global::RelativeControl RelativeControlTo(global::Character character)
 	{
 		return this._controllable.RelativeControlTo(character);
 	}
 
-	// Token: 0x060008D7 RID: 2263 RVA: 0x00025E90 File Offset: 0x00024090
-	public new RelativeControl RelativeControlTo(IDMain main)
+	// Token: 0x060009CD RID: 2509 RVA: 0x00029104 File Offset: 0x00027304
+	public new global::RelativeControl RelativeControlTo(IDMain main)
 	{
 		return this._controllable.RelativeControlTo(main);
 	}
 
-	// Token: 0x060008D8 RID: 2264 RVA: 0x00025EA0 File Offset: 0x000240A0
-	public new RelativeControl RelativeControlTo(IDLocalCharacter idLocal)
+	// Token: 0x060009CE RID: 2510 RVA: 0x00029114 File Offset: 0x00027314
+	public new global::RelativeControl RelativeControlTo(global::IDLocalCharacter idLocal)
 	{
 		return this._controllable.RelativeControlTo(idLocal);
 	}
 
-	// Token: 0x060008D9 RID: 2265 RVA: 0x00025EB0 File Offset: 0x000240B0
-	public new RelativeControl RelativeControlTo(IDBase idBase)
+	// Token: 0x060009CF RID: 2511 RVA: 0x00029124 File Offset: 0x00027324
+	public new global::RelativeControl RelativeControlTo(IDBase idBase)
 	{
 		return this._controllable.RelativeControlTo(idBase);
 	}
 
-	// Token: 0x060008DA RID: 2266 RVA: 0x00025EC0 File Offset: 0x000240C0
-	public new RelativeControl RelativeControlFrom(Controllable controllable)
+	// Token: 0x060009D0 RID: 2512 RVA: 0x00029134 File Offset: 0x00027334
+	public new global::RelativeControl RelativeControlFrom(global::Controllable controllable)
 	{
 		return this._controllable.RelativeControlFrom(controllable);
 	}
 
-	// Token: 0x060008DB RID: 2267 RVA: 0x00025ED0 File Offset: 0x000240D0
-	public new RelativeControl RelativeControlFrom(Controller controller)
+	// Token: 0x060009D1 RID: 2513 RVA: 0x00029144 File Offset: 0x00027344
+	public new global::RelativeControl RelativeControlFrom(global::Controller controller)
 	{
 		return this._controllable.RelativeControlFrom(controller);
 	}
 
-	// Token: 0x060008DC RID: 2268 RVA: 0x00025EE0 File Offset: 0x000240E0
-	public new RelativeControl RelativeControlFrom(Character character)
+	// Token: 0x060009D2 RID: 2514 RVA: 0x00029154 File Offset: 0x00027354
+	public new global::RelativeControl RelativeControlFrom(global::Character character)
 	{
 		return this._controllable.RelativeControlFrom(character);
 	}
 
-	// Token: 0x060008DD RID: 2269 RVA: 0x00025EF0 File Offset: 0x000240F0
-	public new RelativeControl RelativeControlFrom(IDMain main)
+	// Token: 0x060009D3 RID: 2515 RVA: 0x00029164 File Offset: 0x00027364
+	public new global::RelativeControl RelativeControlFrom(IDMain main)
 	{
 		return this._controllable.RelativeControlFrom(main);
 	}
 
-	// Token: 0x060008DE RID: 2270 RVA: 0x00025F00 File Offset: 0x00024100
-	public new RelativeControl RelativeControlFrom(IDLocalCharacter idLocal)
+	// Token: 0x060009D4 RID: 2516 RVA: 0x00029174 File Offset: 0x00027374
+	public new global::RelativeControl RelativeControlFrom(global::IDLocalCharacter idLocal)
 	{
 		return this._controllable.RelativeControlFrom(idLocal);
 	}
 
-	// Token: 0x060008DF RID: 2271 RVA: 0x00025F10 File Offset: 0x00024110
-	public new RelativeControl RelativeControlFrom(IDBase idBase)
+	// Token: 0x060009D5 RID: 2517 RVA: 0x00029184 File Offset: 0x00027384
+	public new global::RelativeControl RelativeControlFrom(IDBase idBase)
 	{
 		return this._controllable.RelativeControlFrom(idBase);
 	}
 
-	// Token: 0x1700022C RID: 556
-	// (get) Token: 0x060008E0 RID: 2272 RVA: 0x00025F20 File Offset: 0x00024120
-	public new Controllable masterControllable
+	// Token: 0x17000262 RID: 610
+	// (get) Token: 0x060009D6 RID: 2518 RVA: 0x00029194 File Offset: 0x00027394
+	public new global::Controllable masterControllable
 	{
 		get
 		{
@@ -447,9 +447,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700022D RID: 557
-	// (get) Token: 0x060008E1 RID: 2273 RVA: 0x00025F30 File Offset: 0x00024130
-	public new Controllable rootControllable
+	// Token: 0x17000263 RID: 611
+	// (get) Token: 0x060009D7 RID: 2519 RVA: 0x000291A4 File Offset: 0x000273A4
+	public new global::Controllable rootControllable
 	{
 		get
 		{
@@ -457,9 +457,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700022E RID: 558
-	// (get) Token: 0x060008E2 RID: 2274 RVA: 0x00025F40 File Offset: 0x00024140
-	public new Controllable nextControllable
+	// Token: 0x17000264 RID: 612
+	// (get) Token: 0x060009D8 RID: 2520 RVA: 0x000291B4 File Offset: 0x000273B4
+	public new global::Controllable nextControllable
 	{
 		get
 		{
@@ -467,9 +467,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700022F RID: 559
-	// (get) Token: 0x060008E3 RID: 2275 RVA: 0x00025F50 File Offset: 0x00024150
-	public new Controllable previousControllable
+	// Token: 0x17000265 RID: 613
+	// (get) Token: 0x060009D9 RID: 2521 RVA: 0x000291C4 File Offset: 0x000273C4
+	public new global::Controllable previousControllable
 	{
 		get
 		{
@@ -477,9 +477,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000230 RID: 560
-	// (get) Token: 0x060008E4 RID: 2276 RVA: 0x00025F60 File Offset: 0x00024160
-	public new Character previousCharacter
+	// Token: 0x17000266 RID: 614
+	// (get) Token: 0x060009DA RID: 2522 RVA: 0x000291D4 File Offset: 0x000273D4
+	public new global::Character previousCharacter
 	{
 		get
 		{
@@ -487,9 +487,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000231 RID: 561
-	// (get) Token: 0x060008E5 RID: 2277 RVA: 0x00025F70 File Offset: 0x00024170
-	public new Character rootCharacter
+	// Token: 0x17000267 RID: 615
+	// (get) Token: 0x060009DB RID: 2523 RVA: 0x000291E4 File Offset: 0x000273E4
+	public new global::Character rootCharacter
 	{
 		get
 		{
@@ -497,9 +497,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000232 RID: 562
-	// (get) Token: 0x060008E6 RID: 2278 RVA: 0x00025F80 File Offset: 0x00024180
-	public new Character nextCharacter
+	// Token: 0x17000268 RID: 616
+	// (get) Token: 0x060009DC RID: 2524 RVA: 0x000291F4 File Offset: 0x000273F4
+	public new global::Character nextCharacter
 	{
 		get
 		{
@@ -507,9 +507,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000233 RID: 563
-	// (get) Token: 0x060008E7 RID: 2279 RVA: 0x00025F90 File Offset: 0x00024190
-	public new Character masterCharacter
+	// Token: 0x17000269 RID: 617
+	// (get) Token: 0x060009DD RID: 2525 RVA: 0x00029204 File Offset: 0x00027404
+	public new global::Character masterCharacter
 	{
 		get
 		{
@@ -517,9 +517,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000234 RID: 564
-	// (get) Token: 0x060008E8 RID: 2280 RVA: 0x00025FA0 File Offset: 0x000241A0
-	public new Controller masterController
+	// Token: 0x1700026A RID: 618
+	// (get) Token: 0x060009DE RID: 2526 RVA: 0x00029214 File Offset: 0x00027414
+	public new global::Controller masterController
 	{
 		get
 		{
@@ -527,9 +527,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000235 RID: 565
-	// (get) Token: 0x060008E9 RID: 2281 RVA: 0x00025FB0 File Offset: 0x000241B0
-	public new Controller rootController
+	// Token: 0x1700026B RID: 619
+	// (get) Token: 0x060009DF RID: 2527 RVA: 0x00029224 File Offset: 0x00027424
+	public new global::Controller rootController
 	{
 		get
 		{
@@ -537,9 +537,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000236 RID: 566
-	// (get) Token: 0x060008EA RID: 2282 RVA: 0x00025FC0 File Offset: 0x000241C0
-	public new Controller nextController
+	// Token: 0x1700026C RID: 620
+	// (get) Token: 0x060009E0 RID: 2528 RVA: 0x00029234 File Offset: 0x00027434
+	public new global::Controller nextController
 	{
 		get
 		{
@@ -547,9 +547,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000237 RID: 567
-	// (get) Token: 0x060008EB RID: 2283 RVA: 0x00025FD0 File Offset: 0x000241D0
-	public new Controller previousController
+	// Token: 0x1700026D RID: 621
+	// (get) Token: 0x060009E1 RID: 2529 RVA: 0x00029244 File Offset: 0x00027444
+	public new global::Controller previousController
 	{
 		get
 		{
@@ -557,8 +557,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000238 RID: 568
-	// (get) Token: 0x060008EC RID: 2284 RVA: 0x00025FE0 File Offset: 0x000241E0
+	// Token: 0x1700026E RID: 622
+	// (get) Token: 0x060009E2 RID: 2530 RVA: 0x00029254 File Offset: 0x00027454
 	public new int controlDepth
 	{
 		get
@@ -567,8 +567,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000239 RID: 569
-	// (get) Token: 0x060008ED RID: 2285 RVA: 0x00025FF0 File Offset: 0x000241F0
+	// Token: 0x1700026F RID: 623
+	// (get) Token: 0x060009E3 RID: 2531 RVA: 0x00029264 File Offset: 0x00027464
 	public new int controlCount
 	{
 		get
@@ -577,8 +577,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700023A RID: 570
-	// (get) Token: 0x060008EE RID: 2286 RVA: 0x00026000 File Offset: 0x00024200
+	// Token: 0x17000270 RID: 624
+	// (get) Token: 0x060009E4 RID: 2532 RVA: 0x00029274 File Offset: 0x00027474
 	public new string controllerClassName
 	{
 		get
@@ -587,8 +587,8 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700023B RID: 571
-	// (get) Token: 0x060008EF RID: 2287 RVA: 0x00026010 File Offset: 0x00024210
+	// Token: 0x17000271 RID: 625
+	// (get) Token: 0x060009E5 RID: 2533 RVA: 0x00029284 File Offset: 0x00027484
 	public new string npcName
 	{
 		get
@@ -597,10 +597,10 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700023C RID: 572
-	// (get) Token: 0x060008F0 RID: 2288 RVA: 0x00026020 File Offset: 0x00024220
-	// (set) Token: 0x060008F1 RID: 2289 RVA: 0x00026028 File Offset: 0x00024228
-	public new RPOSLimitFlags rposLimitFlags
+	// Token: 0x17000272 RID: 626
+	// (get) Token: 0x060009E6 RID: 2534 RVA: 0x00029294 File Offset: 0x00027494
+	// (set) Token: 0x060009E7 RID: 2535 RVA: 0x0002929C File Offset: 0x0002749C
+	public new global::RPOSLimitFlags rposLimitFlags
 	{
 		get
 		{
@@ -612,9 +612,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700023D RID: 573
-	// (get) Token: 0x060008F2 RID: 2290 RVA: 0x00026034 File Offset: 0x00024234
-	// (set) Token: 0x060008F3 RID: 2291 RVA: 0x0002603C File Offset: 0x0002423C
+	// Token: 0x17000273 RID: 627
+	// (get) Token: 0x060009E8 RID: 2536 RVA: 0x000292A8 File Offset: 0x000274A8
+	// (set) Token: 0x060009E9 RID: 2537 RVA: 0x000292B0 File Offset: 0x000274B0
 	public bool forwardsPlayerClientInput
 	{
 		get
@@ -627,9 +627,9 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700023E RID: 574
-	// (get) Token: 0x060008F4 RID: 2292 RVA: 0x00026048 File Offset: 0x00024248
-	// (set) Token: 0x060008F5 RID: 2293 RVA: 0x00026050 File Offset: 0x00024250
+	// Token: 0x17000274 RID: 628
+	// (get) Token: 0x060009EA RID: 2538 RVA: 0x000292BC File Offset: 0x000274BC
+	// (set) Token: 0x060009EB RID: 2539 RVA: 0x000292C4 File Offset: 0x000274C4
 	public bool doesNotSave
 	{
 		get
@@ -642,26 +642,26 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x060008F6 RID: 2294 RVA: 0x0002605C File Offset: 0x0002425C
-	protected virtual void OnControllerSetup(NetworkView networkView, ref NetworkMessageInfo info)
+	// Token: 0x060009EC RID: 2540 RVA: 0x000292D0 File Offset: 0x000274D0
+	protected virtual void OnControllerSetup(uLink.NetworkView networkView, ref uLink.NetworkMessageInfo info)
 	{
 	}
 
-	// Token: 0x060008F7 RID: 2295 RVA: 0x00026060 File Offset: 0x00024260
-	internal void ControllerSetup(Controllable controllable, NetworkView view, ref NetworkMessageInfo info)
+	// Token: 0x060009ED RID: 2541 RVA: 0x000292D4 File Offset: 0x000274D4
+	internal void ControllerSetup(global::Controllable controllable, uLink.NetworkView view, ref uLink.NetworkMessageInfo info)
 	{
 		if (this.wasSetup)
 		{
 			throw new InvalidOperationException("Already was setup");
 		}
 		this.wasSetup = true;
-		Controller.ControllerFlags controllerFlags = this.controllerFlags & Controller.ControllerFlags.DontMessWithEnabled;
+		global::Controller.ControllerFlags controllerFlags = this.controllerFlags & global::Controller.ControllerFlags.DontMessWithEnabled;
 		bool flag;
-		if (controllerFlags != Controller.ControllerFlags.AlwaysSavedAsDisabled)
+		if (controllerFlags != global::Controller.ControllerFlags.AlwaysSavedAsDisabled)
 		{
-			if (controllerFlags != Controller.ControllerFlags.AlwaysSavedAsEnabled)
+			if (controllerFlags != global::Controller.ControllerFlags.AlwaysSavedAsEnabled)
 			{
-				flag = (controllerFlags == Controller.ControllerFlags.DontMessWithEnabled);
+				flag = (controllerFlags == global::Controller.ControllerFlags.DontMessWithEnabled);
 			}
 			else
 			{
@@ -687,54 +687,54 @@ public abstract class Controller : IDLocalCharacterAddon
 		{
 			if (this.localPlayerControlled)
 			{
-				if ((this.controllerFlags & Controller.ControllerFlags.IncompatibleAsLocalPlayer) == Controller.ControllerFlags.IncompatibleAsLocalPlayer)
+				if ((this.controllerFlags & global::Controller.ControllerFlags.IncompatibleAsLocalPlayer) == global::Controller.ControllerFlags.IncompatibleAsLocalPlayer)
 				{
 					throw new NotSupportedException();
 				}
 			}
-			else if ((this.controllerFlags & Controller.ControllerFlags.IncompatibleAsRemotePlayer) == Controller.ControllerFlags.IncompatibleAsRemotePlayer)
+			else if ((this.controllerFlags & global::Controller.ControllerFlags.IncompatibleAsRemotePlayer) == global::Controller.ControllerFlags.IncompatibleAsRemotePlayer)
 			{
 				throw new NotSupportedException();
 			}
 		}
 		else if (this.localAIControlled)
 		{
-			if ((this.controllerFlags & Controller.ControllerFlags.IncompatibleAsLocalAI) == Controller.ControllerFlags.IncompatibleAsLocalAI)
+			if ((this.controllerFlags & global::Controller.ControllerFlags.IncompatibleAsLocalAI) == global::Controller.ControllerFlags.IncompatibleAsLocalAI)
 			{
 				throw new NotSupportedException();
 			}
 		}
-		else if ((this.controllerFlags & Controller.ControllerFlags.IncompatibleAsRemoteAI) == Controller.ControllerFlags.IncompatibleAsRemoteAI)
+		else if ((this.controllerFlags & global::Controller.ControllerFlags.IncompatibleAsRemoteAI) == global::Controller.ControllerFlags.IncompatibleAsRemoteAI)
 		{
 			throw new NotSupportedException();
 		}
 		this.OnControllerSetup(view, ref info);
 		if (!flag)
 		{
-			Controller.ControllerFlags controllerFlags2;
-			Controller.ControllerFlags controllerFlags3;
+			global::Controller.ControllerFlags controllerFlags2;
+			global::Controller.ControllerFlags controllerFlags3;
 			if (this.playerControlled)
 			{
 				if (this.localPlayerControlled)
 				{
-					controllerFlags2 = Controller.ControllerFlags.EnableWhenLocalPlayer;
-					controllerFlags3 = Controller.ControllerFlags.DisableWhenLocalPlayer;
+					controllerFlags2 = global::Controller.ControllerFlags.EnableWhenLocalPlayer;
+					controllerFlags3 = global::Controller.ControllerFlags.DisableWhenLocalPlayer;
 				}
 				else
 				{
-					controllerFlags2 = Controller.ControllerFlags.EnableWhenRemotePlayer;
-					controllerFlags3 = Controller.ControllerFlags.DisableWhenRemotePlayer;
+					controllerFlags2 = global::Controller.ControllerFlags.EnableWhenRemotePlayer;
+					controllerFlags3 = global::Controller.ControllerFlags.DisableWhenRemotePlayer;
 				}
 			}
 			else if (this.localAIControlled)
 			{
-				controllerFlags2 = Controller.ControllerFlags.EnableWhenLocalAI;
-				controllerFlags3 = Controller.ControllerFlags.DisableWhenLocalAI;
+				controllerFlags2 = global::Controller.ControllerFlags.EnableWhenLocalAI;
+				controllerFlags3 = global::Controller.ControllerFlags.DisableWhenLocalAI;
 			}
 			else
 			{
-				controllerFlags2 = Controller.ControllerFlags.EnableWhenRemoteAI;
-				controllerFlags3 = Controller.ControllerFlags.DisableWhenRemoteAI;
+				controllerFlags2 = global::Controller.ControllerFlags.EnableWhenRemoteAI;
+				controllerFlags3 = global::Controller.ControllerFlags.DisableWhenRemoteAI;
 			}
 			if ((this.controllerFlags & controllerFlags2) == controllerFlags2)
 			{
@@ -754,54 +754,54 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x060008F8 RID: 2296 RVA: 0x00026260 File Offset: 0x00024460
+	// Token: 0x060009EE RID: 2542 RVA: 0x000294D4 File Offset: 0x000276D4
 	protected virtual void OnLocalPlayerInputFrame()
 	{
 	}
 
-	// Token: 0x060008F9 RID: 2297 RVA: 0x00026264 File Offset: 0x00024464
+	// Token: 0x060009EF RID: 2543 RVA: 0x000294D8 File Offset: 0x000276D8
 	internal void ProcessLocalPlayerInput()
 	{
 		this.OnLocalPlayerInputFrame();
 	}
 
-	// Token: 0x060008FA RID: 2298 RVA: 0x0002626C File Offset: 0x0002446C
+	// Token: 0x060009F0 RID: 2544 RVA: 0x000294E0 File Offset: 0x000276E0
 	protected virtual void OnLocalPlayerPreRender()
 	{
 	}
 
-	// Token: 0x060008FB RID: 2299 RVA: 0x00026270 File Offset: 0x00024470
+	// Token: 0x060009F1 RID: 2545 RVA: 0x000294E4 File Offset: 0x000276E4
 	internal void ProcessLocalPlayerPreRender()
 	{
 		this.OnLocalPlayerPreRender();
 	}
 
-	// Token: 0x060008FC RID: 2300 RVA: 0x00026278 File Offset: 0x00024478
+	// Token: 0x060009F2 RID: 2546 RVA: 0x000294EC File Offset: 0x000276EC
 	protected virtual void OnControlEnter()
 	{
 	}
 
-	// Token: 0x060008FD RID: 2301 RVA: 0x0002627C File Offset: 0x0002447C
+	// Token: 0x060009F3 RID: 2547 RVA: 0x000294F0 File Offset: 0x000276F0
 	protected virtual void OnControlEngauge()
 	{
 	}
 
-	// Token: 0x060008FE RID: 2302 RVA: 0x00026280 File Offset: 0x00024480
+	// Token: 0x060009F4 RID: 2548 RVA: 0x000294F4 File Offset: 0x000276F4
 	protected virtual void OnControlCease()
 	{
 	}
 
-	// Token: 0x060008FF RID: 2303 RVA: 0x00026284 File Offset: 0x00024484
+	// Token: 0x060009F5 RID: 2549 RVA: 0x000294F8 File Offset: 0x000276F8
 	protected virtual void OnControlExit()
 	{
 	}
 
-	// Token: 0x06000900 RID: 2304 RVA: 0x00026288 File Offset: 0x00024488
+	// Token: 0x060009F6 RID: 2550 RVA: 0x000294FC File Offset: 0x000276FC
 	[Obsolete("Used only by Controllable")]
 	internal void ControlEnter(int cmd)
 	{
-		Controller.Commandment commandment = this.commandment;
-		this.commandment = new Controller.Commandment((cmd & 32767) | 32768);
+		global::Controller.Commandment commandment = this.commandment;
+		this.commandment = new global::Controller.Commandment((cmd & 32767) | 32768);
 		try
 		{
 			this.OnControlEnter();
@@ -812,12 +812,12 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x06000901 RID: 2305 RVA: 0x000262E4 File Offset: 0x000244E4
+	// Token: 0x060009F7 RID: 2551 RVA: 0x00029558 File Offset: 0x00027758
 	[Obsolete("Used only by Controllable")]
 	internal void ControlExit(int cmd)
 	{
-		Controller.Commandment commandment = this.commandment;
-		this.commandment = new Controller.Commandment((cmd & 32767) | 131072);
+		global::Controller.Commandment commandment = this.commandment;
+		this.commandment = new global::Controller.Commandment((cmd & 32767) | 131072);
 		try
 		{
 			this.OnControlExit();
@@ -828,12 +828,12 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x06000902 RID: 2306 RVA: 0x00026340 File Offset: 0x00024540
+	// Token: 0x060009F8 RID: 2552 RVA: 0x000295B4 File Offset: 0x000277B4
 	[Obsolete("Used only by Controllable")]
 	internal void ControlEngauge(int cmd)
 	{
-		Controller.Commandment commandment = this.commandment;
-		this.commandment = new Controller.Commandment((cmd & 32767) | 65536);
+		global::Controller.Commandment commandment = this.commandment;
+		this.commandment = new global::Controller.Commandment((cmd & 32767) | 65536);
 		try
 		{
 			this.OnControlEngauge();
@@ -844,12 +844,12 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x06000903 RID: 2307 RVA: 0x0002639C File Offset: 0x0002459C
+	// Token: 0x060009F9 RID: 2553 RVA: 0x00029610 File Offset: 0x00027810
 	[Obsolete("Used only by Controllable")]
 	internal void ControlCease(int cmd)
 	{
-		Controller.Commandment commandment = this.commandment;
-		this.commandment = new Controller.Commandment((cmd & 32767) | 98304);
+		global::Controller.Commandment commandment = this.commandment;
+		this.commandment = new global::Controller.Commandment((cmd & 32767) | 98304);
 		try
 		{
 			this.OnControlCease();
@@ -860,18 +860,18 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x1700023F RID: 575
-	// (get) Token: 0x06000904 RID: 2308 RVA: 0x000263F8 File Offset: 0x000245F8
-	public static IEnumerable<Controller> PlayerRootControllers
+	// Token: 0x17000275 RID: 629
+	// (get) Token: 0x060009FA RID: 2554 RVA: 0x0002966C File Offset: 0x0002786C
+	public static IEnumerable<global::Controller> PlayerRootControllers
 	{
 		get
 		{
-			foreach (PlayerClient pc in PlayerClient.All)
+			foreach (global::PlayerClient pc in global::PlayerClient.All)
 			{
-				Controllable controllable = pc.rootControllable;
+				global::Controllable controllable = pc.rootControllable;
 				if (controllable)
 				{
-					Controller controller = controllable.controller;
+					global::Controller controller = controllable.controller;
 					if (controller)
 					{
 						yield return controllable.controller;
@@ -882,18 +882,18 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x17000240 RID: 576
-	// (get) Token: 0x06000905 RID: 2309 RVA: 0x00026414 File Offset: 0x00024614
-	public static IEnumerable<Controller> PlayerCurrentControllers
+	// Token: 0x17000276 RID: 630
+	// (get) Token: 0x060009FB RID: 2555 RVA: 0x00029688 File Offset: 0x00027888
+	public static IEnumerable<global::Controller> PlayerCurrentControllers
 	{
 		get
 		{
-			foreach (PlayerClient pc in PlayerClient.All)
+			foreach (global::PlayerClient pc in global::PlayerClient.All)
 			{
-				Controllable controllable = pc.controllable;
+				global::Controllable controllable = pc.controllable;
 				if (controllable)
 				{
-					Controller controller = controllable.controller;
+					global::Controller controller = controllable.controller;
 					if (controller)
 					{
 						yield return controllable.controller;
@@ -904,15 +904,15 @@ public abstract class Controller : IDLocalCharacterAddon
 		}
 	}
 
-	// Token: 0x06000906 RID: 2310 RVA: 0x00026430 File Offset: 0x00024630
-	public static IEnumerable<Controller> RootControllers(IEnumerable<PlayerClient> playerClients)
+	// Token: 0x060009FC RID: 2556 RVA: 0x000296A4 File Offset: 0x000278A4
+	public static IEnumerable<global::Controller> RootControllers(IEnumerable<global::PlayerClient> playerClients)
 	{
-		foreach (PlayerClient pc in playerClients)
+		foreach (global::PlayerClient pc in playerClients)
 		{
-			Controllable controllable = pc.rootControllable;
+			global::Controllable controllable = pc.rootControllable;
 			if (controllable)
 			{
-				Controller controller = controllable.controller;
+				global::Controller controller = controllable.controller;
 				if (controller)
 				{
 					yield return controller;
@@ -922,15 +922,15 @@ public abstract class Controller : IDLocalCharacterAddon
 		yield break;
 	}
 
-	// Token: 0x06000907 RID: 2311 RVA: 0x0002645C File Offset: 0x0002465C
-	public static IEnumerable<Controller> CurrentControllers(IEnumerable<PlayerClient> playerClients)
+	// Token: 0x060009FD RID: 2557 RVA: 0x000296D0 File Offset: 0x000278D0
+	public static IEnumerable<global::Controller> CurrentControllers(IEnumerable<global::PlayerClient> playerClients)
 	{
-		foreach (PlayerClient pc in playerClients)
+		foreach (global::PlayerClient pc in playerClients)
 		{
-			Controllable controllable = pc.controllable;
+			global::Controllable controllable = pc.controllable;
 			if (controllable)
 			{
-				Controller controller = controllable.controller;
+				global::Controller controller = controllable.controller;
 				if (controller)
 				{
 					yield return controller;
@@ -940,12 +940,12 @@ public abstract class Controller : IDLocalCharacterAddon
 		yield break;
 	}
 
-	// Token: 0x06000908 RID: 2312 RVA: 0x00026488 File Offset: 0x00024688
-	public static IEnumerable<TController> RootControllers<TController>(IEnumerable<PlayerClient> playerClients) where TController : Controller
+	// Token: 0x060009FE RID: 2558 RVA: 0x000296FC File Offset: 0x000278FC
+	public static IEnumerable<TController> RootControllers<TController>(IEnumerable<global::PlayerClient> playerClients) where TController : global::Controller
 	{
-		foreach (PlayerClient pc in playerClients)
+		foreach (global::PlayerClient pc in playerClients)
 		{
-			Controllable controllable = pc.rootControllable;
+			global::Controllable controllable = pc.rootControllable;
 			if (controllable)
 			{
 				TController controller = controllable.controller as TController;
@@ -958,12 +958,12 @@ public abstract class Controller : IDLocalCharacterAddon
 		yield break;
 	}
 
-	// Token: 0x06000909 RID: 2313 RVA: 0x000264B4 File Offset: 0x000246B4
-	public static IEnumerable<TController> CurrentControllers<TController>(IEnumerable<PlayerClient> playerClients) where TController : Controller
+	// Token: 0x060009FF RID: 2559 RVA: 0x00029728 File Offset: 0x00027928
+	public static IEnumerable<TController> CurrentControllers<TController>(IEnumerable<global::PlayerClient> playerClients) where TController : global::Controller
 	{
-		foreach (PlayerClient pc in playerClients)
+		foreach (global::PlayerClient pc in playerClients)
 		{
-			Controllable controllable = pc.controllable;
+			global::Controllable controllable = pc.controllable;
 			if (controllable)
 			{
 				TController controller = controllable.controller as TController;
@@ -976,89 +976,89 @@ public abstract class Controller : IDLocalCharacterAddon
 		yield break;
 	}
 
-	// Token: 0x040005FE RID: 1534
+	// Token: 0x040006E1 RID: 1761
 	[NonSerialized]
-	private Controllable _controllable;
+	private global::Controllable _controllable;
 
-	// Token: 0x040005FF RID: 1535
+	// Token: 0x040006E2 RID: 1762
 	[NonSerialized]
-	private readonly Controller.ControllerFlags controllerFlags;
+	private readonly global::Controller.ControllerFlags controllerFlags;
 
-	// Token: 0x04000600 RID: 1536
+	// Token: 0x040006E3 RID: 1763
 	[NonSerialized]
-	private RPOSLimitFlags _rposLimitFlags;
+	private global::RPOSLimitFlags _rposLimitFlags;
 
-	// Token: 0x04000601 RID: 1537
+	// Token: 0x040006E4 RID: 1764
 	[NonSerialized]
 	private bool wasSetup;
 
-	// Token: 0x04000602 RID: 1538
+	// Token: 0x040006E5 RID: 1765
 	[NonSerialized]
 	private bool _forwardsPlayerClientInput;
 
-	// Token: 0x04000603 RID: 1539
+	// Token: 0x040006E6 RID: 1766
 	[NonSerialized]
 	private bool _doesNotSave;
 
-	// Token: 0x04000604 RID: 1540
+	// Token: 0x040006E7 RID: 1767
 	[NonSerialized]
-	protected Controller.Commandment commandment;
+	protected global::Controller.Commandment commandment;
 
-	// Token: 0x02000131 RID: 305
+	// Token: 0x02000155 RID: 341
 	protected enum ControllerFlags
 	{
-		// Token: 0x04000606 RID: 1542
+		// Token: 0x040006E9 RID: 1769
 		EnableWhenLocalPlayer = 1,
-		// Token: 0x04000607 RID: 1543
+		// Token: 0x040006EA RID: 1770
 		EnableWhenLocalAI,
-		// Token: 0x04000608 RID: 1544
+		// Token: 0x040006EB RID: 1771
 		EnableWhenRemotePlayer = 4,
-		// Token: 0x04000609 RID: 1545
+		// Token: 0x040006EC RID: 1772
 		EnableWhenRemoteAI = 8,
-		// Token: 0x0400060A RID: 1546
+		// Token: 0x040006ED RID: 1773
 		DisableWhenLocalPlayer = 16,
-		// Token: 0x0400060B RID: 1547
+		// Token: 0x040006EE RID: 1774
 		DisableWhenLocalAI = 32,
-		// Token: 0x0400060C RID: 1548
+		// Token: 0x040006EF RID: 1775
 		DisableWhenRemotePlayer = 64,
-		// Token: 0x0400060D RID: 1549
+		// Token: 0x040006F0 RID: 1776
 		DisableWhenRemoteAI = 128,
-		// Token: 0x0400060E RID: 1550
+		// Token: 0x040006F1 RID: 1777
 		ToggleEnableWhenLocalPlayer = 17,
-		// Token: 0x0400060F RID: 1551
+		// Token: 0x040006F2 RID: 1778
 		ToggleEnableLocalAI = 34,
-		// Token: 0x04000610 RID: 1552
+		// Token: 0x040006F3 RID: 1779
 		ToggleEnableRemotePlayer = 68,
-		// Token: 0x04000611 RID: 1553
+		// Token: 0x040006F4 RID: 1780
 		ToggleEnableRemoteAI = 136,
-		// Token: 0x04000612 RID: 1554
+		// Token: 0x040006F5 RID: 1781
 		AlwaysSavedAsDisabled = 256,
-		// Token: 0x04000613 RID: 1555
+		// Token: 0x040006F6 RID: 1782
 		AlwaysSavedAsEnabled = 512,
-		// Token: 0x04000614 RID: 1556
+		// Token: 0x040006F7 RID: 1783
 		DontMessWithEnabled = 768,
-		// Token: 0x04000615 RID: 1557
+		// Token: 0x040006F8 RID: 1784
 		IncompatibleAsRemoteAI = 1024,
-		// Token: 0x04000616 RID: 1558
+		// Token: 0x040006F9 RID: 1785
 		IncompatibleAsRemotePlayer = 2048,
-		// Token: 0x04000617 RID: 1559
+		// Token: 0x040006FA RID: 1786
 		IncompatibleAsLocalPlayer = 4096,
-		// Token: 0x04000618 RID: 1560
+		// Token: 0x040006FB RID: 1787
 		IncompatibleAsLocalAI = 8192
 	}
 
-	// Token: 0x02000132 RID: 306
+	// Token: 0x02000156 RID: 342
 	[StructLayout(LayoutKind.Sequential, Size = 4)]
 	protected internal struct Commandment
 	{
-		// Token: 0x0600090A RID: 2314 RVA: 0x000264E0 File Offset: 0x000246E0
+		// Token: 0x06000A00 RID: 2560 RVA: 0x00029754 File Offset: 0x00027954
 		internal Commandment(int f)
 		{
 			this.f = (f & 262143);
 		}
 
-		// Token: 0x17000241 RID: 577
-		// (get) Token: 0x0600090B RID: 2315 RVA: 0x000264F0 File Offset: 0x000246F0
+		// Token: 0x17000277 RID: 631
+		// (get) Token: 0x06000A01 RID: 2561 RVA: 0x00029764 File Offset: 0x00027964
 		public bool thisDestroying
 		{
 			get
@@ -1067,8 +1067,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000242 RID: 578
-		// (get) Token: 0x0600090C RID: 2316 RVA: 0x00026500 File Offset: 0x00024700
+		// Token: 0x17000278 RID: 632
+		// (get) Token: 0x06000A02 RID: 2562 RVA: 0x00029774 File Offset: 0x00027974
 		public bool baseDestroying
 		{
 			get
@@ -1077,8 +1077,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000243 RID: 579
-		// (get) Token: 0x0600090D RID: 2317 RVA: 0x00026510 File Offset: 0x00024710
+		// Token: 0x17000279 RID: 633
+		// (get) Token: 0x06000A03 RID: 2563 RVA: 0x00029784 File Offset: 0x00027984
 		public bool rootDestroying
 		{
 			get
@@ -1087,8 +1087,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000244 RID: 580
-		// (get) Token: 0x0600090E RID: 2318 RVA: 0x00026520 File Offset: 0x00024720
+		// Token: 0x1700027A RID: 634
+		// (get) Token: 0x06000A04 RID: 2564 RVA: 0x00029794 File Offset: 0x00027994
 		public bool baseExit
 		{
 			get
@@ -1097,8 +1097,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000245 RID: 581
-		// (get) Token: 0x0600090F RID: 2319 RVA: 0x00026530 File Offset: 0x00024730
+		// Token: 0x1700027B RID: 635
+		// (get) Token: 0x06000A05 RID: 2565 RVA: 0x000297A4 File Offset: 0x000279A4
 		public bool thisExit
 		{
 			get
@@ -1107,8 +1107,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000246 RID: 582
-		// (get) Token: 0x06000910 RID: 2320 RVA: 0x00026540 File Offset: 0x00024740
+		// Token: 0x1700027C RID: 636
+		// (get) Token: 0x06000A06 RID: 2566 RVA: 0x000297B4 File Offset: 0x000279B4
 		public bool rootExit
 		{
 			get
@@ -1117,8 +1117,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000247 RID: 583
-		// (get) Token: 0x06000911 RID: 2321 RVA: 0x00026550 File Offset: 0x00024750
+		// Token: 0x1700027D RID: 637
+		// (get) Token: 0x06000A07 RID: 2567 RVA: 0x000297C4 File Offset: 0x000279C4
 		public bool networkValid
 		{
 			get
@@ -1127,8 +1127,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000248 RID: 584
-		// (get) Token: 0x06000912 RID: 2322 RVA: 0x00026560 File Offset: 0x00024760
+		// Token: 0x1700027E RID: 638
+		// (get) Token: 0x06000A08 RID: 2568 RVA: 0x000297D4 File Offset: 0x000279D4
 		public bool networkInvalid
 		{
 			get
@@ -1137,8 +1137,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000249 RID: 585
-		// (get) Token: 0x06000913 RID: 2323 RVA: 0x00026570 File Offset: 0x00024770
+		// Token: 0x1700027F RID: 639
+		// (get) Token: 0x06000A09 RID: 2569 RVA: 0x000297E4 File Offset: 0x000279E4
 		public bool overrideThis
 		{
 			get
@@ -1147,8 +1147,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x1700024A RID: 586
-		// (get) Token: 0x06000914 RID: 2324 RVA: 0x00026588 File Offset: 0x00024788
+		// Token: 0x17000280 RID: 640
+		// (get) Token: 0x06000A0A RID: 2570 RVA: 0x000297FC File Offset: 0x000279FC
 		public bool overrideBase
 		{
 			get
@@ -1157,8 +1157,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x1700024B RID: 587
-		// (get) Token: 0x06000915 RID: 2325 RVA: 0x000265A0 File Offset: 0x000247A0
+		// Token: 0x17000281 RID: 641
+		// (get) Token: 0x06000A0B RID: 2571 RVA: 0x00029814 File Offset: 0x00027A14
 		public bool overrideRoot
 		{
 			get
@@ -1167,8 +1167,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x1700024C RID: 588
-		// (get) Token: 0x06000916 RID: 2326 RVA: 0x000265B8 File Offset: 0x000247B8
+		// Token: 0x17000282 RID: 642
+		// (get) Token: 0x06000A0C RID: 2572 RVA: 0x0002982C File Offset: 0x00027A2C
 		public bool ownerServer
 		{
 			get
@@ -1177,8 +1177,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x1700024D RID: 589
-		// (get) Token: 0x06000917 RID: 2327 RVA: 0x000265CC File Offset: 0x000247CC
+		// Token: 0x17000283 RID: 643
+		// (get) Token: 0x06000A0D RID: 2573 RVA: 0x00029840 File Offset: 0x00027A40
 		public bool ownerClient
 		{
 			get
@@ -1187,8 +1187,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x1700024E RID: 590
-		// (get) Token: 0x06000918 RID: 2328 RVA: 0x000265E4 File Offset: 0x000247E4
+		// Token: 0x17000284 RID: 644
+		// (get) Token: 0x06000A0E RID: 2574 RVA: 0x00029858 File Offset: 0x00027A58
 		public bool runningLocally
 		{
 			get
@@ -1197,8 +1197,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x1700024F RID: 591
-		// (get) Token: 0x06000919 RID: 2329 RVA: 0x000265FC File Offset: 0x000247FC
+		// Token: 0x17000285 RID: 645
+		// (get) Token: 0x06000A0F RID: 2575 RVA: 0x00029870 File Offset: 0x00027A70
 		public bool runningRemotely
 		{
 			get
@@ -1207,8 +1207,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000250 RID: 592
-		// (get) Token: 0x0600091A RID: 2330 RVA: 0x00026610 File Offset: 0x00024810
+		// Token: 0x17000286 RID: 646
+		// (get) Token: 0x06000A10 RID: 2576 RVA: 0x00029884 File Offset: 0x00027A84
 		public bool callFirst
 		{
 			get
@@ -1217,8 +1217,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000251 RID: 593
-		// (get) Token: 0x0600091B RID: 2331 RVA: 0x00026624 File Offset: 0x00024824
+		// Token: 0x17000287 RID: 647
+		// (get) Token: 0x06000A11 RID: 2577 RVA: 0x00029898 File Offset: 0x00027A98
 		public bool callAgain
 		{
 			get
@@ -1227,8 +1227,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000252 RID: 594
-		// (get) Token: 0x0600091C RID: 2332 RVA: 0x0002663C File Offset: 0x0002483C
+		// Token: 0x17000288 RID: 648
+		// (get) Token: 0x06000A12 RID: 2578 RVA: 0x000298B0 File Offset: 0x00027AB0
 		public bool bindWeak
 		{
 			get
@@ -1237,8 +1237,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000253 RID: 595
-		// (get) Token: 0x0600091D RID: 2333 RVA: 0x00026650 File Offset: 0x00024850
+		// Token: 0x17000289 RID: 649
+		// (get) Token: 0x06000A13 RID: 2579 RVA: 0x000298C4 File Offset: 0x00027AC4
 		public bool bindStrong
 		{
 			get
@@ -1247,8 +1247,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000254 RID: 596
-		// (get) Token: 0x0600091E RID: 2334 RVA: 0x00026668 File Offset: 0x00024868
+		// Token: 0x1700028A RID: 650
+		// (get) Token: 0x06000A14 RID: 2580 RVA: 0x000298DC File Offset: 0x00027ADC
 		public bool kindRoot
 		{
 			get
@@ -1257,8 +1257,8 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x17000255 RID: 597
-		// (get) Token: 0x0600091F RID: 2335 RVA: 0x00026680 File Offset: 0x00024880
+		// Token: 0x1700028B RID: 651
+		// (get) Token: 0x06000A15 RID: 2581 RVA: 0x000298F4 File Offset: 0x00027AF4
 		public bool kindVessel
 		{
 			get
@@ -1267,7 +1267,7 @@ public abstract class Controller : IDLocalCharacterAddon
 			}
 		}
 
-		// Token: 0x06000920 RID: 2336 RVA: 0x00026694 File Offset: 0x00024894
+		// Token: 0x06000A16 RID: 2582 RVA: 0x00029908 File Offset: 0x00027B08
 		public override string ToString()
 		{
 			if ((this.f & 229376) != 0)
@@ -1472,184 +1472,184 @@ public abstract class Controller : IDLocalCharacterAddon
 			return "INVALID";
 		}
 
-		// Token: 0x04000619 RID: 1561
+		// Token: 0x040006FC RID: 1788
 		private const int B = 1;
 
-		// Token: 0x0400061A RID: 1562
+		// Token: 0x040006FD RID: 1789
 		internal const int THIS_TO_BASE = 1;
 
-		// Token: 0x0400061B RID: 1563
+		// Token: 0x040006FE RID: 1790
 		internal const int THIS_TO_ROOT = 2;
 
-		// Token: 0x0400061C RID: 1564
+		// Token: 0x040006FF RID: 1791
 		internal const int ALL = 32767;
 
-		// Token: 0x0400061D RID: 1565
+		// Token: 0x04000700 RID: 1792
 		internal const int ALL_THIS = 145;
 
-		// Token: 0x0400061E RID: 1566
+		// Token: 0x04000701 RID: 1793
 		internal const int ALL_BASE = 290;
 
-		// Token: 0x0400061F RID: 1567
+		// Token: 0x04000702 RID: 1794
 		internal const int ALL_ROOT = 580;
 
-		// Token: 0x04000620 RID: 1568
+		// Token: 0x04000703 RID: 1795
 		private readonly int f;
 
-		// Token: 0x02000133 RID: 307
+		// Token: 0x02000157 RID: 343
 		internal static class DESTROY
 		{
-			// Token: 0x04000621 RID: 1569
+			// Token: 0x04000704 RID: 1796
 			public const int THIS = 1;
 
-			// Token: 0x04000622 RID: 1570
+			// Token: 0x04000705 RID: 1797
 			public const int BASE = 2;
 
-			// Token: 0x04000623 RID: 1571
+			// Token: 0x04000706 RID: 1798
 			public const int ROOT = 4;
 
-			// Token: 0x04000624 RID: 1572
+			// Token: 0x04000707 RID: 1799
 			public const int NONE = 0;
 
-			// Token: 0x04000625 RID: 1573
+			// Token: 0x04000708 RID: 1800
 			public const int ALL = 7;
 		}
 
-		// Token: 0x02000134 RID: 308
+		// Token: 0x02000158 RID: 344
 		internal static class NETWORK
 		{
-			// Token: 0x04000626 RID: 1574
+			// Token: 0x04000709 RID: 1801
 			public const int VALID = 0;
 
-			// Token: 0x04000627 RID: 1575
+			// Token: 0x0400070A RID: 1802
 			public const int INVALID = 8;
 
-			// Token: 0x04000628 RID: 1576
+			// Token: 0x0400070B RID: 1803
 			public const int ALL = 8;
 		}
 
-		// Token: 0x02000135 RID: 309
+		// Token: 0x02000159 RID: 345
 		internal static class EXIT
 		{
-			// Token: 0x04000629 RID: 1577
+			// Token: 0x0400070C RID: 1804
 			public const int THIS = 16;
 
-			// Token: 0x0400062A RID: 1578
+			// Token: 0x0400070D RID: 1805
 			public const int BASE = 32;
 
-			// Token: 0x0400062B RID: 1579
+			// Token: 0x0400070E RID: 1806
 			public const int ROOT = 64;
 
-			// Token: 0x0400062C RID: 1580
+			// Token: 0x0400070F RID: 1807
 			public const int NONE = 0;
 
-			// Token: 0x0400062D RID: 1581
+			// Token: 0x04000710 RID: 1808
 			public const int ALL = 112;
 		}
 
-		// Token: 0x02000136 RID: 310
+		// Token: 0x0200015A RID: 346
 		internal static class OVERRIDE
 		{
-			// Token: 0x0400062E RID: 1582
+			// Token: 0x04000711 RID: 1809
 			public const int THIS = 128;
 
-			// Token: 0x0400062F RID: 1583
+			// Token: 0x04000712 RID: 1810
 			public const int BASE = 256;
 
-			// Token: 0x04000630 RID: 1584
+			// Token: 0x04000713 RID: 1811
 			public const int ROOT = 512;
 
-			// Token: 0x04000631 RID: 1585
+			// Token: 0x04000714 RID: 1812
 			public const int NONE = 0;
 
-			// Token: 0x04000632 RID: 1586
+			// Token: 0x04000715 RID: 1813
 			public const int ALL = 896;
 		}
 
-		// Token: 0x02000137 RID: 311
+		// Token: 0x0200015B RID: 347
 		internal static class ONCE
 		{
-			// Token: 0x04000633 RID: 1587
+			// Token: 0x04000716 RID: 1814
 			public const int TRUE = 1024;
 
-			// Token: 0x04000634 RID: 1588
+			// Token: 0x04000717 RID: 1815
 			public const int FALSE = 0;
 
-			// Token: 0x04000635 RID: 1589
+			// Token: 0x04000718 RID: 1816
 			public const int ALL = 1024;
 		}
 
-		// Token: 0x02000138 RID: 312
+		// Token: 0x0200015C RID: 348
 		internal static class KIND
 		{
-			// Token: 0x04000636 RID: 1590
+			// Token: 0x04000719 RID: 1817
 			public const int ROOT = 2048;
 
-			// Token: 0x04000637 RID: 1591
+			// Token: 0x0400071A RID: 1818
 			public const int VESSEL = 0;
 
-			// Token: 0x04000638 RID: 1592
+			// Token: 0x0400071B RID: 1819
 			public const int ALL = 2048;
 		}
 
-		// Token: 0x02000139 RID: 313
+		// Token: 0x0200015D RID: 349
 		internal static class BINDING
 		{
-			// Token: 0x04000639 RID: 1593
+			// Token: 0x0400071C RID: 1820
 			public const int STRONG = 4096;
 
-			// Token: 0x0400063A RID: 1594
+			// Token: 0x0400071D RID: 1821
 			public const int WEAK = 0;
 
-			// Token: 0x0400063B RID: 1595
+			// Token: 0x0400071E RID: 1822
 			public const int ALL = 4096;
 		}
 
-		// Token: 0x0200013A RID: 314
+		// Token: 0x0200015E RID: 350
 		internal static class OWNER
 		{
-			// Token: 0x0400063C RID: 1596
+			// Token: 0x0400071F RID: 1823
 			public const int CLIENT = 8192;
 
-			// Token: 0x0400063D RID: 1597
+			// Token: 0x04000720 RID: 1824
 			public const int SERVER = 0;
 
-			// Token: 0x0400063E RID: 1598
+			// Token: 0x04000721 RID: 1825
 			public const int ALL = 8192;
 		}
 
-		// Token: 0x0200013B RID: 315
+		// Token: 0x0200015F RID: 351
 		internal static class PLACE
 		{
-			// Token: 0x0400063F RID: 1599
+			// Token: 0x04000722 RID: 1826
 			public const int HERE = 16384;
 
-			// Token: 0x04000640 RID: 1600
+			// Token: 0x04000723 RID: 1827
 			public const int ELSEWHERE = 0;
 
-			// Token: 0x04000641 RID: 1601
+			// Token: 0x04000724 RID: 1828
 			public const int ALL = 16384;
 		}
 
-		// Token: 0x0200013C RID: 316
+		// Token: 0x02000160 RID: 352
 		internal static class EVENT
 		{
-			// Token: 0x04000642 RID: 1602
+			// Token: 0x04000725 RID: 1829
 			public const int NONE = 0;
 
-			// Token: 0x04000643 RID: 1603
+			// Token: 0x04000726 RID: 1830
 			public const int ENTER = 32768;
 
-			// Token: 0x04000644 RID: 1604
+			// Token: 0x04000727 RID: 1831
 			public const int ENGAUGE = 65536;
 
-			// Token: 0x04000645 RID: 1605
+			// Token: 0x04000728 RID: 1832
 			public const int CEASE = 98304;
 
-			// Token: 0x04000646 RID: 1606
+			// Token: 0x04000729 RID: 1833
 			public const int EXIT = 131072;
 
-			// Token: 0x04000647 RID: 1607
+			// Token: 0x0400072A RID: 1834
 			public const int ALL = 229376;
 		}
 	}

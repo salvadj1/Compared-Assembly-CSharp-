@@ -1,13 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200075C RID: 1884
+// Token: 0x0200083E RID: 2110
 [AddComponentMenu("NGUI/Interaction/Button Color")]
 public class UIButtonColor : MonoBehaviour
 {
-	// Token: 0x17000D6E RID: 3438
-	// (get) Token: 0x060044B8 RID: 17592 RVA: 0x0010D220 File Offset: 0x0010B420
-	// (set) Token: 0x060044B9 RID: 17593 RVA: 0x0010D228 File Offset: 0x0010B428
+	// Token: 0x17000DFE RID: 3582
+	// (get) Token: 0x06004919 RID: 18713 RVA: 0x00116BA0 File Offset: 0x00114DA0
+	// (set) Token: 0x0600491A RID: 18714 RVA: 0x00116BA8 File Offset: 0x00114DA8
 	public Color defaultColor
 	{
 		get
@@ -20,7 +20,7 @@ public class UIButtonColor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044BA RID: 17594 RVA: 0x0010D234 File Offset: 0x0010B434
+	// Token: 0x0600491B RID: 18715 RVA: 0x00116BB4 File Offset: 0x00114DB4
 	private void Start()
 	{
 		this.mStarted = true;
@@ -30,21 +30,21 @@ public class UIButtonColor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044BB RID: 17595 RVA: 0x0010D250 File Offset: 0x0010B450
+	// Token: 0x0600491C RID: 18716 RVA: 0x00116BD0 File Offset: 0x00114DD0
 	protected virtual void OnEnable()
 	{
 		if (this.mStarted && this.mHighlighted)
 		{
-			this.OnHover(UICamera.IsHighlighted(base.gameObject));
+			this.OnHover(global::UICamera.IsHighlighted(base.gameObject));
 		}
 	}
 
-	// Token: 0x060044BC RID: 17596 RVA: 0x0010D27C File Offset: 0x0010B47C
+	// Token: 0x0600491D RID: 18717 RVA: 0x00116BFC File Offset: 0x00114DFC
 	private void OnDisable()
 	{
 		if (this.tweenTarget != null)
 		{
-			TweenColor component = this.tweenTarget.GetComponent<TweenColor>();
+			global::TweenColor component = this.tweenTarget.GetComponent<global::TweenColor>();
 			if (component != null)
 			{
 				component.color = this.mColor;
@@ -53,7 +53,7 @@ public class UIButtonColor : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060044BD RID: 17597 RVA: 0x0010D2C8 File Offset: 0x0010B4C8
+	// Token: 0x0600491E RID: 18718 RVA: 0x00116C48 File Offset: 0x00114E48
 	protected void Init()
 	{
 		this.mInitDone = true;
@@ -61,7 +61,7 @@ public class UIButtonColor : MonoBehaviour
 		{
 			this.tweenTarget = base.gameObject;
 		}
-		UIWidget component = this.tweenTarget.GetComponent<UIWidget>();
+		global::UIWidget component = this.tweenTarget.GetComponent<global::UIWidget>();
 		if (component != null)
 		{
 			this.mColor = component.color;
@@ -82,14 +82,14 @@ public class UIButtonColor : MonoBehaviour
 				}
 				else
 				{
-					Debug.LogWarning(NGUITools.GetHierarchy(base.gameObject) + " has nothing for UIButtonColor to color", this);
+					Debug.LogWarning(global::NGUITools.GetHierarchy(base.gameObject) + " has nothing for UIButtonColor to color", this);
 					base.enabled = false;
 				}
 			}
 		}
 	}
 
-	// Token: 0x060044BE RID: 17598 RVA: 0x0010D39C File Offset: 0x0010B59C
+	// Token: 0x0600491F RID: 18719 RVA: 0x00116D1C File Offset: 0x00114F1C
 	protected virtual void OnPress(bool isPressed)
 	{
 		if (!this.mInitDone)
@@ -98,11 +98,11 @@ public class UIButtonColor : MonoBehaviour
 		}
 		if (base.enabled)
 		{
-			TweenColor.Begin(this.tweenTarget, this.duration, (!isPressed) ? ((!UICamera.IsHighlighted(base.gameObject)) ? this.mColor : this.hover) : this.pressed);
+			global::TweenColor.Begin(this.tweenTarget, this.duration, (!isPressed) ? ((!global::UICamera.IsHighlighted(base.gameObject)) ? this.mColor : this.hover) : this.pressed);
 		}
 	}
 
-	// Token: 0x060044BF RID: 17599 RVA: 0x0010D40C File Offset: 0x0010B60C
+	// Token: 0x06004920 RID: 18720 RVA: 0x00116D8C File Offset: 0x00114F8C
 	protected virtual void OnHover(bool isOver)
 	{
 		if (base.enabled)
@@ -111,32 +111,32 @@ public class UIButtonColor : MonoBehaviour
 			{
 				this.Init();
 			}
-			TweenColor.Begin(this.tweenTarget, this.duration, (!isOver) ? this.mColor : this.hover);
+			global::TweenColor.Begin(this.tweenTarget, this.duration, (!isOver) ? this.mColor : this.hover);
 			this.mHighlighted = isOver;
 		}
 	}
 
-	// Token: 0x040024E8 RID: 9448
+	// Token: 0x0400271F RID: 10015
 	public GameObject tweenTarget;
 
-	// Token: 0x040024E9 RID: 9449
+	// Token: 0x04002720 RID: 10016
 	public Color hover = new Color(0.6f, 1f, 0.2f, 1f);
 
-	// Token: 0x040024EA RID: 9450
+	// Token: 0x04002721 RID: 10017
 	public Color pressed = Color.grey;
 
-	// Token: 0x040024EB RID: 9451
+	// Token: 0x04002722 RID: 10018
 	public float duration = 0.2f;
 
-	// Token: 0x040024EC RID: 9452
+	// Token: 0x04002723 RID: 10019
 	protected Color mColor;
 
-	// Token: 0x040024ED RID: 9453
+	// Token: 0x04002724 RID: 10020
 	protected bool mInitDone;
 
-	// Token: 0x040024EE RID: 9454
+	// Token: 0x04002725 RID: 10021
 	protected bool mStarted;
 
-	// Token: 0x040024EF RID: 9455
+	// Token: 0x04002726 RID: 10022
 	protected bool mHighlighted;
 }

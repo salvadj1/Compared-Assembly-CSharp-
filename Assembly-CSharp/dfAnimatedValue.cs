@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000739 RID: 1849
+// Token: 0x02000816 RID: 2070
 public abstract class dfAnimatedValue<T> where T : struct
 {
-	// Token: 0x0600436B RID: 17259 RVA: 0x00105FBC File Offset: 0x001041BC
+	// Token: 0x060047B3 RID: 18355 RVA: 0x0010F2CC File Offset: 0x0010D4CC
 	protected internal dfAnimatedValue(T StartValue, T EndValue, float Time) : this()
 	{
 		this.startValue = StartValue;
@@ -12,15 +12,15 @@ public abstract class dfAnimatedValue<T> where T : struct
 		this.animLength = Time;
 	}
 
-	// Token: 0x0600436C RID: 17260 RVA: 0x00105FDC File Offset: 0x001041DC
+	// Token: 0x060047B4 RID: 18356 RVA: 0x0010F2EC File Offset: 0x0010D4EC
 	protected internal dfAnimatedValue()
 	{
 		this.startTime = Time.realtimeSinceStartup;
-		this.easingFunction = dfEasingFunctions.GetFunction(this.easingType);
+		this.easingFunction = global::dfEasingFunctions.GetFunction(this.easingType);
 	}
 
-	// Token: 0x17000D35 RID: 3381
-	// (get) Token: 0x0600436D RID: 17261 RVA: 0x0010600C File Offset: 0x0010420C
+	// Token: 0x17000DBF RID: 3519
+	// (get) Token: 0x060047B5 RID: 18357 RVA: 0x0010F31C File Offset: 0x0010D51C
 	public bool IsDone
 	{
 		get
@@ -29,9 +29,9 @@ public abstract class dfAnimatedValue<T> where T : struct
 		}
 	}
 
-	// Token: 0x17000D36 RID: 3382
-	// (get) Token: 0x0600436E RID: 17262 RVA: 0x00106028 File Offset: 0x00104228
-	// (set) Token: 0x0600436F RID: 17263 RVA: 0x00106030 File Offset: 0x00104230
+	// Token: 0x17000DC0 RID: 3520
+	// (get) Token: 0x060047B6 RID: 18358 RVA: 0x0010F338 File Offset: 0x0010D538
+	// (set) Token: 0x060047B7 RID: 18359 RVA: 0x0010F340 File Offset: 0x0010D540
 	public float Length
 	{
 		get
@@ -45,9 +45,9 @@ public abstract class dfAnimatedValue<T> where T : struct
 		}
 	}
 
-	// Token: 0x17000D37 RID: 3383
-	// (get) Token: 0x06004370 RID: 17264 RVA: 0x00106044 File Offset: 0x00104244
-	// (set) Token: 0x06004371 RID: 17265 RVA: 0x0010604C File Offset: 0x0010424C
+	// Token: 0x17000DC1 RID: 3521
+	// (get) Token: 0x060047B8 RID: 18360 RVA: 0x0010F354 File Offset: 0x0010D554
+	// (set) Token: 0x060047B9 RID: 18361 RVA: 0x0010F35C File Offset: 0x0010D55C
 	public T StartValue
 	{
 		get
@@ -61,9 +61,9 @@ public abstract class dfAnimatedValue<T> where T : struct
 		}
 	}
 
-	// Token: 0x17000D38 RID: 3384
-	// (get) Token: 0x06004372 RID: 17266 RVA: 0x00106060 File Offset: 0x00104260
-	// (set) Token: 0x06004373 RID: 17267 RVA: 0x00106068 File Offset: 0x00104268
+	// Token: 0x17000DC2 RID: 3522
+	// (get) Token: 0x060047BA RID: 18362 RVA: 0x0010F370 File Offset: 0x0010D570
+	// (set) Token: 0x060047BB RID: 18363 RVA: 0x0010F378 File Offset: 0x0010D578
 	public T EndValue
 	{
 		get
@@ -77,8 +77,8 @@ public abstract class dfAnimatedValue<T> where T : struct
 		}
 	}
 
-	// Token: 0x17000D39 RID: 3385
-	// (get) Token: 0x06004374 RID: 17268 RVA: 0x0010607C File Offset: 0x0010427C
+	// Token: 0x17000DC3 RID: 3523
+	// (get) Token: 0x060047BC RID: 18364 RVA: 0x0010F38C File Offset: 0x0010D58C
 	public T Value
 	{
 		get
@@ -94,10 +94,10 @@ public abstract class dfAnimatedValue<T> where T : struct
 		}
 	}
 
-	// Token: 0x17000D3A RID: 3386
-	// (get) Token: 0x06004375 RID: 17269 RVA: 0x001060E4 File Offset: 0x001042E4
-	// (set) Token: 0x06004376 RID: 17270 RVA: 0x001060EC File Offset: 0x001042EC
-	public dfEasingType EasingType
+	// Token: 0x17000DC4 RID: 3524
+	// (get) Token: 0x060047BD RID: 18365 RVA: 0x0010F3F4 File Offset: 0x0010D5F4
+	// (set) Token: 0x060047BE RID: 18366 RVA: 0x0010F3FC File Offset: 0x0010D5FC
+	public global::dfEasingType EasingType
 	{
 		get
 		{
@@ -106,34 +106,34 @@ public abstract class dfAnimatedValue<T> where T : struct
 		set
 		{
 			this.easingType = value;
-			this.easingFunction = dfEasingFunctions.GetFunction(this.easingType);
+			this.easingFunction = global::dfEasingFunctions.GetFunction(this.easingType);
 		}
 	}
 
-	// Token: 0x06004377 RID: 17271
+	// Token: 0x060047BF RID: 18367
 	protected abstract T Lerp(T startValue, T endValue, float time);
 
-	// Token: 0x06004378 RID: 17272 RVA: 0x00106108 File Offset: 0x00104308
-	public static implicit operator T(dfAnimatedValue<T> animated)
+	// Token: 0x060047C0 RID: 18368 RVA: 0x0010F418 File Offset: 0x0010D618
+	public static implicit operator T(global::dfAnimatedValue<T> animated)
 	{
 		return animated.Value;
 	}
 
-	// Token: 0x04002374 RID: 9076
+	// Token: 0x04002597 RID: 9623
 	private T startValue;
 
-	// Token: 0x04002375 RID: 9077
+	// Token: 0x04002598 RID: 9624
 	private T endValue;
 
-	// Token: 0x04002376 RID: 9078
+	// Token: 0x04002599 RID: 9625
 	private float animLength = 1f;
 
-	// Token: 0x04002377 RID: 9079
+	// Token: 0x0400259A RID: 9626
 	private float startTime;
 
-	// Token: 0x04002378 RID: 9080
-	private dfEasingType easingType;
+	// Token: 0x0400259B RID: 9627
+	private global::dfEasingType easingType;
 
-	// Token: 0x04002379 RID: 9081
-	private dfEasingFunctions.EasingFunction easingFunction;
+	// Token: 0x0400259C RID: 9628
+	private global::dfEasingFunctions.EasingFunction easingFunction;
 }

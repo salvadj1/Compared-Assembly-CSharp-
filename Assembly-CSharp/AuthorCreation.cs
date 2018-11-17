@@ -4,21 +4,21 @@ using System.IO;
 using UnityEngine;
 
 // Token: 0x0200000B RID: 11
-public abstract class AuthorCreation : AuthorShared
+public abstract class AuthorCreation : global::AuthorShared
 {
-	// Token: 0x0600001E RID: 30 RVA: 0x00002298 File Offset: 0x00000498
+	// Token: 0x0600001E RID: 30 RVA: 0x000021FC File Offset: 0x000003FC
 	protected AuthorCreation(Type outputType) : this()
 	{
 		this.outputType = outputType;
 	}
 
-	// Token: 0x0600001F RID: 31 RVA: 0x000022A8 File Offset: 0x000004A8
+	// Token: 0x0600001F RID: 31 RVA: 0x0000220C File Offset: 0x0000040C
 	private AuthorCreation()
 	{
 	}
 
 	// Token: 0x17000009 RID: 9
-	// (get) Token: 0x06000021 RID: 33 RVA: 0x00002308 File Offset: 0x00000508
+	// (get) Token: 0x06000021 RID: 33 RVA: 0x0000226C File Offset: 0x0000046C
 	public int settingsHeight
 	{
 		get
@@ -28,7 +28,7 @@ public abstract class AuthorCreation : AuthorShared
 	}
 
 	// Token: 0x1700000A RID: 10
-	// (get) Token: 0x06000022 RID: 34 RVA: 0x00002310 File Offset: 0x00000510
+	// (get) Token: 0x06000022 RID: 34 RVA: 0x00002274 File Offset: 0x00000474
 	public int palletWidth
 	{
 		get
@@ -38,7 +38,7 @@ public abstract class AuthorCreation : AuthorShared
 	}
 
 	// Token: 0x1700000B RID: 11
-	// (get) Token: 0x06000023 RID: 35 RVA: 0x00002318 File Offset: 0x00000518
+	// (get) Token: 0x06000023 RID: 35 RVA: 0x0000227C File Offset: 0x0000047C
 	public int rightPanelWidth
 	{
 		get
@@ -48,7 +48,7 @@ public abstract class AuthorCreation : AuthorShared
 	}
 
 	// Token: 0x1700000C RID: 12
-	// (get) Token: 0x06000024 RID: 36 RVA: 0x00002320 File Offset: 0x00000520
+	// (get) Token: 0x06000024 RID: 36 RVA: 0x00002284 File Offset: 0x00000484
 	public int palletContentHeight
 	{
 		get
@@ -58,7 +58,7 @@ public abstract class AuthorCreation : AuthorShared
 	}
 
 	// Token: 0x1700000D RID: 13
-	// (get) Token: 0x06000025 RID: 37 RVA: 0x00002328 File Offset: 0x00000528
+	// (get) Token: 0x06000025 RID: 37 RVA: 0x0000228C File Offset: 0x0000048C
 	protected Object output
 	{
 		get
@@ -67,51 +67,51 @@ public abstract class AuthorCreation : AuthorShared
 		}
 	}
 
-	// Token: 0x06000026 RID: 38 RVA: 0x00002330 File Offset: 0x00000530
-	protected virtual IEnumerable<AuthorPalletObject> EnumeratePalletObjects()
+	// Token: 0x06000026 RID: 38 RVA: 0x00002294 File Offset: 0x00000494
+	protected virtual IEnumerable<global::AuthorPalletObject> EnumeratePalletObjects()
 	{
-		return AuthorCreation.NoPalletObjects;
+		return global::AuthorCreation.NoPalletObjects;
 	}
 
-	// Token: 0x06000027 RID: 39 RVA: 0x00002338 File Offset: 0x00000538
-	protected IEnumerable<AuthorPeice> EnumeratePeices()
+	// Token: 0x06000027 RID: 39 RVA: 0x0000229C File Offset: 0x0000049C
+	protected IEnumerable<global::AuthorPeice> EnumeratePeices()
 	{
-		IEnumerable<AuthorPeice> result;
+		IEnumerable<global::AuthorPeice> result;
 		if (this.allPeices == null || this.allPeices.Count == 0)
 		{
-			IEnumerable<AuthorPeice> noPeices = AuthorCreation.NoPeices;
+			IEnumerable<global::AuthorPeice> noPeices = global::AuthorCreation.NoPeices;
 			result = noPeices;
 		}
 		else
 		{
-			result = new List<AuthorPeice>(this.allPeices);
+			result = new List<global::AuthorPeice>(this.allPeices);
 		}
 		return result;
 	}
 
-	// Token: 0x06000028 RID: 40 RVA: 0x00002378 File Offset: 0x00000578
-	protected IEnumerable<AuthorPeice> EnumerateSelectedPeices()
+	// Token: 0x06000028 RID: 40 RVA: 0x000022DC File Offset: 0x000004DC
+	protected IEnumerable<global::AuthorPeice> EnumerateSelectedPeices()
 	{
-		IEnumerable<AuthorPeice> result;
+		IEnumerable<global::AuthorPeice> result;
 		if (this.selected == null || this.selected.Count == 0)
 		{
-			IEnumerable<AuthorPeice> noPeices = AuthorCreation.NoPeices;
+			IEnumerable<global::AuthorPeice> noPeices = global::AuthorCreation.NoPeices;
 			result = noPeices;
 		}
 		else
 		{
-			result = new List<AuthorPeice>(this.selected);
+			result = new List<global::AuthorPeice>(this.selected);
 		}
 		return result;
 	}
 
-	// Token: 0x06000029 RID: 41 RVA: 0x000023B8 File Offset: 0x000005B8
-	internal IEnumerable<AuthorPeice> EnumeratePeices(bool selectedOnly)
+	// Token: 0x06000029 RID: 41 RVA: 0x0000231C File Offset: 0x0000051C
+	internal IEnumerable<global::AuthorPeice> EnumeratePeices(bool selectedOnly)
 	{
-		IEnumerable<AuthorPeice> result;
+		IEnumerable<global::AuthorPeice> result;
 		if (selectedOnly)
 		{
-			IEnumerable<AuthorPeice> enumerable = this.EnumerateSelectedPeices();
+			IEnumerable<global::AuthorPeice> enumerable = this.EnumerateSelectedPeices();
 			result = enumerable;
 		}
 		else
@@ -121,12 +121,12 @@ public abstract class AuthorCreation : AuthorShared
 		return result;
 	}
 
-	// Token: 0x0600002A RID: 42 RVA: 0x000023E0 File Offset: 0x000005E0
-	protected virtual bool RegisterPeice(AuthorPeice peice)
+	// Token: 0x0600002A RID: 42 RVA: 0x00002344 File Offset: 0x00000544
+	protected virtual bool RegisterPeice(global::AuthorPeice peice)
 	{
 		if (this.allPeices == null)
 		{
-			this.allPeices = new List<AuthorPeice>();
+			this.allPeices = new List<global::AuthorPeice>();
 			this.allPeices.Add(peice);
 		}
 		else
@@ -141,29 +141,29 @@ public abstract class AuthorCreation : AuthorShared
 		return true;
 	}
 
-	// Token: 0x0600002B RID: 43 RVA: 0x00002440 File Offset: 0x00000640
-	private bool RegisterPeice(AuthorPeice peice, string id)
+	// Token: 0x0600002B RID: 43 RVA: 0x000023A4 File Offset: 0x000005A4
+	private bool RegisterPeice(global::AuthorPeice peice, string id)
 	{
 		peice.peiceID = id;
 		return this.RegisterPeice(peice);
 	}
 
-	// Token: 0x0600002C RID: 44 RVA: 0x00002450 File Offset: 0x00000650
+	// Token: 0x0600002C RID: 44 RVA: 0x000023B4 File Offset: 0x000005B4
 	public bool SetSelection(Object[] objects)
 	{
-		List<AuthorPeice> list = null;
+		List<global::AuthorPeice> list = null;
 		foreach (Object @object in objects)
 		{
-			if (@object is AuthorPeice && @object)
+			if (@object is global::AuthorPeice && @object)
 			{
 				if (list == null)
 				{
-					list = new List<AuthorPeice>();
-					list.Add((AuthorPeice)@object);
+					list = new List<global::AuthorPeice>();
+					list.Add((global::AuthorPeice)@object);
 				}
-				else if (!list.Contains((AuthorPeice)@object))
+				else if (!list.Contains((global::AuthorPeice)@object))
 				{
-					list.Add((AuthorPeice)@object);
+					list.Add((global::AuthorPeice)@object);
 				}
 			}
 		}
@@ -182,7 +182,7 @@ public abstract class AuthorCreation : AuthorShared
 			{
 				if (this.allPeices != null)
 				{
-					list.Sort((AuthorPeice x, AuthorPeice y) => this.allPeices.IndexOf(x).CompareTo(this.allPeices.IndexOf(y)));
+					list.Sort((global::AuthorPeice x, global::AuthorPeice y) => this.allPeices.IndexOf(x).CompareTo(this.allPeices.IndexOf(y)));
 				}
 				if (this.selected == null || this.selected.Count != list.Count)
 				{
@@ -190,9 +190,9 @@ public abstract class AuthorCreation : AuthorShared
 				}
 				else
 				{
-					using (List<AuthorPeice>.Enumerator enumerator = this.selected.GetEnumerator())
+					using (List<global::AuthorPeice>.Enumerator enumerator = this.selected.GetEnumerator())
 					{
-						using (List<AuthorPeice>.Enumerator enumerator2 = list.GetEnumerator())
+						using (List<global::AuthorPeice>.Enumerator enumerator2 = list.GetEnumerator())
 						{
 							while (enumerator.MoveNext() && enumerator2.MoveNext())
 							{
@@ -229,46 +229,46 @@ public abstract class AuthorCreation : AuthorShared
 		return flag;
 	}
 
-	// Token: 0x0600002D RID: 45 RVA: 0x0000265C File Offset: 0x0000085C
+	// Token: 0x0600002D RID: 45 RVA: 0x000025C0 File Offset: 0x000007C0
 	public bool GUICreationSettings()
 	{
 		return this.OnGUICreationSettings();
 	}
 
-	// Token: 0x0600002E RID: 46 RVA: 0x00002664 File Offset: 0x00000864
+	// Token: 0x0600002E RID: 46 RVA: 0x000025C8 File Offset: 0x000007C8
 	protected virtual bool OnGUICreationSettings()
 	{
 		return false;
 	}
 
-	// Token: 0x0600002F RID: 47 RVA: 0x00002668 File Offset: 0x00000868
-	public IEnumerable<AuthorPeice> GUIPeiceInspector()
+	// Token: 0x0600002F RID: 47 RVA: 0x000025CC File Offset: 0x000007CC
+	public IEnumerable<global::AuthorPeice> GUIPeiceInspector()
 	{
 		if (this.selected == null || this.selected.Count == 0)
 		{
-			return AuthorCreation.NoPeices;
+			return global::AuthorCreation.NoPeices;
 		}
 		return this.DoGUIPeiceInspector(this.selected);
 	}
 
-	// Token: 0x06000030 RID: 48 RVA: 0x00002698 File Offset: 0x00000898
-	public IEnumerable<AuthorShared.PeiceCommand> GUIPeiceList()
+	// Token: 0x06000030 RID: 48 RVA: 0x000025FC File Offset: 0x000007FC
+	public IEnumerable<global::AuthorShared.PeiceCommand> GUIPeiceList()
 	{
 		if (this.allPeices == null || this.allPeices.Count == 0)
 		{
-			return AuthorCreation.NoCommand;
+			return global::AuthorCreation.NoCommand;
 		}
 		return this.DoGUIPeiceList(this.allPeices);
 	}
 
-	// Token: 0x06000031 RID: 49 RVA: 0x000026C8 File Offset: 0x000008C8
-	private IEnumerable<AuthorPeice> DoGUIPeiceInspector(List<AuthorPeice> peices)
+	// Token: 0x06000031 RID: 49 RVA: 0x0000262C File Offset: 0x0000082C
+	private IEnumerable<global::AuthorPeice> DoGUIPeiceInspector(List<global::AuthorPeice> peices)
 	{
-		foreach (AuthorPeice peice in peices)
+		foreach (global::AuthorPeice peice in peices)
 		{
-			AuthorShared.BeginVertical(AuthorShared.Styles.gradientOutline, new GUILayoutOption[0]);
+			global::AuthorShared.BeginVertical(global::AuthorShared.Styles.gradientOutline, new GUILayoutOption[0]);
 			bool b = peice.PeiceInspectorGUI();
-			AuthorShared.EndVertical();
+			global::AuthorShared.EndVertical();
 			if (b)
 			{
 				yield return peice;
@@ -277,17 +277,17 @@ public abstract class AuthorCreation : AuthorShared
 		yield break;
 	}
 
-	// Token: 0x06000032 RID: 50 RVA: 0x000026F4 File Offset: 0x000008F4
-	private IEnumerable<AuthorShared.PeiceCommand> DoGUIPeiceList(List<AuthorPeice> peices)
+	// Token: 0x06000032 RID: 50 RVA: 0x00002658 File Offset: 0x00000858
+	private IEnumerable<global::AuthorShared.PeiceCommand> DoGUIPeiceList(List<global::AuthorPeice> peices)
 	{
-		foreach (AuthorPeice peice in peices)
+		foreach (global::AuthorPeice peice in peices)
 		{
-			AuthorShared.BeginVertical(new GUILayoutOption[0]);
-			AuthorShared.PeiceAction action = peice.PeiceListGUI();
-			AuthorShared.EndVertical();
-			if (action != AuthorShared.PeiceAction.None)
+			global::AuthorShared.BeginVertical(new GUILayoutOption[0]);
+			global::AuthorShared.PeiceAction action = peice.PeiceListGUI();
+			global::AuthorShared.EndVertical();
+			if (action != global::AuthorShared.PeiceAction.None)
 			{
-				yield return new AuthorShared.PeiceCommand
+				yield return new global::AuthorShared.PeiceCommand
 				{
 					peice = peice,
 					action = action
@@ -297,15 +297,15 @@ public abstract class AuthorCreation : AuthorShared
 		yield break;
 	}
 
-	// Token: 0x06000033 RID: 51 RVA: 0x00002720 File Offset: 0x00000920
-	public virtual IEnumerable<AuthorPeice> DoSceneView()
+	// Token: 0x06000033 RID: 51 RVA: 0x00002684 File Offset: 0x00000884
+	public virtual IEnumerable<global::AuthorPeice> DoSceneView()
 	{
 		if (this.selected != null)
 		{
-			Matrix4x4 mat = AuthorShared.Scene.matrix;
-			Color color = AuthorShared.Scene.color;
-			bool lighting = AuthorShared.Scene.lighting;
-			foreach (AuthorPeice peice in this.selected)
+			Matrix4x4 mat = global::AuthorShared.Scene.matrix;
+			Color color = global::AuthorShared.Scene.color;
+			bool lighting = global::AuthorShared.Scene.lighting;
+			foreach (global::AuthorPeice peice in this.selected)
 			{
 				if (peice)
 				{
@@ -316,9 +316,9 @@ public abstract class AuthorCreation : AuthorShared
 					}
 					finally
 					{
-						AuthorShared.Scene.matrix = mat;
-						AuthorShared.Scene.color = color;
-						AuthorShared.Scene.lighting = lighting;
+						global::AuthorShared.Scene.matrix = mat;
+						global::AuthorShared.Scene.color = color;
+						global::AuthorShared.Scene.lighting = lighting;
 					}
 					if (change)
 					{
@@ -330,30 +330,30 @@ public abstract class AuthorCreation : AuthorShared
 		yield break;
 	}
 
-	// Token: 0x06000034 RID: 52 RVA: 0x00002744 File Offset: 0x00000944
+	// Token: 0x06000034 RID: 52 RVA: 0x000026A8 File Offset: 0x000008A8
 	protected virtual void OnSelectionChange()
 	{
 	}
 
-	// Token: 0x06000035 RID: 53 RVA: 0x00002748 File Offset: 0x00000948
+	// Token: 0x06000035 RID: 53 RVA: 0x000026AC File Offset: 0x000008AC
 	public bool GUIPalletObjects(params GUILayoutOption[] options)
 	{
 		return this.GUIPalletObjects(GUI.skin.button, options);
 	}
 
-	// Token: 0x06000036 RID: 54 RVA: 0x0000275C File Offset: 0x0000095C
+	// Token: 0x06000036 RID: 54 RVA: 0x000026C0 File Offset: 0x000008C0
 	public bool GUIPalletObjects(GUIStyle buttonStyle, params GUILayoutOption[] options)
 	{
 		bool enabled = GUI.enabled;
 		bool result = false;
-		foreach (AuthorPalletObject authorPalletObject in this.EnumeratePalletObjects())
+		foreach (global::AuthorPalletObject authorPalletObject in this.EnumeratePalletObjects())
 		{
 			if (authorPalletObject.guiContent == null)
 			{
 				authorPalletObject.guiContent = new GUIContent(authorPalletObject.ToString());
 			}
 			GUI.enabled = (enabled && authorPalletObject.Validate(this));
-			AuthorPeice authorPeice;
+			global::AuthorPeice authorPeice;
 			if (GUILayout.Button(authorPalletObject.guiContent, buttonStyle, options) && authorPalletObject.Create(this, out authorPeice))
 			{
 				if (!this.RegisterPeice(authorPeice))
@@ -370,8 +370,8 @@ public abstract class AuthorCreation : AuthorShared
 		return result;
 	}
 
-	// Token: 0x06000037 RID: 55 RVA: 0x00002838 File Offset: 0x00000A38
-	public TPeice CreatePeice<TPeice>(string id, params Type[] additionalComponents) where TPeice : AuthorPeice
+	// Token: 0x06000037 RID: 55 RVA: 0x0000279C File Offset: 0x0000099C
+	public TPeice CreatePeice<TPeice>(string id, params Type[] additionalComponents) where TPeice : global::AuthorPeice
 	{
 		Type[] array = new Type[additionalComponents.Length + 1];
 		Array.Copy(additionalComponents, 0, array, 1, additionalComponents.Length);
@@ -386,12 +386,12 @@ public abstract class AuthorCreation : AuthorShared
 		return tpeice;
 	}
 
-	// Token: 0x06000038 RID: 56 RVA: 0x000028A8 File Offset: 0x00000AA8
+	// Token: 0x06000038 RID: 56 RVA: 0x0000280C File Offset: 0x00000A0C
 	public bool Contains(string peiceID)
 	{
 		if (this.allPeices != null)
 		{
-			foreach (AuthorPeice authorPeice in this.allPeices)
+			foreach (global::AuthorPeice authorPeice in this.allPeices)
 			{
 				if (authorPeice && authorPeice.peiceID == peiceID)
 				{
@@ -403,12 +403,12 @@ public abstract class AuthorCreation : AuthorShared
 		return false;
 	}
 
-	// Token: 0x06000039 RID: 57 RVA: 0x00002938 File Offset: 0x00000B38
-	public bool Contains(AuthorPeice comp)
+	// Token: 0x06000039 RID: 57 RVA: 0x0000289C File Offset: 0x00000A9C
+	public bool Contains(global::AuthorPeice comp)
 	{
 		if (this.allPeices != null)
 		{
-			foreach (AuthorPeice authorPeice in this.allPeices)
+			foreach (global::AuthorPeice authorPeice in this.allPeices)
 			{
 				if (authorPeice && authorPeice == comp)
 				{
@@ -420,24 +420,24 @@ public abstract class AuthorCreation : AuthorShared
 		return false;
 	}
 
-	// Token: 0x0600003A RID: 58 RVA: 0x000029C4 File Offset: 0x00000BC4
+	// Token: 0x0600003A RID: 58 RVA: 0x00002928 File Offset: 0x00000B28
 	protected virtual bool DefaultApply()
 	{
 		return false;
 	}
 
-	// Token: 0x0600003B RID: 59 RVA: 0x000029C8 File Offset: 0x00000BC8
-	protected virtual void OnWillUnregisterPeice(AuthorPeice peice)
+	// Token: 0x0600003B RID: 59 RVA: 0x0000292C File Offset: 0x00000B2C
+	protected virtual void OnWillUnregisterPeice(global::AuthorPeice peice)
 	{
 	}
 
-	// Token: 0x0600003C RID: 60 RVA: 0x000029CC File Offset: 0x00000BCC
-	protected virtual void OnUnregisteredPeice(AuthorPeice peice)
+	// Token: 0x0600003C RID: 60 RVA: 0x00002930 File Offset: 0x00000B30
+	protected virtual void OnUnregisteredPeice(global::AuthorPeice peice)
 	{
 	}
 
-	// Token: 0x0600003D RID: 61 RVA: 0x000029D0 File Offset: 0x00000BD0
-	internal void UnregisterPeice(AuthorPeice peice)
+	// Token: 0x0600003D RID: 61 RVA: 0x00002934 File Offset: 0x00000B34
+	internal void UnregisterPeice(global::AuthorPeice peice)
 	{
 		if (this.allPeices != null)
 		{
@@ -453,31 +453,31 @@ public abstract class AuthorCreation : AuthorShared
 				this.OnUnregisteredPeice(peice);
 				if (!Application.isPlaying)
 				{
-					AuthorShared.SetDirty(this);
+					global::AuthorShared.SetDirty(this);
 				}
 			}
 		}
 	}
 
-	// Token: 0x0600003E RID: 62 RVA: 0x00002A40 File Offset: 0x00000C40
-	public virtual void ExecuteCommand(AuthorShared.PeiceCommand cmd)
+	// Token: 0x0600003E RID: 62 RVA: 0x000029A4 File Offset: 0x00000BA4
+	public virtual void ExecuteCommand(global::AuthorShared.PeiceCommand cmd)
 	{
 		Debug.Log(cmd.action, cmd.peice);
 		switch (cmd.action)
 		{
-		case AuthorShared.PeiceAction.AddToSelection:
+		case global::AuthorShared.PeiceAction.AddToSelection:
 		{
 			Object selectReference = cmd.peice.selectReference;
-			Object[] allSelectedObjects = AuthorShared.GetAllSelectedObjects();
+			Object[] allSelectedObjects = global::AuthorShared.GetAllSelectedObjects();
 			Array.Resize<Object>(ref allSelectedObjects, allSelectedObjects.Length + 1);
 			allSelectedObjects[allSelectedObjects.Length - 1] = selectReference;
-			AuthorShared.SetAllSelectedObjects(allSelectedObjects);
+			global::AuthorShared.SetAllSelectedObjects(allSelectedObjects);
 			break;
 		}
-		case AuthorShared.PeiceAction.RemoveFromSelection:
+		case global::AuthorShared.PeiceAction.RemoveFromSelection:
 		{
 			Object selectReference2 = cmd.peice.selectReference;
-			Object[] allSelectedObjects2 = AuthorShared.GetAllSelectedObjects();
+			Object[] allSelectedObjects2 = global::AuthorShared.GetAllSelectedObjects();
 			int num = 0;
 			for (int i = 0; i < allSelectedObjects2.Length; i++)
 			{
@@ -489,19 +489,19 @@ public abstract class AuthorCreation : AuthorShared
 			if (num < allSelectedObjects2.Length)
 			{
 				Array.Resize<Object>(ref allSelectedObjects2, num);
-				AuthorShared.SetAllSelectedObjects(allSelectedObjects2);
+				global::AuthorShared.SetAllSelectedObjects(allSelectedObjects2);
 			}
 			break;
 		}
-		case AuthorShared.PeiceAction.SelectSolo:
-			AuthorShared.SetAllSelectedObjects(new Object[]
+		case global::AuthorShared.PeiceAction.SelectSolo:
+			global::AuthorShared.SetAllSelectedObjects(new Object[]
 			{
 				cmd.peice.selectReference
 			});
 			break;
-		case AuthorShared.PeiceAction.Delete:
+		case global::AuthorShared.PeiceAction.Delete:
 		{
-			bool? flag = AuthorShared.Ask(string.Concat(new object[]
+			bool? flag = global::AuthorShared.Ask(string.Concat(new object[]
 			{
 				"You want to delete ",
 				cmd.peice.peiceID,
@@ -515,11 +515,11 @@ public abstract class AuthorCreation : AuthorShared
 			}
 			break;
 		}
-		case AuthorShared.PeiceAction.Dirty:
-			AuthorShared.SetDirty(cmd.peice);
+		case global::AuthorShared.PeiceAction.Dirty:
+			global::AuthorShared.SetDirty(cmd.peice);
 			break;
-		case AuthorShared.PeiceAction.Ping:
-			AuthorShared.PingObject(cmd.peice);
+		case global::AuthorShared.PeiceAction.Ping:
+			global::AuthorShared.PingObject(cmd.peice);
 			break;
 		}
 	}
@@ -530,10 +530,10 @@ public abstract class AuthorCreation : AuthorShared
 	// Token: 0x06000040 RID: 64
 	protected abstract void LoadSettings(JSONStream stream);
 
-	// Token: 0x06000041 RID: 65 RVA: 0x00002BF8 File Offset: 0x00000DF8
-	protected Stream GetStream(bool write, string filepath, out AuthorCreationProject proj)
+	// Token: 0x06000041 RID: 65 RVA: 0x00002B5C File Offset: 0x00000D5C
+	protected Stream GetStream(bool write, string filepath, out global::AuthorCreationProject proj)
 	{
-		proj = AuthorCreationProject.current;
+		proj = global::AuthorCreationProject.current;
 		if (!proj)
 		{
 			throw new InvalidOperationException("Theres no project loaded");
@@ -545,10 +545,10 @@ public abstract class AuthorCreation : AuthorShared
 		return proj.GetStream(write, filepath);
 	}
 
-	// Token: 0x06000042 RID: 66 RVA: 0x00002C4C File Offset: 0x00000E4C
+	// Token: 0x06000042 RID: 66 RVA: 0x00002BB0 File Offset: 0x00000DB0
 	protected bool SaveSettings()
 	{
-		AuthorCreationProject authorCreationProject;
+		global::AuthorCreationProject authorCreationProject;
 		Stream stream = this.GetStream(true, "dat.asc", out authorCreationProject);
 		if (stream != null)
 		{
@@ -558,7 +558,7 @@ public abstract class AuthorCreation : AuthorShared
 				{
 					jsonstream.WriteObjectStart();
 					jsonstream.WriteObjectStart("project");
-					jsonstream.WriteText("guid", AuthorShared.PathToGUID(AuthorShared.GetAssetPath(authorCreationProject)));
+					jsonstream.WriteText("guid", global::AuthorShared.PathToGUID(global::AuthorShared.GetAssetPath(authorCreationProject)));
 					jsonstream.WriteText("name", authorCreationProject.project);
 					jsonstream.WriteText("author", authorCreationProject.authorName);
 					jsonstream.WriteText("scene", authorCreationProject.scene);
@@ -579,10 +579,10 @@ public abstract class AuthorCreation : AuthorShared
 		return false;
 	}
 
-	// Token: 0x06000043 RID: 67 RVA: 0x00002D5C File Offset: 0x00000F5C
+	// Token: 0x06000043 RID: 67 RVA: 0x00002CC0 File Offset: 0x00000EC0
 	protected bool LoadSettings()
 	{
-		AuthorCreationProject authorCreationProject;
+		global::AuthorCreationProject authorCreationProject;
 		Stream stream = this.GetStream(true, "dat.asc", out authorCreationProject);
 		if (stream != null)
 		{
@@ -601,9 +601,9 @@ public abstract class AuthorCreation : AuthorShared
 								string text2 = text;
 								if (text2 != null)
 								{
-									if (AuthorCreation.<>f__switch$map0 == null)
+									if (global::AuthorCreation.<>f__switch$map0 == null)
 									{
-										AuthorCreation.<>f__switch$map0 = new Dictionary<string, int>(2)
+										global::AuthorCreation.<>f__switch$map0 = new Dictionary<string, int>(2)
 										{
 											{
 												"project",
@@ -616,7 +616,7 @@ public abstract class AuthorCreation : AuthorShared
 										};
 									}
 									int num;
-									if (AuthorCreation.<>f__switch$map0.TryGetValue(text2, out num))
+									if (global::AuthorCreation.<>f__switch$map0.TryGetValue(text2, out num))
 									{
 										if (num != 0)
 										{
@@ -646,10 +646,10 @@ public abstract class AuthorCreation : AuthorShared
 		return false;
 	}
 
-	// Token: 0x06000044 RID: 68 RVA: 0x00002E9C File Offset: 0x0000109C
-	public virtual string RootBonePath(AuthorPeice callingPeice, Transform bone)
+	// Token: 0x06000044 RID: 68 RVA: 0x00002E00 File Offset: 0x00001000
+	public virtual string RootBonePath(global::AuthorPeice callingPeice, Transform bone)
 	{
-		return AuthorShared.CalculatePath(bone, bone.root);
+		return global::AuthorShared.CalculatePath(bone, bone.root);
 	}
 
 	// Token: 0x0400001B RID: 27
@@ -674,18 +674,18 @@ public abstract class AuthorCreation : AuthorShared
 
 	// Token: 0x04000021 RID: 33
 	[SerializeField]
-	private List<AuthorPeice> allPeices;
+	private List<global::AuthorPeice> allPeices;
 
 	// Token: 0x04000022 RID: 34
 	[NonSerialized]
-	private List<AuthorPeice> selected;
+	private List<global::AuthorPeice> selected;
 
 	// Token: 0x04000023 RID: 35
-	protected static readonly AuthorPalletObject[] NoPalletObjects = new AuthorPalletObject[0];
+	protected static readonly global::AuthorPalletObject[] NoPalletObjects = new global::AuthorPalletObject[0];
 
 	// Token: 0x04000024 RID: 36
-	protected static readonly AuthorPeice[] NoPeices = new AuthorPeice[0];
+	protected static readonly global::AuthorPeice[] NoPeices = new global::AuthorPeice[0];
 
 	// Token: 0x04000025 RID: 37
-	private static readonly AuthorShared.PeiceCommand[] NoCommand = new AuthorShared.PeiceCommand[0];
+	private static readonly global::AuthorShared.PeiceCommand[] NoCommand = new global::AuthorShared.PeiceCommand[0];
 }

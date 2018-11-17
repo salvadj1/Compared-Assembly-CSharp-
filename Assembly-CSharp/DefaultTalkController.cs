@@ -2,16 +2,16 @@
 using MoPhoGames.USpeak.Interface;
 using UnityEngine;
 
-// Token: 0x020000C1 RID: 193
+// Token: 0x020000D5 RID: 213
 [AddComponentMenu("USpeak/Default Talk Controller")]
-public class DefaultTalkController : MonoBehaviour, IUSpeakTalkController
+public class DefaultTalkController : MonoBehaviour, MoPhoGames.USpeak.Interface.IUSpeakTalkController
 {
-	// Token: 0x06000416 RID: 1046 RVA: 0x000154C4 File Offset: 0x000136C4
+	// Token: 0x06000494 RID: 1172 RVA: 0x00016E8C File Offset: 0x0001508C
 	public void OnInspectorGUI()
 	{
 	}
 
-	// Token: 0x06000417 RID: 1047 RVA: 0x000154C8 File Offset: 0x000136C8
+	// Token: 0x06000495 RID: 1173 RVA: 0x00016E90 File Offset: 0x00015090
 	public bool ShouldSend()
 	{
 		if (this.ToggleMode == 0)
@@ -25,16 +25,16 @@ public class DefaultTalkController : MonoBehaviour, IUSpeakTalkController
 		return this.val;
 	}
 
-	// Token: 0x040003A2 RID: 930
-	[HideInInspector]
+	// Token: 0x04000411 RID: 1041
 	[SerializeField]
+	[HideInInspector]
 	public KeyCode TriggerKey;
 
-	// Token: 0x040003A3 RID: 931
-	[HideInInspector]
+	// Token: 0x04000412 RID: 1042
 	[SerializeField]
+	[HideInInspector]
 	public int ToggleMode;
 
-	// Token: 0x040003A4 RID: 932
+	// Token: 0x04000413 RID: 1043
 	private bool val;
 }

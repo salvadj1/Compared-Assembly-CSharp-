@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-// Token: 0x02000126 RID: 294
+// Token: 0x0200014A RID: 330
 [Serializable]
 public abstract class InstantiateControllableException : ArgumentException
 {
-	// Token: 0x06000873 RID: 2163 RVA: 0x000253E8 File Offset: 0x000235E8
+	// Token: 0x06000969 RID: 2409 RVA: 0x0002865C File Offset: 0x0002685C
 	public InstantiateControllableException()
 	{
 	}
 
-	// Token: 0x06000874 RID: 2164 RVA: 0x000253F0 File Offset: 0x000235F0
+	// Token: 0x0600096A RID: 2410 RVA: 0x00028664 File Offset: 0x00026864
 	public InstantiateControllableException(string message) : base(message)
 	{
 	}
 
-	// Token: 0x06000875 RID: 2165 RVA: 0x000253FC File Offset: 0x000235FC
+	// Token: 0x0600096B RID: 2411 RVA: 0x00028670 File Offset: 0x00026870
 	public InstantiateControllableException(string message, Exception inner) : base(message, inner)
 	{
 	}
 
-	// Token: 0x06000876 RID: 2166 RVA: 0x00025408 File Offset: 0x00023608
+	// Token: 0x0600096C RID: 2412 RVA: 0x0002867C File Offset: 0x0002687C
 	protected InstantiateControllableException(SerializationInfo info, StreamingContext context) : base(info, context)
 	{
 	}

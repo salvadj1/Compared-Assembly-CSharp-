@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000302 RID: 770
+// Token: 0x020003AA RID: 938
 [AttributeUsage(AttributeTargets.Method, Inherited = true)]
 public sealed class NGCRPCAttribute : Attribute
 {

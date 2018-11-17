@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020001E5 RID: 485
-public abstract class TraitMap<Key, Implementation> : TraitMap<Key> where Key : TraitKey where Implementation : TraitMap<Key, Implementation>
+// Token: 0x02000216 RID: 534
+public abstract class TraitMap<Key, Implementation> : global::TraitMap<Key> where Key : global::TraitKey where Implementation : global::TraitMap<Key, Implementation>
 {
-	// Token: 0x17000344 RID: 836
-	// (get) Token: 0x06000D4B RID: 3403 RVA: 0x000339F8 File Offset: 0x00031BF8
-	internal sealed override TraitMap<Key> __baseMap
+	// Token: 0x1700038A RID: 906
+	// (get) Token: 0x06000E93 RID: 3731 RVA: 0x00037A80 File Offset: 0x00035C80
+	internal sealed override global::TraitMap<Key> __baseMap
 	{
 		get
 		{
@@ -15,78 +15,78 @@ public abstract class TraitMap<Key, Implementation> : TraitMap<Key> where Key : 
 		}
 	}
 
-	// Token: 0x17000345 RID: 837
-	// (get) Token: 0x06000D4C RID: 3404 RVA: 0x00033A08 File Offset: 0x00031C08
+	// Token: 0x1700038B RID: 907
+	// (get) Token: 0x06000E94 RID: 3732 RVA: 0x00037A90 File Offset: 0x00035C90
 	public static bool AnyRegistered
 	{
 		get
 		{
-			return TraitMap<Key, Implementation>.anyRegistry;
+			return global::TraitMap<Key, Implementation>.anyRegistry;
 		}
 	}
 
-	// Token: 0x17000346 RID: 838
-	// (get) Token: 0x06000D4D RID: 3405 RVA: 0x00033A10 File Offset: 0x00031C10
+	// Token: 0x1700038C RID: 908
+	// (get) Token: 0x06000E95 RID: 3733 RVA: 0x00037A98 File Offset: 0x00035C98
 	public static ICollection<Implementation> AllRegistered
 	{
 		get
 		{
-			if (!TraitMap<Key, Implementation>.anyRegistry)
+			if (!global::TraitMap<Key, Implementation>.anyRegistry)
 			{
 				return new Implementation[0];
 			}
-			return TraitMap<Key, Implementation>.LookupRegister.dict.Values;
+			return global::TraitMap<Key, Implementation>.LookupRegister.dict.Values;
 		}
 	}
 
-	// Token: 0x06000D4E RID: 3406 RVA: 0x00033A30 File Offset: 0x00031C30
+	// Token: 0x06000E96 RID: 3734 RVA: 0x00037AB8 File Offset: 0x00035CB8
 	public static bool ByName(string name, out Implementation map)
 	{
-		if (!TraitMap<Key, Implementation>.anyRegistry)
+		if (!global::TraitMap<Key, Implementation>.anyRegistry)
 		{
 			map = (Implementation)((object)null);
 			return false;
 		}
-		return TraitMap<Key, Implementation>.LookupRegister.dict.TryGetValue(name, out map);
+		return global::TraitMap<Key, Implementation>.LookupRegister.dict.TryGetValue(name, out map);
 	}
 
-	// Token: 0x06000D4F RID: 3407 RVA: 0x00033A64 File Offset: 0x00031C64
+	// Token: 0x06000E97 RID: 3735 RVA: 0x00037AEC File Offset: 0x00035CEC
 	public static Implementation ByName(string name)
 	{
 		Implementation implementation;
-		return (!TraitMap<Key, Implementation>.anyRegistry || !TraitMap<Key, Implementation>.LookupRegister.dict.TryGetValue(name, out implementation)) ? ((Implementation)((object)null)) : implementation;
+		return (!global::TraitMap<Key, Implementation>.anyRegistry || !global::TraitMap<Key, Implementation>.LookupRegister.dict.TryGetValue(name, out implementation)) ? ((Implementation)((object)null)) : implementation;
 	}
 
-	// Token: 0x06000D50 RID: 3408 RVA: 0x00033A9C File Offset: 0x00031C9C
+	// Token: 0x06000E98 RID: 3736 RVA: 0x00037B24 File Offset: 0x00035D24
 	internal sealed override void BindToRegistry()
 	{
-		TraitMap<Key, Implementation>.LookupRegister.Add((Implementation)((object)this));
+		global::TraitMap<Key, Implementation>.LookupRegister.Add((Implementation)((object)this));
 	}
 
-	// Token: 0x0400082A RID: 2090
-	[HideInInspector]
+	// Token: 0x04000942 RID: 2370
 	[SerializeField]
+	[HideInInspector]
 	private Implementation B;
 
-	// Token: 0x0400082B RID: 2091
+	// Token: 0x04000943 RID: 2371
 	private static bool anyRegistry;
 
-	// Token: 0x020001E6 RID: 486
+	// Token: 0x02000217 RID: 535
 	private static class LookupRegister
 	{
-		// Token: 0x06000D51 RID: 3409 RVA: 0x00033AAC File Offset: 0x00031CAC
+		// Token: 0x06000E99 RID: 3737 RVA: 0x00037B34 File Offset: 0x00035D34
 		static LookupRegister()
 		{
-			TraitMap<Key, Implementation>.anyRegistry = true;
+			global::TraitMap<Key, Implementation>.anyRegistry = true;
 		}
 
-		// Token: 0x06000D52 RID: 3410 RVA: 0x00033AC4 File Offset: 0x00031CC4
+		// Token: 0x06000E9A RID: 3738 RVA: 0x00037B4C File Offset: 0x00035D4C
 		public static void Add(Implementation implementation)
 		{
-			TraitMap<Key, Implementation>.LookupRegister.dict[implementation.name] = implementation;
+			global::TraitMap<Key, Implementation>.LookupRegister.dict[implementation.name] = implementation;
 		}
 
-		// Token: 0x0400082C RID: 2092
+		// Token: 0x04000944 RID: 2372
 		public static readonly Dictionary<string, Implementation> dict = new Dictionary<string, Implementation>(StringComparer.InvariantCultureIgnoreCase);
 	}
 }

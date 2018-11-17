@@ -2,23 +2,23 @@
 using System.Reflection;
 using UnityEngine;
 
-// Token: 0x02000047 RID: 71
-public class global : ConsoleSystem
+// Token: 0x02000059 RID: 89
+public class global : global::ConsoleSystem
 {
-	// Token: 0x06000275 RID: 629 RVA: 0x0000DA90 File Offset: 0x0000BC90
-	[ConsoleSystem.Help("Creates an error", "")]
-	[ConsoleSystem.Client]
-	public static void create_error(ref ConsoleSystem.Arg arg)
+	// Token: 0x060002E7 RID: 743 RVA: 0x0000F038 File Offset: 0x0000D238
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Help("Creates an error", "")]
+	public static void create_error(ref global::ConsoleSystem.Arg arg)
 	{
 		Debug.LogError("this is an error");
 	}
 
-	// Token: 0x06000276 RID: 630 RVA: 0x0000DA9C File Offset: 0x0000BC9C
-	[ConsoleSystem.Admin]
-	[ConsoleSystem.User]
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Help("Search for a command", "string Name")]
-	public static void find(ref ConsoleSystem.Arg arg)
+	// Token: 0x060002E8 RID: 744 RVA: 0x0000F044 File Offset: 0x0000D244
+	[global::ConsoleSystem.User]
+	[global::ConsoleSystem.Help("Search for a command", "string Name")]
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Admin]
+	public static void find(ref global::ConsoleSystem.Arg arg)
 	{
 		if (!arg.HasArgs(1))
 		{
@@ -32,7 +32,7 @@ public class global : ConsoleSystem
 			Type[] types = assemblies[i].GetTypes();
 			for (int j = 0; j < types.Length; j++)
 			{
-				if (types[j].IsSubclassOf(typeof(ConsoleSystem)))
+				if (types[j].IsSubclassOf(typeof(global::ConsoleSystem)))
 				{
 					MethodInfo[] methods = types[j].GetMethods();
 					for (int k = 0; k < methods.Length; k++)
@@ -49,7 +49,7 @@ public class global : ConsoleSystem
 										text3,
 										types[j].Name,
 										".",
-										global.BuildMethodString(ref methods[k]),
+										global::global.BuildMethodString(ref methods[k]),
 										"\n"
 									});
 								}
@@ -71,7 +71,7 @@ public class global : ConsoleSystem
 										text3,
 										types[j].Name,
 										".",
-										global.BuildFieldsString(ref fields[l]),
+										global::global.BuildFieldsString(ref fields[l]),
 										"\n"
 									});
 								}
@@ -91,7 +91,7 @@ public class global : ConsoleSystem
 									text3,
 									types[j].Name,
 									".",
-									global.BuildPropertyString(ref properties[m]),
+									global::global.BuildPropertyString(ref properties[m]),
 									"\n"
 								});
 							}
@@ -103,7 +103,7 @@ public class global : ConsoleSystem
 		arg.ReplyWith("Finding " + text + ":\n" + text2);
 	}
 
-	// Token: 0x06000277 RID: 631 RVA: 0x0000DDB4 File Offset: 0x0000BFB4
+	// Token: 0x060002E9 RID: 745 RVA: 0x0000F35C File Offset: 0x0000D55C
 	public static string BuildMethodString(ref MethodInfo method)
 	{
 		string text = string.Empty;
@@ -111,10 +111,10 @@ public class global : ConsoleSystem
 		object[] customAttributes = method.GetCustomAttributes(true);
 		foreach (object obj in customAttributes)
 		{
-			if (obj is ConsoleSystem.Help)
+			if (obj is global::ConsoleSystem.Help)
 			{
-				text = (obj as ConsoleSystem.Help).argsDescription;
-				text2 = (obj as ConsoleSystem.Help).helpDescription;
+				text = (obj as global::ConsoleSystem.Help).argsDescription;
+				text2 = (obj as global::ConsoleSystem.Help).helpDescription;
 				text = " " + text.Trim() + " ";
 			}
 		}
@@ -128,65 +128,65 @@ public class global : ConsoleSystem
 		});
 	}
 
-	// Token: 0x06000278 RID: 632 RVA: 0x0000DE60 File Offset: 0x0000C060
+	// Token: 0x060002EA RID: 746 RVA: 0x0000F408 File Offset: 0x0000D608
 	public static string BuildFieldsString(ref FieldInfo field)
 	{
 		string str = "no help";
 		object[] customAttributes = field.GetCustomAttributes(true);
 		foreach (object obj in customAttributes)
 		{
-			if (obj is ConsoleSystem.Help)
+			if (obj is global::ConsoleSystem.Help)
 			{
-				str = (obj as ConsoleSystem.Help).helpDescription;
+				str = (obj as global::ConsoleSystem.Help).helpDescription;
 			}
 		}
 		return field.Name + " : " + str;
 	}
 
-	// Token: 0x06000279 RID: 633 RVA: 0x0000DEC4 File Offset: 0x0000C0C4
+	// Token: 0x060002EB RID: 747 RVA: 0x0000F46C File Offset: 0x0000D66C
 	public static string BuildPropertyString(ref PropertyInfo field)
 	{
 		string str = "no help";
 		object[] customAttributes = field.GetCustomAttributes(true);
 		foreach (object obj in customAttributes)
 		{
-			if (obj is ConsoleSystem.Help)
+			if (obj is global::ConsoleSystem.Help)
 			{
-				str = (obj as ConsoleSystem.Help).helpDescription;
+				str = (obj as global::ConsoleSystem.Help).helpDescription;
 			}
 		}
 		return field.Name + " : " + str;
 	}
 
-	// Token: 0x0600027A RID: 634 RVA: 0x0000DF28 File Offset: 0x0000C128
-	[ConsoleSystem.User]
-	[ConsoleSystem.Help("Prints something to the debug output", "string output")]
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Admin]
-	public static void echo(ref ConsoleSystem.Arg arg)
+	// Token: 0x060002EC RID: 748 RVA: 0x0000F4D0 File Offset: 0x0000D6D0
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Admin]
+	[global::ConsoleSystem.Help("Prints something to the debug output", "string output")]
+	[global::ConsoleSystem.User]
+	public static void echo(ref global::ConsoleSystem.Arg arg)
 	{
 		arg.ReplyWith(arg.ArgsStr);
 	}
 
-	// Token: 0x0600027B RID: 635 RVA: 0x0000DF38 File Offset: 0x0000C138
-	[ConsoleSystem.Admin]
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Help("Quits the game", "")]
-	public static void quit(ref ConsoleSystem.Arg arg)
+	// Token: 0x060002ED RID: 749 RVA: 0x0000F4E0 File Offset: 0x0000D6E0
+	[global::ConsoleSystem.Help("Quits the game", "")]
+	[global::ConsoleSystem.Admin]
+	[global::ConsoleSystem.Client]
+	public static void quit(ref global::ConsoleSystem.Arg arg)
 	{
 		Application.Quit();
 	}
 
-	// Token: 0x040001A0 RID: 416
-	[ConsoleSystem.Client]
-	[ConsoleSystem.Help("When set to True, all console printing will go through Debug.Log", "")]
-	[ConsoleSystem.User]
+	// Token: 0x04000202 RID: 514
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.User]
+	[global::ConsoleSystem.Help("When set to True, all console printing will go through Debug.Log", "")]
 	public static bool logprint;
 
-	// Token: 0x040001A1 RID: 417
-	[ConsoleSystem.Help("Prints fps at said interval", "interval (seconds)")]
-	[ConsoleSystem.Admin]
-	[ConsoleSystem.User]
-	[ConsoleSystem.Client]
+	// Token: 0x04000203 RID: 515
+	[global::ConsoleSystem.Help("Prints fps at said interval", "interval (seconds)")]
+	[global::ConsoleSystem.Client]
+	[global::ConsoleSystem.Admin]
+	[global::ConsoleSystem.User]
 	public static float fpslog = -1f;
 }

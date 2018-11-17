@@ -1,26 +1,26 @@
 ﻿using System;
 
-// Token: 0x02000725 RID: 1829
-[dfMarkupTagInfo("a")]
-public class dfMarkupTagAnchor : dfMarkupTag
+// Token: 0x02000801 RID: 2049
+[global::dfMarkupTagInfo("a")]
+public class dfMarkupTagAnchor : global::dfMarkupTag
 {
-	// Token: 0x060042E5 RID: 17125 RVA: 0x00103E64 File Offset: 0x00102064
+	// Token: 0x06004729 RID: 18217 RVA: 0x0010D174 File Offset: 0x0010B374
 	public dfMarkupTagAnchor() : base("a")
 	{
 	}
 
-	// Token: 0x060042E6 RID: 17126 RVA: 0x00103E74 File Offset: 0x00102074
-	public dfMarkupTagAnchor(dfMarkupTag original) : base(original)
+	// Token: 0x0600472A RID: 18218 RVA: 0x0010D184 File Offset: 0x0010B384
+	public dfMarkupTagAnchor(global::dfMarkupTag original) : base(original)
 	{
 	}
 
-	// Token: 0x17000D23 RID: 3363
-	// (get) Token: 0x060042E7 RID: 17127 RVA: 0x00103E80 File Offset: 0x00102080
+	// Token: 0x17000DAD RID: 3501
+	// (get) Token: 0x0600472B RID: 18219 RVA: 0x0010D190 File Offset: 0x0010B390
 	public string HRef
 	{
 		get
 		{
-			dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
+			global::dfMarkupAttribute dfMarkupAttribute = base.findAttribute(new string[]
 			{
 				"href"
 			});
@@ -28,20 +28,20 @@ public class dfMarkupTagAnchor : dfMarkupTag
 		}
 	}
 
-	// Token: 0x060042E8 RID: 17128 RVA: 0x00103EB8 File Offset: 0x001020B8
-	protected override void _PerformLayoutImpl(dfMarkupBox container, dfMarkupStyle style)
+	// Token: 0x0600472C RID: 18220 RVA: 0x0010D1C8 File Offset: 0x0010B3C8
+	protected override void _PerformLayoutImpl(global::dfMarkupBox container, global::dfMarkupStyle style)
 	{
-		style.TextDecoration = dfMarkupTextDecoration.Underline;
+		style.TextDecoration = global::dfMarkupTextDecoration.Underline;
 		style = base.applyTextStyleAttributes(style);
 		int i = 0;
 		while (i < base.ChildNodes.Count)
 		{
-			dfMarkupElement dfMarkupElement = base.ChildNodes[i];
-			if (!(dfMarkupElement is dfMarkupString))
+			global::dfMarkupElement dfMarkupElement = base.ChildNodes[i];
+			if (!(dfMarkupElement is global::dfMarkupString))
 			{
 				goto IL_63;
 			}
-			dfMarkupString dfMarkupString = dfMarkupElement as dfMarkupString;
+			global::dfMarkupString dfMarkupString = dfMarkupElement as global::dfMarkupString;
 			if (!(dfMarkupString.Text == "\n"))
 			{
 				goto IL_63;

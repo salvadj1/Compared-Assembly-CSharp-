@@ -1,14 +1,14 @@
 ﻿using System;
 
-// Token: 0x02000628 RID: 1576
+// Token: 0x020006EB RID: 1771
 public enum CarCameraMode
 {
-	// Token: 0x04001BE1 RID: 7137
+	// Token: 0x04001DD6 RID: 7638
 	Cockpit = 2,
-	// Token: 0x04001BE2 RID: 7138
+	// Token: 0x04001DD7 RID: 7639
 	Hood = 1,
-	// Token: 0x04001BE3 RID: 7139
+	// Token: 0x04001DD8 RID: 7640
 	Near = 5,
-	// Token: 0x04001BE4 RID: 7140
+	// Token: 0x04001DD9 RID: 7641
 	Far
 }

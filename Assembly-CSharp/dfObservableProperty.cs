@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Reflection;
 
-// Token: 0x0200070A RID: 1802
-public class dfObservableProperty : IObservableValue
+// Token: 0x020007E2 RID: 2018
+public class dfObservableProperty : global::IObservableValue
 {
-	// Token: 0x060041C3 RID: 16835 RVA: 0x000FDB5C File Offset: 0x000FBD5C
+	// Token: 0x060045F5 RID: 17909 RVA: 0x00106A90 File Offset: 0x00104C90
 	internal dfObservableProperty(object target, string memberName)
 	{
 		MemberInfo memberInfo = target.GetType().GetMember(memberName, BindingFlags.Instance | BindingFlags.Public).FirstOrDefault<MemberInfo>();
@@ -16,27 +16,27 @@ public class dfObservableProperty : IObservableValue
 		this.initMember(target, memberInfo);
 	}
 
-	// Token: 0x060041C4 RID: 16836 RVA: 0x000FDBA8 File Offset: 0x000FBDA8
+	// Token: 0x060045F6 RID: 17910 RVA: 0x00106ADC File Offset: 0x00104CDC
 	internal dfObservableProperty(object target, FieldInfo field)
 	{
 		this.initField(target, field);
 	}
 
-	// Token: 0x060041C5 RID: 16837 RVA: 0x000FDBB8 File Offset: 0x000FBDB8
+	// Token: 0x060045F7 RID: 17911 RVA: 0x00106AEC File Offset: 0x00104CEC
 	internal dfObservableProperty(object target, PropertyInfo property)
 	{
 		this.initProperty(target, property);
 	}
 
-	// Token: 0x060041C6 RID: 16838 RVA: 0x000FDBC8 File Offset: 0x000FBDC8
+	// Token: 0x060045F8 RID: 17912 RVA: 0x00106AFC File Offset: 0x00104CFC
 	internal dfObservableProperty(object target, MemberInfo member)
 	{
 		this.initMember(target, member);
 	}
 
-	// Token: 0x17000CF2 RID: 3314
-	// (get) Token: 0x060041C7 RID: 16839 RVA: 0x000FDBD8 File Offset: 0x000FBDD8
-	// (set) Token: 0x060041C8 RID: 16840 RVA: 0x000FDBE0 File Offset: 0x000FBDE0
+	// Token: 0x17000D7A RID: 3450
+	// (get) Token: 0x060045F9 RID: 17913 RVA: 0x00106B0C File Offset: 0x00104D0C
+	// (set) Token: 0x060045FA RID: 17914 RVA: 0x00106B14 File Offset: 0x00104D14
 	public object Value
 	{
 		get
@@ -51,8 +51,8 @@ public class dfObservableProperty : IObservableValue
 		}
 	}
 
-	// Token: 0x17000CF3 RID: 3315
-	// (get) Token: 0x060041C9 RID: 16841 RVA: 0x000FDBF8 File Offset: 0x000FBDF8
+	// Token: 0x17000D7B RID: 3451
+	// (get) Token: 0x060045FB RID: 17915 RVA: 0x00106B2C File Offset: 0x00104D2C
 	public bool HasChanged
 	{
 		get
@@ -78,14 +78,14 @@ public class dfObservableProperty : IObservableValue
 		}
 	}
 
-	// Token: 0x060041CA RID: 16842 RVA: 0x000FDC70 File Offset: 0x000FBE70
+	// Token: 0x060045FC RID: 17916 RVA: 0x00106BA4 File Offset: 0x00104DA4
 	public void ClearChangedFlag()
 	{
 		this.hasChanged = false;
 		this.lastValue = this.getter();
 	}
 
-	// Token: 0x060041CB RID: 16843 RVA: 0x000FDC88 File Offset: 0x000FBE88
+	// Token: 0x060045FD RID: 17917 RVA: 0x00106BBC File Offset: 0x00104DBC
 	private void initMember(object target, MemberInfo member)
 	{
 		if (member is FieldInfo)
@@ -98,7 +98,7 @@ public class dfObservableProperty : IObservableValue
 		}
 	}
 
-	// Token: 0x060041CC RID: 16844 RVA: 0x000FDCC0 File Offset: 0x000FBEC0
+	// Token: 0x060045FE RID: 17918 RVA: 0x00106BF4 File Offset: 0x00104DF4
 	private void initField(object target, FieldInfo field)
 	{
 		this.target = target;
@@ -106,7 +106,7 @@ public class dfObservableProperty : IObservableValue
 		this.Value = this.getter();
 	}
 
-	// Token: 0x060041CD RID: 16845 RVA: 0x000FDCDC File Offset: 0x000FBEDC
+	// Token: 0x060045FF RID: 17919 RVA: 0x00106C10 File Offset: 0x00104E10
 	private void initProperty(object target, PropertyInfo property)
 	{
 		this.target = target;
@@ -114,7 +114,7 @@ public class dfObservableProperty : IObservableValue
 		this.Value = this.getter();
 	}
 
-	// Token: 0x060041CE RID: 16846 RVA: 0x000FDCF8 File Offset: 0x000FBEF8
+	// Token: 0x06004600 RID: 17920 RVA: 0x00106C2C File Offset: 0x00104E2C
 	private object getter()
 	{
 		if (this.propertyInfo != null)
@@ -124,7 +124,7 @@ public class dfObservableProperty : IObservableValue
 		return this.getFieldValue();
 	}
 
-	// Token: 0x060041CF RID: 16847 RVA: 0x000FDD14 File Offset: 0x000FBF14
+	// Token: 0x06004601 RID: 17921 RVA: 0x00106C48 File Offset: 0x00104E48
 	private void setter(object value)
 	{
 		if (this.propertyInfo != null)
@@ -137,7 +137,7 @@ public class dfObservableProperty : IObservableValue
 		}
 	}
 
-	// Token: 0x060041D0 RID: 16848 RVA: 0x000FDD34 File Offset: 0x000FBF34
+	// Token: 0x06004602 RID: 17922 RVA: 0x00106C68 File Offset: 0x00104E68
 	private object getPropertyValue()
 	{
 		if (this.propertyGetter == null)
@@ -151,7 +151,7 @@ public class dfObservableProperty : IObservableValue
 		return this.propertyGetter.Invoke(this.target, null);
 	}
 
-	// Token: 0x060041D1 RID: 16849 RVA: 0x000FDD90 File Offset: 0x000FBF90
+	// Token: 0x06004603 RID: 17923 RVA: 0x00106CC4 File Offset: 0x00104EC4
 	private void setPropertyValue(object value)
 	{
 		MethodInfo setMethod = this.propertyInfo.GetSetMethod();
@@ -171,7 +171,7 @@ public class dfObservableProperty : IObservableValue
 		}
 	}
 
-	// Token: 0x060041D2 RID: 16850 RVA: 0x000FDE18 File Offset: 0x000FC018
+	// Token: 0x06004604 RID: 17924 RVA: 0x00106D4C File Offset: 0x00104F4C
 	private void setFieldValue(object value)
 	{
 		if (this.fieldInfo.IsLiteral)
@@ -190,40 +190,40 @@ public class dfObservableProperty : IObservableValue
 		}
 	}
 
-	// Token: 0x060041D3 RID: 16851 RVA: 0x000FDE8C File Offset: 0x000FC08C
+	// Token: 0x06004605 RID: 17925 RVA: 0x00106DC0 File Offset: 0x00104FC0
 	private void setFieldValueNOP(object value)
 	{
 	}
 
-	// Token: 0x060041D4 RID: 16852 RVA: 0x000FDE90 File Offset: 0x000FC090
+	// Token: 0x06004606 RID: 17926 RVA: 0x00106DC4 File Offset: 0x00104FC4
 	private object getFieldValue()
 	{
 		return this.fieldInfo.GetValue(this.target);
 	}
 
-	// Token: 0x040022A6 RID: 8870
+	// Token: 0x040024BA RID: 9402
 	private object lastValue;
 
-	// Token: 0x040022A7 RID: 8871
+	// Token: 0x040024BB RID: 9403
 	private bool hasChanged;
 
-	// Token: 0x040022A8 RID: 8872
+	// Token: 0x040024BC RID: 9404
 	private object target;
 
-	// Token: 0x040022A9 RID: 8873
+	// Token: 0x040024BD RID: 9405
 	private FieldInfo fieldInfo;
 
-	// Token: 0x040022AA RID: 8874
+	// Token: 0x040024BE RID: 9406
 	private PropertyInfo propertyInfo;
 
-	// Token: 0x040022AB RID: 8875
+	// Token: 0x040024BF RID: 9407
 	private MethodInfo propertyGetter;
 
-	// Token: 0x020008E0 RID: 2272
-	// (Invoke) Token: 0x06004D58 RID: 19800
+	// Token: 0x020007E3 RID: 2019
+	// (Invoke) Token: 0x06004608 RID: 17928
 	private delegate object ValueGetter();
 
-	// Token: 0x020008E1 RID: 2273
-	// (Invoke) Token: 0x06004D5C RID: 19804
+	// Token: 0x020007E4 RID: 2020
+	// (Invoke) Token: 0x0600460C RID: 17932
 	private delegate void ValueSetter(object value);
 }

@@ -1,15 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004CD RID: 1229
+// Token: 0x02000588 RID: 1416
 public class HelloScript : MonoBehaviour
 {
-	// Token: 0x06002A98 RID: 10904 RVA: 0x000A9A68 File Offset: 0x000A7C68
+	// Token: 0x06002E4A RID: 11850 RVA: 0x000B1800 File Offset: 0x000AFA00
 	private void Start()
 	{
 		Debug.Log("HELLO!:" + this.helloString + "from object: " + base.gameObject.name);
 	}
 
-	// Token: 0x04001721 RID: 5921
+	// Token: 0x040018DE RID: 6366
 	public string helloString;
 }

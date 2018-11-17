@@ -4,17 +4,17 @@ using System.Collections.Generic;
 using EasyRoads3D;
 using UnityEngine;
 
-// Token: 0x0200074C RID: 1868
+// Token: 0x0200082E RID: 2094
 public class RoadObjectScript : MonoBehaviour
 {
-	// Token: 0x06004430 RID: 17456 RVA: 0x001085B0 File Offset: 0x001067B0
+	// Token: 0x06004891 RID: 18577 RVA: 0x00111F30 File Offset: 0x00110130
 	public void OCOQDDODDQ(ArrayList arr, string[] DOODQOQO, string[] OODDQOQO)
 	{
 		this.ODOCOQCCOC(base.transform, arr, DOODQOQO, OODDQOQO);
 	}
 
-	// Token: 0x06004431 RID: 17457 RVA: 0x001085C4 File Offset: 0x001067C4
-	public void OCCOCQQQDO(MarkerScript markerScript)
+	// Token: 0x06004892 RID: 18578 RVA: 0x00111F44 File Offset: 0x00110144
+	public void OCCOCQQQDO(global::MarkerScript markerScript)
 	{
 		this.OCQOCOCQQO = markerScript.transform;
 		List<GameObject> list = new List<GameObject>();
@@ -32,8 +32,8 @@ public class RoadObjectScript : MonoBehaviour
 		this.ODOCDOOOQQ = -1;
 	}
 
-	// Token: 0x06004432 RID: 17458 RVA: 0x00108688 File Offset: 0x00106888
-	public void OCOQDCQOCD(MarkerScript markerScript)
+	// Token: 0x06004893 RID: 18579 RVA: 0x00112008 File Offset: 0x00110208
+	public void OCOQDCQOCD(global::MarkerScript markerScript)
 	{
 		if (markerScript.OQCQOQQDCQ != markerScript.ODOOQQOO || markerScript.OQCQOQQDCQ != markerScript.ODOOQQOO)
 		{
@@ -47,8 +47,8 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004433 RID: 17459 RVA: 0x00108730 File Offset: 0x00106930
-	public void ResetMaterials(MarkerScript markerScript)
+	// Token: 0x06004894 RID: 18580 RVA: 0x001120B0 File Offset: 0x001102B0
+	public void ResetMaterials(global::MarkerScript markerScript)
 	{
 		if (this.OOQQCODOCD != null)
 		{
@@ -56,8 +56,8 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004434 RID: 17460 RVA: 0x00108784 File Offset: 0x00106984
-	public void OOOOQCDODD(MarkerScript markerScript)
+	// Token: 0x06004895 RID: 18581 RVA: 0x00112104 File Offset: 0x00110304
+	public void OOOOQCDODD(global::MarkerScript markerScript)
 	{
 		if (markerScript.OQCQOQQDCQ != markerScript.ODOOQQOO)
 		{
@@ -67,13 +67,13 @@ public class RoadObjectScript : MonoBehaviour
 		this.OCOOCODDOC(this.OODCCOODCC.geoResolution, false, false);
 	}
 
-	// Token: 0x06004435 RID: 17461 RVA: 0x001087FC File Offset: 0x001069FC
-	private void OQDODCODOQ(string ctrl, MarkerScript markerScript)
+	// Token: 0x06004896 RID: 18582 RVA: 0x0011217C File Offset: 0x0011037C
+	private void OQDODCODOQ(string ctrl, global::MarkerScript markerScript)
 	{
 		int num = 0;
 		foreach (Transform transform in markerScript.OCQOCOCQQOs)
 		{
-			MarkerScript component = transform.GetComponent<MarkerScript>();
+			global::MarkerScript component = transform.GetComponent<global::MarkerScript>();
 			if (ctrl == "rs")
 			{
 				component.LeftSurrounding(markerScript.rs - markerScript.ODOQQOOO, markerScript.trperc[num]);
@@ -106,7 +106,7 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004436 RID: 17462 RVA: 0x00108988 File Offset: 0x00106B88
+	// Token: 0x06004897 RID: 18583 RVA: 0x00112308 File Offset: 0x00110508
 	public void OQOCODCDOO()
 	{
 		if (this.markers > 1)
@@ -115,22 +115,22 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004437 RID: 17463 RVA: 0x001089AC File Offset: 0x00106BAC
+	// Token: 0x06004898 RID: 18584 RVA: 0x0011232C File Offset: 0x0011052C
 	public void ODOCOQCCOC(Transform tr, ArrayList arr, string[] DOODQOQO, string[] OODDQOQO)
 	{
-		RoadObjectScript.version = "2.4.6";
-		RoadObjectScript.OODCDOQDCC = (GUISkin)Resources.Load("ER3DSkin", typeof(GUISkin));
-		RoadObjectScript.OQOOODODQD = (Texture2D)Resources.Load("ER3DLogo", typeof(Texture2D));
-		if (RoadObjectScript.objectStrings == null)
+		global::RoadObjectScript.version = "2.4.6";
+		global::RoadObjectScript.OODCDOQDCC = (GUISkin)UnityEngine.Resources.Load("ER3DSkin", typeof(GUISkin));
+		global::RoadObjectScript.OQOOODODQD = (Texture2D)UnityEngine.Resources.Load("ER3DLogo", typeof(Texture2D));
+		if (global::RoadObjectScript.objectStrings == null)
 		{
-			RoadObjectScript.objectStrings = new string[3];
-			RoadObjectScript.objectStrings[0] = "Road Object";
-			RoadObjectScript.objectStrings[1] = "River Object";
-			RoadObjectScript.objectStrings[2] = "Procedural Mesh Object";
+			global::RoadObjectScript.objectStrings = new string[3];
+			global::RoadObjectScript.objectStrings[0] = "Road Object";
+			global::RoadObjectScript.objectStrings[1] = "River Object";
+			global::RoadObjectScript.objectStrings[2] = "Procedural Mesh Object";
 		}
 		this.obj = tr;
 		this.OOQQCODOCD = new OQCDQQDQCC();
-		this.OODCCOODCC = this.obj.GetComponent<RoadObjectScript>();
+		this.OODCCOODCC = this.obj.GetComponent<global::RoadObjectScript>();
 		foreach (object obj in this.obj)
 		{
 			Transform transform = (Transform)obj;
@@ -145,30 +145,30 @@ public class RoadObjectScript : MonoBehaviour
 		{
 			Terrains terrains = new Terrains();
 			terrains.terrain = terrain;
-			if (!terrain.gameObject.GetComponent<EasyRoads3DTerrainID>())
+			if (!terrain.gameObject.GetComponent<global::EasyRoads3DTerrainID>())
 			{
-				EasyRoads3DTerrainID easyRoads3DTerrainID = (EasyRoads3DTerrainID)terrain.gameObject.AddComponent("EasyRoads3DTerrainID");
+				global::EasyRoads3DTerrainID easyRoads3DTerrainID = (global::EasyRoads3DTerrainID)terrain.gameObject.AddComponent("EasyRoads3DTerrainID");
 				string text = Random.Range(100000000, 999999999).ToString();
 				easyRoads3DTerrainID.terrainid = text;
 				terrains.id = text;
 			}
 			else
 			{
-				terrains.id = terrain.gameObject.GetComponent<EasyRoads3DTerrainID>().terrainid;
+				terrains.id = terrain.gameObject.GetComponent<global::EasyRoads3DTerrainID>().terrainid;
 			}
 			this.OOQQCODOCD.OCDQQCDOQO(terrains);
 		}
 		ODCDDDDQQD.OCDQQCDOQO();
 		if (this.roadMaterialEdit == null)
 		{
-			this.roadMaterialEdit = (Material)Resources.Load("materials/roadMaterialEdit", typeof(Material));
+			this.roadMaterialEdit = (Material)UnityEngine.Resources.Load("materials/roadMaterialEdit", typeof(Material));
 		}
 		if (this.objectType == 0 && GameObject.Find(base.gameObject.name + "/road") == null)
 		{
 			GameObject gameObject = new GameObject("road");
 			gameObject.transform.parent = base.transform;
 		}
-		this.OOQQCODOCD.OODQOQCDCQ(this.obj, RoadObjectScript.OCQCDDDOCC, this.OODCCOODCC.roadWidth, this.surfaceOpacity, ref this.OOCCDCOQCQ, ref this.indent, this.applyAnimation, this.waveSize, this.waveHeight);
+		this.OOQQCODOCD.OODQOQCDCQ(this.obj, global::RoadObjectScript.OCQCDDDOCC, this.OODCCOODCC.roadWidth, this.surfaceOpacity, ref this.OOCCDCOQCQ, ref this.indent, this.applyAnimation, this.waveSize, this.waveHeight);
 		this.OOQQCODOCD.ODDQCCDCDC = this.ODDQCCDCDC;
 		this.OOQQCODOCD.OOCQDOOCQD = this.OOCQDOOCQD;
 		this.OOQQCODOCD.OdQODQOD = this.OdQODQOD + 1;
@@ -184,7 +184,7 @@ public class RoadObjectScript : MonoBehaviour
 		this.OOQQCODOCD.multipleTerrains = this.multipleTerrains;
 		this.OOQQCODOCD.editRestore = this.editRestore;
 		this.OOQQCODOCD.roadMaterialEdit = this.roadMaterialEdit;
-		if (RoadObjectScript.backupLocation == 0)
+		if (global::RoadObjectScript.backupLocation == 0)
 		{
 			OOCDQCOODC.backupFolder = "/EasyRoads3D";
 		}
@@ -199,7 +199,7 @@ public class RoadObjectScript : MonoBehaviour
 			this.doRestore = true;
 		}
 		this.OOQODQOCOC();
-		if (arr != null || RoadObjectScript.ODODQOOQ == null)
+		if (arr != null || global::RoadObjectScript.ODODQOOQ == null)
 		{
 			this.OOOOOOODCD(arr, DOODQOQO, OODDQOQO);
 		}
@@ -209,12 +209,12 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004438 RID: 17464 RVA: 0x00108DF4 File Offset: 0x00106FF4
+	// Token: 0x06004899 RID: 18585 RVA: 0x00112774 File Offset: 0x00110974
 	public void UpdateBackupFolder()
 	{
 	}
 
-	// Token: 0x06004439 RID: 17465 RVA: 0x00108DF8 File Offset: 0x00106FF8
+	// Token: 0x0600489A RID: 18586 RVA: 0x00112778 File Offset: 0x00110978
 	public void OCCOOQDCQO()
 	{
 		if ((!this.ODODDDOO || this.objectType == 2) && this.OQCCDQCDDD != null)
@@ -227,7 +227,7 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600443A RID: 17466 RVA: 0x00108E54 File Offset: 0x00107054
+	// Token: 0x0600489B RID: 18587 RVA: 0x001127D4 File Offset: 0x001109D4
 	public void OODDQODDCC(Vector3 pos)
 	{
 		if (!this.displayRoad)
@@ -252,7 +252,7 @@ public class RoadObjectScript : MonoBehaviour
 		}
 		else
 		{
-			gameObject = (GameObject)Object.Instantiate(Resources.Load("marker", typeof(GameObject)));
+			gameObject = (GameObject)Object.Instantiate(UnityEngine.Resources.Load("marker", typeof(GameObject)));
 		}
 		Transform transform = gameObject.transform;
 		transform.position = pos;
@@ -272,9 +272,9 @@ public class RoadObjectScript : MonoBehaviour
 			name = "Marker0" + this.markers.ToString();
 		}
 		transform.gameObject.name = name;
-		MarkerScript component = transform.GetComponent<MarkerScript>();
+		global::MarkerScript component = transform.GetComponent<global::MarkerScript>();
 		component.OOCCDCOQCQ = false;
-		component.objectScript = this.obj.GetComponent<RoadObjectScript>();
+		component.objectScript = this.obj.GetComponent<global::RoadObjectScript>();
 		if (this.ODOQDQOO == null)
 		{
 			component.waterLevel = this.OODCCOODCC.waterLevel;
@@ -305,7 +305,7 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600443B RID: 17467 RVA: 0x0010915C File Offset: 0x0010735C
+	// Token: 0x0600489C RID: 18588 RVA: 0x00112ADC File Offset: 0x00110CDC
 	public void OCOOCODDOC(float geo, bool renderMode, bool camMode)
 	{
 		this.OOQQCODOCD.OOODOQDODQ.Clear();
@@ -318,8 +318,8 @@ public class RoadObjectScript : MonoBehaviour
 				foreach (object obj2 in transform)
 				{
 					Transform transform2 = (Transform)obj2;
-					MarkerScript component = transform2.GetComponent<MarkerScript>();
-					component.objectScript = this.obj.GetComponent<RoadObjectScript>();
+					global::MarkerScript component = transform2.GetComponent<global::MarkerScript>();
+					component.objectScript = this.obj.GetComponent<global::RoadObjectScript>();
 					if (!component.OOCCDCOQCQ)
 					{
 						component.OOCCDCOQCQ = this.OOQQCODOCD.OOOCQDOCDC(transform2);
@@ -380,13 +380,13 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600443C RID: 17468 RVA: 0x001094C8 File Offset: 0x001076C8
+	// Token: 0x0600489D RID: 18589 RVA: 0x00112E48 File Offset: 0x00111048
 	public void StartCam()
 	{
 		this.OCOOCODDOC(0.5f, false, true);
 	}
 
-	// Token: 0x0600443D RID: 17469 RVA: 0x001094D8 File Offset: 0x001076D8
+	// Token: 0x0600489E RID: 18590 RVA: 0x00112E58 File Offset: 0x00111058
 	public void OOQODQOCOC()
 	{
 		int num = 0;
@@ -422,12 +422,12 @@ public class RoadObjectScript : MonoBehaviour
 		this.OCOOCODDOC(this.OODCCOODCC.geoResolution, false, false);
 	}
 
-	// Token: 0x0600443E RID: 17470 RVA: 0x0010963C File Offset: 0x0010783C
+	// Token: 0x0600489F RID: 18591 RVA: 0x00112FBC File Offset: 0x001111BC
 	public void ODDOOODDCQ()
 	{
-		RoadObjectScript[] array = (RoadObjectScript[])Object.FindObjectsOfType(typeof(RoadObjectScript));
+		global::RoadObjectScript[] array = (global::RoadObjectScript[])Object.FindObjectsOfType(typeof(global::RoadObjectScript));
 		ArrayList arrayList = new ArrayList();
-		foreach (RoadObjectScript roadObjectScript in array)
+		foreach (global::RoadObjectScript roadObjectScript in array)
 		{
 			if (roadObjectScript.transform != base.transform)
 			{
@@ -444,12 +444,12 @@ public class RoadObjectScript : MonoBehaviour
 		this.OCQDCQDDCO();
 	}
 
-	// Token: 0x0600443F RID: 17471 RVA: 0x0010971C File Offset: 0x0010791C
+	// Token: 0x060048A0 RID: 18592 RVA: 0x0011309C File Offset: 0x0011129C
 	public ArrayList RebuildObjs()
 	{
-		RoadObjectScript[] array = (RoadObjectScript[])Object.FindObjectsOfType(typeof(RoadObjectScript));
+		global::RoadObjectScript[] array = (global::RoadObjectScript[])Object.FindObjectsOfType(typeof(global::RoadObjectScript));
 		ArrayList arrayList = new ArrayList();
-		foreach (RoadObjectScript roadObjectScript in array)
+		foreach (global::RoadObjectScript roadObjectScript in array)
 		{
 			if (roadObjectScript.transform != base.transform)
 			{
@@ -459,7 +459,7 @@ public class RoadObjectScript : MonoBehaviour
 		return arrayList;
 	}
 
-	// Token: 0x06004440 RID: 17472 RVA: 0x00109788 File Offset: 0x00107988
+	// Token: 0x060048A1 RID: 18593 RVA: 0x00113108 File Offset: 0x00111308
 	public void ODQDOOOCOC()
 	{
 		this.OCOOCODDOC(this.OODCCOODCC.geoResolution, false, false);
@@ -470,19 +470,19 @@ public class RoadObjectScript : MonoBehaviour
 		this.ODODDDOO = false;
 	}
 
-	// Token: 0x06004441 RID: 17473 RVA: 0x001097C8 File Offset: 0x001079C8
+	// Token: 0x060048A2 RID: 18594 RVA: 0x00113148 File Offset: 0x00111348
 	public void OCQDCQDDCO()
 	{
 		this.OOQQCODOCD.OCQDCQDDCO(this.OODCCOODCC.applySplatmap, this.OODCCOODCC.splatmapSmoothLevel, this.OODCCOODCC.renderRoad, this.OODCCOODCC.tuw, this.OODCCOODCC.roadResolution, this.OODCCOODCC.raise, this.OODCCOODCC.opacity, this.OODCCOODCC.expand, this.OODCCOODCC.offsetX, this.OODCCOODCC.offsetY, this.OODCCOODCC.beveledRoad, this.OODCCOODCC.splatmapLayer, this.OODCCOODCC.OdQODQOD, this.OOQQQDOD, this.OOQQQDODOffset, this.OOQQQDODLength);
 	}
 
-	// Token: 0x06004442 RID: 17474 RVA: 0x00109884 File Offset: 0x00107A84
+	// Token: 0x060048A3 RID: 18595 RVA: 0x00113204 File Offset: 0x00111404
 	public void OQQDQCQQOC()
 	{
 		this.OOQQCODOCD.OQQDQCQQOC(this.OODCCOODCC.renderRoad, this.OODCCOODCC.tuw, this.OODCCOODCC.roadResolution, this.OODCCOODCC.raise, this.OODCCOODCC.beveledRoad, this.OODCCOODCC.OdQODQOD, this.OOQQQDOD, this.OOQQQDODOffset, this.OOQQQDODLength);
 	}
 
-	// Token: 0x06004443 RID: 17475 RVA: 0x001098F4 File Offset: 0x00107AF4
+	// Token: 0x060048A4 RID: 18596 RVA: 0x00113274 File Offset: 0x00111474
 	public void ODQDCQQDDO(Vector3 pos, bool doInsert)
 	{
 		if (!this.displayRoad)
@@ -533,7 +533,7 @@ public class RoadObjectScript : MonoBehaviour
 				Transform transform = (Transform)Object.Instantiate(oqdqoqdoqo3.object1.transform, pos, oqdqoqdoqo3.object1.rotation);
 				transform.gameObject.name = name;
 				transform.parent = this.OODDDCQCOC;
-				MarkerScript component = transform.GetComponent<MarkerScript>();
+				global::MarkerScript component = transform.GetComponent<global::MarkerScript>();
 				component.OOCCDCOQCQ = false;
 				float num6 = num3 + num4;
 				float num7 = num3 / num6;
@@ -563,7 +563,7 @@ public class RoadObjectScript : MonoBehaviour
 		this.OOQODQOCOC();
 	}
 
-	// Token: 0x06004444 RID: 17476 RVA: 0x00109C50 File Offset: 0x00107E50
+	// Token: 0x060048A5 RID: 18597 RVA: 0x001135D0 File Offset: 0x001117D0
 	public void ODCQOCDQOC()
 	{
 		Object.DestroyImmediate(this.OODCCOODCC.OCQOCOCQQO.gameObject);
@@ -571,7 +571,7 @@ public class RoadObjectScript : MonoBehaviour
 		this.OOQODQOCOC();
 	}
 
-	// Token: 0x06004445 RID: 17477 RVA: 0x00109C80 File Offset: 0x00107E80
+	// Token: 0x060048A6 RID: 18598 RVA: 0x00113600 File Offset: 0x00111800
 	public void OQCQQDODDC()
 	{
 		if (this.OOQQCODOCD == null)
@@ -594,7 +594,7 @@ public class RoadObjectScript : MonoBehaviour
 		}
 		if (this.displayRoad && this.objectType < 2)
 		{
-			Material material = (Material)Resources.Load("roadMaterial", typeof(Material));
+			Material material = (Material)UnityEngine.Resources.Load("roadMaterial", typeof(Material));
 			if (this.OOQQCODOCD.road.renderer != null)
 			{
 				this.OOQQCODOCD.road.renderer.material = material;
@@ -617,13 +617,13 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06004446 RID: 17478 RVA: 0x00109E58 File Offset: 0x00108058
+	// Token: 0x060048A7 RID: 18599 RVA: 0x001137D8 File Offset: 0x001119D8
 	public void OQQOOCCQCO()
 	{
 		this.OOQQCODOCD.OOQDODCQOQ(12);
 	}
 
-	// Token: 0x06004447 RID: 17479 RVA: 0x00109E68 File Offset: 0x00108068
+	// Token: 0x060048A8 RID: 18600 RVA: 0x001137E8 File Offset: 0x001119E8
 	public ArrayList ODCOQCODCC()
 	{
 		ArrayList arrayList = new ArrayList();
@@ -635,7 +635,7 @@ public class RoadObjectScript : MonoBehaviour
 				foreach (object obj2 in transform)
 				{
 					Transform transform2 = (Transform)obj2;
-					MarkerScript component = transform2.GetComponent<MarkerScript>();
+					global::MarkerScript component = transform2.GetComponent<global::MarkerScript>();
 					arrayList.Add(component.ODDGDOOO);
 					arrayList.Add(component.ODDQOODO);
 					if (transform2.name == "Marker0003")
@@ -648,18 +648,18 @@ public class RoadObjectScript : MonoBehaviour
 		return arrayList;
 	}
 
-	// Token: 0x06004448 RID: 17480 RVA: 0x00109F90 File Offset: 0x00108190
+	// Token: 0x060048A9 RID: 18601 RVA: 0x00113910 File Offset: 0x00111B10
 	public void OQCOCQDQDD()
 	{
 		ArrayList arrayList = new ArrayList();
 		ArrayList arrayList2 = new ArrayList();
 		ArrayList arrayList3 = new ArrayList();
-		for (int i = 0; i < RoadObjectScript.ODODOQQO.Length; i++)
+		for (int i = 0; i < global::RoadObjectScript.ODODOQQO.Length; i++)
 		{
 			if (this.ODODQQOD[i])
 			{
-				arrayList.Add(RoadObjectScript.ODODQOOQ[i]);
-				arrayList3.Add(RoadObjectScript.ODODOQQO[i]);
+				arrayList.Add(global::RoadObjectScript.ODODQOOQ[i]);
+				arrayList3.Add(global::RoadObjectScript.ODODOQQO[i]);
 				arrayList2.Add(i);
 			}
 		}
@@ -667,12 +667,12 @@ public class RoadObjectScript : MonoBehaviour
 		this.OOQQQOQO = (int[])arrayList2.ToArray(typeof(int));
 	}
 
-	// Token: 0x06004449 RID: 17481 RVA: 0x0010A034 File Offset: 0x00108234
+	// Token: 0x060048AA RID: 18602 RVA: 0x001139B4 File Offset: 0x00111BB4
 	public void OOOOOOODCD(ArrayList arr, string[] DOODQOQO, string[] OODDQOQO)
 	{
 		bool flag = false;
-		RoadObjectScript.ODODOQQO = DOODQOQO;
-		RoadObjectScript.ODODQOOQ = OODDQOQO;
+		global::RoadObjectScript.ODODOQQO = DOODQOQO;
+		global::RoadObjectScript.ODODQOOQ = OODDQOQO;
 		ArrayList arrayList = new ArrayList();
 		if (this.obj == null)
 		{
@@ -686,7 +686,7 @@ public class RoadObjectScript : MonoBehaviour
 				foreach (object obj2 in transform)
 				{
 					Transform transform2 = (Transform)obj2;
-					MarkerScript component = transform2.GetComponent<MarkerScript>();
+					global::MarkerScript component = transform2.GetComponent<global::MarkerScript>();
 					component.OQODQQDO.Clear();
 					component.ODOQQQDO.Clear();
 					component.OQQODQQOO.Clear();
@@ -695,7 +695,7 @@ public class RoadObjectScript : MonoBehaviour
 				}
 			}
 		}
-		this.mSc = (MarkerScript[])arrayList.ToArray(typeof(MarkerScript));
+		this.mSc = (global::MarkerScript[])arrayList.ToArray(typeof(global::MarkerScript));
 		ArrayList arrayList2 = new ArrayList();
 		int num = 0;
 		int num2 = 0;
@@ -705,12 +705,12 @@ public class RoadObjectScript : MonoBehaviour
 			{
 				return;
 			}
-			for (int i = 0; i < RoadObjectScript.ODODOQQO.Length; i++)
+			for (int i = 0; i < global::RoadObjectScript.ODODOQQO.Length; i++)
 			{
 				ODODDQQO ododdqqo = (ODODDQQO)arr[i];
 				for (int j = 0; j < this.ODQQQQQO.Length; j++)
 				{
-					if (RoadObjectScript.ODODOQQO[i] == this.ODQQQQQO[j])
+					if (global::RoadObjectScript.ODODOQQO[i] == this.ODQQQQQO[j])
 					{
 						num++;
 						if (this.ODODQQOD.Length > j)
@@ -721,7 +721,7 @@ public class RoadObjectScript : MonoBehaviour
 						{
 							arrayList2.Add(false);
 						}
-						foreach (MarkerScript markerScript in this.mSc)
+						foreach (global::MarkerScript markerScript in this.mSc)
 						{
 							int num3 = -1;
 							for (int l = 0; l < markerScript.ODDOOQDO.Length; l++)
@@ -762,13 +762,13 @@ public class RoadObjectScript : MonoBehaviour
 				flag = false;
 			}
 		}
-		for (int m = 0; m < RoadObjectScript.ODODOQQO.Length; m++)
+		for (int m = 0; m < global::RoadObjectScript.ODODOQQO.Length; m++)
 		{
 			ODODDQQO ododdqqo2 = (ODODDQQO)arr[m];
 			bool flag2 = false;
 			for (int n = 0; n < this.ODQQQQQO.Length; n++)
 			{
-				if (RoadObjectScript.ODODOQQO[m] == this.ODQQQQQO[n])
+				if (global::RoadObjectScript.ODODOQQO[m] == this.ODQQQQQO[n])
 				{
 					flag2 = true;
 				}
@@ -777,7 +777,7 @@ public class RoadObjectScript : MonoBehaviour
 			{
 				num2++;
 				arrayList2.Add(false);
-				foreach (MarkerScript markerScript2 in this.mSc)
+				foreach (global::MarkerScript markerScript2 in this.mSc)
 				{
 					markerScript2.OQODQQDO.Add(ododdqqo2.id);
 					markerScript2.ODOQQQDO.Add(ododdqqo2.markerActive);
@@ -787,8 +787,8 @@ public class RoadObjectScript : MonoBehaviour
 			}
 		}
 		this.ODODQQOD = (bool[])arrayList2.ToArray(typeof(bool));
-		this.ODQQQQQO = new string[RoadObjectScript.ODODOQQO.Length];
-		RoadObjectScript.ODODOQQO.CopyTo(this.ODQQQQQO, 0);
+		this.ODQQQQQO = new string[global::RoadObjectScript.ODODOQQO.Length];
+		global::RoadObjectScript.ODODOQQO.CopyTo(this.ODQQQQQO, 0);
 		ArrayList arrayList3 = new ArrayList();
 		for (int num5 = 0; num5 < this.ODODQQOD.Length; num5++)
 		{
@@ -798,7 +798,7 @@ public class RoadObjectScript : MonoBehaviour
 			}
 		}
 		this.OOQQQOQO = (int[])arrayList3.ToArray(typeof(int));
-		foreach (MarkerScript markerScript3 in this.mSc)
+		foreach (global::MarkerScript markerScript3 in this.mSc)
 		{
 			markerScript3.ODDOOQDO = (string[])markerScript3.OQODQQDO.ToArray(typeof(string));
 			markerScript3.ODDGDOOO = (bool[])markerScript3.ODOQQQDO.ToArray(typeof(bool));
@@ -810,7 +810,7 @@ public class RoadObjectScript : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600444A RID: 17482 RVA: 0x0010A658 File Offset: 0x00108858
+	// Token: 0x060048AB RID: 18603 RVA: 0x00113FD8 File Offset: 0x001121D8
 	public bool CheckWaterHeights()
 	{
 		bool result = true;
@@ -833,370 +833,370 @@ public class RoadObjectScript : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x04002405 RID: 9221
+	// Token: 0x0400263C RID: 9788
 	public static string version = string.Empty;
 
-	// Token: 0x04002406 RID: 9222
+	// Token: 0x0400263D RID: 9789
 	public int objectType;
 
-	// Token: 0x04002407 RID: 9223
+	// Token: 0x0400263E RID: 9790
 	public bool displayRoad = true;
 
-	// Token: 0x04002408 RID: 9224
+	// Token: 0x0400263F RID: 9791
 	public float roadWidth = 5f;
 
-	// Token: 0x04002409 RID: 9225
+	// Token: 0x04002640 RID: 9792
 	public float indent = 3f;
 
-	// Token: 0x0400240A RID: 9226
+	// Token: 0x04002641 RID: 9793
 	public float surrounding = 5f;
 
-	// Token: 0x0400240B RID: 9227
+	// Token: 0x04002642 RID: 9794
 	public float raise = 1f;
 
-	// Token: 0x0400240C RID: 9228
+	// Token: 0x04002643 RID: 9795
 	public float raiseMarkers = 0.5f;
 
-	// Token: 0x0400240D RID: 9229
+	// Token: 0x04002644 RID: 9796
 	public bool OOQDOOQQ;
 
-	// Token: 0x0400240E RID: 9230
+	// Token: 0x04002645 RID: 9797
 	public bool renderRoad = true;
 
-	// Token: 0x0400240F RID: 9231
+	// Token: 0x04002646 RID: 9798
 	public bool beveledRoad;
 
-	// Token: 0x04002410 RID: 9232
+	// Token: 0x04002647 RID: 9799
 	public bool applySplatmap;
 
-	// Token: 0x04002411 RID: 9233
+	// Token: 0x04002648 RID: 9800
 	public int splatmapLayer = 4;
 
-	// Token: 0x04002412 RID: 9234
+	// Token: 0x04002649 RID: 9801
 	public bool autoUpdate = true;
 
-	// Token: 0x04002413 RID: 9235
+	// Token: 0x0400264A RID: 9802
 	public float geoResolution = 5f;
 
-	// Token: 0x04002414 RID: 9236
+	// Token: 0x0400264B RID: 9803
 	public int roadResolution = 1;
 
-	// Token: 0x04002415 RID: 9237
+	// Token: 0x0400264C RID: 9804
 	public float tuw = 15f;
 
-	// Token: 0x04002416 RID: 9238
+	// Token: 0x0400264D RID: 9805
 	public int splatmapSmoothLevel;
 
-	// Token: 0x04002417 RID: 9239
+	// Token: 0x0400264E RID: 9806
 	public float opacity = 1f;
 
-	// Token: 0x04002418 RID: 9240
+	// Token: 0x0400264F RID: 9807
 	public int expand;
 
-	// Token: 0x04002419 RID: 9241
+	// Token: 0x04002650 RID: 9808
 	public int offsetX;
 
-	// Token: 0x0400241A RID: 9242
+	// Token: 0x04002651 RID: 9809
 	public int offsetY;
 
-	// Token: 0x0400241B RID: 9243
+	// Token: 0x04002652 RID: 9810
 	private Material surfaceMaterial;
 
-	// Token: 0x0400241C RID: 9244
+	// Token: 0x04002653 RID: 9811
 	public float surfaceOpacity = 1f;
 
-	// Token: 0x0400241D RID: 9245
+	// Token: 0x04002654 RID: 9812
 	public float smoothDistance = 1f;
 
-	// Token: 0x0400241E RID: 9246
+	// Token: 0x04002655 RID: 9813
 	public float smoothSurDistance = 3f;
 
-	// Token: 0x0400241F RID: 9247
+	// Token: 0x04002656 RID: 9814
 	private bool handleInsertFlag;
 
-	// Token: 0x04002420 RID: 9248
+	// Token: 0x04002657 RID: 9815
 	public bool handleVegetation = true;
 
-	// Token: 0x04002421 RID: 9249
+	// Token: 0x04002658 RID: 9816
 	public float OOCQDOOCQD = 2f;
 
-	// Token: 0x04002422 RID: 9250
+	// Token: 0x04002659 RID: 9817
 	public float ODDQCCDCDC = 1f;
 
-	// Token: 0x04002423 RID: 9251
+	// Token: 0x0400265A RID: 9818
 	public int materialType;
 
-	// Token: 0x04002424 RID: 9252
+	// Token: 0x0400265B RID: 9819
 	private string[] materialStrings;
 
-	// Token: 0x04002425 RID: 9253
-	private MarkerScript[] mSc;
+	// Token: 0x0400265C RID: 9820
+	private global::MarkerScript[] mSc;
 
-	// Token: 0x04002426 RID: 9254
+	// Token: 0x0400265D RID: 9821
 	private bool ODQDOQOCCD;
 
-	// Token: 0x04002427 RID: 9255
+	// Token: 0x0400265E RID: 9822
 	private bool[] OQCCDQCDDD;
 
-	// Token: 0x04002428 RID: 9256
+	// Token: 0x0400265F RID: 9823
 	private bool[] ODODODCODD;
 
-	// Token: 0x04002429 RID: 9257
+	// Token: 0x04002660 RID: 9824
 	public string[] OODQCQODQQ;
 
-	// Token: 0x0400242A RID: 9258
+	// Token: 0x04002661 RID: 9825
 	public string[] ODODQOQO;
 
-	// Token: 0x0400242B RID: 9259
+	// Token: 0x04002662 RID: 9826
 	public int[] ODODQOQOInt;
 
-	// Token: 0x0400242C RID: 9260
+	// Token: 0x04002663 RID: 9827
 	public int OQDCQDCDDD = -1;
 
-	// Token: 0x0400242D RID: 9261
+	// Token: 0x04002664 RID: 9828
 	public int ODOCDOOOQQ = -1;
 
-	// Token: 0x0400242E RID: 9262
+	// Token: 0x04002665 RID: 9829
 	public static GUISkin OODCDOQDCC;
 
-	// Token: 0x0400242F RID: 9263
+	// Token: 0x04002666 RID: 9830
 	public static GUISkin OODQQDDCDD;
 
-	// Token: 0x04002430 RID: 9264
+	// Token: 0x04002667 RID: 9831
 	public bool OQOCDODDQC;
 
-	// Token: 0x04002431 RID: 9265
+	// Token: 0x04002668 RID: 9832
 	private Vector3 cPos;
 
-	// Token: 0x04002432 RID: 9266
+	// Token: 0x04002669 RID: 9833
 	private Vector3 ePos;
 
-	// Token: 0x04002433 RID: 9267
+	// Token: 0x0400266A RID: 9834
 	public bool OOCCDCOQCQ;
 
-	// Token: 0x04002434 RID: 9268
+	// Token: 0x0400266B RID: 9835
 	public static Texture2D OQOOODODQD;
 
-	// Token: 0x04002435 RID: 9269
+	// Token: 0x0400266C RID: 9836
 	public int markers = 1;
 
-	// Token: 0x04002436 RID: 9270
+	// Token: 0x0400266D RID: 9837
 	public OQCDQQDQCC OOQQCODOCD;
 
-	// Token: 0x04002437 RID: 9271
+	// Token: 0x0400266E RID: 9838
 	private GameObject ODOQDQOO;
 
-	// Token: 0x04002438 RID: 9272
+	// Token: 0x0400266F RID: 9839
 	public bool ODODCOCCDQ;
 
-	// Token: 0x04002439 RID: 9273
+	// Token: 0x04002670 RID: 9840
 	public bool doTerrain;
 
-	// Token: 0x0400243A RID: 9274
+	// Token: 0x04002671 RID: 9841
 	private Transform OCQOCOCQQO;
 
-	// Token: 0x0400243B RID: 9275
+	// Token: 0x04002672 RID: 9842
 	public GameObject[] OCQOCOCQQOs;
 
-	// Token: 0x0400243C RID: 9276
+	// Token: 0x04002673 RID: 9843
 	private static string OCQCDDDOCC;
 
-	// Token: 0x0400243D RID: 9277
+	// Token: 0x04002674 RID: 9844
 	public Transform obj;
 
-	// Token: 0x0400243E RID: 9278
+	// Token: 0x04002675 RID: 9845
 	private string OOQCQCDDOQ;
 
-	// Token: 0x0400243F RID: 9279
+	// Token: 0x04002676 RID: 9846
 	public static string erInit = string.Empty;
 
-	// Token: 0x04002440 RID: 9280
+	// Token: 0x04002677 RID: 9847
 	public static Transform OCQQQOQOQC;
 
-	// Token: 0x04002441 RID: 9281
-	private RoadObjectScript OODCCOODCC;
+	// Token: 0x04002678 RID: 9848
+	private global::RoadObjectScript OODCCOODCC;
 
-	// Token: 0x04002442 RID: 9282
+	// Token: 0x04002679 RID: 9849
 	public bool flyby;
 
-	// Token: 0x04002443 RID: 9283
+	// Token: 0x0400267A RID: 9850
 	private Vector3 pos;
 
-	// Token: 0x04002444 RID: 9284
+	// Token: 0x0400267B RID: 9851
 	private float fl;
 
-	// Token: 0x04002445 RID: 9285
+	// Token: 0x0400267C RID: 9852
 	private float oldfl;
 
-	// Token: 0x04002446 RID: 9286
+	// Token: 0x0400267D RID: 9853
 	private bool ODDCQQQQOO;
 
-	// Token: 0x04002447 RID: 9287
+	// Token: 0x0400267E RID: 9854
 	private bool ODOQCDDCOO;
 
-	// Token: 0x04002448 RID: 9288
+	// Token: 0x0400267F RID: 9855
 	private bool ODQQOQCQCO;
 
-	// Token: 0x04002449 RID: 9289
+	// Token: 0x04002680 RID: 9856
 	public Transform OODDDCQCOC;
 
-	// Token: 0x0400244A RID: 9290
+	// Token: 0x04002681 RID: 9857
 	public int OdQODQOD = 1;
 
-	// Token: 0x0400244B RID: 9291
+	// Token: 0x04002682 RID: 9858
 	public float OOQQQDOD;
 
-	// Token: 0x0400244C RID: 9292
+	// Token: 0x04002683 RID: 9859
 	public float OOQQQDODOffset;
 
-	// Token: 0x0400244D RID: 9293
+	// Token: 0x04002684 RID: 9860
 	public float OOQQQDODLength;
 
-	// Token: 0x0400244E RID: 9294
+	// Token: 0x04002685 RID: 9861
 	public bool ODODDDOO;
 
-	// Token: 0x0400244F RID: 9295
+	// Token: 0x04002686 RID: 9862
 	public static string[] ODOQDOQO;
 
-	// Token: 0x04002450 RID: 9296
+	// Token: 0x04002687 RID: 9863
 	public static string[] ODODOQQO;
 
-	// Token: 0x04002451 RID: 9297
+	// Token: 0x04002688 RID: 9864
 	public static string[] ODODQOOQ;
 
-	// Token: 0x04002452 RID: 9298
+	// Token: 0x04002689 RID: 9865
 	public int ODQDOOQO;
 
-	// Token: 0x04002453 RID: 9299
+	// Token: 0x0400268A RID: 9866
 	public string[] ODQQQQQO;
 
-	// Token: 0x04002454 RID: 9300
+	// Token: 0x0400268B RID: 9867
 	public string[] ODODDQOO;
 
-	// Token: 0x04002455 RID: 9301
+	// Token: 0x0400268C RID: 9868
 	public bool[] ODODQQOD;
 
-	// Token: 0x04002456 RID: 9302
+	// Token: 0x0400268D RID: 9869
 	public int[] OOQQQOQO;
 
-	// Token: 0x04002457 RID: 9303
+	// Token: 0x0400268E RID: 9870
 	public int ODOQOOQO;
 
-	// Token: 0x04002458 RID: 9304
+	// Token: 0x0400268F RID: 9871
 	public bool forceY;
 
-	// Token: 0x04002459 RID: 9305
+	// Token: 0x04002690 RID: 9872
 	public float yChange;
 
-	// Token: 0x0400245A RID: 9306
+	// Token: 0x04002691 RID: 9873
 	public float floorDepth = 2f;
 
-	// Token: 0x0400245B RID: 9307
+	// Token: 0x04002692 RID: 9874
 	public float waterLevel = 1.5f;
 
-	// Token: 0x0400245C RID: 9308
+	// Token: 0x04002693 RID: 9875
 	public bool lockWaterLevel = true;
 
-	// Token: 0x0400245D RID: 9309
+	// Token: 0x04002694 RID: 9876
 	public float lastY;
 
-	// Token: 0x0400245E RID: 9310
+	// Token: 0x04002695 RID: 9877
 	public string distance = "0";
 
-	// Token: 0x0400245F RID: 9311
+	// Token: 0x04002696 RID: 9878
 	public string markerDisplayStr = "Hide Markers";
 
-	// Token: 0x04002460 RID: 9312
+	// Token: 0x04002697 RID: 9879
 	public static string[] objectStrings;
 
-	// Token: 0x04002461 RID: 9313
+	// Token: 0x04002698 RID: 9880
 	public string objectText = "Road";
 
-	// Token: 0x04002462 RID: 9314
+	// Token: 0x04002699 RID: 9881
 	public bool applyAnimation;
 
-	// Token: 0x04002463 RID: 9315
+	// Token: 0x0400269A RID: 9882
 	public float waveSize = 1.5f;
 
-	// Token: 0x04002464 RID: 9316
+	// Token: 0x0400269B RID: 9883
 	public float waveHeight = 0.15f;
 
-	// Token: 0x04002465 RID: 9317
+	// Token: 0x0400269C RID: 9884
 	public bool snapY = true;
 
-	// Token: 0x04002466 RID: 9318
+	// Token: 0x0400269D RID: 9885
 	private TextAnchor origAnchor;
 
-	// Token: 0x04002467 RID: 9319
+	// Token: 0x0400269E RID: 9886
 	public bool autoODODDQQO;
 
-	// Token: 0x04002468 RID: 9320
+	// Token: 0x0400269F RID: 9887
 	public Texture2D roadTexture;
 
-	// Token: 0x04002469 RID: 9321
+	// Token: 0x040026A0 RID: 9888
 	public Texture2D roadMaterial;
 
-	// Token: 0x0400246A RID: 9322
+	// Token: 0x040026A1 RID: 9889
 	public string[] ODQOOCCQQO;
 
-	// Token: 0x0400246B RID: 9323
+	// Token: 0x040026A2 RID: 9890
 	public string[] OOOOCOCCDC;
 
-	// Token: 0x0400246C RID: 9324
+	// Token: 0x040026A3 RID: 9891
 	public int selectedWaterMaterial;
 
-	// Token: 0x0400246D RID: 9325
+	// Token: 0x040026A4 RID: 9892
 	public int selectedWaterScript;
 
-	// Token: 0x0400246E RID: 9326
+	// Token: 0x040026A5 RID: 9893
 	private bool doRestore;
 
-	// Token: 0x0400246F RID: 9327
+	// Token: 0x040026A6 RID: 9894
 	public bool doFlyOver;
 
-	// Token: 0x04002470 RID: 9328
+	// Token: 0x040026A7 RID: 9895
 	public static GameObject tracer;
 
-	// Token: 0x04002471 RID: 9329
+	// Token: 0x040026A8 RID: 9896
 	public Camera goCam;
 
-	// Token: 0x04002472 RID: 9330
+	// Token: 0x040026A9 RID: 9897
 	public float speed = 1f;
 
-	// Token: 0x04002473 RID: 9331
+	// Token: 0x040026AA RID: 9898
 	public float offset;
 
-	// Token: 0x04002474 RID: 9332
+	// Token: 0x040026AB RID: 9899
 	public bool camInit;
 
-	// Token: 0x04002475 RID: 9333
+	// Token: 0x040026AC RID: 9900
 	public GameObject customMesh;
 
-	// Token: 0x04002476 RID: 9334
+	// Token: 0x040026AD RID: 9901
 	public static bool disableFreeAlerts = true;
 
-	// Token: 0x04002477 RID: 9335
+	// Token: 0x040026AE RID: 9902
 	public bool multipleTerrains;
 
-	// Token: 0x04002478 RID: 9336
+	// Token: 0x040026AF RID: 9903
 	public bool editRestore = true;
 
-	// Token: 0x04002479 RID: 9337
+	// Token: 0x040026B0 RID: 9904
 	public Material roadMaterialEdit;
 
-	// Token: 0x0400247A RID: 9338
+	// Token: 0x040026B1 RID: 9905
 	public static int backupLocation;
 
-	// Token: 0x0400247B RID: 9339
+	// Token: 0x040026B2 RID: 9906
 	public string[] backupStrings = new string[]
 	{
 		"Outside Assets folder path",
 		"Inside Assets folder path"
 	};
 
-	// Token: 0x0400247C RID: 9340
+	// Token: 0x040026B3 RID: 9907
 	public Vector3[] leftVecs = new Vector3[0];
 
-	// Token: 0x0400247D RID: 9341
+	// Token: 0x040026B4 RID: 9908
 	public Vector3[] rightVecs = new Vector3[0];
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Facepunch.MeshBatch
 {
-	// Token: 0x020001A0 RID: 416
+	// Token: 0x020001CE RID: 462
 	[AddComponentMenu("MeshBatch/Target/Physical")]
 	public sealed class MeshBatchPhysicalTarget : MeshBatchPhysicalTarget
 	{

@@ -3,33 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x0200047C RID: 1148
-[InterfaceDriverComponent(typeof(IContextRequestable), "_contextRequestable", "contextRequestable", AlwaysSaveDisabled = true, SearchRoute = (InterfaceSearchRoute.GameObject | InterfaceSearchRoute.Parents), AdditionalProperties = "renderer;meshFilter")]
-[RequireComponent(typeof(MeshRenderer))]
+// Token: 0x02000532 RID: 1330
 [RequireComponent(typeof(MeshFilter))]
+[RequireComponent(typeof(MeshRenderer))]
+[global::InterfaceDriverComponent(typeof(global::IContextRequestable), "_contextRequestable", "contextRequestable", AlwaysSaveDisabled = true, SearchRoute = (global::InterfaceSearchRoute.GameObject | global::InterfaceSearchRoute.Parents), AdditionalProperties = "renderer;meshFilter")]
 public class ContextSprite : MonoBehaviour
 {
-	// Token: 0x1700094B RID: 2379
-	// (get) Token: 0x060028F3 RID: 10483 RVA: 0x000A091C File Offset: 0x0009EB1C
+	// Token: 0x170009B3 RID: 2483
+	// (get) Token: 0x06002C83 RID: 11395 RVA: 0x000A689C File Offset: 0x000A4A9C
 	public static int layer
 	{
 		get
 		{
-			return ContextSprite.layerinfo.index;
+			return global::ContextSprite.layerinfo.index;
 		}
 	}
 
-	// Token: 0x1700094C RID: 2380
-	// (get) Token: 0x060028F4 RID: 10484 RVA: 0x000A0924 File Offset: 0x0009EB24
+	// Token: 0x170009B4 RID: 2484
+	// (get) Token: 0x06002C84 RID: 11396 RVA: 0x000A68A4 File Offset: 0x000A4AA4
 	public static int layerMask
 	{
 		get
 		{
-			return ContextSprite.layerinfo.mask;
+			return global::ContextSprite.layerinfo.mask;
 		}
 	}
 
-	// Token: 0x060028F5 RID: 10485 RVA: 0x000A092C File Offset: 0x0009EB2C
+	// Token: 0x06002C85 RID: 11397 RVA: 0x000A68AC File Offset: 0x000A4AAC
 	private static bool CalculateFadeOut(ref double fade, float elapsed)
 	{
 		if ((double)elapsed <= 0.0)
@@ -57,12 +57,12 @@ public class ContextSprite : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x060028F6 RID: 10486 RVA: 0x000A09A8 File Offset: 0x0009EBA8
+	// Token: 0x06002C86 RID: 11398 RVA: 0x000A6928 File Offset: 0x000A4B28
 	private static bool CalculateFadeDim(ref double fade, float elapsed)
 	{
 		if (fade < 0.15)
 		{
-			if (ContextSprite.CalculateFadeIn(ref fade, elapsed))
+			if (global::ContextSprite.CalculateFadeIn(ref fade, elapsed))
 			{
 				if (fade > 0.15)
 				{
@@ -71,7 +71,7 @@ public class ContextSprite : MonoBehaviour
 				return true;
 			}
 		}
-		else if (fade > 0.15 && ContextSprite.CalculateFadeOut(ref fade, elapsed))
+		else if (fade > 0.15 && global::ContextSprite.CalculateFadeOut(ref fade, elapsed))
 		{
 			if (fade < 0.15)
 			{
@@ -82,7 +82,7 @@ public class ContextSprite : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060028F7 RID: 10487 RVA: 0x000A0A30 File Offset: 0x0009EC30
+	// Token: 0x06002C87 RID: 11399 RVA: 0x000A69B0 File Offset: 0x000A4BB0
 	private static bool CalculateFadeIn(ref double fade, float elapsed)
 	{
 		if ((double)elapsed <= 0.0)
@@ -110,16 +110,16 @@ public class ContextSprite : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x060028F8 RID: 10488 RVA: 0x000A0AB4 File Offset: 0x0009ECB4
+	// Token: 0x06002C88 RID: 11400 RVA: 0x000A6A34 File Offset: 0x000A4C34
 	public static void UpdateSpriteFading(Camera camera)
 	{
-		if (ContextSprite.gInit && camera)
+		if (global::ContextSprite.gInit && camera)
 		{
-			ContextSprite.g.Step(camera);
+			global::ContextSprite.g.Step(camera);
 		}
 	}
 
-	// Token: 0x060028F9 RID: 10489 RVA: 0x000A0AD4 File Offset: 0x0009ECD4
+	// Token: 0x06002C89 RID: 11401 RVA: 0x000A6A54 File Offset: 0x000A4C54
 	private void Awake()
 	{
 		this.contextRequestable = this._contextRequestable;
@@ -137,7 +137,7 @@ public class ContextSprite : MonoBehaviour
 		{
 			this._contextRequestable = null;
 		}
-		if ((this.requestable = (this.contextRequestable as IContextRequestable)) == null)
+		if ((this.requestable = (this.contextRequestable as global::IContextRequestable)) == null)
 		{
 			Debug.LogError("Context Requestable is not a IContextRequestable", base.gameObject);
 			Object.Destroy(this);
@@ -147,31 +147,31 @@ public class ContextSprite : MonoBehaviour
 		{
 			Debug.LogWarning(string.Format("Sprite for {0} is not a child of {0}.", this.contextRequestable), this);
 		}
-		this.requestableVisibility = (this.contextRequestable as IContextRequestableVisibility);
+		this.requestableVisibility = (this.contextRequestable as global::IContextRequestableVisibility);
 		this.requestableIsVisibility = (this.requestableVisibility != null);
-		this.requestableStatus = (this.contextRequestable as IContextRequestableStatus);
+		this.requestableStatus = (this.contextRequestable as global::IContextRequestableStatus);
 		this.requestableHasStatus = (this.requestableStatus != null);
 		this.renderer.SetPropertyBlock(this.materialProperties = new MaterialPropertyBlock());
 	}
 
-	// Token: 0x060028FA RID: 10490 RVA: 0x000A0C08 File Offset: 0x0009EE08
+	// Token: 0x06002C8A RID: 11402 RVA: 0x000A6B88 File Offset: 0x000A4D88
 	private void UpdateMaterialProperties()
 	{
 		float num = Mathf.Clamp01((float)this.fade);
 		if (num != this.lastBoundFade)
 		{
 			this.materialProperties.Clear();
-			this.materialProperties.AddFloat(ContextSprite.matHelper.fadeProp, num);
+			this.materialProperties.AddFloat(global::ContextSprite.matHelper.fadeProp, num);
 			this.lastBoundFade = num;
 			this.renderer.SetPropertyBlock(this.materialProperties);
 		}
 	}
 
-	// Token: 0x060028FB RID: 10491 RVA: 0x000A0C64 File Offset: 0x0009EE64
+	// Token: 0x06002C8B RID: 11403 RVA: 0x000A6BE4 File Offset: 0x000A4DE4
 	private bool SearchForContextRequestable(out MonoBehaviour impl)
 	{
-		Contextual contextual;
-		if (Contextual.FindUp(base.transform, out contextual))
+		global::Contextual contextual;
+		if (global::Contextual.FindUp(base.transform, out contextual))
 		{
 			MonoBehaviour implementor;
 			impl = (implementor = contextual.implementor);
@@ -184,7 +184,7 @@ public class ContextSprite : MonoBehaviour
 		return false;
 	}
 
-	// Token: 0x060028FC RID: 10492 RVA: 0x000A0CA0 File Offset: 0x0009EEA0
+	// Token: 0x06002C8C RID: 11404 RVA: 0x000A6C20 File Offset: 0x000A4E20
 	private void Reset()
 	{
 		if (!this.renderer)
@@ -201,13 +201,13 @@ public class ContextSprite : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060028FD RID: 10493 RVA: 0x000A0D18 File Offset: 0x0009EF18
+	// Token: 0x06002C8D RID: 11405 RVA: 0x000A6C98 File Offset: 0x000A4E98
 	private static bool CheckRelation(Collider collider, Rigidbody rigidbody, Transform self)
 	{
 		return collider.transform.IsChildOf(self) || self.IsChildOf(collider.transform) || (rigidbody && collider.transform != rigidbody.transform && (rigidbody.transform.IsChildOf(self) || self.IsChildOf(rigidbody.transform)));
 	}
 
-	// Token: 0x060028FE RID: 10494 RVA: 0x000A0D94 File Offset: 0x0009EF94
+	// Token: 0x06002C8E RID: 11406 RVA: 0x000A6D14 File Offset: 0x000A4F14
 	private bool IsSeeThrough(ref RaycastHit hit)
 	{
 		Transform transform = base.transform;
@@ -232,12 +232,12 @@ public class ContextSprite : MonoBehaviour
 		return transform3 == transform || transform3.IsChildOf(transform);
 	}
 
-	// Token: 0x060028FF RID: 10495 RVA: 0x000A0E4C File Offset: 0x0009F04C
+	// Token: 0x06002C8F RID: 11407 RVA: 0x000A6DCC File Offset: 0x000A4FCC
 	private void OnBecameVisible()
 	{
 		if (!this.selfVisible)
 		{
-			ContextSprite.g.Add(this);
+			global::ContextSprite.g.Add(this);
 			this.selfVisible = true;
 			if (this.requestableIsVisibility && this.contextRequestable)
 			{
@@ -246,22 +246,22 @@ public class ContextSprite : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002900 RID: 10496 RVA: 0x000A0E9C File Offset: 0x0009F09C
+	// Token: 0x06002C90 RID: 11408 RVA: 0x000A6E1C File Offset: 0x000A501C
 	private IEnumerator Retry()
 	{
 		this.renderer.enabled = false;
-		yield return ContextSprite.r.wait;
+		yield return global::ContextSprite.r.wait;
 		this.renderer.enabled = true;
 		yield break;
 	}
 
-	// Token: 0x06002901 RID: 10497 RVA: 0x000A0EB8 File Offset: 0x0009F0B8
+	// Token: 0x06002C91 RID: 11409 RVA: 0x000A6E38 File Offset: 0x000A5038
 	private void OnBecameInvisible()
 	{
 		if (this.selfVisible)
 		{
 			this.selfVisible = false;
-			ContextSprite.g.Remove(this);
+			global::ContextSprite.g.Remove(this);
 			if (this.requestableIsVisibility && this.contextRequestable)
 			{
 				this.requestableVisibility.OnContextVisibilityChanged(this, false);
@@ -273,7 +273,7 @@ public class ContextSprite : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002902 RID: 10498 RVA: 0x000A0F1C File Offset: 0x0009F11C
+	// Token: 0x06002C92 RID: 11410 RVA: 0x000A6E9C File Offset: 0x000A509C
 	private void OnDestroy()
 	{
 		try
@@ -291,13 +291,13 @@ public class ContextSprite : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002903 RID: 10499 RVA: 0x000A0F7C File Offset: 0x0009F17C
-	public static bool Raycast(Ray ray, out ContextSprite sprite)
+	// Token: 0x06002C93 RID: 11411 RVA: 0x000A6EFC File Offset: 0x000A50FC
+	public static bool Raycast(Ray ray, out global::ContextSprite sprite)
 	{
 		bool result = false;
 		sprite = null;
 		float num = float.PositiveInfinity;
-		foreach (ContextSprite contextSprite in ContextSprite.g.visible)
+		foreach (global::ContextSprite contextSprite in global::ContextSprite.g.visible)
 		{
 			if (contextSprite.contextRequestable)
 			{
@@ -341,31 +341,31 @@ public class ContextSprite : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x1700094D RID: 2381
-	// (get) Token: 0x06002904 RID: 10500 RVA: 0x000A10AC File Offset: 0x0009F2AC
-	public static ContextSprite.VisibleList AllVisible
+	// Token: 0x170009B5 RID: 2485
+	// (get) Token: 0x06002C94 RID: 11412 RVA: 0x000A702C File Offset: 0x000A522C
+	public static global::ContextSprite.VisibleList AllVisible
 	{
 		get
 		{
-			return ContextSprite.visibleList;
+			return global::ContextSprite.visibleList;
 		}
 	}
 
-	// Token: 0x06002905 RID: 10501 RVA: 0x000A10B4 File Offset: 0x0009F2B4
-	public static IEnumerable<ContextSprite> AllVisibleForRequestable(IContextRequestableVisibility requestable)
+	// Token: 0x06002C95 RID: 11413 RVA: 0x000A7034 File Offset: 0x000A5234
+	public static IEnumerable<global::ContextSprite> AllVisibleForRequestable(global::IContextRequestableVisibility requestable)
 	{
 		MonoBehaviour monoBehaviour;
-		if (ContextSprite.g.visible.Count == 0 || !(monoBehaviour = (requestable as MonoBehaviour)))
+		if (global::ContextSprite.g.visible.Count == 0 || !(monoBehaviour = (requestable as MonoBehaviour)))
 		{
-			return ContextSprite.empty;
+			return global::ContextSprite.empty;
 		}
-		return ContextSprite.AllVisibleForRequestable(monoBehaviour);
+		return global::ContextSprite.AllVisibleForRequestable(monoBehaviour);
 	}
 
-	// Token: 0x06002906 RID: 10502 RVA: 0x000A10F0 File Offset: 0x0009F2F0
-	private static IEnumerable<ContextSprite> AllVisibleForRequestable(MonoBehaviour requestable)
+	// Token: 0x06002C96 RID: 11414 RVA: 0x000A7070 File Offset: 0x000A5270
+	private static IEnumerable<global::ContextSprite> AllVisibleForRequestable(MonoBehaviour requestable)
 	{
-		foreach (ContextSprite sprite in ContextSprite.g.visible)
+		foreach (global::ContextSprite sprite in global::ContextSprite.g.visible)
 		{
 			if (sprite.contextRequestable == requestable)
 			{
@@ -375,146 +375,146 @@ public class ContextSprite : MonoBehaviour
 		yield break;
 	}
 
-	// Token: 0x06002907 RID: 10503 RVA: 0x000A111C File Offset: 0x0009F31C
-	public static bool FindSprite(Component component, out ContextSprite sprite)
+	// Token: 0x06002C97 RID: 11415 RVA: 0x000A709C File Offset: 0x000A529C
+	public static bool FindSprite(Component component, out global::ContextSprite sprite)
 	{
-		if (component is ContextSprite)
+		if (component is global::ContextSprite)
 		{
-			sprite = (ContextSprite)component;
+			sprite = (global::ContextSprite)component;
 			return true;
 		}
-		if (component is IContextRequestable)
+		if (component is global::IContextRequestable)
 		{
-			sprite = component.GetComponentInChildren<ContextSprite>();
+			sprite = component.GetComponentInChildren<global::ContextSprite>();
 			return sprite && ((!sprite.contextRequestable) ? sprite._contextRequestable : sprite.contextRequestable) == component;
 		}
-		sprite = component.GetComponentInChildren<ContextSprite>();
+		sprite = component.GetComponentInChildren<global::ContextSprite>();
 		return sprite;
 	}
 
-	// Token: 0x04001508 RID: 5384
+	// Token: 0x0400168B RID: 5771
 	private const double kFadeInRate = 8.0;
 
-	// Token: 0x04001509 RID: 5385
+	// Token: 0x0400168C RID: 5772
 	private const double kFadeOutRate = 8.0;
 
-	// Token: 0x0400150A RID: 5386
+	// Token: 0x0400168D RID: 5773
 	private const double kMinFade = 0.0;
 
-	// Token: 0x0400150B RID: 5387
+	// Token: 0x0400168E RID: 5774
 	private const double kMaxFade = 1.2;
 
-	// Token: 0x0400150C RID: 5388
+	// Token: 0x0400168F RID: 5775
 	private const double kGhostFade = 0.15;
 
-	// Token: 0x0400150D RID: 5389
+	// Token: 0x04001690 RID: 5776
 	private const double kFadeDurationInFull = 0.15;
 
-	// Token: 0x0400150E RID: 5390
+	// Token: 0x04001691 RID: 5777
 	private const double kFadeDurationOutFull = 0.15;
 
-	// Token: 0x0400150F RID: 5391
+	// Token: 0x04001692 RID: 5778
 	private const float kRayDistance = 5f;
 
-	// Token: 0x04001510 RID: 5392
+	// Token: 0x04001693 RID: 5779
 	private static bool gInit;
 
-	// Token: 0x04001511 RID: 5393
+	// Token: 0x04001694 RID: 5780
 	private float timeRemoved;
 
-	// Token: 0x04001512 RID: 5394
-	[SerializeField]
+	// Token: 0x04001695 RID: 5781
 	[HideInInspector]
+	[SerializeField]
 	private MonoBehaviour _contextRequestable;
 
-	// Token: 0x04001513 RID: 5395
+	// Token: 0x04001696 RID: 5782
 	private MonoBehaviour contextRequestable;
 
-	// Token: 0x04001514 RID: 5396
+	// Token: 0x04001697 RID: 5783
 	[PrefetchComponent]
 	public MeshFilter meshFilter;
 
-	// Token: 0x04001515 RID: 5397
+	// Token: 0x04001698 RID: 5784
 	[PrefetchComponent]
 	public MeshRenderer renderer;
 
-	// Token: 0x04001516 RID: 5398
-	private IContextRequestable requestable;
+	// Token: 0x04001699 RID: 5785
+	private global::IContextRequestable requestable;
 
-	// Token: 0x04001517 RID: 5399
-	private IContextRequestableVisibility requestableVisibility;
+	// Token: 0x0400169A RID: 5786
+	private global::IContextRequestableVisibility requestableVisibility;
 
-	// Token: 0x04001518 RID: 5400
-	private IContextRequestableStatus requestableStatus;
+	// Token: 0x0400169B RID: 5787
+	private global::IContextRequestableStatus requestableStatus;
 
-	// Token: 0x04001519 RID: 5401
+	// Token: 0x0400169C RID: 5788
 	private bool requestableIsVisibility;
 
-	// Token: 0x0400151A RID: 5402
+	// Token: 0x0400169D RID: 5789
 	private bool requestableHasStatus;
 
-	// Token: 0x0400151B RID: 5403
+	// Token: 0x0400169E RID: 5790
 	private bool selfVisible;
 
-	// Token: 0x0400151C RID: 5404
+	// Token: 0x0400169F RID: 5791
 	private bool denied;
 
-	// Token: 0x0400151D RID: 5405
+	// Token: 0x040016A0 RID: 5792
 	private double fade;
 
-	// Token: 0x0400151E RID: 5406
+	// Token: 0x040016A1 RID: 5793
 	private MaterialPropertyBlock materialProperties;
 
-	// Token: 0x0400151F RID: 5407
+	// Token: 0x040016A2 RID: 5794
 	private float lastBoundFade = float.NegativeInfinity;
 
-	// Token: 0x04001520 RID: 5408
-	private static readonly ContextSprite.VisibleList visibleList = new ContextSprite.VisibleList();
+	// Token: 0x040016A3 RID: 5795
+	private static readonly global::ContextSprite.VisibleList visibleList = new global::ContextSprite.VisibleList();
 
-	// Token: 0x04001521 RID: 5409
-	private static ContextSprite[] empty = new ContextSprite[0];
+	// Token: 0x040016A4 RID: 5796
+	private static global::ContextSprite[] empty = new global::ContextSprite[0];
 
-	// Token: 0x0200047D RID: 1149
+	// Token: 0x02000533 RID: 1331
 	private static class layerinfo
 	{
-		// Token: 0x04001522 RID: 5410
+		// Token: 0x040016A5 RID: 5797
 		public static readonly int index = LayerMask.NameToLayer("Sprite");
 
-		// Token: 0x04001523 RID: 5411
-		public static readonly int mask = 1 << ContextSprite.layerinfo.index;
+		// Token: 0x040016A6 RID: 5798
+		public static readonly int mask = 1 << global::ContextSprite.layerinfo.index;
 	}
 
-	// Token: 0x0200047E RID: 1150
+	// Token: 0x02000534 RID: 1332
 	private static class g
 	{
-		// Token: 0x06002909 RID: 10505 RVA: 0x000A11C0 File Offset: 0x0009F3C0
+		// Token: 0x06002C99 RID: 11417 RVA: 0x000A7140 File Offset: 0x000A5340
 		static g()
 		{
-			ContextSprite.gInit = true;
+			global::ContextSprite.gInit = true;
 		}
 
-		// Token: 0x0600290A RID: 10506 RVA: 0x000A11F4 File Offset: 0x0009F3F4
-		public static void Add(ContextSprite sprite)
+		// Token: 0x06002C9A RID: 11418 RVA: 0x000A7174 File Offset: 0x000A5374
+		public static void Add(global::ContextSprite sprite)
 		{
-			ContextSprite.g.visible.Add(sprite);
-			ContextSprite.g.count++;
-			HashSet<ContextSprite> hashSet;
-			if (!ContextSprite.g.requestableVisibleSprites.TryGetValue(sprite.contextRequestable, out hashSet))
+			global::ContextSprite.g.visible.Add(sprite);
+			global::ContextSprite.g.count++;
+			HashSet<global::ContextSprite> hashSet;
+			if (!global::ContextSprite.g.requestableVisibleSprites.TryGetValue(sprite.contextRequestable, out hashSet))
 			{
-				hashSet = ((ContextSprite.g.hashRecycle.Count <= 0) ? new HashSet<ContextSprite>() : ContextSprite.g.hashRecycle.Dequeue());
-				ContextSprite.g.requestableVisibleSprites[sprite.contextRequestable] = hashSet;
+				hashSet = ((global::ContextSprite.g.hashRecycle.Count <= 0) ? new HashSet<global::ContextSprite>() : global::ContextSprite.g.hashRecycle.Dequeue());
+				global::ContextSprite.g.requestableVisibleSprites[sprite.contextRequestable] = hashSet;
 			}
 			hashSet.Add(sprite);
-			if (ContextSprite.CalculateFadeOut(ref sprite.fade, Time.time - sprite.timeRemoved))
+			if (global::ContextSprite.CalculateFadeOut(ref sprite.fade, Time.time - sprite.timeRemoved))
 			{
 				sprite.UpdateMaterialProperties();
 			}
 		}
 
-		// Token: 0x0600290B RID: 10507 RVA: 0x000A1290 File Offset: 0x0009F490
+		// Token: 0x06002C9B RID: 11419 RVA: 0x000A7210 File Offset: 0x000A5410
 		public static void Step(Camera camera)
 		{
-			if (ContextSprite.g.count > 0)
+			if (global::ContextSprite.g.count > 0)
 			{
 				float deltaTime = Time.deltaTime;
 				if (deltaTime <= 0f)
@@ -522,11 +522,11 @@ public class ContextSprite : MonoBehaviour
 					return;
 				}
 				int layerMask = 525313;
-				if (RPOS.hideSprites)
+				if (global::RPOS.hideSprites)
 				{
-					foreach (ContextSprite contextSprite in ContextSprite.g.visible)
+					foreach (global::ContextSprite contextSprite in global::ContextSprite.g.visible)
 					{
-						if (ContextSprite.CalculateFadeOut(ref contextSprite.fade, deltaTime))
+						if (global::ContextSprite.CalculateFadeOut(ref contextSprite.fade, deltaTime))
 						{
 							contextSprite.UpdateMaterialProperties();
 						}
@@ -534,32 +534,32 @@ public class ContextSprite : MonoBehaviour
 				}
 				else
 				{
-					foreach (ContextSprite contextSprite2 in ContextSprite.g.visible)
+					foreach (global::ContextSprite contextSprite2 in global::ContextSprite.g.visible)
 					{
 						bool flag;
 						if (contextSprite2.requestableHasStatus)
 						{
-							ContextStatusFlags contextStatusFlags = contextSprite2.requestableStatus.ContextStatusPoll() & (ContextStatusFlags.SpriteFlag0 | ContextStatusFlags.SpriteFlag1);
-							ContextStatusFlags contextStatusFlags2 = contextStatusFlags;
-							if (contextStatusFlags2 == (ContextStatusFlags)0)
+							global::ContextStatusFlags contextStatusFlags = contextSprite2.requestableStatus.ContextStatusPoll() & (global::ContextStatusFlags.SpriteFlag0 | global::ContextStatusFlags.SpriteFlag1);
+							global::ContextStatusFlags contextStatusFlags2 = contextStatusFlags;
+							if (contextStatusFlags2 == (global::ContextStatusFlags)0)
 							{
 								goto IL_F1;
 							}
-							if (contextStatusFlags2 != ContextStatusFlags.SpriteFlag0)
+							if (contextStatusFlags2 != global::ContextStatusFlags.SpriteFlag0)
 							{
-								if (contextStatusFlags2 == ContextStatusFlags.SpriteFlag1)
+								if (contextStatusFlags2 == global::ContextStatusFlags.SpriteFlag1)
 								{
-									if (ContextSprite.CalculateFadeOut(ref contextSprite2.fade, deltaTime))
+									if (global::ContextSprite.CalculateFadeOut(ref contextSprite2.fade, deltaTime))
 									{
 										contextSprite2.UpdateMaterialProperties();
 									}
 									continue;
 								}
-								if (contextStatusFlags2 != (ContextStatusFlags.SpriteFlag0 | ContextStatusFlags.SpriteFlag1))
+								if (contextStatusFlags2 != (global::ContextStatusFlags.SpriteFlag0 | global::ContextStatusFlags.SpriteFlag1))
 								{
 									goto IL_F1;
 								}
-								if (ContextSprite.CalculateFadeIn(ref contextSprite2.fade, deltaTime))
+								if (global::ContextSprite.CalculateFadeIn(ref contextSprite2.fade, deltaTime))
 								{
 									contextSprite2.UpdateMaterialProperties();
 								}
@@ -585,7 +585,7 @@ public class ContextSprite : MonoBehaviour
 						Vector3 origin = ray.origin;
 						float num = position.x * direction.x + position.y * direction.y + position.z * direction.z - (origin.x * direction.x + origin.y * direction.y + origin.z * direction.z);
 						RaycastHit raycastHit;
-						if ((num > 0f && (!ContextSprite.g.PhysRaycast(ref ray, out raycastHit, num, layerMask) || contextSprite2.IsSeeThrough(ref raycastHit))) ? ((!flag) ? ContextSprite.CalculateFadeIn(ref contextSprite2.fade, deltaTime) : ContextSprite.CalculateFadeDim(ref contextSprite2.fade, deltaTime)) : ContextSprite.CalculateFadeOut(ref contextSprite2.fade, deltaTime))
+						if ((num > 0f && (!global::ContextSprite.g.PhysRaycast(ref ray, out raycastHit, num, layerMask) || contextSprite2.IsSeeThrough(ref raycastHit))) ? ((!flag) ? global::ContextSprite.CalculateFadeIn(ref contextSprite2.fade, deltaTime) : global::ContextSprite.CalculateFadeDim(ref contextSprite2.fade, deltaTime)) : global::ContextSprite.CalculateFadeOut(ref contextSprite2.fade, deltaTime))
 						{
 							contextSprite2.UpdateMaterialProperties();
 						}
@@ -594,7 +594,7 @@ public class ContextSprite : MonoBehaviour
 			}
 		}
 
-		// Token: 0x0600290C RID: 10508 RVA: 0x000A1534 File Offset: 0x0009F734
+		// Token: 0x06002C9C RID: 11420 RVA: 0x000A74B4 File Offset: 0x000A56B4
 		private static bool PhysRaycast(ref Ray ray, out RaycastHit hit, float distanceTo, int layerMask)
 		{
 			if (Physics.Raycast(ray, ref hit, distanceTo, layerMask))
@@ -606,22 +606,22 @@ public class ContextSprite : MonoBehaviour
 			return false;
 		}
 
-		// Token: 0x0600290D RID: 10509 RVA: 0x000A1590 File Offset: 0x0009F790
-		public static void Remove(ContextSprite sprite)
+		// Token: 0x06002C9D RID: 11421 RVA: 0x000A7510 File Offset: 0x000A5710
+		public static void Remove(global::ContextSprite sprite)
 		{
-			ContextSprite.g.visible.Remove(sprite);
-			ContextSprite.g.count--;
-			HashSet<ContextSprite> hashSet;
-			if (ContextSprite.g.requestableVisibleSprites.TryGetValue(sprite.contextRequestable, out hashSet))
+			global::ContextSprite.g.visible.Remove(sprite);
+			global::ContextSprite.g.count--;
+			HashSet<global::ContextSprite> hashSet;
+			if (global::ContextSprite.g.requestableVisibleSprites.TryGetValue(sprite.contextRequestable, out hashSet))
 			{
 				if (hashSet.Count == 1)
 				{
 					hashSet.Clear();
-					if (ContextSprite.g.hashRecycle.Count < 5)
+					if (global::ContextSprite.g.hashRecycle.Count < 5)
 					{
-						ContextSprite.g.hashRecycle.Enqueue(hashSet);
+						global::ContextSprite.g.hashRecycle.Enqueue(hashSet);
 					}
-					ContextSprite.g.requestableVisibleSprites.Remove(sprite.contextRequestable);
+					global::ContextSprite.g.requestableVisibleSprites.Remove(sprite.contextRequestable);
 				}
 				else
 				{
@@ -631,76 +631,76 @@ public class ContextSprite : MonoBehaviour
 			sprite.timeRemoved = Time.time;
 		}
 
-		// Token: 0x04001524 RID: 5412
+		// Token: 0x040016A7 RID: 5799
 		private const int kMaxRecycleCount = 5;
 
-		// Token: 0x04001525 RID: 5413
-		public static HashSet<ContextSprite> visible = new HashSet<ContextSprite>();
+		// Token: 0x040016A8 RID: 5800
+		public static HashSet<global::ContextSprite> visible = new HashSet<global::ContextSprite>();
 
-		// Token: 0x04001526 RID: 5414
-		public static Queue<HashSet<ContextSprite>> hashRecycle = new Queue<HashSet<ContextSprite>>();
+		// Token: 0x040016A9 RID: 5801
+		public static Queue<HashSet<global::ContextSprite>> hashRecycle = new Queue<HashSet<global::ContextSprite>>();
 
-		// Token: 0x04001527 RID: 5415
-		public static Dictionary<MonoBehaviour, HashSet<ContextSprite>> requestableVisibleSprites = new Dictionary<MonoBehaviour, HashSet<ContextSprite>>();
+		// Token: 0x040016AA RID: 5802
+		public static Dictionary<MonoBehaviour, HashSet<global::ContextSprite>> requestableVisibleSprites = new Dictionary<MonoBehaviour, HashSet<global::ContextSprite>>();
 
-		// Token: 0x04001528 RID: 5416
+		// Token: 0x040016AB RID: 5803
 		private static int count;
 	}
 
-	// Token: 0x0200047F RID: 1151
+	// Token: 0x02000535 RID: 1333
 	private static class matHelper
 	{
-		// Token: 0x04001529 RID: 5417
+		// Token: 0x040016AC RID: 5804
 		public static int fadeProp = Shader.PropertyToID("_Fade");
 	}
 
-	// Token: 0x02000480 RID: 1152
+	// Token: 0x02000536 RID: 1334
 	private static class r
 	{
-		// Token: 0x0400152A RID: 5418
+		// Token: 0x040016AD RID: 5805
 		public static WaitForEndOfFrame wait = new WaitForEndOfFrame();
 	}
 
-	// Token: 0x02000481 RID: 1153
-	public sealed class VisibleList : IEnumerable, IEnumerable<ContextSprite>
+	// Token: 0x02000537 RID: 1335
+	public sealed class VisibleList : IEnumerable, IEnumerable<global::ContextSprite>
 	{
-		// Token: 0x06002910 RID: 10512 RVA: 0x000A1644 File Offset: 0x0009F844
+		// Token: 0x06002CA0 RID: 11424 RVA: 0x000A75C4 File Offset: 0x000A57C4
 		internal VisibleList()
 		{
 		}
 
-		// Token: 0x06002911 RID: 10513 RVA: 0x000A164C File Offset: 0x0009F84C
-		IEnumerator<ContextSprite> IEnumerable<ContextSprite>.GetEnumerator()
+		// Token: 0x06002CA1 RID: 11425 RVA: 0x000A75CC File Offset: 0x000A57CC
+		IEnumerator<global::ContextSprite> IEnumerable<global::ContextSprite>.GetEnumerator()
 		{
-			return ((IEnumerable<ContextSprite>)ContextSprite.g.visible).GetEnumerator();
+			return ((IEnumerable<global::ContextSprite>)global::ContextSprite.g.visible).GetEnumerator();
 		}
 
-		// Token: 0x06002912 RID: 10514 RVA: 0x000A1658 File Offset: 0x0009F858
+		// Token: 0x06002CA2 RID: 11426 RVA: 0x000A75D8 File Offset: 0x000A57D8
 		IEnumerator IEnumerable.GetEnumerator()
 		{
-			return ((IEnumerable)ContextSprite.g.visible).GetEnumerator();
+			return ((IEnumerable)global::ContextSprite.g.visible).GetEnumerator();
 		}
 
-		// Token: 0x1700094E RID: 2382
-		// (get) Token: 0x06002913 RID: 10515 RVA: 0x000A1664 File Offset: 0x0009F864
+		// Token: 0x170009B6 RID: 2486
+		// (get) Token: 0x06002CA3 RID: 11427 RVA: 0x000A75E4 File Offset: 0x000A57E4
 		public int Count
 		{
 			get
 			{
-				return ContextSprite.g.visible.Count;
+				return global::ContextSprite.g.visible.Count;
 			}
 		}
 
-		// Token: 0x06002914 RID: 10516 RVA: 0x000A1670 File Offset: 0x0009F870
-		public bool Contains(ContextSprite sprite)
+		// Token: 0x06002CA4 RID: 11428 RVA: 0x000A75F0 File Offset: 0x000A57F0
+		public bool Contains(global::ContextSprite sprite)
 		{
-			return sprite && sprite.selfVisible && ContextSprite.g.visible.Contains(sprite);
+			return sprite && sprite.selfVisible && global::ContextSprite.g.visible.Contains(sprite);
 		}
 
-		// Token: 0x06002915 RID: 10517 RVA: 0x000A16A4 File Offset: 0x0009F8A4
-		public HashSet<ContextSprite>.Enumerator GetEnumerator()
+		// Token: 0x06002CA5 RID: 11429 RVA: 0x000A7624 File Offset: 0x000A5824
+		public HashSet<global::ContextSprite>.Enumerator GetEnumerator()
 		{
-			return ContextSprite.g.visible.GetEnumerator();
+			return global::ContextSprite.g.visible.GetEnumerator();
 		}
 	}
 }

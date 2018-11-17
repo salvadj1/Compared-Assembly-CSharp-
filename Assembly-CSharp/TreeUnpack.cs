@@ -4,18 +4,18 @@ using System.Collections.Generic;
 using Facepunch.Progress;
 using UnityEngine;
 
-// Token: 0x0200005A RID: 90
-public sealed class TreeUnpack : ThrottledTask, IProgress
+// Token: 0x0200006C RID: 108
+public sealed class TreeUnpack : global::ThrottledTask, Facepunch.Progress.IProgress
 {
-	// Token: 0x060002EC RID: 748 RVA: 0x0000F484 File Offset: 0x0000D684
+	// Token: 0x0600035E RID: 862 RVA: 0x00010A2C File Offset: 0x0000EC2C
 	private new void Awake()
 	{
 		base.Awake();
 		base.StartCoroutine("DoUnpack");
 	}
 
-	// Token: 0x17000078 RID: 120
-	// (get) Token: 0x060002ED RID: 749 RVA: 0x0000F498 File Offset: 0x0000D698
+	// Token: 0x1700008E RID: 142
+	// (get) Token: 0x0600035F RID: 863 RVA: 0x00010A40 File Offset: 0x0000EC40
 	public float progress
 	{
 		get
@@ -24,7 +24,7 @@ public sealed class TreeUnpack : ThrottledTask, IProgress
 		}
 	}
 
-	// Token: 0x060002EE RID: 750 RVA: 0x0000F4C0 File Offset: 0x0000D6C0
+	// Token: 0x06000360 RID: 864 RVA: 0x00010A68 File Offset: 0x0000EC68
 	private IEnumerator DoUnpack()
 	{
 		this.totalTrees = 0;
@@ -35,7 +35,7 @@ public sealed class TreeUnpack : ThrottledTask, IProgress
 		}
 		base.Working = true;
 		this.groupEnumerator = ((IEnumerable<TreeUnpackGroup>)this.unpackGroups).GetEnumerator();
-		ThrottledTask.Timer timer = base.Begin;
+		global::ThrottledTask.Timer timer = base.Begin;
 		while (this.MoveNext())
 		{
 			GameObject col = new GameObject(string.Empty, new Type[]
@@ -61,7 +61,7 @@ public sealed class TreeUnpack : ThrottledTask, IProgress
 		yield break;
 	}
 
-	// Token: 0x060002EF RID: 751 RVA: 0x0000F4DC File Offset: 0x0000D6DC
+	// Token: 0x06000361 RID: 865 RVA: 0x00010A84 File Offset: 0x0000EC84
 	private bool MoveNext()
 	{
 		if (this.meshEnumerator != null)
@@ -85,27 +85,27 @@ public sealed class TreeUnpack : ThrottledTask, IProgress
 		return false;
 	}
 
-	// Token: 0x040001CA RID: 458
+	// Token: 0x0400022C RID: 556
 	[SerializeField]
 	private TreeUnpackGroup[] unpackGroups;
 
-	// Token: 0x040001CB RID: 459
+	// Token: 0x0400022D RID: 557
 	private IEnumerator<Mesh> meshEnumerator;
 
-	// Token: 0x040001CC RID: 460
+	// Token: 0x0400022E RID: 558
 	private IEnumerator<TreeUnpackGroup> groupEnumerator;
 
-	// Token: 0x040001CD RID: 461
+	// Token: 0x0400022F RID: 559
 	private TreeUnpackGroup currentGroup;
 
-	// Token: 0x040001CE RID: 462
+	// Token: 0x04000230 RID: 560
 	private Mesh currentMesh;
 
-	// Token: 0x040001CF RID: 463
+	// Token: 0x04000231 RID: 561
 	[NonSerialized]
 	private int totalTrees;
 
-	// Token: 0x040001D0 RID: 464
+	// Token: 0x04000232 RID: 562
 	[NonSerialized]
 	private int currentTreeIndex;
 }

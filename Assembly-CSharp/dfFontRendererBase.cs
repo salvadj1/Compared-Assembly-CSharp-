@@ -2,147 +2,147 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020006CA RID: 1738
+// Token: 0x02000795 RID: 1941
 public abstract class dfFontRendererBase : IDisposable
 {
-	// Token: 0x17000BDC RID: 3036
-	// (get) Token: 0x06003CEE RID: 15598 RVA: 0x000E5E2C File Offset: 0x000E402C
-	// (set) Token: 0x06003CEF RID: 15599 RVA: 0x000E5E34 File Offset: 0x000E4034
-	public dfFontBase Font { get; protected set; }
+	// Token: 0x17000C60 RID: 3168
+	// (get) Token: 0x060040F8 RID: 16632 RVA: 0x000EE970 File Offset: 0x000ECB70
+	// (set) Token: 0x060040F9 RID: 16633 RVA: 0x000EE978 File Offset: 0x000ECB78
+	public global::dfFontBase Font { get; protected set; }
 
-	// Token: 0x17000BDD RID: 3037
-	// (get) Token: 0x06003CF0 RID: 15600 RVA: 0x000E5E40 File Offset: 0x000E4040
-	// (set) Token: 0x06003CF1 RID: 15601 RVA: 0x000E5E48 File Offset: 0x000E4048
+	// Token: 0x17000C61 RID: 3169
+	// (get) Token: 0x060040FA RID: 16634 RVA: 0x000EE984 File Offset: 0x000ECB84
+	// (set) Token: 0x060040FB RID: 16635 RVA: 0x000EE98C File Offset: 0x000ECB8C
 	public Vector2 MaxSize { get; set; }
 
-	// Token: 0x17000BDE RID: 3038
-	// (get) Token: 0x06003CF2 RID: 15602 RVA: 0x000E5E54 File Offset: 0x000E4054
-	// (set) Token: 0x06003CF3 RID: 15603 RVA: 0x000E5E5C File Offset: 0x000E405C
+	// Token: 0x17000C62 RID: 3170
+	// (get) Token: 0x060040FC RID: 16636 RVA: 0x000EE998 File Offset: 0x000ECB98
+	// (set) Token: 0x060040FD RID: 16637 RVA: 0x000EE9A0 File Offset: 0x000ECBA0
 	public float PixelRatio { get; set; }
 
-	// Token: 0x17000BDF RID: 3039
-	// (get) Token: 0x06003CF4 RID: 15604 RVA: 0x000E5E68 File Offset: 0x000E4068
-	// (set) Token: 0x06003CF5 RID: 15605 RVA: 0x000E5E70 File Offset: 0x000E4070
+	// Token: 0x17000C63 RID: 3171
+	// (get) Token: 0x060040FE RID: 16638 RVA: 0x000EE9AC File Offset: 0x000ECBAC
+	// (set) Token: 0x060040FF RID: 16639 RVA: 0x000EE9B4 File Offset: 0x000ECBB4
 	public float TextScale { get; set; }
 
-	// Token: 0x17000BE0 RID: 3040
-	// (get) Token: 0x06003CF6 RID: 15606 RVA: 0x000E5E7C File Offset: 0x000E407C
-	// (set) Token: 0x06003CF7 RID: 15607 RVA: 0x000E5E84 File Offset: 0x000E4084
+	// Token: 0x17000C64 RID: 3172
+	// (get) Token: 0x06004100 RID: 16640 RVA: 0x000EE9C0 File Offset: 0x000ECBC0
+	// (set) Token: 0x06004101 RID: 16641 RVA: 0x000EE9C8 File Offset: 0x000ECBC8
 	public int CharacterSpacing { get; set; }
 
-	// Token: 0x17000BE1 RID: 3041
-	// (get) Token: 0x06003CF8 RID: 15608 RVA: 0x000E5E90 File Offset: 0x000E4090
-	// (set) Token: 0x06003CF9 RID: 15609 RVA: 0x000E5E98 File Offset: 0x000E4098
+	// Token: 0x17000C65 RID: 3173
+	// (get) Token: 0x06004102 RID: 16642 RVA: 0x000EE9D4 File Offset: 0x000ECBD4
+	// (set) Token: 0x06004103 RID: 16643 RVA: 0x000EE9DC File Offset: 0x000ECBDC
 	public Vector3 VectorOffset { get; set; }
 
-	// Token: 0x17000BE2 RID: 3042
-	// (get) Token: 0x06003CFA RID: 15610 RVA: 0x000E5EA4 File Offset: 0x000E40A4
-	// (set) Token: 0x06003CFB RID: 15611 RVA: 0x000E5EAC File Offset: 0x000E40AC
+	// Token: 0x17000C66 RID: 3174
+	// (get) Token: 0x06004104 RID: 16644 RVA: 0x000EE9E8 File Offset: 0x000ECBE8
+	// (set) Token: 0x06004105 RID: 16645 RVA: 0x000EE9F0 File Offset: 0x000ECBF0
 	public bool ProcessMarkup { get; set; }
 
-	// Token: 0x17000BE3 RID: 3043
-	// (get) Token: 0x06003CFC RID: 15612 RVA: 0x000E5EB8 File Offset: 0x000E40B8
-	// (set) Token: 0x06003CFD RID: 15613 RVA: 0x000E5EC0 File Offset: 0x000E40C0
+	// Token: 0x17000C67 RID: 3175
+	// (get) Token: 0x06004106 RID: 16646 RVA: 0x000EE9FC File Offset: 0x000ECBFC
+	// (set) Token: 0x06004107 RID: 16647 RVA: 0x000EEA04 File Offset: 0x000ECC04
 	public bool WordWrap { get; set; }
 
-	// Token: 0x17000BE4 RID: 3044
-	// (get) Token: 0x06003CFE RID: 15614 RVA: 0x000E5ECC File Offset: 0x000E40CC
-	// (set) Token: 0x06003CFF RID: 15615 RVA: 0x000E5ED4 File Offset: 0x000E40D4
+	// Token: 0x17000C68 RID: 3176
+	// (get) Token: 0x06004108 RID: 16648 RVA: 0x000EEA10 File Offset: 0x000ECC10
+	// (set) Token: 0x06004109 RID: 16649 RVA: 0x000EEA18 File Offset: 0x000ECC18
 	public bool MultiLine { get; set; }
 
-	// Token: 0x17000BE5 RID: 3045
-	// (get) Token: 0x06003D00 RID: 15616 RVA: 0x000E5EE0 File Offset: 0x000E40E0
-	// (set) Token: 0x06003D01 RID: 15617 RVA: 0x000E5EE8 File Offset: 0x000E40E8
+	// Token: 0x17000C69 RID: 3177
+	// (get) Token: 0x0600410A RID: 16650 RVA: 0x000EEA24 File Offset: 0x000ECC24
+	// (set) Token: 0x0600410B RID: 16651 RVA: 0x000EEA2C File Offset: 0x000ECC2C
 	public bool OverrideMarkupColors { get; set; }
 
-	// Token: 0x17000BE6 RID: 3046
-	// (get) Token: 0x06003D02 RID: 15618 RVA: 0x000E5EF4 File Offset: 0x000E40F4
-	// (set) Token: 0x06003D03 RID: 15619 RVA: 0x000E5EFC File Offset: 0x000E40FC
+	// Token: 0x17000C6A RID: 3178
+	// (get) Token: 0x0600410C RID: 16652 RVA: 0x000EEA38 File Offset: 0x000ECC38
+	// (set) Token: 0x0600410D RID: 16653 RVA: 0x000EEA40 File Offset: 0x000ECC40
 	public bool ColorizeSymbols { get; set; }
 
-	// Token: 0x17000BE7 RID: 3047
-	// (get) Token: 0x06003D04 RID: 15620 RVA: 0x000E5F08 File Offset: 0x000E4108
-	// (set) Token: 0x06003D05 RID: 15621 RVA: 0x000E5F10 File Offset: 0x000E4110
+	// Token: 0x17000C6B RID: 3179
+	// (get) Token: 0x0600410E RID: 16654 RVA: 0x000EEA4C File Offset: 0x000ECC4C
+	// (set) Token: 0x0600410F RID: 16655 RVA: 0x000EEA54 File Offset: 0x000ECC54
 	public TextAlignment TextAlign { get; set; }
 
-	// Token: 0x17000BE8 RID: 3048
-	// (get) Token: 0x06003D06 RID: 15622 RVA: 0x000E5F1C File Offset: 0x000E411C
-	// (set) Token: 0x06003D07 RID: 15623 RVA: 0x000E5F24 File Offset: 0x000E4124
+	// Token: 0x17000C6C RID: 3180
+	// (get) Token: 0x06004110 RID: 16656 RVA: 0x000EEA60 File Offset: 0x000ECC60
+	// (set) Token: 0x06004111 RID: 16657 RVA: 0x000EEA68 File Offset: 0x000ECC68
 	public Color32 DefaultColor { get; set; }
 
-	// Token: 0x17000BE9 RID: 3049
-	// (get) Token: 0x06003D08 RID: 15624 RVA: 0x000E5F30 File Offset: 0x000E4130
-	// (set) Token: 0x06003D09 RID: 15625 RVA: 0x000E5F38 File Offset: 0x000E4138
+	// Token: 0x17000C6D RID: 3181
+	// (get) Token: 0x06004112 RID: 16658 RVA: 0x000EEA74 File Offset: 0x000ECC74
+	// (set) Token: 0x06004113 RID: 16659 RVA: 0x000EEA7C File Offset: 0x000ECC7C
 	public Color32? BottomColor { get; set; }
 
-	// Token: 0x17000BEA RID: 3050
-	// (get) Token: 0x06003D0A RID: 15626 RVA: 0x000E5F44 File Offset: 0x000E4144
-	// (set) Token: 0x06003D0B RID: 15627 RVA: 0x000E5F4C File Offset: 0x000E414C
+	// Token: 0x17000C6E RID: 3182
+	// (get) Token: 0x06004114 RID: 16660 RVA: 0x000EEA88 File Offset: 0x000ECC88
+	// (set) Token: 0x06004115 RID: 16661 RVA: 0x000EEA90 File Offset: 0x000ECC90
 	public float Opacity { get; set; }
 
-	// Token: 0x17000BEB RID: 3051
-	// (get) Token: 0x06003D0C RID: 15628 RVA: 0x000E5F58 File Offset: 0x000E4158
-	// (set) Token: 0x06003D0D RID: 15629 RVA: 0x000E5F60 File Offset: 0x000E4160
+	// Token: 0x17000C6F RID: 3183
+	// (get) Token: 0x06004116 RID: 16662 RVA: 0x000EEA9C File Offset: 0x000ECC9C
+	// (set) Token: 0x06004117 RID: 16663 RVA: 0x000EEAA4 File Offset: 0x000ECCA4
 	public bool Outline { get; set; }
 
-	// Token: 0x17000BEC RID: 3052
-	// (get) Token: 0x06003D0E RID: 15630 RVA: 0x000E5F6C File Offset: 0x000E416C
-	// (set) Token: 0x06003D0F RID: 15631 RVA: 0x000E5F74 File Offset: 0x000E4174
+	// Token: 0x17000C70 RID: 3184
+	// (get) Token: 0x06004118 RID: 16664 RVA: 0x000EEAB0 File Offset: 0x000ECCB0
+	// (set) Token: 0x06004119 RID: 16665 RVA: 0x000EEAB8 File Offset: 0x000ECCB8
 	public int OutlineSize { get; set; }
 
-	// Token: 0x17000BED RID: 3053
-	// (get) Token: 0x06003D10 RID: 15632 RVA: 0x000E5F80 File Offset: 0x000E4180
-	// (set) Token: 0x06003D11 RID: 15633 RVA: 0x000E5F88 File Offset: 0x000E4188
+	// Token: 0x17000C71 RID: 3185
+	// (get) Token: 0x0600411A RID: 16666 RVA: 0x000EEAC4 File Offset: 0x000ECCC4
+	// (set) Token: 0x0600411B RID: 16667 RVA: 0x000EEACC File Offset: 0x000ECCCC
 	public Color32 OutlineColor { get; set; }
 
-	// Token: 0x17000BEE RID: 3054
-	// (get) Token: 0x06003D12 RID: 15634 RVA: 0x000E5F94 File Offset: 0x000E4194
-	// (set) Token: 0x06003D13 RID: 15635 RVA: 0x000E5F9C File Offset: 0x000E419C
+	// Token: 0x17000C72 RID: 3186
+	// (get) Token: 0x0600411C RID: 16668 RVA: 0x000EEAD8 File Offset: 0x000ECCD8
+	// (set) Token: 0x0600411D RID: 16669 RVA: 0x000EEAE0 File Offset: 0x000ECCE0
 	public bool Shadow { get; set; }
 
-	// Token: 0x17000BEF RID: 3055
-	// (get) Token: 0x06003D14 RID: 15636 RVA: 0x000E5FA8 File Offset: 0x000E41A8
-	// (set) Token: 0x06003D15 RID: 15637 RVA: 0x000E5FB0 File Offset: 0x000E41B0
+	// Token: 0x17000C73 RID: 3187
+	// (get) Token: 0x0600411E RID: 16670 RVA: 0x000EEAEC File Offset: 0x000ECCEC
+	// (set) Token: 0x0600411F RID: 16671 RVA: 0x000EEAF4 File Offset: 0x000ECCF4
 	public Color32 ShadowColor { get; set; }
 
-	// Token: 0x17000BF0 RID: 3056
-	// (get) Token: 0x06003D16 RID: 15638 RVA: 0x000E5FBC File Offset: 0x000E41BC
-	// (set) Token: 0x06003D17 RID: 15639 RVA: 0x000E5FC4 File Offset: 0x000E41C4
+	// Token: 0x17000C74 RID: 3188
+	// (get) Token: 0x06004120 RID: 16672 RVA: 0x000EEB00 File Offset: 0x000ECD00
+	// (set) Token: 0x06004121 RID: 16673 RVA: 0x000EEB08 File Offset: 0x000ECD08
 	public Vector2 ShadowOffset { get; set; }
 
-	// Token: 0x17000BF1 RID: 3057
-	// (get) Token: 0x06003D18 RID: 15640 RVA: 0x000E5FD0 File Offset: 0x000E41D0
-	// (set) Token: 0x06003D19 RID: 15641 RVA: 0x000E5FD8 File Offset: 0x000E41D8
+	// Token: 0x17000C75 RID: 3189
+	// (get) Token: 0x06004122 RID: 16674 RVA: 0x000EEB14 File Offset: 0x000ECD14
+	// (set) Token: 0x06004123 RID: 16675 RVA: 0x000EEB1C File Offset: 0x000ECD1C
 	public int TabSize { get; set; }
 
-	// Token: 0x17000BF2 RID: 3058
-	// (get) Token: 0x06003D1A RID: 15642 RVA: 0x000E5FE4 File Offset: 0x000E41E4
-	// (set) Token: 0x06003D1B RID: 15643 RVA: 0x000E5FEC File Offset: 0x000E41EC
+	// Token: 0x17000C76 RID: 3190
+	// (get) Token: 0x06004124 RID: 16676 RVA: 0x000EEB28 File Offset: 0x000ECD28
+	// (set) Token: 0x06004125 RID: 16677 RVA: 0x000EEB30 File Offset: 0x000ECD30
 	public List<int> TabStops { get; set; }
 
-	// Token: 0x17000BF3 RID: 3059
-	// (get) Token: 0x06003D1C RID: 15644 RVA: 0x000E5FF8 File Offset: 0x000E41F8
-	// (set) Token: 0x06003D1D RID: 15645 RVA: 0x000E6000 File Offset: 0x000E4200
+	// Token: 0x17000C77 RID: 3191
+	// (get) Token: 0x06004126 RID: 16678 RVA: 0x000EEB3C File Offset: 0x000ECD3C
+	// (set) Token: 0x06004127 RID: 16679 RVA: 0x000EEB44 File Offset: 0x000ECD44
 	public Vector2 RenderedSize { get; internal set; }
 
-	// Token: 0x17000BF4 RID: 3060
-	// (get) Token: 0x06003D1E RID: 15646 RVA: 0x000E600C File Offset: 0x000E420C
-	// (set) Token: 0x06003D1F RID: 15647 RVA: 0x000E6014 File Offset: 0x000E4214
+	// Token: 0x17000C78 RID: 3192
+	// (get) Token: 0x06004128 RID: 16680 RVA: 0x000EEB50 File Offset: 0x000ECD50
+	// (set) Token: 0x06004129 RID: 16681 RVA: 0x000EEB58 File Offset: 0x000ECD58
 	public int LinesRendered { get; internal set; }
 
-	// Token: 0x06003D20 RID: 15648
+	// Token: 0x0600412A RID: 16682
 	public abstract void Release();
 
-	// Token: 0x06003D21 RID: 15649
+	// Token: 0x0600412B RID: 16683
 	public abstract float[] GetCharacterWidths(string text);
 
-	// Token: 0x06003D22 RID: 15650
+	// Token: 0x0600412C RID: 16684
 	public abstract Vector2 MeasureString(string text);
 
-	// Token: 0x06003D23 RID: 15651
-	public abstract void Render(string text, dfRenderData destination);
+	// Token: 0x0600412D RID: 16685
+	public abstract void Render(string text, global::dfRenderData destination);
 
-	// Token: 0x06003D24 RID: 15652 RVA: 0x000E6020 File Offset: 0x000E4220
+	// Token: 0x0600412E RID: 16686 RVA: 0x000EEB64 File Offset: 0x000ECD64
 	protected virtual void Reset()
 	{
 		this.Font = null;
@@ -163,7 +163,7 @@ public abstract class dfFontRendererBase : IDisposable
 		this.Shadow = false;
 	}
 
-	// Token: 0x06003D25 RID: 15653 RVA: 0x000E60C0 File Offset: 0x000E42C0
+	// Token: 0x0600412F RID: 16687 RVA: 0x000EEC04 File Offset: 0x000ECE04
 	public void Dispose()
 	{
 		this.Release();

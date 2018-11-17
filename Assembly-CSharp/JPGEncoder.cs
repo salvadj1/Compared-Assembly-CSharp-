@@ -3,29 +3,29 @@ using System.IO;
 using System.Threading;
 using UnityEngine;
 
-// Token: 0x020003D8 RID: 984
+// Token: 0x02000485 RID: 1157
 public class JPGEncoder
 {
-	// Token: 0x060024B0 RID: 9392 RVA: 0x0008C370 File Offset: 0x0008A570
+	// Token: 0x06002812 RID: 10258 RVA: 0x0009176C File Offset: 0x0008F96C
 	public JPGEncoder(Texture2D texture, float quality) : this(texture, quality, string.Empty, false)
 	{
 	}
 
-	// Token: 0x060024B1 RID: 9393 RVA: 0x0008C380 File Offset: 0x0008A580
+	// Token: 0x06002813 RID: 10259 RVA: 0x0009177C File Offset: 0x0008F97C
 	public JPGEncoder(Texture2D texture, float quality, bool blocking) : this(texture, quality, string.Empty, blocking)
 	{
 	}
 
-	// Token: 0x060024B2 RID: 9394 RVA: 0x0008C390 File Offset: 0x0008A590
+	// Token: 0x06002814 RID: 10260 RVA: 0x0009178C File Offset: 0x0008F98C
 	public JPGEncoder(Texture2D texture, float quality, string path) : this(texture, quality, path, false)
 	{
 	}
 
-	// Token: 0x060024B3 RID: 9395 RVA: 0x0008C39C File Offset: 0x0008A59C
+	// Token: 0x06002815 RID: 10261 RVA: 0x00091798 File Offset: 0x0008F998
 	public JPGEncoder(Texture2D texture, float quality, string path, bool blocking)
 	{
 		this.path = path;
-		this.image = new JPGEncoder.BitmapData(texture);
+		this.image = new global::JPGEncoder.BitmapData(texture);
 		quality = Mathf.Clamp(quality, 1f, 100f);
 		this.sf = ((quality >= 50f) ? ((int)(200f - quality * 2f)) : ((int)(5000f / quality)));
 		this.cores = SystemInfo.processorCount;
@@ -37,7 +37,7 @@ public class JPGEncoder
 		}
 	}
 
-	// Token: 0x060024B4 RID: 9396 RVA: 0x0008C5A8 File Offset: 0x0008A7A8
+	// Token: 0x06002816 RID: 10262 RVA: 0x000919A4 File Offset: 0x0008FBA4
 	private void InitQuantTables(int sf)
 	{
 		int[] array = new int[]
@@ -210,17 +210,17 @@ public class JPGEncoder
 		}
 	}
 
-	// Token: 0x060024B5 RID: 9397 RVA: 0x0008C714 File Offset: 0x0008A914
-	private JPGEncoder.BitString[] ComputeHuffmanTbl(byte[] nrcodes, byte[] std_table)
+	// Token: 0x06002817 RID: 10263 RVA: 0x00091B10 File Offset: 0x0008FD10
+	private global::JPGEncoder.BitString[] ComputeHuffmanTbl(byte[] nrcodes, byte[] std_table)
 	{
 		int num = 0;
 		int num2 = 0;
-		JPGEncoder.BitString[] array = new JPGEncoder.BitString[256];
+		global::JPGEncoder.BitString[] array = new global::JPGEncoder.BitString[256];
 		for (int i = 1; i <= 16; i++)
 		{
 			for (int j = 1; j <= (int)nrcodes[i]; j++)
 			{
-				array[(int)std_table[num2]] = default(JPGEncoder.BitString);
+				array[(int)std_table[num2]] = default(global::JPGEncoder.BitString);
 				array[(int)std_table[num2]].value = num;
 				array[(int)std_table[num2]].length = i;
 				num2++;
@@ -231,7 +231,7 @@ public class JPGEncoder
 		return array;
 	}
 
-	// Token: 0x060024B6 RID: 9398 RVA: 0x0008C7A0 File Offset: 0x0008A9A0
+	// Token: 0x06002818 RID: 10264 RVA: 0x00091B9C File Offset: 0x0008FD9C
 	private void InitHuffmanTbl()
 	{
 		this.YDC_HT = this.ComputeHuffmanTbl(this.std_dc_luminance_nrcodes, this.std_dc_luminance_values);
@@ -240,7 +240,7 @@ public class JPGEncoder
 		this.UVAC_HT = this.ComputeHuffmanTbl(this.std_ac_chrominance_nrcodes, this.std_ac_chrominance_values);
 	}
 
-	// Token: 0x060024B7 RID: 9399 RVA: 0x0008C810 File Offset: 0x0008AA10
+	// Token: 0x06002819 RID: 10265 RVA: 0x00091C0C File Offset: 0x0008FE0C
 	private void InitCategoryfloat()
 	{
 		int num = 1;
@@ -250,7 +250,7 @@ public class JPGEncoder
 			for (int j = num; j < num2; j++)
 			{
 				this.category[32767 + j] = i;
-				JPGEncoder.BitString bitString = default(JPGEncoder.BitString);
+				global::JPGEncoder.BitString bitString = default(global::JPGEncoder.BitString);
 				bitString.length = i;
 				bitString.value = j;
 				this.bitcode[32767 + j] = bitString;
@@ -258,7 +258,7 @@ public class JPGEncoder
 			for (int j = -(num2 - 1); j <= -num; j++)
 			{
 				this.category[32767 + j] = i;
-				JPGEncoder.BitString bitString = default(JPGEncoder.BitString);
+				global::JPGEncoder.BitString bitString = default(global::JPGEncoder.BitString);
 				bitString.length = i;
 				bitString.value = num2 - 1 + j;
 				this.bitcode[32767 + j] = bitString;
@@ -268,7 +268,7 @@ public class JPGEncoder
 		}
 	}
 
-	// Token: 0x060024B8 RID: 9400 RVA: 0x0008C8F0 File Offset: 0x0008AAF0
+	// Token: 0x0600281A RID: 10266 RVA: 0x00091CEC File Offset: 0x0008FEEC
 	public byte[] GetBytes()
 	{
 		if (!this.isDone)
@@ -279,8 +279,8 @@ public class JPGEncoder
 		return this.byteout.GetAllBytes();
 	}
 
-	// Token: 0x060024B9 RID: 9401 RVA: 0x0008C920 File Offset: 0x0008AB20
-	private void WriteBits(JPGEncoder.BitString bs)
+	// Token: 0x0600281B RID: 10267 RVA: 0x00091D1C File Offset: 0x0008FF1C
+	private void WriteBits(global::JPGEncoder.BitString bs)
 	{
 		int value = bs.value;
 		int i = bs.length - 1;
@@ -309,20 +309,20 @@ public class JPGEncoder
 		}
 	}
 
-	// Token: 0x060024BA RID: 9402 RVA: 0x0008C9DC File Offset: 0x0008ABDC
+	// Token: 0x0600281C RID: 10268 RVA: 0x00091DD8 File Offset: 0x0008FFD8
 	private void WriteByte(byte value)
 	{
 		this.byteout.WriteByte(value);
 	}
 
-	// Token: 0x060024BB RID: 9403 RVA: 0x0008C9EC File Offset: 0x0008ABEC
+	// Token: 0x0600281D RID: 10269 RVA: 0x00091DE8 File Offset: 0x0008FFE8
 	private void WriteWord(int value)
 	{
 		this.WriteByte((byte)(value >> 8 & 255));
 		this.WriteByte((byte)(value & 255));
 	}
 
-	// Token: 0x060024BC RID: 9404 RVA: 0x0008CA0C File Offset: 0x0008AC0C
+	// Token: 0x0600281E RID: 10270 RVA: 0x00091E08 File Offset: 0x00090008
 	private float[] FDCTQuant(float[] data, float[] fdtbl)
 	{
 		int num = 0;
@@ -402,7 +402,7 @@ public class JPGEncoder
 		return data;
 	}
 
-	// Token: 0x060024BD RID: 9405 RVA: 0x0008CD0C File Offset: 0x0008AF0C
+	// Token: 0x0600281F RID: 10271 RVA: 0x00092108 File Offset: 0x00090308
 	private void WriteAPP0()
 	{
 		this.WriteWord(65504);
@@ -421,7 +421,7 @@ public class JPGEncoder
 		this.WriteByte(0);
 	}
 
-	// Token: 0x060024BE RID: 9406 RVA: 0x0008CD84 File Offset: 0x0008AF84
+	// Token: 0x06002820 RID: 10272 RVA: 0x00092180 File Offset: 0x00090380
 	private void WriteSOF0(int width, int height)
 	{
 		this.WriteWord(65472);
@@ -441,7 +441,7 @@ public class JPGEncoder
 		this.WriteByte(1);
 	}
 
-	// Token: 0x060024BF RID: 9407 RVA: 0x0008CE04 File Offset: 0x0008B004
+	// Token: 0x06002821 RID: 10273 RVA: 0x00092200 File Offset: 0x00090400
 	private void WriteDQT()
 	{
 		this.WriteWord(65499);
@@ -458,7 +458,7 @@ public class JPGEncoder
 		}
 	}
 
-	// Token: 0x060024C0 RID: 9408 RVA: 0x0008CE7C File Offset: 0x0008B07C
+	// Token: 0x06002822 RID: 10274 RVA: 0x00092278 File Offset: 0x00090478
 	private void WriteDHT()
 	{
 		this.WriteWord(65476);
@@ -501,7 +501,7 @@ public class JPGEncoder
 		}
 	}
 
-	// Token: 0x060024C1 RID: 9409 RVA: 0x0008CFD4 File Offset: 0x0008B1D4
+	// Token: 0x06002823 RID: 10275 RVA: 0x000923D0 File Offset: 0x000905D0
 	private void writeSOS()
 	{
 		this.WriteWord(65498);
@@ -518,11 +518,11 @@ public class JPGEncoder
 		this.WriteByte(0);
 	}
 
-	// Token: 0x060024C2 RID: 9410 RVA: 0x0008D040 File Offset: 0x0008B240
-	private float ProcessDU(float[] CDU, float[] fdtbl, float DC, JPGEncoder.BitString[] HTDC, JPGEncoder.BitString[] HTAC)
+	// Token: 0x06002824 RID: 10276 RVA: 0x0009243C File Offset: 0x0009063C
+	private float ProcessDU(float[] CDU, float[] fdtbl, float DC, global::JPGEncoder.BitString[] HTDC, global::JPGEncoder.BitString[] HTAC)
 	{
-		JPGEncoder.BitString bs = HTAC[0];
-		JPGEncoder.BitString bs2 = HTAC[240];
+		global::JPGEncoder.BitString bs = HTAC[0];
+		global::JPGEncoder.BitString bs2 = HTAC[240];
 		float[] array = this.FDCTQuant(CDU, fdtbl);
 		for (int i = 0; i < 64; i++)
 		{
@@ -575,8 +575,8 @@ public class JPGEncoder
 		return DC;
 	}
 
-	// Token: 0x060024C3 RID: 9411 RVA: 0x0008D218 File Offset: 0x0008B418
-	private void RGB2YUV(JPGEncoder.BitmapData image, int xpos, int ypos)
+	// Token: 0x06002825 RID: 10277 RVA: 0x00092614 File Offset: 0x00090814
+	private void RGB2YUV(global::JPGEncoder.BitmapData image, int xpos, int ypos)
 	{
 		int num = 0;
 		for (int i = 0; i < 8; i++)
@@ -592,7 +592,7 @@ public class JPGEncoder
 		}
 	}
 
-	// Token: 0x060024C4 RID: 9412 RVA: 0x0008D308 File Offset: 0x0008B508
+	// Token: 0x06002826 RID: 10278 RVA: 0x00092704 File Offset: 0x00090904
 	private void DoEncoding()
 	{
 		this.isDone = false;
@@ -607,10 +607,10 @@ public class JPGEncoder
 		this.isDone = true;
 	}
 
-	// Token: 0x060024C5 RID: 9413 RVA: 0x0008D364 File Offset: 0x0008B564
+	// Token: 0x06002827 RID: 10279 RVA: 0x00092760 File Offset: 0x00090960
 	private void Encode()
 	{
-		this.byteout = new JPGEncoder.ByteArray();
+		this.byteout = new global::JPGEncoder.ByteArray();
 		this.bytenew = 0u;
 		this.bytepos = 7;
 		this.WriteWord(65496);
@@ -640,7 +640,7 @@ public class JPGEncoder
 		}
 		if (this.bytepos >= 0)
 		{
-			this.WriteBits(new JPGEncoder.BitString
+			this.WriteBits(new global::JPGEncoder.BitString
 			{
 				length = this.bytepos + 1,
 				value = (1 << this.bytepos + 1) - 1
@@ -650,7 +650,7 @@ public class JPGEncoder
 		this.isDone = true;
 	}
 
-	// Token: 0x040011AB RID: 4523
+	// Token: 0x04001311 RID: 4881
 	private int[] ZigZag = new int[]
 	{
 		0,
@@ -719,31 +719,31 @@ public class JPGEncoder
 		63
 	};
 
-	// Token: 0x040011AC RID: 4524
+	// Token: 0x04001312 RID: 4882
 	private int[] YTable = new int[64];
 
-	// Token: 0x040011AD RID: 4525
+	// Token: 0x04001313 RID: 4883
 	private int[] UVTable = new int[64];
 
-	// Token: 0x040011AE RID: 4526
+	// Token: 0x04001314 RID: 4884
 	private float[] fdtbl_Y = new float[64];
 
-	// Token: 0x040011AF RID: 4527
+	// Token: 0x04001315 RID: 4885
 	private float[] fdtbl_UV = new float[64];
 
-	// Token: 0x040011B0 RID: 4528
-	private JPGEncoder.BitString[] YDC_HT;
+	// Token: 0x04001316 RID: 4886
+	private global::JPGEncoder.BitString[] YDC_HT;
 
-	// Token: 0x040011B1 RID: 4529
-	private JPGEncoder.BitString[] UVDC_HT;
+	// Token: 0x04001317 RID: 4887
+	private global::JPGEncoder.BitString[] UVDC_HT;
 
-	// Token: 0x040011B2 RID: 4530
-	private JPGEncoder.BitString[] YAC_HT;
+	// Token: 0x04001318 RID: 4888
+	private global::JPGEncoder.BitString[] YAC_HT;
 
-	// Token: 0x040011B3 RID: 4531
-	private JPGEncoder.BitString[] UVAC_HT;
+	// Token: 0x04001319 RID: 4889
+	private global::JPGEncoder.BitString[] UVAC_HT;
 
-	// Token: 0x040011B4 RID: 4532
+	// Token: 0x0400131A RID: 4890
 	private byte[] std_dc_luminance_nrcodes = new byte[]
 	{
 		0,
@@ -765,7 +765,7 @@ public class JPGEncoder
 		0
 	};
 
-	// Token: 0x040011B5 RID: 4533
+	// Token: 0x0400131B RID: 4891
 	private byte[] std_dc_luminance_values = new byte[]
 	{
 		0,
@@ -782,7 +782,7 @@ public class JPGEncoder
 		11
 	};
 
-	// Token: 0x040011B6 RID: 4534
+	// Token: 0x0400131C RID: 4892
 	private byte[] std_ac_luminance_nrcodes = new byte[]
 	{
 		0,
@@ -804,7 +804,7 @@ public class JPGEncoder
 		125
 	};
 
-	// Token: 0x040011B7 RID: 4535
+	// Token: 0x0400131D RID: 4893
 	private byte[] std_ac_luminance_values = new byte[]
 	{
 		1,
@@ -971,7 +971,7 @@ public class JPGEncoder
 		250
 	};
 
-	// Token: 0x040011B8 RID: 4536
+	// Token: 0x0400131E RID: 4894
 	private byte[] std_dc_chrominance_nrcodes = new byte[]
 	{
 		0,
@@ -993,7 +993,7 @@ public class JPGEncoder
 		0
 	};
 
-	// Token: 0x040011B9 RID: 4537
+	// Token: 0x0400131F RID: 4895
 	private byte[] std_dc_chrominance_values = new byte[]
 	{
 		0,
@@ -1010,7 +1010,7 @@ public class JPGEncoder
 		11
 	};
 
-	// Token: 0x040011BA RID: 4538
+	// Token: 0x04001320 RID: 4896
 	private byte[] std_ac_chrominance_nrcodes = new byte[]
 	{
 		0,
@@ -1032,7 +1032,7 @@ public class JPGEncoder
 		119
 	};
 
-	// Token: 0x040011BB RID: 4539
+	// Token: 0x04001321 RID: 4897
 	private byte[] std_ac_chrominance_values = new byte[]
 	{
 		0,
@@ -1199,65 +1199,65 @@ public class JPGEncoder
 		250
 	};
 
-	// Token: 0x040011BC RID: 4540
-	private JPGEncoder.BitString[] bitcode = new JPGEncoder.BitString[65535];
+	// Token: 0x04001322 RID: 4898
+	private global::JPGEncoder.BitString[] bitcode = new global::JPGEncoder.BitString[65535];
 
-	// Token: 0x040011BD RID: 4541
+	// Token: 0x04001323 RID: 4899
 	private int[] category = new int[65535];
 
-	// Token: 0x040011BE RID: 4542
+	// Token: 0x04001324 RID: 4900
 	private uint bytenew;
 
-	// Token: 0x040011BF RID: 4543
+	// Token: 0x04001325 RID: 4901
 	private int bytepos = 7;
 
-	// Token: 0x040011C0 RID: 4544
-	private JPGEncoder.ByteArray byteout = new JPGEncoder.ByteArray();
+	// Token: 0x04001326 RID: 4902
+	private global::JPGEncoder.ByteArray byteout = new global::JPGEncoder.ByteArray();
 
-	// Token: 0x040011C1 RID: 4545
+	// Token: 0x04001327 RID: 4903
 	private int[] DU = new int[64];
 
-	// Token: 0x040011C2 RID: 4546
+	// Token: 0x04001328 RID: 4904
 	private float[] YDU = new float[64];
 
-	// Token: 0x040011C3 RID: 4547
+	// Token: 0x04001329 RID: 4905
 	private float[] UDU = new float[64];
 
-	// Token: 0x040011C4 RID: 4548
+	// Token: 0x0400132A RID: 4906
 	private float[] VDU = new float[64];
 
-	// Token: 0x040011C5 RID: 4549
+	// Token: 0x0400132B RID: 4907
 	public bool isDone;
 
-	// Token: 0x040011C6 RID: 4550
-	private JPGEncoder.BitmapData image;
+	// Token: 0x0400132C RID: 4908
+	private global::JPGEncoder.BitmapData image;
 
-	// Token: 0x040011C7 RID: 4551
+	// Token: 0x0400132D RID: 4909
 	private int sf;
 
-	// Token: 0x040011C8 RID: 4552
+	// Token: 0x0400132E RID: 4910
 	private string path;
 
-	// Token: 0x040011C9 RID: 4553
+	// Token: 0x0400132F RID: 4911
 	private int cores;
 
-	// Token: 0x020003D9 RID: 985
+	// Token: 0x02000486 RID: 1158
 	private class ByteArray
 	{
-		// Token: 0x060024C6 RID: 9414 RVA: 0x0008D4FC File Offset: 0x0008B6FC
+		// Token: 0x06002828 RID: 10280 RVA: 0x000928F8 File Offset: 0x00090AF8
 		public ByteArray()
 		{
 			this.stream = new MemoryStream();
 			this.writer = new BinaryWriter(this.stream);
 		}
 
-		// Token: 0x060024C7 RID: 9415 RVA: 0x0008D52C File Offset: 0x0008B72C
+		// Token: 0x06002829 RID: 10281 RVA: 0x00092928 File Offset: 0x00090B28
 		public void WriteByte(byte value)
 		{
 			this.writer.Write(value);
 		}
 
-		// Token: 0x060024C8 RID: 9416 RVA: 0x0008D53C File Offset: 0x0008B73C
+		// Token: 0x0600282A RID: 10282 RVA: 0x00092938 File Offset: 0x00090B38
 		public byte[] GetAllBytes()
 		{
 			byte[] array = new byte[this.stream.Length];
@@ -1266,27 +1266,27 @@ public class JPGEncoder
 			return array;
 		}
 
-		// Token: 0x040011CA RID: 4554
+		// Token: 0x04001330 RID: 4912
 		private MemoryStream stream;
 
-		// Token: 0x040011CB RID: 4555
+		// Token: 0x04001331 RID: 4913
 		private BinaryWriter writer;
 	}
 
-	// Token: 0x020003DA RID: 986
+	// Token: 0x02000487 RID: 1159
 	private struct BitString
 	{
-		// Token: 0x040011CC RID: 4556
+		// Token: 0x04001332 RID: 4914
 		public int length;
 
-		// Token: 0x040011CD RID: 4557
+		// Token: 0x04001333 RID: 4915
 		public int value;
 	}
 
-	// Token: 0x020003DB RID: 987
+	// Token: 0x02000488 RID: 1160
 	private class BitmapData
 	{
-		// Token: 0x060024C9 RID: 9417 RVA: 0x0008D57C File Offset: 0x0008B77C
+		// Token: 0x0600282B RID: 10283 RVA: 0x00092978 File Offset: 0x00090B78
 		public BitmapData(Texture2D texture)
 		{
 			this.height = texture.height;
@@ -1294,7 +1294,7 @@ public class JPGEncoder
 			this.pixels = texture.GetPixels32();
 		}
 
-		// Token: 0x060024CA RID: 9418 RVA: 0x0008D5B4 File Offset: 0x0008B7B4
+		// Token: 0x0600282C RID: 10284 RVA: 0x000929B0 File Offset: 0x00090BB0
 		public Color32 GetPixelColor(int x, int y)
 		{
 			x = Mathf.Clamp(x, 0, this.width - 1);
@@ -1302,13 +1302,13 @@ public class JPGEncoder
 			return this.pixels[y * this.width + x];
 		}
 
-		// Token: 0x040011CE RID: 4558
+		// Token: 0x04001334 RID: 4916
 		public int height;
 
-		// Token: 0x040011CF RID: 4559
+		// Token: 0x04001335 RID: 4917
 		public int width;
 
-		// Token: 0x040011D0 RID: 4560
+		// Token: 0x04001336 RID: 4918
 		private Color32[] pixels;
 	}
 }

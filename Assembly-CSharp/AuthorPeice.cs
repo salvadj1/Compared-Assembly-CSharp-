@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200000E RID: 14
-public class AuthorPeice : AuthorShared
+// Token: 0x02000013 RID: 19
+public class AuthorPeice : global::AuthorShared
 {
-	// Token: 0x1700001B RID: 27
-	// (get) Token: 0x0600005B RID: 91 RVA: 0x00002FAC File Offset: 0x000011AC
-	public AuthorCreation creation
+	// Token: 0x17000021 RID: 33
+	// (get) Token: 0x0600007B RID: 123 RVA: 0x000034E0 File Offset: 0x000016E0
+	public global::AuthorCreation creation
 	{
 		get
 		{
@@ -14,9 +14,9 @@ public class AuthorPeice : AuthorShared
 		}
 	}
 
-	// Token: 0x1700001C RID: 28
-	// (get) Token: 0x0600005C RID: 92 RVA: 0x00002FB4 File Offset: 0x000011B4
-	// (set) Token: 0x0600005D RID: 93 RVA: 0x00002FBC File Offset: 0x000011BC
+	// Token: 0x17000022 RID: 34
+	// (get) Token: 0x0600007C RID: 124 RVA: 0x000034E8 File Offset: 0x000016E8
+	// (set) Token: 0x0600007D RID: 125 RVA: 0x000034F0 File Offset: 0x000016F0
 	public string peiceID
 	{
 		get
@@ -29,41 +29,41 @@ public class AuthorPeice : AuthorShared
 		}
 	}
 
-	// Token: 0x0600005E RID: 94 RVA: 0x00002FD4 File Offset: 0x000011D4
-	public void Registered(AuthorCreation creation)
+	// Token: 0x0600007E RID: 126 RVA: 0x00003508 File Offset: 0x00001708
+	public void Registered(global::AuthorCreation creation)
 	{
 		this._creation = creation;
 		this._peiceID = (this._peiceID ?? string.Empty);
 		this.OnRegistered();
 	}
 
-	// Token: 0x0600005F RID: 95 RVA: 0x00002FFC File Offset: 0x000011FC
+	// Token: 0x0600007F RID: 127 RVA: 0x00003530 File Offset: 0x00001730
 	protected virtual void OnRegistered()
 	{
 	}
 
-	// Token: 0x06000060 RID: 96 RVA: 0x00003000 File Offset: 0x00001200
+	// Token: 0x06000080 RID: 128 RVA: 0x00003534 File Offset: 0x00001734
 	public virtual bool PeiceInspectorGUI()
 	{
-		AuthorShared.BeginHorizontal(AuthorShared.Styles.gradientInlineFill, new GUILayoutOption[0]);
+		global::AuthorShared.BeginHorizontal(global::AuthorShared.Styles.gradientInlineFill, new GUILayoutOption[0]);
 		GUILayout.Space(48f);
-		if (GUILayout.Button(AuthorShared.ObjectContent<Transform>(base.transform, typeof(Transform)).image, new GUILayoutOption[]
+		if (GUILayout.Button(global::AuthorShared.ObjectContent<Transform>(base.transform, typeof(Transform)).image, new GUILayoutOption[]
 		{
 			GUILayout.ExpandWidth(false),
 			GUILayout.ExpandHeight(false)
 		}))
 		{
-			AuthorShared.PingObject(this);
+			global::AuthorShared.PingObject(this);
 		}
 		GUILayout.Space(10f);
-		GUILayout.Label(this.peiceID, AuthorShared.Styles.boldLabel, new GUILayoutOption[0]);
+		GUILayout.Label(this.peiceID, global::AuthorShared.Styles.boldLabel, new GUILayoutOption[0]);
 		GUILayout.FlexibleSpace();
-		AuthorShared.EndHorizontal();
+		global::AuthorShared.EndHorizontal();
 		return false;
 	}
 
-	// Token: 0x1700001D RID: 29
-	// (get) Token: 0x06000061 RID: 97 RVA: 0x00003098 File Offset: 0x00001298
+	// Token: 0x17000023 RID: 35
+	// (get) Token: 0x06000081 RID: 129 RVA: 0x000035CC File Offset: 0x000017CC
 	public Object selectReference
 	{
 		get
@@ -72,10 +72,10 @@ public class AuthorPeice : AuthorShared
 		}
 	}
 
-	// Token: 0x06000062 RID: 98 RVA: 0x000030A0 File Offset: 0x000012A0
-	protected static bool ActionButton(AuthorShared.Content content, ref AuthorShared.PeiceAction act, bool isSelected, AuthorShared.PeiceAction onAction, AuthorShared.PeiceAction offAction, GUIStyle style, params GUILayoutOption[] options)
+	// Token: 0x06000082 RID: 130 RVA: 0x000035D4 File Offset: 0x000017D4
+	protected static bool ActionButton(global::AuthorShared.Content content, ref global::AuthorShared.PeiceAction act, bool isSelected, global::AuthorShared.PeiceAction onAction, global::AuthorShared.PeiceAction offAction, GUIStyle style, params GUILayoutOption[] options)
 	{
-		if (AuthorShared.Toggle(content, isSelected, style, options) != isSelected)
+		if (global::AuthorShared.Toggle(content, isSelected, style, options) != isSelected)
 		{
 			act = ((!isSelected) ? onAction : offAction);
 			return true;
@@ -83,10 +83,10 @@ public class AuthorPeice : AuthorShared
 		return false;
 	}
 
-	// Token: 0x06000063 RID: 99 RVA: 0x000030D4 File Offset: 0x000012D4
-	protected static bool ActionButton(AuthorShared.Content content, ref AuthorShared.PeiceAction act, bool isSelected, AuthorShared.PeiceAction action, GUIStyle style, params GUILayoutOption[] options)
+	// Token: 0x06000083 RID: 131 RVA: 0x00003608 File Offset: 0x00001808
+	protected static bool ActionButton(global::AuthorShared.Content content, ref global::AuthorShared.PeiceAction act, bool isSelected, global::AuthorShared.PeiceAction action, GUIStyle style, params GUILayoutOption[] options)
 	{
-		if (AuthorShared.Toggle(content, isSelected, style, options) != isSelected)
+		if (global::AuthorShared.Toggle(content, isSelected, style, options) != isSelected)
 		{
 			act = action;
 			return true;
@@ -94,53 +94,53 @@ public class AuthorPeice : AuthorShared
 		return false;
 	}
 
-	// Token: 0x06000064 RID: 100 RVA: 0x000030F0 File Offset: 0x000012F0
-	public virtual AuthorShared.PeiceAction PeiceListGUI()
+	// Token: 0x06000084 RID: 132 RVA: 0x00003624 File Offset: 0x00001824
+	public virtual global::AuthorShared.PeiceAction PeiceListGUI()
 	{
-		bool isSelected = AuthorShared.SelectionContains(this.selectReference) || AuthorShared.SelectionContains(this);
-		AuthorShared.PeiceAction result = AuthorShared.PeiceAction.None;
-		AuthorShared.BeginHorizontal(new GUILayoutOption[0]);
-		AuthorPeice.ActionButton(this.peiceID, ref result, isSelected, AuthorShared.PeiceAction.AddToSelection, AuthorShared.PeiceAction.RemoveFromSelection, AuthorShared.Styles.peiceButtonLeft, new GUILayoutOption[0]);
-		AuthorPeice.ActionButton(AuthorShared.Icon.solo, ref result, isSelected, AuthorShared.PeiceAction.SelectSolo, AuthorShared.Styles.peiceButtonMid, new GUILayoutOption[]
+		bool isSelected = global::AuthorShared.SelectionContains(this.selectReference) || global::AuthorShared.SelectionContains(this);
+		global::AuthorShared.PeiceAction result = global::AuthorShared.PeiceAction.None;
+		global::AuthorShared.BeginHorizontal(new GUILayoutOption[0]);
+		global::AuthorPeice.ActionButton(this.peiceID, ref result, isSelected, global::AuthorShared.PeiceAction.AddToSelection, global::AuthorShared.PeiceAction.RemoveFromSelection, global::AuthorShared.Styles.peiceButtonLeft, new GUILayoutOption[0]);
+		global::AuthorPeice.ActionButton(global::AuthorShared.Icon.solo, ref result, isSelected, global::AuthorShared.PeiceAction.SelectSolo, global::AuthorShared.Styles.peiceButtonMid, new GUILayoutOption[]
 		{
 			GUILayout.ExpandWidth(false)
 		});
 		Color contentColor = GUI.contentColor;
 		GUI.contentColor = Color.red;
-		AuthorPeice.ActionButton(AuthorShared.Icon.delete, ref result, isSelected, AuthorShared.PeiceAction.Delete, AuthorShared.Styles.peiceButtonRight, new GUILayoutOption[]
+		global::AuthorPeice.ActionButton(global::AuthorShared.Icon.delete, ref result, isSelected, global::AuthorShared.PeiceAction.Delete, global::AuthorShared.Styles.peiceButtonRight, new GUILayoutOption[]
 		{
 			GUILayout.ExpandWidth(false)
 		});
 		GUI.contentColor = contentColor;
-		AuthorShared.EndHorizontal();
+		global::AuthorShared.EndHorizontal();
 		return result;
 	}
 
-	// Token: 0x06000065 RID: 101 RVA: 0x000031B4 File Offset: 0x000013B4
+	// Token: 0x06000085 RID: 133 RVA: 0x000036E8 File Offset: 0x000018E8
 	public virtual void OnListClicked()
 	{
-		if (AuthorShared.SelectionContains(this.selectReference) || AuthorShared.SelectionContains(this))
+		if (global::AuthorShared.SelectionContains(this.selectReference) || global::AuthorShared.SelectionContains(this))
 		{
 		}
 	}
 
-	// Token: 0x06000066 RID: 102 RVA: 0x000031E4 File Offset: 0x000013E4
+	// Token: 0x06000086 RID: 134 RVA: 0x00003718 File Offset: 0x00001918
 	public virtual bool OnSceneView()
 	{
 		return false;
 	}
 
-	// Token: 0x06000067 RID: 103 RVA: 0x000031E8 File Offset: 0x000013E8
+	// Token: 0x06000087 RID: 135 RVA: 0x0000371C File Offset: 0x0000191C
 	protected virtual void OnWillUnRegister()
 	{
 	}
 
-	// Token: 0x06000068 RID: 104 RVA: 0x000031EC File Offset: 0x000013EC
+	// Token: 0x06000088 RID: 136 RVA: 0x00003720 File Offset: 0x00001920
 	protected virtual void OnDidUnRegister()
 	{
 	}
 
-	// Token: 0x06000069 RID: 105 RVA: 0x000031F0 File Offset: 0x000013F0
+	// Token: 0x06000089 RID: 137 RVA: 0x00003724 File Offset: 0x00001924
 	public void Delete()
 	{
 		if (!this.destroyed)
@@ -157,7 +157,7 @@ public class AuthorPeice : AuthorShared
 		}
 	}
 
-	// Token: 0x0600006A RID: 106 RVA: 0x00003240 File Offset: 0x00001440
+	// Token: 0x0600008A RID: 138 RVA: 0x00003774 File Offset: 0x00001974
 	protected virtual void OnPeiceDestroy()
 	{
 		if (this._creation)
@@ -168,12 +168,12 @@ public class AuthorPeice : AuthorShared
 		}
 	}
 
-	// Token: 0x0600006B RID: 107 RVA: 0x00003278 File Offset: 0x00001478
+	// Token: 0x0600008B RID: 139 RVA: 0x000037AC File Offset: 0x000019AC
 	public virtual void SaveJsonProperties(JSONStream stream)
 	{
 	}
 
-	// Token: 0x0600006C RID: 108 RVA: 0x0000327C File Offset: 0x0000147C
+	// Token: 0x0600008C RID: 140 RVA: 0x000037B0 File Offset: 0x000019B0
 	protected string FromRootBonePath(Transform transform)
 	{
 		if (this.creation)
@@ -183,14 +183,14 @@ public class AuthorPeice : AuthorShared
 		return string.Empty;
 	}
 
-	// Token: 0x0400002F RID: 47
+	// Token: 0x04000046 RID: 70
 	[SerializeField]
-	private AuthorCreation _creation;
+	private global::AuthorCreation _creation;
 
-	// Token: 0x04000030 RID: 48
+	// Token: 0x04000047 RID: 71
 	[SerializeField]
 	private string _peiceID;
 
-	// Token: 0x04000031 RID: 49
+	// Token: 0x04000048 RID: 72
 	private bool destroyed;
 }

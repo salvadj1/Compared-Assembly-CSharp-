@@ -3,43 +3,43 @@ using System.Collections;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x0200073E RID: 1854
+// Token: 0x0200081C RID: 2076
 [Serializable]
-public abstract class dfTweenComponent<T> : dfTweenComponentBase
+public abstract class dfTweenComponent<T> : global::dfTweenComponentBase
 {
 	// Token: 0x14000065 RID: 101
-	// (add) Token: 0x0600439F RID: 17311 RVA: 0x00106B80 File Offset: 0x00104D80
-	// (remove) Token: 0x060043A0 RID: 17312 RVA: 0x00106B9C File Offset: 0x00104D9C
-	public event TweenNotification TweenStarted;
+	// (add) Token: 0x060047EB RID: 18411 RVA: 0x0010FE90 File Offset: 0x0010E090
+	// (remove) Token: 0x060047EC RID: 18412 RVA: 0x0010FEAC File Offset: 0x0010E0AC
+	public event global::TweenNotification TweenStarted;
 
 	// Token: 0x14000066 RID: 102
-	// (add) Token: 0x060043A1 RID: 17313 RVA: 0x00106BB8 File Offset: 0x00104DB8
-	// (remove) Token: 0x060043A2 RID: 17314 RVA: 0x00106BD4 File Offset: 0x00104DD4
-	public event TweenNotification TweenStopped;
+	// (add) Token: 0x060047ED RID: 18413 RVA: 0x0010FEC8 File Offset: 0x0010E0C8
+	// (remove) Token: 0x060047EE RID: 18414 RVA: 0x0010FEE4 File Offset: 0x0010E0E4
+	public event global::TweenNotification TweenStopped;
 
 	// Token: 0x14000067 RID: 103
-	// (add) Token: 0x060043A3 RID: 17315 RVA: 0x00106BF0 File Offset: 0x00104DF0
-	// (remove) Token: 0x060043A4 RID: 17316 RVA: 0x00106C0C File Offset: 0x00104E0C
-	public event TweenNotification TweenPaused;
+	// (add) Token: 0x060047EF RID: 18415 RVA: 0x0010FF00 File Offset: 0x0010E100
+	// (remove) Token: 0x060047F0 RID: 18416 RVA: 0x0010FF1C File Offset: 0x0010E11C
+	public event global::TweenNotification TweenPaused;
 
 	// Token: 0x14000068 RID: 104
-	// (add) Token: 0x060043A5 RID: 17317 RVA: 0x00106C28 File Offset: 0x00104E28
-	// (remove) Token: 0x060043A6 RID: 17318 RVA: 0x00106C44 File Offset: 0x00104E44
-	public event TweenNotification TweenResumed;
+	// (add) Token: 0x060047F1 RID: 18417 RVA: 0x0010FF38 File Offset: 0x0010E138
+	// (remove) Token: 0x060047F2 RID: 18418 RVA: 0x0010FF54 File Offset: 0x0010E154
+	public event global::TweenNotification TweenResumed;
 
 	// Token: 0x14000069 RID: 105
-	// (add) Token: 0x060043A7 RID: 17319 RVA: 0x00106C60 File Offset: 0x00104E60
-	// (remove) Token: 0x060043A8 RID: 17320 RVA: 0x00106C7C File Offset: 0x00104E7C
-	public event TweenNotification TweenReset;
+	// (add) Token: 0x060047F3 RID: 18419 RVA: 0x0010FF70 File Offset: 0x0010E170
+	// (remove) Token: 0x060047F4 RID: 18420 RVA: 0x0010FF8C File Offset: 0x0010E18C
+	public event global::TweenNotification TweenReset;
 
 	// Token: 0x1400006A RID: 106
-	// (add) Token: 0x060043A9 RID: 17321 RVA: 0x00106C98 File Offset: 0x00104E98
-	// (remove) Token: 0x060043AA RID: 17322 RVA: 0x00106CB4 File Offset: 0x00104EB4
-	public event TweenNotification TweenCompleted;
+	// (add) Token: 0x060047F5 RID: 18421 RVA: 0x0010FFA8 File Offset: 0x0010E1A8
+	// (remove) Token: 0x060047F6 RID: 18422 RVA: 0x0010FFC4 File Offset: 0x0010E1C4
+	public event global::TweenNotification TweenCompleted;
 
-	// Token: 0x17000D3B RID: 3387
-	// (get) Token: 0x060043AB RID: 17323 RVA: 0x00106CD0 File Offset: 0x00104ED0
-	// (set) Token: 0x060043AC RID: 17324 RVA: 0x00106CD8 File Offset: 0x00104ED8
+	// Token: 0x17000DC5 RID: 3525
+	// (get) Token: 0x060047F7 RID: 18423 RVA: 0x0010FFE0 File Offset: 0x0010E1E0
+	// (set) Token: 0x060047F8 RID: 18424 RVA: 0x0010FFE8 File Offset: 0x0010E1E8
 	public T StartValue
 	{
 		get
@@ -57,9 +57,9 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x17000D3C RID: 3388
-	// (get) Token: 0x060043AD RID: 17325 RVA: 0x00106CF8 File Offset: 0x00104EF8
-	// (set) Token: 0x060043AE RID: 17326 RVA: 0x00106D00 File Offset: 0x00104F00
+	// Token: 0x17000DC6 RID: 3526
+	// (get) Token: 0x060047F9 RID: 18425 RVA: 0x00110008 File Offset: 0x0010E208
+	// (set) Token: 0x060047FA RID: 18426 RVA: 0x00110010 File Offset: 0x0010E210
 	public T EndValue
 	{
 		get
@@ -77,7 +77,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x060043AF RID: 17327 RVA: 0x00106D20 File Offset: 0x00104F20
+	// Token: 0x060047FB RID: 18427 RVA: 0x00110030 File Offset: 0x0010E230
 	public override void Play()
 	{
 		if (this.isRunning)
@@ -102,11 +102,11 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 				this.target
 			}));
 		}
-		dfObservableProperty property = this.target.GetProperty();
+		global::dfObservableProperty property = this.target.GetProperty();
 		base.StartCoroutine(this.Execute(property));
 	}
 
-	// Token: 0x060043B0 RID: 17328 RVA: 0x00106DE8 File Offset: 0x00104FE8
+	// Token: 0x060047FC RID: 18428 RVA: 0x001100F8 File Offset: 0x0010E2F8
 	public override void Stop()
 	{
 		if (!this.isRunning)
@@ -124,7 +124,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		this.boundProperty = null;
 	}
 
-	// Token: 0x060043B1 RID: 17329 RVA: 0x00106E44 File Offset: 0x00105044
+	// Token: 0x060047FD RID: 18429 RVA: 0x00110154 File Offset: 0x0010E354
 	public override void Reset()
 	{
 		if (!this.isRunning)
@@ -139,23 +139,23 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		this.boundProperty = null;
 	}
 
-	// Token: 0x060043B2 RID: 17330 RVA: 0x00106E94 File Offset: 0x00105094
+	// Token: 0x060047FE RID: 18430 RVA: 0x001101A4 File Offset: 0x0010E3A4
 	public void Pause()
 	{
 		base.IsPaused = true;
 	}
 
-	// Token: 0x060043B3 RID: 17331 RVA: 0x00106EA0 File Offset: 0x001050A0
+	// Token: 0x060047FF RID: 18431 RVA: 0x001101B0 File Offset: 0x0010E3B0
 	public void Resume()
 	{
 		base.IsPaused = false;
 	}
 
-	// Token: 0x060043B4 RID: 17332 RVA: 0x00106EAC File Offset: 0x001050AC
-	protected internal IEnumerator Execute(dfObservableProperty property)
+	// Token: 0x06004800 RID: 18432 RVA: 0x001101BC File Offset: 0x0010E3BC
+	protected internal IEnumerator Execute(global::dfObservableProperty property)
 	{
 		this.isRunning = true;
-		this.easingFunction = dfEasingFunctions.GetFunction(this.easingType);
+		this.easingFunction = global::dfEasingFunctions.GetFunction(this.easingType);
 		this.boundProperty = property;
 		this.onStarted();
 		float startTime = Time.realtimeSinceStartup;
@@ -196,17 +196,17 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 				property.Value = this.evaluate(this.actualStartValue, this.actualEndValue, time);
 				if (elapsed >= this.length)
 				{
-					if (this.loopType == dfTweenLoopType.Once)
+					if (this.loopType == global::dfTweenLoopType.Once)
 					{
 						break;
 					}
-					if (this.loopType == dfTweenLoopType.Loop)
+					if (this.loopType == global::dfTweenLoopType.Loop)
 					{
 						startTime = Time.realtimeSinceStartup;
 					}
 					else
 					{
-						if (this.loopType != dfTweenLoopType.PingPong)
+						if (this.loopType != global::dfTweenLoopType.PingPong)
 						{
 							goto IL_31A;
 						}
@@ -232,13 +232,13 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x060043B5 RID: 17333
+	// Token: 0x06004801 RID: 18433
 	public abstract T evaluate(T startValue, T endValue, float time);
 
-	// Token: 0x060043B6 RID: 17334
+	// Token: 0x06004802 RID: 18434
 	public abstract T offset(T value, T offset);
 
-	// Token: 0x060043B7 RID: 17335 RVA: 0x00106ED8 File Offset: 0x001050D8
+	// Token: 0x06004803 RID: 18435 RVA: 0x001101E8 File Offset: 0x0010E3E8
 	public override string ToString()
 	{
 		if (base.Target != null && base.Target.IsValid)
@@ -249,7 +249,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		return this.TweenName;
 	}
 
-	// Token: 0x060043B8 RID: 17336 RVA: 0x00106F34 File Offset: 0x00105134
+	// Token: 0x06004804 RID: 18436 RVA: 0x00110244 File Offset: 0x0010E444
 	private string getPath(Transform obj)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
@@ -269,13 +269,13 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		return stringBuilder.ToString();
 	}
 
-	// Token: 0x060043B9 RID: 17337 RVA: 0x00106FA0 File Offset: 0x001051A0
+	// Token: 0x06004805 RID: 18437 RVA: 0x001102B0 File Offset: 0x0010E4B0
 	protected internal static float Lerp(float startValue, float endValue, float time)
 	{
 		return startValue + (endValue - startValue) * time;
 	}
 
-	// Token: 0x060043BA RID: 17338 RVA: 0x00106FAC File Offset: 0x001051AC
+	// Token: 0x06004806 RID: 18438 RVA: 0x001102BC File Offset: 0x0010E4BC
 	protected internal override void onPaused()
 	{
 		base.SendMessage("TweenPaused", this, 1);
@@ -285,7 +285,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x060043BB RID: 17339 RVA: 0x00106FD4 File Offset: 0x001051D4
+	// Token: 0x06004807 RID: 18439 RVA: 0x001102E4 File Offset: 0x0010E4E4
 	protected internal override void onResumed()
 	{
 		base.SendMessage("TweenResumed", this, 1);
@@ -295,7 +295,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x060043BC RID: 17340 RVA: 0x00106FFC File Offset: 0x001051FC
+	// Token: 0x06004808 RID: 18440 RVA: 0x0011030C File Offset: 0x0010E50C
 	protected internal override void onStarted()
 	{
 		base.SendMessage("TweenStarted", this, 1);
@@ -305,7 +305,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x060043BD RID: 17341 RVA: 0x00107024 File Offset: 0x00105224
+	// Token: 0x06004809 RID: 18441 RVA: 0x00110334 File Offset: 0x0010E534
 	protected internal override void onStopped()
 	{
 		base.SendMessage("TweenStopped", this, 1);
@@ -315,7 +315,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x060043BE RID: 17342 RVA: 0x0010704C File Offset: 0x0010524C
+	// Token: 0x0600480A RID: 18442 RVA: 0x0011035C File Offset: 0x0010E55C
 	protected internal override void onReset()
 	{
 		base.SendMessage("TweenReset", this, 1);
@@ -325,7 +325,7 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x060043BF RID: 17343 RVA: 0x00107074 File Offset: 0x00105274
+	// Token: 0x0600480B RID: 18443 RVA: 0x00110384 File Offset: 0x0010E584
 	protected internal override void onCompleted()
 	{
 		base.SendMessage("TweenCompleted", this, 1);
@@ -335,17 +335,17 @@ public abstract class dfTweenComponent<T> : dfTweenComponentBase
 		}
 	}
 
-	// Token: 0x04002396 RID: 9110
+	// Token: 0x040025B9 RID: 9657
 	[SerializeField]
 	protected T startValue;
 
-	// Token: 0x04002397 RID: 9111
+	// Token: 0x040025BA RID: 9658
 	[SerializeField]
 	protected T endValue;
 
-	// Token: 0x04002398 RID: 9112
+	// Token: 0x040025BB RID: 9659
 	private T actualStartValue;
 
-	// Token: 0x04002399 RID: 9113
+	// Token: 0x040025BC RID: 9660
 	private T actualEndValue;
 }

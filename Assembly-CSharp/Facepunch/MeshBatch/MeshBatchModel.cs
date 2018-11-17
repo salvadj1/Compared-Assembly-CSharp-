@@ -3,7 +3,7 @@ using Facepunch.MeshBatch.Runtime;
 
 namespace Facepunch.MeshBatch
 {
-	// Token: 0x0200019D RID: 413
+	// Token: 0x020001CB RID: 459
 	public sealed class MeshBatchModel : MeshBatchModel
 	{
 	}

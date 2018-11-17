@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020007F3 RID: 2035
+// Token: 0x020008E5 RID: 2277
 [AddComponentMenu("NGUI/UI/Input (Saved)")]
-public class UIInputSaved : UIInput
+public class UIInputSaved : global::UIInput
 {
-	// Token: 0x060048D3 RID: 18643 RVA: 0x0012A5A0 File Offset: 0x001287A0
+	// Token: 0x06004D82 RID: 19842 RVA: 0x00134504 File Offset: 0x00132704
 	private void Start()
 	{
 		base.Init();
@@ -15,7 +15,7 @@ public class UIInputSaved : UIInput
 		}
 	}
 
-	// Token: 0x060048D4 RID: 18644 RVA: 0x0012A5DC File Offset: 0x001287DC
+	// Token: 0x06004D83 RID: 19843 RVA: 0x00134540 File Offset: 0x00132740
 	private void OnApplicationQuit()
 	{
 		if (!string.IsNullOrEmpty(this.playerPrefsField))
@@ -24,6 +24,6 @@ public class UIInputSaved : UIInput
 		}
 	}
 
-	// Token: 0x04002923 RID: 10531
+	// Token: 0x04002B71 RID: 11121
 	public string playerPrefsField;
 }

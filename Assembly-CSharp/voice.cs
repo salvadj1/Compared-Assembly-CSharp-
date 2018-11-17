@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x020000AE RID: 174
-public class voice : ConsoleSystem
+// Token: 0x020000C1 RID: 193
+public class voice : global::ConsoleSystem
 {
 }

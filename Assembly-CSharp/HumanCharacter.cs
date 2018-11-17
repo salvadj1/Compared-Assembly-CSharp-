@@ -1,6 +1,6 @@
 ﻿using System;
 
-// Token: 0x02000145 RID: 325
-public class HumanCharacter : Character
+// Token: 0x0200016F RID: 367
+public class HumanCharacter : global::Character
 {
 }

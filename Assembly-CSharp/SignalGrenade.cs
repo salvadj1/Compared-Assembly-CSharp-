@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020004A3 RID: 1187
-public class SignalGrenade : RigidObj
+// Token: 0x0200055E RID: 1374
+public class SignalGrenade : global::RigidObj
 {
-	// Token: 0x060029E0 RID: 10720 RVA: 0x000A3E6C File Offset: 0x000A206C
-	public SignalGrenade() : base(RigidObj.FeatureFlags.StreamInitialVelocity | RigidObj.FeatureFlags.StreamOwnerViewID | RigidObj.FeatureFlags.ServerCollisions)
+	// Token: 0x06002D92 RID: 11666 RVA: 0x000ABC04 File Offset: 0x000A9E04
+	public SignalGrenade() : base(global::RigidObj.FeatureFlags.StreamInitialVelocity | global::RigidObj.FeatureFlags.StreamOwnerViewID | global::RigidObj.FeatureFlags.ServerCollisions)
 	{
 	}
 
-	// Token: 0x060029E1 RID: 10721 RVA: 0x000A3E84 File Offset: 0x000A2084
-	private new void uLink_OnNetworkInstantiate(NetworkMessageInfo info)
+	// Token: 0x06002D93 RID: 11667 RVA: 0x000ABC1C File Offset: 0x000A9E1C
+	private new void uLink_OnNetworkInstantiate(uLink.NetworkMessageInfo info)
 	{
 		base.uLink_OnNetworkInstantiate(info);
 	}
 
-	// Token: 0x060029E2 RID: 10722 RVA: 0x000A3E90 File Offset: 0x000A2090
+	// Token: 0x06002D94 RID: 11668 RVA: 0x000ABC28 File Offset: 0x000A9E28
 	protected override void OnHide()
 	{
 		if (base.renderer)
@@ -26,7 +26,7 @@ public class SignalGrenade : RigidObj
 		}
 	}
 
-	// Token: 0x060029E3 RID: 10723 RVA: 0x000A3EB0 File Offset: 0x000A20B0
+	// Token: 0x06002D95 RID: 11669 RVA: 0x000ABC48 File Offset: 0x000A9E48
 	protected override void OnShow()
 	{
 		if (base.renderer)
@@ -35,35 +35,35 @@ public class SignalGrenade : RigidObj
 		}
 	}
 
-	// Token: 0x060029E4 RID: 10724 RVA: 0x000A3ED0 File Offset: 0x000A20D0
+	// Token: 0x06002D96 RID: 11670 RVA: 0x000ABC68 File Offset: 0x000A9E68
 	protected override void OnDone()
 	{
 		Object @object = Object.Instantiate(this.explosionEffect, base.transform.position, Quaternion.LookRotation(Vector3.up));
 		Object.Destroy(@object, 60f);
 	}
 
-	// Token: 0x060029E5 RID: 10725 RVA: 0x000A3F0C File Offset: 0x000A210C
+	// Token: 0x06002D97 RID: 11671 RVA: 0x000ABCA4 File Offset: 0x000A9EA4
 	[RPC]
-	private void ClientBounce(NetworkMessageInfo info)
+	private void ClientBounce(uLink.NetworkMessageInfo info)
 	{
-		InterpTimedEvent.Queue(this, "bounce", ref info);
+		global::InterpTimedEvent.Queue(this, "bounce", ref info);
 	}
 
-	// Token: 0x060029E6 RID: 10726 RVA: 0x000A3F1C File Offset: 0x000A211C
+	// Token: 0x06002D98 RID: 11672 RVA: 0x000ABCB4 File Offset: 0x000A9EB4
 	private void PlayClientBounce()
 	{
 		this.bounceSound.Play(this.rigidbody.position, 0.25f, Random.Range(0.85f, 1.15f), 1f, 18f);
 	}
 
-	// Token: 0x060029E7 RID: 10727 RVA: 0x000A3F60 File Offset: 0x000A2160
+	// Token: 0x06002D99 RID: 11673 RVA: 0x000ABCF8 File Offset: 0x000A9EF8
 	protected override bool OnInterpTimedEvent()
 	{
-		string tag = InterpTimedEvent.Tag;
+		string tag = global::InterpTimedEvent.Tag;
 		if (tag != null)
 		{
-			if (SignalGrenade.<>f__switch$map9 == null)
+			if (global::SignalGrenade.<>f__switch$map9 == null)
 			{
-				SignalGrenade.<>f__switch$map9 = new Dictionary<string, int>(1)
+				global::SignalGrenade.<>f__switch$map9 = new Dictionary<string, int>(1)
 				{
 					{
 						"bounce",
@@ -72,7 +72,7 @@ public class SignalGrenade : RigidObj
 				};
 			}
 			int num;
-			if (SignalGrenade.<>f__switch$map9.TryGetValue(tag, out num))
+			if (global::SignalGrenade.<>f__switch$map9.TryGetValue(tag, out num))
 			{
 				if (num == 0)
 				{
@@ -84,15 +84,15 @@ public class SignalGrenade : RigidObj
 		return base.OnInterpTimedEvent();
 	}
 
-	// Token: 0x040015CC RID: 5580
+	// Token: 0x04001789 RID: 6025
 	private float fuseLength = 3f;
 
-	// Token: 0x040015CD RID: 5581
+	// Token: 0x0400178A RID: 6026
 	public GameObject explosionEffect;
 
-	// Token: 0x040015CE RID: 5582
+	// Token: 0x0400178B RID: 6027
 	public AudioClip bounceSound;
 
-	// Token: 0x040015CF RID: 5583
+	// Token: 0x0400178C RID: 6028
 	private float lastBounceTime;
 }

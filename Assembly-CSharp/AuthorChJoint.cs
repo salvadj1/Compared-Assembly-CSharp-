@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000026 RID: 38
-public class AuthorChJoint : AuthorPeice
+// Token: 0x02000033 RID: 51
+public class AuthorChJoint : global::AuthorPeice
 {
-	// Token: 0x17000045 RID: 69
-	// (get) Token: 0x0600018C RID: 396 RVA: 0x00007560 File Offset: 0x00005760
-	// (set) Token: 0x0600018D RID: 397 RVA: 0x000075AC File Offset: 0x000057AC
+	// Token: 0x17000051 RID: 81
+	// (get) Token: 0x060001D8 RID: 472 RVA: 0x000082C0 File Offset: 0x000064C0
+	// (set) Token: 0x060001D9 RID: 473 RVA: 0x0000830C File Offset: 0x0000650C
 	private SoftJointLimit lowTwist
 	{
 		get
@@ -27,9 +27,9 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x17000046 RID: 70
-	// (get) Token: 0x0600018E RID: 398 RVA: 0x000075F0 File Offset: 0x000057F0
-	// (set) Token: 0x0600018F RID: 399 RVA: 0x0000763C File Offset: 0x0000583C
+	// Token: 0x17000052 RID: 82
+	// (get) Token: 0x060001DA RID: 474 RVA: 0x00008350 File Offset: 0x00006550
+	// (set) Token: 0x060001DB RID: 475 RVA: 0x0000839C File Offset: 0x0000659C
 	private SoftJointLimit highTwist
 	{
 		get
@@ -50,9 +50,9 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x17000047 RID: 71
-	// (get) Token: 0x06000190 RID: 400 RVA: 0x00007680 File Offset: 0x00005880
-	// (set) Token: 0x06000191 RID: 401 RVA: 0x000076CC File Offset: 0x000058CC
+	// Token: 0x17000053 RID: 83
+	// (get) Token: 0x060001DC RID: 476 RVA: 0x000083E0 File Offset: 0x000065E0
+	// (set) Token: 0x060001DD RID: 477 RVA: 0x0000842C File Offset: 0x0000662C
 	private SoftJointLimit swing1
 	{
 		get
@@ -73,9 +73,9 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x17000048 RID: 72
-	// (get) Token: 0x06000192 RID: 402 RVA: 0x00007710 File Offset: 0x00005910
-	// (set) Token: 0x06000193 RID: 403 RVA: 0x0000775C File Offset: 0x0000595C
+	// Token: 0x17000054 RID: 84
+	// (get) Token: 0x060001DE RID: 478 RVA: 0x00008470 File Offset: 0x00006670
+	// (set) Token: 0x060001DF RID: 479 RVA: 0x000084BC File Offset: 0x000066BC
 	private SoftJointLimit swing2
 	{
 		get
@@ -96,9 +96,9 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x17000049 RID: 73
-	// (get) Token: 0x06000194 RID: 404 RVA: 0x000077A0 File Offset: 0x000059A0
-	// (set) Token: 0x06000195 RID: 405 RVA: 0x000077EC File Offset: 0x000059EC
+	// Token: 0x17000055 RID: 85
+	// (get) Token: 0x060001E0 RID: 480 RVA: 0x00008500 File Offset: 0x00006700
+	// (set) Token: 0x060001E1 RID: 481 RVA: 0x0000854C File Offset: 0x0000674C
 	private JointLimits limit
 	{
 		get
@@ -119,9 +119,9 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x1700004A RID: 74
-	// (get) Token: 0x06000196 RID: 406 RVA: 0x00007830 File Offset: 0x00005A30
-	// (set) Token: 0x06000197 RID: 407 RVA: 0x00007870 File Offset: 0x00005A70
+	// Token: 0x17000056 RID: 86
+	// (get) Token: 0x060001E2 RID: 482 RVA: 0x00008590 File Offset: 0x00006790
+	// (set) Token: 0x060001E3 RID: 483 RVA: 0x000085D0 File Offset: 0x000067D0
 	private JointSpring spring
 	{
 		get
@@ -140,9 +140,9 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x1700004B RID: 75
-	// (get) Token: 0x06000198 RID: 408 RVA: 0x0000789C File Offset: 0x00005A9C
-	// (set) Token: 0x06000199 RID: 409 RVA: 0x000078DC File Offset: 0x00005ADC
+	// Token: 0x17000057 RID: 87
+	// (get) Token: 0x060001E4 RID: 484 RVA: 0x000085FC File Offset: 0x000067FC
+	// (set) Token: 0x060001E5 RID: 485 RVA: 0x0000863C File Offset: 0x0000683C
 	private JointMotor motor
 	{
 		get
@@ -161,12 +161,12 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x0600019A RID: 410 RVA: 0x00007908 File Offset: 0x00005B08
-	private void ConfigureJointShared(Joint joint, Transform root, ref AuthorChHit.Rep self)
+	// Token: 0x060001E6 RID: 486 RVA: 0x00008668 File Offset: 0x00006868
+	private void ConfigureJointShared(Joint joint, Transform root, ref global::AuthorChHit.Rep self)
 	{
 		if (this.connect)
 		{
-			AuthorChHit.Rep rep;
+			global::AuthorChHit.Rep rep;
 			if (self.mirrored)
 			{
 				rep = this.connect.secondary;
@@ -204,26 +204,26 @@ public class AuthorChJoint : AuthorPeice
 		joint.breakTorque = this.breakTorque;
 	}
 
-	// Token: 0x0600019B RID: 411 RVA: 0x00007A10 File Offset: 0x00005C10
-	private TJoint ConfigJoint<TJoint>(TJoint joint, Transform root, ref AuthorChHit.Rep self) where TJoint : Joint
+	// Token: 0x060001E7 RID: 487 RVA: 0x00008770 File Offset: 0x00006970
+	private TJoint ConfigJoint<TJoint>(TJoint joint, Transform root, ref global::AuthorChHit.Rep self) where TJoint : Joint
 	{
 		this.ConfigureJointShared(joint, root, ref self);
 		return joint;
 	}
 
-	// Token: 0x0600019C RID: 412 RVA: 0x00007A24 File Offset: 0x00005C24
-	private TJoint CreateJoint<TJoint>(Transform root, ref AuthorChHit.Rep self) where TJoint : Joint
+	// Token: 0x060001E8 RID: 488 RVA: 0x00008784 File Offset: 0x00006984
+	private TJoint CreateJoint<TJoint>(Transform root, ref global::AuthorChHit.Rep self) where TJoint : Joint
 	{
 		return this.ConfigJoint<TJoint>(self.bone.gameObject.AddComponent<TJoint>(), root, ref self);
 	}
 
-	// Token: 0x0600019D RID: 413 RVA: 0x00007A4C File Offset: 0x00005C4C
-	public Joint AddJoint(Transform root, ref AuthorChHit.Rep self)
+	// Token: 0x060001E9 RID: 489 RVA: 0x000087AC File Offset: 0x000069AC
+	public Joint AddJoint(Transform root, ref global::AuthorChHit.Rep self)
 	{
 		Joint result;
 		switch (this.kind)
 		{
-		case AuthorChJoint.Kind.Hinge:
+		case global::AuthorChJoint.Kind.Hinge:
 		{
 			HingeJoint hingeJoint = this.CreateJoint<HingeJoint>(root, ref self);
 			hingeJoint.limits = this.limit;
@@ -235,7 +235,7 @@ public class AuthorChJoint : AuthorPeice
 			result = hingeJoint;
 			break;
 		}
-		case AuthorChJoint.Kind.Character:
+		case global::AuthorChJoint.Kind.Character:
 		{
 			CharacterJoint characterJoint = this.CreateJoint<CharacterJoint>(root, ref self);
 			characterJoint.swingAxis = self.AxisFlip(this.swingAxis);
@@ -247,13 +247,13 @@ public class AuthorChJoint : AuthorPeice
 			result = characterJoint;
 			break;
 		}
-		case AuthorChJoint.Kind.Fixed:
+		case global::AuthorChJoint.Kind.Fixed:
 		{
 			FixedJoint fixedJoint = this.CreateJoint<FixedJoint>(root, ref self);
 			result = fixedJoint;
 			break;
 		}
-		case AuthorChJoint.Kind.Spring:
+		case global::AuthorChJoint.Kind.Spring:
 		{
 			SpringJoint springJoint = this.CreateJoint<SpringJoint>(root, ref self);
 			springJoint.spring = this.spring_spring;
@@ -269,8 +269,8 @@ public class AuthorChJoint : AuthorPeice
 		return result;
 	}
 
-	// Token: 0x0600019E RID: 414 RVA: 0x00007B90 File Offset: 0x00005D90
-	private bool DoTransformHandles(ref AuthorChHit.Rep self, ref AuthorChHit.Rep connect)
+	// Token: 0x060001EA RID: 490 RVA: 0x000088F0 File Offset: 0x00006AF0
+	private bool DoTransformHandles(ref global::AuthorChHit.Rep self, ref global::AuthorChHit.Rep connect)
 	{
 		if (!self.valid)
 		{
@@ -279,80 +279,80 @@ public class AuthorChJoint : AuthorPeice
 		Vector3 v = self.Flip(this.anchor);
 		Vector3 vector = self.AxisFlip(this.axis);
 		Vector3 vector2 = self.AxisFlip(this.swingAxis);
-		Matrix4x4 matrix = AuthorShared.Scene.matrix;
+		Matrix4x4 matrix = global::AuthorShared.Scene.matrix;
 		if (connect.valid)
 		{
-			AuthorShared.Scene.matrix = connect.bone.localToWorldMatrix;
-			Color color = AuthorShared.Scene.color;
-			AuthorShared.Scene.color = color * new Color(1f, 1f, 1f, 0.4f);
+			global::AuthorShared.Scene.matrix = connect.bone.localToWorldMatrix;
+			Color color = global::AuthorShared.Scene.color;
+			global::AuthorShared.Scene.color = color * new Color(1f, 1f, 1f, 0.4f);
 			Vector3 vector3 = connect.bone.InverseTransformPoint(self.bone.position);
 			if (vector3 != Vector3.zero)
 			{
-				AuthorShared.Scene.DrawBone(Vector3.zero, Quaternion.LookRotation(vector3), vector3.magnitude, 0.02f, new Vector3(0.05f, 0.05f, 0.5f));
+				global::AuthorShared.Scene.DrawBone(Vector3.zero, Quaternion.LookRotation(vector3), vector3.magnitude, 0.02f, new Vector3(0.05f, 0.05f, 0.5f));
 			}
-			AuthorShared.Scene.color = color;
+			global::AuthorShared.Scene.color = color;
 		}
-		AuthorShared.Scene.matrix = self.bone.localToWorldMatrix;
+		global::AuthorShared.Scene.matrix = self.bone.localToWorldMatrix;
 		bool result = false;
-		if (AuthorShared.Scene.PivotDrag(ref v, ref vector))
+		if (global::AuthorShared.Scene.PivotDrag(ref v, ref vector))
 		{
 			result = true;
 			this.anchor = self.Flip(v);
 			this.axis = self.AxisFlip(vector);
 		}
-		AuthorChJoint.Kind kind = this.kind;
-		if (kind != AuthorChJoint.Kind.Hinge)
+		global::AuthorChJoint.Kind kind = this.kind;
+		if (kind != global::AuthorChJoint.Kind.Hinge)
 		{
-			if (kind == AuthorChJoint.Kind.Character)
+			if (kind == global::AuthorChJoint.Kind.Character)
 			{
-				Color color2 = AuthorShared.Scene.color;
-				AuthorShared.Scene.color = color2 * AuthorChJoint.twistColor;
+				Color color2 = global::AuthorShared.Scene.color;
+				global::AuthorShared.Scene.color = color2 * global::AuthorChJoint.twistColor;
 				SoftJointLimit softJointLimit = this.lowTwist;
 				SoftJointLimit highTwist = this.highTwist;
-				if (AuthorShared.Scene.LimitDrag(v, vector, ref this.twistOffset, ref softJointLimit, ref highTwist))
+				if (global::AuthorShared.Scene.LimitDrag(v, vector, ref this.twistOffset, ref softJointLimit, ref highTwist))
 				{
 					result = true;
 					this.lowTwist = softJointLimit;
 					this.highTwist = highTwist;
 				}
-				AuthorShared.Scene.color = color2 * AuthorChJoint.swing1Color;
+				global::AuthorShared.Scene.color = color2 * global::AuthorChJoint.swing1Color;
 				softJointLimit = this.swing1;
-				if (AuthorShared.Scene.LimitDrag(v, vector2, ref this.swingOffset1, ref softJointLimit))
+				if (global::AuthorShared.Scene.LimitDrag(v, vector2, ref this.swingOffset1, ref softJointLimit))
 				{
 					result = true;
 					this.swing1 = softJointLimit;
 				}
-				AuthorShared.Scene.color = color2 * AuthorChJoint.swing2Color;
+				global::AuthorShared.Scene.color = color2 * global::AuthorChJoint.swing2Color;
 				softJointLimit = this.swing2;
-				if (AuthorShared.Scene.LimitDrag(v, Vector3.Cross(vector2, vector), ref this.swingOffset2, ref softJointLimit))
+				if (global::AuthorShared.Scene.LimitDrag(v, Vector3.Cross(vector2, vector), ref this.swingOffset2, ref softJointLimit))
 				{
 					result = true;
 					this.swing2 = softJointLimit;
 				}
-				AuthorShared.Scene.color = color2;
+				global::AuthorShared.Scene.color = color2;
 			}
 		}
 		else if (this.useLimit)
 		{
 			JointLimits limit = this.limit;
-			if (AuthorShared.Scene.LimitDrag(v, vector, ref this.limitOffset, ref limit))
+			if (global::AuthorShared.Scene.LimitDrag(v, vector, ref this.limitOffset, ref limit))
 			{
 				result = true;
 				this.limit = limit;
 			}
 		}
-		AuthorShared.Scene.matrix = matrix;
+		global::AuthorShared.Scene.matrix = matrix;
 		return result;
 	}
 
-	// Token: 0x0600019F RID: 415 RVA: 0x00007DF4 File Offset: 0x00005FF4
+	// Token: 0x060001EB RID: 491 RVA: 0x00008B54 File Offset: 0x00006D54
 	public override bool OnSceneView()
 	{
 		bool flag = base.OnSceneView();
-		AuthorChHit.Rep primary = this.self.primary;
-		AuthorChHit.Rep secondary = this.self.secondary;
-		AuthorChHit.Rep rep = default(AuthorChHit.Rep);
-		AuthorChHit.Rep rep2 = default(AuthorChHit.Rep);
+		global::AuthorChHit.Rep primary = this.self.primary;
+		global::AuthorChHit.Rep secondary = this.self.secondary;
+		global::AuthorChHit.Rep rep = default(global::AuthorChHit.Rep);
+		global::AuthorChHit.Rep rep2 = default(global::AuthorChHit.Rep);
 		if (this.connect)
 		{
 			rep = this.connect.primary;
@@ -373,23 +373,23 @@ public class AuthorChJoint : AuthorPeice
 		return flag;
 	}
 
-	// Token: 0x060001A0 RID: 416 RVA: 0x00007EA4 File Offset: 0x000060A4
-	private static bool Field(AuthorShared.Content content, ref JointLimits limits, ref bool use, ref float offset)
+	// Token: 0x060001EC RID: 492 RVA: 0x00008C04 File Offset: 0x00006E04
+	private static bool Field(global::AuthorShared.Content content, ref JointLimits limits, ref bool use, ref float offset)
 	{
-		GUI.Box(AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
-		AuthorShared.PrefixLabel(content);
+		GUI.Box(global::AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
+		global::AuthorShared.PrefixLabel(content);
 		bool flag = use;
-		bool flag2 = AuthorShared.Change(ref use, GUILayout.Toggle(use, "Use", new GUILayoutOption[0]));
+		bool flag2 = global::AuthorShared.Change(ref use, GUILayout.Toggle(use, "Use", new GUILayoutOption[0]));
 		if (flag)
 		{
 			float min = limits.min;
 			float max = limits.max;
 			float minBounce = limits.minBounce;
 			float maxBounce = limits.maxBounce;
-			flag2 |= AuthorShared.FloatField("Min", ref min, new GUILayoutOption[0]);
-			flag2 |= AuthorShared.FloatField("Max", ref max, new GUILayoutOption[0]);
-			flag2 |= AuthorShared.FloatField("Min bounciness", ref minBounce, new GUILayoutOption[0]);
-			flag2 |= AuthorShared.FloatField("Max bounciness", ref maxBounce, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Min", ref min, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Max", ref max, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Min bounciness", ref minBounce, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Max bounciness", ref maxBounce, new GUILayoutOption[0]);
 			if (use && flag2)
 			{
 				limits.min = min;
@@ -399,28 +399,28 @@ public class AuthorChJoint : AuthorPeice
 			}
 			Color contentColor = GUI.contentColor;
 			GUI.contentColor = contentColor * new Color(1f, 1f, 1f, 0.3f);
-			flag2 |= AuthorShared.FloatField("Offset(visual only)", ref offset, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Offset(visual only)", ref offset, new GUILayoutOption[0]);
 			GUI.contentColor = contentColor;
 		}
-		AuthorShared.EndVertical();
+		global::AuthorShared.EndVertical();
 		return flag2;
 	}
 
-	// Token: 0x060001A1 RID: 417 RVA: 0x00007FF4 File Offset: 0x000061F4
-	private static bool Field(AuthorShared.Content content, ref JointMotor motor, ref bool use)
+	// Token: 0x060001ED RID: 493 RVA: 0x00008D54 File Offset: 0x00006F54
+	private static bool Field(global::AuthorShared.Content content, ref JointMotor motor, ref bool use)
 	{
-		GUI.Box(AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
-		AuthorShared.PrefixLabel(content);
+		GUI.Box(global::AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
+		global::AuthorShared.PrefixLabel(content);
 		bool flag = use;
-		bool flag2 = AuthorShared.Change(ref use, GUILayout.Toggle(use, "Use", new GUILayoutOption[0]));
+		bool flag2 = global::AuthorShared.Change(ref use, GUILayout.Toggle(use, "Use", new GUILayoutOption[0]));
 		if (flag)
 		{
 			float force = motor.force;
 			float targetVelocity = motor.targetVelocity;
 			bool freeSpin = motor.freeSpin;
-			flag2 |= AuthorShared.FloatField("Force", ref force, new GUILayoutOption[0]);
-			flag2 |= AuthorShared.FloatField("Target Velocity", ref targetVelocity, new GUILayoutOption[0]);
-			flag2 |= AuthorShared.Change(ref freeSpin, GUILayout.Toggle(freeSpin, "Free Spin", new GUILayoutOption[0]));
+			flag2 |= global::AuthorShared.FloatField("Force", ref force, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Target Velocity", ref targetVelocity, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.Change(ref freeSpin, GUILayout.Toggle(freeSpin, "Free Spin", new GUILayoutOption[0]));
 			if (use && flag2)
 			{
 				motor.force = force;
@@ -428,25 +428,25 @@ public class AuthorChJoint : AuthorPeice
 				motor.freeSpin = freeSpin;
 			}
 		}
-		AuthorShared.EndVertical();
+		global::AuthorShared.EndVertical();
 		return flag2;
 	}
 
-	// Token: 0x060001A2 RID: 418 RVA: 0x000080D0 File Offset: 0x000062D0
-	private static bool Field(AuthorShared.Content content, ref JointSpring spring, ref bool use)
+	// Token: 0x060001EE RID: 494 RVA: 0x00008E30 File Offset: 0x00007030
+	private static bool Field(global::AuthorShared.Content content, ref JointSpring spring, ref bool use)
 	{
-		GUI.Box(AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
-		AuthorShared.PrefixLabel(content);
+		GUI.Box(global::AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
+		global::AuthorShared.PrefixLabel(content);
 		bool flag = use;
-		bool flag2 = AuthorShared.Change(ref use, GUILayout.Toggle(use, "Use", new GUILayoutOption[0]));
+		bool flag2 = global::AuthorShared.Change(ref use, GUILayout.Toggle(use, "Use", new GUILayoutOption[0]));
 		if (flag)
 		{
 			float spring2 = spring.spring;
 			float targetPosition = spring.targetPosition;
 			float damper = spring.damper;
-			flag2 |= AuthorShared.FloatField("Spring Force", ref spring2, new GUILayoutOption[0]);
-			flag2 |= AuthorShared.FloatField("Target Position", ref targetPosition, new GUILayoutOption[0]);
-			flag2 |= AuthorShared.FloatField("Damper", ref damper, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Spring Force", ref spring2, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Target Position", ref targetPosition, new GUILayoutOption[0]);
+			flag2 |= global::AuthorShared.FloatField("Damper", ref damper, new GUILayoutOption[0]);
 			if (use && flag2)
 			{
 				spring.spring = spring2;
@@ -454,23 +454,23 @@ public class AuthorChJoint : AuthorPeice
 				spring.damper = damper;
 			}
 		}
-		AuthorShared.EndVertical();
+		global::AuthorShared.EndVertical();
 		return flag2;
 	}
 
-	// Token: 0x060001A3 RID: 419 RVA: 0x000081A8 File Offset: 0x000063A8
-	private static bool Field(AuthorShared.Content content, ref SoftJointLimit limits, ref float offset)
+	// Token: 0x060001EF RID: 495 RVA: 0x00008F08 File Offset: 0x00007108
+	private static bool Field(global::AuthorShared.Content content, ref SoftJointLimit limits, ref float offset)
 	{
-		GUI.Box(AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
-		AuthorShared.PrefixLabel(content);
+		GUI.Box(global::AuthorShared.BeginVertical(new GUILayoutOption[0]), GUIContent.none);
+		global::AuthorShared.PrefixLabel(content);
 		float limit = limits.limit;
 		float spring = limits.spring;
 		float damper = limits.damper;
 		float bounciness = limits.bounciness;
-		bool flag = AuthorShared.FloatField("Limit", ref limit, new GUILayoutOption[0]);
-		flag |= AuthorShared.FloatField("Spring", ref spring, new GUILayoutOption[0]);
-		flag |= AuthorShared.FloatField("Damper", ref damper, new GUILayoutOption[0]);
-		flag |= AuthorShared.FloatField("Bounciness", ref bounciness, new GUILayoutOption[0]);
+		bool flag = global::AuthorShared.FloatField("Limit", ref limit, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.FloatField("Spring", ref spring, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.FloatField("Damper", ref damper, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.FloatField("Bounciness", ref bounciness, new GUILayoutOption[0]);
 		if (flag)
 		{
 			limits.limit = limit;
@@ -480,13 +480,13 @@ public class AuthorChJoint : AuthorPeice
 		}
 		Color contentColor = GUI.contentColor;
 		GUI.contentColor = contentColor * new Color(1f, 1f, 1f, 0.3f);
-		flag |= AuthorShared.FloatField("Offset(visual only)", ref offset, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.FloatField("Offset(visual only)", ref offset, new GUILayoutOption[0]);
 		GUI.contentColor = contentColor;
-		AuthorShared.EndVertical();
+		global::AuthorShared.EndVertical();
 		return flag;
 	}
 
-	// Token: 0x060001A4 RID: 420 RVA: 0x000082D4 File Offset: 0x000064D4
+	// Token: 0x060001F0 RID: 496 RVA: 0x00009034 File Offset: 0x00007234
 	protected override void OnPeiceDestroy()
 	{
 		try
@@ -502,52 +502,52 @@ public class AuthorChJoint : AuthorPeice
 		}
 	}
 
-	// Token: 0x060001A5 RID: 421 RVA: 0x00008328 File Offset: 0x00006528
+	// Token: 0x060001F1 RID: 497 RVA: 0x00009088 File Offset: 0x00007288
 	public override bool PeiceInspectorGUI()
 	{
 		bool flag = base.PeiceInspectorGUI();
 		string peiceID = base.peiceID;
-		if (AuthorShared.StringField("Title", ref peiceID, new GUILayoutOption[0]))
+		if (global::AuthorShared.StringField("Title", ref peiceID, new GUILayoutOption[0]))
 		{
 			base.peiceID = peiceID;
 			flag = true;
 		}
-		AuthorShared.EnumField("Kind", this.kind, new GUILayoutOption[0]);
-		AuthorShared.PrefixLabel("Self");
-		if (GUILayout.Button(AuthorShared.ObjectContent<AuthorChHit>(this.self, typeof(AuthorChHit)), new GUILayoutOption[0]))
+		global::AuthorShared.EnumField("Kind", this.kind, new GUILayoutOption[0]);
+		global::AuthorShared.PrefixLabel("Self");
+		if (GUILayout.Button(global::AuthorShared.ObjectContent<global::AuthorChHit>(this.self, typeof(global::AuthorChHit)), new GUILayoutOption[0]))
 		{
-			AuthorShared.PingObject(this.self);
+			global::AuthorShared.PingObject(this.self);
 		}
-		flag |= AuthorShared.PeiceField<AuthorChHit>("Connected", this, ref this.connect, typeof(AuthorChHit), GUI.skin.button, new GUILayoutOption[0]);
-		flag |= AuthorShared.Toggle("Reverse Link", ref this.reverseLink, new GUILayoutOption[0]);
-		flag |= AuthorShared.Vector3Field("Anchor", ref this.anchor, new GUILayoutOption[0]);
-		flag |= AuthorShared.Vector3Field("Axis", ref this.axis, new GUILayoutOption[0]);
-		AuthorChJoint.Kind kind = this.kind;
-		if (kind != AuthorChJoint.Kind.Hinge)
+		flag |= global::AuthorShared.PeiceField<global::AuthorChHit>("Connected", this, ref this.connect, typeof(global::AuthorChHit), GUI.skin.button, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.Toggle("Reverse Link", ref this.reverseLink, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.Vector3Field("Anchor", ref this.anchor, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.Vector3Field("Axis", ref this.axis, new GUILayoutOption[0]);
+		global::AuthorChJoint.Kind kind = this.kind;
+		if (kind != global::AuthorChJoint.Kind.Hinge)
 		{
-			if (kind == AuthorChJoint.Kind.Character)
+			if (kind == global::AuthorChJoint.Kind.Character)
 			{
-				flag |= AuthorShared.Vector3Field("Swing Axis", ref this.swingAxis, new GUILayoutOption[0]);
+				flag |= global::AuthorShared.Vector3Field("Swing Axis", ref this.swingAxis, new GUILayoutOption[0]);
 				SoftJointLimit softJointLimit = this.lowTwist;
-				if (AuthorChJoint.Field("Low Twist", ref softJointLimit, ref this.twistOffset))
+				if (global::AuthorChJoint.Field("Low Twist", ref softJointLimit, ref this.twistOffset))
 				{
 					flag = true;
 					this.lowTwist = softJointLimit;
 				}
 				softJointLimit = this.highTwist;
-				if (AuthorChJoint.Field("High Twist", ref softJointLimit, ref this.twistOffset))
+				if (global::AuthorChJoint.Field("High Twist", ref softJointLimit, ref this.twistOffset))
 				{
 					flag = true;
 					this.highTwist = softJointLimit;
 				}
 				softJointLimit = this.swing1;
-				if (AuthorChJoint.Field("Swing 1", ref softJointLimit, ref this.swingOffset1))
+				if (global::AuthorChJoint.Field("Swing 1", ref softJointLimit, ref this.swingOffset1))
 				{
 					flag = true;
 					this.swing1 = softJointLimit;
 				}
 				softJointLimit = this.swing2;
-				if (AuthorChJoint.Field("Swing 2", ref softJointLimit, ref this.swingOffset2))
+				if (global::AuthorChJoint.Field("Swing 2", ref softJointLimit, ref this.swingOffset2))
 				{
 					flag = true;
 					this.swing2 = softJointLimit;
@@ -557,229 +557,229 @@ public class AuthorChJoint : AuthorPeice
 		else
 		{
 			JointLimits limit = this.limit;
-			if (AuthorChJoint.Field("Limits", ref limit, ref this.useLimit, ref this.limitOffset))
+			if (global::AuthorChJoint.Field("Limits", ref limit, ref this.useLimit, ref this.limitOffset))
 			{
 				flag = true;
 				this.limit = limit;
 			}
 		}
-		flag |= AuthorShared.FloatField("Break Force", ref this.breakForce, new GUILayoutOption[0]);
-		return flag | AuthorShared.FloatField("Break Torque", ref this.breakTorque, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.FloatField("Break Force", ref this.breakForce, new GUILayoutOption[0]);
+		return flag | global::AuthorShared.FloatField("Break Torque", ref this.breakTorque, new GUILayoutOption[0]);
 	}
 
-	// Token: 0x060001A6 RID: 422 RVA: 0x000085C0 File Offset: 0x000067C0
-	internal void InitializeFromOwner(AuthorChHit self, AuthorChJoint.Kind kind)
+	// Token: 0x060001F2 RID: 498 RVA: 0x00009320 File Offset: 0x00007520
+	internal void InitializeFromOwner(global::AuthorChHit self, global::AuthorChJoint.Kind kind)
 	{
 		this.self = self;
 		this.kind = kind;
-		AuthorShared.SetDirty(this);
+		global::AuthorShared.SetDirty(this);
 	}
 
-	// Token: 0x040000BC RID: 188
+	// Token: 0x040000FC RID: 252
 	[SerializeField]
-	private AuthorChHit self;
+	private global::AuthorChHit self;
 
-	// Token: 0x040000BD RID: 189
+	// Token: 0x040000FD RID: 253
 	[SerializeField]
-	private AuthorChHit connect;
+	private global::AuthorChHit connect;
 
-	// Token: 0x040000BE RID: 190
+	// Token: 0x040000FE RID: 254
 	[SerializeField]
-	private AuthorChJoint.Kind kind;
+	private global::AuthorChJoint.Kind kind;
 
-	// Token: 0x040000BF RID: 191
+	// Token: 0x040000FF RID: 255
 	[SerializeField]
 	private bool reverseLink;
 
-	// Token: 0x040000C0 RID: 192
+	// Token: 0x04000100 RID: 256
 	[SerializeField]
 	private Vector3 anchor;
 
-	// Token: 0x040000C1 RID: 193
+	// Token: 0x04000101 RID: 257
 	[SerializeField]
 	private Vector3 axis = Vector3.up;
 
-	// Token: 0x040000C2 RID: 194
+	// Token: 0x04000102 RID: 258
 	[SerializeField]
 	private Vector3 swingAxis = Vector3.forward;
 
-	// Token: 0x040000C3 RID: 195
+	// Token: 0x04000103 RID: 259
 	[SerializeField]
 	private float twistL_limit = -20f;
 
-	// Token: 0x040000C4 RID: 196
+	// Token: 0x04000104 RID: 260
 	[SerializeField]
 	private float twistL_bounce;
 
-	// Token: 0x040000C5 RID: 197
+	// Token: 0x04000105 RID: 261
 	[SerializeField]
 	private float twistL_dampler;
 
-	// Token: 0x040000C6 RID: 198
+	// Token: 0x04000106 RID: 262
 	[SerializeField]
 	private float twistL_spring;
 
-	// Token: 0x040000C7 RID: 199
+	// Token: 0x04000107 RID: 263
 	[SerializeField]
 	private float twistH_limit = 70f;
 
-	// Token: 0x040000C8 RID: 200
+	// Token: 0x04000108 RID: 264
 	[SerializeField]
 	private float twistH_bounce;
 
-	// Token: 0x040000C9 RID: 201
+	// Token: 0x04000109 RID: 265
 	[SerializeField]
 	private float twistH_dampler;
 
-	// Token: 0x040000CA RID: 202
+	// Token: 0x0400010A RID: 266
 	[SerializeField]
 	private float twistH_spring;
 
-	// Token: 0x040000CB RID: 203
+	// Token: 0x0400010B RID: 267
 	[SerializeField]
 	private float swing1_limit = 20f;
 
-	// Token: 0x040000CC RID: 204
+	// Token: 0x0400010C RID: 268
 	[SerializeField]
 	private float swing1_bounce;
 
-	// Token: 0x040000CD RID: 205
+	// Token: 0x0400010D RID: 269
 	[SerializeField]
 	private float swing1_dampler;
 
-	// Token: 0x040000CE RID: 206
+	// Token: 0x0400010E RID: 270
 	[SerializeField]
 	private float swing1_spring;
 
-	// Token: 0x040000CF RID: 207
+	// Token: 0x0400010F RID: 271
 	[SerializeField]
 	private float swing2_limit = 20f;
 
-	// Token: 0x040000D0 RID: 208
+	// Token: 0x04000110 RID: 272
 	[SerializeField]
 	private float swing2_bounce;
 
-	// Token: 0x040000D1 RID: 209
+	// Token: 0x04000111 RID: 273
 	[SerializeField]
 	private float swing2_dampler;
 
-	// Token: 0x040000D2 RID: 210
+	// Token: 0x04000112 RID: 274
 	[SerializeField]
 	private float swing2_spring;
 
-	// Token: 0x040000D3 RID: 211
+	// Token: 0x04000113 RID: 275
 	[SerializeField]
 	private float h_limit_min;
 
-	// Token: 0x040000D4 RID: 212
+	// Token: 0x04000114 RID: 276
 	[SerializeField]
 	private float h_limit_max;
 
-	// Token: 0x040000D5 RID: 213
+	// Token: 0x04000115 RID: 277
 	[SerializeField]
 	private float h_limit_minb;
 
-	// Token: 0x040000D6 RID: 214
+	// Token: 0x04000116 RID: 278
 	[SerializeField]
 	private float h_limit_maxb;
 
-	// Token: 0x040000D7 RID: 215
+	// Token: 0x04000117 RID: 279
 	[SerializeField]
 	private float h_spring_s;
 
-	// Token: 0x040000D8 RID: 216
+	// Token: 0x04000118 RID: 280
 	[SerializeField]
 	private float h_spring_d;
 
-	// Token: 0x040000D9 RID: 217
+	// Token: 0x04000119 RID: 281
 	[SerializeField]
 	private float h_spring_t;
 
-	// Token: 0x040000DA RID: 218
+	// Token: 0x0400011A RID: 282
 	[SerializeField]
 	private float h_motor_f;
 
-	// Token: 0x040000DB RID: 219
+	// Token: 0x0400011B RID: 283
 	[SerializeField]
 	private float h_motor_v;
 
-	// Token: 0x040000DC RID: 220
+	// Token: 0x0400011C RID: 284
 	[SerializeField]
 	private bool h_motor_s;
 
-	// Token: 0x040000DD RID: 221
+	// Token: 0x0400011D RID: 285
 	[SerializeField]
 	private float spring_spring;
 
-	// Token: 0x040000DE RID: 222
+	// Token: 0x0400011E RID: 286
 	[SerializeField]
 	private float spring_min;
 
-	// Token: 0x040000DF RID: 223
+	// Token: 0x0400011F RID: 287
 	[SerializeField]
 	private float spring_max;
 
-	// Token: 0x040000E0 RID: 224
+	// Token: 0x04000120 RID: 288
 	[SerializeField]
 	private float spring_damper;
 
-	// Token: 0x040000E1 RID: 225
+	// Token: 0x04000121 RID: 289
 	[SerializeField]
 	private bool useLimit;
 
-	// Token: 0x040000E2 RID: 226
+	// Token: 0x04000122 RID: 290
 	[SerializeField]
 	private bool useSpring;
 
-	// Token: 0x040000E3 RID: 227
+	// Token: 0x04000123 RID: 291
 	[SerializeField]
 	private bool useMotor;
 
-	// Token: 0x040000E4 RID: 228
+	// Token: 0x04000124 RID: 292
 	[SerializeField]
 	private float limitOffset;
 
-	// Token: 0x040000E5 RID: 229
+	// Token: 0x04000125 RID: 293
 	[SerializeField]
 	private float twistOffset;
 
-	// Token: 0x040000E6 RID: 230
+	// Token: 0x04000126 RID: 294
 	[SerializeField]
 	private float swingOffset1;
 
-	// Token: 0x040000E7 RID: 231
+	// Token: 0x04000127 RID: 295
 	[SerializeField]
 	private float swingOffset2;
 
-	// Token: 0x040000E8 RID: 232
+	// Token: 0x04000128 RID: 296
 	[SerializeField]
 	private float breakForce = float.PositiveInfinity;
 
-	// Token: 0x040000E9 RID: 233
+	// Token: 0x04000129 RID: 297
 	[SerializeField]
 	private float breakTorque = float.PositiveInfinity;
 
-	// Token: 0x040000EA RID: 234
+	// Token: 0x0400012A RID: 298
 	private static readonly Color twistColor = new Color(1f, 1f, 0.4f, 0.8f);
 
-	// Token: 0x040000EB RID: 235
+	// Token: 0x0400012B RID: 299
 	private static readonly Color swing1Color = new Color(1f, 0.4f, 1f, 0.8f);
 
-	// Token: 0x040000EC RID: 236
+	// Token: 0x0400012C RID: 300
 	private static readonly Color swing2Color = new Color(0.4f, 1f, 1f, 0.8f);
 
-	// Token: 0x02000027 RID: 39
+	// Token: 0x02000034 RID: 52
 	public enum Kind
 	{
-		// Token: 0x040000EE RID: 238
+		// Token: 0x0400012E RID: 302
 		None,
-		// Token: 0x040000EF RID: 239
+		// Token: 0x0400012F RID: 303
 		Hinge,
-		// Token: 0x040000F0 RID: 240
+		// Token: 0x04000130 RID: 304
 		Character,
-		// Token: 0x040000F1 RID: 241
+		// Token: 0x04000131 RID: 305
 		Fixed,
-		// Token: 0x040000F2 RID: 242
+		// Token: 0x04000132 RID: 306
 		Spring
 	}
 }

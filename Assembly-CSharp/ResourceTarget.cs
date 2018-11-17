@@ -3,45 +3,45 @@ using System.Collections.Generic;
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x020004B8 RID: 1208
+// Token: 0x02000573 RID: 1395
 public class ResourceTarget : MonoBehaviour
 {
-	// Token: 0x04001636 RID: 5686
+	// Token: 0x040017F3 RID: 6131
 	[SerializeField]
-	public List<ResourceGivePair> resourcesAvailable;
+	public List<global::ResourceGivePair> resourcesAvailable;
 
-	// Token: 0x04001637 RID: 5687
+	// Token: 0x040017F4 RID: 6132
 	public float gatherEfficiencyMultiplier = 1f;
 
-	// Token: 0x04001638 RID: 5688
+	// Token: 0x040017F5 RID: 6133
 	private float gatherProgress;
 
-	// Token: 0x04001639 RID: 5689
-	public ResourceTarget.ResourceTargetType type;
+	// Token: 0x040017F6 RID: 6134
+	public global::ResourceTarget.ResourceTargetType type;
 
-	// Token: 0x0400163A RID: 5690
+	// Token: 0x040017F7 RID: 6135
 	private int startingTotal;
 
-	// Token: 0x0400163B RID: 5691
+	// Token: 0x040017F8 RID: 6136
 	[NonSerialized]
 	private bool _initialized;
 
-	// Token: 0x020004B9 RID: 1209
+	// Token: 0x02000574 RID: 1396
 	public enum ResourceTargetType
 	{
-		// Token: 0x0400163D RID: 5693
+		// Token: 0x040017FA RID: 6138
 		Animal,
-		// Token: 0x0400163E RID: 5694
+		// Token: 0x040017FB RID: 6139
 		WoodPile,
-		// Token: 0x0400163F RID: 5695
+		// Token: 0x040017FC RID: 6140
 		StaticTree,
-		// Token: 0x04001640 RID: 5696
+		// Token: 0x040017FD RID: 6141
 		Rock1,
-		// Token: 0x04001641 RID: 5697
+		// Token: 0x040017FE RID: 6142
 		Rock2,
-		// Token: 0x04001642 RID: 5698
+		// Token: 0x040017FF RID: 6143
 		Rock3,
-		// Token: 0x04001643 RID: 5699
+		// Token: 0x04001800 RID: 6144
 		LAST = 5
 	}
 }

@@ -3,12 +3,12 @@ using NGUI.Meshing;
 using NGUI.Structures;
 using UnityEngine;
 
-// Token: 0x02000428 RID: 1064
-public class UISpriteWheel : UISlicedSprite
+// Token: 0x020004DE RID: 1246
+public class UISpriteWheel : global::UISlicedSprite
 {
-	// Token: 0x1700090D RID: 2317
-	// (get) Token: 0x0600277A RID: 10106 RVA: 0x00099DA0 File Offset: 0x00097FA0
-	// (set) Token: 0x0600277B RID: 10107 RVA: 0x00099DA8 File Offset: 0x00097FA8
+	// Token: 0x17000975 RID: 2421
+	// (get) Token: 0x06002B0A RID: 11018 RVA: 0x0009FD20 File Offset: 0x0009DF20
+	// (set) Token: 0x06002B0B RID: 11019 RVA: 0x0009FD28 File Offset: 0x0009DF28
 	public float innerRadius
 	{
 		get
@@ -41,9 +41,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x1700090E RID: 2318
-	// (get) Token: 0x0600277C RID: 10108 RVA: 0x00099E30 File Offset: 0x00098030
-	// (set) Token: 0x0600277D RID: 10109 RVA: 0x00099E40 File Offset: 0x00098040
+	// Token: 0x17000976 RID: 2422
+	// (get) Token: 0x06002B0C RID: 11020 RVA: 0x0009FDB0 File Offset: 0x0009DFB0
+	// (set) Token: 0x06002B0D RID: 11021 RVA: 0x0009FDC0 File Offset: 0x0009DFC0
 	public float outerRadius
 	{
 		get
@@ -56,9 +56,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x1700090F RID: 2319
-	// (get) Token: 0x0600277E RID: 10110 RVA: 0x00099E50 File Offset: 0x00098050
-	// (set) Token: 0x0600277F RID: 10111 RVA: 0x00099E58 File Offset: 0x00098058
+	// Token: 0x17000977 RID: 2423
+	// (get) Token: 0x06002B0E RID: 11022 RVA: 0x0009FDD0 File Offset: 0x0009DFD0
+	// (set) Token: 0x06002B0F RID: 11023 RVA: 0x0009FDD8 File Offset: 0x0009DFD8
 	public float sliceDegrees
 	{
 		get
@@ -79,9 +79,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x17000910 RID: 2320
-	// (get) Token: 0x06002780 RID: 10112 RVA: 0x00099E88 File Offset: 0x00098088
-	// (set) Token: 0x06002781 RID: 10113 RVA: 0x00099E90 File Offset: 0x00098090
+	// Token: 0x17000978 RID: 2424
+	// (get) Token: 0x06002B10 RID: 11024 RVA: 0x0009FE08 File Offset: 0x0009E008
+	// (set) Token: 0x06002B11 RID: 11025 RVA: 0x0009FE10 File Offset: 0x0009E010
 	public float circumferenceFillRatio
 	{
 		get
@@ -106,9 +106,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x17000911 RID: 2321
-	// (get) Token: 0x06002782 RID: 10114 RVA: 0x00099EE0 File Offset: 0x000980E0
-	// (set) Token: 0x06002783 RID: 10115 RVA: 0x00099EE8 File Offset: 0x000980E8
+	// Token: 0x17000979 RID: 2425
+	// (get) Token: 0x06002B12 RID: 11026 RVA: 0x0009FE60 File Offset: 0x0009E060
+	// (set) Token: 0x06002B13 RID: 11027 RVA: 0x0009FE68 File Offset: 0x0009E068
 	public float degreesOfRotation
 	{
 		get
@@ -133,9 +133,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x17000912 RID: 2322
-	// (get) Token: 0x06002784 RID: 10116 RVA: 0x00099F38 File Offset: 0x00098138
-	// (set) Token: 0x06002785 RID: 10117 RVA: 0x00099F40 File Offset: 0x00098140
+	// Token: 0x1700097A RID: 2426
+	// (get) Token: 0x06002B14 RID: 11028 RVA: 0x0009FEB8 File Offset: 0x0009E0B8
+	// (set) Token: 0x06002B15 RID: 11029 RVA: 0x0009FEC0 File Offset: 0x0009E0C0
 	public float facialCrank
 	{
 		get
@@ -160,9 +160,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x17000913 RID: 2323
-	// (get) Token: 0x06002786 RID: 10118 RVA: 0x00099F90 File Offset: 0x00098190
-	// (set) Token: 0x06002787 RID: 10119 RVA: 0x00099F98 File Offset: 0x00098198
+	// Token: 0x1700097B RID: 2427
+	// (get) Token: 0x06002B16 RID: 11030 RVA: 0x0009FF10 File Offset: 0x0009E110
+	// (set) Token: 0x06002B17 RID: 11031 RVA: 0x0009FF18 File Offset: 0x0009E118
 	public float additionalRotation
 	{
 		get
@@ -191,9 +191,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x17000914 RID: 2324
-	// (get) Token: 0x06002788 RID: 10120 RVA: 0x0009A008 File Offset: 0x00098208
-	// (set) Token: 0x06002789 RID: 10121 RVA: 0x0009A010 File Offset: 0x00098210
+	// Token: 0x1700097C RID: 2428
+	// (get) Token: 0x06002B18 RID: 11032 RVA: 0x0009FF88 File Offset: 0x0009E188
+	// (set) Token: 0x06002B19 RID: 11033 RVA: 0x0009FF90 File Offset: 0x0009E190
 	public float targetDegreeResolution
 	{
 		get
@@ -214,9 +214,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x17000915 RID: 2325
-	// (get) Token: 0x0600278A RID: 10122 RVA: 0x0009A040 File Offset: 0x00098240
-	// (set) Token: 0x0600278B RID: 10123 RVA: 0x0009A048 File Offset: 0x00098248
+	// Token: 0x1700097D RID: 2429
+	// (get) Token: 0x06002B1A RID: 11034 RVA: 0x0009FFC0 File Offset: 0x0009E1C0
+	// (set) Token: 0x06002B1B RID: 11035 RVA: 0x0009FFC8 File Offset: 0x0009E1C8
 	public Vector2 center
 	{
 		get
@@ -233,9 +233,9 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x17000916 RID: 2326
-	// (get) Token: 0x0600278C RID: 10124 RVA: 0x0009A068 File Offset: 0x00098268
-	// (set) Token: 0x0600278D RID: 10125 RVA: 0x0009A070 File Offset: 0x00098270
+	// Token: 0x1700097E RID: 2430
+	// (get) Token: 0x06002B1C RID: 11036 RVA: 0x0009FFE8 File Offset: 0x0009E1E8
+	// (set) Token: 0x06002B1D RID: 11037 RVA: 0x0009FFF0 File Offset: 0x0009E1F0
 	public int slices
 	{
 		get
@@ -260,8 +260,8 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x0600278E RID: 10126 RVA: 0x0009A0B8 File Offset: 0x000982B8
-	public override void OnFill(MeshBuffer m)
+	// Token: 0x06002B1E RID: 11038 RVA: 0x000A0038 File Offset: 0x0009E238
+	public override void OnFill(NGUI.Meshing.MeshBuffer m)
 	{
 		float num = this._degreesOfRotation * 0.0174532924f;
 		float num2 = this._sliceDegrees * 0.0174532924f;
@@ -271,7 +271,7 @@ public class UISpriteWheel : UISlicedSprite
 		float num5 = num4 / (float)num3;
 		float num6 = num4 / 6.28318548f;
 		float num7 = (num - num4) / (float)num3;
-		float3 @float = default(float3);
+		NGUI.Structures.float3 @float = default(NGUI.Structures.float3);
 		@float.xyz = base.cachedTransform.localScale;
 		float num8 = (@float.x >= @float.y) ? @float.x : @float.y;
 		@float.xy.x = 3.14159274f * num8 / (float)num3 * num6;
@@ -286,15 +286,15 @@ public class UISpriteWheel : UISlicedSprite
 		vector2.y = this.mInnerUV.yMin;
 		vector2.z = this.mInnerUV.yMax;
 		vector2.w = this.mOuterUV.yMax;
-		NineRectangle nineRectangle;
-		NineRectangle nineRectangle2;
-		NineRectangle.Calculate(UIWidget.Pivot.Center, base.atlas.pixelSize, base.mainTexture, ref vector, ref vector2, ref @float.xy, out nineRectangle, out nineRectangle2);
+		NGUI.Structures.NineRectangle nineRectangle;
+		NGUI.Structures.NineRectangle nineRectangle2;
+		NGUI.Structures.NineRectangle.Calculate(global::UIWidget.Pivot.Center, base.atlas.pixelSize, base.mainTexture, ref vector, ref vector2, ref @float.xy, out nineRectangle, out nineRectangle2);
 		if (this.innerRadius > 0f && !Mathf.Approximately(nineRectangle.zz.x - nineRectangle.yy.x, 0f))
 		{
 			@float.xy.x = 3.14159274f * num8 * this.innerRadius / (float)num3 * num6;
-			NineRectangle nineRectangle3;
-			NineRectangle nineRectangle4;
-			NineRectangle.Calculate(UIWidget.Pivot.Center, base.atlas.pixelSize, base.mainTexture, ref vector, ref vector2, ref @float.xy, out nineRectangle3, out nineRectangle4);
+			NGUI.Structures.NineRectangle nineRectangle3;
+			NGUI.Structures.NineRectangle nineRectangle4;
+			NGUI.Structures.NineRectangle.Calculate(global::UIWidget.Pivot.Center, base.atlas.pixelSize, base.mainTexture, ref vector, ref vector2, ref @float.xy, out nineRectangle3, out nineRectangle4);
 			float num9 = (nineRectangle.yy.x + nineRectangle.zz.x) * 0.5f;
 			if (nineRectangle3.yy.x > num9)
 			{
@@ -334,7 +334,7 @@ public class UISpriteWheel : UISlicedSprite
 		}
 		else
 		{
-			NineRectangle nineRectangle3;
+			NGUI.Structures.NineRectangle nineRectangle3;
 			nineRectangle3.xx.x = nineRectangle.xx.x;
 			nineRectangle3.xx.y = nineRectangle.xx.y;
 			nineRectangle3.yy.x = nineRectangle.yy.x;
@@ -343,7 +343,7 @@ public class UISpriteWheel : UISlicedSprite
 			nineRectangle3.zz.y = nineRectangle.zz.y;
 			nineRectangle3.ww.x = nineRectangle.ww.x;
 			nineRectangle3.ww.y = nineRectangle.ww.y;
-			NineRectangle nineRectangle4;
+			NGUI.Structures.NineRectangle nineRectangle4;
 			nineRectangle4.xx.x = nineRectangle2.xx.x;
 			nineRectangle4.xx.y = nineRectangle2.xx.y;
 			nineRectangle4.yy.x = nineRectangle2.yy.x;
@@ -370,7 +370,7 @@ public class UISpriteWheel : UISlicedSprite
 		float num20 = num7 * -0.5f + (this._facialRotationOffset * 0.5f + 0.5f) * num5 + this._addDegrees * 0.0174532924f;
 		for (;;)
 		{
-			Vertex[] v = m.v;
+			NGUI.Meshing.Vertex[] v = m.v;
 			int vSize = m.vSize;
 			for (int i = num18; i < vSize; i++)
 			{
@@ -388,48 +388,48 @@ public class UISpriteWheel : UISlicedSprite
 		}
 	}
 
-	// Token: 0x04001370 RID: 4976
-	[SerializeField]
+	// Token: 0x040014F3 RID: 5363
 	[HideInInspector]
+	[SerializeField]
 	private float _innerRadius = 0.5f;
 
-	// Token: 0x04001371 RID: 4977
-	[HideInInspector]
+	// Token: 0x040014F4 RID: 5364
 	[SerializeField]
+	[HideInInspector]
 	private Vector2 _center;
 
-	// Token: 0x04001372 RID: 4978
-	[HideInInspector]
+	// Token: 0x040014F5 RID: 5365
 	[SerializeField]
+	[HideInInspector]
 	private int _slices;
 
-	// Token: 0x04001373 RID: 4979
+	// Token: 0x040014F6 RID: 5366
 	[HideInInspector]
 	[SerializeField]
 	private float _sliceDegrees;
 
-	// Token: 0x04001374 RID: 4980
-	[HideInInspector]
+	// Token: 0x040014F7 RID: 5367
 	[SerializeField]
+	[HideInInspector]
 	private float _targetDegreeResolution = 10f;
 
-	// Token: 0x04001375 RID: 4981
+	// Token: 0x040014F8 RID: 5368
 	[SerializeField]
 	[HideInInspector]
 	private float _sliceFill = 1f;
 
-	// Token: 0x04001376 RID: 4982
+	// Token: 0x040014F9 RID: 5369
 	[HideInInspector]
 	[SerializeField]
 	private float _degreesOfRotation = 360f;
 
-	// Token: 0x04001377 RID: 4983
+	// Token: 0x040014FA RID: 5370
 	[HideInInspector]
 	[SerializeField]
 	private float _facialRotationOffset;
 
-	// Token: 0x04001378 RID: 4984
-	[HideInInspector]
+	// Token: 0x040014FB RID: 5371
 	[SerializeField]
+	[HideInInspector]
 	private float _addDegrees;
 }

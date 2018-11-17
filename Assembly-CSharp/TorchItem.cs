@@ -1,52 +1,52 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020005ED RID: 1517
-public abstract class TorchItem<T> : ThrowableItem<T> where T : TorchItemDataBlock
+// Token: 0x020006AB RID: 1707
+public abstract class TorchItem<T> : global::ThrowableItem<T> where T : global::TorchItemDataBlock
 {
-	// Token: 0x06003651 RID: 13905 RVA: 0x000C4630 File Offset: 0x000C2830
+	// Token: 0x06003A19 RID: 14873 RVA: 0x000CC88C File Offset: 0x000CAA8C
 	protected TorchItem(T db) : base(db)
 	{
 	}
 
-	// Token: 0x17000ACF RID: 2767
-	// (get) Token: 0x06003652 RID: 13906 RVA: 0x000C463C File Offset: 0x000C283C
-	// (set) Token: 0x06003653 RID: 13907 RVA: 0x000C4644 File Offset: 0x000C2844
+	// Token: 0x17000B45 RID: 2885
+	// (get) Token: 0x06003A1A RID: 14874 RVA: 0x000CC898 File Offset: 0x000CAA98
+	// (set) Token: 0x06003A1B RID: 14875 RVA: 0x000CC8A0 File Offset: 0x000CAAA0
 	public bool isLit { get; protected set; }
 
-	// Token: 0x17000AD0 RID: 2768
-	// (get) Token: 0x06003654 RID: 13908 RVA: 0x000C4650 File Offset: 0x000C2850
-	// (set) Token: 0x06003655 RID: 13909 RVA: 0x000C4658 File Offset: 0x000C2858
+	// Token: 0x17000B46 RID: 2886
+	// (get) Token: 0x06003A1C RID: 14876 RVA: 0x000CC8AC File Offset: 0x000CAAAC
+	// (set) Token: 0x06003A1D RID: 14877 RVA: 0x000CC8B4 File Offset: 0x000CAAB4
 	public float realThrowTime { get; set; }
 
-	// Token: 0x17000AD1 RID: 2769
-	// (get) Token: 0x06003656 RID: 13910 RVA: 0x000C4664 File Offset: 0x000C2864
-	// (set) Token: 0x06003657 RID: 13911 RVA: 0x000C466C File Offset: 0x000C286C
+	// Token: 0x17000B47 RID: 2887
+	// (get) Token: 0x06003A1E RID: 14878 RVA: 0x000CC8C0 File Offset: 0x000CAAC0
+	// (set) Token: 0x06003A1F RID: 14879 RVA: 0x000CC8C8 File Offset: 0x000CAAC8
 	public float realIgniteTime { get; set; }
 
-	// Token: 0x17000AD2 RID: 2770
-	// (get) Token: 0x06003658 RID: 13912 RVA: 0x000C4678 File Offset: 0x000C2878
-	// (set) Token: 0x06003659 RID: 13913 RVA: 0x000C4680 File Offset: 0x000C2880
+	// Token: 0x17000B48 RID: 2888
+	// (get) Token: 0x06003A20 RID: 14880 RVA: 0x000CC8D4 File Offset: 0x000CAAD4
+	// (set) Token: 0x06003A21 RID: 14881 RVA: 0x000CC8DC File Offset: 0x000CAADC
 	public float forceSecondaryTime { get; set; }
 
-	// Token: 0x17000AD3 RID: 2771
-	// (get) Token: 0x0600365A RID: 13914 RVA: 0x000C468C File Offset: 0x000C288C
-	// (set) Token: 0x0600365B RID: 13915 RVA: 0x000C4694 File Offset: 0x000C2894
+	// Token: 0x17000B49 RID: 2889
+	// (get) Token: 0x06003A22 RID: 14882 RVA: 0x000CC8E8 File Offset: 0x000CAAE8
+	// (set) Token: 0x06003A23 RID: 14883 RVA: 0x000CC8F0 File Offset: 0x000CAAF0
 	public GameObject light { get; set; }
 
-	// Token: 0x0600365C RID: 13916 RVA: 0x000C46A0 File Offset: 0x000C28A0
+	// Token: 0x06003A24 RID: 14884 RVA: 0x000CC8FC File Offset: 0x000CAAFC
 	public bool IsIgnited()
 	{
 		return this.isLit;
 	}
 
-	// Token: 0x0600365D RID: 13917 RVA: 0x000C46A8 File Offset: 0x000C28A8
+	// Token: 0x06003A25 RID: 14885 RVA: 0x000CC904 File Offset: 0x000CAB04
 	public void Ignite()
 	{
 		this.isLit = true;
 	}
 
-	// Token: 0x0600365E RID: 13918 RVA: 0x000C46B4 File Offset: 0x000C28B4
+	// Token: 0x06003A26 RID: 14886 RVA: 0x000CC910 File Offset: 0x000CAB10
 	protected override void OnSetActive(bool isActive)
 	{
 		base.OnSetActive(isActive);
@@ -56,7 +56,7 @@ public abstract class TorchItem<T> : ThrowableItem<T> where T : TorchItemDataBlo
 		}
 	}
 
-	// Token: 0x0600365F RID: 13919 RVA: 0x000C46CC File Offset: 0x000C28CC
+	// Token: 0x06003A27 RID: 14887 RVA: 0x000CC928 File Offset: 0x000CAB28
 	public virtual void OnHolstered()
 	{
 		if (this.isLit)
@@ -73,7 +73,7 @@ public abstract class TorchItem<T> : ThrowableItem<T> where T : TorchItemDataBlo
 		}
 	}
 
-	// Token: 0x06003660 RID: 13920 RVA: 0x000C472C File Offset: 0x000C292C
+	// Token: 0x06003A28 RID: 14888 RVA: 0x000CC988 File Offset: 0x000CAB88
 	public void Extinguish()
 	{
 		this.isLit = false;
@@ -84,7 +84,7 @@ public abstract class TorchItem<T> : ThrowableItem<T> where T : TorchItemDataBlo
 		}
 	}
 
-	// Token: 0x06003661 RID: 13921 RVA: 0x000C4764 File Offset: 0x000C2964
+	// Token: 0x06003A29 RID: 14889 RVA: 0x000CC9C0 File Offset: 0x000CABC0
 	protected override void DestroyViewModel()
 	{
 		if (this.light)
@@ -95,20 +95,20 @@ public abstract class TorchItem<T> : ThrowableItem<T> where T : TorchItemDataBlo
 		base.DestroyViewModel();
 	}
 
-	// Token: 0x06003662 RID: 13922 RVA: 0x000C479C File Offset: 0x000C299C
-	public override void ItemPreFrame(ref HumanController.InputSample sample)
+	// Token: 0x06003A2A RID: 14890 RVA: 0x000CC9F8 File Offset: 0x000CABF8
+	public override void ItemPreFrame(ref global::HumanController.InputSample sample)
 	{
 		base.ItemPreFrame(ref sample);
 		if (this.realThrowTime != 0f && Time.time >= this.realThrowTime)
 		{
 			T datablock = this.datablock;
-			datablock.DoActualThrow(base.itemRepresentation, this.iface as ITorchItem, base.viewModelInstance);
+			datablock.DoActualThrow(base.itemRepresentation, this.iface as global::ITorchItem, base.viewModelInstance);
 			this.realThrowTime = 0f;
 		}
 		if (this.realIgniteTime != 0f && Time.time >= this.realIgniteTime)
 		{
 			T datablock2 = this.datablock;
-			datablock2.DoActualIgnite(base.itemRepresentation, this.iface as ITorchItem, base.viewModelInstance);
+			datablock2.DoActualIgnite(base.itemRepresentation, this.iface as global::ITorchItem, base.viewModelInstance);
 			this.realIgniteTime = 0f;
 		}
 		if (this.forceSecondaryTime != 0f && Time.time >= this.forceSecondaryTime)

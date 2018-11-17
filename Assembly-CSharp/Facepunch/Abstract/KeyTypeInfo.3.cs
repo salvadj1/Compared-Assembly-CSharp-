@@ -2,10 +2,10 @@
 
 namespace Facepunch.Abstract
 {
-	// Token: 0x020001E1 RID: 481
-	internal static class KeyTypeInfo<Key, T> where Key : TraitKey where T : Key
+	// Token: 0x02000212 RID: 530
+	internal static class KeyTypeInfo<Key, T> where Key : global::TraitKey where T : Key
 	{
-		// Token: 0x06000D40 RID: 3392 RVA: 0x00033900 File Offset: 0x00031B00
+		// Token: 0x06000E88 RID: 3720 RVA: 0x00037988 File Offset: 0x00035B88
 		static KeyTypeInfo()
 		{
 			if (typeof(T) == typeof(Key))
@@ -15,7 +15,7 @@ namespace Facepunch.Abstract
 			KeyTypeInfo<Key, T>.Info = KeyTypeInfo<Key>.Registration.GetUnsafe(typeof(T));
 		}
 
-		// Token: 0x04000825 RID: 2085
+		// Token: 0x0400093D RID: 2365
 		internal static readonly KeyTypeInfo<Key> Info;
 	}
 }

@@ -2,11 +2,11 @@
 using System.Text;
 using UnityEngine;
 
-// Token: 0x02000649 RID: 1609
+// Token: 0x0200070C RID: 1804
 [ExecuteInEditMode]
 public class PrefabRendererTest : MonoBehaviour
 {
-	// Token: 0x06003818 RID: 14360 RVA: 0x000CDF04 File Offset: 0x000CC104
+	// Token: 0x06003C04 RID: 15364 RVA: 0x000D67B4 File Offset: 0x000D49B4
 	[ContextMenu("Refresh")]
 	private void RefreshRenderer()
 	{
@@ -16,7 +16,7 @@ public class PrefabRendererTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003819 RID: 14361 RVA: 0x000CDF1C File Offset: 0x000CC11C
+	// Token: 0x06003C05 RID: 15365 RVA: 0x000D67CC File Offset: 0x000D49CC
 	[ContextMenu("Print info")]
 	private void PrintINfo()
 	{
@@ -35,7 +35,7 @@ public class PrefabRendererTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600381A RID: 14362 RVA: 0x000CDF84 File Offset: 0x000CC184
+	// Token: 0x06003C06 RID: 15366 RVA: 0x000D6834 File Offset: 0x000D4A34
 	[ContextMenu("List Materials")]
 	private void ListMaterials()
 	{
@@ -50,7 +50,7 @@ public class PrefabRendererTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600381B RID: 14363 RVA: 0x000CDFD8 File Offset: 0x000CC1D8
+	// Token: 0x06003C07 RID: 15367 RVA: 0x000D6888 File Offset: 0x000D4A88
 	[ContextMenu("Refresh material overrides")]
 	private void ApplyOverrides()
 	{
@@ -74,7 +74,7 @@ public class PrefabRendererTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600381C RID: 14364 RVA: 0x000CE09C File Offset: 0x000CC29C
+	// Token: 0x06003C08 RID: 15368 RVA: 0x000D694C File Offset: 0x000D4B4C
 	private void Update()
 	{
 		if (this.prefabRendering != this.prefab || !this.oi)
@@ -85,7 +85,7 @@ public class PrefabRendererTest : MonoBehaviour
 			}
 			if (this.prefab)
 			{
-				this.renderer = PrefabRenderer.GetOrCreateRender(this.prefab);
+				this.renderer = global::PrefabRenderer.GetOrCreateRender(this.prefab);
 			}
 			this.prefabRendering = this.prefab;
 			this.oi = true;
@@ -99,36 +99,36 @@ public class PrefabRendererTest : MonoBehaviour
 		this.renderer.Render(null, base.transform.localToWorldMatrix, null, this.overrideMaterials);
 	}
 
-	// Token: 0x04001C33 RID: 7219
+	// Token: 0x04001E28 RID: 7720
 	public GameObject prefab;
 
-	// Token: 0x04001C34 RID: 7220
+	// Token: 0x04001E29 RID: 7721
 	public Material[] materialKeys;
 
-	// Token: 0x04001C35 RID: 7221
+	// Token: 0x04001E2A RID: 7722
 	public Material[] materialValues;
 
-	// Token: 0x04001C36 RID: 7222
+	// Token: 0x04001E2B RID: 7723
 	[NonSerialized]
-	private PrefabRenderer renderer;
+	private global::PrefabRenderer renderer;
 
-	// Token: 0x04001C37 RID: 7223
+	// Token: 0x04001E2C RID: 7724
 	[NonSerialized]
 	private GameObject prefabRendering;
 
-	// Token: 0x04001C38 RID: 7224
+	// Token: 0x04001E2D RID: 7725
 	[NonSerialized]
 	private Material[] oldMaterialKeys;
 
-	// Token: 0x04001C39 RID: 7225
+	// Token: 0x04001E2E RID: 7726
 	[NonSerialized]
 	private Material[] oldMaterialValues;
 
-	// Token: 0x04001C3A RID: 7226
+	// Token: 0x04001E2F RID: 7727
 	[NonSerialized]
 	private bool oi;
 
-	// Token: 0x04001C3B RID: 7227
+	// Token: 0x04001E30 RID: 7728
 	[NonSerialized]
 	private Material[] overrideMaterials;
 }

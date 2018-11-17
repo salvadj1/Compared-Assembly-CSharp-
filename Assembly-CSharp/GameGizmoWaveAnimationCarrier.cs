@@ -1,37 +1,37 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004B2 RID: 1202
-public class GameGizmoWaveAnimationCarrier : GameGizmoWaveAnimation
+// Token: 0x0200056D RID: 1389
+public class GameGizmoWaveAnimationCarrier : global::GameGizmoWaveAnimation
 {
-	// Token: 0x06002A2E RID: 10798 RVA: 0x000A55D4 File Offset: 0x000A37D4
-	protected override GameGizmo.Instance ConstructInstance()
+	// Token: 0x06002DE0 RID: 11744 RVA: 0x000AD36C File Offset: 0x000AB56C
+	protected override global::GameGizmo.Instance ConstructInstance()
 	{
-		return new GameGizmoWaveAnimationCarrier.Instance(this);
+		return new global::GameGizmoWaveAnimationCarrier.Instance(this);
 	}
 
-	// Token: 0x04001625 RID: 5669
+	// Token: 0x040017E2 RID: 6114
 	[SerializeField]
 	protected Material[] carrierMaterials;
 
-	// Token: 0x04001626 RID: 5670
+	// Token: 0x040017E3 RID: 6115
 	[SerializeField]
 	protected bool hideArrowWhenCarrierExists;
 
-	// Token: 0x020004B3 RID: 1203
-	public new class Instance : GameGizmoWaveAnimation.Instance
+	// Token: 0x0200056E RID: 1390
+	public new class Instance : global::GameGizmoWaveAnimation.Instance
 	{
-		// Token: 0x06002A2F RID: 10799 RVA: 0x000A55DC File Offset: 0x000A37DC
-		protected internal Instance(GameGizmoWaveAnimationCarrier gameGizmo) : base(gameGizmo)
+		// Token: 0x06002DE1 RID: 11745 RVA: 0x000AD374 File Offset: 0x000AB574
+		protected internal Instance(global::GameGizmoWaveAnimationCarrier gameGizmo) : base(gameGizmo)
 		{
 		}
 
-		// Token: 0x06002A30 RID: 10800 RVA: 0x000A55E8 File Offset: 0x000A37E8
+		// Token: 0x06002DE2 RID: 11746 RVA: 0x000AD380 File Offset: 0x000AB580
 		protected override void Render(bool useCamera, Camera camera)
 		{
-			if (gizmos.carrier && this.carrierRenderer && this.carrierRenderer.enabled)
+			if (global::gizmos.carrier && this.carrierRenderer && this.carrierRenderer.enabled)
 			{
-				Material[] carrierMaterials = ((GameGizmoWaveAnimationCarrier)this.gameGizmo).carrierMaterials;
+				Material[] carrierMaterials = ((global::GameGizmoWaveAnimationCarrier)this.gameGizmo).carrierMaterials;
 				if (carrierMaterials != null && carrierMaterials.Length > 0)
 				{
 					MeshFilter component = this.carrierRenderer.GetComponent<MeshFilter>();
@@ -42,7 +42,7 @@ public class GameGizmoWaveAnimationCarrier : GameGizmoWaveAnimation
 						{
 							try
 							{
-								this.hideMesh = ((GameGizmoWaveAnimationCarrier)this.gameGizmo).hideArrowWhenCarrierExists;
+								this.hideMesh = ((global::GameGizmoWaveAnimationCarrier)this.gameGizmo).hideArrowWhenCarrierExists;
 								base.Render(useCamera, camera);
 							}
 							finally

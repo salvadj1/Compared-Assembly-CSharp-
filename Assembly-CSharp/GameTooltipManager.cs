@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x020003E9 RID: 1001
+// Token: 0x02000499 RID: 1177
 public class GameTooltipManager : MonoBehaviour
 {
-	// Token: 0x06002513 RID: 9491 RVA: 0x0008E754 File Offset: 0x0008C954
+	// Token: 0x06002885 RID: 10373 RVA: 0x00094140 File Offset: 0x00092340
 	private void Start()
 	{
-		GameTooltipManager.Singleton = this;
+		global::GameTooltipManager.Singleton = this;
 		for (int i = 0; i < 16; i++)
 		{
-			GameTooltipManager.TooltipContainer tooltipContainer = new GameTooltipManager.TooltipContainer();
+			global::GameTooltipManager.TooltipContainer tooltipContainer = new global::GameTooltipManager.TooltipContainer();
 			GameObject gameObject = (GameObject)Object.Instantiate(this.tooltipPrefab);
 			gameObject.transform.parent = base.transform;
-			tooltipContainer.tooltip = gameObject.GetComponent<dfControl>();
-			tooltipContainer.tooltip_label = gameObject.GetComponent<dfLabel>();
+			tooltipContainer.tooltip = gameObject.GetComponent<global::dfControl>();
+			tooltipContainer.tooltip_label = gameObject.GetComponent<global::dfLabel>();
 			tooltipContainer.lastSeen = 0;
 			this.tooltips.Add(tooltipContainer);
 		}
 	}
 
-	// Token: 0x06002514 RID: 9492 RVA: 0x0008E7D0 File Offset: 0x0008C9D0
+	// Token: 0x06002886 RID: 10374 RVA: 0x000941BC File Offset: 0x000923BC
 	private void Update()
 	{
 		float num = (float)(Time.frameCount - 3);
-		foreach (GameTooltipManager.TooltipContainer tooltipContainer in this.tooltips)
+		foreach (global::GameTooltipManager.TooltipContainer tooltipContainer in this.tooltips)
 		{
 			if ((float)tooltipContainer.lastSeen <= num)
 			{
@@ -37,11 +37,11 @@ public class GameTooltipManager : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002515 RID: 9493 RVA: 0x0008E86C File Offset: 0x0008CA6C
-	protected GameTooltipManager.TooltipContainer GetTipContainer(GameObject obj)
+	// Token: 0x06002887 RID: 10375 RVA: 0x00094258 File Offset: 0x00092458
+	protected global::GameTooltipManager.TooltipContainer GetTipContainer(GameObject obj)
 	{
 		int num = Time.frameCount - 3;
-		foreach (GameTooltipManager.TooltipContainer tooltipContainer in this.tooltips)
+		foreach (global::GameTooltipManager.TooltipContainer tooltipContainer in this.tooltips)
 		{
 			if (tooltipContainer.lastSeen >= num)
 			{
@@ -51,7 +51,7 @@ public class GameTooltipManager : MonoBehaviour
 				}
 			}
 		}
-		foreach (GameTooltipManager.TooltipContainer tooltipContainer2 in this.tooltips)
+		foreach (global::GameTooltipManager.TooltipContainer tooltipContainer2 in this.tooltips)
 		{
 			if (tooltipContainer2.target == null)
 			{
@@ -65,10 +65,10 @@ public class GameTooltipManager : MonoBehaviour
 		return null;
 	}
 
-	// Token: 0x06002516 RID: 9494 RVA: 0x0008E980 File Offset: 0x0008CB80
+	// Token: 0x06002888 RID: 10376 RVA: 0x0009436C File Offset: 0x0009256C
 	public void UpdateTip(GameObject obj, string text, Vector3 vPosition, Color color, float alpha, float fscale)
 	{
-		GameTooltipManager.TooltipContainer tipContainer = this.GetTipContainer(obj);
+		global::GameTooltipManager.TooltipContainer tipContainer = this.GetTipContainer(obj);
 		if (tipContainer == null)
 		{
 			return;
@@ -77,7 +77,7 @@ public class GameTooltipManager : MonoBehaviour
 		{
 			tipContainer.tooltip.Show();
 		}
-		dfGUIManager manager = tipContainer.tooltip.GetManager();
+		global::dfGUIManager manager = tipContainer.tooltip.GetManager();
 		Vector2 screenSize = manager.GetScreenSize();
 		Camera renderCamera = manager.RenderCamera;
 		Camera main = Camera.main;
@@ -96,28 +96,28 @@ public class GameTooltipManager : MonoBehaviour
 		tipContainer.tooltip.transform.localScale = new Vector3(fscale, fscale, fscale);
 	}
 
-	// Token: 0x040011FE RID: 4606
-	public static GameTooltipManager Singleton;
+	// Token: 0x04001378 RID: 4984
+	public static global::GameTooltipManager Singleton;
 
-	// Token: 0x040011FF RID: 4607
+	// Token: 0x04001379 RID: 4985
 	public GameObject tooltipPrefab;
 
-	// Token: 0x04001200 RID: 4608
-	protected List<GameTooltipManager.TooltipContainer> tooltips = new List<GameTooltipManager.TooltipContainer>();
+	// Token: 0x0400137A RID: 4986
+	protected List<global::GameTooltipManager.TooltipContainer> tooltips = new List<global::GameTooltipManager.TooltipContainer>();
 
-	// Token: 0x020003EA RID: 1002
+	// Token: 0x0200049A RID: 1178
 	protected class TooltipContainer
 	{
-		// Token: 0x04001201 RID: 4609
+		// Token: 0x0400137B RID: 4987
 		public GameObject target;
 
-		// Token: 0x04001202 RID: 4610
-		public dfControl tooltip;
+		// Token: 0x0400137C RID: 4988
+		public global::dfControl tooltip;
 
-		// Token: 0x04001203 RID: 4611
-		public dfLabel tooltip_label;
+		// Token: 0x0400137D RID: 4989
+		public global::dfLabel tooltip_label;
 
-		// Token: 0x04001204 RID: 4612
+		// Token: 0x0400137E RID: 4990
 		public int lastSeen;
 	}
 }

@@ -3,62 +3,62 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-// Token: 0x02000792 RID: 1938
+// Token: 0x02000877 RID: 2167
 public static class NGUITools
 {
-	// Token: 0x06004602 RID: 17922 RVA: 0x00115EA4 File Offset: 0x001140A4
+	// Token: 0x06004A6F RID: 19055 RVA: 0x0011F824 File Offset: 0x0011DA24
 	public static bool ZeroAlpha(float alpha)
 	{
 		return (alpha >= 0f) ? (alpha < 0.00196078443f) : (alpha > -0.00196078443f);
 	}
 
-	// Token: 0x17000D95 RID: 3477
-	// (get) Token: 0x06004603 RID: 17923 RVA: 0x00115ED4 File Offset: 0x001140D4
-	// (set) Token: 0x06004604 RID: 17924 RVA: 0x00115F00 File Offset: 0x00114100
+	// Token: 0x17000E25 RID: 3621
+	// (get) Token: 0x06004A70 RID: 19056 RVA: 0x0011F854 File Offset: 0x0011DA54
+	// (set) Token: 0x06004A71 RID: 19057 RVA: 0x0011F880 File Offset: 0x0011DA80
 	public static float soundVolume
 	{
 		get
 		{
-			if (!NGUITools.mLoaded)
+			if (!global::NGUITools.mLoaded)
 			{
-				NGUITools.mLoaded = true;
-				NGUITools.mGlobalVolume = PlayerPrefs.GetFloat("Sound", 1f);
+				global::NGUITools.mLoaded = true;
+				global::NGUITools.mGlobalVolume = PlayerPrefs.GetFloat("Sound", 1f);
 			}
-			return NGUITools.mGlobalVolume;
+			return global::NGUITools.mGlobalVolume;
 		}
 		set
 		{
-			if (NGUITools.mGlobalVolume != value)
+			if (global::NGUITools.mGlobalVolume != value)
 			{
-				NGUITools.mLoaded = true;
-				NGUITools.mGlobalVolume = value;
+				global::NGUITools.mLoaded = true;
+				global::NGUITools.mGlobalVolume = value;
 				PlayerPrefs.SetFloat("Sound", value);
 			}
 		}
 	}
 
-	// Token: 0x06004605 RID: 17925 RVA: 0x00115F30 File Offset: 0x00114130
+	// Token: 0x06004A72 RID: 19058 RVA: 0x0011F8B0 File Offset: 0x0011DAB0
 	public static AudioSource PlaySound(AudioClip clip)
 	{
-		return NGUITools.PlaySound(clip, 1f, 1f);
+		return global::NGUITools.PlaySound(clip, 1f, 1f);
 	}
 
-	// Token: 0x06004606 RID: 17926 RVA: 0x00115F44 File Offset: 0x00114144
+	// Token: 0x06004A73 RID: 19059 RVA: 0x0011F8C4 File Offset: 0x0011DAC4
 	public static AudioSource PlaySound(AudioClip clip, float volume)
 	{
-		return NGUITools.PlaySound(clip, volume, 1f);
+		return global::NGUITools.PlaySound(clip, volume, 1f);
 	}
 
-	// Token: 0x06004607 RID: 17927 RVA: 0x00115F54 File Offset: 0x00114154
+	// Token: 0x06004A74 RID: 19060 RVA: 0x0011F8D4 File Offset: 0x0011DAD4
 	public static AudioSource PlaySound(AudioClip clip, float volume, float pitch)
 	{
-		volume *= NGUITools.soundVolume;
+		volume *= global::NGUITools.soundVolume;
 		if (clip != null && volume > 0.01f)
 		{
-			if (NGUITools.mListener == null)
+			if (global::NGUITools.mListener == null)
 			{
-				NGUITools.mListener = (Object.FindObjectOfType(typeof(AudioListener)) as AudioListener);
-				if (NGUITools.mListener == null)
+				global::NGUITools.mListener = (Object.FindObjectOfType(typeof(AudioListener)) as AudioListener);
+				if (global::NGUITools.mListener == null)
 				{
 					Camera camera = Camera.main;
 					if (camera == null)
@@ -67,16 +67,16 @@ public static class NGUITools
 					}
 					if (camera != null)
 					{
-						NGUITools.mListener = camera.gameObject.AddComponent<AudioListener>();
+						global::NGUITools.mListener = camera.gameObject.AddComponent<AudioListener>();
 					}
 				}
 			}
-			if (NGUITools.mListener != null)
+			if (global::NGUITools.mListener != null)
 			{
-				AudioSource audioSource = NGUITools.mListener.audio;
+				AudioSource audioSource = global::NGUITools.mListener.audio;
 				if (audioSource == null)
 				{
-					audioSource = NGUITools.mListener.gameObject.AddComponent<AudioSource>();
+					audioSource = global::NGUITools.mListener.gameObject.AddComponent<AudioSource>();
 				}
 				audioSource.pitch = pitch;
 				audioSource.PlayOneShot(clip, volume);
@@ -86,7 +86,7 @@ public static class NGUITools
 		return null;
 	}
 
-	// Token: 0x06004608 RID: 17928 RVA: 0x00116048 File Offset: 0x00114248
+	// Token: 0x06004A75 RID: 19061 RVA: 0x0011F9C8 File Offset: 0x0011DBC8
 	public static WWW OpenURL(string url)
 	{
 		WWW result = null;
@@ -101,7 +101,7 @@ public static class NGUITools
 		return result;
 	}
 
-	// Token: 0x06004609 RID: 17929 RVA: 0x00116094 File Offset: 0x00114294
+	// Token: 0x06004A76 RID: 19062 RVA: 0x0011FA14 File Offset: 0x0011DC14
 	public static int RandomRange(int min, int max)
 	{
 		if (min == max)
@@ -111,7 +111,7 @@ public static class NGUITools
 		return Random.Range(min, max + 1);
 	}
 
-	// Token: 0x0600460A RID: 17930 RVA: 0x001160A8 File Offset: 0x001142A8
+	// Token: 0x06004A77 RID: 19063 RVA: 0x0011FA28 File Offset: 0x0011DC28
 	public static string GetHierarchy(GameObject obj)
 	{
 		string text = obj.name;
@@ -123,23 +123,23 @@ public static class NGUITools
 		return "\"" + text + "\"";
 	}
 
-	// Token: 0x0600460B RID: 17931 RVA: 0x0011610C File Offset: 0x0011430C
+	// Token: 0x06004A78 RID: 19064 RVA: 0x0011FA8C File Offset: 0x0011DC8C
 	public static Color ParseColor(string text, int offset)
 	{
-		int num = NGUIMath.HexToDecimal(text[offset]) << 4 | NGUIMath.HexToDecimal(text[offset + 1]);
-		int num2 = NGUIMath.HexToDecimal(text[offset + 2]) << 4 | NGUIMath.HexToDecimal(text[offset + 3]);
-		int num3 = NGUIMath.HexToDecimal(text[offset + 4]) << 4 | NGUIMath.HexToDecimal(text[offset + 5]);
+		int num = global::NGUIMath.HexToDecimal(text[offset]) << 4 | global::NGUIMath.HexToDecimal(text[offset + 1]);
+		int num2 = global::NGUIMath.HexToDecimal(text[offset + 2]) << 4 | global::NGUIMath.HexToDecimal(text[offset + 3]);
+		int num3 = global::NGUIMath.HexToDecimal(text[offset + 4]) << 4 | global::NGUIMath.HexToDecimal(text[offset + 5]);
 		float num4 = 0.003921569f;
 		return new Color(num4 * (float)num, num4 * (float)num2, num4 * (float)num3);
 	}
 
-	// Token: 0x0600460C RID: 17932 RVA: 0x00116190 File Offset: 0x00114390
+	// Token: 0x06004A79 RID: 19065 RVA: 0x0011FB10 File Offset: 0x0011DD10
 	public static string EncodeColor(Color c)
 	{
-		return (16777215 & NGUIMath.ColorToInt(c) >> 8).ToString("X6");
+		return (16777215 & global::NGUIMath.ColorToInt(c) >> 8).ToString("X6");
 	}
 
-	// Token: 0x0600460D RID: 17933 RVA: 0x001161B8 File Offset: 0x001143B8
+	// Token: 0x06004A7A RID: 19066 RVA: 0x0011FB38 File Offset: 0x0011DD38
 	public static string UnformattedString(string str)
 	{
 		int num = str.IndexOf("[»]");
@@ -284,7 +284,7 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x0600460E RID: 17934 RVA: 0x00116530 File Offset: 0x00114730
+	// Token: 0x06004A7B RID: 19067 RVA: 0x0011FEB0 File Offset: 0x0011E0B0
 	public static int ParseSymbol(string text, int index, List<Color> colors, ref int symbolSkipCount)
 	{
 		int length = text.Length;
@@ -319,7 +319,7 @@ public static class NGUITools
 			{
 				if (colors != null)
 				{
-					Color item = NGUITools.ParseColor(text, index + 1);
+					Color item = global::NGUITools.ParseColor(text, index + 1);
 					item.a = colors[colors.Count - 1].a;
 					colors.Add(item);
 				}
@@ -329,7 +329,7 @@ public static class NGUITools
 		return 0;
 	}
 
-	// Token: 0x0600460F RID: 17935 RVA: 0x00116644 File Offset: 0x00114844
+	// Token: 0x06004A7C RID: 19068 RVA: 0x0011FFC4 File Offset: 0x0011E1C4
 	public static string StripSymbols(string text)
 	{
 		if (text != null)
@@ -343,7 +343,7 @@ public static class NGUITools
 				char c = text[i];
 				if (c == '[')
 				{
-					int num2 = NGUITools.ParseSymbol(text, i, null, ref num);
+					int num2 = global::NGUITools.ParseSymbol(text, i, null, ref num);
 					if (num2 > 0)
 					{
 						text = text.Remove(i, num2);
@@ -357,17 +357,17 @@ public static class NGUITools
 		return text;
 	}
 
-	// Token: 0x06004610 RID: 17936 RVA: 0x001166C0 File Offset: 0x001148C0
+	// Token: 0x06004A7D RID: 19069 RVA: 0x00120040 File Offset: 0x0011E240
 	public static T[] FindActive<T>() where T : Component
 	{
 		return Object.FindObjectsOfType(typeof(T)) as T[];
 	}
 
-	// Token: 0x06004611 RID: 17937 RVA: 0x001166D8 File Offset: 0x001148D8
+	// Token: 0x06004A7E RID: 19070 RVA: 0x00120058 File Offset: 0x0011E258
 	public static Camera FindCameraForLayer(int layer)
 	{
 		int num = 1 << layer;
-		Camera[] array = NGUITools.FindActive<Camera>();
+		Camera[] array = global::NGUITools.FindActive<Camera>();
 		int i = 0;
 		int num2 = array.Length;
 		while (i < num2)
@@ -382,7 +382,7 @@ public static class NGUITools
 		return null;
 	}
 
-	// Token: 0x06004612 RID: 17938 RVA: 0x00116720 File Offset: 0x00114920
+	// Token: 0x06004A7F RID: 19071 RVA: 0x001200A0 File Offset: 0x0011E2A0
 	[Obsolete("Use AddWidgetHotSpot")]
 	public static BoxCollider AddWidgetCollider(GameObject go)
 	{
@@ -405,8 +405,8 @@ public static class NGUITools
 				}
 				boxCollider = go.AddComponent<BoxCollider>();
 			}
-			int num = NGUITools.CalculateNextDepth(go);
-			AABBox aabbox = NGUIMath.CalculateRelativeWidgetBounds(go.transform);
+			int num = global::NGUITools.CalculateNextDepth(go);
+			global::AABBox aabbox = global::NGUIMath.CalculateRelativeWidgetBounds(go.transform);
 			boxCollider.isTrigger = true;
 			boxCollider.center = aabbox.center + Vector3.back * ((float)num * 0.25f);
 			boxCollider.size = new Vector3(aabbox.size.x, aabbox.size.y, 0f);
@@ -415,7 +415,7 @@ public static class NGUITools
 		return null;
 	}
 
-	// Token: 0x06004613 RID: 17939 RVA: 0x001167F4 File Offset: 0x001149F4
+	// Token: 0x06004A80 RID: 19072 RVA: 0x00120174 File Offset: 0x0011E374
 	private static void ColliderDestroy(Collider component)
 	{
 		if (Application.isPlaying)
@@ -428,8 +428,8 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x06004614 RID: 17940 RVA: 0x00116814 File Offset: 0x00114A14
-	private static UIBoxHotSpot ColliderToHotSpotBox(BoxCollider collider, bool nullChecked)
+	// Token: 0x06004A81 RID: 19073 RVA: 0x00120194 File Offset: 0x0011E394
+	private static global::UIBoxHotSpot ColliderToHotSpotBox(BoxCollider collider, bool nullChecked)
 	{
 		if (nullChecked || collider)
 		{
@@ -437,8 +437,8 @@ public static class NGUITools
 			Vector3 size = collider.size;
 			GameObject gameObject = collider.gameObject;
 			bool enabled = collider.enabled;
-			NGUITools.ColliderDestroy(collider);
-			UIBoxHotSpot uiboxHotSpot = gameObject.AddComponent<UIBoxHotSpot>();
+			global::NGUITools.ColliderDestroy(collider);
+			global::UIBoxHotSpot uiboxHotSpot = gameObject.AddComponent<global::UIBoxHotSpot>();
 			uiboxHotSpot.center = center;
 			uiboxHotSpot.size = size;
 			uiboxHotSpot.enabled = enabled;
@@ -447,14 +447,14 @@ public static class NGUITools
 		return null;
 	}
 
-	// Token: 0x06004615 RID: 17941 RVA: 0x00116878 File Offset: 0x00114A78
-	public static UIBoxHotSpot ColliderToHotSpotBox(BoxCollider collider)
+	// Token: 0x06004A82 RID: 19074 RVA: 0x001201F8 File Offset: 0x0011E3F8
+	public static global::UIBoxHotSpot ColliderToHotSpotBox(BoxCollider collider)
 	{
-		return NGUITools.ColliderToHotSpotBox(collider, false);
+		return global::NGUITools.ColliderToHotSpotBox(collider, false);
 	}
 
-	// Token: 0x06004616 RID: 17942 RVA: 0x00116884 File Offset: 0x00114A84
-	private static UIRectHotSpot ColliderToHotSpotRect(BoxCollider collider, bool nullChecked)
+	// Token: 0x06004A83 RID: 19075 RVA: 0x00120204 File Offset: 0x0011E404
+	private static global::UIRectHotSpot ColliderToHotSpotRect(BoxCollider collider, bool nullChecked)
 	{
 		if (nullChecked || collider)
 		{
@@ -462,8 +462,8 @@ public static class NGUITools
 			Vector2 size = collider.size;
 			GameObject gameObject = collider.gameObject;
 			bool enabled = collider.enabled;
-			NGUITools.ColliderDestroy(collider);
-			UIRectHotSpot uirectHotSpot = gameObject.AddComponent<UIRectHotSpot>();
+			global::NGUITools.ColliderDestroy(collider);
+			global::UIRectHotSpot uirectHotSpot = gameObject.AddComponent<global::UIRectHotSpot>();
 			uirectHotSpot.center = center;
 			uirectHotSpot.size = size;
 			uirectHotSpot.enabled = enabled;
@@ -472,14 +472,14 @@ public static class NGUITools
 		return null;
 	}
 
-	// Token: 0x06004617 RID: 17943 RVA: 0x001168F0 File Offset: 0x00114AF0
-	public static UIRectHotSpot ColliderToHotSpotRect(BoxCollider collider)
+	// Token: 0x06004A84 RID: 19076 RVA: 0x00120270 File Offset: 0x0011E470
+	public static global::UIRectHotSpot ColliderToHotSpotRect(BoxCollider collider)
 	{
-		return NGUITools.ColliderToHotSpotRect(collider, false);
+		return global::NGUITools.ColliderToHotSpotRect(collider, false);
 	}
 
-	// Token: 0x06004618 RID: 17944 RVA: 0x001168FC File Offset: 0x00114AFC
-	private static UIHotSpot ColliderToHotSpot(BoxCollider collider, bool nullChecked)
+	// Token: 0x06004A85 RID: 19077 RVA: 0x0012027C File Offset: 0x0011E47C
+	private static global::UIHotSpot ColliderToHotSpot(BoxCollider collider, bool nullChecked)
 	{
 		if (!nullChecked && !collider)
 		{
@@ -489,30 +489,30 @@ public static class NGUITools
 		Vector3 size = collider.size;
 		GameObject gameObject = collider.gameObject;
 		bool enabled = collider.enabled;
-		NGUITools.ColliderDestroy(collider);
+		global::NGUITools.ColliderDestroy(collider);
 		if (size.z <= 0.001f)
 		{
-			UIRectHotSpot uirectHotSpot = gameObject.AddComponent<UIRectHotSpot>();
+			global::UIRectHotSpot uirectHotSpot = gameObject.AddComponent<global::UIRectHotSpot>();
 			uirectHotSpot.center = center;
 			uirectHotSpot.size = size;
 			uirectHotSpot.enabled = enabled;
 			return uirectHotSpot;
 		}
-		UIBoxHotSpot uiboxHotSpot = gameObject.AddComponent<UIBoxHotSpot>();
+		global::UIBoxHotSpot uiboxHotSpot = gameObject.AddComponent<global::UIBoxHotSpot>();
 		uiboxHotSpot.center = center;
 		uiboxHotSpot.size = size;
 		uiboxHotSpot.enabled = enabled;
 		return uiboxHotSpot;
 	}
 
-	// Token: 0x06004619 RID: 17945 RVA: 0x0011699C File Offset: 0x00114B9C
-	public static UIHotSpot ColliderToHotSpot(BoxCollider collider)
+	// Token: 0x06004A86 RID: 19078 RVA: 0x0012031C File Offset: 0x0011E51C
+	public static global::UIHotSpot ColliderToHotSpot(BoxCollider collider)
 	{
-		return NGUITools.ColliderToHotSpot(collider, false);
+		return global::NGUITools.ColliderToHotSpot(collider, false);
 	}
 
-	// Token: 0x0600461A RID: 17946 RVA: 0x001169A8 File Offset: 0x00114BA8
-	private static UIHotSpot ColliderToHotSpot(Collider collider, bool nullChecked)
+	// Token: 0x06004A87 RID: 19079 RVA: 0x00120328 File Offset: 0x0011E528
+	private static global::UIHotSpot ColliderToHotSpot(Collider collider, bool nullChecked)
 	{
 		if (!nullChecked && !collider)
 		{
@@ -520,11 +520,11 @@ public static class NGUITools
 		}
 		if (collider is BoxCollider)
 		{
-			return NGUITools.ColliderToHotSpot((BoxCollider)collider);
+			return global::NGUITools.ColliderToHotSpot((BoxCollider)collider);
 		}
 		if (collider is SphereCollider)
 		{
-			return NGUITools.ColliderToHotSpot((SphereCollider)collider);
+			return global::NGUITools.ColliderToHotSpot((SphereCollider)collider);
 		}
 		if (collider is TerrainCollider)
 		{
@@ -534,34 +534,34 @@ public static class NGUITools
 		Bounds bounds = collider.bounds;
 		Matrix4x4 worldToLocalMatrix = collider.transform.worldToLocalMatrix;
 		Bounds bounds2;
-		AABBox.Transform3x4(ref bounds, ref worldToLocalMatrix, out bounds2);
+		global::AABBox.Transform3x4(ref bounds, ref worldToLocalMatrix, out bounds2);
 		bool enabled = collider.enabled;
 		GameObject gameObject = collider.gameObject;
-		NGUITools.ColliderDestroy(collider);
+		global::NGUITools.ColliderDestroy(collider);
 		Vector3 size = bounds2.size;
 		if (size.z <= 0.001f)
 		{
-			UIRectHotSpot uirectHotSpot = gameObject.AddComponent<UIRectHotSpot>();
+			global::UIRectHotSpot uirectHotSpot = gameObject.AddComponent<global::UIRectHotSpot>();
 			uirectHotSpot.size = size;
 			uirectHotSpot.center = bounds2.center;
 			uirectHotSpot.enabled = enabled;
 			return uirectHotSpot;
 		}
-		UIBoxHotSpot uiboxHotSpot = gameObject.AddComponent<UIBoxHotSpot>();
+		global::UIBoxHotSpot uiboxHotSpot = gameObject.AddComponent<global::UIBoxHotSpot>();
 		uiboxHotSpot.size = size;
 		uiboxHotSpot.center = bounds2.center;
 		uiboxHotSpot.enabled = enabled;
 		return uiboxHotSpot;
 	}
 
-	// Token: 0x0600461B RID: 17947 RVA: 0x00116AB8 File Offset: 0x00114CB8
-	public static UIHotSpot ColliderToHotSpot(Collider collider)
+	// Token: 0x06004A88 RID: 19080 RVA: 0x00120438 File Offset: 0x0011E638
+	public static global::UIHotSpot ColliderToHotSpot(Collider collider)
 	{
-		return NGUITools.ColliderToHotSpot(collider, false);
+		return global::NGUITools.ColliderToHotSpot(collider, false);
 	}
 
-	// Token: 0x0600461C RID: 17948 RVA: 0x00116AC4 File Offset: 0x00114CC4
-	public static UIHotSpot AddWidgetHotSpot(GameObject go)
+	// Token: 0x06004A89 RID: 19081 RVA: 0x00120444 File Offset: 0x0011E644
+	public static global::UIHotSpot AddWidgetHotSpot(GameObject go)
 	{
 		if (!(go != null))
 		{
@@ -570,16 +570,16 @@ public static class NGUITools
 		Collider collider = go.collider;
 		if (!collider)
 		{
-			UIHotSpot component = go.GetComponent<UIHotSpot>();
+			global::UIHotSpot component = go.GetComponent<global::UIHotSpot>();
 			int num;
-			AABBox aabbox;
+			global::AABBox aabbox;
 			if (component)
 			{
 				if (component.isRect)
 				{
-					UIRectHotSpot asRect = component.asRect;
-					num = NGUITools.CalculateNextDepth(go);
-					aabbox = NGUIMath.CalculateRelativeWidgetBounds(go.transform);
+					global::UIRectHotSpot asRect = component.asRect;
+					num = global::NGUITools.CalculateNextDepth(go);
+					aabbox = global::NGUIMath.CalculateRelativeWidgetBounds(go.transform);
 					asRect.size = aabbox.size;
 					asRect.center = aabbox.center + Vector3.back * ((float)num * 0.25f);
 					return asRect;
@@ -593,14 +593,14 @@ public static class NGUITools
 					Object.DestroyImmediate(component);
 				}
 			}
-			num = NGUITools.CalculateNextDepth(go);
-			aabbox = NGUIMath.CalculateRelativeWidgetBounds(go.transform);
-			UIRectHotSpot uirectHotSpot = go.AddComponent<UIRectHotSpot>();
+			num = global::NGUITools.CalculateNextDepth(go);
+			aabbox = global::NGUIMath.CalculateRelativeWidgetBounds(go.transform);
+			global::UIRectHotSpot uirectHotSpot = go.AddComponent<global::UIRectHotSpot>();
 			uirectHotSpot.size = aabbox.size;
 			uirectHotSpot.center = aabbox.center + Vector3.back * ((float)num * 0.25f);
 			return uirectHotSpot;
 		}
-		UIHotSpot uihotSpot = NGUITools.ColliderToHotSpot(collider, true);
+		global::UIHotSpot uihotSpot = global::NGUITools.ColliderToHotSpot(collider, true);
 		if (!uihotSpot)
 		{
 			return null;
@@ -608,28 +608,28 @@ public static class NGUITools
 		return uihotSpot;
 	}
 
-	// Token: 0x0600461D RID: 17949 RVA: 0x00116BF8 File Offset: 0x00114DF8
+	// Token: 0x06004A8A RID: 19082 RVA: 0x00120578 File Offset: 0x0011E778
 	[Obsolete("Use UIAtlas.replacement instead")]
-	public static void ReplaceAtlas(UIAtlas before, UIAtlas after)
+	public static void ReplaceAtlas(global::UIAtlas before, global::UIAtlas after)
 	{
-		UISprite[] array = NGUITools.FindActive<UISprite>();
+		global::UISprite[] array = global::NGUITools.FindActive<global::UISprite>();
 		int i = 0;
 		int num = array.Length;
 		while (i < num)
 		{
-			UISprite uisprite = array[i];
+			global::UISprite uisprite = array[i];
 			if (uisprite.atlas == before)
 			{
 				uisprite.atlas = after;
 			}
 			i++;
 		}
-		UILabel[] array2 = NGUITools.FindActive<UILabel>();
+		global::UILabel[] array2 = global::NGUITools.FindActive<global::UILabel>();
 		int j = 0;
 		int num2 = array2.Length;
 		while (j < num2)
 		{
-			UILabel uilabel = array2[j];
+			global::UILabel uilabel = array2[j];
 			if (uilabel.font != null && uilabel.font.atlas == before)
 			{
 				uilabel.font.atlas = after;
@@ -638,16 +638,16 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x0600461E RID: 17950 RVA: 0x00116CA0 File Offset: 0x00114EA0
+	// Token: 0x06004A8B RID: 19083 RVA: 0x00120620 File Offset: 0x0011E820
 	[Obsolete("Use UIFont.replacement instead")]
-	public static void ReplaceFont(UIFont before, UIFont after)
+	public static void ReplaceFont(global::UIFont before, global::UIFont after)
 	{
-		UILabel[] array = NGUITools.FindActive<UILabel>();
+		global::UILabel[] array = global::NGUITools.FindActive<global::UILabel>();
 		int i = 0;
 		int num = array.Length;
 		while (i < num)
 		{
-			UILabel uilabel = array[i];
+			global::UILabel uilabel = array[i];
 			if (uilabel.font == before)
 			{
 				uilabel.font = after;
@@ -656,7 +656,7 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x0600461F RID: 17951 RVA: 0x00116CE8 File Offset: 0x00114EE8
+	// Token: 0x06004A8C RID: 19084 RVA: 0x00120668 File Offset: 0x0011E868
 	public static string GetName<T>() where T : Component
 	{
 		string text = typeof(T).ToString();
@@ -671,7 +671,7 @@ public static class NGUITools
 		return text;
 	}
 
-	// Token: 0x06004620 RID: 17952 RVA: 0x00116D3C File Offset: 0x00114F3C
+	// Token: 0x06004A8D RID: 19085 RVA: 0x001206BC File Offset: 0x0011E8BC
 	public static GameObject AddChild(GameObject parent)
 	{
 		GameObject gameObject = new GameObject();
@@ -687,7 +687,7 @@ public static class NGUITools
 		return gameObject;
 	}
 
-	// Token: 0x06004621 RID: 17953 RVA: 0x00116D9C File Offset: 0x00114F9C
+	// Token: 0x06004A8E RID: 19086 RVA: 0x0012071C File Offset: 0x0011E91C
 	public static GameObject AddChild(GameObject parent, GameObject prefab)
 	{
 		GameObject gameObject = Object.Instantiate(prefab) as GameObject;
@@ -703,11 +703,11 @@ public static class NGUITools
 		return gameObject;
 	}
 
-	// Token: 0x06004622 RID: 17954 RVA: 0x00116E10 File Offset: 0x00115010
+	// Token: 0x06004A8F RID: 19087 RVA: 0x00120790 File Offset: 0x0011E990
 	public static int CalculateNextDepth(GameObject go)
 	{
 		int num = -1;
-		UIWidget[] componentsInChildren = go.GetComponentsInChildren<UIWidget>();
+		global::UIWidget[] componentsInChildren = go.GetComponentsInChildren<global::UIWidget>();
 		int i = 0;
 		int num2 = componentsInChildren.Length;
 		while (i < num2)
@@ -718,19 +718,19 @@ public static class NGUITools
 		return num + 1;
 	}
 
-	// Token: 0x06004623 RID: 17955 RVA: 0x00116E50 File Offset: 0x00115050
+	// Token: 0x06004A90 RID: 19088 RVA: 0x001207D0 File Offset: 0x0011E9D0
 	public static T AddChild<T>(GameObject parent) where T : Component
 	{
-		GameObject gameObject = NGUITools.AddChild(parent);
-		gameObject.name = NGUITools.GetName<T>();
+		GameObject gameObject = global::NGUITools.AddChild(parent);
+		gameObject.name = global::NGUITools.GetName<T>();
 		return gameObject.AddComponent<T>();
 	}
 
-	// Token: 0x06004624 RID: 17956 RVA: 0x00116E78 File Offset: 0x00115078
-	public static T AddWidget<T>(GameObject go) where T : UIWidget
+	// Token: 0x06004A91 RID: 19089 RVA: 0x001207F8 File Offset: 0x0011E9F8
+	public static T AddWidget<T>(GameObject go) where T : global::UIWidget
 	{
-		int depth = NGUITools.CalculateNextDepth(go);
-		T result = NGUITools.AddChild<T>(go);
+		int depth = global::NGUITools.CalculateNextDepth(go);
+		T result = global::NGUITools.AddChild<T>(go);
 		result.depth = depth;
 		Transform transform = result.transform;
 		transform.localPosition = Vector3.zero;
@@ -740,17 +740,17 @@ public static class NGUITools
 		return result;
 	}
 
-	// Token: 0x06004625 RID: 17957 RVA: 0x00116EF8 File Offset: 0x001150F8
-	public static UISprite AddSprite(GameObject go, UIAtlas atlas, string spriteName)
+	// Token: 0x06004A92 RID: 19090 RVA: 0x00120878 File Offset: 0x0011EA78
+	public static global::UISprite AddSprite(GameObject go, global::UIAtlas atlas, string spriteName)
 	{
-		UIAtlas.Sprite sprite = (!(atlas != null)) ? null : atlas.GetSprite(spriteName);
-		UISprite uisprite = (sprite != null && !(sprite.inner == sprite.outer)) ? NGUITools.AddWidget<UISlicedSprite>(go) : NGUITools.AddWidget<UISprite>(go);
+		global::UIAtlas.Sprite sprite = (!(atlas != null)) ? null : atlas.GetSprite(spriteName);
+		global::UISprite uisprite = (sprite != null && !(sprite.inner == sprite.outer)) ? global::NGUITools.AddWidget<global::UISlicedSprite>(go) : global::NGUITools.AddWidget<global::UISprite>(go);
 		uisprite.atlas = atlas;
 		uisprite.spriteName = spriteName;
 		return uisprite;
 	}
 
-	// Token: 0x06004626 RID: 17958 RVA: 0x00116F5C File Offset: 0x0011515C
+	// Token: 0x06004A93 RID: 19091 RVA: 0x001208DC File Offset: 0x0011EADC
 	public static T FindInParents<T>(GameObject go) where T : Component
 	{
 		if (go == null)
@@ -770,7 +770,7 @@ public static class NGUITools
 		return (T)((object)obj);
 	}
 
-	// Token: 0x06004627 RID: 17959 RVA: 0x00116FD0 File Offset: 0x001151D0
+	// Token: 0x06004A94 RID: 19092 RVA: 0x00120950 File Offset: 0x0011EB50
 	public static void Destroy(Object obj)
 	{
 		if (obj != null)
@@ -786,7 +786,7 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x06004628 RID: 17960 RVA: 0x00116FFC File Offset: 0x001151FC
+	// Token: 0x06004A95 RID: 19093 RVA: 0x0012097C File Offset: 0x0011EB7C
 	public static void DestroyImmediate(Object obj)
 	{
 		if (obj != null)
@@ -802,7 +802,7 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x06004629 RID: 17961 RVA: 0x00117028 File Offset: 0x00115228
+	// Token: 0x06004A96 RID: 19094 RVA: 0x001209A8 File Offset: 0x0011EBA8
 	public static void Broadcast(string funcName)
 	{
 		GameObject[] array = Object.FindObjectsOfType(typeof(GameObject)) as GameObject[];
@@ -815,7 +815,7 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x0600462A RID: 17962 RVA: 0x0011706C File Offset: 0x0011526C
+	// Token: 0x06004A97 RID: 19095 RVA: 0x001209EC File Offset: 0x0011EBEC
 	public static void Broadcast(string funcName, object param)
 	{
 		GameObject[] array = Object.FindObjectsOfType(typeof(GameObject)) as GameObject[];
@@ -828,7 +828,7 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x0600462B RID: 17963 RVA: 0x001170B0 File Offset: 0x001152B0
+	// Token: 0x06004A98 RID: 19096 RVA: 0x00120A30 File Offset: 0x0011EC30
 	public static bool IsChild(Transform parent, Transform child)
 	{
 		if (parent == null || child == null)
@@ -846,32 +846,32 @@ public static class NGUITools
 		return false;
 	}
 
-	// Token: 0x0600462C RID: 17964 RVA: 0x00117100 File Offset: 0x00115300
+	// Token: 0x06004A99 RID: 19097 RVA: 0x00120A80 File Offset: 0x0011EC80
 	private static void Activate(Transform t)
 	{
 		t.gameObject.SetActive(true);
 	}
 
-	// Token: 0x0600462D RID: 17965 RVA: 0x00117110 File Offset: 0x00115310
+	// Token: 0x06004A9A RID: 19098 RVA: 0x00120A90 File Offset: 0x0011EC90
 	private static void Deactivate(Transform t)
 	{
 		t.gameObject.SetActive(false);
 	}
 
-	// Token: 0x0600462E RID: 17966 RVA: 0x00117120 File Offset: 0x00115320
+	// Token: 0x06004A9B RID: 19099 RVA: 0x00120AA0 File Offset: 0x0011ECA0
 	public static void SetActive(GameObject go, bool state)
 	{
 		if (state)
 		{
-			NGUITools.Activate(go.transform);
+			global::NGUITools.Activate(go.transform);
 		}
 		else
 		{
-			NGUITools.Deactivate(go.transform);
+			global::NGUITools.Deactivate(go.transform);
 		}
 	}
 
-	// Token: 0x0600462F RID: 17967 RVA: 0x00117144 File Offset: 0x00115344
+	// Token: 0x06004A9C RID: 19100 RVA: 0x00120AC4 File Offset: 0x0011ECC4
 	public static Vector3 Round(Vector3 v)
 	{
 		v.x = Mathf.Round(v.x);
@@ -880,29 +880,29 @@ public static class NGUITools
 		return v;
 	}
 
-	// Token: 0x06004630 RID: 17968 RVA: 0x0011718C File Offset: 0x0011538C
+	// Token: 0x06004A9D RID: 19101 RVA: 0x00120B0C File Offset: 0x0011ED0C
 	public static void MakePixelPerfect(Transform t)
 	{
-		UIWidget component = t.GetComponent<UIWidget>();
+		global::UIWidget component = t.GetComponent<global::UIWidget>();
 		if (component != null)
 		{
 			component.MakePixelPerfect();
 		}
 		else
 		{
-			t.localPosition = NGUITools.Round(t.localPosition);
-			t.localScale = NGUITools.Round(t.localScale);
+			t.localPosition = global::NGUITools.Round(t.localPosition);
+			t.localScale = global::NGUITools.Round(t.localScale);
 			int i = 0;
 			int childCount = t.childCount;
 			while (i < childCount)
 			{
-				NGUITools.MakePixelPerfect(t.GetChild(i));
+				global::NGUITools.MakePixelPerfect(t.GetChild(i));
 				i++;
 			}
 		}
 	}
 
-	// Token: 0x06004631 RID: 17969 RVA: 0x00117200 File Offset: 0x00115400
+	// Token: 0x06004A9E RID: 19102 RVA: 0x00120B80 File Offset: 0x0011ED80
 	public static bool SetAllowClick(Component self, bool allow)
 	{
 		Collider collider = self.collider;
@@ -911,7 +911,7 @@ public static class NGUITools
 			collider.enabled = allow;
 			return true;
 		}
-		UIHotSpot component = self.GetComponent<UIHotSpot>();
+		global::UIHotSpot component = self.GetComponent<global::UIHotSpot>();
 		if (component)
 		{
 			component.enabled = allow;
@@ -920,7 +920,7 @@ public static class NGUITools
 		return false;
 	}
 
-	// Token: 0x06004632 RID: 17970 RVA: 0x00117244 File Offset: 0x00115444
+	// Token: 0x06004A9F RID: 19103 RVA: 0x00120BC4 File Offset: 0x0011EDC4
 	public static bool GetAllowClick(MonoBehaviour self, out bool possible)
 	{
 		Collider collider = self.collider;
@@ -929,7 +929,7 @@ public static class NGUITools
 			possible = true;
 			return collider.enabled;
 		}
-		UIHotSpot component = self.GetComponent<UIHotSpot>();
+		global::UIHotSpot component = self.GetComponent<global::UIHotSpot>();
 		if (component)
 		{
 			possible = true;
@@ -939,14 +939,14 @@ public static class NGUITools
 		return false;
 	}
 
-	// Token: 0x06004633 RID: 17971 RVA: 0x00117290 File Offset: 0x00115490
+	// Token: 0x06004AA0 RID: 19104 RVA: 0x00120C10 File Offset: 0x0011EE10
 	public static bool GetAllowClick(MonoBehaviour self)
 	{
 		bool flag;
-		return NGUITools.GetAllowClick(self, out flag);
+		return global::NGUITools.GetAllowClick(self, out flag);
 	}
 
-	// Token: 0x06004634 RID: 17972 RVA: 0x001172A8 File Offset: 0x001154A8
+	// Token: 0x06004AA1 RID: 19105 RVA: 0x00120C28 File Offset: 0x0011EE28
 	public static void SetAllowClickChildren(GameObject mChild, bool par1)
 	{
 		Collider[] componentsInChildren = mChild.GetComponentsInChildren<Collider>();
@@ -957,7 +957,7 @@ public static class NGUITools
 			componentsInChildren[i].enabled = false;
 			i++;
 		}
-		UIHotSpot[] componentsInChildren2 = mChild.GetComponentsInChildren<UIHotSpot>();
+		global::UIHotSpot[] componentsInChildren2 = mChild.GetComponentsInChildren<global::UIHotSpot>();
 		int j = 0;
 		int num2 = componentsInChildren2.Length;
 		while (j < num2)
@@ -967,26 +967,26 @@ public static class NGUITools
 		}
 	}
 
-	// Token: 0x06004635 RID: 17973 RVA: 0x00117308 File Offset: 0x00115508
+	// Token: 0x06004AA2 RID: 19106 RVA: 0x00120C88 File Offset: 0x0011EE88
 	public static bool HasMeansOfClicking(Component self)
 	{
-		return self.collider || self.GetComponent<UIHotSpot>();
+		return self.collider || self.GetComponent<global::UIHotSpot>();
 	}
 
-	// Token: 0x06004636 RID: 17974 RVA: 0x00117328 File Offset: 0x00115528
+	// Token: 0x06004AA3 RID: 19107 RVA: 0x00120CA8 File Offset: 0x0011EEA8
 	public static bool GetCentroid(Component cell, out Vector3 centroid)
 	{
 		if (cell is Collider)
 		{
 			centroid = ((Collider)cell).bounds.center;
 		}
-		else if (cell is UIHotSpot)
+		else if (cell is global::UIHotSpot)
 		{
-			centroid = ((UIHotSpot)cell).worldCenter;
+			centroid = ((global::UIHotSpot)cell).worldCenter;
 		}
 		else
 		{
-			UIHotSpot component = cell.GetComponent<UIHotSpot>();
+			global::UIHotSpot component = cell.GetComponent<global::UIHotSpot>();
 			if (component)
 			{
 				centroid = component.worldCenter;
@@ -1004,128 +1004,128 @@ public static class NGUITools
 		return true;
 	}
 
-	// Token: 0x06004637 RID: 17975 RVA: 0x001173D8 File Offset: 0x001155D8
+	// Token: 0x06004AA4 RID: 19108 RVA: 0x00120D58 File Offset: 0x0011EF58
 	public static TComponent QuickGet<TComponent>(GameObject gameObject) where TComponent : Component
 	{
-		switch (NGUITools.SG<TComponent>.V)
+		switch (global::NGUITools.SG<TComponent>.V)
 		{
-		case NGUITools.SlipGate.Renderer:
+		case global::NGUITools.SlipGate.Renderer:
 			return gameObject.renderer as TComponent;
-		case NGUITools.SlipGate.Collider:
+		case global::NGUITools.SlipGate.Collider:
 			return gameObject.collider as TComponent;
-		case NGUITools.SlipGate.Transform:
+		case global::NGUITools.SlipGate.Transform:
 			return gameObject.transform as TComponent;
 		}
 		return gameObject.GetComponent<TComponent>();
 	}
 
-	// Token: 0x06004638 RID: 17976 RVA: 0x00117450 File Offset: 0x00115650
+	// Token: 0x06004AA5 RID: 19109 RVA: 0x00120DD0 File Offset: 0x0011EFD0
 	public static TComponent GetOrAddComponent<TComponent>(GameObject gameObject) where TComponent : Component
 	{
-		TComponent tcomponent = NGUITools.QuickGet<TComponent>(gameObject);
+		TComponent tcomponent = global::NGUITools.QuickGet<TComponent>(gameObject);
 		return (!tcomponent) ? gameObject.AddComponent<TComponent>() : tcomponent;
 	}
 
-	// Token: 0x06004639 RID: 17977 RVA: 0x00117480 File Offset: 0x00115680
+	// Token: 0x06004AA6 RID: 19110 RVA: 0x00120E00 File Offset: 0x0011F000
 	public static TComponent GetOrAddComponent<TComponent>(Component component) where TComponent : Component
 	{
 		if (component is TComponent)
 		{
 			return (TComponent)((object)component);
 		}
-		return NGUITools.GetOrAddComponent<TComponent>(component.gameObject);
+		return global::NGUITools.GetOrAddComponent<TComponent>(component.gameObject);
 	}
 
-	// Token: 0x0600463A RID: 17978 RVA: 0x001174A0 File Offset: 0x001156A0
+	// Token: 0x06004AA7 RID: 19111 RVA: 0x00120E20 File Offset: 0x0011F020
 	public static bool GetOrAddComponent<TComponent>(GameObject gameObject, ref TComponent value) where TComponent : Component
 	{
-		return (!value) ? (value = NGUITools.GetOrAddComponent<TComponent>(gameObject)) : value;
+		return (!value) ? (value = global::NGUITools.GetOrAddComponent<TComponent>(gameObject)) : value;
 	}
 
-	// Token: 0x0600463B RID: 17979 RVA: 0x001174E8 File Offset: 0x001156E8
+	// Token: 0x06004AA8 RID: 19112 RVA: 0x00120E68 File Offset: 0x0011F068
 	public static bool GetOrAddComponent<TComponent>(Component component, ref TComponent value) where TComponent : Component
 	{
-		return (!value) ? (value = NGUITools.GetOrAddComponent<TComponent>(component)) : value;
+		return (!value) ? (value = global::NGUITools.GetOrAddComponent<TComponent>(component)) : value;
 	}
 
-	// Token: 0x0400265C RID: 9820
+	// Token: 0x04002893 RID: 10387
 	public const float kMinimumAlpha = 0.00196078443f;
 
-	// Token: 0x0400265D RID: 9821
+	// Token: 0x04002894 RID: 10388
 	public const float kMaximumNegativeAlpha = -0.00196078443f;
 
-	// Token: 0x0400265E RID: 9822
+	// Token: 0x04002895 RID: 10389
 	public const string kFormattingOffDisableSymbol = "[«]";
 
-	// Token: 0x0400265F RID: 9823
+	// Token: 0x04002896 RID: 10390
 	public const string kFormattingOffEnableSymbol = "[»]";
 
-	// Token: 0x04002660 RID: 9824
+	// Token: 0x04002897 RID: 10391
 	public const char kFormattingOffDisableCharacter = '«';
 
-	// Token: 0x04002661 RID: 9825
+	// Token: 0x04002898 RID: 10392
 	public const char kFormattingOffEnableCharacter = '»';
 
-	// Token: 0x04002662 RID: 9826
+	// Token: 0x04002899 RID: 10393
 	private static AudioListener mListener;
 
-	// Token: 0x04002663 RID: 9827
+	// Token: 0x0400289A RID: 10394
 	private static bool mLoaded = false;
 
-	// Token: 0x04002664 RID: 9828
+	// Token: 0x0400289B RID: 10395
 	private static float mGlobalVolume = 1f;
 
-	// Token: 0x04002665 RID: 9829
+	// Token: 0x0400289C RID: 10396
 	private static readonly string[] kFormattingOffSymbols = new string[]
 	{
 		"[»]",
 		"[«]"
 	};
 
-	// Token: 0x02000793 RID: 1939
+	// Token: 0x02000878 RID: 2168
 	private enum SlipGate
 	{
-		// Token: 0x04002667 RID: 9831
+		// Token: 0x0400289E RID: 10398
 		Renderer,
-		// Token: 0x04002668 RID: 9832
+		// Token: 0x0400289F RID: 10399
 		Collider,
-		// Token: 0x04002669 RID: 9833
+		// Token: 0x040028A0 RID: 10400
 		Behaviour,
-		// Token: 0x0400266A RID: 9834
+		// Token: 0x040028A1 RID: 10401
 		Transform,
-		// Token: 0x0400266B RID: 9835
+		// Token: 0x040028A2 RID: 10402
 		Component
 	}
 
-	// Token: 0x02000794 RID: 1940
+	// Token: 0x02000879 RID: 2169
 	private static class SG<T> where T : Component
 	{
-		// Token: 0x0600463C RID: 17980 RVA: 0x00117530 File Offset: 0x00115730
+		// Token: 0x06004AA9 RID: 19113 RVA: 0x00120EB0 File Offset: 0x0011F0B0
 		static SG()
 		{
 			if (typeof(Renderer).IsAssignableFrom(typeof(T)))
 			{
-				NGUITools.SG<T>.V = NGUITools.SlipGate.Renderer;
+				global::NGUITools.SG<T>.V = global::NGUITools.SlipGate.Renderer;
 			}
 			else if (typeof(Collider).IsAssignableFrom(typeof(T)))
 			{
-				NGUITools.SG<T>.V = NGUITools.SlipGate.Collider;
+				global::NGUITools.SG<T>.V = global::NGUITools.SlipGate.Collider;
 			}
 			else if (typeof(Behaviour).IsAssignableFrom(typeof(T)))
 			{
-				NGUITools.SG<T>.V = NGUITools.SlipGate.Behaviour;
+				global::NGUITools.SG<T>.V = global::NGUITools.SlipGate.Behaviour;
 			}
 			else if (typeof(Transform).IsAssignableFrom(typeof(T)))
 			{
-				NGUITools.SG<T>.V = NGUITools.SlipGate.Transform;
+				global::NGUITools.SG<T>.V = global::NGUITools.SlipGate.Transform;
 			}
 			else
 			{
-				NGUITools.SG<T>.V = NGUITools.SlipGate.Component;
+				global::NGUITools.SG<T>.V = global::NGUITools.SlipGate.Component;
 			}
 		}
 
-		// Token: 0x0400266C RID: 9836
-		public static readonly NGUITools.SlipGate V;
+		// Token: 0x040028A3 RID: 10403
+		public static readonly global::NGUITools.SlipGate V;
 	}
 }

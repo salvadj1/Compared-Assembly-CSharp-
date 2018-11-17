@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000768 RID: 1896
+// Token: 0x0200084A RID: 2122
 [AddComponentMenu("NGUI/Interaction/Checkbox Controlled Component")]
 public class UICheckboxControlledComponent : MonoBehaviour
 {
-	// Token: 0x06004502 RID: 17666 RVA: 0x0010E98C File Offset: 0x0010CB8C
+	// Token: 0x06004963 RID: 18787 RVA: 0x0011830C File Offset: 0x0011650C
 	private void OnActivate(bool isActive)
 	{
 		if (base.enabled && this.target != null)
@@ -14,9 +14,9 @@ public class UICheckboxControlledComponent : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0400254A RID: 9546
+	// Token: 0x04002781 RID: 10113
 	public MonoBehaviour target;
 
-	// Token: 0x0400254B RID: 9547
+	// Token: 0x04002782 RID: 10114
 	public bool inverse;
 }

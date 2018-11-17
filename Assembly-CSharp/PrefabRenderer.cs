@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000646 RID: 1606
+// Token: 0x02000709 RID: 1801
 public sealed class PrefabRenderer : IDisposable
 {
-	// Token: 0x0600380A RID: 14346 RVA: 0x000CD6F4 File Offset: 0x000CB8F4
+	// Token: 0x06003BF6 RID: 15350 RVA: 0x000D5FA4 File Offset: 0x000D41A4
 	private PrefabRenderer(int prefabId)
 	{
 		this.prefabId = prefabId;
-		PrefabRenderer.Runtime.Register[this.prefabId] = new WeakReference(this);
+		global::PrefabRenderer.Runtime.Register[this.prefabId] = new WeakReference(this);
 	}
 
-	// Token: 0x17000B0A RID: 2826
-	// (get) Token: 0x0600380B RID: 14347 RVA: 0x000CD71C File Offset: 0x000CB91C
+	// Token: 0x17000B8A RID: 2954
+	// (get) Token: 0x06003BF7 RID: 15351 RVA: 0x000D5FCC File Offset: 0x000D41CC
 	public int materialCount
 	{
 		get
@@ -22,19 +22,19 @@ public sealed class PrefabRenderer : IDisposable
 		}
 	}
 
-	// Token: 0x0600380C RID: 14348 RVA: 0x000CD728 File Offset: 0x000CB928
+	// Token: 0x06003BF8 RID: 15352 RVA: 0x000D5FD8 File Offset: 0x000D41D8
 	public Material GetMaterial(int index)
 	{
 		return this.originalMaterials[index];
 	}
 
-	// Token: 0x0600380D RID: 14349 RVA: 0x000CD734 File Offset: 0x000CB934
+	// Token: 0x06003BF9 RID: 15353 RVA: 0x000D5FE4 File Offset: 0x000D41E4
 	public Material[] GetMaterialArrayCopy()
 	{
 		return (Material[])this.originalMaterials.Clone();
 	}
 
-	// Token: 0x0600380E RID: 14350 RVA: 0x000CD748 File Offset: 0x000CB948
+	// Token: 0x06003BFA RID: 15354 RVA: 0x000D5FF8 File Offset: 0x000D41F8
 	protected override void Finalize()
 	{
 		try
@@ -42,10 +42,10 @@ public sealed class PrefabRenderer : IDisposable
 			if (!this.disposed)
 			{
 				this.disposed = true;
-				object @lock = PrefabRenderer.Runtime.Lock;
+				object @lock = global::PrefabRenderer.Runtime.Lock;
 				lock (@lock)
 				{
-					PrefabRenderer.Runtime.Register.Remove(this.prefabId);
+					global::PrefabRenderer.Runtime.Register.Remove(this.prefabId);
 				}
 			}
 		}
@@ -55,23 +55,23 @@ public sealed class PrefabRenderer : IDisposable
 		}
 	}
 
-	// Token: 0x0600380F RID: 14351 RVA: 0x000CD7D0 File Offset: 0x000CB9D0
+	// Token: 0x06003BFB RID: 15355 RVA: 0x000D6080 File Offset: 0x000D4280
 	public void Dispose()
 	{
 		if (!this.disposed)
 		{
 			this.disposed = true;
 			GC.SuppressFinalize(this);
-			object @lock = PrefabRenderer.Runtime.Lock;
+			object @lock = global::PrefabRenderer.Runtime.Lock;
 			lock (@lock)
 			{
-				PrefabRenderer.Runtime.Register.Remove(this.prefabId);
+				global::PrefabRenderer.Runtime.Register.Remove(this.prefabId);
 			}
 		}
 	}
 
-	// Token: 0x06003810 RID: 14352 RVA: 0x000CD83C File Offset: 0x000CBA3C
-	public static PrefabRenderer GetOrCreateRender(GameObject prefab)
+	// Token: 0x06003BFC RID: 15356 RVA: 0x000D60EC File Offset: 0x000D42EC
+	public static global::PrefabRenderer GetOrCreateRender(GameObject prefab)
 	{
 		if (!prefab)
 		{
@@ -82,15 +82,15 @@ public sealed class PrefabRenderer : IDisposable
 			prefab = prefab.transform.parent.gameObject;
 		}
 		int instanceID = prefab.GetInstanceID();
-		object @lock = PrefabRenderer.Runtime.Lock;
-		PrefabRenderer prefabRenderer;
+		object @lock = global::PrefabRenderer.Runtime.Lock;
+		global::PrefabRenderer prefabRenderer;
 		bool flag;
 		lock (@lock)
 		{
 			WeakReference weakReference;
-			if (PrefabRenderer.Runtime.Register.TryGetValue(instanceID, out weakReference))
+			if (global::PrefabRenderer.Runtime.Register.TryGetValue(instanceID, out weakReference))
 			{
-				prefabRenderer = (PrefabRenderer)weakReference.Target;
+				prefabRenderer = (global::PrefabRenderer)weakReference.Target;
 			}
 			else
 			{
@@ -99,7 +99,7 @@ public sealed class PrefabRenderer : IDisposable
 			flag = (prefabRenderer != null);
 			if (!flag)
 			{
-				prefabRenderer = new PrefabRenderer(instanceID);
+				prefabRenderer = new global::PrefabRenderer(instanceID);
 			}
 		}
 		if (!flag)
@@ -110,7 +110,7 @@ public sealed class PrefabRenderer : IDisposable
 		return prefabRenderer;
 	}
 
-	// Token: 0x06003811 RID: 14353 RVA: 0x000CD90C File Offset: 0x000CBB0C
+	// Token: 0x06003BFD RID: 15357 RVA: 0x000D61BC File Offset: 0x000D43BC
 	private static void DoNotCareResize<T>(ref T[] array, int size)
 	{
 		if (array == null || array.Length != size)
@@ -119,7 +119,7 @@ public sealed class PrefabRenderer : IDisposable
 		}
 	}
 
-	// Token: 0x06003812 RID: 14354 RVA: 0x000CD928 File Offset: 0x000CBB28
+	// Token: 0x06003BFE RID: 15358 RVA: 0x000D61D8 File Offset: 0x000D43D8
 	public void Refresh()
 	{
 		Transform transform = this.prefab.transform;
@@ -170,14 +170,14 @@ public sealed class PrefabRenderer : IDisposable
 		}
 		int count = hashSet.Count;
 		int num3 = (count % 32 <= 0) ? (count / 32) : (count / 32 + 1);
-		PrefabRenderer.DoNotCareResize<int>(ref this.skipBits, num3);
+		global::PrefabRenderer.DoNotCareResize<int>(ref this.skipBits, num3);
 		for (int k = 0; k < num3; k++)
 		{
 			this.skipBits[k] = 0;
 		}
 		Dictionary<Material, int> dictionary = new Dictionary<Material, int>(count);
 		Dictionary<Mesh, int> dictionary2 = new Dictionary<Mesh, int>(num);
-		PrefabRenderer.DoNotCareResize<Material>(ref this.originalMaterials, count);
+		global::PrefabRenderer.DoNotCareResize<Material>(ref this.originalMaterials, count);
 		int num4 = 0;
 		foreach (Material material in hashSet)
 		{
@@ -188,14 +188,14 @@ public sealed class PrefabRenderer : IDisposable
 			this.originalMaterials[num4] = material;
 			dictionary[material] = num4++;
 		}
-		PrefabRenderer.DoNotCareResize<Mesh>(ref this.originalMeshes, num);
+		global::PrefabRenderer.DoNotCareResize<Mesh>(ref this.originalMeshes, num);
 		int num5 = 0;
 		foreach (Mesh mesh in hashSet2)
 		{
 			this.originalMeshes[num5] = mesh;
 			dictionary2[mesh] = num5++;
 		}
-		PrefabRenderer.DoNotCareResize<PrefabRenderer.MeshRender>(ref this.meshes, num2);
+		global::PrefabRenderer.DoNotCareResize<global::PrefabRenderer.MeshRender>(ref this.meshes, num2);
 		for (int l = 0; l < num2; l++)
 		{
 			Renderer renderer2 = componentsInChildren[l];
@@ -209,11 +209,11 @@ public sealed class PrefabRenderer : IDisposable
 		}
 	}
 
-	// Token: 0x06003813 RID: 14355 RVA: 0x000CDD1C File Offset: 0x000CBF1C
+	// Token: 0x06003BFF RID: 15359 RVA: 0x000D65CC File Offset: 0x000D47CC
 	public void Render(Camera camera, Matrix4x4 world, MaterialPropertyBlock props, Material[] overrideMaterials)
 	{
 		Material[] array = overrideMaterials ?? this.originalMaterials;
-		foreach (PrefabRenderer.MeshRender meshRender in this.meshes)
+		foreach (global::PrefabRenderer.MeshRender meshRender in this.meshes)
 		{
 			Mesh mesh = this.originalMeshes[meshRender.mesh];
 			int num = 0;
@@ -228,14 +228,14 @@ public sealed class PrefabRenderer : IDisposable
 		}
 	}
 
-	// Token: 0x06003814 RID: 14356 RVA: 0x000CDDEC File Offset: 0x000CBFEC
+	// Token: 0x06003C00 RID: 15360 RVA: 0x000D669C File Offset: 0x000D489C
 	public void RenderOneMaterial(Camera camera, Matrix4x4 world, MaterialPropertyBlock props, Material overrideMaterial)
 	{
 		if (!overrideMaterial)
 		{
 			return;
 		}
-		foreach (PrefabRenderer.MeshRender meshRender in this.meshes)
+		foreach (global::PrefabRenderer.MeshRender meshRender in this.meshes)
 		{
 			Mesh mesh = this.originalMeshes[meshRender.mesh];
 			int num = 0;
@@ -250,41 +250,41 @@ public sealed class PrefabRenderer : IDisposable
 		}
 	}
 
-	// Token: 0x04001C24 RID: 7204
+	// Token: 0x04001E19 RID: 7705
 	private Material[] originalMaterials;
 
-	// Token: 0x04001C25 RID: 7205
+	// Token: 0x04001E1A RID: 7706
 	private Mesh[] originalMeshes;
 
-	// Token: 0x04001C26 RID: 7206
-	private PrefabRenderer.MeshRender[] meshes;
+	// Token: 0x04001E1B RID: 7707
+	private global::PrefabRenderer.MeshRender[] meshes;
 
-	// Token: 0x04001C27 RID: 7207
+	// Token: 0x04001E1C RID: 7708
 	private int[] skipBits;
 
-	// Token: 0x04001C28 RID: 7208
+	// Token: 0x04001E1D RID: 7709
 	private GameObject prefab;
 
-	// Token: 0x04001C29 RID: 7209
+	// Token: 0x04001E1E RID: 7710
 	private bool disposed;
 
-	// Token: 0x04001C2A RID: 7210
+	// Token: 0x04001E1F RID: 7711
 	private readonly int prefabId;
 
-	// Token: 0x02000647 RID: 1607
+	// Token: 0x0200070A RID: 1802
 	private static class Runtime
 	{
-		// Token: 0x04001C2B RID: 7211
+		// Token: 0x04001E20 RID: 7712
 		public static object Lock = new object();
 
-		// Token: 0x04001C2C RID: 7212
+		// Token: 0x04001E21 RID: 7713
 		public static Dictionary<int, WeakReference> Register = new Dictionary<int, WeakReference>();
 	}
 
-	// Token: 0x02000648 RID: 1608
+	// Token: 0x0200070B RID: 1803
 	private struct MeshRender
 	{
-		// Token: 0x06003816 RID: 14358 RVA: 0x000CDECC File Offset: 0x000CC0CC
+		// Token: 0x06003C02 RID: 15362 RVA: 0x000D677C File Offset: 0x000D497C
 		public void Set(int mesh, int[] materials, Matrix4x4 transform, int layer, bool castShadows, bool receiveShadows)
 		{
 			this.mesh = mesh;
@@ -295,22 +295,22 @@ public sealed class PrefabRenderer : IDisposable
 			this.receiveShadows = receiveShadows;
 		}
 
-		// Token: 0x04001C2D RID: 7213
+		// Token: 0x04001E22 RID: 7714
 		public int mesh;
 
-		// Token: 0x04001C2E RID: 7214
+		// Token: 0x04001E23 RID: 7715
 		public Matrix4x4 transform;
 
-		// Token: 0x04001C2F RID: 7215
+		// Token: 0x04001E24 RID: 7716
 		public int[] materials;
 
-		// Token: 0x04001C30 RID: 7216
+		// Token: 0x04001E25 RID: 7717
 		public int layer;
 
-		// Token: 0x04001C31 RID: 7217
+		// Token: 0x04001E26 RID: 7718
 		public bool castShadows;
 
-		// Token: 0x04001C32 RID: 7218
+		// Token: 0x04001E27 RID: 7719
 		public bool receiveShadows;
 	}
 }

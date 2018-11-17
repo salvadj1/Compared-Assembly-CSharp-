@@ -3,32 +3,32 @@ using System.Collections.Generic;
 using Facepunch;
 using UnityEngine;
 
-// Token: 0x02000095 RID: 149
+// Token: 0x020000A8 RID: 168
 public class SupplyDropZone : MonoBehaviour
 {
-	// Token: 0x06000326 RID: 806 RVA: 0x0000FD60 File Offset: 0x0000DF60
+	// Token: 0x0600039E RID: 926 RVA: 0x00011550 File Offset: 0x0000F750
 	public void Awake()
 	{
 		Object.Destroy(base.gameObject);
 	}
 
-	// Token: 0x06000327 RID: 807 RVA: 0x0000FD70 File Offset: 0x0000DF70
+	// Token: 0x0600039F RID: 927 RVA: 0x00011560 File Offset: 0x0000F760
 	public void OnDrawGizmos()
 	{
 		Gizmos.color = Color.white;
 		Gizmos.DrawWireSphere(base.transform.position, this.radius);
 	}
 
-	// Token: 0x06000328 RID: 808 RVA: 0x0000FDA0 File Offset: 0x0000DFA0
+	// Token: 0x060003A0 RID: 928 RVA: 0x00011590 File Offset: 0x0000F790
 	public void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.yellow;
 		Gizmos.DrawWireSphere(base.transform.position, this.radius);
 	}
 
-	// Token: 0x040002AF RID: 687
-	public static List<SupplyDropZone> _dropZones;
+	// Token: 0x0400031A RID: 794
+	public static List<global::SupplyDropZone> _dropZones;
 
-	// Token: 0x040002B0 RID: 688
+	// Token: 0x0400031B RID: 795
 	public float radius = 100f;
 }

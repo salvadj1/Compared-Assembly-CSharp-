@@ -3,33 +3,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Token: 0x02000369 RID: 873
-public struct ODBReverseEnumerator<T> : IDisposable, IEnumerator, ODBEnumerator<T>, IEnumerator<T> where T : Object
+// Token: 0x02000416 RID: 1046
+public struct ODBReverseEnumerator<T> : IDisposable, IEnumerator, global::ODBEnumerator<T>, IEnumerator<T> where T : Object
 {
-	// Token: 0x0600214C RID: 8524 RVA: 0x000821FC File Offset: 0x000803FC
-	public ODBReverseEnumerator(ODBNode<T> node)
+	// Token: 0x060024AE RID: 9390 RVA: 0x000875F8 File Offset: 0x000857F8
+	public ODBReverseEnumerator(global::ODBNode<T> node)
 	{
 		this.sib.has = true;
 		this.sib.item = node;
 		this.Current = (T)((object)null);
 	}
 
-	// Token: 0x0600214D RID: 8525 RVA: 0x00082230 File Offset: 0x00080430
-	public ODBReverseEnumerator(ODBList<T> list)
+	// Token: 0x060024AF RID: 9391 RVA: 0x0008762C File Offset: 0x0008582C
+	public ODBReverseEnumerator(global::ODBList<T> list)
 	{
-		this = new ODBReverseEnumerator<T>(list.last);
+		this = new global::ODBReverseEnumerator<T>(list.last);
 	}
 
-	// Token: 0x0600214E RID: 8526 RVA: 0x00082240 File Offset: 0x00080440
-	public ODBReverseEnumerator(ODBSibling<T> sibling)
+	// Token: 0x060024B0 RID: 9392 RVA: 0x0008763C File Offset: 0x0008583C
+	public ODBReverseEnumerator(global::ODBSibling<T> sibling)
 	{
 		this.sib = sibling;
 		this.Current = (T)((object)null);
 	}
 
-	// Token: 0x1700082B RID: 2091
-	// (get) Token: 0x0600214F RID: 8527 RVA: 0x00082258 File Offset: 0x00080458
-	T ODBEnumerator<T>.ExplicitCurrent
+	// Token: 0x17000889 RID: 2185
+	// (get) Token: 0x060024B1 RID: 9393 RVA: 0x00087654 File Offset: 0x00085854
+	T global::ODBEnumerator<T>.ExplicitCurrent
 	{
 		get
 		{
@@ -37,8 +37,8 @@ public struct ODBReverseEnumerator<T> : IDisposable, IEnumerator, ODBEnumerator<
 		}
 	}
 
-	// Token: 0x1700082C RID: 2092
-	// (get) Token: 0x06002150 RID: 8528 RVA: 0x00082260 File Offset: 0x00080460
+	// Token: 0x1700088A RID: 2186
+	// (get) Token: 0x060024B2 RID: 9394 RVA: 0x0008765C File Offset: 0x0008585C
 	T IEnumerator<T>.Current
 	{
 		get
@@ -47,8 +47,8 @@ public struct ODBReverseEnumerator<T> : IDisposable, IEnumerator, ODBEnumerator<
 		}
 	}
 
-	// Token: 0x1700082D RID: 2093
-	// (get) Token: 0x06002151 RID: 8529 RVA: 0x00082268 File Offset: 0x00080468
+	// Token: 0x1700088B RID: 2187
+	// (get) Token: 0x060024B3 RID: 9395 RVA: 0x00087664 File Offset: 0x00085864
 	object IEnumerator.Current
 	{
 		get
@@ -57,18 +57,18 @@ public struct ODBReverseEnumerator<T> : IDisposable, IEnumerator, ODBEnumerator<
 		}
 	}
 
-	// Token: 0x06002152 RID: 8530 RVA: 0x00082278 File Offset: 0x00080478
+	// Token: 0x060024B4 RID: 9396 RVA: 0x00087674 File Offset: 0x00085874
 	void IEnumerator.Reset()
 	{
 		throw new NotSupportedException();
 	}
 
-	// Token: 0x06002153 RID: 8531 RVA: 0x00082280 File Offset: 0x00080480
+	// Token: 0x060024B5 RID: 9397 RVA: 0x0008767C File Offset: 0x0008587C
 	public bool MoveNext()
 	{
 		if (this.sib.has)
 		{
-			ODBNode<T> item = this.sib.item;
+			global::ODBNode<T> item = this.sib.item;
 			this.Current = item.self;
 			this.sib = item.p;
 			return true;
@@ -76,23 +76,23 @@ public struct ODBReverseEnumerator<T> : IDisposable, IEnumerator, ODBEnumerator<
 		return false;
 	}
 
-	// Token: 0x06002154 RID: 8532 RVA: 0x000822C4 File Offset: 0x000804C4
+	// Token: 0x060024B6 RID: 9398 RVA: 0x000876C0 File Offset: 0x000858C0
 	public void Dispose()
 	{
-		this.sib = default(ODBSibling<T>);
+		this.sib = default(global::ODBSibling<T>);
 		this.Current = (T)((object)null);
 	}
 
-	// Token: 0x06002155 RID: 8533 RVA: 0x000822EC File Offset: 0x000804EC
+	// Token: 0x060024B7 RID: 9399 RVA: 0x000876E8 File Offset: 0x000858E8
 	public IEnumerator<T> ToGeneric()
 	{
-		ODBReverseEnumerator<T> odbreverseEnumerator = this;
-		return ODBCachedEnumerator<T, ODBReverseEnumerator<T>>.Cache(ref odbreverseEnumerator);
+		global::ODBReverseEnumerator<T> odbreverseEnumerator = this;
+		return global::ODBCachedEnumerator<T, global::ODBReverseEnumerator<T>>.Cache(ref odbreverseEnumerator);
 	}
 
-	// Token: 0x04000F9F RID: 3999
-	private ODBSibling<T> sib;
+	// Token: 0x04001105 RID: 4357
+	private global::ODBSibling<T> sib;
 
-	// Token: 0x04000FA0 RID: 4000
+	// Token: 0x04001106 RID: 4358
 	public T Current;
 }

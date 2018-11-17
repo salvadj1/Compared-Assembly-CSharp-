@@ -1,20 +1,20 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020004E2 RID: 1250
+// Token: 0x0200059D RID: 1437
 public class MegaTerrain : MonoBehaviour
 {
-	// Token: 0x06002AD8 RID: 10968 RVA: 0x000AB1DC File Offset: 0x000A93DC
+	// Token: 0x06002E8A RID: 11914 RVA: 0x000B2F74 File Offset: 0x000B1174
 	private void Start()
 	{
 	}
 
-	// Token: 0x06002AD9 RID: 10969 RVA: 0x000AB1E0 File Offset: 0x000A93E0
+	// Token: 0x06002E8B RID: 11915 RVA: 0x000B2F78 File Offset: 0x000B1178
 	private void Update()
 	{
 	}
 
-	// Token: 0x06002ADA RID: 10970 RVA: 0x000AB1E4 File Offset: 0x000A93E4
+	// Token: 0x06002E8C RID: 11916 RVA: 0x000B2F7C File Offset: 0x000B117C
 	[ContextMenu("Generate")]
 	private void Generate()
 	{
@@ -26,7 +26,7 @@ public class MegaTerrain : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002ADB RID: 10971 RVA: 0x000AB218 File Offset: 0x000A9418
+	// Token: 0x06002E8D RID: 11917 RVA: 0x000B2FB0 File Offset: 0x000B11B0
 	public Terrain FindTerrain(int x, int y)
 	{
 		string text = string.Concat(new object[]
@@ -40,7 +40,7 @@ public class MegaTerrain : MonoBehaviour
 		return (!(GameObject.Find(text) != null)) ? null : GameObject.Find(text).GetComponent<Terrain>();
 	}
 
-	// Token: 0x06002ADC RID: 10972 RVA: 0x000AB280 File Offset: 0x000A9480
+	// Token: 0x06002E8E RID: 11918 RVA: 0x000B3018 File Offset: 0x000B1218
 	[ContextMenu("Stitch")]
 	private void Stitch()
 	{
@@ -77,12 +77,12 @@ public class MegaTerrain : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001760 RID: 5984
+	// Token: 0x0400191D RID: 6429
 	public TerrainData _rootTerrainData;
 
-	// Token: 0x04001761 RID: 5985
+	// Token: 0x0400191E RID: 6430
 	public Terrain[] _terrains;
 
-	// Token: 0x04001762 RID: 5986
+	// Token: 0x0400191F RID: 6431
 	public string name_base = "rust_terrain";
 }

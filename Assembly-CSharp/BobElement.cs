@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000253 RID: 595
+// Token: 0x02000286 RID: 646
 public struct BobElement
 {
-	// Token: 0x04000B1D RID: 2845
+	// Token: 0x04000C40 RID: 3136
 	public Vector3 value;
 
-	// Token: 0x04000B1E RID: 2846
+	// Token: 0x04000C41 RID: 3137
 	public Vector3 time;
 }

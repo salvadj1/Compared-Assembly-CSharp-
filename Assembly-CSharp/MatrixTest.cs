@@ -2,12 +2,12 @@
 using Facepunch.Precision;
 using UnityEngine;
 
-// Token: 0x02000683 RID: 1667
+// Token: 0x02000748 RID: 1864
 [AddComponentMenu("Precision/Tests/Matrix Test")]
 [ExecuteInEditMode]
 public class MatrixTest : MonoBehaviour
 {
-	// Token: 0x060039DA RID: 14810 RVA: 0x000D61C8 File Offset: 0x000D43C8
+	// Token: 0x06003DD2 RID: 15826 RVA: 0x000DEBA8 File Offset: 0x000DCDA8
 	private Matrix4x4G MultG(Matrix4x4G a, Matrix4x4G b)
 	{
 		Matrix4x4G result;
@@ -22,7 +22,7 @@ public class MatrixTest : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x060039DB RID: 14811 RVA: 0x000D61FC File Offset: 0x000D43FC
+	// Token: 0x06003DD3 RID: 15827 RVA: 0x000DEBDC File Offset: 0x000DCDDC
 	private void Update()
 	{
 		Matrix4x4 matrix4x;
@@ -66,7 +66,7 @@ public class MatrixTest : MonoBehaviour
 		this.facep = matrix4x4G;
 	}
 
-	// Token: 0x060039DC RID: 14812 RVA: 0x000D634C File Offset: 0x000D454C
+	// Token: 0x06003DD4 RID: 15828 RVA: 0x000DED2C File Offset: 0x000DCF2C
 	private void Awake()
 	{
 		this.contents = new GUIContent[2, 4, 4];
@@ -89,7 +89,7 @@ public class MatrixTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039DD RID: 14813 RVA: 0x000D6408 File Offset: 0x000D4608
+	// Token: 0x06003DD5 RID: 15829 RVA: 0x000DEDE8 File Offset: 0x000DCFE8
 	private void OnGUI()
 	{
 		if (Event.current.type != 7)
@@ -134,7 +134,7 @@ public class MatrixTest : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060039DE RID: 14814 RVA: 0x000D6588 File Offset: 0x000D4788
+	// Token: 0x06003DD6 RID: 15830 RVA: 0x000DEF68 File Offset: 0x000DD168
 	private Color RCCol(int col, int row)
 	{
 		Color result;
@@ -177,7 +177,7 @@ public class MatrixTest : MonoBehaviour
 		return result;
 	}
 
-	// Token: 0x060039DF RID: 14815 RVA: 0x000D666C File Offset: 0x000D486C
+	// Token: 0x06003DD7 RID: 15831 RVA: 0x000DF04C File Offset: 0x000DD24C
 	private void DrawLabel(int m, int col, int row, GUIStyle style)
 	{
 		if (this.contents[m, col, row].text != this.contents[(m + 1) % 2, col, row].text)
@@ -191,57 +191,57 @@ public class MatrixTest : MonoBehaviour
 		GUI.Label(this.rects[m, col, row], this.contents[m, col, row], style);
 	}
 
-	// Token: 0x04001DD3 RID: 7635
+	// Token: 0x04001FCB RID: 8139
 	private const float cellWidth = 100f;
 
-	// Token: 0x04001DD4 RID: 7636
+	// Token: 0x04001FCC RID: 8140
 	private const float cellHeight = 30f;
 
-	// Token: 0x04001DD5 RID: 7637
+	// Token: 0x04001FCD RID: 8141
 	private const string formatFloat = "0.#####";
 
-	// Token: 0x04001DD6 RID: 7638
+	// Token: 0x04001FCE RID: 8142
 	private GUIContent[,,] contents;
 
-	// Token: 0x04001DD7 RID: 7639
+	// Token: 0x04001FCF RID: 8143
 	private Rect[,,] rects;
 
-	// Token: 0x04001DD8 RID: 7640
+	// Token: 0x04001FD0 RID: 8144
 	private Matrix4x4 unity = Matrix4x4.identity;
 
-	// Token: 0x04001DD9 RID: 7641
+	// Token: 0x04001FD1 RID: 8145
 	private Matrix4x4 lastUnity;
 
-	// Token: 0x04001DDA RID: 7642
+	// Token: 0x04001FD2 RID: 8146
 	private Matrix4x4G facep = Matrix4x4G.identity;
 
-	// Token: 0x04001DDB RID: 7643
-	public MatrixTest.TRS[] transforms;
+	// Token: 0x04001FD3 RID: 8147
+	public global::MatrixTest.TRS[] transforms;
 
-	// Token: 0x04001DDC RID: 7644
+	// Token: 0x04001FD4 RID: 8148
 	public bool revMul;
 
-	// Token: 0x04001DDD RID: 7645
+	// Token: 0x04001FD5 RID: 8149
 	public bool revG;
 
-	// Token: 0x04001DDE RID: 7646
-	public ProjectionTest projection;
+	// Token: 0x04001FD6 RID: 8150
+	public global::ProjectionTest projection;
 
-	// Token: 0x04001DDF RID: 7647
-	private ProjectionTest lastProjectionTest;
+	// Token: 0x04001FD7 RID: 8151
+	private global::ProjectionTest lastProjectionTest;
 
-	// Token: 0x02000684 RID: 1668
+	// Token: 0x02000749 RID: 1865
 	[Serializable]
 	public class TRS
 	{
-		// Token: 0x060039E0 RID: 14816 RVA: 0x000D66EC File Offset: 0x000D48EC
+		// Token: 0x06003DD8 RID: 15832 RVA: 0x000DF0CC File Offset: 0x000DD2CC
 		public TRS()
 		{
 			this.S = Vector3.one;
 		}
 
-		// Token: 0x17000B34 RID: 2868
-		// (get) Token: 0x060039E1 RID: 14817 RVA: 0x000D6700 File Offset: 0x000D4900
+		// Token: 0x17000BB6 RID: 2998
+		// (get) Token: 0x06003DD9 RID: 15833 RVA: 0x000DF0E0 File Offset: 0x000DD2E0
 		public Quaternion R_unity
 		{
 			get
@@ -250,8 +250,8 @@ public class MatrixTest : MonoBehaviour
 			}
 		}
 
-		// Token: 0x17000B35 RID: 2869
-		// (get) Token: 0x060039E2 RID: 14818 RVA: 0x000D6710 File Offset: 0x000D4910
+		// Token: 0x17000BB7 RID: 2999
+		// (get) Token: 0x06003DDA RID: 15834 RVA: 0x000DF0F0 File Offset: 0x000DD2F0
 		public QuaternionG R_facep
 		{
 			get
@@ -264,8 +264,8 @@ public class MatrixTest : MonoBehaviour
 			}
 		}
 
-		// Token: 0x17000B36 RID: 2870
-		// (get) Token: 0x060039E3 RID: 14819 RVA: 0x000D6734 File Offset: 0x000D4934
+		// Token: 0x17000BB8 RID: 3000
+		// (get) Token: 0x06003DDB RID: 15835 RVA: 0x000DF114 File Offset: 0x000DD314
 		public Matrix4x4 unity
 		{
 			get
@@ -274,8 +274,8 @@ public class MatrixTest : MonoBehaviour
 			}
 		}
 
-		// Token: 0x17000B37 RID: 2871
-		// (get) Token: 0x060039E4 RID: 14820 RVA: 0x000D6750 File Offset: 0x000D4950
+		// Token: 0x17000BB9 RID: 3001
+		// (get) Token: 0x06003DDC RID: 15836 RVA: 0x000DF130 File Offset: 0x000DD330
 		public Matrix4x4G facep
 		{
 			get
@@ -291,13 +291,13 @@ public class MatrixTest : MonoBehaviour
 			}
 		}
 
-		// Token: 0x04001DE0 RID: 7648
+		// Token: 0x04001FD8 RID: 8152
 		public Vector3 T;
 
-		// Token: 0x04001DE1 RID: 7649
+		// Token: 0x04001FD9 RID: 8153
 		public Vector3 eulerR;
 
-		// Token: 0x04001DE2 RID: 7650
+		// Token: 0x04001FDA RID: 8154
 		public Vector3 S;
 	}
 }

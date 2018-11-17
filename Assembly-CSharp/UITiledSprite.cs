@@ -2,17 +2,17 @@
 using NGUI.Meshing;
 using UnityEngine;
 
-// Token: 0x0200080B RID: 2059
+// Token: 0x020008FD RID: 2301
 [ExecuteInEditMode]
 [AddComponentMenu("NGUI/UI/Sprite (Tiled)")]
-public class UITiledSprite : UIGeometricSprite
+public class UITiledSprite : global::UIGeometricSprite
 {
-	// Token: 0x060049CE RID: 18894 RVA: 0x0013A7AC File Offset: 0x001389AC
-	public UITiledSprite() : base((UIWidget.WidgetFlags)0)
+	// Token: 0x06004E7D RID: 20093 RVA: 0x00144710 File Offset: 0x00142910
+	public UITiledSprite() : base((global::UIWidget.WidgetFlags)0)
 	{
 	}
 
-	// Token: 0x060049CF RID: 18895 RVA: 0x0013A7B8 File Offset: 0x001389B8
+	// Token: 0x06004E7E RID: 20094 RVA: 0x0014471C File Offset: 0x0014291C
 	public override void MakePixelPerfect()
 	{
 		Vector3 localPosition = base.cachedTransform.localPosition;
@@ -27,8 +27,8 @@ public class UITiledSprite : UIGeometricSprite
 		base.cachedTransform.localScale = localScale;
 	}
 
-	// Token: 0x060049D0 RID: 18896 RVA: 0x0013A868 File Offset: 0x00138A68
-	public override void OnFill(MeshBuffer m)
+	// Token: 0x06004E7F RID: 20095 RVA: 0x001447CC File Offset: 0x001429CC
+	public override void OnFill(NGUI.Meshing.MeshBuffer m)
 	{
 		Texture mainTexture = base.material.mainTexture;
 		if (mainTexture == null)
@@ -36,9 +36,9 @@ public class UITiledSprite : UIGeometricSprite
 			return;
 		}
 		Rect rect = this.mInner;
-		if (base.atlas.coordinates == UIAtlas.Coordinates.TexCoords)
+		if (base.atlas.coordinates == global::UIAtlas.Coordinates.TexCoords)
 		{
-			rect = NGUIMath.ConvertToPixels(rect, mainTexture.width, mainTexture.height, true);
+			rect = global::NGUIMath.ConvertToPixels(rect, mainTexture.width, mainTexture.height, true);
 		}
 		Vector2 vector = base.cachedTransform.localScale;
 		float pixelSize = base.atlas.pixelSize;
@@ -46,7 +46,7 @@ public class UITiledSprite : UIGeometricSprite
 		float num2 = Mathf.Abs(rect.height / vector.y) * pixelSize;
 		if (num < 0.01f || num2 < 0.01f)
 		{
-			Debug.LogWarning("The tiled sprite (" + NGUITools.GetHierarchy(base.gameObject) + ") is too small.\nConsider using a bigger one.");
+			Debug.LogWarning("The tiled sprite (" + global::NGUITools.GetHierarchy(base.gameObject) + ") is too small.\nConsider using a bigger one.");
 			num = 0.01f;
 			num2 = 0.01f;
 		}
@@ -57,10 +57,10 @@ public class UITiledSprite : UIGeometricSprite
 		Vector2 vector4 = vector3;
 		float num3 = 0f;
 		Color color = base.color;
-		Vertex a;
-		Vertex b;
-		Vertex c;
-		Vertex d;
+		NGUI.Meshing.Vertex a;
+		NGUI.Meshing.Vertex b;
+		NGUI.Meshing.Vertex c;
+		NGUI.Meshing.Vertex d;
 		a.r = (b.r = (c.r = (d.r = color.r)));
 		a.g = (b.g = (c.g = (d.g = color.g)));
 		a.b = (b.b = (c.b = (d.b = color.b)));

@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace MoPhoGames.USpeak.Core
 {
-	// Token: 0x020000BC RID: 188
+	// Token: 0x020000D0 RID: 208
 	public class USpeakAudioClipConverter
 	{
-		// Token: 0x06000404 RID: 1028 RVA: 0x0001506C File Offset: 0x0001326C
+		// Token: 0x06000482 RID: 1154 RVA: 0x00016A34 File Offset: 0x00014C34
 		public static short[] AudioDataToShorts(float[] samples, int channels, float gain = 1f)
 		{
-			short[] @short = USpeakPoolUtils.GetShort(samples.Length * channels);
+			short[] @short = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetShort(samples.Length * channels);
 			for (int i = 0; i < samples.Length; i++)
 			{
 				float num = samples[i] * gain;
@@ -31,10 +31,10 @@ namespace MoPhoGames.USpeak.Core
 			return @short;
 		}
 
-		// Token: 0x06000405 RID: 1029 RVA: 0x000150D8 File Offset: 0x000132D8
+		// Token: 0x06000483 RID: 1155 RVA: 0x00016AA0 File Offset: 0x00014CA0
 		public static float[] ShortsToAudioData(short[] data, int channels, int frequency, bool threedimensional, float gain)
 		{
-			float[] @float = USpeakPoolUtils.GetFloat(data.Length);
+			float[] @float = MoPhoGames.USpeak.Core.Utils.USpeakPoolUtils.GetFloat(data.Length);
 			for (int i = 0; i < @float.Length; i++)
 			{
 				int num = (int)data[i];

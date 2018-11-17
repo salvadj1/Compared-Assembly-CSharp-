@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000645 RID: 1605
+// Token: 0x02000708 RID: 1800
 [RequireComponent(typeof(Camera))]
 public class PerspectiveFit : MonoBehaviour
 {
-	// Token: 0x06003808 RID: 14344 RVA: 0x000CD5E8 File Offset: 0x000CB7E8
+	// Token: 0x06003BF4 RID: 15348 RVA: 0x000D5E98 File Offset: 0x000D4098
 	private void OnPreCull()
 	{
 		if (base.enabled && this.camera && this.camera.enabled)
@@ -27,7 +27,7 @@ public class PerspectiveFit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06003809 RID: 14345 RVA: 0x000CD6D4 File Offset: 0x000CB8D4
+	// Token: 0x06003BF5 RID: 15349 RVA: 0x000D5F84 File Offset: 0x000D4184
 	private void Reset()
 	{
 		if (!this.camera)
@@ -36,13 +36,13 @@ public class PerspectiveFit : MonoBehaviour
 		}
 	}
 
-	// Token: 0x04001C21 RID: 7201
+	// Token: 0x04001E16 RID: 7702
 	[PrefetchComponent]
 	public Camera camera;
 
-	// Token: 0x04001C22 RID: 7202
+	// Token: 0x04001E17 RID: 7703
 	public float targetDistance = 2.2f;
 
-	// Token: 0x04001C23 RID: 7203
+	// Token: 0x04001E18 RID: 7704
 	public Vector2 targetSize = new Vector2(2.4f, 1.1f);
 }

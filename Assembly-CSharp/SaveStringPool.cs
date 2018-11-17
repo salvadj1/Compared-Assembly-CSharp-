@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x020000C5 RID: 197
+// Token: 0x020000D9 RID: 217
 public class SaveStringPool
 {
-	// Token: 0x06000420 RID: 1056 RVA: 0x0001558C File Offset: 0x0001378C
+	// Token: 0x0600049E RID: 1182 RVA: 0x00016F54 File Offset: 0x00015154
 	public static int GetInt(string strName)
 	{
-		return SaveStringPool.prefabDictionary[strName];
+		return global::SaveStringPool.prefabDictionary[strName];
 	}
 
-	// Token: 0x06000421 RID: 1057 RVA: 0x0001559C File Offset: 0x0001379C
+	// Token: 0x0600049F RID: 1183 RVA: 0x00016F64 File Offset: 0x00015164
 	public static string Convert(int iNum)
 	{
-		foreach (KeyValuePair<string, int> keyValuePair in SaveStringPool.prefabDictionary)
+		foreach (KeyValuePair<string, int> keyValuePair in global::SaveStringPool.prefabDictionary)
 		{
 			if (keyValuePair.Value == iNum)
 			{
@@ -23,7 +23,7 @@ public class SaveStringPool
 		return string.Empty;
 	}
 
-	// Token: 0x040003A7 RID: 935
+	// Token: 0x04000416 RID: 1046
 	private static Dictionary<string, int> prefabDictionary = new Dictionary<string, int>
 	{
 		{

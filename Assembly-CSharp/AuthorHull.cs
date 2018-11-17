@@ -6,55 +6,55 @@ using System.Reflection;
 using Facepunch.Actor;
 using UnityEngine;
 
-// Token: 0x0200002A RID: 42
-[AuthorSuiteCreation(Title = "Author Hull", Description = "Create a new character. Allows you to define hitboxes and fine tune ragdoll and joints.", Scripter = "Pat", OutputType = typeof(Character), Ready = true)]
-public class AuthorHull : AuthorCreation
+// Token: 0x02000037 RID: 55
+[global::AuthorSuiteCreation(Title = "Author Hull", Description = "Create a new character. Allows you to define hitboxes and fine tune ragdoll and joints.", Scripter = "Pat", OutputType = typeof(global::Character), Ready = true)]
+public class AuthorHull : global::AuthorCreation
 {
-	// Token: 0x060001A9 RID: 425 RVA: 0x000085E8 File Offset: 0x000067E8
-	public AuthorHull() : this(typeof(Character))
+	// Token: 0x060001F5 RID: 501 RVA: 0x00009348 File Offset: 0x00007548
+	public AuthorHull() : this(typeof(global::Character))
 	{
 	}
 
-	// Token: 0x060001AA RID: 426 RVA: 0x000085FC File Offset: 0x000067FC
+	// Token: 0x060001F6 RID: 502 RVA: 0x0000935C File Offset: 0x0000755C
 	protected AuthorHull(Type type) : base(type)
 	{
 	}
 
-	// Token: 0x060001AC RID: 428 RVA: 0x00008698 File Offset: 0x00006898
-	public HitBox CreateHitBox(GameObject target)
+	// Token: 0x060001F8 RID: 504 RVA: 0x000093F8 File Offset: 0x000075F8
+	public global::HitBox CreateHitBox(GameObject target)
 	{
-		HitBox hitBox = AuthorShared.AddComponent<HitBox>(target, this.hitBoxType);
-		AuthorShared.SetSerializedProperty(hitBox, "_hitBoxSystem", this.creatingSystem);
+		global::HitBox hitBox = global::AuthorShared.AddComponent<global::HitBox>(target, this.hitBoxType);
+		global::AuthorShared.SetSerializedProperty(hitBox, "_hitBoxSystem", this.creatingSystem);
 		hitBox.idMain = hitBox.hitBoxSystem.idMain;
 		return hitBox;
 	}
 
-	// Token: 0x060001AD RID: 429 RVA: 0x000086D8 File Offset: 0x000068D8
-	public HitBoxSystem CreateHitBoxSystem(GameObject target)
+	// Token: 0x060001F9 RID: 505 RVA: 0x00009438 File Offset: 0x00007638
+	public global::HitBoxSystem CreateHitBoxSystem(GameObject target)
 	{
-		return AuthorShared.AddComponent<HitBoxSystem>(target, this.hitBoxSystemType);
+		return global::AuthorShared.AddComponent<global::HitBoxSystem>(target, this.hitBoxSystemType);
 	}
 
-	// Token: 0x060001AE RID: 430 RVA: 0x000086E8 File Offset: 0x000068E8
+	// Token: 0x060001FA RID: 506 RVA: 0x00009448 File Offset: 0x00007648
 	private Transform GetHitColliderParent(GameObject root)
 	{
 		SkinnedMeshRenderer skinnedMeshRenderer;
-		Transform rootBone = AuthorShared.GetRootBone(root, out skinnedMeshRenderer);
+		Transform rootBone = global::AuthorShared.GetRootBone(root, out skinnedMeshRenderer);
 		return (!skinnedMeshRenderer || !skinnedMeshRenderer.transform.parent) ? rootBone : skinnedMeshRenderer.transform.parent;
 	}
 
-	// Token: 0x060001AF RID: 431 RVA: 0x00008730 File Offset: 0x00006930
-	public override IEnumerable<AuthorPeice> DoSceneView()
+	// Token: 0x060001FB RID: 507 RVA: 0x00009490 File Offset: 0x00007690
+	public override IEnumerable<global::AuthorPeice> DoSceneView()
 	{
 		if (this.drawBones && this.modelPrefabInstance != null)
 		{
-			Transform rootBone = AuthorShared.GetRootBone(this.modelPrefabInstance);
+			Transform rootBone = global::AuthorShared.GetRootBone(this.modelPrefabInstance);
 			if (rootBone)
 			{
-				Color color = AuthorShared.Scene.color;
+				Color color = global::AuthorShared.Scene.color;
 				Color color2 = color * new Color(0.9f, 0.8f, 0.3f, 0.1f);
 				List<Transform> list = rootBone.ListDecendantsByDepth();
-				AuthorShared.Scene.color = color2;
+				global::AuthorShared.Scene.color = color2;
 				foreach (Transform transform in list)
 				{
 					Vector3 position = transform.parent.position;
@@ -65,16 +65,16 @@ public class AuthorHull : AuthorCreation
 					{
 						Vector3 up = transform.up;
 						Quaternion rot = Quaternion.LookRotation(vector, up);
-						AuthorShared.Scene.DrawBone(position, rot, magnitude, Mathf.Min(magnitude / 2f, 0.025f), Vector3.one * Mathf.Min(magnitude, 0.05f));
+						global::AuthorShared.Scene.DrawBone(position, rot, magnitude, Mathf.Min(magnitude / 2f, 0.025f), Vector3.one * Mathf.Min(magnitude, 0.05f));
 					}
 				}
-				AuthorShared.Scene.color = color;
+				global::AuthorShared.Scene.color = color;
 			}
 		}
 		return base.DoSceneView();
 	}
 
-	// Token: 0x060001B0 RID: 432 RVA: 0x00008884 File Offset: 0x00006A84
+	// Token: 0x060001FC RID: 508 RVA: 0x000095E4 File Offset: 0x000077E4
 	private void ApplyMaterials(GameObject instance)
 	{
 		SkinnedMeshRenderer skinnedMeshRenderer = (!(instance == null)) ? instance.GetComponentInChildren<SkinnedMeshRenderer>() : null;
@@ -84,7 +84,7 @@ public class AuthorHull : AuthorCreation
 		}
 	}
 
-	// Token: 0x060001B1 RID: 433 RVA: 0x000088C4 File Offset: 0x00006AC4
+	// Token: 0x060001FD RID: 509 RVA: 0x00009624 File Offset: 0x00007824
 	private void DestroyRepresentations(ref GameObject stored, string suffix)
 	{
 		if (stored)
@@ -100,25 +100,25 @@ public class AuthorHull : AuthorCreation
 		}
 	}
 
-	// Token: 0x060001B2 RID: 434 RVA: 0x0000894C File Offset: 0x00006B4C
+	// Token: 0x060001FE RID: 510 RVA: 0x000096AC File Offset: 0x000078AC
 	protected override bool OnGUICreationSettings()
 	{
 		bool flag = base.OnGUICreationSettings();
 		bool flag2 = this.modelPrefab;
-		GameObject gameObject = (GameObject)AuthorShared.ObjectField("Model Prefab", this.modelPrefab, typeof(GameObject), true, new GUILayoutOption[0]);
+		GameObject gameObject = (GameObject)global::AuthorShared.ObjectField("Model Prefab", this.modelPrefab, typeof(GameObject), true, new GUILayoutOption[0]);
 		if (gameObject != this.modelPrefab)
 		{
 			if (!gameObject)
 			{
 				gameObject = this.modelPrefab;
 			}
-			else if (AuthorShared.GetObjectKind(gameObject) != AuthorShared.ObjectKind.Model)
+			else if (global::AuthorShared.GetObjectKind(gameObject) != global::AuthorShared.ObjectKind.Model)
 			{
 				gameObject = this.modelPrefab;
 			}
 			else
 			{
-				gameObject = AuthorShared.FindPrefabRoot(gameObject);
+				gameObject = global::AuthorShared.FindPrefabRoot(gameObject);
 			}
 		}
 		if (gameObject != this.modelPrefab)
@@ -134,20 +134,20 @@ public class AuthorHull : AuthorCreation
 			GUI.enabled = false;
 		}
 		bool flag3 = this.modelPrefabForHitBox;
-		GameObject gameObject2 = (GameObject)AuthorShared.ObjectField("Override Model Prefab [HitBox]", (!flag3) ? this.modelPrefab : this.modelPrefabForHitBox, typeof(GameObject), true, new GUILayoutOption[0]);
+		GameObject gameObject2 = (GameObject)global::AuthorShared.ObjectField("Override Model Prefab [HitBox]", (!flag3) ? this.modelPrefab : this.modelPrefabForHitBox, typeof(GameObject), true, new GUILayoutOption[0]);
 		GUI.enabled = enabled;
 		if (!gameObject2 || gameObject2 == this.modelPrefab)
 		{
 			if (flag2)
 			{
-				GUILayout.Label(AuthorHull.guis.notOverridingContent, AuthorShared.Styles.miniLabel, new GUILayoutOption[0]);
+				GUILayout.Label(global::AuthorHull.guis.notOverridingContent, global::AuthorShared.Styles.miniLabel, new GUILayoutOption[0]);
 			}
 			gameObject2 = null;
 		}
 		else
 		{
-			GUILayout.Label(AuthorHull.guis.overridingContent, AuthorShared.Styles.miniLabel, new GUILayoutOption[0]);
-			bool flag4 = AuthorShared.Toggle("Use Meshes from Override in Ragdoll output", this.useMeshesFromHitBoxOnRagdoll, new GUILayoutOption[0]);
+			GUILayout.Label(global::AuthorHull.guis.overridingContent, global::AuthorShared.Styles.miniLabel, new GUILayoutOption[0]);
+			bool flag4 = global::AuthorShared.Toggle("Use Meshes from Override in Ragdoll output", this.useMeshesFromHitBoxOnRagdoll, new GUILayoutOption[0]);
 			if (flag4 != this.useMeshesFromHitBoxOnRagdoll)
 			{
 				this.useMeshesFromHitBoxOnRagdoll = flag4;
@@ -160,13 +160,13 @@ public class AuthorHull : AuthorCreation
 			{
 				gameObject2 = this.modelPrefabForHitBox;
 			}
-			else if (AuthorShared.GetObjectKind(gameObject2) != AuthorShared.ObjectKind.Model)
+			else if (global::AuthorShared.GetObjectKind(gameObject2) != global::AuthorShared.ObjectKind.Model)
 			{
 				gameObject2 = this.modelPrefabForHitBox;
 			}
 			else
 			{
-				gameObject2 = AuthorShared.FindPrefabRoot(gameObject2);
+				gameObject2 = global::AuthorShared.FindPrefabRoot(gameObject2);
 			}
 		}
 		if (gameObject2 != this.modelPrefabForHitBox)
@@ -174,7 +174,7 @@ public class AuthorHull : AuthorCreation
 			this.modelPrefabForHitBox = gameObject2;
 			flag |= true;
 		}
-		ActorRig actorRig = (ActorRig)AuthorShared.ObjectField("Actor Rig", this.actorRig, typeof(ActorRig), AuthorShared.ObjectFieldFlags.Asset, new GUILayoutOption[0]);
+		ActorRig actorRig = (ActorRig)global::AuthorShared.ObjectField("Actor Rig", this.actorRig, typeof(ActorRig), global::AuthorShared.ObjectFieldFlags.Asset, new GUILayoutOption[0]);
 		if (actorRig != this.actorRig && !actorRig)
 		{
 			actorRig = this.actorRig;
@@ -184,8 +184,8 @@ public class AuthorHull : AuthorCreation
 			this.actorRig = actorRig;
 			flag |= true;
 		}
-		Character character = (Character)AuthorShared.ObjectField("Prototype Prefab", this.prototype, typeof(IDMain), AuthorShared.ObjectFieldFlags.Prefab, new GUILayoutOption[0]);
-		if (character != this.prototype && character && AuthorShared.GetObjectKind(character.gameObject) != AuthorShared.ObjectKind.Prefab)
+		global::Character character = (global::Character)global::AuthorShared.ObjectField("Prototype Prefab", this.prototype, typeof(IDMain), global::AuthorShared.ObjectFieldFlags.Prefab, new GUILayoutOption[0]);
+		if (character != this.prototype && character && global::AuthorShared.GetObjectKind(character.gameObject) != global::AuthorShared.ObjectKind.Prefab)
 		{
 			character = this.prototype;
 		}
@@ -194,8 +194,8 @@ public class AuthorHull : AuthorCreation
 			this.prototype = character;
 			flag |= true;
 		}
-		Ragdoll ragdoll = (Ragdoll)AuthorShared.ObjectField("Prototype Ragdoll", this.ragdollPrototype, typeof(IDMain), AuthorShared.ObjectFieldFlags.Prefab, new GUILayoutOption[0]);
-		if (ragdoll != this.ragdollPrototype && ragdoll && AuthorShared.GetObjectKind(ragdoll.gameObject) != AuthorShared.ObjectKind.Prefab)
+		global::Ragdoll ragdoll = (global::Ragdoll)global::AuthorShared.ObjectField("Prototype Ragdoll", this.ragdollPrototype, typeof(IDMain), global::AuthorShared.ObjectFieldFlags.Prefab, new GUILayoutOption[0]);
+		if (ragdoll != this.ragdollPrototype && ragdoll && global::AuthorShared.GetObjectKind(ragdoll.gameObject) != global::AuthorShared.ObjectKind.Prefab)
 		{
 			ragdoll = this.ragdollPrototype;
 		}
@@ -207,62 +207,62 @@ public class AuthorHull : AuthorCreation
 		if (this.modelPrefabInstance)
 		{
 			bool activeSelf = this.modelPrefabInstance.activeSelf;
-			AuthorShared.BeginHorizontal(new GUILayoutOption[0]);
-			if (AuthorShared.Toggle("Show Model Prefab", ref activeSelf, AuthorShared.Styles.miniButton, new GUILayoutOption[0]))
+			global::AuthorShared.BeginHorizontal(new GUILayoutOption[0]);
+			if (global::AuthorShared.Toggle("Show Model Prefab", ref activeSelf, global::AuthorShared.Styles.miniButton, new GUILayoutOption[0]))
 			{
 				this.modelPrefabInstance.SetActive(activeSelf);
 			}
-			flag |= AuthorShared.Toggle("Render Bones", ref this.drawBones, AuthorShared.Styles.miniButton, new GUILayoutOption[0]);
-			AuthorShared.EndHorizontal();
+			flag |= global::AuthorShared.Toggle("Render Bones", ref this.drawBones, global::AuthorShared.Styles.miniButton, new GUILayoutOption[0]);
+			global::AuthorShared.EndHorizontal();
 		}
-		AuthorShared.BeginSubSection("Rendering", new GUILayoutOption[0]);
-		if (AuthorShared.ArrayField<Material>("Materials", ref this.materials, delegate(ref Material material)
+		global::AuthorShared.BeginSubSection("Rendering", new GUILayoutOption[0]);
+		if (global::AuthorShared.ArrayField<Material>("Materials", ref this.materials, delegate(ref Material material)
 		{
-			return AuthorShared.ObjectField<Material>(default(AuthorShared.Content), ref material, typeof(Material), (AuthorShared.ObjectFieldFlags)0, new GUILayoutOption[0]);
+			return global::AuthorShared.ObjectField<Material>(default(global::AuthorShared.Content), ref material, typeof(Material), (global::AuthorShared.ObjectFieldFlags)0, new GUILayoutOption[0]);
 		}))
 		{
 			flag = true;
 			this.ApplyMaterials(this.modelPrefabInstance);
 		}
-		AuthorShared.EndSubSection();
-		AuthorShared.BeginSubSection("Types", "AddComponent strings", new GUILayoutOption[0]);
-		string a = AuthorShared.StringField("HitBox Type", this.hitBoxType, new GUILayoutOption[0]);
-		string a2 = AuthorShared.StringField("HitBoxSystem Type", this.hitBoxSystemType, new GUILayoutOption[0]);
-		AuthorShared.EndSubSection();
-		AuthorShared.BeginSubSection("Hit Capsule", "Should be large enough to fit all boxes at any time", new GUILayoutOption[0]);
-		Vector3 vector = AuthorShared.Vector3Field("Center", this.hitCapsuleCenter, new GUILayoutOption[0]);
-		float num = AuthorShared.FloatField("Radius", this.hitCapsuleRadius, new GUILayoutOption[0]);
-		float num2 = AuthorShared.FloatField("Height", this.hitCapsuleHeight, new GUILayoutOption[0]);
-		int num3 = AuthorShared.IntField("Axis", this.hitCapsuleDirection, new GUILayoutOption[0]);
-		float num4 = AuthorShared.FloatField("Eye Height", this.eyeHeight, new GUILayoutOption[0]);
-		AuthorShared.EndSubSection();
-		AuthorShared.BeginSubSection("Rigidbody", new GUILayoutOption[0]);
-		flag |= AuthorShared.IntField("Ignore n. parent col.", ref this.ignoreCollisionUpSteps, new GUILayoutOption[0]);
-		flag |= AuthorShared.IntField("Ignore n. child col.", ref this.ignoreCollisionDownSteps, new GUILayoutOption[0]);
-		AuthorShared.EndSubSection();
-		AuthorShared.BeginSubSection("Body Parts", new GUILayoutOption[0]);
-		string a3 = AuthorShared.StringField("Default Hit Box Layer", this.defaultBodyPartLayer ?? string.Empty, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.BeginSubSection("Types", "AddComponent strings", new GUILayoutOption[0]);
+		string a = global::AuthorShared.StringField("HitBox Type", this.hitBoxType, new GUILayoutOption[0]);
+		string a2 = global::AuthorShared.StringField("HitBoxSystem Type", this.hitBoxSystemType, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.BeginSubSection("Hit Capsule", "Should be large enough to fit all boxes at any time", new GUILayoutOption[0]);
+		Vector3 vector = global::AuthorShared.Vector3Field("Center", this.hitCapsuleCenter, new GUILayoutOption[0]);
+		float num = global::AuthorShared.FloatField("Radius", this.hitCapsuleRadius, new GUILayoutOption[0]);
+		float num2 = global::AuthorShared.FloatField("Height", this.hitCapsuleHeight, new GUILayoutOption[0]);
+		int num3 = global::AuthorShared.IntField("Axis", this.hitCapsuleDirection, new GUILayoutOption[0]);
+		float num4 = global::AuthorShared.FloatField("Eye Height", this.eyeHeight, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.BeginSubSection("Rigidbody", new GUILayoutOption[0]);
+		flag |= global::AuthorShared.IntField("Ignore n. parent col.", ref this.ignoreCollisionUpSteps, new GUILayoutOption[0]);
+		flag |= global::AuthorShared.IntField("Ignore n. child col.", ref this.ignoreCollisionDownSteps, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.BeginSubSection("Body Parts", new GUILayoutOption[0]);
+		string a3 = global::AuthorShared.StringField("Default Hit Box Layer", this.defaultBodyPartLayer ?? string.Empty, new GUILayoutOption[0]);
 		if (string.IsNullOrEmpty(this.defaultBodyPartLayer))
 		{
-			AuthorShared.Label("[the layer in the models will be used]", new GUILayoutOption[0]);
+			global::AuthorShared.Label("[the layer in the models will be used]", new GUILayoutOption[0]);
 		}
 		if (a3 != (this.defaultBodyPartLayer ?? string.Empty))
 		{
 			this.defaultBodyPartLayer = a3;
 			flag = true;
 		}
-		bool flag5 = this.bodyParts.Count == 0 || AuthorShared.Toggle("Show Unassigned Parts", this.showAllBones, new GUILayoutOption[0]);
+		bool flag5 = this.bodyParts.Count == 0 || global::AuthorShared.Toggle("Show Unassigned Parts", this.showAllBones, new GUILayoutOption[0]);
 		for (BodyPart bodyPart = 0; bodyPart < 120; bodyPart++)
 		{
 			Transform transform;
-			if ((this.bodyParts.TryGetValue(bodyPart, ref transform) || this.showAllBones) && AuthorShared.ObjectField<Transform>(bodyPart.ToString(), ref transform, (AuthorShared.ObjectFieldFlags)17, new GUILayoutOption[0]))
+			if ((this.bodyParts.TryGetValue(bodyPart, ref transform) || this.showAllBones) && global::AuthorShared.ObjectField<Transform>(bodyPart.ToString(), ref transform, (global::AuthorShared.ObjectFieldFlags)17, new GUILayoutOption[0]))
 			{
 				if (transform)
 				{
 					BodyPart? bodyPart2 = this.bodyParts.BodyPartOf(transform);
 					if (bodyPart2 != null)
 					{
-						bool? flag6 = AuthorShared.Ask(string.Concat(new object[]
+						bool? flag6 = global::AuthorShared.Ask(string.Concat(new object[]
 						{
 							"That transform was assigned do something else.\r\nChange it from ",
 							bodyPart2.Value,
@@ -288,10 +288,10 @@ public class AuthorHull : AuthorCreation
 			IL_7C3:;
 		}
 		this.showAllBones = flag5;
-		AuthorShared.BeginSubSection("Destroy Children", new GUILayoutOption[0]);
-		AuthorShared.BeginSubSection(AuthorHull.guis.destroyDrop, "Remove these from generation", AuthorShared.Styles.miniLabel, new GUILayoutOption[0]);
-		Transform transform2 = (Transform)AuthorShared.ObjectField(null, typeof(Transform), (AuthorShared.ObjectFieldFlags)25, new GUILayoutOption[0]);
-		AuthorShared.EndSubSection();
+		global::AuthorShared.BeginSubSection("Destroy Children", new GUILayoutOption[0]);
+		global::AuthorShared.BeginSubSection(global::AuthorHull.guis.destroyDrop, "Remove these from generation", global::AuthorShared.Styles.miniLabel, new GUILayoutOption[0]);
+		Transform transform2 = (Transform)global::AuthorShared.ObjectField(null, typeof(Transform), (global::AuthorShared.ObjectFieldFlags)25, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
 		if (transform2 && (!this.modelPrefabInstance || !transform2.IsChildOf(this.modelPrefabInstance.transform)))
 		{
 			Debug.Log("Thats not a valid selection", transform2);
@@ -300,60 +300,60 @@ public class AuthorHull : AuthorCreation
 		bool flag8 = false;
 		if (this.removeThese != null && this.removeThese.Length > 0)
 		{
-			AuthorShared.BeginSubSection("These will be removed with generation", new GUILayoutOption[0]);
+			global::AuthorShared.BeginSubSection("These will be removed with generation", new GUILayoutOption[0]);
 			for (int i = 0; i < this.removeThese.Length; i++)
 			{
-				AuthorShared.BeginHorizontal(AuthorShared.Styles.gradientOutline, new GUILayoutOption[0]);
-				if (AuthorShared.Button(AuthorShared.ObjectContent<Transform>(this.removeThese[i], typeof(Transform)), AuthorShared.Styles.peiceButtonLeft, new GUILayoutOption[0]) && this.removeThese[i])
+				global::AuthorShared.BeginHorizontal(global::AuthorShared.Styles.gradientOutline, new GUILayoutOption[0]);
+				if (global::AuthorShared.Button(global::AuthorShared.ObjectContent<Transform>(this.removeThese[i], typeof(Transform)), global::AuthorShared.Styles.peiceButtonLeft, new GUILayoutOption[0]) && this.removeThese[i])
 				{
-					AuthorShared.PingObject(this.removeThese[i]);
+					global::AuthorShared.PingObject(this.removeThese[i]);
 				}
-				if (AuthorShared.Button(AuthorShared.Icon.delete, AuthorShared.Styles.peiceButtonRight, new GUILayoutOption[0]))
+				if (global::AuthorShared.Button(global::AuthorShared.Icon.delete, global::AuthorShared.Styles.peiceButtonRight, new GUILayoutOption[0]))
 				{
 					this.removeThese[i] = null;
 					flag8 = true;
 				}
-				AuthorShared.EndHorizontal();
+				global::AuthorShared.EndHorizontal();
 			}
-			AuthorShared.EndSubSection();
+			global::AuthorShared.EndSubSection();
 		}
-		AuthorShared.EndSubSection();
-		AuthorShared.EndSubSection();
-		AuthorShared.BeginSubSection("Output", "this is where stuff will be saved", new GUILayoutOption[0]);
-		Object @object = AuthorShared.ObjectField("OUTPUT HITBOX", this.hitBoxOutputPrefab, typeof(GameObject), (AuthorShared.ObjectFieldFlags)196, new GUILayoutOption[0]);
-		Object object2 = AuthorShared.ObjectField("OUTPUT RAGDOLL", this.ragdollOutputPrefab, typeof(GameObject), (AuthorShared.ObjectFieldFlags)196, new GUILayoutOption[0]);
-		AuthorShared.EndSubSection();
-		AuthorShared.BeginSubSection("Authoring Helpers", "These do not output to the mesh, just are here to help you author", new GUILayoutOption[0]);
-		Vector3 vector2 = AuthorShared.Vector3Field("Angles Offset", this.editingAngles, new GUILayoutOption[0]);
-		bool flag9 = AuthorShared.Toggle("Origin To Root", this.editingCenterToRoot, new GUILayoutOption[0]);
-		AuthorShared.EndSubSection();
-		AuthorShared.BeginHorizontal(AuthorShared.Styles.box, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.BeginSubSection("Output", "this is where stuff will be saved", new GUILayoutOption[0]);
+		Object @object = global::AuthorShared.ObjectField("OUTPUT HITBOX", this.hitBoxOutputPrefab, typeof(GameObject), (global::AuthorShared.ObjectFieldFlags)196, new GUILayoutOption[0]);
+		Object object2 = global::AuthorShared.ObjectField("OUTPUT RAGDOLL", this.ragdollOutputPrefab, typeof(GameObject), (global::AuthorShared.ObjectFieldFlags)196, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.BeginSubSection("Authoring Helpers", "These do not output to the mesh, just are here to help you author", new GUILayoutOption[0]);
+		Vector3 vector2 = global::AuthorShared.Vector3Field("Angles Offset", this.editingAngles, new GUILayoutOption[0]);
+		bool flag9 = global::AuthorShared.Toggle("Origin To Root", this.editingCenterToRoot, new GUILayoutOption[0]);
+		global::AuthorShared.EndSubSection();
+		global::AuthorShared.BeginHorizontal(global::AuthorShared.Styles.box, new GUILayoutOption[0]);
 		bool enabled2 = GUI.enabled;
 		if (!gameObject)
 		{
 			GUI.enabled = false;
 		}
-		if (AuthorShared.Button("Generate", AuthorShared.Styles.miniButtonLeft, new GUILayoutOption[0]))
+		if (global::AuthorShared.Button("Generate", global::AuthorShared.Styles.miniButtonLeft, new GUILayoutOption[0]))
 		{
 			this.GeneratePrefabInstances();
 			this.savedGenerated = false;
-			AuthorShared.SetDirty(this);
+			global::AuthorShared.SetDirty(this);
 			flag = true;
 		}
 		GUI.enabled = (!this.savedGenerated && this.generatedRigid && this.generatedHitBox && this.hitBoxOutputPrefab && this.ragdollOutputPrefab && this.ragdollOutputPrefab != this.hitBoxOutputPrefab);
-		if (AuthorShared.Button("Update Prefabs", AuthorShared.Styles.miniButtonRight, new GUILayoutOption[0]) && AuthorShared.Ask("This will overwrite any changes made to the output prefab that may have been done externally\r\nStill go ahead?") == true)
+		if (global::AuthorShared.Button("Update Prefabs", global::AuthorShared.Styles.miniButtonRight, new GUILayoutOption[0]) && global::AuthorShared.Ask("This will overwrite any changes made to the output prefab that may have been done externally\r\nStill go ahead?") == true)
 		{
 			this.UpdatePrefabs();
 			this.savedGenerated = true;
 			flag = true;
 		}
 		GUI.enabled = enabled2;
-		AuthorShared.EndHorizontal();
-		if (AuthorShared.Button("Save To JSON", new GUILayoutOption[0]))
+		global::AuthorShared.EndHorizontal();
+		if (global::AuthorShared.Button("Save To JSON", new GUILayoutOption[0]))
 		{
 			base.SaveSettings();
 		}
-		if (this.prototype && AuthorShared.Button("Write JSON Serialized Properties from Prototype", new GUILayoutOption[0]))
+		if (this.prototype && global::AuthorShared.Button("Write JSON Serialized Properties from Prototype", new GUILayoutOption[0]))
 		{
 			this.PreviewPrototype();
 		}
@@ -417,7 +417,7 @@ public class AuthorHull : AuthorCreation
 		return flag;
 	}
 
-	// Token: 0x060001B3 RID: 435 RVA: 0x00009730 File Offset: 0x00007930
+	// Token: 0x060001FF RID: 511 RVA: 0x0000A490 File Offset: 0x00008690
 	internal void FigureOutDefaultBodyPart(ref Transform bone, ref BodyPart bodyPart, ref Transform mirrored, ref BodyPart mirroredBodyPart)
 	{
 		BodyPart bodyPart2 = bodyPart;
@@ -443,7 +443,7 @@ public class AuthorHull : AuthorCreation
 		}
 	}
 
-	// Token: 0x060001B4 RID: 436 RVA: 0x000097B8 File Offset: 0x000079B8
+	// Token: 0x06000200 RID: 512 RVA: 0x0000A518 File Offset: 0x00008718
 	private void ChangedEditingOptions()
 	{
 		if (this.modelPrefabInstance)
@@ -452,7 +452,7 @@ public class AuthorHull : AuthorCreation
 			this.modelPrefabInstance.transform.localPosition = Vector3.zero;
 			if (this.editingCenterToRoot)
 			{
-				Transform rootBone = AuthorShared.GetRootBone(this.modelPrefabInstance.GetComponentInChildren<SkinnedMeshRenderer>());
+				Transform rootBone = global::AuthorShared.GetRootBone(this.modelPrefabInstance.GetComponentInChildren<SkinnedMeshRenderer>());
 				if (rootBone)
 				{
 					this.modelPrefabInstance.transform.position = -rootBone.position;
@@ -461,7 +461,7 @@ public class AuthorHull : AuthorCreation
 		}
 	}
 
-	// Token: 0x060001B5 RID: 437 RVA: 0x00009844 File Offset: 0x00007A44
+	// Token: 0x06000201 RID: 513 RVA: 0x0000A5A4 File Offset: 0x000087A4
 	private static KeyValuePair<Collider, Collider> MakeKV(Collider a, Collider b)
 	{
 		if (string.Compare(a.name, b.name) < 0)
@@ -471,7 +471,7 @@ public class AuthorHull : AuthorCreation
 		return new KeyValuePair<Collider, Collider>(a, b);
 	}
 
-	// Token: 0x060001B6 RID: 438 RVA: 0x00009878 File Offset: 0x00007A78
+	// Token: 0x06000202 RID: 514 RVA: 0x0000A5D8 File Offset: 0x000087D8
 	private static IEnumerable<Collider> GetCollidersOnRigidbody(Rigidbody rb)
 	{
 		foreach (Collider collider in rb.GetComponentsInChildren<Collider>())
@@ -484,10 +484,10 @@ public class AuthorHull : AuthorCreation
 		yield break;
 	}
 
-	// Token: 0x060001B7 RID: 439 RVA: 0x000098A4 File Offset: 0x00007AA4
+	// Token: 0x06000203 RID: 515 RVA: 0x0000A604 File Offset: 0x00008804
 	private GameObject InstantiatePrefabWithRemovedBones(GameObject prefab)
 	{
-		GameObject gameObject = AuthorShared.InstantiatePrefab(prefab);
+		GameObject gameObject = global::AuthorShared.InstantiatePrefab(prefab);
 		if (this.modelPrefabInstance)
 		{
 			if (this.removeThese != null)
@@ -496,7 +496,7 @@ public class AuthorHull : AuthorCreation
 				{
 					if (this.removeThese[i])
 					{
-						Transform transform = gameObject.transform.FindChild(AuthorShared.CalculatePath(this.removeThese[i], this.modelPrefabInstance.transform));
+						Transform transform = gameObject.transform.FindChild(global::AuthorShared.CalculatePath(this.removeThese[i], this.modelPrefabInstance.transform));
 						if (transform)
 						{
 							Object.DestroyImmediate(transform);
@@ -510,7 +510,7 @@ public class AuthorHull : AuthorCreation
 				{
 					if (transform2)
 					{
-						string text = AuthorShared.CalculatePath(transform2, gameObject.transform);
+						string text = global::AuthorShared.CalculatePath(transform2, gameObject.transform);
 						if (!string.IsNullOrEmpty(text))
 						{
 							if (!this.modelPrefabInstance.transform.Find(text))
@@ -526,7 +526,7 @@ public class AuthorHull : AuthorCreation
 		return gameObject;
 	}
 
-	// Token: 0x060001B8 RID: 440 RVA: 0x000099E0 File Offset: 0x00007BE0
+	// Token: 0x06000204 RID: 516 RVA: 0x0000A740 File Offset: 0x00008940
 	private GameObject MakeColliderPrefab()
 	{
 		GameObject gameObject = this.InstantiatePrefabWithRemovedBones(this.modelPrefab);
@@ -551,14 +551,14 @@ public class AuthorHull : AuthorCreation
 					if (renderer is MeshRenderer)
 					{
 						MeshFilter component = renderer.GetComponent<MeshFilter>();
-						string text = AuthorShared.CalculatePath(renderer.transform, gameObject.transform);
+						string text = global::AuthorShared.CalculatePath(renderer.transform, gameObject.transform);
 						component.sharedMesh = this.modelPrefabForHitBox.transform.FindChild(text).GetComponent<MeshFilter>().sharedMesh;
-						AuthorShared.SetDirty(component);
+						global::AuthorShared.SetDirty(component);
 					}
 					else if (renderer is SkinnedMeshRenderer)
 					{
-						((SkinnedMeshRenderer)renderer).sharedMesh = this.modelPrefabForHitBox.transform.FindChild(AuthorShared.CalculatePath(renderer.transform, gameObject.transform)).GetComponent<SkinnedMeshRenderer>().sharedMesh;
-						AuthorShared.SetDirty(renderer);
+						((SkinnedMeshRenderer)renderer).sharedMesh = this.modelPrefabForHitBox.transform.FindChild(global::AuthorShared.CalculatePath(renderer.transform, gameObject.transform)).GetComponent<SkinnedMeshRenderer>().sharedMesh;
+						global::AuthorShared.SetDirty(renderer);
 					}
 				}
 			}
@@ -573,14 +573,14 @@ public class AuthorHull : AuthorCreation
 		{
 			layerIndex = new int?(LayerMask.NameToLayer(this.defaultBodyPartLayer));
 		}
-		foreach (AuthorPeice authorPeice in base.EnumeratePeices())
+		foreach (global::AuthorPeice authorPeice in base.EnumeratePeices())
 		{
-			if (authorPeice && authorPeice is AuthorChHit)
+			if (authorPeice && authorPeice is global::AuthorChHit)
 			{
-				((AuthorChHit)authorPeice).CreateColliderOn(gameObject.transform, this.modelPrefabInstance.transform, true, layerIndex);
+				((global::AuthorChHit)authorPeice).CreateColliderOn(gameObject.transform, this.modelPrefabInstance.transform, true, layerIndex);
 			}
 		}
-		Transform rootBone = AuthorShared.GetRootBone(gameObject);
+		Transform rootBone = global::AuthorShared.GetRootBone(gameObject);
 		Dictionary<Rigidbody, List<Collider>> dictionary = new Dictionary<Rigidbody, List<Collider>>();
 		foreach (Collider collider in rootBone.GetComponentsInChildren<Collider>())
 		{
@@ -616,7 +616,7 @@ public class AuthorHull : AuthorCreation
 					{
 						foreach (Collider b in dictionary[rigidbody])
 						{
-							hashSet.Add(AuthorHull.MakeKV(a, b));
+							hashSet.Add(global::AuthorHull.MakeKV(a, b));
 						}
 					}
 				}
@@ -644,7 +644,7 @@ public class AuthorHull : AuthorCreation
 							{
 								foreach (Collider b2 in dictionary[transform2.rigidbody])
 								{
-									hashSet.Add(AuthorHull.MakeKV(a2, b2));
+									hashSet.Add(global::AuthorHull.MakeKV(a2, b2));
 								}
 							}
 						}
@@ -664,7 +664,7 @@ public class AuthorHull : AuthorCreation
 				array2[num2] = keyValuePair2.Value;
 				num2++;
 			}
-			IgnoreColliders ignoreColliders = gameObject.AddComponent<IgnoreColliders>();
+			global::IgnoreColliders ignoreColliders = gameObject.AddComponent<global::IgnoreColliders>();
 			ignoreColliders.a = array;
 			ignoreColliders.b = array2;
 		}
@@ -677,19 +677,19 @@ public class AuthorHull : AuthorCreation
 		return gameObject;
 	}
 
-	// Token: 0x060001B9 RID: 441 RVA: 0x0000A098 File Offset: 0x00008298
-	private static AuthorShared.AttributeKeyValueList GenKVL(GameObject hitBox, GameObject rigid)
+	// Token: 0x06000205 RID: 517 RVA: 0x0000ADF8 File Offset: 0x00008FF8
+	private static global::AuthorShared.AttributeKeyValueList GenKVL(GameObject hitBox, GameObject rigid)
 	{
-		return new AuthorShared.AttributeKeyValueList(new object[]
+		return new global::AuthorShared.AttributeKeyValueList(new object[]
 		{
-			AuthTarg.HitBox,
+			global::AuthTarg.HitBox,
 			hitBox,
-			AuthTarg.Ragdoll,
+			global::AuthTarg.Ragdoll,
 			rigid
 		});
 	}
 
-	// Token: 0x060001BA RID: 442 RVA: 0x0000A0C0 File Offset: 0x000082C0
+	// Token: 0x06000206 RID: 518 RVA: 0x0000AE20 File Offset: 0x00009020
 	private void GeneratePrefabInstances()
 	{
 		this.DestroyRepresentations(ref this.generatedRigid, "::RAGDOLL_OUTPUT::");
@@ -698,7 +698,7 @@ public class AuthorHull : AuthorCreation
 		this.generatedHitBox = this.MakeHitBoxPrefab();
 		if (this.generatedHitBox && this.generatedRigid)
 		{
-			AuthorShared.AttributeKeyValueList attributeKeyValueList = AuthorHull.GenKVL(this.generatedHitBox, this.generatedRigid);
+			global::AuthorShared.AttributeKeyValueList attributeKeyValueList = global::AuthorHull.GenKVL(this.generatedHitBox, this.generatedRigid);
 			attributeKeyValueList.Run(this.generatedHitBox);
 			attributeKeyValueList.Run(this.generatedRigid);
 			List<KeyValuePair<MethodInfo, MonoBehaviour>> list = this.CaptureFinalizeMethods(this.generatedHitBox, "OnAuthoredAsHitBoxPrefab");
@@ -740,11 +740,11 @@ public class AuthorHull : AuthorCreation
 				}
 			}
 		}
-		AuthorShared.SetDirty(this.generatedRigid);
-		AuthorShared.SetDirty(this.generatedHitBox);
+		global::AuthorShared.SetDirty(this.generatedRigid);
+		global::AuthorShared.SetDirty(this.generatedHitBox);
 	}
 
-	// Token: 0x060001BB RID: 443 RVA: 0x0000A2FC File Offset: 0x000084FC
+	// Token: 0x06000207 RID: 519 RVA: 0x0000B05C File Offset: 0x0000925C
 	private GameObject CreateEyes(GameObject output)
 	{
 		return new GameObject("Eyes")
@@ -757,7 +757,7 @@ public class AuthorHull : AuthorCreation
 		};
 	}
 
-	// Token: 0x060001BC RID: 444 RVA: 0x0000A348 File Offset: 0x00008548
+	// Token: 0x06000208 RID: 520 RVA: 0x0000B0A8 File Offset: 0x000092A8
 	private GameObject MakeHitBoxPrefab()
 	{
 		GameObject result;
@@ -768,7 +768,7 @@ public class AuthorHull : AuthorCreation
 			gameObject2.name += "::HITBOX_OUTPUT::";
 			this.ApplyMaterials(gameObject);
 			SkinnedMeshRenderer skinnedMeshRenderer;
-			AuthorShared.GetRootBone(gameObject, out skinnedMeshRenderer);
+			global::AuthorShared.GetRootBone(gameObject, out skinnedMeshRenderer);
 			GameObject gameObject3 = new GameObject("HB Hit", new Type[]
 			{
 				typeof(CapsuleCollider),
@@ -786,7 +786,7 @@ public class AuthorHull : AuthorCreation
 			capsuleCollider.isTrigger = false;
 			capsuleCollider.rigidbody.isKinematic = true;
 			gameObject3.layer = LayerMask.NameToLayer("Hitbox");
-			HitBoxSystem hitBoxSystem = this.creatingSystem = this.CreateHitBoxSystem(gameObject3);
+			global::HitBoxSystem hitBoxSystem = this.creatingSystem = this.CreateHitBoxSystem(gameObject3);
 			if (hitBoxSystem.bodyParts == null)
 			{
 				hitBoxSystem.bodyParts = new IDRemoteBodyPartCollection();
@@ -801,11 +801,11 @@ public class AuthorHull : AuthorCreation
 			{
 				layerIndex = new int?(LayerMask.NameToLayer(this.defaultBodyPartLayer));
 			}
-			foreach (AuthorPeice authorPeice in base.EnumeratePeices())
+			foreach (global::AuthorPeice authorPeice in base.EnumeratePeices())
 			{
-				if (authorPeice && authorPeice is AuthorChHit)
+				if (authorPeice && authorPeice is global::AuthorChHit)
 				{
-					((AuthorChHit)authorPeice).CreateHitBoxOn(list, gameObject.transform, this.modelPrefabInstance.transform, layerIndex);
+					((global::AuthorChHit)authorPeice).CreateHitBoxOn(list, gameObject.transform, this.modelPrefabInstance.transform, layerIndex);
 				}
 			}
 			int i = 0;
@@ -821,7 +821,7 @@ public class AuthorHull : AuthorCreation
 			}
 			list.Sort(HitShape.prioritySorter);
 			hitBoxSystem.shapes = list.ToArray();
-			foreach (HitBox hitBox in gameObject.GetComponentsInChildren<HitBox>())
+			foreach (global::HitBox hitBox in gameObject.GetComponentsInChildren<global::HitBox>())
 			{
 				try
 				{
@@ -851,11 +851,11 @@ public class AuthorHull : AuthorCreation
 					throw;
 				}
 			}
-			AuthorShared.SetDirty(hitBoxSystem);
+			global::AuthorShared.SetDirty(hitBoxSystem);
 			this.CreateEyes(gameObject);
 			IDMain idmain = this.ApplyPrototype(gameObject, this.prototype);
 			this.ApplyRig(gameObject);
-			AuthorShared.SetDirty(gameObject);
+			global::AuthorShared.SetDirty(gameObject);
 			result = gameObject;
 		}
 		finally
@@ -865,7 +865,7 @@ public class AuthorHull : AuthorCreation
 		return result;
 	}
 
-	// Token: 0x060001BD RID: 445 RVA: 0x0000A740 File Offset: 0x00008940
+	// Token: 0x06000209 RID: 521 RVA: 0x0000B4A0 File Offset: 0x000096A0
 	private IDMain ApplyPrototype(GameObject output, IDMain prototype)
 	{
 		IDMain result = null;
@@ -932,7 +932,7 @@ public class AuthorHull : AuthorCreation
 							if (component4)
 							{
 								this.TransferComponentSettings(prototype.gameObject, output, array, array2, component3, component4);
-								AuthorShared.SetDirty(component4);
+								global::AuthorShared.SetDirty(component4);
 							}
 							else
 							{
@@ -956,7 +956,7 @@ public class AuthorHull : AuthorCreation
 		return result;
 	}
 
-	// Token: 0x060001BE RID: 446 RVA: 0x0000A93C File Offset: 0x00008B3C
+	// Token: 0x0600020A RID: 522 RVA: 0x0000B69C File Offset: 0x0000989C
 	private bool ApplyRig(GameObject output)
 	{
 		bool result = false;
@@ -976,7 +976,7 @@ public class AuthorHull : AuthorCreation
 		return result;
 	}
 
-	// Token: 0x060001BF RID: 447 RVA: 0x0000A988 File Offset: 0x00008B88
+	// Token: 0x0600020B RID: 523 RVA: 0x0000B6E8 File Offset: 0x000098E8
 	private List<KeyValuePair<MethodInfo, MonoBehaviour>> CaptureFinalizeMethods(GameObject output, string methodName)
 	{
 		List<KeyValuePair<MethodInfo, MonoBehaviour>> list = new List<KeyValuePair<MethodInfo, MonoBehaviour>>();
@@ -996,13 +996,13 @@ public class AuthorHull : AuthorCreation
 		return list;
 	}
 
-	// Token: 0x060001C0 RID: 448 RVA: 0x0000AA18 File Offset: 0x00008C18
+	// Token: 0x0600020C RID: 524 RVA: 0x0000B778 File Offset: 0x00009978
 	private static bool ActorRigSearch(MemberInfo m, object filterCriteria)
 	{
 		return ((FieldInfo)m).FieldType == typeof(ActorRig);
 	}
 
-	// Token: 0x060001C1 RID: 449 RVA: 0x0000AA34 File Offset: 0x00008C34
+	// Token: 0x0600020D RID: 525 RVA: 0x0000B794 File Offset: 0x00009994
 	private void TransferComponentSettings(GameObject srcGO, GameObject dstGO, Component[] srcComponents, Component[] dstComponents, Component src, Component dst)
 	{
 		if (!(src is MonoBehaviour) && src is SkinnedMeshRenderer)
@@ -1012,7 +1012,7 @@ public class AuthorHull : AuthorCreation
 		}
 	}
 
-	// Token: 0x060001C2 RID: 450 RVA: 0x0000AA5C File Offset: 0x00008C5C
+	// Token: 0x0600020E RID: 526 RVA: 0x0000B7BC File Offset: 0x000099BC
 	private void TransferComponentSettings(NavMeshAgent src, NavMeshAgent dst)
 	{
 		dst.radius = src.radius;
@@ -1029,34 +1029,34 @@ public class AuthorHull : AuthorCreation
 		dst.enabled = src.enabled;
 	}
 
-	// Token: 0x060001C3 RID: 451 RVA: 0x0000AAFC File Offset: 0x00008CFC
+	// Token: 0x0600020F RID: 527 RVA: 0x0000B85C File Offset: 0x00009A5C
 	private void ChangedModelPrefab()
 	{
 		if (this.modelPrefabInstance)
 		{
 			Object.DestroyImmediate(this.modelPrefabInstance);
 		}
-		this.modelPrefabInstance = AuthorShared.InstantiatePrefab(this.modelPrefab);
+		this.modelPrefabInstance = global::AuthorShared.InstantiatePrefab(this.modelPrefab);
 		this.modelPrefabInstance.transform.localPosition = Vector3.zero;
 		this.modelPrefabInstance.transform.localRotation = Quaternion.identity;
 		this.modelPrefabInstance.transform.localScale = Vector3.one;
 	}
 
-	// Token: 0x060001C4 RID: 452 RVA: 0x0000AB74 File Offset: 0x00008D74
-	protected override IEnumerable<AuthorPalletObject> EnumeratePalletObjects()
+	// Token: 0x06000210 RID: 528 RVA: 0x0000B8D4 File Offset: 0x00009AD4
+	protected override IEnumerable<global::AuthorPalletObject> EnumeratePalletObjects()
 	{
-		AuthorPalletObject[] pallet = AuthorHull.HitBoxItems.pallet;
-		if (!AuthorHull.once)
+		global::AuthorPalletObject[] pallet = global::AuthorHull.HitBoxItems.pallet;
+		if (!global::AuthorHull.once)
 		{
-			pallet[0].guiContent.image = AuthorShared.ObjectContent(null, typeof(BoxCollider)).image;
-			pallet[1].guiContent.image = AuthorShared.ObjectContent(null, typeof(SphereCollider)).image;
-			pallet[2].guiContent.image = AuthorShared.ObjectContent(null, typeof(CapsuleCollider)).image;
-			AuthorHull.once = true;
+			pallet[0].guiContent.image = global::AuthorShared.ObjectContent(null, typeof(BoxCollider)).image;
+			pallet[1].guiContent.image = global::AuthorShared.ObjectContent(null, typeof(SphereCollider)).image;
+			pallet[2].guiContent.image = global::AuthorShared.ObjectContent(null, typeof(CapsuleCollider)).image;
+			global::AuthorHull.once = true;
 		}
 		return pallet;
 	}
 
-	// Token: 0x060001C5 RID: 453 RVA: 0x0000AC08 File Offset: 0x00008E08
+	// Token: 0x06000211 RID: 529 RVA: 0x0000B968 File Offset: 0x00009B68
 	private void OnDrawGizmosSelected()
 	{
 		if (this.modelPrefabInstance)
@@ -1066,15 +1066,15 @@ public class AuthorHull : AuthorCreation
 			if (hitColliderParent)
 			{
 				Gizmos.matrix = hitColliderParent.localToWorldMatrix;
-				Gizmos2.DrawWireCapsule(this.hitCapsuleCenter, this.hitCapsuleRadius, this.hitCapsuleHeight, this.hitCapsuleDirection);
+				global::Gizmos2.DrawWireCapsule(this.hitCapsuleCenter, this.hitCapsuleRadius, this.hitCapsuleHeight, this.hitCapsuleDirection);
 			}
 		}
 	}
 
-	// Token: 0x060001C6 RID: 454 RVA: 0x0000AC7C File Offset: 0x00008E7C
+	// Token: 0x06000212 RID: 530 RVA: 0x0000B9DC File Offset: 0x00009BDC
 	private static void WriteJSONGUID(JSONStream stream, Object obj)
 	{
-		string text = AuthorShared.GetAssetPath(obj);
+		string text = global::AuthorShared.GetAssetPath(obj);
 		string text2 = null;
 		if (text == string.Empty)
 		{
@@ -1082,7 +1082,7 @@ public class AuthorHull : AuthorCreation
 		}
 		else
 		{
-			text2 = AuthorShared.PathToGUID(text);
+			text2 = global::AuthorShared.PathToGUID(text);
 			if (string.IsNullOrEmpty(text2))
 			{
 				text2 = null;
@@ -1104,14 +1104,14 @@ public class AuthorHull : AuthorCreation
 		stream.WriteObjectEnd();
 	}
 
-	// Token: 0x060001C7 RID: 455 RVA: 0x0000AD0C File Offset: 0x00008F0C
+	// Token: 0x06000213 RID: 531 RVA: 0x0000BA6C File Offset: 0x00009C6C
 	private static void WriteJSONGUID(JSONStream stream, string property, Object obj)
 	{
 		stream.WriteProperty(property);
-		AuthorHull.WriteJSONGUID(stream, obj);
+		global::AuthorHull.WriteJSONGUID(stream, obj);
 	}
 
-	// Token: 0x060001C8 RID: 456 RVA: 0x0000AD1C File Offset: 0x00008F1C
+	// Token: 0x06000214 RID: 532 RVA: 0x0000BA7C File Offset: 0x00009C7C
 	protected override void SaveSettings(JSONStream stream)
 	{
 		stream.WriteObjectStart();
@@ -1120,24 +1120,24 @@ public class AuthorHull : AuthorCreation
 		stream.WriteText("hitbox", this.hitBoxType);
 		stream.WriteObjectEnd();
 		stream.WriteObjectStart("assets");
-		AuthorHull.WriteJSONGUID(stream, "model", this.modelPrefabInstance);
+		global::AuthorHull.WriteJSONGUID(stream, "model", this.modelPrefabInstance);
 		stream.WriteArrayStart("materials");
 		if (this.materials != null)
 		{
 			for (int i = 0; i < this.materials.Length; i++)
 			{
-				AuthorHull.WriteJSONGUID(stream, this.materials[i]);
+				global::AuthorHull.WriteJSONGUID(stream, this.materials[i]);
 			}
 		}
 		stream.WriteArrayEnd();
 		stream.WriteObjectStart("bodyparts");
 		foreach (BodyPartPair<Transform> bodyPartPair in this.bodyParts)
 		{
-			stream.WriteText(bodyPartPair.key.ToString(), AuthorShared.CalculatePath(bodyPartPair.value, this.modelPrefabInstance.transform));
+			stream.WriteText(bodyPartPair.key.ToString(), global::AuthorShared.CalculatePath(bodyPartPair.value, this.modelPrefabInstance.transform));
 		}
 		stream.WriteObjectEnd();
 		stream.WriteArrayStart("peices");
-		foreach (AuthorPeice authorPeice in base.EnumeratePeices())
+		foreach (global::AuthorPeice authorPeice in base.EnumeratePeices())
 		{
 			stream.WriteObjectStart();
 			stream.WriteText("type", authorPeice.GetType().AssemblyQualifiedName);
@@ -1151,43 +1151,43 @@ public class AuthorHull : AuthorCreation
 		stream.WriteObjectEnd();
 	}
 
-	// Token: 0x060001C9 RID: 457 RVA: 0x0000AF04 File Offset: 0x00009104
+	// Token: 0x06000215 RID: 533 RVA: 0x0000BC64 File Offset: 0x00009E64
 	protected override void LoadSettings(JSONStream stream)
 	{
 		stream.ReadSkip();
 	}
 
-	// Token: 0x060001CA RID: 458 RVA: 0x0000AF10 File Offset: 0x00009110
-	public override string RootBonePath(AuthorPeice callingPeice, Transform bone)
+	// Token: 0x06000216 RID: 534 RVA: 0x0000BC70 File Offset: 0x00009E70
+	public override string RootBonePath(global::AuthorPeice callingPeice, Transform bone)
 	{
-		return AuthorShared.CalculatePath(bone, this.modelPrefabInstance.transform);
+		return global::AuthorShared.CalculatePath(bone, this.modelPrefabInstance.transform);
 	}
 
-	// Token: 0x060001CB RID: 459 RVA: 0x0000AF24 File Offset: 0x00009124
+	// Token: 0x06000217 RID: 535 RVA: 0x0000BC84 File Offset: 0x00009E84
 	[Conditional("EXPECT_CRASH")]
 	private static void PreCrashLog(string text)
 	{
 		Debug.Log(text);
 	}
 
-	// Token: 0x060001CC RID: 460 RVA: 0x0000AF2C File Offset: 0x0000912C
+	// Token: 0x06000218 RID: 536 RVA: 0x0000BC8C File Offset: 0x00009E8C
 	[Conditional("LOG_GENERATE")]
 	private static void GenerateLog(object text)
 	{
 		Debug.Log(text);
 	}
 
-	// Token: 0x060001CD RID: 461 RVA: 0x0000AF34 File Offset: 0x00009134
+	// Token: 0x06000219 RID: 537 RVA: 0x0000BC94 File Offset: 0x00009E94
 	[Conditional("LOG_GENERATE")]
 	private static void GenerateLog(object text, Object obj)
 	{
 		Debug.Log(text, obj);
 	}
 
-	// Token: 0x060001CE RID: 462 RVA: 0x0000AF40 File Offset: 0x00009140
+	// Token: 0x0600021A RID: 538 RVA: 0x0000BCA0 File Offset: 0x00009EA0
 	protected void PreviewPrototype()
 	{
-		AuthorCreationProject authorCreationProject;
+		global::AuthorCreationProject authorCreationProject;
 		using (Stream stream = base.GetStream(true, "protoprev", out authorCreationProject))
 		{
 			if (stream != null)
@@ -1202,195 +1202,195 @@ public class AuthorHull : AuthorCreation
 		}
 	}
 
-	// Token: 0x060001CF RID: 463 RVA: 0x0000AFCC File Offset: 0x000091CC
+	// Token: 0x0600021B RID: 539 RVA: 0x0000BD2C File Offset: 0x00009F2C
 	private void UpdatePrefabs()
 	{
 	}
 
-	// Token: 0x060001D0 RID: 464 RVA: 0x0000AFD0 File Offset: 0x000091D0
+	// Token: 0x0600021C RID: 540 RVA: 0x0000BD30 File Offset: 0x00009F30
 	private bool EnsureItsAPrefab(ref Object obj)
 	{
 		return !obj;
 	}
 
-	// Token: 0x040000F7 RID: 247
+	// Token: 0x04000137 RID: 311
 	private const string suffix_rigid = "::RAGDOLL_OUTPUT::";
 
-	// Token: 0x040000F8 RID: 248
+	// Token: 0x04000138 RID: 312
 	private const string suffix_hitbox = "::HITBOX_OUTPUT::";
 
-	// Token: 0x040000F9 RID: 249
+	// Token: 0x04000139 RID: 313
 	[SerializeField]
 	private GameObject modelPrefab;
 
-	// Token: 0x040000FA RID: 250
+	// Token: 0x0400013A RID: 314
 	[SerializeField]
 	private GameObject modelPrefabForHitBox;
 
-	// Token: 0x040000FB RID: 251
+	// Token: 0x0400013B RID: 315
 	[SerializeField]
 	private GameObject modelPrefabInstance;
 
-	// Token: 0x040000FC RID: 252
+	// Token: 0x0400013C RID: 316
 	[SerializeField]
 	private GameObject hitBoxOutputPrefab;
 
-	// Token: 0x040000FD RID: 253
+	// Token: 0x0400013D RID: 317
 	[SerializeField]
 	private GameObject ragdollOutputPrefab;
 
-	// Token: 0x040000FE RID: 254
+	// Token: 0x0400013E RID: 318
 	[SerializeField]
 	private Vector3 hitCapsuleCenter;
 
-	// Token: 0x040000FF RID: 255
+	// Token: 0x0400013F RID: 319
 	[SerializeField]
 	private float hitCapsuleRadius = 1f;
 
-	// Token: 0x04000100 RID: 256
+	// Token: 0x04000140 RID: 320
 	[SerializeField]
 	private float hitCapsuleHeight = 2.5f;
 
-	// Token: 0x04000101 RID: 257
+	// Token: 0x04000141 RID: 321
 	[SerializeField]
 	private int hitCapsuleDirection;
 
-	// Token: 0x04000102 RID: 258
+	// Token: 0x04000142 RID: 322
 	[SerializeField]
 	private bool drawBones;
 
-	// Token: 0x04000103 RID: 259
+	// Token: 0x04000143 RID: 323
 	[SerializeField]
 	private bool allowBonesOutsideOfModelPrefab;
 
-	// Token: 0x04000104 RID: 260
+	// Token: 0x04000144 RID: 324
 	[SerializeField]
 	private int ignoreCollisionDownSteps = 2;
 
-	// Token: 0x04000105 RID: 261
+	// Token: 0x04000145 RID: 325
 	[SerializeField]
 	private int ignoreCollisionUpSteps = 1;
 
-	// Token: 0x04000106 RID: 262
+	// Token: 0x04000146 RID: 326
 	[SerializeField]
 	private string hitBoxType = "HitBox";
 
-	// Token: 0x04000107 RID: 263
+	// Token: 0x04000147 RID: 327
 	[SerializeField]
 	private string hitBoxSystemType = "HitBoxSystem";
 
-	// Token: 0x04000108 RID: 264
+	// Token: 0x04000148 RID: 328
 	[SerializeField]
 	private string defaultBodyPartLayer = string.Empty;
 
-	// Token: 0x04000109 RID: 265
+	// Token: 0x04000149 RID: 329
 	[SerializeField]
 	private ActorRig actorRig;
 
-	// Token: 0x0400010A RID: 266
+	// Token: 0x0400014A RID: 330
 	[SerializeField]
-	private Character prototype;
+	private global::Character prototype;
 
-	// Token: 0x0400010B RID: 267
+	// Token: 0x0400014B RID: 331
 	[SerializeField]
-	private Ragdoll ragdollPrototype;
+	private global::Ragdoll ragdollPrototype;
 
-	// Token: 0x0400010C RID: 268
+	// Token: 0x0400014C RID: 332
 	[SerializeField]
 	private Transform hitCapsuleTransform;
 
-	// Token: 0x0400010D RID: 269
+	// Token: 0x0400014D RID: 333
 	[SerializeField]
 	private Transform[] removeThese;
 
-	// Token: 0x0400010E RID: 270
+	// Token: 0x0400014E RID: 334
 	[SerializeField]
 	private float eyeHeight = 1f;
 
-	// Token: 0x0400010F RID: 271
+	// Token: 0x0400014F RID: 335
 	[SerializeField]
 	private GameObject generatedRigid;
 
-	// Token: 0x04000110 RID: 272
+	// Token: 0x04000150 RID: 336
 	[SerializeField]
 	private GameObject generatedHitBox;
 
-	// Token: 0x04000111 RID: 273
+	// Token: 0x04000151 RID: 337
 	[SerializeField]
 	private bool savedGenerated;
 
-	// Token: 0x04000112 RID: 274
+	// Token: 0x04000152 RID: 338
 	[SerializeField]
 	private Material[] materials;
 
-	// Token: 0x04000113 RID: 275
+	// Token: 0x04000153 RID: 339
 	[SerializeField]
 	private Vector3 editingAngles = Vector3.zero;
 
-	// Token: 0x04000114 RID: 276
+	// Token: 0x04000154 RID: 340
 	[SerializeField]
 	private bool editingCenterToRoot;
 
-	// Token: 0x04000115 RID: 277
+	// Token: 0x04000155 RID: 341
 	[SerializeField]
 	private BodyPartTransformMap bodyParts = new BodyPartTransformMap();
 
-	// Token: 0x04000116 RID: 278
+	// Token: 0x04000156 RID: 342
 	[SerializeField]
 	private string saveJSONGUID;
 
-	// Token: 0x04000117 RID: 279
+	// Token: 0x04000157 RID: 343
 	[SerializeField]
 	private string previewPrototypeGUID;
 
-	// Token: 0x04000118 RID: 280
+	// Token: 0x04000158 RID: 344
 	[SerializeField]
 	private bool removeAnimationFromRagdoll;
 
-	// Token: 0x04000119 RID: 281
+	// Token: 0x04000159 RID: 345
 	[SerializeField]
 	private string hitBoxLayerName = "Hitbox";
 
-	// Token: 0x0400011A RID: 282
+	// Token: 0x0400015A RID: 346
 	[SerializeField]
 	private bool useMeshesFromHitBoxOnRagdoll;
 
-	// Token: 0x0400011B RID: 283
+	// Token: 0x0400015B RID: 347
 	private static bool once;
 
-	// Token: 0x0400011C RID: 284
-	private HitBoxSystem creatingSystem;
+	// Token: 0x0400015C RID: 348
+	private global::HitBoxSystem creatingSystem;
 
-	// Token: 0x0400011D RID: 285
+	// Token: 0x0400015D RID: 349
 	private bool showAllBones;
 
-	// Token: 0x0400011E RID: 286
-	private static readonly MemberFilter actorRigSearch = new MemberFilter(AuthorHull.ActorRigSearch);
+	// Token: 0x0400015E RID: 350
+	private static readonly MemberFilter actorRigSearch = new MemberFilter(global::AuthorHull.ActorRigSearch);
 
-	// Token: 0x0200002B RID: 43
+	// Token: 0x02000038 RID: 56
 	private static class guis
 	{
-		// Token: 0x04000120 RID: 288
+		// Token: 0x04000160 RID: 352
 		public static readonly GUIContent overridingContent = new GUIContent("[overriding the hitbox output prefab]", "The HitBox prefab output will use the overriding mesh prefab provided, You must make sure that the heirarchy matches between the two");
 
-		// Token: 0x04000121 RID: 289
+		// Token: 0x04000161 RID: 353
 		public static readonly GUIContent notOverridingContent = new GUIContent("[both outputs will use the same base]", "The HitBox prefab output will use the same mesh prefab as the one for the rigidbody");
 
-		// Token: 0x04000122 RID: 290
+		// Token: 0x04000162 RID: 354
 		public static readonly GUIContent destroyDrop = new GUIContent("Destroy bone", "Drag a transform off the model instance that contains no ::'s");
 	}
 
-	// Token: 0x0200002C RID: 44
+	// Token: 0x02000039 RID: 57
 	private static class HitBoxItems
 	{
-		// Token: 0x060001D4 RID: 468 RVA: 0x0000B124 File Offset: 0x00009324
-		private static bool ValidateByID(AuthorCreation creation, AuthorPalletObject palletObject)
+		// Token: 0x06000220 RID: 544 RVA: 0x0000BE84 File Offset: 0x0000A084
+		private static bool ValidateByID(global::AuthorCreation creation, global::AuthorPalletObject palletObject)
 		{
 			return true;
 		}
 
-		// Token: 0x060001D5 RID: 469 RVA: 0x0000B128 File Offset: 0x00009328
-		private static AuthorPeice CreateByID<TPeice>(AuthorCreation creation, AuthorPalletObject palletObject) where TPeice : AuthorPeice
+		// Token: 0x06000221 RID: 545 RVA: 0x0000BE88 File Offset: 0x0000A088
+		private static global::AuthorPeice CreateByID<TPeice>(global::AuthorCreation creation, global::AuthorPalletObject palletObject) where TPeice : global::AuthorPeice
 		{
 			GameObject gameObject = new GameObject(palletObject.guiContent.text, new Type[]
 			{
@@ -1401,32 +1401,32 @@ public class AuthorHull : AuthorCreation
 			return component;
 		}
 
-		// Token: 0x04000123 RID: 291
-		public static readonly AuthorPalletObject.Validator validateByID = new AuthorPalletObject.Validator(AuthorHull.HitBoxItems.ValidateByID);
+		// Token: 0x04000163 RID: 355
+		public static readonly global::AuthorPalletObject.Validator validateByID = new global::AuthorPalletObject.Validator(global::AuthorHull.HitBoxItems.ValidateByID);
 
-		// Token: 0x04000124 RID: 292
-		public static readonly AuthorPalletObject.Creator createSocketByID = new AuthorPalletObject.Creator(AuthorHull.HitBoxItems.CreateByID<AuthorChHit>);
+		// Token: 0x04000164 RID: 356
+		public static readonly global::AuthorPalletObject.Creator createSocketByID = new global::AuthorPalletObject.Creator(global::AuthorHull.HitBoxItems.CreateByID<global::AuthorChHit>);
 
-		// Token: 0x04000125 RID: 293
-		public static readonly AuthorPalletObject[] pallet = new AuthorPalletObject[]
+		// Token: 0x04000165 RID: 357
+		public static readonly global::AuthorPalletObject[] pallet = new global::AuthorPalletObject[]
 		{
-			new AuthorPalletObject
+			new global::AuthorPalletObject
 			{
 				guiContent = new GUIContent("Box"),
-				validator = AuthorHull.HitBoxItems.validateByID,
-				creator = AuthorHull.HitBoxItems.createSocketByID
+				validator = global::AuthorHull.HitBoxItems.validateByID,
+				creator = global::AuthorHull.HitBoxItems.createSocketByID
 			},
-			new AuthorPalletObject
+			new global::AuthorPalletObject
 			{
 				guiContent = new GUIContent("Sphere"),
-				validator = AuthorHull.HitBoxItems.validateByID,
-				creator = AuthorHull.HitBoxItems.createSocketByID
+				validator = global::AuthorHull.HitBoxItems.validateByID,
+				creator = global::AuthorHull.HitBoxItems.createSocketByID
 			},
-			new AuthorPalletObject
+			new global::AuthorPalletObject
 			{
 				guiContent = new GUIContent("Capsule"),
-				validator = AuthorHull.HitBoxItems.validateByID,
-				creator = AuthorHull.HitBoxItems.createSocketByID
+				validator = global::AuthorHull.HitBoxItems.validateByID,
+				creator = global::AuthorHull.HitBoxItems.createSocketByID
 			}
 		};
 	}

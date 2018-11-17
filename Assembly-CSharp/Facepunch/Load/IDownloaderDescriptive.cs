@@ -2,10 +2,10 @@
 
 namespace Facepunch.Load
 {
-	// Token: 0x02000264 RID: 612
+	// Token: 0x02000297 RID: 663
 	public interface IDownloaderDescriptive : IDownloader
 	{
-		// Token: 0x06001659 RID: 5721
+		// Token: 0x060017AD RID: 6061
 		bool DescribeProgress(Job job, ref string lastString);
 	}
 }

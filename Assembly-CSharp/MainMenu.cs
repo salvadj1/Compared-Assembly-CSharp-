@@ -4,56 +4,56 @@ using Facepunch.Utility;
 using uLink;
 using UnityEngine;
 
-// Token: 0x020003FD RID: 1021
+// Token: 0x020004AE RID: 1198
 public class MainMenu : MonoBehaviour
 {
-	// Token: 0x06002582 RID: 9602 RVA: 0x0009029C File Offset: 0x0008E49C
+	// Token: 0x060028FA RID: 10490 RVA: 0x000960D4 File Offset: 0x000942D4
 	public static bool IsVisible()
 	{
-		return MainMenu.singleton && MainMenu.singleton.GetComponent<dfPanel>().IsVisible;
+		return global::MainMenu.singleton && global::MainMenu.singleton.GetComponent<global::dfPanel>().IsVisible;
 	}
 
-	// Token: 0x06002583 RID: 9603 RVA: 0x000902C0 File Offset: 0x0008E4C0
+	// Token: 0x060028FB RID: 10491 RVA: 0x000960F8 File Offset: 0x000942F8
 	private void Awake()
 	{
-		MainMenu.singleton = this;
+		global::MainMenu.singleton = this;
 		LockCursorManager.onEscapeKey += new EscapeKeyEventHandler(this.Show);
 		this.screenServers.Hide();
 		this.screenOptions.Hide();
 	}
 
-	// Token: 0x06002584 RID: 9604 RVA: 0x000902F0 File Offset: 0x0008E4F0
+	// Token: 0x060028FC RID: 10492 RVA: 0x00096128 File Offset: 0x00094328
 	private void OnDestroy()
 	{
 		LockCursorManager.onEscapeKey -= new EscapeKeyEventHandler(this.Show);
 	}
 
-	// Token: 0x06002585 RID: 9605 RVA: 0x00090304 File Offset: 0x0008E504
+	// Token: 0x060028FD RID: 10493 RVA: 0x0009613C File Offset: 0x0009433C
 	public void LoadBackground()
 	{
 		Object.DontDestroyOnLoad(base.gameObject.transform.parent.gameObject);
 		Application.LoadLevel("MenuBackground");
 	}
 
-	// Token: 0x06002586 RID: 9606 RVA: 0x00090338 File Offset: 0x0008E538
+	// Token: 0x060028FE RID: 10494 RVA: 0x00096170 File Offset: 0x00094370
 	private void Start()
 	{
 		this.cursorManager = LockCursorManager.CreateCursorUnlockNode(false, "Main Menu");
 		this.Show();
-		if (!Object.FindObjectOfType(typeof(ClientConnect)))
+		if (!Object.FindObjectOfType(typeof(global::ClientConnect)))
 		{
 			this.LoadBackground();
 		}
 	}
 
-	// Token: 0x06002587 RID: 9607 RVA: 0x0009037C File Offset: 0x0008E57C
+	// Token: 0x060028FF RID: 10495 RVA: 0x000961B4 File Offset: 0x000943B4
 	private void Update()
 	{
-		if (NetCull.isClientRunning)
+		if (global::NetCull.isClientRunning)
 		{
 			if (Input.GetKeyDown(27))
 			{
-				if (MainMenu.IsVisible())
+				if (global::MainMenu.IsVisible())
 				{
 					this.Hide();
 				}
@@ -65,27 +65,27 @@ public class MainMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002588 RID: 9608 RVA: 0x000903C0 File Offset: 0x0008E5C0
+	// Token: 0x06002900 RID: 10496 RVA: 0x000961F8 File Offset: 0x000943F8
 	public void Hide()
 	{
-		base.GetComponent<dfPanel>().Hide();
+		base.GetComponent<global::dfPanel>().Hide();
 		this.cursorManager.On = false;
 		this.blurCamera.enabled = false;
-		LoadingScreen.Hide();
-		HudEnabled.Enable();
+		global::LoadingScreen.Hide();
+		global::HudEnabled.Enable();
 	}
 
-	// Token: 0x06002589 RID: 9609 RVA: 0x000903FC File Offset: 0x0008E5FC
+	// Token: 0x06002901 RID: 10497 RVA: 0x00096234 File Offset: 0x00094434
 	public void Show()
 	{
-		base.GetComponent<dfPanel>().Show();
+		base.GetComponent<global::dfPanel>().Show();
 		this.cursorManager.On = true;
 		this.blurCamera.enabled = true;
-		HudEnabled.Disable();
+		global::HudEnabled.Disable();
 	}
 
-	// Token: 0x0600258A RID: 9610 RVA: 0x00090434 File Offset: 0x0008E634
-	private void HideAllBut(dfPanel but)
+	// Token: 0x06002902 RID: 10498 RVA: 0x0009626C File Offset: 0x0009446C
+	private void HideAllBut(global::dfPanel but)
 	{
 		if (this.screenServers && this.screenServers != but)
 		{
@@ -97,7 +97,7 @@ public class MainMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600258B RID: 9611 RVA: 0x0009049C File Offset: 0x0008E69C
+	// Token: 0x06002903 RID: 10499 RVA: 0x000962D4 File Offset: 0x000944D4
 	public void ShowOptions()
 	{
 		this.HideAllBut(this.screenOptions);
@@ -115,7 +115,7 @@ public class MainMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600258C RID: 9612 RVA: 0x000904FC File Offset: 0x0008E6FC
+	// Token: 0x06002904 RID: 10500 RVA: 0x00096334 File Offset: 0x00094534
 	public void ShowServerlist()
 	{
 		this.HideAllBut(this.screenServers);
@@ -133,22 +133,22 @@ public class MainMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x0600258D RID: 9613 RVA: 0x0009055C File Offset: 0x0008E75C
+	// Token: 0x06002905 RID: 10501 RVA: 0x00096394 File Offset: 0x00094594
 	public void ShowInformation(string text)
 	{
-		ConsoleSystem.Run("notice.popup 5 \"\" " + Facepunch.Utility.String.QuoteSafe(text), false);
+		global::ConsoleSystem.Run("notice.popup 5 \"\" " + Facepunch.Utility.String.QuoteSafe(text), false);
 	}
 
-	// Token: 0x0600258E RID: 9614 RVA: 0x00090578 File Offset: 0x0008E778
+	// Token: 0x06002906 RID: 10502 RVA: 0x000963B0 File Offset: 0x000945B0
 	public void DoExit()
 	{
-		ConsoleSystem.Run("quit", false);
+		global::ConsoleSystem.Run("quit", false);
 	}
 
-	// Token: 0x0600258F RID: 9615 RVA: 0x00090588 File Offset: 0x0008E788
-	private void LogDisconnect(NetError error, NetworkDisconnection? disconnection = null)
+	// Token: 0x06002907 RID: 10503 RVA: 0x000963C0 File Offset: 0x000945C0
+	private void LogDisconnect(global::NetError error, uLink.NetworkDisconnection? disconnection = null)
 	{
-		if (error != NetError.NoError)
+		if (error != global::NetError.NoError)
 		{
 			Debug.LogWarning(error);
 		}
@@ -158,15 +158,15 @@ public class MainMenu : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002590 RID: 9616 RVA: 0x000905C0 File Offset: 0x0008E7C0
-	private void uLink_OnDisconnectedFromServer(NetworkDisconnection netDisconnect)
+	// Token: 0x06002908 RID: 10504 RVA: 0x000963F8 File Offset: 0x000945F8
+	private void uLink_OnDisconnectedFromServer(uLink.NetworkDisconnection netDisconnect)
 	{
-		NetError lastKickReason = ServerManagement.GetLastKickReason(true);
-		this.LogDisconnect(lastKickReason, new NetworkDisconnection?(netDisconnect));
-		DisableOnConnectedState.OnDisconnected();
-		ConsoleSystem.Run("gameui.show", false);
+		global::NetError lastKickReason = global::ServerManagement.GetLastKickReason(true);
+		this.LogDisconnect(lastKickReason, new uLink.NetworkDisconnection?(netDisconnect));
+		global::DisableOnConnectedState.OnDisconnected();
+		global::ConsoleSystem.Run("gameui.show", false);
 		this.LoadBackground();
-		if (lastKickReason != NetError.NoError)
+		if (lastKickReason != global::NetError.NoError)
 		{
 			this.ShowInformation("Disconnected (" + lastKickReason.NiceString() + ")");
 		}
@@ -174,17 +174,17 @@ public class MainMenu : MonoBehaviour
 		{
 			this.ShowInformation("Disconnected from server.");
 		}
-		LoadingScreen.Hide();
+		global::LoadingScreen.Hide();
 	}
 
-	// Token: 0x06002591 RID: 9617 RVA: 0x00090630 File Offset: 0x0008E830
-	private void uLink_OnFailedToConnect(NetworkConnectionError ulink_error)
+	// Token: 0x06002909 RID: 10505 RVA: 0x00096468 File Offset: 0x00094668
+	private void uLink_OnFailedToConnect(uLink.NetworkConnectionError ulink_error)
 	{
 		this.LogDisconnect(ulink_error.ToNetError(), null);
-		DisableOnConnectedState.OnDisconnected();
-		ConsoleSystem.Run("gameui.show", false);
+		global::DisableOnConnectedState.OnDisconnected();
+		global::ConsoleSystem.Run("gameui.show", false);
 		this.LoadBackground();
-		if (ulink_error.ToNetError() != NetError.NoError)
+		if (ulink_error.ToNetError() != global::NetError.NoError)
 		{
 			this.ShowInformation("Failed to connect (" + ulink_error.ToNetError().ToString() + ")");
 		}
@@ -192,21 +192,21 @@ public class MainMenu : MonoBehaviour
 		{
 			this.ShowInformation("Failed to connect.");
 		}
-		LoadingScreen.Hide();
+		global::LoadingScreen.Hide();
 	}
 
-	// Token: 0x04001233 RID: 4659
+	// Token: 0x040013B0 RID: 5040
 	public Camera blurCamera;
 
-	// Token: 0x04001234 RID: 4660
-	public dfPanel screenServers;
+	// Token: 0x040013B1 RID: 5041
+	public global::dfPanel screenServers;
 
-	// Token: 0x04001235 RID: 4661
-	public dfPanel screenOptions;
+	// Token: 0x040013B2 RID: 5042
+	public global::dfPanel screenOptions;
 
-	// Token: 0x04001236 RID: 4662
+	// Token: 0x040013B3 RID: 5043
 	public UnlockCursorNode cursorManager;
 
-	// Token: 0x04001237 RID: 4663
-	public static MainMenu singleton;
+	// Token: 0x040013B4 RID: 5044
+	public static global::MainMenu singleton;
 }

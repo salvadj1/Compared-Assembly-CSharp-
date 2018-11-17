@@ -1,37 +1,37 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200080C RID: 2060
+// Token: 0x020008FE RID: 2302
 [AddComponentMenu("Game/UI/Tooltip")]
 public class UITooltip : MonoBehaviour
 {
-	// Token: 0x060049D2 RID: 18898 RVA: 0x0013AC74 File Offset: 0x00138E74
+	// Token: 0x06004E81 RID: 20097 RVA: 0x00144BD8 File Offset: 0x00142DD8
 	private void Awake()
 	{
-		UITooltip.mInstance = this;
+		global::UITooltip.mInstance = this;
 	}
 
-	// Token: 0x060049D3 RID: 18899 RVA: 0x0013AC7C File Offset: 0x00138E7C
+	// Token: 0x06004E82 RID: 20098 RVA: 0x00144BE0 File Offset: 0x00142DE0
 	private void OnDestroy()
 	{
-		UITooltip.mInstance = null;
+		global::UITooltip.mInstance = null;
 	}
 
-	// Token: 0x060049D4 RID: 18900 RVA: 0x0013AC84 File Offset: 0x00138E84
+	// Token: 0x06004E83 RID: 20099 RVA: 0x00144BE8 File Offset: 0x00142DE8
 	private void Start()
 	{
 		this.mTrans = base.transform;
-		this.mWidgets = base.GetComponentsInChildren<UIWidget>();
+		this.mWidgets = base.GetComponentsInChildren<global::UIWidget>();
 		this.mPos = this.mTrans.localPosition;
 		this.mSize = this.mTrans.localScale;
 		if (this.uiCamera == null)
 		{
-			this.uiCamera = NGUITools.FindCameraForLayer(base.gameObject.layer);
+			this.uiCamera = global::NGUITools.FindCameraForLayer(base.gameObject.layer);
 		}
 		this.SetAlpha(0f);
 	}
 
-	// Token: 0x060049D5 RID: 18901 RVA: 0x0013AD00 File Offset: 0x00138F00
+	// Token: 0x06004E84 RID: 20100 RVA: 0x00144C64 File Offset: 0x00142E64
 	private void Update()
 	{
 		if (this.mCurrent != this.mTarget)
@@ -54,14 +54,14 @@ public class UITooltip : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049D6 RID: 18902 RVA: 0x0013ADFC File Offset: 0x00138FFC
+	// Token: 0x06004E85 RID: 20101 RVA: 0x00144D60 File Offset: 0x00142F60
 	private void SetAlpha(float val)
 	{
 		int i = 0;
 		int num = this.mWidgets.Length;
 		while (i < num)
 		{
-			UIWidget uiwidget = this.mWidgets[i];
+			global::UIWidget uiwidget = this.mWidgets[i];
 			Color color = uiwidget.color;
 			color.a = val;
 			uiwidget.color = color;
@@ -69,7 +69,7 @@ public class UITooltip : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049D7 RID: 18903 RVA: 0x0013AE44 File Offset: 0x00139044
+	// Token: 0x06004E86 RID: 20102 RVA: 0x00144DA8 File Offset: 0x00142FA8
 	private void SetText(string tooltipText)
 	{
 		if (this.text != null && !string.IsNullOrEmpty(tooltipText))
@@ -130,48 +130,48 @@ public class UITooltip : MonoBehaviour
 		}
 	}
 
-	// Token: 0x060049D8 RID: 18904 RVA: 0x0013B23C File Offset: 0x0013943C
+	// Token: 0x06004E87 RID: 20103 RVA: 0x001451A0 File Offset: 0x001433A0
 	public static void ShowText(string tooltipText)
 	{
-		if (UITooltip.mInstance != null)
+		if (global::UITooltip.mInstance != null)
 		{
-			UITooltip.mInstance.SetText(tooltipText);
+			global::UITooltip.mInstance.SetText(tooltipText);
 		}
 	}
 
-	// Token: 0x040029C4 RID: 10692
-	private static UITooltip mInstance;
+	// Token: 0x04002C12 RID: 11282
+	private static global::UITooltip mInstance;
 
-	// Token: 0x040029C5 RID: 10693
+	// Token: 0x04002C13 RID: 11283
 	public Camera uiCamera;
 
-	// Token: 0x040029C6 RID: 10694
-	public UILabel text;
+	// Token: 0x04002C14 RID: 11284
+	public global::UILabel text;
 
-	// Token: 0x040029C7 RID: 10695
-	public UISlicedSprite background;
+	// Token: 0x04002C15 RID: 11285
+	public global::UISlicedSprite background;
 
-	// Token: 0x040029C8 RID: 10696
+	// Token: 0x04002C16 RID: 11286
 	public float appearSpeed = 10f;
 
-	// Token: 0x040029C9 RID: 10697
+	// Token: 0x04002C17 RID: 11287
 	public bool scalingTransitions = true;
 
-	// Token: 0x040029CA RID: 10698
+	// Token: 0x04002C18 RID: 11288
 	private Transform mTrans;
 
-	// Token: 0x040029CB RID: 10699
+	// Token: 0x04002C19 RID: 11289
 	private float mTarget;
 
-	// Token: 0x040029CC RID: 10700
+	// Token: 0x04002C1A RID: 11290
 	private float mCurrent;
 
-	// Token: 0x040029CD RID: 10701
+	// Token: 0x04002C1B RID: 11291
 	private Vector3 mPos;
 
-	// Token: 0x040029CE RID: 10702
+	// Token: 0x04002C1C RID: 11292
 	private Vector3 mSize;
 
-	// Token: 0x040029CF RID: 10703
-	private UIWidget[] mWidgets;
+	// Token: 0x04002C1D RID: 11293
+	private global::UIWidget[] mWidgets;
 }

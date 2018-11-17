@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// Token: 0x020006E5 RID: 1765
+// Token: 0x020007B7 RID: 1975
 public class dfPlainTextTokenizer
 {
-	// Token: 0x06003F17 RID: 16151 RVA: 0x000EF90C File Offset: 0x000EDB0C
-	public static List<dfMarkupToken> Tokenize(string source)
+	// Token: 0x06004333 RID: 17203 RVA: 0x000F8510 File Offset: 0x000F6710
+	public static List<global::dfMarkupToken> Tokenize(string source)
 	{
-		if (dfPlainTextTokenizer.singleton == null)
+		if (global::dfPlainTextTokenizer.singleton == null)
 		{
-			dfPlainTextTokenizer.singleton = new dfPlainTextTokenizer();
+			global::dfPlainTextTokenizer.singleton = new global::dfPlainTextTokenizer();
 		}
-		return dfPlainTextTokenizer.singleton.tokenize(source);
+		return global::dfPlainTextTokenizer.singleton.tokenize(source);
 	}
 
-	// Token: 0x06003F18 RID: 16152 RVA: 0x000EF930 File Offset: 0x000EDB30
-	private List<dfMarkupToken> tokenize(string source)
+	// Token: 0x06004334 RID: 17204 RVA: 0x000F8534 File Offset: 0x000F6734
+	private List<global::dfMarkupToken> tokenize(string source)
 	{
-		dfMarkupToken.Reset();
-		dfMarkupTokenAttribute.Reset();
+		global::dfMarkupToken.Reset();
+		global::dfMarkupTokenAttribute.Reset();
 		this.tokens.Clear();
 		int i = 0;
 		int num = 0;
@@ -38,12 +38,12 @@ public class dfPlainTextTokenizer
 				}
 				if (i > num)
 				{
-					this.tokens.Add(dfMarkupToken.Obtain(source, dfMarkupTokenType.Text, num, i - 1));
+					this.tokens.Add(global::dfMarkupToken.Obtain(source, global::dfMarkupTokenType.Text, num, i - 1));
 					num = i;
 				}
 				if (i < length && source[i] == '\n')
 				{
-					this.tokens.Add(dfMarkupToken.Obtain(source, dfMarkupTokenType.Newline, i, i));
+					this.tokens.Add(global::dfMarkupToken.Obtain(source, global::dfMarkupTokenType.Newline, i, i));
 					i++;
 					num = i;
 				}
@@ -53,7 +53,7 @@ public class dfPlainTextTokenizer
 				}
 				if (i > num)
 				{
-					this.tokens.Add(dfMarkupToken.Obtain(source, dfMarkupTokenType.Whitespace, num, i - 1));
+					this.tokens.Add(global::dfMarkupToken.Obtain(source, global::dfMarkupTokenType.Whitespace, num, i - 1));
 					num = i;
 				}
 			}
@@ -61,9 +61,9 @@ public class dfPlainTextTokenizer
 		return this.tokens;
 	}
 
-	// Token: 0x040021BB RID: 8635
-	private static dfPlainTextTokenizer singleton;
+	// Token: 0x040023C4 RID: 9156
+	private static global::dfPlainTextTokenizer singleton;
 
-	// Token: 0x040021BC RID: 8636
-	private List<dfMarkupToken> tokens = new List<dfMarkupToken>();
+	// Token: 0x040023C5 RID: 9157
+	private List<global::dfMarkupToken> tokens = new List<global::dfMarkupToken>();
 }

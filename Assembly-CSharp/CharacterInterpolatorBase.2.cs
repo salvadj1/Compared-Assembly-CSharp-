@@ -1,32 +1,32 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000107 RID: 263
-public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
+// Token: 0x02000126 RID: 294
+public abstract class CharacterInterpolatorBase<T> : global::CharacterInterpolatorBase
 {
-	// Token: 0x060006BF RID: 1727 RVA: 0x0001EE68 File Offset: 0x0001D068
-	protected CharacterInterpolatorBase() : this(false, IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake)
+	// Token: 0x06000791 RID: 1937 RVA: 0x00021A3C File Offset: 0x0001FC3C
+	protected CharacterInterpolatorBase() : this(false, global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | global::IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake)
 	{
 	}
 
-	// Token: 0x060006C0 RID: 1728 RVA: 0x0001EE74 File Offset: 0x0001D074
-	protected CharacterInterpolatorBase(bool customPusher) : this(customPusher, IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake)
+	// Token: 0x06000792 RID: 1938 RVA: 0x00021A48 File Offset: 0x0001FC48
+	protected CharacterInterpolatorBase(bool customPusher) : this(customPusher, global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | global::IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake)
 	{
 	}
 
-	// Token: 0x060006C1 RID: 1729 RVA: 0x0001EE80 File Offset: 0x0001D080
-	protected CharacterInterpolatorBase(IDLocalCharacterAddon.AddonFlags addonFlags) : this(false, addonFlags)
+	// Token: 0x06000793 RID: 1939 RVA: 0x00021A54 File Offset: 0x0001FC54
+	protected CharacterInterpolatorBase(global::IDLocalCharacterAddon.AddonFlags addonFlags) : this(false, addonFlags)
 	{
 	}
 
-	// Token: 0x060006C2 RID: 1730 RVA: 0x0001EE8C File Offset: 0x0001D08C
-	protected CharacterInterpolatorBase(bool customPusher, IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags | (IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake))
+	// Token: 0x06000794 RID: 1940 RVA: 0x00021A60 File Offset: 0x0001FC60
+	protected CharacterInterpolatorBase(bool customPusher, global::IDLocalCharacterAddon.AddonFlags addonFlags) : base(addonFlags | (global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | global::IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake))
 	{
 		this.customPusher = customPusher;
 	}
 
-	// Token: 0x17000169 RID: 361
-	// (get) Token: 0x060006C3 RID: 1731 RVA: 0x0001EEA0 File Offset: 0x0001D0A0
+	// Token: 0x17000197 RID: 407
+	// (get) Token: 0x06000795 RID: 1941 RVA: 0x00021A74 File Offset: 0x0001FC74
 	public int bufferCapacity
 	{
 		get
@@ -35,10 +35,10 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x060006C4 RID: 1732 RVA: 0x0001EEAC File Offset: 0x0001D0AC
+	// Token: 0x06000796 RID: 1942 RVA: 0x00021A80 File Offset: 0x0001FC80
 	protected override void OnAddonPostAwake()
 	{
-		this.tbuffer = new TimeStamped<T>[(this._bufferCapacity > 0) ? this._bufferCapacity : 32];
+		this.tbuffer = new global::TimeStamped<T>[(this._bufferCapacity > 0) ? this._bufferCapacity : 32];
 		this._bufferCapacity = this.tbuffer.Length;
 		for (int i = 0; i < this._bufferCapacity; i++)
 		{
@@ -46,8 +46,8 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x1700016A RID: 362
-	// (get) Token: 0x060006C5 RID: 1733 RVA: 0x0001EF14 File Offset: 0x0001D114
+	// Token: 0x17000198 RID: 408
+	// (get) Token: 0x06000797 RID: 1943 RVA: 0x00021AE8 File Offset: 0x0001FCE8
 	public new double storedDuration
 	{
 		get
@@ -56,8 +56,8 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x1700016B RID: 363
-	// (get) Token: 0x060006C6 RID: 1734 RVA: 0x0001EF88 File Offset: 0x0001D188
+	// Token: 0x17000199 RID: 409
+	// (get) Token: 0x06000798 RID: 1944 RVA: 0x00021B5C File Offset: 0x0001FD5C
 	public new double oldestTimeStamp
 	{
 		get
@@ -66,8 +66,8 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x1700016C RID: 364
-	// (get) Token: 0x060006C7 RID: 1735 RVA: 0x0001EFD0 File Offset: 0x0001D1D0
+	// Token: 0x1700019A RID: 410
+	// (get) Token: 0x06000799 RID: 1945 RVA: 0x00021BA4 File Offset: 0x0001FDA4
 	public new double newestTimeStamp
 	{
 		get
@@ -76,12 +76,12 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x060006C8 RID: 1736 RVA: 0x0001F020 File Offset: 0x0001D220
+	// Token: 0x0600079A RID: 1946 RVA: 0x00021BF4 File Offset: 0x0001FDF4
 	public new void Clear()
 	{
 		if (this.len > 0)
 		{
-			if (ReferenceTypeHelper<T>.TreatAsReferenceHolder)
+			if (global::ReferenceTypeHelper<T>.TreatAsReferenceHolder)
 			{
 				for (int i = 0; i < this.len; i++)
 				{
@@ -92,8 +92,8 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x1700016D RID: 365
-	// (get) Token: 0x060006C9 RID: 1737 RVA: 0x0001F08C File Offset: 0x0001D28C
+	// Token: 0x1700019B RID: 411
+	// (get) Token: 0x0600079B RID: 1947 RVA: 0x00021C60 File Offset: 0x0001FE60
 	protected sealed override double __newestTimeStamp
 	{
 		get
@@ -102,8 +102,8 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x1700016E RID: 366
-	// (get) Token: 0x060006CA RID: 1738 RVA: 0x0001F094 File Offset: 0x0001D294
+	// Token: 0x1700019C RID: 412
+	// (get) Token: 0x0600079C RID: 1948 RVA: 0x00021C68 File Offset: 0x0001FE68
 	protected sealed override double __oldestTimeStamp
 	{
 		get
@@ -112,8 +112,8 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x1700016F RID: 367
-	// (get) Token: 0x060006CB RID: 1739 RVA: 0x0001F09C File Offset: 0x0001D29C
+	// Token: 0x1700019D RID: 413
+	// (get) Token: 0x0600079D RID: 1949 RVA: 0x00021C70 File Offset: 0x0001FE70
 	protected sealed override double __storedDuration
 	{
 		get
@@ -122,19 +122,19 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x060006CC RID: 1740 RVA: 0x0001F0A4 File Offset: 0x0001D2A4
+	// Token: 0x0600079E RID: 1950 RVA: 0x00021C78 File Offset: 0x0001FE78
 	protected sealed override void __Clear()
 	{
 		this.Clear();
 	}
 
-	// Token: 0x060006CD RID: 1741 RVA: 0x0001F0AC File Offset: 0x0001D2AC
+	// Token: 0x0600079F RID: 1951 RVA: 0x00021C80 File Offset: 0x0001FE80
 	public override void SetGoals(Vector3 pos, Quaternion rot, double timestamp)
 	{
 		throw new NotImplementedException("The thing using this has not implemented a way to take pos, rot to " + typeof(T));
 	}
 
-	// Token: 0x060006CE RID: 1742 RVA: 0x0001F0C8 File Offset: 0x0001D2C8
+	// Token: 0x060007A0 RID: 1952 RVA: 0x00021C9C File Offset: 0x0001FE9C
 	protected void Push(ref T state, ref double timeStamp)
 	{
 		int num = this.tbuffer.Length;
@@ -187,13 +187,13 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x060006CF RID: 1743 RVA: 0x0001F304 File Offset: 0x0001D504
+	// Token: 0x060007A1 RID: 1953 RVA: 0x00021ED8 File Offset: 0x000200D8
 	protected virtual bool CustomPusher(ref T state, ref double timeStamp)
 	{
 		throw new NotImplementedException();
 	}
 
-	// Token: 0x060006D0 RID: 1744 RVA: 0x0001F30C File Offset: 0x0001D50C
+	// Token: 0x060007A2 RID: 1954 RVA: 0x00021EE0 File Offset: 0x000200E0
 	public void SetGoals(ref T state, ref double timeStamp)
 	{
 		if (this.customPusher)
@@ -211,17 +211,17 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x060006D1 RID: 1745 RVA: 0x0001F354 File Offset: 0x0001D554
-	public void SetGoals(ref TimeStamped<T> state)
+	// Token: 0x060007A3 RID: 1955 RVA: 0x00021F28 File Offset: 0x00020128
+	public void SetGoals(ref global::TimeStamped<T> state)
 	{
 		double timeStamp = state.timeStamp;
 		T value = state.value;
 		this.SetGoals(ref value, ref timeStamp);
 	}
 
-	// Token: 0x17000170 RID: 368
-	// (get) Token: 0x060006D2 RID: 1746 RVA: 0x0001F37C File Offset: 0x0001D57C
-	public new CharacterInterpolatorBase interpolator
+	// Token: 0x1700019E RID: 414
+	// (get) Token: 0x060007A4 RID: 1956 RVA: 0x00021F50 File Offset: 0x00020150
+	public new global::CharacterInterpolatorBase interpolator
 	{
 		get
 		{
@@ -229,13 +229,13 @@ public abstract class CharacterInterpolatorBase<T> : CharacterInterpolatorBase
 		}
 	}
 
-	// Token: 0x04000511 RID: 1297
-	private const IDLocalCharacterAddon.AddonFlags kRequiredAddonFlags = IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake;
+	// Token: 0x040005DC RID: 1500
+	private const global::IDLocalCharacterAddon.AddonFlags kRequiredAddonFlags = global::IDLocalCharacterAddon.AddonFlags.FireOnAddonAwake | global::IDLocalCharacterAddon.AddonFlags.FireOnAddonPostAwake;
 
-	// Token: 0x04000512 RID: 1298
+	// Token: 0x040005DD RID: 1501
 	[NonSerialized]
-	protected TimeStamped<T>[] tbuffer;
+	protected global::TimeStamped<T>[] tbuffer;
 
-	// Token: 0x04000513 RID: 1299
+	// Token: 0x040005DE RID: 1502
 	private readonly bool customPusher;
 }

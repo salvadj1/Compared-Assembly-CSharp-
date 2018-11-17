@@ -1,12 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200044E RID: 1102
-[RequireComponent(typeof(Camera))]
+// Token: 0x02000504 RID: 1284
 [ExecuteInEditMode]
+[RequireComponent(typeof(Camera))]
 public class CameraLayerDepths : MonoBehaviour
 {
-	// Token: 0x06002853 RID: 10323 RVA: 0x0009E124 File Offset: 0x0009C324
+	// Token: 0x06002BE3 RID: 11235 RVA: 0x000A40A4 File Offset: 0x000A22A4
 	private void OnPreCull()
 	{
 		if (this.spherical != this.spherical_ || this.layer00 != this.layer00_ || this.layer01 != this.layer01_ || this.layer02 != this.layer02_ || this.layer03 != this.layer03_ || this.layer04 != this.layer04_ || this.layer05 != this.layer05_ || this.layer06 != this.layer06_ || this.layer07 != this.layer07_ || this.layer08 != this.layer08_ || this.layer09 != this.layer09_ || this.layer10 != this.layer10_ || this.layer11 != this.layer11_ || this.layer12 != this.layer12_ || this.layer13 != this.layer13_ || this.layer14 != this.layer14_ || this.layer15 != this.layer15_ || this.layer16 != this.layer16_ || this.layer17 != this.layer17_ || this.layer18 != this.layer18_ || this.layer19 != this.layer19_ || this.layer20 != this.layer20_ || this.layer21 != this.layer21_ || this.layer22 != this.layer22_ || this.layer23 != this.layer23_ || this.layer24 != this.layer24_ || this.layer25 != this.layer25_ || this.layer26 != this.layer26_ || this.layer27 != this.layer27_ || this.layer28 != this.layer28_ || this.layer29 != this.layer29_ || this.layer30 != this.layer30_ || this.layer31 != this.layer31_)
@@ -15,7 +15,7 @@ public class CameraLayerDepths : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002854 RID: 10324 RVA: 0x0009E368 File Offset: 0x0009C568
+	// Token: 0x06002BE4 RID: 11236 RVA: 0x000A42E8 File Offset: 0x000A24E8
 	private static bool Set(ref float m, float v)
 	{
 		if (m == v)
@@ -26,7 +26,7 @@ public class CameraLayerDepths : MonoBehaviour
 		return true;
 	}
 
-	// Token: 0x17000925 RID: 2341
+	// Token: 0x1700098D RID: 2445
 	public float this[int layer]
 	{
 		get
@@ -107,100 +107,100 @@ public class CameraLayerDepths : MonoBehaviour
 			switch (layer)
 			{
 			case 0:
-				flag = CameraLayerDepths.Set(ref this.layer00, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer00, value);
 				break;
 			case 1:
-				flag = CameraLayerDepths.Set(ref this.layer01, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer01, value);
 				break;
 			case 2:
-				flag = CameraLayerDepths.Set(ref this.layer02, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer02, value);
 				break;
 			case 3:
-				flag = CameraLayerDepths.Set(ref this.layer03, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer03, value);
 				break;
 			case 4:
-				flag = CameraLayerDepths.Set(ref this.layer04, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer04, value);
 				break;
 			case 5:
-				flag = CameraLayerDepths.Set(ref this.layer05, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer05, value);
 				break;
 			case 6:
-				flag = CameraLayerDepths.Set(ref this.layer06, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer06, value);
 				break;
 			case 7:
-				flag = CameraLayerDepths.Set(ref this.layer07, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer07, value);
 				break;
 			case 8:
-				flag = CameraLayerDepths.Set(ref this.layer08, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer08, value);
 				break;
 			case 9:
-				flag = CameraLayerDepths.Set(ref this.layer09, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer09, value);
 				break;
 			case 10:
-				flag = CameraLayerDepths.Set(ref this.layer10, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer10, value);
 				break;
 			case 11:
-				flag = CameraLayerDepths.Set(ref this.layer11, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer11, value);
 				break;
 			case 12:
-				flag = CameraLayerDepths.Set(ref this.layer12, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer12, value);
 				break;
 			case 13:
-				flag = CameraLayerDepths.Set(ref this.layer13, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer13, value);
 				break;
 			case 14:
-				flag = CameraLayerDepths.Set(ref this.layer14, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer14, value);
 				break;
 			case 15:
-				flag = CameraLayerDepths.Set(ref this.layer15, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer15, value);
 				break;
 			case 16:
-				flag = CameraLayerDepths.Set(ref this.layer16, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer16, value);
 				break;
 			case 17:
-				flag = CameraLayerDepths.Set(ref this.layer17, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer17, value);
 				break;
 			case 18:
-				flag = CameraLayerDepths.Set(ref this.layer18, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer18, value);
 				break;
 			case 19:
-				flag = CameraLayerDepths.Set(ref this.layer19, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer19, value);
 				break;
 			case 20:
-				flag = CameraLayerDepths.Set(ref this.layer20, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer20, value);
 				break;
 			case 21:
-				flag = CameraLayerDepths.Set(ref this.layer21, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer21, value);
 				break;
 			case 22:
-				flag = CameraLayerDepths.Set(ref this.layer22, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer22, value);
 				break;
 			case 23:
-				flag = CameraLayerDepths.Set(ref this.layer23, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer23, value);
 				break;
 			case 24:
-				flag = CameraLayerDepths.Set(ref this.layer24, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer24, value);
 				break;
 			case 25:
-				flag = CameraLayerDepths.Set(ref this.layer25, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer25, value);
 				break;
 			case 26:
-				flag = CameraLayerDepths.Set(ref this.layer26, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer26, value);
 				break;
 			case 27:
-				flag = CameraLayerDepths.Set(ref this.layer27, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer27, value);
 				break;
 			case 28:
-				flag = CameraLayerDepths.Set(ref this.layer28, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer28, value);
 				break;
 			case 29:
-				flag = CameraLayerDepths.Set(ref this.layer29, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer29, value);
 				break;
 			case 30:
-				flag = CameraLayerDepths.Set(ref this.layer30, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer30, value);
 				break;
 			case 31:
-				flag = CameraLayerDepths.Set(ref this.layer31, value);
+				flag = global::CameraLayerDepths.Set(ref this.layer31, value);
 				break;
 			default:
 				throw new ArgumentOutOfRangeException();
@@ -212,7 +212,7 @@ public class CameraLayerDepths : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002857 RID: 10327 RVA: 0x0009E7E4 File Offset: 0x0009C9E4
+	// Token: 0x06002BE7 RID: 11239 RVA: 0x000A4764 File Offset: 0x000A2964
 	[ContextMenu("Ensure Layer Depths Set")]
 	private void EnsureLayerDepthsSet()
 	{
@@ -250,7 +250,7 @@ public class CameraLayerDepths : MonoBehaviour
 		}
 	}
 
-	// Token: 0x06002858 RID: 10328 RVA: 0x0009E890 File Offset: 0x0009CA90
+	// Token: 0x06002BE8 RID: 11240 RVA: 0x000A4810 File Offset: 0x000A2A10
 	private void Awake()
 	{
 		this.layer00_ = this.layer00;
@@ -324,267 +324,267 @@ public class CameraLayerDepths : MonoBehaviour
 		base.camera.layerCullSpherical = this.spherical;
 	}
 
-	// Token: 0x0400142A RID: 5162
+	// Token: 0x040015AD RID: 5549
 	[SerializeField]
 	private float layer00;
 
-	// Token: 0x0400142B RID: 5163
+	// Token: 0x040015AE RID: 5550
 	[SerializeField]
 	private float layer01;
 
-	// Token: 0x0400142C RID: 5164
+	// Token: 0x040015AF RID: 5551
 	[SerializeField]
 	private float layer02;
 
-	// Token: 0x0400142D RID: 5165
+	// Token: 0x040015B0 RID: 5552
 	[SerializeField]
 	private float layer03;
 
-	// Token: 0x0400142E RID: 5166
+	// Token: 0x040015B1 RID: 5553
 	[SerializeField]
 	private float layer04;
 
-	// Token: 0x0400142F RID: 5167
+	// Token: 0x040015B2 RID: 5554
 	[SerializeField]
 	private float layer05;
 
-	// Token: 0x04001430 RID: 5168
+	// Token: 0x040015B3 RID: 5555
 	[SerializeField]
 	private float layer06;
 
-	// Token: 0x04001431 RID: 5169
+	// Token: 0x040015B4 RID: 5556
 	[SerializeField]
 	private float layer07;
 
-	// Token: 0x04001432 RID: 5170
+	// Token: 0x040015B5 RID: 5557
 	[SerializeField]
 	private float layer08;
 
-	// Token: 0x04001433 RID: 5171
+	// Token: 0x040015B6 RID: 5558
 	[SerializeField]
 	private float layer09;
 
-	// Token: 0x04001434 RID: 5172
+	// Token: 0x040015B7 RID: 5559
 	[SerializeField]
 	private float layer10;
 
-	// Token: 0x04001435 RID: 5173
+	// Token: 0x040015B8 RID: 5560
 	[SerializeField]
 	private float layer11;
 
-	// Token: 0x04001436 RID: 5174
+	// Token: 0x040015B9 RID: 5561
 	[SerializeField]
 	private float layer12;
 
-	// Token: 0x04001437 RID: 5175
+	// Token: 0x040015BA RID: 5562
 	[SerializeField]
 	private float layer13;
 
-	// Token: 0x04001438 RID: 5176
+	// Token: 0x040015BB RID: 5563
 	[SerializeField]
 	private float layer14;
 
-	// Token: 0x04001439 RID: 5177
+	// Token: 0x040015BC RID: 5564
 	[SerializeField]
 	private float layer15;
 
-	// Token: 0x0400143A RID: 5178
+	// Token: 0x040015BD RID: 5565
 	[SerializeField]
 	private float layer16;
 
-	// Token: 0x0400143B RID: 5179
+	// Token: 0x040015BE RID: 5566
 	[SerializeField]
 	private float layer17;
 
-	// Token: 0x0400143C RID: 5180
+	// Token: 0x040015BF RID: 5567
 	[SerializeField]
 	private float layer18;
 
-	// Token: 0x0400143D RID: 5181
+	// Token: 0x040015C0 RID: 5568
 	[SerializeField]
 	private float layer19;
 
-	// Token: 0x0400143E RID: 5182
+	// Token: 0x040015C1 RID: 5569
 	[SerializeField]
 	private float layer20;
 
-	// Token: 0x0400143F RID: 5183
+	// Token: 0x040015C2 RID: 5570
 	[SerializeField]
 	private float layer21;
 
-	// Token: 0x04001440 RID: 5184
+	// Token: 0x040015C3 RID: 5571
 	[SerializeField]
 	private float layer22;
 
-	// Token: 0x04001441 RID: 5185
+	// Token: 0x040015C4 RID: 5572
 	[SerializeField]
 	private float layer23;
 
-	// Token: 0x04001442 RID: 5186
+	// Token: 0x040015C5 RID: 5573
 	[SerializeField]
 	private float layer24;
 
-	// Token: 0x04001443 RID: 5187
+	// Token: 0x040015C6 RID: 5574
 	[SerializeField]
 	private float layer25;
 
-	// Token: 0x04001444 RID: 5188
+	// Token: 0x040015C7 RID: 5575
 	[SerializeField]
 	private float layer26;
 
-	// Token: 0x04001445 RID: 5189
+	// Token: 0x040015C8 RID: 5576
 	[SerializeField]
 	private float layer27;
 
-	// Token: 0x04001446 RID: 5190
+	// Token: 0x040015C9 RID: 5577
 	[SerializeField]
 	private float layer28;
 
-	// Token: 0x04001447 RID: 5191
+	// Token: 0x040015CA RID: 5578
 	[SerializeField]
 	private float layer29;
 
-	// Token: 0x04001448 RID: 5192
+	// Token: 0x040015CB RID: 5579
 	[SerializeField]
 	private float layer30;
 
-	// Token: 0x04001449 RID: 5193
+	// Token: 0x040015CC RID: 5580
 	[SerializeField]
 	private float layer31;
 
-	// Token: 0x0400144A RID: 5194
+	// Token: 0x040015CD RID: 5581
 	[SerializeField]
 	private bool spherical;
 
-	// Token: 0x0400144B RID: 5195
+	// Token: 0x040015CE RID: 5582
 	[NonSerialized]
 	private float layer00_;
 
-	// Token: 0x0400144C RID: 5196
+	// Token: 0x040015CF RID: 5583
 	[NonSerialized]
 	private float layer01_;
 
-	// Token: 0x0400144D RID: 5197
+	// Token: 0x040015D0 RID: 5584
 	[NonSerialized]
 	private float layer02_;
 
-	// Token: 0x0400144E RID: 5198
+	// Token: 0x040015D1 RID: 5585
 	[NonSerialized]
 	private float layer03_;
 
-	// Token: 0x0400144F RID: 5199
+	// Token: 0x040015D2 RID: 5586
 	[NonSerialized]
 	private float layer04_;
 
-	// Token: 0x04001450 RID: 5200
+	// Token: 0x040015D3 RID: 5587
 	[NonSerialized]
 	private float layer05_;
 
-	// Token: 0x04001451 RID: 5201
+	// Token: 0x040015D4 RID: 5588
 	[NonSerialized]
 	private float layer06_;
 
-	// Token: 0x04001452 RID: 5202
+	// Token: 0x040015D5 RID: 5589
 	[NonSerialized]
 	private float layer07_;
 
-	// Token: 0x04001453 RID: 5203
+	// Token: 0x040015D6 RID: 5590
 	[NonSerialized]
 	private float layer08_;
 
-	// Token: 0x04001454 RID: 5204
+	// Token: 0x040015D7 RID: 5591
 	[NonSerialized]
 	private float layer09_;
 
-	// Token: 0x04001455 RID: 5205
+	// Token: 0x040015D8 RID: 5592
 	[NonSerialized]
 	private float layer10_;
 
-	// Token: 0x04001456 RID: 5206
+	// Token: 0x040015D9 RID: 5593
 	[NonSerialized]
 	private float layer11_;
 
-	// Token: 0x04001457 RID: 5207
+	// Token: 0x040015DA RID: 5594
 	[NonSerialized]
 	private float layer12_;
 
-	// Token: 0x04001458 RID: 5208
+	// Token: 0x040015DB RID: 5595
 	[NonSerialized]
 	private float layer13_;
 
-	// Token: 0x04001459 RID: 5209
+	// Token: 0x040015DC RID: 5596
 	[NonSerialized]
 	private float layer14_;
 
-	// Token: 0x0400145A RID: 5210
+	// Token: 0x040015DD RID: 5597
 	[NonSerialized]
 	private float layer15_;
 
-	// Token: 0x0400145B RID: 5211
+	// Token: 0x040015DE RID: 5598
 	[NonSerialized]
 	private float layer16_;
 
-	// Token: 0x0400145C RID: 5212
+	// Token: 0x040015DF RID: 5599
 	[NonSerialized]
 	private float layer17_;
 
-	// Token: 0x0400145D RID: 5213
+	// Token: 0x040015E0 RID: 5600
 	[NonSerialized]
 	private float layer18_;
 
-	// Token: 0x0400145E RID: 5214
+	// Token: 0x040015E1 RID: 5601
 	[NonSerialized]
 	private float layer19_;
 
-	// Token: 0x0400145F RID: 5215
+	// Token: 0x040015E2 RID: 5602
 	[NonSerialized]
 	private float layer20_;
 
-	// Token: 0x04001460 RID: 5216
+	// Token: 0x040015E3 RID: 5603
 	[NonSerialized]
 	private float layer21_;
 
-	// Token: 0x04001461 RID: 5217
+	// Token: 0x040015E4 RID: 5604
 	[NonSerialized]
 	private float layer22_;
 
-	// Token: 0x04001462 RID: 5218
+	// Token: 0x040015E5 RID: 5605
 	[NonSerialized]
 	private float layer23_;
 
-	// Token: 0x04001463 RID: 5219
+	// Token: 0x040015E6 RID: 5606
 	[NonSerialized]
 	private float layer24_;
 
-	// Token: 0x04001464 RID: 5220
+	// Token: 0x040015E7 RID: 5607
 	[NonSerialized]
 	private float layer25_;
 
-	// Token: 0x04001465 RID: 5221
+	// Token: 0x040015E8 RID: 5608
 	[NonSerialized]
 	private float layer26_;
 
-	// Token: 0x04001466 RID: 5222
+	// Token: 0x040015E9 RID: 5609
 	[NonSerialized]
 	private float layer27_;
 
-	// Token: 0x04001467 RID: 5223
+	// Token: 0x040015EA RID: 5610
 	[NonSerialized]
 	private float layer28_;
 
-	// Token: 0x04001468 RID: 5224
+	// Token: 0x040015EB RID: 5611
 	[NonSerialized]
 	private float layer29_;
 
-	// Token: 0x04001469 RID: 5225
+	// Token: 0x040015EC RID: 5612
 	[NonSerialized]
 	private float layer30_;
 
-	// Token: 0x0400146A RID: 5226
+	// Token: 0x040015ED RID: 5613
 	[NonSerialized]
 	private float layer31_;
 
-	// Token: 0x0400146B RID: 5227
+	// Token: 0x040015EE RID: 5614
 	[NonSerialized]
 	private bool spherical_;
 }

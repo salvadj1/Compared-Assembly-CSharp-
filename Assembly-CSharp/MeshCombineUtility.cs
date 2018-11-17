@@ -1,16 +1,16 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200084F RID: 2127
+// Token: 0x02000945 RID: 2373
 public class MeshCombineUtility
 {
-	// Token: 0x06004AEA RID: 19178 RVA: 0x001477BC File Offset: 0x001459BC
-	public static Mesh Combine(MeshCombineUtility.MeshInstance[] combines, bool generateStrips)
+	// Token: 0x06004FAB RID: 20395 RVA: 0x00151D80 File Offset: 0x0014FF80
+	public static Mesh Combine(global::MeshCombineUtility.MeshInstance[] combines, bool generateStrips)
 	{
 		int num = 0;
 		int num2 = 0;
 		int num3 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance in combines)
 		{
 			if (meshInstance.mesh)
 			{
@@ -42,7 +42,7 @@ public class MeshCombineUtility
 		}
 		if (!generateStrips)
 		{
-			foreach (MeshCombineUtility.MeshInstance meshInstance2 in combines)
+			foreach (global::MeshCombineUtility.MeshInstance meshInstance2 in combines)
 			{
 				if (meshInstance2.mesh)
 				{
@@ -59,61 +59,61 @@ public class MeshCombineUtility
 		int[] array7 = new int[num2];
 		int[] array8 = new int[num3];
 		int num5 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance3 in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance3 in combines)
 		{
 			if (meshInstance3.mesh)
 			{
-				MeshCombineUtility.Copy(meshInstance3.mesh.vertexCount, meshInstance3.mesh.vertices, array, ref num5, meshInstance3.transform);
+				global::MeshCombineUtility.Copy(meshInstance3.mesh.vertexCount, meshInstance3.mesh.vertices, array, ref num5, meshInstance3.transform);
 			}
 		}
 		num5 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance4 in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance4 in combines)
 		{
 			if (meshInstance4.mesh)
 			{
 				Matrix4x4 transform = meshInstance4.transform;
 				transform = transform.inverse.transpose;
-				MeshCombineUtility.CopyNormal(meshInstance4.mesh.vertexCount, meshInstance4.mesh.normals, array2, ref num5, transform);
+				global::MeshCombineUtility.CopyNormal(meshInstance4.mesh.vertexCount, meshInstance4.mesh.normals, array2, ref num5, transform);
 			}
 		}
 		num5 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance5 in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance5 in combines)
 		{
 			if (meshInstance5.mesh)
 			{
 				Matrix4x4 transform2 = meshInstance5.transform;
 				transform2 = transform2.inverse.transpose;
-				MeshCombineUtility.CopyTangents(meshInstance5.mesh.vertexCount, meshInstance5.mesh.tangents, array3, ref num5, transform2);
+				global::MeshCombineUtility.CopyTangents(meshInstance5.mesh.vertexCount, meshInstance5.mesh.tangents, array3, ref num5, transform2);
 			}
 		}
 		num5 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance6 in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance6 in combines)
 		{
 			if (meshInstance6.mesh)
 			{
-				MeshCombineUtility.Copy(meshInstance6.mesh.vertexCount, meshInstance6.mesh.uv, array4, ref num5);
+				global::MeshCombineUtility.Copy(meshInstance6.mesh.vertexCount, meshInstance6.mesh.uv, array4, ref num5);
 			}
 		}
 		num5 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance7 in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance7 in combines)
 		{
 			if (meshInstance7.mesh)
 			{
-				MeshCombineUtility.Copy(meshInstance7.mesh.vertexCount, meshInstance7.mesh.uv1, array5, ref num5);
+				global::MeshCombineUtility.Copy(meshInstance7.mesh.vertexCount, meshInstance7.mesh.uv1, array5, ref num5);
 			}
 		}
 		num5 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance8 in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance8 in combines)
 		{
 			if (meshInstance8.mesh)
 			{
-				MeshCombineUtility.CopyColors(meshInstance8.mesh.vertexCount, meshInstance8.mesh.colors, array6, ref num5);
+				global::MeshCombineUtility.CopyColors(meshInstance8.mesh.vertexCount, meshInstance8.mesh.colors, array6, ref num5);
 			}
 		}
 		int num8 = 0;
 		int num9 = 0;
 		int num10 = 0;
-		foreach (MeshCombineUtility.MeshInstance meshInstance9 in combines)
+		foreach (global::MeshCombineUtility.MeshInstance meshInstance9 in combines)
 		{
 			if (meshInstance9.mesh)
 			{
@@ -173,7 +173,7 @@ public class MeshCombineUtility
 		return mesh;
 	}
 
-	// Token: 0x06004AEB RID: 19179 RVA: 0x00147D48 File Offset: 0x00145F48
+	// Token: 0x06004FAC RID: 20396 RVA: 0x0015230C File Offset: 0x0015050C
 	private static void Copy(int vertexcount, Vector3[] src, Vector3[] dst, ref int offset, Matrix4x4 transform)
 	{
 		for (int i = 0; i < src.Length; i++)
@@ -183,7 +183,7 @@ public class MeshCombineUtility
 		offset += vertexcount;
 	}
 
-	// Token: 0x06004AEC RID: 19180 RVA: 0x00147D94 File Offset: 0x00145F94
+	// Token: 0x06004FAD RID: 20397 RVA: 0x00152358 File Offset: 0x00150558
 	private static void CopyNormal(int vertexcount, Vector3[] src, Vector3[] dst, ref int offset, Matrix4x4 transform)
 	{
 		for (int i = 0; i < src.Length; i++)
@@ -193,7 +193,7 @@ public class MeshCombineUtility
 		offset += vertexcount;
 	}
 
-	// Token: 0x06004AED RID: 19181 RVA: 0x00147DE8 File Offset: 0x00145FE8
+	// Token: 0x06004FAE RID: 20398 RVA: 0x001523AC File Offset: 0x001505AC
 	private static void Copy(int vertexcount, Vector2[] src, Vector2[] dst, ref int offset)
 	{
 		for (int i = 0; i < src.Length; i++)
@@ -203,7 +203,7 @@ public class MeshCombineUtility
 		offset += vertexcount;
 	}
 
-	// Token: 0x06004AEE RID: 19182 RVA: 0x00147E2C File Offset: 0x0014602C
+	// Token: 0x06004FAF RID: 20399 RVA: 0x001523F0 File Offset: 0x001505F0
 	private static void CopyColors(int vertexcount, Color[] src, Color[] dst, ref int offset)
 	{
 		for (int i = 0; i < src.Length; i++)
@@ -213,7 +213,7 @@ public class MeshCombineUtility
 		offset += vertexcount;
 	}
 
-	// Token: 0x06004AEF RID: 19183 RVA: 0x00147E70 File Offset: 0x00146070
+	// Token: 0x06004FB0 RID: 20400 RVA: 0x00152434 File Offset: 0x00150634
 	private static void CopyTangents(int vertexcount, Vector4[] src, Vector4[] dst, ref int offset, Matrix4x4 transform)
 	{
 		for (int i = 0; i < src.Length; i++)
@@ -227,16 +227,16 @@ public class MeshCombineUtility
 		offset += vertexcount;
 	}
 
-	// Token: 0x02000850 RID: 2128
+	// Token: 0x02000946 RID: 2374
 	public struct MeshInstance
 	{
-		// Token: 0x04002C02 RID: 11266
+		// Token: 0x04002E70 RID: 11888
 		public Mesh mesh;
 
-		// Token: 0x04002C03 RID: 11267
+		// Token: 0x04002E71 RID: 11889
 		public int subMeshIndex;
 
-		// Token: 0x04002C04 RID: 11268
+		// Token: 0x04002E72 RID: 11890
 		public Matrix4x4 transform;
 	}
 }

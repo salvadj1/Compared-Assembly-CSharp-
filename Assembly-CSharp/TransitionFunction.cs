@@ -1,16 +1,16 @@
 ﻿using System;
 
-// Token: 0x02000356 RID: 854
+// Token: 0x02000403 RID: 1027
 public enum TransitionFunction
 {
-	// Token: 0x04000F70 RID: 3952
+	// Token: 0x040010D6 RID: 4310
 	Linear,
-	// Token: 0x04000F71 RID: 3953
+	// Token: 0x040010D7 RID: 4311
 	Round,
-	// Token: 0x04000F72 RID: 3954
+	// Token: 0x040010D8 RID: 4312
 	Floor,
-	// Token: 0x04000F73 RID: 3955
+	// Token: 0x040010D9 RID: 4313
 	Ceil,
-	// Token: 0x04000F74 RID: 3956
+	// Token: 0x040010DA RID: 4314
 	Spline
 }

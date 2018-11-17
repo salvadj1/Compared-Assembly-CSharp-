@@ -1,18 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x0200029D RID: 669
-public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
+// Token: 0x020002DA RID: 730
+public sealed class CCTotemPole : global::CCTotem<global::CCTotem.TotemPole, global::CCTotemPole>
 {
 	// Token: 0x1400000D RID: 13
-	// (add) Token: 0x060017D8 RID: 6104 RVA: 0x0005D064 File Offset: 0x0005B264
-	// (remove) Token: 0x060017D9 RID: 6105 RVA: 0x0005D080 File Offset: 0x0005B280
-	public event CCTotem.PositionBinder OnBindPosition;
+	// (add) Token: 0x06001968 RID: 6504 RVA: 0x000619D8 File Offset: 0x0005FBD8
+	// (remove) Token: 0x06001969 RID: 6505 RVA: 0x000619F4 File Offset: 0x0005FBF4
+	public event global::CCTotem.PositionBinder OnBindPosition;
 
 	// Token: 0x1400000E RID: 14
-	// (add) Token: 0x060017DA RID: 6106 RVA: 0x0005D09C File Offset: 0x0005B29C
-	// (remove) Token: 0x060017DB RID: 6107 RVA: 0x0005D0E8 File Offset: 0x0005B2E8
-	public event CCTotem.ConfigurationBinder OnConfigurationBinding
+	// (add) Token: 0x0600196A RID: 6506 RVA: 0x00061A10 File Offset: 0x0005FC10
+	// (remove) Token: 0x0600196B RID: 6507 RVA: 0x00061A5C File Offset: 0x0005FC5C
+	public event global::CCTotem.ConfigurationBinder OnConfigurationBinding
 	{
 		add
 		{
@@ -40,8 +40,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006EB RID: 1771
-	// (get) Token: 0x060017DC RID: 6108 RVA: 0x0005D128 File Offset: 0x0005B328
+	// Token: 0x1700073F RID: 1855
+	// (get) Token: 0x0600196C RID: 6508 RVA: 0x00061A9C File Offset: 0x0005FC9C
 	public bool Exists
 	{
 		get
@@ -50,8 +50,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006EC RID: 1772
-	// (get) Token: 0x060017DD RID: 6109 RVA: 0x0005D13C File Offset: 0x0005B33C
+	// Token: 0x17000740 RID: 1856
+	// (get) Token: 0x0600196D RID: 6509 RVA: 0x00061AB0 File Offset: 0x0005FCB0
 	public float MinimumHeight
 	{
 		get
@@ -60,8 +60,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006ED RID: 1773
-	// (get) Token: 0x060017DE RID: 6110 RVA: 0x0005D144 File Offset: 0x0005B344
+	// Token: 0x17000741 RID: 1857
+	// (get) Token: 0x0600196E RID: 6510 RVA: 0x00061AB8 File Offset: 0x0005FCB8
 	public float MaximumHeight
 	{
 		get
@@ -70,8 +70,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006EE RID: 1774
-	// (get) Token: 0x060017DF RID: 6111 RVA: 0x0005D14C File Offset: 0x0005B34C
+	// Token: 0x17000742 RID: 1858
+	// (get) Token: 0x0600196F RID: 6511 RVA: 0x00061AC0 File Offset: 0x0005FCC0
 	public float Height
 	{
 		get
@@ -80,18 +80,18 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006EF RID: 1775
-	// (get) Token: 0x060017E0 RID: 6112 RVA: 0x0005D18C File Offset: 0x0005B38C
-	private CCTotem.Initialization Members
+	// Token: 0x17000743 RID: 1859
+	// (get) Token: 0x06001970 RID: 6512 RVA: 0x00061B00 File Offset: 0x0005FD00
+	private global::CCTotem.Initialization Members
 	{
 		get
 		{
-			return new CCTotem.Initialization(this, this.prefab, this.minimumHeight, this.maximumHeight, this.minimumHeight + (this.maximumHeight - this.minimumHeight) * this.initialHeightFraction, this.bottomBufferUnits);
+			return new global::CCTotem.Initialization(this, this.prefab, this.minimumHeight, this.maximumHeight, this.minimumHeight + (this.maximumHeight - this.minimumHeight) * this.initialHeightFraction, this.bottomBufferUnits);
 		}
 	}
 
-	// Token: 0x170006F0 RID: 1776
-	// (get) Token: 0x060017E1 RID: 6113 RVA: 0x0005D1C8 File Offset: 0x0005B3C8
+	// Token: 0x17000744 RID: 1860
+	// (get) Token: 0x06001971 RID: 6513 RVA: 0x00061B3C File Offset: 0x0005FD3C
 	public bool isGrounded
 	{
 		get
@@ -100,8 +100,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006F1 RID: 1777
-	// (get) Token: 0x060017E2 RID: 6114 RVA: 0x0005D1E4 File Offset: 0x0005B3E4
+	// Token: 0x17000745 RID: 1861
+	// (get) Token: 0x06001972 RID: 6514 RVA: 0x00061B58 File Offset: 0x0005FD58
 	public Vector3 velocity
 	{
 		get
@@ -110,8 +110,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006F2 RID: 1778
-	// (get) Token: 0x060017E3 RID: 6115 RVA: 0x0005D214 File Offset: 0x0005B414
+	// Token: 0x17000746 RID: 1862
+	// (get) Token: 0x06001973 RID: 6515 RVA: 0x00061B88 File Offset: 0x0005FD88
 	public CollisionFlags collisionFlags
 	{
 		get
@@ -120,8 +120,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006F3 RID: 1779
-	// (get) Token: 0x060017E4 RID: 6116 RVA: 0x0005D234 File Offset: 0x0005B434
+	// Token: 0x17000747 RID: 1863
+	// (get) Token: 0x06001974 RID: 6516 RVA: 0x00061BA8 File Offset: 0x0005FDA8
 	public float stepOffset
 	{
 		get
@@ -130,8 +130,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006F4 RID: 1780
-	// (get) Token: 0x060017E5 RID: 6117 RVA: 0x0005D268 File Offset: 0x0005B468
+	// Token: 0x17000748 RID: 1864
+	// (get) Token: 0x06001975 RID: 6517 RVA: 0x00061BDC File Offset: 0x0005FDDC
 	public float slopeLimit
 	{
 		get
@@ -140,8 +140,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006F5 RID: 1781
-	// (get) Token: 0x060017E6 RID: 6118 RVA: 0x0005D29C File Offset: 0x0005B49C
+	// Token: 0x17000749 RID: 1865
+	// (get) Token: 0x06001976 RID: 6518 RVA: 0x00061C10 File Offset: 0x0005FE10
 	public Vector3 center
 	{
 		get
@@ -150,8 +150,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006F6 RID: 1782
-	// (get) Token: 0x060017E7 RID: 6119 RVA: 0x0005D2D0 File Offset: 0x0005B4D0
+	// Token: 0x1700074A RID: 1866
+	// (get) Token: 0x06001977 RID: 6519 RVA: 0x00061C44 File Offset: 0x0005FE44
 	[Obsolete("this is the height of the character controller. prefer this.Height")]
 	public float height
 	{
@@ -161,8 +161,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x170006F7 RID: 1783
-	// (get) Token: 0x060017E8 RID: 6120 RVA: 0x0005D304 File Offset: 0x0005B504
+	// Token: 0x1700074B RID: 1867
+	// (get) Token: 0x06001978 RID: 6520 RVA: 0x00061C78 File Offset: 0x0005FE78
 	public float radius
 	{
 		get
@@ -171,15 +171,15 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x060017E9 RID: 6121 RVA: 0x0005D338 File Offset: 0x0005B538
+	// Token: 0x06001979 RID: 6521 RVA: 0x00061CAC File Offset: 0x0005FEAC
 	public bool UpdateConfiguration()
 	{
 		this.LastException = null;
-		CCTotem.Initialization members = this.Members;
+		global::CCTotem.Initialization members = this.Members;
 		bool result;
 		try
 		{
-			this.LastGoodConfiguration = new CCTotem.Configuration(ref members);
+			this.LastGoodConfiguration = new global::CCTotem.Configuration(ref members);
 			this.HasLastGoodConfiguration = true;
 			result = true;
 		}
@@ -191,7 +191,7 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		return result;
 	}
 
-	// Token: 0x060017EA RID: 6122 RVA: 0x0005D3A4 File Offset: 0x0005B5A4
+	// Token: 0x0600197A RID: 6522 RVA: 0x00061D18 File Offset: 0x0005FF18
 	private void Awake()
 	{
 		if (!this.UpdateConfiguration())
@@ -202,7 +202,7 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		this.CreatePhysics();
 	}
 
-	// Token: 0x060017EB RID: 6123 RVA: 0x0005D3C4 File Offset: 0x0005B5C4
+	// Token: 0x0600197B RID: 6523 RVA: 0x00061D38 File Offset: 0x0005FF38
 	private void CreatePhysics()
 	{
 		if (!this.HasLastGoodConfiguration && !this.UpdateConfiguration())
@@ -210,24 +210,24 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 			Debug.LogException(this.LastException, this);
 			return;
 		}
-		base.AssignTotemicObject(new CCTotem.TotemPole(ref this.LastGoodConfiguration));
+		base.AssignTotemicObject(new global::CCTotem.TotemPole(ref this.LastGoodConfiguration));
 		this.totemicObject.Create();
 	}
 
-	// Token: 0x060017EC RID: 6124 RVA: 0x0005D410 File Offset: 0x0005B610
-	internal void DestroyCCDesc(ref CCDesc CCDesc)
+	// Token: 0x0600197C RID: 6524 RVA: 0x00061D84 File Offset: 0x0005FF84
+	internal void DestroyCCDesc(ref global::CCDesc CCDesc)
 	{
 		if (CCDesc)
 		{
-			CCDesc ccdesc = CCDesc;
+			global::CCDesc ccdesc = CCDesc;
 			CCDesc = null;
 			this.ExecuteBinding(ccdesc, false);
 			Object.Destroy(ccdesc.gameObject);
 		}
 	}
 
-	// Token: 0x060017ED RID: 6125 RVA: 0x0005D444 File Offset: 0x0005B644
-	internal void ExecuteBinding(CCDesc CCDesc, bool Bind)
+	// Token: 0x0600197D RID: 6525 RVA: 0x00061DB8 File Offset: 0x0005FFB8
+	internal void ExecuteBinding(global::CCDesc CCDesc, bool Bind)
 	{
 		if (CCDesc && !object.ReferenceEquals(this.ConfigurationBinder, null))
 		{
@@ -242,7 +242,7 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x060017EE RID: 6126 RVA: 0x0005D4B0 File Offset: 0x0005B6B0
+	// Token: 0x0600197E RID: 6526 RVA: 0x00061E24 File Offset: 0x00060024
 	internal void ExecuteAllBindings(bool Bind)
 	{
 		if (this.Exists)
@@ -255,26 +255,26 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x060017EF RID: 6127 RVA: 0x0005D518 File Offset: 0x0005B718
-	public CCTotem.MoveInfo Move(Vector3 motion)
+	// Token: 0x0600197F RID: 6527 RVA: 0x00061E8C File Offset: 0x0006008C
+	public global::CCTotem.MoveInfo Move(Vector3 motion)
 	{
 		return this.Move(motion, this.Height);
 	}
 
-	// Token: 0x060017F0 RID: 6128 RVA: 0x0005D528 File Offset: 0x0005B728
-	public CCTotem.MoveInfo Move(Vector3 motion, float height)
+	// Token: 0x06001980 RID: 6528 RVA: 0x00061E9C File Offset: 0x0006009C
+	public global::CCTotem.MoveInfo Move(Vector3 motion, float height)
 	{
-		CCTotem.TotemPole totemicObject = this.totemicObject;
+		global::CCTotem.TotemPole totemicObject = this.totemicObject;
 		if (object.ReferenceEquals(totemicObject, null))
 		{
 			throw new InvalidOperationException("Exists == false");
 		}
-		CCTotem.MoveInfo result = totemicObject.Move(motion, height);
+		global::CCTotem.MoveInfo result = totemicObject.Move(motion, height);
 		this.BindPositions(result.PositionPlacement);
 		return result;
 	}
 
-	// Token: 0x060017F1 RID: 6129 RVA: 0x0005D56C File Offset: 0x0005B76C
+	// Token: 0x06001981 RID: 6529 RVA: 0x00061EE0 File Offset: 0x000600E0
 	public bool SmudgeTo(Vector3 worldSkinnedBottom)
 	{
 		if (!this.Exists)
@@ -287,7 +287,7 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 			return true;
 		}
 		Vector3 vector = worldSkinnedBottom - position;
-		CCDesc ccdesc = this.totemicObject.CCDesc;
+		global::CCDesc ccdesc = this.totemicObject.CCDesc;
 		if (!ccdesc)
 		{
 			return false;
@@ -323,11 +323,11 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		{
 			this.totemicObject.TotemicFigures[j].CCDesc.transform.position += vector;
 		}
-		this.BindPositions(new CCTotem.PositionPlacement(this.totemicObject.CCDesc.worldSkinnedBottom, this.totemicObject.CCDesc.worldSkinnedTop, this.totemicObject.CCDesc.transform.position, this.totemicObject.Configuration.poleExpandedHeight));
+		this.BindPositions(new global::CCTotem.PositionPlacement(this.totemicObject.CCDesc.worldSkinnedBottom, this.totemicObject.CCDesc.worldSkinnedTop, this.totemicObject.CCDesc.transform.position, this.totemicObject.Configuration.poleExpandedHeight));
 		return true;
 	}
 
-	// Token: 0x060017F2 RID: 6130 RVA: 0x0005D7C0 File Offset: 0x0005B9C0
+	// Token: 0x06001982 RID: 6530 RVA: 0x00062134 File Offset: 0x00060334
 	public void Teleport(Vector3 origin)
 	{
 		if (this.Exists)
@@ -338,8 +338,8 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		this.CreatePhysics();
 	}
 
-	// Token: 0x060017F3 RID: 6131 RVA: 0x0005D7F0 File Offset: 0x0005B9F0
-	private void BindPositions(CCTotem.PositionPlacement PositionPlacement)
+	// Token: 0x06001983 RID: 6531 RVA: 0x00062164 File Offset: 0x00060364
+	private void BindPositions(global::CCTotem.PositionPlacement PositionPlacement)
 	{
 		if (this.OnBindPosition != null)
 		{
@@ -354,7 +354,7 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x060017F4 RID: 6132 RVA: 0x0005D84C File Offset: 0x0005BA4C
+	// Token: 0x06001984 RID: 6532 RVA: 0x000621C0 File Offset: 0x000603C0
 	private new void OnDestroy()
 	{
 		try
@@ -369,43 +369,43 @@ public sealed class CCTotemPole : CCTotem<CCTotem.TotemPole, CCTotemPole>
 		}
 	}
 
-	// Token: 0x04000CAE RID: 3246
+	// Token: 0x04000DE9 RID: 3561
 	[SerializeField]
-	private CCDesc prefab;
+	private global::CCDesc prefab;
 
-	// Token: 0x04000CAF RID: 3247
+	// Token: 0x04000DEA RID: 3562
 	[SerializeField]
 	private float minimumHeight = 0.6f;
 
-	// Token: 0x04000CB0 RID: 3248
+	// Token: 0x04000DEB RID: 3563
 	[SerializeField]
 	private float maximumHeight = 2.08f;
 
-	// Token: 0x04000CB1 RID: 3249
+	// Token: 0x04000DEC RID: 3564
 	[SerializeField]
 	private float initialHeightFraction = 1f;
 
-	// Token: 0x04000CB2 RID: 3250
+	// Token: 0x04000DED RID: 3565
 	[SerializeField]
 	private float bottomBufferUnits = 0.1f;
 
-	// Token: 0x04000CB3 RID: 3251
+	// Token: 0x04000DEE RID: 3566
 	[NonSerialized]
 	private bool HasLastGoodConfiguration;
 
-	// Token: 0x04000CB4 RID: 3252
+	// Token: 0x04000DEF RID: 3567
 	[NonSerialized]
-	private CCTotem.Configuration LastGoodConfiguration;
+	private global::CCTotem.Configuration LastGoodConfiguration;
 
-	// Token: 0x04000CB5 RID: 3253
+	// Token: 0x04000DF0 RID: 3568
 	[NonSerialized]
-	private new CCTotem.ConfigurationBinder ConfigurationBinder;
+	private new global::CCTotem.ConfigurationBinder ConfigurationBinder;
 
-	// Token: 0x04000CB6 RID: 3254
+	// Token: 0x04000DF1 RID: 3569
 	[NonSerialized]
 	public ArgumentException LastException;
 
-	// Token: 0x04000CB7 RID: 3255
+	// Token: 0x04000DF2 RID: 3570
 	[NonSerialized]
 	public object Tag;
 }

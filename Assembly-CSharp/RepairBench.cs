@@ -2,14 +2,14 @@
 using uLink;
 using UnityEngine;
 
-// Token: 0x02000667 RID: 1639
-[NGCAutoAddScript]
+// Token: 0x0200072B RID: 1835
+[global::NGCAutoAddScript]
 public class RepairBench : IDLocal
 {
-	// Token: 0x060038F8 RID: 14584 RVA: 0x000D1664 File Offset: 0x000CF864
-	public bool CanRepair(Inventory ingredientInv)
+	// Token: 0x06003CEC RID: 15596 RVA: 0x000DA044 File Offset: 0x000D8244
+	public bool CanRepair(global::Inventory ingredientInv)
 	{
-		IInventoryItem repairItem = this.GetRepairItem();
+		global::IInventoryItem repairItem = this.GetRepairItem();
 		if (repairItem == null || !repairItem.datablock.isRepairable)
 		{
 			return false;
@@ -18,12 +18,12 @@ public class RepairBench : IDLocal
 		{
 			return false;
 		}
-		BlueprintDataBlock blueprintDataBlock;
-		if (BlueprintDataBlock.FindBlueprintForItem<BlueprintDataBlock>(repairItem.datablock, out blueprintDataBlock))
+		global::BlueprintDataBlock blueprintDataBlock;
+		if (global::BlueprintDataBlock.FindBlueprintForItem<global::BlueprintDataBlock>(repairItem.datablock, out blueprintDataBlock))
 		{
 			for (int i = 0; i < blueprintDataBlock.ingredients.Length; i++)
 			{
-				BlueprintDataBlock.IngredientEntry ingredientEntry = blueprintDataBlock.ingredients[i];
+				global::BlueprintDataBlock.IngredientEntry ingredientEntry = blueprintDataBlock.ingredients[i];
 				int num = Mathf.CeilToInt((float)blueprintDataBlock.ingredients[i].amount * this.GetResourceScalar());
 				if (num > 0 && ingredientInv.CanConsume(blueprintDataBlock.ingredients[i].Ingredient, num) <= 0)
 				{
@@ -35,29 +35,29 @@ public class RepairBench : IDLocal
 		return false;
 	}
 
-	// Token: 0x060038F9 RID: 14585 RVA: 0x000D171C File Offset: 0x000CF91C
-	public bool CompleteRepair(Inventory ingredientInv)
+	// Token: 0x06003CED RID: 15597 RVA: 0x000DA0FC File Offset: 0x000D82FC
+	public bool CompleteRepair(global::Inventory ingredientInv)
 	{
 		if (!this.CanRepair(ingredientInv))
 		{
 			return false;
 		}
-		IInventoryItem repairItem = this.GetRepairItem();
-		BlueprintDataBlock blueprintDataBlock;
-		if (!BlueprintDataBlock.FindBlueprintForItem<BlueprintDataBlock>(repairItem.datablock, out blueprintDataBlock))
+		global::IInventoryItem repairItem = this.GetRepairItem();
+		global::BlueprintDataBlock blueprintDataBlock;
+		if (!global::BlueprintDataBlock.FindBlueprintForItem<global::BlueprintDataBlock>(repairItem.datablock, out blueprintDataBlock))
 		{
 			return false;
 		}
 		for (int i = 0; i < blueprintDataBlock.ingredients.Length; i++)
 		{
-			BlueprintDataBlock.IngredientEntry ingredientEntry = blueprintDataBlock.ingredients[i];
+			global::BlueprintDataBlock.IngredientEntry ingredientEntry = blueprintDataBlock.ingredients[i];
 			int j = Mathf.RoundToInt((float)blueprintDataBlock.ingredients[i].amount * this.GetResourceScalar());
 			if (j > 0)
 			{
 				while (j > 0)
 				{
 					int num = 0;
-					IInventoryItem inventoryItem = ingredientInv.FindItem(ingredientEntry.Ingredient, out num);
+					global::IInventoryItem inventoryItem = ingredientInv.FindItem(ingredientEntry.Ingredient, out num);
 					if (inventoryItem == null)
 					{
 						return false;
@@ -76,24 +76,24 @@ public class RepairBench : IDLocal
 		return true;
 	}
 
-	// Token: 0x060038FA RID: 14586 RVA: 0x000D1820 File Offset: 0x000CFA20
-	public IInventoryItem GetRepairItem()
+	// Token: 0x06003CEE RID: 15598 RVA: 0x000DA200 File Offset: 0x000D8400
+	public global::IInventoryItem GetRepairItem()
 	{
-		IInventoryItem result;
-		base.GetComponent<Inventory>().GetItem(0, out result);
+		global::IInventoryItem result;
+		base.GetComponent<global::Inventory>().GetItem(0, out result);
 		return result;
 	}
 
-	// Token: 0x060038FB RID: 14587 RVA: 0x000D1840 File Offset: 0x000CFA40
+	// Token: 0x06003CEF RID: 15599 RVA: 0x000DA220 File Offset: 0x000D8420
 	public bool HasRepairItem()
 	{
 		return this.GetRepairItem() != null;
 	}
 
-	// Token: 0x060038FC RID: 14588 RVA: 0x000D1850 File Offset: 0x000CFA50
+	// Token: 0x06003CF0 RID: 15600 RVA: 0x000DA230 File Offset: 0x000D8430
 	public float GetResourceScalar()
 	{
-		IInventoryItem repairItem = this.GetRepairItem();
+		global::IInventoryItem repairItem = this.GetRepairItem();
 		if (repairItem == null)
 		{
 			return 0f;
@@ -101,9 +101,9 @@ public class RepairBench : IDLocal
 		return (repairItem.maxcondition - repairItem.condition) * 0.5f;
 	}
 
-	// Token: 0x060038FD RID: 14589 RVA: 0x000D1884 File Offset: 0x000CFA84
+	// Token: 0x06003CF1 RID: 15601 RVA: 0x000DA264 File Offset: 0x000D8464
 	[RPC]
-	protected void DoRepair(NetworkMessageInfo info)
+	protected void DoRepair(uLink.NetworkMessageInfo info)
 	{
 	}
 }

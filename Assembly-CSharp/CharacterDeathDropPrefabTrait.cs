@@ -1,11 +1,11 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000102 RID: 258
-public class CharacterDeathDropPrefabTrait : CharacterTrait
+// Token: 0x02000121 RID: 289
+public class CharacterDeathDropPrefabTrait : global::CharacterTrait
 {
-	// Token: 0x1700015B RID: 347
-	// (get) Token: 0x060006A0 RID: 1696 RVA: 0x0001E78C File Offset: 0x0001C98C
+	// Token: 0x17000189 RID: 393
+	// (get) Token: 0x06000772 RID: 1906 RVA: 0x00021360 File Offset: 0x0001F560
 	public bool hasPrefab
 	{
 		get
@@ -14,8 +14,8 @@ public class CharacterDeathDropPrefabTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700015C RID: 348
-	// (get) Token: 0x060006A1 RID: 1697 RVA: 0x0001E7C0 File Offset: 0x0001C9C0
+	// Token: 0x1700018A RID: 394
+	// (get) Token: 0x06000773 RID: 1907 RVA: 0x00021394 File Offset: 0x0001F594
 	public string instantiateString
 	{
 		get
@@ -28,8 +28,8 @@ public class CharacterDeathDropPrefabTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700015D RID: 349
-	// (get) Token: 0x060006A2 RID: 1698 RVA: 0x0001E7DC File Offset: 0x0001C9DC
+	// Token: 0x1700018B RID: 395
+	// (get) Token: 0x06000774 RID: 1908 RVA: 0x000213B0 File Offset: 0x0001F5B0
 	public Transform prefabTransform
 	{
 		get
@@ -39,8 +39,8 @@ public class CharacterDeathDropPrefabTrait : CharacterTrait
 		}
 	}
 
-	// Token: 0x1700015E RID: 350
-	// (get) Token: 0x060006A3 RID: 1699 RVA: 0x0001E808 File Offset: 0x0001CA08
+	// Token: 0x1700018C RID: 396
+	// (get) Token: 0x06000775 RID: 1909 RVA: 0x000213DC File Offset: 0x0001F5DC
 	private GameObject prefab
 	{
 		get
@@ -48,25 +48,25 @@ public class CharacterDeathDropPrefabTrait : CharacterTrait
 			if (!this._loaded)
 			{
 				this._loaded = true;
-				this._loadFail = ((int)NetCull.LoadPrefab(this._prefabName, out this._loadedPrefab) == 0);
+				this._loadFail = ((int)global::NetCull.LoadPrefab(this._prefabName, out this._loadedPrefab) == 0);
 			}
 			return this._loadedPrefab;
 		}
 	}
 
-	// Token: 0x040004F8 RID: 1272
+	// Token: 0x040005C3 RID: 1475
 	[SerializeField]
 	private string _prefabName;
 
-	// Token: 0x040004F9 RID: 1273
+	// Token: 0x040005C4 RID: 1476
 	[NonSerialized]
 	private GameObject _loadedPrefab;
 
-	// Token: 0x040004FA RID: 1274
+	// Token: 0x040005C5 RID: 1477
 	[NonSerialized]
 	private bool _loaded;
 
-	// Token: 0x040004FB RID: 1275
+	// Token: 0x040005C6 RID: 1478
 	[NonSerialized]
 	private bool _loadFail;
 }

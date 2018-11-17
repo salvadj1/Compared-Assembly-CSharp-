@@ -1,21 +1,21 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x020006FD RID: 1789
+// Token: 0x020007CF RID: 1999
 [AddComponentMenu("Daikon Forge/User Interface/Containers/Tab Control/Tab Strip")]
 [ExecuteInEditMode]
 [Serializable]
-public class dfTabstrip : dfControl
+public class dfTabstrip : global::dfControl
 {
 	// Token: 0x14000054 RID: 84
-	// (add) Token: 0x060040A7 RID: 16551 RVA: 0x000F847C File Offset: 0x000F667C
-	// (remove) Token: 0x060040A8 RID: 16552 RVA: 0x000F8498 File Offset: 0x000F6698
-	public event PropertyChangedEventHandler<int> SelectedIndexChanged;
+	// (add) Token: 0x060044C3 RID: 17603 RVA: 0x00101080 File Offset: 0x000FF280
+	// (remove) Token: 0x060044C4 RID: 17604 RVA: 0x0010109C File Offset: 0x000FF29C
+	public event global::PropertyChangedEventHandler<int> SelectedIndexChanged;
 
-	// Token: 0x17000CB7 RID: 3255
-	// (get) Token: 0x060040A9 RID: 16553 RVA: 0x000F84B4 File Offset: 0x000F66B4
-	// (set) Token: 0x060040AA RID: 16554 RVA: 0x000F84BC File Offset: 0x000F66BC
-	public dfTabContainer TabPages
+	// Token: 0x17000D3B RID: 3387
+	// (get) Token: 0x060044C5 RID: 17605 RVA: 0x001010B8 File Offset: 0x000FF2B8
+	// (set) Token: 0x060044C6 RID: 17606 RVA: 0x001010C0 File Offset: 0x000FF2C0
+	public global::dfTabContainer TabPages
 	{
 		get
 		{
@@ -39,9 +39,9 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x17000CB8 RID: 3256
-	// (get) Token: 0x060040AB RID: 16555 RVA: 0x000F852C File Offset: 0x000F672C
-	// (set) Token: 0x060040AC RID: 16556 RVA: 0x000F8534 File Offset: 0x000F6734
+	// Token: 0x17000D3C RID: 3388
+	// (get) Token: 0x060044C7 RID: 17607 RVA: 0x00101130 File Offset: 0x000FF330
+	// (set) Token: 0x060044C8 RID: 17608 RVA: 0x00101138 File Offset: 0x000FF338
 	public int SelectedIndex
 	{
 		get
@@ -57,16 +57,16 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x17000CB9 RID: 3257
-	// (get) Token: 0x060040AD RID: 16557 RVA: 0x000F854C File Offset: 0x000F674C
-	// (set) Token: 0x060040AE RID: 16558 RVA: 0x000F8594 File Offset: 0x000F6794
-	public dfAtlas Atlas
+	// Token: 0x17000D3D RID: 3389
+	// (get) Token: 0x060044C9 RID: 17609 RVA: 0x00101150 File Offset: 0x000FF350
+	// (set) Token: 0x060044CA RID: 17610 RVA: 0x00101198 File Offset: 0x000FF398
+	public global::dfAtlas Atlas
 	{
 		get
 		{
 			if (this.atlas == null)
 			{
-				dfGUIManager manager = base.GetManager();
+				global::dfGUIManager manager = base.GetManager();
 				if (manager != null)
 				{
 					return this.atlas = manager.DefaultAtlas;
@@ -76,7 +76,7 @@ public class dfTabstrip : dfControl
 		}
 		set
 		{
-			if (!dfAtlas.Equals(value, this.atlas))
+			if (!global::dfAtlas.Equals(value, this.atlas))
 			{
 				this.atlas = value;
 				this.Invalidate();
@@ -84,9 +84,9 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x17000CBA RID: 3258
-	// (get) Token: 0x060040AF RID: 16559 RVA: 0x000F85B4 File Offset: 0x000F67B4
-	// (set) Token: 0x060040B0 RID: 16560 RVA: 0x000F85BC File Offset: 0x000F67BC
+	// Token: 0x17000D3E RID: 3390
+	// (get) Token: 0x060044CB RID: 17611 RVA: 0x001011B8 File Offset: 0x000FF3B8
+	// (set) Token: 0x060044CC RID: 17612 RVA: 0x001011C0 File Offset: 0x000FF3C0
 	public string BackgroundSprite
 	{
 		get
@@ -103,9 +103,9 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x17000CBB RID: 3259
-	// (get) Token: 0x060040B1 RID: 16561 RVA: 0x000F85DC File Offset: 0x000F67DC
-	// (set) Token: 0x060040B2 RID: 16562 RVA: 0x000F85FC File Offset: 0x000F67FC
+	// Token: 0x17000D3F RID: 3391
+	// (get) Token: 0x060044CD RID: 17613 RVA: 0x001011E0 File Offset: 0x000FF3E0
+	// (set) Token: 0x060044CE RID: 17614 RVA: 0x00101200 File Offset: 0x000FF400
 	public RectOffset LayoutPadding
 	{
 		get
@@ -127,9 +127,9 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x17000CBC RID: 3260
-	// (get) Token: 0x060040B3 RID: 16563 RVA: 0x000F8630 File Offset: 0x000F6830
-	// (set) Token: 0x060040B4 RID: 16564 RVA: 0x000F8638 File Offset: 0x000F6838
+	// Token: 0x17000D40 RID: 3392
+	// (get) Token: 0x060044CF RID: 17615 RVA: 0x00101234 File Offset: 0x000FF434
+	// (set) Token: 0x060044D0 RID: 17616 RVA: 0x0010123C File Offset: 0x000FF43C
 	public bool AllowKeyboardNavigation
 	{
 		get
@@ -142,7 +142,7 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040B5 RID: 16565 RVA: 0x000F8644 File Offset: 0x000F6844
+	// Token: 0x060044D1 RID: 17617 RVA: 0x00101248 File Offset: 0x000FF448
 	public void EnableTab(int index)
 	{
 		if (this.selectedIndex >= 0 && this.selectedIndex <= this.controls.Count - 1)
@@ -151,7 +151,7 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040B6 RID: 16566 RVA: 0x000F867C File Offset: 0x000F687C
+	// Token: 0x060044D2 RID: 17618 RVA: 0x00101280 File Offset: 0x000FF480
 	public void DisableTab(int index)
 	{
 		if (this.selectedIndex >= 0 && this.selectedIndex <= this.controls.Count - 1)
@@ -160,18 +160,18 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040B7 RID: 16567 RVA: 0x000F86B4 File Offset: 0x000F68B4
-	public dfControl AddTab(string Text = "")
+	// Token: 0x060044D3 RID: 17619 RVA: 0x001012B8 File Offset: 0x000FF4B8
+	public global::dfControl AddTab(string Text = "")
 	{
-		dfButton dfButton = (from i in this.controls
-		where i is dfButton
-		select i).FirstOrDefault() as dfButton;
+		global::dfButton dfButton = (from i in this.controls
+		where i is global::dfButton
+		select i).FirstOrDefault() as global::dfButton;
 		string text = "Tab " + (this.controls.Count + 1);
 		if (string.IsNullOrEmpty(Text))
 		{
 			Text = text;
 		}
-		dfButton dfButton2 = base.AddControl<dfButton>();
+		global::dfButton dfButton2 = base.AddControl<global::dfButton>();
 		dfButton2.name = text;
 		dfButton2.Atlas = this.Atlas;
 		dfButton2.Text = Text;
@@ -204,8 +204,8 @@ public class dfTabstrip : dfControl
 		return dfButton2;
 	}
 
-	// Token: 0x060040B8 RID: 16568 RVA: 0x000F8850 File Offset: 0x000F6A50
-	protected internal override void OnGotFocus(dfFocusEventArgs args)
+	// Token: 0x060044D4 RID: 17620 RVA: 0x00101454 File Offset: 0x000FF654
+	protected internal override void OnGotFocus(global::dfFocusEventArgs args)
 	{
 		if (this.controls.Contains(args.GotFocus))
 		{
@@ -214,8 +214,8 @@ public class dfTabstrip : dfControl
 		base.OnGotFocus(args);
 	}
 
-	// Token: 0x060040B9 RID: 16569 RVA: 0x000F888C File Offset: 0x000F6A8C
-	protected internal override void OnLostFocus(dfFocusEventArgs args)
+	// Token: 0x060044D5 RID: 17621 RVA: 0x00101490 File Offset: 0x000FF690
+	protected internal override void OnLostFocus(global::dfFocusEventArgs args)
 	{
 		base.OnLostFocus(args);
 		if (this.controls.Contains(args.LostFocus))
@@ -224,8 +224,8 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040BA RID: 16570 RVA: 0x000F88B4 File Offset: 0x000F6AB4
-	protected internal override void OnClick(dfMouseEventArgs args)
+	// Token: 0x060044D6 RID: 17622 RVA: 0x001014B8 File Offset: 0x000FF6B8
+	protected internal override void OnClick(global::dfMouseEventArgs args)
 	{
 		if (this.controls.Contains(args.Source))
 		{
@@ -234,8 +234,8 @@ public class dfTabstrip : dfControl
 		base.OnClick(args);
 	}
 
-	// Token: 0x060040BB RID: 16571 RVA: 0x000F88F0 File Offset: 0x000F6AF0
-	private void OnClick(dfControl sender, dfMouseEventArgs args)
+	// Token: 0x060044D7 RID: 17623 RVA: 0x001014F4 File Offset: 0x000FF6F4
+	private void OnClick(global::dfControl sender, global::dfMouseEventArgs args)
 	{
 		if (!this.controls.Contains(args.Source))
 		{
@@ -244,8 +244,8 @@ public class dfTabstrip : dfControl
 		this.SelectedIndex = args.Source.ZOrder;
 	}
 
-	// Token: 0x060040BC RID: 16572 RVA: 0x000F8928 File Offset: 0x000F6B28
-	protected internal override void OnKeyDown(dfKeyEventArgs args)
+	// Token: 0x060044D8 RID: 17624 RVA: 0x0010152C File Offset: 0x000FF72C
+	protected internal override void OnKeyDown(global::dfKeyEventArgs args)
 	{
 		if (args.Used)
 		{
@@ -269,23 +269,23 @@ public class dfTabstrip : dfControl
 		base.OnKeyDown(args);
 	}
 
-	// Token: 0x060040BD RID: 16573 RVA: 0x000F89C8 File Offset: 0x000F6BC8
-	protected internal override void OnControlAdded(dfControl child)
+	// Token: 0x060044D9 RID: 17625 RVA: 0x001015CC File Offset: 0x000FF7CC
+	protected internal override void OnControlAdded(global::dfControl child)
 	{
 		base.OnControlAdded(child);
 		this.attachEvents(child);
 		this.arrangeTabs();
 	}
 
-	// Token: 0x060040BE RID: 16574 RVA: 0x000F89E0 File Offset: 0x000F6BE0
-	protected internal override void OnControlRemoved(dfControl child)
+	// Token: 0x060044DA RID: 17626 RVA: 0x001015E4 File Offset: 0x000FF7E4
+	protected internal override void OnControlRemoved(global::dfControl child)
 	{
 		base.OnControlRemoved(child);
 		this.detachEvents(child);
 		this.arrangeTabs();
 	}
 
-	// Token: 0x060040BF RID: 16575 RVA: 0x000F89F8 File Offset: 0x000F6BF8
+	// Token: 0x060044DB RID: 17627 RVA: 0x001015FC File Offset: 0x000FF7FC
 	public override void OnEnable()
 	{
 		base.OnEnable();
@@ -299,7 +299,7 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040C0 RID: 16576 RVA: 0x000F8A54 File Offset: 0x000F6C54
+	// Token: 0x060044DC RID: 17628 RVA: 0x00101658 File Offset: 0x000FF858
 	public override void Update()
 	{
 		base.Update();
@@ -310,7 +310,7 @@ public class dfTabstrip : dfControl
 		this.showSelectedTab();
 	}
 
-	// Token: 0x060040C1 RID: 16577 RVA: 0x000F8A74 File Offset: 0x000F6C74
+	// Token: 0x060044DD RID: 17629 RVA: 0x00101678 File Offset: 0x000FF878
 	protected internal virtual void OnSelectedIndexChanged()
 	{
 		base.SignalHierarchy("OnSelectedIndexChanged", new object[]
@@ -323,21 +323,21 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040C2 RID: 16578 RVA: 0x000F8AC0 File Offset: 0x000F6CC0
+	// Token: 0x060044DE RID: 17630 RVA: 0x001016C4 File Offset: 0x000FF8C4
 	protected override void OnRebuildRenderData()
 	{
 		if (this.Atlas == null || string.IsNullOrEmpty(this.backgroundSprite))
 		{
 			return;
 		}
-		dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
+		global::dfAtlas.ItemInfo itemInfo = this.Atlas[this.backgroundSprite];
 		if (itemInfo == null)
 		{
 			return;
 		}
 		this.renderData.Material = this.Atlas.Material;
 		Color32 color = base.ApplyOpacity((!base.IsEnabled) ? this.disabledColor : this.color);
-		dfSprite.RenderOptions options = new dfSprite.RenderOptions
+		global::dfSprite.RenderOptions options = new global::dfSprite.RenderOptions
 		{
 			atlas = this.atlas,
 			color = color,
@@ -349,28 +349,28 @@ public class dfTabstrip : dfControl
 		};
 		if (itemInfo.border.horizontal == 0 && itemInfo.border.vertical == 0)
 		{
-			dfSprite.renderSprite(this.renderData, options);
+			global::dfSprite.renderSprite(this.renderData, options);
 		}
 		else
 		{
-			dfSlicedSprite.renderSprite(this.renderData, options);
+			global::dfSlicedSprite.renderSprite(this.renderData, options);
 		}
 	}
 
-	// Token: 0x060040C3 RID: 16579 RVA: 0x000F8BEC File Offset: 0x000F6DEC
+	// Token: 0x060044DF RID: 17631 RVA: 0x001017F0 File Offset: 0x000FF9F0
 	private void showSelectedTab()
 	{
 		if (this.selectedIndex >= 0 && this.selectedIndex <= this.controls.Count - 1)
 		{
-			dfButton dfButton = this.controls[this.selectedIndex] as dfButton;
+			global::dfButton dfButton = this.controls[this.selectedIndex] as global::dfButton;
 			if (dfButton != null && !dfButton.ContainsMouse)
 			{
-				dfButton.State = dfButton.ButtonState.Focus;
+				dfButton.State = global::dfButton.ButtonState.Focus;
 			}
 		}
 	}
 
-	// Token: 0x060040C4 RID: 16580 RVA: 0x000F8C54 File Offset: 0x000F6E54
+	// Token: 0x060044E0 RID: 17632 RVA: 0x00101858 File Offset: 0x000FFA58
 	private void selectTabByIndex(int value)
 	{
 		value = Mathf.Max(Mathf.Min(value, this.controls.Count - 1), -1);
@@ -381,16 +381,16 @@ public class dfTabstrip : dfControl
 		this.selectedIndex = value;
 		for (int i = 0; i < this.controls.Count; i++)
 		{
-			dfButton dfButton = this.controls[i] as dfButton;
+			global::dfButton dfButton = this.controls[i] as global::dfButton;
 			if (!(dfButton == null))
 			{
 				if (i == value)
 				{
-					dfButton.State = dfButton.ButtonState.Focus;
+					dfButton.State = global::dfButton.ButtonState.Focus;
 				}
 				else
 				{
-					dfButton.State = dfButton.ButtonState.Default;
+					dfButton.State = global::dfButton.ButtonState.Default;
 				}
 			}
 		}
@@ -402,7 +402,7 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040C5 RID: 16581 RVA: 0x000F8D14 File Offset: 0x000F6F14
+	// Token: 0x060044E1 RID: 17633 RVA: 0x00101918 File Offset: 0x000FFB18
 	private void arrangeTabs()
 	{
 		this.SuspendLayout();
@@ -415,7 +415,7 @@ public class dfTabstrip : dfControl
 			float num4 = 0f;
 			for (int i = 0; i < base.Controls.Count; i++)
 			{
-				dfControl dfControl = this.controls[i];
+				global::dfControl dfControl = this.controls[i];
 				if (dfControl.IsVisible && dfControl.enabled && dfControl.gameObject.activeSelf)
 				{
 					Vector2 vector;
@@ -435,8 +435,8 @@ public class dfTabstrip : dfControl
 		}
 	}
 
-	// Token: 0x060040C6 RID: 16582 RVA: 0x000F8E58 File Offset: 0x000F7058
-	private void attachEvents(dfControl control)
+	// Token: 0x060044E2 RID: 17634 RVA: 0x00101A5C File Offset: 0x000FFC5C
+	private void attachEvents(global::dfControl control)
 	{
 		control.IsVisibleChanged += this.control_IsVisibleChanged;
 		control.PositionChanged += this.childControlInvalidated;
@@ -444,33 +444,33 @@ public class dfTabstrip : dfControl
 		control.ZOrderChanged += this.childControlZOrderChanged;
 	}
 
-	// Token: 0x060040C7 RID: 16583 RVA: 0x000F8EB0 File Offset: 0x000F70B0
-	private void detachEvents(dfControl control)
+	// Token: 0x060044E3 RID: 17635 RVA: 0x00101AB4 File Offset: 0x000FFCB4
+	private void detachEvents(global::dfControl control)
 	{
 		control.IsVisibleChanged -= this.control_IsVisibleChanged;
 		control.PositionChanged -= this.childControlInvalidated;
 		control.SizeChanged -= this.childControlInvalidated;
 	}
 
-	// Token: 0x060040C8 RID: 16584 RVA: 0x000F8EF4 File Offset: 0x000F70F4
-	private void childControlZOrderChanged(dfControl control, int value)
+	// Token: 0x060044E4 RID: 17636 RVA: 0x00101AF8 File Offset: 0x000FFCF8
+	private void childControlZOrderChanged(global::dfControl control, int value)
 	{
 		this.onChildControlInvalidatedLayout();
 	}
 
-	// Token: 0x060040C9 RID: 16585 RVA: 0x000F8EFC File Offset: 0x000F70FC
-	private void control_IsVisibleChanged(dfControl control, bool value)
+	// Token: 0x060044E5 RID: 17637 RVA: 0x00101B00 File Offset: 0x000FFD00
+	private void control_IsVisibleChanged(global::dfControl control, bool value)
 	{
 		this.onChildControlInvalidatedLayout();
 	}
 
-	// Token: 0x060040CA RID: 16586 RVA: 0x000F8F04 File Offset: 0x000F7104
-	private void childControlInvalidated(dfControl control, Vector2 value)
+	// Token: 0x060044E6 RID: 17638 RVA: 0x00101B08 File Offset: 0x000FFD08
+	private void childControlInvalidated(global::dfControl control, Vector2 value)
 	{
 		this.onChildControlInvalidatedLayout();
 	}
 
-	// Token: 0x060040CB RID: 16587 RVA: 0x000F8F0C File Offset: 0x000F710C
+	// Token: 0x060044E7 RID: 17639 RVA: 0x00101B10 File Offset: 0x000FFD10
 	private void onChildControlInvalidatedLayout()
 	{
 		if (base.IsLayoutSuspended)
@@ -481,31 +481,31 @@ public class dfTabstrip : dfControl
 		this.Invalidate();
 	}
 
-	// Token: 0x04002247 RID: 8775
+	// Token: 0x04002450 RID: 9296
 	[SerializeField]
-	protected dfAtlas atlas;
+	protected global::dfAtlas atlas;
 
-	// Token: 0x04002248 RID: 8776
+	// Token: 0x04002451 RID: 9297
 	[SerializeField]
 	protected string backgroundSprite;
 
-	// Token: 0x04002249 RID: 8777
+	// Token: 0x04002452 RID: 9298
 	[SerializeField]
 	protected RectOffset layoutPadding = new RectOffset();
 
-	// Token: 0x0400224A RID: 8778
+	// Token: 0x04002453 RID: 9299
 	[SerializeField]
 	protected Vector2 scrollPosition = Vector2.zero;
 
-	// Token: 0x0400224B RID: 8779
+	// Token: 0x04002454 RID: 9300
 	[SerializeField]
 	protected int selectedIndex;
 
-	// Token: 0x0400224C RID: 8780
+	// Token: 0x04002455 RID: 9301
 	[SerializeField]
-	protected dfTabContainer pageContainer;
+	protected global::dfTabContainer pageContainer;
 
-	// Token: 0x0400224D RID: 8781
+	// Token: 0x04002456 RID: 9302
 	[SerializeField]
 	protected bool allowKeyboardNavigation = true;
 }

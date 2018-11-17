@@ -1,19 +1,19 @@
 ﻿using System;
 using UnityEngine;
 
-// Token: 0x02000028 RID: 40
+// Token: 0x02000035 RID: 53
 [Serializable]
 public class AuthorHullBodyPartInfo
 {
-	// Token: 0x040000F3 RID: 243
+	// Token: 0x04000133 RID: 307
 	public Transform transform;
 
-	// Token: 0x040000F4 RID: 244
+	// Token: 0x04000134 RID: 308
 	public string rootPath;
 
-	// Token: 0x040000F5 RID: 245
-	public AuthorChHit hit;
+	// Token: 0x04000135 RID: 309
+	public global::AuthorChHit hit;
 
-	// Token: 0x040000F6 RID: 246
-	public AuthorChJoint joint;
+	// Token: 0x04000136 RID: 310
+	public global::AuthorChJoint joint;
 }
